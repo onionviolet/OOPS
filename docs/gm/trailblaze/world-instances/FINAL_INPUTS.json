@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-04",
+  "initialSnapshot": "INPUTS.json",
+  "currentInputs": {
+    "AGENTS.md": "b0262e81f84225da84b16a2beaeba6a201ceec6b5c49ed786e531bf79cb3f0c2",
+    "PROJECT.md": "2fbff8fbf5419b11471fb62a12ce72ce9a21d0cacb0ff87c2e721ce6d916b3e8",
+    "docs/gm/dispatch/TRAILBLAZE_PARALLEL.md": "e7b80fb7becd1a4c106174dc7dfb678dc690dbfaeb5c430bfa652d618d618402",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md": "ef70cb75102c7cffe7d6992035b6c9cac2604e258a017d99db527ab7989ef817",
+    "docs/GAME_MASTER_PROMPT.md": "de5aa8a0aa66f5a30627206cf9eb108a40342b122490836bf893a389f235bc2e",
+    "docs/gm/WORLD_EXPANSION_GM_PROMPT.md": "f36733e10d8611159e29b3d57e22b5f3955f5e169ab75c945112a1bf5643fffb",
+    "docs/gm/WORLD_IMPLEMENTATION_DEPTH.md": "1eef4f54750010dc0ed816bccf7f4828ce506b2de262badd696b759b92aec690",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "25ffa3a8003eb450273b3afe6f2fb67671d136d30143fdc4e992fe33ff17a4a1",
+    "docs/worlds/ABILITY_AUTHORING.md": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/exchange_content.js": "7bef23a86877a384c438f15b26de22acf79d84d9012dccdfd17f0eb4aca08bef",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/expansion_engine.js": "a1182614534e108962c923bec691b608c3e3068bede1d2570ddc292223b4fe22",
+    "src/world_knowledge.js": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442"
+  },
+  "initialInputDrift": [
+    "AGENTS.md",
+    "PROJECT.md",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+    "docs/GAME_MASTER_PROMPT.md",
+    "src/expansion_engine.js"
+  ],
+  "additionalInputs": {
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "323c8bc6cf613da9fb25d8ad6fbfbf575d2f36bee210fd2530a45ec9a6b2d60c",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/save_files.js": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+    "src/realm_state.js": "5a2eb8ff8a9343c8d9fd7f9c3fd754fad345504329280e12bce798b37c5aa364"
+  },
+  "code": {
+    "src/world_instances.js": "bd2528e30575f98700a061353652b5275435ea5d277aab74ff1de2fbf916bb4c",
+    "src/pocket_realm_content.js": "38711055eac43d19905642ce1d2a45beff04740dffd66d72700c8f23b4580243"
+  },
+  "reviewer": {
+    "id": "/root/miniworld_contract_review",
+    "model": "gpt-6-luna",
+    "effort": "medium",
+    "status": "completed",
+    "scope": "REVIEW.md only; source inspection, no tests"
+  },
+  "checks": {
+    "syntaxImport": "passed",
+    "declarativeRegistry": "14 commands,1person,3sites,1controller; no command commitment",
+    "sourceReview": "hidden-array property finding resolved; final parent endpoint-copy delta outside child freeze",
+    "docCheck": "passed:18 local links,2 JSON files,whitespace and code-hash readback"
+  },
+  "deferred": "behavioral, browser, save/reload/failure, build and regression checks not run by this lane"
+}

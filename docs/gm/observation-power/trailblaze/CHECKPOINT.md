@@ -1,0 +1,32 @@
+# Passage and boundary implementation checkpoint
+
+Revision6, 2026-10-04T21:00:32+00:00. Host goal COMPLETE, confirmed by update_goal after persisted audit. Finite source/native integration delivered and rebuilt; completion audit passes. Gameplay remains built-unverified. GM `01a10771-3dea-75e0-acb9-7c279d0e75a0`; Engine integrator `01a1056b-d82c-7ef2-babb-d8316c45f396`; dispatcher `01a1074b-e2ed-7523-a0cd-56de915fbcd9`.
+
+Authority: [trailblaze scope](../../dispatch/TRAILBLAZE_PARALLEL.md), [independent pools/succession](../../dispatch/GM_CAPACITY_AND_SUCCESSION.md), [until-completion goals](../../dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md). Host goal has no token budget: complete the assigned pure passage/boundary prototype, actual native Glasshouse integration dependencies and compatibility/deferred-check record. Latest human request asks for more cool ideas; original brainstorm proposals do not select new implementation scope. Current implementation-first pace defers unit/full/planner-case/browser/save/failure/regression suites; source, syntax, import, build and link checks are allowed.
+
+Exclusive writes: `src/realm_connections.js`, `src/realm_boundary_rules.js`, and this trailblaze folder. Earlier DESIGN/ENGINE_PACKET/BRIEF and shared native/state/persistence/UI/registry/bundles/global/book files remain read-only. Engine is sole integrator/publisher. Branch `codex/gameplay-foundations`, base `97c28efece4fd6248b6f075ad0c6927c3d0432df`; extensive unrelated dirty work preserved. No personal-save/library mutation, commits, remote publication, automation or successor.
+
+## Delivery and evidence
+
+[REPORT](REPORT.md) owns the contract and five-row completion audit. Eight connection and thirteen boundary exports implement pure detached schema1 validation/planning, actual source/body/method/cost/authority/anchor/full-endpoint/cargo/position gates, attributed evidence, distinct operations and closure retaining interiors/residents/stock. Strict JSON, duplicate cost aggregation, trusted authored static binding, exact expiry and ordered closure receipts are delivered. Present time only; generic `realm.*` descriptors still require explicit native translation.
+
+Engine's current native host translates the fixed physical Glasshouse route through durable publication: one coin to open, no passage fee/duration/lease, same real player body and complete bag/equipment, exact itemKey/stockRef custody, mandatory open return and full authored endpoint/policy binding. Import opening/closure receipts cannot exceed played time. Native borrowed cargo remains refused; pure directed-consent support does not claim a native approved-loan adapter.
+
+Final native integration also has a separate paid view, actual local Joss source/body/power acquisition, owned device construction, timestamped public sample, qualified detection and zero-fuel notice through common execution. Claims stay unverified, cooperation local, replay read-only. Supported visits/viewing union local elapsed/new resident decisions over one joined clock; unsupported absence freezes those decisions, while already committed jobs retain joined due times. Exact view/clock/source/anchor/endpoint/expiry and saved Village body must agree; close the view before travel/entry. Closure retains the physical doorway, room, stock and prior evidence.
+
+[BUILD_READBACK](BUILD_READBACK.json) proves nineteen critical inputs and all148 mapped source files match disk. Final bundle SHA256 `b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a`; map `cb13c6c75d83801904e7905b3806d42aa0a035b5c02094e0c087326ca0e769b8`. Index fingerprint `v0.6-b265cccda4c0`, bundle syntax, index/bundle HTTP200 and exact served bytes passed. Final recovery readback reconfirmed all148 inputs and both artifact hashes. Root's [build receipt](/Users/weiwei/.codex/visualizations/2026/10/04/01a1056b-d82c-7ef2-babb-d8316c45f396/world-run/glasshouse-engine-build.json) records npm build success; [Engine checkpoint](../../../ENGINE_GM_NEXT_CHECKPOINT.md) revision28 records finite integration complete. Native host/registry imports passed: two worlds,173commands,four powers. No planner or gameplay executed by this lane.
+
+| Owned path | SHA256 |
+|---|---|
+| `src/realm_connections.js` | `e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710` |
+| `src/realm_boundary_rules.js` | `d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2` |
+
+Own source is stable/released. All recorded source findings are resolved in [INTEGRATION_REVIEW](INTEGRATION_REVIEW.md); initial [REVIEW](REVIEW.md) hashes/checks are historical. Child `/root/boundary_review` is complete, no descendants or execution checks. No active owned process/session, pending mutation or unknown write. Former read-only observer51858 timed out normally; its old missing-build snapshot is superseded by final readback. Existing preview server PID12567/port18628 remains live. No new server/browser/save access is needed. Source libraries, private saves and LICENSE are untouched.
+
+## Compatibility and remaining acceptance
+
+Our schema1 changes no native save field. Engine owns optional realmPrototype2/compiled definition2 and optional observation1/activityClock1, exact active-envelope checks, old absence staying absent and explicit experimental wrapper1 incompatibility. Expansion5/simulation3 remain unchanged. [PLAYTEST](../../../PLAYTEST.md#glasshouse-build-and-deferred-acceptance-2026-10-04) owns deferred generated journey/reload/import/failure/browser and human fiction/balance acceptance. No gameplay or save verification is claimed by source/build checks.
+
+Broader native world isolation, wholly local job clocks, approved loans, extra/shared bodies, generic effect adapters and historical causation remain outside this finite delivery. Dispatcher regression questions in REPORT remain research proposals: detection, outside observers, rival returners, external records and ontology. Awareness alone grants no immunity/escape; no reset/branch/source canon was selected. Full-book goals continue independently.
+
+Resume: host goal completion is confirmed; answer the human's ideation request with original unselected options. No required source/integration/build work remains here. New implementation requires selected concrete scope; later behavioral acceptance follows the existing deferred gate. Recover through AGENTS/PROJECT/master refresh/current role and this checkpoint, then inspect live owners/children/processes before any new write or dispatch.

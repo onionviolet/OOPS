@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T04:03:49.642450+00:00",
+  "finite_installed_source_goal": "complete",
+  "writer": "/root/factorio_gm",
+  "writer_state": "completed/released; live agent status inspected",
+  "installed_version": "2.0.77",
+  "steam_buildid": "23347942",
+  "root_checks": {
+    "retained_text_hashes": 1877,
+    "api_hashes": 2,
+    "required_artifacts_exist": 12,
+    "json_parse": true,
+    "local_links": true,
+    "manifest_finalized_and_no_staging": true,
+    "reader_validation_passed": true
+  },
+  "reviewed_chains": 14,
+  "selected_lua_files": 25,
+  "original_proposals": 5,
+  "native_implementation": "not copied or disassembled; unrecovered",
+  "whole_game_semantic_coverage": false,
+  "runtime_changed": false,
+  "new_uninstall": false,
+  "artifact_hashes": {
+    "INTAKE.json": "25f50bbd39c1f14e9d55f7f25cc3244e257f0906ebd3884f4749511f78f87e42",
+    "REPORT.md": "2408480851bcbc55ab3acf9534aff0143648415004e4a7fe5afd80717e90cfbb",
+    "FINDINGS.json": "60d199d68716906f0671fd0f91fa9b55158674c343f271e72a7a511fbade7841",
+    "COVERAGE.json": "ebcfc31e4de9e79eb9d2a843126ddf26d59c2e24ff3d242b99a40e3d40ac17f9",
+    "DLC_COVERAGE.json": "ffdb7ad3591a7c70710947eacacb349e8a99266a25517a852d15dadf39d1bb6d",
+    "IMPLEMENTATION_PACKETS.md": "25444163bdeebf843eb9256222789f5f12fbfb8ccd35f1e35ba4dae6035b75b7",
+    "PACKETS.json": "b5ee07bcf294e17ad7f4f6072679361789bde98bd67f30c1d702563bbfdf53f8",
+    "CHECKPOINT.md": "ca8844bd0a9ffad9aeba78b2cece9ae06d5ec50954d546c3123770cbec9a1110",
+    "INSTALLED_INTAKE.json": "c1ef72bcf6b689321e8f7607f97d3af143a909b2f3de8796d08655dc6c3521b8",
+    "INSTALLED_REVIEW.json": "5359f929dada62d74034071220a7405d261207e155c0d14c251b9be97ff37901",
+    "INSTALLED_VALIDATION.json": "399a060ce6581582a71f9ccc3c331c9c4131f97f7ba04250051b144d8df9ac5e",
+    "VALIDATION.json": "5501006bf18cd88de324222a7242f7c2932b38871eedafdc1f8a8e0a01b5b540"
+  },
+  "follow_up": {
+    "automation_id": "watch-factorio-source-readiness",
+    "status": "PAUSED",
+    "verified_config_updated_at": 1791345829740,
+    "pause_reason": "finite installed-source goal achieved"
+  }
+}

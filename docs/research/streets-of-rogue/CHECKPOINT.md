@@ -1,0 +1,15 @@
+# Streets of Rogue GM final checkpoint
+
+Role: dedicated Streets of Rogue source GM, chat `01a10fac-e18a-77d3-908d-39c38e11bb37`; parent dispatcher `01a10f82-f847-7440-9ca2-88348b857382`. Date2026-10-06. [Assignment](ASSIGNMENT.md) and [parent registry](../../gm/dispatch/game-source-research-2026-10-06/README.md) remain authoritative.
+
+State: **available-source fallback complete; original gameplay-source criterion unmet**. Two pinned public framework/mod snapshots qualified; nine code paths read/reviewed/integrated. All five original-gameplay paths remain0/5 because main game source is unavailable. Eleven public candidate branch-tip trees have no committed decompiled directory/main assembly. Targeted local intake also yielded no Streets game assembly. No whole-machine/account/historical-all-commit claim.
+
+[INTAKE](INTAKE.json), [FINDINGS](FINDINGS.json), [COVERAGE](COVERAGE.json), [REPORT](REPORT.md), [reuse handoff](IMPLEMENTATION_PACKETS.md) and [VALIDATION](VALIDATION.json) own the final evidence. [Root source notes](PARENT_SOURCE_NOTES.json), [lifecycle notes](FRAMEWORK_LIFECYCLE_NOTES.json) and [YAIR owner notes](YAIR_OWNER_NOTES.json) retain exact locators/hashes. YAIR already has concrete consumers for all five comparison directions; zero new missing-consumer packets justified. This does not establish behavioral acceptance.
+
+Private roots: `/Users/weiwei/.codex/research/streets-of-rogue/` for source/trees/metadata; `yair-observed/` for11 worker-frozen inputs, `yair-root-observed/` for four coordinator supplements. Baseline HEAD97c28efece4fd6248b6f075ad0c6927c3d0432df with248 existing dirty rows. Shared source moved during review; observed snapshots and final drift notes preserve exact cited revisions.
+
+Workers `/root/yair_owner_reader` and `/root/framework_lifecycle_reader`, GPT-6 Luna medium, are completed/released as checked through the live host agent listing. Their exclusive note reservations are released. Both clone processes41199/98741 completed. No remaining process/tool operation/worker or uncertain mutation outcome. No successor needed. Root releases lane outputs with this final receipt; ASSIGNMENT remains dispatcher-owned. Runtime/canonical/other-lane files were not written by this lane.
+
+Checks: JSON parse, source span/symbol/full-hash and committed-blob correspondence, representative remote pinned bytes and local document links; helper locator/external-boundary mistakes repaired and reviewed. All gameplay/build/save/profile/browser/test/commit/publication/automation actions remain unperformed. No saves or source library/attribution changes. Existing YAIR acceptance remains implemented-unverified and deferred.
+
+Resume only when an accessible Streets1 `Assembly-CSharp.dll` plus sibling managed dependencies or a pinned original-gameplay reference is supplied. Verify provenance/version/hashes, use existing private ILSpy tools, then finish the five unmet original paths. Reconcile live source/worker/process/writer ownership before any resumption. No source acquisition purchase/install/launch or runtime integration is authorized by this checkpoint. NGU advice remains dispatcher-owned.

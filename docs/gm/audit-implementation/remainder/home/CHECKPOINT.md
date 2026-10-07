@@ -1,0 +1,7 @@
+# Home lane checkpoint
+
+Parent `/root`, root01a10fe7; leaf `/root/remainder_home`. All assigned rows `elin:P2`, `elin:P3`, `elin:P4`, `keeperrl:P1` authored through actual pure content/facts/validators and root-facing controls. Exclusive writes are the three NEW `src/audit_remainder_home_{content,facts,host}.js` files and this directory. No shared source, user chat, subagent, source library, private save, dependency, bundle, commit or publication was changed.
+
+The current content is implemented-unverified. Root integration remains required: register definitions/source/three items; recompute pure facts everywhere; selected group reservationReturns1; exact transient popped-job binder; fresh scheduler rain/Climbing/Shack evidence; route real exclusive progression commands through the home host; expose controls; validate and publish through the existing owner; rebuild. `INTEGRATION.md` is the exact contract. Typed owners only; no module.home payload. Old/absent content remains inert, no new realm/prestige or repeated supply is granted.
+
+Permitted syntax/import/registry/static definition/link checks are recorded with current hashes in `EVIDENCE.json`. `CHECK_SOURCE.mjs` constructs definitions only and executes no game state. All five behavioral groups in `ACCEPTANCE_BACKLOG.md` remain unrun. No pending tool/process or uncertain write remains. Next action: parent integrates the exact hooks, reviews actual source and builds the current combined result; retain implemented-unverified status until later acceptance.

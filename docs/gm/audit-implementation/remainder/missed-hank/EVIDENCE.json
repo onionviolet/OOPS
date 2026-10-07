@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "parent": "/root",
+  "worker": "/root/remainder_home",
+  "finding": "MW-02",
+  "status": "changes ready; implemented-unverified",
+  "scope": {
+    "source": [
+      "src/book_world_paradise_actions.js"
+    ],
+    "docs": "docs/gm/audit-implementation/remainder/missed-hank/",
+    "sharedIntegrator": "root01a10fe7"
+  },
+  "before": {
+    "capturedAt": "2026-10-06T20:07:52.565160+00:00",
+    "inputs": [
+      {
+        "path": "src/book_world_paradise_actions.js",
+        "sha256": "40ea5737b8bc4df86edefcfb9ce8314a5e9f9c7b7143e79a089d9b1f7c474c0a",
+        "bytes": 41601
+      },
+      {
+        "path": "src/book_world_paradise_content.js",
+        "sha256": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+        "bytes": 5623
+      },
+      {
+        "path": "src/book_world_paradise_host.js",
+        "sha256": "acff0556bcd18d85a7fc1deb4d651ee4dc0759a0844da454ccde2dcedf990a32",
+        "bytes": 27517
+      },
+      {
+        "path": "src/book_world_paradise_ids.js",
+        "sha256": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+        "bytes": 3795
+      },
+      {
+        "path": "src/book_world_paradise_state.js",
+        "sha256": "f810ceae7a1d5e7b1fedf0734c7238a80f1b520e2b4e5e5ee8f59d9b6d6ffb0f",
+        "bytes": 11569
+      },
+      {
+        "path": "src/book_world_paradise_carriers.js",
+        "sha256": "f6badd94934fd71128e995ad05567c0cb49e57c2ffbc8348753798244333a25b",
+        "bytes": 10065
+      },
+      {
+        "path": "src/book_world_paradise_native.js",
+        "sha256": "c12bd030f45927297fa086b00a9bb70b6ef9f05360b3ba47c258f7d49a85d77f",
+        "bytes": 23138
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+        "bytes": 49947
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+        "bytes": 27286
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836",
+        "bytes": 31937
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+        "bytes": 142209
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/INTERFACE.md",
+        "sha256": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+        "bytes": 5201
+      },
+      {
+        "path": "docs/gm/missed-work-audit/REPORT.md",
+        "sha256": "54ff46c6b806864abbb24122f18dbe2a20463e93e27bda4acf771e49179a7edf",
+        "bytes": 9851
+      }
+    ]
+  },
+  "capturedAt": "2026-10-06T20:18:08.317414+00:00",
+  "outputs": [
+    {
+      "path": "src/book_world_paradise_actions.js",
+      "sha256": "5e12ed459f22f9f54d38b07d9e6f1d7aa805114f531f8307b1c7fa7ac99b95de",
+      "bytes": 52131
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/CHECK_SOURCE.mjs",
+      "sha256": "2f9ee34760dbb9e9e593ff146c1d2d94816f07ee09d83bc56568ff8b6df2a754",
+      "bytes": 4916
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/DELIVERY.md",
+      "sha256": "7a1545c6f64c4b34d486c1cbdceb166d40342bde7542d8eea00a8fdd846f84c2",
+      "bytes": 4880
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/ACCEPTANCE_BACKLOG.md",
+      "sha256": "4a9a9e590ac351fd6b2a782d932425a3ae613f427f2074378304e6f56968d3b5",
+      "bytes": 1549
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/CHECKPOINT.md",
+      "sha256": "03d9a74d257dacd3e24d265b47314777098a2a30328bd0b23bce39e468a38f72",
+      "bytes": 1391
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/missed-hank/RELEASE.md",
+      "sha256": "e51a1f89fd512bcf3af010000b88bb1b9df812fdf390086929fe27a9723c036a",
+      "bytes": 975
+    }
+  ],
+  "checks": [
+    {
+      "argv": [
+        "node",
+        "--check",
+        "src/book_world_paradise_actions.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "docs/gm/audit-implementation/remainder/missed-hank/CHECK_SOURCE.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"pass\",\n  \"kind\": \"source/syntax separately; immutable definition/import/link inspection only\",\n  \"reportId\": \"book.paradise.report_route_to_hank\",\n  \"reportLocation\": \"Goa guardhouse\",\n  \"reportDuration\": 2,\n  \"routeRevision\": 2,\n  \"familyCommands\": 53,\n  \"currentRegistryCommands\": 932,\n  \"currentRegistryControllers\": 41,\n  \"gameplay\": \"implemented-unverified; all behavioral/persistence/current-build gates deferred\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "sourceDefinitionResult": {
+    "status": "pass",
+    "kind": "source/syntax separately; immutable definition/import/link inspection only",
+    "reportId": "book.paradise.report_route_to_hank",
+    "reportLocation": "Goa guardhouse",
+    "reportDuration": 2,
+    "routeRevision": 2,
+    "familyCommands": 53,
+    "currentRegistryCommands": 932,
+    "currentRegistryControllers": 41,
+    "gameplay": "implemented-unverified; all behavioral/persistence/current-build gates deferred"
+  },
+  "rootOwnedValidatorBinding": {
+    "path": "src/book_world_paradise_state.js",
+    "sha256": "41fd21f99ca2431abb79b948316f54fcc4c013fca1c96353b1d95e70b1397698",
+    "importPresent": true,
+    "callPresent": true
+  },
+  "newCommandIds": [
+    "book.paradise.report_route_to_hank"
+  ],
+  "modifiedFutureConsumer": {
+    "id": "book.paradise.npc.hank_shelter_route",
+    "revision": 2,
+    "earlierFrozenRevision": 1
+  },
+  "ownKnowledgeKeys": [
+    "book.paradise.receivedCivilRoute (Hank)",
+    "book.paradise.hankRouteReport (player)"
+  ],
+  "typedFacts": [
+    "book.paradise.hankRouteReportDelivered (player)",
+    "book.paradise.routeReportUsed (Hank)"
+  ],
+  "claims": [
+    "book.paradise.goa.hank_route_report"
+  ],
+  "compatibility": "Existing enrolled Paradise typed owners only. No extra module, actor, item or source/era conversion; absent records grant no knowledge. New revision2 admissions require actual report, existing accepted revision1 jobs preserve frozen effects/support. Generic definition IDs remain existing campaign family.",
+  "remainingSourceDefects": [],
+  "nativeUIBindings": "Existing registered family, paradisePresentation, commitParadiseCommand, paradiseFacts/controller and actual native owners already consume the new action/guard; root confirmed optional validator join. Root final build/publication and current-browser acceptance remain deferred.",
+  "deferredGateGroups": "ACCEPTANCE_BACKLOG.md",
+  "notPerformed": [
+    "unit/gameplay/browser/save/reload/import/failure/regression/director suites",
+    "build",
+    "private-save/source-library/shared-source/canonical writes",
+    "subagents",
+    "user-visible chat",
+    "commit/push/publication/automation"
+  ],
+  "writerReleased": true,
+  "pendingProcesses": []
+}

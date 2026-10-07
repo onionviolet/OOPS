@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "target": "base.frontier",
+  "owner": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+  "finiteCriteria": [
+    {
+      "id": "DOD1",
+      "criteria": "Places/access/native travel/return and supported time",
+      "sources": [
+        "src/original_frontier_campaign_host.js",
+        "src/original_frontier_career_content.js",
+        "src/data/locations.js",
+        "src/main.js",
+        "src/expansion_engine.js",
+        "src/world_completion_runtime.js"
+      ],
+      "consumers": [
+        "actual native journeys/access/arrival",
+        "retained local deadlines/jobs",
+        "same-instance changed return"
+      ],
+      "engineGaps": [
+        "WC-G1",
+        "WC-G5"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "behavior": "deferred/unrun"
+    },
+    {
+      "id": "DOD2",
+      "criteria": "Useful occupations, independent funded people, finite rights/means/ordinary life",
+      "sources": [
+        "src/audit_remainder_livelihood_content.js",
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_home_facts.js",
+        "src/lore_practice_content.js",
+        "src/world_completion_learning_content.js",
+        "src/world_completion_learning_runtime.js"
+      ],
+      "consumers": [
+        "Orr/Neri real paid work and separate collection",
+        "Neri own travel/attention/stamina/fee/method/production/return",
+        "escrow withdraw/departure interlock",
+        "old native occupations remain"
+      ],
+      "engineGaps": [
+        "WC-G1",
+        "WC-G3",
+        "WC-G4"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "behavior": "deferred/unrun"
+    },
+    {
+      "id": "DOD3",
+      "criteria": "Connected exploration/social/stakes and observer-qualified knowledge",
+      "sources": [
+        "src/lore_practice_content.js",
+        "src/lore_practice_runtime.js",
+        "src/world_completion_bridge.js",
+        "src/world_completion_lens_host.js",
+        "src/world_completion_lens_facts.js",
+        "src/world_completion_people.js"
+      ],
+      "consumers": [
+        "installed shutter -> current room measurement",
+        "sample -> signed/private received warning -> independent response -> Sound/Wet outcome",
+        "P3 real measured sample -> P4/P5 actual fitting",
+        "received-only People/current known return account"
+      ],
+      "engineGaps": [
+        "WC-G1",
+        "WC-G2",
+        "WC-G3",
+        "WC-G5"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "behavior": "deferred/unrun"
+    },
+    {
+      "id": "DOD4",
+      "criteria": "Real progression/material/status/equipment/energy/conflict/treatment consumers",
+      "sources": [
+        "src/status_care_facts.js",
+        "src/field_care_battle.js",
+        "src/field_care_facts.js",
+        "src/book_care_host.js",
+        "src/world_completion_strip.js",
+        "src/world_completion_learning_runtime.js",
+        "src/world_completion_life_runtime.js",
+        "src/world_completion_materials_runtime.js",
+        "src/world_completion_crop_clock.js",
+        "src/audit_remainder_consequences_facts.js",
+        "src/crafting_recipes.js"
+      ],
+      "consumers": [
+        "specific remedies/one qualifying cut/native stat consequences",
+        "safe same-loan held measurement/refund/once return",
+        "actual learner source and one stamped strip",
+        "loaded survey and strip -> actual drain",
+        "actual log/offcuts/strip -> one crop -> native cooking",
+        "new cover warning and body clock hold together"
+      ],
+      "engineGaps": [
+        "WC-G1",
+        "WC-G2",
+        "WC-G3",
+        "WC-G4"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "behavior": "deferred/unrun"
+    },
+    {
+      "id": "DOD5",
+      "criteria": "Meaningful mature alternatives/closure/changed revisit/continuing life/current build",
+      "sources": [
+        "src/original_frontier_career_content.js",
+        "src/world_completion_life_content.js",
+        "src/world_completion_life_facts.js",
+        "src/world_completion_bridge.js",
+        "src/world_completion_host.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js",
+        "src/save_files.js",
+        "src/world_completion_native.js"
+      ],
+      "consumers": [
+        "actual mature practice plus retained incumbent ending",
+        "public paid review/once standing versus private no-reward record",
+        "actual rain/settled escrow/sponsor return/lens closure",
+        "same known changed world while ordinary activity continues",
+        "explicit sim5/old absence/frozen<=4/strict native item+loan envelope",
+        "matching served rebuilt game/panel queued"
+      ],
+      "engineGaps": [
+        "WC-G4",
+        "WC-G5"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "behavior": "deferred/unrun"
+    }
+  ],
+  "requiredEngineQueue": {
+    "WC-G1": "delivered in current source/native/UI/compatible-state/build",
+    "WC-G2": "delivered in current source/native/UI/compatible-state/build",
+    "WC-G3": "delivered in current source/native/UI/compatible-state/build",
+    "WC-G4": "delivered in current source/native/UI/compatible-state/build",
+    "WC-G5": "delivered in current source/native/UI/compatible-state/build"
+  },
+  "lorePackets": {
+    "P1": "actual released care reuse",
+    "P2": "actual released care reuse + real strip/loaded/disposal joins",
+    "P3": "14 actual lens controls",
+    "P4": "18 actual learning/sponsor/work/release controls",
+    "P5": "5 actual same-crop/material controls"
+  },
+  "registry": {
+    "commands": 1059,
+    "newCommands": 43,
+    "newPublicCommands": 37,
+    "controllers": 48,
+    "conditions": 18,
+    "worlds": 8,
+    "newWorlds": 0,
+    "plans": 4,
+    "sources": 51,
+    "newPrestige": 0
+  },
+  "build": "d405e2c1a0e3",
+  "laterAcceptance": "ACCEPTANCE_BACKLOG.md",
+  "broaderScope": "Optional all-world/novel/arbitrary attack/body/time/ecology/death/extra-prestige depth remains in its owning research packets."
+}

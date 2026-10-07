@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "authority": "Direct human: \"subtle stuff like replacement and other trope implementation and more, the little things in each book worl accordingly?\"",
+  "assigningThreadId": "01a10db8-e981-76f3-aa4c-600e99310cda",
+  "packet": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+  "route": "Steer five existing GMs; no new chat or shared runtime writer created",
+  "deliveries": [
+    {
+      "role": "features",
+      "threadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+      "hostId": "local",
+      "messageAccepted": true
+    },
+    {
+      "role": "backlog",
+      "threadId": "01a10dc6-296b-7ca3-9efc-fb53590301da",
+      "hostId": "local",
+      "messageAccepted": true
+    },
+    {
+      "role": "legibility",
+      "threadId": "01a10dc6-46de-7ec2-afe1-8d6bd2155c58",
+      "hostId": "local",
+      "messageAccepted": true
+    },
+    {
+      "role": "ink",
+      "threadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+      "hostId": "local",
+      "messageAccepted": true
+    },
+    {
+      "role": "repositories",
+      "threadId": "01a10dc6-adcd-7372-a0ce-6b85dd811f6d",
+      "hostId": "local",
+      "messageAccepted": true
+    }
+  ],
+  "observations": [
+    {
+      "threadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+      "cursor": "daea37c8-adfc-45f0-93cc-0e874459c9e9:3",
+      "status": "active",
+      "turnStatus": "inProgress"
+    },
+    {
+      "threadId": "01a10dc6-296b-7ca3-9efc-fb53590301da",
+      "cursor": "7a90aeed-04f2-4dab-9a49-e4ea721dd636:3",
+      "status": "active",
+      "turnStatus": "inProgress"
+    },
+    {
+      "threadId": "01a10dc6-46de-7ec2-afe1-8d6bd2155c58",
+      "cursor": "da6a02a8-23ef-43a6-b600-80d90597ea99:2",
+      "status": "active",
+      "turnStatus": "inProgress"
+    },
+    {
+      "threadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+      "cursor": "6641bf79-523a-471e-a525-de9cd895d586:6",
+      "status": "active",
+      "turnStatus": "inProgress"
+    },
+    {
+      "threadId": "01a10dc6-adcd-7372-a0ce-6b85dd811f6d",
+      "cursor": "dba0542c-f942-490a-8e61-5f448a9aa223:3",
+      "status": "active",
+      "turnStatus": "inProgress"
+    }
+  ],
+  "checks": "Amendment/wave-pointer readback and local links passed; no source/build/gameplay changes by dispatcher",
+  "newImplementationClaim": false
+}

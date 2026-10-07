@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T20:29:23.322441+00:00",
+  "scope": "read-only current source review; source hashes are evidence boundaries, not gameplay certification",
+  "reviewedSourceHashes": {
+    "src/main.js": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+    "src/save_files.js": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+    "src/causal_story_native.js": "c2c0dff9c92302a3c0388ec9287d5bf4291b9b952d57d0cb63621568d21f3ac1",
+    "src/causal_story_host.js": "f6ad90f0efd6495928d9a68cee701222f36ac58c67fe8002b531061f1f239f90",
+    "src/causal_story_core.js": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+    "src/causal_story_ui.js": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+    "src/causal_story_ids.js": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_content.js": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+    "src/artifact_collection.js": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+    "src/artifact_workshop_host.js": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+    "src/artifact_workshop_content.js": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/gameplay_transactions.js": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/native_gameplay_adapter.js": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+    "src/native_equipment_transaction.js": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+    "src/feature_expansion_content.js": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+    "src/feature_expansion_wave_host.js": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2",
+    "src/data/expedition_items.js": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68",
+    "src/adventure_notebook.js": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+    "src/simulation_ui.js": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+    "src/reference_gameplay_state.js": "bc6048763447d2fd38916a71576c978557c3c2eb1e35da76703c96d195c218e1",
+    "src/feature_expansion_work_plan.js": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+    "src/book_world_paradise_host.js": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526",
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/backlog_expansion_host.js": "fdea94ae9d03a8dd73839c9fa14f6d2e0cfb815188dee58a72e2a3df3152d556",
+    "src/models/npc.js": "e4ce2d034e5908f5018c7be3eb1fe11ed9c65dedc4a25f7207938846029eb4ed",
+    "src/models/person.js": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+    "src/models/stat_haver.js": "c6649ef0f38c00f3e88fffe2d44fe0465213da5a2172090a3dc826c389877329",
+    "src/data/npcs.js": "c429fb04db092bde0b5a007481d46df29416c13c0dc9f003ee0ddaacf8768c66",
+    "src/components/levelable_component.js": "d4e928eafb23b8f139c0a42694aa038c7e7b0cbd756c7c76d7635e9c8b476f31",
+    "src/display.js": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1"
+  },
+  "contractHashes": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "b76cadf78c37f253d4545d53eb49281e00b83188e7d1467b66d3ba5fff2bd512",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/gm/causal-endings/INTEGRATION.md": "50641e0f90a9a2f6e415fd6cafbecaa53df4a82eb692d5bb5830be82090173c1",
+    "docs/gm/causal-endings/INTEGRATION.json": "be2133ca067383efbf1af5dda7ec3f59316fde51eb9f804ac43ad9ceb679d36c",
+    "docs/gm/artifact-collection/INTEGRATION.md": "0c5b6732419b3d9ace9c071d938083303ad1f73fe9d9b706c4ff2aaa5e323792",
+    "docs/gm/artifact-collection/RELEASE.json": "13aeb07883320c9fcc963ef18f9160f725479dc1789368be1b7f2a5ef015ffe5",
+    "docs/gm/audit-implementation/remainder/causal-engine/CHECKPOINT.md": "2d1e394316dd1c6cec5b20aaf56bdccc4b7f5eddec5c0b446b0a2ee72a9ced27"
+  },
+  "releasedModuleReadback": [
+    {
+      "family": "causal",
+      "path": "src/causal_story_ids.js",
+      "releasedSha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "currentSha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "matchesRelease": true
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_actors.js",
+      "releasedSha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "currentSha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "matchesRelease": true
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_core.js",
+      "releasedSha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "currentSha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "matchesRelease": true
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_content.js",
+      "releasedSha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "currentSha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "matchesRelease": true
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_native.js",
+      "releasedSha256": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7",
+      "currentSha256": "c2c0dff9c92302a3c0388ec9287d5bf4291b9b952d57d0cb63621568d21f3ac1",
+      "matchesRelease": false
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_host.js",
+      "releasedSha256": "a9eb61d3ddc32072344b9a0d05d482cf2954af9e1d983889e9ba60cde7fe7c15",
+      "currentSha256": "f6ad90f0efd6495928d9a68cee701222f36ac58c67fe8002b531061f1f239f90",
+      "matchesRelease": false
+    },
+    {
+      "family": "causal",
+      "path": "src/causal_story_ui.js",
+      "releasedSha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "currentSha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "matchesRelease": true
+    },
+    {
+      "family": "artifact",
+      "path": "src/artifact_collection.js",
+      "releasedSha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "currentSha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "matchesRelease": true
+    },
+    {
+      "family": "artifact",
+      "path": "src/artifact_workshop_content.js",
+      "releasedSha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "currentSha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "matchesRelease": true
+    },
+    {
+      "family": "artifact",
+      "path": "src/artifact_workshop_host.js",
+      "releasedSha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "currentSha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "matchesRelease": true
+    }
+  ],
+  "releaseDifferences": "Causal root-authored native/host repairs supersede their historical source hashes; IDs/actors/core/content/UI and all three artifact modules still match the released records. Root owns final repair/build manifest.",
+  "excludedSharedEngine": [
+    "src/simulation.js",
+    "src/simulation_effects.js",
+    "src/simulation_contracts.js",
+    "src/expansion_engine.js"
+  ],
+  "excludedEngineStatement": "These mutable engine semantic joins were not reviewed; only static declaration/import reader checks and its ownership checkpoint were used.",
+  "sealedAt": "2026-10-06T20:31:07.959731+00:00"
+}

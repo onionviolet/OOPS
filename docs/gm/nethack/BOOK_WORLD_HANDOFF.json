@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "senderThreadId": "01a10f95-ec79-7422-9567-8439615f8b91",
+  "recipientThreadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "state": "bounded compatibility repair complete; exact four-module writer transfer RELEASED to Features/Book-world root",
+  "compatibility": "Fieldcraft1 receipt now admits expansion9 and10; strict receipt/body/stock/knowledge/learning/provenance and absent-state checks retained",
+  "request": "active integrator requested this single-line source compatibility fix; no shared file or build touched by source GM",
+  "moduleHashes": [
+    {
+      "file": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "file": "src/nethack_fieldcraft_facts.js",
+      "sha256": "d3c8b9da5fefcbd1793af2580347253973714d07dc0fbefdf29d08cb1828976b"
+    },
+    {
+      "file": "src/nethack_fieldcraft_host.js",
+      "sha256": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03"
+    },
+    {
+      "file": "src/nethack_fieldcraft_feats.js",
+      "sha256": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392"
+    }
+  ],
+  "pendingWritersOrProcesses": [],
+  "checks": {
+    "factsSyntax": "passed",
+    "moduleImports": "passed",
+    "gameplaySaveFailureRegressionDirector": "deferred-unrun"
+  },
+  "earlierPreview": "e1aaca74683b is historical expansion9 preview and predates this compatibility repair; main adoption belongs to Features FIELDCRAFT_ADOPTION.json",
+  "remainingScope": "this chat retains only its nethack docs and additional-pattern audit; no further runtime writes",
+  "activeIntegratorAcknowledgment": "observed revision61: source compatibility release acknowledged; native item-label/tooltip projection being added; matching main build not yet observed",
+  "additionalSourceAudit": "FOLLOWUP_SOURCE.md/json completed/repaired; no ordinary meal gap; remaining queue REMAINING.md sent"
+}

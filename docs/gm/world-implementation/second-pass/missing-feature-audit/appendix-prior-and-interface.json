@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "purpose": "Prior-audit inventory and current discovery, interface, persistence, and tooling evidence for the missing-feature audit. This is an input appendix, not a new feature decision.",
+  "snapshot": {
+    "date": "2026-10-05",
+    "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "state": "dirty shared checkout; documentation/source work by concurrent authorized roles was visible. The fingerprints below identify the exact files read for this appendix, not a clean or immutable tree.",
+    "user_vision_read": [
+      "docs/USER_VISION.md:719-994",
+      "docs/USER_VISION.md:1019-1043"
+    ],
+    "scope": "Read-only inventory and interface/discovery/save/tooling traces. No tests, game/browser/build/book/bank/private-save work, or other source-domain audit was performed."
+  },
+  "prior_reports": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+      "sha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+      "status": "planning audit complete; implementation was held",
+      "ids": [
+        "EF01",
+        "EF02",
+        "EF03",
+        "EF04",
+        "EF05",
+        "EF06",
+        "EF07",
+        "EF08",
+        "EF09"
+      ],
+      "disposition": "Reuse pure planners, staged publication, explicit instance/identity/clock/write-owner/compatibility contracts. Proposals, not implemented expansion."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+      "sha256": "a4856af2334c9c770e4b712e0cc468cc3ba4bd35d4a80d86ae9b4c58857643a3",
+      "status": "planning report; native consumer/build dependency later closed by Engine S3; gameplay implemented-unverified",
+      "ids": [
+        "EX01",
+        "EX02",
+        "EX03",
+        "EX04",
+        "EX05",
+        "EX06",
+        "EX07",
+        "EX08",
+        "EX09",
+        "EX10"
+      ],
+      "disposition": "Use discovery-qualified labels/reasons, useful-input previews, accurate time/return, and focus recovery. Do not mistake old audit-only hold for current source state; later delivery and deferred gate govern."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "status": "planning complete; runtime held",
+      "ids": [
+        "AUTH01",
+        "AUTH02",
+        "AUTH03",
+        "AUTH04",
+        "AUTH05",
+        "AUTH06",
+        "AUTH07",
+        "AUTH08"
+      ],
+      "disposition": "Prefer native owner/consumer closure, opt-in package activation, compiler diagnostics, compatibility review, and explicit proof levels; no new interpreter selected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+      "sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+      "status": "revision-2 checked planning delivery; runtime held",
+      "ids": [],
+      "id_references": [
+        "EF02",
+        "AUTH02",
+        "TF01"
+      ],
+      "disposition": "Proposed execution DAG/rollout and opt-in package contract; no gameplay implementation authorization. The exact prior route is not a stable finding-ID namespace."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+      "sha256": "5bf57c437a0e2d9448c6aabb6a60359fa3f8aa796f80e0b7ca7b8b78c72de561",
+      "status": "planning complete",
+      "ids": [
+        "RTE-01",
+        "RTE-02",
+        "RTE-03",
+        "RTE-04",
+        "RTE-05",
+        "RTE-06",
+        "RTE-07",
+        "RTE-08",
+        "RTE-09",
+        "RTE-10"
+      ],
+      "disposition": "Keep boundary scheduler, deterministic freezing and durable publication; indexes, scoped validation, budgets and view invalidation are proposals without latency measurements."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+      "sha256": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa",
+      "status": "planning delivery checked",
+      "ids": [
+        "TF01",
+        "TF02",
+        "TF03",
+        "TF04",
+        "TF05",
+        "TF06"
+      ],
+      "disposition": "Qualified retrieval, scoped context, revision-bound evidence and sole-writer handoffs are workflow proposals. No measured token savings or runtime authority."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+      "sha256": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+      "status": "planning delivery; implementation held",
+      "ids": [
+        "WB-C01",
+        "WB-C02",
+        "WB-C03",
+        "WB-C04",
+        "WB-C05",
+        "WB-C06",
+        "WB-C07",
+        "WB-C08",
+        "WB-C09",
+        "WB-C10",
+        "WB-C11",
+        "WB-C12",
+        "WB-C13",
+        "WB-C14",
+        "WB-R01",
+        "WB-R02",
+        "WB-R03",
+        "WB-R04",
+        "WB-R05"
+      ],
+      "id_references": [
+        "EF02",
+        "EF05",
+        "EF08",
+        "AUTH02",
+        "AUTH06",
+        "AUTH07",
+        "SOC01",
+        "SOC03",
+        "SOC05",
+        "TL01",
+        "TL02",
+        "TL07",
+        "WB-R01"
+      ],
+      "disposition": "Reference/policy/state/belief separation and local query/activation are proposals. Character/source catalogues do not imply enrollment, owned stock, native instance isolation or autonomous life. WB-C01–14/WB-R01–05 are source-planning capability/recommendation IDs, not present runtime claims."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+      "sha256": "e101b1fb4fe4c30f52f6950b284271f2a6a78479d7899a6c5c59cfa3beeb9066",
+      "status": "checked planning delivery; optional dependencies deferred",
+      "ids": [
+        "EA01",
+        "EA02",
+        "EA03",
+        "EA04",
+        "EA05",
+        "EA06",
+        "EA07",
+        "EA08",
+        "EA09"
+      ],
+      "disposition": "Extend current registry/planner/publication seam; no third-party runtime dependency selected. Inform/Ink/rot paths remain conditional."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/REPORT.md",
+      "sha256": "529279af778d66801bc5ab7ec0b7bd538f865d000f4f3c3ad8d8f2770478116a",
+      "status": "planning complete",
+      "ids": [],
+      "id_references": [
+        "F01-F09",
+        "N01-N05"
+      ],
+      "disposition": "Skills, gathering, equipment, combat, quests and save/publication have useful native consumers; wider world/body/time/campaign universality is partial or missing. This is source inspection, not gameplay proof."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md",
+      "sha256": "012b0aa2e5748264f75fa8c83301e70852d98bd909c398788c5017b1d027f82d",
+      "status": "complete static review; original no-import status superseded for bounded subsets by ADOPTION",
+      "ids": [
+        "FNA01",
+        "FNA02",
+        "FNA03",
+        "FNA04",
+        "FNA05",
+        "FNA06",
+        "FNA07",
+        "FNA08",
+        "FNA09",
+        "FNA10",
+        "FNA11",
+        "FNA12",
+        "FNA13",
+        "FNA14",
+        "FNA15",
+        "FNA16",
+        "FNA17"
+      ],
+      "id_references": [
+        "FNA01-FNA17"
+      ],
+      "disposition": "Use only qualified bounded subsets/patterns; no full branch transplantation. REPORT shortlist/pending-import wording is historical where ADOPTION delivered the fix. Root current-ID readback includes FNA17 legacy alias compatibility; unadopted patterns remain conditional."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+      "sha256": "9ae0a3ed04b1f37efecd9abc70d2676ded962efc7e5d7a8904753af13d5f80c2",
+      "status": "implemented and rebuilt; gameplay/keyboard/save/failure acceptance deferred",
+      "ids": [],
+      "id_references": [
+        "FNA01",
+        "FNA02",
+        "FNA03",
+        "FNA06"
+      ],
+      "disposition": "Authored action label, component/cape guards, immutable trade request copies, read-only Makeable-now crafting filter and narrow XP tooltip/build-stamp fixes integrated; no save schema change. ADOPTION is the current disposition."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+      "sha256": "03646681cd6820619cd03b958ca58a3f77b89ce41af53f3a09e7831a4b5ccef4",
+      "status": "complete finite source review; no implementation/dependency selected",
+      "ids": [
+        "RB-INT-01",
+        "RB-INT-02",
+        "RB-POW-01",
+        "RB-POW-02",
+        "RB-POW-03",
+        "RB-POW-04",
+        "RB-LIV-01",
+        "RB-LIV-02",
+        "RB-LIV-03",
+        "RB-LIV-04",
+        "RB-PRO-01",
+        "RB-PRO-02",
+        "RB-PRO-03",
+        "RB-AUT-01",
+        "RB-AUT-02",
+        "RB-AUT-03",
+        "RB-CAM-01",
+        "RB-CAM-02",
+        "RB-CAM-03",
+        "RB-REF-01"
+      ],
+      "disposition": "Use authored cases through current owner seams; generic item affordances, mixed itinerary, campaign and body adapters remain conditional proposals. Teachers/work/jobs already overlap existing owners."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+      "sha256": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+      "status": "planning-only audit",
+      "ids": [
+        "REG01",
+        "REG02",
+        "REG03",
+        "REG04",
+        "REG05",
+        "REG06",
+        "REG07",
+        "REG08",
+        "REG09",
+        "RG-A01",
+        "RG-A02",
+        "RG-A03",
+        "RG-A04",
+        "RG-A05",
+        "RG-A06",
+        "RG-A07",
+        "RG-A08",
+        "RG-A09",
+        "RG-A10",
+        "RG-A11",
+        "RG-A12",
+        "RG-A13",
+        "RG-A14"
+      ],
+      "disposition": "Region, ecology, harvesting, and managed reserve findings remain proposals; do not infer arbitrary spatial simulation."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+      "sha256": "db2468cc839d89ff9d926903019822f5606798474271dd674aa0baf0538e8452",
+      "status": "planning audit complete",
+      "ids": [
+        "POW01",
+        "POW02",
+        "POW03",
+        "POW04",
+        "POW05"
+      ],
+      "disposition": "Preserve distinct power/source/body/fuel meanings; acquisition, transfer and generalized targeting need selected lifecycle joins."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+      "sha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+      "status": "planning revision 2; source and player-readability audit",
+      "ids": [
+        "CB01",
+        "CB02",
+        "CB03",
+        "CB04",
+        "CB05",
+        "CB06",
+        "CB07",
+        "CB08",
+        "CB09",
+        "CB10",
+        "CB11",
+        "CB12",
+        "CB13",
+        "CB14"
+      ],
+      "disposition": "Authored objective-driven contests and existing native combat coexist; broader tactical movement/geometry remains optional family work."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+      "sha256": "558685b5e5cec7b6441c87c696bfbac3f14bcaa3ab360f5f38e1c73a1a3725f5",
+      "status": "planning return; implementation held",
+      "ids": [
+        "IT01",
+        "IT02",
+        "IT03",
+        "IT04",
+        "IT05",
+        "IT06",
+        "IT07",
+        "IT08",
+        "IT09",
+        "IT10",
+        "IT11",
+        "IT12",
+        "IT13"
+      ],
+      "disposition": "Native recipe/craft, stock/custody and field refinements provide current seams; universal lots/charges/specimen identity remain need-triggered."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "sha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "status": "planning-only decision summary; runtime held",
+      "ids": [
+        "SOC01",
+        "SOC02",
+        "SOC03",
+        "SOC04",
+        "SOC05",
+        "SOC06",
+        "SOC07",
+        "SOC08",
+        "SOC09",
+        "SOC10",
+        "SOC11",
+        "SOC12",
+        "SOC13",
+        "SOC14",
+        "SOC15"
+      ],
+      "disposition": "Current finite named people/relationships/obligations are not general institutions, reciprocal economy, family lineage or autonomous population simulation."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "sha256": "5936e0a008010c077669b061e040e548cd2151c07e4665b0ae64d2df29b57bea",
+      "status": "bounded branching decision companion",
+      "ids": [
+        "SOC01-SOC10",
+        "SOC08-SOC10",
+        "SOC11-SOC15"
+      ],
+      "disposition": "Branching/social alternatives are authored proposals and acceptance cases; underlying source/status remains in parent society finding set."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+      "sha256": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+      "status": "completed source-based planning audit; assigning-master/director review pending",
+      "ids": [
+        "TL01",
+        "TL02",
+        "TL03",
+        "TL04",
+        "TL05",
+        "TL06",
+        "TL07",
+        "TL08"
+      ],
+      "disposition": "Time/calendar/deadline concepts have selected current owners, while historical reversal, broad ancestry, alternate lives and second prestige remain unselected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+      "sha256": "3d6973c7484a12ba3727e5b5ee3b1dbbf489bb7796d30cc7819351594f6b612a",
+      "status": "bounded timeline/ending companion",
+      "ids": [
+        "TL01-TL08"
+      ],
+      "disposition": "Branch and ending cases enrich the finite plan; not proof that every authored ending or full world path is implemented."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+      "sha256": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55",
+      "status": "planning complete, self-reviewed and checked",
+      "ids": [
+        "BAS01",
+        "BAS02",
+        "BAS03",
+        "BAS04",
+        "BAS05"
+      ],
+      "disposition": "One rented/staffed site and funded order is a scoped proposal; generic base/building/economy simulation is not supplied by site/project records."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "status": "completed planning report; runtime held",
+      "ids": [],
+      "id_references": [
+        "macro SYSTEM_GRAPH",
+        "macro WORLD_LOOP_MATRIX",
+        "macro ENGINE_REQUIREMENTS"
+      ],
+      "disposition": "Five connected macro campaign cases plus a Paradise hub proposal; complete planning coverage is not runtime delivery."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "status": "planning revision 1; runtime held",
+      "ids": [
+        "MC01",
+        "MC02",
+        "MC03",
+        "MC04",
+        "MC05",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "ME01",
+        "ME02",
+        "ME03",
+        "ME04",
+        "ME05",
+        "ME06",
+        "ME07",
+        "ME08",
+        "ME09",
+        "ME10"
+      ],
+      "disposition": "Five worked cases and typed contracts record conserved identity, stock, time and return requirements; specimen/host/clock/publication joins remain prerequisites, not implementation."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+      "sha256": "72f789bb5a9cefc0e3c1e86d6b7ca02fe698f4f6eaf85db20f4d379b9380066e",
+      "status": "finite planning objective complete and checked",
+      "ids": [
+        "GE01",
+        "GE02",
+        "GE03",
+        "GE04",
+        "GE05",
+        "GE06",
+        "GE07",
+        "GE08",
+        "GE09",
+        "GE10",
+        "GE11",
+        "GE12",
+        "GX1",
+        "GX2",
+        "GX3",
+        "GX4",
+        "GX5",
+        "GX6",
+        "GC1",
+        "GC2",
+        "GC3",
+        "GC4",
+        "GC5",
+        "GC6",
+        "GC7",
+        "GC8",
+        "GP1",
+        "GP2",
+        "GP3",
+        "GP4",
+        "GP5"
+      ],
+      "disposition": "Six paths/five proposals add depth through connected consumers; proposals remain planning unless later registered, built and behavior-accepted."
+    }
+  ],
+  "family_to_prior_ids": {
+    "discovery_and_native_skill_visibility": [
+      "EX10",
+      "F01",
+      "RB-LIV-01",
+      "RB-LIV-02",
+      "TF02",
+      "N01"
+    ],
+    "interface_navigation_and_action_preview": [
+      "EX01",
+      "EX02",
+      "EX03",
+      "EX04",
+      "EX05",
+      "EX07",
+      "EX08",
+      "EX10",
+      "F01",
+      "F07",
+      "AUTH05",
+      "FNA06"
+    ],
+    "tools_items_crafting_and_exact_stock": [
+      "IT01-IT13",
+      "REG01-REG09",
+      "RG-A01-RG-A14",
+      "F03",
+      "FNA02",
+      "FNA03",
+      "FNA06",
+      "RB-INT-01",
+      "RB-INT-02",
+      "RB-REF-01"
+    ],
+    "skills_practice_functional_mastery": [
+      "N01",
+      "F01",
+      "F02",
+      "POW01-POW05",
+      "GE01-GE12",
+      "RB-POW-01",
+      "RB-LIV-01",
+      "RB-LIV-02",
+      "EA04"
+    ],
+    "npc_commands_knowledge_and_custody": [
+      "SOC01-SOC15",
+      "RB-INT-01",
+      "RB-LIV-01",
+      "RB-LIV-03",
+      "RB-CAM-02",
+      "AUTH07",
+      "F04",
+      "FNA06-FNA12"
+    ],
+    "durable_save_compatibility_and_publication": [
+      "EF01",
+      "EF03",
+      "EF04",
+      "EF07",
+      "EF08",
+      "AUTH06",
+      "AUTH08",
+      "RTE-05",
+      "RTE-08",
+      "RB-INT-01",
+      "RB-PRO-01",
+      "FNA01-FNA03",
+      "FNA06"
+    ],
+    "package_authoring_and_tooling": [
+      "AUTH01-AUTH08",
+      "EA01-EA09",
+      "TF01-TF06",
+      "RTE-09",
+      "FNA06-FNA16"
+    ],
+    "worlds_campaigns_and_return": [
+      "F06",
+      "F07",
+      "N03-N05",
+      "RB-CAM-01",
+      "RB-CAM-03",
+      "RB-REF-01",
+      "REG01-REG09",
+      "TL01-TL08",
+      "WB-R01",
+      "GE01-GE12"
+    ],
+    "clocks_age_death_and_prestige": [
+      "EF05",
+      "EF06",
+      "F08",
+      "N04",
+      "RB-PRO-03",
+      "TL01-TL08",
+      "SOC01-SOC15"
+    ],
+    "runtime_cost_and_context_workflow": [
+      "RTE-01-RTE-10",
+      "TF01-TF06",
+      "AUTH08",
+      "EA01-EA09"
+    ]
+  },
+  "current_traces": [
+    {
+      "claim": "Native skill names/bars are projected from existing records; visibility remains gated by native unlock and visibility threshold; presentation helper avoids XP-creating getters.",
+      "symbols": [
+        "nativeSkillDiscovery",
+        "projectNativeSkillDiscovery",
+        "projectDiscoveryFeature"
+      ],
+      "spans": [
+        "src/skill_discovery_native.js:1-10",
+        "src/skill_discovery.js:44-85",
+        "src/skill_discovery.js:72-85"
+      ],
+      "sha256": {
+        "src/skill_discovery_native.js": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+        "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+      }
+    },
+    {
+      "claim": "Current methods-and-practice panel enumerates registered discovery/learn/practice/use/recovery commands, previews each action, filters on visibility, marks known terms/reasons, retains only player-side observations and reports accepted work using authoritative clock difference.",
+      "symbols": [
+        "skillExpansionPresentation",
+        "projectAcceptedWork"
+      ],
+      "spans": [
+        "src/skill_expansion_host.js:13-64",
+        "src/skill_discovery.js:101-115"
+      ],
+      "sha256": {
+        "src/skill_expansion_host.js": "1cc711679510eb661d130744177f7a80e07302fc7180f4c8b2c32af59882cf55",
+        "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+      }
+    },
+    {
+      "claim": "Simulation commands are authored and registry-bound, preview checks actor/role/world/location/target/co-location/busy/life/once/claim/site conditions, then validates costs, effects and weighted outcomes on candidate copies. Commit re-previews synchronously, spends means and freezes outcome/command identity for accepted jobs.",
+      "symbols": [
+        "previewSimulationCommand",
+        "startCommand",
+        "commitSimulationCommand",
+        "completeJob"
+      ],
+      "spans": [
+        "src/simulation.js:49-105",
+        "src/simulation.js:108-162",
+        "src/simulation.js:164-173"
+      ],
+      "sha256": {
+        "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+      }
+    },
+    {
+      "claim": "Inventory effects use native inventory binding or simulation-owned stock; consumed borrowed items are rejected unless an explicit custody break policy is supplied; equipment cannot be consumed while equipped. Custody is validated as an owned record keyed to owner/holder/item/count/time.",
+      "symbols": [
+        "inventory",
+        "applySimulationEffects",
+        "validateSimulationState"
+      ],
+      "spans": [
+        "src/simulation_effects.js:10-20",
+        "src/simulation_effects.js:144-165",
+        "src/simulation_contracts.js:213-219"
+      ],
+      "sha256": {
+        "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+      }
+    },
+    {
+      "claim": "Expansion persistence validates a full future envelope, stages native skill/item/unlock/equipment reconstruction, writes the existing envelope durably, and only then updates live expansion/native owners and UI projections.",
+      "symbols": [
+        "persistExpansion",
+        "persistExpansionPlan",
+        "prepareGameplayPublication"
+      ],
+      "spans": [
+        "src/main.js:293-365",
+        "src/expansion_persistence.js:5-49",
+        "src/gameplay_publication.js:13-61"
+      ],
+      "sha256": {
+        "src/main.js": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5",
+        "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+        "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+      }
+    },
+    {
+      "claim": "Save envelope validates version, expansion and realm domains, retired content, owner inventory/XP consistency and optional NPC equipment before real-loader preflight; import writes only after preflight succeeds. This is static code evidence, not a newly executed save/reload result.",
+      "symbols": [
+        "validateSaveEnvelope",
+        "decodeSaveFile",
+        "importSaveFile"
+      ],
+      "spans": [
+        "src/save_files.js:17-100",
+        "src/save_files.js:103-135"
+      ],
+      "sha256": {
+        "src/save_files.js": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34"
+      }
+    },
+    {
+      "claim": "Current Makeable-now recipe visibility is a read-only projection over existing unlocked rows, station tier, known exact materials and consumable stock; it preserves selected/focused rows during final-input consumption and does not create craft results or grant rewards.",
+      "symbols": [
+        "recipeMakeableNow",
+        "apply_crafting_filter"
+      ],
+      "spans": [
+        "src/crafting_visibility.js:1-34",
+        "src/display.js:2835-2868"
+      ],
+      "sha256": {
+        "src/crafting_visibility.js": "cedb3c64fd9ccc0708956c600e94a67840547399fc196bed8979e162e12f0d93",
+        "src/display.js": "d909f40b2ebd552502293a473dc8f216bf31e7e4da9eb4c6484f008dc1749bf9"
+      }
+    },
+    {
+      "claim": "Native action button name currently uses action_name (the earlier FNA01 report's starting_text mismatch is stale); unrelated activity/dialogue surfaces still legitimately use starting_text.",
+      "symbols": [
+        "location action renderer"
+      ],
+      "spans": [
+        "src/display.js:2533"
+      ],
+      "sha256": {
+        "src/display.js": "d909f40b2ebd552502293a473dc8f216bf31e7e4da9eb4c6484f008dc1749bf9"
+      }
+    }
+  ],
+  "fork_adoption": {
+    "report_status_trap": "fork-network-absorption/REPORT.md says no code imported and describes FNA01-03/FNA06 work as future. ADOPTION.md is the subsequent current state.",
+    "delivered": "FNA01 authored native action label; FNA02 component/cape malformed-material/result guards; FNA03 copied/clamped trade requests; FNA06 default-off makeable filter over existing recipes; narrow Kuro XP-tooltip and build-stamp fixes.",
+    "compatibility": "No new save schema, IDs, rewards, actors, enrollment or dependency. Filter toggle is local view state and defaults off on reload. Native stock/custody/craft/job/clock ownership preserved.",
+    "verified": "Source review, syntax/import/build/sourcemap/static HTML/HTTP/hash/link checks, matched bundle/style and HTTP 200 were recorded in ADOPTION.md/ADOPTION_BUILD.json.",
+    "deferred": "Gameplay and keyboard behavior; all recipe families and known/unknown/material cases; custody/busy/final-focus cases; valid/invalid craft and trade edge cases; affected generated save/reload/failure/regression and director acceptance.",
+    "limits": "Build and static serving do not establish browser/game behavior or save safety."
+  },
+  "reviewed_vision_requirements": {
+    "719-994": "Reviewed party save/member inventory direction; expansion/reference and elder restart proposals; preserve vanilla; selected branch-dimension framing and unknown identities; notebook/quest separation and vague discovery; derived Bio; encounter policies; game-master workflow/capacity/succession and full supplied-book constraints.",
+    "1019-end": "Reviewed current implementation-first, one-realm/one-prestige and unrun acceptance context recorded in this range.",
+    "preservation_constraints": "Keep vanilla opening and familiar native UI; no forced reset; exact-world counterpart and full independent world-state isolation remain unimplemented; user saves private; hidden facts stay hidden; implemented-unverified stays distinct from accepted; tests deferred under current wave policy; no claim that setup/docs/build equals gameplay."
+  },
+  "limits_and_unknowns": [
+    "Only discovery/interface/save/tooling traces were independently reread in source. Other gameplay domains are inventoried from their reports, not recertified against current code here.",
+    "Source paths and hashes are dirty-checkout snapshots; concurrent writers may change files after this appendix. Rehash before implementation or calling a claim current.",
+    "No new test, browser, build, save/reload, performance, NPC-autonomy, absent-world simulation, or director/human acceptance was executed.",
+    "Authored NPC commands prove bounded registered behavior, not complete autonomous lives, generalized intent planning, beliefs, economy, or persistent world simulation.",
+    "Inventory/custody/publication claims apply only to the currently modeled owners and adapters; they do not prove universal specimen, lot, organ, anatomy, fuel, source, or cross-world conservation.",
+    "Report inventories identify completed audit artifacts and their findings, not exhaustive implementation, every branch/asset/book, or a guarantee every proposed family is selected."
+  ],
+  "root_inventory_readback": {
+    "FNA17": "CANDIDATES.json current17 candidate IDs read back; legacy alias migration is optional compatibility pattern, not shipped migration.",
+    "world_bank": "COVERAGE_AND_CAPABILITY.json current14 capability/five recommendation IDs read back; report-based dispositions retain current consumer limits.",
+    "hashes": {
+      "docs/gm/world-implementation/second-pass/fork-network-absorption/CANDIDATES.json": "9a186f2de44a19b306335b63302aaf8ae0ebf7917dd8c0e5ab8e7e231c975a6c",
+      "docs/gm/world-implementation/second-pass/world-bank/COVERAGE_AND_CAPABILITY.json": "1a04a73d204b7b99e6c83fa1f6cb049e9c191172c854f79ef7e17c10c27a07ef",
+      "docs/gm/world-implementation/second-pass/upstream-native-feasibility/FEASIBILITY.json": "7ec358d4d92c63b312fec51165fecc24fe6572bc7700eecafcf89d2bd7965a3d"
+    }
+  }
+}

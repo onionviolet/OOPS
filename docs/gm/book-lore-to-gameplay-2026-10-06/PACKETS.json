@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "status": "complete finite design shortlist; proposed, not selected or implemented",
+  "selectedForImplementation": false,
+  "firstCompletePacket": "P1",
+  "packets": [
+    {
+      "id": "P1",
+      "title": "The overlapping shifts",
+      "status": "source-ready original proposal; not implemented",
+      "description": "Renegotiated independent resident work, real room repair, delegated or personal duty and a conserved kit delivery.",
+      "sourceEvidence": [
+        "S01",
+        "S03",
+        "S04"
+      ],
+      "dependsOn": [],
+      "document": "IMPLEMENTATION_PACKETS.md#p1-the-overlapping-shifts",
+      "world": "base.frontier",
+      "owners": [
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_home_host.js",
+        "src/audit_remainder_livelihood_content.js",
+        "src/audit_remainder_livelihood_facts.js",
+        "src/audit_remainder_livelihood_host.js",
+        "src/causal_situations.js",
+        "src/feature_expansion_content.js",
+        "src/audit_remainder_runtime.js",
+        "src/main.js",
+        "src/expansion_persistence.js"
+      ],
+      "missingJoins": [
+        "New lore.work situation/commands and shutter installation",
+        "Existing actor controller installation on explicit enrollment",
+        "Public seventh-lane or explicit new main route and facts/presentation",
+        "Actual P2/P3 installation support consumer and separate kit output collection",
+        "Supported-time deadline/job due retention before scheduler checks with preserved original history"
+      ],
+      "compatibility": "Separate lore.work prefix; absent inert; no old home job/field meanings changed. Explicit migration required if a typed domain/frozen definition changes.",
+      "deferredGate": "Personal/delegated/refused/late native journey; functional repair and kit use; NPC resources/consent; reload/import/failure/stale/cancellation; director acceptance.",
+      "prerequisites": [
+        "Explicit new consent in admitted expansion11/auditRemainder1/reference1; actual room and existing Neri present/willing/free, first service/collection settled",
+        "Current lawful site/body/stock/native-player means; existing Orr actor with own tool/effort"
+      ],
+      "knowledgeTimeLimits": [
+        "Actor own duty/means; selected attributed public accounts only",
+        "New18played-minute window, actual native shift hours; absent unsupported/browserclosed frozen"
+      ],
+      "choices": [
+        "Repair personally and separately escrow new Neri service",
+        "Ask willing Orr to cover, foregoing an overlapping actual shift",
+        "Decline/self-prepare or withdraw unperformed incremental escrow"
+      ],
+      "expenditure": [
+        "Repair1Compatible repair offcut + held/returned kit +2stamina +4minutes",
+        "New kit job1log/2coins funded separately; Neri own held kit/1attention/2stamina/1fittingscoin/5minutes, wage only at completion"
+      ],
+      "mutation": [
+        "Real repaired room installation",
+        "Exact new produced kit in Neri owner, separate one-product transfer and lawful wage/escrow receipt"
+      ],
+      "nativeConsumers": [
+        "New P2/P3 indoor sampling/examination support reads real installation and consent",
+        "Existing original_frontier.prepare_loaded and loaded-frame field action use actual collected native kit with their current returns/costs"
+      ],
+      "failureLate": [
+        "No offcut/right/body/tool -> refusal before spend",
+        "Lost support -> exact reservation refund to rightful worker; new escrow withdrawal only under new explicit terms",
+        "Late repair remains installation but inspection opportunity closed; old Neri invitation never refunded"
+      ],
+      "aftermath": [
+        "Same room/actors/property, paid or missed duty account, no recurring service/refill",
+        "Neri departure disables offer and retains tool/purse/history"
+      ],
+      "newGameplayStatus": "proposed only"
+    },
+    {
+      "id": "P2",
+      "title": "A warning with expiring assumptions",
+      "sourceEvidence": [
+        "S02",
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "dependsOn": [],
+      "benefitsFrom": [
+        "P1"
+      ],
+      "prerequisites": [
+        "Actual known existing Ressa, old request/history/means retained, supported base-world clock and explicit separate warning situation",
+        "Explicitly entrusted actual Sound repair stave for opt-in exposure; no old property risk"
+      ],
+      "knowledgeTimeLimits": [
+        "Observed/reported/relay/delivered/received response separate; anonymous only to named recipient, real intermediary keeps own knowledge",
+        "Immutable baseline expectation, current physical assumptions and source era distinct; new20played-minute window"
+      ],
+      "choices": [
+        "Signed warning/private relay/inspect first",
+        "Clear drain or support independently consented Ressa relocation",
+        "Continue ordinary work/refuse/no exposure"
+      ],
+      "expenditure": [
+        "Signed contact1minute; relay1nativecoin/Orr own1stamina/1minute only accepted delivery",
+        "Kit sample held/returned +1stamina/3minutes outdoors or2indoors",
+        "Drain1real log +2stamina/4minutes with lawful support; smaller learned strip alternative P4",
+        "Exact1Sound repair stave held in new exposure job; independent NPC spends own budget/body/time",
+        "If elected later:1nativecoin buys Ressa actual Wet result; her purse credited, item truly transferred before player drying"
+      ],
+      "mutation": [
+        "Recipient-owned received knowledge and independent response receipts",
+        "Actual drain/sheltered exposure support",
+        "Exact held Sound stave returns as Sound or Wet at actual rain support, once"
+      ],
+      "nativeConsumers": [
+        "New boundary hook stages one wet/dry native material output and retained site/actor result",
+        "New consented wet-result buyback to player, then current player-owned drying and actual physical craft/trade use",
+        "New public contact projects received account only"
+      ],
+      "missingJoins": [
+        "New attributed warning/relay/controller/facts/public route",
+        "Supported-boundary rain/exposure reducer and frozen job descriptor validation/post-pop hook",
+        "Observer-qualified accounts and actual native staging",
+        "Supported-time deadline/job due retention before scheduler checks with preserved original history",
+        "Exposure host freezes current positive remaining duration with exact descriptor/cost validation; all Ressa response work first",
+        "Willing wet-result buyback costs player1nativecoin/credits Ressa and transfers actual wet stave before current player drying"
+      ],
+      "failureLate": [
+        "Delivered warning may be ignored; delivery is no guarantee",
+        "Private/absent/unsupported body/means cause refusal or disclosed refund",
+        "Changed forecast assumptions do not erase prior report",
+        "After single rain, late warning/disposal cannot undo/rerun result"
+      ],
+      "aftermath": [
+        "Player/NPC/local/known-account closures separate",
+        "Same Ressa old purse/request retained, explicit new material wet or sound, changed later meeting"
+      ],
+      "compatibility": "Separate lore.warning prefix; existing Sound/Wet IDs; explicit new job-descriptor admission in matching updated fork; old offers/jobs fixed. No top-level store by default.",
+      "owners": [
+        "src/causal_situations.js",
+        "src/simulation_effects.js",
+        "src/audit_remainder_offers_content.js",
+        "src/audit_remainder_offers_host.js",
+        "src/audit_remainder_runtime.js",
+        "src/simulation.js",
+        "src/simulation_contracts.js",
+        "src/main.js",
+        "src/expansion_persistence.js"
+      ],
+      "deferredGate": "Actual signed/unsigned/ignored/undelivered/clear/shelter/flood/no-load/re-obstruction native journey, observed knowledge/material/response/cost, same-instance accounts, reload/import/failure/oldjobs/director",
+      "status": "source-ready original proposal; not implemented",
+      "newGameplayStatus": "proposed only",
+      "world": "base.frontier",
+      "document": "IMPLEMENTATION_PACKETS.md#p2-a-warning-with-expiring-assumptions"
+    },
+    {
+      "id": "P3",
+      "title": "A useful lens with a return obligation",
+      "sourceEvidence": [
+        "S04",
+        "S07",
+        "S12"
+      ],
+      "dependsOn": [
+        "P2"
+      ],
+      "benefitsFrom": [
+        "P1"
+      ],
+      "prerequisites": [
+        "Actual Vela actor artifact_collection.mara owns available unequipped amber stock; actual current sample/site and consenting maker",
+        "Custody-safe reservation support required before loan offered"
+      ],
+      "knowledgeTimeLimits": [
+        "Current local alignment/width observation only, no poison/forecast/source truth",
+        "Loan duration separate from rain/old shop; receipt observed by actual actor"
+      ],
+      "choices": [
+        "Existing4coin purchase",
+        "New1coin owner-operated measurement",
+        "New finite loan plus disclosed actual deposit/return"
+      ],
+      "expenditure": [
+        "Real carrier/tool/actor effort,1stamina/2minutes indoor or4outdoor, operator fee/deposit separately conserved"
+      ],
+      "mutation": [
+        "Local sample measurement knowledge",
+        "Ownership sale or exact custody/deposit/return receipt, no extra lens"
+      ],
+      "nativeConsumers": [
+        "P4 datum demonstration and P5 physical offcut-fit support",
+        "Current owned-prism assembly/disassembly/native kit functions retained"
+      ],
+      "missingJoins": [
+        "New nonconsuming custody-safe exact-loan inspection reservation path",
+        "Loan/deposit/return validators and public controls",
+        "Current sample/native downstream fit consumers"
+      ],
+      "failureLate": [
+        "Borrowed assembly/destructive consumption/transfer denied",
+        "Sold/held/equipped lens refuses; late return affects only maker specific future consent",
+        "Completed measurement fee spent; unperformed reservation refunds per terms"
+      ],
+      "aftermath": [
+        "Same maker stock/actual lens custody and understood measurement; no restock/second pin"
+      ],
+      "compatibility": "Separate lore.instrument prefix; existing artifact IDs and frozen old job/recipe meanings; explicit exact loan use/return admission.",
+      "owners": [
+        "src/artifact_collection.js",
+        "src/artifact_workshop_content.js",
+        "src/artifact_workshop_host.js",
+        "src/simulation_effects.js",
+        "src/simulation.js",
+        "src/main.js"
+      ],
+      "deferredGate": "Owned/operator/borrowed tool reaches P4/P5, exact carrier return/deposit; borrowed destructive route rejects; reload/import/failure/director",
+      "status": "source-ready original proposal; not implemented",
+      "newGameplayStatus": "proposed only",
+      "world": "base.frontier",
+      "document": "IMPLEMENTATION_PACKETS.md#p3-a-useful-lens-with-a-return-obligation"
+    },
+    {
+      "id": "P4",
+      "title": "Teach the procedure without copying the body",
+      "sourceEvidence": [
+        "S10",
+        "S12"
+      ],
+      "dependsOn": [
+        "P3"
+      ],
+      "benefitsFrom": [
+        "P1",
+        "P2"
+      ],
+      "prerequisites": [
+        "Performed measurement/current sample; Eda actual active source/body/bench consent",
+        "Known willing supported human learner, recovered hands, own effort and Neri attention if sponsored"
+      ],
+      "knowledgeTimeLimits": [
+        "Procedure ownership/learner body/physical output distinct; teacher source retained",
+        "5minute demonstration, late learning useful later but not retroactive rain repair"
+      ],
+      "choices": [
+        "Learn personally",
+        "Sponsor independently willing Neri",
+        "Keep ordinary larger-material lining"
+      ],
+      "expenditure": [
+        "2nativecoins to Eda +Eda1stamina +learner1stamina; Neri-only1actualattention +5minutes demonstration with actual compatible offcut",
+        "New strip output1Compatible repair offcut +1stamina/2minutes by actual learned actor"
+      ],
+      "mutation": [
+        "New original procedure source/power learned by actual learner with provenance",
+        "One native Measured drain strip belongs to actual producer until transfer"
+      ],
+      "nativeConsumers": [
+        "New P2 smaller-material drain lining or P5 fitted cover uses actual strip, while ordinary routes retained"
+      ],
+      "missingJoins": [
+        "Exact new source/power/actor learning and controller binding",
+        "Measured drain strip item spec/native reconstruction",
+        "Current target predicates and strip material debit in P2/P5"
+      ],
+      "failureLate": [
+        "Unsupported teacher/body/source/site or refusal -> no grant",
+        "Loss at completion refunds reservations with no source/output",
+        "Imported incompatible body retains knowledge but cannot execute without supported adapter"
+      ],
+      "aftermath": [
+        "Who learned/who performed/payer/teacher identity separate, no Eda source loss or exclusive-branch reversal"
+      ],
+      "compatibility": "New stable source/power/item IDs require updated fork; separate lore.learning prefix; old hand/body/method/loadedfine branches untouched.",
+      "owners": [
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_home_facts.js",
+        "src/body_progression.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/power_models.js",
+        "src/data/expedition_items.js",
+        "src/main.js"
+      ],
+      "deferredGate": "Personal/sponsored/ordinary alternative; real learner/body/teacher/source/output/consumer; unsupported/refund/reload/import/failure/director",
+      "status": "source-ready original proposal; not implemented",
+      "newGameplayStatus": "proposed only",
+      "world": "base.frontier",
+      "document": "IMPLEMENTATION_PACKETS.md#p4-teach-the-procedure-without-copying-the-body"
+    },
+    {
+      "id": "P5",
+      "title": "Timber, drainage and one finite crop",
+      "sourceEvidence": [
+        "S08",
+        "S09"
+      ],
+      "dependsOn": [
+        "P2"
+      ],
+      "benefitsFrom": [
+        "P3",
+        "P4"
+      ],
+      "prerequisites": [
+        "Actual existing green/dry offcuts with lawful owner/site, existing current warned Nell crop and its sixminute window",
+        "No new seeds/crop cycle/private stock; P2 discard support only while explicitly opted in"
+      ],
+      "knowledgeTimeLimits": [
+        "Actual material/crop state and known recipient, no universal weather/ecology/cure",
+        "Before-rain obstruction affects current rain; after-rain changes later site only"
+      ],
+      "choices": [
+        "Keep stock/use current dry/salvage work",
+        "Alternate fitted offcut cover or ordinary log cover/earlyharvest/neglect",
+        "Deliberately discard owned scraps into notch with observed obstruction"
+      ],
+      "expenditure": [
+        "Existing trim1log/sharpknife/effort gives1wetstave+2green with dulled knife retained",
+        "Existing drying2green+2stamina/6minutes ->2compatible",
+        "Alternate cover2compatible+2stamina/2minutes; optional measuredstrip as explicitly consumed recipe input",
+        "Discard2green+1stamina/1minute -> current blocked drain, no item reward"
+      ],
+      "mutation": [
+        "Same current crop one terminal result; actual herbs in native bag",
+        "Actual current drain blockage with caused observable record",
+        "Conserved native cut/dry/cover/repair transformations"
+      ],
+      "nativeConsumers": [
+        "Current5/3/1/1crop output and native cooking recipes using Cooking herbs",
+        "P2 current support reducer reads actual obstruction before its single rain",
+        "Existing repair/salvage retain ordinary useful material route"
+      ],
+      "missingJoins": [
+        "Exact alternate cover factory/command and frozen receipt/validator admission under current crop owner",
+        "Separate lore.material disposal fact/event join to P2",
+        "Native material/consumer presentation without second crop/seed"
+      ],
+      "failureLate": [
+        "Wet/mismatch/heldborrowed stock refuses precision/consumption",
+        "Lost site/body/Nell access cancels; deadline settles exactly once; no concurrent covering jobs",
+        "Crop expired cannot produce another reward; rain expired cannot replay"
+      ],
+      "aftermath": [
+        "Same crop/room/drain/actor histories and native herb custody, no automatic replant/refill"
+      ],
+      "compatibility": "Existing material/herb IDs; append exact opted-in alternative job under matching current crop owner/version; old terminal branches/seed deadline meanings fixed.",
+      "owners": [
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_home_host.js",
+        "src/audit_remainder_consequences_content.js",
+        "src/audit_remainder_consequences_facts.js",
+        "src/audit_remainder_consequences_host.js",
+        "src/crafting_recipes.js",
+        "src/simulation.js"
+      ],
+      "deferredGate": "Conserved log/offcut/crop branches into actual cooking; discard-before/after-rain, closure/NPC account; cancellation/reload/import/failure/director",
+      "status": "source-ready original proposal; not implemented",
+      "newGameplayStatus": "proposed only",
+      "world": "base.frontier",
+      "document": "IMPLEMENTATION_PACKETS.md#p5-timber-drainage-and-one-finite-crop"
+    }
+  ],
+  "strongestPackets": [
+    "P1",
+    "P2"
+  ],
+  "document": "IMPLEMENTATION_PACKETS.md",
+  "broaderMap": "LORE_TO_PLAY.md",
+  "findings": "FINDINGS.json",
+  "commonIntegration": "One current registry/body/clock/job/inventory/native/publisher owner; new explicit group routes/controller install/observer projection and exact completion/refund bindings. No code selected by design task. Required new local-time retention precedes scheduler checks; Ressa responses finish before validated remaining-duration exposure job; player attention never fabricated.",
+  "sourceEditionCoverage": "FINDINGS.json sources and evidence are authority; no whole-library completion claim",
+  "deferredGates": [
+    "runtime/native/UI/save integration",
+    "matching rebuild/source maps",
+    "isolated native gameplay/clock/stock/knowledge/NPC alternatives",
+    "save/reload/import/failed publication/old-job regression",
+    "director choices/pacing/fiction acceptance"
+  ]
+}

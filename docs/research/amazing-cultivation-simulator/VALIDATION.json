@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-06T20:34:32.543338+00:00",
+  "status": "passed",
+  "checks": {
+    "required_files": {
+      "INTAKE.json": true,
+      "REPORT.md": true,
+      "FINDINGS.json": true,
+      "COVERAGE.json": true,
+      "IMPLEMENTATION_PACKETS.md": true,
+      "PACKETS.json": true,
+      "CHECKPOINT.md": true
+    },
+    "json_parsed": 11,
+    "guest_source_records_checked": 125,
+    "packet_count": 3,
+    "local_links_checked": 47,
+    "export_file_hashes_checked": 4583,
+    "installed_assembly_readback": "both match pinned input/copy",
+    "export_exit_stderr": [
+      {
+        "assembly": "Assembly-CSharp",
+        "exit": 0,
+        "stderr_bytes": 0
+      },
+      {
+        "assembly": "Assembly-CSharp-firstpass",
+        "exit": 0,
+        "stderr_bytes": 0
+      }
+    ],
+    "selected_families": 5,
+    "source_subtraces": 15,
+    "raw_recovered_files_in_repo": [],
+    "packet_owner_drift": []
+  },
+  "errors": [],
+  "scope": "Research artifacts/source pins and links only. Gameplay/build/unit/browser/save/failure/regression/director gates unrun/deferred.",
+  "files": {
+    "YAIR_INPUTS.json": "14b7eb7c363030e9f3c96622e062174e0a8a67ee2eff84b385f10b5c66a00f4f",
+    "REPORT.md": "5807ae2d22045da23209e81aa770b13d622a759836b2f5ef8506f91fe02bedd0",
+    "IMPLEMENTATION_PACKETS.md": "582699dfe6988a70bded50599283abcbd9a346bf66702b8939f0bd4d0d2a1014",
+    "CHECKPOINT.md": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2",
+    "FINDINGS.json": "6f855adf8bca69ac0f79045cb8de67ee6017d90d6f63d6e2e6cd81bd0a43e81a",
+    "INTAKE.json": "098e00666937c622e8fd2b01948cc5403e4edeb7830727461f7ace4cfb1fb45c",
+    "DLC_COVERAGE.json": "eb9e9e557c4f745b2d39efcf0fcdf685dc027fcbada7a9c3f8011bd37acdf633",
+    "COVERAGE.json": "2dc7e5ee1ad60470044f972d04950d448ef2bf3aac96785d23d686d885320bb2",
+    "PACKETS.json": "f628fc5a04a6f5ba394eb22cbd05265db615bd5c016f2db198818a2345c58080",
+    "REVIEW.json": "c904ca594f55e637a01f9cb73031c028d97a85fdcbb23988af0f0731d7d518bf",
+    "FOLLOWUP_MESSAGES.json": "6f7884e8fd8bbb68bb2d3ef4d1c2456b37a048a6b8c79b6a0c15fd5d1cfe6495",
+    "DEEPER_RESEARCH.md": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+    "traces/dlc.md": "3680f4da07a2f4d2f735edf385294b0002fb3f827958243311f2bdd923f624bc",
+    "traces/production.md": "703b57d9085238685ebce6cd8890dbe9ac9491423be4803459a35819a0815d44",
+    "traces/production.json": "458bc6931b89e0f1865b57fc075a57529111cf51a7487643950325dfc9e2a44f",
+    "traces/cultivation.json": "ddb539a38e3f80211ae7bb8e051ef4f33c9e3940d0df36cf56ba67d5c0cfc3d3",
+    "traces/pacing.md": "98dcfac87795a9fab0bba09b3d4882cf6ae77be9c369787add7d8cdd1ae6e572",
+    "traces/actors.md": "d1b942af7da1edc81750d914ace259db50fa5e6d1d2ecfcbb1aa536bf49dc4fa",
+    "traces/institution.md": "e363329ac4cbc70f67108daded971511b233d786d472992b90f6f8411dcb116b",
+    "traces/cultivation.md": "1671fd510773d09f903a5ebd5e3e0a1a946f90875af98623c2af988251033728",
+    "traces/pacing.json": "b30aecd4f774f407722b576c8575972ddced528ff929a17d21ff056e6424d860",
+    "traces/actors.json": "158007274739f991163e9e760d205a294a8d36007d54d82f959339e15f96825f",
+    "traces/institution.json": "6f06cb3c9973301184a716c4e90732ff8cb14fe2f7a57abbeeeda4e99bc86b88",
+    "traces/dlc.json": "d130048850c8cba33dc481247608a276147cdd1837bcb1897b5b4e4a56c2cb25"
+  },
+  "followup_checks": {
+    "scope": "Saved deeper research direction, two selected DLC trace supplements, official/installed/read/unread coverage and four explicitly authorized chat notes.",
+    "json_parsed": 14,
+    "dlc_source_files_and_ranges": 16,
+    "supplemental_dlc_traces": 2,
+    "official_urls": {
+      "listing": "https://store.steampowered.com/dlc/955900/?l=english",
+      "bamboo": "https://store.steampowered.com/app/1446730/?l=english",
+      "wudang": "https://store.steampowered.com/app/1701600/?l=english"
+    },
+    "installed_dlc_ids_match_official": true,
+    "local_links": 63,
+    "notes_sent": 4,
+    "research_acknowledgments_observed": 3,
+    "recipient_work_completion": "not claimed",
+    "gameplay_checks": "remain deferred/unrun",
+    "prior_export_readback": "Reused passed original4583-file readback; exports unchanged. No repeat export."
+  }
+}

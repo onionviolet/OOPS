@@ -1,0 +1,317 @@
+{
+  "schema": 1,
+  "state": "source-reviewed-proposals",
+  "source_version": "2.0.211.56",
+  "source_assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+  "source_root": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+  "findings": [
+    {
+      "id": "QUDB-01",
+      "family": "blueprint composition",
+      "observed": "The loader bakes inheritance and ordered mixins, merges named child nodes and removals, then the object factory turns part definitions into actual registered runtime parts. Unknown part types can fail construction. Metadata alone is not a working ability.",
+      "evidence": [
+        {
+          "file": "XRL.World.Loaders/ObjectBlueprintLoader.cs",
+          "line_spans": [
+            [
+              565,
+              653
+            ],
+            [
+              740,
+              779
+            ],
+            [
+              922,
+              946
+            ]
+          ],
+          "symbols": [
+            "Bake",
+            "Inherit",
+            "LoadAllBlueprints"
+          ],
+          "sha256": "65d58bf0f4fd1a7dda24106e33dd7426772ba1fb486a3b7934002327feb17237"
+        },
+        {
+          "file": "XRL.World/GameObjectFactory.cs",
+          "line_spans": [
+            [
+              888,
+              921
+            ],
+            [
+              1030,
+              1095
+            ],
+            [
+              1438,
+              1500
+            ]
+          ],
+          "symbols": [
+            "LoadBlueprints",
+            "LoadBakedXML",
+            "CreateObject"
+          ],
+          "sha256": "a041d35dfcd08ed3ac5ced9a218e365eb5f0894b3adb7722556a097fc4aa6d86"
+        }
+      ],
+      "yair_qualification": "YAIR already has content registries, functional powers, object/material consumers and directed state owners. This supports authoring discipline and composition, not replacing the current engine with another entity/component runtime.",
+      "proposal": "For one original unusual tool, define its material/custody/operation functions through existing owners, then demonstrate two different uses using the same physical tool.",
+      "later_gate": "Both uses check actual ownership/support/costs and retain their distinct consequences; metadata alone awards no effect."
+    },
+    {
+      "id": "QUDC-01",
+      "family": "cold effect lifecycle and action-specific ability",
+      "observed": "Cryokinesis validates a selected visible in-range local burst before spending action energy and setting cooldown. It creates a timed attributed field. CryoZone applies cold damage and temperature change to objects with Physics. Expiry ends the field group; an optionally declared dependency can also end it when the referenced object is absent or nowhere. Physics derives freezing/frozen states from separate thresholds, applies/removes effects, and serializes thermal fields. Frozen rejects duplicate application and emits thaw cleanup. GameObject.CheckFrozen can permit an explicitly requested telepathic or telekinetic exception only with actual supporting parts/contact.",
+      "evidence": [
+        {
+          "file": "XRL.World.Parts.Mutation/Cryokinesis.cs",
+          "line_spans": [
+            [
+              120,
+              174
+            ],
+            [
+              177,
+              218
+            ]
+          ],
+          "symbols": [
+            "Cryo",
+            "Cast"
+          ],
+          "sha256": "5ad9761ec97b38a7ac88e9520c655acd96d7945dfb6c0e74e3c064f38edba7d7"
+        },
+        {
+          "file": "XRL.World.Parts/CryoZone.cs",
+          "line_spans": [
+            [
+              37,
+              92
+            ],
+            [
+              399,
+              410
+            ]
+          ],
+          "symbols": [
+            "HandleEvent(EndTurnEvent)",
+            "CheckDependsOn"
+          ],
+          "sha256": "7feb39ebef75270942096ad267c442b6663d589b5c3ddd0c9935c8439dd7a891"
+        },
+        {
+          "file": "XRL.World.Parts/Physics.cs",
+          "line_spans": [
+            [
+              490,
+              535
+            ],
+            [
+              642,
+              650
+            ],
+            [
+              4051,
+              4120
+            ]
+          ],
+          "symbols": [
+            "SaveData",
+            "LoadData",
+            "IsFrozen",
+            "CheckThresholds"
+          ],
+          "sha256": "e609f6d1a31c136decfc6a86ed2f3e4f52887185538de47536caa4f4f7f82f2b"
+        },
+        {
+          "file": "XRL.World.Effects/Frozen.cs",
+          "line_spans": [
+            [
+              43,
+              90
+            ]
+          ],
+          "symbols": [
+            "HandleEvent",
+            "CanApply",
+            "ApplyTo",
+            "Remove"
+          ],
+          "sha256": "bea3bf3640dd95bb6a1b7f42700a0fa449fc1d4298fe8af53af08c2c260f1167"
+        },
+        {
+          "file": "XRL.World/GameObject.cs",
+          "line_spans": [
+            [
+              3550,
+              3566
+            ],
+            [
+              6242,
+              6302
+            ]
+          ],
+          "symbols": [
+            "CheckFrozen",
+            "ApplyEffect",
+            "RemoveEffect"
+          ],
+          "sha256": "b00d7a22f93adb47c05b39f170ae1c1ec23bd112210da69f77a074d6b4588133"
+        }
+      ],
+      "limits": [
+        "Selected source path, no runtime playthrough or complete resistance/phase catalogue. Qud uses spatial cells and turns; faithful full thermal/grid simulation is not a selected YAIR dependency.",
+        "Ordinary Cryokinesis.Cast does not enable the optional Dependent argument. Owner attribution is not continuing support; CheckDependsOn tests existence/placement, not a general fuel/consent rule."
+      ],
+      "yair_qualification": "Current YAIR already has paid sources, support checks, timed conditions, body requirements, material variants and native battle result owners. A temperature/material-specific interaction is a new selected consumer, while its whole spatial field simulation would cost much more.",
+      "proposal": "An original cooling method could temporarily protect a sensitive parcel or stabilize a hot fitting, while its actual state restricts specific physical actions. Distinct mental actions require their own owned source/access rules.",
+      "later_gate": "Validate legal targets before costs, apply the defined material/state consequence, expire on the selected local clock, and restore action eligibility without granting a second result."
+    },
+    {
+      "id": "QUDA-01",
+      "family": "achievements and combination feats",
+      "observed": "There are 150 static AchievementInfo declarations in this assembly, not a verified external-platform count. AchievementInfo supports hidden goals, threshold progress and child-stat collections. StatInfo counts completed distinct child stats and unlocks at thresholds. Unlock is guarded by Achieved/Enabled and stamps time; platform notification has a local fallback. AchievementManager reads/writes a separate synchronized achievement JSON with error handling. EquippedFungusAchievement observes actual equipped objects and distinct blueprint identities before unlocking its simultaneous-state goal.",
+      "evidence": [
+        {
+          "file": "XRL/Achievement.cs",
+          "line_spans": [
+            [
+              1,
+              55
+            ]
+          ],
+          "symbols": [
+            "static AchievementInfo declarations"
+          ],
+          "sha256": "b3a39e95049061eb6b17a48a1096874cbf5144c219650d238fce3973a69881d1"
+        },
+        {
+          "file": "AchievementInfo.cs",
+          "line_spans": [
+            [
+              25,
+              86
+            ]
+          ],
+          "symbols": [
+            "constructors",
+            "Unlock",
+            "Indicate"
+          ],
+          "sha256": "ed3b2b17f41a1bc86ff393eb02dfea2e74e236d7078bf2d2326dcdcd56e2f0fa"
+        },
+        {
+          "file": "StatInfo.cs",
+          "line_spans": [
+            [
+              31,
+              61
+            ],
+            [
+              64,
+              125
+            ]
+          ],
+          "symbols": [
+            "Create",
+            "SetValue",
+            "Consume"
+          ],
+          "sha256": "d8899d95563302f6eee1fde9a6706a0d1a5786e09643a7f51342bef6b16b86ef"
+        },
+        {
+          "file": "AchievementManager.cs",
+          "line_spans": [
+            [
+              40,
+              105
+            ],
+            [
+              129,
+              161
+            ]
+          ],
+          "symbols": [
+            "Awake",
+            "Load",
+            "Save",
+            "SetAchievement"
+          ],
+          "sha256": "5c68f1173bdd66d631e680cc34973ec5c44262a70c7a480a2f3ec253d5359b3b"
+        },
+        {
+          "file": "XRL.World.Parts/EquippedFungusAchievement.cs",
+          "line_spans": [
+            [
+              16,
+              45
+            ]
+          ],
+          "symbols": [
+            "Register",
+            "FireEvent(Equipped)"
+          ],
+          "sha256": "55ddb42b14900a5fcb7f4a64feebe13f7a3477b6819c92a272996ffc72e8c22d"
+        }
+      ],
+      "limits": [
+        "No personal Achievements.json or game saves were read. The manager uses queued/asynchronous saving; this source reading does not establish failure atomicity or platform-service behavior."
+      ],
+      "yair_qualification": "The DCSS/DDA review already proposed durable feat receipts. Qud adds concrete distinct-child aggregation, combination-state checks and local/platform presentation separation. YAIR has no dedicated feat catalogue in the inspected consumers; its existing durable native publisher remains the integration owner.",
+      "proposal": "Use one original catalogue over committed feat outcomes with unique IDs: acknowledge ordinary achievements, distinct-method completion and exceptional simultaneous conditions. Explicitly choose character/run/account retention rather than silently copying Qud profile scope.",
+      "later_gate": "Duplicate actions do not duplicate recognition; a required distinct set cannot be filled by repeating one method; hypothetical previews and failed publication cannot award a feat."
+    }
+  ],
+  "npc_findings": "NPC_FINDINGS.json",
+  "semantic_coverage": "Three root-selected paths plus two bounded NPC/social paths; not all recovered classes or all gameplay.",
+  "current_yair_sources": [
+    {
+      "file": "src/simulation.js",
+      "sha256": "df359e84eaa43f23c37c085a9f18c4c36304124c70753c0453d8cb8fc74a8f9b",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "sha256": "987b30559d5796278167185966772a2a48913651704c94114165345883582afb",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/simulation_contracts.js",
+      "sha256": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/event_feed.js",
+      "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    },
+    {
+      "file": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "qualification": "Inspected as current consumer context; implementation must refresh these moving sources."
+    }
+  ]
+}

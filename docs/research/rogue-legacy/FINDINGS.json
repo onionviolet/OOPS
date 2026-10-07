@@ -1,0 +1,2044 @@
+{
+  "schema": 1,
+  "completed_on": "2026-10-06",
+  "source_commit": "b41c17888a91100bbf8f1febecaa636a1b421f5b",
+  "reading_scope": "Five selected interacting gameplay paths, not full-repository semantic review",
+  "paths": [
+    {
+      "path_id": "lineage-traits-classes",
+      "title": "Death record to frozen successors, compatibility filters, chosen character and functional traits",
+      "claims": [
+        {
+          "id": "lineage.death-record",
+          "kind": "source_observed",
+          "observation": "GameOverScreen.OnEnter appends the deceased character with class/traits/age/kills/boss record, clears candidate branches, marks IsDead and resets run flags, Lich gains and the one-reroll flag. FreeEntrance and five challenge tokens survive where other special items are removed; death does not reset manor/equipment arrays or Gold in this observed boundary.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/GameOverScreen.cs#L149-L198"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.frozen-offer",
+          "kind": "source_observed",
+          "observation": "LoadCurrentBranches generates three candidates only when CurrentBranches is absent/empty, stores candidate class/spell/traits/age/portrait and saves Lineage; otherwise restores existing candidates. Candidate generation calls LineageObj with createEmpty=false. This prevents ordinary screen reopen from intentionally regenerating offers, subject to actual save success.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 286,
+              "end": 328,
+              "symbol": "LineageScreen.AddLineageRow",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L286-L328"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 460,
+              "end": 507,
+              "symbol": "LineageScreen.LoadCurrentBranches",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L460-L507"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.traits-rng",
+          "kind": "source_observed",
+          "observation": "CreateRandomTraits reuses ONE inclusive 0..100 roll for both thresholds: first <94, second <55; so code-derived probability is 55/101 two traits, 39/101 one, 7/101 none. Rarity cutoffs are cumulative 48/85/100 with <= and inclusive RNG, yielding 49/101,37/101,15/101, rather than exactly 48/37/15 percent. Duplicate second traits and five incompatible pairs are rejected.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Types/TraitType.cs",
+              "start": 389,
+              "end": 497,
+              "symbol": "TraitType.CreateRandomTraits / TraitConflict",
+              "sha256": "054f6659c9d426a6fcc9cb8d6ea09006b8c49aa169d421f9afedfdc65a53562a",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Types/TraitType.cs#L389-L497"
+            },
+            {
+              "file": "DS2DEngine/src/CDGMath.cs",
+              "start": 105,
+              "end": 108,
+              "symbol": "CDGMath.RandomInt(min,max)",
+              "sha256": "3a6483a1b75799598e4fb5a96f3f4a1179576af3adce8e555884ea886f9a1ee8",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/DS2DEngine/src/CDGMath.cs#L105-L108"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.class-pool",
+          "kind": "source_observed",
+          "observation": "GetRandomClass starts Knight/Wizard/Barbarian/Assassin; manor unlocks add Ninja/Banker/SpellSword/Lich/Dragon, and final challenge/config gate adds Traitor. The uniform candidate-class selection upgrades ordinary class IDs by +8 when the corresponding retained manor skill is purchased. The pool is progression-dependent, not level-matched to an enemy.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 183,
+              "end": 241,
+              "symbol": "ClassType.GetRandomClass / Upgraded",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Types/ClassType.cs#L183-L241"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.compatibility",
+          "kind": "source_observed",
+          "observation": "After drawing traits and class, constructor rerolls traits for Lich+Dextrocardia and Wizard/Wizard2/Dragon+Savant. Spell is drawn from class list; Savant rejects DamageShield/TimeStop/Translocator. Age18..30 and childAge2..5 are presentation-generation fields here, not simulated played-time aging.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/LineageObj.cs",
+              "start": 159,
+              "end": 209,
+              "symbol": "LineageObj constructor",
+              "sha256": "7b9a5cc087a1100ea9331ccb62a9374d41712e47d9606d1f18e9eb5cc779f9e7",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/LineageObj.cs#L159-L209"
+            },
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 243,
+              "end": 277,
+              "symbol": "ClassType.GetSpellList",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Types/ClassType.cs#L243-L277"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.selection-reroll",
+          "kind": "source_observed",
+          "observation": "Confirm at current branch offers a warning dialog with StartGame or CancelSelection; cancellation restores the temporary IsFemale stat. Purchased Randomize_Children and RerolledChildren=false permit one reroll: sets/saves the used flag, then clears/regenerates/saves branches. Those saves are separate calls. StartGame copies the selected identity/class/traits/spell, initializes Wizard spell list, clears branches and loads StartingRoom.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 592,
+              "end": 605,
+              "symbol": "LineageScreen.HandleInput reroll gate",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L592-L605"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 697,
+              "end": 738,
+              "symbol": "LineageScreen.HandleInput confirmation / CancelSelection",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L697-L738"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 854,
+              "end": 913,
+              "symbol": "LineageScreen.RerollCurrentBranch / StartGame",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L854-L913"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.functional-trait",
+          "kind": "source_observed",
+          "observation": "Dextrocardia exchanges which full computed HP/MP stat pool MaxHealth/MaxMana uses, including gear, global purchase-level growth, permanent stat pickups, manor stats and class multipliers. Hyperactive adds a movement multiplier term. These are functional consumers, not proof that every listed trait changes every system.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 3631,
+              "end": 3694,
+              "symbol": "PlayerObj.MaxMana / MaxHealth",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L3631-L3694"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 4069,
+              "end": 4084,
+              "symbol": "PlayerObj.TotalMovementSpeedPercent",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L4069-L4084"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 4180,
+              "end": 4243,
+              "symbol": "PlayerObj.ClassTotalHPMultiplier / ClassTotalMPMultiplier",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L4180-L4243"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.serialized",
+          "kind": "source_observed",
+          "observation": "Lineage save/load carries candidate identity/class/spell/traits and history. SavePlayerData/LoadPlayerData separately persist current class/spell/traits. SaveFiles catches errors and increments a failure count, displaying an error after repeated failures; no all-files atomicity is established.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1148,
+              "end": 1197,
+              "symbol": "SaveGameManager.SaveLineageData candidate list",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1148-L1197"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1224,
+              "end": 1258,
+              "symbol": "SaveGameManager.SaveLineageData family history",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1224-L1258"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1961,
+              "end": 1997,
+              "symbol": "SaveGameManager.LoadLineageData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1961-L1997"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 515,
+              "end": 535,
+              "symbol": "SaveGameManager.SavePlayerData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L515-L535"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1346,
+              "end": 1354,
+              "symbol": "SaveGameManager.LoadPlayerData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1346-L1354"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 115,
+              "end": 149,
+              "symbol": "SaveGameManager.SaveFiles",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L115-L149"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        }
+      ],
+      "trace": {
+        "caller": "Player death -> GameOverScreen.OnEnter -> LineageScreen.OnEnter/LoadCurrentBranches -> chosen confirmation StartGame -> StartingRoom player refill/save",
+        "gates": [
+          "Three offers created only if missing; existing offer data loaded",
+          "Class pool uses retained unlock/upgrade checks",
+          "Trait pair/class/spell compatibility filters",
+          "Reroll needs purchase and unused generation flag; confirmation is cancellable"
+        ],
+        "costs": [
+          "No per-selection currency deduction in StartGame",
+          "Randomize_Children is a one-level manor purchase; reroll uses one generation allowance",
+          "Run ends in death, losing the selected body/run gains but retaining catalog/manor/history"
+        ],
+        "mutations": [
+          "Death appends history, clears candidates, sets IsDead and resets run gains",
+          "Generation saves three candidates",
+          "Reroll saves used flag before separately replacing saved offers",
+          "Selected candidate replaces class/traits/spell identity; StartingRoom refills computed HP/MP"
+        ],
+        "consumers": [
+          "Trait-dependent stat pools/movement",
+          "Class-specific spell list and later PlayerObj spell execution",
+          "Manor unlocks alter later candidate pool"
+        ],
+        "failure_boundaries": [
+          "Forbidden pairs/classes/spells are redrawn",
+          "CancelSelection restores temporary gender change",
+          "Repeated SaveFiles failure is surfaced; separate file calls are not proven atomic"
+        ],
+        "persistence": "Source serialization covers history, candidates and current identity. No descendant lifecycle or death/save test was run."
+      },
+      "id": "P1",
+      "review_status": "parent reviewed exact consequential code, requested targeted repairs where needed, integrated"
+    },
+    {
+      "path_id": "manor-retention-investment",
+      "title": "Run gold to retained paid manor choices, class/service options and next-run toll",
+      "claims": [
+        {
+          "id": "manor.cost-growth",
+          "kind": "source_observed",
+          "observation": "SkillObj.TotalCost = BaseCost + CurrentLevel*Appreciation + 10*Game.PlayerStats.CurrentLevel. ModifierAmount=CurrentLevel*PerLevelModifier. Health_Up is +10 per purchased level, base50/appreciation40/max75; every successful manor purchase increases global CurrentLevel, so even unrelated purchases raise later prices and can increase player HP/MP through level growth.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/SkillObj.cs",
+              "start": 135,
+              "end": 158,
+              "symbol": "SkillObj.CurrentLevel / TotalCost / ModifierAmount",
+              "sha256": "404f6778a44ee724f62819be549eb758fe7e55fff05948418e64722c8c8edb71",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/SkillObj.cs#L135-L158"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 11,
+              "end": 12,
+              "symbol": "GameEV.SKILL_LEVEL_COST_INCREASE",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/GameEV.cs#L11-L12"
+            },
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 30,
+              "end": 47,
+              "symbol": "SkillBuilder.BuildSkill Health_Up",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillBuilder.cs#L30-L47"
+            },
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 131,
+              "end": 155,
+              "symbol": "SkillSystem.LevelUpTrait",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillSystem.cs#L131-L155"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 3631,
+              "end": 3694,
+              "symbol": "PlayerObj.MaxMana / MaxHealth",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L3631-L3694"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.reveal-purchase",
+          "kind": "source_observed",
+          "observation": "Initialize starts Smithy visible. Navigation permits non-null visible skills; confirm checks enough gold and below MaxLevel and m_fadingIn=false, deducts gold then reveals manor/neighbor icons and increments skill/global level. Insufficient gold emits purchase failure; capped skills cannot be purchased. The immediate per-purchase save call is commented; actual OnExit saves UpgradeData and PlayerData.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 47,
+              "end": 63,
+              "symbol": "SkillSystem starting trait / authored graph",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillSystem.cs#L47-L63"
+            },
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 104,
+              "end": 127,
+              "symbol": "SkillSystem.Initialize",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillSystem.cs#L104-L127"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 801,
+              "end": 844,
+              "symbol": "SkillScreen.HandleInput purchase",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/SkillScreen.cs#L801-L844"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 319,
+              "end": 337,
+              "symbol": "SkillScreen.SetVisible",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/SkillScreen.cs#L319-L337"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 543,
+              "end": 558,
+              "symbol": "SkillScreen.SetSkillIconVisible",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/SkillScreen.cs#L543-L558"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 311,
+              "end": 317,
+              "symbol": "SkillScreen.OnExit",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/SkillScreen.cs#L311-L317"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.options",
+          "kind": "source_observed",
+          "observation": "Ninja_Unlock costs base400 plus global purchase-level surcharge, max1, and changes future random-class eligibility. Randomize_Children costs base5000 plus global surcharge, max1, and enables one reroll for each successor generation. These purchases grant action/selection options as well as numerical stats.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 490,
+              "end": 507,
+              "symbol": "SkillBuilder.BuildSkill Ninja_Unlock",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillBuilder.cs#L490-L507"
+            },
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 406,
+              "end": 418,
+              "symbol": "SkillBuilder.BuildSkill Randomize_Children",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/SkillBuilder.cs#L406-L418"
+            },
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 183,
+              "end": 215,
+              "symbol": "ClassType.GetRandomClass",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Types/ClassType.cs#L183-L215"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 592,
+              "end": 605,
+              "symbol": "LineageScreen.HandleInput reroll gate",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LineageScreen.cs#L592-L605"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.gold-loss-boundary",
+          "kind": "source_observed",
+          "observation": "Gold is not cleared by GameOverScreen death block. At next StartingRoom, toll is available only after TimesDead>0 and collector still visible. Confirming TollPaid(true) removes int(currentGold*(1 - Prices_Down.ModifierAmount)); FreeEntrance uses TollPaid(false). Thus unspent gold loss occurs at the confirmed gate, not universally on death. Challenge tokens are consumed there into specific challenge-unlocked flags.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/GameOverScreen.cs#L149-L198"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 524,
+              "end": 529,
+              "symbol": "StartingRoomObj.HandleInput free entrance",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L524-L529"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 574,
+              "end": 579,
+              "symbol": "StartingRoomObj.RunTollPaidSelection",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L574-L579"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 645,
+              "end": 695,
+              "symbol": "StartingRoomObj.TollPaid",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L645-L695"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 1000,
+              "end": 1007,
+              "symbol": "StartingRoomObj.ArchitectAvailable / TollCollectorAvailable",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L1000-L1007"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 11,
+              "end": 19,
+              "symbol": "GameEV gatekeeper/architect constants",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/GameEV.cs#L11-L19"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.architect-trade",
+          "kind": "source_observed",
+          "observation": "Retained Architect skill makes service available. Player confirmation requires a saved Map and an unlocked castle. ActivateArchitect leads to LockCastle=true and HasArchitectFee=true, resets FAILED fairy chests and breakables. Missing map refuses service, cancellation keeps layout choice unchanged, and entry clears invalid fee when no map exists. Actual map reload and 0.6 money-pickup multiplier are traced by manor.architect-consumers rather than inferred from this flag.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 247,
+              "end": 257,
+              "symbol": "StartingRoomObj.OnEnter",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L247-L257"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 494,
+              "end": 520,
+              "symbol": "StartingRoomObj.HandleInput Architect gate",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L494-L520"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 707,
+              "end": 761,
+              "symbol": "StartingRoomObj.ActivateArchitect / StopArchitectActivation",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L707-L761"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 1000,
+              "end": 1007,
+              "symbol": "StartingRoomObj service availability",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L1000-L1007"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 19,
+              "end": 19,
+              "symbol": "GameEV.ARCHITECT_FEE",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/GameEV.cs#L19-L19"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.serialization",
+          "kind": "source_observed",
+          "observation": "Upgrade save writes discovery/purchase/equipped arrays and skill levels. Upgrade load resets skill/global counters then calls LevelUpTrait(saved levels, false), reconstructing progress without replaying any gold bonus. Death reset excludes these arrays, while StartingRoom restores computed HP/MP and saves alive status. SaveFiles writes individual types with catch-based failure reporting; do not copy this as YAIR transaction proof.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 782,
+              "end": 868,
+              "symbol": "SaveGameManager.SaveUpgradeData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L782-L868"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1668,
+              "end": 1685,
+              "symbol": "SaveGameManager.LoadUpgradeData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1668-L1685"
+            },
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter retained/lost boundary",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/GameOverScreen.cs#L149-L198"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 247,
+              "end": 257,
+              "symbol": "StartingRoomObj.OnEnter",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/StartingRoomObj.cs#L247-L257"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 115,
+              "end": 149,
+              "symbol": "SaveGameManager.SaveFiles",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L115-L149"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.architect-consumers",
+          "kind": "source_observed",
+          "observation": "On castle loading LockCastle selects saved LoadMap plus MapData, then clears LockCastle only after restoration. Locked reload suppresses ordinary-enemy killed-state, breakable-broken and fairy-failed restoration, while opened chest state still restores. Money pickup applies round(amount*(1+TotalGoldBonus)*0.6) when HasArchitectFee, compared with multiplier1 normally. This is the actual reduced-earnings consumer; architecture retains layout with selected run-state resets, not arbitrary world rewind.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LoadingScreen.cs",
+              "start": 231,
+              "end": 279,
+              "symbol": "LoadingScreen castle load branch",
+              "sha256": "fc8dd872fd321cca2cd98f76225918c0c671c497431e3690ba339748faa7b3ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/LoadingScreen.cs#L231-L279"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1858,
+              "end": 1925,
+              "symbol": "SaveGameManager.LoadMapData LockCastle state branches",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1858-L1925"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/ItemDropObj.cs",
+              "start": 94,
+              "end": 106,
+              "symbol": "ItemDropObj.GiveReward money pickup",
+              "sha256": "2f093a05ed1f7b2143f84855de6d551fa67615ce4c211820812f0a176fa936a6",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/ItemDropObj.cs#L94-L106"
+            }
+          ],
+          "limits": "Source branch/rounding observation only; room assets, save replay and play unverified."
+        }
+      ],
+      "trace": {
+        "caller": "Selected successor StartGame -> StartingRoom loaded under SkillScreen -> visible authored skill -> confirm purchase -> exit save -> full-stat character -> toll -> castle entry",
+        "gates": [
+          "Visible neighbor navigation",
+          "Enough gold, skill below cap, not fading",
+          "Retained unlocks qualify new classes/services/reroll",
+          "Architect needs a saved layout; toll only after a prior death"
+        ],
+        "costs": [
+          "BaseCost + ownLevel*Appreciation +10*totalManorPurchases",
+          "Toll truncates currentGold*(1-discount); FreeEntrance exemption",
+          "Architect keeps layout for downstream reduced gold earnings, not upfront fee in inspected activation"
+        ],
+        "mutations": [
+          "Gold deduction; permanent manor/global levels; neighboring options revealed",
+          "Selected successor stat consumers recompute from retained purchases",
+          "Entry consumes toll/token and may preserve map"
+        ],
+        "consumers": [
+          "MaxHealth/MaxMana include retained level/manor modifiers",
+          "Class generation/reroll/service availability",
+          "Layout reuse and income multiplier paths cross P4/P5"
+        ],
+        "failure_boundaries": [
+          "Insufficient funds/cap/animation reject purchase",
+          "Unavailable saved map refuses Architect",
+          "Exit-save errors are caught rather than providing rollback atomicity"
+        ],
+        "persistence": "Separate binary PlayerData/UpgradeData/Map/Lineage files and reconstructed skill levels. Exact save compatibility/build/play behavior unperformed."
+      },
+      "id": "P2",
+      "review_status": "parent reviewed exact consequential code, requested targeted repairs where needed, integrated"
+    },
+    {
+      "path_id": "equipment-runes-spells",
+      "title": "Catalog discovery, shop purchase/equip, rune consumers, spell casting, and durable state",
+      "claims": [
+        {
+          "id": "gear.chest.discovery",
+          "observation": "A chest constructs candidates only from NotFound blueprints whose equipment level requirement and chest colour requirement are met. It randomly selects one, writes FoundButNotSeen, and opens the GetItem screen with its category/index. When all blueprint entries are already found, the chest falls back to gold or a stat drop.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/ChestObj.cs",
+              "start": 299,
+              "end": 347,
+              "symbol": "ChestObj.GivePrint",
+              "sha256": "65cd1965311149ae5a5c2f6873ae52319a22a817c43218f323b38e7e50dd8312",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/ChestObj.cs#L299-L347"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Source inspection establishes candidate filtering and state assignment, not chest probabilities or live presentation behavior."
+        },
+        {
+          "id": "gear.equipment.purchase-and-weight-gate",
+          "observation": "Blacksmith confirmation can purchase a found-but-not-purchased item if Gold covers EquipmentData.Cost; it deducts gold and marks the blueprint Purchased. The same confirmation can equip a purchased item if resulting CurrentWeight is at most MaxWeight, accounting for the currently equipped item's weight. Too-heavy equipment remains purchased but is not equipped. Existing equipped item can be unequipped.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/BlacksmithScreen.cs",
+              "start": 633,
+              "end": 714,
+              "symbol": "BlacksmithScreen.EquipmentSelectionInput",
+              "sha256": "b7783cdd66130bfa35fd182106fb7a4755be71b853dc6f18d844226faf8abf17",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/BlacksmithScreen.cs#L633-L714"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Equipment stat aggregation is outside this note; screen code demonstrates equip-state mutation and the weight gate."
+        },
+        {
+          "id": "gear.rune.purchase-price-and-slot",
+          "observation": "Enchantress confirmation purchases a found rune when Gold >= GetAbilityCost, subtracts that cost, marks it Purchased, and immediately equips it in that equipment category. The cost is integer(base ability cost + TotalRunesPurchased * 175); InitializeAbilityCosts assigns a base of 175 for the normal category/ability combinations. Later purchased runes can replace the rune in a category, or an equipped rune can be unequipped with -1. Thus the per-category equipped array limits the player to one rune of a given category at a time.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/EnchantressScreen.cs",
+              "start": 548,
+              "end": 595,
+              "symbol": "EnchantressScreen.EquipmentSelectionInput",
+              "sha256": "69e07bece42757a4dd5831b74812fe35ec053b30c185e40098cffa4eb06bfd64",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/EnchantressScreen.cs#L548-L595"
+            },
+            {
+              "file": "RogueCastle/src/EquipmentSystem.cs",
+              "start": 14,
+              "end": 15,
+              "symbol": "EquipmentSystem rune cost modifiers",
+              "sha256": "5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EquipmentSystem.cs#L14-L15"
+            },
+            {
+              "file": "RogueCastle/src/EquipmentSystem.cs",
+              "start": 38,
+              "end": 109,
+              "symbol": "EquipmentSystem.InitializeAbilityCosts",
+              "sha256": "5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EquipmentSystem.cs#L38-L109"
+            },
+            {
+              "file": "RogueCastle/src/EquipmentSystem.cs",
+              "start": 213,
+              "end": 216,
+              "symbol": "EquipmentSystem.GetAbilityCost",
+              "sha256": "5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EquipmentSystem.cs#L213-L216"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerStats.cs",
+              "start": 322,
+              "end": 336,
+              "symbol": "PlayerStats.TotalRunesPurchased",
+              "sha256": "8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerStats.cs#L322-L336"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "The flat 175 base applies to the initialized listed combinations; the array initializes unsupported combinations to 9999."
+        },
+        {
+          "id": "gear.rune.double-jump-consumer",
+          "observation": "TotalDoubleJumps equals the count of equipped DoubleJump runes plus any equipment secondary DoubleJump attribute. During airborne jump input, PlayerObj accepts another jump only while m_doubleJumpCount < TotalDoubleJumps and the drop-through timer is nonpositive; it applies upward acceleration, increments the count, and plays the jump effect/sound. This connects a purchased/equipped rune to a concrete movement action rather than a display-only bonus.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 4035,
+              "end": 4038,
+              "symbol": "PlayerObj.TotalDoubleJumps",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L4035-L4038"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 881,
+              "end": 893,
+              "symbol": "PlayerObj.HandleInput airborne jump branch",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L881-L893"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerStats.cs",
+              "start": 383,
+              "end": 394,
+              "symbol": "PlayerStats.GetNumberOfEquippedRunes",
+              "sha256": "8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerStats.cs#L383-L394"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "This does not establish how the timing/feel behaves in a live run."
+        },
+        {
+          "id": "gear.spell-cast-resource-and-trait",
+          "observation": "The PLAYER_SPELL1 input calls CastSpell(false) after the spell delay; SpellSword2 can call CastSpell(false, true) from the block input. CastSpell captures the selected spell, builds ProjectileData, sets damage to integer(TotalMagicDamage * spell damage multiplier), and calculates base mana as integer(base spell cost * (1 - Mana_Cost_Down modifier)). For Dagger the declared base cost is 10 and damage multiplier is 1. Before mega-cost scaling and before the final projectile gate, base-cost-sufficient mana allows Savant to change the next selected spell for non-Dragon/non-Traitor classes outside two carnival rooms; it chooses from the class spell list while excluding Translocator, TimeStop, and DamageShield. The current cast continues using the captured spellType. SpellSword mega-cast then multiplies cost, projectile scale, and damage by their respective modifiers. The projectile branch checks mana again and subtracts mana only after firing. Ambilevous inverts projectile SourceAnchor.X except for Bounce and DamageShield.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2621,
+              "end": 2665,
+              "symbol": "PlayerObj.CastSpell setup, mana gate, Savant interaction",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2621-L2665"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2667,
+              "end": 2671,
+              "symbol": "PlayerObj.CastSpell Ambilevous SourceAnchor inversion",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2667-L2671"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2670,
+              "end": 2757,
+              "symbol": "PlayerObj.CastSpell Dagger projectile branch and mana deduction",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2670-L2757"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 992,
+              "end": 1008,
+              "symbol": "PlayerObj.HandleInput PLAYER_SPELL1 spell caller",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L992-L1008"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 1011,
+              "end": 1018,
+              "symbol": "PlayerObj.HandleInput SpellSword2 mega-cast caller",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L1011-L1018"
+            },
+            {
+              "file": "RogueCastle/src/EVs/SpellEV.cs",
+              "start": 11,
+              "end": 26,
+              "symbol": "SpellEV spell cost and damage constants",
+              "sha256": "7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/SpellEV.cs#L11-L26"
+            },
+            {
+              "file": "RogueCastle/src/EVs/SpellEV.cs",
+              "start": 234,
+              "end": 273,
+              "symbol": "SpellEV.GetManaCost",
+              "sha256": "7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/SpellEV.cs#L234-L273"
+            },
+            {
+              "file": "RogueCastle/src/EVs/SpellEV.cs",
+              "start": 316,
+              "end": 345,
+              "symbol": "SpellEV.GetDamageMultiplier",
+              "sha256": "7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/EVs/SpellEV.cs#L316-L345"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "No behavior was launched or tested. The common projectile branch covers multiple spell types; later switch branches provide distinct implementations. Base-cost sufficiency is only an early Savant reroll gate, not proof that the later mega-cost-adjusted spell fires."
+        },
+        {
+          "id": "gear.durable-catalog-and-equipment-state",
+          "observation": "SaveGameManager writes blueprint states, rune states, equipped item indices, and equipped rune indices as ordered byte/sbyte sequences, and the load path restores the same arrays in matching category loops. The arrays are initialized by category in PlayerStats. PlayerStats also counts equipped copies by scanning one rune index per category. This means catalog unlocks and loadout survive reload according to this binary layout; this is source evidence, not a save/reload test.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 796,
+              "end": 848,
+              "symbol": "SaveGameManager.Save upgrade equipment state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L796-L848"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1620,
+              "end": 1665,
+              "symbol": "SaveGameManager.Load upgrade equipment state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1620-L1665"
+            },
+            {
+              "file": "RogueCastle/src/Screens/BlacksmithScreen.cs",
+              "start": 475,
+              "end": 495,
+              "symbol": "BlacksmithScreen.OnExit saves player and upgrade data",
+              "sha256": "b7783cdd66130bfa35fd182106fb7a4755be71b853dc6f18d844226faf8abf17",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/BlacksmithScreen.cs#L475-L495"
+            },
+            {
+              "file": "RogueCastle/src/Screens/EnchantressScreen.cs",
+              "start": 389,
+              "end": 408,
+              "symbol": "EnchantressScreen.OnExit saves player and upgrade data",
+              "sha256": "69e07bece42757a4dd5831b74812fe35ec053b30c185e40098cffa4eb06bfd64",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/EnchantressScreen.cs#L389-L408"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerStats.cs",
+              "start": 180,
+              "end": 195,
+              "symbol": "PlayerStats equipment/rune array initialization",
+              "sha256": "8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerStats.cs#L180-L195"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "The cited save excerpts show serialization layout, not save-file revision compatibility or error recovery. Spell is stored in player data separately; this note does not trace every save revision."
+        }
+      ],
+      "trace": {
+        "caller": "ChestObj selects eligible undiscovered blueprint entries and opens GetItemScreen. The BlacksmithScreen and EnchantressScreen act on PlayerStats catalog/equipment arrays. PlayerObj.HandleInput calls CastSpell from PLAYER_SPELL1 and SpellSword2 block inputs; PlayerObj consumes equipped runes and executes active spells.",
+        "gates": [
+          "Blueprint discovery checks NotFound, item LevelRequirement <= chest Level, and chest type >= ChestColourRequirement.",
+          "Blacksmith purchase requires a discovered state and enough Gold; equip requires Purchased and resulting weight <= MaxWeight.",
+          "Rune purchase requires a found state and enough Gold; one rune index is equipped per category.",
+          "Spell cast requires CurrentMana >= computed cost; ability execution has spell-specific activateSecondary and state checks."
+        ],
+        "costs": [
+          "Equipment purchase uses EquipmentData.Cost.",
+          "Rune cost = int(baseCost + TotalRunesPurchased * 175); initialized base listed here is 175, unsupported cells default 9999.",
+          "Spell mana cost = int(baseCost * (1 - Mana_Cost_Down modifier)); mega cast further scales cost."
+        ],
+        "mutations": [
+          "Chest changes blueprint NotFound to FoundButNotSeen.",
+          "Shop subtracts Gold, marks Purchased, and writes equipped index; equip can replace or clear an index.",
+          "CastSpell may spend mana and spawns spell-specific projectile/effect; Savant can mutate next selected spell after sufficient-mana check."
+        ],
+        "consumers": [
+          "PlayerObj.TotalDoubleJumps and airborne jump input read equipped DoubleJump rune count.",
+          "ManaGain and ManaHPGain rune counts enter mana gain; other rune consumers include dash, flight, gold gain, vampirism, movement speed and damage return.",
+          "SpellEV supplies mana and damage constants/projectile data; PlayerObj.CastSpell dispatches execution."
+        ],
+        "failure_boundaries": [
+          "No eligible blueprint candidate routes chest reward to fallback gold/stat drop.",
+          "Insufficient gold leaves item/rune unpurchased; too-heavy equipment remains purchased but unequipped.",
+          "Insufficient base mana skips Savant's reroll gate, while mana sufficient for the base spell cost but insufficient after mega-cast scaling can still mutate the next selected spell even though the final spell branch fails and spends no mana.",
+          "Savant reroll excludes three spells and is suppressed for Dragon/Traitor classes and two carnival rooms."
+        ],
+        "persistence": "BlacksmithScreen.OnExit and EnchantressScreen.OnExit call SaveFiles(PlayerData, UpgradeData). Equipment/rune discovery, purchase, and equipped indices are written to and restored from upgrade data in matching ordered arrays. Spell selection is serialized in player data (SaveGameManager line 529 and load line 1351). Source review only; no save mutation or reload verification performed."
+      },
+      "coverage": [
+        {
+          "file": "RogueCastle/src/Game Objects/ChestObj.cs",
+          "ranges_read": [
+            [
+              300,
+              345
+            ]
+          ],
+          "purpose": "Blueprint candidate gates, discovery mutation, and fallback."
+        },
+        {
+          "file": "RogueCastle/src/Screens/BlacksmithScreen.cs",
+          "ranges_read": [
+            [
+              633,
+              714
+            ]
+          ],
+          "purpose": "Equipment payment, equip weight rule, unequip."
+        },
+        {
+          "file": "RogueCastle/src/Screens/EnchantressScreen.cs",
+          "ranges_read": [
+            [
+              548,
+              595
+            ]
+          ],
+          "purpose": "Rune purchase, escalating cost use, equip/unequip."
+        },
+        {
+          "file": "RogueCastle/src/EquipmentSystem.cs",
+          "ranges_read": [
+            [
+              38,
+              109
+            ],
+            [
+              208,
+              242
+            ]
+          ],
+          "purpose": "Rune base costs, price formula, state propagation."
+        },
+        {
+          "file": "RogueCastle/src/Game Objects/Player/PlayerStats.cs",
+          "ranges_read": [
+            [
+              180,
+              218
+            ],
+            [
+              322,
+              336
+            ],
+            [
+              373,
+              394
+            ]
+          ],
+          "purpose": "Catalog/equipped state layout, rune purchase counter, and rune count consumer."
+        },
+        {
+          "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+          "ranges_read": [
+            [
+              650,
+              720
+            ],
+            [
+              870,
+              900
+            ],
+            [
+              992,
+              1032
+            ],
+            [
+              2621,
+              2757
+            ],
+            [
+              3925,
+              3938
+            ],
+            [
+              4030,
+              4043
+            ]
+          ],
+          "purpose": "Pickup callers, spell input callers, jump effect, spell logic, rune consumers."
+        },
+        {
+          "file": "RogueCastle/src/EVs/SpellEV.cs",
+          "ranges_read": [
+            [
+              9,
+              34
+            ],
+            [
+              230,
+              280
+            ],
+            [
+              316,
+              345
+            ]
+          ],
+          "purpose": "Spell definitions, mana cost, damage multipliers, projectile setup."
+        },
+        {
+          "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+          "ranges_read": [
+            [
+              520,
+              535
+            ],
+            [
+              790,
+              850
+            ],
+            [
+              1345,
+              1355
+            ],
+            [
+              1616,
+              1685
+            ]
+          ],
+          "purpose": "Spell selection and equipment/rune state save/load layout."
+        },
+        {
+          "file": "RogueCastle/src/Screens/BlacksmithScreen.cs",
+          "ranges_read": [
+            [
+              475,
+              495
+            ]
+          ],
+          "purpose": "Shop exit commits equipment screen changes to player and upgrade save files."
+        },
+        {
+          "file": "RogueCastle/src/Screens/EnchantressScreen.cs",
+          "ranges_read": [
+            [
+              389,
+              408
+            ]
+          ],
+          "purpose": "Shop exit commits rune screen changes to player and upgrade save files."
+        },
+        {
+          "file": "RogueCastle/src/Screens/GetItemScreen.cs",
+          "ranges_read": [
+            [
+              151,
+              169
+            ]
+          ],
+          "purpose": "Blueprint/rune pickup presentation mapping."
+        }
+      ],
+      "unread": [
+        "Spell-specific projectile cases beyond the selected Dagger evidence span.",
+        "FairyChestObj rune candidate eligibility details.",
+        "Full SaveGameManager revision checks and failure recovery.",
+        "Live game behavior and save/reload behavior."
+      ],
+      "notes": [
+        "No YAIR source inspected, per assignment.",
+        "No game launch, build, tests, assets, or user saves accessed.",
+        "Pinned RogueLegacy1 source HEAD confirmed unchanged at b41c17888a91100bbf8f1febecaa636a1b421f5b.",
+        "Reader is source analysis only; no claim about runtime behavior or implementation compatibility."
+      ],
+      "id": "P3",
+      "review_status": "parent reviewed exact consequential code, requested targeted repairs where needed, integrated"
+    },
+    {
+      "path_id": "P4_rooms_objectives_boss_progression",
+      "title": "Generated regions, optional timed fairy objective, and boss-clear aftermath",
+      "claims": [
+        {
+          "id": "P4-1",
+          "observation": "Boss-bearing sequential areas sample the room count with RandomInt((int)TotalRooms.X,(int)TotalRooms.Y), then retry area construction until size and EntranceBoss conditions pass. Each attempt increments creationCounter; creationCounter > 15 jumps to restartAll. Separately, missing top/bottom/right exits jumps to restartSequential.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1718,
+              "end": 1787,
+              "symbol": "CreateLevel / sequential area loop",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/LevelBuilder2.cs#L1718-L1787"
+            },
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1819,
+              "end": 1842,
+              "symbol": "CreateLevel / non-sequential retry safety",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/LevelBuilder2.cs#L1819-L1842"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "The sequential retry counter increments after each boss-entrance attempt; the safety log text says non-sequential even in the sequential branch. Exit-layout failure restarts the area through a separate label."
+        },
+        {
+          "id": "P4-2",
+          "observation": "A template room named Boss is replaced by a concrete boss-room object selected by its numeric Tag. Room properties and objects are copied and linked rooms are relinked when present.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1961,
+              "end": 2009,
+              "symbol": "ConvertBossRooms",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/LevelBuilder2.cs#L1961-L2009"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Unknown tags leave the template unchanged; room assets/templates are outside this source span."
+        },
+        {
+          "id": "P4-3",
+          "observation": "An Eyeball miniboss kill sets persistent EyeballBossBeaten when the target player remains alive. The boss-room base cleanup also sets per-hero NewBossBeaten. When the player later returns to CastleEntranceRoomObj, LastBossDoorHack opens the final door only if all four region boss flags are true and FinalDoorOpened is false. PlayerData writes and reads the four regional flags; MapData separately stores room visitation, bonus completion/IDs, chest type/open state, fairy failure, ordinary enemy deaths and breakables.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Eyeball.cs",
+              "start": 764,
+              "end": 785,
+              "symbol": "EnemyObj_Eyeball.Kill",
+              "sha256": "2b1152e7d0193c5fe1c7eae5472a4169e9caa961d5f025b36c3ba75e875790e1",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_Eyeball.cs#L764-L785"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/BossRoomObj.cs",
+              "start": 171,
+              "end": 177,
+              "symbol": "BossCleanup",
+              "sha256": "a9ba72672bc51b63429e6cfde6216e042a324a562799d9cdebe29d39b5bf46af",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/Boss%20Rooms/BossRoomObj.cs#L171-L177"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2225,
+              "end": 2236,
+              "symbol": "LastBossDoorHack",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2225-L2236"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 563,
+              "end": 566,
+              "symbol": "SavePlayerData boss flags",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L563-L566"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1385,
+              "end": 1388,
+              "symbol": "LoadPlayerData boss flags",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1385-L1388"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1014,
+              "end": 1052,
+              "symbol": "SaveMapData room/enemy state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1014-L1052"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1054,
+              "end": 1087,
+              "symbol": "SaveMapData chest/fairy state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1054-L1087"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1092,
+              "end": 1131,
+              "symbol": "SaveMapData serialized arrays",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1092-L1131"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1757,
+              "end": 1809,
+              "symbol": "LoadMapData arrays",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1757-L1809"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1834,
+              "end": 1874,
+              "symbol": "LoadMapData bonus/enemy restoration",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1834-L1874"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1897,
+              "end": 1925,
+              "symbol": "LoadMapData chest/fairy restoration",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1897-L1925"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "EyeballBossBeaten is a player-wide progression flag written to PlayerData, while NewBossBeaten marks the current heir and is consumed/reset by GameOver. MapData restores only the listed world-map state; boss room/chests and challenge rooms are excluded from relevant arrays, and enemy revival/retention depends on LockCastle."
+        },
+        {
+          "id": "P4-4",
+          "observation": "Fairy chest condition state is checked by FairyChestObj.Draw while locked. For ReachIn5Seconds, the timer counts down during unpaused play; the checker fails it when the player remains farther than 100 units after timer reaches zero, or unlocks it when within 100 units while time remains. TakeNoDamage fails when PlayerObj.State is HURT, otherwise unlocks upon reaching within 100 units. Unlock reports ObjectiveComplete for ordinary conditions; failure reports ObjectiveFailed unless skipped. Opening a free chest marks a missing rune FoundButNotSeen, or grants a stat drop when all runes have been found.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/ChestConditionChecker.cs",
+              "start": 19,
+              "end": 79,
+              "symbol": "SetConditionState",
+              "sha256": "719652b97023a967ce92a954c6593f02dd5bae6ef625f13edd3ba5289207cb63",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/ChestConditionChecker.cs#L19-L79"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 50,
+              "end": 80,
+              "symbol": "SetChestUnlocked / SetChestFailed",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/FairyChestObj.cs#L50-L80"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 83,
+              "end": 125,
+              "symbol": "OpenChest",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/FairyChestObj.cs#L83-L125"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 139,
+              "end": 143,
+              "symbol": "Draw condition caller",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/FairyChestObj.cs#L139-L143"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 166,
+              "end": 178,
+              "symbol": "ReachIn5Seconds countdown and objective progress",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/FairyChestObj.cs#L166-L178"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1054,
+              "end": 1087,
+              "symbol": "SaveMapData fairy failure state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1054-L1087"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1913,
+              "end": 1925,
+              "symbol": "LoadMapData fairy failure restore",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs#L1913-L1925"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "ChestConditionChecker runs from Draw only while locked; drawing/caller timing is code-driven. MapData persists failed state as a boolean, not the detailed condition/timer state. Some objective conditions can be changed by proximity/order and are not all enumerated here."
+        }
+      ],
+      "trace": {
+        "caller": "LevelBuilder2.CreateLevel assembles rooms and converts boss templates; ProceduralLevelScreen handles room entry, boss doors, and room-entry saves. FairyChestObj.Draw calls ChestConditionChecker.SetConditionState while locked. ",
+        "gates": "Boss-bearing area requires EntranceBoss and valid exits; safety counter is >15 before whole-map restart. Timed fairy condition is proximity <100 before timer expires; TakeNoDamage requires no HURT state before proximity <100. Boss final-door gate requires all four region flags and FinalDoorOpened false.",
+        "costs": "No currency cost shown; the player incurs traversal/time/health risk and some fairy objectives impose conditions or timers.",
+        "mutations": "Cloned room lists, boss-room replacement/link mutation, rune inventory state, NewBossBeaten, boss door lock state.",
+        "consumers": "Minimap, room traversal, boss chest/teleport, challenge access, rune inventory and item screen, SaveManager.",
+        "failure_boundaries": "Area retries; non-sequential creation has a 15-attempt map restart; missing linker triggers restartAll. Fairy objective can fail. A beaten-region boss door can lock and challenge access remains separate.",
+        "persistence": "PlayerData explicitly serializes the four regional boss flags. MapData serializes visited rooms, bonus completion/IDs, chest types/open booleans, fairy failure booleans, ordinary enemy dead booleans, and breakable booleans; corresponding loader restores them. Boss/challenge rooms are omitted from certain chest/enemy arrays. Ordinary enemies are silently killed on restore only when LockCastle is false; fairy failure restores under that same no-lock condition. Timer duration and objective completion states are not saved as such."
+      },
+      "id": "P4",
+      "review_status": "parent reviewed exact consequential code, requested targeted repairs where needed, integrated"
+    },
+    {
+      "path_id": "P5_shieldknight_combat_status_death",
+      "title": "ShieldKnight spacing, shield-facing defense, player block/damage, kill or death aftermath",
+      "claims": [
+        {
+          "id": "P5-1",
+          "observation": "EnemyObj.Update maps configured radii into four range states and, once active logic/cooldown permit, dispatches by difficulty. ShieldKnight InitializeLogic creates stop/walk/turn sets; basic/advanced use the basic logic block, expert uses an expert turn set, and engaged states turn when heading disagrees with target position or walk toward the target otherwise. Miniboss logic always chooses stop in these three states.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 254,
+              "end": 345,
+              "symbol": "Update",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj.cs#L254-L345"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 190,
+              "end": 267,
+              "symbol": "InitializeLogic / RunBasicLogic",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_ShieldKnight.cs#L190-L267"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "This is a movement/turn loop, not a melee/projectile attack set. Specific attack behavior is not present for this ShieldKnight implementation excerpt."
+        },
+        {
+          "id": "P5-2",
+          "observation": "ShieldKnight CollisionResponse has a guard requiring a PlayerObj (`player != null`) as well as front-side position, first-box-hit, and applicable invulnerability. Its additional guard excludes the PlayerAirAttack sprite. Thus a pure projectile cannot enter this branch, despite a nested projectile-destroy block. Eligible front player contact runs the shield response and specific knockback. HitEnemy reduction is separate: code tests current m_target position and current m_target.SpriteName, not the actual attacker/source or isPlayer; despite the nearby comment, qualifying calls can include non-sword damage if those current-target tests pass. The scalar is 0.6, so the applied formula is `(int)(damage * (1 - 0.6))`.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 339,
+              "end": 406,
+              "symbol": "CollisionResponse",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_ShieldKnight.cs#L339-L406"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 14,
+              "end": 18,
+              "symbol": "ShieldKnight damage reduction scalar",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_ShieldKnight.cs#L14-L18"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 409,
+              "end": 422,
+              "symbol": "HitEnemy",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_ShieldKnight.cs#L409-L422"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Comment at lines 416-417 says air attacks and all other damage besides sword swipes should deal full damage, but executable check is target sprite name only. The nested projectile destruction is structurally present but excluded for ordinary pure projectile inputs by the outer player != null guard."
+        },
+        {
+          "id": "P5-3",
+          "observation": "Player block absorbs eligible collisions while blocking and when mana is positive or block invulnerability remains; each hit outside that window drains BlockManaDrain and starts BlockInvincibleTime. Otherwise HitPlayer computes mitigated damage, sets computed damage to zero before tutorial completion, and subtracts it from health only when GodMode is false. The mana gate is positive mana, not necessarily enough for the full BlockManaDrain. Lethal damage may consume Revive, pass a Death_Dodge roll, eject the player from a challenge boss room, or kill and run game over.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2063,
+              "end": 2100,
+              "symbol": "CollisionResponse",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2063-L2100"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2252,
+              "end": 2402,
+              "symbol": "HitPlayer",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2252-L2402"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2449,
+              "end": 2468,
+              "symbol": "Kill",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/Player/PlayerObj.cs#L2449-L2468"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Death_Dodge probability is configured by a skill modifier whose bought value is not traced."
+        },
+        {
+          "id": "P5-4",
+          "observation": "Enemy kill may grant vampirism/mana and drops, records current room/enemy index in EnemiesKilledInRun when SaveToFile is true, increments total and type/difficulty kill counters, then enters base killed state. The room lookup throws if that enemy cannot be found.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 808,
+              "end": 873,
+              "symbol": "HitEnemy",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj.cs#L808-L873"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 881,
+              "end": 955,
+              "symbol": "Kill",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj.cs#L881-L955"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 985,
+              "end": 1012,
+              "symbol": "Kill / counters",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj.cs#L985-L1012"
+            },
+            {
+              "file": "RogueCastle/src/Screens/ProceduralLevelScreen.cs",
+              "start": 2830,
+              "end": 2840,
+              "symbol": "KillEnemy",
+              "sha256": "7dc0080ec94e57afb3dee89c2d49321bb4b2168c1202c69a88a7ba847097c2c4",
+              "domain": "rogue-legacy",
+              "url": "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/ProceduralLevelScreen.cs#L2830-L2840"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Drop rates and class-specific gains depend on values outside this excerpt; no runtime play observed."
+        }
+      ],
+      "trace": {
+        "caller": "ProceduralLevelScreen updates attached enemies; EnemyObj.Update selects range state and AI logic; collision dispatch reaches ShieldKnight or PlayerObj response.",
+        "gates": "Shield response outer guard requires first-box hit, appropriate invulnerability state, front-facing collision, and player != null; air-attack sprite is excluded. This makes the nested projectile destruction unreachable for an ordinary projectile-only collision. Player damage mitigation instead checks player block state/resource.",
+        "costs": "Block costs BlockManaDrain mana on eligible hits outside invulnerability; unblocked hits cost computed health. Enemy tuning varies by difficulty.",
+        "mutations": "Shield collision produces player-specific knockback and enemy invulnerability; the nested projectile-destroy code exists but is unreachable for pure projectile input due to the player guard. HitEnemy damage factor uses target position/sprite checks, not attacker identity.",
+        "consumers": "Enemy HUD, item drop manager, vampirism/mana systems, current run map, kill counters, death-defy/game-over flow.",
+        "failure_boundaries": "Shield front branch requires player; pure projectile cannot enter it. HitEnemy comment claims sword-swipe semantics, while actual test uses m_target current sprite and facing. Tutorial/GodMode suppress player damage; Revive and Death_Dodge intercept lethal outcomes; challenge boss lethal hit ejects instead of ordinary death; missing enemy lookup throws.",
+        "persistence": "Enemy kill updates PlayerStats.EnemiesKilledInRun; room entry saves PlayerData/MapData. Exact serialization and kill-time durability are not traced."
+      },
+      "id": "P5",
+      "review_status": "parent reviewed exact consequential code, requested targeted repairs where needed, integrated"
+    }
+  ],
+  "cross_path_loop": "Death record -> three frozen legal builds (pool depends on retained manor) -> selected class/traits/spell + purchased/equipped gear/runes -> conditional rooms/objectives/combat -> actual gold/discovery/boss/history aftermath -> retained investments and next offers",
+  "yair_observations": [
+    {
+      "id": "YAIR.body-functional",
+      "observation": "Body records already distinguish inherited Natural balance, trained Conditioned grip and acquired Palm mark. Awakening/activation is paid elapsed-time work, grip practice has stamina/soreness cost, and ordinary recovery preserves permanent marks/learned grip. Active balance contributes route preparation; grip changes actual packing duration and tender hands add work time. No general trait framework is missing.",
+      "evidence": [
+        {
+          "file": "src/body_progression.js",
+          "start": 15,
+          "end": 69,
+          "symbol": "bodySources/bodyCommands/bodyFacts",
+          "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+        },
+        {
+          "file": "src/expedition_content.js",
+          "start": 79,
+          "end": 130,
+          "symbol": "field_pack / expedition route modifiers",
+          "sha256": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.body-combat-consumer",
+      "observation": "Existing sluice material/frame responses already require recovered hands and Strength8. The inspected action list has no specific sure-footing response consuming awakened Natural balance and Conditioned grip together. That is a narrow authored consumer candidate, not a claim that traits lack functional effects.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 247,
+          "end": 263,
+          "symbol": "previewFeatureBattleAction body gates",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 413,
+          "end": 432,
+          "symbol": "featureBattleView",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.existing-retention",
+      "observation": "Field renewal already previews losses, returns only Load-bearing Step mastery to1, reopens its practice, zeroes focus/drive reserve and strain, and retains native inventory/equipment/XP/people/workshop. Campaign transition planners require safe boundaries and support explicit reset domains; they do not establish a complete selectable heir/death lifecycle. Chronicle old age explicitly ends the chosen life once.",
+      "evidence": [
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 62,
+          "end": 66,
+          "symbol": "campaignDefinitions.transitions",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 95,
+          "end": 108,
+          "symbol": "previewFieldRenewal / commitFieldRenewal",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "file": "src/simulation.js",
+          "start": 452,
+          "end": 509,
+          "symbol": "campaign transition / origin planners",
+          "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e"
+        },
+        {
+          "file": "src/chronicle.js",
+          "start": 64,
+          "end": 108,
+          "symbol": "createChronicle / advanceChronicle",
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.helper-offers",
+      "observation": "Helper commission already pays three coins and transfers one log, spawns a durable simulation actor, uses a funded local controller and returns one actual kit for collection. prepareSimulationEffects freezes the spawn template and derived unique identity in the command job. The inspected hire command chooses one template; it does not present a saved set of three distinct candidate builds before contracting.",
+      "evidence": [
+        {
+          "file": "src/helper_content.js",
+          "start": 9,
+          "end": 44,
+          "symbol": "helperDefinitions",
+          "sha256": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d"
+        },
+        {
+          "file": "src/simulation_resolution.js",
+          "start": 11,
+          "end": 33,
+          "symbol": "prepareSimulationEffects",
+          "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+        },
+        {
+          "file": "src/simulation.js",
+          "start": 111,
+          "end": 159,
+          "symbol": "startCommand",
+          "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "start": 114,
+          "end": 123,
+          "symbol": "applySimulationEffects spawn branch",
+          "sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.durable-publisher",
+      "observation": "persistExpansionPlan writes staged expansion/native money, gameplay/ownership/equipment/unlocks and optional native projection into the existing copied envelope before storage.setItem. prepareGameplayPublication stages item reconstruction and XP, refusing negative XP without a reset adapter. A new proposal must use this publisher and its matching live host, not Rogue Legacy separate-file/catch-only persistence. Source reading alone does not verify failure atomicity in play.",
+      "evidence": [
+        {
+          "file": "src/expansion_persistence.js",
+          "start": 7,
+          "end": 50,
+          "symbol": "persistExpansionPlan",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        },
+        {
+          "file": "src/gameplay_publication.js",
+          "start": 15,
+          "end": 62,
+          "symbol": "prepareGameplayPublication",
+          "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+        },
+        {
+          "file": "src/native_equipment_transaction.js",
+          "start": 6,
+          "end": 27,
+          "symbol": "prepareNativeEquipment",
+          "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.projects",
+      "observation": "Site project compiler checks phase dependencies/cycles and compiles paid participant jobs into retained world phase facts. Current dry rack and fitting shelf already provide permanent useful upgrade consumers. Another generic manor/upgrade ledger is unnecessary without a new concrete consumer.",
+      "evidence": [
+        {
+          "file": "src/site_projects.js",
+          "start": 4,
+          "end": 31,
+          "symbol": "compileSiteProject / projectView",
+          "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 47,
+          "end": 60,
+          "symbol": "field rope/rack/supply commands",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        }
+      ]
+    }
+  ],
+  "yair_worker_mappings": [
+    {
+      "id": "functional-kit-choice",
+      "reuse": "Native equipment and inventory remain owned by their current player/NPC owners. The sluice already makes Nera's actually owned/equipped field frame alter defense/blocking and Oren's actual equipped hook pole enable hook-specific stamina/guard effects. Feature-object fitting knives are conserved, custody-checked hand tools and explicitly not equipment bonuses. These are useful precedents for functional gear, but there is no player kit choice inside this encounter.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 10,
+          "end": 18,
+          "symbol": "FEATURE_OBJECT_ITEMS",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects_host.js",
+          "start": 41,
+          "end": 50,
+          "symbol": "featureObjectFacts",
+          "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+        },
+        {
+          "file": "src/feature_expansion_battle_host.js",
+          "start": 14,
+          "end": 29,
+          "symbol": "sync / readBindings",
+          "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+        },
+        {
+          "file": "src/native_battle.js",
+          "start": 16,
+          "end": 20,
+          "symbol": "readNativeFighter",
+          "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0"
+        }
+      ],
+      "narrow_candidate": "As a reversible original encounter proposal, let the player prepare one of two real carried kits before admission: a lighter traversal kit that changes an escape affordance, or a braced kit that changes a guard affordance. Reuse actual inventory/equipment custody and fighter snapshots; do not make either a flat stat reward.",
+      "missing_consumer": "featureBattleView and commitFeatureBattleAction expose combat/objective actions but no player kit-selection action or kit-specific player behavior; the current gear-derived special case is authored for the NPC frame/pole. Do not call fitting knives missing gear; they already have separate tool consumers.",
+      "retention": "Prefer existing player inventory/equipment as durable ownership and put only encounter-local choice/effect receipts into a separately versioned nativeBattle payload. Keep prior battle schemas frozen; explicit compatibility decision and save/reload verification would be required before persistence changes.",
+      "later_gate": "Rebuild and exercise both choices in a browser: verify each changes its declared action result, switching/withdrawal conserves ownership, and a save/reload resumes the same admitted choice."
+    },
+    {
+      "id": "optional-objective-payout",
+      "reuse": "Optional conduct/prepared challenges already require explicit enrollment, bind actual battle IDs/results and preserve finite attempt histories. Feats retain committed receipts. A successful sluice passage earns the existing one-time Combat XP and route fact; current challenge descriptions explicitly promise recognition only and no repeat payment. The refreshed root now also validates an optional fieldcraft record; this additive integration does not change the cited attempt settlement or recognition-only reward boundary.",
+      "evidence": [
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 17,
+          "end": 39,
+          "symbol": "validateAttempts",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 107,
+          "end": 132,
+          "symbol": "advanceReferenceGameplay",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 136,
+          "end": 160,
+          "symbol": "referenceControlPresentation",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 273,
+          "end": 287,
+          "symbol": "finish",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/reference_gameplay_feats.js",
+          "start": 14,
+          "end": 31,
+          "symbol": "BASIC_FEATS / EXCEPTIONAL / allFeats / APPROACH_TYPES",
+          "sha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79"
+        }
+      ],
+      "narrow_candidate": "A separate opt-in challenge can ask for one additional declared objective condition and grant one finite, concrete workshop material only on its first qualified receipt. Keep ordinary victory/objective settlement and existing no-strike/prepared recognition unchanged; the material payout is a proposal, not an existing reward.",
+      "missing_consumer": "The current challenge root retains result/admission/violation receipts and feat recognition, but has no challenge-owned reward claim or consumer. finish has one common success payout, not a challenge-specific material award. The already-implemented no-strike, prepared-team, and objective-completion gates are not gaps. The new fieldcraft validator/feats integration is separate and does not add a challenge payout.",
+      "retention": "Derive eligibility from the settled attempt receipt; persist an idempotent claim in the optional character record and grant through existing item/effect owners. Need optional enrollment/old-save absence behavior and an explicit schema compatibility decision if fields are added.",
+      "later_gate": "Browser acceptance: decline enrollment with no change; complete the declared objective once and receive one real item; repeat/failed/withdrawn attempts cannot pay again; save/reload preserves receipt and claim."
+    },
+    {
+      "id": "contextual-defense-window",
+      "reuse": "This proposed mechanic is already implemented for explicitly enrolled schema-4 sluice sessions: an actual defended strike earns a saved next-player-choice window against its actual attacker; retreat and counter are distinct paid actions, any other choice expires it, enemy cadence continues, and receipts validate the defended origin. Do not report this as missing from the current feature encounter.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 134,
+          "end": 173,
+          "symbol": "validateReferenceBattleFields / opportunityReasons / closeOpportunity",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 328,
+          "end": 355,
+          "symbol": "commitFeatureBattleAction defended outcome and settlement",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 369,
+          "end": 432,
+          "symbol": "featureNativeAction / featureBattleView",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/native_battle.js",
+          "start": 38,
+          "end": 68,
+          "symbol": "commitNativeBattleStrike / withdrawNativeBattle",
+          "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0"
+        },
+        {
+          "file": "src/native_battle_host.js",
+          "start": 21,
+          "end": 59,
+          "symbol": "createNativeBattleHost.resume / actionAdapter",
+          "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc"
+        }
+      ],
+      "narrow_candidate": "Reuse the current defended-next-choice contract for one explicitly enrolled original encounter with a different authored enemy trigger or counter consequence, only if play review shows a distinct context adds value. Otherwise keep the current sluice as the complete local proof.",
+      "missing_consumer": "The bounded native road duel remains a schema-1 automatic strike/withdraw exchange; its host has no such counter-window consumer. The feature sluice owns this effect only in its opted-in schema-4 path, while frozen schema-3 behavior stays separate. This is a scope boundary, not a claim that the requested defense mechanic is unimplemented overall.",
+      "retention": "Current schema-4 window and closing receipt persist within the session and close with an outcome; old sessions are not upgraded in place. A new encounter needs an explicit schema/validator/UI/action binding and save/reload path.",
+      "later_gate": "Browser acceptance for any new encounter: show the actual trigger, allow only retreat or counter against the earning attacker, prove other choices expire it, and verify old native duel and schema-3 sessions retain their prior behavior."
+    },
+    {
+      "id": "retained-workshop-investment",
+      "reuse": "The Village fitting bench already offers an ordinary drying rack, a retained brace investment, then a matched-part seal investment. The braced and sealed states change drying routes/durations and are retained in the world joint fact plus matching situation phase; seal accepts either the offered or braced phase, so this is upgrade progression, not a mutually exclusive brace/seal fork. The revisit action reads the actual retained state.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 141,
+          "end": 145,
+          "symbol": "drying route commands",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 160,
+          "end": 180,
+          "symbol": "install_brace / install_seal / revisit",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects_host.js",
+          "start": 88,
+          "end": 107,
+          "symbol": "validateFeatureObjectState",
+          "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+        }
+      ],
+      "narrow_candidate": "If extending workshop investments, add one second named worksite with a similarly material-funded upgrade chain whose stages support different actual interactions. Do not generalize the Village joint before another real consumer needs it.",
+      "missing_consumer": "No missing binding in the current fitting case. What is absent is a second authored worksite/investment consumer; the current staged upgrade chain is deliberately hard-coded to this one joint and its drying output.",
+      "retention": "Current persistent result uses existing world facts, actor facts and situation phase, not a new global upgrade ledger. A second worksite should follow its real world/state owner and preserve branch identity; any save schema change requires compatibility review and save/reload verification.",
+      "later_gate": "Browser acceptance: install the brace, observe its changed work route/time, then install the matched seal as an upgrade and verify the quicker shelf persists after reload. Confirm the ordinary rack still works before investment and a purchased matched part does not grant its maker\u2019s method."
+    }
+  ],
+  "original_ranked_packets": [
+    {
+      "id": "RL-P1",
+      "rank": 1,
+      "title": "One useful physical preparation choice",
+      "source_paths": [
+        "P3",
+        "P5"
+      ],
+      "action_choice_outcome": "Choose owned rope traversal or consumed-kit brace at encounter admission, then execute one distinct paid escape/guard function.",
+      "prerequisites_costs": "Seen encounter; safe boundary; actual unencumbered stock. Proposed rope reservation or1kit; function2stamina.",
+      "aftermath": "Wounds/spent kit persist, rope released once, no second charge from preview.",
+      "owners": [
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_battle_host.js",
+        "src/native_equipment_transaction.js",
+        "src/expansion_persistence.js"
+      ],
+      "actual_missing_consumer": "Player admission preparation and one-use mobility/guard consumers; existing lash/tool/NPC frame/counter-window consumers already exist.",
+      "save_retention": "Explicit new enrolled encounter revision with frozen item/reservation/function/charge receipt; old sessions retain semantics; same native stock/save publisher.",
+      "later_gate": "Rebuilt browser chooses both, actual stock/custody/one-charge/withdrawal/readback proof and generated save/reload/failure acceptance.",
+      "status": "original proposal; no implementation or playable check"
+    },
+    {
+      "id": "RL-P2",
+      "rank": 2,
+      "title": "A maneuver consuming existing body aptitudes",
+      "source_paths": [
+        "P1",
+        "P3",
+        "P5"
+      ],
+      "action_choice_outcome": "Use awake balance for a paid crossing step or trained grip+owned rope for a different paid step; ordinary slower retreat stays available.",
+      "prerequisites_costs": "Real awake/active/unsuppressed balance plus recovered hands, or conditioned grip+rope. Proposed2stamina/2progress versus1stamina/1progress.",
+      "aftermath": "Effort/conditions/provenance stay; no trait teaches another method or creates ancestry.",
+      "owners": [
+        "src/body_progression.js",
+        "src/expedition_content.js",
+        "src/feature_expansion_battle.js",
+        "src/simulation_effects.js"
+      ],
+      "actual_missing_consumer": "Discrete native sure-footing/grip maneuver; existing trait-weight modifiers, packing time and tender-hands gates already work in source.",
+      "save_retention": "Existing source/body/condition owners; opted-in encounter action receipts; no new heritage or prestige. Packet1 and2 share integrator/schema.",
+      "later_gate": "Dormant/awake/suppressed, sore/recovered, trained/untrained and ownership comparisons plus generated reload without free gains.",
+      "status": "original proposal; no implementation or playable check"
+    },
+    {
+      "id": "RL-P3",
+      "rank": 3,
+      "title": "Three frozen, funded pathfinder offers",
+      "source_paths": [
+        "P1",
+        "P2"
+      ],
+      "action_choice_outcome": "Compare three distinct legal NPC profiles, commission one or decline; actual paid controller work changes by profile.",
+      "prerequisites_costs": "Known craftsman/workbench; proposed1played-minute offer; current3coins+1transferredlog hire. An earned retained service can qualify a profile.",
+      "aftermath": "One durable contracted person owns funding/output; declined candidates receive no ticking duties.",
+      "owners": [
+        "src/helper_content.js",
+        "src/simulation.js",
+        "src/simulation_resolution.js",
+        "src/simulation_effects.js",
+        "src/expansion_persistence.js"
+      ],
+      "actual_missing_consumer": "Frozen pre-contract candidate list, compatibility filter, comparison/selection to existing helper commission. Actor factory/funded controller/template freezing already exist.",
+      "save_retention": "Optional validated solicitation IDs/revisions/profile/seed/cause/disposition, no redraw after reload. Old jobs keep own identities; current renewal retains records.",
+      "later_gate": "Decline free; one paid selected actor; distinct funded results; reload/stale/failure cannot create extra person, stock or reroll.",
+      "status": "original proposal; no forced death/heir replacement or second prestige"
+    },
+    {
+      "id": "RL-P4",
+      "rank": 4,
+      "title": "New optional objective unlocks a useful recipe",
+      "source_paths": [
+        "P4",
+        "P3"
+      ],
+      "action_choice_outcome": "Explicitly accept fitting-recovery+gate objective; recover real fitting, complete declared result, return to consenting owner and learn one recipe; craft its usable output with real stock.",
+      "prerequisites_costs": "Seen offer; at most3new enrolled attempts; proposed1stamina recovery; handoff transfers actual fitting; recipe proposes1log+1resin+2minutes, final item keys need refresh.",
+      "aftermath": "Recipe once, no free product; ordinary outcome/wounds/stock remain; failures/decline give no reward/debt.",
+      "owners": [
+        "src/reference_gameplay_state.js",
+        "src/reference_gameplay_feats.js",
+        "src/feature_expansion_battle.js",
+        "src/gameplay_publication.js",
+        "src/expansion_persistence.js"
+      ],
+      "actual_missing_consumer": "New objective-specific fitting receipt, conserved custody and idempotent recipe handoff. Existing recognition-only contracts unchanged; generic finite challenge/feat/objective support already exists.",
+      "save_retention": "Explicit optional objective revision/session/result/item/handoff/recipe saved together; absent old records inert; no retroactive evidence/payout; recipe retained through current renewal.",
+      "later_gate": "Decline/enroll/recover/objective/handoff/craft/use plus wrong-result/stale/repeat/stock/save failure and generated reload checks.",
+      "status": "original proposal; no implementation or playable check"
+    }
+  ],
+  "reader_review": [
+    {
+      "worker": "/root/gear_reader",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "scope": "readers/gear.json",
+      "status": "completed/released",
+      "qualification": "DoubleJump formula and actual airborne-input consumer checked",
+      "repairs": [
+        "Savant base-cost check precedes mega-cost/final firing gates",
+        "Ambilevous anchor inversion/exclusions locator corrected",
+        "Unread FairyChest comparison removed",
+        "Rune price/count and actual input/shop-save callers added"
+      ],
+      "integrated_paths": [
+        "P3"
+      ]
+    },
+    {
+      "worker": "/root/rooms_combat_reader",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "scope": "readers/rooms_combat.json",
+      "status": "completed/released",
+      "qualification": "ShieldKnight guard and HitEnemy override checked; found projectile guard limitation",
+      "repairs": [
+        "Full sequential/nonsequential counter/restart spans added",
+        "Actual timed/no-damage objective caller and MapData state read",
+        "Regional boss mutation/serialization/final-door gate added",
+        "Projectile-only shield claim removed; current-target damage test preserved",
+        "0.6 scalar and stop/walk/turn logic evidence added"
+      ],
+      "integrated_paths": [
+        "P4",
+        "P5"
+      ]
+    },
+    {
+      "worker": "/root/yair_mapper",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "scope": "readers/yair.json",
+      "status": "completed/released",
+      "qualification": "Existing paid combat/challenge/item consumers inspected against current source",
+      "repairs": [
+        "Workshop ordinary->braced->sealed upgrade sequence corrected; not a permanent exclusive fork",
+        "Live reference-state/feat drift refreshed after current owner edits; doc coverage bounds corrected"
+      ],
+      "integrated_paths": [
+        "YAIR owner mapping"
+      ]
+    }
+  ],
+  "prior_research_reused": [
+    "docs/research/caves-of-qud/REPORT.md",
+    "docs/research/dcss-dda-depth/REPORT.md",
+    "PROJECT.md current reference-gameplay delivery; no repeated Qud/DCSS/DDA intake"
+  ],
+  "implementation_status": "Research complete; all proposals unimplemented and playable gates deferred",
+  "limits": [
+    "No assets/templates beyond source, no original game play/build",
+    "No entire class/trait/spell/room/enemy catalog audit",
+    "No source copying/adaptation selected",
+    "No new reset/world/prestige or personal save operation",
+    "No test/browser/save/failure suite run"
+  ],
+  "semantic_review_notes": [
+    "Comment-versus-guard differences preserved for ShieldKnight; not silently repaired in reference source.",
+    "Savant mutation ordering qualified rather than assuming failure has no effect.",
+    "Source field/gold/layout retention boundaries are not adopted as YAIR policy.",
+    "Current fitting brace may later be upgraded to seal; exclusive-choice proposal in packet1 is new original encounter design."
+  ],
+  "yair_live_refresh": {
+    "root": "Parent semantically refreshed cited simulation/effect spans after NetHack fact/group integration added one line; same paid spawn/frozen jobs/transition meaning retained.",
+    "mapper": "Fieldcraft validator/feat registration added; original cited contract semantics re-read unchanged."
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "source": {
+    "game": "Idling to Rule the Gods",
+    "steam_build": 25514347,
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c",
+    "decompiled_root": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/decompiled",
+    "limits": [
+      "Most type and member names remain obfuscated; symbols below are exact recovered symbols.",
+      "Static decompiled-source trace only. No game launch or runtime experiment; decompiler output is not runtime verification."
+    ]
+  },
+  "finding": {
+    "topic": "Stone creation -> base Mighty Statue and separate Mountain-funded upgrade -> physical-power consumer",
+    "status": "coherent source trace; static and runtime-unverified",
+    "trace": [
+      {
+        "step": "Live scheduling",
+        "source": "Assets.Scripts.UpdateStats.Start schedules FBFIMEDNKLP every 0.029 seconds. FBFIMEDNKLP advances simulation in 30-unit slices, then iterates PFBFLAJEGBI.ACHGLEEJLBC and calls FFMIPKGAHPK.BPMABPHBKOP(num2) on each creation, and iterates PFBFLAJEGBI.BEEHNPNHNNL and calls HDNKMPEHPIO.BPMABPHBKOP(num2) on each monument.",
+        "symbols": [
+          "UpdateStats.Start",
+          "UpdateStats.FBFIMEDNKLP",
+          "FFMIPKGAHPK.BPMABPHBKOP",
+          "HDNKMPEHPIO.BPMABPHBKOP"
+        ],
+        "spans": [
+          "Assets.Scripts/UpdateStats.cs:2035-2043",
+          "Assets.Scripts/UpdateStats.cs:4885-4905",
+          "Assets.Scripts/UpdateStats.cs:4945-4948",
+          "Assets.Scripts/UpdateStats.cs:5050-5053"
+        ]
+      },
+      {
+        "step": "Creation prerequisites and output",
+        "source": "FFMIPKGAHPK.BPMABPHBKOP returns for absent game state, paused creation, disabled/unselected work, and other mode gates. For an enabled creation it obtains FJHLJJDAFGG.KGCKPJEDEFE costs for that creation type. The Mountain recipe consumes 200,000 Stone; Stone has no material cost entry in this recipe switch. APPFBNDJPEH checks these inputs before production. Once work progress JNMLPIDLJBN reaches NPMDEBILN, the method subtracts recipe inputs from each input type's IJIGGBLLOFN stock, calculates the completed amount, and adds that amount to the output type's IJIGGBLLOFN inventory and MGAOADCFDMO production total. Thus completed Stone production supplies Mountain creation, and completed Mountains enter the stock that Mighty Statue upgrade consumes.",
+        "symbols": [
+          "FFMIPKGAHPK.BPMABPHBKOP",
+          "FFMIPKGAHPK.APPFBNDJPEH",
+          "FJHLJJDAFGG.KGCKPJEDEFE"
+        ],
+        "spans": [
+          "FFMIPKGAHPK.cs:3190-3502",
+          "FFMIPKGAHPK.cs:3372-3441",
+          "FFMIPKGAHPK.cs:2108-2152",
+          "FJHLJJDAFGG.cs:7089-7131"
+        ]
+      },
+      {
+        "step": "Mighty Statue upgrade material and payment",
+        "source": "The live HDNKMPEHPIO tick calls ILHKLBCBBFB.BPMABPHBKOP, where ILHKLBCBBFB is the monument's AOGKGBPPCIL effect object. AOGKGBPPCIL.BPMABPHBKOP asks its own KGCKPJEDEFE for the upgrade material list. For a Mighty Statue upgrade at upgrade count zero, that active getter requires 10 Mountain. The method checks whether each required creation stock is available (including its explicit conversion/divinity fallback). If requirements remain short, it reports the missing material and divinity cost and returns before deducting resources. When affordable, it subtracts each material from the matching FFMIPKGAHPK.IJIGGBLLOFN and sets PNCGEDLCMHJ=true to mark payment; progress continues against a completion threshold.",
+        "symbols": [
+          "HDNKMPEHPIO.BPMABPHBKOP",
+          "AOGKGBPPCIL.BPMABPHBKOP",
+          "AOGKGBPPCIL.KGCKPJEDEFE"
+        ],
+        "spans": [
+          "HDNKMPEHPIO.cs:3897-3905",
+          "AOGKGBPPCIL.cs:717-874",
+          "AOGKGBPPCIL.cs:886-954"
+        ]
+      },
+      {
+        "step": "Completion, count, and effect",
+        "source": "AOGKGBPPCIL.BPMABPHBKOP accumulates progress from elapsed simulation units, the effect object's assigned GEHGBKPHENJ, and a global rate. It returns until NPMDEBILFLE is reached; then it returns 1 as the completion receipt. HDNKMPEHPIO.BPMABPHBKOP passes that receipt to CHGIPOPHOCK, which increments the attached AOGKGBPPCIL.GIBPIPCKDNN count and refreshes the affected stat record. Repeated cycles follow the same material, payment, and completion path for upgrades. The actual constructor uses HDNKMPEHPIO.LOFCKMMDFLM at2693 to create the attached AOG upgrade and set the type contribution.",
+        "symbols": [
+          "AOGKGBPPCIL.BPMABPHBKOP",
+          "HDNKMPEHPIO.BPMABPHBKOP",
+          "HDNKMPEHPIO.CHGIPOPHOCK",
+          "HDNKMPEHPIO.LOFCKMMDFLM"
+        ],
+        "spans": [
+          "AOGKGBPPCIL.cs:717-874",
+          "HDNKMPEHPIO.cs:3897-3905",
+          "HDNKMPEHPIO.cs:3314-3350",
+          "HDNKMPEHPIO.cs:2693-2727"
+        ]
+      },
+      {
+        "step": "Resulting effect and consumer",
+        "source": "The Mighty Statue's AOGKGBPPCIL.MNBAJAJCIFB computes a count-based multiplier, 5 * count^2 + 10 * count (and returns 1 at zero). HDNKMPEHPIO.MNBAJAJCIFB exposes this effect, and the statue text labels it Physical multi. PFBFLAJEGBI.MNBAJAJCIFB includes monument effect in the player's physical-power multiplier; PFBFLAJEGBI.HMMIMAEMBCD and GDLCLEHIIPJ use that multiplier in derived health and attack-power values. The player-facing help states that Physical power increases HP and damage.",
+        "symbols": [
+          "AOGKGBPPCIL.MNBAJAJCIFB",
+          "HDNKMPEHPIO.MNBAJAJCIFB",
+          "PFBFLAJEGBI.MNBAJAJCIFB",
+          "PFBFLAJEGBI.HMMIMAEMBCD",
+          "PFBFLAJEGBI.GDLCLEHIIPJ"
+        ],
+        "spans": [
+          "AOGKGBPPCIL.cs:56-67",
+          "HDNKMPEHPIO.cs:96-102",
+          "HDNKMPEHPIO.cs:143-149",
+          "PFBFLAJEGBI.cs:608-610",
+          "PFBFLAJEGBI.cs:630-660",
+          "PFBFLAJEGBI.cs:755-790"
+        ]
+      }
+    ],
+    "shortage_or_exception": "Creation-side shortage: APPFBNDJPEH finds unaffordable recipe inputs, enables the deficient material's creation work, disables the current production action, and returns before resource subtraction or output. Monument-side shortage: AOGKGBPPCIL.BPMABPHBKOP reports the missing requirement and returns before its payment loop, leaving material stock and PNCGEDLCMHJ unchanged. Paused or absent-state gates also return before creation advancement.",
+    "source_observed_vs_inference": {
+      "observed": [
+        "The scheduled UpdateStats tick calls both model update methods on their registered lists.",
+        "The live Mountain production recipe consumes 200,000 Stone; the Stone recipe entry has no input material.",
+        "FFMIPKGAHPK production directly subtracts recipe inputs and adds output inventory after its threshold.",
+        "The active Mighty Statue effect-object recipe requires 10 Mountain at zero count; its caller checks and subtracts stock before marking payment committed.",
+        "The completion receipt increments the monument effect object's count, and the count-based physical multiplier is consumed by derived player physical, health, and attack stats."
+      ],
+      "inferred": [
+        "Stone's empty material-recipe entry means no creation-material type is charged by this recipe function; it does not establish that no time, assignment, unlock, or other system condition applies.",
+        "The static code path predicts the stated state changes when called with sufficient progress and resources. Execution, persistence, and exact user-visible timing remain unverified."
+      ]
+    },
+    "unread_or_runtime_limits": [
+      "No game runtime was launched, so save persistence, UI event routing, offline behavior, and build-specific runtime execution were not checked.",
+      "This traces source mechanics, not a tested early-game route or a claim that a fresh account begins with sufficient Stone."
+    ]
+  },
+  "reviewed_spans": [
+    {
+      "file": "Assets.Scripts/UpdateStats.cs",
+      "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+      "full_methods_reviewed": [
+        "Start 2035-2043"
+      ],
+      "reviewed_method_portion": "FBFIMEDNKLP 4885-5060",
+      "searches": [
+        "HDNKMPEHPIO and BEEHNPNHNNL callers",
+        "creation-object tick callers"
+      ]
+    },
+    {
+      "file": "FFMIPKGAHPK.cs",
+      "sha256": "fb51251ea566b093f919684026ce92d6ec0c3353614cfa9aa71e31d71c62952a",
+      "full_methods_reviewed": [
+        "BPMABPHBKOP 3190-3502",
+        "APPFBNDJPEH 2108-2152"
+      ],
+      "searches": [
+        "active tick caller",
+        "creation inventory mutations",
+        "work gates and production threshold"
+      ]
+    },
+    {
+      "file": "AOGKGBPPCIL.cs",
+      "sha256": "a37cce01341085846da48b20780f5006c62b9e3b1ec7225d7f9eb4a73a5a2974",
+      "full_methods_reviewed": [
+        "BPMABPHBKOP 717-874",
+        "KGCKPJEDEFE 886-954",
+        "MNBAJAJCIFB 56-67"
+      ],
+      "reviewed_method_portion": "Mighty Statue effect tooltip 174-193",
+      "searches": [
+        "live effect-object tick caller",
+        "physical multiplier consumers"
+      ]
+    },
+    {
+      "file": "HDNKMPEHPIO.cs",
+      "sha256": "3e54a64ae802dfb291acd4653960a1ebef1bddaa0714ada8b445909885d19b58",
+      "full_methods_reviewed": [
+        "CHGIPOPHOCK 3314-3350"
+      ],
+      "reviewed_method_portion": "BPMABPHBKOP live caller 3897-3905; effect getter 96-102; description 143-149",
+      "searches": [
+        "live type initializer",
+        "effect-count mutation and call order"
+      ],
+      "parent_reviewed_portions": [
+        "LOFCKMMDFLM 2693-2727 selected branch",
+        "KGCKPJEDEFE 1673-1708 selected base recipe"
+      ]
+    },
+    {
+      "file": "FJHLJJDAFGG.cs",
+      "sha256": "b8cbeaa5602561f0c3d4ebe93d8d859dd6067019f041866fa0c7890eb59b6d13",
+      "reviewed_method_portion": "KGCKPJEDEFE 7089-7131 (Stone and Mountain recipe cases)",
+      "searches": [
+        "recipe getter callers",
+        "Mountain and Stone recipe cases"
+      ]
+    },
+    {
+      "file": "PFBFLAJEGBI.cs",
+      "sha256": "5d28327b96ef81d81cd632e10a23e3135142b7b98dc082eadffc2889ef494206",
+      "full_methods_reviewed": [
+        "MNBAJAJCIFB 630-660",
+        "GDLCLEHIIPJ 755-766",
+        "HMMIMAEMBCD 786-799",
+        "Physical power help 608"
+      ],
+      "searches": [
+        "physical multiplier references",
+        "derived health and attack formulas"
+      ]
+    }
+  ],
+  "excluded_or_caveated": [
+    "Did not use HDNKMPEHPIO.DDGHLMLICOG's isolated mighty-statue constant as the active material cost. The registered tick calls HDNKMPEHPIO.BPMABPHBKOP, which forwards to the attached AOGKGBPPCIL.BPMABPHBKOP and its AOGKGBPPCIL.KGCKPJEDEFE material list.",
+    "Did not treat NLHFJIOHPDO.OABMDOMFLJF as a completion method; it allocates clone progress/assignment."
+  ],
+  "parent_review": {
+    "status": "reviewed with corrections",
+    "integrated_owner": "ROOT_SUPPLEMENTS.json#ITR-02",
+    "corrections": [
+      "The ten-Mountain recipe is the attached Upgrade, not base Mighty Statue construction. Actual base cost starts at 2000 Stone.",
+      "Actual constructor initializes through LOFCKMMDFLM at2693; the reader OBNJPAPELLM reference is duplicate evidence excluded from final claim.",
+      "NLHFJIOHPDO.OABMDOMFLJF allocates clones; it does not grant completion progress."
+    ],
+    "qualification": "Reader observations are extraction context. Integrated root corrections govern final report."
+  }
+}

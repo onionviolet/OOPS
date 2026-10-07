@@ -1,0 +1,617 @@
+{
+  "status": "complete_bounded_read",
+  "source_identity": {
+    "source": "completed private local ILSpy export",
+    "assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+    "assembly_version": "1.6.9676.17433",
+    "payload_version": "1.6.4871 rev573",
+    "package_filename_revision": "rev588",
+    "decompiler": "ilspycmd 9.1.0.7988",
+    "execution": "not compiled or run"
+  },
+  "findings": [
+    {
+      "id": "body-01",
+      "kind": "source_observation",
+      "title": "Hunger state selects an ingest job; starvation feeds back through health",
+      "observed_rule": "Need_Food maps nutrition percentage to fed/hungry/urgently-hungry/starving using race-configured thresholds. Pawn_NeedsTracker calls each need\u2019s NeedInterval on the pawn\u2019s 150-tick hash interval. NeedInterval drains nutrition, then raises malnutrition severity while starving and reduces it otherwise. Hunger consumption itself is modified by the current malnutrition hediff. JobGiver_GetFood offers priority 9.5 only when food need exists, the configured minimum category is reached, level is not above its maximum, hunger is below the race's want-eat percentage, and (below starvation) the pawn is not delegated to a feeder; at starvation the feeder suppression branch does not apply. It searches legal nonforbidden/non-socially-improper food first; on failure it may try fishing for Odyssey-enabled fishers, otherwise gives no job. Chosen targets produce PredatoryHunt, Harvest, TakeFromOtherInventory, or Ingest jobs. JobDriver_Ingest sequences preparation and chewing into FinalizeIngest; that toil computes the requested nutrition, calls Thing.Ingested, and adds the returned nutrition to Need_Food.CurLevel for a living pawn with a food need (also records nutrition eaten). Severe malnutrition (>0.4) enables corpse food; starvation marks desperate selection. Thus health changes both need trajectory and the admissible recovery source, while the consumer still has independent reachability, chair, reservation and food predicates.",
+      "failure_or_exception": "No food source (and no qualifying fish path) returns null. Malnutrition's corpse permission is not unconditional: non-animal pawns need severity >0.4; mutant corpse permission overrides that branch with DesperateOnly preference. An Ingest job can fail before its final nutrition mutation if its source is destroyed/unavailable, no longer ingestible, or cannot be touched. Mental health provides a related hard action gate: MentalBreaker refuses breaks when pawn is downed/asleep/already mental, break-blocked, quest-disabled, mutant-protected, or non-player below extreme intensity; mood below threshold must persist >2000 ticks and an MTB roll must pass.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Food.cs",
+          "symbol": "Need_Food.CurCategory; FoodFallPerTickAssumingCategory; NeedInterval",
+          "spans": [
+            [
+              29,
+              47
+            ],
+            [
+              119,
+              179
+            ]
+          ],
+          "sha256": "401013b7a91ca879a7483644fe50f694ce0e84d243c1884db8c510f4d99bfc74"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobGiver_GetFood.cs",
+          "symbol": "JobGiver_GetFood.GetPriority; TryGiveJob; TryFindFishJob",
+          "spans": [
+            [
+              25,
+              49
+            ],
+            [
+              51,
+              128
+            ],
+            [
+              130,
+              183
+            ]
+          ],
+          "sha256": "535fa14a7defd274d10a93518418b6327ef57ddd9f89ccb016dfabfb3901933c"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/MentalBreaker.cs",
+          "symbol": "MentalBreaker.MentalBreakerTickInterval; CanHaveMentalBreak",
+          "spans": [
+            [
+              247,
+              308
+            ],
+            [
+              311,
+              367
+            ]
+          ],
+          "sha256": "4ab71ba6796af66f75e4c1efc9a198bc3e70c6e43ea000274b0a87b0eb92a714"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Mood.cs",
+          "symbol": "Need_Mood.CurInstantLevel; NeedInterval",
+          "spans": [
+            [
+              20,
+              35
+            ],
+            [
+              86,
+              92
+            ]
+          ],
+          "sha256": "e1a41d55414598a5388c765b9f3c921ecc5bba030c3dca4214ec0024fbb51de4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_NeedsTracker.cs",
+          "symbol": "Pawn_NeedsTracker.NeedsTrackerTickInterval",
+          "spans": [
+            [
+              110,
+              119
+            ]
+          ],
+          "sha256": "17bb4b88c4331a2fa0c721382cb7da04e66739dcde65f855fd6fbb2e8b3ea61d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobDriver_Ingest.cs",
+          "symbol": "JobDriver_Ingest.MakeNewToils",
+          "spans": [
+            [
+              104,
+              117
+            ]
+          ],
+          "sha256": "42ccc1052a2f238754c2cdecf9b21d0a2ac62ca197b6d6fcbf1d1730f0306910"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Toils_Ingest.cs",
+          "symbol": "Toils_Ingest.FinalizeIngest",
+          "spans": [
+            [
+              395,
+              437
+            ]
+          ],
+          "sha256": "ee2f3bd7bb4bb735231bd2453317af46f51d55491b4d81249cca2c846a8a4f06"
+        }
+      ],
+      "limit": "This is one food jobgiver plus mood-break eligibility, not a complete account of all work givers, medical care, ingest drivers, reservations, or health effects. Core food thresholds and any mood-thought def parameters can be race/def/mod dependent; export contains base Core definitions only."
+    },
+    {
+      "id": "social-01",
+      "kind": "source_observation",
+      "title": "Insult attribution creates a recipient memory whose social opinion fades before expiry",
+      "observed_rule": "InteractionDef Insult assigns Insulted as recipientThought. After TryInteractWith passes self, interaction-now and cooldown checks, it applies configured initiator and recipient thoughts before the worker/log aftermath; AddInteractionThought scales mood power and (for social memories) opinion offset by the other pawn's SocialImpact, then stores the other pawn as the memory's social target. MemoryThoughtHandler rejects disallowed thoughts, missing social target, or developmental-stage mismatch; accepted thoughts enter that pawn's memory list, then grouping limits and follow-on thought rules run. Insulted is per-person stack-limited (10) and carries -15 base opinion, lasts 20 days, and creates a separate two-day InsultedMood. Thought_MemorySocial scales the opinion offset toward zero over the final fraction of duration beginning at def.lerpOpinionToZeroAfterDurationPct (default 0.7), while base Thought_Memory discards only when age exceeds duration. ThoughtHandler consumes target-matched social memories to calculate TotalOpinionOffset, stacked by the thought def multiplier. Pawn_RelationsTracker.OpinionOf adds that directed total to relation offsets, applies the pawn\u2019s health-stage opinion factors, and clamps the result. NegativeInteractionUtility then uses the initiator\u2019s opinion of the recipient in its insult-selection factor: the curve ranges from 6 at -100 through 1 at 0 to 0 at +100, multiplied by pair compatibility and (for Abrasive) 2.3; Kind returns zero. InteractionWorker_Insult multiplies this factor by its base selection weight 0.007, except slave initiator to non-slave recipient is zero. Thus a recipient\u2019s negative memory of an earlier insult can increase their later chance to choose an insult back at that actor as the recipient\u2019s opinion of the prospective target is tested. Expiration removes the memory; a configured nextThought, if present, is then created. The insult can also start a social fight (base chance 0.04); that branch suppresses normal worker aftermath but the configured recipient thought was already added.",
+      "failure_or_exception": "TryInteractWith returns false before mutation for self-interaction or failed CanInteractNowWith; a recent interaction also fails unless the def ignores cooldown. Social thought insertion is skipped when the receiving pawn lacks mood, and a missing attributed otherPawn logs and rejects the social memory. If social-fight logic succeeds, worker.Interacted and its letter output are skipped, even though the interaction entry and initial memory remain recorded.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_InteractionsTracker.cs",
+          "symbol": "Pawn_InteractionsTracker.TryInteractWith; AddInteractionThought",
+          "spans": [
+            [
+              147,
+              173
+            ],
+            [
+              176,
+              269
+            ],
+            [
+              285,
+              299
+            ]
+          ],
+          "sha256": "72fb91cb9d56c782b2147139be0107e6b245e53e9bf808536658247f407335ab"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/MemoryThoughtHandler.cs",
+          "symbol": "MemoryThoughtHandler.MemoryThoughtInterval; RemoveExpiredMemories; TryGainMemory(Thought_Memory,Pawn)",
+          "spans": [
+            [
+              76,
+              99
+            ],
+            [
+              129,
+              200
+            ]
+          ],
+          "sha256": "e3b1bb76660ce17fe50201ff99caca07d2814a8253ad779d6670c805a40b67e0"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_MemorySocial.cs",
+          "symbol": "Thought_MemorySocial.ShouldDiscard; OpinionOffset; GroupsWith",
+          "spans": [
+            [
+              10,
+              49
+            ],
+            [
+              68,
+              85
+            ]
+          ],
+          "sha256": "3ac6007dc1dd363849bffbc2dd1a3bf3e4427eeb18b9f907177a02d2c645a14b"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_Memory.cs",
+          "symbol": "Thought_Memory.DurationTicks; ShouldDiscard; ThoughtInterval; MoodOffset",
+          "spans": [
+            [
+              39,
+              63
+            ],
+            [
+              122,
+              130
+            ],
+            [
+              166,
+              180
+            ]
+          ],
+          "sha256": "4b389f8ec2e8bf12832eb0f875b5ca64c4c759d70327c224644d811b70ef99ff"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtHandler.cs",
+          "symbol": "ThoughtHandler.GetSocialThoughts; OpinionOffsetOfGroup; TotalOpinionOffset",
+          "spans": [
+            [
+              133,
+              145
+            ],
+            [
+              159,
+              195
+            ],
+            [
+              197,
+              224
+            ]
+          ],
+          "sha256": "80650774ab30d3402c8c0b387fb9c7f794c662557db9466de16810e408bb19aa"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/InteractionDefs/Interactions_Social.xml",
+          "symbol": "InteractionDef Insult",
+          "spans": [
+            [
+              115,
+              126
+            ]
+          ],
+          "sha256": "d311b82ce2ec0810e1ae1f24625d0b4cc1111e27463e53bc298d4251cf7af99e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThoughtDefs/Thoughts_Memory_Social.xml",
+          "symbol": "ThoughtDef Insulted; InsultedMood",
+          "spans": [
+            [
+              67,
+              96
+            ]
+          ],
+          "sha256": "1be09e7a15669f8f62aa0651e8112c6db701261bfa33f14edd41232c7a8b824e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtDef.cs",
+          "symbol": "ThoughtDef.lerpOpinionToZeroAfterDurationPct",
+          "spans": [
+            [
+              88,
+              88
+            ]
+          ],
+          "sha256": "906aed83fa3694d3e3dba573b877ac9bbad5bd54503763b0fbe008595b7ee157"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_RelationsTracker.cs",
+          "symbol": "Pawn_RelationsTracker.OpinionOf",
+          "spans": [
+            [
+              592,
+              629
+            ]
+          ],
+          "sha256": "7e2c781de1ca2129634d114f6f60a013e513ee83b7f202410a4f3fc9e93c1895"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/NegativeInteractionUtility.cs",
+          "symbol": "NegativeInteractionUtility.NegativeInteractionChanceFactor",
+          "spans": [
+            [
+              20,
+              44
+            ]
+          ],
+          "sha256": "4b2387b68a3e7da479dbb094bfdcb7cc485446509206ad8fe2c1393481dbfab0"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/InteractionWorker_Insult.cs",
+          "symbol": "InteractionWorker_Insult.RandomSelectionWeight",
+          "spans": [
+            [
+              5,
+              16
+            ]
+          ],
+          "sha256": "9a53be7fbfe76b5c9f3edc2b5186cd61e45a4b3dc2fbead3fbbe8f03d3c56fee"
+        }
+      ],
+      "limit": "Only Core's Insult/Insulted path is traced; other interaction workers, thought defs, opinion relationship totals, social-fight combat aftermath, mods and DLC extensions may add rules. The 20-day memory and two-day mood thought are def values, not universal durations."
+    }
+  ],
+  "yair_comparison": {
+    "kind": "source_observation_plus_inference",
+    "files": [
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation.js",
+        "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+        "read_spans": [
+          [
+            359,
+            400
+          ]
+        ],
+        "finding": "The common boundary scheduler advances authored finite jobs, timed conditions/events and life-policy consequences; this is an existing place to own delayed consequences, not a per-person needs simulation."
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation_effects.js",
+        "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+        "read_spans": [
+          [
+            34,
+            80
+          ],
+          [
+            90,
+            149
+          ],
+          [
+            185,
+            193
+          ]
+        ],
+        "finding": "Simulation facts can expose existing vitals, conditions and directed relationship axes. A relationship effect changes an axis and appends a caused text memory once, capped at 32; there is no dated expiry/fade consumer for these relationship memories in this file."
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_knowledge.js",
+        "sha256": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496",
+        "read_spans": [
+          [
+            7,
+            34
+          ],
+          [
+            47,
+            58
+          ]
+        ],
+        "finding": "People view is authored/filtered disclosure: it projects supported known relationships and selected receipts, while explicitly omitting private axes and unshared NPC state. It is a usable presentation consumer for witnessed relationship outcomes."
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation_contracts.js",
+        "sha256": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+        "read_spans": [
+          [
+            37,
+            76
+          ],
+          [
+            197,
+            227
+          ]
+        ],
+        "finding": "Contracts already validate vital and directed relationship effects and persist bounded memories; they do not define needs/mood fields or attributed social interaction memory expiry."
+      }
+    ],
+    "bounded_gap": "These four owners provide authored vitals, conditions, directed relation axes, caused notes and dated presentation. In the inspected spans, no food-need consumer chooses an action from health/mood, and no attributed per-person interaction memory ages/fades/expires. This is a scoped gap in these owners, not a claim that the repository has no social or consequence systems."
+  },
+  "original_packet_ideas": [
+    {
+      "id": "packet-body-01",
+      "status": "proposal_original_adaptation",
+      "interaction": "At the Tidemark relay, choose whether to finish one witnessed delivery while winded or rest at the public stove: spending stamina makes the next field errand unavailable until a timed fatigue condition clears; food/water provision changes the authored recovery cost. The player sees why an errand is blocked and which local action restores eligibility.",
+      "reuse": "simulation.js boundary scheduler; simulation_effects.js vitals and conditions; simulation_contracts.js vital/condition validation; existing job eligibility and UI owner to be located by integrator.",
+      "missing_consumer": "A concrete command predicate that reads current vitals/condition and hides or disables that specific next errand, plus a recovery action that clears it through normal authored effects.",
+      "later_acceptance": "Rebuild and play from fit to winded; verify errand becomes unavailable with a legible reason, provision/rest changes only authored state, expiry restores it, reload preserves it, and unrelated native fights/save systems remain intact."
+    },
+    {
+      "id": "packet-social-01",
+      "status": "proposal_original_adaptation",
+      "interaction": "After the player publicly cuts off the relay clerk during a witnessed negotiation, clerk receives one directed grievance receipt; later the player may make an explicit apology with a small material/time cost. The People record shows the observed exchange, while a timed condition gates the clerk's optional concession and expires or clears after apology.",
+      "reuse": "simulation_effects.js directed relationship axis plus caused memories; people_knowledge.js filtered People projection; simulation.js timed-condition boundary and expiry; simulation_contracts.js validation.",
+      "missing_consumer": "A visible authored interaction that records attribution to the correct pair and a downstream service-choice predicate that reads the grievance/repair state, including age/expiry semantics if gradual fading is selected.",
+      "later_acceptance": "Play insult then apology and decline paths; verify only involved pair is affected, the People record remains truthful, concession gate changes once, expiry/repair has distinct aftermath, reload preserves state, and no hidden NPC state is exposed."
+    }
+  ],
+  "semantic_coverage": [
+    {
+      "path": "RimWorld/Need_Food.cs",
+      "spans": [
+        [
+          29,
+          47
+        ],
+        [
+          119,
+          179
+        ]
+      ],
+      "read": "Read category thresholds, food consumption modifiers and starvation/malnutrition interval in full."
+    },
+    {
+      "path": "RimWorld/JobGiver_GetFood.cs",
+      "spans": [
+        [
+          25,
+          49
+        ],
+        [
+          51,
+          128
+        ],
+        [
+          130,
+          183
+        ]
+      ],
+      "read": "Read priority conditions, food-source branches and fishing failure path in full."
+    },
+    {
+      "path": "RimWorld/Need_Mood.cs",
+      "spans": [
+        [
+          20,
+          35
+        ],
+        [
+          86,
+          92
+        ]
+      ],
+      "read": "Read instant mood derivation and periodic thought/observer calls."
+    },
+    {
+      "path": "Verse.AI/MentalBreaker.cs",
+      "spans": [
+        [
+          247,
+          308
+        ],
+        [
+          311,
+          367
+        ]
+      ],
+      "read": "Read threshold tracking, time/MTB roll and action eligibility exceptions."
+    },
+    {
+      "path": "RimWorld/Pawn_InteractionsTracker.cs",
+      "spans": [
+        [
+          147,
+          173
+        ],
+        [
+          176,
+          269
+        ],
+        [
+          285,
+          299
+        ]
+      ],
+      "read": "Read interaction gates, mutation order, aftermath and attributed thought helper."
+    },
+    {
+      "path": "RimWorld/MemoryThoughtHandler.cs",
+      "spans": [
+        [
+          76,
+          99
+        ],
+        [
+          129,
+          200
+        ]
+      ],
+      "read": "Read age/expiry and social-memory admission, grouping and follow-on rules."
+    },
+    {
+      "path": "RimWorld/Thought_MemorySocial.cs",
+      "spans": [
+        [
+          10,
+          49
+        ],
+        [
+          68,
+          85
+        ]
+      ],
+      "read": "Read social thought discard gate, age-scaled opinion and per-target grouping."
+    },
+    {
+      "path": "RimWorld/Thought_Memory.cs",
+      "spans": [
+        [
+          39,
+          63
+        ],
+        [
+          122,
+          130
+        ],
+        [
+          166,
+          180
+        ]
+      ],
+      "read": "Read duration, age increment and gradual mood decay."
+    },
+    {
+      "path": "RimWorld/ThoughtHandler.cs",
+      "spans": [
+        [
+          133,
+          145
+        ],
+        [
+          159,
+          224
+        ]
+      ],
+      "read": "Read target-specific social thought retrieval and opinion-offset consumption."
+    },
+    {
+      "path": "RimWorld/InteractionWorker_Insult.cs",
+      "spans": [
+        [
+          5,
+          16
+        ]
+      ],
+      "read": "Read insult random selection restriction/weight."
+    },
+    {
+      "path": "Defs/InteractionDefs/Interactions_Social.xml",
+      "spans": [
+        [
+          115,
+          126
+        ]
+      ],
+      "read": "Read Insult definition and configured recipient thought/base fight chance."
+    },
+    {
+      "path": "Defs/ThoughtDefs/Thoughts_Memory_Social.xml",
+      "spans": [
+        [
+          67,
+          96
+        ]
+      ],
+      "read": "Read Insulted and InsultedMood def values."
+    },
+    {
+      "path": "RimWorld/ThoughtDef.cs",
+      "spans": [
+        [
+          88,
+          88
+        ]
+      ],
+      "read": "Read default opinion-offset fade threshold."
+    },
+    {
+      "path": "RimWorld/Pawn_NeedsTracker.cs",
+      "spans": [
+        [
+          110,
+          119
+        ]
+      ],
+      "read": "Read 150-tick dispatcher that invokes every need interval."
+    },
+    {
+      "path": "RimWorld/JobDriver_Ingest.cs",
+      "spans": [
+        [
+          104,
+          117
+        ]
+      ],
+      "read": "Read Ingest toil sequence through nutrition-finalization call."
+    },
+    {
+      "path": "RimWorld/Toils_Ingest.cs",
+      "spans": [
+        [
+          395,
+          437
+        ]
+      ],
+      "read": "Read successful ingestion mutation to food need plus recorded nutrition aftermath."
+    },
+    {
+      "path": "RimWorld/Pawn_RelationsTracker.cs",
+      "spans": [
+        [
+          592,
+          629
+        ]
+      ],
+      "read": "Read opinion aggregation, health-stage factor and output clamp."
+    },
+    {
+      "path": "RimWorld/NegativeInteractionUtility.cs",
+      "spans": [
+        [
+          20,
+          44
+        ]
+      ],
+      "read": "Read opinion/compatibility curves and Kind/Abrasive modifiers."
+    },
+    {
+      "path": "RimWorld/InteractionWorker_Insult.cs",
+      "spans": [
+        [
+          5,
+          16
+        ]
+      ],
+      "read": "Read insult selection weight and slave-target exception."
+    }
+  ],
+  "anomalies": [
+    "Assembly version (1.6.9676.17433), payload Version.txt (1.6.4871 rev573) and DMG filename (rev588) disagree in revision labeling; retain all three as source identity qualification.",
+    "Export is decompiled source and was not compiled or run; no game runtime or private save was read."
+  ],
+  "provenance": "All RimWorld observations paraphrase this completed local export/Core defs; YAIR comparison is direct local-source observation; adaptation packets are original proposals. No proprietary source/assets were copied into YAIR.",
+  "parent_review_repairs": [
+    "Corrected a copied JobDriver_Ingest hash on Pawn_RelationsTracker evidence after direct digest verification.",
+    "Qualified the GetPriority feeder guard: it only suppresses priority below starvation; at starvation this guard does not apply."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "checkedAtUtc": "2026-10-07T06:00:21.797791+00:00",
+  "qualification": "Final static input/link/map/served readback only; no native constructor/model/gameplay/browser/save suite.",
+  "sourceCheckInputsStillMatch": {
+    "src/simulation_content.js": true,
+    "src/expedition_content.js": true,
+    "src/simulation_effects.js": true,
+    "src/simulation.js": true,
+    "src/expansion_engine.js": true,
+    "src/main.js": true,
+    "src/feature_expansion_wave_host.js": true,
+    "src/feature_expansion_refinements_host.js": true,
+    "src/data/expedition_items.js": true,
+    "src/save_files.js": true,
+    "src/feature_expansion_destination_host.js": true,
+    "src/realm_state.js": true,
+    "src/pocket_realm_host.js": true,
+    "src/book_world_mol_host.js": true,
+    "src/book_world_mol_state.js": true,
+    "src/book_world_paradise_host.js": true,
+    "src/book_world_paradise_state.js": true,
+    "src/feature_expansion_nested_host.js": true,
+    "src/world_visit_history.js": true,
+    "src/components/trader_component.js": true,
+    "src/adventure_notebook.js": true,
+    "src/reference_gameplay_state.js": true,
+    "src/audit_remainder_state.js": true,
+    "src/feature_expansion_nested_life.js": true,
+    "src/simulation_ui.js": true,
+    "src/home_furnishing_content.js": true,
+    "src/home_furnishing_facts.js": true,
+    "src/home_furnishing_host.js": true,
+    "src/crush_social_content.js": true,
+    "src/crush_social_facts.js": true,
+    "src/crush_social_host.js": true,
+    "src/crush_social_views.js": true,
+    "src/promise_ui.js": true,
+    "src/proto23_world_ids.js": true,
+    "src/proto23_world_content.js": true,
+    "src/proto23_world_actions.js": true,
+    "src/proto23_world_state.js": true,
+    "src/proto23_world_host.js": true,
+    "src/proto23_world_native.js": true,
+    "src/factorio_retort_content.js": true,
+    "src/factorio_retort_facts.js": true,
+    "src/factorio_retort_host.js": true,
+    "src/factorio_retort_native.js": true
+  },
+  "sourceMap": {
+    "localMatching": 353,
+    "vendorEntries": 37,
+    "drift": []
+  },
+  "buildHashesStillMatch": {
+    "dist/bundle.js": true,
+    "dist/bundle.js.map": true,
+    "index.html": true
+  },
+  "servedBytes": {
+    "index": {
+      "sha256": "6b32506b2373a12aa516494d47b8a76115b809a6a84579cd7ac1cb55e288e210",
+      "matches": true
+    },
+    "bundle": {
+      "sha256": "cc3798910c48e61f3908cdf2225090d136a3efddd62327cad196c34338c2ed30",
+      "matches": true
+    }
+  },
+  "localLinks": {
+    "markdownFiles": 24,
+    "linksChecked": 542,
+    "broken": []
+  },
+  "jsonFilesParsed": 22
+}

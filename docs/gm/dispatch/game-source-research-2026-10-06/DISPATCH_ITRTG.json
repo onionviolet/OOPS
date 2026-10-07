@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "authorized_on": "2026-10-06",
+  "authorization": "sned out one for Idling to rul the gods that I just odwnloaded, find other steam games too,",
+  "dispatcher_thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "threadId": "01a10fa5-e9c3-7b31-9e4f-b8c7b59f298c",
+  "hostId": "local",
+  "title_requested": "ITRTG GM: decompile and inspect progression",
+  "assignment": "../../../research/idling-to-rule-the-gods/ASSIGNMENT.md",
+  "intake_seed": "../../../research/idling-to-rule-the-gods/INTAKE_SEED.json",
+  "state": "active; initial work observed",
+  "scope": "Private export and five-path source research with original implementation handoff; runtime integration excluded.",
+  "source": {
+    "steam_app_id": 466170,
+    "steam_build_id": "25514347",
+    "managed_directory": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed",
+    "main_assemblies": [
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+        "bytes": 13332992,
+        "sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+      },
+      {
+        "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed/Assembly-CSharp-firstpass.dll",
+        "bytes": 4096,
+        "sha256": "c11127a51460b0dd7aecff5e9377c85b3246cdc28e80d7dc683aa1103ee840fd"
+      }
+    ],
+    "assembly_count": 149,
+    "project_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "assignment_path_available": true
+  },
+  "startup": {
+    "cursor": "c35a6689-eb7b-488b-8ef4-059bb09a3116:4",
+    "turn_id": "01a10fa5-f036-7662-84d3-b31ea9113dd4",
+    "turn_status": "inProgress",
+    "latest_commentary": "The assignment is clear, and the Qud lane has a reusable ILSpy toolchain. I’m applying the efficient-agent-routing and evidence-gated-handoff skills to divide the source reading into bounded scopes and review the returned evidence before ranking proposals.",
+    "latest_tool_status": "completed"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "status": "original and fate/temporal/trope followup analysis complete; runtime and gameplay acceptance deferred",
+  "requirements": {
+    "CSE-01": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P4"
+      ]
+    },
+    "CSE-02": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1"
+      ]
+    },
+    "CSE-03": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P4"
+      ]
+    },
+    "CSE-04": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P5"
+      ]
+    },
+    "CSE-05": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2"
+      ]
+    },
+    "CSE-06": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2"
+      ]
+    },
+    "CSE-07": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2",
+        "P3"
+      ]
+    },
+    "CSE-08": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P2",
+        "P3",
+        "P5"
+      ]
+    },
+    "CSE-09": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P3"
+      ]
+    },
+    "CSE-10": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P3",
+        "P5"
+      ]
+    },
+    "CSE-11": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2",
+        "P4",
+        "P5"
+      ]
+    },
+    "CSE-12": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P2",
+        "P3",
+        "P5"
+      ]
+    },
+    "CSE-13": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P5"
+      ]
+    },
+    "CSE-14": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2",
+        "P4"
+      ]
+    },
+    "CSE-15": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P3",
+        "P4",
+        "P5"
+      ]
+    },
+    "CSE-16": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P3",
+        "P4"
+      ]
+    },
+    "CSE-17": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2",
+        "P4"
+      ]
+    },
+    "CSE-18": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P2",
+        "P4",
+        "P5"
+      ]
+    },
+    "CSE-19": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P4",
+        "P5"
+      ]
+    },
+    "CSE-20": {
+      "model": "CAUSAL_MODEL.md",
+      "packets": [
+        "P1",
+        "P3",
+        "P5"
+      ]
+    }
+  },
+  "investigations": {
+    "actual_current_chain": [
+      "CURRENT_CAPABILITIES.md",
+      "LIVE_SOURCE_DELTA.md",
+      "evidence/COMBAT_LIFE_AUDIT.md"
+    ],
+    "disruptive_actions": [
+      "ACTION_OUTCOME_MATRIX.md",
+      "WORKED_CASES.md"
+    ],
+    "causal_model": [
+      "CAUSAL_MODEL.md"
+    ],
+    "endings_architecture": [
+      "ENDING_MODEL.md"
+    ],
+    "finite_cases_and_packets": [
+      "WORKED_CASES.md",
+      "IMPLEMENTATION_PACKETS.md"
+    ]
+  },
+  "workedCases": [
+    "CSE-CASE-01",
+    "CSE-CASE-02",
+    "CSE-CASE-03",
+    "CSE-CASE-04"
+  ],
+  "implementationPackets": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+  ],
+  "nativeImplementationPerformed": false,
+  "revision": 2,
+  "followup": {
+    "sourceChains": 4,
+    "sourceEvidence": "evidence/FATE_TEMPORAL_SOURCES.md",
+    "publicTheoryAudit": "evidence/TROPE_THEORYCRAFT_AUDIT.md",
+    "originalScenarioFamilies": 5,
+    "protectionComparison": "WORKED_CASES.md",
+    "validation": "evidence/FATE_FOLLOWUP_VALIDATION.json",
+    "implementationPerformed": false
+  }
+}

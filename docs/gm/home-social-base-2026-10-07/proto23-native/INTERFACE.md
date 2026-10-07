@@ -1,0 +1,24 @@
+# Proto23 root joins
+
+Frozen source: official Proto23 HTML revision e93a8cd617932fb698ff889b968a32f9a20d48f3, SHA256 `a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5`. Existing [qualified brief](../../../worlds/proto23/WORLD_BRIEF.md) owns narrow source claims. Everything executable here is original native code/prose and reversible visitor tuning.
+
+| Module | Exports / root purpose |
+|---|---|
+| `proto23_world_content.js` | `proto23Definitions`, `proto23Worlds`, `proto23Sources` (empty), `proto23ItemSpecifications` (four), `registerProto23Items`; all ID/footprint constants re-exported |
+| `proto23_world_ids.js` | `PROTO23_IDS/KEYS/LOCATIONS/FOOTPRINTS/FRONTIER/SOURCE_HASH/SOURCE_SNAPSHOT/NATIVE_DOMAIN` |
+| `proto23_world_actions.js` | `proto23Facts(state, context={})`, `proto23Context(state, context={})`; facts also re-exported by host |
+| `proto23_world_state.js` | `activeProto23Visit`, `validateProto23State`, `syncProto23Clock`, `nextProto23Boundary` (Infinity), `createProto23Connections`, visit-room preview/staging |
+| `proto23_world_host.js` | `commitProto23Command(state, registry, command, context, expectedSequence=state.sequence)`, `previewProto23Command`, `proto23Presentation(state, registry, context={})`, `proto23SimulationContexts(state, contexts)`, state/actions re-exports |
+| `proto23_world_native.js` | `createProto23NativeBindings` with the same constructor arguments/method contract as Mol; `validateProto23Envelope`, native metadata/calendar/quest projection |
+
+Group and public command type: `proto23`; command/fact/knowledge prefix `proto23.`. World `reference.proto23.village`; instance `reference.proto23.village.main`; continuity `reference.proto23.independent_visitor.branch`; era `reference.proto23.ordinary_village`; region `reference.proto23.village`; layer `reference.proto23.surface`. Native locations: `Proto23 Village Center`, `Proto23 Dojo lobby`, `Proto23 visitor cottage`. Physical origin/return: actual `base.frontier` Village. The home consumer is `proto23.home_kit` at actual Shack.
+
+Optional state `proto23Village` schema1 needs expansion11 recognition in all schema-retention/enrollment/load paths. Absence is inert; old expansion5–11/simulation5/frozen jobs must retain meanings. Native envelope domain `proto23_village_native`; stock namespace `inventories.proto23_world`; shop remains `inventories.trader[proto23.visitor.shop]`. Native residents are `proto23.guest_steward` and `proto23.handling_tutor`, with native inventory/XP/equipment/body bindings. Both accept ordinary native coins through player `external.money` and their finite independent `resources.coins`; attention never refills.
+
+Root should supply `context.proto23Native=proto23Native.read(state)` with complete actual body/stock/endpoint bindings in the same places as `molNative`. Add `proto23Facts` to `simulationFacts`. At generic completion, pass `proto23AcceptedJob:job` into current support/effect context for group `proto23`; preserve current gameplay/vitals/vitalsByActor/equipment, and include this group in the immediate completion context list. Root should enforce `context.proto23Host===true` at `startCommand` to prevent generic routines bypassing the selected host. The host sets that flag and rejects arbitrary targets.
+
+Explicit enrollment returns `plan.proto23Activation=true`; ordinary finite purchases return exact `plan.proto23NativeRequests=[{owner,key,count,cause,expectedRevision}]`. Typed native stage/read/snapshot/restore use the existing durable publisher. Registration creates empty unavailable NPC/stock/quest/location placeholders. Activation alone binds actual resident bodies/stocks; restore/render/reentry never reseed. Native shop legacy refresh/trade stays disabled. Each material/furniture operation runs through existing costs/effects, acquisition/custody checks and cancellation/refund, with actual held-item variants returned once.
+
+Four new IDs: `Proto23 plain bed`, `Proto23 cottage hearth`, `Proto23 bookstand`, `Proto23 annotated practice notebook`. Notebook material costs reuse already registered `Cyorian research paper`/`Cyorian formula ink` as explicitly ordinary imported stationery; no lamp/formula capability is implied. Knives, wet/sound staves, green/dry offcuts, sap, logs and kits reuse existing native item definitions. Furnishings become fixed local physical installation claims and never remain in inventory. Installed fixtures have no dismantling route in this slice. All stock/payment/fixture counters retain actual changed revisit state.
+
+Root owns the full one-active-visit guard and all location-return/native storage/cargo joins for this world alongside existing destinations. Current declaration checks passed; source implementation remains **implemented-unverified** until the deferred real journey is permitted and run.

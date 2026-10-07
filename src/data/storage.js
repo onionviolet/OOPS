@@ -1,11 +1,15 @@
 import InventoryComponent, {inventories} from "../components/inventory_component.js";
 import { exit_displayed_storage, update_displayed_storage } from "../display.js";
-import { character } from "./character.js";
 
 const player_storage = new InventoryComponent();
 // Component saves must own the chest too, including migrated pre-v0.6 items.
 inventories.storage = {player: player_storage};
 let storage_open = false;
+let commit_transfer;
+
+function bind_storage_transfer(handler) {
+    commit_transfer = handler;
+}
 
 /**
  * @param {Array} items [{item_key, item_count}]
@@ -41,18 +45,16 @@ function close_storage(items) {
  * @param {Object} item {item_key, count}
  */
 function move_item_to_storage(item) {
-    let count = Math.min(item.count, character.getItems()[item.item_key].count);
-    character.removeFromInventory([{...item, item_count: count}]);
-    add_to_storage([{...item, count}]);
+    if(!commit_transfer) throw new Error("Chest transfers are unavailable.");
+    return commit_transfer({...item, direction: "deposit"});
 }
 
 /**
  * @param {Array} item [{item_key, item_count}]
  */
 function remove_item_from_storage(item) {
-    let count = Math.min(item.count, player_storage.getItems()[item.item_key].count);
-    character.addToInventory([{...item, count}], true);
-    remove_from_storage([{...item, item_count: count}]);
+    if(!commit_transfer) throw new Error("Chest transfers are unavailable.");
+    return commit_transfer({...item, direction: "withdraw"});
 }
 
 function is_storage_open() {
@@ -62,5 +64,5 @@ function is_storage_open() {
 export {
     player_storage, 
     add_to_storage, remove_from_storage, open_storage, close_storage,
-    move_item_to_storage, remove_item_from_storage, is_storage_open
+    move_item_to_storage, remove_item_from_storage, is_storage_open, bind_storage_transfer
 }

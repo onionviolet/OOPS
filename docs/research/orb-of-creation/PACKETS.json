@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "status": "final-original-ranked-proposals",
+  "packet_count": 4,
+  "selection_authority": "Research ranks these for consideration; no runtime integration is assigned.",
+  "packets": [
+    {
+      "status": "original-proposal-not-implemented-or-selected-for-runtime",
+      "design_status": "Fiction, prices, timing and balance are reversible original proposals, not Orb content or accepted production policy.",
+      "preservation": [
+        "Character-centered familiar native opening",
+        "First one-realm/one-prestige milestone",
+        "Existing native inventory, actors, bodies, custody, knowledge, job/site/clock and durable save publisher",
+        "Private saves and existing frozen commitments untouched",
+        "No retroactive old-save rewards or automatic enrollment"
+      ],
+      "verification": "Source/document checks only. Gameplay, browser, save/reload/import/failure/regression/keyboard/director gates are deferred.",
+      "id": "ORB-P01",
+      "rank": 1,
+      "title": "Useful undertrained cooling with an honest price",
+      "findings": [
+        "OOC-SPELL-002",
+        "OOC-SPELL-003",
+        "OOC-SPELL-007",
+        "OOC-SPELL-019"
+      ],
+      "player_journey": [
+        "Actually learn Eda\u2019s cooling source with a charged sleeve, then complete one paid supervised trial.",
+        "At mastery one or two, compare an early grip-cooling application against two further trials and the existing mastery-three action. Proposed early terms: one charged sleeve, four stamina and three played minutes; mastered action remains one sleeve and two stamina immediately.",
+        "Completion returns the empty sleeve and applies the same four-minute bounded grip field. It grants no mastery, damage, passage or free tool. Oren\u2019s ordinary jab/guard remain usable.",
+        "Cancel or lose body/tool/target/source support during preparation: return explicitly reserved inputs, produce no field and retain elapsed time. Expiration follows the existing supported local clock."
+      ],
+      "reuse": [
+        {
+          "path": "src/reference_gameplay_content.js",
+          "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+          "reviewed_spans": [
+            [
+              29,
+              100
+            ]
+          ],
+          "symbols": [
+            "referenceGameplaySources",
+            "referenceGameplayDefinitions",
+            "reference_gameplay.practice",
+            "reference_gameplay.cool_hook"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/reference_gameplay_host.js",
+          "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+          "reviewed_spans": [
+            [
+              12,
+              36
+            ],
+            [
+              55,
+              79
+            ]
+          ],
+          "symbols": [
+            "referenceGameplayContext",
+            "validateReferenceGameplayWorkshop",
+            "referenceGameplayNextBoundary"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/feature_expansion_battle.js",
+          "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+          "reviewed_spans": [
+            [
+              14,
+              19
+            ],
+            [
+              145,
+              150
+            ],
+            [
+              172,
+              176
+            ],
+            [
+              435,
+              443
+            ]
+          ],
+          "symbols": [
+            "FEATURE_HOOK_COOLING_CONDITION",
+            "featureHookCoolingActive"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/power_models.js",
+          "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+          "reviewed_spans": [
+            [
+              5,
+              43
+            ]
+          ],
+          "symbols": [
+            "previewPowerModel"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              67,
+              126
+            ],
+            [
+              129,
+              183
+            ],
+            [
+              244,
+              258
+            ]
+          ],
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand",
+            "cancelSimulationJob"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        }
+      ],
+      "verified_existing": "The source/knowledge/three paid trials, physical sleeve charge conversion and actual hook field consumer already exist. Undertrained application is absent; this is not a new cooling family.",
+      "exact_missing_consumer": [
+        "A separately declared early application with mastery-one/two bounds and frozen higher costs/duration, preserving the established mastered action.",
+        "The workshop validator currently requires completed reference_gameplay.cool_hook and its exact knowledge cause (reference_gameplay_host.js69\u201372). Admit a qualified new early receipt explicitly; never forge a mastered-action completion. Retain old valid fields/jobs.",
+        "A generic per-application cooldown formula is not already present: startCommand167 reads a definition cooldown. The smallest proof uses a declared preparation job, leaving dynamic cooldown generalization unselected."
+      ],
+      "retained_consequences": "No teacher consent is needed after learning except where the existing action requires it. Body, actual source, owned charge, local rules, target, occupational/custody gates remain firm. Preparation refunds are explicit; learned mastery is never removed or granted by the new application.",
+      "compatibility": "Use existing optional workshop/condition/knowledge owners; version the new command/receipt admission while retaining existing schema1 workshop and old condition causes. Absence stays inert. Keep current/frozen jobs on original rules.",
+      "later_player_gate": [
+        "Generated actor earns the lesson and one trial, then the early quote shows and spends distinct actual costs.",
+        "Early completion yields one conserved empty sleeve and the real hook condition once; missing means and stale/support-lost requests fail without field or reward.",
+        "Mastery-three action remains cheaper and immediate. Actual hook pull is prevented only while the paid field exists; jab/guard and expiration remain distinct.",
+        "Later save/reload/import and failed publication preserve exact receipt/charge/condition outcomes."
+      ]
+    },
+    {
+      "status": "original-proposal-not-implemented-or-selected-for-runtime",
+      "design_status": "Fiction, prices, timing and balance are reversible original proposals, not Orb content or accepted production policy.",
+      "preservation": [
+        "Character-centered familiar native opening",
+        "First one-realm/one-prestige milestone",
+        "Existing native inventory, actors, bodies, custody, knowledge, job/site/clock and durable save publisher",
+        "Private saves and existing frozen commitments untouched",
+        "No retroactive old-save rewards or automatic enrollment"
+      ],
+      "verification": "Source/document checks only. Gameplay, browser, save/reload/import/failure/regression/keyboard/director gates are deferred.",
+      "id": "ORB-P02",
+      "rank": 2,
+      "title": "A tool-and-method combination that changes a real production bottleneck",
+      "findings": [
+        "OOC-SPELL-006",
+        "OOC-PROD-003",
+        "OOC-PROD-004",
+        "OOC-PROD-020",
+        "OOC-PROD-023",
+        "OOC-PROD-024"
+      ],
+      "player_journey": [
+        "Earn the existing paired prism frame and Eda\u2019s learned mastery-three cooling. Keep actual sap and charged sleeves.",
+        "At the one fitting bench choose ordinary single setting, fast paired setting, or precise controlled setting. Proposed two-resin fast batch: two sap, two charges, two stamina, four minutes. Precise batch: two sap, one charge, three stamina, six minutes plus the learned method. Ordinary single route remains unchanged.",
+        "Reserve the actual frame for either new batch. On completion return it, produce two existing Set repair resin, and return one empty sleeve per spent charge.",
+        "Use the resin with two real sound staves through the existing two-kit recipe and actual trade/preparation consumers. Charge conservation, speed, effort and bench availability produce different choices."
+      ],
+      "reuse": [
+        {
+          "path": "src/reference_gameplay_content.js",
+          "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+          "reviewed_spans": [
+            [
+              8,
+              16
+            ],
+            [
+              38,
+              100
+            ]
+          ],
+          "symbols": [
+            "REFERENCE_GAMEPLAY_KEYS",
+            "reference_gameplay.set_resin",
+            "reference_gameplay.resin_kits",
+            "reference_gameplay.recharge"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/artifact_workshop_content.js",
+          "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+          "reviewed_spans": [
+            [
+              37,
+              70
+            ]
+          ],
+          "symbols": [
+            "artifactWorkshopCollection"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/artifact_collection.js",
+          "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+          "reviewed_spans": [
+            [
+              50,
+              115
+            ]
+          ],
+          "symbols": [
+            "compileArtifactCollection"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/feature_expansion_objects.js",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+          "reviewed_spans": [
+            [
+              62,
+              79
+            ],
+            [
+              100,
+              106
+            ]
+          ],
+          "symbols": [
+            "featureObjectDefinitions"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              83,
+              92
+            ],
+            [
+              129,
+              183
+            ]
+          ],
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "reviewed_spans": [
+            [
+              7,
+              50
+            ]
+          ],
+          "symbols": [
+            "persistExpansionPlan"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        }
+      ],
+      "verified_existing": "Vela\u2019s loose/fitted prisms and Eda\u2019s sleeve\u2192resin\u2192kit chain already have real source/native consumers. Their cross-system charge/time tradeoff is absent; no generic artifact, alchemy or stock engine is missing.",
+      "exact_missing_consumer": [
+        "Two new paid batch definitions binding the existing paired physical frame to the existing charged-sleeve/sap/resin items, with precise cooling eligibility only for the economical branch.",
+        "Native-bag carrier reservation/return for the cross-module use, source/body/completion support and knowledge disclosure; the existing artifact compiler can provide held-carrier semantics but a selected integrator must join it to the cooling host.",
+        "A read-only comparison of actual charge/time/effort and downstream native-kit output. Do not apply Orb\u2019s abstract global bandwidth or universal tool-slot limit to every YAIR power."
+      ],
+      "retained_consequences": "The actual one-capacity bench and held apparatus block competing use. Cancellation or support loss returns reserved physical ingredients without finished resin; elapsed time remains. Spent charges convert to empty sleeves only on completed setting. Future recharge still consumes finite salt.",
+      "compatibility": "Existing stock/item keys and original job revisions remain; new optional command/receipt IDs require compatible registry admission. No abstract resource pool, quality schema, inventory, scheduler or save publisher.",
+      "later_player_gate": [
+        "Compare ordinary/fast/precise routes at equal two-sap funding; inspect distinct charge count, actual elapsed time, effort and same two-resin output.",
+        "Attempt to use/sell/disassemble the reserved frame elsewhere and observe existing occupancy/custody rejection.",
+        "Missing source blocks only precise use; missing apparatus blocks new combinations while ordinary setting still works.",
+        "Craft the actual native kits from the resin, then later verify cancel/support loss and save/reload/failure conservation."
+      ]
+    },
+    {
+      "status": "original-proposal-not-implemented-or-selected-for-runtime",
+      "design_status": "Fiction, prices, timing and balance are reversible original proposals, not Orb content or accepted production policy.",
+      "preservation": [
+        "Character-centered familiar native opening",
+        "First one-realm/one-prestige milestone",
+        "Existing native inventory, actors, bodies, custody, knowledge, job/site/clock and durable save publisher",
+        "Private saves and existing frozen commitments untouched",
+        "No retroactive old-save rewards or automatic enrollment"
+      ],
+      "verification": "Source/document checks only. Gameplay, browser, save/reload/import/failure/regression/keyboard/director gates are deferred.",
+      "id": "ORB-P03",
+      "rank": 3,
+      "title": "A retained plant can become a different finite material source",
+      "findings": [
+        "OC-P15",
+        "OOC-PROD-015",
+        "AGRO-01",
+        "AGRO-03",
+        "AGRO-04",
+        "AGRO-06",
+        "AGRO-11",
+        "AGRO-15"
+      ],
+      "player_journey": [
+        "Finish Nell\u2019s existing crop first. Separately acquire one newly authored, finite rooted cutting from her actual stock with disclosed payment; no seed/crop is silently replenished.",
+        "Plant it in the actual permitted bed. Once its growth is observed, choose to clip it for a small immediate herb/fiber input or spend real material/effort on a woody transformation.",
+        "The transformed plant retains bed occupancy and a disclosed finite harvest allowance. Two later supported local harvests could yield actual Wet repair staves; retiring or uprooting closes the same object without a second reward.",
+        "Dry the actual wet staves through existing ordinary/braced/shelf routes, then use sound staves in kit/brace work. A known controlled-cooling application may shorten one declared preparation at a real charge cost, without conjuring a plant or stock."
+      ],
+      "reuse": [
+        {
+          "path": "src/audit_remainder_consequences_content.js",
+          "sha256": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+          "reviewed_spans": [
+            [
+              100,
+              132
+            ],
+            [
+              201,
+              220
+            ]
+          ],
+          "symbols": [
+            "plotCommands",
+            "remainderConsequencesDefinitions"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/feature_expansion_objects.js",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+          "reviewed_spans": [
+            [
+              14,
+              25
+            ],
+            [
+              71,
+              79
+            ],
+            [
+              141,
+              147
+            ]
+          ],
+          "symbols": [
+            "FEATURE_OBJECT_KEYS",
+            "featureObjectDefinitions"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/site_projects.js",
+          "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+          "reviewed_spans": [
+            [
+              4,
+              31
+            ]
+          ],
+          "symbols": [
+            "compileSiteProject",
+            "projectView"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/energy_resources.js",
+          "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+          "reviewed_spans": [
+            [
+              16,
+              44
+            ]
+          ],
+          "symbols": [
+            "energyCharge",
+            "applyEnergyEffect"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              83,
+              92
+            ],
+            [
+              129,
+              183
+            ]
+          ],
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        }
+      ],
+      "verified_existing": "Nell\u2019s one-terminal crop, timed draft/cover/early/salvage routes and finite seed allocation already exist, as do finite Rill renewal rounds. A transformed persistent plant with mutually exclusive outputs and retained bed occupancy is not provided by that existing terminal crop.",
+      "exact_missing_consumer": [
+        "An explicitly accepted second content object and finite actual cutting stock, with stable identity, legal bed claim, branch state and remaining harvest allowance. Preserve the first crop untouched.",
+        "Retained plant occupancy between jobs, plus supported local growth/transform/harvest consumers; site job capacity alone ends with the job and does not keep a mature plant occupying the bed.",
+        "Exact physical wet-stave output into existing drying and kit consumers, and one optional learned preparation consumer with real body/source/charge requirements."
+      ],
+      "retained_consequences": "Clipping foregoes woody conversion; conversion spends stock and ties up the bed; harvests deplete the explicit allowance. Shortage pauses or rejects before a fresh commitment. Completed effort and a live transformed plant remain on interruption; uprooting grants only its disclosed salvage. No browser-closed growth or speculative global seasons.",
+      "compatibility": "Optional additive actor/world facts, claims and selected native item/command IDs with validated new enrollment. Do not replace current crop receipts/timers or infer old-save plants. One existing local clock and publisher.",
+      "later_player_gate": [
+        "Buy the same finite cutting once, plant it, and choose immediate clipping versus transformation with different actual outputs.",
+        "Observe occupied-bed rejection, finite harvest depletion and interruption with the same plant state.",
+        "Complete a material harvest, dry the wet stave and consume the sound stave in existing work.",
+        "Later save/reload/failure and absence-freeze checks preserve the same plant, remaining harvest allowance, costs and stock."
+      ]
+    },
+    {
+      "status": "original-proposal-not-implemented-or-selected-for-runtime",
+      "design_status": "Fiction, prices, timing and balance are reversible original proposals, not Orb content or accepted production policy.",
+      "preservation": [
+        "Character-centered familiar native opening",
+        "First one-realm/one-prestige milestone",
+        "Existing native inventory, actors, bodies, custody, knowledge, job/site/clock and durable save publisher",
+        "Private saves and existing frozen commitments untouched",
+        "No retroactive old-save rewards or automatic enrollment"
+      ],
+      "verification": "Source/document checks only. Gameplay, browser, save/reload/import/failure/regression/keyboard/director gates are deferred.",
+      "id": "ORB-P04",
+      "rank": 4,
+      "title": "Paid investigation offers saved, usable leads instead of repeated rerolling",
+      "findings": [
+        "OC-P01",
+        "OC-P02",
+        "OC-P03",
+        "OC-P16"
+      ],
+      "player_journey": [
+        "After the existing firsthand cutting and drying observations, pay Eda for a separate optional investigation using actual payment, participant effort and played time.",
+        "Completion reveals two authored leads drawn once from eligible, observed work domains, for example precise charge alignment versus woody-crop conditioning. At least one has a presently reachable action; a future-use lead shows known missing means. Essential campaign evidence stays guaranteed through its existing route.",
+        "Choose one lead, defer it, or keep reading the same offers. Confirmation gives attributed actor knowledge and the specific next-command discovery, while actual learning/source/tools/stock/access remain separate.",
+        "Exercise the linked original work consumer in P02/P03 when qualified. Reopening or later reload preserves the original offer IDs and chosen cause; it never gives a new roll for free."
+      ],
+      "reuse": [
+        {
+          "path": "src/audit_remainder_home_content.js",
+          "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+          "reviewed_spans": [
+            [
+              109,
+              122
+            ]
+          ],
+          "symbols": [
+            "remainderHomeDefinitions"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              67,
+              126
+            ],
+            [
+              129,
+              183
+            ],
+            [
+              333,
+              379
+            ],
+            [
+              23,
+              23
+            ]
+          ],
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand",
+            "respondSimulationEvent"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+          "reviewed_spans": [
+            [
+              4,
+              39
+            ]
+          ],
+          "symbols": [
+            "deriveSimulationSeed",
+            "resolveOutcomeWeights"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/skill_discovery.js",
+          "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+          "reviewed_spans": [
+            [
+              54,
+              69
+            ],
+            [
+              94,
+              99
+            ]
+          ],
+          "symbols": [
+            "projectDiscoveryFeature",
+            "projectTechniqueDiscovery"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "reviewed_spans": [
+            [
+              7,
+              50
+            ]
+          ],
+          "symbols": [
+            "persistExpansionPlan"
+          ],
+          "qualification": "Live dirty source inspection; no runtime acceptance."
+        }
+      ],
+      "verified_existing": "Actual-observation research and fixed mutually exclusive specializations are already present. The general seeded paid-outcome and saved event/choice services exist, but this work-domain offer-set producer and confirm-to-real-consumer binding are absent.",
+      "exact_missing_consumer": [
+        "A small eligible pool with actor/NPC knowledge boundaries, one frozen selected offer bundle per accepted cause and explicit stage/disposition validation. A finite authored outcome table can use the existing seeded command resolver; no new RNG service is needed.",
+        "Projection of known versus currently executable leads, explicit once-only confirmation, and next command bindings to the P02/P03 consumers. A hint is never a grant of their source, stock or access.",
+        "Saved offer/selection validation using the existing fact/event/knowledge owners. Paid reroll, if selected at all, needs an explicit finite cost and a new receipt; no free reopen redraw."
+      ],
+      "retained_consequences": "Money reaches Eda\u2019s purse; both people spend their own effort and occupied time. Interrupted reserved research refunds only its disclosed reservations and gives no offers. Completed offers persist through deference; foregone choice remains an attributed decision rather than erased history.",
+      "compatibility": "Explicit optional cause/offer facts or admitted event revision with absence inert; old deterministic research/specialization and frozen jobs remain unchanged. One existing RNG, native save, clock and inventory. No run reset or new prestige.",
+      "later_player_gate": [
+        "Generated actor with actual observation receipts accepts paid investigation, sees conserved payment/effort and one saved offer set.",
+        "Compare ready/future leads with truthful known requirements, choose one and execute its actual later consumer.",
+        "Reopen, reload, stale confirm and failed publication preserve one roll, one choice and one grant.",
+        "Unknown content is excluded from searchable Notebook projections and the existing mandatory campaign route remains available."
+      ]
+    }
+  ],
+  "unselected_larger_implications": [
+    "Work-earned recovery modules and retained situational loadout spends",
+    "Funded upkeep/partial resource support across concurrent channels",
+    "Stage-earned ritual rewards with independent explicit success gate",
+    "Retained mastery versus current allocation and honest loss/retention previews",
+    "Structure enchantment with valid target, real consumable spending and fizzle aftermath"
+  ]
+}

@@ -1,0 +1,619 @@
+{
+  "schema": "missing-feature-lives-work-society-appendix-v1",
+  "review": {
+    "scope": "Finite source-to-consumer audit of lives, ordinary work/materials, livelihoods, independent residents, teaching and social/family continuity. Current dirty checkout is the source of truth; HEAD alone is insufficient.",
+    "source_identity": "Relevant implementation files were compared with missing-feature-audit/INPUT_SNAPSHOT.json and matched at review. Review is static; no test, build, browser, save, external source or private save was run/read.",
+    "delivery_state": "The current project records these recently added gameplay families as built but implemented-unverified. This appendix establishes source declarations, registry/UI/save seams, not executed play or director acceptance.",
+    "scope_boundary": "Preserve the vanilla opening and first one-realm/one-prestige milestone. Broad ecology, household, institution, lifespan and career mechanics are conditional on a selected world needing them; they are not universal prerequisites."
+  },
+  "summary": {
+    "coverage_records": 7,
+    "present_source_families": 1,
+    "partial_families": 5,
+    "detached_families": 1,
+    "unknown_claims": 4,
+    "interpretation": "These counts classify this bounded lives/work/society coverage, not all USER_VISION families or completed gameplay. Unknowns below are explicit, not inferred absences."
+  },
+  "unknowns": [
+    "This appendix samples the native gathering/drop and connected craft/use owners; it is not an exhaustive audit of every recipe, consumable, trader or legacy action.",
+    "It inspects the current simulation controller, field/craftsman/Glasshouse cases and selected UI bindings; other native dialogue/NPC roles were not exhaustively mapped.",
+    "It does not complete the broader campaign/world roster or determine which future setting actually needs lineage, institutional law, aging or autonomous professions.",
+    "No browser, generated-save, save/reload, failure, gameplay, or director acceptance was performed here; current behavior remains at the recorded implemented-unverified gate."
+  ],
+  "coverage": [
+    {
+      "local_id": "LWS-01",
+      "family": "Ordinary gathering, work, material, craft and resource renewal",
+      "requirement_basis": [
+        "docs/USER_VISION.md:319-327",
+        "docs/USER_VISION.md:589-599",
+        "docs/USER_VISION.md:657-665",
+        "docs/USER_VISION.md:953-965"
+      ],
+      "status": "partial",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Native Gathering activity derives skill-scaled time, drop chance/count and quality; native tick resolves drops and inventory/statistics. Registered simulation commands separately reserve declared item/resource/vital inputs for paid jobs and can produce actual inventory under existing adapters.",
+        "registered_consumer": "Simulation content registers the useful Frontier work, field workshop, skills, commissioned kit and optional Glasshouse work. Existing native crafting/use/equipment remains its own owner. No general native-gather-to-region-node reservation/depletion/renewal consumer was found in the reviewed path.",
+        "state": "Native inventory, simulation actor owners, jobs, site reservations, local/world facts, event RNG and game clock are separate existing owners. Exact harvested node quantity, producer renewal and conserved lot condition are not joined to ordinary native gathering here.",
+        "ui": "Existing native location/activity/crafting surfaces remain available; the simulation and Pocket panels expose their authored work and outcomes. The panels do not make unbound regional stock finite.",
+        "save": "Native save owns native item/activity state; expansion persistence serializes its validated simulation state and native gameplay publication together before live publication. Source wiring is present; this audit did not reload or exercise it."
+      },
+      "evidence": [
+        {
+          "path": "src/models/location.js",
+          "symbol": "Location.getActivityEfficiency",
+          "start_line": 480,
+          "end_line": 508,
+          "sha256": "218ef9408ec8bbc6b302b7c260b8b52cc06aa5acc319a550e5e63b46cf649e78"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "native gathering tick and loot settlement",
+          "start_line": 6123,
+          "end_line": 6158,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbol": "startCommand and advanceSimulationBoundary",
+          "start_line": 108,
+          "end_line": 140,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "simulationDefinitions commands and controller registration",
+          "start_line": 28,
+          "end_line": 80,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "symbol": "persistExpansionPlan",
+          "start_line": 7,
+          "end_line": 35,
+          "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+        }
+      ],
+      "prior_ids": [
+        "REG01",
+        "REG02",
+        "REG03",
+        "REG06",
+        "REG07",
+        "REG09",
+        "IT02",
+        "IT03",
+        "IT10",
+        "MC02",
+        "ME02",
+        "ME08"
+      ],
+      "actual_gap_or_no_gap": "Gathering, job reservations, crafting, and inventory are present. The additional selected-world gap is a single supported chain from finite regional stock/producer through harvest method, condition-preserving material, refinement/repair and a named resident demand/output. Current native gathering uses Math.random at settlement and has no inspected regional stock publication; do not claim an existing deterministic finite-node join.",
+      "selected_vs_optional_need": "The user requested fuller ordinary and technical progression. Finite ecology and lot conservation are required only for worlds whose selected resources are finite, renewable, seasonal or uniquely owned; source-supported inexhaustible resources remain so. No universal ecology simulation is selected.",
+      "candidate_packet_seam": {
+        "example": "A resident asks for sound willow strips for a repairable field gauge. The player can cut a declared amount from one known bank, tend it for later supply, buy an existing batch, accept funded measuring work, or refuse. A successful cut changes that node's available stock and carries actual material into repair; a failed/wet batch records what was lost without producing a gauge.",
+        "reuse": "Regions owns node and renewal rules; Items owns exact material/portion and transformation; existing native gathering/crafting stay the player-facing entry points; Engine owns quotes, reservation, RNG, time, single durable publication and UI/save binding.",
+        "alternative_and_abstention": "A fixed finite authored node plus one repair recipe is cheaper than a general ecosystem. If the selected world does not rely on local resource scarcity, keep current native gathering and omit node depletion.",
+        "cost_and_state": "Moderate cross-owner compatibility work. Reuse the existing game clock, native inventory/equipment, simulation command/job state and save envelope. Specify whether a batch is prepaid or must still have a live source/tool at completion; bind RNG state and reserved stock to the same transaction. No numerical performance or savings claim is made.",
+        "acceptance_later": "On a generated save, cut or purchase actual stock, craft/repair once, refuse/interupt once, then reload/return. Confirm exact node amount, material identity/condition, inventory, currency, RNG receipt and one output agree; rendering/replay grants nothing. Deferred, not performed here."
+      },
+      "confidence": "high for inspected native and simulation seams; medium for exhaustive native crafting coverage, since only connected owners and relevant item audit were sampled"
+    },
+    {
+      "local_id": "LWS-02",
+      "family": "Identifiable usable objects, work tools and maintenance",
+      "requirement_basis": [
+        "docs/USER_VISION.md:319-327",
+        "docs/USER_VISION.md:589-599",
+        "docs/USER_VISION.md:953-965"
+      ],
+      "status": "partial",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Native item templates, component/quality keys, recipe outputs and explicit simulation item effects produce usable inventory. Existing activities, combat, equipment, chest/custody and specific Glasshouse repair consume supported objects or supplies.",
+        "registered_consumer": "Current native item/equipment/inventory owners consume known recipes, medicine/food and equipped items. Glasshouse has actual funded repairs, material trials and a tool-dependent fitting; this does not imply generic installed object, charge or specimen behavior.",
+        "state": "Object template/components/quality and inventory count are real state. Arbitrary JSON properties are not preserved by native reconstruction; same-template lots, unique specimen identity, condition/charge and partial custody are separate unresolved contracts. Native repair of a room/workbench exists; broad same-object repair/refit/salvage transitions do not follow from that fact.",
+        "ui": "Native inventory, equipment and crafting remain the ordinary surface; Pocket shows its selected work/evidence. No parallel universal object browser is proposed.",
+        "save": "Native item keys and current custody/equipment owners are saved. A novel lot/specimen field would need a checked native codec and an additive migration or explicit compatibility decision before implementation."
+      },
+      "evidence": [
+        {
+          "path": "src/gameplay_transactions.js",
+          "symbol": "validateItemKey and gameplay inventory contract (targeted current owner)",
+          "start_line": 1,
+          "end_line": 65,
+          "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81"
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "symbol": "paid_work, damp_trial, sound_trial and shelf commands",
+          "start_line": 79,
+          "end_line": 114,
+          "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "symbol": "simulation effect item and custody validation",
+          "start_line": 37,
+          "end_line": 77,
+          "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "symbol": "native ownership/equipment write through",
+          "start_line": 30,
+          "end_line": 35,
+          "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "symbol": "createPocketRealmPanel",
+          "start_line": 3,
+          "end_line": 20,
+          "sha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175"
+        }
+      ],
+      "prior_ids": [
+        "IT01",
+        "IT04",
+        "IT07",
+        "IT08",
+        "IT10",
+        "IT12",
+        "IT13",
+        "ME02",
+        "ME07",
+        "ME10"
+      ],
+      "actual_gap_or_no_gap": "Object use and several particular repairs are present. A generic conserved object-life model is not. IT01/IT07/IT08 name the real missing identity, reserved-use and same-object state joins; do not re-label the Glasshouse room repair as a general item-repair system.",
+      "selected_vs_optional_need": "Only needed where a selected world uses condition, charges, installed/deployed objects, repairable tools or unique evidence as an actual choice. Expandable inspection can stay subordinate to existing inventory/equipment UI.",
+      "candidate_packet_seam": {
+        "example": "Inspect a bent brass gauge: discover its cracked hinge, use the workshop's reserved tool and actual replacement pin to repair that same gauge, then carry it to a survey where its working charge changes one supported action. If no compatible pin/tool exists, use an ordinary route report or leave the device unrepaired.",
+        "reuse": "Items declares identity/condition/input roles and repair transforms; Engine binds exact inventory portion, work site, tool reservation, native projection and save compatibility. Regions or Society provide only the selected source/use case.",
+        "alternative_and_abstention": "For the first world, use an ordinary consumable material count or native item template and one explicit room repair. Do not build lots/specimens if condition and uniqueness do not change the player's choices.",
+        "cost_and_state": "Moderate when additive; high if reconstructing arbitrary same-template lots in every native consumer. Preserve custody, equipped copy and quantity. A migration must define old items as known generic stock rather than invent condition history.",
+        "acceptance_later": "Spend one actual tool/material, preserve the repaired object's identity and charge through save/reload, reject stale/borrowed/equipped-only stock, and prove a duplicate action cannot create a second repaired copy. Deferred."
+      },
+      "confidence": "high for referenced identity/custody gaps from the inspected current owners and IT report; no test execution"
+    },
+    {
+      "local_id": "LWS-03",
+      "family": "Useful skills, learning, teaching and mastery",
+      "requirement_basis": [
+        "docs/USER_VISION.md:580-599",
+        "docs/USER_VISION.md:703-717",
+        "docs/USER_VISION.md:953-965",
+        "docs/USER_VISION.md:983-993"
+      ],
+      "status": "present",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Four native skill-family definitions provide observation/discovery, actual lessons, timed Practice, power mastery and XP through existing owners: brace control, trail reading, timber judgment and shared inquiry.",
+        "registered_consumer": "simulation_content registers skill definitions/commands; skillExpansionContext projects actual knowledge/source/mastery; each family has a concrete consumer: consent encounter response, dry-bank route, actual kit yield, or a paid report/comparison. Practice uses actor stamina, participant/site/material requirements, cancellation and stop limits.",
+        "state": "Method ownership/mastery is simulation.powers; usable source/faculty and directed knowledge remain separate; XP/unlocks use native owners; teacher attention is an actual craftsman resource. Costs are quoted and reserved by current command/job flow.",
+        "ui": "Dedicated native Skill Discovery/Practice panel is registered from main.js; general local work panel does not invent skills from labels.",
+        "save": "Existing expansion state, native XP/unlock publication and skill action receipts are written through persistExpansion. This source path was not behaviorally exercised during the audit."
+      },
+      "evidence": [
+        {
+          "path": "src/skill_expansion_content.js",
+          "symbol": "SKILL_IDS, SKILL_CATALOGUE, lesson, practice and functional consumers",
+          "start_line": 3,
+          "end_line": 68,
+          "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+        },
+        {
+          "path": "src/skill_expansion_content.js",
+          "symbol": "lesson/practice command constructors and requirements",
+          "start_line": 100,
+          "end_line": 125,
+          "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "simulation registry composition for skill commands and powers",
+          "start_line": 28,
+          "end_line": 50,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "skill expansion native panel registration",
+          "start_line": 6790,
+          "end_line": 6798,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "symbol": "persistExpansionPlan",
+          "start_line": 15,
+          "end_line": 35,
+          "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+        }
+      ],
+      "prior_ids": [
+        "SOC06",
+        "INTERFACE-S3"
+      ],
+      "actual_gap_or_no_gap": "No gap in the existence of useful functional methods, discovery-aware Practice or distinct consumers. They are current source and registered native paths, recorded built-unverified by PROJECT/PLAYTEST. The separate question of whether a tuition fee becomes actual teacher income is not answered by these features: fee(amount) debits player native money only and does not credit oldCraftsman.",
+      "selected_vs_optional_need": "Keep the four methods in scope as an existing feature. Additional methods, fragments or teachers are content choices, not an engine absence. If a selected world treats education as a livelihood, use LWS-04's payer/payee contract.",
+      "candidate_packet_seam": null,
+      "confidence": "high for static registration and declared functional consumers; no gameplay, save/reload or human acceptance in this audit"
+    },
+    {
+      "local_id": "LWS-04",
+      "family": "Resident livelihoods, tuition/wages, work rights and institutional operation",
+      "requirement_basis": [
+        "docs/USER_VISION.md:319-327",
+        "docs/USER_VISION.md:589-599",
+        "docs/USER_VISION.md:703-717",
+        "docs/USER_VISION.md:953-981"
+      ],
+      "status": "partial",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Specific work orders debit real stock, resources and time. Glasshouse paid_work debits Joss's two coins, grants two native player coins and gives Joss the actual kit; finite owned supplies may independently fund Joss research/repair. Other work is not presumed payroll.",
+        "registered_consumer": "Simulation commands, resource effects, sites, participants and held work claims support bounded paid work. Field teach_step tuition and project_start's four-coin commission debit native player money but do not credit a teacher/worker purse. Old-craftsman attention can be consumed/restored as a real resource. The Open Counter's separate Mira/Wen employment graph is authored as detached content, not in simulationDefinitions/registry.",
+        "state": "Actor-specific balances, item owners, site capacity, accepted job/claim and relationship memory exist. General tenancy/authority, funded institutional treasury, recipient wage ledger, demand/order backlog, operating costs, output shares and interruption/emergency policy do not exist as one selected reusable work contract.",
+        "ui": "The simulation, skill, field and Pocket panels show their authored local work/terms. The Open Counter graph is planning-only and has no native panel/command binding.",
+        "save": "Registered work is stored as validated jobs, participants, cost/effect receipts, owners and state in the expansion envelope. Detached plans do not execute or save as gameplay. New institution/payee state would need owner and compatibility design; do not retroactively turn a fee sink into wages."
+      },
+      "evidence": [
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "symbol": "paid_work, supply_listener, and explicit refusal",
+          "start_line": 79,
+          "end_line": 88,
+          "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1"
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "symbol": "actual stock gift and separate earned NPC research",
+          "start_line": 115,
+          "end_line": 137,
+          "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1"
+        },
+        {
+          "path": "src/field_workshop.js",
+          "symbol": "tuition and workshop commission effects",
+          "start_line": 65,
+          "end_line": 84,
+          "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05"
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "symbol": "unregistered originalFrontierDefinitions with recipient wallets, funded controller and alternatives",
+          "start_line": 1,
+          "end_line": 12,
+          "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "actual runtime definitions include Field/Pocket/Skills but not Original Frontier definitions",
+          "start_line": 1,
+          "end_line": 15,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "symbol": "registered simulation families, resource/job and site contracts",
+          "start_line": 37,
+          "end_line": 39,
+          "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+        }
+      ],
+      "prior_ids": [
+        "BAS01",
+        "BAS02",
+        "BAS03",
+        "BAS04",
+        "BAS05",
+        "SOC02",
+        "SOC03",
+        "SOC06",
+        "SOC07",
+        "SOC09",
+        "SOC10",
+        "SB01",
+        "SB02",
+        "IT07",
+        "ME07"
+      ],
+      "actual_gap_or_no_gap": "Local funded work exists and Joss is a positive connected wage/payee example. General independent livelihoods/institutional budgets remain partial. Explicitly distinguish a native player money sink from income: current fees from teaching or a commission do not produce teacher/worker receipts unless an effect credits that actor. The detached Open Counter is a useful original work case, not current gameplay.",
+      "selected_vs_optional_need": "Required only for campaigns that depend on wage employment, household/worksite rights, funded public service, private livelihood or institutional enforcement. A self-funded one-time local commission can stay simple when these dimensions do not change choices.",
+      "candidate_packet_seam": {
+        "example": "Offer a resident a one-shift paid fitting job. The player can accept only after seeing the named payer's available purse, agreed output/recipient, fee/wage and site slot; decline leaves the resident's own smaller plan available. Completion transfers the actual made fitting and wages once. A teacher's lesson can remain tuition as a sink or be explicit income, but the player-facing terms must state which.",
+        "reuse": "Bases owns institution/right/budget terms; Society authors payer/payee, trust, refusal and independent alternatives; Items/Regions own actual goods/demand; Engine binds command/job participants, current wallet/stock quote, UI and atomic save publication.",
+        "alternative_and_abstention": "One named payer, one finite accepted order and one decline/default behavior is enough. Do not add general accounting, law, guild rank or simulated markets when a local one-off contract suffices.",
+        "cost_and_state": "Moderate for a frozen single shift; higher for continuing rent, wages, upkeep or delegated operation. Requires explicit old-save rule (missing purse/contract gives no retroactive salary), due-time policy, payer/payee owner, exact stock and cancellation/refund terms. Reuse played time and current balances; closed-browser advancement remains unselected.",
+        "acceptance_later": "Generated-save positive and decline/unanswered routes; confirm real payer balance, worker income, goods owner, due time, capacity, refusal alternative, cancellation and one-time reload/return. Injected failed write and human review are deferred."
+      },
+      "confidence": "high for inspected exact money effects and definition registration; medium for exhaustiveness across all existing native trades"
+    },
+    {
+      "local_id": "LWS-05",
+      "family": "Independent residents, roles, beliefs, memory and bounded social choice",
+      "requirement_basis": [
+        "docs/USER_VISION.md:319-327",
+        "docs/USER_VISION.md:589-599",
+        "docs/USER_VISION.md:637-645",
+        "docs/USER_VISION.md:703-717",
+        "docs/USER_VISION.md:977-981"
+      ],
+      "status": "partial",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Simulation enrollment/explicit spawn creates stable actors with location, body/vitals, owned inventory/resources, bornAt, knowledge, relationships, conditions, powers and authored controllers. Time advances on played boundaries. Specific NPCs choose among registered legal commands in fixed authored priority after live preview of actual means/access/participants.",
+        "registered_consumer": "Current controller examples include Old craftsman's ordered work and field parts, a field surveyor's agreed survey, Exchange/Promise/Glasshouse limited routines. Controllers are not a general profession planner or unconstrained AI; actor has only content-defined available actions. Independent NPC work can start/finish using the resident's own supported state.",
+        "state": "Per-actor facts/resources/stock/knowledge/relationship axes and cause memories are durable. General attributed assertion versus current belief/correction, profession/career repertoire and persistent historical actor resolution still need a selected world-specific binding. Memories and display logs are bounded, not a lifelong dossier.",
+        "ui": "Simulation UI displays local people, active work, event responses and eligible local controls; People/Notebook surfaces project known information. Native UI renders only supported actor facts, not hidden NPC plans/balances.",
+        "save": "Simulation people, controllers, jobs, time/RNG checks, knowledge and relationship receipts are validated and saved in the expansion namespace. Closed-browser time advancement and arbitrary cross-world instance isolation are not claimed."
+      },
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "symbol": "enrollSimulation persistent actor and controller creation",
+          "start_line": 16,
+          "end_line": 38,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbol": "advanceSimulationBoundary controller previews and fixed action order",
+          "start_line": 373,
+          "end_line": 394,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "registered craftsman and field controllers",
+          "start_line": 56,
+          "end_line": 80,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "symbol": "simulation people, knowledge, directed relationship memories, stock/job/controller validation",
+          "start_line": 191,
+          "end_line": 250,
+          "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "symbol": "createSimulationPanel local people/work/event projection",
+          "start_line": 26,
+          "end_line": 50,
+          "sha256": "6678a1d2202944c8d9a01100215e7600df366473c93dd352542e6dc7f158de3e"
+        }
+      ],
+      "prior_ids": [
+        "SOC01",
+        "SOC03",
+        "SOC05",
+        "SOC09",
+        "SB01",
+        "SB02",
+        "BAS03",
+        "BAS04",
+        "ME06",
+        "ME09",
+        "MC03"
+      ],
+      "actual_gap_or_no_gap": "There is a native bounded controller/command model and examples of independent paid work, meetings, memory and refusal. A prior categorical claim that NPCs cannot act independently is stale. The remaining gap is breadth and causal social model, not a need to replace the controller: belief revision/disputed assertions, durable independent profession/livelihood decisions and cross-episode contact remain authored subsets.",
+      "selected_vs_optional_need": "Selected campaigns need independent actor means and choices wherever their outcomes rely on resident work, rival response or social consequences. Full social-belief networks, multiple professions per actor and persistent multi-generational NPC history are optional until a chosen campaign actually uses them.",
+      "candidate_packet_seam": {
+        "example": "A craftsman can spend his reserved kit on private research or decline a requested public trial; only an offered and then heard report reveals the result. After a player declines a resident's order, the resident's own funded fallback continues and later reports its actual smaller delivery. Both choices use legal means and have meaningful refusals.",
+        "reuse": "Keep the registered controller and command owners; add only the selected actor's authored priority predicates, resource/knowledge terms, accepted claim and report audiences. Timeline supplies occurrence versus reveal; Society supplies who believes or reports; Engine integrates and persists.",
+        "alternative_and_abstention": "Fixed authored priority plus two or three choices is cheaper and already supported. Do not add a general AI provider, always-on autonomous town or probabilistic belief mesh to qualify one NPC.",
+        "cost_and_state": "Low-to-moderate for finite dialogue/work branches; high and ongoing if arbitrary resident autonomy or unlimited memory is selected. Keep author truth, actor knowledge, audience report, current belief and display text separate. Save causes/RNG/time/order only where used.",
+        "acceptance_later": "Show a player decline and an unanswered deadline; let a resident use own stock and work time; return after reload to changed observed phase, while unobserved purse/private research remains hidden. Verify no display/read path advances decisions. Deferred."
+      },
+      "confidence": "high for controller execution contract and registry examples; medium for overall role coverage, since only relevant modules were sampled"
+    },
+    {
+      "local_id": "LWS-06",
+      "family": "Relationships, institutions, kinship, care, inheritance and post-ending life",
+      "requirement_basis": [
+        "docs/USER_VISION.md:637-645",
+        "docs/USER_VISION.md:703-727",
+        "docs/USER_VISION.md:779-789",
+        "docs/USER_VISION.md:995-1005"
+      ],
+      "status": "partial",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Simulation effects store directed relationship axes and capped memories; Chronicle stores one invited elder relation with typed ties and an explicitly chosen age mode. Selected interactions can create invitations, grievance/restitution, missed-event reports, a concrete work promise and a specific succession.",
+        "registered_consumer": "The current elder Chronicle has open/mortal life, playable-time age, deadlines and an old-combat-manual bequest to the player after one kept archive promise. A finite NPC lifePolicy can settle that actor's life and declare pending work finish/refund/forfeit. Chronicle old age ends the enrolled player's life and preserves the chronicle; no descendant becomes playable.",
+        "state": "Directed feelings/memories, Chronicle ties and one bequest are not typed genealogy, parent/child, household membership, institutional office succession or inherited biological/source carriers. Schema has no kinship family relationship/registry. Existing old-age and bounded work-life policies are real support and must not be marked absent.",
+        "ui": "Chronicle panel presents optional open or mortal start, invitation/claim, age and ended-life export/reset. UI says continuing as descendant or rewinding is a future mode.",
+        "save": "Chronicle and simulation life/relationship state are validated and stored in expansion save. Ended chronicle can be exported, but only existing possession/knowledge/history persist; a new descendant/estate policy is not in the save contract. No life-policy is retroactively inferred for older saves."
+      },
+      "evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "symbol": "simulation relationship and life record validation",
+          "start_line": 195,
+          "end_line": 222,
+          "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbol": "authored NPC lifespan ending and pending-work disposition",
+          "start_line": 340,
+          "end_line": 350,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "validateChronicle and relationshipChange",
+          "start_line": 11,
+          "end_line": 56,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "createChronicle, playable-time old age, and one manual bequest",
+          "start_line": 64,
+          "end_line": 75,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "advanceChronicle and commandChronicle inherit settlement",
+          "start_line": 95,
+          "end_line": 106,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "src/chronicle_ui.js",
+          "symbol": "explicit chronicle start, bequest and post-ending UI",
+          "start_line": 20,
+          "end_line": 50,
+          "sha256": "7e1f50ea49c5525fa74caa975b2e0384206cfdf5444666b9dd758f8652984618"
+        }
+      ],
+      "prior_ids": [
+        "SOC07",
+        "SOC08",
+        "SOC11",
+        "SOC12",
+        "SOC13",
+        "SOC14",
+        "SOC15",
+        "SB02",
+        "ME06",
+        "ME08",
+        "ME10"
+      ],
+      "actual_gap_or_no_gap": "A bounded mortal life, real ending, retained chronicle, invitation/missed report, specific elder succession and authored NPC life policy exist. What remains absent from current consumers is general ancestry/kinship, household rights/care, carrier-specific estate/succession, descendant control, or continuing local life after player death. A report or claim of 'inheritance is absent' would erase the implemented manual case; a claim of 'family/legacy is implemented' would overread it.",
+      "selected_vs_optional_need": "A consequence-focused life-ending choice is present for optional mortal Chronicle enrollment. Kinship, caregiving, descendants, succession and after-death play are needed only if a selected campaign promises them. Do not add universal old-age risk or offspring to open/default play.",
+      "candidate_packet_seam": {
+        "example": "For one selected workshop family, record an earned teaching method, one conserved heirloom and declared bench-use right separately. At an adult resident's retirement, the learner can inherit the right/tool through an actual offer, qualify independently, refuse, or open a separate workshop; parenthood and affection grant no automatic method, trust or estate.",
+        "reuse": "Origins/Timelines owns age, life transition and carrier retention; Bases owns property/office/household rights; Society owns typed kinship, disclosed family history and consent; Abilities owns hereditary source/function; Engine binds existing actor, source, item, claim and save owners.",
+        "alternative_and_abstention": "One retirement with chosen heirlooms and relationship is cheaper than simulated generations. If career continuity is enough, keep the current manual bequest and no family tree.",
+        "cost_and_state": "High if generalized; moderate for one bounded retirement handoff. Must identify each carrier, eligibility, refusal, old-life save/export and branch policy; add explicit migration/compatibility before introducing kinship/estate fields. Preserve existing items and relationships without inventing past age or inheritance.",
+        "acceptance_later": "On a generated family save, accept/refuse one offered carrier and right, then reload as the living successor or retained predecessor. Verify no duplicated unique item/source/right, no affection-based inference, and no post-ending time advance unless selected. Deferred."
+      },
+      "confidence": "high for explicit bounded Chronicle/life support and current schema; high that broad family runtime is not represented by the inspected registry"
+    },
+    {
+      "local_id": "LWS-07",
+      "family": "Campaign-length careers, alternative livelihoods and retained local aftermath",
+      "requirement_basis": [
+        "docs/USER_VISION.md:589-599",
+        "docs/USER_VISION.md:779-799",
+        "docs/USER_VISION.md:953-975"
+      ],
+      "status": "detached",
+      "producer_consumer_native_ui_save_joins": {
+        "producer": "Registered Frontier Campaign has current bounded road, rival, workshop and training episodes. New Open Counter material describes an even richer resident work career but its source file calls itself detached and is absent from the runtime simulation registry.",
+        "registered_consumer": "Frontier campaign UI/runtime consumes only its registered existing campaign definitions. No registered campaign consumer selects Open Counter's multi-ending employment/teaching/institution states. The separate Glasshouse is an optional native pocket with actual paid work and return records, not a full second campaign.",
+        "state": "Existing campaign/quest, chronology, person/resource/job and world instance stores can retain authored facts. There is no evidence in this sampled path of an accepted complete career roster with ordinary-to-mature alternatives, resident succession and mutually meaningful endings.",
+        "ui": "Frontier campaign UI and Pocket panel are real authored surfaces. Detached Open Counter cases and society graphs have no player-visible execution surface.",
+        "save": "Registered campaign facts/jobs are expansion state. Detached graph data is not gameplay state; registration would require new author-selected IDs/consumers and normal compatibility before any save consequences."
+      },
+      "evidence": [
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "symbol": "module header and ORIGINAL_FRONTIER_DEFINITIONS",
+          "start_line": 1,
+          "end_line": 4,
+          "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "symbol": "resident resources, paid alternatives, worker controllers and own fallback",
+          "start_line": 48,
+          "end_line": 55,
+          "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "symbol": "campaign offers, refusal/defer branches and resident completion",
+          "start_line": 66,
+          "end_line": 97,
+          "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "symbol": "registered current Frontier campaign owner (sampled integration target)",
+          "start_line": 1,
+          "end_line": 40,
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "path": "src/frontier_campaign_ui.js",
+          "symbol": "createFrontierCampaignPanel",
+          "start_line": 1,
+          "end_line": 25,
+          "sha256": "657e610cab135589652cd5e5b329bb3d88df5434cc2986167da4e5e431e4796a"
+        },
+        {
+          "path": "src/expedition_content.js",
+          "symbol": "expeditionRegistry composition (campaignDefinitions included, detached module absent)",
+          "start_line": 24,
+          "end_line": 30,
+          "sha256": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a"
+        }
+      ],
+      "prior_ids": [
+        "SOC03",
+        "SOC06",
+        "SOC09",
+        "SOC12",
+        "SOC13",
+        "SOC15",
+        "SB01",
+        "SB02",
+        "BAS01",
+        "BAS02",
+        "BAS03",
+        "BAS05",
+        "OF.ARC01",
+        "OF.MECH.DEMAND",
+        "OF.GATE.DIRECTOR"
+      ],
+      "actual_gap_or_no_gap": "The current engine has a substantial campaign owner and a useful optional pocket; the broad additional resident career graph is detached, and neither should be represented as an accepted whole-world career completion. The finite Frontier completion ledger and original campaign IDs remain authoritative; this appendix adds no replacement IDs or runtime content.",
+      "selected_vs_optional_need": "Full local campaign depth and multiple distinct progression paths are directly requested, while individual jobs, settings, story branches, family mechanics and endings are still selected per campaign. The current first milestone remains one realm/one prestige; deeper campaign completion is a later scoped content task, not a runtime-wide barrier.",
+      "candidate_packet_seam": {
+        "example": "Use the existing Open Counter draft as a candidate qualification: player can audit an over-promised slip, contribute one owned log, decline, defer or miss the response; Mira's independent smaller delivery leaves her own reserve, and Wen pays actual receiving costs. A later teaching/service/private specialist route opens only on actual material, accepted terms, witnessed report and demonstrated competence; each route remains viable without making cooperation the only best ending.",
+        "reuse": "Frontier/content writer owns exact finite campaign IDs and endings; Society/Bases own social and operating terms; Items/Regions own means; Engine integrates registration, UI, state/RNG/time/transactions/save. Do not edit Frontier's finite completion ledger in this audit.",
+        "alternative_and_abstention": "Ship one closed resident work story with three meaningful choices and one resident fallback instead of a general town/career simulator. Keep side details and ordinary conversations as texture without forced mechanical payoff.",
+        "cost_and_state": "Moderate content/authoring effort if reusing the existing simulation controller, command, situation, actor, item and balance owners; high if requiring new global career, lifespan, household or local-clock engines. Explicitly register selected definitions and bind visible UI. Compatibility is only needed if new durable state is introduced; otherwise use current owners.",
+        "acceptance_later": "Show each alternative from a valid starting save through returned stock, state and dialogue; test one refusal/deadline route, actual resident means and one changed future work term after save/reload. Human review must accept writing, pace and consequence. Deferred."
+      },
+      "confidence": "high for detached module header and absence from reviewed registry composition; medium for all existing campaign depth"
+    }
+  ],
+  "prior_audit_dispositions": [
+    {
+      "ids": "SOC01-SOC15; branching SB01-SB02",
+      "disposition": "Reused evidence/cases. Social state, voluntary terms, motives, reciprocal teaching/care, family/history and two career graphs were retained as requirements, not copied as current gameplay."
+    },
+    {
+      "ids": "BAS01-BAS05",
+      "disposition": "Reused rights, payer/payee, demand, operational continuity and service-first criteria. Specifically corrected field tuition/commission sinks versus actual Glasshouse wages."
+    },
+    {
+      "ids": "REG01-REG09",
+      "disposition": "Reused finite harvest, explicit renewal, producer, habitat, observation, preservation and bounded-region gaps. Native gathering existence is preserved."
+    },
+    {
+      "ids": "IT01-IT13",
+      "disposition": "Reused portions, staged craft/use, tools, repair/salvage, living sources, object-bound execution and contents/access distinction. Specific current repair/work is not generalized."
+    },
+    {
+      "ids": "MC01-MC05; ME01-ME10",
+      "disposition": "Reused only relevant source-to-owner constraints: finite lots, phase policy, local actor/clock binding, relation state, rights/occupancy, compatibility and publication. Romance, anatomy, combat and unrelated source audits are out of this appendix scope."
+    },
+    {
+      "ids": "Macro depth report; Original Frontier completion ledger R2",
+      "disposition": "Retain multi-day campaign and useful-return criteria and the owned finite FrontierID ledger. This appendix qualifies no replacement campaign, endings, story roster or source/canon claims."
+    }
+  ],
+  "overall_handoff": {
+    "most_consequential_candidate_steps": [
+      "Join one selected finite resource/material route to actual native gathering, crafting and repair.",
+      "Qualify one independently funded work order with explicit payer, payee, refusal and actual stock.",
+      "Use the registered bounded controller for one career story; only then consider genealogy or after-ending continuation if that selected campaign requires it."
+    ],
+    "selection_rule": "Do not open duplicate engine work for already registered commands, finite same-command programs, actor controllers, custody/publication, four functional skills, Joss's real wages, Chronicle age or the elder's single bequest. Current breadth gaps are conditional and should be linked to the selected campaign's visible player choices.",
+    "execution_limit": "Static source/registry/UI/save-path review only. Latest project/playtest records mark new gameplay implemented-unverified and defer browser/save/failure and director acceptance."
+  }
+}

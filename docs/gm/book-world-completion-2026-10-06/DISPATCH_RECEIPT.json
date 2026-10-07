@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "createdAtUtc": "2026-10-07T03:41:21.338817+00:00",
+  "authority": "Direct human requested new GM through completion",
+  "threadId": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "hostId": "local",
+  "requestedTitle": "GM: complete book-world campaigns",
+  "environment": "local shared project",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "modelOverride": null,
+  "sourceAssignments": "ASSIGNMENT.md",
+  "inputs": "INPUTS.json",
+  "dispatcherRuntimeWrites": false,
+  "ownershipTransfer": {
+    "state": "dispatch files saved; lane handed to created GM now",
+    "newLane": "Created GM owns checkpoint/coverage/delivery/current implementation; dispatcher owns only receipt until startup observation lands",
+    "sharedSource": "GM must acquire after actual live latest-release and drift check, not assume title/status grants source ownership"
+  },
+  "startup": {
+    "observed": true,
+    "threadStatus": "active",
+    "latestTurnStatus": "inProgress",
+    "cursor": "88b39018-3a62-468d-9082-50a81ab3404e:6",
+    "revision": 6,
+    "latestProgress": "GM confirmed the released home-world scope and distinct Steam research; delegates separate Paradise and Mother of Learning builders while owning native integration/final build.",
+    "qualification": "Actual startup/ownership reconciliation observed, not campaign completion."
+  },
+  "scope": "Five-row substantial Paradise/Goa plus distinct Mother of Learning campaign completion, necessary native/state/UI engine joins and exact rebuilt evidence",
+  "excluded": "private saves/source-library mutation/unrelated dirty work/assay leaves/commit/push/publication/automation/external messaging",
+  "deferred": "Unit/browser/gameplay/save/failure/regression/keyboard/director checks per existing phase; never claimed passed",
+  "dispatchFilesHashes": {
+    "ASSIGNMENT.md": "15e8e0c478c80b3585bb4d4f2adb156d9f310e3bacc625d2c166eba64368e1aa",
+    "INPUTS.json": "6b4c155f81b8f8349149add27d5a262d810db583935e5bebf7accbc48f6e8131"
+  },
+  "dispatcherReservation": "DISPATCH_RECEIPT now completed and released; GM owns this lane/current checkpoint and all actually acquired implementation joins.",
+  "dispatchValidation": {
+    "jsonParsed": true,
+    "assignmentLocalLinksExist": 7,
+    "correctedProjectLink": "../../../PROJECT.md",
+    "runtimeSourceWrites": false
+  }
+}

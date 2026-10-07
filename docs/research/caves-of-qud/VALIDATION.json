@@ -1,0 +1,24 @@
+{
+  "state": "passed",
+  "source_copy_files_verified": 615,
+  "generated_files_verified": 5438,
+  "csharp_files": 5437,
+  "recovered_source_evidence_records_verified": 18,
+  "semantic_paths_reviewed": 5,
+  "yair_context_snapshots": 9,
+  "yair_context_drift": [],
+  "errors": [],
+  "decompiler_exit": 0,
+  "decompiler_stderr_bytes": 0,
+  "game_installed_or_executed": false,
+  "tests_or_playthroughs_run": false,
+  "private_saves_accessed": false,
+  "qualified_xml_parser_limits_recorded": true,
+  "local_document_links_verified": 7,
+  "output_sha256": {
+    "FINDINGS.json": "092c11e3750426a8d600f4145f80f95cc305d3311ab1c6c552143f2db42b75f1",
+    "INTAKE.json": "004eee9d6804803ae93cbfb9e2f35ce0a4a58742bc7e03a87f3424461337dba9",
+    "NPC_FINDINGS.json": "c56e65efca86692ea92549d173f672620a9656571428f1017a8089a9a05232c9",
+    "REPORT.md": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "role": "Ink",
+  "status": "source-released-final-Features-build-admitted-implemented-unverified",
+  "sharedIntegrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "ownedSourceWriters": "All internal workers completed/released; parent final source edits complete",
+  "ownedProcessesPending": false,
+  "scope": "Relay refinements,19bounded original voice cue rows, retained content1/2/current3, scoped narrative wrapper2, native nested host and safe UI",
+  "roleHashes": {
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative_ui.js": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+    "stories/feature_wave.ink": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "stories/feature_wave.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "scripts/compile_feature_ink.mjs": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+    "docs/gm/feature-wave/ink/content/feature_wave_v1.json": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+    "docs/gm/feature-wave/ink/content/feature_wave_v2.json": "12ac8ccdca19c8e4c6b63fe79210efc4e267e4b1953b2c4c3b18a038e4876486",
+    "docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json": "d6053db460cc9fcda3221419a5fbd0e60d7d7f6286d4f023585c0c2296e15bcc"
+  },
+  "content": {
+    "schemaVersion": 1,
+    "storyId": "feature-wave-negotiation",
+    "storyRevision": 3,
+    "sceneIds": [
+      "tidemark.negotiation",
+      "relay.office",
+      "nested.hub",
+      "nested.offer",
+      "nested.mission",
+      "nested.return"
+    ],
+    "compilerPackage": "inkjs",
+    "compilerVersion": "2.4.0",
+    "sourceSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "compiledSha256": "72faf9b6431a00129cd1f959d4a67a5066bee59eca55c94741c15c236e7dc293",
+    "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f",
+    "inkFormat": 21,
+    "saveFormat": 10
+  },
+  "staticEvidence": "REFINEMENT_STATIC.json",
+  "integration": "INTEGRATION.json",
+  "sharedWriterWindow": "None. Approved core48e8a7514ff2 rebuild window already closed. Features owns final new build.",
+  "rootQueueRepair": "Duplicate nested_return_stay removed; no reserved-source repair required by root",
+  "awaiting": "Only deferred playable/save/failure/keyboard/regression/director acceptance",
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "finalAdmission": "REFINEMENT_ADMISSION.json",
+  "bundleFingerprint": "11aaa9cbfc69"
+}

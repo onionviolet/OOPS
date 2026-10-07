@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "writer": "/root/cultivation_subtleties",
+  "released": true,
+  "scope": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/",
+  "status": "finite-19-row-static-reconciliation-complete",
+  "files": {
+    "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/assemble.mjs": "2108ea2b3b27dc4cce23fe9a9f3dc513718f1d259008ff5f97a2a1af1e1b5210",
+    "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+    "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/READBACK.md": "971ddbf42eecc9c974523337d4a546bd3f866cac2f30b811f1366f98a3813053"
+  },
+  "inputModules": {
+    "src/feature_expansion_book_cultivation.js": "540e99414192ec73cfbe26feb11e5dc6783a3286dd7765649830bd4fed79286c",
+    "src/feature_expansion_book_recognition.js": "ed4b6534175dd1ff83cf842825cf5414de3b6489aa8c4d8f64473ff3d861afcd",
+    "src/feature_expansion_book_situated.js": "53445ec8421f2b0d219ea62835dcec67b45884ea9dbbfc504141e617b67e996f",
+    "src/feature_expansion_book_roster.js": "880bd66b18d3d8dfc451370ecb9cc8fb8b1028619e3dfbf1f6a33dfbc43d254c"
+  },
+  "readback": {
+    "rowCount": 19,
+    "profileCount": 19,
+    "workerCounts": {
+      "cultivation": 3,
+      "recognition": 4,
+      "situated": 4,
+      "roster": 8
+    },
+    "provisionalRows": [],
+    "missingRows": [],
+    "duplicateCanonicalIds": [],
+    "duplicateMatches": [],
+    "unclaimedProfiles": [],
+    "fieldGaps": [],
+    "missingSourceReferenceFiles": [],
+    "intentionalSharing": [
+      "Labyrinth volumes1/2 occupy one canonical setting row with two exact edition/source endings.",
+      "LOTM first novel and COI remain distinct rows/eras.",
+      "Recognition reference desk is one original shared comparison spec, not four world scenes.",
+      "Literal recognition rule ID is reused across three cultivation profiles; composite worldId/ruleId remains distinct."
+    ]
+  },
+  "stateChanges": [],
+  "sourceRuleInvocations": [],
+  "gameplayChecks": "deferred"
+}

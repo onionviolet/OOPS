@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "revision": 3,
+  "date": "2026-10-05",
+  "reviewer": "/root/relay_scene",
+  "parent": "/root",
+  "scope": "Read-only current root source integration audit; only ui-review records written",
+  "status": "finite source audit complete; all four findings repaired by root and statically read back; no open source findings in this bounded audit",
+  "findings": [
+    {
+      "id": "UIR1",
+      "priority": 2,
+      "status": "fixed-by-root-source-readback",
+      "title": "Backlog click regenerated a fresh token instead of the displayed quote",
+      "originalLocations": [
+        {
+          "path": "src/backlog_expansion_ui.js",
+          "lineStart": 22,
+          "lineEnd": 23
+        },
+        {
+          "path": "src/backlog_expansion_ui.js",
+          "lineStart": 44,
+          "lineEnd": 44
+        },
+        {
+          "path": "src/main.js",
+          "lineStart": 792,
+          "lineEnd": 794
+        }
+      ],
+      "trigger": "A Backlog control stays displayed across an intervening sequence or dynamic packet change, then is clicked.",
+      "cause": "The old click callback called read() and packetFor(action,newSnapshot), then sent the new sequence. The displayed preview had used the earlier render snapshot. The actual host could accept current state rather than reject the stale displayed offer.",
+      "repair": "Root now structured-clones packetFor(...) and the render sequence onto control.packet at render; click submits only that stored packet. No read()/packetFor()/fresh sequence occurs on click.",
+      "repairReadback": [
+        {
+          "path": "src/backlog_expansion_ui.js",
+          "lineStart": 22,
+          "lineEnd": 24
+        },
+        {
+          "path": "src/backlog_expansion_ui.js",
+          "lineStart": 45,
+          "lineEnd": 47
+        }
+      ],
+      "verification": "Source readback and node --check only. No click, preview, evaluator, commit, gameplay or stale-token behavioral test ran."
+    },
+    {
+      "id": "UIR2",
+      "priority": 2,
+      "status": "fixed-by-root-source-readback",
+      "title": "Ink fee text drops actual hub-credit costs",
+      "locations": [
+        {
+          "path": "src/ink_scene_content.js",
+          "lineStart": 57,
+          "lineEnd": 61
+        },
+        {
+          "path": "src/ink_scene_content.js",
+          "lineStart": 373,
+          "lineEnd": 377
+        },
+        {
+          "path": "src/ink_narrative_ui.js",
+          "lineStart": 90,
+          "lineEnd": 95
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "lineStart": 86,
+          "lineEnd": 92
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "lineStart": 104,
+          "lineEnd": 105
+        }
+      ],
+      "trigger": "A player chooses paid rest, refit, supported teaching or Archive registration through an actual nested Ink response.",
+      "cause": "costText only formats resource costs when c.native is true. Actual nested.credit resource costs are non-native. A duration or item makes costText nonempty, so fallback to the authored row label does not recover the missing price. Rest can show only four minutes, and refit can show rope/time while omitting two hub credits. Archive register costs one credit and its fallback label has no price.",
+      "impact": "The Ink response omits a real player payment while its admitted native command consumes it. The ordinary feature list uses featureCostText and does not repair the Ink-specific costText string.",
+      "requiredRepair": "Format actual player-owned nested.credit costs as hub credits and distinguish NPC reserved wages from player fees. Keep costs drawn from the admitted current quote; preserve retained cursor versions.",
+      "repair": "Root added feature_expansion_presentation_costs.js, formats player nested.credit fees and provider reservations separately, and wraps each actual nested Ink host in createNestedInkPanels. Registered paid rest/refit/teaching/register quotes now reach this wrapper with their real fee data.",
+      "repairReadback": [
+        {
+          "path": "src/feature_expansion_presentation_costs.js",
+          "lineStart": 4,
+          "lineEnd": 34
+        },
+        {
+          "path": "src/feature_expansion_nested_ink_ui.js",
+          "lineStart": 23,
+          "lineEnd": 31
+        }
+      ],
+      "residual": "The custom native preview return in nested_host:176 provides duration but no typed cost array. The wrapper always overwrites costText, so extraction.recover (no registry definition) loses its previous label fallback mentioning one rope and becomes 0 played minutes. Ink special-cases extension, but the shared refinement action list still receives no exact extension/recovery cost arrays. Return exact actual player typed costs for these custom commands so both views share them.",
+      "residualLocations": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "lineStart": 165,
+          "lineEnd": 176
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "lineStart": 229,
+          "lineEnd": 236
+        },
+        {
+          "path": "src/feature_expansion_presentation_costs.js",
+          "lineStart": 26,
+          "lineEnd": 33
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "lineStart": 10,
+          "lineEnd": 15
+        }
+      ],
+      "residualStatus": "resolved-by-root-typed-custom-costs",
+      "finalRepair": "Custom preview now returns exact typed player costs for mission.extend and extraction.recover. Both shared action terms and the actual Ink preview wrapper consume the same arrays. Extension deadline minutes remain separately described rather than being presented as played action duration.",
+      "finalRepairReadback": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "lineStart": 176,
+          "lineEnd": 177
+        },
+        {
+          "path": "src/feature_expansion_presentation_costs.js",
+          "lineStart": 26,
+          "lineEnd": 33
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "lineStart": 8,
+          "lineEnd": 13
+        },
+        {
+          "path": "src/feature_expansion_nested_ink_ui.js",
+          "lineStart": 23,
+          "lineEnd": 31
+        }
+      ]
+    },
+    {
+      "id": "UIR3",
+      "priority": 2,
+      "status": "fixed-by-root-source-readback",
+      "title": "Chain legibility reconstruction loses actual attribution and causal receipt",
+      "locations": [
+        {
+          "path": "src/feature_expansion_nested_chains_host.js",
+          "lineStart": 9,
+          "lineEnd": 10
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "lineStart": 7,
+          "lineEnd": 7
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "lineStart": 53,
+          "lineEnd": 55
+        },
+        {
+          "path": "src/feature_expansion_nested_chains.js",
+          "lineStart": 22,
+          "lineEnd": 23
+        },
+        {
+          "path": "src/feature_expansion_nested_chains.js",
+          "lineStart": 188,
+          "lineEnd": 191
+        }
+      ],
+      "trigger": "A player receives attributed chain testimony or paid instruction, then views the composed shared chain account list.",
+      "cause": "The chain host maps knowledge.player records to id/at/text/attributedTo/stage but discards cause and basis. The refinement account helper then reads the absent cause/basis and assigns observerId player. Actual instruction/observation and its speaker cease to reach the shared legibility account.",
+      "impact": "Paid method preparation/source and witness accounts lose the stored source qualification and matching cause, despite the authoritative ledger retaining it. This is attribution loss, not evidence of an NPC private-state leak.",
+      "requiredRepair": "Forward the actual knowledge.player cause and basis unchanged; use qualified attributed speaker data when composing the shared account. Do not read NPC knowledge or private truth to fill the gap.",
+      "repair": "Chain records now forward actual basis and cause from knowledge.player. Shared projector supplies only speaker labels supported by those player-received basis records; accountRow reads the preserved basis attribution.",
+      "repairReadback": [
+        {
+          "path": "src/feature_expansion_nested_chains_host.js",
+          "lineStart": 9,
+          "lineEnd": 10
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "lineStart": 53,
+          "lineEnd": 59
+        }
+      ]
+    },
+    {
+      "id": "UIR4",
+      "priority": 2,
+      "status": "fixed-by-root-source-readback",
+      "title": "People projection upgrades a reported mention into a personal meeting",
+      "locations": [
+        {
+          "path": "src/people_knowledge.js",
+          "lineStart": 80,
+          "lineEnd": 84
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "lineStart": 94,
+          "lineEnd": 94
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "lineStart": 103,
+          "lineEnd": 103
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "lineStart": 57,
+          "lineEnd": 59
+        }
+      ],
+      "trigger": "The player inspects the Archive record with Ivo, or the enginehouse with Brin, without an actual separate named contact with every person mentioned in that report.",
+      "cause": "The introductions map applies the same inspection record to Tess/Ada or Sela/Brin, then prints Last met using each definition.location. The Archive inspection actually reserves Ivo at the records room and merely mentions Tess/Ada; the Saltworks inspection reserves Brin at the enginehouse and mentions Sela.",
+      "impact": "A known name/report becomes an unearned first-person meeting and location assertion. Registry default location is not the observed encounter location. This does not prove direct reading of mutable NPC whereabouts.",
+      "requiredRepair": "Use mentioned/heard report wording unless an actual contact receipt supports met. Bind last contact location to that witnessed receipt; do not infer it from registry membership.",
+      "repair": "People introductions now say Known from a received local account and no longer infer a personal meeting or default registry location.",
+      "repairReadback": [
+        {
+          "path": "src/people_knowledge.js",
+          "lineStart": 80,
+          "lineEnd": 84
+        }
+      ]
+    }
+  ],
+  "confirmedJoins": [
+    "main binds qualified Backlog preview/commit to relay material host, relay Ink host and Backlog UI; all changes return plans to the existing durable publisher.",
+    "Nested panel creates fresh actual-scoped host for each read and sends the displayed Ink token; runtime requestCheck binds expected sequence/clock/scene/scope/session/revision. No replacement token generation was found in that panel.",
+    "Retained V1/V2 compiled Ink artifacts remain separately mapped by content hash; legacy and scoped records retain separate owners.",
+    "Simulation content merges actual relay/reference/nested/chain/Ink definitions; simulationFacts composes the fresh corresponding facts. Read-only ESM link resolves the current source graph.",
+    "Shared refinement accounts originate in knowledge.player; the reported chain issue is loss of qualification during remapping, rather than a detected import of NPC-private memory."
+  ],
+  "knownPreexistingIssue": {
+    "duplicateNestedReturnStay": "Observed duplicate Ink binding earlier in audit; root removed the duplicate. Current source has one native nested_return_stay binding. Not an additional open finding."
+  },
+  "checks": {
+    "passed": [
+      "node --check on 20 reviewed source files",
+      "esbuild read-only main ESM browser link with write:false: one in-memory output, zero warnings",
+      "Backlog stale-token repair source readback",
+      "Chain attribution and People received-account repair source readbacks; root-owned actual Ink cost-wrapper registration inspected",
+      "Final node --check on eight repaired/new root source files",
+      "Final read-only main ESM browser link after repairs: one in-memory output, zero warnings",
+      "Typed custom extension/recovery costs and both quote consumers source readback"
+    ],
+    "notRun": [
+      "app runtime",
+      "exported action/evaluator/preview/commit functions",
+      "Ink story continuation or cursor exercises",
+      "unit",
+      "browser",
+      "gameplay",
+      "save",
+      "reload",
+      "failure",
+      "keyboard",
+      "regression",
+      "director"
+    ],
+    "applicationExecuted": false,
+    "buildArtifactsWritten": false,
+    "syntaxFilesInitial": 20,
+    "syntaxFilesFinalRepair": 8,
+    "warningCountFinal": 0
+  },
+  "limits": "This audit is source/static evidence only, not gameplay/save proof. Root retains all shared/source repair ownership and final matched build. No source-library or novel reread and no private saves.",
+  "priorSourceFingerprints": {
+    "src/main.js": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+    "src/feature_expansion_refinements_host.js": "55c00a40fa96c05e7e8644ac1a165a583ba79bb98fbe1e280554dfc488292cf0",
+    "src/feature_expansion_nested_ink_ui.js": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+    "src/feature_expansion_book_host.js": "ae0543aa6b88d286e90a115c51a40bcfb655ff848184d1709027d32e61450d69",
+    "src/feature_expansion_reference_desk.js": "4cde767957a2533bc44cda8c271304a66ba4a79eb57bb459b8f629286873d0c8",
+    "src/feature_expansion_nested_content.js": "5bde2696f089f608f339abdf59d081d210da3e6ae9b6ad157c004e7e87cd653d",
+    "src/feature_expansion_nested_host.js": "d4acbdd222ad40f92ed0c88f746b81bc96aefbca4bfea8106d67ee599a9600e8",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/feature_expansion_nested_carriers.js": "d835d655e236892a01cdf4f72eb96d2a1a47bf35b39aa161a1fee8bd1b7bf89c",
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "2dfb3f0d195bebf0cc2a7c4d9a729e6c0bf107ad246ff1b268c6a972e678c4b6",
+    "src/action_legibility.js": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "src/backlog_expansion_ui.js": "2770159e5f2f10b8f1f8057aade99d7b976ce9305e174e84b53de1180d470f26",
+    "src/people_knowledge.js": "af4944b4b0d16d9c25d1ee22415c90498ebc91e734b6c0367a8e03903ea19e1f",
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/ink_narrative_ui.js": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+    "src/simulation_content.js": "e981f5f33e82a286cc6c5e6010cdda6b7434bd18973e70dff777fb3da21dd9ee",
+    "src/simulation_effects.js": "987b30559d5796278167185966772a2a48913651704c94114165345883582afb",
+    "src/feature_expansion_presentation_costs.js": "a195808796a447ab8c17d1027f2d757a8ae528723dd0babf05169891cc137a13"
+  },
+  "currentSourceFingerprints": {
+    "src/main.js": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+    "src/feature_expansion_refinements_host.js": "cfaae83d541c593c96a00bbe0de694c62d18680f5445a4d31bb86c24f3cff977",
+    "src/feature_expansion_nested_ink_ui.js": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+    "src/feature_expansion_book_host.js": "ae0543aa6b88d286e90a115c51a40bcfb655ff848184d1709027d32e61450d69",
+    "src/feature_expansion_reference_desk.js": "4cde767957a2533bc44cda8c271304a66ba4a79eb57bb459b8f629286873d0c8",
+    "src/feature_expansion_nested_content.js": "5bde2696f089f608f339abdf59d081d210da3e6ae9b6ad157c004e7e87cd653d",
+    "src/feature_expansion_nested_host.js": "d4acbdd222ad40f92ed0c88f746b81bc96aefbca4bfea8106d67ee599a9600e8",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/feature_expansion_nested_carriers.js": "d835d655e236892a01cdf4f72eb96d2a1a47bf35b39aa161a1fee8bd1b7bf89c",
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "2dfb3f0d195bebf0cc2a7c4d9a729e6c0bf107ad246ff1b268c6a972e678c4b6",
+    "src/action_legibility.js": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "src/backlog_expansion_ui.js": "2770159e5f2f10b8f1f8057aade99d7b976ce9305e174e84b53de1180d470f26",
+    "src/people_knowledge.js": "af4944b4b0d16d9c25d1ee22415c90498ebc91e734b6c0367a8e03903ea19e1f",
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/ink_narrative_ui.js": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+    "src/simulation_content.js": "e981f5f33e82a286cc6c5e6010cdda6b7434bd18973e70dff777fb3da21dd9ee",
+    "src/simulation_effects.js": "987b30559d5796278167185966772a2a48913651704c94114165345883582afb",
+    "src/feature_expansion_presentation_costs.js": "a195808796a447ab8c17d1027f2d757a8ae528723dd0babf05169891cc137a13"
+  },
+  "sourceOrderReadback": {
+    "path": "src/main.js",
+    "lineStart": 1,
+    "lineEnd": 3,
+    "change": "Existing cyclic expansion_engine is explicitly imported before optional adapters. Static declaration/order and link inspected; this reviewer did not execute main."
+  }
+}

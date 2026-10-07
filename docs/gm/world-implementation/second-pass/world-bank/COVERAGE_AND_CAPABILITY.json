@@ -1,0 +1,1436 @@
+{
+  "schema": "planning-world-bank-capability-1",
+  "date": "2026-10-04",
+  "status": "checked-planning-delivery-complete",
+  "role": "Whole-world absorption and adaptive-character-bank GM",
+  "taskThreadId": "01a109b5-80c1-75f3-acf5-cf2a39323bb0",
+  "assigningMasterThreadId": "01a10933-feaf-7503-878e-49a6d5ad113f",
+  "authority": {
+    "assignment": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+    "canonicalPlan": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "runtime": "held for human plan review",
+    "soleWrites": "world-bank reports/examples/coverage/checkpoint; ASSIGNMENT and INPUT_SNAPSHOT excluded",
+    "proposalsAccepted": false
+  },
+  "base": {
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty": true
+  },
+  "inputCapture": {
+    "captured_at_utc": "2026-10-05T01:40:12.841800+00:00",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "inputs": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c"
+      },
+      {
+        "path": "docs/GAME_MASTER_PROMPT.md",
+        "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16"
+      },
+      {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "sha256": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f"
+      },
+      {
+        "path": "docs/gm/world-implementation/RUN.json",
+        "sha256": "d1c5625ebdf7b36da698454bdaffbffa0e46503a9171ed68e209eada9d32084f"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+        "sha256": "aff6e34881685cd25b4e3f29fc251ba12bc6c06a7bd743423a1a26fffbccaf43"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/world-bank/INPUT_SNAPSHOT.json",
+        "sha256": "6130cff444f033a77f55a83862d4463a0832a433d499224444265fc40b44a27d"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+        "sha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+        "sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+        "sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+        "sha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "sha256": "2b1ced084e8d3a80294d7a14b44419678f2995c85a5986ee7ab338ac41a3c44d"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+        "sha256": "bad0ac5579708412952d16cfb5390f7edf8aeef4e6c378e9c671dda3640a0d7d"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+        "sha256": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
+        "sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+        "sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+        "sha256": "a6a43c72609e07a7316ae7b9d609fa346bfea112ccf4a1a9bac0358aee25d830"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+        "sha256": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
+        "sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643"
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+      },
+      {
+        "path": "src/people_knowledge.js",
+        "sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3"
+      },
+      {
+        "path": "src/power_models.js",
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+      },
+      {
+        "path": "src/world_instances.js",
+        "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+      },
+      {
+        "path": "src/realm_state.js",
+        "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+      },
+      {
+        "path": "src/scene_definitions.js",
+        "sha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741"
+      },
+      {
+        "path": "src/main.js",
+        "sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203"
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f"
+      },
+      {
+        "path": "src/native_gameplay_adapter.js",
+        "sha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad"
+      },
+      {
+        "path": "src/gameplay_publication.js",
+        "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+      },
+      {
+        "path": "src/pocket_realm_host.js",
+        "sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf"
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+        "sha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/manifest.json",
+        "sha256": "7382d752d308dd19cb114de924c49cec04e55c8b40d0e9319d06eedbd5d91378"
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+        "sha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb"
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/EDITION.md",
+        "sha256": "1e0b35bb89da5b4740e5a97577bfe8bc994aa124b93025c8754b3585e9ec7e40"
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+        "sha256": "6baaa4dcb7d3db962e235a413411a837624d6142c8f6ae3462518790623a8ce6"
+      }
+    ],
+    "qualification": "Whole-file hashes identify revisions. Reading was targeted; this is not a whole-file/source semantic coverage receipt.",
+    "supplemental": {
+      "captured_at_utc": "2026-10-05T01:55:29.261028+00:00",
+      "qualification": "Supplemental targeted consumer inspection; later than initial 38-file capture",
+      "inputs": [
+        {
+          "path": "src/simulation_content.js",
+          "sha256": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7"
+        },
+        {
+          "path": "src/people_ui.js",
+          "sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59"
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "sha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b"
+        },
+        {
+          "path": "src/expedition_content.js",
+          "sha256": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a"
+        }
+      ]
+    }
+  },
+  "consumedPeers": [
+    {
+      "role": "foundations",
+      "state": "checkpoint-declares-checked-planning-complete",
+      "ids": [
+        "EF01",
+        "EF02",
+        "EF04",
+        "EF05",
+        "EF06",
+        "EF07",
+        "EF08",
+        "EF09"
+      ]
+    },
+    {
+      "role": "authoring",
+      "state": "checkpoint-declares-checked-planning-complete",
+      "ids": [
+        "AUTH01",
+        "AUTH02",
+        "AUTH04",
+        "AUTH05",
+        "AUTH06",
+        "AUTH07"
+      ]
+    },
+    {
+      "role": "society",
+      "state": "checkpoint-declares-planning-complete",
+      "ids": [
+        "SOC01",
+        "SOC02",
+        "SOC03",
+        "SOC05",
+        "SOC08",
+        "SOC10"
+      ]
+    },
+    {
+      "role": "timelines",
+      "state": "checkpoint-declares-completed-source-based-planning",
+      "ids": [
+        "TL01",
+        "TL02",
+        "TL03",
+        "TL04",
+        "TL05",
+        "TL07"
+      ]
+    },
+    {
+      "role": "integration",
+      "state": "final-revision-2 checkpoint declares checked-planning-complete",
+      "qualification": "Initially a draft checkpoint; completed at final readback. Its proposed execution sequence remains unapproved."
+    },
+    {
+      "role": "token-efficiency",
+      "state": "compact-planning-report-consumed",
+      "qualification": "Claim retrieval and revision-bound cards consumed, no token-savings measurement reused"
+    }
+  ],
+  "sourceUse": {
+    "owner": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+    "ownerCheckpoint": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+    "provenance": "GM-reviewed supplied WebToEpub snapshot with qualified authenticity",
+    "selectedClaimIds": [
+      "MOL-C001-01",
+      "MOL-C001-04",
+      "MOL-C001-05",
+      "MOL-C001-06",
+      "MOL-C001-07"
+    ],
+    "fixtureClaimIds": [
+      "MOL-C001-01",
+      "MOL-C001-04",
+      "MOL-C001-05"
+    ],
+    "newRawSourceReading": false,
+    "newFullBookReading": false,
+    "coverageQualification": "Only selected early reviewed claims/notes, edition description, manifest member and completion checkpoint inspected; source owner's 107-item completion is not this task's reading"
+  },
+  "requirementCoverage": [
+    {
+      "id": "bank",
+      "artifact": "BANK_AND_QUERY_CONTRACT.md",
+      "caseIds": [
+        "O02",
+        "O03"
+      ],
+      "gate": "Version/edition/scoped closure and author/observer separation"
+    },
+    {
+      "id": "timeline",
+      "artifact": "TIMELINE_ABSORPTION.md",
+      "caseIds": [
+        "O03"
+      ],
+      "gate": "Occurrence/reveal/learning/clock distinct; causal divergence and promotion"
+    },
+    {
+      "id": "individuals",
+      "artifact": "ACTOR_AND_RELATIONSHIP_MODEL.md",
+      "caseIds": [
+        "O01",
+        "O02"
+      ],
+      "gate": "Optional priors, fixed overrides, lawful variation, one-time creation"
+    },
+    {
+      "id": "social_decisions_voice",
+      "artifact": "ACTOR_AND_RELATIONSHIP_MODEL.md",
+      "caseIds": [
+        "O01",
+        "O02"
+      ],
+      "gate": "Guard before rank, directed relationships/consent, fresh contextual speech"
+    },
+    {
+      "id": "little_features_and_future_depth",
+      "artifact": "TIMELINE_ABSORPTION.md",
+      "caseIds": [
+        "O04"
+      ],
+      "gate": "Functional family in distinct worlds, onboarding and campaign/mechanic consumers"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "WB-C01",
+      "capability": "Definition registries and package composition",
+      "actualExports": [
+        "createContentRegistry",
+        "createSimulationRegistry"
+      ],
+      "stateOwner": "Registered maps containing frozen definitions; no actor/stock state",
+      "actualConsumer": "expeditionRegistry composes simulationDefinitions; simulationDefinitions includes pocket/party/helper/field packages",
+      "implementedScope": "Fourteen simulation definition families, frozen JSON, predicate/effect/reference/cycle checks",
+      "status": "implemented-and-native-composed; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Explicit package activation manifest, complete native consumer preflight and reference-bank adapter",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "start": 206,
+          "end": 220,
+          "note": "Content registry"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "start": 80,
+          "end": 116,
+          "note": "Families and validation"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "start": 25,
+          "end": 43,
+          "note": "Actual composition"
+        }
+      ],
+      "gate": "Register reference-only actors without provisioning; explain dropped/unbound consumers",
+      "peerDependencies": [
+        "AUTH01",
+        "AUTH02",
+        "AUTH05"
+      ]
+    },
+    {
+      "id": "WB-C02",
+      "capability": "Enrollment and dynamic actor creation",
+      "actualExports": [
+        "enrollSimulation",
+        "applySimulationEffects"
+      ],
+      "stateOwner": "state.actors and state.simulation.people/owners/controllers",
+      "actualConsumer": "main actSimulation enroll; caused spawn effects",
+      "implementedScope": "Enrollment scans provisioned definitions/sites/automatic events/controllers; spawn copies explicit template and creates simulation inventory with empty stock",
+      "status": "implemented-specific-enrollment; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Era/instance-bound promotion, legal correlated profile sampler, persisted profile/seed/overrides and aggregate conservation join",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "start": 16,
+          "end": 37,
+          "note": "Enrollment surface"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 98,
+          "end": 107,
+          "note": "Actual spawn, no native-bound creation"
+        },
+        {
+          "path": "src/main.js",
+          "start": 536,
+          "end": 560,
+          "note": "Native action entry"
+        }
+      ],
+      "gate": "Create once and persist identity; no duplicate baseline stock/history or unselected region enrollment",
+      "peerDependencies": [
+        "AUTH02",
+        "AUTH07",
+        "EF02"
+      ]
+    },
+    {
+      "id": "WB-C03",
+      "capability": "Guarded command preview and commitment",
+      "actualExports": [
+        "previewSimulationCommand",
+        "commitSimulationCommand"
+      ],
+      "stateOwner": "Candidate cloned expansion/simulation state; actual gameplay/vital/equipment owners remain bound",
+      "actualConsumer": "main actSimulation, controller startCommand and pocket host",
+      "implementedScope": "World/location/target/life/occupancy/site/claim/knowledge predicates, actual costs, power support and candidate validation; outcomes frozen at start",
+      "status": "implemented-common-planner; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Generic instance/contact/permission resolver, complete live-body support joins and selected live phase obligations",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "start": 49,
+          "end": 107,
+          "note": "Eligibility/preview"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 108,
+          "end": 173,
+          "note": "Reserve/freeze/settle"
+        }
+      ],
+      "gate": "Trust or role never bypasses missing means; reject stale/transferred stock",
+      "peerDependencies": [
+        "EF02",
+        "EF05",
+        "EF06"
+      ]
+    },
+    {
+      "id": "WB-C04",
+      "capability": "Independent choice controllers and optional planner hooks",
+      "actualExports": [
+        "advanceSimulationBoundary",
+        "inspectActorChoices",
+        "acceptActorProposal"
+      ],
+      "stateOwner": "state.simulation.controllers plus selected committed jobs/events; current priorities remain definitions",
+      "actualConsumer": "advanceSimulation invokes boundary; repository src search found inspectActorChoices/acceptActorProposal only at their export definitions",
+      "implementedScope": "Due interval, highest eligible priority with stable tie, command/encounter/event candidates; external proposal invokes registered command at expected sequence",
+      "status": "priority controller integrated; optional external planner hooks unbound in src; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Utility selector, actor-local goals/value data, dependency wake queue, safe observer/target card and authorization",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "start": 373,
+          "end": 404,
+          "note": "Priority selection"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 469,
+          "end": 483,
+          "note": "Optional hooks"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "start": 519,
+          "end": 524,
+          "note": "Actual scheduler consumer"
+        }
+      ],
+      "gate": "Two same-prior people choose differently; ranking cannot legalize unavailable means or leak hidden target state",
+      "peerDependencies": [
+        "SOC03",
+        "EF05"
+      ]
+    },
+    {
+      "id": "WB-C05",
+      "capability": "Body and life guard data",
+      "actualExports": [
+        "validateSimulationEffect",
+        "applySimulationEffects",
+        "validateSimulationState"
+      ],
+      "stateOwner": "state.simulation.people[actor].body/vitals/life; native player/NPC vitals have bridges",
+      "actualConsumer": "simulationFacts and selected command predicates/native publication",
+      "implementedScope": "Body effects assign scalar keys; life is alive/incapacitated/dead/departed; health/stamina values validated",
+      "status": "implemented-scalar-and-selected-native-bindings; Static source inspection only; no current behavior test executed by this role",
+      "missing": "General body identities/organs/lineage/host compatibility and conserved component model; source-specific executable guards still authored",
+      "evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "start": 44,
+          "end": 56,
+          "note": "Scalar body/effect shape"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "start": 208,
+          "end": 218,
+          "note": "Life/vital/stock state"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 123,
+          "end": 134,
+          "note": "Body/vital writes"
+        }
+      ],
+      "gate": "An occupation/source label cannot create an organ, body, current reserve or permission",
+      "peerDependencies": [
+        "EF04",
+        "EF09"
+      ]
+    },
+    {
+      "id": "WB-C06",
+      "capability": "Knowledge and player People projection",
+      "actualExports": [
+        "simulationFacts",
+        "applySimulationEffects",
+        "knownPeopleView",
+        "createPeopleOverview"
+      ],
+      "stateOwner": "state.simulation.knowledge[actor][topic]; curated UI derives records",
+      "actualConsumer": "Predicate/action facts and People/Notebook UI",
+      "implementedScope": "One stage/value per actor/topic, optional attributed basis; same/higher stage replaces prior value; manually known contacts exclude private stock",
+      "status": "implemented-handcrafted-projections; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Multiple attributed assertions/evidence/belief revisions, occurrence/learning-aware generic query and stable episode references",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "start": 21,
+          "end": 61,
+          "note": "Knowledge fact read"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 168,
+          "end": 171,
+          "note": "Single-topic replacement"
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "start": 1,
+          "end": 59,
+          "note": "Curated contact view"
+        },
+        {
+          "path": "src/people_ui.js",
+          "start": 1,
+          "end": 26,
+          "note": "Actual renderer"
+        }
+      ],
+      "gate": "Heard claim can remain disbelieved; old-life memory and later secrets withheld correctly",
+      "peerDependencies": [
+        "SOC01",
+        "SOC05",
+        "TL01"
+      ]
+    },
+    {
+      "id": "WB-C07",
+      "capability": "Directed relationship axes and bounded memories",
+      "actualExports": [
+        "applySimulationEffects",
+        "simulationFacts"
+      ],
+      "stateOwner": "state.simulation.relationships[actor][target].axes/memories and causes",
+      "actualConsumer": "Predicates and specific People views",
+      "implementedScope": "Directed axis increments, cause-based receipt attempt, last 32 memories; report SOC10 retains clock-zero receipt risk",
+      "status": "implemented-specific-social-effects; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Generic accepted agreements, stable consequential episodes, reciprocity/consent and institution rights/enforcement lifecycle",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "start": 172,
+          "end": 180,
+          "note": "Relationship write"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 55,
+          "end": 61,
+          "note": "Directed predicate read"
+        }
+      ],
+      "gate": "Returning a specific tool closes custody and may offer audition; it cannot grant romance or duplicate favor",
+      "peerDependencies": [
+        "SOC02",
+        "SOC05",
+        "SOC08",
+        "SOC10",
+        "TL07"
+      ]
+    },
+    {
+      "id": "WB-C08",
+      "capability": "Power models and acquired means",
+      "actualExports": [
+        "previewPowerModel",
+        "resolveEffectAmount"
+      ],
+      "stateOwner": "Definitions plus state.simulation.powers/faculties/progression and state.actors.sources",
+      "actualConsumer": "previewSimulationCommand and effect amount resolution",
+      "implementedScope": "Practice/design/investment/authority/hybrid models, execution/world/fuel predicates and finite numeric cost/capacity expressions; acquired power differs from description",
+      "status": "implemented-model-family; Static source inspection only; no current behavior test executed by this role",
+      "missing": "General local rule/function consumer registry, maintained source support, physiology and true semantic inexhaustibility adapter",
+      "evidence": [
+        {
+          "path": "src/power_models.js",
+          "start": 5,
+          "end": 43,
+          "note": "Five models"
+        },
+        {
+          "path": "src/power_models.js",
+          "start": 48,
+          "end": 55,
+          "note": "Finite typed amounts"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 81,
+          "end": 94,
+          "note": "Actual command consumer"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 221,
+          "end": 241,
+          "note": "Power acquisition/change"
+        }
+      ],
+      "gate": "Training/method does not supply source; superior function remains superior under its actual guards",
+      "peerDependencies": [
+        "EF03",
+        "EF09",
+        "AUTH01"
+      ]
+    },
+    {
+      "id": "WB-C09",
+      "capability": "Instance/era/continuity primitives and views",
+      "actualExports": [
+        "createWorldInstance",
+        "createWorldVisit",
+        "planWorldClock",
+        "planWorldDeparture",
+        "planWorldInstanceUpdate",
+        "worldInstanceView"
+      ],
+      "stateOwner": "Pure caller-owned instance/visit records, used by realmPrototype for Glasshouse",
+      "actualConsumer": "pocketRealm host, realm state and specialized view",
+      "implementedScope": "Four-ID endpoints, exact definition revision, continuity/era identity, frozen absence clock, revision-guarded updates and caller-selected known fields",
+      "status": "implemented-pure-primitives with one specialized host; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Generic scene-era snapshots, prerequisite invalidation/index/query, trusted observer authorization and all-owner instance joins",
+      "evidence": [
+        {
+          "path": "src/world_instances.js",
+          "start": 81,
+          "end": 110,
+          "note": "Binding/identity"
+        },
+        {
+          "path": "src/world_instances.js",
+          "start": 271,
+          "end": 345,
+          "note": "Construct/clock"
+        },
+        {
+          "path": "src/world_instances.js",
+          "start": 365,
+          "end": 429,
+          "note": "Update/view"
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "start": 125,
+          "end": 130,
+          "note": "Actual view consumer"
+        }
+      ],
+      "gate": "Earlier/changed branches do not share same-named town actors, facts or stock",
+      "peerDependencies": [
+        "EF02",
+        "TL01",
+        "TL02"
+      ]
+    },
+    {
+      "id": "WB-C10",
+      "capability": "Actual native Glasshouse ownership and supported clock",
+      "actualExports": [
+        "realmFacts",
+        "applyRealmWorldEffect",
+        "syncRealmClock",
+        "activeRealmVisit",
+        "commitPocketRealmAction"
+      ],
+      "stateOwner": "state.realmPrototype instances/visits/clock ledger, actual player/native location; pocket actors remain simulation owners",
+      "actualConsumer": "simulationFacts/effects, main persistExpansion and pocket UI/host",
+      "implementedScope": "One exact glasshouse.main instance, actual entry/view/clock bindings; canonical pocket facts route to instance; supported absence intervals differ from joined paid jobs",
+      "status": "native-bound current gameplay reported built-unverified; this role performed static inspection only",
+      "missing": "General multiworld native registry/location/quest/shop/calendar isolation, broad off-screen policy and local committed-job clocks",
+      "evidence": [
+        {
+          "path": "src/realm_state.js",
+          "start": 18,
+          "end": 47,
+          "note": "Single-instance/envelope binding"
+        },
+        {
+          "path": "src/realm_state.js",
+          "start": 50,
+          "end": 67,
+          "note": "Facts/write owner"
+        },
+        {
+          "path": "src/realm_state.js",
+          "start": 87,
+          "end": 95,
+          "note": "Clock sync"
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "start": 90,
+          "end": 123,
+          "note": "Actual specialized commit host"
+        }
+      ],
+      "gate": "Querying historical or closed contact grants no body/stock access or unsupported elapsed history",
+      "peerDependencies": [
+        "EF02",
+        "EF05",
+        "TL03"
+      ]
+    },
+    {
+      "id": "WB-C11",
+      "capability": "Authored caused scene flow",
+      "actualExports": [
+        "compileSituation"
+      ],
+      "stateOwner": "Compiled event definitions then current simulation event/world owners",
+      "actualConsumer": "Registered scene definitions through common scheduler/responders",
+      "implementedScope": "Ambient successor scheduling; offer expiry successor; response follows its own effects; no generic canon timeline reconstruction",
+      "status": "implemented-compiler; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Whole-world causal index, era prerequisite diagnostics and branch expectation invalidation adapter",
+      "evidence": [
+        {
+          "path": "src/scene_definitions.js",
+          "start": 4,
+          "end": 21,
+          "note": "Real compile behavior"
+        }
+      ],
+      "gate": "A successful response advances only explicitly authored effects; invalidated expected future does not force its successor",
+      "peerDependencies": [
+        "AUTH04",
+        "TL01"
+      ]
+    },
+    {
+      "id": "WB-C12",
+      "capability": "Native actor and inventory bridge",
+      "actualExports": [
+        "createNativeGameplayAdapter",
+        "readGameplayActor",
+        "prepareGameplayPublication"
+      ],
+      "stateOwner": "Native player/NPCRegistry inventory/equipment/skill owners; simulation owners stay separate",
+      "actualConsumer": "main snapshots and durable publication; native-bound NPCs resolved through getPerson",
+      "implementedScope": "Reads actual enrolled native actors, snapshots bag stock/skills/reputation, validates native item reconstruction and skill unlocks before save",
+      "status": "implemented-selected-native-bridge; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Generated native-person binding, generic world-instance registries and component/lot/native accounting joins",
+      "evidence": [
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "start": 7,
+          "end": 29,
+          "note": "Read-only actor bridge"
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "start": 3,
+          "end": 43,
+          "note": "Read/stage native publication"
+        },
+        {
+          "path": "src/main.js",
+          "start": 290,
+          "end": 313,
+          "note": "Actual actor/unlock binding"
+        }
+      ],
+      "gate": "A generated simulation person is not automatically a native actor; catalogue shape is not reconstructible item proof",
+      "peerDependencies": [
+        "EF04",
+        "EF07",
+        "AUTH01"
+      ]
+    },
+    {
+      "id": "WB-C13",
+      "capability": "Durable plan publication",
+      "actualExports": [
+        "persistExpansionPlan",
+        "prepareGameplayPublication"
+      ],
+      "stateOwner": "Existing save envelope then actual native/expansion owners; main persistExpansion is local integration function",
+      "actualConsumer": "main actSimulation and native integration callers",
+      "implementedScope": "Candidate validation, copied envelope, staged native owners/unlocks/equipment, one storage write before live publication",
+      "status": "implemented-save-boundary retained; Static source inspection only; no current behavior test executed by this role",
+      "missing": "Reviewed migration/freeze decision for any new profile/evidence/instance record meaning; writer ownership declarations for new adapters",
+      "evidence": [
+        {
+          "path": "src/expansion_persistence.js",
+          "start": 7,
+          "end": 50,
+          "note": "Envelope and write"
+        },
+        {
+          "path": "src/main.js",
+          "start": 315,
+          "end": 357,
+          "note": "Persist then publish"
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "start": 15,
+          "end": 43,
+          "note": "Actual exported native publication preparer"
+        }
+      ],
+      "gate": "Failure leaves job/stock/knowledge/relationship/profile seed unchanged; new bank reference introduces no legacy reward",
+      "peerDependencies": [
+        "EF01",
+        "EF07",
+        "EF08",
+        "AUTH06"
+      ]
+    },
+    {
+      "id": "WB-C14",
+      "capability": "Whole-world bank, archetype authoring and scoped retrieval",
+      "actualExports": [],
+      "stateOwner": "No dedicated bank/query/profile owner in inspected runtime; current source dossiers remain author references",
+      "actualConsumer": "No shipped generic bank query or sampler consumer identified in the inspected registry/model/view seams",
+      "implementedScope": "Existing families and specialized examples offer building blocks only",
+      "status": "proposed-missing",
+      "missing": "Derived source-format indexes, reviewed reference revisions, dependency-closed query, observer/era filter, constrained profile compiler and explicit activation bridge",
+      "evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "start": 80,
+          "end": 91,
+          "note": "Current family vocabulary"
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "start": 1,
+          "end": 59,
+          "note": "Specialized view"
+        },
+        {
+          "path": "src/world_instances.js",
+          "start": 407,
+          "end": 429,
+          "note": "Caller-selected projection"
+        }
+      ],
+      "gate": "Four authoring fixtures resolve without author-secret leakage, automatic enrollment or catalogue-based power/stock inference",
+      "peerDependencies": [
+        "AUTH02",
+        "AUTH07",
+        "SOC01",
+        "SOC05",
+        "TL01"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "WB-R01",
+      "recommendation": "Add reviewed reference adapters and dependency-closed observer queries",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+          "findingId": "AUTH06"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC01"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "findingId": "TL01"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+          "section": "Retrieve by question and claim"
+        }
+      ],
+      "algorithmDataFlow": "Existing reviewed claim IDs -> era/cutoff candidate set -> actual owner join -> complete mechanical closure -> separate trusted verifier/observer projections -> revision-bound response",
+      "actualStateOwner": "Source GM dossier reference; current state.simulation knowledge and actual actor/world/native owners",
+      "proposedExtensions": "Derived indexes/query only; multiple evidence/belief records are SOC01-owned proposed extension, not a new transcript authority",
+      "positiveCase": "O02/O03 with current evidence, valid source and only known information",
+      "adverseCase": "Cutoff includes later author knowledge but occurrence/learning excludes it; mandatory dependency too large returns incomplete",
+      "dependencies": [],
+      "capabilityDependencies": [
+        "WB-C06",
+        "WB-C09",
+        "WB-C14"
+      ],
+      "uiAcceptanceConsumer": "People/Notebook/known-action view plus author preflight; no secret names in player reasons",
+      "minimalAlternative": "Small adapters to existing indexes and scene-specific authored projections",
+      "widerAlternative": "Global graph database and live-model context service remain unnecessary until a named scale/function failure",
+      "status": "proposed-unexecuted"
+    },
+    {
+      "id": "WB-R02",
+      "recommendation": "Use era recipes and actual branch prerequisite invalidation",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "findingId": "TL01"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "findingId": "TL02"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json",
+          "findingId": "EF02"
+        }
+      ],
+      "algorithmDataFlow": "Reviewed partial-order events -> selected baseline recipe -> explicit branch intervention receipts -> affected prerequisite reevaluation -> actual snapshot and separate observer learning",
+      "actualStateOwner": "Existing bound world instance, actor/body/life, inventory/custody and cause owners",
+      "proposedExtensions": "Era adapter and affected-expectation index; TL07 owns durable consequential episodes",
+      "positiveCase": "O03 brace invalidates washout/death while independent storm/tea/transfer continue",
+      "adverseCase": "Dead/transferred actor/item cannot be used; unknown per-moment stock stays unknown; invalidating expectation does not rewind committed state",
+      "dependencies": [
+        "WB-R01"
+      ],
+      "capabilityDependencies": [
+        "WB-C09",
+        "WB-C10",
+        "WB-C11"
+      ],
+      "uiAcceptanceConsumer": "Era authoring preflight; local actual opportunity/return view with known changed circumstances",
+      "minimalAlternative": "Selected consequence event lists for one region",
+      "widerAlternative": "Every-object history graph and historical tick replay add unsupported state rather than proven fidelity",
+      "status": "proposed-unexecuted"
+    },
+    {
+      "id": "WB-R03",
+      "recommendation": "Compile optional priors into persistent individuals with explicit source overrides",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+          "findingId": "AUTH07"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+          "findingId": "AUTH02"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC03"
+        }
+      ],
+      "algorithmDataFlow": "Optional priors + fixed source/branch facts + hard constraints -> one seeded legal profile -> explicit promotion/enrollment/initial means -> actual experience updates",
+      "actualStateOwner": "state.actors and state.simulation.people/owners/controllers; definitions remain frozen maps",
+      "proposedExtensions": "Persisted individual profile/seed/overrides and aggregate allocation receipt under Engine compatibility review; no silent schema extension",
+      "positiveCase": "O01 same profession different duties/stock/history; O02 Zorian fixed facts and Eda labelled generated",
+      "adverseCase": "No random canon ancestry/secrets/organs/powers; no reroll or duplicate promotion/stock; changing prior does not rewrite existing actor",
+      "dependencies": [
+        "WB-R01",
+        "WB-R02"
+      ],
+      "capabilityDependencies": [
+        "WB-C02",
+        "WB-C05",
+        "WB-C12",
+        "WB-C13"
+      ],
+      "uiAcceptanceConsumer": "Known contact/current work/return choices; author profile legality and activation manifest",
+      "minimalAlternative": "Two explicit frozen legal variants using current template/cause mechanisms",
+      "widerAlternative": "Universal personality simulator and automatic full cast enrollment do not satisfy the named individuality gate",
+      "status": "proposed-unexecuted"
+    },
+    {
+      "id": "WB-R04",
+      "recommendation": "Rank only lawful actions and connect relationship episodes to specific opportunities",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC02"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC03"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC05"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "findingId": "SOC08"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json",
+          "findingId": "EF05"
+        }
+      ],
+      "algorithmDataFlow": "Actor-local known beliefs/goals/accepted duties + trusted current means -> existing preview gate -> priority or bounded utility -> registered commitment -> durable episode -> revised specific opportunity/voice",
+      "actualStateOwner": "Current controllers/jobs/knowledge/relationships/custody, actual inventory/native bodies; institutions/agreements require SOC-owned explicit lifecycle",
+      "proposedExtensions": "Optional selector/wake dependencies and stable event-backed voice card; no second resource/reward engine",
+      "positiveCase": "O01 returned gauge opens voluntary supervised audition with real stock/attendance",
+      "adverseCase": "Trust cannot bypass injury/reserve/permission; speech does not agree or reward; adult consent stays specific and reciprocal; failed publication changes nothing",
+      "dependencies": [
+        "WB-R01",
+        "WB-R03"
+      ],
+      "capabilityDependencies": [
+        "WB-C03",
+        "WB-C04",
+        "WB-C06",
+        "WB-C07",
+        "WB-C13"
+      ],
+      "uiAcceptanceConsumer": "Action terms/costs/refusal plus People/project dialogue reflecting only speaker knowledge and settled receipt",
+      "minimalAlternative": "Authored priority/predicates and fresh conditional lines for first fixture",
+      "widerAlternative": "Probabilistic town-wide psychology/live dialogue model is separate unselected functionality",
+      "status": "proposed-unexecuted"
+    },
+    {
+      "id": "WB-R05",
+      "recommendation": "Onboard future worlds against functional campaign/mechanic criteria",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+          "findingId": "AUTH01"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+          "findingId": "AUTH05"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "findingId": "TL04"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "findingId": "TL05"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json",
+          "findingId": "EF09"
+        }
+      ],
+      "algorithmDataFlow": "Selected source/era -> reusable function/recipe plus local exceptions -> actual acquisition/use/native consumer -> ordinary/distinctive/independent/mature/return coverage -> later behavior evidence",
+      "actualStateOwner": "Canonical plan coverage ledgers owned by assigning master; existing actor/source/stock/world/effect owners plus local World GM content",
+      "proposedExtensions": "Preflight mappings and bespoke consumers only where a selected function needs them; new primitives remain possible",
+      "positiveCase": "O04 ordinary tracing and enhanced local contrast produce distinct useful repair/research choices",
+      "adverseCase": "Definition is reference-only without consumer; foreign unsupported source does not execute; no universal cap replaces superior/inexhaustible function",
+      "dependencies": [
+        "WB-R01",
+        "WB-R02",
+        "WB-R03",
+        "WB-R04"
+      ],
+      "capabilityDependencies": [
+        "WB-C01",
+        "WB-C08",
+        "WB-C10",
+        "WB-C12",
+        "WB-C13"
+      ],
+      "uiAcceptanceConsumer": "Known recipe/use/support UI, independent outcome and useful home/later return; all reviewed required coverage IDs remain tracked",
+      "minimalAlternative": "Connected ordinary plus distinctive route with current planners and selected adapters",
+      "widerAlternative": "New world engine/storage backend or arbitrary-mechanism interpreter only after demonstrated need",
+      "status": "proposed-unexecuted"
+    }
+  ],
+  "measurements": {
+    "lookupLatency": null,
+    "activeSchedulerLatency": null,
+    "peakMemory": null,
+    "tokenSavings": null,
+    "costSavings": null,
+    "newGameplayChecks": 0,
+    "newRawSourceChaptersRead": 0,
+    "internalHelpersSpawned": 0,
+    "qualification": "Counts/check results below establish document consistency only; no comparative/runtime benchmark or token telemetry obtained",
+    "documentEvidenceSpans": 42,
+    "reportWhitespaceWords": 523
+  },
+  "checks": {
+    "json": "passed",
+    "references": "passed including actual exports and source claim locators",
+    "links": "passed; final checkpoint links separately rechecked",
+    "readback": "passed full Markdown contracts/report and structured JSON readback",
+    "inputDrift": "reconciled; runtime/source/plan/assignment hashes unchanged",
+    "writerProcessCloseout": "live internal inventory only /root; no helpers/sessions/background commands/pending or unknown writes",
+    "gameplay": "deferred and not executed",
+    "buildBrowserSave": "prohibited by assignment and not executed",
+    "performance": "unmeasured"
+  },
+  "inputReconciliation": {
+    "captured_at_utc": "2026-10-05T01:59:09.691989+00:00",
+    "fingerprints": [
+      {
+        "path": "AGENTS.md",
+        "inspection_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "final_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "changed": false
+      },
+      {
+        "path": "PROJECT.md",
+        "inspection_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "final_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "changed": false
+      },
+      {
+        "path": "docs/GAME_MASTER_PROMPT.md",
+        "inspection_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "final_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "inspection_sha256": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+        "final_sha256": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/RUN.json",
+        "inspection_sha256": "d1c5625ebdf7b36da698454bdaffbffa0e46503a9171ed68e209eada9d32084f",
+        "final_sha256": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae",
+        "changed": true
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+        "inspection_sha256": "aff6e34881685cd25b4e3f29fc251ba12bc6c06a7bd743423a1a26fffbccaf43",
+        "final_sha256": "aff6e34881685cd25b4e3f29fc251ba12bc6c06a7bd743423a1a26fffbccaf43",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/world-bank/INPUT_SNAPSHOT.json",
+        "inspection_sha256": "6130cff444f033a77f55a83862d4463a0832a433d499224444265fc40b44a27d",
+        "final_sha256": "6130cff444f033a77f55a83862d4463a0832a433d499224444265fc40b44a27d",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+        "inspection_sha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+        "final_sha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+        "inspection_sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+        "final_sha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+        "inspection_sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+        "final_sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+        "inspection_sha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+        "final_sha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "inspection_sha256": "2b1ced084e8d3a80294d7a14b44419678f2995c85a5986ee7ab338ac41a3c44d",
+        "final_sha256": "2b1ced084e8d3a80294d7a14b44419678f2995c85a5986ee7ab338ac41a3c44d",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+        "inspection_sha256": "bad0ac5579708412952d16cfb5390f7edf8aeef4e6c378e9c671dda3640a0d7d",
+        "final_sha256": "bad0ac5579708412952d16cfb5390f7edf8aeef4e6c378e9c671dda3640a0d7d",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+        "inspection_sha256": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+        "final_sha256": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
+        "inspection_sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+        "final_sha256": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+        "inspection_sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+        "final_sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+        "inspection_sha256": "a6a43c72609e07a7316ae7b9d609fa346bfea112ccf4a1a9bac0358aee25d830",
+        "final_sha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
+        "changed": true
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+        "inspection_sha256": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa",
+        "final_sha256": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa",
+        "changed": false
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
+        "inspection_sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
+        "final_sha256": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
+        "changed": false
+      },
+      {
+        "path": "src/simulation.js",
+        "inspection_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "final_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "changed": false
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "inspection_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+        "final_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+        "changed": false
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "inspection_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "final_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "changed": false
+      },
+      {
+        "path": "src/people_knowledge.js",
+        "inspection_sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+        "final_sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+        "changed": false
+      },
+      {
+        "path": "src/power_models.js",
+        "inspection_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "final_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "changed": false
+      },
+      {
+        "path": "src/world_instances.js",
+        "inspection_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "final_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "changed": false
+      },
+      {
+        "path": "src/realm_state.js",
+        "inspection_sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+        "final_sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+        "changed": false
+      },
+      {
+        "path": "src/scene_definitions.js",
+        "inspection_sha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+        "final_sha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+        "changed": false
+      },
+      {
+        "path": "src/main.js",
+        "inspection_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "final_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "changed": false
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "inspection_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+        "final_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+        "changed": false
+      },
+      {
+        "path": "src/native_gameplay_adapter.js",
+        "inspection_sha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+        "final_sha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+        "changed": false
+      },
+      {
+        "path": "src/gameplay_publication.js",
+        "inspection_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+        "final_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+        "changed": false
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "inspection_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+        "final_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+        "changed": false
+      },
+      {
+        "path": "src/pocket_realm_host.js",
+        "inspection_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+        "final_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+        "changed": false
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+        "inspection_sha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1",
+        "final_sha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1",
+        "changed": false
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/manifest.json",
+        "inspection_sha256": "7382d752d308dd19cb114de924c49cec04e55c8b40d0e9319d06eedbd5d91378",
+        "final_sha256": "7382d752d308dd19cb114de924c49cec04e55c8b40d0e9319d06eedbd5d91378",
+        "changed": false
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+        "inspection_sha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb",
+        "final_sha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb",
+        "changed": false
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/EDITION.md",
+        "inspection_sha256": "1e0b35bb89da5b4740e5a97577bfe8bc994aa124b93025c8754b3585e9ec7e40",
+        "final_sha256": "1e0b35bb89da5b4740e5a97577bfe8bc994aa124b93025c8754b3585e9ec7e40",
+        "changed": false
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+        "inspection_sha256": "6baaa4dcb7d3db962e235a413411a837624d6142c8f6ae3462518790623a8ce6",
+        "final_sha256": "6baaa4dcb7d3db962e235a413411a837624d6142c8f6ae3462518790623a8ce6",
+        "changed": false
+      },
+      {
+        "path": "src/simulation_content.js",
+        "inspection_sha256": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "final_sha256": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "changed": false
+      },
+      {
+        "path": "src/people_ui.js",
+        "inspection_sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "final_sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "changed": false
+      },
+      {
+        "path": "src/simulation_ui.js",
+        "inspection_sha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+        "final_sha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+        "changed": false
+      },
+      {
+        "path": "src/expedition_content.js",
+        "inspection_sha256": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+        "final_sha256": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+        "changed": false
+      }
+    ],
+    "frozen_snapshot_differences": [
+      {
+        "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+        "frozen_sha256": "e9354ecf922b8bd0aa0bb159365842ee6b69ab559469330561a1b16ad35c10f0",
+        "inspection_sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7"
+      }
+    ],
+    "live_approval": {
+      "state": "awaiting-human-plan-review-with-aspect-audits-authorized",
+      "plan": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "authority": "Direct user requests authorize separate aspect, integration and whole-world bank planning GMs. Runtime implementation remains held for human review."
+    },
+    "live_role": {
+      "threadId": "01a109b5-80c1-75f3-acf5-cf2a39323bb0",
+      "state": "planning-active-observed",
+      "mode": "planning-only",
+      "requestedTitle": "World absorption and adaptive characters GM",
+      "assignment": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/world-bank/ reports and checkpoint only"
+      ],
+      "boundary": "World-bank/query/era/character synthesis, no repeated whole-book reading or runtime ownership.",
+      "hostId": "local",
+      "cursor": "88199440-7680-4ecb-a7cc-a7a09ad4dda5:1",
+      "latestTurn": "inProgress",
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/world-bank/INPUT_SNAPSHOT.json",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/world-bank.json"
+    },
+    "runtime_roles": {
+      "engine": "held-confirmed",
+      "ability": "held-confirmed",
+      "original": "held-confirmed"
+    },
+    "interpretation": "RUN advanced dispatch/completion bookkeeping; own role and review hold reread. Integration checkpoint finalized to checked revision 2. Its REPORT was already revised before initial capture and remained unchanged. All inspected runtime/source-dossier/assignment/plan inputs stayed unchanged. Frozen assigning-master snapshot preserved."
+  },
+  "verification": {
+    "status": "PASS document consistency only",
+    "captured_at_utc": "2026-10-05T02:01:09.608306+00:00",
+    "capabilityRows": 14,
+    "recommendations": 5,
+    "boundedSourceEvidenceSpans": 42,
+    "recommendationEvidenceRefs": 20,
+    "markdownLinks": 21,
+    "workedCases": 4,
+    "reportWhitespaceWords": 523,
+    "inputFingerprintRows": 42,
+    "checks": [
+      "JSON parse/required fields/unique IDs",
+      "actual export names and bounded source paths/lines",
+      "peer finding IDs and acyclic recommendation dependencies",
+      "source claim/note/member/paragraph locators",
+      "fixture arithmetic and coverage links",
+      "Markdown file/anchor links, whitespace/newlines",
+      "full contract/report readback and JSON structured readback"
+    ],
+    "qualification": "No gameplay code imported or executed; no runtime behavior, source authenticity, scale or savings proof",
+    "phase": "Contract/fixture/capability readback before final completion checkpoint; final checkpoint is separately rechecked",
+    "repairs": [
+      "Four out-of-bounds evidence range ends corrected",
+      "Native publication export gained its defining-file evidence",
+      "One malformed table delimiter repaired",
+      "Rejected multi-operation JSON patch wrote nothing; JSON replacement completed and read back"
+    ]
+  }
+}

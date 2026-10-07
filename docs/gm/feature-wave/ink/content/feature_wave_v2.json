@@ -1,0 +1,2021 @@
+{
+  "inkVersion": 21,
+  "listDefs": {},
+  "root": [
+    [
+      "ev",
+      {
+        "VAR?": "host_scene"
+      },
+      "str",
+      "^relay.office",
+      "/str",
+      "==",
+      "/ev",
+      [
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "\n",
+            {
+              "->": "relay_meeting"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        {
+          "->": ".^.b"
+        },
+        {
+          "b": [
+            "\n",
+            {
+              "->": "meeting"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      [
+        "done",
+        {
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "coin_acceptance": [
+        "^Venn records the agreed payment and hands over one real log from the local shop stock.",
+        "\n",
+        "^\"That one is yours,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"Buying timber and agreeing to repair the sluice are separate things.\"",
+        "\n",
+        "^The log joins your actual bag. Another purchase needs another payment and available stock.",
+        "\n",
+        "end",
+        null
+      ],
+      "global decl": [
+        "ev",
+        "str",
+        "^the bench keeper",
+        "/str",
+        {
+          "VAR=": "keeper_name"
+        },
+        "str",
+        "^the terrace",
+        "/str",
+        {
+          "VAR=": "place_name"
+        },
+        false,
+        {
+          "VAR=": "terms_known"
+        },
+        false,
+        {
+          "VAR=": "material_known"
+        },
+        false,
+        {
+          "VAR=": "tool_known"
+        },
+        false,
+        {
+          "VAR=": "lesson_known"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "prior_agreement"
+        },
+        false,
+        {
+          "VAR=": "lesson_done"
+        },
+        false,
+        {
+          "VAR=": "tool_held"
+        },
+        "str",
+        "^tidemark.negotiation",
+        "/str",
+        {
+          "VAR=": "host_scene"
+        },
+        "str",
+        "^the rightful keeper",
+        "/str",
+        {
+          "VAR=": "relay_keeper_name"
+        },
+        "str",
+        "^the registry clerk",
+        "/str",
+        {
+          "VAR=": "relay_clerk_name"
+        },
+        "str",
+        "^the familiar local",
+        "/str",
+        {
+          "VAR=": "relay_witness_name"
+        },
+        false,
+        {
+          "VAR=": "relay_terms_known"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "credential_result"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "registry_result"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "personal_result"
+        },
+        false,
+        {
+          "VAR=": "office_held"
+        },
+        false,
+        {
+          "VAR=": "duty_done"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "prior_relay_choice"
+        },
+        "str",
+        "^The desk is open; the work still has to be done.",
+        "/str",
+        {
+          "VAR=": "voice_greeting"
+        },
+        "str",
+        "^A cup cools beside the ledger. A used cloth keeps the seal clean.",
+        "/str",
+        {
+          "VAR=": "voice_detail"
+        },
+        "str",
+        "^The stamp is quicker than the paperwork. Most things are.",
+        "/str",
+        {
+          "VAR=": "voice_aside"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "inspection": [
+        "^You reserve a supported work period to inspect the linked floats with the actual reusable kit.",
+        "\n",
+        "^The finding arrives after that inspection finishes. The kit still has its owner and return duty.",
+        "\n",
+        "end",
+        null
+      ],
+      "leaving": [
+        "^You step away from the pump bench without accepting an arrangement.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ returns to the stock book. The local work goes on under its own supported clock; this conversation makes no new reservation.",
+        "\n",
+        "end",
+        null
+      ],
+      "lesson_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ agrees to the funded instruction and records the commitment.",
+        "\n",
+        "^\"We'll work through it with the right tool and time,\" they say. \"An agreement to teach isn't the completed lesson.\"",
+        "\n",
+        "^The actual teaching and learned result stay in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "loan_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the agreed purpose before handing over the available tool.",
+        "\n",
+        "^\"Use it to inspect the floats and return it. It's reusable, and it's still mine between visits.\"",
+        "\n",
+        "^The tool and its return duty remain in your actual belongings and loan record.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "material_acceptance": [
+        "^The agreed timber is reserved for the accepted repair. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ enters the commitment in the stock book.",
+        "\n",
+        "^\"That's material set aside for this work now,\" they say. \"We can do the job we actually have supplies and time for.\"",
+        "\n",
+        "^The repair and any later result remain in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "meeting": [
+        "^The pump bench stands above the wet steps at ",
+        "ev",
+        {
+          "VAR?": "place_name"
+        },
+        "out",
+        "/ev",
+        "^. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ keeps one hand on the stock book and the other on the unfinished repair.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "prior_agreement"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "prior_agreement"
+              },
+              "/ev",
+              [
+                "du",
+                "ev",
+                "str",
+                "^material",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"I remember the timber,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"It went into our working stock. It wasn't a gift back to you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^coin",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"Venn sold you a real log last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"A new purchase needs new stock and payment.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^loan",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"That tool still has an owner,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"Bring it back before arranging another loan.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^returned",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You brought the inspection kit back,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember that too.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^lesson",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "lesson_done"
+                    },
+                    "/ev",
+                    [
+                      {
+                        "->": ".^.b",
+                        "c": true
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"You've put the method to work since we spoke,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"Knowing it and having a sound pump are still different things.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "->": ".^.b"
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"We agreed to instruction,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"The actual lesson still has to fit our time and means.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    "nop",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^refused",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You declined last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember. It didn't turn the whole town against you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "pop",
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^\"The tide won't argue,\" ",
+              "ev",
+              {
+                "VAR?": "keeper_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"We still can. Before you offer anything, ask what it is meant to do.\"",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "options": [
+        [
+          "ev",
+          "str",
+          "^Ask what is being offered, and on whose terms. ",
+          "#",
+          "^response:ask_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Offer timber for the agreed local repair. ",
+          "#",
+          "^response:material ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "material_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Buy one actual local log from Venn. ",
+          "#",
+          "^response:coin ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for a purpose-bound tool loan. ",
+          "#",
+          "^response:borrow_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Return the borrowed tool to its owner. ",
+          "#",
+          "^response:return_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Use the reusable kit to inspect the linked floats. ",
+          "#",
+          "^response:use_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for the agreed instruction. ",
+          "#",
+          "^response:teach ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "lesson_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Decline the proposed arrangement. ",
+          "#",
+          "^response:refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave the discussion open for another visit. ",
+          "#",
+          "^response:leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "material_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "coin_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "loan_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "returned"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "inspection"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "lesson_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "refusal"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "leaving"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "refusal": [
+        "^\"All right,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"I'll use the means we have.\"",
+        "\n",
+        "^The refusal stays a remembered exchange. It spends no repair payment and creates no loan or taught method.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_alias": [
+        "^You make the declared claim to its actual listener. The listener's recorded response is an attributed belief; your real identity remains separate.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "personal_result"
+        },
+        "str",
+        "^mismatch",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ \"That doesn't match the person I remember,\" ",
+              "ev",
+              {
+                "VAR?": "relay_witness_name"
+              },
+              "out",
+              "/ev",
+              "^ says.",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "credential_result"
+        },
+        "str",
+        "^accepted",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The credential observer accepted the presented credential. That is not the registry's appointment test.",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "registry_result"
+        },
+        "str",
+        "^not_holder",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The clerk's current record does not appoint you.",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_correction": [
+        "^The earlier claim and the accepted evidence correction remain separately recorded for the actual listener.",
+        "\n",
+        "^\"I'll keep both entries,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"A correction changes the account; it doesn't erase what happened.\"",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_credential": [
+        "^The credential observer checks the actual presented evidence.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "credential_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^accepted",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"This evidence passes the credential check,\" the observer says. \"I haven't checked your office appointment or personal history.\"",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^rejected",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"This evidence does not pass my check,\" the observer says.",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^The reported check remains limited to what this observer has actually disclosed.",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_honest": [
+        "^Your own identity is recorded for the ordinary route. Nobody's old affection, personal methods or completed work becomes yours.",
+        "\n",
+        "^\"Then let's discuss what you can actually do,\" ",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_leave": [
+        "^You leave the conversation without making another commitment. The living people, their own work and earlier actual history remain.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_meeting": [
+        "ev",
+        {
+          "VAR?": "voice_detail"
+        },
+        "out",
+        "/ev",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ sits beside the counter with their own bundle and tools. They leave space in the ledger for another hand.",
+        "\n",
+        "^\"",
+        "ev",
+        {
+          "VAR?": "voice_greeting"
+        },
+        "out",
+        "/ev",
+        "^\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "prior_relay_choice"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "prior_relay_choice"
+              },
+              "/ev",
+              [
+                "du",
+                "ev",
+                "str",
+                "^honest",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You gave your own name last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"That was enough to discuss ordinary work.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^alias",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You claimed another person's name,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_witness_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"What I believed then and what the register said were separate things.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^credential",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You showed a credential,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_clerk_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"Possessing it didn't settle the appointment.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^office",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"We agreed to the office transfer,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"My private possessions and learned methods stayed mine.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^corrected",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You corrected the earlier account,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_witness_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember the correction as well as the claim.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^work",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "duty_done"
+                    },
+                    "/ev",
+                    [
+                      {
+                        "->": ".^.b",
+                        "c": true
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"The accepted duty is now done,\" ",
+                          "ev",
+                          {
+                            "VAR?": "relay_clerk_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"That performance has its own record.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "->": ".^.b"
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"You accepted work here,\" ",
+                          "ev",
+                          {
+                            "VAR?": "relay_clerk_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"Check the actual work record before calling it finished.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    "nop",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^refused",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You declined the office,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"We can still talk as ourselves.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "pop",
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.26"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_office": [
+        "^The willing appointment and its stated duty are entered in the register.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ keeps their own tools and work. \"The counter key will not teach you my grip,\" they say.",
+        "\n",
+        "^\"Do the duty you accepted,\" they say. \"Wearing the title won't do it for you.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_options": [
+        [
+          "ev",
+          "str",
+          "^Ask which arrangements are actually offered. ",
+          "#",
+          "^response:relay_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Enter as yourself and use the ordinary work route. ",
+          "#",
+          "^response:relay_honest ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Make the declared alias claim to this observer. ",
+          "#",
+          "^response:relay_alias ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask this observer to check your actual credential. ",
+          "#",
+          "^response:relay_credential ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask the clerk to check the office register. ",
+          "#",
+          "^response:relay_registry ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask the familiar local to compare personal memory. ",
+          "#",
+          "^response:relay_personal ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Accept the offered office and its stated duty. ",
+          "#",
+          "^response:relay_office ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Perform the offered physical seal work. ",
+          "#",
+          "^response:relay_work ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Correct the earlier claim with the available evidence. ",
+          "#",
+          "^response:relay_correction ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Refuse the proposed office arrangement. ",
+          "#",
+          "^response:relay_refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-9",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave this conversation open for later. ",
+          "#",
+          "^response:relay_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-10",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "relay_terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "relay_honest"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-10": [
+              "\n",
+              {
+                "->": "relay_leave"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "relay_alias"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "relay_credential"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "relay_registry"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "relay_personal"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "relay_office"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "relay_work"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "relay_correction"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-9": [
+              "\n",
+              {
+                "->": "relay_refuse"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "relay_personal": [
+        "ev",
+        {
+          "VAR?": "relay_witness_name"
+        },
+        "out",
+        "/ev",
+        "^ compares the claim with their own remembered contact.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "personal_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^match",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"That fits the person I remember,\" they say. \"My memory is not an institutional appointment.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^mismatch",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The name doesn't make this the person I knew,\" they say.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^Their disclosed account does not establish a personal match.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_refuse": [
+        "^You refuse the office arrangement. Its rightful holder and possessions remain with their actual owners.",
+        "\n",
+        "^\"All right,\" ",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"You can still come back as yourself.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_registry": [
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the authoritative local office record.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "registry_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^holder",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The office is registered to you,\" the clerk says. \"The stated duty comes with it.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^not_holder",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The office is not registered to you,\" the clerk says. \"A face or carried badge doesn't appoint its holder.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^No confirmed appointment has been disclosed by this check.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_terms": [
+        "^\"The office, a carried credential, and a person's name answer different questions,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"We check them separately.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ states the offered work and duties. Their own possessions, personal debt and learned methods remain with them.",
+        "\n",
+        "^The actual current costs, required consent and consequences accompany each offered response. Ordinary honest entry remains available.",
+        "\n",
+        "^\"",
+        "ev",
+        {
+          "VAR?": "voice_aside"
+        },
+        "out",
+        "/ev",
+        "^\"",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_work": [
+        "^You deliver the two fitted seals to the counter. The accepted office duty is settled, and its funded payment is recorded once.",
+        "\n",
+        "^\"Those seals count because they were made and handed over,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"The badge alone would not have done it.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "returned": [
+        "^The borrowed tool passes back to its owner with its current condition intact.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the record and closes this return. \"Good. Any next loan is a new agreement.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "terms": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ turns the stock book so you can read the offered terms.",
+        "\n",
+        "^\"A repair uses real supplies. A loan leaves the tool mine. Instruction needs my assent and a funded work period. You can take an ordinary work route, or leave us to it.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "material_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ A suitable timber contribution is an offered alternative to payment.",
+              {
+                "->": "terms.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "tool_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The available loan states its purpose, owner and return duty.",
+              {
+                "->": "terms.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "lesson_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The offered method has a separate teaching commitment; conversation alone does not teach it.",
+              {
+                "->": "terms.24"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^The offered costs and conditions sit beside your responses. A promise is only accepted when those conditions still hold.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ]
+    }
+  ],
+  "yairpgInk": {
+    "schemaVersion": 1,
+    "storyId": "feature-wave-negotiation",
+    "storyRevision": 2,
+    "sceneIds": [
+      "tidemark.negotiation",
+      "relay.office"
+    ],
+    "compilerPackage": "inkjs",
+    "compilerVersion": "2.4.0",
+    "sourceSha256": "f637f25d70e25c1ee850703a11470a74154e8ed662deef43ccf53c649b809aac",
+    "compiledSha256": "943d922a566f3a69f3636558dffa71a77dea1829d1fc8dc7abbae130badb3cab",
+    "contentHash": "sha256:2eceb76c13cc1c3e856203f84d6349d98e9e5a963e0f7c7e6afa2555eeb76a65"
+  }
+}

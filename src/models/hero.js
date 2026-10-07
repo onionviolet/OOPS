@@ -12,6 +12,13 @@ import { levels, bios } from "../data/component_references.js";
 import { Person } from "./person.js";
 
 class Hero extends Person {
+    #simulationEffectReader = null;
+    setSimulationEffectReader(reader) {
+        if(typeof reader !== "function") throw new Error("Invalid simulation effect reader.");
+        this.#simulationEffectReader = reader;
+    }
+    getSimulationEffects() {return this.#simulationEffectReader?.() || {};}
+
     constructor(data) {
         super(data);
         
@@ -87,10 +94,11 @@ class Hero extends Person {
         levelable.bonus_skill_levels.flat.active_effects = {};
         levelable.xp_bonuses.multiplier.active_effects = {};
 
-        Object.keys(active_effects).forEach(effect_key => {
+        const combinedEffects = {...active_effects,...this.getSimulationEffects()};
+        Object.keys(combinedEffects).forEach(effect_key => {
             let multiplier = 1;
 
-            let effects = this.getEffectWithBonuses(active_effects[effect_key]);
+            let effects = this.getEffectWithBonuses(combinedEffects[effect_key]);
             for(const [key, value] of Object.entries(effects.stats)) {
                 if(value.flat) {
                     levelable.stats.flat.active_effects[key] = (levelable.stats.flat.active_effects[key] || 0) + value.flat*multiplier;

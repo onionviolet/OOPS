@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T20:29:23.322441+00:00",
+  "reviewer": "/root/remainder_combat_fit",
+  "parent": "/root",
+  "writerScope": "ONLY NEW docs/gm/audit-implementation/remainder/review-native/",
+  "status": "read-only source review clear in scoped current joins; four concrete root repairs reinspected; implemented-unverified",
+  "openActionableFindings": 0,
+  "sourceEditedByReviewer": false,
+  "privateSavesOrLibrariesRead": false,
+  "engineSemanticReview": false,
+  "docsReleased": [
+    "docs/gm/audit-implementation/remainder/review-native/REVIEW.md",
+    "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/review-native/SOURCE_HASHES.json",
+    "docs/gm/audit-implementation/remainder/review-native/FINDINGS.json",
+    "docs/gm/audit-implementation/remainder/review-native/CHECKS.json"
+  ],
+  "documentationHashes": {
+    "docs/gm/audit-implementation/remainder/review-native/REVIEW.md": "5539a8707e60cf3f3ceb8e765c12e64032ec7802809532173fcec027de7e100d",
+    "docs/gm/audit-implementation/remainder/review-native/CHECKPOINT.md": "e296f0203d77047fc852b09c84b69afe43e466a8a81dbe9edbcaaa803192327e",
+    "docs/gm/audit-implementation/remainder/review-native/SOURCE_HASHES.json": "72ee15a10685043e3e4d0489374008331cc67fd66f2348fc12ce045f9962389e",
+    "docs/gm/audit-implementation/remainder/review-native/FINDINGS.json": "74c72715f34f9130660213a217aef9b4de39aceb2b07eda0f72b8e3a24663fa6",
+    "docs/gm/audit-implementation/remainder/review-native/CHECKS.json": "c1cf9c9733b456de867b4d56d571a3ea7f9d50ecf1ad556e235564e64873f2f3"
+  },
+  "pendingOwnProcesses": [],
+  "acceptance": "All five groups in REVIEW.md deferred; root owns final shared source/build/canonical evidence.",
+  "sealedAt": "2026-10-06T20:31:07.959731+00:00",
+  "inputHashesRecheckedAtSeal": true
+}

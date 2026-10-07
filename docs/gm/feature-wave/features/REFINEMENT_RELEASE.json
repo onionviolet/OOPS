@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "status": "finite-source-native-ui-save-build-goal-delivered-implemented-unverified",
+  "writer": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "bundleFingerprint": "1ca667dd9eef",
+  "sourceMapsMatched": 222,
+  "allInternalWritersReleased": true,
+  "pendingProcesses": false,
+  "sharedSourceOwnership": "released at this completed checkpoint; any next writer must inspect actual current status/inputs and new authorized scope",
+  "build": "docs/gm/feature-wave/features/BUILD.json",
+  "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+  "delivery": "docs/gm/feature-wave/features/DELIVERY.md",
+  "deferredAcceptance": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md",
+  "protected": [
+    "vanilla opening",
+    "one prestige",
+    "old5/6/7/absent",
+    "private saves",
+    "source libraries",
+    "LICENSE/upstream attribution"
+  ],
+  "sourceHashAuthority": "BUILD.inputHashes; worker/review snapshots retained as historical qualified evidence",
+  "completedAtUtc": "2026-10-06T01:02:07.625999+00:00",
+  "continuedLife": "docs/gm/feature-wave/features/nested-campaign/continued-life/DELIVERY.md",
+  "priorRelease": "docs/gm/feature-wave/features/REFINEMENT_RELEASE_11aaa9cbfc69.json"
+}

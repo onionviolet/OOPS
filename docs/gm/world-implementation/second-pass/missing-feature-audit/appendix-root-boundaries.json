@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "scope": "Root spot reviews for command, publication, RNG and preservation boundary; no executed gameplay.",
+  "coverage": [
+    {
+      "id": "ROOT-COMMAND",
+      "family": "canonical transaction and legal execution",
+      "status": "present",
+      "producer": "createContentRegistry",
+      "consumer": "previewSimulationCommand/startCommand/commitSimulationCommand",
+      "native": "persistExpansion prepares native stock/XP/unlocks/equipment/vitals and ownership",
+      "ui": "post-publication display bindings; render grants nothing",
+      "save": "persistExpansionPlan writes full validated native envelope before publish",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "symbol": "previewSimulationCommand/startCommand/commitSimulationCommand",
+          "start_line": 49,
+          "end_line": 163,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "persistExpansion",
+          "start_line": 293,
+          "end_line": 360,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "symbol": "commitAction",
+          "start_line": 439,
+          "end_line": 488,
+          "sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f"
+        }
+      ],
+      "gap": "No second general command, item or publication owner is justified; selected missing consumers must extend these seams."
+    },
+    {
+      "id": "ROOT-RNG",
+      "family": "probability and native RNG",
+      "status": "partial",
+      "producer": "persisted expansion draw / simulation event checks",
+      "consumer": "commitAction freezes paid outcome and rolls; advanceSimulationBoundary uses each event check stream",
+      "native": "rollCombatStrike defaults to Math.random; its caller owns draws/effects",
+      "ui": "evaluateAction and previewSimulationCommand can preview contextual outcomes without drawing",
+      "save": "expansion RNG/check records survive command publication; does not turn all native loops into persisted streams",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "symbol": "draw/commitAction",
+          "start_line": 420,
+          "end_line": 488,
+          "sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbol": "advanceSimulationBoundary event checks",
+          "start_line": 326,
+          "end_line": 377,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        },
+        {
+          "path": "src/combat_math.js",
+          "symbol": "rollBaseCombatDamage/rollCombatStrike",
+          "start_line": 29,
+          "end_line": 59,
+          "sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045"
+        }
+      ],
+      "gap": "Native-wide saved streams, fate appropriation and explicit epoch/reroll policies remain selected-adapter work, not absence of chance or authored persistence."
+    },
+    {
+      "id": "ROOT-TEXTURE",
+      "family": "passive world texture and bounded depth",
+      "status": "present",
+      "producer": "director correction and canonical complete-world scope",
+      "consumer": "authoring boundaries apply functional criteria only to selected mechanics",
+      "native": "not applicable to casual texture",
+      "ui": "ordinary descriptive content can remain atmospheric",
+      "save": "no compulsory state/reward for incidental prose",
+      "evidence": [
+        {
+          "path": "docs/USER_VISION.md",
+          "symbol": "World texture correction",
+          "start_line": 35,
+          "end_line": 48,
+          "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+          "span_sha256": "e891574ac939caa286cf420aa43e18bf5c9c2813f8893e46e406de8499f130d0",
+          "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+          "inspected_at_utc": "2026-10-05T18:39:25.785867+00:00"
+        },
+        {
+          "path": "PROJECT.md",
+          "symbol": "Agreed direction and expansion proposal",
+          "start_line": 147,
+          "end_line": 170,
+          "sha256": "873057f418871ab2c0a526fc49bf3aa881453dc6149583a268aeb2155e0b9be4",
+          "span_sha256": "d9d8f6c11106098ab2c0d190b46b0630cc884d67c3179c3f5ff8ecdac082b8c6",
+          "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+          "inspected_at_utc": "2026-10-05T18:39:25.786224+00:00"
+        },
+        {
+          "path": "PROJECT.md",
+          "symbol": "Expansion design proposal",
+          "start_line": 319,
+          "end_line": 366,
+          "sha256": "873057f418871ab2c0a526fc49bf3aa881453dc6149583a268aeb2155e0b9be4",
+          "span_sha256": "3c6b36c457be7dc339edb7ecb7ccec2cb9ad43452bfff3ef60094cb1582bead4",
+          "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+          "inspected_at_utc": "2026-10-05T18:39:25.786560+00:00"
+        }
+      ],
+      "gap": "No universal mechanical-payoff gap; abstain from turning every scenic detail into XP or a quest."
+    },
+    {
+      "id": "ROOT-PROJECT",
+      "family": "selected project participants and completion obligations",
+      "status": "partial",
+      "producer": "compileSiteProject compiles a phase to a normal registered command",
+      "consumer": "commandParticipants can reserve participants forwarded by a definition; completeJob applies frozen effects",
+      "native": "paid stock/effects still use existing publication owners",
+      "ui": "projectView derives player-known completion",
+      "save": "existing job freezes revision/effects/participants; no general completion-time live obligation recheck",
+      "evidence": [
+        {
+          "path": "src/site_projects.js",
+          "symbol": "compileSiteProject/projectView",
+          "start_line": 1,
+          "end_line": 31,
+          "sha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbol": "completeJob",
+          "start_line": 164,
+          "end_line": 173,
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        }
+      ],
+      "gap": "Compiler does not forward phase participant lists. A selected multi-worker or live-consent/source phase needs participant closure and explicit revalidation. Prepaid frozen jobs remain a valid policy; do not add general late checks to every job."
+    },
+    {
+      "id": "ROOT-COPY",
+      "family": "copy versus donor/identity/physical means",
+      "status": "present",
+      "producer": "source/faculty lifecycle and power effects",
+      "consumer": "copy grants an owned learned power record; transfer also removes donor ownership",
+      "native": "physical inventory uses stageAcquisition/validated initial debits and separate publication",
+      "ui": "learned function must still pass actual execution requirements",
+      "save": "sources/faculties/powers and native stock remain separate saved owners",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "symbol": "source/faculty and power copy/transfer",
+          "start_line": 207,
+          "end_line": 241,
+          "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+        },
+        {
+          "path": "src/acquisition.js",
+          "symbol": "stageAcquisition",
+          "start_line": 39,
+          "end_line": 65,
+          "sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29"
+        }
+      ],
+      "gap": "No generic anatomical/fuel/item transfer follows copying. Identity/luck appropriation needs a selected actual target/observer consequence and donor removal rule; not a renamed method-copy effect."
+    }
+  ]
+}

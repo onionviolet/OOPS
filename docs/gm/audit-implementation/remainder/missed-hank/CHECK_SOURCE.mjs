@@ -1,0 +1,24 @@
+// Static source/definition/import/link inspection only. No state or gameplay
+// execution, browser, saves, failure suite, private libraries or build.
+import {createSimulationRegistry} from '../../../../../src/simulation_contracts.js';
+import {simulationDefinitions} from '../../../../../src/simulation_content.js';
+import {PARADISE_IDS as I,PARADISE_LOCATIONS as L,PARADISE_KEYS as K} from '../../../../../src/book_world_paradise_ids.js';
+import {PARADISE_HANK_ROUTE_REPORT as R,paradiseCommands,paradiseControllers,hankCivilRouteReception,validateParadiseHankRouteEvidence,paradiseFacts} from '../../../../../src/book_world_paradise_actions.js';
+import {paradisePresentation,commitParadiseCommand} from '../../../../../src/book_world_paradise_host.js';
+const check=(ok,message)=>{if(!ok)throw Error(message);};
+const registry=createSimulationRegistry(simulationDefinitions),report=registry.commands.get(R.id),route=registry.commands.get('book.paradise.npc.hank_shelter_route');
+check(report?.actorId==='player'&&report.group==='book_paradise'&&report.worldId===I.goa&&report.location===L.guard&&report.targetId===I.hank&&report.coLocated&&report.completionCoLocated&&report.duration===2&&report.once&&report.claim===R.claim,'Direct report is not a reachable existing-family guardhouse command.');
+check(JSON.stringify(report.requires).includes('paradise.playerCivilRouteEvidence')&&JSON.stringify(report.completionRequires).includes('paradise.playerCivilRouteEvidence'),'Report needs actual completed firsthand route evidence at both boundaries.');
+for(const predicate of ['world.book.goa.warning','world.book.goa.cache','world.book.goa.gate'])check(JSON.stringify(report.completionRequires).includes(predicate),'Report completion lost actual current physical route support.');
+check(report.costs.some(e=>e.type==='item'&&e.actor==='player'&&e.key===K.proof&&e.amount===-1)&&report.effects.some(e=>e.type==='item'&&e.actor==='player'&&e.key===K.proof&&e.amount===1&&e.reservationReturn===true),'Actual held duty copy must return once.');
+check(report.costs.some(e=>e.type==='vital'&&e.actor==='player'&&e.amount===-1)&&report.costs.some(e=>e.type==='resource'&&e.actor===I.hank&&e.key==='book.paradise.attention'&&e.amount===-1),'Report needs current payer/listener effort rather than free source knowledge.');
+check(report.effects.some(e=>e.type==='knowledge'&&e.actor===I.hank&&e.key===R.received&&e.stage==='understood'&&e.basis.attributedTo==='player'&&e.value===R.receivedText)&&report.effects.some(e=>e.type==='knowledge'&&e.actor==='player'&&e.key===R.playerReceipt&&e.value===R.playerText),'Actual recipient evidence and sender acknowledgement must remain paired effects.');
+check(!report.effects.some(e=>['source','power','xp','world','spawn','life'].includes(e.type)),'A report cannot supply a source, stock owner, physical route or survival outcome.');
+check(route?.actorId===I.hank&&route.revision===2&&JSON.stringify(route.requires).includes('paradise.hankReceivedCivilRoute')&&JSON.stringify(route.completionRequires).includes('paradise.hankReceivedCivilRoute'),'New route-specific shelter needs actual Hank reception at both boundaries.');
+check(route.costs.length===6&&route.costs.every(e=>e.actor===I.hank)&&route.costs.some(e=>e.type==='resource'&&e.key==='book.paradise.belli'&&e.amount===-1)&&route.costs.some(e=>e.type==='item'&&e.key===K.ration&&e.amount===-1)&&route.costs.some(e=>e.type==='item'&&e.key===K.rope&&e.amount===-1),'Hank still spends his own actual shelter means.');
+check(route.effects.some(e=>e.type==='fact'&&e.actor===I.hank&&e.key===R.used&&e.value===true)&&route.effects.some(e=>e.type==='knowledge'&&e.actor===I.hank&&e.key==='book.paradise.private.shelter'&&e.value===R.shelterText),'The actual funded route use needs its own private later receipt.');
+const controller=paradiseControllers.find(d=>d.actorId===I.hank);
+check(controller.actions.some(a=>a.commandId===route.id),'The existing independent controller must consume the evidence-gated route.');
+for(const id of ['book.paradise.npc.hank_shelter_contained','book.paradise.npc.hank_afterfire_death'])check(registry.commands.get(id)?.revision===1,'Other existing Hank branches must retain their original revision.');
+for(const fn of [hankCivilRouteReception,validateParadiseHankRouteEvidence,paradiseFacts,paradisePresentation,commitParadiseCommand])check(typeof fn==='function','A native/UI/facts/publisher integration export did not link.');
+console.log(JSON.stringify({status:'pass',kind:'source/syntax separately; immutable definition/import/link inspection only',reportId:R.id,reportLocation:report.location,reportDuration:report.duration,routeRevision:route.revision,familyCommands:paradiseCommands.length,currentRegistryCommands:registry.commands.size,currentRegistryControllers:registry.controllers.size,gameplay:'implemented-unverified; all behavioral/persistence/current-build gates deferred'},null,2));

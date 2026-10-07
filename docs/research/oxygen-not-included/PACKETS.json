@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "source_pin": "24423041",
+  "selection_count": 5,
+  "larger_research_owner": "REPORT.md",
+  "selection_is_not_complete_findings": true,
+  "packets": [
+    {
+      "id": "ONI-P01",
+      "title": "Temperature-qualified material work",
+      "purpose": "Make one original workshop process use its actual batch condition, fuel and output, so ordinary material preparation remains useful.",
+      "source_findings": [
+        "ONI-F01",
+        "ONI-F02",
+        "ONI-F03",
+        "ONI-F28",
+        "ONI-F29"
+      ],
+      "player_choice": "Warm a cold owned batch now, spend less fuel after shelter conditioning, or choose a useful lower-temperature process.",
+      "scope": "One optional Frontier workshop process with one actual input batch, two supported approaches and useful output/residue. Add a typed per-batch condition only if existing item metadata cannot represent it. No global thermal grid.",
+      "existing_owners": [
+        "src/world_completion_materials_content.js",
+        "src/world_completion_strip.js",
+        "src/game_absorption_assay_facts.js",
+        "src/site_projects.js",
+        "src/simulation_resolution.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_need": "Root-owned exact item/state validation and batch metadata, stable definition/version, material reserve, process completion and native output publication. Current finite crop and stamped strip retain their meanings.",
+      "decision_chain": {
+        "requires": "Known process, owned unencumbered material, usable hands/site and actual disclosed fuel",
+        "reserve": "Exact batch and fuel from their owners; freeze initial condition/recipe revision",
+        "transition": "Supported played-time conditioning/process step",
+        "outcome": "Consume the reserved batch once and produce exact useful output plus disclosed residue",
+        "consumer": "Later repair/cooking/insulation job must use that produced material function",
+        "failure": "Cancel/lose support follows declared frozen return policy; completed heating is not retroactively refunded",
+        "aftermath": "Retain input/output/temperature-basis receipt and changed site condition"
+      },
+      "time_policy": "Existing played clock and supported absence policy; no browser-closed heating/loss.",
+      "compatibility": "Additive optional typed record with explicit version validation; old absence inert. Do not infer arbitrary fields are accepted by existing item validators.",
+      "later_acceptance": "UI shows actual costs and batch basis; warmer input changes the authored cost; later consumer spends the produced item; cancellation, storage, transfer and generated save/reload prove custody.",
+      "risks": "Per-batch metadata is shared integration work; simplified source heating is not physical science or selected balance.",
+      "status": "original_proposal_not_authorized_implementation_or_director_acceptance",
+      "check_policy": "syntax/import/definition/link/build useful during current phase; unit/browser/gameplay/save/failure/regression acceptance deferred until authorized"
+    },
+    {
+      "id": "ONI-P02",
+      "title": "Body-specific expedition support",
+      "purpose": "Let a short original flooded or stale-air task distinguish learned movement, actual air support and current body requirements.",
+      "source_findings": [
+        "ONI-F07",
+        "ONI-F08",
+        "ONI-F09",
+        "ONI-F30",
+        "ONI-F31",
+        "ONI-F32",
+        "ONI-F37"
+      ],
+      "player_choice": "Use an actual breathing/lining kit, take a reachable recovery route, or use an already-earned supported alternative body where its own sustain law allows.",
+      "scope": "One explicitly enrolled local hazard with warning, voluntary retreat and useful result. No automatic body grant, copied bionic lore, world reset or mandatory fatal/offline upkeep.",
+      "existing_owners": [
+        "src/body_progression.js",
+        "src/realm_traveler_profiles.js",
+        "src/realm_clock_leases.js",
+        "src/status_care_facts.js",
+        "src/energy_resources.js",
+        "src/simulation_contracts.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_need": "Actual current body/function owner and kit/air reserve, supported action adapter, warning/recovery state and completion support. Traveler profiles alone are detached snapshots, not a new native physiology engine.",
+      "decision_chain": {
+        "requires": "Actual supported body, learned route/movement function, known hazard and sufficient support",
+        "reserve": "Owned physical kit/reserve and real attention, not a capability label",
+        "transition": "Played-time local exposure with a defined safe-recovery window",
+        "outcome": "Useful work consumes support; deficient support pauses/forces a disclosed retreat",
+        "consumer": "Same body can resume only after actual recovery/refill or alternate practical approach",
+        "failure": "Unsupported body, expired support or unreachable recovery prevents completion; no invented source immunity",
+        "aftermath": "Received observations, support spent and recovery retained separately"
+      },
+      "time_policy": "One existing clock; unobserved/absent region freezes unless its current owner explicitly supports the hazard.",
+      "compatibility": "Optional new content/version records; existing normal bodies and care jobs unchanged. Schema/validation and generated save/reload gate before verified claim.",
+      "later_acceptance": "Movement learning unlocks a concrete path but does not conjure air; different supported bodies pay their declared resources; warning/retreat/resume and exact kit custody are visible.",
+      "risks": "Body support integration is broader than a label; fatality and autonomous hazard policies are not selected.",
+      "status": "original_proposal_not_authorized_implementation_or_director_acceptance",
+      "check_policy": "syntax/import/definition/link/build useful during current phase; unit/browser/gameplay/save/failure/regression acceptance deferred until authorized"
+    },
+    {
+      "id": "ONI-P03",
+      "title": "Borrowed competence with earned practice",
+      "purpose": "Make a powered borrowed workshop tool enable a specific operation while keeping learned mastery, rental rights and fuel distinct.",
+      "source_findings": [
+        "ONI-F11",
+        "ONI-F12",
+        "ONI-F13",
+        "ONI-F33",
+        "ONI-F39"
+      ],
+      "player_choice": "Borrow and power the tool for a difficult joint, do an ordinary slower task, or practice toward retaining the skill without it.",
+      "scope": "One existing workshop action and one specific removable tool support. No global skill-slot cap or blanket XP/morale system.",
+      "existing_owners": [
+        "src/capabilities.js",
+        "src/energy_resources.js",
+        "src/body_progression.js",
+        "src/world_completion_lens_content.js",
+        "src/simulation_contracts.js",
+        "src/native_equipment_transaction.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_need": "Separate tool-owned derived execution contribution, actual lease/equipment custody and earned practice ledger; integrate with one native command without duplicating source/perk effects.",
+      "decision_chain": {
+        "requires": "Current tool rights/installed support, site, usable body and real funded power",
+        "reserve": "Borrowed item custody/deposit, owner energy and real work attention",
+        "transition": "Tool-enabled work or slower ordinary practice on existing clock",
+        "outcome": "Tool contribution enables execution; actual earned practice is recorded only from qualified completed work",
+        "consumer": "A later action without the tool tests retained learned capability",
+        "failure": "Tool return, support loss or exhausted power removes only tool contribution; cancellation follows actual lease/job policy",
+        "aftermath": "Returned custody and conserved deposit; lasting learned practice survives removal"
+      },
+      "time_policy": "Existing work job and energy owner; no render-triggered rewards, passive duplicate drain or new timer.",
+      "compatibility": "Do not copy ONI UngrantSkill behavior: equipment removal must not delete separately earned skill history. Additive definition/custody validation and explicit effect stacking.",
+      "later_acceptance": "Borrowed tool enables the named operation; power is spent once; tool removal disables only its contribution; later learned competence still works after return and generated reload.",
+      "risks": "Derived capability/equipment integration must avoid double bonuses and aliases; aptitude or consent cannot be inferred from tool ownership.",
+      "status": "original_proposal_not_authorized_implementation_or_director_acceptance",
+      "check_policy": "syntax/import/definition/link/build useful during current phase; unit/browser/gameplay/save/failure/regression acceptance deferred until authorized"
+    },
+    {
+      "id": "ONI-P04",
+      "title": "Paid habitat and useful biological output",
+      "purpose": "Add one optional original husbandry loop whose supported habitat and consumed feed affect a useful harvest/byproduct.",
+      "source_findings": [
+        "ONI-F17",
+        "ONI-F18",
+        "ONI-F19",
+        "ONI-F20",
+        "ONI-F21",
+        "ONI-F22",
+        "ONI-F38"
+      ],
+      "player_choice": "Maintain a cultivated habitat for reliable production, use a slower wild-compatible approach, or deliberately end the tended cycle and keep remaining means.",
+      "scope": "One newly authored optional bed or small husbandry site, separate from Nell's existing finite crop. Explicit renewal spends actual new inputs. No free reseeding, population ecology or unearned companion.",
+      "existing_owners": [
+        "src/world_completion_materials_content.js",
+        "src/audit_remainder_consequences_content.js",
+        "src/site_projects.js",
+        "src/simulation_contracts.js",
+        "src/realm_clock_leases.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_need": "Existing stock/site/job owner with a named lifecycle phase, habitat support and owned feed/renewal input. Define whether feed alternatives are OR or jointly required.",
+      "decision_chain": {
+        "requires": "Actual site rights, current habitat, known species/process and owned inputs",
+        "reserve": "Feed/seed-equivalent/care materials and real responsible worker",
+        "transition": "Supported tending/growth phase; unsuitable habitat stalls according to explicit rule",
+        "outcome": "Create a real counted product and qualified byproduct; current cycle ends once",
+        "consumer": "Cooking, refining or medical-fiction preparation spends the produced stock",
+        "failure": "Insufficient support stalls without invented death; interruption preserves declared phase/input policy",
+        "aftermath": "Spent means, current site and cycle result remain; new cycle requires explicit renewal"
+      },
+      "time_policy": "Supported played-time lease only; preserve old finite-crop and unsupported body/absence freeze policies.",
+      "compatibility": "Separate stable content IDs and optional lifecycle record; old story receipts/rewards cannot be replayed.",
+      "later_acceptance": "Feeding actual owned stock changes output availability; unsupported habitat blocks growth; useful output reaches a later native consumer; renewal cannot farm free stock or rewrite old crop.",
+      "risks": "New lifecycle content needs authoring and exact stock conservation; source wild/tame/fertility policies are examples, not universal YAIR ecology rules.",
+      "status": "original_proposal_not_authorized_implementation_or_director_acceptance",
+      "check_policy": "syntax/import/definition/link/build useful during current phase; unit/browser/gameplay/save/failure/regression acceptance deferred until authorized"
+    },
+    {
+      "id": "ONI-P05",
+      "title": "One operator, two work locations",
+      "purpose": "Prototype original remote operation that uses one actual operator and a supported remote device rather than duplicate independent labor.",
+      "source_findings": [
+        "ONI-F13",
+        "ONI-F14",
+        "ONI-F27",
+        "ONI-F34"
+      ],
+      "player_choice": "Operate a remote device while staying sheltered, send a willing independent worker with funded means, or travel and do the work personally.",
+      "scope": "One existing site and one bounded remote-control job. No mind duplication, free offline factory, native singleton copied world or global automation engine.",
+      "existing_owners": [
+        "src/realm_traveler_profiles.js",
+        "src/realm_clock_leases.js",
+        "src/simulation_contracts.js",
+        "src/simulation_resolution.js",
+        "src/site_projects.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_need": "Root-owned binding of operator attention, device body/location/support, actual energy/cargo custody and job participants. Detached profiles must be joined through existing native adapters before claiming playable remote work.",
+      "decision_chain": {
+        "requires": "Known usable endpoint, actual controller/device permission and compatible control method",
+        "reserve": "The real operator, device support, finite energy and exact target stock",
+        "transition": "One supported control session/job, with any endpoint interruption observed by declared policy",
+        "outcome": "Useful remote site output remains at its actual owner until collected/transferred",
+        "consumer": "Later local use requires real collection/cargo/return rather than teleporting item creation",
+        "failure": "Lost controller, exhausted fuel or inaccessible endpoint pauses/ends the job by explicit policy; no second person continues as the same mind",
+        "aftermath": "Retain remote work result, operator occupation, remaining stock and changed return"
+      },
+      "time_policy": "Existing played clock and independent region leases; explicit pause/absence policy with no extra world clock.",
+      "compatibility": "One versioned job/context extension if necessary; unsupported old bodies/regions stay inert. Preserve a single attention/inventory/publisher owner.",
+      "later_acceptance": "Operator cannot perform incompatible simultaneous work; remote result stays in target custody; lost support stops useful work; personal/independent-worker alternatives remain distinct and generated reload retains the commitment.",
+      "risks": "This is the broadest packet and should follow an agreed shared interface; source terminal/depot internals and whole offscreen simulation remain incomplete.",
+      "status": "original_proposal_not_authorized_implementation_or_director_acceptance",
+      "check_policy": "syntax/import/definition/link/build useful during current phase; unit/browser/gameplay/save/failure/regression acceptance deferred until authorized"
+    }
+  ],
+  "no_runtime_changed": true
+}

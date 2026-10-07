@@ -1,0 +1,142 @@
+{
+  "reviewer": "/root/audit_join_review",
+  "root": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "at": "2026-10-07T06:17:58.137584+00:00",
+  "scope": "bounded independent static integrated-source review of GD01 assay, Known Routes, contextual balm, cooling refinement and agreed duty joins",
+  "status": "No open decisive source blocker established in bounded reviewed seams; IR-01 repaired and reread. Root subsequently qualified matching build; all behavioral acceptance deferred.",
+  "findings": [],
+  "resolvedDuringReview": [
+    {
+      "id": "IR-R01",
+      "priority": "P2",
+      "status": "root-repaired-static-reread",
+      "title": "Early joint lesson report now reachable",
+      "before": "Actual paid prebooking omitted player feature_society.lessonFunded, while original hear_lesson visibleWhen requires it and old fund_lesson is blocked after prebooking.",
+      "current": "agreed_duty_content.js:86 now writes actorFact(lessonFunded,true) with the actual one-coin payment, without fabricating original command completions. feature_expansion_society.js:159-165 retains the actual lesson report and later funded-shelf consumer."
+    },
+    {
+      "id": "IR-R02",
+      "priority": "P2",
+      "status": "root-repaired-static-reread",
+      "title": "Cooling refinement cancellation dispatcher now accepts the group",
+      "before": "featureWorkControls emitted type cancel but main cancel group allowlist excluded cooling_refinement.",
+      "current": "main.js:981 now includes cooling_refinement; the shared cancel path still refunds the exact stored job costs and clears its site reservation."
+    },
+    {
+      "id": "IR-R03",
+      "status": "root-repaired-static-reread",
+      "title": "Duty action/People consumer joins",
+      "current": "feature_expansion_wave_host.js:55 now applies agreedDutyFilterSocietyActions and excludes separately rendered feature_society.duty IDs. people_knowledge.js:84 merges agreedDutyPeopleView into the existing attributed received-record rows."
+    },
+    {
+      "id": "IR-01",
+      "priority": "P2",
+      "status": "root-repaired-static-reread",
+      "title": "Proto23 routes are supplied twice and both copies are dropped",
+      "trigger": "After optional Proto23 entry is enrolled, display Known Routes in native Village or in Proto23 Village Center while proto23.enter or proto23.return is visible.",
+      "effect": "The same route ID appears in both refinement.sections and the separately supplied proto23.sections. projectKnownRoutes excludes all entries whose ID count is not one, so both Proto23 enter/return route rows disappear; in a location with no other supported route the panel can remain visible with an empty route list. The original Proto23 project controls still exist.",
+      "locators": [
+        {
+          "path": "src/feature_expansion_wave_host.js",
+          "line": 90,
+          "role": "base projection already includes proto23Presentation sections"
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "line": 33,
+          "role": "refinement copies all base sections"
+        },
+        {
+          "path": "src/main.js",
+          "line": 7386,
+          "role": "current Known Routes mount supplies refinement and a second proto23 projection"
+        },
+        {
+          "path": "src/known_routes_host.js",
+          "line": 196,
+          "role": "adapter concatenates both projections"
+        },
+        {
+          "path": "src/known_routes.js",
+          "line": 27,
+          "role": "count !== 1 rejects both copies"
+        }
+      ],
+      "repair": "Use one Proto23 action source at the actual mount/adapter while retaining the separate Proto23 projection needed for currentDestination. Keep duplicate-conflict protection in the pure compositor. A static source repair is sufficient for this wave; actual display/click acceptance stays deferred.",
+      "confidence": "source-deterministic; behavior not executed",
+      "historicalFinding": true,
+      "repairReadback": {
+        "at": "2026-10-07T06:17:58.137584+00:00",
+        "path": "src/known_routes_host.js",
+        "line": 199,
+        "sha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f",
+        "currentBehaviorBySource": "When the exact proto23 projection is supplied, only Proto23-family actions are removed from refinement action rows; routesIn(proto23) then supplies a single authoritative source. Other families remain in refinement. currentDestination still receives proto23; the pure compositor still rejects conflicting duplicate IDs.",
+        "acceptance": "Actual route display/click and keyboard acceptance remain deferred and unrun."
+      }
+    }
+  ],
+  "checks": {
+    "syntaxOnlyFiles": 48,
+    "syntaxFailures": [],
+    "staticRelativeLinkFailures": [],
+    "coldImportsExecuted": false,
+    "buildExecuted": false,
+    "behaviorSuitesExecuted": false,
+    "nativeConstructorsExecuted": false
+  },
+  "reviewedSeams": [
+    "actual local content -> complete simulation registration -> facts -> current typed/native context -> scheduler popped-job support -> durable envelope/native publication -> Here/Notebook/People consumers",
+    "GD01 exact owned/reserved tools, no-registry optional validator, frozen acquired oil-control receipt, current native inventory save reader and display-only identified naming",
+    "Balm actual Weak healing balm template, completion-receipt-time decay, max of existing and new remaining duration, single durable post-save native publication, exact local validator without registry",
+    "Cooling zero completed failures, frozen paid one-roll receipt, current calendar/native controlled-body support, existing functional body.sore_hands, exact old reference command IDs/definitions retained",
+    "Duty actual one-coin joint payment, actor/world owner distinctions, finite logs/kit/purse/attention/vitals, actual home/bench claims, source original no-preference order, stopped/cancelled/kept receipt hooks and popped reservation support",
+    "Known Routes only current owner presentations/discovered Glasshouse, exact body/clock/cargo/current native fingerprint, fresh re-projection before dispatch, stable focus and Proto23 double-feed defect"
+  ],
+  "nonClaims": [
+    "No full broad audit redo, no whole-source/full game parity claim.",
+    "No gameplay/model/native constructor/fixture/unit/browser/save/reload/import/failure/regression/director suite, build or cold module import was executed.",
+    "Syntax and static module-file link checks do not prove gameplay or runtime cycle safety.",
+    "Root continues exclusive integration; this review does not grant shared-source ownership or declare final build/delivery.",
+    "No user saves, libraries, LICENSE, upstream attribution, vanilla state, prestige, canonical text or source files were edited."
+  ],
+  "deferredAcceptance": [
+    "Generated-state native/UI exercise of each selected slice including same-clock support loss/custody/cancellation and actual refundable costs.",
+    "Balm real 90-minute effect consumer and later-tick decay, longer/stronger effects, save/reload and failed persistence.",
+    "Cooling paid odds/roll/retry history, functional soreness and hook-control expiry, old frozen jobs, save/reload and failed persistence.",
+    "Duty actual repair-first/lesson-first/ordinary ordering, pending support/cancel/refusal, later original reports/funded shelf, People attribution and received-only disclosure.",
+    "Known Routes actual available/blocked enter/return click, fresh body/cargo/clock quote, duplicate-free Proto23 rows and keyboard focus."
+  ],
+  "release": {
+    "released": true,
+    "writer": "/root/audit_join_review",
+    "exclusivePaths": [
+      "docs/gm/audit-absorption-2026-10-07/integration-review/REVIEW.md",
+      "docs/gm/audit-absorption-2026-10-07/integration-review/REVIEW.json",
+      "docs/gm/audit-absorption-2026-10-07/integration-review/INPUTS.json"
+    ],
+    "transferTo": "root 01a114d2",
+    "liveChildren": 0,
+    "runningProcesses": 0,
+    "at": "2026-10-07T06:17:58.137584+00:00"
+  },
+  "findingInputSha256": {
+    "src/known_routes.js": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd",
+    "src/known_routes_host.js": "51594e3efd498309b442218577cac79d5cfba8adfff80945c1f77a500482592f",
+    "src/main.js": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150",
+    "src/feature_expansion_wave_host.js": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66",
+    "src/feature_expansion_refinements_host.js": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c"
+  },
+  "repairFollowup": {
+    "scope": "IR-01 only",
+    "syntaxOnly": "node --check src/known_routes_host.js passed",
+    "behaviorOrBuildExecuted": false,
+    "sourceWrites": false,
+    "currentKnownRoutesHostSha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f"
+  },
+  "rootSubsequentBuild": {
+    "receipt": "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+    "bundle": "e77080593d4b",
+    "at": "2026-10-07T06:24:48.219523+00:00",
+    "qualification": "Subsequent root build/map/served qualification, no new reviewer gameplay claim"
+  }
+}

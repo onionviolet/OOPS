@@ -1,0 +1,113 @@
+{
+  "at": "2026-10-04T20:19:26.658Z",
+  "fullObjectivePreserved": true,
+  "completionProven": true,
+  "completionScope": "Source/registration/native integration/rebuild and explicit deferred-proof records; gameplay and final prose acceptance are deferred",
+  "goalStatusAtAudit": "complete",
+  "receipt": "NATIVE_INTEGRATION_RECEIPT.json",
+  "inputs": {
+    "src/pocket_realm_scenes.js": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/pocket_realm_ui.js": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/pocket_realm_rules.js": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+    "src/native_realm_traveler.js": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+    "src/pocket_observation.js": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+    "src/observation_channels.js": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/expedition_content.js": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+  },
+  "requirements": [
+    {
+      "requirement": "Recurring caretaker residence and actual paid work",
+      "status": "implemented_built",
+      "evidence": [
+        "Same seeded Joss, welcome/paid_work in actual registry, finite tools/wages and real paid participants"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "Preparation success/failure and progressing craft",
+      "status": "implemented_built",
+      "evidence": [
+        "Actual damp/sound/joint/shelf commands; canonical instance fact mapping; failed damp attempt retains earlier validation"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "Privately funded research and supported disclosure",
+      "status": "implemented_built",
+      "evidence": [
+        "NPC kit/stamina/coin research and private knowledge; explicit real co-located offer; deliberately heard attributed report"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "Refusal, departure and remembered return",
+      "status": "implemented_built",
+      "evidence": [
+        "Native refuse/leave_terms/return; actual real doorway visit/departure; retained same instance and local work reservations"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "Explicitly bounded observation options through native integration",
+      "status": "implemented_built",
+      "evidence": [
+        "Master explicitly chose actual nine-command native observer adapter over six scene proposals",
+        "Earned NPC source/body/power, owned crafted device, twelve-minute paid view and current public sample",
+        "Anonymous detection/one notice, unverified deliberate claim, local paid cooperation",
+        "Actual shutter/expiry/support loss and main replay bypass; canonical view/activity clock and save binding"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "One actor/state/payment owner",
+      "status": "source_supported_built",
+      "evidence": [
+        "Single Joss/player/native inventory/source owners",
+        "Canonical instance facts/unique template gift",
+        "Common staged simulation costs/participants and native durable publisher"
+      ],
+      "runtimeProof": "deferred"
+    },
+    {
+      "requirement": "Provisional lore/voice and source limits",
+      "status": "documented",
+      "evidence": [
+        "Original O proposal and numbersAccepted false",
+        "LOCAL_SCENE_BRIEF and shared local writing/source gate",
+        "No books/canon imitation; final prose pending settled relevant situation"
+      ]
+    },
+    {
+      "requirement": "Current selected code registered and rebuilt; deferred proof recorded",
+      "status": "complete",
+      "evidence": [
+        "Actual registry imports all twelve ordinary/nine selected observer commands and listener source",
+        "Parent matched all sixteen inspected current JS sourcemap sources to final b265cccda4c0 bundle",
+        "Root final build/fingerprint receipt and current native report/checkpoint/audit"
+      ],
+      "runtimeProof": "deferred"
+    }
+  ],
+  "supersededAudit": {
+    "at": "2026-10-04T19:06:58.852007+00:00",
+    "sceneHash": "7cd3c515d1291c3120d9d5e7e83dce135aa1e1ebef1349ec7cf3af7f6be93a3c",
+    "observationStatus": "Earlier unregistered/missing binding accurately reported; resolved by explicitly selected alternate native adapter, not assumed generic flags"
+  },
+  "deferred": [
+    "unit/scenario/regression suites",
+    "generated-save journey/return/repeat/cancel and actual controller/stock/privacy checks",
+    "view/notice/claim/co-location/shutter/expiry/support-loss behavior",
+    "save/import/reload/failure injection",
+    "final dialogue/lore/voice/costs/game-feel acceptance"
+  ],
+  "sourceFrozen": true
+}

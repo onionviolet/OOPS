@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "dateLocal": "2026-10-05",
+  "kind": "live implementation qualification snapshot; shared inputs may evolve under Features",
+  "inputHashes": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md": "a7c70774ed2958419c2a8d8ec702cb6915f8edde0360b41400301d3c1e779edf",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.json": "653f52ffe716f8716c6971e31912ad54d58e19ab1b73153c553aed520581565d",
+    "docs/gm/feature-wave/repositories/ASSIGNMENT.md": "5f32abb8a28ce99f29f6c3590012da0e057f1de5fd79ad91aaca8b4f4ae033a1",
+    "docs/gm/feature-wave/features/INTERFACE.md": "764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d",
+    "docs/research/repository-bank/SOURCES.json": "d92b2ddb511c09f4720682f1304a5f69c8164e978fbf52c29d51215dbdac43b2",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/COVERAGE.json": "80b470c1af4ba18491bcbae70593efee5625fcdee921606a618c48dd15f06e5c",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/FINDINGS.json": "e022e14adfb85fda17faef49264e49a01773b7a2f33e5fbe920402433e38cf5b",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/ABSORPTION_PACKETS.md": "27b0cd55cede2982571bdc4102d8f6454513929269bf7d86d92e57e179ce40f6",
+    "src/simulation.js": "7e96a16a8bf161b483c3b34aa26001be4180adba141f0c7293f39cfee701546a",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/simulation_effects.js": "a036326a14e49ef71cc3e877602a6436c01e4792c601bba3d207add252099cca",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/expansion_engine.js": "467627e9557ffdcf3c0f93dee7319cd6e2ca2a81be3af3a5f5fb66c41658c45a",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/main.js": "44dbd4bc5dc4498d1b80839bfa53bda3c1a1a6af68f3ccb2808d7682cbfcbe6e",
+    "src/simulation_content.js": "f030eb7dfefe2b2c961d943d9e1a985af009c3c296c1127d2b6278edbdfbdfeb",
+    "src/expedition_content.js": "4277bafc0a1cb33b47eae5415534fc4b13d7ef4c46d59f31afdfa25a1245047d",
+    "src/data/expedition_items.js": "933aa1b256a22cfe3e724d2566d75e8a813254c9077d4beb6b13f37b9c56c967",
+    "src/adventure_notebook.js": "cd38b5b932e3e4c39937cdfabb8466ee6768446399a02bdddea72e0a9cfc75d5",
+    "src/feature_expansion_work_plan.js": "020d8a01accde412c30d00cfa538efb807a6b975f5225222c056053c51eeb382"
+  }
+}

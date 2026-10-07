@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T19:23:27.301945+00:00",
+  "scope": "bounded read-only missed-work audit beyond 19 dispatched candidates",
+  "report": "docs/gm/missed-work-audit/REPORT.md",
+  "sharedIntegrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "findings": [
+    {
+      "id": "MW-01",
+      "priority": 2,
+      "type": "dropped-integration",
+      "title": "Artifact collection absent from main game and latest queue",
+      "state": "caught; additional integration obligation now dispatched, delivery not yet established",
+      "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "evidence": [
+        {
+          "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+          "line": 10
+        },
+        {
+          "path": "src/feature_expansion_content.js",
+          "line": 12
+        },
+        {
+          "path": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+          "line": 27
+        }
+      ],
+      "repair": "Acquire source release and integrate the existing seven joins; keep actual stock, single publisher and explicit deferred gate."
+    },
+    {
+      "id": "MW-02",
+      "priority": 2,
+      "type": "actor-knowledge-consumer",
+      "title": "Hank shelter lacks received or observed warning cause",
+      "state": "source producer/consumer verified; runtime consequence inferred, no gameplay test",
+      "owner": "shared integrator coordinated with Causal writer",
+      "evidence": [
+        {
+          "path": "src/book_world_paradise_actions.js",
+          "line": 79
+        },
+        {
+          "path": "src/book_world_paradise_actions.js",
+          "line": 106
+        },
+        {
+          "path": "src/book_world_paradise_host.js",
+          "line": 70
+        },
+        {
+          "path": "docs/gm/causal-endings/IMPLEMENTATION_PACKETS.md",
+          "line": 45
+        }
+      ],
+      "repair": "Bind a credible report or actual route observation to Hank and require its cause-bound receipt alongside physical support.",
+      "deferredCase": "Mia warning succeeds while Hank gets no report; route-specific choice must remain unsupported."
+    },
+    {
+      "id": "MW-03",
+      "priority": 2,
+      "type": "lossy-source-projection",
+      "title": "Eight reusable contract rows export entirely empty citations",
+      "state": "verified projection loss; upstream evidence recoverable; broad profiles unactivated; finite Goa evidence unaffected",
+      "owner": "shared integrator",
+      "evidence": [
+        {
+          "path": "docs/gm/book-world-player-agency/contracts/CONTRACTS.json",
+          "line": 166
+        },
+        {
+          "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+          "line": 643
+        },
+        {
+          "path": "src/book_world_player_agency_contracts.js",
+          "line": 24
+        }
+      ],
+      "affectedRows": [
+        "original-frontier",
+        "reincarnation-paradise",
+        "skyrim",
+        "fallout4",
+        "elden-ring",
+        "naruto",
+        "bleach",
+        "harry-potter"
+      ],
+      "repair": "Preserve actual source shape or explicit per-contract retrieval refs; definition guard rejects silently dropped available metadata."
+    },
+    {
+      "id": "MW-04",
+      "priority": 3,
+      "type": "stale-recovery-routing",
+      "title": "Current RUN fields and Paradise world checkpoint lag delivered ownership and native routes",
+      "state": "verified documentary contradiction; no competing writer inferred",
+      "owner": "canonical/world integrator",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/RUN.json",
+          "line": 4
+        },
+        {
+          "path": "docs/gm/world-implementation/RUN.json",
+          "line": 1649
+        },
+        {
+          "path": "docs/gm/world-implementation/RUN.json",
+          "line": 1900
+        },
+        {
+          "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+          "line": 39
+        }
+      ],
+      "repair": "Update one current owner/scope/delivery pointer; mark superseded checkpoints historical and link bounded delivery/source-fit/deferred acceptance."
+    }
+  ],
+  "notRun": [
+    "build",
+    "unit",
+    "gameplay",
+    "browser",
+    "save",
+    "reload",
+    "failure",
+    "regression",
+    "director"
+  ],
+  "writerScope": "docs/gm/missed-work-audit/ only"
+}

@@ -1,0 +1,404 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "scope": "bounded semantic reconciliation of supplied novel/world source and authoring families; read-only except this role's two reconciliation artifacts",
+  "decision": {
+    "status": "no additional lost novel-to-runtime handoff found",
+    "selected_next_work": [
+      {
+        "item": "privacy-safe known-route overview",
+        "owner": "coordinating audit-absorption root",
+        "evidence": "docs/gm/multi-world-paths-2026-10-07/AUDIT.md; already selected by coordinator"
+      },
+      {
+        "item": "GD-01 native joins",
+        "owner": "coordinating audit-absorption root after explicit shared lease",
+        "evidence": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md"
+      },
+      {
+        "item": "visits, furnishings, social, Proto23 and retort finite integration/build",
+        "owner": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+        "evidence": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md"
+      }
+    ],
+    "profile_registry": {
+      "registered_profiles": 19,
+      "default_native_bindings": 0,
+      "binding_requires": [
+        "existing native world",
+        "explicit era",
+        "branch",
+        "registered command IDs"
+      ],
+      "evidence": "src/feature_expansion_book_catalogue.js",
+      "disposition": "authoring profile breadth is not 19 campaigns or 19 worlds"
+    }
+  },
+  "novel_lanes": [
+    {
+      "id": "reincarnation-paradise",
+      "owner": "docs/research/novels/trailblaze-reading/paradise-depth/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "FINAL_VALIDATION.json"
+      ],
+      "coverage": "complete_within_supplied_snapshot",
+      "scope": "4505 distinct bodies plus 151 exact duplicate dependencies across 4656 spine members",
+      "qualification": [
+        "English MTL",
+        "primary/franchise authenticity unverified",
+        "publication completeness unverified",
+        "cut/order anomalies qualified"
+      ],
+      "disposition": "selected bounded sid20-first-Goa adaptation; separate original hub timing divergence is explicit; no broader multiverse/reset claim",
+      "consumer": "docs/gm/book-world-completion-2026-10-06/PARADISE_COVERAGE.json"
+    },
+    {
+      "id": "fated-villain",
+      "owner": "docs/research/novels/full-book/fated-villain/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "SYNTHESIS.md"
+      ],
+      "coverage": "2239_of_2239_included_sections_read_reviewed_integrated",
+      "qualification": [
+        "supplied English MTL",
+        "translation/publication fidelity unresolved",
+        "translation marker and damaged/missing meaning retained"
+      ],
+      "disposition": "no campaign selected; preserve actor knowledge, body/source, helper agency, privacy and consent as separate mechanics"
+    },
+    {
+      "id": "reverend-insanity",
+      "owner": "docs/research/novels/full-book/reverend-insanity/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md"
+      ],
+      "coverage": "2334_of_2334_read; 590_reviewed_integrated",
+      "qualification": [
+        "supplied edition",
+        "checkpoint r64 dated 2026-10-05 records continuation through 591-605; not a live status refresh",
+        "endpoint is ongoing battle, no invented victor/ending"
+      ],
+      "disposition": "partial integration remains with the named source owner; current profile rows are not full-campaign coverage"
+    },
+    {
+      "id": "shadow-slave",
+      "owner": "docs/research/novels/full-book/shadow-slave/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "reviews/AUDIT_0981_1000.md",
+        "workers/r0981-1000/NOTES.md",
+        "TIMELINE.md"
+      ],
+      "coverage": "3000_of_3000_worker_read; 1019_reviewed_integrated",
+      "qualification": [
+        "supplied compilation",
+        "checkpoint r165 dated 2026-10-05 records an active goal; not a live status refresh",
+        "partial semantic review"
+      ],
+      "disposition": "partial integration remains source-owner work; traveler report reuses only bounded claims and does not implement remote bodies"
+    },
+    {
+      "id": "regressors-tale",
+      "owner": "docs/research/novels/full-book/regressors-tale/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "REVIEW.md"
+      ],
+      "coverage": "644_of_644_accessible_members_read_reviewed_integrated",
+      "qualification": [
+        "exact supplied snapshot",
+        "duplicate/absent members, ordering and external resource limits retained"
+      ],
+      "disposition": "no campaign selected; do not infer universal rewind/reset"
+    },
+    {
+      "id": "omniscient-reader",
+      "owner": "docs/research/novels/full-book/omniscient-reader/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "SYNTHESIS.md"
+      ],
+      "coverage": "551_of_551_read_reviewed_integrated",
+      "qualification": [
+        "supplied-edition fidelity remains qualified"
+      ],
+      "disposition": "no full campaign selected; contracts, refusal, borrowed bookmark and lived host time remain distinct"
+    },
+    {
+      "id": "labyrinth-mad-god-1",
+      "owner": "docs/research/novels/full-book/labyrinth-mad-god-1/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md"
+      ],
+      "coverage": "119_of_119_story_chapters_read_reviewed_integrated",
+      "qualification": [
+        "volume 1 only"
+      ],
+      "disposition": "no campaign selected; preserve source volume boundary and host/controller/life distinctions"
+    },
+    {
+      "id": "labyrinth-mad-god-2",
+      "owner": "docs/research/novels/full-book/labyrinth-mad-god-2/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md"
+      ],
+      "coverage": "121_of_121_story_chapters_plus_recap_read_reviewed_integrated",
+      "qualification": [
+        "volume 2 supplied edition only"
+      ],
+      "disposition": "no campaign selected; two volumes do not imply whole-series coverage"
+    },
+    {
+      "id": "mother-of-learning",
+      "owner": "docs/research/novels/full-book/mother-of-learning/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "SYNTHESIS.md"
+      ],
+      "coverage": "107_of_107_story_items_read_reviewed_integrated",
+      "qualification": [
+        "WebToEpub provenance/authenticity qualified"
+      ],
+      "disposition": "selected Cyoria visitor uses independent non-mage retained body, local lamp, own fuel/control/charge and bounded research; no protagonist/loop/rewind",
+      "consumer": "docs/gm/book-world-completion-2026-10-06/MOL_INTEGRATION.md"
+    },
+    {
+      "id": "lord-of-mysteries",
+      "owner": "docs/research/novels/full-book/lord-of-mysteries/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md"
+      ],
+      "coverage": "1402_of_1402_story_supplement_items_read; 363_reviewed_integrated; 47_paratext_read_classified",
+      "qualification": [
+        "supplied compilation authentication/completeness unresolved",
+        "checkpoint r61 dated 2026-10-05 records goal status blocked; not a live status refresh"
+      ],
+      "disposition": "partial integration remains source-owner work; no takeover or campaign-wide claim"
+    },
+    {
+      "id": "worm",
+      "owner": "docs/research/novels/full-book/worm/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "SYNTHESIS.md"
+      ],
+      "coverage": "304_of_304_story_entries_read_reviewed_integrated",
+      "qualification": [
+        "compilation/TOC mapping does not authenticate every paragraph",
+        "Ward excluded"
+      ],
+      "disposition": "no cast/power/world branch selected"
+    },
+    {
+      "id": "legendary-mechanic",
+      "owner": "docs/research/novels/full-book/legendary-mechanic/",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.json",
+        "SYNTHESIS.md"
+      ],
+      "coverage": "1463_of_1463_supplied_entries_read_reviewed_integrated_in_74_returns",
+      "qualification": [
+        "user-supplied compilation",
+        "translation authenticity not established by metadata"
+      ],
+      "disposition": "no campaign selected; preserve body, information, allegiance, disguise/credential and incomplete-copy distinctions"
+    },
+    {
+      "id": "circle-of-inevitability",
+      "owner": "docs/research/novels/full-book/circle-of-inevitability/",
+      "registry_owner": "separate checkpoint-listed slug writer; shared registry remains dispatcher-owned per dispatch receipt",
+      "evidence": [
+        "CHECKPOINT.md",
+        "COVERAGE.md",
+        "docs/gm/dispatch/circle-of-inevitability/DISPATCH_RECEIPT.json"
+      ],
+      "coverage": "1178_narrative_plus_afterword_read; 1170_narrative_integrated; 8_narrative_plus_afterword_pending",
+      "qualification": [
+        "supplied compilation",
+        "checkpoint r71 dated 2026-10-05 UTC records goal active and this slug as writer scope; not a live status refresh"
+      ],
+      "disposition": "remaining review and synthesis stay with the source owner; do not edit shared full-book dispatch"
+    }
+  ],
+  "world_families": [
+    {
+      "id": "bleach",
+      "owner": "docs/worlds/bleach/",
+      "boundary": "original manga volumes 1-74; bounded official summaries, bios, episodes and keywords; not full-chapter reading",
+      "disposition": "unselected candidate; native isolated instance/clock/items, body-source eligibility and spiritual targeting are later prerequisites"
+    },
+    {
+      "id": "elden-ring",
+      "owner": "docs/worlds/elden-ring/",
+      "boundary": "base game before selected ending; publisher premise and selected guide sections; excludes DLC; no full item/quest audit",
+      "disposition": "unselected candidate; proposed ferry proof needs selected native instance/state/clock and exact source-backed region"
+    },
+    {
+      "id": "fallout-4",
+      "owner": "docs/worlds/fallout/",
+      "boundary": "base-game Commonwealth 2287; bounded official review; Survival essay is logistics reference, not selected difficulty/death policy",
+      "disposition": "unselected candidate; Water Line is original proof proposal"
+    },
+    {
+      "id": "naruto",
+      "owner": "docs/worlds/naruto/",
+      "boundary": "manga volumes 1-72 endpoint corroborated; bounded official columns/character-training material/anime locators; not full-chapter reading",
+      "disposition": "unselected candidate; teaching, anatomy, source and exceptional transfer/revival remain distinct"
+    },
+    {
+      "id": "skyrim",
+      "owner": "docs/worlds/skyrim/",
+      "boundary": "base PC manual and bounded official core-setting sources; no complete quest order; excludes DLC/Creations",
+      "disposition": "unselected candidate; Lower Road eligibility/ring proof is original or unresolved, no automatic Dragonborn identity"
+    },
+    {
+      "id": "harry-potter",
+      "owner": "docs/worlds/harry-potter/",
+      "boundary": "publisher synopsis and bounded companion/author sources; seven novels not full-read",
+      "disposition": "origin/campaign candidate, not selected sixth deep adaptation"
+    },
+    {
+      "id": "conceptual",
+      "owner": "docs/worlds/conceptual/",
+      "boundary": "bounded JoJo anime explanations and creator descriptions",
+      "disposition": "ability comparison only; not a selected sixth world or runtime implementation"
+    }
+  ],
+  "authoring_returns": [
+    {
+      "id": "book-lore-synthesis",
+      "owner": "docs/gm/book-lore-to-gameplay-2026-10-06/",
+      "disposition": "finite map and five original proposals complete, not selected; Paradise/Cyoria now have separate bounded consumers"
+    },
+    {
+      "id": "ability",
+      "owner": "docs/research/novels/specialists/ability/",
+      "disposition": "source contrasts specify method/support/source/body/fuel/target/transfer distinctions; fixtures are original, no new book reading or gameplay proof"
+    },
+    {
+      "id": "granularity",
+      "owner": "docs/research/novels/specialists/granularity/",
+      "disposition": "competence/mastery/talent/body/source/profession split is proposal; no universal tier, rarity or curve"
+    },
+    {
+      "id": "dialogue",
+      "owner": "docs/research/novels/specialists/dialogue/",
+      "disposition": "knowledge-aware response findings reused by current original Glasshouse/home/selected campaigns; no independent novel-dialogue gap"
+    },
+    {
+      "id": "lore-continuity",
+      "owner": "docs/research/novels/specialists/lore/",
+      "disposition": "source baseline/divergence, observer knowledge, occurrence/reveal, parallel history and body/life remain shared distinctions"
+    },
+    {
+      "id": "origin",
+      "owner": "docs/research/novels/specialists/expansion/",
+      "disposition": "one-body physical traveler is native-integrated; projection/alternate/shared body remains detached and nativeExecutable false"
+    },
+    {
+      "id": "world-authoring",
+      "owner": "docs/gm/world-implementation/second-pass/authoring/",
+      "disposition": "planning only, eight findings/five proposed bundles; use B1-B5 only when selected pack proves such a gap"
+    },
+    {
+      "id": "causal",
+      "owner": "docs/gm/causal-endings/",
+      "disposition": "P1-P5 shared source integration appears in current remainder delivery, implemented-unverified; not a generic all-protagonist fate/combat engine"
+    }
+  ],
+  "selected_deliveries": [
+    {
+      "id": "paradise-goa",
+      "owner": "docs/gm/book-world-completion-2026-10-06/",
+      "status": "source/native/UI/compatible-state/current-build delivered, implemented-unverified",
+      "later": "gameplay/save/import/reload/failure/keyboard/director gates"
+    },
+    {
+      "id": "cyoria",
+      "owner": "docs/gm/book-world-completion-2026-10-06/",
+      "status": "source/native/UI/compatible-state/current-build delivered, implemented-unverified",
+      "later": "gameplay/native-constructor/save/import/failure/keyboard/director gates"
+    },
+    {
+      "id": "original-frontier",
+      "owner": "docs/gm/world-implementation/frontier-runtime/",
+      "status": "selected original campaign source/native/UI/build delivered",
+      "later": "behavior/save/director acceptance; not a novel campaign"
+    },
+    {
+      "id": "care",
+      "owner": "docs/gm/care-worlds-2026-10-06/",
+      "status": "finite care/book-world source/native/UI/build delivered, implemented-unverified",
+      "later": "behavior/save/director gates; home/social writer owns current shared integration"
+    },
+    {
+      "id": "causal-p1-p5",
+      "owner": "docs/gm/audit-implementation/remainder/",
+      "status": "included in 22-candidate source/native/UI/state/current-build delivery, implemented-unverified",
+      "later": "five declared acceptance families; not universal protagonist combat/fate"
+    }
+  ],
+  "representative_source_exception": {
+    "source": "Shadow Slave",
+    "locators": [
+      "reviews/AUDIT_0981_1000.md:981:1-26,49-71",
+      "workers/r0981-1000/NOTES.md:C01",
+      "workers/r0981-1000/NOTES.md:C02;982:12-57",
+      "reviews/AUDIT_0981_1000.md:982:68",
+      "reviews/AUDIT_0981_1000.md:986:27-41",
+      "workers/r0981-1000/NOTES.md:C03"
+    ],
+    "exception": "Rain's risk window is not infection; propaganda differs from verified operational facts; Rain underestimates Sunny; reply audience/content is limited. Cassie's marked viewpoints, paid essence, actual vase sidestep, borrowed mother's sight and firm stated future foreknowledge are separate. Army relay fee/targets/northern clock do not synchronize with Cassie's home 10AM. Chapter/reveal order is not event/time/observer knowledge.",
+    "checked_against": "accepted adjudication, canonical reader notes and current timeline",
+    "coverage_limit": "source review is partial (1019/3000 integrated at latest checkpoint); no whole-source claim"
+  },
+  "read_scope": {
+    "read": [
+      "AGENTS.md",
+      "relevant current/intent/expansion sections of PROJECT.md",
+      "docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md",
+      "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "docs/gm/audit-absorption-2026-10-07/intake/INTAKE.md",
+      "selective novel/world family queries on docs/gm/audit-absorption-2026-10-07/intake/SOURCES.json",
+      "docs/research/novels/full-book/DISPATCH.json",
+      "current book-lane checkpoints and coverage/synthesis excerpts linked in novel-world.md",
+      "Circle of Inevitability dispatch receipt/checkpoint/coverage",
+      "five regional SOURCE_LEDGER boundary/status sections plus targeted IMPLEMENTATION_PACKET proof/dependency sections, Harry Potter ledger/brief, conceptual packet/reference cases",
+      "novel specialist ability/granularity/dialogue/lore/expansion reports",
+      "book-lore-to-gameplay, world-authoring and Causal reports",
+      "Paradise/Cyoria/Frontier/care/Causal current deliveries",
+      "src/feature_expansion_book_catalogue.js",
+      "Shadow Slave accepted 981-1000 review/notes and timeline locators"
+    ],
+    "metadata_only": [
+      "bootstrap INTAKE.md state: 11 semantic reads and 2363 metadata-only flags among 2374 paths; additional targeted reads are listed separately, labels not recomputed, current unopened count unknown",
+      "uninspected novel/source files outside cited owner evidence",
+      "raw EPUB/library prose, which was not opened"
+    ]
+  },
+  "constraints_respected": [
+    "no source/library edits or raw prose corpus",
+    "no code/build/canonical/other dossier edits",
+    "no private save access",
+    "no gameplay/unit/browser/save/failure/regression/director suite",
+    "no agents, chats or messages",
+    "common novel dispatch registry left untouched"
+  ],
+  "artifacts": [
+    "docs/gm/audit-absorption-2026-10-07/reconciliation/novel-world.md",
+    "docs/gm/audit-absorption-2026-10-07/reconciliation/novel-world.json"
+  ]
+}

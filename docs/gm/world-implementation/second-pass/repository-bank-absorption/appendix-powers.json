@@ -1,0 +1,550 @@
+{
+  "schema": "repository-bank-absorption-powers-appendix-v1",
+  "qualification": {
+    "purpose": "Partial source review of the four assigned roguelike power/body repositories; not a repository-wide audit.",
+    "cache_root": "~/.cache/yairpg-repository-bank/2026-10-05/",
+    "retrieval": "Read the manifest-pinned shallow Git objects using git show, ls-tree and grep. No upstream code, hooks, setup, packages, builds, or scripts were executed; no source checkout was modified.",
+    "scope": [
+      "repository purpose and available notices",
+      "talent/spell/item effect execution",
+      "possessor body eligibility and consequences",
+      "monster evolution",
+      "mapping to live YAIR owners"
+    ],
+    "coverage_limit": "The four manifest rows were reviewed only for the named subsystems and supporting ownership paths. Seed/read coverage does not establish whole-repository or all-branch coverage. No YAIR gameplay, browser or save behavior was executed for this research return."
+  },
+  "repositories": [
+    {
+      "id": "tome",
+      "title": "Tales of Maj'Eyal / T-Engine4",
+      "status": "partial-subsystem-reviewed",
+      "purpose": "Single-player tactical roguelike with class talent trees, resource costs and cooldowns; source uses Lua talent definitions over the T-Engine runtime.",
+      "source": {
+        "url": "https://git.net-core.org/tome/t-engine4",
+        "revision": "4b39a195a44e8b47f8465d3138291b63a0eee94f",
+        "branch": "master",
+        "cache_key": "tome.git",
+        "pin_matches_manifest": true,
+        "cache_limit": "Shallow pinned default-head objects and selected blobs; not a complete offline copy or all-branch review.",
+        "files": [
+          {
+            "path": "game/modules/tome/data/talents/techniques/2h-assault.lua",
+            "sha256": "382943262e42ac0fb842497391fe8753624028732850720b4f4e053954447e7d",
+            "symbols": [
+              "STUNNING_BLOW_ASSAULT",
+              "Fearless Cleave",
+              "Death Dance"
+            ],
+            "lines": "21-61,63-110,112-161",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/data/talents/techniques/2h-assault.lua"
+          },
+          {
+            "path": "game/modules/tome/data/talents/spells/arcane.lua",
+            "sha256": "2a7bc80535b6def4909c3dff45e5623a8f52a0e63fedce001592c27bf4950e9b",
+            "symbols": [
+              "Manathrust",
+              "Arcane Power"
+            ],
+            "lines": "21-70,72-104",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/data/talents/spells/arcane.lua"
+          },
+          {
+            "path": "COPYING",
+            "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+            "lines": "GPL-3.0-or-later text; repository-level notice",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/COPYING"
+          },
+          {
+            "path": "COPYING-MEDIA",
+            "sha256": "20d84cdd3b782192898553d04a2ff7178bfa1259cdad3f8d1cd860a38db52fb3",
+            "lines": "1-2",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/COPYING-MEDIA"
+          },
+          {
+            "path": "game/engines/default/engine/interface/ActorTalents.lua",
+            "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b",
+            "symbols": [
+              "init",
+              "useTalent",
+              "preUseTalent",
+              "postUseTalent",
+              "startTalentCooldown",
+              "isTalentCoolingDown"
+            ],
+            "lines": "100-112,141-203,204-303,394-413,1007-1045",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/engines/default/engine/interface/ActorTalents.lua"
+          },
+          {
+            "path": "game/modules/tome/class/Actor.lua",
+            "sha256": "f7294481b9b4a75addc50616e53050920f4e697e74b3d126cd44692b340a6369",
+            "symbols": [
+              "Actor:preUseTalent",
+              "Actor:postUseTalent",
+              "startTalentCooldown",
+              "cooldownTalents"
+            ],
+            "lines": "5275-5359,5361-5399,5533-5546,5857-5867,5910-6044,637-641,6442-6470",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/class/Actor.lua"
+          },
+          {
+            "path": "game/engines/default/engine/Savefile.lua",
+            "sha256": "52f7419c351be1bebac2023c9559cbf048cc2e0de813c850cc983790beb387fa",
+            "symbols": [
+              "savefile serialization contract"
+            ],
+            "lines": "20-29",
+            "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/engines/default/engine/Savefile.lua"
+          }
+        ],
+        "notices": "The talent file headers state GPL version 3 or later. COPYING-MEDIA separately restricts media in /data/gfx to use with ToME; graphics are outside this review and should not be reused. This is source provenance, not a compatibility conclusion."
+      },
+      "trace": "Talent data supplies mode/rank, resource price, cooldown, level-scaled values, use-only rules, target metadata and action/activate/deactivate callbacks. ActorTalents:useTalent checks talent cooldown before entering execution, then runs the actor preUseTalent callback before the talent action; false/nil action or failed postUseTalent stops the success path. The module Actor:preUseTalent enforces actor-level blockers (including fear/silence/form/armor), sufficient sustain reserve or available activated resource, and talent-specific on_pre_use such as requiring a two-handed weapon. On a successful activated return, Actor:postUseTalent spends the declared mana/stamina/etc and uses game energy; only after that succeeds does ActorTalents start the declared cooldown. The reviewed action consumer applies actual effects directly: Stunning Blow attacks the target and calls target:setEffect only for a landed hit the target can receive; Manathrust projects bolt or beam damage based on rank. Sustained activation records the activate() return in actor.sustain_talents after postUseTalent; deactivation calls deactivate(), reverses stored temporary/resource effects and clears the active record. The engine Savefile contract says the Game is recursively serialized with its contained objects; ActorTalents initializes talents, talents_cd and sustain_talents from actor fields, so these are actor-owned state rather than ephemeral UI. This is source evidence for the host lifecycle, not a gameplay or reload test.",
+      "finding_ids": [
+        "RB-POW-01"
+      ]
+    },
+    {
+      "id": "angband",
+      "title": "Angband",
+      "status": "partial-subsystem-reviewed",
+      "purpose": "Single-player dungeon adventure roguelike with item activations described as ordered, parameterized effects.",
+      "source": {
+        "url": "https://github.com/angband/angband",
+        "revision": "a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d",
+        "branch": "master",
+        "cache_key": "angband.git",
+        "pin_matches_manifest": true,
+        "cache_limit": "Shallow pinned default-head objects and selected blobs; not a complete offline copy or all-branch review.",
+        "files": [
+          {
+            "path": "lib/gamedata/activation.txt",
+            "sha256": "32717d6d68d263eeb7cbf0f507ed29db465d50d06a64942e9fa8af2643d4afe6",
+            "symbols": [
+              "activation.txt format",
+              "CURE_MIND"
+            ],
+            "lines": "1-30",
+            "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/lib/gamedata/activation.txt"
+          },
+          {
+            "path": "src/cmd-obj.c",
+            "sha256": "22e0f9cdd27ab9e293d3f84ef4c62dc248a0ddbe6e41e26c88fcef8762270a56",
+            "symbols": [
+              "use_aux",
+              "do_cmd_activate"
+            ],
+            "lines": "446-580,863-895",
+            "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/src/cmd-obj.c"
+          },
+          {
+            "path": "src/effects.c",
+            "sha256": "bc4e101fd5625a1d7040a822ec0a00ca2c5f8d9e406ea6e5cf9d1484cebb9b04",
+            "symbols": [
+              "effect_do"
+            ],
+            "lines": "381-510",
+            "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/src/effects.c"
+          },
+          {
+            "path": "docs/copying.rst",
+            "sha256": "cd5811a8525794070d8ef5952e9be288ec010547f6cd276b51843415340bbf34",
+            "symbols": [
+              "copying and licence information"
+            ],
+            "lines": "5-50",
+            "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/docs/copying.rst"
+          }
+        ],
+        "notices": "The pinned docs/copying.rst offers GPL-2.0 or a separate Angband license for code and documents exceptions for included libraries and artwork; Shockbolt tiles are limited to Angband/variants and cannot be used in other projects absent permission. This appendix uses no Angband code or assets."
+      },
+      "trace": "activation.txt defines effect name, aiming, difficulty level, power, one or more effect rows and dice. do_cmd_activate accepts only an activatable equipped object and rejects one still charging; use_aux checks device use, selects the effect, and object activation time is assigned before effect_do. For timeout items the remaining timeout is increased before execution; if the effect reports unused, tentative charges/timeouts are restored. effect_do resolves ordered/select/random chains to typed handlers. This is a source-backed authoring/execution seam rather than a claim that YAIR needs Angband's item or dungeon systems.",
+      "finding_ids": [
+        "RB-POW-04"
+      ]
+    },
+    {
+      "id": "crawl",
+      "title": "Dungeon Crawl Stone Soup",
+      "status": "partial-subsystem-reviewed",
+      "purpose": "Single-player tactical roguelike; reviewed the spell casting gates, success calculation and miscast consequences.",
+      "source": {
+        "url": "https://github.com/crawl/crawl",
+        "revision": "ea329046556431e4bb9d3cc38c39ec998495ab69",
+        "branch": "master",
+        "cache_key": "crawl.git",
+        "pin_matches_manifest": true,
+        "cache_limit": "Shallow pinned default-head objects and selected blobs; not a complete offline copy or all-branch review.",
+        "files": [
+          {
+            "path": "crawl-ref/source/spl-cast.cc",
+            "sha256": "e12d048aac1faa7a38755cc025eb100f3da61e39fdc56905b17088c40f72b5ae",
+            "symbols": [
+              "raw_spell_fail",
+              "cast_a_spell"
+            ],
+            "lines": "459-530,892-907,2370-2419,2953-3002",
+            "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/crawl-ref/source/spl-cast.cc"
+          },
+          {
+            "path": "crawl-ref/docs/crawl_manual.rst",
+            "sha256": "786bf0233c5e9f0c6e20e56ec037de2f16fbc3da92cb8d9a7a33dfe399a9c114",
+            "symbols": [
+              "manual, spellcasting overview"
+            ],
+            "lines": "manual source read; spell-specific lines not used as sole evidence",
+            "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/crawl-ref/docs/crawl_manual.rst"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "9567806dee0f63849647525d0e3a739f1e5f40e8956e394ef51b0026ebad96eb",
+            "lines": "1-21 and listed asset exceptions",
+            "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/LICENSE"
+          }
+        ],
+        "notices": "LICENSE gives the program GPL version 2 or later and lists separately licensed components; it says most tiles are CC0 while older artwork can have complex provenance. No code, tiles or prose are copied here; any asset selection needs per-file provenance."
+      },
+      "trace": "raw_spell_fail calculates from spell/school and Spellcasting skill, Intelligence, armour/shield penalty when not enkindled, and spell difficulty. cast_a_spell first rejects no memorized spells and globally disallowed casting without taking a turn; later it computes the failure roll and sends the failure state into _do_cast. The reviewed consequence path can attach god-penance miscast effects even when a spell proceeds, while fail_severity estimates risk from failure chance and spell difficulty. This makes blockers and the risk forecast legible before commitment; the exact stochastic outcome remains in the game resolver.",
+      "finding_ids": [
+        "RB-POW-02"
+      ]
+    },
+    {
+      "id": "frogcomposband",
+      "title": "FrogComposband",
+      "status": "partial-subsystem-reviewed",
+      "purpose": "Angband-family variant with distinct monster-player forms, including Possessor and Mimic; review covers that form subsystem and monster experience evolution only.",
+      "source": {
+        "url": "https://github.com/sulkasormi/frogcomposband",
+        "revision": "3d28f6b1d28a0246a1c4923414455eb669ea34b8",
+        "branch": "master",
+        "cache_key": "frogcomposband.git",
+        "pin_matches_manifest": true,
+        "cache_limit": "Shallow pinned default-head objects and selected blobs; README.md seed is absent at this head. A readme.txt exists, but this review does not treat it as the missing README.md seed.",
+        "files": [
+          {
+            "path": "readme.txt",
+            "sha256": "301360a3f106a6a4c3416bfc6bef398ebe1eb7b3b6b8bf729aa4eb1251f94dd6",
+            "lines": "1-7 disclaimer; installation text deliberately not followed",
+            "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/readme.txt"
+          },
+          {
+            "path": "src/r_poss.c",
+            "sha256": "2282c3defa46a4492141d4d20cbb3ae056084962203535db9c5ef6d58d9a0a6b",
+            "symbols": [
+              "possessor_attack",
+              "possessor_cast",
+              "_possess_spell",
+              "possessor_get_powers",
+              "possessor_calc_bonuses",
+              "possessor_on_take_hit",
+              "possessor_set_current_r_idx",
+              "possessor_on_save",
+              "possessor_on_load"
+            ],
+            "lines": "367-470,526-545,550-624,686-710,896-940,1280-1373,1478-1486",
+            "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/r_poss.c"
+          },
+          {
+            "path": "src/melee2.c",
+            "sha256": "5ed17d81f9caeefc5df85ed5a6ad8ddbb482a098a71d0d72aa39980b5ebf7045",
+            "symbols": [
+              "mon_gain_exp"
+            ],
+            "lines": "4610-4623",
+            "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/melee2.c"
+          },
+          {
+            "path": "src/types.h",
+            "sha256": "540610152cd2a6686b293b3092c2d8b6044379b3abf5de9f6c807f62cfad5bfe",
+            "symbols": [
+              "monster_race / body data definitions"
+            ],
+            "lines": "schema fields used by r_poss.c; targeted source inspected",
+            "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/types.h"
+          },
+          {
+            "path": "src/r_poss.c",
+            "sha256": "2282c3defa46a4492141d4d20cbb3ae056084962203535db9c5ef6d58d9a0a6b",
+            "symbols": [
+              "possessor_get_powers",
+              "possessor_calc_bonuses"
+            ],
+            "lines": "686-710,896-940",
+            "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/r_poss.c"
+          }
+        ],
+        "notices": "The pinned tree has no root LICENSE/COPYING file among the reviewed paths; src/melee2.c carries the Angband educational/research/non-profit notice while src/r_poss.c has no file header. Treat rights for any selected file as unresolved and do not reuse code, data or assets based on the repository URL or lineage alone."
+      },
+      "trace": "Possession accepts only a corpse item, only while in the soul form, and gates the target monster race level against a cap derived from the player's maximum level; it consumes that corpse on success. The active body determines attack blows/effects, available spells, selected stats and abilities, armor/speed bonuses, resistances and equipment compatibility. Leaving the body can destroy/decay it. At less than one-quarter health, each hit creates a one-in-66 ejection chance; ejection may leave a corpse one time in three, otherwise the old body decays, then resets the possessor to soul form at full health. Form changes recalculate bonuses, HP/mana and equipment, clamp/restore level against the new form's maximum, and append body history that has explicit save/load routines. Separately, ordinary monster experience calls mon_change_race when the race's next_exp threshold is reached, except chameleons; this is not possession or player-form acquisition and should remain a distinct possible world-actor progression rule.",
+      "finding_ids": [
+        "RB-POW-03"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "RB-POW-01",
+      "repository": "tome",
+      "revision": "4b39a195a44e8b47f8465d3138291b63a0eee94f",
+      "observed": "Talent rank changes callable behavior: Manathrust switches bolt to beam at rank 3; Death Dance adds a conditional bleed at rank 3. At use, ActorTalents checks cooldown, calls the module actor pre-use rules and talent-specific on_pre_use before invoking action; postUseTalent applies declared stamina/mana/etc and game energy only when the action returns success, then ActorTalents starts cooldown. The concrete talent action applies the target effect (hit-gated stun, rank-gated bleed, or bolt/beam projection). Sustained activation stores its callback return and deactivation reverses owned temporary/resource effects. Actor-owned talent levels, cooldowns and sustain records are initialized from actor fields; the engine savefile contract documents recursive serialization of contained game objects.",
+      "inference": "A useful YAIR technique can mature by gaining a new supported operation/target shape or conditional follow-through while keeping the source, requirements and meaningful costs explicit. That creates distinct mastery from simply increasing output.",
+      "original_yair_example": "Proposal: a locally taught glassblower's calibration faculty starts as a paid one-item alignment action; established mastery permits paired alignment only when the owned jig, co-located mentor and clean glass are available; mature mastery can detect a stress line and report it to the workshop knowledge owner. The added operation is authored; this is not ToME content or a canonical YAIR balance decision.",
+      "current_owner_and_gap": "simulation.powers already stores ownership/mastery and command preview gates execution, cooldown, world and model limits; simulation effects apply typed costs/results; energy_resources owns fuel/strain; capabilities queries source-qualified functions. Functional consumers are individually authored (skills, encounter, route and crafting). Missing integration is not cost/cooldown plumbing in YAIR: those generic typed command owners exist. The missing guarantee is a specific selected consumer binding each mastery band to a real outcome. Native battle does not automatically execute arbitrary simulation power definitions.",
+      "novelty_and_route": "Distinct from the existing numeric practice/investment/design/authority/hybrid models: preserve one native power owner and use authored masteryBands or explicit command variants to enable function changes. Reuse the existing registry, facts, effect vocabulary and effect consumers; no ToME runtime or callback/eval import.",
+      "dependencies": {
+        "required": [
+          "one selected existing simulation command and effect consumer",
+          "existing saved power mastery and source/faculty eligibility",
+          "actual native or simulation owner for any changed item/vital/result"
+        ],
+        "optional": [
+          "energy_resources when activation truly consumes fuel",
+          "native_battle only if the effect is a selected contest/combat action"
+        ]
+      },
+      "effort": "medium for a single existing consumer; high if a new generic native consumer or actor roster is required",
+      "confidence": "high on source path and current YAIR owner; medium on proposal value pending actual playable acceptance",
+      "joins": {
+        "state": "actor world/body/source, active unsuppressed faculty and current mastery; test target resistance/condition at execution",
+        "rng": "use only the selected existing outcome stream when a stochastic outcome is authored; import/render and preview remain RNG-free",
+        "time": "reuse the existing command/job clock and cooldown; no wall-clock cooldown",
+        "stock": "reserve exact native inventory/equipment, site and material owner only when chosen action consumes them",
+        "publication": "stage effects/costs and actual native projections through the current durable gameplay publisher before display",
+        "save": "existing optional simulation owner can hold mastery; a new durable band receipt would need explicit schema/compatibility choice; no backfill from labels"
+      },
+      "provenance_and_rights": "Source file header is GPL-3.0-or-later; repository COPYING is GPL text. Keep only the independently authored YAIR proposal and symbolic mechanical comparison; do not copy talent names, descriptions, Lua, images, particles or media. Media notice restricts ToME gfx to the game.",
+      "maintenance_and_fallback": "Keep the function change in one selected command and registry definition, with the ordinary lower-rank action remaining usable. If the later native consumer cannot be built, remove the higher-rank variant and retain practice/magnitude already supported; do not expose a cosmetic mastery unlock.",
+      "evidence_files": [
+        "src/power_models.js:5-54",
+        "src/simulation.js:49-105,108-153",
+        "src/simulation_effects.js:207-240",
+        "game/modules/tome/data/talents/techniques/2h-assault.lua:21-61,112-161",
+        "game/modules/tome/data/talents/spells/arcane.lua:21-70",
+        "game/engines/default/engine/interface/ActorTalents.lua:141-203,204-303,394-413,1007-1045",
+        "game/modules/tome/class/Actor.lua:5275-5399,5533-5546,5857-5867,5910-6044,6442-6470",
+        "game/engines/default/engine/Savefile.lua:20-29",
+        "src/power_models.js:5-54",
+        "src/simulation.js:49-105,108-153",
+        "src/simulation_effects.js:207-240"
+      ]
+    },
+    {
+      "id": "RB-POW-02",
+      "repository": "crawl",
+      "revision": "ea329046556431e4bb9d3cc38c39ec998495ab69",
+      "observed": "Spell success reflects trained spell/school skill, intelligence, armor/shield, spell difficulty and status modifiers. The command checks that casting is possible before spending a turn. Failed execution and some penance states have real miscast consequences, and failure severity is exposed from the same chance/difficulty factors.",
+      "inference": "YAIR can make a risky extraordinary action a legible decision by quoting exact blockers, costs and authored risk before commitment, then applying any failure consequence through its existing outcome/effect owners. Risk is not a free narrative label or an automatic source of observation.",
+      "original_yair_example": "Proposal: a player who learned a pressure-sense pulse can preview its current strain/fuel cost and whether a sealed wall or calm body is supported; a noisy environment may make the authored reading unreliable, with failure adding fatigue and no clue. Only explicitly witnessed evidence can enter directed knowledge. Possession of the faculty alone grants no observation or report.",
+      "current_owner_and_gap": "previewSimulationCommand already returns visibility, eligible/reasons, real costs, duration and effect preview; simulation commits frozen weighted outcomes with its saved seed. energy_resources applies real reserve/recovery/strain. Missing gap is content-specific risk calibration and any selected power's actual effect consumer; the model's capacity/cost scale does not independently simulate spell failure or magical backlash.",
+      "novelty_and_route": "Use preview plus existing declared outcomes and condition/resource effects for one authored risky action. Avoid adding a second chance calculator, spell subsystem or new RNG stream. If a failure is merely uncertainty with no meaningful consequence, keep it deterministic instead of adding a roll.",
+      "dependencies": {
+        "required": [
+          "existing preview/commit path",
+          "selected evidence and eligibility facts",
+          "authored failure effect through existing condition/resource owners"
+        ],
+        "optional": [
+          "energy_resources for actual fuel/strain",
+          "knowledge owner for a separately witnessed, received report"
+        ]
+      },
+      "effort": "low to medium for a fixed action with declared effects; high if generalized cross-power risk rules are demanded",
+      "confidence": "high on DCSS calculation/command/consequence trace; medium on the illustrative YAIR fit",
+      "joins": {
+        "state": "body/source/faculty, relevant environmental/target facts and current status must be joined at quote and rechecked at commit",
+        "rng": "use simulation's seeded weighted outcome mechanism only at commit; preview stays deterministic and does not reveal private truths",
+        "time": "current job duration and recovery/cooldown owners; no closed-browser time",
+        "stock": "reserve actual energy or material in the current preflight plan; make cancellation/refund policy explicit",
+        "publication": "publish the selected resource/status/effect and any explicit learned record as one staged result",
+        "save": "use simulation seed/effects and existing status/knowledge owners; changes to chance policy, outcome receipts or new risk records require compatible definitions and a declared schema decision"
+      },
+      "provenance_and_rights": "LICENSE identifies GPL-2.0-or-later for most code and separately licensed components; it says most tiles are CC0 but artwork provenance can vary. Do not copy source, spell data, manual prose, art or tiles. This record contains original design language only.",
+      "maintenance_and_fallback": "Keep the preview reason tied to the actual rule and effect list. If a reliable contextual forecast cannot be computed, show a qualitative named blocker or make the action deterministic; remove speculative percentages rather than giving false precision.",
+      "evidence_files": [
+        "crawl-ref/source/spl-cast.cc:459-530,892-907,2370-2419,2953-3002",
+        "src/simulation.js:49-105,108-153",
+        "src/energy_resources.js:1-57",
+        "src/simulation_effects.js:77-105"
+      ]
+    },
+    {
+      "id": "RB-POW-03",
+      "repository": "frogcomposband",
+      "revision": "3d28f6b1d28a0246a1c4923414455eb669ea34b8",
+      "observed": "Possession is an explicit corpse-gated form transition with a player-level eligibility cap, body-dependent attacks/spells/stats/resistances/equipment, prior-body decay risk, and a low-health random ejection risk. The current body key is saved by the game and form changes recalculate derived state; body history is separately serialized. Ordinary monsters can independently evolve through next_exp/next_r_idx after gaining experience, except a chameleon branch.",
+      "inference": "A YAIR body or borrowed-form route should model actual acquired body identity, functional advantages, compatibility and host liabilities at the owning actor, while keeping observation, learning, source ownership and active execution as separate facts. NPC evolution can be a local authored advancement on that NPC's own history, not player possession or a global level-scaling rule.",
+      "original_yair_example": "Proposal: an original frontier's clay shell can carry a stone-sense source, broader load capacity and a slow hand-control penalty; taking the shell requires a named consented transfer and a real prepared vessel, while stress can damage the shell and force a paid return to the player's existing body. A consenting glasshouse technician might develop a different instrument-dependent condition after funded work. These examples do not assert current YAIR possession or body switching.",
+      "current_owner_and_gap": "YAIR body_progression stores body conditions/marks and explicitly originated sources, but does not replace the actor’s active native form. realm_traveler_profiles.js defines a detached, unverified traveler snapshot with physical/projection/alternate_body/shared_body modes; it explicitly returns intents rather than registered simulation effects or native commands and has no save owner. Its body.functions, poolIds, source.bodyIds and embodiment policy keep body applicability/resource pattern separate from source acquisition. capabilities distinguishes source kind/origin and queries provider eligibility; simulation effects grant/remove sources/faculties and powers. None means sight-based learning. Missing integration is a selected native possession/host projection and transaction, plus any generic NPC evolution owner/consumer. Simulation people already own individual actor/body/location/life records and state persists in the shared simulation envelope. Frog mon_gain_exp is its own NPC next_exp/next_r_idx rule, separate from Possessor body code.",
+      "novelty_and_route": "Treat as a later optional body-family design, not a first-milestone requirement or direct adaptation. For one bounded case, extend the existing actor/body owner with a reversible form claim and explicit transfer/return command; bind source functions via current capability/source owners; bind physical limitation via body/condition and native projections. NPC growth should use that person's existing progress/history and an explicit threshold/next definition, with death/world/life continuity owned locally. Do not add a universal species simulator.",
+      "dependencies": {
+        "required": [
+          "director selects a concrete original form rule and transfer/return consequence",
+          "actor body and source/capability ownership contract",
+          "native gameplay publication and item custody for vessel/equipment means",
+          "save migration or explicit compatibility decision before adding authoritative form/history fields"
+        ],
+        "optional": [
+          "simulation.powers for an independently acquired executable technique",
+          "native battle for a chosen body-dependent attack",
+          "world-specific evolution content when an NPC's lived work actually changes form"
+        ]
+      },
+      "effort": "high for supported player form swap with native stat/equipment adapters and save compatibility; medium for one NPC evolution fact using an already authored actor progression seam",
+      "confidence": "high on Frog source trace and the current YAIR gap; medium on project value because no body-swap feature is currently selected",
+      "joins": {
+        "state": "player/body/source/faculty/equipment and actor world/location/consent; never infer observed skills from a corpse or possessed power",
+        "rng": "the cited ejection has random rolls; YAIR should use a saved seed and preview known liabilities, or prefer an explicit deterministic stress/return rule",
+        "time": "all transfer/stress/recovery uses the existing played simulation clock; no real-time decay while closed",
+        "stock": "corpse/vessel, body-specific equipment, materials and custody require exact current native stock and holder checks",
+        "publication": "stage body/source/condition/equipment/native-stat changes as one durable operation before rendering or battle continues",
+        "save": "current optional simulation actor/body and person history are existing owners but a new active-form pointer/history schema requires migration/compatibility choice, old records receive no retroactive source/form"
+      },
+      "provenance_and_rights": "The pinned root has no LICENSE/COPYING discovered in the inspected paths; src/melee2.c carries an Angband educational/research/non-profit notice, while r_poss.c has no header and README.md seed is absent. Rights of selected files remain unresolved. Use only the independently authored design comparison; copy no code, monster definitions, names, prose, graphics or data.",
+      "maintenance_and_fallback": "Keep one explicit body owner and one return path; removal must restore the prior accepted actor form and equipment without deleting unrelated history or source. If compatible native projection cannot be secured, keep current body progression and let the shell exist only as a separately owned NPC/body condition rather than a cosmetic player transformation.",
+      "evidence_files": [
+        "src/r_poss.c:367-470,526-545,550-624,686-710,896-940,1280-1373,1478-1486",
+        "src/melee2.c:4610-4623",
+        "src/body_progression.js:15-79",
+        "src/capabilities.js:4-5,9-41",
+        "src/simulation_effects.js:207-240",
+        "docs/ENGINE_AUTHORING.md:153-165",
+        "src/realm_traveler_profiles.js:1-5,55-120"
+      ]
+    },
+    {
+      "id": "RB-POW-04",
+      "repository": "angband",
+      "revision": "a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d",
+      "observed": "Object activation data declares effect operations while the real command requires an equipped activatable object and a cooled activation. The consumer charges timeout before executing an effect and rolls that tentative charge back when the handler reports no use. Effects dispatch through typed handlers; random/select branches are resolved by the effect engine.",
+      "inference": "This is a useful producer-to-consumer contract for an authored device or paid service: provide declared outputs and blockers, let one existing executor own its effect and resource settlement, and preserve failed/no-op atomicity.",
+      "original_yair_example": "Proposal: one owned test instrument at a commissioned workshop can send a low-range survey ping that updates only the player's observed local fact, costs one saved energy reserve, and spends a recovery interval only if the ping is actually emitted. A blocked or stale target quote consumes neither fuel nor interval.",
+      "current_owner_and_gap": "YAIR already has typed source/power/energy/equipment/observation effects, command preview/commit, immediate staged publication and a saved simulation seed. The actual gap is only if a selected native device needs an equip-slot interaction/recovery consumer; generic effect vocabulary alone does not provide native item activation UI. No Angband-style item library or framework is needed.",
+      "novelty_and_route": "Adopt the small contract idea by binding one authored action to an existing simulation command/power and existing energy/equipment/observation owners. The source itself is a pattern comparison only; no code reuse or additional package proposed.",
+      "dependencies": {
+        "required": [
+          "one selected device/action and its existing inventory/effect consumer",
+          "real energy/stock owner if the action spends them",
+          "durable staged publisher"
+        ],
+        "optional": [
+          "native equipment adapter if the instrument is worn or slotted",
+          "simulation.powers if operation depends on trained mastery"
+        ]
+      },
+      "effort": "low for a workshop-anchored authored command; high only if a general native equipment activation API is selected",
+      "confidence": "high on source execution and license notices; medium on when a distinct device UI would be useful",
+      "joins": {
+        "state": "current ownership/equipment slot, actor world, target and eligibility facts are rechecked on commit",
+        "rng": "preview must not draw; commit uses only existing saved simulation RNG for declared randomized effect",
+        "time": "use saved job/recovery clock and exact action completion; no activation while actor occupied",
+        "stock": "spend actual encoded equipment/fuel/material once through current owner",
+        "publication": "effect and item/fuel settlement go through the current single publisher; if no-op, no partial cost",
+        "save": "existing equipment, energy, effects and jobs can represent a fixed action; a new activation lifecycle or cooldown field requires an explicit compatible save decision"
+      },
+      "provenance_and_rights": "Angband docs/copying.rst offers GPL-2.0 or the Angband license for code and records independent art/sound exceptions. No asset reuse is suggested; preserve the distinction between these terms and YAIR's license without making a blanket compatibility claim.",
+      "maintenance_and_fallback": "Keep the authored action beside its existing owner, with a no-op path that leaves the plan untouched. If dedicated device use is not selected, drop the example and use current work/observation commands.",
+      "evidence_files": [
+        "lib/gamedata/activation.txt:1-30",
+        "src/cmd-obj.c:446-580,863-895",
+        "src/effects.c:381-510",
+        "src/simulation_effects.js:77-105,221-240",
+        "src/energy_resources.js:1-57"
+      ]
+    }
+  ],
+  "current_yair_mapping": {
+    "power_models": "Available: practice/design/investment/authority/hybrid previews, capacity/upkeep reasons, mastery bands and typed amount expressions. Actual command effects still require named registered consumers; no model automatically means executable combat.",
+    "capabilities_and_sources": "Available: source kinds/origins, provider queries and acquired/awakened/active/suppressed faculties; compatible for eligibility/provenance. Not evidence that possession teaches or observation occurred.",
+    "body": "Available: body conditions/facts, explicit source origins, timed jobs and current native vitals. Missing the selected replaceable body/form owner and host form projection.",
+    "energy": "Available: reserve/output/control/strain policy, acquisition/recovery/use/refund effects and timed recovery. Policy acquisition freezes its definition; fuel is not skill XP or a generic cost label.",
+    "simulation_effects_and_publication": "Available typed staged resource, item, custody, source, faculty, power, energy, condition, knowledge, relationship and observation effects. Native state is committed by the shared publisher. Staged facts or model fields alone are not delivered gameplay.",
+    "native_battle": "Available actual native combat host and fixed supported duel/party behavior, with native vitals and stamina. It does not automatically interpret arbitrary imported power/effect definitions as combat actions.",
+    "persistence_and_gate": "Current project uses expansion5/simulation3 additive owners and keeps optional features absent until explicitly invoked. Any new active-form owner/history or device activation record needs a migration or explicit compatibility decision and save/reload verification. These research ideas remain proposals and unverified; test/browser suites are deferred for this implementation wave.",
+    "source_evidence": [
+      {
+        "path": "src/power_models.js",
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "symbols": [
+          "previewPowerModel",
+          "resolveEffectAmount"
+        ],
+        "lines": "5-54",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/capabilities.js",
+        "sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+        "symbols": [
+          "SOURCE_KINDS",
+          "SOURCE_ORIGINS",
+          "queryCapabilities"
+        ],
+        "lines": "4-5,41-65",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/body_progression.js",
+        "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "symbols": [
+          "bodySources",
+          "bodyConditions",
+          "bodyCommands"
+        ],
+        "lines": "15-61,65-79",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/energy_resources.js",
+        "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "symbols": [
+          "validateEnergyPolicy",
+          "applyEnergyEffect",
+          "energyView"
+        ],
+        "lines": "5-57",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "symbols": [
+          "applySimulationEffects source/faculty/power handlers"
+        ],
+        "lines": "207-240",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "symbols": [
+          "previewSimulationCommand",
+          "startCommand",
+          "advancePowerProgression"
+        ],
+        "lines": "49-105,108-153,207-219",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/native_battle.js",
+        "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "symbols": [
+          "initializeNativeBattle",
+          "commitNativeBattleStrike"
+        ],
+        "lines": "10-64",
+        "url": "workspace source; dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      },
+      {
+        "path": "src/realm_traveler_profiles.js",
+        "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+        "symbols": [
+          "REALM_TRAVELER_MODES",
+          "body",
+          "validateRealmTraveler"
+        ],
+        "lines": "1-5,55-120",
+        "url": "workspace source; detached unverified prototype, dirty current checkout, HEAD 97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      }
+    ]
+  }
+}

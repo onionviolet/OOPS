@@ -1,0 +1,2873 @@
+{
+  "schema_version": 1,
+  "status": "complete-finite-source-audit",
+  "date": "2026-10-05",
+  "ranked_priorities": 5,
+  "serious_gap_families": 10,
+  "findings": [
+    {
+      "id": "MF-GAP-01",
+      "priority": 1,
+      "title": "Connect the finite Frontier campaign and its cumulative outcomes",
+      "status": "proposed-later-packet",
+      "selection": "Required by the reviewed complete-Frontier objective, pending runtime selection; preserve33 parent/15 strand/7 ending IDs.",
+      "coverage_ids": [
+        "MF-COVER-03",
+        "MF-COVER-09",
+        "MF-COVER-15",
+        "MF-COVER-18",
+        "MF-COVER-19",
+        "MF-COVER-20",
+        "MF-COVER-29"
+      ],
+      "current_gap": "The field/rival/prestige mini-campaign is registered. The separate originalFrontierDefinitions/ Sources and episode/quest views are held and unimported. Native route/stock/encounter/offer/closure joins must be implemented rather than inferred from its ledger.",
+      "original_connected_example": "A real Town/Village dispatch changes the service through delivered stock, acquired drainage knowledge, pressure-control outcome, reported evidence and independently funded workers. The player can instead maintain quiet kit work, refuse the charter, reach a lawful private agreement or eventually hand over willing work. Preserve all seven local ending cases without a final-menu override.",
+      "alternatives_and_abstention": "Use current facts/situations/claims/jobs and native geography; keep ordinary work viable. Do not add a new chapter/timeline engine or silently shorten the1440-minute offer/corridor constraints. A first tranche is a checkpoint within the finite campaign, not campaign completion.",
+      "proposed_files": [
+        "src/original_frontier_campaign_content.js",
+        "src/simulation_content.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/frontier_campaign_ui.js"
+      ],
+      "owner_and_integrator": "Existing Frontier world owner freezes local IDs; shared Engine integrator binds native travel/access, paid stock, enrollment, encounter receipts and projections.",
+      "dependencies": {
+        "required": "Finite selected local ledger, correct native location/access/travel, initial/settlement stock reservations, native pressure/battle contribution receipt, truthful offer clock and retained aftermath.",
+        "optional": "Extra regions, lethal combat, second prestige, whole-world simulation and new dependencies."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Medium for each supported authored tranche; high for the complete finite campaign and all native compatibility/branch joins.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Follow AC01–AC12 and OF.END.01–07 later with generated fixtures: each required alternative exists, cumulative means/history changes its legal result, deadlines/travel/cancel/refusal work, useful mature work and return remain. Build correspondence, reload/failure/keyboard and director fiction/pacing stay separate.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-01",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-03",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/2/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "PBC-05",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/4"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-09",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/8/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            },
+            {
+              "id": "LWS-03",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "ROOT-TEXTURE",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-15",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/14/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-04",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/3"
+            },
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-18",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/17/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT10",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/9"
+            },
+            {
+              "id": "ROOT-TEXTURE",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-19",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/18/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT01",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "CWT05",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "LWS-07",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/6"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-20",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/19/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-RNG",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT05",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "LWS-05",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/4"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-29",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/28/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT01",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT09",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/8"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+          "ids": [
+            "EX01",
+            "EX02",
+            "EX03",
+            "EX04",
+            "EX05",
+            "EX06",
+            "EX07",
+            "EX08",
+            "EX09",
+            "EX10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+          "ids": [
+            "AUTH01",
+            "AUTH02",
+            "AUTH03",
+            "AUTH04",
+            "AUTH05",
+            "AUTH06",
+            "AUTH07",
+            "AUTH08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+          "ids": [],
+          "id_references": [
+            "EF02",
+            "AUTH02",
+            "TF01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+          "ids": [
+            "WB-C01",
+            "WB-C02",
+            "WB-C03",
+            "WB-C04",
+            "WB-C05",
+            "WB-C06",
+            "WB-C07",
+            "WB-C08",
+            "WB-C09",
+            "WB-C10",
+            "WB-C11",
+            "WB-C12",
+            "WB-C13",
+            "WB-C14",
+            "WB-R01",
+            "WB-R02",
+            "WB-R03",
+            "WB-R04",
+            "WB-R05"
+          ],
+          "id_references": [
+            "EF02",
+            "EF05",
+            "EF08",
+            "AUTH02",
+            "AUTH06",
+            "AUTH07",
+            "SOC01",
+            "SOC03",
+            "SOC05",
+            "TL01",
+            "TL02",
+            "TL07",
+            "WB-R01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+          "ids": [
+            "CB01",
+            "CB02",
+            "CB03",
+            "CB04",
+            "CB05",
+            "CB06",
+            "CB07",
+            "CB08",
+            "CB09",
+            "CB10",
+            "CB11",
+            "CB12",
+            "CB13",
+            "CB14"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+          "ids": [],
+          "id_references": [
+            "macro SYSTEM_GRAPH",
+            "macro WORLD_LOOP_MATRIX",
+            "macro ENGINE_REQUIREMENTS"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+          "ids": [
+            "GE01",
+            "GE02",
+            "GE03",
+            "GE04",
+            "GE05",
+            "GE06",
+            "GE07",
+            "GE08",
+            "GE09",
+            "GE10",
+            "GE11",
+            "GE12",
+            "GX1",
+            "GX2",
+            "GX3",
+            "GX4",
+            "GX5",
+            "GX6",
+            "GC1",
+            "GC2",
+            "GC3",
+            "GC4",
+            "GC5",
+            "GC6",
+            "GC7",
+            "GC8",
+            "GP1",
+            "GP2",
+            "GP3",
+            "GP4",
+            "GP5"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-02",
+      "priority": 2,
+      "title": "Give selected objects/materials actual functions and conserved operating state",
+      "status": "proposed-later-packet",
+      "selection": "Required only for a selected object/production chain that needs portions, condition, reusable support or charges; existing useful kits/custody already work.",
+      "coverage_ids": [
+        "MF-COVER-07",
+        "MF-COVER-08",
+        "MF-COVER-28"
+      ],
+      "current_gap": "Native inventory keys, acquisition counts, recipes/use and exact custody are present. They do not supply general portion/instance/charge identity through reconstruction, equipped operation, repair/refit/salvage or lending. A Glasshouse room repair is a specific scene, not arbitrary item maintenance.",
+      "original_connected_example": "Original proposal: a craftsman lends a marking gauge for one rainy survey. Seen markings establish its use; the gauge remains his, actual wood becomes a kit, and returning the worn tool permits a paid repair or a simpler cord-and-notes alternative. The same object/portion must carry wear/owner/holder across the trip.",
+      "alternatives_and_abstention": "Start with one fixed native tool plus explicit source/claim if that covers the function. Add a portion/object binding only when same-object change or incompatible material state is essential. Abstain from a universal item-property engine or hidden identification lottery.",
+      "proposed_files": [
+        "src/items.js",
+        "src/acquisition.js",
+        "src/native_storage_transaction.js",
+        "src/native_equipment_transaction.js",
+        "src/simulation_effects.js",
+        "src/gameplay_publication.js",
+        "src/field_workshop.js"
+      ],
+      "owner_and_integrator": "Items author owns the chosen function/recipe; shared Engine alone owns native reconstruction, custody/equipment and save publication.",
+      "dependencies": {
+        "required": "Exact native stock/holder/owner, qualified identification, reusable tool reservation, charge/condition only if selected, and a real craft/use/repair consumer.",
+        "optional": "Generic lots, contamination/decay, organ specimens, multi-output systems, all-recipe overhaul."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Low to medium for one supported fixed-content interaction; high for a durable per-object/portion model across native inventory/equipment/trade/save.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later show identify/use/blocked use, tool retention versus consumed material, changed exact object, lawful return/repair/refusal, stale/borrowed/equipped rejection and once-only output through reload/failure. Director accepts the practical choice.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-02",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-07",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/6/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "PI-4",
+              "appendix": "appendix-prior-and-interface.json",
+              "json_pointer": "/current_traces/3"
+            },
+            {
+              "id": "PBC-05",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/4"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-08",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/7/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-01",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "PBC-05",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/4"
+            },
+            {
+              "id": "ROOT-PROJECT",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-28",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/27/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PI-4",
+              "appendix": "appendix-prior-and-interface.json",
+              "json_pointer": "/current_traces/3"
+            },
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+          "ids": [
+            "RB-INT-01",
+            "RB-INT-02",
+            "RB-POW-01",
+            "RB-POW-02",
+            "RB-POW-03",
+            "RB-POW-04",
+            "RB-LIV-01",
+            "RB-LIV-02",
+            "RB-LIV-03",
+            "RB-LIV-04",
+            "RB-PRO-01",
+            "RB-PRO-02",
+            "RB-PRO-03",
+            "RB-AUT-01",
+            "RB-AUT-02",
+            "RB-AUT-03",
+            "RB-CAM-01",
+            "RB-CAM-02",
+            "RB-CAM-03",
+            "RB-REF-01"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+          "ids": [
+            "REG01",
+            "REG02",
+            "REG03",
+            "REG04",
+            "REG05",
+            "REG06",
+            "REG07",
+            "REG08",
+            "REG09",
+            "RG-A01",
+            "RG-A02",
+            "RG-A03",
+            "RG-A04",
+            "RG-A05",
+            "RG-A06",
+            "RG-A07",
+            "RG-A08",
+            "RG-A09",
+            "RG-A10",
+            "RG-A11",
+            "RG-A12",
+            "RG-A13",
+            "RG-A14"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-03",
+      "priority": 3,
+      "title": "Connect funded resident choices, reciprocal agreements and willing succession",
+      "status": "proposed-later-packet",
+      "selection": "Required named means/agreements for Frontier selected paths; wider institutions/families/romance are optional world-specific scope.",
+      "coverage_ids": [
+        "MF-COVER-05",
+        "MF-COVER-12",
+        "MF-COVER-13",
+        "MF-COVER-20",
+        "MF-COVER-28",
+        "MF-COVER-31"
+      ],
+      "current_gap": "Current controllers choose and commit real registered commands; Joss spends/earns actual local means; private/offered/heard knowledge and narrow bequest exist. Broader household rights, disputed belief revision, reciprocal profession income and carrier-specific willing succession remain partial. Teaching fee helpers can be player sinks; they are not proof of teacher income. compileSiteProject drops phase participants and frozen completion does not generally revalidate live obligations.",
+      "original_connected_example": "Original proposal: the public counter continues only if its resident has funds, available time, real supplies and accepts the terms. A trained apprentice can take a specific willing role with tools/rights/knowledge separately; refusal leaves the player able to continue a smaller service or private specialty. Payment never grants affection, kinship or copied competence.",
+      "alternatives_and_abstention": "Use a small authored resident/offer/claim graph and existing directed memory. Pair actual debit/credit only when the selected deal promises conserved pay. Keep valid fee sinks. For prepaid work freeze the outcome; for live cooperation declare contact/source/consent interruption. Abstain from population-wide AI or compulsory romance.",
+      "proposed_files": [
+        "src/site_projects.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/people_knowledge.js",
+        "src/causal_situations.js",
+        "src/original_frontier_campaign_content.js"
+      ],
+      "owner_and_integrator": "Society/base/world authors freeze reciprocal terms; shared Engine owns participant validation, paired budgets, commitment lifecycle and persistent carriers.",
+      "dependencies": {
+        "required": "Actual actor purse/stock, legal location/occupation, role/right/term owners, forward all selected participants, private knowledge, explicit frozen-versus-live phase policy.",
+        "optional": "Family tree, pregnancy, descendant control, broad jurisdiction/karma, ongoing mortality and autonomous population."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Medium for a named reciprocal work/succession graph; high for general social rights, households and multi-worker live phases.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later show funded action, underfunded abstention, actor refusal/knowledge correction, occupied worker exclusion, exact pay recipient, willing skill/tool/right transfer separately, continued ordinary life, distinct failed/withdrawn endings, reload/failure and observer-safe recap.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-03",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-05",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/4/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            },
+            {
+              "id": "LWS-06",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/5"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-12",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/11/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-04",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "LWS-05",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "CWT09",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/8"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-13",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/12/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-06",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "LWS-05",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "LWS-04",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-20",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/19/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-RNG",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT05",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "LWS-05",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/4"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-28",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/27/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PI-4",
+              "appendix": "appendix-prior-and-interface.json",
+              "json_pointer": "/current_traces/3"
+            },
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-31",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/30/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-PROJECT",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "LWS-04",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "LWS-01",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/0"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+          "ids": [
+            "WB-C01",
+            "WB-C02",
+            "WB-C03",
+            "WB-C04",
+            "WB-C05",
+            "WB-C06",
+            "WB-C07",
+            "WB-C08",
+            "WB-C09",
+            "WB-C10",
+            "WB-C11",
+            "WB-C12",
+            "WB-C13",
+            "WB-C14",
+            "WB-R01",
+            "WB-R02",
+            "WB-R03",
+            "WB-R04",
+            "WB-R05"
+          ],
+          "id_references": [
+            "EF02",
+            "EF05",
+            "EF08",
+            "AUTH02",
+            "AUTH06",
+            "AUTH07",
+            "SOC01",
+            "SOC03",
+            "SOC05",
+            "TL01",
+            "TL02",
+            "TL07",
+            "WB-R01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+          "ids": [
+            "GE01",
+            "GE02",
+            "GE03",
+            "GE04",
+            "GE05",
+            "GE06",
+            "GE07",
+            "GE08",
+            "GE09",
+            "GE10",
+            "GE11",
+            "GE12",
+            "GX1",
+            "GX2",
+            "GX3",
+            "GX4",
+            "GX5",
+            "GX6",
+            "GC1",
+            "GC2",
+            "GC3",
+            "GC4",
+            "GC5",
+            "GC6",
+            "GC7",
+            "GC8",
+            "GP1",
+            "GP2",
+            "GP3",
+            "GP4",
+            "GP5"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-04",
+      "priority": 4,
+      "title": "Extend selected methods into mature functions and supported exceptional counters",
+      "status": "proposed-later-packet",
+      "selection": "Required mature exploration/control/mastery uses in the finite Frontier ledger; body/organ/conceptual/hostile-party extensions conditional on selected world mechanisms.",
+      "coverage_ids": [
+        "MF-COVER-03",
+        "MF-COVER-05",
+        "MF-COVER-10",
+        "MF-COVER-11",
+        "MF-COVER-14",
+        "MF-COVER-15",
+        "MF-COVER-25",
+        "MF-COVER-27"
+      ],
+      "current_gap": "Four acquired/practiced methods already change native HP/stamina, drainage route, kit yield and actual reported inquiry. Their bounded drills stop at mastery4, without a universal engine cap. Body conditions, faculty lifecycle, copy/transfer, five power models and fixed native guard contest exist. Physical organ/host transitions, maintained support and general objective/contact/target execution are not supplied by those labels.",
+      "original_connected_example": "Original proposal: Trail Reading supports a heavy litter on a genuinely different route while Brace Control stabilizes one known hazard; inquiry or a paid guide provides a viable alternative. In a later chosen world, an extraordinary screen has one actual source/pool/upkeep/target and credible counter or simple superiority. Learning the procedure alone cannot copy donor anatomy, stock or fuel.",
+      "alternatives_and_abstention": "Prefer new authored thresholds/functions on existing mastery/native XP and sequenced encounter effects. Use nativeBattle only when native timing/bars matter. A fixed apparatus/rope/bypass can replace an unnecessary anatomy adapter. Preserve world-specific level-only, insight or transmission rules without making rare items/RNG universal.",
+      "proposed_files": [
+        "src/skill_expansion_content.js",
+        "src/power_models.js",
+        "src/body_progression.js",
+        "src/energy_resources.js",
+        "src/simulation_effects.js",
+        "src/native_battle_contracts.js",
+        "src/party_battle.js"
+      ],
+      "owner_and_integrator": "Ability/world author selects the actual mature function/exception; shared Engine binds source/body/pool/target/clock/native consumer and save semantics.",
+      "dependencies": {
+        "required": "A named real later function, source/body/fuel/access checks, actual effect target, typed outcome/counter and interruption; receipt to selected Frontier encounter if needed.",
+        "optional": "Unique organ/socket, alternate controller bodies, persistent native combat plans, source-wide synthesis/cosmos, universal skill ranking."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Low to medium for authored mature applications; high for conserved carriers, continuous channels or general native hostile tactics.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later compare early/mature actual effects and viable alternatives, exact cost/upkeep/suppression/removal, stale target/consent/means, donor-versus-recipient conservation and native/cargo aftermath. Preserve existing fixed contest and generated reload/failure recovery; director accepts unequal strength and difficulty.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-04",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-03",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/2/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "PBC-05",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/4"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-05",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/4/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            },
+            {
+              "id": "LWS-06",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/5"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-10",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/9/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-02",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/1"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            },
+            {
+              "id": "CWT07",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/6"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-11",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/10/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            },
+            {
+              "id": "PBC-02",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/1"
+            },
+            {
+              "id": "PBC-04",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-14",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/13/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-04",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/3"
+            },
+            {
+              "id": "ROOT-COPY",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-15",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/14/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-04",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/3"
+            },
+            {
+              "id": "PBC-01",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/0"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-25",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/24/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT07",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/6"
+            },
+            {
+              "id": "PBC-02",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/1"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-27",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/26/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+          "ids": [
+            "EX01",
+            "EX02",
+            "EX03",
+            "EX04",
+            "EX05",
+            "EX06",
+            "EX07",
+            "EX08",
+            "EX09",
+            "EX10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+          "ids": [
+            "CB01",
+            "CB02",
+            "CB03",
+            "CB04",
+            "CB05",
+            "CB06",
+            "CB07",
+            "CB08",
+            "CB09",
+            "CB10",
+            "CB11",
+            "CB12",
+            "CB13",
+            "CB14"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+          "ids": [
+            "GE01",
+            "GE02",
+            "GE03",
+            "GE04",
+            "GE05",
+            "GE06",
+            "GE07",
+            "GE08",
+            "GE09",
+            "GE10",
+            "GE11",
+            "GE12",
+            "GX1",
+            "GX2",
+            "GX3",
+            "GX4",
+            "GX5",
+            "GX6",
+            "GC1",
+            "GC2",
+            "GC3",
+            "GC4",
+            "GC5",
+            "GC6",
+            "GC7",
+            "GC8",
+            "GP1",
+            "GP2",
+            "GP3",
+            "GP4",
+            "GP5"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-05",
+      "priority": 5,
+      "title": "Bind one selected destination and its retained native return",
+      "status": "proposed-later-packet",
+      "selection": "Conditional on selecting a second campaign/hub/alternate passage; compiled Glasshouse supports a narrow real same-body journey already.",
+      "coverage_ids": [
+        "MF-COVER-22",
+        "MF-COVER-26",
+        "MF-COVER-27",
+        "MF-COVER-28",
+        "MF-COVER-29"
+      ],
+      "current_gap": "World-instance definitions, visit history, exact doorway/cargo checks and supported viewing/activity clock are present. Native location/access/quest/shop/NPC/equipment/calendar owners remain singleton-bound outside the compiled pocket. Pure bindings/profile metadata cannot isolate arbitrary campaigns or execute alternate_body. Paid jobs still use their implemented joined-clock settlement; leases do not create wholly local due-work.",
+      "original_connected_example": "Original proposal: choose one later original destination with a repair specialty. Bring actual permitted stock, learn an applicable procedure, change its local people/work history, return to useful Frontier packing, and revisit the same history. A lived hub can later add funded residence and institutional travel; mission settlement, extraction, arrival and destination welfare stay different.",
+      "alternatives_and_abstention": "First qualify one fixed endpoint/native working set using current world/visit/return owners and absence freeze. Keep viewing separate from bodily passage. Abstain from simultaneous worlds, arbitrary cloned native registries, unsupported loans or alternate bodies until a selected case demands them.",
+      "proposed_files": [
+        "src/world_instances.js",
+        "src/pocket_realm_host.js",
+        "src/native_realm_traveler.js",
+        "src/realm_state.js",
+        "src/realm_cargo.js",
+        "src/realm_clock_leases.js",
+        "src/main.js",
+        "src/save_files.js"
+      ],
+      "owner_and_integrator": "Selected world author owns local laws/era/IDs; shared Engine integrator owns native snapshots, endpoint/current body, clocks, transfer and save/UI binding.",
+      "dependencies": {
+        "required": "Endpoint identity and immutable era laws; actual native quest/access/shop/actor/stock ownership, current body/compatible source/cargo, retained departure/return history and explicit local/committed-job clock relation.",
+        "optional": "Companion/member travel, alternate/shared bodies, timed borrowed passages, lived Paradise roster, unsupported absence simulation and nested cosmos."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "High because native state, current location, stock, definitions, clock exposure, UI and save closure must agree. A compiled fixed-room extension is smaller than arbitrary campaign isolation.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later complete selected there/back/revisit journey and compare native quests/shops/NPC means/history without cross-world bleed; pay/use each stock once; keep view-only no-contact, lease union/closure/frozen absence, unfinished job policy, old saves and failed publication. Director accepts local depth/useful return.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-05",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-22",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/21/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-26",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/25/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT02",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-27",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/26/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-28",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/27/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PI-4",
+              "appendix": "appendix-prior-and-interface.json",
+              "json_pointer": "/current_traces/3"
+            },
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-29",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/28/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT01",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT09",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/8"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+          "ids": [
+            "EX01",
+            "EX02",
+            "EX03",
+            "EX04",
+            "EX05",
+            "EX06",
+            "EX07",
+            "EX08",
+            "EX09",
+            "EX10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+          "ids": [
+            "RTE-01",
+            "RTE-02",
+            "RTE-03",
+            "RTE-04",
+            "RTE-05",
+            "RTE-06",
+            "RTE-07",
+            "RTE-08",
+            "RTE-09",
+            "RTE-10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+          "ids": [
+            "WB-C01",
+            "WB-C02",
+            "WB-C03",
+            "WB-C04",
+            "WB-C05",
+            "WB-C06",
+            "WB-C07",
+            "WB-C08",
+            "WB-C09",
+            "WB-C10",
+            "WB-C11",
+            "WB-C12",
+            "WB-C13",
+            "WB-C14",
+            "WB-R01",
+            "WB-R02",
+            "WB-R03",
+            "WB-R04",
+            "WB-R05"
+          ],
+          "id_references": [
+            "EF02",
+            "EF05",
+            "EF08",
+            "AUTH02",
+            "AUTH06",
+            "AUTH07",
+            "SOC01",
+            "SOC03",
+            "SOC05",
+            "TL01",
+            "TL02",
+            "TL07",
+            "WB-R01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+          "ids": [],
+          "id_references": [
+            "macro SYSTEM_GRAPH",
+            "macro WORLD_LOOP_MATRIX",
+            "macro ENGINE_REQUIREMENTS"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-06",
+      "priority": null,
+      "title": "Qualify a selected life/origin/death/temporal carrier operation",
+      "status": "proposed-later-packet",
+      "selection": "Retained future request family; no new origin, mortality, loop or reset policy selected by this audit.",
+      "coverage_ids": [
+        "MF-COVER-10",
+        "MF-COVER-13",
+        "MF-COVER-22",
+        "MF-COVER-23",
+        "MF-COVER-25"
+      ],
+      "current_gap": "Native fainting/recovery, optional Chronicle mortal ending, manual bequest, single field prestige, isolated scenario rewind and transition/origin planners already exist. Native infancy/tree/role-only origin, body/property estate flow and true historical dependency rollback remain planned/detached.",
+      "original_connected_example": "Original proposal: one deliberately selected replay retains a learned route but restores only its declared local stock/history domain. Already exported rewards/external claims cannot be duplicated; changed events invalidate predicted scenes while remembered belief stays attributed. An ordinary non-loop route remains complete.",
+      "alternatives_and_abstention": "Use current optional Chronicle/one prestige when that is the desired operation. A new origin can be a fixed scoped native opening; do not build a universal timeline slider, real-time childhood wait or inherit predecessor powers.",
+      "proposed_files": [
+        "src/chronicle.js",
+        "src/simulation.js",
+        "src/expansion_engine.js",
+        "src/realm_traveler_profiles.js",
+        "src/character_creation.js",
+        "src/save_files.js"
+      ],
+      "owner_and_integrator": "Future source/world owner supplies exact operation and carriers; shared Engine owns native replacement/reset/retention, chronology, compatibility and preview.",
+      "dependencies": {
+        "required": "Selected world/origin/death rule; actual person/body/source/property/memory/claim carriers; reset/restore scope; commitments; event occurrence versus reveal and public beliefs.",
+        "optional": "Second prestige, universal mortality, family/descendant control, alternate body/soul ontology and historical causality engine."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "High for native historical restoration or body/person replacement; smaller for one compatible fixed opening with existing owners.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later prove retained/restored/deleted carriers match preview; external claims/export stock stay conserved; ongoing costs and changed predictions are coherent; native recovery remains distinct; generated old save, reload/failure and director policy gate.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-06",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-10",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/9/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-02",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/1"
+            },
+            {
+              "id": "PBC-03",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/2"
+            },
+            {
+              "id": "CWT07",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/6"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-13",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/12/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-06",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "LWS-05",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "LWS-04",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-22",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/21/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-23",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/22/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT05",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "CWT07",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/6"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-25",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/24/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT07",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/6"
+            },
+            {
+              "id": "PBC-02",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/1"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+          "ids": [
+            "RTE-01",
+            "RTE-02",
+            "RTE-03",
+            "RTE-04",
+            "RTE-05",
+            "RTE-06",
+            "RTE-07",
+            "RTE-08",
+            "RTE-09",
+            "RTE-10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-07",
+      "priority": null,
+      "title": "Add a readable mixed work plan only if repetition is insufficient",
+      "status": "proposed-later-packet",
+      "selection": "Conditional convenience/long-career requirement; safe browser-closed simulation needs separate selected policy.",
+      "coverage_ids": [
+        "MF-COVER-22",
+        "MF-COVER-30"
+      ],
+      "current_gap": "Finite same-command programs, pause/resume and reserved jobs already exist. A saved heterogeneous queue with dependency cursor, itinerary or stock bands is not supplied; broad native offline advancement remains disabled.",
+      "original_connected_example": "Original proposal: preview study, kit preparation and one trip in order. If timber or participant access disappears, the plan pauses with a useful reason and preserves paid work; ordinary manual commands remain available. No free wall-time wages or danger follow.",
+      "alternatives_and_abstention": "Start with a pure read-only ordered preview and existing finite routine. Adopt a durable cursor only when mixed execution is selected. Do not add a second scheduler or silently catch up native RNG/combat/weather during absence.",
+      "proposed_files": [
+        "src/simulation.js",
+        "src/expansion_engine.js",
+        "src/simulation_ui.js",
+        "src/skill_expansion_host.js",
+        "src/main.js"
+      ],
+      "owner_and_integrator": "Experience/world author owns useful plan/stop policy; shared Engine owns durable cursor, exact paid commitments, clock budgets and tab ownership.",
+      "dependencies": {
+        "required": "Actual legal command sequence, dependency/invalid-step policy, paid/current work, remaining target, selected clock and interruption boundaries.",
+        "optional": "Editable durable queue, stock bands, multi-actor itineraries, broad offline wall-time and worker-thread persistence."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Medium for a pure mixed-plan preview; high for durable sequencing or native offline exposure and recovery.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later compare manual/routine/mixed chosen work, block at missing means/deadline/decision/risk, retain cursor/paid work across reload/failure, prevent duplicate tab progress; offline equivalence only for explicitly supported domains.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-07",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-22",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/21/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "CWT06",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/5"
+            },
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-30",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/29/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-COMMAND",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "PI-3",
+              "appendix": "appendix-prior-and-interface.json",
+              "json_pointer": "/current_traces/2"
+            },
+            {
+              "id": "CWT04",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+          "ids": [
+            "RTE-01",
+            "RTE-02",
+            "RTE-03",
+            "RTE-04",
+            "RTE-05",
+            "RTE-06",
+            "RTE-07",
+            "RTE-08",
+            "RTE-09",
+            "RTE-10"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+          "ids": [
+            "RB-INT-01",
+            "RB-INT-02",
+            "RB-POW-01",
+            "RB-POW-02",
+            "RB-POW-03",
+            "RB-POW-04",
+            "RB-LIV-01",
+            "RB-LIV-02",
+            "RB-LIV-03",
+            "RB-LIV-04",
+            "RB-PRO-01",
+            "RB-PRO-02",
+            "RB-PRO-03",
+            "RB-AUT-01",
+            "RB-AUT-02",
+            "RB-AUT-03",
+            "RB-CAM-01",
+            "RB-CAM-02",
+            "RB-CAM-03",
+            "RB-REF-01"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-08",
+      "priority": null,
+      "title": "Close one resource-to-resident-to-project supply chain",
+      "status": "proposed-later-packet",
+      "selection": "Conditional selected region/base production depth; broad ecology is optional.",
+      "coverage_ids": [
+        "MF-COVER-06",
+        "MF-COVER-08",
+        "MF-COVER-31"
+      ],
+      "current_gap": "Native gathering/crafting, site/job reservations and finite local NPC stock exist. Shared node depletion/renewal, condition-preserving output, demand-backed multi-worker logistics and all-tool/rights reservations remain partial.",
+      "original_connected_example": "Original proposal: one finite fallen-timber patch supplies either survey kits or a repair bay. Reserve actual stock, choose usable portions, preserve what matters, deliver to a funded resident, and let the lost supply change a later contract or preparation. Purchased ordinary stock offers an alternative.",
+      "alternatives_and_abstention": "A fixed authored batch/node and service-first site may suffice. Add habitat coupling, weather/food/decay/regrowth or aggregate populations only when they create the selected decision. Preserve sparse purposeful native geography.",
+      "proposed_files": [
+        "src/activities.js",
+        "src/field_workshop.js",
+        "src/site_projects.js",
+        "src/simulation_effects.js",
+        "src/original_frontier_campaign_content.js",
+        "src/main.js"
+      ],
+      "owner_and_integrator": "Region/items/base authors freeze one chain; shared Engine joins actual node/stock/material/tool/worker/clock/publication.",
+      "dependencies": {
+        "required": "Shared finite availability/reservation, actual inputs/output/native inventory, producer/renewal clock if applicable, recipient demand/budget, rights and all required workers/tools.",
+        "optional": "Neighbor ecology, transplanting crops, all-building structures/raids, global supply economy and browser-closed renewal."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Medium for one supported fixed supply chain; high for shared region/node populations, condition lots and operational base rights.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later two legal uses compete for one conserved batch, other actors cannot duplicate it, selected renewal follows its declared clock, output affects an actual resident/project, refused/late/damaged delivery leaves useful alternatives and durable return.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-08",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-06",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/5/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-01",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "CWT02",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "ROOT-RNG",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/1"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-08",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/7/source_evidence",
+          "trace_refs": [
+            {
+              "id": "LWS-01",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/0"
+            },
+            {
+              "id": "LWS-02",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "PBC-05",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/4"
+            },
+            {
+              "id": "ROOT-PROJECT",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/3"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-31",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/30/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-PROJECT",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "LWS-04",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "LWS-01",
+              "appendix": "appendix-lives-work-society.json",
+              "json_pointer": "/coverage/0"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+          "ids": [
+            "REG01",
+            "REG02",
+            "REG03",
+            "REG04",
+            "REG05",
+            "REG06",
+            "REG07",
+            "REG08",
+            "REG09",
+            "RG-A01",
+            "RG-A02",
+            "RG-A03",
+            "RG-A04",
+            "RG-A05",
+            "RG-A06",
+            "RG-A07",
+            "RG-A08",
+            "RG-A09",
+            "RG-A10",
+            "RG-A11",
+            "RG-A12",
+            "RG-A13",
+            "RG-A14"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "ids": [
+            "IT01",
+            "IT02",
+            "IT03",
+            "IT04",
+            "IT05",
+            "IT06",
+            "IT07",
+            "IT08",
+            "IT09",
+            "IT10",
+            "IT11",
+            "IT12",
+            "IT13"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "ids": [
+            "BAS01",
+            "BAS02",
+            "BAS03",
+            "BAS04",
+            "BAS05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "ids": [
+            "MC01",
+            "MC02",
+            "MC03",
+            "MC04",
+            "MC05",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "ME01",
+            "ME02",
+            "ME03",
+            "ME04",
+            "ME05",
+            "ME06",
+            "ME07",
+            "ME08",
+            "ME09",
+            "ME10"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-09",
+      "priority": null,
+      "title": "Make selected package consumer closure diagnosable",
+      "status": "proposed-later-packet",
+      "selection": "Authoring prerequisite when admitting new campaign/mechanic packages; existing validators and registries stay authoritative.",
+      "coverage_ids": [
+        "MF-COVER-18",
+        "MF-COVER-33"
+      ],
+      "current_gap": "Registry/effect/predicate/scene/project validation and template instances exist. A complete package activation/consumer manifest, source correction compatibility and semantic diagnostics across native/UI/save joins remain proposals. Some compile fields/participants must be preserved before those selected cases.",
+      "original_connected_example": "Original proposal: an author declares one campaign tranche and sees which paid output, NPC participant, known UI route or native effect has no consumer before activation. The diagnostics distinguish definition-valid, registered, current-built and later-executed evidence.",
+      "alternatives_and_abstention": "Use a small local descriptor/static closure report. Add an abstraction after two real consumers need it, or one requires a correctness/save boundary. No authoring IDE, LLM world generator, Ink cursor or rot grid dependency is needed for current small scenes/roads.",
+      "proposed_files": [
+        "src/expansion_engine.js",
+        "src/scene_definitions.js",
+        "src/site_projects.js",
+        "src/simulation_contracts.js",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "owner_and_integrator": "Content authors own package definitions; shared Engine owns actual activation/native registration; canonical incorporation admits scope.",
+      "dependencies": {
+        "required": "Stable required IDs, explicit opt-in enrollment and trusted private dependencies, native effect/registry/UI/save closure, immutable operating revisions and removal policy.",
+        "optional": "Long narrative interpreter, grid/FOV, full world-bank runtime, adaptive population authoring and external providers."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Low to medium for focused static closure/diagnostics; higher for generalized package activation or new persistent interpreter cursor.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Static later gate rejects missing consumers/participants/unsupported effects and preserves private observation boundaries; native build/gameplay/reload/director gates stay separately named. Disable unshipped package atomically; retain/migrate shipped saved references.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-09",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-18",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/17/source_evidence",
+          "trace_refs": [
+            {
+              "id": "CWT03",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/2"
+            },
+            {
+              "id": "CWT10",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/9"
+            },
+            {
+              "id": "ROOT-TEXTURE",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/2"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-33",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/32/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-PROJECT",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/3"
+            },
+            {
+              "id": "CWT10",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/9"
+            },
+            {
+              "id": "ROOT-COMMAND",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/0"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+          "ids": [
+            "AUTH01",
+            "AUTH02",
+            "AUTH03",
+            "AUTH04",
+            "AUTH05",
+            "AUTH06",
+            "AUTH07",
+            "AUTH08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+          "ids": [],
+          "id_references": [
+            "EF02",
+            "AUTH02",
+            "TF01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+          "ids": [
+            "WB-C01",
+            "WB-C02",
+            "WB-C03",
+            "WB-C04",
+            "WB-C05",
+            "WB-C06",
+            "WB-C07",
+            "WB-C08",
+            "WB-C09",
+            "WB-C10",
+            "WB-C11",
+            "WB-C12",
+            "WB-C13",
+            "WB-C14",
+            "WB-R01",
+            "WB-R02",
+            "WB-R03",
+            "WB-R04",
+            "WB-R05"
+          ],
+          "id_references": [
+            "EF02",
+            "EF05",
+            "EF08",
+            "AUTH02",
+            "AUTH06",
+            "AUTH07",
+            "SOC01",
+            "SOC03",
+            "SOC05",
+            "TL01",
+            "TL02",
+            "TL07",
+            "WB-R01"
+          ]
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+          "ids": [
+            "EA01",
+            "EA02",
+            "EA03",
+            "EA04",
+            "EA05",
+            "EA06",
+            "EA07",
+            "EA08",
+            "EA09"
+          ],
+          "id_references": []
+        }
+      ]
+    },
+    {
+      "id": "MF-GAP-10",
+      "priority": null,
+      "title": "Choose RNG/native boundaries for consequential odds or appropriation",
+      "status": "proposed-later-packet",
+      "selection": "Conditional selected chance/fate/identity rule; no universal percent/fate system selected.",
+      "coverage_ids": [
+        "MF-COVER-14",
+        "MF-COVER-21"
+      ],
+      "current_gap": "Persisted authored outcome/check streams and frozen jobs exist. Native strike/gather/loot paths can still use Math.random under native owners. General saved native streams, explicit epochs/rerolls and donor/recipient social identity or luck effects remain unselected.",
+      "original_connected_example": "Original proposal: one risky field intervention previews contributors, commits one chance result, retains complication and later known report. If a future fate-appropriation mechanic is selected, it changes a named future draw/access and donor aftermath rather than relabeling learned-power copy.",
+      "alternatives_and_abstention": "Keep ordinary native RNG for ordinary play. Adapt one consequential selected path to persisted stream only when its repeat/retention rule demands it. Guaranteed positive superiority is allowed; do not randomize every action or convert all identity to an affection/reputation number.",
+      "proposed_files": [
+        "src/combat_math.js",
+        "src/expansion_engine.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/main.js"
+      ],
+      "owner_and_integrator": "World/ability author defines odds/target/donor policy; shared Engine owns selected draw/cost/effect/save boundary.",
+      "dependencies": {
+        "required": "Actual evaluator/preview contributors, when draw commits, unique opportunity/claim, retained result, donor/recipient supported carrier if appropriation selected.",
+        "optional": "Native-wide seeded conversion, luck/fate theft, universal karma, hidden-identity reveals and explicit reroll currency."
+      },
+      "joins": {
+        "state": "Keep existing authoritative facts/people/power/stock/claim owner; add only selected unsupported carrier.",
+        "rng": "Use existing committed authored draws where chance matters; no UI draw or implicit native-wide conversion.",
+        "time": "Declare paid frozen versus live-supported work and actual clock; unsupported absence remains frozen.",
+        "stock": "Reserve real initial owner quantities/tools/participants; settle exact supported output once.",
+        "publication": "Validate candidate native bindings and durable whole envelope before live publication/display.",
+        "save": "Preserve old owners/IDs; version new meaning and migrate or reject explicitly."
+      },
+      "effort_and_maintenance": "Medium for one persisted consequential path; high for native-wide stream policy or multi-domain identity/fate transfer.",
+      "compatibility_and_removal": "Existing owners first; optional absent data grants nothing. Version changed operating meaning and new saved carriers, preserve frozen/dormant shipped records or migrate explicitly; no silent reset/removal.",
+      "provenance": "Original proposal synthesizing qualified prior/current-owner evidence; no comparison code, prose, setting assets or media imported.",
+      "acceptance": {
+        "deferred": "Later preview draws nothing, known contributors match evaluator, commitment/reload/cancel cannot farm the opportunity, donor consequence persists, uncertain observations stay qualified, and ordinary deterministic alternatives work.",
+        "executed_in_this_audit": false,
+        "director": "Select the concrete world/method/policy and accept fiction, pacing and usefulness separately from build/correctness."
+      },
+      "packet": "PACKETS.md#mf-gap-10",
+      "current_evidence_refs": [
+        {
+          "coverage_id": "MF-COVER-14",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/13/source_evidence",
+          "trace_refs": [
+            {
+              "id": "PBC-04",
+              "appendix": "appendix-progression-body-combat.json",
+              "json_pointer": "/3"
+            },
+            {
+              "id": "ROOT-COPY",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/4"
+            },
+            {
+              "id": "CWT08",
+              "appendix": "appendix-campaign-world-time.json",
+              "json_pointer": "/coverage/7"
+            }
+          ]
+        },
+        {
+          "coverage_id": "MF-COVER-21",
+          "source_evidence": "FEATURE_COVERAGE.json#/families/20/source_evidence",
+          "trace_refs": [
+            {
+              "id": "ROOT-RNG",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/1"
+            },
+            {
+              "id": "ROOT-COPY",
+              "appendix": "appendix-root-boundaries.json",
+              "json_pointer": "/coverage/4"
+            }
+          ]
+        }
+      ],
+      "prior_disposition_refs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "ids": [
+            "EF01",
+            "EF02",
+            "EF03",
+            "EF04",
+            "EF05",
+            "EF06",
+            "EF07",
+            "EF08",
+            "EF09"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+          "ids": [
+            "POW01",
+            "POW02",
+            "POW03",
+            "POW04",
+            "POW05"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+          "ids": [
+            "CB01",
+            "CB02",
+            "CB03",
+            "CB04",
+            "CB05",
+            "CB06",
+            "CB07",
+            "CB08",
+            "CB09",
+            "CB10",
+            "CB11",
+            "CB12",
+            "CB13",
+            "CB14"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "ids": [
+            "SOC01",
+            "SOC02",
+            "SOC03",
+            "SOC04",
+            "SOC05",
+            "SOC06",
+            "SOC07",
+            "SOC08",
+            "SOC09",
+            "SOC10",
+            "SOC11",
+            "SOC12",
+            "SOC13",
+            "SOC14",
+            "SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+          "ids": [
+            "SOC01-SOC10",
+            "SOC08-SOC10",
+            "SOC11-SOC15"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "ids": [
+            "TL01",
+            "TL02",
+            "TL03",
+            "TL04",
+            "TL05",
+            "TL06",
+            "TL07",
+            "TL08"
+          ],
+          "id_references": []
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+          "ids": [
+            "TL01-TL08"
+          ],
+          "id_references": []
+        }
+      ]
+    }
+  ],
+  "acceptance_not_missing_feature": "Current skill/Glasshouse/fork source is implemented-unverified; behavioral/director gates remain open without declaring delivered functions absent.",
+  "abstentions": [
+    "No second command/XP/inventory/clock owner or engine replacement.",
+    "No duplicate proposal for existing four skills, registered controllers, custody/publication, fixed party proof or adopted fork UI.",
+    "No universal anatomy/skill cap/fate/romance/aging/offline policy.",
+    "No mechanical reward required for every passive detail or incidental person.",
+    "No repeated book/repository source audit or new dependency without a selected consumer."
+  ],
+  "static_closeout": "appendix-validation.json",
+  "writer_state": "Root and all four internal readers released after final readback; no implementation writer acquired."
+}

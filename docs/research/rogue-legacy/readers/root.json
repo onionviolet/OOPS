@@ -1,0 +1,901 @@
+{
+  "paths": [
+    {
+      "path_id": "lineage-traits-classes",
+      "title": "Death record to frozen successors, compatibility filters, chosen character and functional traits",
+      "claims": [
+        {
+          "id": "lineage.death-record",
+          "kind": "source_observed",
+          "observation": "GameOverScreen.OnEnter appends the deceased character with class/traits/age/kills/boss record, clears candidate branches, marks IsDead and resets run flags, Lich gains and the one-reroll flag. FreeEntrance and five challenge tokens survive where other special items are removed; death does not reset manor/equipment arrays or Gold in this observed boundary.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.frozen-offer",
+          "kind": "source_observed",
+          "observation": "LoadCurrentBranches generates three candidates only when CurrentBranches is absent/empty, stores candidate class/spell/traits/age/portrait and saves Lineage; otherwise restores existing candidates. Candidate generation calls LineageObj with createEmpty=false. This prevents ordinary screen reopen from intentionally regenerating offers, subject to actual save success.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 286,
+              "end": 328,
+              "symbol": "LineageScreen.AddLineageRow",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 460,
+              "end": 507,
+              "symbol": "LineageScreen.LoadCurrentBranches",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.traits-rng",
+          "kind": "source_observed",
+          "observation": "CreateRandomTraits reuses ONE inclusive 0..100 roll for both thresholds: first <94, second <55; so code-derived probability is 55/101 two traits, 39/101 one, 7/101 none. Rarity cutoffs are cumulative 48/85/100 with <= and inclusive RNG, yielding 49/101,37/101,15/101, rather than exactly 48/37/15 percent. Duplicate second traits and five incompatible pairs are rejected.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Types/TraitType.cs",
+              "start": 389,
+              "end": 497,
+              "symbol": "TraitType.CreateRandomTraits / TraitConflict",
+              "sha256": "054f6659c9d426a6fcc9cb8d6ea09006b8c49aa169d421f9afedfdc65a53562a"
+            },
+            {
+              "file": "DS2DEngine/src/CDGMath.cs",
+              "start": 105,
+              "end": 108,
+              "symbol": "CDGMath.RandomInt(min,max)",
+              "sha256": "3a6483a1b75799598e4fb5a96f3f4a1179576af3adce8e555884ea886f9a1ee8"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.class-pool",
+          "kind": "source_observed",
+          "observation": "GetRandomClass starts Knight/Wizard/Barbarian/Assassin; manor unlocks add Ninja/Banker/SpellSword/Lich/Dragon, and final challenge/config gate adds Traitor. The uniform candidate-class selection upgrades ordinary class IDs by +8 when the corresponding retained manor skill is purchased. The pool is progression-dependent, not level-matched to an enemy.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 183,
+              "end": 241,
+              "symbol": "ClassType.GetRandomClass / Upgraded",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.compatibility",
+          "kind": "source_observed",
+          "observation": "After drawing traits and class, constructor rerolls traits for Lich+Dextrocardia and Wizard/Wizard2/Dragon+Savant. Spell is drawn from class list; Savant rejects DamageShield/TimeStop/Translocator. Age18..30 and childAge2..5 are presentation-generation fields here, not simulated played-time aging.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/LineageObj.cs",
+              "start": 159,
+              "end": 209,
+              "symbol": "LineageObj constructor",
+              "sha256": "7b9a5cc087a1100ea9331ccb62a9374d41712e47d9606d1f18e9eb5cc779f9e7"
+            },
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 243,
+              "end": 277,
+              "symbol": "ClassType.GetSpellList",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.selection-reroll",
+          "kind": "source_observed",
+          "observation": "Confirm at current branch offers a warning dialog with StartGame or CancelSelection; cancellation restores the temporary IsFemale stat. Purchased Randomize_Children and RerolledChildren=false permit one reroll: sets/saves the used flag, then clears/regenerates/saves branches. Those saves are separate calls. StartGame copies the selected identity/class/traits/spell, initializes Wizard spell list, clears branches and loads StartingRoom.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 592,
+              "end": 605,
+              "symbol": "LineageScreen.HandleInput reroll gate",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 697,
+              "end": 738,
+              "symbol": "LineageScreen.HandleInput confirmation / CancelSelection",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 854,
+              "end": 913,
+              "symbol": "LineageScreen.RerollCurrentBranch / StartGame",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.functional-trait",
+          "kind": "source_observed",
+          "observation": "Dextrocardia exchanges which full computed HP/MP stat pool MaxHealth/MaxMana uses, including gear, global purchase-level growth, permanent stat pickups, manor stats and class multipliers. Hyperactive adds a movement multiplier term. These are functional consumers, not proof that every listed trait changes every system.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 3631,
+              "end": 3694,
+              "symbol": "PlayerObj.MaxMana / MaxHealth",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 4069,
+              "end": 4084,
+              "symbol": "PlayerObj.TotalMovementSpeedPercent",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 4180,
+              "end": 4243,
+              "symbol": "PlayerObj.ClassTotalHPMultiplier / ClassTotalMPMultiplier",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "lineage.serialized",
+          "kind": "source_observed",
+          "observation": "Lineage save/load carries candidate identity/class/spell/traits and history. SavePlayerData/LoadPlayerData separately persist current class/spell/traits. SaveFiles catches errors and increments a failure count, displaying an error after repeated failures; no all-files atomicity is established.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1148,
+              "end": 1197,
+              "symbol": "SaveGameManager.SaveLineageData candidate list",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1224,
+              "end": 1258,
+              "symbol": "SaveGameManager.SaveLineageData family history",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1961,
+              "end": 1997,
+              "symbol": "SaveGameManager.LoadLineageData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 515,
+              "end": 535,
+              "symbol": "SaveGameManager.SavePlayerData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1346,
+              "end": 1354,
+              "symbol": "SaveGameManager.LoadPlayerData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 115,
+              "end": 149,
+              "symbol": "SaveGameManager.SaveFiles",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        }
+      ],
+      "trace": {
+        "caller": "Player death -> GameOverScreen.OnEnter -> LineageScreen.OnEnter/LoadCurrentBranches -> chosen confirmation StartGame -> StartingRoom player refill/save",
+        "gates": [
+          "Three offers created only if missing; existing offer data loaded",
+          "Class pool uses retained unlock/upgrade checks",
+          "Trait pair/class/spell compatibility filters",
+          "Reroll needs purchase and unused generation flag; confirmation is cancellable"
+        ],
+        "costs": [
+          "No per-selection currency deduction in StartGame",
+          "Randomize_Children is a one-level manor purchase; reroll uses one generation allowance",
+          "Run ends in death, losing the selected body/run gains but retaining catalog/manor/history"
+        ],
+        "mutations": [
+          "Death appends history, clears candidates, sets IsDead and resets run gains",
+          "Generation saves three candidates",
+          "Reroll saves used flag before separately replacing saved offers",
+          "Selected candidate replaces class/traits/spell identity; StartingRoom refills computed HP/MP"
+        ],
+        "consumers": [
+          "Trait-dependent stat pools/movement",
+          "Class-specific spell list and later PlayerObj spell execution",
+          "Manor unlocks alter later candidate pool"
+        ],
+        "failure_boundaries": [
+          "Forbidden pairs/classes/spells are redrawn",
+          "CancelSelection restores temporary gender change",
+          "Repeated SaveFiles failure is surfaced; separate file calls are not proven atomic"
+        ],
+        "persistence": "Source serialization covers history, candidates and current identity. No descendant lifecycle or death/save test was run."
+      }
+    },
+    {
+      "path_id": "manor-retention-investment",
+      "title": "Run gold to retained paid manor choices, class/service options and next-run toll",
+      "claims": [
+        {
+          "id": "manor.cost-growth",
+          "kind": "source_observed",
+          "observation": "SkillObj.TotalCost = BaseCost + CurrentLevel*Appreciation + 10*Game.PlayerStats.CurrentLevel. ModifierAmount=CurrentLevel*PerLevelModifier. Health_Up is +10 per purchased level, base50/appreciation40/max75; every successful manor purchase increases global CurrentLevel, so even unrelated purchases raise later prices and can increase player HP/MP through level growth.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/SkillObj.cs",
+              "start": 135,
+              "end": 158,
+              "symbol": "SkillObj.CurrentLevel / TotalCost / ModifierAmount",
+              "sha256": "404f6778a44ee724f62819be549eb758fe7e55fff05948418e64722c8c8edb71"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 11,
+              "end": 12,
+              "symbol": "GameEV.SKILL_LEVEL_COST_INCREASE",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d"
+            },
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 30,
+              "end": 47,
+              "symbol": "SkillBuilder.BuildSkill Health_Up",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7"
+            },
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 131,
+              "end": 155,
+              "symbol": "SkillSystem.LevelUpTrait",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 3631,
+              "end": 3694,
+              "symbol": "PlayerObj.MaxMana / MaxHealth",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.reveal-purchase",
+          "kind": "source_observed",
+          "observation": "Initialize starts Smithy visible. Navigation permits non-null visible skills; confirm checks enough gold and below MaxLevel and m_fadingIn=false, deducts gold then reveals manor/neighbor icons and increments skill/global level. Insufficient gold emits purchase failure; capped skills cannot be purchased. The immediate per-purchase save call is commented; actual OnExit saves UpgradeData and PlayerData.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 47,
+              "end": 63,
+              "symbol": "SkillSystem starting trait / authored graph",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe"
+            },
+            {
+              "file": "RogueCastle/src/SkillSystem.cs",
+              "start": 104,
+              "end": 127,
+              "symbol": "SkillSystem.Initialize",
+              "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 801,
+              "end": 844,
+              "symbol": "SkillScreen.HandleInput purchase",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 319,
+              "end": 337,
+              "symbol": "SkillScreen.SetVisible",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 543,
+              "end": 558,
+              "symbol": "SkillScreen.SetSkillIconVisible",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef"
+            },
+            {
+              "file": "RogueCastle/src/Screens/SkillScreen.cs",
+              "start": 311,
+              "end": 317,
+              "symbol": "SkillScreen.OnExit",
+              "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.options",
+          "kind": "source_observed",
+          "observation": "Ninja_Unlock costs base400 plus global purchase-level surcharge, max1, and changes future random-class eligibility. Randomize_Children costs base5000 plus global surcharge, max1, and enables one reroll for each successor generation. These purchases grant action/selection options as well as numerical stats.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 490,
+              "end": 507,
+              "symbol": "SkillBuilder.BuildSkill Ninja_Unlock",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7"
+            },
+            {
+              "file": "RogueCastle/src/SkillBuilder.cs",
+              "start": 406,
+              "end": 418,
+              "symbol": "SkillBuilder.BuildSkill Randomize_Children",
+              "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7"
+            },
+            {
+              "file": "RogueCastle/src/Types/ClassType.cs",
+              "start": 183,
+              "end": 215,
+              "symbol": "ClassType.GetRandomClass",
+              "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604"
+            },
+            {
+              "file": "RogueCastle/src/Screens/LineageScreen.cs",
+              "start": 592,
+              "end": 605,
+              "symbol": "LineageScreen.HandleInput reroll gate",
+              "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.gold-loss-boundary",
+          "kind": "source_observed",
+          "observation": "Gold is not cleared by GameOverScreen death block. At next StartingRoom, toll is available only after TimesDead>0 and collector still visible. Confirming TollPaid(true) removes int(currentGold*(1 - Prices_Down.ModifierAmount)); FreeEntrance uses TollPaid(false). Thus unspent gold loss occurs at the confirmed gate, not universally on death. Challenge tokens are consumed there into specific challenge-unlocked flags.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 524,
+              "end": 529,
+              "symbol": "StartingRoomObj.HandleInput free entrance",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 574,
+              "end": 579,
+              "symbol": "StartingRoomObj.RunTollPaidSelection",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 645,
+              "end": 695,
+              "symbol": "StartingRoomObj.TollPaid",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 1000,
+              "end": 1007,
+              "symbol": "StartingRoomObj.ArchitectAvailable / TollCollectorAvailable",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 11,
+              "end": 19,
+              "symbol": "GameEV gatekeeper/architect constants",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.architect-trade",
+          "kind": "source_observed",
+          "observation": "Retained Architect skill makes service available. Player confirmation requires a saved Map and an unlocked castle. ActivateArchitect leads to LockCastle=true and HasArchitectFee=true, resets FAILED fairy chests and breakables. Missing map refuses service, cancellation keeps layout choice unchanged, and entry clears invalid fee when no map exists. Actual map reload and 0.6 money-pickup multiplier are traced by manor.architect-consumers rather than inferred from this flag.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 247,
+              "end": 257,
+              "symbol": "StartingRoomObj.OnEnter",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 494,
+              "end": 520,
+              "symbol": "StartingRoomObj.HandleInput Architect gate",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 707,
+              "end": 761,
+              "symbol": "StartingRoomObj.ActivateArchitect / StopArchitectActivation",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 1000,
+              "end": 1007,
+              "symbol": "StartingRoomObj service availability",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/EVs/GameEV.cs",
+              "start": 19,
+              "end": 19,
+              "symbol": "GameEV.ARCHITECT_FEE",
+              "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.serialization",
+          "kind": "source_observed",
+          "observation": "Upgrade save writes discovery/purchase/equipped arrays and skill levels. Upgrade load resets skill/global counters then calls LevelUpTrait(saved levels, false), reconstructing progress without replaying any gold bonus. Death reset excludes these arrays, while StartingRoom restores computed HP/MP and saves alive status. SaveFiles writes individual types with catch-based failure reporting; do not copy this as YAIR transaction proof.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 782,
+              "end": 868,
+              "symbol": "SaveGameManager.SaveUpgradeData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1668,
+              "end": 1685,
+              "symbol": "SaveGameManager.LoadUpgradeData",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+              "start": 149,
+              "end": 198,
+              "symbol": "GameOverScreen.OnEnter retained/lost boundary",
+              "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+              "start": 247,
+              "end": 257,
+              "symbol": "StartingRoomObj.OnEnter",
+              "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 115,
+              "end": 149,
+              "symbol": "SaveGameManager.SaveFiles",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            }
+          ],
+          "limits": "Pinned code observation; no game execution or save/reload verification."
+        },
+        {
+          "id": "manor.architect-consumers",
+          "kind": "source_observed",
+          "observation": "On castle loading LockCastle selects saved LoadMap plus MapData, then clears LockCastle only after restoration. Locked reload suppresses ordinary-enemy killed-state, breakable-broken and fairy-failed restoration, while opened chest state still restores. Money pickup applies round(amount*(1+TotalGoldBonus)*0.6) when HasArchitectFee, compared with multiplier1 normally. This is the actual reduced-earnings consumer; architecture retains layout with selected run-state resets, not arbitrary world rewind.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Screens/LoadingScreen.cs",
+              "start": 231,
+              "end": 279,
+              "symbol": "LoadingScreen castle load branch",
+              "sha256": "fc8dd872fd321cca2cd98f76225918c0c671c497431e3690ba339748faa7b3ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1858,
+              "end": 1925,
+              "symbol": "SaveGameManager.LoadMapData LockCastle state branches",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/ItemDropObj.cs",
+              "start": 94,
+              "end": 106,
+              "symbol": "ItemDropObj.GiveReward money pickup",
+              "sha256": "2f093a05ed1f7b2143f84855de6d551fa67615ce4c211820812f0a176fa936a6"
+            }
+          ],
+          "limits": "Source branch/rounding observation only; room assets, save replay and play unverified."
+        }
+      ],
+      "trace": {
+        "caller": "Selected successor StartGame -> StartingRoom loaded under SkillScreen -> visible authored skill -> confirm purchase -> exit save -> full-stat character -> toll -> castle entry",
+        "gates": [
+          "Visible neighbor navigation",
+          "Enough gold, skill below cap, not fading",
+          "Retained unlocks qualify new classes/services/reroll",
+          "Architect needs a saved layout; toll only after a prior death"
+        ],
+        "costs": [
+          "BaseCost + ownLevel*Appreciation +10*totalManorPurchases",
+          "Toll truncates currentGold*(1-discount); FreeEntrance exemption",
+          "Architect keeps layout for downstream reduced gold earnings, not upfront fee in inspected activation"
+        ],
+        "mutations": [
+          "Gold deduction; permanent manor/global levels; neighboring options revealed",
+          "Selected successor stat consumers recompute from retained purchases",
+          "Entry consumes toll/token and may preserve map"
+        ],
+        "consumers": [
+          "MaxHealth/MaxMana include retained level/manor modifiers",
+          "Class generation/reroll/service availability",
+          "Layout reuse and income multiplier paths cross P4/P5"
+        ],
+        "failure_boundaries": [
+          "Insufficient funds/cap/animation reject purchase",
+          "Unavailable saved map refuses Architect",
+          "Exit-save errors are caught rather than providing rollback atomicity"
+        ],
+        "persistence": "Separate binary PlayerData/UpgradeData/Map/Lineage files and reconstructed skill levels. Exact save compatibility/build/play behavior unperformed."
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "file": "RogueCastle/src/Screens/LineageScreen.cs",
+      "ranges_read": [
+        [
+          187,
+          328
+        ],
+        [
+          331,
+          388
+        ],
+        [
+          391,
+          440
+        ],
+        [
+          460,
+          507
+        ],
+        [
+          583,
+          605
+        ],
+        [
+          667,
+          738
+        ],
+        [
+          854,
+          913
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/LineageObj.cs",
+      "ranges_read": [
+        [
+          159,
+          209
+        ],
+        [
+          213,
+          287
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Types/TraitType.cs",
+      "ranges_read": [
+        [
+          389,
+          497
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Types/ClassType.cs",
+      "ranges_read": [
+        [
+          183,
+          277
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+      "ranges_read": [
+        [
+          881,
+          893
+        ],
+        [
+          3631,
+          3694
+        ],
+        [
+          3700,
+          3734
+        ],
+        [
+          4030,
+          4048
+        ],
+        [
+          4069,
+          4084
+        ],
+        [
+          4180,
+          4243
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+      "ranges_read": [
+        [
+          143,
+          205
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Screens/SkillScreen.cs",
+      "ranges_read": [
+        [
+          291,
+          337
+        ],
+        [
+          511,
+          564
+        ],
+        [
+          740,
+          771
+        ],
+        [
+          786,
+          844
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/SkillSystem.cs",
+      "ranges_read": [
+        [
+          47,
+          77
+        ],
+        [
+          104,
+          221
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/SkillObj.cs",
+      "ranges_read": [
+        [
+          135,
+          158
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/SkillBuilder.cs",
+      "ranges_read": [
+        [
+          30,
+          47
+        ],
+        [
+          406,
+          430
+        ],
+        [
+          490,
+          507
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/EVs/GameEV.cs",
+      "ranges_read": [
+        [
+          9,
+          21
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+      "ranges_read": [
+        [
+          237,
+          259
+        ],
+        [
+          473,
+          581
+        ],
+        [
+          612,
+          695
+        ],
+        [
+          707,
+          764
+        ],
+        [
+          1000,
+          1010
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+      "ranges_read": [
+        [
+          115,
+          150
+        ],
+        [
+          492,
+          535
+        ],
+        [
+          782,
+          868
+        ],
+        [
+          1148,
+          1199
+        ],
+        [
+          1224,
+          1259
+        ],
+        [
+          1339,
+          1355
+        ],
+        [
+          1668,
+          1685
+        ],
+        [
+          1961,
+          1998
+        ],
+        [
+          1850,
+          1929
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "DS2DEngine/src/CDGMath.cs",
+      "ranges_read": [
+        [
+          93,
+          117
+        ]
+      ],
+      "purpose": "Root semantic read of lineage/manor/callers, retained fields and exceptions"
+    },
+    {
+      "file": "RogueCastle/src/Screens/LoadingScreen.cs",
+      "ranges_read": [
+        [
+          231,
+          282
+        ]
+      ],
+      "purpose": "Architect map load caller"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/ItemDropObj.cs",
+      "ranges_read": [
+        [
+          83,
+          115
+        ]
+      ],
+      "purpose": "Architect earnings consumer"
+    },
+    {
+      "file": "RogueCastle/src/EquipmentSystem.cs",
+      "ranges_read": [
+        [
+          14,
+          15
+        ],
+        [
+          38,
+          55
+        ]
+      ],
+      "purpose": "Parent price scalar qualification"
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+      "ranges_read": [
+        [
+          339,
+          351
+        ],
+        [
+          190,
+          267
+        ]
+      ],
+      "purpose": "Parent exact guard and AI qualification"
+    },
+    {
+      "file": "RogueCastle/Properties/AssemblyInfo.cs",
+      "ranges_read": [
+        [
+          27,
+          34
+        ]
+      ],
+      "purpose": "Source version metadata declaration; not retail build proof"
+    }
+  ],
+  "unread": [
+    "Trait localization/catalog rarity mapping",
+    "Other class ability branches",
+    "Full save revision/backup/corruption handling",
+    "Game build and live behavior"
+  ]
+}

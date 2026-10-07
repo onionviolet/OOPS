@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-03",
+  "tests": {
+    "passed": 106,
+    "failed": 0
+  },
+  "build": "success",
+  "sourceHashes": {
+    "src/town_content.js": "16dae7e0cc1c251983878544af1a90e26f9df9421ed1d8a32d88449ff44708fc",
+    "src/town_ui.js": "9d7859f267f356634780c16d4bcc69b1f15c97b04a156a4ae03b824eae699861",
+    "src/expedition_content.js": "cc3e832165d92db91b1aa965d99d384aeb4b19ad4cb80ede5083e9ea4d4c8cd9",
+    "src/expedition_ui.js": "998e9b582a455d4b597eecf3a6ac2ff3f4601e3ea39e9f4799fd3baee4c3fc73",
+    "src/main.js": "769bfe32d144f31e1c1d9903dfa38029640e6e44b803241c3f8870b5d17cbaae",
+    "tests/town.test.js": "b3c1c4d8d747c7f5d32c616125ac9275661a3bf35cd4d9269290c4f9f36a7de8",
+    "scripts/town_browser.cjs": "da077160dde3ab53f50b3f7e9977e9066e13872b1dd28cd6883b1194ba49765b",
+    "dist/bundle.js": "5e5c9c7d3a26da5f3114e2852cf5b7ce66dd1f0643c9b3682657b7d90ddd027e"
+  },
+  "town": {
+    "url": "http://127.0.0.1:18503/",
+    "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-5e5c9c7d3a26",
+    "findings": [
+      "Fresh original character creation and elder greeting remain playable; the town chapter is absent in Village, with no native town access, age or living-world enrollment.",
+      "Optional permit atomically opens the native Town square; ordinary native travel, saved survey, unique payment and return knowledge complete with unchanged original quests/dialogue. Native encoded export/import and reload retain town access, kit, money and one completion.",
+      "Injected browser storage failure publishes no permit/access or costs and retains exact stored bytes; reload restores the unjoined native adventure.",
+      "The timber alternative reserves actual gathered logs, refunds cancellation, resumes through reload and consumes its materials once."
+    ],
+    "errors": [],
+    "warnings": [],
+    "failedRequests": [
+      {
+        "url": "https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "generatedSavesOnly": true
+  },
+  "chronicleRegression": {
+    "url": "http://127.0.0.1:18503/",
+    "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-f4d7f3eb34b8",
+    "findings": [
+      "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+      "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+      "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+      "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+      "Attended briefing contributes usable preparation through the existing capability/read model.",
+      "Stronger generated native XP build wins against the same fixed elder.",
+      "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+      "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+      "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+    ],
+    "errors": [],
+    "generatedSavesOnly": true
+  },
+  "villageRegression": {
+    "url": "http://127.0.0.1:18503/",
+    "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-5e5c9c7d3a26",
+    "findings": [
+      "Native-menu discovery, pending reload, real objects, partial native reading reload and one completion pass without chronicle enrollment.",
+      "A real preparation contribution, one saved claim per day, native encoded file import/export and completed-book reload pass without duplicate rewards.",
+      "Generated story-access/material fixture: native craftsman greeting, real token handover, reputation, faster packing, actual Shack travel, material refund, mid-build/packing reload, real kit consumption and changing home-board text pass.",
+      "The understood booklet opens a separate guaranteed-ready route, retaining the token and using no kit while leaving the crossing unrepaired.",
+      "Generated later-day and closed-window calendars reopen only the current gathering, with no payouts for skipped days.",
+      "Injected storage failure publishes no claim, reward or advanced joined calendar; reload restores the available gathering."
+    ],
+    "errors": [],
+    "generatedSavesOnly": true
+  },
+  "visibleGeneratedReview": "http://127.0.0.1:18508/",
+  "personalSavesTouched": false,
+  "limits": [
+    "First optional town contract; broader home-world expansion remains ongoing.",
+    "Town outskirts access and timber start use generated story fixtures, not a complete natural upstream campaign.",
+    "Native export encoding/file-input import is tested; a native Save-dialog download is not claimed.",
+    "Existing modified fork retains native core; no separate exact-upstream build is shipped.",
+    "Writing, pacing and rewards await human review."
+  ]
+}

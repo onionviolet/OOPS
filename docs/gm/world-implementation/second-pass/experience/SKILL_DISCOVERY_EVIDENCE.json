@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "role": "Experience/discoverability bounded implementer",
+  "chat": "01a10998-7c21-7c02-9ffd-b288ec71f677",
+  "engine": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+  "authority": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+  "implementation": "src/skill_discovery.js",
+  "status": "native consumer/build dependency closed by Engine S3 delivery; gameplay implemented-unverified",
+  "exports": [
+    "projectDiscoveryFeature",
+    "projectNativeSkillDiscovery",
+    "projectTechniqueDiscovery",
+    "projectAcceptedWork",
+    "projectDiscoveryCatalog",
+    "projectDiscoveryPanel"
+  ],
+  "fingerprints": {
+    "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "src/models/skill.js": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8",
+    "src/components/levelable_component.js": "d4e928eafb23b8f139c0a42694aa038c7e7b0cbd756c7c76d7635e9c8b476f31",
+    "src/techniques.js": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+    "src/people_knowledge.js": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+    "src/event_feed.js": "8c93855617ae91ed9e2900d8a5c7d6c944667a5cfdb1cdcfa11a848c4d449436",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md": "69bd02bbda1646d04ad682b560c457c320e9bdeeb68a1a3d791c27b5b71e7bbf",
+    "docs/gm/world-implementation/INTERFACE.md": "0324a210418cebee872331f49a4b96e240ab3127fbb42743d2277022df2e9008",
+    "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md": "8214d799eeb08cfd3f2b522caaf1517d11a94793306d8fd168ad315cf17abf6c"
+  },
+  "checked": {
+    "source_review": "Snapshot-only; six narrow projections; known-only text whitelist; hidden null; no owner imports/getters/RNG/enrollment/persistence; threshold remains native; actual work uses known action label, not frozen result.",
+    "syntax": "node --check src/skill_discovery.js passed",
+    "import": "ESM named-export import passed, actual six exports listed; no gameplay executed",
+    "contract_feedback": "Engine S3 confirms the final actual six-export module integrated without peer source changes; no further source repair requested.",
+    "document_targets": "Contract and current checkpoint local targets/fences/whitespace checked; final receipt in CHECKPOINT.",
+    "owned_processes": "No helper, child, background process, pending shell session or uncertain source write."
+  },
+  "invariant_source_pointers": [
+    {
+      "path": "src/models/skill.js",
+      "lines": "55,153-155",
+      "claim": "Existing constructor-normalized XP threshold plus unlock governs the native name."
+    },
+    {
+      "path": "src/components/levelable_component.js",
+      "lines": "104-106",
+      "claim": "getSkillXPObject fills storage; new projection uses supplied plain snapshots instead."
+    },
+    {
+      "path": "src/techniques.js",
+      "lines": "85-96",
+      "claim": "Observation/understanding/ownership are separate from executable proficiency/body/world."
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "lines": "1-19",
+      "claim": "Player-known projection excludes hidden NPC state."
+    },
+    {
+      "path": "src/event_feed.js",
+      "lines": "69-72",
+      "claim": "Pending outcome remains private until completion receipt."
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "lines": "462-465",
+      "claim": "Pending job.label is frozen outcome; use registry action.label for accepted-work UI."
+    }
+  ],
+  "excluded": [
+    "No existing UI/native/registry/save/build edits by this lane",
+    "No private-save or source-library reads/writes",
+    "No new gameplay/unit/browser/save/failure/regression suite",
+    "No commit/publication/automation/global config"
+  ],
+  "remaining_owner_gate": {
+    "status": "native consumer/registration/build gate closed at delivered snapshot",
+    "owner": "Engine/director",
+    "work": "Later generated gameplay/browser/save/failure/keyboard/director acceptance remains deferred under PLAYTEST.",
+    "claim_limit": "Registered rebuilt code is implemented-unverified. Neither receipt hashes nor source correspondence establish playable behavior."
+  },
+  "later_acceptance": [
+    "Unknown/hint-only/known locked/known blocked/available",
+    "Literal native XP visibility thresholds",
+    "Discovery/acquisition/practice/use/mastery",
+    "Lost/restored fuel/tool/access retains knowledge",
+    "No hidden labels/counts/badges/search/tooltips/previews/return recap leak",
+    "Accepted work/recovery after travel/revisit/reload",
+    "Keyboard/tab/focus and interruption/failed publication"
+  ],
+  "coordination": "Only the named Engine received contract-freeze/repair messages under the dispatch instruction; no new chat or broader role cascade. Engine/source/Ability scopes remain disjoint.",
+  "measurement": "No runtime, token-saving, cost/pricing or UI performance measurement. Static checks are not behavioral acceptance.",
+  "integration_receipt": {
+    "owner": "Engine",
+    "delivery": "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md",
+    "interface": "docs/gm/world-implementation/INTERFACE.md (S3)",
+    "build_receipt": "docs/gm/world-implementation/engine/SKILLS_BUILD.json",
+    "source_hash": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "bundle_hash": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3",
+    "receipt_recorded_at": "2026-10-05T14:22:18.194105+00:00",
+    "receipt_sha256": "a84557008ebe5b3ecf7e87e869d3f2f54be013e892e96becb5d6b73d3fe4dcea",
+    "receipt_syntax_files": 11,
+    "receipt_sourcemap_matches": 152,
+    "receipt_build": "npm run build passed",
+    "unrun": [
+      "unit",
+      "generated gameplay scenarios",
+      "browser",
+      "save/reload/import",
+      "failure",
+      "regression",
+      "keyboard/playability",
+      "director acceptance"
+    ],
+    "checked_here": "Read actual delivery/build receipt; compared current own-source and bundle hashes with it. No source changes, new build, gameplay test or duplicate audit.",
+    "root_reported": "Actual native Practice/skill bar/Rat-step consumers, source-qualified discovery/knowledge/blockers/work/recovery and retained player observations; eleven syntax and ESM/registration/build checks; source correspondence. Coordinator received outcome."
+  }
+}

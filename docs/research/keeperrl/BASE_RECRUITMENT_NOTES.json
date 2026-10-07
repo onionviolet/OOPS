@@ -1,0 +1,448 @@
+{
+  "schema": "base-recruitment-notes/1",
+  "source_snapshot": {
+    "repository": "https://github.com/miki151/keeperrl",
+    "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+    "checkout": "/Users/weiwei/.codex/research/keeperrl/source",
+    "source_tree_read_only": true
+  },
+  "scope": "K4: construction reservations and completion into funded recruit eligibility, attraction, population/cost, acceptance, and downstream aftermath.",
+  "semantic_read_coverage": [
+    {
+      "file": "collective.cpp",
+      "ranges": [
+        "1158-1163",
+        "1196-1201",
+        "1277-1305",
+        "1328-1342",
+        "1843-1850"
+      ],
+      "coverage": "Plan admission/removal, reserved resources, completion population increase, and population size/cap."
+    },
+    {
+      "file": "construction_map.cpp",
+      "ranges": [
+        "66-116",
+        "143-158"
+      ],
+      "coverage": "Unbuilt plan/debt lifecycle, destruction reset, built furniture/storage and debt settlement."
+    },
+    {
+      "file": "task_map.cpp",
+      "ranges": [
+        "131-160"
+      ],
+      "coverage": "Removing unfinished task cancels it, returns completion cost to caller, and clears scheduling maps."
+    },
+    {
+      "file": "immigrant_info.h",
+      "ranges": [
+        "48-58",
+        "129-180"
+      ],
+      "coverage": "Requirement variants, attraction claims, resource cost, recruitment source/minimum, candidate group and persistence metadata."
+    },
+    {
+      "file": "immigrant_info.cpp",
+      "ranges": [
+        "136-164"
+      ],
+      "coverage": "Known allied source recruits unstunned matching creatures above protected minPopulation; best combat experience sorts first."
+    },
+    {
+      "file": "immigration.cpp",
+      "ranges": [
+        "46-99",
+        "115-215",
+        "218-226",
+        "423-436",
+        "447-517",
+        "652-680"
+      ],
+      "coverage": "Attraction and occupancy, all live eligibility checks, ally discovery, exponential affordability, recruit transfer/accept mutation, candidate scheduling."
+    },
+    {
+      "file": "player_control.cpp",
+      "ranges": [
+        "1802-1850",
+        "3018-3051"
+      ],
+      "coverage": "UI shows candidate requirements/cost/recruit info, and action handler dispatches accept/reject/auto state."
+    },
+    {
+      "file": "collective_config.cpp",
+      "ranges": [
+        "84-105"
+      ],
+      "coverage": "Injects one bed attraction requirement when a non-initial recruit has no matching bed requirement."
+    },
+    {
+      "file": "data_free/game_config/immigration.txt",
+      "ranges": [
+        "151-175"
+      ],
+      "coverage": "Free config example: ally recruitment gated by preserved min population and separate gold cost."
+    }
+  ],
+  "evidence_anchors": [
+    {
+      "file": "collective.cpp",
+      "symbol": "Collective::removeUnbuiltFurniture",
+      "start_line": 1158,
+      "end_line": 1163,
+      "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+      "span_sha256": "a9e83ec44e4fb6105efdb1cdee8b89930f6091282548ff9b3d4eca5cee127e21",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1158-L1163"
+    },
+    {
+      "file": "collective.cpp",
+      "symbol": "Collective::addFurniture",
+      "start_line": 1196,
+      "end_line": 1201,
+      "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+      "span_sha256": "732c42a5853cd3ff0cdd02e4feb87b4566171c71efd54a0490f74fb003d6983f",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1196-L1201"
+    },
+    {
+      "file": "collective.cpp",
+      "symbol": "Collective::recalculateFurniturePopIncrease and onConstructed",
+      "start_line": 1277,
+      "end_line": 1305,
+      "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+      "span_sha256": "5128cf74ab3faed7172bee6e8afdc079f8924c8fa0a07963f764fb6751efee2c",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1277-L1305"
+    },
+    {
+      "file": "collective.cpp",
+      "symbol": "Collective::updateConstructions",
+      "start_line": 1328,
+      "end_line": 1342,
+      "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+      "span_sha256": "315d188a5ca7940e865af538e4084dba83aba9ec5ac1edb7edf838db36ee9522",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1328-L1342"
+    },
+    {
+      "file": "collective.cpp",
+      "symbol": "Collective::getPopulationSize/getMaxPopulation",
+      "start_line": 1843,
+      "end_line": 1850,
+      "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+      "span_sha256": "a44a59440c2eeaadc53208c5f5c73b57cec513468b47b9a486f9d3f43aa826b4",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1843-L1850"
+    },
+    {
+      "file": "construction_map.cpp",
+      "symbol": "ConstructionMap plan/debt and addFurniture",
+      "start_line": 66,
+      "end_line": 116,
+      "file_sha256": "1ff74d40b242a7a711c2b96fad6478cf83285e5be824669bd4d2b1ff5b243950",
+      "span_sha256": "88132a893891731c5e1a7ca4c8ce0406d6019b0bda08858b2ec66c25f17d5dae",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L66-L116"
+    },
+    {
+      "file": "construction_map.cpp",
+      "symbol": "ConstructionMap::onConstructed",
+      "start_line": 143,
+      "end_line": 158,
+      "file_sha256": "1ff74d40b242a7a711c2b96fad6478cf83285e5be824669bd4d2b1ff5b243950",
+      "span_sha256": "7791b51e106fe541e526eb48dc07ce4040e1a19a682d729c059c54718a290b15",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L143-L158"
+    },
+    {
+      "file": "task_map.cpp",
+      "symbol": "TaskMap::removeTask",
+      "start_line": 131,
+      "end_line": 160,
+      "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+      "span_sha256": "f18a5948b18986a34cd499755abfc3d983f87b8f7615e36d6c498e2e374fd0d0",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L131-L160"
+    },
+    {
+      "file": "immigrant_info.h",
+      "symbol": "Immigrant requirement variants and recruitment metadata",
+      "start_line": 48,
+      "end_line": 58,
+      "file_sha256": "01da649150e8431111ebaeaca50adf395c6504393877a4dc0427c01b5540de3e",
+      "span_sha256": "b1e8898044a75c4e13132445b8306f42185a60f8394fb108ff5dad1e132f30d3",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L48-L58"
+    },
+    {
+      "file": "immigrant_info.h",
+      "symbol": "ImmigrantInfo requirements/candidate fields",
+      "start_line": 129,
+      "end_line": 180,
+      "file_sha256": "01da649150e8431111ebaeaca50adf395c6504393877a4dc0427c01b5540de3e",
+      "span_sha256": "1d4f24994f6e60cb5babd8c5504010e8cbde5e743556a733d2f30d6353a1c514",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L129-L180"
+    },
+    {
+      "file": "immigrant_info.cpp",
+      "symbol": "RecruitmentInfo::getAvailableRecruits/findEnemy",
+      "start_line": 136,
+      "end_line": 164,
+      "file_sha256": "322a1dd98cf8f2798934776b4bfe4329d57b38c827a0e2f24184baba4d1b0f3b",
+      "span_sha256": "5b52b19998a47f1c34a8676bcd74522ce1473466b0af4986e99dee4c2bc02d13",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.cpp#L136-L164"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Attraction occupancy/value and missing population/spawn checks",
+      "start_line": 46,
+      "end_line": 99,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "ed9a12ee8d2643429e37c482cab81bdd2617f8579f08c4c21afa4d7151ad292c",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L46-L99"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Immigration::getMissingRequirement",
+      "start_line": 115,
+      "end_line": 215,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "2e755da9ae0dd57d6c35c0217022cac432b3df2bd7c413830023e228e8f29499",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L115-L215"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Immigration::suppliesRecruits",
+      "start_line": 218,
+      "end_line": 226,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "7a3ca389dbceef358d39a9b4d09a06dd793bbb96131791bfc63768f4f7b82082",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L218-L226"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Immigration::calculateCost",
+      "start_line": 423,
+      "end_line": 436,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "6ce24d9f8b3d19588c6ec25c749c2d909615ba555872fc9c0a3d1bb2a9bb8766",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L423-L436"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Available::addAllCreatures/Immigration::accept",
+      "start_line": 447,
+      "end_line": 517,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "410195dd80ab68c32baea97b35155564d8d2d4dc30de267cb700427b9b83344b",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L447-L517"
+    },
+    {
+      "file": "immigration.cpp",
+      "symbol": "Immigration::update",
+      "start_line": 652,
+      "end_line": 680,
+      "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+      "span_sha256": "4b0529a02e80086e396281634902ccc444459ab6895c4c72ba936971ccc73bf5",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L652-L680"
+    },
+    {
+      "file": "player_control.cpp",
+      "symbol": "PlayerControl::fillImmigration",
+      "start_line": 1802,
+      "end_line": 1850,
+      "file_sha256": "ca0afd1f3d1e5efbfea194820853809cd2e3b6eb9cda4ba4f058cc4076c05310",
+      "span_sha256": "5e645c05bc43f52915ef5c88e025f5bc655673a836cf03193868b45e07fe9903",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L1802-L1850"
+    },
+    {
+      "file": "player_control.cpp",
+      "symbol": "PlayerControl immigration action dispatch",
+      "start_line": 3018,
+      "end_line": 3051,
+      "file_sha256": "ca0afd1f3d1e5efbfea194820853809cd2e3b6eb9cda4ba4f058cc4076c05310",
+      "span_sha256": "7dd9216921bfa16d1d65ab825012157bbf3625f034b366f64b613c30e9efb1fc",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L3018-L3051"
+    },
+    {
+      "file": "collective_config.cpp",
+      "symbol": "CollectiveConfig::addBedRequirementToImmigrants",
+      "start_line": 84,
+      "end_line": 105,
+      "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+      "span_sha256": "5514c3824166336f78b7fff801dc5db660ba4cde254b8a9308150bd862d11609",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L84-L105"
+    },
+    {
+      "file": "data_free/game_config/immigration.txt",
+      "symbol": "DarkRecruits configuration",
+      "start_line": 151,
+      "end_line": 175,
+      "file_sha256": "4d60aa15c12a2ae5b8065eb1c8a31e32b87b66a9a8d39b4f48955633aa8fe03a",
+      "span_sha256": "59baafa940a8ceb5d03aa7d89e8d393402aa1eb22f1172dba7c63c891e23bfb5",
+      "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/immigration.txt#L151-L175"
+    }
+  ],
+  "findings": [
+    {
+      "kind": "source_fact",
+      "claim": "Construction adds a typed unbuilt plan and debt. When buildable and funded, Collective creates a Task::construction with the plan CostInfo, takes the resource, and associates task ID with the plan. Removing an unbuilt plan cancels its task and returns that cost.",
+      "anchors": [
+        0,
+        1,
+        3,
+        5,
+        7
+      ]
+    },
+    {
+      "kind": "source_fact",
+      "claim": "Completion tracks built furniture and storage positions, claims nearby squares, and recalculates population increase using completed furniture counts, with a fenced-animal count for relevant furniture. Max population is configured capacity plus built-furniture increase plus INCREASE_POPULATION creatures; ordinary population size excludes NO_LIMIT creatures.",
+      "anchors": [
+        2,
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "kind": "source_fact",
+      "claim": "Immigrant offers are periodically weighted candidate generation; unmet requirements may reduce candidate probability, but acceptance rechecks strict eligibility. Attraction counts built furniture/items, subtracts already claimed attraction slots, and requirements scale with group size. The offer also needs population room unless NO_LIMIT and enough valid spawn positions; the population check blocks when current population is already at or above max, and this check does not test whether the full group would exceed remaining capacity.",
+      "anchors": [
+        11,
+        12,
+        16
+      ]
+    },
+    {
+      "kind": "source_fact",
+      "claim": "Eligibility supports technology, sunlight, resource balances, required built furniture, turn/pregnancy/tutorial/unlock, attraction, and ally recruitment. CostInfo checks full group cost; ExponentialCost increases based on currently extant recruits after a free allowance.",
+      "anchors": [
+        8,
+        9,
+        12,
+        14
+      ]
+    },
+    {
+      "kind": "source_fact",
+      "claim": "RecruitmentInfo filters known matching enemy collectives to unstunned matching creatures, keeping their configured minimum population. Acceptance transfers an existing recruit into the player collective; ordinary offers add their generated creatures, while a RecruitmentInfo offer falls back to its generated candidate only if no existing recruit is found at mutation time. Successful acceptance occupies required resources/attractions, tracks members, consumes or regenerates the offer, and emits a join message. UI caller exposes accept/reject/auto behavior.",
+      "anchors": [
+        10,
+        12,
+        13,
+        15,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "kind": "source_inference",
+      "claim": "Completed facilities act as both attraction stock and population ceiling inputs, while an accepted minion can reserve attraction value. This suggests a space/means/choice loop; this is a code-derived design inference, not measured balance or proof about current commercial releases.",
+      "anchors": [
+        2,
+        4,
+        11,
+        12,
+        20
+      ]
+    },
+    {
+      "kind": "failure_boundary",
+      "claim": "No construction task is assigned without funds/buildability. An unbuilt plan cancellation returns task completion cost and removes plan/debt. An immigration accept with missing requirements or too few spawn squares exits without adding a creature.",
+      "anchors": [
+        0,
+        3,
+        5,
+        7,
+        11,
+        15
+      ]
+    }
+  ],
+  "current_yair_inspection": {
+    "fingerprints": [
+      {
+        "file": "src/site_projects.js",
+        "symbol": "compileSiteProject/projectView",
+        "start_line": 1,
+        "end_line": 32,
+        "file_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+        "span_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "previewSimulationCommand eligibility/capacity",
+        "start_line": 64,
+        "end_line": 80,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "c371468d944b96813462a3f5376d743c6756491899880ed17225459c3c9495b2"
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "startCommand reservations and frozen jobs",
+        "start_line": 132,
+        "end_line": 174,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "e2bf691ea810ca0441218981ad68f4cf66075dcc47f5486770e4b3bce433e1b2"
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "completeJob/cancelSimulationJob release/refund",
+        "start_line": 184,
+        "end_line": 226,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "f83296481d8faf871d398c892d633a40609e8f7f80867cc15c3331e01fec53ce"
+      },
+      {
+        "file": "src/feature_expansion_society.js",
+        "symbol": "society resident definitions/sites/meeting/funded work",
+        "start_line": 64,
+        "end_line": 120,
+        "file_sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "span_sha256": "4d162d6e946a0f9c209091b1a509d03d7f8f1631baa528027e07c0f676bef809"
+      },
+      {
+        "file": "src/feature_expansion_nested_life.js",
+        "symbol": "finite resident jobs and owned stock",
+        "start_line": 21,
+        "end_line": 58,
+        "file_sha256": "7273a326353539a6ddf19d0eb66760f6fef1fa1394cc5c2a1b5c2f932a15aaa2",
+        "span_sha256": "f71d784f695dc26c4c7bf62ad6ea9a9e7d7fb022d28c07118141971ac8ec472d"
+      },
+      {
+        "file": "src/feature_expansion_work_plan.js",
+        "symbol": "work plan receipt/revision contract",
+        "start_line": 53,
+        "end_line": 87,
+        "file_sha256": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+        "span_sha256": "c084aca9fcf069a59fc4106908033ffb1803b68dbbfe760612c80d3d17f4d41e"
+      }
+    ],
+    "verified_support": [
+      "Site-project phases compile to current simulation commands, claims, and world facts; no separate construction scheduler.",
+      "Preview checks actor/participant availability and simultaneous site-job capacity. Timed jobs reserve site slots, freeze costs/effects, then release on completion, cancellation, or lost support; refunds follow explicit command policy.",
+      "Society currently creates an authored finite resident roster at explicit meeting, with separate accounts/inventories and two one-job-at-a-time work sites. Nested local-life jobs use actual resident stock and credits.",
+      "Work plans store IDs/revisions and accepted-job receipts, not a second job engine.",
+      "Recruitment and independent actor spawning already exist elsewhere in YAIR: a paid field commission can spawn the fieldSurveyor before its project finishes. The gap is not generic recruitment infrastructure."
+    ],
+    "actual_missing_consumer": "A site capacity currently limits simultaneous jobs only. Completing a site project writes a fact/receipt but does not add durable resident occupancy capacity for a completed facility or an explicit funded Invite/Decline consumer whose acceptance claims that occupancy. Existing YAIR actor spawning and paid commissions exist; the missing join is completed facility -> durable resident occupancy -> funded invitation choice and occupancy aftermath.",
+    "caveat": "Requested src/js paths resolve to repository-root src/*.js here. The worktree has existing dirty/untracked project changes; only the designated JSON note was written by this lane."
+  },
+  "one_original_proposal": {
+    "status": "proposal_only_not_accepted_or_implemented",
+    "name": "One funded guest-room invitation",
+    "action_and_choice": "Finish one small original guest-room project, inspect one available local helper\u2019s terms, and choose Invite or Decline. Invitation is explicit and one-time; building alone does not grant a person.",
+    "prerequisites": "Completed room; one open durable resident slot; available willing helper with an authored role; player at supported local contact. Recheck at acceptance.",
+    "proposed_cost": "Pay/reserve actual owned construction materials through current item costs. On acceptance transfer a stated fixed amount of existing player coins to the resident and one real starter kit if their role requires it. Specific numbers/items remain proposals; no duplicated funds or stock.",
+    "capacity": "One slot is granted only when the room is complete. This differs from the existing site capacity, which only limits concurrent jobs. Refusal consumes no slot. Define room closure/destruction while occupied before implementation.",
+    "aftermath": "The invited helper gets a stable independent person/actor identity, finite owned means, and one authored opt-in job/service using the current scheduler; agreement/results appear only after observed actions. Decline changes neither inventory nor helper means. Do not add passive upkeep until food/housing consequences are authored.",
+    "actual_missing_consumer": "No durable completed-room-to-resident-occupancy projection or funded Invite/Decline consumer currently joins facility completion to a capacity-claiming resident invitation. YAIR already has actor spawning and paid commissions, so this proposal adds only that missing occupancy/choice join.",
+    "save_decision": "Durable identity, occupancy and role/job state need an explicit schema migration or compatibility decision plus save/reload verification before playable delivery.",
+    "later_playable_acceptance": "Show actual material construction; slot only after completion; full/unfunded/unsupported invite unavailable; truthful accept and decline receipts; accepted resident uses actual funds/stock in useful work; room teardown has a defined rule; save/reload preserves identity/slot/balances. This lane ran no builds or playtests."
+  },
+  "root_review_correction": {
+    "kind": "EOF-bound correction after worker released reservation",
+    "changes": [
+      {
+        "file": "src/site_projects.js",
+        "previous_end": 33,
+        "actual_end": 32
+      }
+    ],
+    "source_or_runtime_mutation": false
+  }
+}

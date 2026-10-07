@@ -1,0 +1,713 @@
+{
+  "schema": 1,
+  "completion_scope": "Available third-party framework/compatibility/mod qualification, bounded semantic reading, reviewed YAIR reuse map and exact source gap. Conditional unavailable-source fallback is complete.",
+  "full_game_source_review_complete": false,
+  "required_original_gameplay_paths": [
+    {
+      "id": "GAME-1",
+      "requested_path": "NPC hostility/relationships/ownership internals",
+      "state": "unmet_original_source",
+      "reviewed_original_paths": 0,
+      "related_available_findings": [
+        "RL-01"
+      ]
+    },
+    {
+      "id": "GAME-2",
+      "requested_path": "Alternative objective completion and quest settlement",
+      "state": "unmet_original_source",
+      "reviewed_original_paths": 0,
+      "related_available_findings": [
+        "RL-02",
+        "RL-03"
+      ]
+    },
+    {
+      "id": "GAME-3",
+      "requested_path": "Vanilla trait/ability/status bodies and resulting action choices",
+      "state": "unmet_original_source",
+      "reviewed_original_paths": 0,
+      "related_available_findings": [
+        "RL-03",
+        "RL-05",
+        "RL-06",
+        "MOD-01"
+      ]
+    },
+    {
+      "id": "GAME-4",
+      "requested_path": "Environment operation propagation/material/resource effects",
+      "state": "unmet_original_source",
+      "reviewed_original_paths": 0,
+      "related_available_findings": [
+        "RL-04"
+      ]
+    },
+    {
+      "id": "GAME-5",
+      "requested_path": "Procedural objective generation, original unlock debit, retained run consequences",
+      "state": "unmet_original_source",
+      "reviewed_original_paths": 0,
+      "related_available_findings": [
+        "RL-07",
+        "MOD-02"
+      ]
+    }
+  ],
+  "original_gameplay_paths_required": 5,
+  "original_gameplay_paths_complete": 0,
+  "available_code_paths": {
+    "read": 9,
+    "reviewed": 9,
+    "integrated": 9,
+    "original_game_paths": 0
+  },
+  "source_inventory_is_not_semantic_coverage": true,
+  "qualified_source_spans": [
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+      "sha256": "34fba516101a837b4fb62f93f7dd18aabb41ef17757c5e51ad0b63a55053d6cf",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+      "ranges": [
+        "12-61",
+        "69-113",
+        "100-101"
+      ],
+      "finding_ids": [
+        "RL-01",
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Agent.cs",
+      "sha256": "1a401a76c380083336886feaf72b204ce17496315d1557e6a7c5bf1db5e445c6",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Agent.cs",
+      "ranges": [
+        "9-51",
+        "78-85"
+      ],
+      "finding_ids": [
+        "RL-01"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/InteractionModel.cs",
+      "sha256": "2e10ff0af718854a0647632dd743f4d47d2513673d0c1c20da4a919aa533d677",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/InteractionModel.cs",
+      "ranges": [
+        "141-162",
+        "164-290",
+        "252-290",
+        "308-368"
+      ],
+      "finding_ids": [
+        "RL-01",
+        "RL-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Interactions.cs",
+      "sha256": "d1d32277e26549415b072804d19e02b355a49c493d28e06ea87e3b1b9a2bbc4a",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Interactions.cs",
+      "ranges": [
+        "75-145",
+        "201-215"
+      ],
+      "finding_ids": [
+        "RL-01"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/SimpleInteractionProvider.cs",
+      "sha256": "08bbfcfe50ed91957e99fcbfd8b981634c54dde2f01992fa6fe03b850b7f1391",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/SimpleInteractionProvider.cs",
+      "ranges": [
+        "384-408"
+      ],
+      "finding_ids": [
+        "RL-01"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Door.cs",
+      "sha256": "64384252064ba0dfdcd8fa5ebe575923c78f3c7a0be80936c7a766545808ad78",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Door.cs",
+      "ranges": [
+        "8-175"
+      ],
+      "finding_ids": [
+        "RL-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions.cs",
+      "sha256": "1bc4e106b492e56daabff6d4eb764637f86e8744843e1227e4eb01b11b694412",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions.cs",
+      "ranges": [
+        "11-24",
+        "83-96"
+      ],
+      "finding_ids": [
+        "RL-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Items.cs",
+      "sha256": "a785ef25c3ad01cb7f4ab6ca21e80eaffbeacb72b0003ce2028fdcf969076720",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Items.cs",
+      "ranges": [
+        "9-46",
+        "49-75",
+        "78-283",
+        "434-500"
+      ],
+      "finding_ids": [
+        "RL-03",
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Items/InventoryChecks/DefaultInventoryChecks.cs",
+      "sha256": "fa9b32de8fd466029438756dbd3ab8a9f2041b393d8a5211313080517a503b2b",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Items/InventoryChecks/DefaultInventoryChecks.cs",
+      "ranges": [
+        "8-177"
+      ],
+      "finding_ids": [
+        "RL-03"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Items/InventoryChecks/RogueEvent.cs",
+      "sha256": "54a3c529466dd24abca37ddccd71526fde9939c20a98ec0942bdadf6d61e1057",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Items/InventoryChecks/RogueEvent.cs",
+      "ranges": [
+        "26-31",
+        "63-72"
+      ],
+      "finding_ids": [
+        "RL-03"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Computer.cs",
+      "sha256": "ca8e344e08dc35e5efd874787b192ac8f2fcf039665387a13feca5062450adfc",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Computer.cs",
+      "ranges": [
+        "9-200"
+      ],
+      "finding_ids": [
+        "RL-04"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/AirConditioner.cs",
+      "sha256": "dec2111d9cff661c1a363d533a8abec82678ca97afad9f9ebdb072fe3b0a48b0",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/AirConditioner.cs",
+      "ranges": [
+        "6-30"
+      ],
+      "finding_ids": [
+        "RL-04"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/Plugin.cs",
+      "sha256": "cd41c4e079e841a03fc0d1c025d335b4456e12eb5497e035bfadbe69d11a0f60",
+      "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/Plugin.cs",
+      "ranges": [
+        "17-26"
+      ],
+      "finding_ids": [
+        "MOD-01",
+        "MOD-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/ChaosMagic.cs",
+      "sha256": "0083a507479f26aedb0cf5ce839a111d1d88bf355087ed3a8d109a531da10775",
+      "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/ChaosMagic.cs",
+      "ranges": [
+        "24-34",
+        "58-113",
+        "130-209",
+        "145-154"
+      ],
+      "finding_ids": [
+        "MOD-01",
+        "MOD-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/WizardBigQuest.cs",
+      "sha256": "0ab90fa607ab19a8ebc6ec7ea97c59a4f030581c8db78b0574d945c6eac12d5e",
+      "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/WizardBigQuest.cs",
+      "ranges": [
+        "17-38",
+        "58-161"
+      ],
+      "finding_ids": [
+        "MOD-02"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Abilities.cs",
+      "sha256": "c4e29e281e00537a7a7bac1808f164c71e24c4e9258a80e7ce3677f91c7fd6cd",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Abilities.cs",
+      "ranges": [
+        "9-190"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/CustomAbility.cs",
+      "sha256": "0a2f17ff06fb4a4e97b74f6241a75db7602286bfe53ebce5a59b086a1a814252",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/CustomAbility.cs",
+      "ranges": [
+        "8-39"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityChargeable.cs",
+      "sha256": "5e565bc79be229f14298105da287a2b10f29ae9484f6ec40c6e73b6fca900bfc",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityChargeable.cs",
+      "ranges": [
+        "6-18"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityRechargeable.cs",
+      "sha256": "b70055d93f6d7d6f6b29f077f953ad937a4c82c118a949e1aedf2c4dd71b279d",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityRechargeable.cs",
+      "ranges": [
+        "6-14"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityTargetable.cs",
+      "sha256": "1f651caa08c3d103409f470963e44d37b0daa1756b5c25238295d5885d89e46f",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityTargetable.cs",
+      "ranges": [
+        "6-14"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Utilities/RogueExtensions.cs",
+      "sha256": "30ffd8243db9c7a113838cbf18c5801eefaeac1a5ad695134640b957f73af3c9",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Utilities/RogueExtensions.cs",
+      "ranges": [
+        "170-187"
+      ],
+      "finding_ids": [
+        "RL-05"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_TraitsStatusEffects.cs",
+      "sha256": "970c1cebc2ce02ba0918d7c81b48eaf0b1af6d246daa2c0cb2d56252629a8131",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_TraitsStatusEffects.cs",
+      "ranges": [
+        "10-42",
+        "44-103",
+        "105-164",
+        "166-205",
+        "207-299"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Traits/CustomTrait.cs",
+      "sha256": "fec64ed3af4d12f9ac371ed0e617fb89c3bda13b56d072c105b224f697de8a83",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Traits/CustomTrait.cs",
+      "ranges": [
+        "6-44"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Effects/CustomEffect.cs",
+      "sha256": "16b6056f83566426c7227f49fb0995563fd572a062151d53570c83e66343598e",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Effects/CustomEffect.cs",
+      "ranges": [
+        "6-80"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/HookController.cs",
+      "sha256": "d24c9216bcf8b919d7d5937f5a2ced614b0c7800839a19c309390fbea5d2a385",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/HookController.cs",
+      "ranges": [
+        "23-50",
+        "53-102",
+        "147-175"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Traits/CustomTraitFactory.cs",
+      "sha256": "5c4e7a19cef867d0a89a1e68c787a29a77aff478713ebbaed84e9631050fb1d3",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Traits/CustomTraitFactory.cs",
+      "ranges": [
+        "10-46"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Effects/CustomEffectFactory.cs",
+      "sha256": "ed0afe1c07ab49e1cff24d81a3d0b51fd7fc43eff1f08c35a2a78b90a64c935f",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Effects/CustomEffectFactory.cs",
+      "ranges": [
+        "10-46"
+      ],
+      "finding_ids": [
+        "RL-06"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/UnlockWrapper.cs",
+      "sha256": "b539de2b73cee003ebe94206ddd32cc11015e24ec9dad8b3e06cf6a5578bc24c",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/UnlockWrapper.cs",
+      "ranges": [
+        "45-120"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Utilities/UnlocksExtensions.cs",
+      "sha256": "c129c5d57986de4bfad45e8ae2b21bf7286645681c2589dbd3f23826f17d006f",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Utilities/UnlocksExtensions.cs",
+      "ranges": [
+        "13-32"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_CharacterCreation.cs",
+      "sha256": "e21bc8f53aec159c08b7669153fa0a8a4a9aba02854d22585912488f7aba603a",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_CharacterCreation.cs",
+      "ranges": [
+        "44-47"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_ScrollingMenu.cs",
+      "sha256": "bab6c5027e07e10cb23af6e64a6abef828a90d64e55c4c629d332d4add573587",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_ScrollingMenu.cs",
+      "ranges": [
+        "156-195"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Unlocks.cs",
+      "sha256": "9d58441942824da6070b714bbec44440d3da168347d8d6b701a53151c69483d9",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Unlocks.cs",
+      "ranges": [
+        "10-43",
+        "88-131",
+        "141-161",
+        "164-247",
+        "249-330",
+        "332-345",
+        "373-539",
+        "541-702"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlock.cs",
+      "sha256": "ee4dd05d2fd8477f0f31b08b0524cc06c3da96603136fa0ed81d9cd4afa5695d",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/BackupUnlock.cs",
+      "ranges": [
+        "8-72"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlocks.cs",
+      "sha256": "50792312b3e00abfa10d5f1865adcbcf74e1472d425607bf561d9700f06b24ca",
+      "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/BackupUnlocks.cs",
+      "ranges": [
+        "8-55"
+      ],
+      "finding_ids": [
+        "RL-07"
+      ],
+      "read": true,
+      "root_reviewed": true,
+      "integrated": true,
+      "qualification": "Only listed semantic code spans; not full repository or original-game coverage."
+    }
+  ],
+  "yair_owner_directions": {
+    "read": 5,
+    "reviewed": 5,
+    "integrated": 5,
+    "new_missing_consumers_justified": 0,
+    "notes": "YAIR_OWNER_NOTES.json",
+    "private_snapshot": {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/yair-observed/",
+      "note": "Read-only copies of cited source/document inputs as observed during the refresh. main.js had drifted since the prior audit; its citation now uses the live staged persistence boundary. Snapshot copies are chmod 0444.",
+      "manifest": "manifest.json"
+    }
+  },
+  "readers": [
+    {
+      "id": "/root/yair_owner_reader",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "output": "YAIR_OWNER_NOTES.json",
+      "status": "completed/released",
+      "parent_review": "input drift and publisher/spans corrected; frozen source/hash evidence verified"
+    },
+    {
+      "id": "/root/framework_lifecycle_reader",
+      "model": "gpt-6-luna",
+      "effort": "medium",
+      "output": "FRAMEWORK_LIFECYCLE_NOTES.json",
+      "status": "completed/released",
+      "parent_review": "range and external-method/cleanup corrections integrated; source/hash evidence verified"
+    }
+  ],
+  "unread": [
+    "Original gameplay assembly/decompile is unavailable.",
+    "Other framework/mod methods outside declared spans are unreviewed.",
+    "No procedural generation original implementation read."
+  ],
+  "unperformed": [
+    "Local decompile",
+    "Game/mod compilation or launch",
+    "YAIR runtime implementation or rebuild",
+    "Gameplay/browser/save/reload/failure/regression/director acceptance"
+  ],
+  "coordinator_yair_supplement": [
+    {
+      "file": "src/reference_gameplay_content.js",
+      "lines": "4-98",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_content.js"
+    },
+    {
+      "file": "src/reference_gameplay_host.js",
+      "lines": "12-79",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_host.js"
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "lines": "60-159",
+      "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+      "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_state.js"
+    },
+    {
+      "file": "docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md",
+      "lines": "1-9",
+      "sha256": "5793b952c1ef36c8e41979ef4802719637c44c767a5f57e5b386c72b5a51c7b6",
+      "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md"
+    }
+  ]
+}

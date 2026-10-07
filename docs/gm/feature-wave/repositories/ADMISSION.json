@@ -1,0 +1,641 @@
+{
+  "schema": 1,
+  "scope": "final actual source/native/UI/save/registry/build readback; no game action execution",
+  "buildReceipt": "docs/gm/feature-wave/features/BUILD.json",
+  "integrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "bundleFingerprint": "11aaa9cbfc69",
+  "sourceOnlyChecks": [
+    "cold actual expeditionRegistry import",
+    "all22 repository command definitions registered",
+    "actual capability source registered",
+    "cold repository host/UI imports",
+    "all28repository commands present at actual native registry",
+    "all7reserved sources match final shared map/input hashes",
+    "all current build input/output hashes match"
+  ],
+  "families": {
+    "RBA-MIRI-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/simulation_content.js",
+          "symbolOrJoin": "repositoryAbsorptionDefinitions",
+          "line": 7,
+          "sha256": "e981f5f33e82a286cc6c5e6010cdda6b7434bd18973e70dff777fb3da21dd9ee",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "c0f8ead106d753ecd5ba8a826313230fff0f6c4364c0a2a5642bcc9d983ca0e4"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbolOrJoin": "repositoryAbsorptionSources",
+          "line": 7,
+          "sha256": "e981f5f33e82a286cc6c5e6010cdda6b7434bd18973e70dff777fb3da21dd9ee",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "c0f8ead106d753ecd5ba8a826313230fff0f6c4364c0a2a5642bcc9d983ca0e4"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "symbolOrJoin": "repositoryAbsorptionFacts(state,context)",
+          "line": 35,
+          "sha256": "987b30559d5796278167185966772a2a48913651704c94114165345883582afb",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "ecda0411636d243f5c13bbb00e65da54ee6810531d13d01590c0f0774a0b1722"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "symbolOrJoin": "retainRepositoryAbsorptionWindows(next,next.clock,target)",
+          "line": 541,
+          "sha256": "28fc0a8babdcf0d412faa9632fb47659e10719ec06f4bd79c480fc1d15542e62",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "d69ca17a7533f2588ad10990942f2931938db356fed3733b44b04f91ba1eb6b7"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "symbolOrJoin": "retainRepositoryAbsorptionWindows(next,next.clock,Math.max(next.clock,boundary))",
+          "line": 542,
+          "sha256": "28fc0a8babdcf0d412faa9632fb47659e10719ec06f4bd79c480fc1d15542e62",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "d69ca17a7533f2588ad10990942f2931938db356fed3733b44b04f91ba1eb6b7"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbolOrJoin": "\"repositories\"",
+          "line": 157,
+          "sha256": "df359e84eaa43f23c37c085a9f18c4c36304124c70753c0453d8cb8fc74a8f9b",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "186c211aa3ed0a0408c3946afd413fe021cdc57ac1be2cbddeb27e8cb7440411"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbolOrJoin": "job.reservationReturns = 1",
+          "line": 157,
+          "sha256": "df359e84eaa43f23c37c085a9f18c4c36304124c70753c0453d8cb8fc74a8f9b",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "186c211aa3ed0a0408c3946afd413fe021cdc57ac1be2cbddeb27e8cb7440411"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "function actRepository(command)",
+          "line": 798,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "persistExpansion(plan);",
+          "line": 702,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "repositoryPanel=createRepositoryAbsorptionPanel",
+          "line": 7098,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "repositoryPanel?.render()",
+          "line": 508,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "symbolOrJoin": "repository_absorption_panel",
+          "line": 8,
+          "sha256": "2718d4a0ba8f094421ebb85562448218b26ce9abb6d4f687921fd50390493c97",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "c4a3ddd0459ef5cd61ffb794ada317acee98816a18c1487b31e4eb1cab7fd4a5"
+        }
+      ]
+    },
+    "RBA-MIRI-02": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/data/expedition_items.js",
+          "symbolOrJoin": "repositoryAbsorptionItemSpecifications",
+          "line": 3,
+          "sha256": "962fd90b596828fb243b1a2bb81b714433e30659c1bd78ee5770006407c18d68",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "65cfb495c24560d752c2316e81d29b55ce7cb797536f2fb35066fd760c1a0310"
+        },
+        {
+          "path": "src/data/expedition_items.js",
+          "symbolOrJoin": "new OtherItem",
+          "line": 21,
+          "sha256": "962fd90b596828fb243b1a2bb81b714433e30659c1bd78ee5770006407c18d68",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "65cfb495c24560d752c2316e81d29b55ce7cb797536f2fb35066fd760c1a0310"
+        },
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositories.seal_pair",
+          "line": 114,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7"
+        },
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositories.protected_work",
+          "line": 131,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7"
+        },
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositories.exposed_work",
+          "line": 126,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7"
+        },
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositories.draw_water",
+          "line": 152,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "prepareGameplayPublication(plan.gameplay",
+          "line": 419,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "publishNativeVitals(plan.native,character)",
+          "line": 469,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        }
+      ]
+    },
+    "RBA-WORK-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "defineRepositoryWorkItinerary",
+          "line": 6,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "commitRepositoryProjection",
+          "line": 47,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "projectionIdentity",
+          "line": 53,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "return commitRepositoryAbsorption",
+          "line": 56,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_ui.js",
+          "symbolOrJoin": "current.type==='projection'",
+          "line": 108,
+          "sha256": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "8ec10bcbd6fe65071bc7c5d6140451ac97772ec5324b1133d0762c6eefe58a06"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "command.type==='projection'?commitRepositoryProjection",
+          "line": 802,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        }
+      ]
+    },
+    "RBA-STOCK-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "defineRepositoryStockBand",
+          "line": 6,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "lower:1,upper:2,batchSize:1,maxStarts:6",
+          "line": 83,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "previewRepositoryStockBand",
+          "line": 6,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8"
+        },
+        {
+          "path": "src/repository_absorption_workplan.js",
+          "symbolOrJoin": "one-next-job-only",
+          "line": 249,
+          "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+        },
+        {
+          "path": "src/repository_absorption_workplan.js",
+          "symbolOrJoin": "stockAfterCommittedWork",
+          "line": 242,
+          "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+        },
+        {
+          "path": "src/repository_absorption_workplan.js",
+          "symbolOrJoin": "maxStartsByBand",
+          "line": 244,
+          "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+        }
+      ]
+    },
+    "RBA-POWER-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_battle.js",
+          "symbolOrJoin": "FEATURE_BATTLE_SCHEMA=3",
+          "line": 10,
+          "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43"
+        },
+        {
+          "path": "src/feature_expansion_battle.js",
+          "symbolOrJoin": "commitFeatureBattleAction",
+          "line": 221,
+          "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43"
+        },
+        {
+          "path": "src/feature_expansion_battle.js",
+          "symbolOrJoin": "featureBattleToken",
+          "line": 285,
+          "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43"
+        },
+        {
+          "path": "src/feature_expansion_battle.js",
+          "symbolOrJoin": "validateFeatureBattle",
+          "line": 88,
+          "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43"
+        },
+        {
+          "path": "src/feature_expansion_battle_host.js",
+          "symbolOrJoin": "createFeatureBattleHost",
+          "line": 8,
+          "sha256": "a9b6bf510531b1514c107990deba2e17dd61786f579e54235b73071bd2976a48",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a9b6bf510531b1514c107990deba2e17dd61786f579e54235b73071bd2976a48"
+        },
+        {
+          "path": "src/feature_expansion_battle_host.js",
+          "symbolOrJoin": "Combat",
+          "line": 6,
+          "sha256": "a9b6bf510531b1514c107990deba2e17dd61786f579e54235b73071bd2976a48",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a9b6bf510531b1514c107990deba2e17dd61786f579e54235b73071bd2976a48"
+        },
+        {
+          "path": "src/native_battle_contracts.js",
+          "symbolOrJoin": "battle?.schema===3",
+          "line": 6,
+          "sha256": "d97266df59110dc02a0d455a439cbf46a4551f5efcab92a1027cf952226d08e9",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "d97266df59110dc02a0d455a439cbf46a4551f5efcab92a1027cf952226d08e9"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "createFeatureBattleHost",
+          "line": 21,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "featureBattleHost=createFeatureBattleHost",
+          "line": 7082,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        }
+      ]
+    },
+    "RBA-BODY-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/backlog_expansion_body.js",
+          "symbolOrJoin": "stageBodyCommand",
+          "line": 215,
+          "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4"
+        },
+        {
+          "path": "src/backlog_expansion_body.js",
+          "symbolOrJoin": "validateBodyNativeInventory",
+          "line": 496,
+          "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4"
+        },
+        {
+          "path": "src/backlog_expansion_body.js",
+          "symbolOrJoin": "bodyNativeInputs",
+          "line": 90,
+          "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4"
+        },
+        {
+          "path": "src/backlog_expansion_body.js",
+          "symbolOrJoin": "bodyPhysicalProjection",
+          "line": 488,
+          "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4"
+        },
+        {
+          "path": "src/backlog_expansion_host.js",
+          "symbolOrJoin": "assertBacklogPublication",
+          "line": 113,
+          "sha256": "738a38e102ad3e30bb783e004e8dfb2856c40e3cfd587719ec7e324e50f0e8b8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "3db936f5f3967bc9a1c127a293c2145d0546967d6f1857d04736874961ec96ca"
+        },
+        {
+          "path": "src/backlog_expansion_host.js",
+          "symbolOrJoin": "validateBacklogEnvelope",
+          "line": 126,
+          "sha256": "738a38e102ad3e30bb783e004e8dfb2856c40e3cfd587719ec7e324e50f0e8b8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "3db936f5f3967bc9a1c127a293c2145d0546967d6f1857d04736874961ec96ca"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "assertBacklogPublication(expansionState,plan)",
+          "line": 397,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "expansionState.backlog?.body?expansionState.simulation?.people.player?.body:null",
+          "line": 291,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "backlogPanel=createBacklogExpansionPanel",
+          "line": 7095,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/save_files.js",
+          "symbolOrJoin": "validateBacklogEnvelope(save)",
+          "line": 37,
+          "sha256": "195323b7194e41171a9d6ef04f368747e9ae5b69ff8a981dfce13377e260bd1f",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "3254f46b12f4336e66bedd453561ae17948239aa1ecac4f72fc9e096effc8b26"
+        }
+      ]
+    },
+    "RBA-INK-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/ink_narrative.js",
+          "symbolOrJoin": "commitInkNarrativeAction",
+          "line": 254,
+          "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f"
+        },
+        {
+          "path": "src/ink_narrative.js",
+          "symbolOrJoin": "validateInkNarrative",
+          "line": 178,
+          "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f"
+        },
+        {
+          "path": "src/ink_narrative.js",
+          "symbolOrJoin": "INK_RUNTIME_VERSION",
+          "line": 10,
+          "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f"
+        },
+        {
+          "path": "src/ink_scene_content.js",
+          "symbolOrJoin": "createTidemarkInkHost",
+          "line": 72,
+          "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "695cbe5e171870d4b860668f0e2f72f897d4b571f947e5a1c34d8a3b0a0c573c"
+        },
+        {
+          "path": "src/ink_scene_content.js",
+          "symbolOrJoin": "inkObserverVariables",
+          "line": 32,
+          "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "695cbe5e171870d4b860668f0e2f72f897d4b571f947e5a1c34d8a3b0a0c573c"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "function actInk(id,token)",
+          "line": 806,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "persistExpansion(commitInkNarrativeAction",
+          "line": 808,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/main.js",
+          "symbolOrJoin": "inkPanel=createInkNarrativeUI",
+          "line": 7099,
+          "sha256": "0bed268ad1060f6a807bcf2b8d0ac7f8990beb8b41e552c3e2646573f472f9e8",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "symbolOrJoin": "validateInkNarrative",
+          "line": 2,
+          "sha256": "28fc0a8babdcf0d412faa9632fb47659e10719ec06f4bd79c480fc1d15542e62",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "d69ca17a7533f2588ad10990942f2931938db356fed3733b44b04f91ba1eb6b7"
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "symbolOrJoin": "ink_narrative_panel",
+          "line": 8,
+          "sha256": "2718d4a0ba8f094421ebb85562448218b26ce9abb6d4f687921fd50390493c97",
+          "sameAsBuiltInput": true,
+          "qualifiedPriorSha256": "c4a3ddd0459ef5cd61ffb794ada317acee98816a18c1487b31e4eb1cab7fd4a5"
+        }
+      ]
+    },
+    "RBA-SUBTLETY-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositoryAbsorptionSubstitutionCommands",
+          "line": 4,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_substitutions.js",
+          "symbolOrJoin": "repositories.deliver_substitute",
+          "line": 19,
+          "sha256": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_substitutions.js",
+          "symbolOrJoin": "completionRequires",
+          "line": 29,
+          "sha256": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_facts.js",
+          "symbolOrJoin": "repositories.miriMethodSupported",
+          "line": 19,
+          "sha256": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_ui.js",
+          "symbolOrJoin": "displayedSequence",
+          "line": 54,
+          "sha256": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_ui.js",
+          "symbolOrJoin": "displayedView",
+          "line": 54,
+          "sha256": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+          "sameAsBuiltInput": true
+        }
+      ]
+    },
+    "RBA-CHAIN-01": {
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "evidence": [
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbolOrJoin": "repositoryAbsorptionChainCommands",
+          "line": 5,
+          "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_chains.js",
+          "symbolOrJoin": "repositories.test_rough_seam",
+          "line": 21,
+          "sha256": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_chains.js",
+          "symbolOrJoin": "repositories.show_matched_method",
+          "line": 30,
+          "sha256": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_chains.js",
+          "symbolOrJoin": "repositoryMethodChainView",
+          "line": 44,
+          "sha256": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_host.js",
+          "symbolOrJoin": "methodChain:repositoryMethodChainView(state)",
+          "line": 132,
+          "sha256": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+          "sameAsBuiltInput": true
+        },
+        {
+          "path": "src/repository_absorption_ui.js",
+          "symbolOrJoin": "renderNotes(view.methodChain",
+          "line": 183,
+          "sha256": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+          "sameAsBuiltInput": true
+        }
+      ]
+    }
+  },
+  "missingStaticMarkers": [],
+  "openBuildDrift": null,
+  "gameplay": "implemented-unverified; deferred gates remain open",
+  "localSourcesMatched": 221,
+  "vendorEmbeddedSourceMapsQualified": 37,
+  "currentSourceDrift": []
+}

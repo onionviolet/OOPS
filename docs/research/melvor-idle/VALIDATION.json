@@ -1,0 +1,95 @@
+{
+  "status": "pass",
+  "counts": {
+    "json_files": 11,
+    "reader_hashes": 115,
+    "reader_ranges": 549,
+    "json_pointers": 55,
+    "root_refs": 33,
+    "packet_owner_refs": 22,
+    "markdown_links": 33,
+    "installed_selected_readonly_hashes": 8,
+    "ranked_packets": 4,
+    "findings_and_joins": 39
+  },
+  "errors": [],
+  "live_owner_drift": [],
+  "qualification": "Final JSON/link/pointer/range/source/current-owner and selected installed-input checks passed. Artifact count and source acquisition do not imply complete semantics or runtime proof.",
+  "scope": "Research artifacts only; no gameplay/runtime/build test.",
+  "children": "All3completed/released,observedlive",
+  "repairs": [
+    "Current-character local/optional PlayFab save deletion,not cloud account deletion.",
+    "Meteorite5\u201324HP,not stale50\u2013150.",
+    "Township manual wave has no building-damage/loss invocation; tick degradation separate.",
+    "Final artifact prose and exact bounds/pointers checked."
+  ],
+  "deferred": "All assigned YAIRPG gameplay/unit/browser/save/reload/import/failure/regression/keyboard/director gates remain unrun.",
+  "artifacts": [
+    {
+      "path": "CHECKPOINT.md",
+      "sha256": "551f327dd9a517c082215d2bfcb8fdb12e12474f242c3c49fbd32fc4786d0931",
+      "bytes": 4063
+    },
+    {
+      "path": "COVERAGE.json",
+      "sha256": "275de3d1f58fa96937d59cfba0539cc8265d13d0e88f93fe2373f0e1c55c26e4",
+      "bytes": 127168
+    },
+    {
+      "path": "DLC_COVERAGE.json",
+      "sha256": "fc325cdf46dad6d906f9356b4173a835ba2d82105b9af5e7d289ca9e3acd4b76",
+      "bytes": 16341
+    },
+    {
+      "path": "FINDINGS.json",
+      "sha256": "a93bd791de11afe3c3ed59c1a0cba1e879445cdc55a2a233939485b034b050fa",
+      "bytes": 176879
+    },
+    {
+      "path": "IMPLEMENTATION_PACKETS.md",
+      "sha256": "1e29109fd50c0a89287b1f7e53f771eb57cb4f52cf3a322768228ab929281146",
+      "bytes": 12413
+    },
+    {
+      "path": "INTAKE.json",
+      "sha256": "738f7add2fe23b3b2738adcf04eba2aafcf2bbafa9523b49bb7d6d4a612039ce",
+      "bytes": 2720
+    },
+    {
+      "path": "PACKETS.json",
+      "sha256": "84f6761a47cc571fb992d1165cb8948f6f0c6c665ff5fff7eeae7c51e0eac6b5",
+      "bytes": 17100
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "361adb1d357e65e6b6af5885729bb161365721f0657c768f7eeb04638c08cc7d",
+      "bytes": 16378
+    },
+    {
+      "path": "SOURCE_INDEX.json",
+      "sha256": "856b986138c07636ca4faa4f01cd839d9e1d614936e412ae6a17a2dfb017d71f",
+      "bytes": 36495
+    },
+    {
+      "path": "YAIR_OWNER_AUDIT.json",
+      "sha256": "fd3a079be9e025d72df2450a0ba54828e3d42af052aacf49f2c6d0d862fd154d",
+      "bytes": 4754
+    },
+    {
+      "path": "readers/combat.json",
+      "sha256": "0e435a0192320bd8e048a1fc52e668b16e478da117deafa9c799c72bc2a3c370",
+      "bytes": 66481
+    },
+    {
+      "path": "readers/expansions.json",
+      "sha256": "aab67a4ac661c023ba9a7984c94a635d2f68d2bd4ed5f15be634cbed2e6e2af9",
+      "bytes": 82829
+    },
+    {
+      "path": "readers/production.json",
+      "sha256": "a82564a16514c2ee3178a2a249900b2315e17cf7b79e2bb3e41e34d9cbc3c847",
+      "bytes": 122868
+    }
+  ],
+  "not_verified": "Game runtime,private save,packaged client,current bundle correspondence,full source/content/balance and every mod/DLC entitlement."
+}

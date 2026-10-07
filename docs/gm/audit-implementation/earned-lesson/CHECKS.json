@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:42:12.535988+00:00",
+  "status": "implemented-unverified",
+  "parent": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "worker": "/root/earned_lesson",
+  "inputs": {
+    "src/audited_workshop_lesson.js": "27909cfa8d2aae9e7b6f03e6d590179ec15d6cb06379ac923c6af50fb30d52cd",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/simulation.js": "c0ee920813e47c7808fd49ba12518991f8547bbe2dc8cd24760495833a9641c2",
+    "src/simulation_effects.js": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+    "PROJECT.md": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52"
+  },
+  "checks": [
+    {
+      "kind": "syntax",
+      "command": "node --check src/audited_workshop_lesson.js",
+      "result": "pass"
+    },
+    {
+      "kind": "standalone import",
+      "command": "node --input-type=module -e \"import('./src/audited_workshop_lesson.js')\"",
+      "result": "pass",
+      "exports": [
+        "AUDITED_LESSON_IDS",
+        "auditedLessonDefinitions",
+        "auditedLessonFacts",
+        "validateAuditedLesson"
+      ]
+    },
+    {
+      "kind": "registry links",
+      "command": "createSimulationRegistry current simulationDefinitions plus auditedLessonDefinitions.commands (existing IDs omitted from added list)",
+      "result": "pass",
+      "commandsAtCheck": 735,
+      "newCommands": [
+        "audit_lesson.ask",
+        "audit_lesson.choose_sleeve",
+        "audit_lesson.choose_lesson",
+        "audit_lesson.defer",
+        "audit_lesson.set_resin"
+      ],
+      "revision": 1
+    },
+    {
+      "kind": "source inspection",
+      "result": "completed",
+      "details": "Actual Eda stock transfer; paid refundable sleeve/salt/coin/effort reservation; current method/teacher/consent/body/contact guard; strict costs/effects/site/participants/receipt validation; unchanged original set_resin definition."
+    }
+  ],
+  "deferred": [
+    "gameplay",
+    "unit",
+    "browser",
+    "save/reload/import",
+    "publisher/storage failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "sharedIntegration": "Root owns content/facts/validator/UI/native dispatch/build. No worker build was run."
+}

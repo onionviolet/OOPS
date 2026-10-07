@@ -1,0 +1,118 @@
+{
+  "capturedAtUtc": "2026-10-06T19:28:02.833Z",
+  "owner": "01a10faa-2aec-7771-9c0d-c15475d394fc",
+  "sharedIntegrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "dispatcher": "01a112a0-3a0c-72c3-8976-492b2d043a4e",
+  "authority": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+  "scope": [
+    "src/artifact_collection.js",
+    "src/artifact_workshop_content.js",
+    "src/artifact_workshop_host.js",
+    "docs/gm/artifact-collection/"
+  ],
+  "retiredCurrentClaims": [
+    "former Paradise shared integrator",
+    "pending permission to coordinate"
+  ],
+  "beforeState": "docs/gm/artifact-collection/HISTORY_BEFORE_RECONCILIATION_2026_10_06.json",
+  "repairs": [
+    {
+      "id": "maker_display_identity",
+      "finding": "Mara overlapped existing road rival and family NPC labels",
+      "repair": "all current artifact display uses Vela; stable artifact_collection.mara remains unexposed/preserved"
+    },
+    {
+      "id": "ordinary_pin_utility",
+      "finding": "pin use required prism-only measured fact even after ordinary recovery",
+      "repair": "actual pin recoveries record firsthand template cut at settlement; no cancel/retroactive grant"
+    },
+    {
+      "id": "native_input_equipment",
+      "finding": "generic item/transfer executor checks simulation slots while native slots use host snapshot",
+      "repair": "artifactEquipmentReasons binds fresh native/simulation slots to host quote/commit/scene payment; unavailable native snapshot rejects; legibility controls updated"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82"
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65"
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f"
+    }
+  ],
+  "sharedApiInputs": [
+    {
+      "path": "src/simulation.js",
+      "sha256": "434e2b29214edbdaf7b1f751b7007ed1c1cf9c0ba0f24c9a5a386742214892fb"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "fc777eeb90d597dfa4715d9dac320e888b1b7389aedfc54393092daa78c907f3"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "388f816363bf4837685134069285a633bb35244c427b7985d3b244f52de75243"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "0eb36aa7fc0f08bd85295c72d9b2c78c54726b4f3823e71ced19725a6f34b7ab"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed"
+    },
+    {
+      "path": "src/feature_expansion_content.js",
+      "sha256": "9500464c5a7addb7431b323b5290adfde6bbbeade67e34214a6767d3d3aba359"
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "sha256": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "efcf412a3cdcdc9f2de63fe4e98423bd9b7f2cd9a8632c9a26165f9b71ed1005"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "50ee83a157dcdfe68586908b479de3d5deb9d0ba3ac1d070d3daf961322d9f25"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "1d9d522f2243a839f767381e4ecaf0d6a16df106abce2c61a018a318f88d56d0"
+    },
+    {
+      "path": "src/native_equipment_transaction.js",
+      "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02"
+    },
+    {
+      "path": "src/feature_expansion_ui.js",
+      "sha256": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0"
+    },
+    {
+      "path": "src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "c83b410464884c96a0d776a373d49a0755d95938062c52eaf2ed4abc95ab4aee"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "06003c64cb4c0d859899cf0ada945fd46c6f6e2b20aa0ae47ff2f29fc0861612"
+    }
+  ],
+  "broaderResearch": "not repeated",
+  "sharedWrites": "none",
+  "sourceScope": "ready/released"
+}

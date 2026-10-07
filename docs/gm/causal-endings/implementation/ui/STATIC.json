@@ -1,0 +1,130 @@
+{
+  "at": "2026-10-06T19:38:33.377164+00:00",
+  "worker": "/root/causal_ui",
+  "status": "released_source_implemented_unverified",
+  "source": {
+    "path": "src/causal_story_ui.js",
+    "sha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+    "bytes": 16722,
+    "export": "createCausalStoryUI",
+    "returns": [
+      "element",
+      "render",
+      "destroy"
+    ]
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83"
+    },
+    {
+      "path": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+      "sha256": "bf9e71a4918cdeb34394ff18fe6902f7e781133a2e1ebaf3da629a53efd95e8d"
+    },
+    {
+      "path": "docs/gm/causal-endings/INTERFACE.md",
+      "sha256": "853bc1fa355232fa96ed6c11463abbfcb79100886553cfa38960a1c27b59c4bb"
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/repository_absorption_ui.js",
+      "sha256": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366"
+    },
+    {
+      "path": "src/action_legibility_ui.js",
+      "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d"
+    }
+  ],
+  "checks": {
+    "node_check": {
+      "command": "node --check src/causal_story_ui.js",
+      "exit": 0,
+      "status": "pass"
+    },
+    "authored_whitespace": {
+      "status": "pass",
+      "offenders": []
+    },
+    "export_definition": true,
+    "storage_html_mutation_markers_absent": true,
+    "command_callback_sites": 1,
+    "exact_command_site": true,
+    "imports": [
+      {
+        "path": "src/causal_story_host.js",
+        "exists": false,
+        "symbols": [
+          "causalStoryPresentation"
+        ],
+        "declared": false,
+        "status": "unmet_root_host_not_yet_written"
+      },
+      {
+        "path": "src/causal_story_ids.js",
+        "exists": true,
+        "symbols": [
+          "CAUSAL_STORY_LIMITS"
+        ],
+        "declared": true,
+        "status": "resolved"
+      }
+    ],
+    "complete_module_import": {
+      "status": "unmet",
+      "reason": "Root host file/export is absent at this snapshot; not executed."
+    },
+    "main_consumer": {
+      "status": "unmet",
+      "reason": "Shared main integration is outside this worker reservation."
+    },
+    "local_markdown_links": {
+      "status": "pass",
+      "links": [
+        {
+          "target": "../../../../../src/causal_story_ui.js",
+          "exists": true
+        },
+        {
+          "target": "STATIC.json",
+          "exists": true
+        }
+      ]
+    }
+  },
+  "performed": [
+    "source_read_and_boundary_review",
+    "node_syntax",
+    "static_import_definition_scan",
+    "authored_whitespace",
+    "local_markdown_links"
+  ],
+  "deferred": [
+    "unit",
+    "DOM",
+    "game",
+    "browser",
+    "build",
+    "save_reload",
+    "save_import",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "mutation_scope": [
+    "src/causal_story_ui.js",
+    "docs/gm/causal-endings/implementation/ui/"
+  ],
+  "private_saves_or_library_access": false,
+  "dependencies_installed": false,
+  "playable_claim": false,
+  "writer_transfer": "Released to the Causal root; no further worker writes unless reassigned."
+}

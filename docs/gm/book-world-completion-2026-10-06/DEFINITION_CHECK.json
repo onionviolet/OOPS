@@ -1,0 +1,38 @@
+{
+  "qualification": "Definitions and static native item/source/actor locators only; no game state/journey/native constructor executed",
+  "worlds": 9,
+  "sources": 56,
+  "commands": 1153,
+  "controllers": 52,
+  "conditions": 23,
+  "encounters": 13,
+  "checkedEffects": 647,
+  "staticItemIds": [
+    "Cyorian bread parcel",
+    "Cyorian guest library pass",
+    "Cyorian research paper",
+    "Cyorian blank stone cube",
+    "Cyorian formula ink",
+    "Cyorian keyed formula lamp",
+    "Cyorian lamp oil",
+    "Survey rope",
+    "Cyorian sewer residue sample",
+    "Cyorian retrieved watch",
+    "Cyorian mild burn salve",
+    "Cyorian annotated design notebook",
+    "Rough wood log",
+    "Prepared survey kit",
+    "Linen cloth",
+    "Golmoon leaf",
+    "Goa ration parcel"
+  ],
+  "newMOL": 59,
+  "newParadise": 35,
+  "repeatableMol": [
+    "book.mol.nora_recovery",
+    "book.mol.ongoing_reading",
+    "book.mol.mastered_reading",
+    "book.mol.ongoing_research"
+  ],
+  "failedAttempt": "Direct actual native item import requires document at display.js47; no fake browser was created, so that model execution remains in deferred browser gate"
+}

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "artifacts": [
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/FEATURE_COVERAGE.json",
+      "sha256": "02320a8c983ac0b027147141abdaaa34116d2333eb3938c7bc6e79cfcbe159a3"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/FINDINGS.json",
+      "sha256": "b6eadbdc0c3987d675b9af46672535ccc203142fc66232f68f79835c0bdd23ca"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/PACKETS.md",
+      "sha256": "2360fc7e81180f33285db6a6402a9f4df61cd55106a0802b8fb3dd8b16e744fe"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/REPORT.md",
+      "sha256": "5b73183df3ebab53d6d3044f7cdf9626d8975c51037919431702f06f307f0742"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-campaign-world-time.json",
+      "sha256": "85bc4c49147c749cc7c33e6fd35fe1fdb2ef835d35513522968aff1513f782df"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-inputs.json",
+      "sha256": "04dfa7dd63e8d7bb8943c77a11f200359faae968d5307d7c6560a640d4b32ce4"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-lives-work-society.json",
+      "sha256": "961e4ed5970b2aed64c5ad4ff1fe01ff64e483a2a5b789aec9cddb2cf6f8dad8"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-prior-and-interface.json",
+      "sha256": "cfc0cfbf8b4280a92a55477b99a433d0e152373d3a8a195ae14b0f317bc6ced7"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-progression-body-combat.json",
+      "sha256": "01768f682a17f74b7a384da1638a372914e15a1b9b35083452cd140ce5703d58"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-root-boundaries.json",
+      "sha256": "9d93037a7c7a0cd025e720b1405b7c5a4e642c50de586a19c4f4cef22170da30"
+    }
+  ],
+  "peerReceipt": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-validation.json",
+  "peerReceiptSha256": "0aadaaa2d197fc06249adc5b2bbfa1e6b70cf0840f659d7e6764771aade08caa",
+  "peerCheckpointSha256": "c3783e9d95fe2d2be57c857dd2d89d0f89a6c97d78a5a93bf417ec1d60b0eb49",
+  "currentCodeInputs": "unchanged; canonical changes are own authorized reconciliation and must be qualified separately"
+}

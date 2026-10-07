@@ -1,0 +1,229 @@
+{
+  "capturedAt": "2026-10-06T06:40:38.719702+00:00",
+  "files": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    "PROJECT.md": {
+      "sha256": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52",
+      "bytes": 138312
+    },
+    "docs/gm/audit-implementation/ASSIGNMENT.md": {
+      "sha256": "272b26bd25f80825f955606d890904557cfd4a23e0b991b130b4f32d880a0240",
+      "bytes": 2518
+    },
+    "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md": {
+      "sha256": "242fc4d948be4932cfcefc3ce483c34c536fc0a43ff3dcbcb1dcbd2e4f9a8311",
+      "bytes": 3364
+    },
+    "docs/gm/audit-implementation/BASELINE.json": {
+      "sha256": "d8eb79272bec094603472777637904d3c937f27d87d78bab6f521323751fe640",
+      "bytes": 1483
+    },
+    "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js": {
+      "sha256": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+      "bytes": 20510
+    },
+    "src/audited_workshop_fixture.js": {
+      "sha256": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab",
+      "bytes": 16491
+    },
+    "src/audited_workshop_lesson.js": {
+      "sha256": "9cec6c98d99c27c226008e67b509281885bf92653988df628932d3d26ddcd288",
+      "bytes": 24325
+    },
+    "src/audited_workshop_facts.js": {
+      "sha256": "da8cb42be1f960a1bf644fb839dbd7f69d42985d1a334323123b2127a6f624f1",
+      "bytes": 897
+    },
+    "src/audited_workshop_host.js": {
+      "sha256": "6d7d66a57b417cec99bf72c76cb5f278e78c1dfa8091e602145d56f840f6508e",
+      "bytes": 2965
+    },
+    "src/audited_kit_reserve_content.js": {
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "bytes": 1646
+    },
+    "src/audited_kit_reserve_facts.js": {
+      "sha256": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+      "bytes": 2849
+    },
+    "src/audited_kit_reserve_host.js": {
+      "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+      "bytes": 6851
+    },
+    "src/feature_expansion_work_plan.js": {
+      "sha256": "fae056871d44791da2527bf00375db9bd9d8ba1748e7435439708cadca287f86",
+      "bytes": 28497
+    },
+    "src/simulation_effects.js": {
+      "sha256": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+      "bytes": 26857
+    },
+    "src/simulation.js": {
+      "sha256": "c0ee920813e47c7808fd49ba12518991f8547bbe2dc8cd24760495833a9641c2",
+      "bytes": 48178
+    },
+    "src/expedition_content.js": {
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+      "bytes": 14697
+    },
+    "src/feature_expansion_content.js": {
+      "sha256": "b43b033738558753def176c5ebb1edc63214ba3e1b13b7bda164c46c5f7ba392",
+      "bytes": 1356
+    },
+    "src/main.js": {
+      "sha256": "f46d182571403f3ca5036aae5fd98253501a985063d5fd76fbf2f09a827fccce",
+      "bytes": 380467
+    },
+    "src/expansion_engine.js": {
+      "sha256": "3f74d04869d91fdc19ce2ec0c521025e67a56a199163fdf23d6943c32497d4bc",
+      "bytes": 43369
+    },
+    "src/feature_expansion_wave_host.js": {
+      "sha256": "efcf412a3cdcdc9f2de63fe4e98423bd9b7f2cd9a8632c9a26165f9b71ed1005",
+      "bytes": 8192
+    }
+  },
+  "completedAt": "2026-10-06T06:45:11.084930+00:00",
+  "finalFiles": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    "PROJECT.md": {
+      "sha256": "5398da0e53ee5d9da99a04b51ff6ebccae701c358dc5f3169e4a402bb9a2c33c",
+      "bytes": 139829
+    },
+    "docs/gm/audit-implementation/ASSIGNMENT.md": {
+      "sha256": "272b26bd25f80825f955606d890904557cfd4a23e0b991b130b4f32d880a0240",
+      "bytes": 2518
+    },
+    "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md": {
+      "sha256": "242fc4d948be4932cfcefc3ce483c34c536fc0a43ff3dcbcb1dcbd2e4f9a8311",
+      "bytes": 3364
+    },
+    "docs/gm/audit-implementation/BASELINE.json": {
+      "sha256": "d8eb79272bec094603472777637904d3c937f27d87d78bab6f521323751fe640",
+      "bytes": 1483
+    },
+    "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js": {
+      "sha256": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+      "bytes": 20510
+    },
+    "src/audited_workshop_fixture.js": {
+      "sha256": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab",
+      "bytes": 16491
+    },
+    "src/audited_workshop_lesson.js": {
+      "sha256": "27909cfa8d2aae9e7b6f03e6d590179ec15d6cb06379ac923c6af50fb30d52cd",
+      "bytes": 24537
+    },
+    "src/audited_workshop_facts.js": {
+      "sha256": "da8cb42be1f960a1bf644fb839dbd7f69d42985d1a334323123b2127a6f624f1",
+      "bytes": 897
+    },
+    "src/audited_workshop_host.js": {
+      "sha256": "ec6afefc5cf09e96592caf1db801f6ea8933cca8319da74ee1e9bc13d637d976",
+      "bytes": 3110
+    },
+    "src/audited_kit_reserve_content.js": {
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "bytes": 1646
+    },
+    "src/audited_kit_reserve_facts.js": {
+      "sha256": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+      "bytes": 2849
+    },
+    "src/audited_kit_reserve_host.js": {
+      "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+      "bytes": 6851
+    },
+    "src/feature_expansion_work_plan.js": {
+      "sha256": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+      "bytes": 28707
+    },
+    "src/simulation_effects.js": {
+      "sha256": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+      "bytes": 26857
+    },
+    "src/simulation.js": {
+      "sha256": "c0ee920813e47c7808fd49ba12518991f8547bbe2dc8cd24760495833a9641c2",
+      "bytes": 48178
+    },
+    "src/expedition_content.js": {
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+      "bytes": 14697
+    },
+    "src/feature_expansion_content.js": {
+      "sha256": "b43b033738558753def176c5ebb1edc63214ba3e1b13b7bda164c46c5f7ba392",
+      "bytes": 1356
+    },
+    "src/main.js": {
+      "sha256": "f46d182571403f3ca5036aae5fd98253501a985063d5fd76fbf2f09a827fccce",
+      "bytes": 380467
+    },
+    "src/expansion_engine.js": {
+      "sha256": "3f74d04869d91fdc19ce2ec0c521025e67a56a199163fdf23d6943c32497d4bc",
+      "bytes": 43369
+    },
+    "src/feature_expansion_wave_host.js": {
+      "sha256": "efcf412a3cdcdc9f2de63fe4e98423bd9b7f2cd9a8632c9a26165f9b71ed1005",
+      "bytes": 8192
+    },
+    "src/reference_gameplay_content.js": {
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705
+    },
+    "src/reference_gameplay_host.js": {
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "bytes": 9008
+    },
+    "src/feature_expansion_objects.js": {
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "bytes": 27136
+    },
+    "src/feature_expansion_objects_host.js": {
+      "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+      "bytes": 12365
+    },
+    "src/feature_expansion_host.js": {
+      "sha256": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467",
+      "bytes": 5121
+    },
+    "src/simulation_contracts.js": {
+      "sha256": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+      "bytes": 31257
+    },
+    "src/original_frontier_facts.js": {
+      "sha256": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+      "bytes": 3836
+    },
+    "src/frontier_campaign.js": {
+      "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "bytes": 13006
+    },
+    "src/expansion_persistence.js": {
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "bytes": 3191
+    }
+  },
+  "changedSinceStart": [
+    "PROJECT.md",
+    "src/audited_workshop_lesson.js",
+    "src/audited_workshop_host.js",
+    "src/feature_expansion_work_plan.js"
+  ],
+  "finalOnlySupportingInputs": [
+    "src/reference_gameplay_content.js",
+    "src/reference_gameplay_host.js",
+    "src/feature_expansion_objects.js",
+    "src/feature_expansion_objects_host.js",
+    "src/feature_expansion_host.js",
+    "src/simulation_contracts.js",
+    "src/original_frontier_facts.js",
+    "src/frontier_campaign.js",
+    "src/expansion_persistence.js"
+  ]
+}

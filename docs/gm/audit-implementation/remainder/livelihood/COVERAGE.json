@@ -1,0 +1,79 @@
+{
+  "status": "ALL3 source results delivered; implemented-unverified",
+  "rows": [
+    {
+      "id": "elin:P1",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md#1-two-funded-resident-shifts",
+      "existingConsumers": [
+        "feature_expansion_society.js::orr_repair/orr_controller (actual independently funded body/source work)",
+        "simulation.js::advanceSimulationBoundary (current jobs/controllers/capacity)",
+        "world_rhythm.js::recurringWindow",
+        "field_workshop.js::field.road window kit response (actual native kit cost)"
+      ],
+      "newSource": [
+        "resident_terms",
+        "fund_shift1/2",
+        "work_shift1/2",
+        "collect_shift1/2",
+        "withdraw_shift1/2",
+        "pure local schedule adapter",
+        "decline_shift1/2 (free finite refusal)"
+      ],
+      "result": "Two once funded Orr shifts with real log/coin/attention/stamina/site/source reservations, worker-owned produced kit and separate current-stock transfer."
+    },
+    {
+      "id": "idling-to-rule-the-gods:P1",
+      "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md#1-let-lio-choose-one-funded-work-shift-or-a-contest",
+      "existingConsumers": [
+        "party_content.js::party.meet/party.rest/party.prepare (actual Lio identity/source/body/kit and recovery)",
+        "party_battle.js::partyHelperReasons (existing occupied Lio rejection)",
+        "feature_expansion_battle.js::helperReasons/previewFeatureBattleAdmission (existing actual occupation consumer)",
+        "simulation.js::simulationOccupiesActor"
+      ],
+      "newSource": [
+        "lio_terms",
+        "fund_lio",
+        "work_lio",
+        "keep_lio",
+        "lio_refuse",
+        "collect_lio",
+        "withdraw_lio",
+        "lio_controller"
+      ],
+      "result": "One current-member funded independent Lio job reserves his own kit/body/control/two stamina and real supplied two logs/two coins; completion creates two worker-owned kits and pays two real coins; existing party consumer sees actual occupation."
+    },
+    {
+      "id": "keeperrl:P2",
+      "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md#2-allocate-one-scarce-toolkit-between-two-useful-independent-jobs",
+      "existingConsumers": [
+        "feature_expansion_society.js::orr_teach/vale_shelf (existing independent acquired operation, attention, stamina, fittings and reusable kit cost)",
+        "simulation_effects.js::item/transfer/claim/refundCosts (actual ownership and exact return)",
+        "simulation.js::previewSimulationCommand/advanceSimulationBoundary (actual capacity and own controller)",
+        "feature_expansion_powers.js::feature_powers.harness_ordinary/harness_matched (actual world.workbench.wet restriction)"
+      ],
+      "newSource": [
+        "allocation_terms",
+        "fund_allocation_orr/vale",
+        "work_allocation_orr/vale",
+        "collect_allocation_orr",
+        "report_allocation_vale",
+        "withdraw_allocation_orr/vale",
+        "keep_toolkit",
+        "one shared funding/work claim and explicit local bench permission"
+      ],
+      "result": "Only one branch receives actual owned toolkit/log/two native coins (Vale additionally sap), then spends own learned operation/body/attention/slot; kit returns to that exact owner, Orr produces one conserved kit, Vale dries only the actual wet Village bench."
+    }
+  ],
+  "rootJoins": "BINDINGS.md",
+  "ownedSourceDefects": [],
+  "checks": "CHECKS.json",
+  "hashes": "HASHES.json",
+  "laterBehavioralGateGroups": [
+    "independent concurrency and own decisions",
+    "clock/rights/body/stock/capacity rejection",
+    "output/tool/wage/cancel/lost-support conservation",
+    "old/new/pending/result save/reload/import/renewal/publication-failure compatibility",
+    "visible controls/keyboard/native consumer/director acceptance"
+  ],
+  "laterGateStatus": "all deferred and unperformed"
+}

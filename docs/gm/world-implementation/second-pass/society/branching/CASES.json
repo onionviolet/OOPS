@@ -1,0 +1,774 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "role": "society-branching",
+  "status": "planning-complete-checked-awaiting-coordinator-integration",
+  "note": "Node/ending IDs are report locators, not registered commands/save fields. Endings query accumulated real state; they are not prose reward writers. All later numeric fixtures are O prototypes, not accepted balance.",
+  "cases": [
+    {
+      "id": "SB01",
+      "title": "Open Counter: remembered early choice to public/private career or handoff",
+      "timelineStyle": "Open persistent chronicle with causal milestones and explicit local entry window",
+      "scope": "Variants proposed within existing Frontier OF.ARC01-05, OF.PATH.DISPATCH/INQUIRY/STEWARD and consequence/NPC/handoff requirements, not new accepted IDs.",
+      "sourceStatus": "F0-F3 use unrepaired detached definitions; later stages are campaign-derived original worked proposals. No native delivery/acceptance.",
+      "evidence": [
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "lineStart": 50,
+          "lineEnd": 96,
+          "claim": "Held opt-in people, means, choices and fallback."
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "lineStart": 98,
+          "lineEnd": 156,
+          "claim": "Held route/stock/report/ordinary lesson and one-order checks."
+        },
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "lineStart": 105,
+          "lineEnd": 131,
+          "claim": "Actual proposed institutions/people means and private knowledge."
+        },
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "lineStart": 143,
+          "lineEnd": 181,
+          "claim": "Proposed finite demand/fit/threat/handoff arcs."
+        },
+        {
+          "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+          "lineStart": 15,
+          "lineEnd": 26,
+          "claim": "Required E02/E04/E05/E08 gaps."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "F0",
+          "label": "Optional Short Measure meeting",
+          "actors": [
+            "player",
+            "Mira",
+            "Wen"
+          ],
+          "means": "Held proposal: Mira 3 actual logs/10 coins/12 stamina; Wen 4 coins/8 stamina; separate inventories/desks. Player has actual Town access/body/bag.",
+          "knownInformation": "Player sees 3 logs and hears 3 outbound +1 reserve promised. Hidden cause/purses are not disclosed.",
+          "cost": "Asking accepts no work.",
+          "time": "12 played-minute response window, opened only by opt-in; unsupported absence frozen.",
+          "aftermath": "Actual heard offer; no faction membership or old-save reward.",
+          "consumer": "Held begin; E01/E02 opt-in/access still required."
+        },
+        {
+          "id": "F1",
+          "label": "Audit, underwrite, refuse or delay",
+          "actors": [
+            "player",
+            "Mira"
+          ],
+          "means": "Physical target stock must be guarded. Underwrite needs 1 owned unencumbered player log.",
+          "knownInformation": "Quoted fee/materials/window/cancellation, not future ending.",
+          "cost": "Audit: 1 stamina/4 min, paid 2 Mira coins. Underwrite: 1 log+2 stamina/2 min, paid 4. Refuse/defer: no wage/debt.",
+          "time": "Commit while offer open; cancellation refunds untouched reservations, no completed audit.",
+          "aftermath": "Early route, payer, contribution and specific terms survive every later branch.",
+          "consumer": "Held approach/refusal/fallback; E04 stock guard missing."
+        },
+        {
+          "id": "F2",
+          "label": "Independent dispatch and receiving",
+          "actors": [
+            "Mira",
+            "Wen"
+          ],
+          "means": "Audit/refusal/delay: Wen gets 2 logs, Mira retains 1. Underwrite: Wen gets 3, Mira retains 1. Fallback costs Mira 1 coin/1 stamina. Wen receiving costs 1 coin/1 stamina.",
+          "knownInformation": "Mira knows her action; Wen sees receipt. Player absent from handover learns nothing yet.",
+          "cost": "Each supported route leg pays actual effort. No stock duplication.",
+          "time": "Replace held 4/4/1 NPC travel with actual 240/240/40 geography or a separately supported speed; native player travel unchanged.",
+          "aftermath": "The nominal Village reserve remains with its actual holder/location; Village cannot spend it while Mira is away.",
+          "consumer": "Held delivery/controllers; E02 route repair and native binding missing."
+        },
+        {
+          "id": "F3",
+          "label": "Hear Wen and earn an ordinary procedure",
+          "actors": [
+            "player",
+            "Wen"
+          ],
+          "means": "Actual Town arrival, Wen availability, one site slot and player stamina.",
+          "knownInformation": "Attributed 2/3-log report; Mira later has a distinct firsthand return report.",
+          "cost": "Held tally practice 1 stamina/2 min. Each held check: 1 stamina/2 min for 1 employer coin/order.",
+          "time": "Occurrence, player arrival and reveal differ; accepted delivery is not gated by expired initial reply window.",
+          "aftermath": "Tally is actually practiced, not obtained from greeting. Early refusal still permits later learning; no retroactive wage.",
+          "consumer": "Held report/lesson/finite checks; E04 actual inspected stock and registration still missing."
+        },
+        {
+          "id": "F4",
+          "label": "New finite need and fit-for-use evidence",
+          "actors": [
+            "player",
+            "Mira",
+            "Iven if introduced"
+          ],
+          "means": "O readiness fixture: player has obtained 5 actual kits through legitimate paid acquisition, not this scene reward. Campaign Iven proposal: 6 coins/8 stamina/one sampling allowance. The five-kit fixture is only the full worked batch; smaller public terms can use their actual smaller stock and adequately qualified evidence.",
+          "knownInformation": "Iven discloses a suspicion; witnessed test or offered report gives only its scoped result.",
+          "cost": "O successful trial consumes 1 permissioned player kit; Iven spends 1 coin/1 stamina/3 min. Leaves 4 player kits.",
+          "time": "Recheck sample/source/site/participants at irreversible trial. Delay acquires no kits/wages.",
+          "aftermath": "Failed paid trial consumes sample without inventing sound goods. Ordinary producer/comparison can qualify an appropriate narrower use.",
+          "consumer": "OF.ARC02/03 and E04/E05; S2 inquiry is a bounded candidate, not universal material appraisal."
+        },
+        {
+          "id": "F5",
+          "label": "Agree public/private service terms or decline",
+          "actors": [
+            "player",
+            "Mira",
+            "Wen",
+            "Halden if introduced"
+          ],
+          "means": "Public: Mira has/reserves 4 real coins. Private O fixture: Halden 12 coins/2 appointments, reserves 8 within one 4-unit contract. Player has 4 real kits. Public demand is capped at4 with an explicitly agreed target2/3/4 and a stop rule; escrow matches only that target. It does not require donation or full4 for a small counter.",
+          "knownInformation": "Quantity, payer, recipients, withdrawal, exclusivity and permitted disclosure are heard; hidden motives stay private.",
+          "cost": "Accept one scoped contract or neither; already committed stock cannot be double-promised.",
+          "time": "A new offer has its own announced played window if used, not F0 deadline.",
+          "aftermath": "Signatories/rights/public-private-none scope are durable. Late friendliness rewrites no old shipment or promise.",
+          "consumer": "SOC02 terms and Bases institutional rights/enforcement binding needed."
+        },
+        {
+          "id": "F6",
+          "label": "Finite handovers up to four, or actual termination",
+          "actors": [
+            "player",
+            "chosen payer/recipient"
+          ],
+          "means": "Public: 4 player kits to Mira, 4 Mira coins to player. Private: 4 kits to Halden, 8 buyer coins to player, one appointment used. These are the full4-unit worked totals; a smaller accepted public target transfers/pays only its actual target. Completion is fulfillment of chosen terms, not always4.",
+          "knownInformation": "Recipient sees each unit; Wen learns later allocation only through actual delivery/report.",
+          "cost": "O per unit: 1 kit+1 player stamina, 2 played min; public pays1/private2 coins. Reserve next unit only; no fifth order.",
+          "time": "8 min/4 stamina for four units plus actual acquisition/travel/recovery. Live scope/contact rechecked at meaningful phases.",
+          "aftermath": "Distinct order receipts, units paid, remaining stock and obligations. Termination retains completed units/payments.",
+          "consumer": "E05 finite demand/routine, ME04 phases and one native envelope missing."
+        },
+        {
+          "id": "F7",
+          "label": "Mature review: operate, hand off or close",
+          "actors": [
+            "player",
+            "actual willing successor"
+          ],
+          "means": "O worked public path without optional earlier checks: Mira has2 coins after underwrite+4 wages,4 after audit+4 wages,5 after own correction+4 wages. Any earlier optional check debits its actual payer balance. Handoff lesson requires1 own coin/1 own stamina,1 player stamina and3min. Then a declared NPC audit uses1 own stamina/2min on one of her4 kits; kits remain4, no audit wage/stock grant. Smaller targets retain their actual unspent stock/funds. Canonical resilient service additionally needs an actual useful process/site/preparation/control output; signed4 units alone cannot fake it.",
+          "knownInformation": "Review lists actual fulfilled work/stock/rights, known evidence and current accepted role.",
+          "cost": "A successor learns one narrow real operation using its own body/tool/source; no copied player bag/stats or unpaid compulsory helper.",
+          "time": "Milestone review, no rewind. Only supported local intervals/paid-job clocks continue; unsupported absence freezes.",
+          "aftermath": "Only cumulatively eligible outcomes resolve. Trained resident creates one real matched-order result through an actual audit consumer, not a new kit or cloned learner. Native quiet livelihoods remain valid.",
+          "consumer": "OF.ARC05 and E08 actual learner/rights/operation consumer required."
+        }
+      ],
+      "edges": [
+        {
+          "from": "F0",
+          "to": "F1",
+          "choice": "Hear offer",
+          "guard": "Actual meeting and earned access",
+          "retain": "No promise from asking"
+        },
+        {
+          "from": "F1",
+          "to": "F2",
+          "choice": "Audit",
+          "guard": "Physical stock guarded; paid commitment",
+          "retain": "2-log shipment, paid2, no donation"
+        },
+        {
+          "from": "F1",
+          "to": "F2",
+          "choice": "Underwrite",
+          "guard": "Actual owned log, means and paid commitment",
+          "retain": "3-log shipment, paid4, contributed log spent"
+        },
+        {
+          "from": "F1",
+          "to": "F2",
+          "choice": "Refuse/defer",
+          "guard": "No accepted work",
+          "retain": "Distinct refusal/defer record, Mira-funded smaller shipment"
+        },
+        {
+          "from": "F1",
+          "to": "F2",
+          "choice": "No reply while occupied",
+          "guard": "No accepted work; supported12min elapsed",
+          "retain": "Silence cause, no wage/debt, funded fallback"
+        },
+        {
+          "from": "F2",
+          "to": "F3",
+          "choice": "Arrive/hear",
+          "guard": "Native travel and completed receiving",
+          "retain": "Per-observer report and old route retained"
+        },
+        {
+          "from": "F3",
+          "to": "F4",
+          "choice": "Practice and take new work",
+          "guard": "Actual procedure and legitimate kit readiness",
+          "retain": "Later training available after refusal too"
+        },
+        {
+          "from": "F4",
+          "to": "F5",
+          "choice": "Trial/comparison or decline/delay",
+          "guard": "Paid result or qualified alternative; adequate actual goods before acceptance",
+          "retain": "Witnesses, paid failure and stock loss stay"
+        },
+        {
+          "from": "F5",
+          "to": "F6",
+          "choice": "Accept public/private terms",
+          "guard": "Willing signatories, funded payer, actual goods and desk",
+          "retain": "Specific rights/disclosure/withdrawal"
+        },
+        {
+          "from": "F5",
+          "to": "END_F_CLOSED",
+          "choice": "Decline new contract",
+          "guard": "No accepted new scope",
+          "retain": "Old work and ordinary life retained"
+        },
+        {
+          "from": "F6",
+          "to": "F7",
+          "choice": "Agreed finite target fulfilled",
+          "guard": "Actual chosen target, units/output/payments/receipts",
+          "retain": "No restoration of old contribution or wages"
+        },
+        {
+          "from": "F6",
+          "to": "END_F_CLOSED",
+          "choice": "Terminate partial work",
+          "guard": "Declared terms; untouched escrow only refundable",
+          "retain": "Completed units/payment and outstanding debt facts"
+        },
+        {
+          "from": "F7",
+          "to": "END_F_PUBLIC",
+          "choice": "Stay in public service",
+          "guard": "Feasible public scope fulfilled, appropriate known evidence and willing funded partners; resilient variant has actual prepared function, small variant needs no full charter",
+          "retain": "Known public queue and real stocks"
+        },
+        {
+          "from": "F7",
+          "to": "END_F_PRIVATE",
+          "choice": "Private specialist",
+          "guard": "Private4 receipts, no conflicting unpaid accepted duty",
+          "retain": "Higher-paid finite private batch; others keep their own means"
+        },
+        {
+          "from": "F7",
+          "to": "END_F_HANDOFF",
+          "choice": "Teach and hand off",
+          "guard": "Own accepted scope settled; willing capable learner; actual paid teaching and performed funded contribution, no full4 universal gate",
+          "retain": "Actual narrow NPC function and stock cost"
+        },
+        {
+          "from": "F7",
+          "to": "END_F_CLOSED",
+          "choice": "Close/depart",
+          "guard": "Settle/cancel actual commitments and stock",
+          "retain": "Learning/closure remains; future restart needs new agreement"
+        }
+      ],
+      "endings": [
+        {
+          "id": "END_F_PUBLIC",
+          "endingKind": "local institution/career maturity",
+          "cumulativeRequirements": [
+            "feasible public scope",
+            "actual chosen units fulfilled",
+            "appropriate qualified known result",
+            "willing/funded Mira/Wen"
+          ],
+          "usefulAftermath": "Known finite public service and stock-backed ordinary craft/inquiry/travel.",
+          "returnHistory": "Each speaker retains its own initial2/3-log history; no global favor.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ],
+          "qualification": "Small and resilient subvariants follow canonical OF.END.01/.02. A full4-unit batch is this report's numerical fixture, not a universal ending gate; resilience also requires actual useful preparation/process/site/control."
+        },
+        {
+          "id": "END_F_PRIVATE",
+          "endingKind": "lawful private service/career outcome",
+          "cumulativeRequirements": [
+            "private scope",
+            "4 units",
+            "no unresolved conflicting commitment"
+          ],
+          "usefulAftermath": "Finite paid private demand; Halden holds4 kits/4 remaining coins. Native shops remain usable.",
+          "returnHistory": "Buyer knows its contract; Mira can be cordial while refusing public-stock loans.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ],
+          "qualification": "Maps OF.END.04. This does not substitute for OF.END.03's independent mature specialist feat."
+        },
+        {
+          "id": "END_F_HANDOFF",
+          "endingKind": "vocation succession",
+          "cumulativeRequirements": [
+            "own accepted scope settled",
+            "actual willing trained learner",
+            "paid teaching and performed funded operation"
+          ],
+          "usefulAftermath": "Resident performs one narrow job with its own means while player explores.",
+          "returnHistory": "Supported work only; spent stock and earlier contribution remain, no absent years/rewards.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ]
+        },
+        {
+          "id": "END_F_CLOSED",
+          "endingKind": "arc closure or departure",
+          "cumulativeRequirements": [
+            "no new promise or disclosed termination",
+            "actual stock/payment settled"
+          ],
+          "usefulAftermath": "Native gathering/work/training continue; fresh paid restart possible.",
+          "returnHistory": "Refusal, silence, paid failure and partial termination have distinct reports.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ],
+          "qualification": "Early refusal closes only its offer, not a mature-world requirement. Paid failed/terminated charter maps OF.END.05 only with the actual signed/funded attempt; actual paid departure maps OF.END.07. No ending automatically marks a world complete."
+        }
+      ],
+      "invariants": [
+        "Early refusal does not bar held later learning.",
+        "Witnesses/directed memories stay separate.",
+        "Disclosure, institution rights and body/source are independent.",
+        "Reopening uses new terms, not old reward replay.",
+        "Native opening/access/quiet work/one prestige remain."
+      ],
+      "actorBindings": {
+        "player": "existing native player",
+        "Mira": "held definition original_frontier.mira",
+        "Wen": "held definition original_frontier.wen",
+        "Iven/Halden": "campaign proposals only, require actual opt-in identity before work"
+      },
+      "worldContext": {
+        "worldId": "base.frontier",
+        "instanceId": "frontier.main",
+        "continuityId": "frontier.branch",
+        "eraId": "frontier.present",
+        "nativeLocations": [
+          "Village",
+          "Forest road",
+          "Town outskirts",
+          "Town square"
+        ]
+      }
+    },
+    {
+      "id": "SB02",
+      "title": "Family workshop: early care and disputed past to handed-off vocation",
+      "timelineStyle": "Chaptered career/history milestones without implied elapsed years",
+      "scope": "Original alternative reusing family audit; optional for present-era Frontier, required if a reviewed household/teaching-origin world selects these functions. Not automatically added to Frontier33.",
+      "sourceStatus": "All cast, kinship/rituals/history/quantities and branches are original O proposals, no new book/game canon claim.",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+          "lineStart": 29,
+          "lineEnd": 39,
+          "claim": "Reused family/workshop/succession baseline."
+        },
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 54,
+          "lineEnd": 72,
+          "claim": "Family/upbringing/chapter contracts remain proposals."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 153,
+          "lineEnd": 180,
+          "claim": "Actual custody/knowledge/directed receipt support and limits."
+        },
+        {
+          "path": "src/simulation.js",
+          "lineStart": 164,
+          "lineEnd": 172,
+          "claim": "Frozen completion is not general live consent/contact revalidation."
+        }
+      ],
+      "nodes": [
+        {
+          "id": "H0",
+          "label": "Original family-school prologue",
+          "actors": [
+            "player",
+            "Ena",
+            "Soren",
+            "Hale",
+            "Pera"
+          ],
+          "means": "O Ena:1 unique unborrowed repair tool,6 real logs,6 coins,8 stamina,1 bench right and declared actual packing competence/body. O adult Soren/Hale/Pera:4/2/3 coins and8 stamina each.",
+          "knownInformation": "Chosen introduction only: Soren biological child, Hale adopted child, Pera unrelated apprentice. Actual/claimed ancestry and private aims differ.",
+          "cost": "Meeting accepts no care/succession duty.",
+          "time": "Career chapters are milestones, not free elapsed years. Childhood mode is optional later origin work.",
+          "aftermath": "Known people/terms; surname/spawn timestamp grants no age/source.",
+          "consumer": "SOC11 family/known-graph initialization missing; optional for present-era Frontier."
+        },
+        {
+          "id": "H1",
+          "label": "Early care, learning, mediation or refusal",
+          "actors": [
+            "player",
+            "Ena",
+            "chosen willing learner"
+          ],
+          "means": "Ena can fund at most2 lessons on one actual occupied bench/tool. Care/repair uses the same occupancy, not a parallel free slot.",
+          "knownInformation": "Known offers and independent replies; no private preference tooltip.",
+          "cost": "O lesson: Ena1log+1coin+2stamina, learner2stamina,4min; makes1 actual kit held by Ena and a real practiced procedure. Player gift if chosen transfers only its actual scope.",
+          "time": "Choose while available. Delay can lose appointment to independently funded lesson; unsupported absence frozen.",
+          "aftermath": "Real practiced/kept contribution or refusal is caused state, not skill by blood or affection purchase. Keeping the agreed care appointment can prompt Ena's private archive introduction; refusal still permits a paid Pera inspection, not forfeiture of all learning.",
+          "consumer": "Paid source/tool/participant teaching/care consumers still needed."
+        },
+        {
+          "id": "H2",
+          "label": "Disputed archive and disclosure",
+          "actors": [
+            "player",
+            "Pera",
+            "Rell if actually met"
+          ],
+          "means": "O allegation of ancestor diverted fund; a dated counter-receipt Pera may disclose. Records create no present estate money.",
+          "knownInformation": "Pera knows counter-evidence; Rell initially heard allegation; player learns only inspected/reported evidence.",
+          "cost": "O inspection: player1coin to Pera, each1 stamina,3min. Access/disclosure separately agreed; appointment/contact and actual means required.",
+          "time": "Past occurrence and present reveal differ; unknown dates stay partial order.",
+          "aftermath": "Preserve assertion/authenticity limits/current belief and recipients. No inherited guilt or universal acquittal.",
+          "consumer": "SOC01 durable conflicting evidence/disclosure and issuer context missing."
+        },
+        {
+          "id": "H3",
+          "label": "Developed work and independent learner decision",
+          "actors": [
+            "Ena",
+            "Soren",
+            "Hale",
+            "Pera",
+            "player if present"
+          ],
+          "means": "Second lesson at most: Ena1log/1coin/2stamina, learner2stamina/4min. Two lessons leave Ena4logs/4coins/4stamina/2kits.",
+          "knownInformation": "Only participants saw method; others need actual report/demo. Soren may leave trade, Hale may steward, Pera may develop learned refinement.",
+          "cost": "A replacement or additional trial pays actual inputs; missed lesson is not retroactively completed.",
+          "time": "Labels earlier/developed reflect causes, not free decades of mastery; unresolved jobs do not cross an undeclared jump.",
+          "aftermath": "Actual competence/willingness/occupied shifts decide later possibility.",
+          "consumer": "NPC ability/work procedure and ME04 live participant support required."
+        },
+        {
+          "id": "H4",
+          "label": "Institution response and voluntary retirement terms",
+          "actors": [
+            "Ena",
+            "willing eligible recipients",
+            "Rell"
+          ],
+          "means": "Ena grants only actual tool/bench rights; Rell decides declared local recognition, not Ena's property or private relationships.",
+          "knownInformation": "Received evidence/skill/terms only; an allegation alone is not author-truth.",
+          "cost": "Accept/refuse a specific right/bequest/attribution/role; no automatic heir-debt formula.",
+          "time": "Announced milestone after obligations settled; neither death nor automatic family aging.",
+          "aftermath": "Known evidence and actual competence/terms qualify outcomes; last nice line erases nothing.",
+          "consumer": "SOC02/13, Bases issuer/site permission and recognition missing."
+        },
+        {
+          "id": "H5",
+          "label": "Actual handoff or narrow settlement",
+          "actors": [
+            "Ena",
+            "actual tool holder/steward/teacher"
+          ],
+          "means": "One unique tool transfers once, loans resolved; one bench-use right changes without duplicate land/site; method stays with legitimately trained learners and living Ena.",
+          "knownInformation": "Each person hears its accepted role; public notice is actual chosen disclosure.",
+          "cost": "Ceremony grants no stock/power; remaining teaching/repair pays actual costs.",
+          "time": "Recheck holder/body/source/consent/availability at irreversible phases. Old acceptance renews no personal permission.",
+          "aftermath": "Property, vocation, method lineage, kinship and private relationship close separately.",
+          "consumer": "Engine custody/receipt, rights and taught function adapters required; no schema selected."
+        },
+        {
+          "id": "H6",
+          "label": "Later career chapter and return",
+          "actors": [
+            "current household/learners",
+            "player"
+          ],
+          "means": "Only actual remaining stock/rights/tools and funded plans. Optional adult reciprocal invitation is separate with current eligibility, choice, shared time/meal if selected.",
+          "knownInformation": "Speaker-specific known lessons, archive disclosures, role changes and actual recent events.",
+          "cost": "New work/meeting costs actual means; romance grants no estate/office/source and gates no ending.",
+          "time": "Freeze default. Actual life-stage/year/body projection needs separate Origins/Timelines adapter.",
+          "aftermath": "Living retired Ena, independent learners and school differences remain playable.",
+          "consumer": "Local observer context/native choices; optional adult/body or chapter-time adapters only where chosen."
+        }
+      ],
+      "edges": [
+        {
+          "from": "H0",
+          "to": "H1",
+          "choice": "Clarify offer",
+          "guard": "Actual contact/language",
+          "retain": "Known kin versus private/claimed history"
+        },
+        {
+          "from": "H1",
+          "to": "H2",
+          "choice": "Learn or keep care appointment",
+          "guard": "Actual agreed learner/source/tool/stock/bench",
+          "retain": "Real practiced/kept contribution"
+        },
+        {
+          "from": "H1",
+          "to": "H2",
+          "choice": "Refuse/delay",
+          "guard": "No accepted duty or real cancellation",
+          "retain": "Distinct missed/declined appointment; kinship remains"
+        },
+        {
+          "from": "H2",
+          "to": "H3",
+          "choice": "Investigate/disclose",
+          "guard": "Pera agrees access; paid inspection; actual recipients",
+          "retain": "Different knowledge for player/Pera/Rell/Ena"
+        },
+        {
+          "from": "H2",
+          "to": "H3",
+          "choice": "Withhold/abstain",
+          "guard": "No invented verdict/rights",
+          "retain": "Rell still has allegation; private evidence retained"
+        },
+        {
+          "from": "H3",
+          "to": "H4",
+          "choice": "Demonstrate or seek second lesson",
+          "guard": "Actual funded work and learned method",
+          "retain": "Competence and independent goals"
+        },
+        {
+          "from": "H3",
+          "to": "END_H_NARROW",
+          "choice": "Choose other trade/decline succession",
+          "guard": "Settle own accepted work",
+          "retain": "Kinship/learning retained"
+        },
+        {
+          "from": "H4",
+          "to": "H5",
+          "choice": "Agree separate roles",
+          "guard": "Actual issuer and willing eligible recipient",
+          "retain": "Specific tool/right/teaching terms"
+        },
+        {
+          "from": "H4",
+          "to": "END_H_NARROW",
+          "choice": "No successor/decline terms",
+          "guard": "No unfulfilled transfer",
+          "retain": "Ena retains untransferred rights/tool"
+        },
+        {
+          "from": "H5",
+          "to": "END_H_HOUSE",
+          "choice": "Family workshop",
+          "guard": "Competent willing steward, valid rights and fulfilled agreements",
+          "retain": "Adoptive/biological ties; no method by birth"
+        },
+        {
+          "from": "H5",
+          "to": "END_H_SCHOOL",
+          "choice": "Recognized teaching service",
+          "guard": "Trained teacher, scoped evidence/disclosure and bench rights",
+          "retain": "Actual attributed tradition/public witnesses"
+        },
+        {
+          "from": "H5",
+          "to": "END_H_BRANCH",
+          "choice": "Independent refined vocation",
+          "guard": "Actual refined method, own means, settled commitments",
+          "retain": "A legitimate branch without forced betrayal"
+        },
+        {
+          "from": "H5",
+          "to": "END_H_NARROW",
+          "choice": "Tool-only bequest/limited closure",
+          "guard": "Actual narrow transfer or retained ownership",
+          "retain": "No broad role by ceremony"
+        },
+        {
+          "from": "END_H_HOUSE",
+          "to": "H6",
+          "choice": "Return/ordinary work",
+          "guard": "Actual contact and supported intervals",
+          "retain": "All prior caused state and private beliefs"
+        },
+        {
+          "from": "END_H_SCHOOL",
+          "to": "H6",
+          "choice": "Return/ordinary work",
+          "guard": "Actual contact and supported intervals",
+          "retain": "All prior caused state and private beliefs"
+        },
+        {
+          "from": "END_H_BRANCH",
+          "to": "H6",
+          "choice": "Return/ordinary work",
+          "guard": "Actual contact and supported intervals",
+          "retain": "All prior caused state and private beliefs"
+        },
+        {
+          "from": "END_H_NARROW",
+          "to": "H6",
+          "choice": "Return/ordinary work",
+          "guard": "Actual contact and supported intervals",
+          "retain": "All prior caused state and private beliefs"
+        }
+      ],
+      "endings": [
+        {
+          "id": "END_H_HOUSE",
+          "endingKind": "household vocation continuity",
+          "cumulativeRequirements": [
+            "competence",
+            "willing stewardship",
+            "valid right and tool disposition"
+          ],
+          "usefulAftermath": "Usable workshop/care/trade; Soren can leave while Hale stewards without inheriting physiological ancestry.",
+          "returnHistory": "Ena lives/retired; known help and uncorrected third-party beliefs remain.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ]
+        },
+        {
+          "id": "END_H_SCHOOL",
+          "endingKind": "institution/teaching-lineage outcome",
+          "cumulativeRequirements": [
+            "trained teacher",
+            "local recognized terms",
+            "bench right",
+            "required disclosure received"
+          ],
+          "usefulAftermath": "Funded bounded teaching with method attribution; Pera need not become biological kin or own unrelated property.",
+          "returnHistory": "Uninformed parties remain uncertain; private bonds/native work stay independent.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ]
+        },
+        {
+          "id": "END_H_BRANCH",
+          "endingKind": "independent career maturity",
+          "cumulativeRequirements": [
+            "genuine refinement and own means",
+            "settled duties",
+            "independent learner choice"
+          ],
+          "usefulAftermath": "A functional separate vocation retains legitimate stronger source/method advantages.",
+          "returnHistory": "Respect and disagreement coexist; original family/school keep actual stock/history.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ]
+        },
+        {
+          "id": "END_H_NARROW",
+          "endingKind": "limited succession/deferred closure",
+          "cumulativeRequirements": [
+            "no broad duty or completed narrow transfer"
+          ],
+          "usefulAftermath": "Quiet trade/care/friendship; later paid review possible without replaying offers/backpay.",
+          "returnHistory": "Tool-only recipient gains no mastery/office; refusal, failed test and narrow fulfillment differ.",
+          "doesNotRequire": [
+            "death",
+            "world destruction",
+            "prestige/reset",
+            "extraction"
+          ]
+        }
+      ],
+      "invariants": [
+        "Kinship, household, method lineage, property and private feelings differ.",
+        "One tool/bench never duplicated; stock/means do not refill.",
+        "Current reciprocal adult invitation optional and separate.",
+        "A private refinement can function before public credit.",
+        "No new death/birth/reset/browser-closed loss or automatic ancestry guilt."
+      ],
+      "actorBindings": {
+        "Ena/Soren/Hale/Pera/Rell": "Original report cast/roles, not instantiated IDs. Bind actual people once if selected; distinguish from any same-named source-world counterpart."
+      }
+    }
+  ],
+  "frontierEndingReconciliation": {
+    "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+    "ledger": "docs/worlds/original-frontier/COMPLETION_LEDGER.json",
+    "requiredParentCount": 33,
+    "requiredStrandStepCount": 15,
+    "requiredEndingCaseCount": 7,
+    "status": "Current revision2 planning owner/ledger read; not runtime proof. Society cases are worked variants under these existing IDs, not a replacement four-ending checklist.",
+    "mapping": [
+      {
+        "canonicalId": "OF.END.01",
+        "case": "SB01",
+        "reportOutcome": "END_F_PUBLIC small",
+        "requirement": "Adequate revised/qualified order and consenting owners; no donation or full charter."
+      },
+      {
+        "canonicalId": "OF.END.02",
+        "case": "SB01",
+        "reportOutcome": "END_F_PUBLIC resilient",
+        "requirement": "Actual tested preparation/substitute resources/paid worker or supported control and feasible signed terms; simple batch count insufficient."
+      },
+      {
+        "canonicalId": "OF.END.03",
+        "case": "Frontier selected inquiry/craft/control/mastery strand plus SB01 F7 context",
+        "reportOutcome": "Independent specialist, outside this numeric private-contract example",
+        "requirement": "Actual mature feat/output and resolved/declined institution role; private-sale wages do not satisfy it."
+      },
+      {
+        "canonicalId": "OF.END.04",
+        "case": "SB01",
+        "reportOutcome": "END_F_PRIVATE",
+        "requirement": "Real lawful agreement, goods/payments and scoped consent; no universal villain penalty."
+      },
+      {
+        "canonicalId": "OF.END.05",
+        "case": "SB01",
+        "reportOutcome": "END_F_CLOSED paid failed/terminated charter variant",
+        "requirement": "Actual funded/signed attempt and disclosed closure, not a clean first refusal."
+      },
+      {
+        "canonicalId": "OF.END.06",
+        "case": "SB01",
+        "reportOutcome": "END_F_HANDOFF",
+        "requirement": "Actual narrow learned operation, own means, current agreement and performed independent contribution."
+      },
+      {
+        "canonicalId": "OF.END.07",
+        "case": "SB01",
+        "reportOutcome": "END_F_CLOSED departure variant",
+        "requirement": "Actual exit/travel and settled/declined/terminated local duties; retained home/history."
+      }
+    ]
+  },
+  "verificationLimit": "Static document/graph/prototype conservation only; no case registered or executed. Current original source library and private saves untouched.",
+  "documentCheckReceipt": "CHECKPOINT.md final static receipt; no runtime/gameplay acceptance."
+}

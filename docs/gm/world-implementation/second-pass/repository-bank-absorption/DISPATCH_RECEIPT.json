@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-05",
+  "assigning_thread_id": "01a10ca4-204a-7370-8473-6ae95f747125",
+  "thread_id": "01a10cd6-3c4a-7502-95a8-b100a5d78efd",
+  "host_id": "local",
+  "project_id": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "requested_title": "Repository GM: cross-game absorption review",
+  "creation_state": "created",
+  "observed_review_state": "inProgress",
+  "cursor": "ed036732-19e3-4b87-8d3a-0a1af54648aa:1",
+  "latest_commentary": "I’ll verify the saved assignment and source bank, then trace useful mechanisms into YAIR’s current systems and finish the review in the assigned report directory.",
+  "source_bank": "docs/research/repository-bank/SOURCES.json",
+  "assignment": "docs/gm/world-implementation/second-pass/repository-bank-absorption/ASSIGNMENT.md",
+  "collection": {
+    "repositories": 30,
+    "pinned_partial_mirrors": 30,
+    "readable_seed_files": 84,
+    "reference_works": 9,
+    "failures": 0
+  },
+  "meaning": "Collection and dispatch verified. Semantic review and absorption packets remain the active GM's assigned work.",
+  "ownership": "Assigning chat owns receipt/assignment/input/collection evidence. GM owns its named review report files; current project coordinator and Engine retain canonical/runtime owners."
+}

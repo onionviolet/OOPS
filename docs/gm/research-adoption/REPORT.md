@@ -1,0 +1,90 @@
+# Research returns and world adoption audit
+
+Snapshot: 2026-10-04, 19:21 America/New_York. Prepared for Weibao's question about what each GM chat returned and how to absorb it into particular worlds. Research/adoption proposal only. This report is a dated audit, not a replacement for PROJECT, the engine checkpoint, the run queue or any book's coverage owner.
+
+Base: `codex/gameplay-foundations`, HEAD `97c28efece4fd6248b6f075ad0c6927c3d0432df`, extensive existing dirty work. This audit writes only this report. No runtime, source library, private save, active GM assignment, global owner, commit or publication is changed.
+
+## Conclusion
+
+The chats produced three useful kinds of return: local campaign designs, source-grounded dossiers, and executable shared modules. Absorption means translating a selected part of those returns into actual local people, power acquisition, resources, institutions, situations and persistent consequences. A coherent research index is an input to gameplay; it does not register a playable world.
+
+The current Glasshouse provides a bounded integration of world instances, passage, same-body travel, cargo, scenes, observation and local activity clocks. It is original prototype content. The five named franchise campaigns remain design packs. Seven supplied book/volume dossiers report completed reading/review/integration; five established source goals continue, with COI newly at intake/reader qualification. Counts can advance after this snapshot. Completed means the assigned supplied snapshot, not the complete publication or all possible lore details.
+
+## What the design and engineering chats tangibly returned
+
+Latest relevant turns were read for the eight specialist/integrator chats below. The earlier design return is traced through PROJECT and actual local files. Successor chats are counted under their final dossier owner, rather than as independent new worlds.
+
+| Chat title | Actual return inspected | How a world GM can use it |
+|---|---|---|
+| World expansion GM: five campaign dossiers | Five [eight-file world packs](../README.md), each with eight contexts, seven progression paths, three careers and five arcs; [world-depth cases](../WORLD_IMPLEMENTATION_DEPTH.md); later [world_instances/content modules](../trailblaze/world-instances/REPORT.md) | Choose a region, local career and situation; use the instance/fact/site/claim mappings to retain that region's history |
+| Granularity GM: modules, tiers and builds | Five MODULE_CATALOGUE files covering 53 families, 15 worked loadouts and five assemblies; [three progression cases/nine milestones](../../research/novels/specialists/granularity/PROGRESSION_REVIEW.md) | Turn a local career into acquisition, practice, improved function and useful production rather than only larger stats |
+| Lore GM: canon, parallel histories and… | Five SOURCE_LEDGER files and [continuity owner](../../worlds/LORE_AND_CONTINUITY.md); [three return cases/14 requirements](../WORLD_IMPLEMENTATION_CONTINUITY.md) | Pin edition/era, actors' actual knowledge, cause and aftermath; keep a modified game branch distinct from the source timeline |
+| Ability GM: variants and conceptual… | Five ABILITY_VARIANTS files, conceptual cases/packet, [ability cases](../../research/novels/specialists/ability/ABILITY_CASES.md) and [party descriptors](../../research/novels/specialists/ability/PARTY_ABILITIES.md) | Declare what an acquired source can actually do, body/fuel/control requirements, copying route, interruption and functional mastery |
+| Dialogue GM: reactions, choices and… | Five INTERACTIONS files/25 provisional scene families; [Glasshouse scene module, brief and integration receipts](../trailblaze/dialogue/REPORT.md) | Write reactions from the settled situation, known evidence, consent, actual costs and remembered earlier actions; adapted voices need relevant original scenes |
+| Conceptual power GM: observers, history… | [realm_connections and realm_boundary_rules](../observation-power/trailblaze/REPORT.md), plus source-bounded observation/history design | Distinguish seeing, sensing, identifying, contacting and physically entering; declare genuine local exceptions and supported conceptual functions |
+| Traveler GM: bodies, projections and… | [realm_traveler_profiles](../trailblaze/traveler-profiles/REPORT.md), four modes and source review; actual same-body bridge integrated | Freeze actual body, memory, sources, stock and return conditions; other-body/projection modes still need native execution adapters |
+| Engine GM: storage, subtle systems and… | [current native delivery](../../ENGINE_EXPANSION.md), registered Glasshouse host/UI/save path, and [cargo/observer/clock specialist returns](../dispatch/ENGINE_SPECIALISTS.md) | Integrate the selected world commands with existing inventory, native location, scheduler and durable publication owners |
+
+The master/design coordination chat routes these owners and prepared the [next original Glasshouse project](../dispatch/NEXT_GLASSHOUSE_CAMPAIGN.md). At the live readback, the engine's latest turn was interrupted after starting that project; no completed follow-on implementation was established by this audit. The preceding delivered Glasshouse remains built-unverified. Earlier party/chest proofs retain their exact historical scope.
+
+## The five franchise worlds already have specific regional designs
+
+These are existing original fan-continuity proposals inside bounded reference settings, not newly selected implementations or canonical events. Each folder has WORLD_BRIEF, CAMPAIGN, MODULE_CATALOGUE, SOURCE_LEDGER, ABILITY_VARIANTS, INTERACTIONS, GM_PROMPT and IMPLEMENTATION_PACKET.
+
+| World | Local identity present in the returned pack | Existing prepared first situation | Critical absorption work |
+|---|---|---|---|
+| [Skyrim](../../worlds/skyrim/WORLD_BRIEF.md) | Work, learned spells, enchanted equipment, teaching and freight | Lower Road supply work: ordinary preparation, destruction of an owned enchanted ring for study, or a paid escort | Real local magical acquisition/enchanting and spell support; preserve the ring sacrifice and the teacher's known history |
+| [Fallout 4](../../worlds/fallout/WORLD_BRIEF.md) | Salvage, repair, diagnostics, powered assemblies, service rights and ordinary livelihoods | Water Line intake repair and disputed valve access, with negotiated reservation or diagnosed bypass | Bind parts/tools/charge and actual exposure where selected; keep measured water evidence separate from physical lifting and local ownership |
+| [Elden Ring](../../worlds/elden-ring/WORLD_BRIEF.md) | Arms/spells, preparation, recovery, craft, witnesses and contested authority | Recover the ferry urn through physical support or paid transfer, then settle a witnessed claim | Bind eligible body/source/recovery and combat functions; force or possession alone cannot create the selected legitimate claim |
+| [Naruto](../../worlds/naruto/WORLD_BRIEF.md) | Chakra/control, learned techniques, tools, puppet craft and independent teams | Repair and deliver a clinic carrier through ordinary fitting, supported control or a paid handler | Actual source acquisition, control practice and operative body/fuel; observing a method does not grant its bloodline or operator |
+| [Bleach](../../worlds/bleach/WORLD_BRIEF.md) | Personal spiritual sources, taught arts, compatible contact and institutions | Deliver a shelter manifest through ordinary repair/detour or qualified spiritual survey | Distinct perception/contact/body support and personal releases; another person's report is attributed evidence, not acquired sight |
+
+Their starter situations deliberately exercise reusable work/delivery contracts. Campaign depth needs the local acquisition economy, institutions, hazards and long careers already described in the packs. Five renamed craft menus would not satisfy that depth.
+
+The October 3 packets contain older missing-engine statements. October 4 supplies a bounded real Glasshouse host. Before dispatching any named world, reconcile each dependency against current source: independent native location/quest/shop/calendar ownership, local committed-job clocks, alternate bodies/companions, approved loans and broader effect ordering remain material gaps. Do not repeat a completed foundation module or assume the pocket host already implements an entire native campaign.
+
+## What each book/source lane can contribute to its own world
+
+All proposed play below is an adoption example, not a selected adaptation, canonical outcome or claim of runtime support. Use only parent-reviewed ranges. The supplied-text locators and corrections in each linked owner remain the evidence boundary.
+
+| Source lane and observed state | Tangible return | World-specific adoption example |
+|---|---|---|
+| [Reincarnation Paradise](../../research/novels/trailblaze-reading/paradise-depth/CHECKPOINT.md), active reconciliation, qualified MTL | Coverage/receipts, people/institutions, power/event indexes, causal timeline, full synthesis and authoring boundaries | A lived contractor network with finite repair, preparation, mission terms, local faction access and return settlement. Keep the original Exchange and the Paradise institution distinct |
+| [I Am the Fated Villain](../../research/novels/full-book/fated-villain/SYNTHESIS.md), supplied snapshot complete, qualified MTL | People/powers/world/timeline, corrections and original authoring cards | Patronage, private intervention and witnessed public consequences; artifact remelting changes actual custody/source availability. Do not flatten System, Fortune, cultivation and borrowed authority into one currency |
+| [Reverend Insanity](../../research/novels/full-book/reverend-insanity/SYNTHESIS.md), partial reviewed dossier | Power/people/institution/timeline/revision indexes and staged claims | A living Gu portfolio: acquisition, food, refinement, activation fuel, recipe access, terrain and caravan trade. A sustainable useful combination is progression, separately from rank |
+| [Shadow Slave](../../research/novels/full-book/shadow-slave/AUTHORING.md), source reader-complete, parent review partial | Power/scene/people/world indexes, timelines, source gaps and original cards | Survival/refuge development, acquired faculties and actual tools, investigation of channels and boundaries. Service revocation, loss of a faculty and lack of usable control need distinct consequences; historical emergence remains source-bounded |
+| [A Regressor's Tale of Cultivation](../../research/novels/full-book/regressors-tale/SYNTHESIS.md), supplied snapshot complete | People/powers/power scale/world/timeline/regression/revelation indexes | Build a local lineage/community through work, teaching and acquired methods; prior-life forecasts depend on present causes. Regression, dreams, body loans, historical overlays and return are separate authored operations |
+| [Omniscient Reader](../../research/novels/full-book/omniscient-reader/SYNTHESIS.md), supplied edition complete | Seven linked indexes, causal revisions and five consolidated proposals | A local scenario with distinct rules, earned exceptions, independent companions and coordinated actions against unequal threats; public participation and private knowledge persist separately |
+| [Labyrinth of the Mad God 1](../../research/novels/full-book/labyrinth-mad-god-1/SYNTHESIS.md), supplied volume complete | Five thematic dossiers, fine power index/chapter ledger and four interaction cards | A changing survival region with source-supported practice, shelter, real food/materials, independent nonhuman actors and altered return routes |
+| [Labyrinth of the Mad God 2](../../research/novels/full-book/labyrinth-mad-god-2/AUTHORING.md), supplied volume complete | People/powers/world/timeline/mysteries, detailed effect vectors and five proposals | Extend the same authored Labyrinth history with evacuation, finite dispatch groups, control/compatibility research and research-versus-rescue allocation. Preserve the supplied ending boundary |
+| [Mother of Learning](../../research/novels/full-book/mother-of-learning/SYNTHESIS.md), supplied edition complete | People/powers/world/timeline/revelation dossier and chapter/source receipts | Local magical training with measured control, formula/alchemy/material work and targeted research; an eventual loop needs explicit restart/subjective/outside history and retention. Start with ordinary research without presuming a working rewind |
+| [Lord of the Mysteries](../../research/novels/full-book/lord-of-mysteries/DESIGN.md), partial reviewed dossier | People/powers/world/timeline/mysteries, opening context, detail protocol and design implications | Paid investigation, household/institutional work, source-eligible initiation and supported ritual practice. Anonymous cooperation, private identities, learned formula, safe execution and institutional authority remain separate |
+| [Worm](../../research/novels/full-book/worm/SYNTHESIS.md), supplied edition complete | 35 people/team profiles, 16 systems/places, 25 consequential causal nodes, reconciliation and five proposal cards | A neighborhood repair/protection/affiliation loop with source-specific power conditions, finite material production and independent team decisions; disclosure changes the actual recipient's belief |
+| [The Legendary Mechanic](../../research/novels/full-book/legendary-mechanic/GAME_IMPLICATIONS.md), source reader-complete, parent review partial | Knowledge/identity, power/production, people/institutions, causality/life and game implication facets | A workshop-to-production career in which learned blueprints, parts, tooling, labor, working devices and institutional access are separate stages; local logistics and production scale matter |
+| [Circle of Inevitability](../../research/novels/full-book/circle-of-inevitability/CHECKPOINT.md), intake/qualification | Verified supplied manifest, source limits, coverage skeleton and first reader assignment | No reviewed substantive world dossier established at this snapshot. Keep the sequel source/era distinct from LOTM; promote actual reviewed claims after qualification |
+
+[Harry Potter](../../worlds/harry-potter/WORLD_BRIEF.md) is a separate bounded root-authored source/origin candidate. It has household, supervised study, artifice, potions and nursery careers, with child/role/tree start distinctions. It does not have the five-world eight-file pack or a full-book reading delivery. New-origin/body/chapter advancement remains later native work. Comic/conceptual references likewise retain their bounded comparison status.
+
+## How a world GM absorbs a return
+
+Use a single selected region and the existing local owners. A small adoption card needs five parts:
+
+1. **Source and entry snapshot.** Edition/hash, exact claims/locators and reviewed cutoff; continuity/era/region/player body/role. Separate observed events, character reports, interpretations and original inventions.
+2. **Local rules that change play.** Acquired source and learned method, actual body/fuel, materials, permissions and severe threats. Record a supported use and a meaningful unsupported use; preserve genuine superior functions.
+3. **People and causes.** Specific goals, stock, work capacity, private knowledge, current beliefs and who actually witnessed/heard each event. Write dialogue after that situation is settled.
+4. **Executable situation.** Two genuinely different approaches plus refusal/delay, actual paid commands/jobs/effects and a functional local progression result. Use inspected APIs and one owner for facts, stock and claims.
+5. **Persistent branch and return.** What changed, which later event's prerequisites were invalidated, what carries home, and why the same region remains useful. Build/syntax/import/source checks match the current exploration pace; gameplay/save/failure acceptance remains explicitly deferred.
+
+The GM performs the editorial translation, bounded implementers can compile settled local content, and the existing engine integrator owns shared bindings/registry/native/UI/save/build. Book readers continue their own source goals. This audit does not dispatch, resume or message another chat.
+
+## Proposed execution order
+
+Finish the existing original Glasshouse project packet to connect craft/control research to a useful Frontier action. For the first named-world implementation beyond the initial milestone, the Fallout Water Line is the clearest candidate to assess: stock, diagnostics, tools, paid work and local access are close to existing working owners, while it can exercise meaningful technological differences. This is an assessment proposal, not selection of a new campaign or a new source roster.
+
+A named-world delivery gate should expose entry, local ordinary life, a genuinely local acquisition/progression function, unequal threat or contested institution, distinct intervention/refusal, useful return and changed revisit. Source review/build can establish implementation under current pace; later generated-save/browser/save-failure and human fiction/game-feel acceptance establish different claims. Generic doctrine or another research summary alone cannot close that gate.
+
+## Evidence and limits of this audit
+
+Inspected live PROJECT, GM workflow/role index, run queue, engine checkpoint, current reports, five regional packets/catalogue/ability/interaction headings, book checkpoint/synthesis/authoring owners, and nine coordinating/specialist chat readbacks. No independent full reread of any book, replay of prior tests, source receipt revalidation or gameplay execution was performed. Book completion is the recorded owning GM result, with the queue's independent structural receipt checks retained at their documented scope. Active reading counts are snapshots, not synchronized permanent state.
+
+Only this new report was written. Local links and the authored file's whitespace were checked after creation. The current source/build/runtime evidence remains in its existing owners.

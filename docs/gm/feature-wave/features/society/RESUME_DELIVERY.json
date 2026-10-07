@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-05",
+  "worker": "/root/destination_society",
+  "status": "implemented-unverified",
+  "released": true,
+  "children": [],
+  "processSessions": [],
+  "repairs": [
+    "Work-plan command merging preserves the state/external/gameplay/vitals/equipment containers and acquisition/unlock arrays captured by the common scheduler, so chained commits survive the returned staged plan."
+  ],
+  "outputs": {
+    "src/feature_expansion_society.js": {
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667
+    },
+    "src/feature_expansion_society_host.js": {
+      "sha256": "7eed44e5d84b583ab96312743e2d9cee06943bb2bc4577460bf396d45b81efbe",
+      "bytes": 12877
+    },
+    "src/feature_expansion_work_plan.js": {
+      "sha256": "8a74c4eead0dfe11d517bf595c0898c02969b8ff2b1e7f075c33f6948e8eff33",
+      "bytes": 19564
+    }
+  },
+  "checks": [
+    "Six owned modules imported successfully without actions.",
+    "Changed modules passed node --check.",
+    "Static source review of native owners, envelope publication, normal quest loader and common scheduler."
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "rootJoins": [
+    "Bind availabilities and actual body id/form.",
+    "Skip normal questManager loader for the independent Tidemark quest; restore its bridge before final native location/activity restoration.",
+    "Refresh native Quest display after durable bridge publication/restore without applying native quest rewards."
+  ],
+  "registryImport": "Full expedition_content import blocked at backlog_expansion_host.js:10 by eager bodyCommands temporal initialization; sent to root.",
+  "privateSavesTouched": false
+}

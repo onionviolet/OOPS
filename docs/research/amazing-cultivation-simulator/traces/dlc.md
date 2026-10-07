@@ -1,0 +1,9 @@
+# DLC source supplement
+
+Two selected source-backed traces extend the original five-family review. [Structured trace](dlc.json) owns exact locators, hashes, costs, consumers and limits. [DLC coverage](../DLC_COVERAGE.json) separates official descriptions, manifest-installed source and actual semantic reading.
+
+Wudang's method marks YinYang1 and stores two progression components. Learning cost reads the relevant component at the later stage; method polarity changes the ratio and switches actual mind/defense/offense modifiers. Dual-core formation allocates quality using complementary light factors and retains both cores. The artifact damage calculation consumes the relevant offense property. Full acquisition, split-soul progression, spell/barrier resolution and tribulation survival remain unread. Balance is one build choice; extreme polarity also has benefits.
+
+Bamboo Forest's fishing is explicitly DLC-gated. A healthy, equipped actor claims a reachable bank and cycles through casting, bite, catch-window and reeling states. Weather/season/time/map/rod qualify the fish pool. The ordinary reaction timer divides by Time.timeScale; this differs from simply spending the same amount of simulation time at every speed. Missing the window gives no catch. Selected output can be a real fish, item or dangerous NPC; hostile catches can fight the fisher. Catch records/titles are written before final drop animation, so later save/interruption/delivery ordering needs separate proof. No bait debit or rod wear is established by this selected toil.
+
+Original YAIR possibilities for later evaluation: a progression balance with distinct real defense/offense/learning consumers; a knowledge-driven gathering opportunity that connects environmental observation, actual equipment, danger and useful retained harvest. These are deeper design considerations, not new selected implementation packets or permission to replace the current clock/inventory/publisher.

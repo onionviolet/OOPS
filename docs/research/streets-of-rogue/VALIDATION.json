@@ -1,0 +1,484 @@
+{
+  "schema": 1,
+  "observed_utc": "2026-10-06T05:44:44.036830+00:00",
+  "status": "pass",
+  "check_scope": "Documentation/source provenance and reviewed locator/hash consistency only; no game/YAIR execution",
+  "json_parsed": [
+    "YAIR_OWNER_NOTES.json",
+    "FINDINGS.json",
+    "INTAKE.json",
+    "FRAMEWORK_LIFECYCLE_NOTES.json",
+    "COVERAGE.json",
+    "PARENT_SOURCE_NOTES.json"
+  ],
+  "counts": {
+    "source_evidence_rows": 64,
+    "source_blob_checks": 39,
+    "local_links": 29
+  },
+  "unique_source_or_snapshot_files": 49,
+  "source_evidence_errors": [],
+  "source_evidence_readback": [
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+      "lines": "12-61,69-113",
+      "sha256": "34fba516101a837b4fb62f93f7dd18aabb41ef17757c5e51ad0b63a55053d6cf"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Agent.cs",
+      "lines": "9-51,78-85",
+      "sha256": "1a401a76c380083336886feaf72b204ce17496315d1557e6a7c5bf1db5e445c6"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/InteractionModel.cs",
+      "lines": "164-290,308-368",
+      "sha256": "2e10ff0af718854a0647632dd743f4d47d2513673d0c1c20da4a919aa533d677"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Interactions.cs",
+      "lines": "75-145,201-215",
+      "sha256": "d1d32277e26549415b072804d19e02b355a49c493d28e06ea87e3b1b9a2bbc4a"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/SimpleInteractionProvider.cs",
+      "lines": "384-408",
+      "sha256": "08bbfcfe50ed91957e99fcbfd8b981634c54dde2f01992fa6fe03b850b7f1391"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Door.cs",
+      "lines": "8-175",
+      "sha256": "64384252064ba0dfdcd8fa5ebe575923c78f3c7a0be80936c7a766545808ad78"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions.cs",
+      "lines": "11-24,83-96",
+      "sha256": "1bc4e106b492e56daabff6d4eb764637f86e8744843e1227e4eb01b11b694412"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/InteractionModel.cs",
+      "lines": "141-162,252-290",
+      "sha256": "2e10ff0af718854a0647632dd743f4d47d2513673d0c1c20da4a919aa533d677"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Items.cs",
+      "lines": "9-46,78-283,434-500",
+      "sha256": "a785ef25c3ad01cb7f4ab6ca21e80eaffbeacb72b0003ce2028fdcf969076720"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Items/InventoryChecks/DefaultInventoryChecks.cs",
+      "lines": "8-177",
+      "sha256": "fa9b32de8fd466029438756dbd3ab8a9f2041b393d8a5211313080517a503b2b"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Items/InventoryChecks/RogueEvent.cs",
+      "lines": "26-31,63-72",
+      "sha256": "54a3c529466dd24abca37ddccd71526fde9939c20a98ec0942bdadf6d61e1057"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/Computer.cs",
+      "lines": "9-200",
+      "sha256": "ca8e344e08dc35e5efd874787b192ac8f2fcf039665387a13feca5062450adfc"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Interactions/VanillaInteractions/AirConditioner.cs",
+      "lines": "6-30",
+      "sha256": "dec2111d9cff661c1a363d533a8abec82678ca97afad9f9ebdb072fe3b0a48b0"
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/Plugin.cs",
+      "lines": "17-26",
+      "sha256": "cd41c4e079e841a03fc0d1c025d335b4456e12eb5497e035bfadbe69d11a0f60"
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/ChaosMagic.cs",
+      "lines": "24-34,58-113,130-209",
+      "sha256": "0083a507479f26aedb0cf5ce839a111d1d88bf355087ed3a8d109a531da10775"
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/WizardBigQuest.cs",
+      "lines": "17-38,58-161",
+      "sha256": "0ab90fa607ab19a8ebc6ec7ea97c59a4f030581c8db78b0574d945c6eac12d5e"
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/ChaosMagic.cs",
+      "lines": "145-154",
+      "sha256": "0083a507479f26aedb0cf5ce839a111d1d88bf355087ed3a8d109a531da10775"
+    },
+    {
+      "source": "streets-of-rogue-multiplayer",
+      "file": "WizardMod/Plugin.cs",
+      "lines": "17-26",
+      "sha256": "cd41c4e079e841a03fc0d1c025d335b4456e12eb5497e035bfadbe69d11a0f60"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Abilities.cs",
+      "lines": "9-190",
+      "sha256": "c4e29e281e00537a7a7bac1808f164c71e24c4e9258a80e7ce3677f91c7fd6cd"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/CustomAbility.cs",
+      "lines": "8-39",
+      "sha256": "0a2f17ff06fb4a4e97b74f6241a75db7602286bfe53ebce5a59b086a1a814252"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityChargeable.cs",
+      "lines": "6-18",
+      "sha256": "5e565bc79be229f14298105da287a2b10f29ae9484f6ec40c6e73b6fca900bfc"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityRechargeable.cs",
+      "lines": "6-14",
+      "sha256": "b70055d93f6d7d6f6b29f077f953ad937a4c82c118a949e1aedf2c4dd71b279d"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Abilities/IAbilityTargetable.cs",
+      "lines": "6-14",
+      "sha256": "1f651caa08c3d103409f470963e44d37b0daa1756b5c25238295d5885d89e46f"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Utilities/RogueExtensions.cs",
+      "lines": "170-187",
+      "sha256": "30ffd8243db9c7a113838cbf18c5801eefaeac1a5ad695134640b957f73af3c9"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Items.cs",
+      "lines": "49-75",
+      "sha256": "a785ef25c3ad01cb7f4ab6ca21e80eaffbeacb72b0003ce2028fdcf969076720"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_TraitsStatusEffects.cs",
+      "lines": "10-42,44-103,105-164,166-205,207-299",
+      "sha256": "970c1cebc2ce02ba0918d7c81b48eaf0b1af6d246daa2c0cb2d56252629a8131"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Traits/CustomTrait.cs",
+      "lines": "6-44",
+      "sha256": "fec64ed3af4d12f9ac371ed0e617fb89c3bda13b56d072c105b224f697de8a83"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Effects/CustomEffect.cs",
+      "lines": "6-80",
+      "sha256": "16b6056f83566426c7227f49fb0995563fd572a062151d53570c83e66343598e"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/HookController.cs",
+      "lines": "23-50,53-102,147-175",
+      "sha256": "d24c9216bcf8b919d7d5937f5a2ced614b0c7800839a19c309390fbea5d2a385"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Traits/CustomTraitFactory.cs",
+      "lines": "10-46",
+      "sha256": "5c4e7a19cef867d0a89a1e68c787a29a77aff478713ebbaed84e9631050fb1d3"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Effects/CustomEffectFactory.cs",
+      "lines": "10-46",
+      "sha256": "ed0afe1c07ab49e1cff24d81a3d0b51fd7fc43eff1f08c35a2a78b90a64c935f"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/UnlockWrapper.cs",
+      "lines": "45-120",
+      "sha256": "b539de2b73cee003ebe94206ddd32cc11015e24ec9dad8b3e06cf6a5578bc24c"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Utilities/UnlocksExtensions.cs",
+      "lines": "13-32",
+      "sha256": "c129c5d57986de4bfad45e8ae2b21bf7286645681c2589dbd3f23826f17d006f"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_CharacterCreation.cs",
+      "lines": "44-47",
+      "sha256": "e21bc8f53aec159c08b7669153fa0a8a4a9aba02854d22585912488f7aba603a"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_ScrollingMenu.cs",
+      "lines": "156-195",
+      "sha256": "bab6c5027e07e10cb23af6e64a6abef828a90d64e55c4c629d332d4add573587"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+      "lines": "100-101",
+      "sha256": "34fba516101a837b4fb62f93f7dd18aabb41ef17757c5e51ad0b63a55053d6cf"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Patches/Patches_Unlocks.cs",
+      "lines": "10-43,88-131,141-161,164-247,249-330,332-345,373-539,541-702",
+      "sha256": "9d58441942824da6070b714bbec44440d3da168347d8d6b701a53151c69483d9"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlock.cs",
+      "lines": "8-72",
+      "sha256": "ee4dd05d2fd8477f0f31b08b0524cc06c3da96603136fa0ed81d9cd4afa5695d"
+    },
+    {
+      "source": "RogueLibs",
+      "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlocks.cs",
+      "lines": "8-55",
+      "sha256": "50792312b3e00abfa10d5f1865adcbcf74e1472d425607bf561d9700f06b24ca"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_objects.js",
+      "lines": "62-84, 107-121, 141-167, 171-181",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_battle.js",
+      "lines": "41-47, 215-267",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/main.js",
+      "lines": "778-810",
+      "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_objects.js",
+      "lines": "57-98, 141-170",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_objects_host.js",
+      "lines": "58-107, 109-134",
+      "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/simulation_effects.js",
+      "lines": "92-110, 161-204",
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_battle.js",
+      "lines": "128-141, 175-198, 369-411",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/power_models.js",
+      "lines": "1-45",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/simulation_effects.js",
+      "lines": "206-256",
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_objects.js",
+      "lines": "107-108, 160-170, 175-181",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_battle.js",
+      "lines": "89-96, 245-267, 273-280, 311-355",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/simulation.js",
+      "lines": "359-390",
+      "sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/reference_gameplay_feats.js",
+      "lines": "30-42, 208-301, 317-340",
+      "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/feature_expansion_battle.js",
+      "lines": "273-280, 369-382",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/main.js",
+      "lines": "401-420, 756-795",
+      "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/main.js",
+      "lines": "778-810, 7138-7149",
+      "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/main.js",
+      "lines": "421-479",
+      "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/simulation.js",
+      "lines": "51-175, 176-212, 316-359",
+      "sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144"
+    },
+    {
+      "source": "yair-observed",
+      "file": "src/expansion_persistence.js",
+      "lines": "7-51",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "source": "yair-observed",
+      "file": "docs/gm/reference-gameplay/DELIVERY.md",
+      "lines": "1-25",
+      "sha256": "f871c352f153abaf593d680ebcb8e83b6df6a056cdb0012a4eaa4783be3dc466"
+    },
+    {
+      "source": "yair-observed",
+      "file": "PROJECT.md",
+      "lines": "1-10, 129-130",
+      "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352"
+    },
+    {
+      "source": "yair-root-observed",
+      "file": "src/reference_gameplay_content.js",
+      "lines": "4-98",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f"
+    },
+    {
+      "source": "yair-root-observed",
+      "file": "src/reference_gameplay_host.js",
+      "lines": "12-79",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1"
+    },
+    {
+      "source": "yair-root-observed",
+      "file": "src/reference_gameplay_state.js",
+      "lines": "60-159",
+      "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+    },
+    {
+      "source": "yair-root-observed",
+      "file": "docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md",
+      "lines": "1-9",
+      "sha256": "5793b952c1ef36c8e41979ef4802719637c44c767a5f57e5b386c72b5a51c7b6"
+    }
+  ],
+  "original_source_gate": {
+    "state": "unmet_source_unavailable",
+    "paths_complete": 0,
+    "paths_required": 5,
+    "next_input": "Streets1 Assembly-CSharp.dll plus sibling managed dependencies, or pinned original gameplay source"
+  },
+  "available_source_fallback_gate": {
+    "state": "complete",
+    "paths_read_reviewed_integrated": 9,
+    "yair_families_with_actual_consumers": 5,
+    "new_implementation_packets": 0
+  },
+  "helpers": {
+    "checked_live_status": "Both completed/released",
+    "review_repairs": "Over-EOF ranges, main/simulation input drift, incorrect staged-publisher locators, external DoUnlockForced labeling and exceptional coroutine cleanup; corrected and rechecked."
+  },
+  "remote_pin_readback": [
+    {
+      "url": "https://raw.githubusercontent.com/Chasmical/RogueLibs/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Door.cs",
+      "sha256": "64384252064ba0dfdcd8fa5ebe575923c78f3c7a0be80936c7a766545808ad78",
+      "matches_private_pinned_file": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/redaphid/streets-of-rogue-multiplayer/01f205c57f65ab98276c6989da6d98eddeb89c65/.gitignore",
+      "sha256": "77ae19530f2337748a8a88648cc75cf60d1cee6c71c08d29b144de1891d5727e",
+      "matches_private_pinned_file": true
+    }
+  ],
+  "shared_input_drift": {
+    "src/main.js": {
+      "observed_sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+      "current_sha256": "cabfa80da10f399def1c7f0ebdf35fac661d2b6344619e52718900550c5685d4",
+      "classification": "shared writer drift after frozen audit; exact observed input retained privately",
+      "review": "Root inspected frozen-to-live diff: concurrent NetHack fieldcraft imports/context/command/cancellation/feat additions. Existing referenced source consumers remain present. No new adapter or live gameplay validation is claimed."
+    },
+    "src/simulation_effects.js": {
+      "observed_sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+      "current_sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+      "classification": "shared writer drift after frozen audit; exact observed input retained privately",
+      "review": "Root inspected frozen-to-live diff: concurrent NetHack fieldcraft imports/context/command/cancellation/feat additions. Existing referenced source consumers remain present. No new adapter or live gameplay validation is claimed."
+    },
+    "src/simulation.js": {
+      "observed_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+      "current_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+      "classification": "shared writer drift after frozen audit; exact observed input retained privately",
+      "review": "Root inspected frozen-to-live diff: concurrent NetHack fieldcraft imports/context/command/cancellation/feat additions. Existing referenced source consumers remain present. No new adapter or live gameplay validation is claimed."
+    },
+    "src/reference_gameplay_feats.js": {
+      "observed_sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+      "current_sha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79",
+      "classification": "shared writer drift after frozen audit; exact observed input retained privately",
+      "review": "Root inspected frozen-to-live diff: concurrent NetHack fieldcraft imports/context/command/cancellation/feat additions. Existing referenced source consumers remain present. No new adapter or live gameplay validation is claimed."
+    }
+  },
+  "assignment_sha256_unchanged": true,
+  "unperformed": [
+    "Game acquisition/install/launch/patch",
+    "Local ILSpy game export",
+    "Game/mod compilation",
+    "YAIR implementation/build",
+    "Gameplay/browser/save/reload/failure/regression/director suites",
+    "Private save/profile access",
+    "Commit/push/publication/automation"
+  ],
+  "output_hashes": {
+    "ASSIGNMENT.md": "302a5c458221a5f260fa853fc5816d5638964c112c6069ed9d8487dec99e9e83",
+    "CHECKPOINT.md": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
+    "COVERAGE.json": "6683cf12d6acc116a0c3e95583232ebd81bb13eb8e4d2676fa0af9384e1417cc",
+    "FINDINGS.json": "6d7d9629d756cc1d118204f6f9f4117f2be52f3a223f956230e35d24c7092163",
+    "FRAMEWORK_LIFECYCLE_NOTES.json": "edadf0c5ba1945bf7dedab3547320973e9b6f3a6311e18ce79381a4d5ed5a206",
+    "IMPLEMENTATION_PACKETS.md": "654fe6b663a8aa9c64e35bd53e34c3bd08c4bea09901854c8fbdf8d3a5644a61",
+    "INTAKE.json": "590379e6bd8f4bf8d2322f20e4907858aac3cb210d604555b9280597cc8c5c35",
+    "PARENT_SOURCE_NOTES.json": "ce9c5aded61028f6955ff0e8ff0bc11ef2a35878e6f712adc821df80f02ffb5e",
+    "REPORT.md": "c0c24db0c25db33bc1cde40163edff4ebfcaae7e69dce4a72f7070b6ea504718",
+    "YAIR_OWNER_NOTES.json": "f7d5b4982698a931f1bf3f7b7ea0828e5ccdb7ab8085a08dbe70d77f590b0b89"
+  },
+  "hash_note": "Final lane artifact hashes recorded after readback; VALIDATION itself excluded to avoid a self-referential hash."
+}

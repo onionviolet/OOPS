@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T06:25:18.012521+00:00",
+  "humanAuthority": "trusted NetHack delegation states Weibao explicitly authorized this coordination and finite shared integration",
+  "scope": "14fieldcraftcommands/4items/local Rill/condition/3committed feats",
+  "sharedIntegrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "sourceOwner": "four modules explicitly released to this root; sourceGM retains docs only",
+  "review": "docs/gm/book-world-player-agency/fieldcraft-review/REVIEW.json",
+  "pendingSourceFix": null,
+  "sharedWork": "adapt predecessor patch surgically to current10/Book/reference/nativeowners/facts/refunds/recognition/UI",
+  "sourceModuleWrites": "none by this root while retained source reservation",
+  "currentAdoption": "delivered current mainbuild c2e01eb71d2a",
+  "behavior": "implemented-unverified; tests/save/browser/director deferred",
+  "sourceRelease": "docs/gm/nethack/BOOK_WORLD_HANDOFF.json",
+  "sourceReleaseSha256": "baacbe4e42f636be1bec9cf7dd670576917becc8b87559278df0511cb3aa1381",
+  "sourceModuleHashes": [
+    {
+      "file": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "file": "src/nethack_fieldcraft_facts.js",
+      "sha256": "d3c8b9da5fefcbd1793af2580347253973714d07dc0fbefdf29d08cb1828976b"
+    },
+    {
+      "file": "src/nethack_fieldcraft_host.js",
+      "sha256": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03"
+    },
+    {
+      "file": "src/nethack_fieldcraft_feats.js",
+      "sha256": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392"
+    }
+  ],
+  "nativeIdentity": "pure own completed application + understood player record, same id/quantity/quality/custody/template; current native labels/tooltips/itemlog joined",
+  "mealCorrection": "ordinary native meals already covered; no duplicate generic meal owner added",
+  "adoption": "docs/gm/book-world-player-agency/FIELDCRAFT_ADOPTION.json"
+}

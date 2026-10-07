@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "revision": 2,
+  "root": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "rows": [
+    {
+      "row": 1,
+      "outcome": "Finite sid20 Paradise/Goa early-middle-mature campaign, actual choices/opposition/aftermath/continuing return",
+      "source": "PD-MTL-67f15d112389-r1; existing agency qualified sid20 locators",
+      "implementation": "paradise_depth new campaign modules; root existing host/state/native/consumers",
+      "baseline": "Existing shifts, bracing, cache/warning/fuel/royal/Hank/Su/care/contract/extraction retained",
+      "status": "implementation complete; behavior unverified",
+      "remaining": "Declared deferred gameplay/save/failure/keyboard/director journeys",
+      "delivery": "DELIVERY.md"
+    },
+    {
+      "row": 2,
+      "outcome": "Mechanically distinct independent Cyoria/academy campaign",
+      "source": "Completed MOL e53f95695730; CLAIM_INDEX/24profiles; selected era to be pinned",
+      "implementation": "mol_campaign complete source/content/state/native/host; root shared joins",
+      "baseline": "Dossier complete, runtime absent",
+      "status": "implementation complete; behavior unverified",
+      "remaining": "Declared deferred gameplay/save/failure/keyboard/director journeys",
+      "delivery": "DELIVERY.md"
+    },
+    {
+      "row": 3,
+      "outcome": "People/status/body/source/object/time/attention consequences reach native consumers",
+      "source": "Campaign-specific pinned means/unknowns; original prices/side-character terms",
+      "implementation": "Root one publisher/native frames; lane commands/controllers/resources/vitals/custody/conditions",
+      "baseline": "Native care/receipts and original world retained",
+      "status": "implementation complete; behavior unverified",
+      "remaining": "Declared deferred gameplay/save/failure/keyboard/director journeys",
+      "delivery": "DELIVERY.md"
+    },
+    {
+      "row": 4,
+      "outcome": "Prepared/social/research/conflict/decline/late/failure branches and durable native retained integration",
+      "source": "Assignment player contract; no source reset/protagonist replacement",
+      "implementation": "Optional compatible owner, current center/Notebook/People/Events/native quest/calendar/stock readers",
+      "baseline": "Expansion5\u201311/simulation5/frozen jobs unchanged",
+      "status": "implementation complete; behavior unverified",
+      "remaining": "Declared deferred gameplay/save/failure/keyboard/director journeys",
+      "delivery": "DELIVERY.md"
+    },
+    {
+      "row": 5,
+      "outcome": "Exact rebuilt inspectable game and truthful source/build evidence",
+      "source": "Current implementation-first phase",
+      "implementation": "Root permitted source/compiler/build/map/served checks and finite acceptance backlog",
+      "baseline": "d405e2c1a0e3 retained until deliberate replacement",
+      "status": "implementation complete; behavior unverified",
+      "remaining": "Declared deferred gameplay/save/failure/keyboard/director journeys",
+      "delivery": "DELIVERY.md"
+    }
+  ],
+  "verification": "All new gameplay implemented-unverified; unit/browser/gameplay/save/import/failure/regression/keyboard/director gates deferred",
+  "date": "2026-10-07",
+  "status": "source/native/UI/compatible-state/current-build complete; implemented-unverified",
+  "buildFingerprint": "ebf951d62861",
+  "counts": {
+    "worlds": 9,
+    "sources": 56,
+    "commands": 1153,
+    "controllers": 52,
+    "conditions": 23,
+    "encounters": 13,
+    "newMOL": 59,
+    "newParadise": 35
+  }
+}

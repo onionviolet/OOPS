@@ -1,0 +1,262 @@
+{
+  "lane": "destination",
+  "status": "admitted-implemented-unverified",
+  "sourceReservationReleased": true,
+  "scope": "Original opt-in Tidemark, fixed present harbor, same real native human body, independent native owners, finite stock and absence-frozen local tide/calendar",
+  "files": [
+    "src/feature_expansion_destination.js",
+    "src/feature_expansion_destination_host.js",
+    "src/feature_expansion_destination_native.js"
+  ],
+  "exports": {
+    "content": [
+      "TIDEMARK_IDS",
+      "TIDEMARK_LOCATIONS",
+      "TIDEMARK_KEYS",
+      "TIDEMARK_ENDPOINT",
+      "TIDEMARK_WORLD",
+      "TIDEMARK_DEFINITION",
+      "TIDEMARK_INITIAL_FACTS",
+      "TIDEMARK_NATIVE_SCHEMA",
+      "TIDEMARK_NATIVE_DOMAIN",
+      "tidemarkDefinitions",
+      "tidemarkActions"
+    ],
+    "host": [
+      "createTidemarkConnection",
+      "activeTidemarkVisit",
+      "validateTidemarkState",
+      "syncTidemarkClock",
+      "nextTidemarkBoundary",
+      "tidemarkContext",
+      "tidemarkSimulationContexts",
+      "previewTidemarkAction",
+      "beginTidemark",
+      "commitTidemarkAction",
+      "tidemarkView",
+      "tidemarkPresentation"
+    ],
+    "native": [
+      "validateTidemarkNativeMetadata",
+      "validateTidemarkEnvelope",
+      "createTidemarkNativeBindings"
+    ]
+  },
+  "versions": {
+    "expansion": "existing 5",
+    "simulation": "existing 1-4 retained; native residents provision:false and attach only at explicit passage opening",
+    "optionalExpansionRecord": "state.featureDestination schema1 definitionRevision1; absent means unenrolled",
+    "optionalNativeEnvelope": "save.feature_destination_native schema1 definitionRevision1; absent with absent destination means no local native progression",
+    "definitions": "all 1; retained IDs and fixed era/policy are validated",
+    "removal": "A save with the optional domain requires this implementation or an explicit compatible migration; do not silently discard an active visit, loan, supplies, agreement, clock or learned method."
+  },
+  "registeredIds": {
+    "world": "feature.tidemark",
+    "instance": "feature.tidemark.harbor",
+    "era": "tidemark.breakwater.present",
+    "continuity": "tidemark.original",
+    "locations": [
+      "Tidemark landing",
+      "Tidemark terraces"
+    ],
+    "people": [
+      "tidemark.keeper",
+      "tidemark.wright"
+    ],
+    "personLabels": [
+      "Nessa, sluice keeper",
+      "Venn, ropewright"
+    ],
+    "site": "tidemark.sluice",
+    "power": "tidemark.counterweight",
+    "custody": "tidemark.inspection_loan",
+    "quest": "tidemark.sluice_agreement",
+    "stockInventory": "inventories.feature_destination[tidemark.communal_stock]",
+    "shopInventory": "inventories.trader[tidemark.wright]",
+    "commands": [
+      "tidemark.chart",
+      "tidemark.open_receipt",
+      "tidemark.enter_receipt",
+      "tidemark.exit_receipt",
+      "tidemark.meet",
+      "tidemark.accept",
+      "tidemark.decline",
+      "tidemark.timber",
+      "tidemark.lesson",
+      "tidemark.balance",
+      "tidemark.collect",
+      "tidemark.buy_log",
+      "tidemark.buy_kit",
+      "tidemark.salvage",
+      "tidemark.supply",
+      "tidemark.borrow_kit",
+      "tidemark.inspect_floats",
+      "tidemark.return_kit"
+    ],
+    "hostOnlyCommands": [
+      "tidemark.open",
+      "tidemark.enter",
+      "tidemark.return",
+      "tidemark.terrace",
+      "tidemark.landing",
+      "tidemark.cancel"
+    ]
+  },
+  "activation": "The read-only presentation offers chart only after the actual Village elder meeting. Explicit chart commit enrolls existing simulation if absent, then records knowledge in one final publication. The paid open command alone attaches two native residents, seeds conserved initial local supplies and creates optional world/instance/native metadata. Enter is a separate exact body/cargo/access commitment. No render/load/ordinary enrollment creates destination state or pays rewards.",
+  "nativeFactory": {
+    "call": "createTidemarkNativeBindings({NPC,NPCRegistry,SafeLocation,locations,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,availabilities,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:()=>({id:'native.player.body',form:character.getRace()})})",
+    "registration": "Call bridge.register() once before native save loading, beside registerPocketLocation. It creates separate NPC, TraderComponent, InventoryComponent, SafeLocation, Quest+2 Task and Game_Time instances. Definitions start empty/dormant. No placeholder alias to Village/Glasshouse. Native NPCRegistry registers actual separate person inventory/equipment/levels/availability; communal stock has its own native inventory registry category; shop has its own trader inventory. The local shop disables global-day random restock/legacy trade and is served transactionally through Notebook. Native Quest constructor placeholder availability entries are preserved and exact own quest/task entries are registered.",
+    "callbacks": {
+      "read": "bridge.read(expansionState) supplies context.destinationNative with exact live revision, real stock/shop counts, local calendar, actual native body form, actual endpoint availability/positions. It does not mutate.",
+      "stage": "After syncTidemarkClock(plan.state), call const destinationPublication=bridge.stage(plan), before validating/persisting. It checks exact native revision, provisions only explicit destinationActivation, stages a single supported native stock debit/price, reconstructs item objects, advances nativeRevision and prepares location/quest/calendar assignments without touching live owners.",
+      "write": "Call destinationPublication.write(envelope) in persistExpansionPlan AFTER regular native/gameplay/ownership/equipment/nativePatch writes and BEFORE validateEnvelope/storage.setItem. It writes the optional native metadata and actual native communal/shop inventory, quest and availability owner fields into the same copied envelope.",
+      "publish": "Only after persistExpansionPlan succeeds, publish standard native gameplay then destinationPublication.publish(), before change_location/render. It assigns the already validated actual native stock/shop/quest/location/local Game_Time, with no random refresh, reward loop or additional storage write.",
+      "snapshot": "In create_save, after all ordinary native serializers and save_data.expansion are present, call bridge.snapshot(save_data, expansionState). Ordinary inventories/person/levels/equipment/npcs/locations remain canonical native save owners. Snapshot adds live native metadata and exact native quest projection for ordinary autosave/export; no new reward or progression.",
+      "restore": "In load, after regular inventory/XP/NPC/equipment/quest loading but BEFORE final change_location, call bridge.restore(save_data). It validates optional binding and restores actual stock/shop/quest/location/calendar. Native people use the existing ordinary loader. Absent destination remains dormant and unseeded. Do not seed on load.",
+      "nativeConsumers": "Existing NPCRegistry.get and createNativeGameplayAdapter automatically bind tidemark people once their inventory:'native' simulation references are explicitly attached. Standard main actorBindings/gameplayBindings and writeGameplayToEnvelope persist their distinct native persons. Native quest pane should refresh/add the actual quest after publish when active; no questManager reward call is needed or allowed for this already paid kit transfer. bridge.getCalendar/Stock/Shop/Quest expose actual native owners to demanded consumers."
+    }
+  },
+  "existingFileJoins": [
+    {
+      "path": "src/simulation_content.js",
+      "join": "Import tidemarkDefinitions and append its people/sites/powers/commands to existing arrays exactly once. No onEnroll destination effects or controllers; provision:false is mandatory."
+    },
+    {
+      "path": "src/expedition_content.js",
+      "join": "Import TIDEMARK_WORLD and register it exactly once in createContentRegistry worlds. No creation of state.worlds on load."
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "join": "Import validateTidemarkState/syncTidemarkClock/nextTidemarkBoundary/tidemarkSimulationContexts. Validate optional state before active world validation. Include nextTidemarkBoundary in causal boundary minimum; sync after each staged joined clock movement and before simulation completion. Compose tidemarkSimulationContexts with realmSimulationContexts for scheduler contexts. No independent timer."
+    },
+    {
+      "path": "src/realm_state.js",
+      "join": "Replace unconditional player.worldId === (active Glasshouse ? Glasshouse : base.frontier) with exact permitted state: active Glasshouse -> Glasshouse, else activeTidemarkVisit -> feature.tidemark, else base.frontier; explicitly reject simultaneous active visits. Keep all existing Glasshouse body/connection/observation constraints. Glasshouse callbacks remain otherwise unchanged."
+    },
+    {
+      "path": "src/save_files.js",
+      "join": "Import validateTidemarkEnvelope and call it after expansion/Glasshouse envelope validation, before native load or storage write. Native schema/domain/version/defaults and all matching current-location/people/stock/shop/quest/calendar owner fields must validate."
+    },
+    {
+      "path": "src/quests.js",
+      "join": "Export native Quest and QuestTask classes alongside current registries if not already exported. Parent live source already contains these exports during destination implementation."
+    },
+    {
+      "path": "src/main.js",
+      "join": "Import actual NPC, SafeLocation, InventoryComponent, TraderComponent, Quest/QuestTask plus destination host/native symbols and create/register one bridge before normal native loading. Wrap expedition/campaign context with tidemarkContext and destinationNative:bridge.read(expansionState), retaining actual vitals/equipment/gameplay/current native location. Compose native scheduler contexts; no default inferred human form. Stage/write/publish/snapshot/restore bridge at documented order; preserve single publisher and player native owner."
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "join": "Accept optional destinationPublication (or compose with the Features native owner publication) and call its write(envelope) before envelope validation/storage setItem. main owns the corresponding post-durable publish only."
+    },
+    {
+      "path": "src/main.js",
+      "join": "Add actDestination packet branch: save-ownership/busy/lifecycle checks, context from campaignContext with exact equipment/vitals/native bridge read, then persistExpansion(commitTidemarkAction(expansionState,expeditionRegistry,packet.id,context,packet.sequence)). Dispatch only declared IDs; never call raw collect/buy/salvage simulation commands, because host installs their native stock debit."
+    },
+    {
+      "path": "src/main.js",
+      "join": "Guard all legacy location changes and favorites/fast-travel: while actor in Tidemark, cross-world transition only via host return; entry into Tidemark only with activeTidemarkVisit and exact host nativeLocation. Host local terrace/landing changes use realm_move; never expose native connected_locations shortcuts that bypass tide/cargo/access. During real loader restoration honor matching validated saved visit."
+    },
+    {
+      "path": "src/feature_expansion_ui.js + src/adventure_notebook.js",
+      "join": "Parent generic Notebook Here panel uses tidemarkPresentation(state,actualRegistry,context). Display description/agreement/stock/known records, legal actions and blockers only. Before chart it must show the actual discovered elder-gated chart action; after chart show passage. Add Tidemark work attention and cancel to the actual parent panel. Native Quest pane uses distinct actual agreement owner, with Hide completed preserved. While active Tidemark hide unrelated local Village/Glasshouse command panels; retain player-owned practice/records as appropriate."
+    },
+    {
+      "path": "src/simulation.js",
+      "join": "Recommended shared reservation-return adapter: allow group tidemark alongside original_frontier to freeze reservationReturns=1 with matching simulation4 on new timed work, so cancelling real log/kit reservations does not inflate acquisition discovery records. Preserve earlier frozen job semantics. If parent already generalizes this for all new feature groups, include tidemark in that exact admitted policy."
+    },
+    {
+      "path": "build.js + dist/bundle.js + canonical coverage",
+      "join": "Parent rebuild includes all three source modules through actual main/content imports. Record matching current output/input hashes; new behavior remains implemented-unverified."
+    }
+  ],
+  "inkBindings": {
+    "begin": {
+      "command": "tidemark.meet",
+      "targetId": "tidemark.keeper",
+      "guard": "actual Tidemark landing, player/keeper co-located, nativeBound, no current work"
+    },
+    "ask_terms": {
+      "command": null,
+      "guard": "read-only known tidemark.meeting; acceptance is separate actual tidemark.accept; never mutate agreement on a prose choice alone"
+    },
+    "material": {
+      "command": "tidemark.supply",
+      "targetId": "tidemark.keeper",
+      "guard": "actual owned unencumbered log, meeting, co-location"
+    },
+    "coin": {
+      "command": "tidemark.lesson",
+      "targetId": "tidemark.keeper",
+      "guard": "actual 2 native coins and native keeper attention; saves 3-minute refund-compatible participant commitment; coin payout and method settle at completion"
+    },
+    "borrow_tool": {
+      "command": "tidemark.borrow_kit",
+      "targetId": "tidemark.keeper",
+      "guard": "meeting, keeper's actual finite kit, no existing exact loan"
+    },
+    "teach": {
+      "command": "tidemark.lesson",
+      "targetId": "tidemark.keeper",
+      "guard": "same paid lesson; await frozen native participant work completion before narrative claims learned method"
+    },
+    "refuse": {
+      "command": "tidemark.decline",
+      "targetId": "tidemark.keeper",
+      "guard": "meeting and not already agreed; refusal keeps ordinary access and can be followed by later voluntary accept"
+    },
+    "leave": {
+      "command": "tidemark.return",
+      "guard": "actual landing/body/cargo/access; return loan via tidemark.return_kit first; unfinished participant work blocks"
+    },
+    "revisit": {
+      "command": "tidemark.enter",
+      "guard": "existing present-era passage at Village, same body and complete owned cargo; no active Glasshouse/observation/work"
+    },
+    "optionalFollowup": [
+      "tidemark.accept",
+      "tidemark.inspect_floats",
+      "tidemark.return_kit",
+      "tidemark.timber",
+      "tidemark.balance",
+      "tidemark.collect"
+    ]
+  },
+  "clockPolicy": "One outside joined played-minute clock remains authoritative. syncTidemarkClock reconciles local occupied visit intervals exactly once. Twelve local minutes: low tide phases0-8, high tide9-11. nextTidemarkBoundary supplies causal transitions. No presence means frozen local elapsed/calendar/people/stock; no offline or unseen absence simulation. Native global current_game_time continues outside calendar; separate local Game_Time is a projection of the canonical visit clock. No auto NPC jobs; already frozen player/resident commitments keep existing job due/cancel semantics and entry/return cannot abandon them.",
+  "publicationPolicy": "Host returns staged existing plan shape + destinationActivation/debit/nativeLocation/nativePatch. Bridge stages local native owners. Existing persistExpansion/persistExpansionPlan writes one envelope once, validates it, then publishes native state/render. No localStorage, own loop, independent XP/inventory/reward engine or render enrollment.",
+  "checksPerformed": [
+    "all three node --check",
+    "host/native ES module imports",
+    "createSimulationRegistry(tidemarkDefinitions) validates 2 people,18 commands,1 site,1 power",
+    "actual native constructor/registry/save/loader/quest-event/cargo/clock source review"
+  ],
+  "deferredChecks": [
+    "gameplay/browser",
+    "entry-return-revisit generated save/reload",
+    "stock/custody/money/failure atomicity",
+    "native quest pane/Hide completed",
+    "keyboard/focus/accessibility",
+    "regression",
+    "director fiction/balance/pacing acceptance"
+  ],
+  "resumeReview": {
+    "receipt": "docs/gm/feature-wave/features/destination/RESUME_DELIVERY.json",
+    "released": true,
+    "status": "implemented-unverified",
+    "repairs": [
+      "Public action preview rejects internal opening/entry/exit receipts; only declared tidemarkActions reach the host.",
+      "Native quest tasks use an empty any group that ordinary quest events cannot satisfy; only committed local facts set progress.",
+      "Native durable write and snapshot include exact quest/task availability flags and keep the legacy trader closed. Dormant restore also closes the trader."
+    ]
+  },
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "implemented-unverified"
+}

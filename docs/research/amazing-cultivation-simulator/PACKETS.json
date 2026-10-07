@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "status": "research_ready_proposals_only",
+  "source_edition": "ACS Steam955900/build17074448",
+  "common_contract": {
+    "authority": "Research candidates only. No gameplay implementation assigned or selected by this research.",
+    "integration_owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd, active ALL19 shared integrator. Causal01a10fa6 retains causal_story_*; artifact owner retains its reserved modules until release.",
+    "compatibility": "Refresh live owner hashes/registry/admission before implementation. Explicit optional enrollment; old absence inert; preserve old command revisions and frozen jobs. Register/validate every new ID and cause/receipt relation in the current optional reader. No automatic new power/item/stock/world, opening replacement, clock/inventory/save-publisher replacement or second prestige. Keep the same durable plan->envelope->publication owner.",
+    "later_gates": "Unit/browser/gameplay/save/reload/import/failure/keyboard/regression/director checks remain deferred and unrun. Each gate below is a later acceptance obligation, not evidence of this research."
+  },
+  "packets": [
+    {
+      "id": "ACS-P01",
+      "priority": 2,
+      "title": "Prepare and attempt a narrow cooling refinement",
+      "sources": [
+        {
+          "trace": "traces/cultivation.json",
+          "findings": [
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C09",
+            "C10"
+          ]
+        },
+        {
+          "trace": "traces/institution.json",
+          "findings": [
+            "ACS-I01",
+            "ACS-I02",
+            "ACS-I03"
+          ]
+        }
+      ],
+      "journey": [
+        "Learn the existing measured-cooling method from its supported teacher and complete its three actual paid trials.",
+        "Review an optional three-minute refinement attempt now or during a disclosed quiet-hour window derived from the saved Village calendar.",
+        "Commit real salt/effort. A successful attempt earns one narrow steadied-hook application; a completed failed attempt leaves spent costs, a retry receipt and temporary soreness.",
+        "Use the retained application to discharge the same owned charged sleeve into a five-minute hook-control condition; the existing four-minute option remains usable."
+      ],
+      "costs_and_choices": "Original proposed attempt:1 actual salt packet,2 stamina,3 played minutes. Proposed quiet window06:00\u201308:00; base success0.50, prepared0.70, plus0.05 for each earlier completed failure capped at0.15. Failure soreness lasts5 played minutes. These numerical/lore choices are reversible proposals, not ACS balance or human acceptance. Old mastery cap3 and native salt stock stay authoritative.",
+      "result_and_retention": "Successful paid refinement stores an attributed application receipt/fact. Failures store a paid attempt count consumed by later retry weight and readable aftermath; no free salt/source/mastery/rank. Five-minute use costs one real charged sleeve and2 stamina, returns the same empty sleeve, and uses the existing hook-control condition consumer.",
+      "time_and_failure": "YAIR freezes sampled preparation, weights/roll and effects at commitment; ACS samples live conditions/Gold quality, so that source policy is deliberately adapted. Successful/failed completion differ from cancellation or lost support: use the existing disclosed refund/no-result support policy for unfinished work. Expired conditions, actual body/source/equipment/ownership gates remain enforced.",
+      "reused_owners": [
+        {
+          "path": "src/reference_gameplay_content.js",
+          "lines": [
+            30,
+            98
+          ],
+          "symbol": "learned/functionReady; reference_gameplay.cool_hook; finite three trials",
+          "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+          "semantic_window_sha256": "6498eae5841bc819c62ae7baf47853108cd8679b6cf939e552d0ae4d788d00b3",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/world_rhythm.js",
+          "lines": [
+            5,
+            31
+          ],
+          "symbol": "calendarMinutes/recurringWindow",
+          "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+          "semantic_window_sha256": "3d5d8e029bbbce4042c85c4666ac221a0d23c3ef7579d23745f5aeabc1bc0409",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            129,
+            242
+          ],
+          "symbol": "startCommand/completeJob frozen paid outcomes/support",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "semantic_window_sha256": "4de374e43d87eea1e714f608ab58017910d2f0fbd10953846dc19a3415a71481",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            194,
+            206
+          ],
+          "symbol": "attributed knowledge/cause-deduplicated memory",
+          "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+          "semantic_window_sha256": "27d8ab4b4ea51dca344993a100fbeaad936c9c8fe20de81f517bfd00afbb58ab",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/power_models.js",
+          "lines": [
+            5,
+            45
+          ],
+          "symbol": "previewPowerModel",
+          "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+          "semantic_window_sha256": "6163812afd58a4721164196b5ba64bd0e6dff13b2e44be2cd602e899fa795790",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        }
+      ],
+      "exact_missing_consumers": [
+        "Add an original quiet-window/current-preparation fact adapter and safe known preview; no existing cooling refinement command consumes this sampled window.",
+        "Add paid refinement outcome/attempt-count/application definitions and validation. Retry progress must actually feed subsequent disclosed weights, not just an extra bar.",
+        "Add a steadied-hook command requiring the real successful application plus current acquired cooling/body/tool, bound to the existing hook-control effect consumer for5 minutes. Do not change old cool_hook or frozen jobs.",
+        "Project paid failure/preparation/application causes into Notebook/Bio and exact expiry/control descriptions without hidden-source disclosure."
+      ],
+      "compatibility": "Inherit common policy. New attempt/application receipts are optional; existing mastery3/learned source/trials remain separate. Use new command revisions/IDs instead of reinterpreting saved four-minute hook jobs. Do not import Gold reward-on-interruption into cancellation.",
+      "later_playable_gate": "Disposable generated states: compare ordinary/prepared quotes; resolve paid success/failure; verify exact salt/stamina/time, failed-retry weight, soreness and once-earned application. Use both4/5-minute hook options and inspect actual expiry/combat usefulness. Reload mid-job and after outcome without new draws or duplicate spending/output; insufficient means/lost support/cancel/save failure preserve disclosed policies and old absence/frozen states."
+    },
+    {
+      "id": "ACS-P02",
+      "priority": 1,
+      "title": "Use an existing healing craft to treat actual scraped palms",
+      "sources": [
+        {
+          "trace": "traces/production.json",
+          "traces": [
+            "ACS-PROD-MEDICINE",
+            "ACS-PROD-ARTIFACT"
+          ]
+        }
+      ],
+      "journey": [
+        "Obtain one existing Healing balm through actual native craft/trade/stock owners. Research grants no item or recipe.",
+        "With current scraped palms in Village or Shack, choose one-minute topical dressing or the existing three-minute free hand rest.",
+        "The accepted dressing reserves one actual balm. Successful supported completion removes only the scrape and applies the existing native balm effect through the same durable payload.",
+        "Resume an existing packing/bench activity whose real hand gate/duration consumes the changed condition. Soreness can still block work."
+      ],
+      "costs_and_choices": "Original proposal:1 Healing balm+1 played minute, compared with existing body.recover3 minutes/no fee. Existing recipe remains10 Oneberry+5 Golmoon leaf+1 Animal fat, its real unlock/Alchemy/chance/level policy. No new medicine identity, stock or recipe grant.",
+      "result_and_retention": "One reserved balm remains spent after useful treatment; remove SCRAPED_HANDS only. Preserve SORE_HANDS, scar/callus/learned grip, previous injury accounts and ordinary native Weak healing balm90-duration HP effect. Stage the normal relevant consumable effects/skill changes once where applicable, not an extra payout.",
+      "time_and_failure": "Use the common played clock and occupation. Require active scrape at quote and completion, supported living hands/location, unborrowed unequipped native balm, and no conflicting work. Cancellation/support loss/natural scrape expiry before completion returns the exact reserved balm with no treatment receipt or new active effect; elapsed time stays spent. A completed dressing does not restore rest/stamina or every wound.",
+      "reused_owners": [
+        {
+          "path": "src/body_progression.js",
+          "lines": [
+            3,
+            69
+          ],
+          "symbol": "SCRAPED_HANDS/SORE_HANDS/bodyFacts/body.recover",
+          "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+          "semantic_window_sha256": "dbd91feabe5f5676794a0895f544006e1172576dc0ed6932718758b54572295f",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "lines": [
+            1897,
+            1909
+          ],
+          "symbol": "alchemy Healing balm recipe",
+          "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+          "semantic_window_sha256": "dc1900c459d1dc493f963b1dda1a51bcdac02c136609b229c5feccaa441923b9",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/items.js",
+          "lines": [
+            4248,
+            4254
+          ],
+          "symbol": "Healing balm template",
+          "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+          "semantic_window_sha256": "dd0654c40f51b0dbe5051323a9ae74cb4c415863b6381dc78cc7bfcef49bd3fb",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            3839,
+            3892
+          ],
+          "symbol": "use_item",
+          "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+          "semantic_window_sha256": "a29f368d8598ca3166be070e367dc719ec58a0cb32787106e684bcc6f453e691",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            38
+          ],
+          "symbol": "persistExpansionPlan existing envelope/native patch",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "semantic_window_sha256": "a61b4e57d6b74fb891d11cf1f60f38a7c03a86214dd12135f1caacd4e1930c7f",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "lines": [
+            45,
+            58
+          ],
+          "symbol": "nativeActionReasons/assertNativeItemDisposition",
+          "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+          "semantic_window_sha256": "30d0fd9184b309f456abe18e43121e7146012197a483c71bd7517a14d111facb",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            207,
+            261
+          ],
+          "symbol": "completeJob/cancelSimulationJob",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "semantic_window_sha256": "8cfe5a691f39fb0c0e149f5eec47c4c4c3734fd85d1df120048bba0f4b4ddd35",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        }
+      ],
+      "exact_missing_consumers": [
+        "Current native use_item applies native effects/consumes stock but never reads or removes SCRAPED_HANDS; add one original context-use definition and condition receipt bound to actual native medicine.",
+        "Existing gameplay snapshot publication stages stock/skills/reputation, not insertion of a new native active_effect. Add a bounded staged effect adapter to the existing nativePublication/nativePatch composition, preflight the whole envelope, and publish only after persistence. Do not mutate a global effect first.",
+        "Use the existing bodyFacts/packing and bench hand consumers to show actual changed readiness/duration. Register safe contextual preview and optional receipt validation; do not silently rewrite every generic consumable."
+      ],
+      "compatibility": "Inherit common policy. Existing body.recover and native use_item keep their meanings. The same native item ID/template/save effect structure remain; new optional context receipts require admission/validation. Existing effect refresh and ordinary consumable semantics must be reconciled in the scoped adapter, including a stronger/already-longer native effect.",
+      "later_playable_gate": "Generated save: actually craft/own balm, earn scrape, inspect dressing/free-rest choices, complete treatment and show one-item loss/native90-duration effect/scrape removal plus shorter or admitted existing work. Repeat with soreness also present to prove it remains. Check already-longer effect, no scrape, custody, natural expiry/support-loss/cancel and reload/save-failure atomically retain costs/effects/conditions without duplication. Permanent mark/grip and ordinary rest/use remain."
+    },
+    {
+      "id": "ACS-P03",
+      "priority": 3,
+      "title": "Negotiate one next duty and retain the actual agreement",
+      "sources": [
+        {
+          "trace": "traces/actors.json",
+          "traces": [
+            "ACS-ACTOR-WORK",
+            "ACS-ACTOR-SOCIAL"
+          ]
+        }
+      ],
+      "journey": [
+        "At the introduced Village bench, make Orr's existing repair and teaching offers genuinely funded/consented with actual bodies, sites and stock.",
+        "Ask for repair first, lesson first, or the ordinary order; Hessa/Orr and any current learner must consent to the specific delayed future offer.",
+        "At a free common boundary, one legal existing duty runs and pays its unchanged stock/time/output contract. Accepted work is never replaced by a preference change.",
+        "Meet later for an attributed kept/deferred/refused account, then ask one optional further scheduling request whose consent consumes the actual retained agreement."
+      ],
+      "costs_and_choices": "Original proposed negotiation occupies consenting participants for1 played minute. Opportunity cost is deferring a genuinely ready future duty. Current repair/lesson prices, escrow, participants, finite shifts and results keep their own definitions. No friendship purchase/order bonus/extra output.",
+      "result_and_retention": "Chosen supported duty produces the same existing home/learner/object result and pays the same actual worker. Other offered work/escrow stays pending. Saved cause/attribution retains what was agreed and whether the exact duty finished, stopped or was refused; a brief mood/friction can expire separately.",
+      "time_and_failure": "Read optional next-duty preference only after current accepted work releases. Apply ordinary legal admission, availability, funding, support and site gates every time. A blocked favored duty pauses the negotiated request with known reason rather than forcing an unfunded job. No story-text AI parsing; no blanket affection permission or romance inference.",
+      "reused_owners": [
+        {
+          "path": "src/feature_expansion_society.js",
+          "lines": [
+            211,
+            214
+          ],
+          "symbol": "existing Orr fixed repair2/teaching1 controller policy",
+          "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+          "semantic_window_sha256": "5b08e94cb3c725cbc533c61255a3bfb7a92c77fcef32c514b4b91cbcdd646297",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            399,
+            487
+          ],
+          "symbol": "existing controller preview/legal admission",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "semantic_window_sha256": "d8d775d8708e87fc45740298158500efe378cb27ae110296a8f43d14f3ab72b9",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            194,
+            206
+          ],
+          "symbol": "knowledge and relationship cause receipts",
+          "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+          "semantic_window_sha256": "27d8ab4b4ea51dca344993a100fbeaad936c9c8fe20de81f517bfd00afbb58ab",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "lines": [
+            8,
+            35
+          ],
+          "symbol": "qualified people projection",
+          "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+          "semantic_window_sha256": "d63e75a52c1ddec17fc6b25132331d656cdbb6db8fa211d93d62c0f21d527417",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        },
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            179,
+            264
+          ],
+          "symbol": "finite legal waits/pauses",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+          "semantic_window_sha256": "6d3b4c092e88fc496c016612237b9346c1544659a83ea0f4bffae7c29ce4abfd",
+          "window_hash_format": "UTF-8 selected current source lines joined with LF and trailing LF"
+        }
+      ],
+      "exact_missing_consumers": [
+        "Current selected Orr controller chooses fixed repair2/teaching1; add a bounded explicitly enrolled agreed-next-duty discriminator/guard in its current controller owner. Absent preference uses original revision1 behavior.",
+        "Add a typed durable agreement/result cause reader for one further scheduling-consent decision. Existing temporary friction/promises/grievances are not this next-duty account; do not duplicate ALL19's generic consequence work.",
+        "Project only witnessed/attributed agreement and actual completion; preserve a critical receipt independently of bounded prose-memory eviction."
+      ],
+      "compatibility": "Inherit common policy. Do not cancel/reorder accepted jobs, move escrow between offers or reinterpret old controller/job revisions. Preference expires after its exact selected duty settles or explicit refusal/cancellation; retained completion account remains. Root determines optional state admission and ownership before altering the society controller.",
+      "later_playable_gate": "Generated states fund both current offers and consent to each alternative. Show differing first real result, same conserved stock/purses/escrow, exclusive Orr occupation and unchanged accepted work. Shortage/busy site/lost consent/invalid body pauses safely. Later meeting after temporary mood expiry must reflect the exact agreement/result and affect only the optional scheduling request. Reload/import/save failure and receipt replay cannot duplicate wage, priority or memory."
+    }
+  ]
+}

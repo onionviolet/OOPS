@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-04",
+  "slug": "engine-absorption",
+  "requestedTitle": "Selective engine absorption GM",
+  "threadId": "01a10a0d-d78f-7bf1-ba46-e16c38bf0f1b",
+  "assignment": "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md",
+  "mode": "planning-only",
+  "state": "planning-active-observed",
+  "dispatchCoordinator": "01a109e5-344f-7941-8d55-156d37a15716",
+  "inputSnapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+  "hostId": "local",
+  "nativeCreationSucceeded": true,
+  "cursor": "a406e168-2cf8-4d95-b738-6d968617a5b1:1",
+  "latestTurn": "inProgress",
+  "observedAtUTC": "2026-10-05T03:15:27.644499+00:00",
+  "observedCommentary": "I\u2019m using the efficient agent routing and evidence-gated handoff skills for two disjoint upstream checks. The main decision stays here: whether each tool adds a missing player behavior without duplicating the clock, inventory, people, or save owners.",
+  "coordinatorDocumentChecks": {
+    "markdownFiles": 8,
+    "localLinks": 560,
+    "brokenLinksOrAnchors": 0,
+    "runtimePackageBundleHashesUnchanged": 11,
+    "runtimeRolesStillHeld": true,
+    "gameplayChecks": "not run; planning scope and existing deferral",
+    "planSHA256": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71"
+  }
+}

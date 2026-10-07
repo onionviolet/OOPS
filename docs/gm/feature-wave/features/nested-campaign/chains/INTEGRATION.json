@@ -1,0 +1,1027 @@
+{
+  "schema": 1,
+  "lane": "nested-campaign-chains",
+  "worker": "/root/nested_chains",
+  "integrator": "/root Features",
+  "status": "source-delivered-implemented-unverified",
+  "release": true,
+  "authority": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+  "modules": {
+    "src/feature_expansion_nested_chains.js": {
+      "exports": [
+        "NESTED_CHAIN_IDS",
+        "NESTED_CHAIN_ITEMS",
+        "nestedChainCoverage",
+        "nestedChainDefinitions",
+        "nestedChainFacts",
+        "nestedChainItemDefinitions",
+        "nestedChainSources"
+      ],
+      "families": [
+        "situations",
+        "commands",
+        "controllers"
+      ]
+    },
+    "src/feature_expansion_nested_chains_host.js": {
+      "exports": [
+        "commitNestedChainCommand",
+        "nestedChainContext",
+        "nestedChainPeopleView",
+        "nestedChainPresentation",
+        "nestedChainSimulationContexts",
+        "previewNestedChainCommand",
+        "validateNestedChains"
+      ]
+    }
+  },
+  "chainIds": [
+    "nested.chain.roles",
+    "nested.chain.welfare",
+    "nested.chain.method"
+  ],
+  "commands": [
+    {
+      "id": "nested.chain.roles.begin",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.appearance",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.witness",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.minutes",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.registrar_audit",
+      "actorId": "nested.archive.registrar",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.claimant_folio",
+      "actorId": "nested.archive.claimant",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.witness_preserve",
+      "actorId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.lawful",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.partial",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.refuse",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.hostile",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.report",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.abstain_return",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.hub_review",
+      "actorId": "nested.hub.issuer",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.roles.account",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.restitute",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.revisit_corrected",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.revisit_shared",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.revisit_refused",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.roles.revisit_coerced",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive reception",
+      "chainId": "nested.chain.roles",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.begin",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.inspect",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.keeper_ration",
+      "actorId": "nested.saltworks.keeper",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.foreman_notice",
+      "actorId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.cooperate",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.early_solution",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.issuer_first",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.partial",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.refuse",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.hostile",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.prior_cooperated",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.prior_issuer_first",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.prior_refused",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.abstain_return",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.report",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.issuer_audit",
+      "actorId": "nested.hub.issuer",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.account",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.restitute",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.welfare.revisit_cooperated",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.revisit_issuer_first",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.revisit_partial",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.revisit_refused",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.revisit_seized",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.welfare.revisit_abstained",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks landing",
+      "chainId": "nested.chain.welfare",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.begin",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.prepare",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.acknowledge",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.use",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.counter",
+      "actorId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.hear_counter",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.refine",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.partial",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.ordinary",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.hostile",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.restitute",
+      "actorId": "player",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise workroom",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.teach",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.foreman_use",
+      "actorId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.hear_use",
+      "actorId": "player",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 0
+    },
+    {
+      "id": "nested.chain.method.later_refined",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.later_retained",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.later_ordinary",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    },
+    {
+      "id": "nested.chain.method.later_appropriated",
+      "actorId": "player",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "chainId": "nested.chain.method",
+      "revision": 1,
+      "once": true,
+      "duration": 3
+    }
+  ],
+  "controllers": [
+    {
+      "id": "nested.chain.roles.registrar",
+      "revision": 1,
+      "label": "Finite registrar attribution review",
+      "actorId": "nested.archive.registrar",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.roles.registrar_audit",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "nested.chain.roles.claimant",
+      "revision": 1,
+      "label": "Independent reception folio duty",
+      "actorId": "nested.archive.claimant",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.roles.claimant_folio",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "nested.chain.roles.witness",
+      "revision": 1,
+      "label": "Independent dated-evidence preservation",
+      "actorId": "nested.archive.witness",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.roles.witness_preserve",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "nested.chain.welfare.keeper",
+      "revision": 1,
+      "label": "Independent finite water rationing",
+      "actorId": "nested.saltworks.keeper",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.welfare.keeper_ration",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "nested.chain.local.foreman",
+      "revision": 1,
+      "label": "Finite foreman maintenance and counter",
+      "actorId": "nested.saltworks.foreman",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.method.foreman_use",
+          "priority": 3
+        },
+        {
+          "commandId": "nested.chain.method.counter",
+          "priority": 2
+        },
+        {
+          "commandId": "nested.chain.welfare.foreman_notice",
+          "priority": 1
+        }
+      ]
+    },
+    {
+      "id": "nested.chain.hub.issuer",
+      "revision": 1,
+      "label": "Scoped finite returned-account reviews",
+      "actorId": "nested.hub.issuer",
+      "interval": 1,
+      "actions": [
+        {
+          "commandId": "nested.chain.welfare.issuer_audit",
+          "priority": 2
+        },
+        {
+          "commandId": "nested.chain.roles.hub_review",
+          "priority": 1
+        }
+      ]
+    }
+  ],
+  "situations": [
+    {
+      "id": "nested.chain.roles",
+      "revision": 1,
+      "label": "Attribution, office and institutional treatment",
+      "context": {
+        "worldId": "nested.archive",
+        "instanceId": "nested.archive.main",
+        "continuityId": "nested.original.branch",
+        "eraId": "nested.service_district.present",
+        "regionId": "nested.archive.building"
+      },
+      "privateTruth": {
+        "authorship": "nested.archive.witness",
+        "provisionalOffice": "nested.archive.claimant",
+        "authority": "nested.archive.registrar",
+        "disposition": "finite_local_audit"
+      },
+      "participants": [
+        "player",
+        "nested.archive.registrar",
+        "nested.archive.claimant",
+        "nested.archive.witness"
+      ],
+      "initialPhase": "open",
+      "phases": [
+        "open",
+        "recognized",
+        "evidence",
+        "corrected",
+        "shared",
+        "refused",
+        "coerced",
+        "reported",
+        "accounted",
+        "closed"
+      ]
+    },
+    {
+      "id": "nested.chain.welfare",
+      "revision": 1,
+      "label": "Export, local water and returned obligations",
+      "context": {
+        "worldId": "nested.saltworks",
+        "instanceId": "nested.saltworks.main",
+        "continuityId": "nested.original.branch",
+        "eraId": "nested.service_district.present",
+        "regionId": "nested.saltworks.coast"
+      },
+      "privateTruth": {
+        "localDuty": "nested.saltworks.keeper",
+        "productionDuty": "nested.saltworks.foreman",
+        "issuerDuty": "export_account",
+        "scarcity": "actual_wood_rope_effort"
+      },
+      "participants": [
+        "player",
+        "nested.saltworks.keeper",
+        "nested.saltworks.foreman"
+      ],
+      "initialPhase": "open",
+      "phases": [
+        "open",
+        "informed",
+        "cooperated",
+        "issuer_first",
+        "partial",
+        "refused",
+        "seized",
+        "abstained",
+        "reported",
+        "accounted",
+        "closed"
+      ]
+    },
+    {
+      "id": "nested.chain.method",
+      "revision": 1,
+      "label": "Attributed fragment, actual use and earned transmission",
+      "context": {
+        "worldId": "nested.paradise_hub",
+        "instanceId": "nested.paradise.main",
+        "continuityId": "nested.original.branch",
+        "eraId": "nested.service_district.present",
+        "regionId": "nested.hub.service"
+      },
+      "privateTruth": {
+        "teacher": "nested.hub.trainer",
+        "source": "nested.pressure_pulse",
+        "missingTerm": "reversed_load",
+        "ordinaryAlternative": "owned_timber_support"
+      },
+      "participants": [
+        "player",
+        "nested.hub.trainer"
+      ],
+      "initialPhase": "fragment",
+      "phases": [
+        "fragment",
+        "prepared",
+        "supported",
+        "used",
+        "countered",
+        "refined",
+        "retained",
+        "ordinary",
+        "appropriated",
+        "closed"
+      ]
+    }
+  ],
+  "sourceOwner": "src/feature_expansion_nested_content.js nested.pressure_pulse; nestedChainSources is empty, no duplicate source",
+  "items": {
+    "existingKeys": {
+      "log": "{\"id\":\"Rough wood log\"}",
+      "kit": "{\"id\":\"Prepared survey kit\"}",
+      "rope": "{\"id\":\"Survey rope\"}"
+    },
+    "newItemDefinitions": 0
+  },
+  "nativeStockRequests": [],
+  "finiteNativeActors": {
+    "issuer": {
+      "credit": 24,
+      "agenda": 2,
+      "attention": 3
+    },
+    "trainer": {
+      "credit": 0,
+      "agenda": 2,
+      "attention": 3,
+      "kit": 1,
+      "rope": 1,
+      "ownPracticedSource": true
+    },
+    "keeper": {
+      "credit": 4,
+      "agenda": 2,
+      "attention": 3,
+      "logs": 2,
+      "kit": 1
+    },
+    "foreman": {
+      "credit": 6,
+      "agenda": 2,
+      "attention": 5,
+      "rope": 1,
+      "kit": 1
+    },
+    "registrar": {
+      "credit": 6,
+      "agenda": 2,
+      "attention": 3,
+      "kit": 1
+    },
+    "claimant": {
+      "credit": 3,
+      "agenda": 2,
+      "attention": 3,
+      "rope": 1
+    },
+    "witness": {
+      "credit": 2,
+      "agenda": 2,
+      "attention": 3,
+      "kit": 1
+    }
+  },
+  "versions": {
+    "definitionRevision": 1,
+    "expansion": "parent nested enrollment admits expansion7 only; no worker version/store",
+    "simulation": "existing schema3 situations; schema4 live-support jobs and reservation-return accounting",
+    "optionalState": "no new top-level chain field; missing nestedCampaign inert",
+    "migration": "preserve current definitions/revision1; unsupported history/cast/context rejects recoverably, never resets existing native data"
+  },
+  "clock": {
+    "owner": "existing played-clock simulation controllers/jobs plus native nested instance clock sync",
+    "absence": "unaccepted decisions freeze without actual player/native presence; selected reserved support jobs refund if required local source/contact is lost",
+    "newScheduler": false
+  },
+  "publication": "Typed simulation costs/effects return one staged state/external/gameplay/vitals/equipment/acquisitions/unlocks plan. Parent persistExpansion stages the nested native envelope once, persists, then publishes. No separate payout/XP/stock/save manager.",
+  "requiredParentJoins": [
+    {
+      "file": "src/feature_expansion_content.js / src/simulation_content.js",
+      "join": "Concatenate nestedChainDefinitions.situations/commands/controllers once alongside native nestedDefinitions. Empty sources/items exports require no new source/item registration. All native people/pulse remain their original nested-content owner.",
+      "observed": "merged definition compilation only; global registration is parent work"
+    },
+    {
+      "file": "src/simulation_effects.js simulationFacts",
+      "join": "Import pure nestedChainFacts and spread nestedChainFacts(state,context) after native nested facts. This is required for immediate effect preparation, NPC controller eligibility and live completion rechecks, not just the player panel.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/main.js simulation context gathering",
+      "join": "Compose nestedSimulationContexts then nestedChainSimulationContexts for player and each existing native actor. Include actual native grouped gameplay/vitals/equipment and nestedNative revision snapshot. Source power nested.methodSupport must be actor-specific for NPC foreman_use.",
+      "observed": "actor-specific source projection observed in current nested host; root context composition pending"
+    },
+    {
+      "file": "src/feature_expansion_nested_host.js explicit enrollment",
+      "join": "Attach every merged registry controller whose actorId is one of the explicitly created native residents, due=clock+interval. Do not attach or seed on render/load.",
+      "observed": "current native host enrollment already iterates merged registry.controllers"
+    },
+    {
+      "file": "src/simulation.js startCommand / refunds",
+      "join": "Add nested_chains to the existing reservationReturns schema4 group list. Our reusable item effects explicitly use reservationReturn:true; refundable reusable tools and transferred teaching rope must not become fresh acquisition awards.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/expansion_engine.js validation",
+      "join": "Call validateNestedChains(state,registry) alongside parent validateNestedCampaignState and existing simulation/job/source validators. Preserve missing optional state; exact phase/cast/instance/office claim admission applies on new saves.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/main.js command router",
+      "join": "Route {type:nested_chain,action:{type:command,id,targetId}} or {type:nested_chain,action:{type:cancel_job,id}} to commitNestedChainCommand(state,registry,command.action,nestedChainContext(state,nestedContext(state,context)),command.sequence). Publish the returned plan only through existing persistExpansion.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/feature_expansion_wave_host.js / feature UI / Notebook",
+      "join": "Append nestedChainPresentation(state,registry,nestedContext(state,context)).sections, preserving the exact actions.command payload. Read-only known records and accepted player jobs are supplied; include chain-origin waiting-work attention. Do not render private NPC agendas or funds.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/people_knowledge.js or nested people projection",
+      "join": "Append nestedChainPeopleView(state,registry) only from player-directed attributed knowledge, using existing native definition labels. Deduplicate the same existing person IDs against native nestedPeopleView.",
+      "observed": "required parent join"
+    },
+    {
+      "file": "src/feature_expansion_nested_content.js basic disposition commands",
+      "join": "Basic salt deliver/withhold and archive register/refuse must not overwrite an active chain disposition. Keep existing source inspection and early repair useful; chain prior/early_solution commands acknowledge already completed acts.",
+      "observed": "current native source guards observed"
+    },
+    {
+      "file": "build.js / final build ownership",
+      "join": "Features rebuilds one combined matching native/UI/save bundle after all shared joins, records final source hashes, and retains later behavioral acceptance backlog.",
+      "observed": "parent-owned, not performed by worker"
+    }
+  ],
+  "checks": {
+    "performed": [
+      "node --check: both source modules",
+      "cold imports: both source modules",
+      "createSimulationRegistry: actual native and chain definition families merged once",
+      "all situation phase-effect links",
+      "seven source/document links"
+    ],
+    "deferred": [
+      "behavior",
+      "unit",
+      "browser",
+      "gameplay",
+      "save/reload",
+      "storage failure",
+      "keyboard",
+      "regression",
+      "director fiction/pacing",
+      "final shared bundle: Features integrator"
+    ]
+  },
+  "counts": {
+    "commands": 62,
+    "publicCommands": 53,
+    "controllers": 6,
+    "situations": 3,
+    "mergedDefinitionCommands": 98
+  },
+  "sourceHashes": {
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "12a50f38714101984213a4c277905145512338912e34ec066521bb9d52c121f3"
+  }
+}

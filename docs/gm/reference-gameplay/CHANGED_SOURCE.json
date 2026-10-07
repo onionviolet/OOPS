@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "beforeBundleFingerprint": "1ca667dd9eef",
+  "changedExistingBundledSources": [
+    "src/feature_expansion_nested_life.js",
+    "src/feature_expansion_nested_host.js",
+    "src/simulation_effects.js",
+    "src/feature_expansion_battle.js",
+    "src/native_battle_contracts.js",
+    "src/feature_expansion_work_plan.js",
+    "src/simulation.js",
+    "src/expansion_engine.js",
+    "src/feature_expansion_powers_host.js",
+    "src/feature_expansion_battle_host.js",
+    "src/feature_expansion_society_host.js",
+    "src/feature_expansion_ui.js",
+    "src/feature_expansion_wave_host.js",
+    "src/feature_expansion_content.js",
+    "src/expedition_content.js",
+    "src/data/expedition_items.js",
+    "src/adventure_notebook.js",
+    "src/main.js"
+  ],
+  "newSources": [
+    "src/reference_gameplay_state.js",
+    "src/reference_gameplay_feats.js",
+    "src/reference_gameplay_content.js",
+    "src/reference_gameplay_host.js"
+  ],
+  "sourceSyntax": "passed",
+  "count": 22
+}

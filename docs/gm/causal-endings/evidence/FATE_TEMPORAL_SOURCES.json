@@ -1,0 +1,220 @@
+{
+  "artifact": "causal-endings/fate-temporal-sources",
+  "status": "source-evidence comparison from existing reviewed dossier notes; no new source read or gameplay activation",
+  "sources": [
+    {
+      "id": "RI",
+      "title": "Reverend Insanity",
+      "edition_sha256": "981c313a5f122272c0f6656df0071bfb43d37715e6ca20c10813a6341833e562",
+      "cutoff": "Supplied manifest ends at Chapter 2334, 'Fang Yuan And Giant Sun Fight Star Constellation'; no complete-ending claim.",
+      "qualification": "Qualified compilation; provenance metadata does not establish authentic primary canon or full publication completeness.",
+      "chains": [
+        {
+          "id": "RI-TIME",
+          "label": "Fate doctrine, Red Lotus and Spring Autumn Cicada",
+          "mechanism_owner": "Fang Yuan owns and deliberately activates his vital Spring Autumn Cicada. Red Lotus's inherited Spring Autumn Success is a separate prepared method.",
+          "evidence": [
+            {
+              "claim_ids": ["RI-c1677-01", "RI-c1677-02", "RI-c1677-03", "RI-c1678-01"],
+              "chapter": "1677-1678",
+              "members": [
+                {"chapter": 1677, "member": "EPUB/chapter_1677.xhtml", "member_sha256": "fd751ce9e064919a870bff1b219f48900efecf8736f08fcc55691f7d8344d4fa", "blocks": "3-80"},
+                {"chapter": 1678, "member": "EPUB/chapter_1678.xhtml", "member_sha256": "345f95008181f0c15fc5bf0975fb70e6a88a09a4025e537bdf93a8c19a830e4f", "blocks": "1-60"}
+              ],
+              "evidence_kind": "Duke Long's determinism is attributed doctrine in an inheritance memory; Hong Ting cannot prevent parents' deaths despite intervention; Red Lotus challenges Fate after grief and proposes revival, with no proven general resurrection.",
+              "limit": "Prophecy/role prediction is not a universal invulnerability contract or proof every future event is fixed."
+            },
+            {
+              "claim_ids": ["RI-c0196-03", "RI-c0197-03"],
+              "chapter": "196-197",
+              "members": [
+                {"chapter": 196, "member": "EPUB/chapter_196.xhtml", "blocks": "20-35"},
+                {"chapter": 197, "member": "EPUB/chapter_197.xhtml", "blocks": "67-102"}
+              ],
+              "evidence_kind": "Fang deliberately activates his vital Rank-six Cicada; current body, cultivation and other Gu are sacrificed as propulsion. His sub-ten-percent success estimate is his model. The will/consciousness arrives in an earlier body and the Cicada is too weak for immediate reuse.",
+              "limit": "Specific activation only; no automatic reset from arbitrary death, no demonstrated player memory transfer, repeated-use guarantee, or costless return."
+            },
+            {
+              "claim_ids": ["RI-c1679-02", "RI-c1679-03"],
+              "chapter": 1679,
+              "member": {"member": "EPUB/chapter_1679.xhtml", "member_sha256": "c46c417ee4f28b11e55d56c7296975869636cb8990cf4da6b9e487076b440869", "blocks": "25-46; the no-shortcut/Fate Gu goal claim is blocks 47-66"},
+              "evidence_kind": "Red Lotus's inheritance supplies Spring Autumn Success, described as removing Spring Autumn Cicada failure chance while lowering luck; source also establishes the island's finite, non-obvious access context.",
+              "limit": "Prepared named inheritance and tradeoff; it is not a universal time ability."
+            }
+          ],
+          "knowledge": "Fang carries memories through the owned Gu activation; others see consequences and may hold separate prior-life records. The reader's later chronology does not make witnesses omniscient. Fang's prior-life forecast can diverge from the active pass.",
+          "unknowns": ["Exact repeat-use probability outside Fang's attributed estimate", "Exact rewind span and other observers' fate for every activation", "Whether unrelated actors retain memories without a defined carrier"]
+        },
+        {
+          "id": "RI-FATE-ASCENT",
+          "label": "Fate Gu destruction, redistribution and conditional Venerable ascent",
+          "mechanism_owner": "Heaven Overseeing Tower/Duke Long uses Fate Gu; Fang destroys it; Red Lotus and Giant Sun's prepared method later redistributes Fate into people. Lu Wei Yin supplies the ascension model as testimony.",
+          "evidence": [
+            {
+              "claim_ids": ["RI-c1960-01", "RI-c1960-03"],
+              "chapter": 1960,
+              "member": {"member": "EPUB/chapter_1960.xhtml", "member_sha256": "b1c121e5267f8910e80509eb38fb0cba54fd4107a07fd7f2818970d0285ddbd3", "blocks": "2-41, 72-117"},
+              "evidence_kind": "Fate Vanquish still harms other combatants while Fang's complete otherworldly-demon form alone resists its effect; Fang then crushes rank-nine Fate Gu.",
+              "limit": "Exception does not transfer to Fang's allies, every otherworldly actor, all future venerables, or all forms of Fate. Chapter ends before consequences."
+            },
+            {
+              "claim_ids": ["RI-c1961-01", "RI-c1966-01", "RI-c1966-02", "RI-c1966-03"],
+              "chapter": "1961 and 1966",
+              "members": [
+                {"chapter": 1961, "member": "EPUB/chapter_1961.xhtml", "member_sha256": "a1ffa1bd19f0ca4ba96058a237694089ee8ce5ab7f031a686004da1cde3c9e5a", "blocks": "2-145"},
+                {"chapter": 1966, "member": "EPUB/chapter_1966.xhtml", "member_sha256": "8966d4391faaf9e6290fff5b76083c19526fb3833b766970651b1fda41cb522d", "blocks": "2-162"}
+              ],
+              "evidence_kind": "Duke Long's re-refinement/exclusive-use comments are strategic assertions. Later event distributes Fate into living people through human will/luck; narrator states it can no longer be used by Heaven's Will. The event causes deaths/pain and merges the five regions.",
+              "limit": "Fate Gu, distributed Fate, Heaven's Will and ordinary causality remain distinct. Distribution is not universal annihilation of fate/cause or proof Heaven's Will itself vanished."
+            },
+            {
+              "claim_ids": ["RI-c2085-01", "RI-c2085-02", "RI-c2086-01", "RI-c2086-02", "RI-c2086-03"],
+              "chapter": "2085-2086",
+              "members": [
+                {"chapter": 2085, "member": "EPUB/chapter_2085.xhtml", "member_sha256": "a6f6cdbf71b036d08a89af876ecfa51a6110b524717caf5e13a58ad87debe7c9", "blocks": "2-97"},
+                {"chapter": 2086, "member": "EPUB/chapter_2086.xhtml", "member_sha256": "675b461bd28931365d3a1426a4ba390f50964f35461ce6d219764e3f920eec02", "blocks": "2-80"}
+              ],
+              "evidence_kind": "Lu Wei Yin describes four ascension conditions and several separate Heavenly Dao blockades; his explanations of revival and Dao Lord power are testimony. Fang has explicit deficits at this point.",
+              "limit": "Fate's altered state removes/changes one obstacle but does not supply attainment, essence, marks or every blockade. Star Constellation revival is only likely in Lu's account."
+            },
+            {
+              "claim_ids": ["RI-c2211-01", "RI-c2211-02", "RI-c2211-03"],
+              "chapter": "2211-2212",
+              "members": [
+                {"chapter": 2211, "member": "EPUB/chapter_2211.xhtml", "member_sha256": "dbc71e6b2b85e60a11bc558d8c2a99441eeb2f69e72b6bd2d5734c48093581b7", "blocks": "2-78"},
+                {"chapter": 2212, "member": "EPUB/chapter_2212.xhtml", "member_sha256": "a4ea7336386dff5dae1a09610bd820413dc98e1cc65e28361a1bd6718dfb7303", "blocks": "1-101"}
+              ],
+              "evidence_kind": "Fang's ascent is realized later through hidden rank-nine timing and prepared counters; opponents' explanations are partly inference. He remains badly injured and asset-depleted afterward.",
+              "limit": "Later realized strength does not retroactively protect an earlier body, force earlier ascension, or guarantee safety."
+            }
+          ],
+          "knowledge": "Combatants see Fate Gu destroyed; later the distribution mechanism and Red Lotus/Giant Sun preparation are revealed in stages. Duke Long's claims and rival venerables' deductions must retain speaker attribution.",
+          "unknowns": ["Complete final fate of Heaven's Will", "Individual distribution/effect of each heaven-path mark", "Full revival requirements beyond the supplied claims", "Anything after source cutoff Chapter 2334"]
+        }
+      ]
+    },
+    {
+      "id": "ORV",
+      "title": "Omniscient Reader's Viewpoint",
+      "edition_sha256": "24cf71786db0c6e91a5ec12a1047a993a25c6bf4d5a72deb0ee2c417436655bf",
+      "cutoff": "Reviewed manifest covers Chapters 1-551; final supplied scene opens a hospital door but leaves the occupant/reunion unresolved.",
+      "qualification": "Supplied English illustrated compilation; primary authenticity, translation fidelity and publication completeness unverified. Captions were read where noted; image pixels are not used here.",
+      "chains": [
+        {
+          "id": "ORV-PROBABILITY-DREAM",
+          "label": "Probability, Stories, Oldest Dream protection and limits",
+          "mechanism_owner": "Scenario/Star Stream governs Probability; named Stories, audience and sponsors support particular interventions; Oldest Dream's attention sustains lines but the watcher has limited direct control.",
+          "evidence": [
+            {
+              "claim_ids": ["ORV-475-01", "ORV-475-02", "ORV-479-01", "ORV-480-01"],
+              "chapters": "475, 479-480",
+              "members": [
+                {"chapter": 475, "member": "OEBPS/OEBPS/chap_00475.xhtml", "blocks": "15-37, 65-90, 112-121"},
+                {"chapter": 479, "member": "OEBPS/OEBPS/chap_00479.xhtml", "blocks": "7-23, 31-48, 91-117, 157-183"},
+                {"chapter": 480, "member": "OEBPS/OEBPS/chap_00480.xhtml", "blocks": "40-84"}
+              ],
+              "evidence_kind": "Time-space support slows one Probability backlash at a cost; audience Probability raises a specific attack grade, but linked lives and timer make Dokja cancel. A reported world-line restoration promise is unfulfilled in the reviewed scene.",
+              "limit": "Support affects a named resolution; it does not guarantee survival or goal completion. Cost/withdrawal and connected actors remain material."
+            },
+            {
+              "claim_ids": ["ORV-514-01", "ORV-515-01"],
+              "chapters": "514-515",
+              "members": [
+                {"chapter": 514, "member": "OEBPS/OEBPS/chap_00514.xhtml", "blocks": "61-140"},
+                {"chapter": 515, "member": "OEBPS/OEBPS/chap_00515.xhtml", "blocks": "38-166"}
+              ],
+              "evidence_kind": "Oldest Dream child's denial sphere resists Dokja's attack but the Plotter crosses it; the Plotter cuts traumatic memories rather than killing him, and companions comfort him until he wakes and chooses the child's world.",
+              "limit": "A source-specific protection and chosen nonlethal resolution. Not universal immunity, eternal life, or restoration of every loss."
+            },
+            {
+              "claim_ids": ["ORV-517-01", "ORV-527-03"],
+              "chapters": "517-528",
+              "members": [
+                {"chapter": 517, "member": "OEBPS/OEBPS/chap_00517.xhtml", "blocks": "41-177"},
+                {"chapter": 527, "member": "OEBPS/OEBPS/chap_00527.xhtml", "blocks": "137-166"},
+                {"chapter": 528, "member": "OEBPS/OEBPS/chap_00528.xhtml", "blocks": "9-53"}
+              ],
+              "evidence_kind": "Watcher attention is stated to sustain world-lines, but watcher cannot protect passengers at the original scenario. Foreign Jae-hwan breaches the train through Fourth Wall limits; the system ejects tail cars and blocks reboarding across the time-axis barrier.",
+              "limit": "Attention/world-sustaining authority is not fine-grained control, combat immunity, or guaranteed intervention. Foreign means expose an actual boundary counter."
+            }
+          ],
+          "knowledge": "Child, watcher, companions, Plotter, scenario system and outside intruder hold different information. Later revelation of Oldest Dream does not grant earlier witnesses the explanation.",
+          "unknowns": ["Full ceiling and controllability of watcher authority", "General resistance/counter rules for foreign-world powers", "Whether any later hospital event completes recovery"]
+        },
+        {
+          "id": "ORV-BRANCH-ORIGIN",
+          "label": "Regression, world-lines and the specific author/reader origin loop",
+          "mechanism_owner": "Joonghyuk chooses a specific Regression Stigma; Dokja creates/transfers it; Biyoo explains branch selection. Sooyoung authors a specific backward-linked serial after a Final Wall transition.",
+          "evidence": [
+            {
+              "claim_ids": ["ORV-525-02", "ORV-527-01", "ORV-528-01", "ORV-529-01"],
+              "chapters": "525, 527-529",
+              "members": [
+                {"chapter": 525, "member": "OEBPS/OEBPS/chap_00525.xhtml", "blocks": "43-152"},
+                {"chapter": 527, "member": "OEBPS/OEBPS/chap_00527.xhtml", "blocks": "45-66"},
+                {"chapter": 528, "member": "OEBPS/OEBPS/chap_00528.xhtml", "blocks": "62-145"},
+                {"chapter": 529, "member": "OEBPS/OEBPS/chap_00529.xhtml", "blocks": "68-173"}
+              ],
+              "evidence_kind": "Joonghyuk knowingly accepts memory/relationship loss and ends the 0th turn by choice. Biyoo attributes branch choice to Regression; post-scenario-born people are excluded and travel misroutes participants.",
+              "limit": "Biyoo's topology account is attributed testimony. Regression does not erase every other line's loss or include every actor."
+            },
+            {
+              "claim_ids": ["ORV-476-01", "ORV-542-01", "ORV-542-02", "ORV-541-01", "ORV-541-02"],
+              "chapters": "476, 541-542",
+              "members": [
+                {"chapter": 476, "member": "OEBPS/OEBPS/chap_00476.xhtml", "blocks": "14-123"},
+                {"chapter": 541, "member": "OEBPS/OEBPS/chap_00541.xhtml", "blocks": "7-136"},
+                {"chapter": 542, "member": "OEBPS/OEBPS/chap_00542.xhtml", "blocks": "5-126"}
+              ],
+              "evidence_kind": "Narration presents continuous subject-time across branches. Another-line Bo-Ri does not undo the original death; one-use Ark arrives twenty years late, the rescue fails, and Joonghyuk loses regressor category/stigmas.",
+              "limit": "A branch/transport can supply another person's life or later route without restoring the original actor/state."
+            },
+            {
+              "claim_ids": ["ORV-532-02", "ORV-533-02", "ORV-534-01", "ORV-534-02", "ORV-536-01", "ORV-540-01", "ORV-551-03"],
+              "chapters": "532-536, 540-551",
+              "members": [
+                {"chapter": 532, "member": "OEBPS/OEBPS/chap_00532.xhtml", "blocks": "57-164"},
+                {"chapter": 533, "member": "OEBPS/OEBPS/chap_00533.xhtml", "blocks": "64-198"},
+                {"chapter": 534, "member": "OEBPS/OEBPS/chap_00534.xhtml", "blocks": "9-120"},
+                {"chapter": 536, "member": "OEBPS/OEBPS/chap_00536.xhtml", "blocks": "18-92"},
+                {"chapter": 540, "member": "OEBPS/OEBPS/chap_00540.xhtml", "blocks": "41-75"},
+                {"chapter": 551, "member": "OEBPS/OEBPS/chap_00551.xhtml", "blocks": "158-217"}
+              ],
+              "evidence_kind": "1863rd-turn Sooyoung reaches the first world-line at age 13, meets 15-year-old Dokja, then writes the 1,863-regression serial at bodily cost. Her belief that omitting the novel could omit the person it saved, and the King's simultaneous cause/effect explanation, are attributed. Fourth Wall's dispersed-soul/world-maintenance explanation also stays attributed; final hospital restoration is unresolved.",
+              "limit": "This is a specific authored causal loop, not proof that future power alone reaches backward, or that authorial knowledge guarantees the desired ending. Source stops before recovery is confirmed."
+            }
+          ],
+          "knowledge": "Each Joonghyuk turn, parallel line, Sooyoung at two ages, Dokja watcher/child/avatar and their different memory shares must remain separate. Later author/reader knowledge is not shared with earlier actors by default.",
+          "unknowns": ["Complete world-line topology", "Whether distributed Dokja is restored at the cutoff", "Transmission of memories to reincarnations", "Exact operation of causal simultaneity beyond the King's explanation", "Final hospital door occupant"]
+        }
+      ]
+    }
+  ],
+  "input_sha256": {
+    "docs/research/novels/full-book/reverend-insanity/manifest.json": "8c2c9889acdf8546419072852cd46244b89700662f13aeb4a9562ccb2faccb0e",
+    "docs/research/novels/full-book/reverend-insanity/BRIEF.md": "49bbce6fbcb4bd042eaab7f0b2392f9b015409c8065551b5cbd4bc0e9dcd76a1",
+    "docs/research/novels/full-book/reverend-insanity/INDEXES.md": "81a00810dda7d304b1dcdb45a2b6c36872512e1b187e113de8f63033d4be6368",
+    "docs/research/novels/full-book/reverend-insanity/readers/R1676-1690-NOTES.md": "cf94a747ffd85da8a1dbadeafeaf98000734440dfb44781201996897df27b648",
+    "docs/research/novels/full-book/reverend-insanity/readers/R1676-1690-CLAIMS.json": "5749222d085910db83512214e825cb6761d183fb943f8a928dc5aa9a30e9b21c",
+    "docs/research/novels/full-book/reverend-insanity/readers/R1946-1960-NOTES.md": "f13597eb2cf0bc392fbf340e6ca18b785700721fd5b386271abed5583fd247ba",
+    "docs/research/novels/full-book/reverend-insanity/readers/R1961-1975-NOTES.md": "95d521b102608bdd445200cb335cd8bb6c46c77b87cd9e34f6404cd201208e5c",
+    "docs/research/novels/full-book/reverend-insanity/readers/R1961-1975-CLAIMS.json": "8b8ce2625de80cb45adbd5dddffbf1d8348e879bb13d579e52c936c0d33cbf9b",
+    "docs/research/novels/full-book/reverend-insanity/readers/R2076-2090-NOTES.md": "779f162959e0fb79c6c7e502157847e471732ddee0ff60078f3a325d51263802",
+    "docs/research/novels/full-book/reverend-insanity/readers/R2076-2090-CLAIMS.json": "7aa791fbd7cb57764da48358b17c2965f86689ece149eaff5f89e98054959ec2",
+    "docs/research/novels/full-book/reverend-insanity/readers/R2206-2220-NOTES.md": "beb53e3d988ee3be6ea7b3af095a802a29d61f32df1970873715b61c3f6237e1",
+    "docs/research/novels/full-book/reverend-insanity/readers/R2206-2220-CLAIMS.json": "99dff462f9db379260c37a97e0268a1b39550cd883109ffbb9a0cf018ad7d090",
+    "docs/research/novels/full-book/omniscient-reader/MANIFEST.json": "db04cc20f7ac0ffdb1d4a4ab75762954d75208df2bd693dfa8ade68d1e810625",
+    "docs/research/novels/full-book/omniscient-reader/BRIEF.md": "1169c02fe8a6c9f2803c64ebabe96af46dde0517f1298461c9478e8efc6da127",
+    "docs/research/novels/full-book/omniscient-reader/SOURCE_BOUNDARIES.md": "a877a3da7bce855c28f8bc976c23f4fb27b04a652b89a44e47da86c4c7a1061f",
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_471_490.md": "5c6f1c89b2d8bfe584bd282da447c93f2e2da15ff74d60547df631068e53bcfa",
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_511_530.md": "3f8f4472ba03a713f5297428ae426be61fdf4e0525bce60196b560067d8d6163",
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_531_551.md": "7724c793cf2bc886738634f69ff8ac13424dd905c55b7650855283d4bc135425"
+  },
+  "original_design_proposals": [
+    "Gate retrocausal interaction on an actually owned time mechanism, reachable era, trigger and retained knowledge; future rank or reader foreknowledge alone grants no past-facing action.",
+    "Author fate-save scope and exception owner explicitly; remove only the rule/actor's actual dependency when fate is severed. Preserve Heaven's Will, world causality and independent goals unless their own state changes.",
+    "Track a branch's outcome separately from losses in the abandoned line, and distinguish survival from completing a player's intended goal.",
+    "Carry genuinely source-backed unlimited protections at their evidenced scope without inventing a balancing meter; where support or a counter is observed, preserve that exact condition."
+  ],
+  "validation": "Static claim/locator and input-hash review; no tests, build, browser, game actions, source writes or private-save access."
+}

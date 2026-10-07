@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-05",
+  "purpose": "read-time targeted input fingerprints; not semantic whole-file coverage or runtime acceptance",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "files": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "095ab060e6aca28b67e7a9594ef1ad1385b30f5622f730d12661975f4e0d8974",
+    "docs/USER_VISION.md": "1f1d7219436b3d259fcb5bc005c807df44e454dbd2f758f70f05cceeff58643d",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md": "0a4743f06fa2b1185786379d17fce052723a07d30078aac91629c5e1732625c2",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "7b2461e16292c46e842300e07f8514e246663cebe08c1ff9109da32882071c1a",
+    "docs/gm/world-implementation/RUN.json": "cfa24f4d37dc4114298411347cec9728de5afba87d4f23db8d145ae72e0dd600",
+    "docs/gm/world-implementation/second-pass/timelines/REPORT.md": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+    "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json": "c31c55659c680b5ddc8ccd7d5fa37eaca480c0b0292b641b18cea5ebc82dc471",
+    "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+    "docs/worlds/original-frontier/CAMPAIGN.md": "c8d7a47f243f9207c632931ce377a7b1adc634dc2ae34f8eeea6a9bedb8bff6e",
+    "docs/worlds/original-frontier/CHECKPOINT.md": "d906e04ddb4614851d2d0851f3f3de0cbf0eee89cfc9fd0d944f80a870fbe3de",
+    "src/original_frontier_campaign_content.js": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+    "src/techniques.js": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/chronicle.js": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "25ffa3a8003eb450273b3afe6f2fb67671d136d30143fdc4e992fe33ff17a4a1",
+    "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+    "docs/research/novels/full-book/mother-of-learning/manifest.json": "7382d752d308dd19cb114de924c49cec04e55c8b40d0e9319d06eedbd5d91378",
+    "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+    "docs/research/novels/full-book/mother-of-learning/TIMELINE.md": "5a441deab922cf3737ebf0a6f4d0eaa60707f7dcf8d6e17436586e7c4896a97d",
+    "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md": "d18494cd135c37c5948b44d0a5e686b4df1acf6cc7269a5961922e4e4abb4e0b",
+    "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md": "733a96cc2cba1f2df29e3f974c71468919ec6cadcf95b7ce0615a357a1947e3a"
+  },
+  "additional_reconciled_inputs": {
+    "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md": "4f6302604c75d4718dc3504d0d4c467b010f63424a882d8b5f1e0878a611756a",
+    "docs/worlds/original-frontier/WORLD_COMPLETION.md": "bca7ca25c481269f53ab46c2b96f970ca82de83877f2759203af4909e9f6729e",
+    "docs/worlds/original-frontier/COMPLETION_LEDGER.json": "ee49092c3cbd5a10e7f5a2cf7f1b5aff42cdfd8d8932c2ffd4d2ebeb9bbce53e"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "authorized_on": "2026-10-06",
+  "authorization": "send one for rogue, streets of rogue, and keeper RL, let me know if I should instal ngu locally too",
+  "dispatcher_thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "interpretation": "rogue means Rogue Legacy 1 from the preceding Steam shortlist",
+  "input_baseline": {
+    "checked_libraries": [
+      "/Users/weiwei/Library/Application Support/Steam/steamapps"
+    ],
+    "games": [
+      {
+        "app_id": 241600,
+        "slug": "rogue-legacy",
+        "matches": [],
+        "research_assignment_available": true
+      },
+      {
+        "app_id": 512900,
+        "slug": "streets-of-rogue",
+        "matches": [],
+        "research_assignment_available": true
+      },
+      {
+        "app_id": 329970,
+        "slug": "keeperrl",
+        "matches": [],
+        "research_assignment_available": true
+      },
+      {
+        "app_id": 1147690,
+        "slug": "ngu-idle",
+        "matches": [],
+        "research_assignment_available": true
+      }
+    ],
+    "project_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "project_inputs": {
+      "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "PROJECT.md": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31"
+    }
+  },
+  "lanes": [
+    {
+      "threadId": "01a10fac-d555-7690-8b87-41cd0c78980c",
+      "hostId": "local",
+      "slug": "rogue-legacy",
+      "title_requested": "Rogue Legacy GM: inspect traits and progression",
+      "state": "active; initial work observed",
+      "assignment": "../../../research/rogue-legacy/ASSIGNMENT.md",
+      "ownership": "docs/research/rogue-legacy/",
+      "startup": {
+        "cursor": "3f0a4993-50db-416a-b473-784881e42fb7:2",
+        "turn_id": "01a10fac-de12-7c72-bab5-1da15ebc9cd4",
+        "turn_status": "inProgress",
+        "latest_tool_status": "completed"
+      }
+    },
+    {
+      "threadId": "01a10fac-e18a-77d3-908d-39c38e11bb37",
+      "hostId": "local",
+      "slug": "streets-of-rogue",
+      "title_requested": "Streets of Rogue GM: inspect interacting systems",
+      "state": "active; initial work observed",
+      "assignment": "../../../research/streets-of-rogue/ASSIGNMENT.md",
+      "ownership": "docs/research/streets-of-rogue/",
+      "startup": {
+        "cursor": "c20262ab-dcbb-41e3-b342-cc729f75ef42:4",
+        "turn_id": "01a10fac-e648-7871-9a27-bd2ef3513c6b",
+        "turn_status": "inProgress",
+        "latest_tool_status": "completed"
+      }
+    },
+    {
+      "threadId": "01a10fac-e89b-75f2-b868-358189a66ade",
+      "hostId": "local",
+      "slug": "keeperrl",
+      "title_requested": "KeeperRL GM: inspect actors and base systems",
+      "state": "active; initial work observed",
+      "assignment": "../../../research/keeperrl/ASSIGNMENT.md",
+      "ownership": "docs/research/keeperrl/",
+      "startup": {
+        "cursor": "bf9f32ec-32a3-4b70-a02e-d219b348cdb1:6",
+        "turn_id": "01a10fac-eef1-7ff3-9f19-5ec963345352",
+        "turn_status": "inProgress",
+        "latest_tool_status": "completed"
+      }
+    }
+  ],
+  "limits": [
+    "All three chats are created and active with initial work observed; completed source research is not claimed.",
+    "Research-only writes are reserved; no runtime or canonical ownership transferred.",
+    "NGU is installation advice only, with no game acquisition or source-lane launch."
+  ],
+  "ngu_advice": {
+    "recommendation": "Download the Windows game files locally for a future source review; running the game is not required for managed-code inspection.",
+    "steam_url": "https://store.steampowered.com/app/1147690/NGU_IDLE/",
+    "verified_storefront": "Free to play, Windows-only",
+    "local_install": "Absent from declared Steam library at this dispatch",
+    "qualification": "No NGU download, decompile or source-lane launch performed."
+  }
+}

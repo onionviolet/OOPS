@@ -1,0 +1,2117 @@
+{
+  "schema_version": 1,
+  "status": "complete-finite-source-review",
+  "date_local": "2026-10-05",
+  "inventory_owner": "../../../../research/repository-bank/SOURCES.json",
+  "bank_sha256": "d92b2ddb511c09f4720682f1304a5f69c8164e978fbf52c29d51215dbdac43b2",
+  "counts": {
+    "repository_rows": 30,
+    "reference_work_rows": 9,
+    "repositories_by_status": {
+      "reused-qualified-prior-review": 5,
+      "mechanism-reviewed": 22,
+      "historical/duplicate": 1,
+      "unsuitable-with-source-backed-reason": 2
+    },
+    "remaining": 0,
+    "unavailable_repositories": 0,
+    "findings": 20
+  },
+  "collection_vs_review": "30 partial default-head mirrors/84 readable seeds are acquisition evidence. Each repository has purpose/notices and an actual targeted subsystem or qualified prior reuse; these 39 dispositions close the finite inventory, not every file/version/gameplay path.",
+  "repositories": [
+    {
+      "id": "yair-upstream",
+      "title": "YAIR upstream",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/miktaew/yet-another-idle-rpg",
+        "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+        "branch": "master",
+        "cache_key": "yair-upstream.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-baselines.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+          "lines": [
+            [
+              1,
+              32
+            ]
+          ],
+          "symbol": "purpose/modding/branch guidance",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+          "lines": [
+            [
+              1,
+              21
+            ]
+          ],
+          "symbol": "MIT notice",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/LICENSE"
+        },
+        {
+          "path": "src/main.js",
+          "sha256": "1ec0c28e9468067535473330e2a480f01ca3e42b0ec2f7d76ba3c71be0c0ae82",
+          "lines": [
+            [
+              692,
+              735
+            ],
+            [
+              5503,
+              5552
+            ]
+          ],
+          "symbol": "start_activity / native tick or create_save",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/src/main.js"
+        }
+      ],
+      "reviewed_mechanism": "Both native activity starts check declared JOB/TRAINING work availability or equipped gathering tool then initialize the activity. Upstream tick produces actual stock/skill XP; dev main uses component getters and manually projects character equipment/money/XP to save. Purpose explicitly warns source/default and deployed heads differ.",
+      "disposition": "Baseline/current engine lineage, not a second engine candidate. Preserve existing native consumers; reuse narrow fork fixes through their already-qualified packets. No transplant of the older monolithic root into the adopted v0.6 dirty fork.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "notice": "MIT, Copyright (c) 2021 Miktaew; notice retained.",
+        "copy_route": "No code/assets copied. Later scoped subset adaptation preserves source/fork/commit notices; separate resources and external setting text require individual provenance."
+      },
+      "limits": "Source only. No original/development gameplay execution, branch refresh, merge, build or test. Saved default heads not complete fork network coverage; prior network review has its own finite exposed scope."
+    },
+    {
+      "id": "yair-dev",
+      "title": "YAIR development",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/miktaew/yet-another-idle-rpg-dev",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "branch": "master",
+        "cache_key": "yair-dev.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-baselines.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+          "lines": [
+            [
+              1,
+              32
+            ]
+          ],
+          "symbol": "purpose/modding/branch guidance",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/README.md"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+          "lines": [
+            [
+              1,
+              21
+            ]
+          ],
+          "symbol": "MIT notice",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/LICENSE"
+        },
+        {
+          "path": "src/main.js",
+          "sha256": "4878df96921457d475c62fa266bc5b343d2c2b010bff96ab17b417fdb033b9af",
+          "lines": [
+            [
+              717,
+              758
+            ],
+            [
+              3103,
+              3130
+            ]
+          ],
+          "symbol": "start_activity / native tick or create_save",
+          "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/src/main.js"
+        }
+      ],
+      "reviewed_mechanism": "Both native activity starts check declared JOB/TRAINING work availability or equipped gathering tool then initialize the activity. Upstream tick produces actual stock/skill XP; dev main uses component getters and manually projects character equipment/money/XP to save. Purpose explicitly warns source/default and deployed heads differ.",
+      "disposition": "Baseline/current engine lineage, not a second engine candidate. Preserve existing native consumers; reuse narrow fork fixes through their already-qualified packets. No transplant of the older monolithic root into the adopted v0.6 dirty fork.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "notice": "MIT, Copyright (c) 2021 Miktaew; notice retained.",
+        "copy_route": "No code/assets copied. Later scoped subset adaptation preserves source/fork/commit notices; separate resources and external setting text require individual provenance."
+      },
+      "limits": "Source only. No original/development gameplay execution, branch refresh, merge, build or test. Saved default heads not complete fork network coverage; prior network review has its own finite exposed scope."
+    },
+    {
+      "id": "arcanum-original",
+      "title": "Arcanum / Theory of Magic original",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://gitlab.com/mathiashjelm/arcanum",
+        "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+        "branch": "master",
+        "cache_key": "arcanum-original.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "arcanum-original",
+          "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+          "path": "src/items/task.js",
+          "sha256": "0d3b2c0b1d2893d161a2c0ac5e0067794689e03b90dcc83af15a6cbfe9c68459",
+          "symbols": [
+            "Task.update",
+            "Task.complete",
+            "Task.canRun",
+            "Task.changed"
+          ],
+          "lines": "209-294",
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/task.js"
+        },
+        {
+          "repository_id": "arcanum-original",
+          "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+          "path": "src/composites/runnable.js",
+          "sha256": "a5ec86cc4957c83a147e9d474e947ebfe71f889e1ed68cd2bc5f4b02b291b98e",
+          "symbols": [
+            "Runnable.update",
+            "Runnable.revive"
+          ],
+          "lines": "65-70, 90-113",
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/composites/runnable.js"
+        }
+      ],
+      "reviewed_mechanism": "Pinned task and runnable implementations expose continuous task progress, repeat flags, gated use, and completion notifications. This is source behavior, not a claim that the game was run.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": "The pinned README and LICENSE blobs and the inspected src/items/task.js, src/composites/runnable.js, src/modules/hall.js, and data/professions.json blobs are byte-identical to the Arcanum Testing pin. The shared gameplay files are therefore not independent evidence or two distinct mechanics.",
+      "notices_and_provenance": [
+        {
+          "source_license": "Both pins contain the same top-level LICENSE blob, copyright 2020 Justin Lacy, with an MIT-style permission and notice requirement. This lane proposes no code/data copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. Similar license family does not make borrowed story text/names/assets automatically suitable.",
+          "file_content_assets": "The Arcanum Testing module names, descriptions, flavor text and game-specific power IDs are comparison evidence only. No prose, characters, module records, graphics, fonts, or other assets are proposed for reuse.",
+          "maintenance_and_removal": "Content authored against stable existing IDs can be removed without a new engine layer; remove its registry definitions and UI exposure together. Preserve any already saved IDs with dormant-data handling if persistent content is later adopted."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "arcanum-testing",
+      "title": "Arcanum testing lineage",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://gitlab.com/arcanumtesting/arcanum",
+        "revision": "2ebb89a9e943bc22461ef35e3d68e95f786c0059",
+        "branch": "master",
+        "cache_key": "arcanum-testing.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "arcanum-testing",
+          "revision": "2ebb89a9e943bc22461ef35e3d68e95f786c0059",
+          "path": "data/modules/masterspecs.json",
+          "sha256": "1b34a48aca08ffe7fe24f225defa990ea8889318fba58cf05260365c532a8cf4",
+          "symbols": [
+            "masterspec_default",
+            "masterspec_light",
+            "masterspec_shadow",
+            "masterspec_puppet",
+            "masterspec_earth",
+            "masterspec_water",
+            "masterspec_fire"
+          ],
+          "lines": "1-120",
+          "url": "https://gitlab.com/arcanumtesting/arcanum/-/blob/2ebb89a9e943bc22461ef35e3d68e95f786c0059/data/modules/masterspecs.json"
+        }
+      ],
+      "reviewed_mechanism": "Shares the inspected core task/profession/hall blobs with arcanum-original at these pins, and also contains distinct later module content. data/modules/masterspecs.json ties mentor specialization eligibility to distinct source rate/capacity and home/job effects. This module is content evidence, not proof that the repository's whole module system was reviewed.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": "Do not treat the separate GitLab roots as identical repositories because README and core blobs happen to match. The testing commit is a merge commit and its pinned module inventory includes additional content such as masterspecs, graveyard, mounts, and siege modules.",
+      "notices_and_provenance": [
+        {
+          "source_license": "Both pins contain the same top-level LICENSE blob, copyright 2020 Justin Lacy, with an MIT-style permission and notice requirement. This lane proposes no code/data copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. Similar license family does not make borrowed story text/names/assets automatically suitable.",
+          "file_content_assets": "The Arcanum Testing module names, descriptions, flavor text and game-specific power IDs are comparison evidence only. No prose, characters, module records, graphics, fonts, or other assets are proposed for reuse.",
+          "maintenance_and_removal": "Content authored against stable existing IDs can be removed without a new engine layer; remove its registry definitions and UI exposure together. Preserve any already saved IDs with dormant-data handling if persistent content is later adopted."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "idle-loops-lloyd",
+      "title": "Idle Loops Lloyd fork",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/lloyd-delacroix/omsi-loops",
+        "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+        "branch": "main",
+        "cache_key": "idle-loops-lloyd.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "idle-loops-lloyd",
+          "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+          "path": "actions.js",
+          "sha256": "907b51e0cc0f76d00d17ce5740489d3fbd41db39faea8cfd0aa05d690ca6fa34",
+          "symbols": [
+            "Actions.tick",
+            "Actions.getNextValidAction",
+            "Actions.addAction"
+          ],
+          "lines": "13-103, 106-128, 214-244",
+          "url": "https://github.com/lloyd-delacroix/omsi-loops/blob/5008c4a1faca102af543b4f9369f6cef4b763823/actions.js"
+        },
+        {
+          "repository_id": "idle-loops-lloyd",
+          "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+          "path": "actionList.js",
+          "sha256": "98d1e806a6489a1788628a901e77616072f48117c08f37b841328d9e5766080e",
+          "symbols": [
+            "limitedActions",
+            "trainingActions",
+            "Action",
+            "MultipartAction"
+          ],
+          "lines": "17-73, 110-151",
+          "url": "https://github.com/lloyd-delacroix/omsi-loops/blob/5008c4a1faca102af543b4f9369f6cef4b763823/actionList.js"
+        }
+      ],
+      "reviewed_mechanism": "Ordered mixed actions recheck canStart/zone; invalid entries can be skipped and receive error text. Cost/time projections use declared action stats. YAIR proposal pauses at a dependency failure rather than copying skip-ahead.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": "Its README blob matches the Omsi source-lineage pin, but actions.js/actionList.js are different blobs and the action inventory differs. This is a bounded family comparison, not evidence that either source is a byte-identical fork of the other.",
+      "notices_and_provenance": [
+        {
+          "source_license": "Neither Idle Loops cache root contains a top-level LICENSE file. Treat source-code reuse as unqualified until rights are verified; public availability and a README match do not grant copying permission.",
+          "yair_license": "YAIR root LICENSE remains MIT. This proposal copies no source code, text, icons, or assets.",
+          "file_content_assets": "Source review only. Do not use the Idle Loops action labels, location names, storyline, SVG icons, fonts, or other assets as YAIR content without separate provenance and rights review.",
+          "maintenance_and_removal": "Keep any itinerary adapter optional and fed by registered commands. If removed, remove its new definitions/UI and keep native individual commands and same-command bounded routines. A persistent plan schema needs an old-reader/migration decision first."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "idle-loops-omsi",
+      "title": "Idle Loops Omsi source lineage",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/omsi6/omsi6.github.io",
+        "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+        "branch": "master",
+        "cache_key": "idle-loops-omsi.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "idle-loops-omsi",
+          "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+          "path": "loops/actions.js",
+          "sha256": "664dc86c4fc0e648707ed50f6d6aaa9b693ed4a4117fe1106e1b7daf76f34671",
+          "symbols": [
+            "Actions.tick",
+            "Actions.getNextValidAction",
+            "Actions.addAction"
+          ],
+          "lines": "13-103, 106-128, 214-244",
+          "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js"
+        },
+        {
+          "repository_id": "idle-loops-omsi",
+          "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+          "path": "loops/actionList.js",
+          "sha256": "66a6e2848ded01a9b0be99e05a056427eb69fc3b81fc22cf6e19a22214e06764",
+          "symbols": [
+            "limitedActions",
+            "trainingActions",
+            "Action",
+            "MultipartAction"
+          ],
+          "lines": "17-71, 110-151",
+          "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js"
+        }
+      ],
+      "reviewed_mechanism": "The pinned source has its own action list and loop implementation. Its list includes ordered actions and the same broad typed distinctions (normal, progress, limited, multipart), but it does not share the inspected Lloyd action/list blobs. The review does not assume the forks have matching queue semantics solely because their README blob matches.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": "Pinned source-lineage revision differs from Lloyd's merge commit; inspected actionList.js blob IDs differ. This is not an all-branch fork-history audit.",
+      "notices_and_provenance": [
+        {
+          "source_license": "Neither Idle Loops cache root contains a top-level LICENSE file. Treat source-code reuse as unqualified until rights are verified; public availability and a README match do not grant copying permission.",
+          "yair_license": "YAIR root LICENSE remains MIT. This proposal copies no source code, text, icons, or assets.",
+          "file_content_assets": "Source review only. Do not use the Idle Loops action labels, location names, storyline, SVG icons, fonts, or other assets as YAIR content without separate provenance and rights review.",
+          "maintenance_and_removal": "Keep any itinerary adapter optional and fed by registered commands. If removed, remove its new definitions/UI and keep native individual commands and same-command bounded routines. A persistent plan schema needs an old-reader/migration decision first."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "progress-knight-quest",
+      "title": "Progress Knight Quest",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/indomit/progress_knight_2",
+        "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+        "branch": "main",
+        "cache_key": "progress-knight-quest.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "progress-knight-quest",
+          "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+          "path": "js/offline.js",
+          "sha256": "5c8bb0c74d120f6d11db33fbe4e478fd8a827b44097bdb1874e2e60134b0e8a3",
+          "symbols": [
+            "OFFLINE_CONFIG",
+            "calc_offline_progress",
+            "updateOfflineBatch"
+          ],
+          "lines": "7-12, 35-72, 79-102",
+          "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/offline.js"
+        },
+        {
+          "repository_id": "progress-knight-quest",
+          "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+          "path": "README.md",
+          "sha256": "c6ba9c009822daee1d7715bfbf3620e497b383d11102d2c1141b7adfd1af8a27",
+          "symbols": [],
+          "lines": "1-3",
+          "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/README.md"
+        }
+      ],
+      "reviewed_mechanism": "README describes a continuation with five prestige layers. The inspected offline.js caps catch-up at one hour and replays simulation ticks in UI-yielding batches, stopping if the character is no longer alive. This is an explicit implementation of a different absence policy and several reset layers; neither is a YAIR policy recommendation.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        {
+          "source_license": "Evolve pins Mozilla Public License 2.0 at LICENSE; Progress Knight Quest pin has no top-level LICENSE file. Neither repository grants reuse by mention in this appendix. No code is proposed for copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. No license compatibility decision is needed for independent design inspiration; code reuse from Evolve or Progress Knight is not recommended.",
+          "file_content_assets": "No setting names, prose, races, technology names, icons, audio, or assets are proposed for reuse. Inspect separate asset/content provenance if later requested.",
+          "maintenance_and_removal": "No code or data change proposed. If a future campaign packet adds a collective owner, keep it opt-in and remove its registry/UI adapters together; preserve its saved records as dormant data or provide migration before removing an owner that shipped."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "evolve",
+      "title": "Evolve",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/pmotschmann/Evolve",
+        "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4",
+        "branch": "master",
+        "cache_key": "evolve.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-progression.json",
+      "source_evidence": [
+        {
+          "repository_id": "evolve",
+          "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4",
+          "path": "src/tech.js",
+          "sha256": "3f7088cae7358ec7d6d79574d37bf93b0bcda3b644b7221f301c2f058e1de94e",
+          "symbols": [
+            "techs.club",
+            "techs.bone_tools",
+            "techs.sundial",
+            "techPath",
+            "techList"
+          ],
+          "lines": "18-129, 15698-15715",
+          "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/tech.js"
+        },
+        {
+          "repository_id": "evolve",
+          "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4",
+          "path": "src/jobs.js",
+          "sha256": "e331e1146b919194d7e19a06c97b4229358ac34aa7d2dea2c218f68c42d40e94",
+          "symbols": [
+            "defineJobs",
+            "workerScale",
+            "jobScale",
+            "setJobName",
+            "loadJob",
+            "job_desc.professor",
+            "job_desc.scientist"
+          ],
+          "lines": "273-315, 368-445, 479-520",
+          "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/jobs.js"
+        }
+      ],
+      "reviewed_mechanism": "README identifies an incremental civilization game. Pinned tech definitions check prerequisites and resource costs before revealing later knowledge or granting era progress; profession output descriptions combine workers, species, biome, technology, buildings, and government. This source supports a civilization-management comparison, not a drop-in YAIR actor/job engine.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        {
+          "source_license": "Evolve pins Mozilla Public License 2.0 at LICENSE; Progress Knight Quest pin has no top-level LICENSE file. Neither repository grants reuse by mention in this appendix. No code is proposed for copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. No license compatibility decision is needed for independent design inspiration; code reuse from Evolve or Progress Knight is not recommended.",
+          "file_content_assets": "No setting names, prose, races, technology names, icons, audio, or assets are proposed for reuse. Inspect separate asset/content provenance if later requested.",
+          "maintenance_and_removal": "No code or data change proposed. If a future campaign packet adds a collective owner, keep it opt-in and remove its registry/UI adapters together; preserve its saved records as dormant data or provide migration before removing an owner that shipped."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "coffeemud",
+      "title": "CoffeeMUD",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/bozimmerman/CoffeeMud",
+        "revision": "720aec631f799662ad00ef1b52443f8f8bbbbaf4",
+        "branch": "master",
+        "cache_key": "coffeemud.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README",
+          "sha256": "e8b2c19867f2b7893798d332b87650e8b7987aeb8eed543bb7d6f40ef4736d04",
+          "lines": "1-8"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "85e647ae967241c7cd42e90f35b06473458181a12c6b20b34d36c42b68f0952a",
+          "lines": "1-6"
+        },
+        {
+          "path": "NOTICE",
+          "sha256": "28926548263523e21126d2d7623240038485cea578a5efe46e125b3484cefbdc",
+          "lines": "1-23"
+        },
+        {
+          "path": "com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java",
+          "sha256": "3d29441fc9e7c0a7d6fc0818d5ab42eb6265e740fd15497ccbce4d99f2c51eae",
+          "symbols": [
+            "ensureCharClass",
+            "executeMsg",
+            "postTeach"
+          ],
+          "lines": "40-61, 214-334, 337-458, 517-558"
+        }
+      ],
+      "reviewed_mechanism": "MOBTeacher is a configurable MOB behavior. It can seed abilities/classes/expertise; when a visible human student speaks a teach/gain request, it parses one requested ability or expertise, checks student qualification/known state and routes teaching through the engine's postTeach service. It has explicit rejection/report paths for invisible parties and the broad 'ALL' request. This is a dialogue affordance over CoffeeMud's own class/ability mapper, not a stand-alone student-teacher economy. The behavior also has broad setup modes, including periodic expertise provisioning, which should not be mistaken for a bounded per-lesson model.",
+      "disposition": "Selective pattern only. YAIR already has explicit knowledge, acquisition, practice, actual power/source effects, native skill consumers, NPC schedules and directed memory. The useful narrow seam is letting an eligible instructor expose a finite known method after observed evidence and a direct request. No whole CoffeeMud behavior or dependency is warranted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "observed": "README identifies CoffeeMud as an MUD and directs operators to separate LICENSE and NOTICE files. LICENSE is Apache-2.0. NOTICE names CoffeeMud contributors and third-party components including JZLIB, Rhino, CodeMirror and NicEdit.",
+        "reuse_boundary": "No code, prose, assets, or third-party dependencies were copied. Any later code reuse must retain applicable Apache notices and review each dependency's separate terms; inspiration alone needs no copied-file attribution."
+      },
+      "limits": "One MOB teaching behavior and repository-level rights files only."
+    },
+    {
+      "id": "opennefia",
+      "title": "OpenNefia current C# repository",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/OpenNefia/OpenNefia",
+        "revision": "d8410b3e59845312d557c321d3752531519e14f6",
+        "branch": "develop",
+        "cache_key": "opennefia.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "10ca6d320111887553b2c4f3ee97f6eda39b305224b65be1639f4ad3b479514c",
+          "lines": "5-18"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "a876c87fce0e4cbdb5bb9af48f49f614387a873edbda978e7a68c3071af1c181",
+          "lines": "1-10"
+        },
+        {
+          "path": "OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs",
+          "sha256": "f29e6dce17c133e3adc752c39f80c7e3b64d752744842860041e1250ed745eb0",
+          "symbols": [
+            "ITrainerSystem",
+            "TrainerSystem.CalcTrainSkillCost",
+            "TrainerSystem.CalcLearnSkillCost",
+            "TrainerSystem.CalcTrainPotentialAmount",
+            "TrainerSystem.CalcLearnableSkills"
+          ],
+          "lines": "26-76"
+        },
+        {
+          "path": "OpenNefia.Content/VanillaAI/VanillaAISystem.cs",
+          "sha256": "617bc397b9a520e01d2e3f2206f1213df169a62fd2ae956c2451400783789076",
+          "symbols": [
+            "VanillaAISystem.Initialize",
+            "HandleNPCTurnStarted",
+            "TryToUseItem",
+            "RunVanillaAI",
+            "DoAICalmAction"
+          ],
+          "lines": "33-85, 111-166, 188-256, 417-437"
+        }
+      ],
+      "reviewed_mechanism": "TrainerSystem exposes a default learnable-skill list plus per-map trainer additions, computes training cost from the learner's current skill level, scales new-skill cost by a saved total-skills-learned counter, and computes potential gain from current potential. The interface does not make these costs payments to the trainer or consume trainer-owned inventory/time. Separately, VanillaAISystem documents that the default entity system can be replaced per NPC, handles NPC turn events and evaluates help, item verbs, combat, search, and calm actions in an ordered sequence; calm behavior is explicitly not yet implemented in this pin.",
+      "disposition": "Selective authoring pattern. A trainer's finite per-location allow-list and visible formula are useful for original YAIR profession content. Its global saved count is a tuning choice, not a required shared economy or a reason to add a new trainer engine. The AI replaceability seam is architecturally interesting but YAIR already supplies typed controllers that choose legal command/response paths.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "observed": "README describes a work-in-progress, moddable engine reimplementation of Elona requiring .NET 8. LICENSE is MIT and names Noa and Ruin0x11.",
+        "reuse_boundary": "No code or assets were copied. The code license does not establish permission to copy Elona's original game content; any future content reuse needs a separate provenance review."
+      },
+      "limits": "Trainer calculations/allow-list and selected default AI action order only; no full entity-component or Elona content review."
+    },
+    {
+      "id": "opennefia-archived",
+      "title": "OpenNefia archived Lua prototype",
+      "status": "historical/duplicate",
+      "source": {
+        "url": "https://github.com/Ruin0x11/OpenNefia",
+        "revision": "dbe3eaa38fb8730bc74007bf9734a54376429490",
+        "branch": "develop",
+        "cache_key": "opennefia-archived.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "df80db351831239e63fdbfed6db8d69f8179f57a53b5135d815484871eaa5eeb",
+          "lines": "1-17"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "be312e1b2d70820400c8435ebf5fe7e4b2849234d99f653f49e394e7e1564140",
+          "lines": "1-10"
+        },
+        {
+          "path": "src/mod/elona/data/dialog/role/trainer.lua",
+          "sha256": "c364113dc92a5615ef44d43f221b801b514df399a27e436161d4118a70352297",
+          "symbols": [
+            "train_skill",
+            "learn_skill",
+            "train_confirm",
+            "learn_confirm",
+            "train_accept",
+            "learn_accept"
+          ],
+          "lines": "8-24, 26-105"
+        },
+        {
+          "path": "src/mod/elona_sys/api/NpcMemory.lua",
+          "sha256": "7ad115f01bf38d1e910cbc58b298f3fb7d4f048c2c43b5098774b7e53452a2db",
+          "symbols": [
+            "NpcMemory.on_killed",
+            "NpcMemory.on_generated",
+            "NpcMemory.forget_generated",
+            "NpcMemory.killed",
+            "NpcMemory.generated"
+          ],
+          "lines": "1-52"
+        }
+      ],
+      "reviewed_mechanism": "The Lua trainer dialog asks for one selected skill, calculates a cost, presents a confirmation only when the player has enough platinum, and then trains or learns through the skill API. NpcMemory keeps saved killed/generated counters keyed by NPC definition ID; it is population/template history rather than a person's directed beliefs or relationship memory.",
+      "disposition": "Historical evidence for the lineage of current TrainerSystem, not a second independent framework candidate. The trainer interaction is superseded by the current C# source review; the definition-level count memory is too coarse to substitute for YAIR's per-person knowledge and directed relationships.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "observed": "Its README explicitly says development moved to the current OpenNefia repository and calls this an older Lua prototype. It describes a ground-up moddable Elona reimplementation. LICENSE is MIT with Noa and Ruin0x11 named.",
+        "reuse_boundary": "No Lua source, game content or assets were copied. Original Elona provenance is separately relevant to content."
+      },
+      "limits": "One trainer dialogue and one small memory module; no prototype-wide comparison."
+    },
+    {
+      "id": "cataclysm-dda",
+      "title": "Cataclysm: Dark Days Ahead",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA",
+        "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+        "branch": "master",
+        "cache_key": "cataclysm-dda.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "9bd90745df78314fa649f415dc025137c9d459a6ef0e803c7e3834b613731b3e",
+          "lines": "1-14"
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "6e3d17bae7a8f0dee4b0d0c6af5bdf4396a0e685455efa8c2ad4ce52acdd99e2",
+          "lines": "1-24"
+        },
+        {
+          "path": "src/proficiency.cpp",
+          "sha256": "28c319b93d23869f7c52afb0d312aa38d3b0d41d3e764b99156d8c79bd39f443",
+          "symbols": [
+            "proficiency::load",
+            "proficiency::can_learn",
+            "proficiency::is_teachable",
+            "proficiency::time_to_learn",
+            "book_proficiency_bonuses",
+            "proficiency_set::migrate_proficiencies"
+          ],
+          "lines": "73-134, 152-170, 192-220, 611-660, 702-727"
+        },
+        {
+          "path": "src/character_proficiency.cpp",
+          "sha256": "a7a203dc096251ca441e8f91f1d801fd05c2d9f10d2bcd7de7390eec027a5045",
+          "symbols": [
+            "Character::practice_proficiency",
+            "Character::proficiencies_offered_to"
+          ],
+          "lines": "18-55, 71-135"
+        },
+        {
+          "path": "src/activity_actor.cpp",
+          "sha256": "7668d1550d7341db690ca5562794cc0d1e6005c3609e5ec54f4f91d82b3b8788",
+          "symbols": [
+            "lockpick_activity_actor::lockpicking_moves",
+            "lockpick_activity_actor::finish"
+          ],
+          "lines": "3342-3353, 3532-3539"
+        },
+        {
+          "path": "src/proficiency_ui.cpp",
+          "sha256": "b269db2ff80ae37468a4d930375c4066158dee77d5379d8a527e528c9928e388",
+          "symbols": [
+            "prof_window::draw_details",
+            "prof_window::run"
+          ],
+          "lines": "30-47, 157-219, 333-398"
+        },
+        {
+          "path": "src/faction_mission.cpp",
+          "sha256": "5f543ef3ce00866b8bdcfe514431aeb57afff608a4c228b21ca81c4541a5b273",
+          "symbols": [
+            "faction_mission::load",
+            "faction_mission::describe",
+            "faction_mission::check"
+          ],
+          "lines": "41-64, 127-192"
+        }
+      ],
+      "reviewed_mechanism": "Proficiency definitions carry learnability, category, practice timing/penalty/bonus, prerequisites, teachability, and bonuses. Character practice advances saved time-based learning with focus adjustment; a completed method emits an event and is separately queryable as known or in-progress. proficiencies_offered_to exposes only teachable proficiencies known by the teacher and missing from the student. A native window makes learning time, prerequisite links and progress inspectable. In the pinned lockpick activity, missing lockpicking proficiency multiplies action duration, and completing the activity advances the relevant proficiency practice. Faction mission definitions load authored skill, difficulty/risk/activity, time, positions, item alternatives, effects and footer fields. These are separate mechanisms, not proof of a single universal profession simulation.",
+      "disposition": "Strong independent design pattern for distinguishing learned method, active practice, prerequisites, eligible teachers and a real downstream use from a label-only skill. YAIR already has simulation power mastery, acquired sources, explicit observation/knowledge, paid practice jobs, real material effects and native skill/function consumers. The gap is selective content joining an actual NPC as an authorized teacher to one method and presenting prerequisites/time transparently, not a second skill ledger.",
+      "lineage_and_refresh": "New pin 09a75ac was checked for the added proficiency and faction mission scope. Prior selected pin 6c506a in the engine-absorption appendix established other condition/effect/magic mechanics. This lane does not claim that old source paths are unchanged or that the new pin refreshes every old finding.",
+      "notices_and_provenance": {
+        "observed": "README identifies a turn-based survival game. LICENSE.txt declares CC BY-SA 3.0 for Cataclysm and lists separate licenses for fonts and other components.",
+        "reuse_boundary": "Pattern-only recommendation. Do not copy code, JSON, dialogue, assets, or documentation into YAIR from this source. Any later content or code reuse needs a fresh rights and attribution review for the exact files and distribution."
+      },
+      "limits": "Proficiency definition/practice/offer/display path and faction mission definition loader only; not all crafting consumers, NPC dialogues, assets, or save serialization."
+    },
+    {
+      "id": "dfhack",
+      "title": "DFHack",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/DFHack/dfhack",
+        "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+        "branch": "develop",
+        "cache_key": "dfhack.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "6d7cf7e796e538b1c244836de89ad4113082584447f196144c85e97c6b9b15af",
+          "lines": "1-15"
+        },
+        {
+          "path": "LICENSE.rst",
+          "sha256": "089647581e7ea97ade9df974317da4a7ae74d3ad14672ca02f65ad8e2b976f46",
+          "lines": "7-19"
+        },
+        {
+          "path": "docs/plugins/workflow.rst",
+          "sha256": "51f3367f4b228015a93b7caed62232b5eb5dc921462de2bebc7ea6e6725b333e",
+          "lines": "8-27, 39-48, 60-106"
+        },
+        {
+          "path": "plugins/workflow.cpp",
+          "sha256": "86ecbd162ba9fb9748e84cda2b35c102162af641f35bd322857e81e4884d18b8",
+          "symbols": [
+            "workflow_cmd",
+            "ProtectedJob",
+            "plugin_init",
+            "plugin_onstatechange"
+          ],
+          "lines": "50-104, 106-160"
+        },
+        {
+          "path": "docs/plugins/autolabor.rst",
+          "sha256": "68b71980ae186802e3640d91764046d933476f14ff721f54e9465bbf2fccce48",
+          "lines": "8-52, 61-87, 92-127"
+        },
+        {
+          "path": "plugins/autolabor/autolabor.cpp",
+          "sha256": "a3b4760a4cf01f7c21e7ac70a1b53e4c8310a8fe225752c74c34892a7186cd50",
+          "symbols": [
+            "LegacyEngine",
+            "ModernEngine",
+            "MonitorEngine",
+            "mode_engine"
+          ],
+          "lines": "1-50"
+        }
+      ],
+      "reviewed_mechanism": "workflow protects repeat jobs against removal and automatically suspends/resumes output jobs around authored target/gap stock constraints. It supports exact item/material/quality categories and exposes active jobs and constraints. autolabor offers legacy direct assignment, modern work-detail-based assignment, and monitor-only modes; it ranks eligible workers with skill/preferences/capacity and saves the chosen mode per fortress. The docs disclose overlap with native workorders and warn that the legacy selector may make harmful assignments.",
+      "disposition": "Adapt only the authored stock-band/hysteresis and inspectable-commitment idea for a concrete local workshop. YAIR already has timed jobs, exact owned-item effects, inventory custody, site reservations, finite programs and one-shot phased site projects. It does not have a persistent rule that maintains min/max output stock or a general labor auction; neither is needed for the current first realm.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "observed": "README describes a Dwarf Fortress memory-access library distributed with plugins and scripts. LICENSE.rst says core/plugins/scripts normally use Zlib, notes MIT/BSD components and says some graphics derive from vanilla DF assets with permission from Bay12.",
+        "reuse_boundary": "No implementation or art was copied. Even when a code file is under Zlib, the README purpose, DFHack interface and asset notices do not make DF-specific content or private game memory portable. Exact-file review remains necessary before any reuse."
+      },
+      "limits": "One repeat-production workflow and one labor allocation mode family only."
+    },
+    {
+      "id": "nethack",
+      "title": "NetHack",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/NetHack/NetHack",
+        "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+        "branch": "NetHack-5.0",
+        "cache_key": "nethack.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-interactions.json",
+      "source_evidence": [
+        {
+          "path": "README",
+          "sha256": "0985a95859404393f322d866c320b05e094d890873fe69f9c676cd37794ee613",
+          "lines": "3-5, 20-35"
+        },
+        {
+          "path": "dat/license",
+          "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747",
+          "lines": "1-10, 24-47, 64-90"
+        },
+        {
+          "path": "src/muse.c",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd",
+          "symbols": [
+            "find_defensive",
+            "precheck",
+            "use_defensive",
+            "find_offensive",
+            "find_misc",
+            "use_misc",
+            "searches_for_item",
+            "mzapwand",
+            "mreadmsg",
+            "mquaffmsg"
+          ],
+          "lines": "11-15, 58-80, 441-749, 796-915, 1417-1593, 1821-2037, 2094-2245, 2382-2518, 2705-2789"
+        },
+        {
+          "path": "src/o_init.c",
+          "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+          "symbols": [
+            "savenames",
+            "restnames",
+            "discover_object"
+          ],
+          "lines": "375-435, 453-494"
+        },
+        {
+          "path": "src/potion.c",
+          "sha256": "0c2995f4bef0ea1c000d7c1b7bf6b057573fe86421eeb018888e9832943e7263",
+          "symbols": [
+            "dopotion"
+          ],
+          "lines": "618-641"
+        },
+        {
+          "path": "src/invent.c",
+          "sha256": "db83ffd18fa9e09e3404dccd2759a4cb3141f178461d0cb9eb554770121eb239",
+          "symbols": [
+            "fully_identify_obj",
+            "identify"
+          ],
+          "lines": "2630-2651"
+        },
+        {
+          "path": "src/trap.c",
+          "sha256": "9a5238a908189835fc990957a351ef1bcb892818fd02fe153574597be8b795ad",
+          "symbols": [
+            "water_damage",
+            "water_damage_chain"
+          ],
+          "lines": "4715-4855, 4857-4891",
+          "purpose_in_comparison": "Base NetHack pinned source has water-damage behavior, but the sampled file contains no doortrapped or WATER_BUCKET integration."
+        }
+      ],
+      "reviewed_mechanism": [
+        "README identifies NetHack 5.0 as an enhancement to the dungeon exploration game and explicitly says this pinned 5.0.1 work-in-progress is not a release (README 3-14).",
+        "Monster item use is a turn-time subsystem with intentionally stated approximations: scroll users need sight, monsters know empty-wand charges, and monsters do not generally recognize curses (muse.c 11-15).",
+        "Eligibility is body- and context-gated. Defensive use rejects no-handed monsters, prefers immediate escape and checks traps, charges, dangerous level/terrain rules, role restrictions, player teleport knowledge and healing need (muse.c 635-749). Offensive use rejects peaceful, animal, mindless, no-handed or unaligned actors; then checks remembered resistances, target position, nearby allies, chokepoints, scary terrain, and item properties (muse.c 1417-1593). Miscellaneous use is restricted by intelligence, proximity and hands, then checks current conditions and item viability (muse.c 2094-2245).",
+        "The selectors retain a concrete inventory object and action code for downstream consumers. use_defensive/use_misc then apply the effect, spend/consume the item or wand charge, move actors, and update observed knowledge as applicable (muse.c 800-915, 2382-2518). Eligibility is not equivalent to sophisticated planning: comments say selection is not prioritized and generally takes the last viable inventory item (muse.c 1446-1448, 2153-2156).",
+        "Identification is conditional on evidence, not just use. Visible wand/scroll/potion outcomes call makeknown in specific branches; ambiguous outcomes can call trycall. Player discovery state records known versus encountered and updates the inventory view (muse.c 909-912, 923-995, 1025-1034, 2432-2518; o_init.c 453-494). The player's own potion path distinguishes an unambiguous effect from an unknown/ambiguous one before makeknown or trycall (potion.c 618-641)."
+      ],
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "NetHack General Public License in dat/license requires preserving source notices/license and imposes same-terms/free-availability conditions on distributed derivatives; YAIR root LICENSE is MIT. Recommend an original JS implementation. No source code, source prose, labels, graphics, audio or other assets are copied or proposed. Their rights were not established by this review."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "xnethack",
+      "title": "xNetHack",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/copperwater/xNetHack",
+        "revision": "6eef39403f16f65e13f5d57242ee8d036307687a",
+        "branch": "master",
+        "cache_key": "xnethack.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-interactions.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "b330b0a67e81cbe306712cfaea61cb850782ad867b612f3f64ee6004ce7d6f61",
+          "symbols": [
+            "project purpose and design goals"
+          ],
+          "lines": "3-18, 20-31"
+        },
+        {
+          "path": "dat/license",
+          "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747",
+          "symbols": [
+            "NetHack General Public License"
+          ],
+          "lines": "1-10, 24-47, 64-90"
+        },
+        {
+          "path": "src/trap.c",
+          "sha256": "c48ea794fdf295554aefd8421299ac28ee746618334347b68950df5400d66e8a",
+          "symbols": [
+            "getdoortrap",
+            "doortrapped",
+            "water_damage",
+            "water_damage_chain"
+          ],
+          "lines": "7024-7059, 7061-7092, 7230-7253, 4899-5049"
+        },
+        {
+          "path": "doc/xnh-changelog-10.0.md",
+          "sha256": "8d13c2ee7a65b3b11373f3f5536f9262dd5fe37a1d53b45d1a10890ebb60da92",
+          "symbols": [
+            "xNetHack 10.0 base and upstream lineage"
+          ],
+          "lines": "1-20"
+        }
+      ],
+      "reviewed_mechanism": "See appendix findings and review_scope.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "xNetHack dat/license is the NetHack General Public License with same-terms/free-availability conditions on distributed derivative works; retain source notices. YAIR root LICENSE is MIT, making source-code reuse a material license compatibility issue. Recommend original implementation and prose. No source code/assets copied; art/audio/other asset rights were not examined and cannot be inferred from dat/license."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "tome",
+      "title": "Tales of Maj Eyal / T-Engine4",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://git.net-core.org/tome/t-engine4",
+        "revision": "4b39a195a44e8b47f8465d3138291b63a0eee94f",
+        "branch": "master",
+        "cache_key": "tome.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-powers.json",
+      "source_evidence": [
+        {
+          "path": "game/modules/tome/data/talents/techniques/2h-assault.lua",
+          "sha256": "382943262e42ac0fb842497391fe8753624028732850720b4f4e053954447e7d",
+          "symbols": [
+            "STUNNING_BLOW_ASSAULT",
+            "Fearless Cleave",
+            "Death Dance"
+          ],
+          "lines": "21-61,63-110,112-161",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/data/talents/techniques/2h-assault.lua"
+        },
+        {
+          "path": "game/modules/tome/data/talents/spells/arcane.lua",
+          "sha256": "2a7bc80535b6def4909c3dff45e5623a8f52a0e63fedce001592c27bf4950e9b",
+          "symbols": [
+            "Manathrust",
+            "Arcane Power"
+          ],
+          "lines": "21-70,72-104",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/data/talents/spells/arcane.lua"
+        },
+        {
+          "path": "COPYING",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "lines": "GPL-3.0-or-later text; repository-level notice",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/COPYING"
+        },
+        {
+          "path": "COPYING-MEDIA",
+          "sha256": "20d84cdd3b782192898553d04a2ff7178bfa1259cdad3f8d1cd860a38db52fb3",
+          "lines": "1-2",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/COPYING-MEDIA"
+        },
+        {
+          "path": "game/engines/default/engine/interface/ActorTalents.lua",
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b",
+          "symbols": [
+            "init",
+            "useTalent",
+            "preUseTalent",
+            "postUseTalent",
+            "startTalentCooldown",
+            "isTalentCoolingDown"
+          ],
+          "lines": "100-112,141-203,204-303,394-413,1007-1045",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/engines/default/engine/interface/ActorTalents.lua"
+        },
+        {
+          "path": "game/modules/tome/class/Actor.lua",
+          "sha256": "f7294481b9b4a75addc50616e53050920f4e697e74b3d126cd44692b340a6369",
+          "symbols": [
+            "Actor:preUseTalent",
+            "Actor:postUseTalent",
+            "startTalentCooldown",
+            "cooldownTalents"
+          ],
+          "lines": "5275-5359,5361-5399,5533-5546,5857-5867,5910-6044,637-641,6442-6470",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/modules/tome/class/Actor.lua"
+        },
+        {
+          "path": "game/engines/default/engine/Savefile.lua",
+          "sha256": "52f7419c351be1bebac2023c9559cbf048cc2e0de813c850cc983790beb387fa",
+          "symbols": [
+            "savefile serialization contract"
+          ],
+          "lines": "20-29",
+          "url": "https://git.net-core.org/tome/t-engine4/-/blob/4b39a195a44e8b47f8465d3138291b63a0eee94f/game/engines/default/engine/Savefile.lua"
+        }
+      ],
+      "reviewed_mechanism": "Talent data supplies mode/rank, resource price, cooldown, level-scaled values, use-only rules, target metadata and action/activate/deactivate callbacks. ActorTalents:useTalent checks talent cooldown before entering execution, then runs the actor preUseTalent callback before the talent action; false/nil action or failed postUseTalent stops the success path. The module Actor:preUseTalent enforces actor-level blockers (including fear/silence/form/armor), sufficient sustain reserve or available activated resource, and talent-specific on_pre_use such as requiring a two-handed weapon. On a successful activated return, Actor:postUseTalent spends the declared mana/stamina/etc and uses game energy; only after that succeeds does ActorTalents start the declared cooldown. The reviewed action consumer applies actual effects directly: Stunning Blow attacks the target and calls target:setEffect only for a landed hit the target can receive; Manathrust projects bolt or beam damage based on rank. Sustained activation records the activate() return in actor.sustain_talents after postUseTalent; deactivation calls deactivate(), reverses stored temporary/resource effects and clears the active record. The engine Savefile contract says the Game is recursively serialized with its contained objects; ActorTalents initializes talents, talents_cd and sustain_talents from actor fields, so these are actor-owned state rather than ephemeral UI. This is source evidence for the host lifecycle, not a gameplay or reload test.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": "The talent file headers state GPL version 3 or later. COPYING-MEDIA separately restricts media in /data/gfx to use with ToME; graphics are outside this review and should not be reused. This is source provenance, not a compatibility conclusion.",
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "angband",
+      "title": "Angband",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/angband/angband",
+        "revision": "a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d",
+        "branch": "master",
+        "cache_key": "angband.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-powers.json",
+      "source_evidence": [
+        {
+          "path": "lib/gamedata/activation.txt",
+          "sha256": "32717d6d68d263eeb7cbf0f507ed29db465d50d06a64942e9fa8af2643d4afe6",
+          "symbols": [
+            "activation.txt format",
+            "CURE_MIND"
+          ],
+          "lines": "1-30",
+          "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/lib/gamedata/activation.txt"
+        },
+        {
+          "path": "src/cmd-obj.c",
+          "sha256": "22e0f9cdd27ab9e293d3f84ef4c62dc248a0ddbe6e41e26c88fcef8762270a56",
+          "symbols": [
+            "use_aux",
+            "do_cmd_activate"
+          ],
+          "lines": "446-580,863-895",
+          "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/src/cmd-obj.c"
+        },
+        {
+          "path": "src/effects.c",
+          "sha256": "bc4e101fd5625a1d7040a822ec0a00ca2c5f8d9e406ea6e5cf9d1484cebb9b04",
+          "symbols": [
+            "effect_do"
+          ],
+          "lines": "381-510",
+          "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/src/effects.c"
+        },
+        {
+          "path": "docs/copying.rst",
+          "sha256": "cd5811a8525794070d8ef5952e9be288ec010547f6cd276b51843415340bbf34",
+          "symbols": [
+            "copying and licence information"
+          ],
+          "lines": "5-50",
+          "url": "https://github.com/angband/angband/blob/a7f492e382ebba0ee9a9e34bbcfb64e2636ee74d/docs/copying.rst"
+        }
+      ],
+      "reviewed_mechanism": "activation.txt defines effect name, aiming, difficulty level, power, one or more effect rows and dice. do_cmd_activate accepts only an activatable equipped object and rejects one still charging; use_aux checks device use, selects the effect, and object activation time is assigned before effect_do. For timeout items the remaining timeout is increased before execution; if the effect reports unused, tentative charges/timeouts are restored. effect_do resolves ordered/select/random chains to typed handlers. This is a source-backed authoring/execution seam rather than a claim that YAIR needs Angband's item or dungeon systems.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": "The pinned docs/copying.rst offers GPL-2.0 or a separate Angband license for code and documents exceptions for included libraries and artwork; Shockbolt tiles are limited to Angband/variants and cannot be used in other projects absent permission. This appendix uses no Angband code or assets.",
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "crawl",
+      "title": "Dungeon Crawl Stone Soup",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/crawl/crawl",
+        "revision": "ea329046556431e4bb9d3cc38c39ec998495ab69",
+        "branch": "master",
+        "cache_key": "crawl.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-powers.json",
+      "source_evidence": [
+        {
+          "path": "crawl-ref/source/spl-cast.cc",
+          "sha256": "e12d048aac1faa7a38755cc025eb100f3da61e39fdc56905b17088c40f72b5ae",
+          "symbols": [
+            "raw_spell_fail",
+            "cast_a_spell"
+          ],
+          "lines": "459-530,892-907,2370-2419,2953-3002",
+          "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/crawl-ref/source/spl-cast.cc"
+        },
+        {
+          "path": "crawl-ref/docs/crawl_manual.rst",
+          "sha256": "786bf0233c5e9f0c6e20e56ec037de2f16fbc3da92cb8d9a7a33dfe399a9c114",
+          "symbols": [
+            "manual, spellcasting overview"
+          ],
+          "lines": "manual source read; spell-specific lines not used as sole evidence",
+          "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/crawl-ref/docs/crawl_manual.rst"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "9567806dee0f63849647525d0e3a739f1e5f40e8956e394ef51b0026ebad96eb",
+          "lines": "1-21 and listed asset exceptions",
+          "url": "https://github.com/crawl/crawl/blob/ea329046556431e4bb9d3cc38c39ec998495ab69/LICENSE"
+        }
+      ],
+      "reviewed_mechanism": "raw_spell_fail calculates from spell/school and Spellcasting skill, Intelligence, armour/shield penalty when not enkindled, and spell difficulty. cast_a_spell first rejects no memorized spells and globally disallowed casting without taking a turn; later it computes the failure roll and sends the failure state into _do_cast. The reviewed consequence path can attach god-penance miscast effects even when a spell proceeds, while fail_severity estimates risk from failure chance and spell difficulty. This makes blockers and the risk forecast legible before commitment; the exact stochastic outcome remains in the game resolver.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": "LICENSE gives the program GPL version 2 or later and lists separately licensed components; it says most tiles are CC0 while older artwork can have complex provenance. No code, tiles or prose are copied here; any asset selection needs per-file provenance.",
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "frogcomposband",
+      "title": "FrogComposband",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/sulkasormi/frogcomposband",
+        "revision": "3d28f6b1d28a0246a1c4923414455eb669ea34b8",
+        "branch": "master",
+        "cache_key": "frogcomposband.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-powers.json",
+      "source_evidence": [
+        {
+          "path": "readme.txt",
+          "sha256": "301360a3f106a6a4c3416bfc6bef398ebe1eb7b3b6b8bf729aa4eb1251f94dd6",
+          "lines": "1-7 disclaimer; installation text deliberately not followed",
+          "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/readme.txt"
+        },
+        {
+          "path": "src/r_poss.c",
+          "sha256": "2282c3defa46a4492141d4d20cbb3ae056084962203535db9c5ef6d58d9a0a6b",
+          "symbols": [
+            "possessor_attack",
+            "possessor_cast",
+            "_possess_spell",
+            "possessor_get_powers",
+            "possessor_calc_bonuses",
+            "possessor_on_take_hit",
+            "possessor_set_current_r_idx",
+            "possessor_on_save",
+            "possessor_on_load"
+          ],
+          "lines": "367-470,526-545,550-624,686-710,896-940,1280-1373,1478-1486",
+          "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/r_poss.c"
+        },
+        {
+          "path": "src/melee2.c",
+          "sha256": "5ed17d81f9caeefc5df85ed5a6ad8ddbb482a098a71d0d72aa39980b5ebf7045",
+          "symbols": [
+            "mon_gain_exp"
+          ],
+          "lines": "4610-4623",
+          "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/melee2.c"
+        },
+        {
+          "path": "src/types.h",
+          "sha256": "540610152cd2a6686b293b3092c2d8b6044379b3abf5de9f6c807f62cfad5bfe",
+          "symbols": [
+            "monster_race / body data definitions"
+          ],
+          "lines": "schema fields used by r_poss.c; targeted source inspected",
+          "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/types.h"
+        },
+        {
+          "path": "src/r_poss.c",
+          "sha256": "2282c3defa46a4492141d4d20cbb3ae056084962203535db9c5ef6d58d9a0a6b",
+          "symbols": [
+            "possessor_get_powers",
+            "possessor_calc_bonuses"
+          ],
+          "lines": "686-710,896-940",
+          "url": "https://github.com/sulkasormi/frogcomposband/blob/3d28f6b1d28a0246a1c4923414455eb669ea34b8/src/r_poss.c"
+        }
+      ],
+      "reviewed_mechanism": "Possession accepts only a corpse item, only while in the soul form, and gates the target monster race level against a cap derived from the player's maximum level; it consumes that corpse on success. The active body determines attack blows/effects, available spells, selected stats and abilities, armor/speed bonuses, resistances and equipment compatibility. Leaving the body can destroy/decay it. At less than one-quarter health, each hit creates a one-in-66 ejection chance; ejection may leave a corpse one time in three, otherwise the old body decays, then resets the possessor to soul form at full health. Form changes recalculate bonuses, HP/mana and equipment, clamp/restore level against the new form's maximum, and append body history that has explicit save/load routines. Separately, ordinary monster experience calls mon_change_race when the race's next_exp threshold is reached, except chameleons; this is not possession or player-form acquisition and should remain a distinct possible world-actor progression rule.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": "The pinned tree has no root LICENSE/COPYING file among the reviewed paths; src/melee2.c carries the Angband educational/research/non-profit notice while src/r_poss.c has no file header. Treat rights for any selected file as unresolved and do not reuse code, data or assets based on the repository URL or lineage alone.",
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "questjs",
+      "title": "QuestJS",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/ThePix/QuestJS",
+        "revision": "72fef6a7315b2d977d8b4f57c358a11ba85d765a",
+        "branch": "master",
+        "cache_key": "questjs.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-campaigns.json",
+      "source_evidence": [
+        {
+          "path": "rpg/skill.js",
+          "symbols": [
+            "Skill.constructor",
+            "WeaponAttack.testUseable",
+            "Spell.testUseable",
+            "SpellSelf",
+            "SpellInanimate"
+          ],
+          "lines": "4-20,35-89,141-150",
+          "raw_sha256": "83610b87c753707082de96de34bce06d4fbeab6472329cf3200f3dde42c24990",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/skill.js#L4-L20"
+        },
+        {
+          "path": "rpg/attack.js",
+          "symbols": [
+            "Attack.createAttack",
+            "Attack.apply",
+            "Attack.resolve",
+            "Attack.applyDamage",
+            "Attack.applyActiveEffects"
+          ],
+          "lines": "5-18,25-56,73-125,141-165,174-259,296-345",
+          "raw_sha256": "1bb13de32606d5ded8e2510b2fd403b31bb62183b73ced051ebb0c36e9e53df3",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/attack.js#L5-L18"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Successor to Quest 5",
+            "What does QuestJS code look like?"
+          ],
+          "lines": "3-16,36-67",
+          "raw_sha256": "f0b8c055441770310789a0bf6d5e1365967dd477b473b6763f34fc1844cfde85",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/README.md#L3-L16"
+        },
+        {
+          "path": "LICENSE",
+          "symbols": [
+            "MIT License"
+          ],
+          "lines": "1-21",
+          "raw_sha256": "4edbba313808c7984080a896df3896a2b25039d5778679d3330c19a4a7f2e36a",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/LICENSE#L1-L21"
+        },
+        {
+          "path": "rpg/agenda.js",
+          "symbols": [
+            "agenda.guardItem",
+            "agenda.guardItemNow",
+            "agenda.guardPatrol",
+            "agenda.guardWalkTo",
+            "agenda._saveInitial",
+            "agenda.antagonise"
+          ],
+          "lines": "6-52,65-174",
+          "raw_sha256": "9c1db8b61e98c0475d7179504dceab9eb82ed291f5eccc07cec7834d66d28282",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/agenda.js#L6-L52"
+        },
+        {
+          "path": "rpg/npc_templates.js",
+          "symbols": [
+            "agendaRestart",
+            "endTurn"
+          ],
+          "lines": "81-92,454-480",
+          "raw_sha256": "5eff4a22c807ea0ee54033a024c792edb99d82e69a9e6434fa8eb8f20fad25b9",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/npc_templates.js#L81-L92"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Successor to Quest 5"
+          ],
+          "lines": "3-16",
+          "raw_sha256": "f0b8c055441770310789a0bf6d5e1365967dd477b473b6763f34fc1844cfde85",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/README.md#L3-L16"
+        },
+        {
+          "path": "LICENSE",
+          "symbols": [
+            "MIT License"
+          ],
+          "lines": "1-21",
+          "raw_sha256": "4edbba313808c7984080a896df3896a2b25039d5778679d3330c19a4a7f2e36a",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/LICENSE#L1-L21"
+        },
+        {
+          "path": "lib/_saveload.js",
+          "symbols": [
+            "saveLoad.getSaveBody",
+            "saveLoad.setLoadString",
+            "saveLoad.encode",
+            "saveLoad.setFromArray"
+          ],
+          "lines": "8-20,79-85,135-153,244-273,383-387",
+          "raw_sha256": "397a81127b15a167ba4374d0ac2ff8d5283207af42dabf5dc83150ffc192ad04",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/lib/_saveload.js#L79-L85"
+        },
+        {
+          "path": "lib/_defaults.js",
+          "symbols": [
+            "getSaveString",
+            "saveLoadExclude"
+          ],
+          "lines": "160-183",
+          "raw_sha256": "124503df41d86ab4b1394453cd55f234d4c7de28b2c0496d2a65798dc873cc94",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/lib/_defaults.js#L160-L183"
+        }
+      ],
+      "reviewed_mechanism": "README calls QuestJS a browser-run pure-JavaScript rewrite of Quest 5 for parser interactive fiction and documents authoring through JavaScript; LICENSE is MIT, copyright Andy Joel (2019). Reviewed source was read from the pinned Git object database; no upstream code, script, build, or assets were executed or copied.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        {
+          "source_license": "QuestJS root LICENSE is MIT, copyright Andy Joel (2019), and requires its copyright and permission notice with copies or substantial portions.",
+          "yair_license": "YAIR root LICENSE is MIT and upstream attribution must remain intact.",
+          "file_content_assets": "The evidence is JavaScript source and license text only. No QuestJS names, prose, game files, or assets are proposed for copying; separately check individual asset/content rights if any later request includes them.",
+          "maintenance_removal_fallback": "An optional, fixed authored action can be unregistered if it adds no persistent schema. If it writes a new saved source/effect/receipt, keep a reader/migration path or explicitly reject unsupported versions. The fallback is the existing duel and party combat behavior."
+        },
+        {
+          "source_license": "QuestJS root LICENSE is MIT, copyright Andy Joel (2019), requiring preservation of its copyright and permission notice with reused code.",
+          "yair_license": "YAIR root LICENSE is MIT; preserve its existing upstream attribution.",
+          "file_content_assets": "Only source API and license facts are used. No NPC name, text, map, art, or other QuestJS content is proposed for reuse.",
+          "maintenance_removal_fallback": "A fixed controller or finite scene can be removed by unregistering its definitions if it adds no durable cursor. If cursor state is persisted, preserve a reader/migration route. Fallback is the present static actor/job behavior; no new schedule means no background advancement."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "wesnoth",
+      "title": "Battle for Wesnoth",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/wesnoth/wesnoth",
+        "revision": "30130b779e724bcfb020bc5bef302fd2e8321e2c",
+        "branch": "master",
+        "cache_key": "wesnoth.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-campaigns.json",
+      "source_evidence": [
+        {
+          "path": "data/campaigns/Under_the_Burning_Suns/scenarios/02_Across_the_Harsh_Sands.cfg",
+          "symbols": [
+            "scenario 02_Across_the_Harsh_Sands",
+            "prestart",
+            "scorpions_spotted",
+            "scorpion_ambush",
+            "take_traveler_ring",
+            "ogre_ambush",
+            "victory",
+            "endlevel"
+          ],
+          "lines": "3-9,190-283,363-560,621-738,1660-1771",
+          "raw_sha256": "c7e7e8d01b208a09205cd9a23b05341702fba732e7be99ddf9244d243f58fe39",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/data/campaigns/Under_the_Burning_Suns/scenarios/02_Across_the_Harsh_Sands.cfg#L363-L417"
+        },
+        {
+          "path": "data/campaigns/Under_the_Burning_Suns/scenarios/03_Stirring_in_the_Night.cfg",
+          "symbols": [
+            "scenario 03_Stirring_in_the_Night",
+            "prestart recall heroes",
+            "campaign turn-1 rallies",
+            "victory/endlevel"
+          ],
+          "lines": "11-24,269-295,444-495,1807-1811",
+          "raw_sha256": "e0a5a6b8f09634543b53e6c898f9a22f2c1c0d4dea9be8c23fa6f60e583723fa",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/data/campaigns/Under_the_Burning_Suns/scenarios/03_Stirring_in_the_Night.cfg#L269-L295"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Features"
+          ],
+          "lines": "1-36",
+          "raw_sha256": "37539c6ba20f53e714237a530aa427898a1334cfa20fae2b0e7ccd6325388d50",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/README.md#L1-L36"
+        },
+        {
+          "path": "COPYING",
+          "symbols": [
+            "GNU General Public License, Version 2"
+          ],
+          "lines": "1-22,60-104",
+          "raw_sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/COPYING#L1-L22"
+        },
+        {
+          "path": "src/carryover.hpp",
+          "symbols": [
+            "carryover",
+            "carryover_info"
+          ],
+          "lines": "25-58,61-107",
+          "raw_sha256": "c5305119986165d1847ec9edca44ab455f1c11ce31389742e91b7f98a175b1d5",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/src/carryover.hpp#L25-L58"
+        },
+        {
+          "path": "src/carryover.cpp",
+          "symbols": [
+            "carryover.constructor",
+            "transfer_all_gold_to",
+            "transfer_all_recalls_to",
+            "to_config",
+            "carryover_info.constructor",
+            "transfer_all_to",
+            "transfer_to",
+            "carryover_info.to_config"
+          ],
+          "lines": "27-42,46-76,98-109,111-137,158-227",
+          "raw_sha256": "395e71d85858208e046ee1483d88bed2e659139507741112e0555e83e4f56274",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/src/carryover.cpp#L27-L42"
+        }
+      ],
+      "reviewed_mechanism": "README describes an open-source, turn-based tactical strategy game with authored campaigns and scenarios. Root COPYING is GNU GPL version 2. Scenario text and WML were reviewed as source; campaign art, music, and other data assets have their own provenance/licensing and were not assessed or proposed for reuse. No upstream source, game, scripts, or assets were executed or copied.",
+      "disposition": "Independent pattern/content comparison; no engine or code dependency adopted.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        {
+          "source_license": "Pinned root COPYING is GNU GPL version 2 and requires notices/license preservation and source/derivative distribution duties when covered program material is distributed. README identifies the game/campaign source context. This finding proposes no code copying. Individual graphics, music, and other campaign content may carry separate notices/licenses; they were not audited.",
+          "yair_license": "YAIR root LICENSE is MIT and project guidance requires upstream attribution/license preservation.",
+          "file_content_assets": "Only WML structure and behavioral relationships are cited. Do not reuse Under the Burning Suns names, dialogue, map, unit graphics, music, or other assets absent specific rights/source review and explicit creative selection.",
+          "maintenance_removal_fallback": "A single adapter can be unregistered if its effects remain inside optional world/campaign records. If new named-actor or reward state is persisted, retain old-reader/migration behavior and a no-enrollment fallback for legacy saves. If the adapter is removed, existing native opening and one-prestige progression remain available."
+        }
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "evennia",
+      "title": "Evennia",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/evennia/evennia",
+        "revision": "a89a9b94e4d7ed0acfee86def533b77bf6baa512",
+        "branch": "main",
+        "cache_key": "evennia.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-living-world.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "9adec77ac824519679bf443677a900a20548d3f9bb206829a76176ab5ee6303f",
+          "lines": "1-18"
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "792408eb4a3857fd7581eefabd229c67035cc20ea53080b38459dd69d369759a",
+          "lines": "1-19"
+        },
+        {
+          "path": "evennia/scripts/scripts.py",
+          "sha256": "5812ab6407de9e7fabebec43c2ceb1fe8bed586fe3e85630f1fe16150d9146ab",
+          "symbols": [
+            "ExtendedLoopingCall.start",
+            "ScriptBase.start",
+            "ScriptBase.at_repeat",
+            "ScriptBase.stop"
+          ],
+          "lines": "1-70, 135-251, 278-385, 526-616, 702-749"
+        }
+      ],
+      "reviewed_mechanism": "ScriptBase stores script data on database-backed ScriptDB objects and uses Twisted LoopingCall for intervals, repeat counts, pause/resume alignment, persistence across restart, and stop hooks. This is a server-clock entity-service mechanism, not itself an economy or NPC profession model.",
+      "disposition": "Pattern-only for named recurring commitments with an explicit next due time, pause state, and bounded repeat count. YAIR already stores job/program state and advances through its common played-time scheduler. Adding a second timer/database framework would duplicate ownership and alter browser-closed/offline behavior.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": {
+        "observed": "README describes a Python framework for online multiplayer text games that supplies networking/server basics while leaving game mechanics to creators. LICENSE.txt is BSD-3-Clause.",
+        "reuse_boundary": "No code was copied. Future reuse must preserve BSD notices and check the dependencies and exact source distribution."
+      },
+      "limits": "Core recurring Script implementation and repository purpose/license only."
+    },
+    {
+      "id": "yarn-spinner",
+      "title": "Yarn Spinner core",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/YarnSpinnerTool/YarnSpinner",
+        "revision": "dd8d9b4f7b752364e3dce94961c00924e13f5d72",
+        "branch": "main",
+        "cache_key": "yarn-spinner.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "201c434f3c402127f5e56060f68d5e8fb874ff555951117e87cf29cc2aa01224",
+          "lines": "14-21, 25-33"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "11ccf106992986cf9ca496c0d9c7038ceba5460678465d29e81f9e41dae491eb",
+          "lines": "1-21"
+        },
+        {
+          "path": "Documentation/Yarn-Spec.md",
+          "sha256": "a97ff3beaf320834607647726d53bb2ee2d5f89f46dc674c0d7ee2e3b9aad84e",
+          "lines": "42-49, 173-243, 304-337"
+        },
+        {
+          "path": "YarnSpinner/Dialogue.cs",
+          "sha256": "654398c3b0b23921d6d3c3023958fc07ebf403f8ceec3d1f1763cc299be12154",
+          "lines": "not used for a claim; core API implementation not required for pattern review"
+        }
+      ],
+      "reviewed_mechanism": "README describes screenplay-like interactive dialogue that emits lines, options and commands to a larger game. The spec deliberately delegates presentation, option selection, generic command effects and function handling to that host (Yarn-Spec 42-49); generic commands communicate directions but the implementing program must not alter Yarn flow based on them (304-337). The repository README identifies this checkout as compiler core and points game integration to engine-specific packages; the official supported package listed here is Unity.",
+      "disposition": "Useful independent authoring shape for long authored dialogue and explicit host commands; do not adopt as runtime or compiler dependency for current short native scenes.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "Yarn Spinner MIT with notices; YarnBound package declares ISC but its pinned LICENSE file is absent and bondage dependency has a separate notice obligation; Inform licensing is per-file/extension under its Artistic License 2.0 route. No code, prose, tags, characters, scene names or assets copied; original Silt Lantern example."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "yarn-bound",
+      "title": "YarnBound third-party browser runtime",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/mnbroatch/yarn-bound",
+        "revision": "636848a2d33f8090590f1451be786cdce8411424",
+        "branch": "master",
+        "cache_key": "yarn-bound.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "c3466999d955324beba2e1696bd27810aa15684f9a585302d5375c0b51b4d833",
+          "lines": "1-45, 55-115"
+        },
+        {
+          "path": "package.json",
+          "sha256": "7d2e03d31de3d561980269fe3251c3c2f12362d0d5eb4e5a7aff3d33fc6d7b90",
+          "lines": "1-40"
+        },
+        {
+          "path": "src/yarn-bound.js",
+          "sha256": "91fb21ad24303cbb27290bc38bfd7be9309e5c261c5aa5ddbea1c267462e843d",
+          "lines": "1-43, 56-127, 130-164"
+        },
+        {
+          "path": "src/line-parser.js",
+          "sha256": "be470b2e3d0910cfede3c7c5e902ef48b7a7d142712e9164354b6f9896e6d14e",
+          "lines": "reviewed as formatting/markup parsing support"
+        }
+      ],
+      "reviewed_mechanism": "This third-party wrapper over a specific bondage.js fork accepts Yarn text, optional variable storage/functions and a command handler, then yields text, options and command results (README; src/yarn-bound.js 1-43, 130-164). Its lookahead toggles runner lookahead while it advances to infer end-of-dialogue and combine text/options; its comments say command sequences can be handled during that lookahead and that one conditional edge case causes commands to be handled prematurely (src/yarn-bound.js 56-127). README says Yarn function callbacks should have no side effects because evaluation may occur unexpectedly. README also explicitly records missing/supplemental Yarn features. YarnBound therefore offers a narrow browser cursor, with behavior bounded by its wrapper and dependency, not a supported official Yarn runtime.",
+      "disposition": "Review its command/text/options boundary as an adapter design reference only. The README lookahead warning is a dialogue-end detection limitation around commands/set variables; it does not support a speculative side-effect claim.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "Yarn Spinner MIT with notices; YarnBound package declares ISC but its pinned LICENSE file is absent and bondage dependency has a separate notice obligation; Inform licensing is per-file/extension under its Artistic License 2.0 route. No code, prose, tags, characters, scene names or assets copied; original Silt Lantern example."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "ink",
+      "title": "Ink authoring/compiler",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/inkle/ink",
+        "revision": "35c63e52f1d36060930dc7ed3cfba38ea224b528",
+        "branch": "master",
+        "cache_key": "ink.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "d4e1fb8405be61ba17d6aa08a2d7ca719521b0bc18278302a62af4826747d161",
+          "lines": "purpose/integration readback"
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "8ade0ddc1c3ede9acaf6febf2742400aa0dff808f35b202962fe073a184e8d4a",
+          "lines": "1-21"
+        },
+        {
+          "path": "ink-engine-runtime/Story.cs",
+          "sha256": "10a150e6438360f346bfad4ffd17749bcdc5ae851fd11e4bb957ed27e0604340",
+          "lines": "prior qualified source locator in engine appendix"
+        }
+      ],
+      "reviewed_mechanism": "Reuse the prior qualified comparison: Ink is a narrative authoring/compiler/runtime ecosystem with story knots, branching choices, commands/external functions and serialized continuation. Its compiled cursor is separate from YAIR's authoritative game effects, time, RNG, stock, publication and save envelope. The prior review identified an optional long-scene authoring fit only, with no adoption selected.",
+      "disposition": "No repeated subsystem audit. Keep as optional candidate only if the director selects long scenes whose prose branch authoring materially benefits from a narrative tool.",
+      "lineage_and_refresh": "docs/gm/world-implementation/second-pass/engine-absorption/UPSTREAM_INK_ROT.md; same exact revision; notice read back",
+      "notices_and_provenance": [
+        "Ink and inkjs MIT, preserve both notices and inkjs AUTHORS attribution. Review file-level licenses for toolchain and assets before any later distribution. No compiler output, library, stories, prose corpus, characters or assets copied in this review."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "inkjs",
+      "title": "inkjs browser runtime",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/y-lohse/inkjs",
+        "revision": "6b1153410ab1c4bcfd9ef04eb2f0107f36be7778",
+        "branch": "master",
+        "cache_key": "inkjs.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "3619f0e838a4b392d80b88de8ffa76cf87f085e91aa7bba6d8cbbb8f2aacbbf6",
+          "lines": "208-229"
+        },
+        {
+          "path": "LICENSE.md",
+          "sha256": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+          "lines": "1-22"
+        },
+        {
+          "path": "package.json",
+          "sha256": "69aaef27bef264f8fc641424b19b24c157f568b98709e855c2537239edb05fb4",
+          "lines": "1-55"
+        },
+        {
+          "path": "src/engine/Story.ts",
+          "sha256": "f14f16ef055d57bd54abfbb96e352fe47e38452deeca6a9692fd4d4a55668fdc",
+          "lines": "52-70, 1837-1905"
+        },
+        {
+          "path": "src/engine/StoryState.ts",
+          "sha256": "1606c4d459db538e2cc07c88aa0e2881a5c4a2733794667c3886b8bcca8c7411",
+          "lines": "27-50"
+        },
+        {
+          "path": "src/engine/Flow.ts",
+          "sha256": "9a736eda1e454d34cb50c5ba2f3a957498a5e6cff325ce62c75747215b579e34",
+          "lines": "9-43, 45-87"
+        },
+        {
+          "path": "src/engine/JsonSerialisation.ts",
+          "sha256": "2e91bcc9e2817f6ffae59d16f8a7db3a723ed4773e98068c3a2a3beb655a664c",
+          "lines": "prior exact serialization API locators; file inspected at current revision"
+        }
+      ],
+      "reviewed_mechanism": "Current pin remains package version 2.4.0. The diff from prior reviewed commit changes package manifests/lock only; current API was still read back. Story.currentChoices filters invisible defaults and renumbers the exposed choices (Story.ts 57-70), so a UI index is not a durable command identity. External binding distinguishes lookahead-safe calls and suppresses or errors for unsafe calls during lookahead/string generation (1837-1872); callbacks must be pure snapshot reads, while game changes stay in a later canonical command. StoryState exposes save/load JSON and declares save format 10/minimum 8 (StoryState.ts 27-50); Flow serialization retains call stack, output, choices and choice threads (Flow.ts 9-87). The compatibility table ends at inklecat 1.2.0 / inkjs 2.3.0, while source reports current story JSON 21/minimum 18; that is not an explicit 2.4.0 compiler/runtime semantic compatibility claim (README 208-229).",
+      "disposition": "Refresh required prior claims to this exact manifest pin; no source behavior delta found in reviewed API paths. No adoption: only a long authored scene could justify optional inkjs, compiler/content pinning and a cursor bridge.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "Ink and inkjs MIT, preserve both notices and inkjs AUTHORS attribution. Review file-level licenses for toolchain and assets before any later distribution. No compiler output, library, stories, prose corpus, characters or assets copied in this review."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "rot-js",
+      "title": "rot.js",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/ondras/rot.js",
+        "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+        "branch": "master",
+        "cache_key": "rot-js.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "2398b6716a74eccf7a07d6769a0028034badec24dd23611443a8adc94f58ebba",
+          "lines": "purpose readback"
+        },
+        {
+          "path": "license.txt",
+          "sha256": "3631775a89d4c07e804baedcc91b61c01b55f50d5715168099d6daf61f67763b",
+          "lines": "1-25"
+        },
+        {
+          "path": "package.json",
+          "sha256": "b82bea6a49686bb08770f1e8715a7936fc8bd85b13007b818b369f45192c9ba4",
+          "lines": "package purpose/dependencies readback"
+        },
+        {
+          "path": "src/path/astar.ts",
+          "sha256": "6be57639ab72c2c038b1b9ba85ef0ad7717393910150a9ec045dd198a58da4ba",
+          "lines": "12-59"
+        },
+        {
+          "path": "src/fov/precise-shadowcasting.ts",
+          "sha256": "f7cc6ac210ab83603e735d2dc9f0db04c13ee1d7ed11c1e1283ef3250ed30eb4",
+          "lines": "9-42"
+        }
+      ],
+      "reviewed_mechanism": "Prior qualified review covers rot-js 2.2.1 pathfinding, FOV, RNG/other toolkit boundaries and BSD-3-Clause notice. Current AStar source makes the topology coordinate/grid based and assigns unit edge cost (12-59); precise shadowcasting queries blocker geometry (9-42). These are spatial-cell queries, not a directed Village/Shack travel-time road graph or legal scene-action consumer.",
+      "disposition": "No fit for present graph travel and authored locations. Reconsider only if a director-selected grid world needs grid path/FOV queries, then map query results to native legal commands and saved geometry.",
+      "lineage_and_refresh": "docs/gm/world-implementation/second-pass/engine-absorption/UPSTREAM_INK_ROT.md; same exact revision; license/API readback",
+      "notices_and_provenance": [
+        "Preserve rot BSD-3-Clause, TextWorld MIT and TextWorldExpress Apache-2.0 notices if future code reuse is separately selected. No graph library, benchmark simulator, authored scenarios, benchmark prose/data or assets copied. Upstream asset/content rights were not inferred from repository code license."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "inform",
+      "title": "Inform",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/ganelson/inform",
+        "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+        "branch": "master",
+        "cache_key": "inform.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "1483285e69f417a81b5c79a7ddced65f9aa5daf526547b593aa97728878ae320",
+          "lines": "purpose readback"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "c2a7ff448e62f0e7f47bfeb1c057bbc01870ef68d702417ff4df0dcbd49c68fe",
+          "lines": "1-201"
+        },
+        {
+          "path": "docs/standard_rules/actns.html",
+          "sha256": "8da4063a7780708cdbdb4ad2b4e99600197c151efaf8453d1a927f75d123bd52",
+          "lines": "prior qualified action-stage locators"
+        },
+        {
+          "path": "docs/standard_rules/pwm.html",
+          "sha256": "ec867009534d8aa4d398296923161063805db9d03650e531771eaf831d6198a0",
+          "lines": "prior qualified physical-model locators"
+        }
+      ],
+      "reviewed_mechanism": "Reuse the prior qualified Inform comparison: action checks/carry-out/report and physical object/reach/possession rules are informative patterns, while its full parser, VM, implicit taking and turn/save model would duplicate or conflict with current typed native command, custody, body/contact, clock and publication owners. No full runtime adoption is selected.",
+      "disposition": "Pattern-only fit where authors need explicit precondition/effect/report boundaries; current command/effect system already owns runtime semantics.",
+      "lineage_and_refresh": "docs/gm/world-implementation/second-pass/engine-absorption/UPSTREAM_CDDA_INFORM.md; same exact revision; notice/API readback",
+      "notices_and_provenance": [
+        "Yarn Spinner MIT with notices; YarnBound package declares ISC but its pinned LICENSE file is absent and bondage dependency has a separate notice obligation; Inform licensing is per-file/extension under its Artistic License 2.0 route. No code, prose, tags, characters, scene names or assets copied; original Silt Lantern example."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "textworld",
+      "title": "Microsoft TextWorld",
+      "status": "unsuitable-with-source-backed-reason",
+      "source": {
+        "url": "https://github.com/microsoft/TextWorld",
+        "revision": "6d88a0845bc904751d3b7f128d61f21cabdf6f70",
+        "branch": "main",
+        "cache_key": "textworld.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "ee227420d571ba249133882d8781a3b7df709cf7efa488cf29379dc97743f67b",
+          "lines": "1-5, 83-127"
+        },
+        {
+          "path": "LICENSE.txt",
+          "sha256": "1cd8760aca172397e4689d12ad0d846ee8015f617a5fcdb6b00623167859e9b6",
+          "lines": "1-11"
+        },
+        {
+          "path": "textworld/generator/maker.py",
+          "sha256": "d96e3153032e5d096647e417d4da1697df8bc5152865eb6ce7ace03459fffedc",
+          "lines": "28-43, 77-139"
+        },
+        {
+          "path": "textworld/envs/tw.py",
+          "sha256": "046f4ed9a7d4e5c9eb1402e1942f21b317f10eb064f16c61aa51c1f0ce2046f2"
+        }
+      ],
+      "reviewed_mechanism": "README identifies a text-game generator and extensible reinforcement-learning sandbox; its usage requires Python/native/system setup and generates Z-machine games. Pinned maker.py represents rooms, doors, items and facts as variables/propositions, with generation constraints evaluated against state and failed constraints surfaced as errors (28-43, 77-139). This is useful as an experimental benchmark and content-constraint authoring reference, but does not establish long-lived NPC lives, causal campaign histories or save-compatible integration in YAIR.",
+      "disposition": "Benchmark-only/no-fit as an engine dependency. Independent constraint-checking is a possible authoring QA pattern if current definitions acquire enough cross-record conditions to warrant a validator; no measured need or adoption is established.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "Preserve rot BSD-3-Clause, TextWorld MIT and TextWorldExpress Apache-2.0 notices if future code reuse is separately selected. No graph library, benchmark simulator, authored scenarios, benchmark prose/data or assets copied. Upstream asset/content rights were not inferred from repository code license."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    },
+    {
+      "id": "textworld-express",
+      "title": "TextWorldExpress",
+      "status": "unsuitable-with-source-backed-reason",
+      "source": {
+        "url": "https://github.com/cognitiveailab/TextWorldExpress",
+        "revision": "db0e6c09802a9e66ed535fc81155f27b4cd3cbac",
+        "branch": "main",
+        "cache_key": "textworld-express.git",
+        "pin_verified": true
+      },
+      "review_extent": "Targeted actual subsystem and purpose/notices; not whole repository, all branches, game execution or balance audit.",
+      "evidence_appendix": "appendix-authoring.json",
+      "source_evidence": [
+        {
+          "path": "README.md",
+          "sha256": "e7267270ad22841267dee10753cdecd6f368686b5030b50911a3037f956078c1",
+          "lines": "1-5, 17-40, 108-125"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "6a0e828d0d1ac33b715cbf4ce9ec9d38303497d12d199d85122e7e207624138c",
+          "lines": "1-201"
+        },
+        {
+          "path": "simulator/src/main/scala/textworldexpress/games/CookingWorldGame.scala",
+          "sha256": "915798b372212072003ff9e05aa1b0d2cc6f0bced95bd83b092ed82eb010f3fd",
+          "lines": "106-160, 489-535, 701-743"
+        },
+        {
+          "path": "simulator/src/main/scala/textworldexpress/generator/GameGenerator.scala",
+          "sha256": "6134614fc8a6d54b3a85b45c840aab011bd1bb7ab1657aa1bbae9a6d6f111414",
+          "lines": "generation API"
+        }
+      ],
+      "reviewed_mechanism": "README calls this an optimized reimplementation of benchmark text games for NLP research, with a Scala simulator and Python/Py4J interface; it emphasizes episode reset, seeded random generation, valid action lists, step limits, observations and benchmark scores. CookingWorldGame retains seeded game state, clones episode state and scores ingredient presence/preparation/meal completion; step returns observations, valid actions and scoring (source lines above). Those are benchmark episode semantics. They do not solve YAIR's persistent campaign actor/work/time/stock/publication/save semantics.",
+      "disposition": "Benchmark/no-fit for runtime or world authoring dependency. Its explicitly seeded step/observation/valid-action harness may inform an external future benchmark only if YAIR later asks for one; current behavioral test deferral and implementation-first pace make that unnecessary here.",
+      "lineage_and_refresh": null,
+      "notices_and_provenance": [
+        "Preserve rot BSD-3-Clause, TextWorld MIT and TextWorldExpress Apache-2.0 notices if future code reuse is separately selected. No graph library, benchmark simulator, authored scenarios, benchmark prose/data or assets copied. Upstream asset/content rights were not inferred from repository code license."
+      ],
+      "limits": "Source access succeeded; any individual absent seed path remains a collection limit, not an inaccessible repository."
+    }
+  ],
+  "reference_works": [
+    {
+      "id": "elin",
+      "title": "Elin",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/2135150/Elin/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The developer describes a roguelike sandbox combining crafting, survival, and base building/management.",
+        "The product page lists housing, fishing, music, farming, livestock breeding, childbirth, shops, tourism, companions, and pets among its play options.",
+        "The developer describes a mix of generated content and fixed content faithful to its setting."
+      ],
+      "inference_and_yair_connection": "Useful contrast for letting home, ordinary skills, and local services create more than one life route. Current YAIR owners include village/everyday-life activities, site projects, jobs, native stock, and world instances. The useful question is which one optional home service or profession creates a new capability or visit reason, not whether to add a settlement-management layer.",
+      "limits_and_rights": "Store-page feature claims only; no game session, mechanics tracing, save behavior, or content/assets were reviewed. Elin is a commercial game. Use this as a design comparison; do not copy its names, prose, art, code, or setting."
+    },
+    {
+      "id": "soulash-2",
+      "title": "Soulash 2",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/2399160/Soulash_2/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://steamcommunity.com/app/2399160/announcements/",
+          "kind": "developer-published Steam announcements, including v0.10 Living World and v0.10.3 Economy",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes simulated history, skill-based progression, customizable abilities, material-based crafting, building, and trading; it identifies the title as Early Access.",
+        "The developer's Living World announcement describes settlement events with lasting consequences, wilderness events and weather, NPC adventuring groups, and a new world-event data-file type for modders.",
+        "The developer's Economy announcement describes a skill whose use unlocks more ways to influence the city, move resources, and direct other workers."
+      ],
+      "inference_and_yair_connection": "A strong comparator for joining an ordinary skill to settlement influence, funded labor, and off-screen events. YAIR already owns skills, jobs, actors, causes, simulation effects, settlement/site facts, clocks, and publication. A small authored event can reuse these owners; Soulash's autonomous settlement scale is not a required first-milestone system.",
+      "limits_and_rights": "Official feature descriptions and announcements only, not code or a playthrough; no claim about the complete event or migration implementation. The work is commercial and Early Access. No code, wording, names, art, or world content is proposed for copying."
+    },
+    {
+      "id": "qud",
+      "title": "Caves of Qud",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/333640/Caves_of_Qud/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://cavesofqud.com/press-kit/",
+          "kind": "developer/publisher press kit",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes physical simulation, including digging, corrosive mutation, and melting terrain according to material melting points.",
+        "The official press kit describes actors with skills, equipment, faction allegiances, and body parts; it gives psionic domination of a spider as an example of inhabiting its body and using its capabilities.",
+        "The developer describes more than seventy factions and an authored story woven through physical, social, and historical simulation."
+      ],
+      "inference_and_yair_connection": "Compare one body/source-specific capability and one environmental interaction at a time. Current YAIR owners include body progression, capabilities and power models, native combat, people/knowledge, and world/situation facts. The connection is a useful counter or passage rule that changes because of the actual actor body or owned faculty, not importing Qud's tile simulation or faction count.",
+      "limits_and_rights": "Official descriptions only; no code, full simulation trace, or playthrough. Caves of Qud is commercial. Do not copy its lore, factions, mutation text, artwork, or code."
+    },
+    {
+      "id": "dwarf-fortress",
+      "title": "Dwarf Fortress",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/975370/Dwarf_Fortress/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The developer describes generated worlds with civilizations, personalities, creatures, cultures, and histories, and inhabitants with simulated personalities.",
+        "The Steam description lists cultures, taverns, libraries, temples, animal training, bookbinding, and material-specific crafting as parts of its simulation.",
+        "The product page distinguishes fortress management from an embodied Adventure mode in which a player can explore civilizations and recruit followers."
+      ],
+      "inference_and_yair_connection": "Useful contrast for giving independent lives a durable history and for connecting a local settlement to an embodied traveler. YAIR's people, attributed knowledge, situations, chronicle, native combat, and world-instance owners cover smaller authored examples; the comparator does not establish that YAIR needs procedural civilization generation.",
+      "limits_and_rights": "Official store description only; no DFHack or game source was reviewed, and the separate DFHack project is not evidence about Dwarf Fortress internals. No playthrough or gameplay verification. Commercial work; no copying of prose, assets, code, names, or generated content."
+    },
+    {
+      "id": "wildermyth",
+      "title": "Wildermyth",
+      "disposition": "design-comparator-and-authoring-source-reviewed",
+      "source_routes": [
+        {
+          "url": "https://wildermyth.com/wiki/Modding_Guide",
+          "kind": "officially linked modding guide",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://wildermyth.com/wiki/Story_Inputs_and_Outputs",
+          "kind": "officially linked story authoring reference",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://wildermyth.com/wiki/Legacy_tier",
+          "kind": "officially linked legacy reference",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The Modding Guide says most game data is JSON, user mods mirror the core game's directory layout, and the in-game Content and Comics Editor exposes events, abilities, aspects, campaigns, items, and monsters.",
+        "Story Inputs and Outputs documents checks over campaign/company state, legacy unlocks, present heroes, and other heroes; story roles can be chosen using traits, relationships, hooks, aspects, or stats.",
+        "The same guide enumerates supported outcomes including gear, body modifications, history lines, stat changes, hooks/aspects, map changes, relationships, unlocks, recruitment, and combat effects. It recommends clear risk/tradeoffs, permanent visible change for major moments, and mechanically simple supported outcomes.",
+        "The Legacy page describes a saved history of accomplishments and heroes, with recruitment in later campaigns preserving selected abilities subject to legacy tier."
+      ],
+      "inference_and_yair_connection": "The strongest lesson is an authoring contract: declare which campaign and character facts a story may inspect, select relevant roles, then connect a legible choice to a bounded set of supported effects and durable history. YAIR already has source-authored registries, situations, response predicates, validated effects, actors, relationships, attributed knowledge, and saved causes. The missing convenience is an editorial authoring workflow and reusable role/query layer, not another effects engine or a global hero legacy.",
+      "limits_and_rights": "Wiki authoring documentation and product design only, not Wildermyth code or complete player experience. No content, JSON files, icons, story text, characters, or assets are proposed for copying. Modding instructions themselves warn authors to contact an existing mod author before adapting and republishing their work."
+    },
+    {
+      "id": "gurps-infinite-worlds",
+      "title": "GURPS Infinite Worlds",
+      "disposition": "tabletop-design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://warehouse23.com/products/gurps-infinite-worlds",
+          "kind": "publisher's official product listing",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The publisher describes a setting about parallel-world travel, with campaign roles including accidental travelers or Infinity Patrol agents.",
+        "The listing says its guidance covers designing and playing cross-setting characters and building alternate worlds from setting, story, and rules perspectives."
+      ],
+      "inference_and_yair_connection": "Useful tabletop comparator for making each destination's rules, entry premise, and traveler role explicit. Current YAIR owners include world identity, world instances, realm connections, boundary rules, and traveler profiles; it does not provide software evidence or justify adding a multiverse to the first milestone.",
+      "limits_and_rights": "This is a commercial tabletop book, not a software repository. Only the publisher's listing was used; the book was not acquired or accessed. Do not copy its setting text, names, trade dress, rules prose, or illustrations. The comparison is about the general authoring problem of distinct worlds and entry premises."
+    },
+    {
+      "id": "cavernous-2",
+      "title": "Cavernous II",
+      "disposition": "published-interface-and-source-route-reviewed; bounded-source-inspection",
+      "source_routes": [
+        {
+          "url": "https://nucaranlaeg.github.io/incremental/CavernousII/",
+          "kind": "creator's published game and deployed script links",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://github.com/Nucaranlaeg/Nucaranlaeg.github.io/tree/master/incremental/CavernousII/src/script",
+          "kind": "public source directory in the creator-profile GitHub Pages repository",
+          "accessed": "2026-10-05",
+          "revision": "3836cc3a7443a33ec68ebb78cfb7c26a173ffc2f",
+          "branch": "master",
+          "observed_files": [
+            "queues.ts",
+            "clones.ts",
+            "routes.ts",
+            "zones.ts"
+          ]
+        },
+        {
+          "url": "https://github.com/Nucaranlaeg/Nucaranlaeg.github.io/blob/master/LICENSE.md",
+          "kind": "repository license",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The published interface documents per-clone action queues, synchronization and no-sync commands, repeat actions, zone routes, route estimates, and import/export for queues and saves.",
+        "The creator's GitHub profile identifies Sam Benner and links the public GitHub Pages repository. The live page loads named JavaScript modules; the repository additionally exposes the TypeScript source directory. Read-only source inspection confirmed concrete queue/action, clone, route, and zone modules. No scripts were executed.",
+        "The repository's LICENSE.md is a custom four-condition BSD-style license. It requires notices and disclaimer retention and says commercial use must first be authorized by Sam Benner or follow a good-faith attempt to obtain permission."
+      ],
+      "inference_and_yair_connection": "The useful design contrast is visible planned work across coordinated agents and routes. YAIR has jobs, common game clocks, clock leases, simulation commitments, and multi-world boundaries; it does not have clone-level synchronized queues or Cavernous route search. One readable authored preparation plan may be worth comparing, while reproducing queue management would add substantial interface and timing complexity.",
+      "limits_and_rights": "Interface evidence is published-page inspection plus the previously qualified entry in docs/NICHE_GAME_REFERENCES.md, not a game playthrough. Source coverage is limited to locating the project and inspecting selected TypeScript files; there was no repo-wide audit, build, execution, install, or gameplay test. Any direct code use needs an explicit license review and the listed commercial-use condition; page-hosted assets and other content were not separately licensed or audited."
+    },
+    {
+      "id": "proto23",
+      "title": "Proto23",
+      "disposition": "published-game-and-source-locator-verified; bounded-source-evidence-reused",
+      "source_routes": [
+        {
+          "url": "https://www.incrementaldb.com/game/proto23",
+          "kind": "third-party game index linking source code and published website",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://23html.github.io/",
+          "kind": "published browser game linked by the game index",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://github.com/23html/23html.github.io",
+          "kind": "public repository reached through the index's source-code link",
+          "accessed": "2026-10-05",
+          "revision": "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+          "branch": "main",
+          "observed_files": [
+            "index.html",
+            "changelog/",
+            "ctst.png",
+            "laugh6.wav"
+          ]
+        },
+        {
+          "url": "https://github.com/miktaew/yet-another-idle-rpg",
+          "kind": "YAIR original creator's own attribution that the project was inspired by Proto23",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The index labels Proto23 as a browser incremental RPG and links separate source-code and website destinations. Its source link resolves to the public 23html/23html.github.io repository, whose main-branch commit matches the already-pinned index.html source revision recorded in docs/RESEARCH_IDLE_GAMES.md.",
+        "The current YAIR original creator's public repository describes YAIR as inspired by Proto23. That verifies the attribution relationship, not that the linked source repository is controlled by the same creator or that it is licensed for reuse.",
+        "The public Proto23 repository page exposes index.html and related files but no LICENSE file; GitHub API repository metadata reports no recognized license. The deployed browser page is available, but this lane did not execute it or inspect it interactively."
+      ],
+      "inference_and_yair_connection": "Continue using the previously recorded bounded examples for use-based mastery, knowledge objects, furniture/home state, and save timing. These connect to YAIR's current native skills, discovery, items, sites, and persistence owners. A small translation is more useful than trying to mirror Proto23's densely coupled progression.",
+      "limits_and_rights": "This is source-locator/provenance verification plus reuse of the bounded source sample already in docs/RESEARCH_IDLE_GAMES.md, not a new full code audit or game test. The 23html GitHub owner and the published site are linked by a third-party index; direct creator confirmation was not found in this pass. Public availability is not a copying license. Do not copy code, words, graphics, or audio without clear rights."
+    },
+    {
+      "id": "your-chronicle",
+      "title": "Your Chronicle",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/1546320/Your_Chronicle/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "docs/RESEARCH_IDLE_GAMES.md",
+          "kind": "existing primary-source comparison and bounded prior research owner",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes a free text-based idle RPG with more than 3,000 story actions and unlockable features.",
+        "The existing YAIR research dossier records story unlocks, automation, summoned companions, endings, and a source-backed design translation; this appendix reuses it as prior comparator evidence rather than claiming a new mechanics trace."
+      ],
+      "inference_and_yair_connection": "Useful contrast for exposing how authored actions unlock a richer action vocabulary over time. YAIR already has discovery projections, registered abilities/commands, authored situations, controllers, and shared effects. The useful adaptation is a few discoverable functional options with legible prerequisites, not thousands of actions or an imported automation loop.",
+      "limits_and_rights": "Official product page and earlier dossier only; no complete action list, source, save trace, or playthrough was reviewed here. Commercial game. No code, text, names, or art is proposed for copying."
+    }
+  ],
+  "source_access_limits": [
+    "Five requested seed paths absent at pinned heads; equivalent notices or actual subsystem paths retrieved where needed.",
+    "Bare mirrors are shallow/filtered default heads; new lazy blobs read at unchanged pins, not all-branch or whole offline copies.",
+    "Commercial/tabletop works reviewed through official descriptions/docs only; no software internals/book contents/playthroughs claimed.",
+    "Proto23 source route has no discovered license/direct creator confirmation; Cavernous II source route has custom terms. Neither added to the bank or copied."
+  ],
+  "prior_review_qualification": {
+    "baselines": "Normal/dev roots match prior native feasibility and finite fork-network pins; current activity/license/save/tick source readback.",
+    "ink_inform_rot": "Exact prior pins; purpose/notices/API readback.",
+    "inkjs": "Different bank pin refreshed actual APIs, manifest and prior delta.",
+    "cdda": "Different bank pin refreshed proficiency/practice/persistence/mission subsystem; older EOC claim stays older qualified evidence, not silently upgraded.",
+    "fork_followup": "Closeout refresh: PROJECT and fork-network REPORT now record a separately authorized selective native UI/guard/trade/crafting adoption with its own matched build and deferred behavior. Those baseline fixes are delivered in that lane, not remaining imports in this review. Broad campaign/body/time/dependency scope is unchanged; actual persistExpansion boundary was reread."
+  },
+  "checks": "appendix-validation.json",
+  "inputs_and_collection_checks": "appendix-input-checks.json",
+  "proposed_bank_rows": [
+    {
+      "id": "cavernous-2-source",
+      "url": "https://github.com/Nucaranlaeg/Nucaranlaeg.github.io",
+      "revision": "3836cc3a7443a33ec68ebb78cfb7c26a173ffc2f",
+      "path": "incremental/CavernousII/src/script",
+      "qualification": "Creator-linked selected TypeScript source; custom commercial-use permission clause. Assigning bank writer alone may add."
+    },
+    {
+      "id": "proto23-source",
+      "url": "https://github.com/23html/23html.github.io",
+      "revision": "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+      "qualification": "Published/source locator plus prior bounded HTML source. No license/direct creator confirmation found; discovery row only if bank writer chooses."
+    }
+  ]
+}

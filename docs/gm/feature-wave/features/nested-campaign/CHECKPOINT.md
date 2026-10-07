@@ -1,0 +1,9 @@
+# Nested campaign current checkpoint
+
+Features root01a10dc5 completed the finite nested/refinement and continued-life native/UI/save/build scope, **implemented-unverified**. Bundle`1ca667dd9eef` and [BUILD](../BUILD.json) cover6locations/8native people/3independent stock-shop-quest-calendar owners/4missions/36core registered commands/66public controls,3chains/62commands/6funded controllers, and17new local-life commands. [Current delivery](../DELIVERY.md), [coverage](../COVERAGE.json) and [continued-life checkpoint](continued-life/CHECKPOINT.md) own current evidence. Previous11aaa checkpoint is archived in continued-life/.
+
+Actual player/controller/completion contexts, native body/cargo/current-owner passage, shared local clocks/frozen absence, refundable work, exact rendered-token routing, received records/People, staged durable publication and historical visit capacity are joined. Personal passages require actual settled same-world history/current contractor/no contract/actual landing; no mission, reward or reset. Lin/Brin/Ivo jobs and tool/shelf consumers conserve existing native materials/credits and retain refusal/ordinary/later accounts. Explicit personal/life policy1 requires expansion8; old5/6/7/absent and nestedCampaign1/native-domain1/Ink content1/2/3/frozen jobs remain supported. Full private carrier seals are transient; compact receipts only.
+
+All internal content/review scopes released, no process/unknown mutation. Continued-life CL-NR-01 repaired and independently read back; bounded earlier source-fit/native/UI reviews remain qualified snapshots, current BUILD hashes own subsequent edits. No Hunter or nineteen-native-adaptation claim. No private-save/source-library/commit/push/publication.
+
+Next only new steering or [five deferred playable gates](ACCEPTANCE_BACKLOG.md). All unit/browser/gameplay/save/import/reload/failure/keyboard/regression/director checks stay unrun; static source/build correspondence is not behavioral proof.

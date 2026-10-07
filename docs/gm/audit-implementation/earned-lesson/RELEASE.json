@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:42:12.536565+00:00",
+  "parent": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "worker": "/root/earned_lesson",
+  "status": "completed source; implemented-unverified; released",
+  "scope": [
+    "src/audited_workshop_lesson.js",
+    "docs/gm/audit-implementation/earned-lesson/"
+  ],
+  "sourceHash": "27909cfa8d2aae9e7b6f03e6d590179ec15d6cb06379ac923c6af50fb30d52cd",
+  "artifacts": {
+    "src/audited_workshop_lesson.js": "27909cfa8d2aae9e7b6f03e6d590179ec15d6cb06379ac923c6af50fb30d52cd",
+    "docs/gm/audit-implementation/earned-lesson/DELIVERY.md": "88e037606d98f9ec983aea325a5e90def6b51429dae9d7203fe808ea34d02e28",
+    "docs/gm/audit-implementation/earned-lesson/CHECKPOINT.md": "70b396dabe0cff948c9c79cf02e52b1886b9f8c0fc95d35d1db6bbdba5b5a7ec",
+    "docs/gm/audit-implementation/earned-lesson/CHECKS.json": "40f2c208b2834906b090ff44a9bc8a3f399a600d257855f2af70061129e63170"
+  },
+  "pendingTools": [],
+  "processes": [],
+  "children": [],
+  "sharedWrites": [],
+  "next": "Parent integrates common registry/current facts/canonical validator/UI/native dispatch and matching build; later behavioral acceptance remains deferred."
+}

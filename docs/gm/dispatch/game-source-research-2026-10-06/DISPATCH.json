@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "authorized_on": "2026-10-06",
+  "authorization": "send new gm to decompile Rimworld and another for Tales of Maj Eyal and another for Elin repo",
+  "dispatcher_thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "project_root": "/Users/weiwei/code/yet-another-idle-rpg",
+  "baseline": "INPUT_BASELINE.json",
+  "lanes": [
+    {
+      "slug": "rimworld",
+      "title_requested": "RimWorld GM: decompile and inspect systems",
+      "threadId": "01a10f9a-bd2e-7fc3-bdbe-24b84cbb8711",
+      "hostId": "local",
+      "assignment": "docs/research/rimworld/ASSIGNMENT.md",
+      "ownership": "docs/research/rimworld/",
+      "state": "active; initial work observed",
+      "startup": {
+        "cursor": "a7047164-3f50-4527-8a43-d50d515da269:2",
+        "turn_id": "01a10f9a-c3fb-70e2-a3d1-15d7a1d4fb08",
+        "turn_status": "inProgress",
+        "latest_commentary": "The assignment permits a pinned public source snapshot if no local game assembly is available. I’m using the evidence-gated handoff and efficient agent routing skills to keep provenance, reviewed coverage, and proposed gameplay separate.",
+        "tool_status": "completed"
+      }
+    },
+    {
+      "slug": "tales-of-maj-eyal",
+      "title_requested": "ToME GM: inspect source and progression",
+      "threadId": "01a10f9a-c62e-73c2-91d3-fc8ca7f9f9c8",
+      "hostId": "local",
+      "assignment": "docs/research/tales-of-maj-eyal/ASSIGNMENT.md",
+      "ownership": "docs/research/tales-of-maj-eyal/",
+      "state": "active; initial work observed",
+      "startup": {
+        "cursor": "be2ed135-a3cc-415e-9a44-80e693a7277e:3",
+        "turn_id": "01a10f9a-cb00-76f2-abee-88f859be4857",
+        "turn_status": "inProgress",
+        "latest_commentary": "ToME has an official source release, so decompilation shouldn’t be needed. I’m using the evidence-gated-handoff skill to keep each proposed YAIR change tied to pinned source and current code owners.",
+        "tool_status": "completed"
+      }
+    },
+    {
+      "slug": "elin",
+      "title_requested": "Elin GM: inspect repository and systems",
+      "threadId": "01a10f9a-cdf2-75b0-816a-cf12514a32f7",
+      "hostId": "local",
+      "assignment": "docs/research/elin/ASSIGNMENT.md",
+      "ownership": "docs/research/elin/",
+      "state": "active; initial work observed",
+      "startup": {
+        "cursor": "ff388bb2-240c-4bc7-a46d-fab158bec6a2:4",
+        "turn_id": "01a10f9a-d401-7ae3-8d8f-a8628c0d056c",
+        "turn_status": "inProgress",
+        "latest_commentary": "I’m using the efficient-agent-routing and evidence-gated-handoff skills to split the source review into bounded reads and keep each proposal tied to evidence. The active gameplay GM retains runtime integration ownership; this lane owns the Elin research files.",
+        "tool_status": "completed"
+      }
+    }
+  ],
+  "delivery_limits": [
+    "All three chats are created and active with initial work observed; completed source research is not claimed.",
+    "Only research scope is dispatched; current runtime/canonical ownership remains with live implementation owners."
+  ],
+  "startup_observed_at_utc": "2026-10-06 05:07:58 UTC"
+}

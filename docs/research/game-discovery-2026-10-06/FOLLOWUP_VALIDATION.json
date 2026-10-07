@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "checkedAtUTC": "2026-10-06T20:40:33.010818+00:00",
+  "status": "passed",
+  "scope": "Save-only broader-standard/queue/document/link checks; no new source-semantic coverage or game/runtime test",
+  "errors": [],
+  "checks": {
+    "fiveUniqueParkedRows": true,
+    "originalTwoSourceReadyIDsPreserved": true,
+    "priorFourSourceTraceFilesUnchanged": true,
+    "exactHistoricalCheckpointPreserved": true,
+    "queueSourceAndNativeEntryPathsExist": true,
+    "sourcePinsReused": {
+      "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE": {
+        "expected": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "current": "104a20fedbe7d9360d2dfc8ff665571694212ad8"
+      },
+      "/Users/weiwei/.codex/research/game-discovery-2026-10-06/shattered-pixel-dungeon": {
+        "expected": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "current": "e9defd0444c96d2fce3de5ec297c3398be8b7c55"
+      },
+      "/Users/weiwei/.codex/research/game-discovery-2026-10-06/sil-q": {
+        "expected": "1be7df63d6e7f9db2461e125acd17728caa53c3d",
+        "current": "1be7df63d6e7f9db2461e125acd17728caa53c3d"
+      }
+    },
+    "localLinksChecked": 34,
+    "jsonFilesParsed": 8,
+    "acsFindingsReferenced": 31,
+    "acsDLCTracesReferenced": 2
+  },
+  "coordination": {
+    "targetTitle": "Assess deep idea implementation",
+    "threadId": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+    "status": "sent",
+    "authorization": "Human request verified in ACS read_thread user turn01a112e4-319f-7dd0-902d-8c903b40eab1",
+    "sentAtUTC": "2026-10-06T20:41:14.367731+00:00",
+    "receipt": {
+      "threadId": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+      "toolIsError": false,
+      "qualification": "send_message_to_thread completed successfully; receiver reading/accepting priorities not claimed."
+    }
+  },
+  "currentOwnershipQualification": "Remainder app snapshot idle/completed; PROJECT/checkpoint describe delivery/release; referenced RELEASE.json absent at readback. No runtime/shared takeover. Original active-owner snapshot is historical.",
+  "unrun": [
+    "New semantic guest traces or source exports",
+    "Runtime edits/build",
+    "Unit/browser/gameplay/save/reload/import/failure/regression/keyboard/director gates"
+  ],
+  "outputHashes": {
+    "IMPLEMENTATION_PACKETS.md": "4bdfaca1aa23e1ab708c4c6edf0fb5526877287cd475ac36ee83997ee44980c6",
+    "CANDIDATES.md": "aff18d359e18722555e92b8593e2f524a6ce3dae3db85525f98327424a444103",
+    "CHECKPOINT.md": "3f3246c180f4765d3ed3033db9986a7e651ef2aa77ccd53b2beefbaeb0b5c123",
+    "FINDINGS.json": "159dcee99d05890cba69f2bd83d5f7bb38d12c2cb9562b2453acc474f9c93b3d",
+    "METHOD_AND_REUSE.md": "cc9364a58c66ca8d0f571860276c24c575ef3359606553925e8681452278e4bf",
+    "PACKETS.json": "fd8297f683368f70de4cb4b43182c4310380a299d160be8621d8031ce7d2c138",
+    "DEEPER_QUEUE.json": "a5787e0638c08ddbc4370a6fb2585322c9844db7e314e6083fb6fbd14879b352",
+    "INPUT_SNAPSHOT.json": "f2d77127256ddc5ddb39b46f47a8a66ea10a621654ae0fb6c86940771dc44fd5",
+    "DEEPER_RESEARCH.md": "e59e353fc6abbdc5aa5b473ab01592161315711bbf39f3947181be5b70411ad6",
+    "source-traces/BROGUE.md": "fa563dc001e1375716bb826749927a532e0994f2807b8a511065dd2d35e933db",
+    "source-traces/BROGUE.json": "bd63ea68daee81c39d52a07f275782edefab294544a818508f53b66b89a1b4a4",
+    "source-traces/SHATTERED.md": "8e46119d0f4688f2799f6052f711a687573b8ae93dc525f5f7016f1b11dfee39",
+    "source-traces/SHATTERED.json": "c3b08ecfe5cd41394a9a5a0250e92d32bd273943c356d237f589639e45029b40",
+    "history/CHECKPOINT_FINITE_RESEARCH_2026_10_06.md": "959aa8e791baf632740f35946461b93404f90cd2b1baef06447350ecc0ea434e"
+  },
+  "genreOpenAmendment": {
+    "updatedAtUTC": "2026-10-06T20:45:40.093041+00:00",
+    "directAuthority": "Weibao: does not need similar games; interesting systems worth absorbing across broader genres",
+    "status": "passed",
+    "errors": [],
+    "localLinksChecked": 40,
+    "completedPacketsAndParkedRowsPreserved": true,
+    "examplesQualification": "Crush/Ensemble/Unciv/CK3 reuse local owners; Factorio/PapersPlease/Baba official descriptions checked, no source readiness or native implementation asserted",
+    "coordination": {
+      "status": "sent",
+      "sentAtUTC": "2026-10-06T20:46:11.500465+00:00",
+      "recipients": [
+        {
+          "threadId": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+          "title": "Assess deep idea implementation"
+        },
+        {
+          "threadId": "01a112ea-3495-7eb3-b02b-2528de321f6a",
+          "title": "Scout games to absorb"
+        }
+      ],
+      "qualification": "Both send_message_to_thread calls completed without error; receiver acceptance/execution not claimed."
+    }
+  }
+}

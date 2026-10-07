@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T03:45:37.862345+00:00",
+  "cleanup_checks": [
+    {
+      "appid": 955900,
+      "new_retained_files": 100,
+      "all_new_retained_hashes_match": true,
+      "representative_retained_originals": [
+        {
+          "path": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll",
+          "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp-firstpass.dll",
+          "sha256": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed/UnityEngine.CoreModule.dll",
+          "sha256": "cd90560b77dacbf1bb4847f53692f3aea3f7faa3643d59d62cef32b5ba207107"
+        }
+      ],
+      "broken_archive_symlinks": [],
+      "save_named_copy_paths_present": true,
+      "steam_manifest_absent": true
+    },
+    {
+      "appid": 1267910,
+      "new_retained_files": 56,
+      "all_new_retained_hashes_match": true,
+      "representative_retained_originals": [
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorDemo.json",
+          "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorFull.json",
+          "sha256": "aa3d0babaaa5ef1bde4f0c0d6b5c50ae5d5db88b042684762cc97f50f24263f8"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorTotH.json",
+          "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorExpansion2.json",
+          "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorItA.json",
+          "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorBirthday2023.json",
+          "sha256": "16db00c2af0282766a0fa6eed540b709d5b99bebef0438492ed0df340f3075a3"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorAprilFools2024.json",
+          "sha256": "a26405d1e47fe925f47ba0862c27caf70810c63b38929682d38ff41719a2cae3"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle.app/Contents/Resources/app.nw/index.html",
+          "sha256": "305cbcede0ab8df9970ff16f4cc247d164d342454cd10f1724e597d786d57f9c"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle.app/Contents/Resources/app.nw/main.js",
+          "sha256": "737e6b0992139151d8fddb03e9218329c87cf4b4d0c2a36d0321549d16b2c358"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle.app/Contents/Resources/app.nw/package.json",
+          "sha256": "a3cbfa9a2b425aec12595299d87ca3458625d4addac4f3197474af7b3161bc25"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle.app/Contents/Resources/app.nw/steamInit.js",
+          "sha256": "5912faef182f87f306592c049dd14f4fe200e17884ca80d84b8c3d6874b2e6a7"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle.app/Contents/Resources/app.nw/lib/osx/greenworks-osx.node",
+          "sha256": "c482d49a9cc7d546e07cc9fbb394593616dda56848f2f997a7d5720c24c46478"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle x64.app/Contents/Resources/app.nw/index.html",
+          "sha256": "305cbcede0ab8df9970ff16f4cc247d164d342454cd10f1724e597d786d57f9c"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle x64.app/Contents/Resources/app.nw/main.js",
+          "sha256": "737e6b0992139151d8fddb03e9218329c87cf4b4d0c2a36d0321549d16b2c358"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle x64.app/Contents/Resources/app.nw/package.json",
+          "sha256": "a3cbfa9a2b425aec12595299d87ca3458625d4addac4f3197474af7b3161bc25"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle x64.app/Contents/Resources/app.nw/steamInit.js",
+          "sha256": "5912faef182f87f306592c049dd14f4fe200e17884ca80d84b8c3d6874b2e6a7"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/retained-install-source/Melvor Idle x64.app/Contents/Resources/app.nw/lib/osx/greenworks-osx.node",
+          "sha256": "d4051f6da7e2acebf85d87702ec9c2b012f5da5a0cfb72837a6151d8abb752ad"
+        }
+      ],
+      "broken_archive_symlinks": [],
+      "save_named_copy_paths_present": true,
+      "steam_manifest_absent": true
+    },
+    {
+      "appid": 1910680,
+      "new_retained_files": 15,
+      "all_new_retained_hashes_match": true,
+      "representative_retained_originals": [
+        {
+          "path": "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp-firstpass.dll",
+          "sha256": "cafe3f4fc522b3af33a10cb363731a0985c249a55a51a710ee0adf94910a0891"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp.dll",
+          "sha256": "46b723ad8e3df5adf7186ec32b220c338e26c1cc79369e01213c091155073bdc"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/System.Core.dll",
+          "sha256": "b1552591b2b4b24e21d2886e78efe85c24765884cd07e966a91726561e8c8157"
+        }
+      ],
+      "broken_archive_symlinks": [],
+      "save_named_copy_paths_present": true,
+      "steam_manifest_absent": true
+    },
+    {
+      "appid": 1546320,
+      "kept_installed": true,
+      "build_unchanged": true
+    },
+    {
+      "appid": 459820,
+      "new_retained_files": 24,
+      "all_new_retained_hashes_match": true,
+      "representative_retained_originals": [
+        {
+          "path": "/Users/weiwei/.codex/research/crush-crush/25589052/input/Managed/Assembly-CSharp.dll",
+          "sha256": "7205b130274facea0c4af1605c0116a4890c39fdb04852542d292ec777845ddd"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/crush-crush/25589052/input/Managed/System.Core.dll",
+          "sha256": "2d702d211d34e9b94ca18a5ef10a6c2b0fa40fb2cb09751348c7d5bd4dffed02"
+        }
+      ],
+      "broken_archive_symlinks": [],
+      "save_named_copy_paths_present": true,
+      "steam_manifest_absent": true
+    },
+    {
+      "appid": 466170,
+      "new_retained_files": 8,
+      "all_new_retained_hashes_match": true,
+      "representative_retained_originals": [
+        {
+          "path": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/input/Managed/Assembly-CSharp-firstpass.dll",
+          "sha256": "c11127a51460b0dd7aecff5e9377c85b3246cdc28e80d7dc683aa1103ee840fd"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/input/Managed/Assembly-CSharp.dll",
+          "sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/input/Managed/System.Core.dll",
+          "sha256": "4ab0945f246833379ed75e44ab1e7d5c2216d5e317ed89b09836bdf21ad8cfc0"
+        }
+      ],
+      "broken_archive_symlinks": [],
+      "save_named_copy_paths_present": true,
+      "steam_manifest_absent": true
+    }
+  ],
+  "runtime_tests": "not run; no runtime changes and current implementation-wave deferral preserved",
+  "research_semantic_coverage": "Existing finite scopes unchanged; retention is not new analysis."
+}

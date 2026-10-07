@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "status": "pinned_original_source_available_review_in_progress",
+  "retrieved_at_utc": "2026-10-06T05:28:16.142110+00:00",
+  "source_kind": "published original C++ source, not decompilation",
+  "official_route": "https://keeperrl.com/download/",
+  "repository": "https://github.com/miki151/keeperrl",
+  "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+  "git_tree": "7a7578b9c7ecd7bce7e292cc7d4a23b38d8cb538",
+  "commit_metadata": [
+    "2025-10-27T20:49:58+01:00",
+    "2025-10-27T20:49:58+01:00",
+    "Add witch adventurer"
+  ],
+  "remote_head_verified": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+  "clone_command": "git clone --depth 1 https://github.com/miki151/keeperrl.git /Users/weiwei/.codex/research/keeperrl/source",
+  "private_source_path": "/Users/weiwei/.codex/research/keeperrl/source",
+  "manifest": {
+    "path": "/Users/weiwei/.codex/research/keeperrl/GIT_TREE_MANIFEST.json",
+    "sha256": "2fba90c0aad8f059fc205c628c3caf5499a7fa5cc041c1b8573028717571884c",
+    "tracked_entries": 939
+  },
+  "version_qualification": {
+    "official_download_page": "lists v1.3 October 26 2025; latest development source separately",
+    "appconfig": "save_version 8104, mod_version Alpha37",
+    "appconfig_dev": "save_version 8109, mod_version Alpha37",
+    "commercial_build_equivalence": "not established; no installed commercial binary inspected"
+  },
+  "license_observations": {
+    "code": "LICENSE/COPYING GNU GPL v2 text; main.cpp header offers v2 or later; component licenses need their own notices",
+    "free_media": "COPYING-MEDIA.txt grants data_free under CC BY-SA 2.0 and identifies font/icon exceptions",
+    "commercial_media": "data notice restricts use to official binary; official source page says distribution excludes graphical tiles/music. No excluded assets acquired.",
+    "transfer": "paraphrased behavioral research and original YAIR proposals only; no source/data/assets copied into YAIR"
+  },
+  "checkout_warning": {
+    "case_collision": [
+      "cmake/FindOGG.cmake",
+      "cmake/FindOgg.cmake"
+    ],
+    "effect": "macOS checkout cannot represent both at once; source commit/tree/blob evidence preserved. Gameplay path files are distinct and hashes verified against Git blobs. No build correctness claim.",
+    "source_mutation": "none"
+  },
+  "provenance_files": [
+    {
+      "file": "README.md",
+      "git_blob": "ab9c44dc6cadbbf80fb3f3693d385f91004ae171",
+      "sha256": "c809db941d41f800ae1a3949ef21e1cf55ac8d194a3f960f2c91da0cd0cb472c",
+      "line_count": 45,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/README.md"
+    },
+    {
+      "file": "LICENSE",
+      "git_blob": "d7f105139782ab695d86613e343916f7372f4ac0",
+      "sha256": "39db8f9acf036595a2566ea3fe560bc7bd65d8749f088e0f4a4ef2f8a6cb4b34",
+      "line_count": 339,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/LICENSE"
+    },
+    {
+      "file": "COPYING.txt",
+      "git_blob": "d7f105139782ab695d86613e343916f7372f4ac0",
+      "sha256": "39db8f9acf036595a2566ea3fe560bc7bd65d8749f088e0f4a4ef2f8a6cb4b34",
+      "line_count": 339,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/COPYING.txt"
+    },
+    {
+      "file": "COPYING-MEDIA.txt",
+      "git_blob": "591bfe5d6b12f872fe5147342f333bc927f9909a",
+      "sha256": "de9434b2277c0d3e1aace79c6f15389906cc3fc62e2be2fa5c3beb0e6174aaee",
+      "line_count": 11,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/COPYING-MEDIA.txt"
+    },
+    {
+      "file": "appconfig.txt",
+      "git_blob": "d35d4a018a092be558d74b7ea750e65a73107a7a",
+      "sha256": "ab0b67fb2dbb202d57888ff6a3897a0793a6a14d6bf759fe839805922299bffa",
+      "line_count": 4,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/appconfig.txt"
+    },
+    {
+      "file": "appconfig-dev.txt",
+      "git_blob": "72feb3a5c1e4bfdb60e9b891d8825f8c564278ab",
+      "sha256": "0647de81ed2f928e5120b459240476b3312d5a20b2a21dff5f3d7399cfce8518",
+      "line_count": 5,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/appconfig-dev.txt"
+    },
+    {
+      "file": "main.cpp",
+      "git_blob": "acafb532c39586e43e1f8252a0f28ce559168562",
+      "sha256": "016ec2a2ac2bd9431379763fb158f49d5ca24d4518faf04773543d42382cc0f8",
+      "line_count": 547,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main.cpp"
+    },
+    {
+      "file": "cmake/FindOGG.cmake",
+      "git_blob": "7cdaf8382e963e1b2a17f3a35c8dc4cf5f8a0433",
+      "sha256": "07eaf19abdbc814964ef9ef91ba2062964540a0a660f60f3c8bc33e6b7d53ee5",
+      "line_count": 27,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/cmake/FindOGG.cmake"
+    },
+    {
+      "file": "cmake/FindOgg.cmake",
+      "git_blob": "7cdaf8382e963e1b2a17f3a35c8dc4cf5f8a0433",
+      "sha256": "07eaf19abdbc814964ef9ef91ba2062964540a0a660f60f3c8bc33e6b7d53ee5",
+      "line_count": 27,
+      "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/cmake/FindOgg.cmake"
+    }
+  ],
+  "boundaries": [
+    "new lane docs only, ASSIGNMENT dispatcher-owned",
+    "no source/runtime/canonical/save/profile edits",
+    "no game install/launch/purchase",
+    "no gameplay/unit/browser/save-failure/regression suites",
+    "no commits/publication/automation"
+  ]
+}

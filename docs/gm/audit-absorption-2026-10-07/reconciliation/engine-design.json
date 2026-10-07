@@ -1,0 +1,1523 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "role": "bounded vision/design and engine/native reconciliation",
+  "worker": "/root/engine_design_reconcile",
+  "ownership": "Original bounded read-only engine/design review released. Root updates current integration disposition after explicit current shared acquisition; original text preserved in history/BEFORE_RECONCILIATION_CURRENT.md.",
+  "intakeLimit": {
+    "indexedPaths": 2374,
+    "intakeSemanticReads": 11,
+    "intakeMetadataOnly": 2363,
+    "interpretation": "Manifest counts are not semantic coverage."
+  },
+  "families": [
+    {
+      "id": "vision",
+      "state": "authoritative-direction-plus-finite-deliveries",
+      "sources": [
+        "PROJECT.md#expansion-design-proposal",
+        "docs/USER_VISION.md#world-texture-loreful-adversaries-and-parallel-timeline-progression-authoring-2026-10-05",
+        "docs/EXPANSION_DESIGN.md#first-slice-jade-hollow",
+        "docs/DIRECTION_SYNTHESIS.md#progression-and-power-paths"
+      ],
+      "runtime": [
+        "src/skill_expansion_content.js",
+        "src/original_frontier_campaign_host.js",
+        "src/world_completion_host.js"
+      ],
+      "disposition": "One realm/one prestige is the first milestone; larger connected-world and progression direction remains. Jade Hollow names, costs and retention rules remain proposals."
+    },
+    {
+      "id": "world-authoring",
+      "state": "selected-campaigns-delivered; wider-profiles-proposed",
+      "sources": [
+        "docs/IDEA_INDEX.md#game-master-authoring-foundation-2026-10-03",
+        "docs/USER_VISION.md#world-texture-loreful-adversaries-and-parallel-timeline-progression-authoring-2026-10-05",
+        "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+        "docs/gm/world-implementation/second-pass/world-bank/REPORT.md"
+      ],
+      "runtime": [
+        "src/book_world_paradise_host.js",
+        "src/book_world_mol_host.js",
+        "src/original_frontier_campaign_host.js",
+        "src/world_completion_host.js"
+      ],
+      "disposition": "Selected worlds retain source-era, branch, private knowledge and local rules. Profiles/dossiers do not equal campaigns. Incidental texture need not receive mechanical payoff."
+    },
+    {
+      "id": "skills-powers-materials",
+      "state": "selected-consumers-delivered; broad-catalogue-partial",
+      "sources": [
+        "docs/USER_VISION.md#power-scale-combinations-and-distinct-world-systems-2026-10-02",
+        "docs/ENGINE_EXPANSION.md#power-scale-and-world-system-implementation-contract-2026-10-02",
+        "docs/gm/world-implementation/second-pass/missing-feature-audit/FEATURE_COVERAGE.json"
+      ],
+      "runtime": [
+        "src/skill_expansion_content.js",
+        "src/feature_expansion_powers.js",
+        "src/world_completion_materials_content.js",
+        "src/crafting_recipes.js"
+      ],
+      "disposition": "Selected method, mastery, material, care and world-specific effects have real consumers; universal mastery curves, taxonomy and all-source catalogue are unselected."
+    },
+    {
+      "id": "people-events-endings",
+      "state": "selected-finite-stories-delivered; broad-simulation-partial",
+      "sources": [
+        "docs/USER_VISION.md#timeline-styles-different-endings-and-wider-functional-depth-2026-10-05",
+        "docs/gm/causal-endings/INTEGRATION.md",
+        "docs/gm/world-implementation/second-pass/society/REPORT.md"
+      ],
+      "runtime": [
+        "src/causal_story_host.js",
+        "src/world_completion_people.js",
+        "src/original_frontier_campaign_host.js",
+        "src/people_knowledge.js"
+      ],
+      "disposition": "Finite consented/funded people, attributed reports, causal outcomes and seven Frontier endings have consumers. No population, arbitrary-NPC or omniscient reporting system follows."
+    },
+    {
+      "id": "instances-time-return",
+      "state": "selected-routes-delivered; universal-policies-unselected",
+      "sources": [
+        "PROJECT.md#expansion-design-proposal",
+        "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+        "docs/gm/multi-world-paths-2026-10-07/AUDIT.md"
+      ],
+      "runtime": [
+        "src/world_instances.js",
+        "src/realm_state.js",
+        "src/pursuit.js",
+        "src/main.js",
+        "src/known_routes.js",
+        "src/known_routes_ui.js"
+      ],
+      "disposition": "Selected instance/clock/return bindings exist. The route overview is selected in the active wave. General isolation, alternate-body passage, companion travel and universal absence policy remain choices."
+    },
+    {
+      "id": "native-publication",
+      "state": "existing-foundation-plus-selected-consumers",
+      "sources": [
+        "docs/ENGINE_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md#native-folded-glasshouse-and-engine-specialists-2026-10-04",
+        "docs/gm/world-implementation/second-pass/foundations/REPORT.md"
+      ],
+      "runtime": [
+        "src/simulation.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/expansion_persistence.js",
+        "src/native_storage_transaction.js"
+      ],
+      "disposition": "Keep one registry/planner/publisher and explicit native ownership. Current chest transfers use staged custody through the shared durable path, correcting the older bypass concern. This source read is not failure-behavior proof."
+    },
+    {
+      "id": "engine-tool-adoption",
+      "state": "checked-planning-no-runtime-library-selected",
+      "sources": [
+        "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md",
+        "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+        "docs/gm/world-implementation/second-pass/engine-absorption/FINDINGS.json"
+      ],
+      "runtime": [
+        "src/scene_definitions.js",
+        "src/simulation.js",
+        "src/expansion_persistence.js",
+        "src/known_routes.js"
+      ],
+      "disposition": "The dated EA recommendation chose no dependency for its held initial pair and treated Ink as conditional. Later feature-wave selection delivered inkjs 2.4.0, build compiler --check and distributed notices, story/cursor and native command bridges, current source/native/UI/save/build evidence; behavior remains implemented-unverified. This supersedes project-wide no-library-selected claims. rot.js remains conditional; no scheduler/RNG/map engine was adopted."
+    },
+    {
+      "id": "audit-22",
+      "state": "all-latest-candidates-delivered-implemented-unverified",
+      "sources": [
+        "docs/gm/audit-implementation/QUEUE.json",
+        "docs/gm/audit-implementation/remainder/DELIVERY.md",
+        "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+        "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+      ],
+      "runtime": [
+        "src/audit_remainder_runtime.js",
+        "src/world_completion_host.js",
+        "src/main.js",
+        "src/expansion_persistence.js"
+      ],
+      "disposition": "Latest 22-candidate queue is empty; all candidates are delivered at source/native/UI/compatible-state/current-build and remain implemented-unverified. Five later acceptance families remain deferred."
+    },
+    {
+      "id": "world-completion-gaps",
+      "state": "WC-G1-through-WC-G5-delivered-implemented-unverified",
+      "sources": [
+        "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+        "docs/gm/world-completion-2026-10-06/DELIVERY.md",
+        "docs/gm/world-completion-2026-10-06/COVERAGE.json",
+        "docs/gm/world-completion-2026-10-06/ACCEPTANCE_BACKLOG.md"
+      ],
+      "runtime": [
+        "src/simulation_content.js",
+        "src/world_completion_host.js",
+        "src/world_completion_native.js",
+        "src/main.js",
+        "src/expansion_persistence.js"
+      ],
+      "disposition": "All five finite joins have current source/native/UI/state/build receipts; five generated journey families remain unrun."
+    }
+  ],
+  "auditedRequirementFamilies": {
+    "source": "docs/gm/world-implementation/second-pass/missing-feature-audit/FEATURE_COVERAGE.json",
+    "count": 35,
+    "sourceStatusesPreserved": true,
+    "rows": [
+      {
+        "id": "MF-COVER-01",
+        "family": "Shared facts, requirements, legal commands and atomic publication",
+        "auditStatus": "present",
+        "gapIds": [],
+        "auditDisposition": "Native/planner paths already supply useful reusable rules; add only consumer-demanded adapters.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-001",
+          "MF-EVIDENCE-002",
+          "MF-EVIDENCE-003",
+          "MF-EVIDENCE-004",
+          "MF-EVIDENCE-005",
+          "MF-EVIDENCE-006",
+          "MF-EVIDENCE-007",
+          "MF-EVIDENCE-008",
+          "MF-EVIDENCE-009"
+        ]
+      },
+      {
+        "id": "MF-COVER-02",
+        "family": "Preserved familiar opening, vanilla continuity and private saves",
+        "auditStatus": "present",
+        "gapIds": [],
+        "auditDisposition": "Preservation is a constraint already honored by optional content; arbitrary upstream parity is not claimed.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-010",
+          "MF-EVIDENCE-011",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-017",
+          "MF-EVIDENCE-018",
+          "MF-EVIDENCE-019"
+        ]
+      },
+      {
+        "id": "MF-COVER-03",
+        "family": "Ordinary competence, equipment and viable specializations",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-01",
+          "MF-GAP-04"
+        ],
+        "auditDisposition": "Native levels/milestones/equipment work; mature distinct selected careers need connected content.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-022",
+          "MF-EVIDENCE-023",
+          "MF-EVIDENCE-024",
+          "MF-EVIDENCE-025",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-027",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-029",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-031",
+          "MF-EVIDENCE-032",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-034",
+          "MF-EVIDENCE-035",
+          "MF-EVIDENCE-036",
+          "MF-EVIDENCE-037",
+          "MF-EVIDENCE-038",
+          "MF-EVIDENCE-039",
+          "MF-EVIDENCE-040"
+        ]
+      },
+      {
+        "id": "MF-COVER-04",
+        "family": "Discovery, acquisition, practice and four working method functions",
+        "auditStatus": "built-unverified",
+        "gapIds": [],
+        "auditDisposition": "Four required methods already have distinct useful consumers; later behavior/director acceptance is deferred.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-022",
+          "MF-EVIDENCE-023",
+          "MF-EVIDENCE-024",
+          "MF-EVIDENCE-025",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-027",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-029",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-031",
+          "MF-EVIDENCE-032",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-041",
+          "MF-EVIDENCE-042",
+          "MF-EVIDENCE-043",
+          "MF-EVIDENCE-044",
+          "MF-EVIDENCE-045"
+        ]
+      },
+      {
+        "id": "MF-COVER-05",
+        "family": "Extended mastery, incomplete transmission and personal traditions",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-04",
+          "MF-GAP-03"
+        ],
+        "auditDisposition": "Existing mastery/fragments/teaching are useful; continuing feats and willing successor transmission are content/consumer work.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-022",
+          "MF-EVIDENCE-023",
+          "MF-EVIDENCE-024",
+          "MF-EVIDENCE-025",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-027",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-029",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-031",
+          "MF-EVIDENCE-032",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-046",
+          "MF-EVIDENCE-047",
+          "MF-EVIDENCE-048",
+          "MF-EVIDENCE-049",
+          "MF-EVIDENCE-050",
+          "MF-EVIDENCE-051",
+          "MF-EVIDENCE-052",
+          "MF-EVIDENCE-053",
+          "MF-EVIDENCE-054",
+          "MF-EVIDENCE-055"
+        ]
+      },
+      {
+        "id": "MF-COVER-06",
+        "family": "Gathering, selective resources, wandering and ecological renewal",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-08"
+        ],
+        "auditDisposition": "Timed native gathering and finite authored outings exist; selected shared finite nodes/regrowth/population are not supplied by output tables.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-056",
+          "MF-EVIDENCE-057",
+          "MF-EVIDENCE-058",
+          "MF-EVIDENCE-059",
+          "MF-EVIDENCE-060",
+          "MF-EVIDENCE-061",
+          "MF-EVIDENCE-062",
+          "MF-EVIDENCE-063",
+          "MF-EVIDENCE-064",
+          "MF-EVIDENCE-065",
+          "MF-EVIDENCE-066",
+          "MF-EVIDENCE-067",
+          "MF-EVIDENCE-068"
+        ]
+      },
+      {
+        "id": "MF-COVER-07",
+        "family": "Object affordances, identification, charges and physical portions",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-02"
+        ],
+        "auditDisposition": "Native exact item keys, acquired knowledge and useful kits exist; selected same-object condition/charge/portion functions need bindings.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-069",
+          "MF-EVIDENCE-070",
+          "MF-EVIDENCE-071",
+          "MF-EVIDENCE-072",
+          "MF-EVIDENCE-073",
+          "MF-EVIDENCE-074",
+          "MF-EVIDENCE-075",
+          "MF-EVIDENCE-076",
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-034",
+          "MF-EVIDENCE-035",
+          "MF-EVIDENCE-036",
+          "MF-EVIDENCE-037",
+          "MF-EVIDENCE-024"
+        ]
+      },
+      {
+        "id": "MF-COVER-08",
+        "family": "Craft, refinement, production, repair and maintenance",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-02",
+          "MF-GAP-08"
+        ],
+        "auditDisposition": "Real native recipes and workshop outputs exist; tool reservation/refit/salvage and selected multi-stage chains need connected consumers.",
+        "traceCount": 4,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-056",
+          "MF-EVIDENCE-057",
+          "MF-EVIDENCE-058",
+          "MF-EVIDENCE-059",
+          "MF-EVIDENCE-060",
+          "MF-EVIDENCE-069",
+          "MF-EVIDENCE-070",
+          "MF-EVIDENCE-071",
+          "MF-EVIDENCE-072",
+          "MF-EVIDENCE-073",
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-034",
+          "MF-EVIDENCE-035",
+          "MF-EVIDENCE-036",
+          "MF-EVIDENCE-037",
+          "MF-EVIDENCE-024",
+          "MF-EVIDENCE-077",
+          "MF-EVIDENCE-006"
+        ]
+      },
+      {
+        "id": "MF-COVER-09",
+        "family": "Books, useful information, contextual rereading and humor",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-01"
+        ],
+        "auditDisposition": "Booklet/manual/route discoveries already matter; richer contextual passages/rereading and casual humor are authoring depth, with no universal reward rule.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-038",
+          "MF-EVIDENCE-039",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-040",
+          "MF-EVIDENCE-022",
+          "MF-EVIDENCE-041",
+          "MF-EVIDENCE-042",
+          "MF-EVIDENCE-043",
+          "MF-EVIDENCE-044",
+          "MF-EVIDENCE-017",
+          "MF-EVIDENCE-018",
+          "MF-EVIDENCE-019"
+        ]
+      },
+      {
+        "id": "MF-COVER-10",
+        "family": "Body, organ, lineage, source, control, fuel and suppression",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-04",
+          "MF-GAP-06"
+        ],
+        "auditDisposition": "Current grip/balance/recovery/source lifecycle works; selected unique carrier/host/continuous functions require explicit transitions.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-078",
+          "MF-EVIDENCE-079",
+          "MF-EVIDENCE-080",
+          "MF-EVIDENCE-081",
+          "MF-EVIDENCE-082",
+          "MF-EVIDENCE-083",
+          "MF-EVIDENCE-084",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-085",
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-046",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-047",
+          "MF-EVIDENCE-048",
+          "MF-EVIDENCE-049",
+          "MF-EVIDENCE-086",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-088",
+          "MF-EVIDENCE-089"
+        ]
+      },
+      {
+        "id": "MF-COVER-11",
+        "family": "Distinct conceptual, magical, technological and combination rules",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-04"
+        ],
+        "auditDisposition": "Five power models and distinct paid methods exist; specific extraordinary functions, typed target interactions and supported combinations remain selected content/adapters.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-046",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-047",
+          "MF-EVIDENCE-048",
+          "MF-EVIDENCE-049",
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-078",
+          "MF-EVIDENCE-079",
+          "MF-EVIDENCE-080",
+          "MF-EVIDENCE-081",
+          "MF-EVIDENCE-082",
+          "MF-EVIDENCE-083",
+          "MF-EVIDENCE-084",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-085",
+          "MF-EVIDENCE-090",
+          "MF-EVIDENCE-091",
+          "MF-EVIDENCE-092",
+          "MF-EVIDENCE-093",
+          "MF-EVIDENCE-094",
+          "MF-EVIDENCE-095",
+          "MF-EVIDENCE-096",
+          "MF-EVIDENCE-097",
+          "MF-EVIDENCE-098",
+          "MF-EVIDENCE-099",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-100",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-101"
+        ]
+      },
+      {
+        "id": "MF-COVER-12",
+        "family": "Independent people, means, professions, private decisions and memory",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-03"
+        ],
+        "auditDisposition": "Registered funded controllers and attributed knowledge/memory exist; broader careers, opportunity choices and reciprocal conserved income are selected extensions.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-102",
+          "MF-EVIDENCE-103",
+          "MF-EVIDENCE-104",
+          "MF-EVIDENCE-105",
+          "MF-EVIDENCE-106",
+          "MF-EVIDENCE-107",
+          "MF-EVIDENCE-108",
+          "MF-EVIDENCE-109",
+          "MF-EVIDENCE-110",
+          "MF-EVIDENCE-111",
+          "MF-EVIDENCE-112",
+          "MF-EVIDENCE-042",
+          "MF-EVIDENCE-113",
+          "MF-EVIDENCE-114",
+          "MF-EVIDENCE-115"
+        ]
+      },
+      {
+        "id": "MF-COVER-13",
+        "family": "Factions, institutions, assent, relationships, family and legacy",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-03",
+          "MF-GAP-06"
+        ],
+        "auditDisposition": "Native reputation and bounded relations/promises/bequest exist; reciprocal rights, households, care and willing succession need actual carrier consumers.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-050",
+          "MF-EVIDENCE-051",
+          "MF-EVIDENCE-052",
+          "MF-EVIDENCE-053",
+          "MF-EVIDENCE-054",
+          "MF-EVIDENCE-055",
+          "MF-EVIDENCE-108",
+          "MF-EVIDENCE-109",
+          "MF-EVIDENCE-110",
+          "MF-EVIDENCE-111",
+          "MF-EVIDENCE-112",
+          "MF-EVIDENCE-102",
+          "MF-EVIDENCE-103",
+          "MF-EVIDENCE-104",
+          "MF-EVIDENCE-105",
+          "MF-EVIDENCE-106",
+          "MF-EVIDENCE-107"
+        ]
+      },
+      {
+        "id": "MF-COVER-14",
+        "family": "Recurring rivals, enemy protagonists, identities and fate appropriation",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-04",
+          "MF-GAP-10"
+        ],
+        "auditDisposition": "Road rival and funded independent people recur; motivated patron chains, social identity/luck theft and independent arcs remain unselected content/policy.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-090",
+          "MF-EVIDENCE-091",
+          "MF-EVIDENCE-092",
+          "MF-EVIDENCE-093",
+          "MF-EVIDENCE-094",
+          "MF-EVIDENCE-095",
+          "MF-EVIDENCE-096",
+          "MF-EVIDENCE-097",
+          "MF-EVIDENCE-098",
+          "MF-EVIDENCE-099",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-100",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-101",
+          "MF-EVIDENCE-116",
+          "MF-EVIDENCE-117",
+          "MF-EVIDENCE-038",
+          "MF-EVIDENCE-039",
+          "MF-EVIDENCE-040"
+        ]
+      },
+      {
+        "id": "MF-COVER-15",
+        "family": "Combat plans, unequal abilities, party roles and noncombat counters",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-04",
+          "MF-GAP-01"
+        ],
+        "auditDisposition": "Solo native combat, frozen encounters and real fixed guard contest exist; generalized hostile rosters/contact/objective/escape and selected counters remain partial.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-090",
+          "MF-EVIDENCE-091",
+          "MF-EVIDENCE-092",
+          "MF-EVIDENCE-093",
+          "MF-EVIDENCE-094",
+          "MF-EVIDENCE-095",
+          "MF-EVIDENCE-096",
+          "MF-EVIDENCE-097",
+          "MF-EVIDENCE-098",
+          "MF-EVIDENCE-099",
+          "MF-EVIDENCE-030",
+          "MF-EVIDENCE-100",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-101",
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-022",
+          "MF-EVIDENCE-023",
+          "MF-EVIDENCE-024",
+          "MF-EVIDENCE-025",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-027",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-029",
+          "MF-EVIDENCE-031",
+          "MF-EVIDENCE-032",
+          "MF-EVIDENCE-038",
+          "MF-EVIDENCE-039",
+          "MF-EVIDENCE-040"
+        ]
+      },
+      {
+        "id": "MF-COVER-16",
+        "family": "Everyday moods, ordinary texture and incidental life",
+        "auditStatus": "present",
+        "gapIds": [],
+        "auditDisposition": "Everyday rest/learning/mood/observed details exist; passive texture may stay prose without XP, stats or quests.",
+        "traceCount": 2,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-017",
+          "MF-EVIDENCE-018",
+          "MF-EVIDENCE-019",
+          "MF-EVIDENCE-108",
+          "MF-EVIDENCE-109",
+          "MF-EVIDENCE-110",
+          "MF-EVIDENCE-111",
+          "MF-EVIDENCE-112"
+        ]
+      },
+      {
+        "id": "MF-COVER-17",
+        "family": "Discovery privacy, useful controls and essential recovery",
+        "auditStatus": "built-unverified",
+        "gapIds": [],
+        "auditDisposition": "Current discovery/Practice/Bio/People/Journal joins exist and expose real functions; current changed behavior still needs deferred acceptance.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-118",
+          "MF-EVIDENCE-119",
+          "MF-EVIDENCE-025",
+          "MF-EVIDENCE-045",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016"
+        ]
+      },
+      {
+        "id": "MF-COVER-18",
+        "family": "Original/book world identity, source era and local knowledge",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-01",
+          "MF-GAP-09"
+        ],
+        "auditDisposition": "Knowledge-aware branch identity and reviewed source owners exist; roster/era admission and versioned local authoring activation remain proposals.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-017",
+          "MF-EVIDENCE-018",
+          "MF-EVIDENCE-019"
+        ]
+      },
+      {
+        "id": "MF-COVER-19",
+        "family": "Complete finite campaigns, overlapping careers and cumulative endings",
+        "auditStatus": "detached",
+        "gapIds": [
+          "MF-GAP-01"
+        ],
+        "auditDisposition": "Registered field/rival/prestige proof is smaller than the held unimported finite Frontier campaign. Preserve authoritative33/15/7 IDs.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-123",
+          "MF-EVIDENCE-124",
+          "MF-EVIDENCE-125",
+          "MF-EVIDENCE-126",
+          "MF-EVIDENCE-127",
+          "MF-EVIDENCE-128",
+          "MF-EVIDENCE-129",
+          "MF-EVIDENCE-130",
+          "MF-EVIDENCE-131",
+          "MF-EVIDENCE-132",
+          "MF-EVIDENCE-133",
+          "MF-EVIDENCE-134",
+          "MF-EVIDENCE-135",
+          "MF-EVIDENCE-136",
+          "MF-EVIDENCE-137",
+          "MF-EVIDENCE-138"
+        ]
+      },
+      {
+        "id": "MF-COVER-20",
+        "family": "Scripted/random events, granular rescue and causal aftermath",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-01",
+          "MF-GAP-03"
+        ],
+        "auditDisposition": "Authored scheduled checks, opportunities, conditional encounters and missed reports work; selected full rescue/death/campaign consequences need actual bindings.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-066",
+          "MF-EVIDENCE-067",
+          "MF-EVIDENCE-068",
+          "MF-EVIDENCE-130",
+          "MF-EVIDENCE-131",
+          "MF-EVIDENCE-129",
+          "MF-EVIDENCE-132",
+          "MF-EVIDENCE-108",
+          "MF-EVIDENCE-109",
+          "MF-EVIDENCE-110",
+          "MF-EVIDENCE-111",
+          "MF-EVIDENCE-112"
+        ]
+      },
+      {
+        "id": "MF-COVER-21",
+        "family": "Probability, luck, guarantees and persisted random boundaries",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-10"
+        ],
+        "auditDisposition": "Authored draws/checks freeze and persist; broad native streams, luck theft and explicit epochs/rerolls remain unselected.",
+        "traceCount": 2,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-066",
+          "MF-EVIDENCE-067",
+          "MF-EVIDENCE-068",
+          "MF-EVIDENCE-116",
+          "MF-EVIDENCE-117"
+        ]
+      },
+      {
+        "id": "MF-COVER-22",
+        "family": "Local time, lived years, age and meaningful absence",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-05",
+          "MF-GAP-06",
+          "MF-GAP-07"
+        ],
+        "auditDisposition": "Common clock, optional chronicle age and supported Glasshouse leases exist; generic world/body/subjective job exposure and absence policies remain partial.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-139",
+          "MF-EVIDENCE-140",
+          "MF-EVIDENCE-141",
+          "MF-EVIDENCE-142",
+          "MF-EVIDENCE-143",
+          "MF-EVIDENCE-144",
+          "MF-EVIDENCE-145",
+          "MF-EVIDENCE-146",
+          "MF-EVIDENCE-147",
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122"
+        ]
+      },
+      {
+        "id": "MF-COVER-23",
+        "family": "Defeat, true death, rewind, branches and retained carriers",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-06"
+        ],
+        "auditDisposition": "Native unconsciousness/recovery and scoped transition/rewind planners exist; full historical restoration and true-death body/property semantics are unselected.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-144",
+          "MF-EVIDENCE-145",
+          "MF-EVIDENCE-146",
+          "MF-EVIDENCE-147",
+          "MF-EVIDENCE-130",
+          "MF-EVIDENCE-131",
+          "MF-EVIDENCE-129",
+          "MF-EVIDENCE-132",
+          "MF-EVIDENCE-086",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-088",
+          "MF-EVIDENCE-089"
+        ]
+      },
+      {
+        "id": "MF-COVER-24",
+        "family": "One field prestige and useful continued progression",
+        "auditStatus": "native",
+        "gapIds": [],
+        "auditDisposition": "One optional field-training reset and retained reward exists; full-life rebirth or a second prestige is not selected.",
+        "traceCount": 2,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-144",
+          "MF-EVIDENCE-145",
+          "MF-EVIDENCE-146",
+          "MF-EVIDENCE-147",
+          "MF-EVIDENCE-123",
+          "MF-EVIDENCE-124",
+          "MF-EVIDENCE-125",
+          "MF-EVIDENCE-126",
+          "MF-EVIDENCE-127",
+          "MF-EVIDENCE-128",
+          "MF-EVIDENCE-129"
+        ]
+      },
+      {
+        "id": "MF-COVER-25",
+        "family": "Run-defining origins, infancy/nonhuman lives and multiple selves",
+        "auditStatus": "planned",
+        "gapIds": [
+          "MF-GAP-06",
+          "MF-GAP-04"
+        ],
+        "auditDisposition": "Origin/planner/profile primitives do not supply native baby/tree/role-only start UI or concurrent independent-body gameplay.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-144",
+          "MF-EVIDENCE-145",
+          "MF-EVIDENCE-146",
+          "MF-EVIDENCE-147",
+          "MF-EVIDENCE-086",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-088",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-033",
+          "MF-EVIDENCE-078",
+          "MF-EVIDENCE-079",
+          "MF-EVIDENCE-080",
+          "MF-EVIDENCE-081",
+          "MF-EVIDENCE-082",
+          "MF-EVIDENCE-083",
+          "MF-EVIDENCE-084",
+          "MF-EVIDENCE-028",
+          "MF-EVIDENCE-085"
+        ]
+      },
+      {
+        "id": "MF-COVER-26",
+        "family": "World passage, compatibility, native isolation and retained return",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-05"
+        ],
+        "auditDisposition": "Compiled same-body Glasshouse passage is real; arbitrary native campaign copies/qualified borrowed cargo/companions require selected adapters.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122",
+          "MF-EVIDENCE-061",
+          "MF-EVIDENCE-062",
+          "MF-EVIDENCE-063",
+          "MF-EVIDENCE-064",
+          "MF-EVIDENCE-065",
+          "MF-EVIDENCE-139",
+          "MF-EVIDENCE-140",
+          "MF-EVIDENCE-141",
+          "MF-EVIDENCE-142",
+          "MF-EVIDENCE-143"
+        ]
+      },
+      {
+        "id": "MF-COVER-27",
+        "family": "Observation, overlap, conceptual contact and emergence",
+        "auditStatus": "built-unverified",
+        "gapIds": [
+          "MF-GAP-04",
+          "MF-GAP-05"
+        ],
+        "auditDisposition": "Earned listener/device and public sample support one narrow remote view; sight alone gives no body/stock/identity/contact.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122",
+          "MF-EVIDENCE-139",
+          "MF-EVIDENCE-140",
+          "MF-EVIDENCE-141",
+          "MF-EVIDENCE-142",
+          "MF-EVIDENCE-143",
+          "MF-EVIDENCE-020",
+          "MF-EVIDENCE-021",
+          "MF-EVIDENCE-046",
+          "MF-EVIDENCE-026",
+          "MF-EVIDENCE-047",
+          "MF-EVIDENCE-048",
+          "MF-EVIDENCE-049"
+        ]
+      },
+      {
+        "id": "MF-COVER-28",
+        "family": "Custody, stock, physical ownership, loans and member inventories",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-02",
+          "MF-GAP-03",
+          "MF-GAP-05"
+        ],
+        "auditDisposition": "Real transfer/custody/chest/participant guards exist; supported lender/return workflows, individual lots and traveling members need joins.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-074",
+          "MF-EVIDENCE-075",
+          "MF-EVIDENCE-076",
+          "MF-EVIDENCE-069",
+          "MF-EVIDENCE-070",
+          "MF-EVIDENCE-071",
+          "MF-EVIDENCE-072",
+          "MF-EVIDENCE-073",
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122"
+        ]
+      },
+      {
+        "id": "MF-COVER-29",
+        "family": "Lived hub, bounded destinations and continuing residence",
+        "auditStatus": "planned",
+        "gapIds": [
+          "MF-GAP-05",
+          "MF-GAP-01"
+        ],
+        "auditDisposition": "Lived Paradise-style hub and destination arcs are design options; neither a menu nor pocket proves the campaign.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-123",
+          "MF-EVIDENCE-124",
+          "MF-EVIDENCE-125",
+          "MF-EVIDENCE-126",
+          "MF-EVIDENCE-127",
+          "MF-EVIDENCE-128",
+          "MF-EVIDENCE-129",
+          "MF-EVIDENCE-120",
+          "MF-EVIDENCE-121",
+          "MF-EVIDENCE-087",
+          "MF-EVIDENCE-089",
+          "MF-EVIDENCE-122",
+          "MF-EVIDENCE-042",
+          "MF-EVIDENCE-113",
+          "MF-EVIDENCE-114",
+          "MF-EVIDENCE-115"
+        ]
+      },
+      {
+        "id": "MF-COVER-30",
+        "family": "Finite routines, mixed work plans and safe offline catch-up",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-07"
+        ],
+        "auditDisposition": "Finite same-command programs and paid jobs exist; heterogeneous persisted itineraries and browser-closed native simulation remain unselected.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-001",
+          "MF-EVIDENCE-002",
+          "MF-EVIDENCE-003",
+          "MF-EVIDENCE-004",
+          "MF-EVIDENCE-005",
+          "MF-EVIDENCE-006",
+          "MF-EVIDENCE-139",
+          "MF-EVIDENCE-140",
+          "MF-EVIDENCE-141",
+          "MF-EVIDENCE-142",
+          "MF-EVIDENCE-143"
+        ]
+      },
+      {
+        "id": "MF-COVER-31",
+        "family": "Homes, site rights, projects, labor, demand and economy",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-03",
+          "MF-GAP-08"
+        ],
+        "auditDisposition": "Shack/workshop/site reservations and finite Joss stock work; rights-backed multi-worker structures, paired wages/demand/logistics need selected owners.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-077",
+          "MF-EVIDENCE-006",
+          "MF-EVIDENCE-102",
+          "MF-EVIDENCE-103",
+          "MF-EVIDENCE-104",
+          "MF-EVIDENCE-105",
+          "MF-EVIDENCE-106",
+          "MF-EVIDENCE-107",
+          "MF-EVIDENCE-056",
+          "MF-EVIDENCE-057",
+          "MF-EVIDENCE-058",
+          "MF-EVIDENCE-059",
+          "MF-EVIDENCE-060"
+        ]
+      },
+      {
+        "id": "MF-COVER-32",
+        "family": "Familiar desktop UI, optional glyphs, filtering and clear terms",
+        "auditStatus": "built-unverified",
+        "gapIds": [],
+        "auditDisposition": "Native center menus remain primary; adopted labels/material guards/trade copies/Makeable view are built. Hanzi is optional presentation.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-148",
+          "MF-EVIDENCE-149",
+          "MF-EVIDENCE-150",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016"
+        ]
+      },
+      {
+        "id": "MF-COVER-33",
+        "family": "Authoring, package activation, consumer closure and diagnostics",
+        "auditStatus": "partial",
+        "gapIds": [
+          "MF-GAP-09"
+        ],
+        "auditDisposition": "Registry validators/scene/project compilers exist; selected package closure, activation manifests and actionable static diagnostics remain proposals.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-077",
+          "MF-EVIDENCE-006",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-001",
+          "MF-EVIDENCE-002",
+          "MF-EVIDENCE-003"
+        ]
+      },
+      {
+        "id": "MF-COVER-34",
+        "family": "Qualified sources, economical roles, refresh and finite handoffs",
+        "auditStatus": "present",
+        "gapIds": [],
+        "auditDisposition": "Live recovery/capacity/source-owner workflow exists; this audit uses bounded qualified readers, with no token/performance savings claim.",
+        "traceCount": 2,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016",
+          "MF-EVIDENCE-001",
+          "MF-EVIDENCE-002",
+          "MF-EVIDENCE-003"
+        ]
+      },
+      {
+        "id": "MF-COVER-35",
+        "family": "Reference reuse, provenance and selective absorption",
+        "auditStatus": "present",
+        "gapIds": [],
+        "auditDisposition": "Completed comparison inventories and bounded adopted subsets exist. Libraries, larger fork content and bank mechanisms remain conditional choices.",
+        "traceCount": 3,
+        "sourceEvidenceIds": [
+          "MF-EVIDENCE-148",
+          "MF-EVIDENCE-149",
+          "MF-EVIDENCE-150",
+          "MF-EVIDENCE-012",
+          "MF-EVIDENCE-013",
+          "MF-EVIDENCE-014",
+          "MF-EVIDENCE-015",
+          "MF-EVIDENCE-016"
+        ]
+      }
+    ]
+  },
+  "mfGapDispositions": [
+    {
+      "id": "MF-GAP-01",
+      "currentOverlay": "Finite Frontier/home completion delivered; broader campaigns remain separate."
+    },
+    {
+      "id": "MF-GAP-02",
+      "currentOverlay": "Selected conserved object/material/held-loan consumers delivered; no universal object system."
+    },
+    {
+      "id": "MF-GAP-03",
+      "currentOverlay": "Selected finite workers/teaching/rights delivered; general population simulation unselected."
+    },
+    {
+      "id": "MF-GAP-04",
+      "currentOverlay": "Selected methods/mastery/counters delivered; universal body and conceptual adapters unselected."
+    },
+    {
+      "id": "MF-GAP-05",
+      "currentOverlay": "Selected destinations and returns delivered; arbitrary world/body/companion isolation unselected."
+    },
+    {
+      "id": "MF-GAP-06",
+      "currentOverlay": "General origin/life/death/rewind carrier policy remains unselected."
+    },
+    {
+      "id": "MF-GAP-07",
+      "currentOverlay": "Finite jobs and one deliberate reserve delivered; broad browser-closed simulation unselected."
+    },
+    {
+      "id": "MF-GAP-08",
+      "currentOverlay": "Selected home/material/crop chain delivered; generic ecology/population economy unselected."
+    },
+    {
+      "id": "MF-GAP-09",
+      "currentOverlay": "Named compiler omission repaired; generic package/diagnostic language unselected."
+    },
+    {
+      "id": "MF-GAP-10",
+      "currentOverlay": "Authored draws and bounded battles delivered; universal fate/RNG replacement unselected."
+    }
+  ],
+  "worldCompletionGapLocator": {
+    "oldLocator": "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+    "currentStatusLocators": [
+      "docs/gm/world-completion-2026-10-06/DELIVERY.md",
+      "docs/gm/world-completion-2026-10-06/COVERAGE.json"
+    ],
+    "disposition": "WC-G1 through WC-G5 delivered source/native/UI/compatible-state/current-build; implemented-unverified. Later journeys remain deferred."
+  },
+  "auditQueue": {
+    "source": "docs/gm/audit-implementation/QUEUE.json",
+    "candidateCount": 22,
+    "remainingLatestCandidates": [],
+    "rows": [
+      {
+        "id": "elin:P1",
+        "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+        "title": "Two funded resident shifts",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "elin:P2",
+        "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+        "title": "A useful home-work amenity",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "elin:P3",
+        "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+        "title": "Research that unlocks a reusable measuring jig",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "elin:P4",
+        "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+        "title": "One earned specialization with a working tradeoff",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "elin:P5",
+        "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+        "title": "One stock-backed local supply opportunity",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "idling-to-rule-the-gods:P1",
+        "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+        "title": "Let Lio choose one funded work shift or a contest",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "idling-to-rule-the-gods:P2",
+        "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+        "title": "Build a clamping frame that opens an ordinary resin route",
+        "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+        "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+      },
+      {
+        "id": "idling-to-rule-the-gods:P3",
+        "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+        "title": "Offer one ordinary-craft supply attempt",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "keeperrl:P1",
+        "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+        "title": "Complete one room, then choose a funded resident invitation",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "keeperrl:P2",
+        "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+        "title": "Allocate one scarce toolkit between two useful independent jobs",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "keeperrl:P3",
+        "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+        "title": "Give earned Conditioned grip one small combat consumer",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "keeperrl:P4",
+        "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+        "title": "Let one retained grievance fund a finite collection response",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rimworld:P1",
+        "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+        "title": "A bounded kit reserve for a journey",
+        "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+        "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+      },
+      {
+        "id": "rimworld:P2",
+        "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+        "title": "Recent friction expires; an actual promise remains",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rimworld:P3",
+        "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+        "title": "A frost warning with one actual herb outcome",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rogue-legacy:P1",
+        "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+        "title": "Choose a useful physical preparation before one encounter",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rogue-legacy:P2",
+        "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+        "title": "Let existing body aptitudes change a specific maneuver",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rogue-legacy:P3",
+        "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+        "title": "Compare three retained, funded pathfinder offers",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "rogue-legacy:P4",
+        "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+        "title": "Put a useful recipe behind a new optional objective",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "tales-of-maj-eyal:P1",
+        "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+        "title": "Choose a harness fit that changes an actual guarded blow",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "tales-of-maj-eyal:P2",
+        "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+        "title": "Maintain one finite brace instead of spreading protection",
+        "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+        "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+      },
+      {
+        "id": "tales-of-maj-eyal:P3",
+        "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+        "title": "Earn one specific lesson or one real stocked reward",
+        "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+        "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+      }
+    ],
+    "interpretation": "Latest queue/remainder receipts supersede the historical first-wave statement that 19 remained queued. All 22 are delivered, implemented-unverified; other research is not closed."
+  },
+  "activeWave": {
+    "source": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+    "state": "Home finite combined build completed and exact current shared release acquired by audit root; audit selected actual source/native/UI/state joins integrated, matching audit rebuild e77080593d4b delivered, implemented-unverified.",
+    "homeWaveSelected": [
+      "home/social/base and useful furnishings",
+      "compatible visit-history compaction",
+      "Proto23 three-place optional visitor"
+    ],
+    "retort": "Steam corrected retort fact/host leaves plus joins are included in the current home combined build after exact released hashes.",
+    "independentSteamGoal": "Full Factorio native recovery/decompilation remains an independent Steam goal, not this finite audit completion gate.",
+    "auditAbsorptionAfterHomeRelease": [
+      "Known routes three modules plus actual Here/host/current native projection/dispatcher joins integrated; duplicate Proto23 source repaired",
+      "GD-01 refreshed nine live inputs and applied actual shared native/UI/state readers/publisher/consumer joins",
+      "Three ACS consumers actual source/controller/effect/native/reader/UI joins integrated"
+    ]
+  },
+  "sourceSeams": [
+    {
+      "file": "src/simulation_content.js",
+      "api": "worldCompletionDefinitions registration",
+      "evidence": "definitions join existing simulation registry"
+    },
+    {
+      "file": "src/world_completion_host.js",
+      "api": "commitWorldCompletionCommand",
+      "evidence": "dispatches finite life/lens/learning/materials groups"
+    },
+    {
+      "file": "src/main.js",
+      "api": "world completion dispatch; commitNativeStorage",
+      "evidence": "current dispatcher and native chest call shared persistence"
+    },
+    {
+      "file": "src/native_storage_transaction.js",
+      "api": "stageNativeStorageTransfer",
+      "evidence": "validates sequence/count/equipment/disposition and stages player/chest ownership"
+    },
+    {
+      "file": "src/expansion_persistence.js",
+      "api": "persistExpansionPlan",
+      "evidence": "validates/serializes full envelope before caller publishes live state"
+    },
+    {
+      "file": "src/world_instances.js",
+      "api": "worldInstanceView / local clock planning",
+      "evidence": "instance and local-time seams; use remains campaign-scoped"
+    },
+    {
+      "file": "src/known_routes.js",
+      "api": "projectKnownRoutes / sameKnownRouteQuote",
+      "evidence": "only already-known player-addressed host rows; UI leaf has no current host/mount integration"
+    },
+    {
+      "file": "src/main.js",
+      "lines": [
+        3448,
+        3568
+      ],
+      "api": "use_recipe",
+      "evidence": "native crafting handler draws browser RNG and directly consumes inventory/adds result and native skill progression; this is a source-level transaction boundary, not an observed failure or exploit."
+    }
+  ],
+  "additionalGapDecision": {
+    "finding": "No additional selected source-ready implementation row to add to the active wave. A separate concrete source boundary merits a decision: native use_recipe runs random results and native inventory/XP mutations directly outside staged extension publication.",
+    "evidence": "src/main.js:3448-3568; docs/gm/world-implementation/second-pass/items/REPORT.md describes this as static risk, not an executed exploit. No reproducer or selected rewrite scope established here.",
+    "classification": "Unconfirmed bounded follow-up candidate; do not call a defect, fixed gap, or active-wave blocker.",
+    "remaining": [
+      "Deferred gameplay acceptance of matching audit rebuild e77080593d4b",
+      "Deferred play/save/failure/keyboard/director acceptance"
+    ],
+    "notAGate": "Steam full Factorio native recovery is an independent Steam goal; Factorio retort joins belong to home combined build."
+  },
+  "semanticReadPaths": [
+    "AGENTS.md",
+    "PROJECT.md",
+    "docs/EXPANSION_DESIGN.md",
+    "docs/USER_VISION.md (relevant sections)",
+    "docs/DIRECTION_SYNTHESIS.md (relevant sections)",
+    "docs/IDEA_INDEX.md (relevant sections)",
+    "docs/ENGINE_EXPANSION.md (selected current sections)",
+    "docs/ENGINE_AUTHORING.md",
+    "docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md",
+    "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.md and .json",
+    "docs/gm/audit-absorption-2026-10-07/intake/INTAKE.md and filtered SOURCES.json",
+    "docs/gm/audit-absorption-2026-10-07/reconciliation/game-findings.md and .json",
+    "docs/gm/world-implementation/CHECKPOINT.md",
+    "docs/gm/world-implementation/second-pass/missing-feature-audit/REPORT.md and FEATURE_COVERAGE.json",
+    "docs/gm/world-implementation/second-pass/foundations/REPORT.md and FINDINGS keys",
+    "docs/gm/world-implementation/second-pass/authoring/REPORT.md and FINDINGS keys",
+    "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+    "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md, REPORT.md and FINDINGS.json",
+    "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md, DELIVERY.md, COVERAGE.json and ACCEPTANCE_BACKLOG.md",
+    "docs/gm/audit-implementation/QUEUE.json, DELIVERY.md, remainder CHECKPOINT.md, DELIVERY.md and ACCEPTANCE_BACKLOG.md",
+    "docs/gm/feature-wave/features/CHECKPOINT.md",
+    "docs/gm/feature-wave/backlog/DELIVERY.md",
+    "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md and OWNERSHIP.json",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACQUISITION.json",
+    "docs/gm/multi-world-paths-2026-10-07/AUDIT.md",
+    "src/main.js (focused seams)",
+    "src/simulation_content.js",
+    "src/world_completion_host.js",
+    "src/world_completion_native.js (focused)",
+    "src/native_storage_transaction.js",
+    "src/expansion_persistence.js",
+    "src/world_instances.js (named APIs)",
+    "src/pursuit.js (named API)",
+    "src/known_routes.js and known_routes_ui.js"
+  ],
+  "notRead": [
+    "All other manifest paths and request entries; detailed findings JSON/appendices for the second-pass reports above; world-bank and upstream-native-feasibility reports; full books/raw traces/DLC/game exports; all campaign dossiers; private libraries/saves; gameplay/browser behavior. Repository/fork disposition links to their finite delivery owners; current game-source limits link to game-findings."
+  ],
+  "checks": "Read-only evidence and current producer/consumer inspection. No builds, tests, browser/gameplay/save actions, external messages, source/canonical edits or shared integration writes.",
+  "inkDelivery": {
+    "earlierFinding": "docs/gm/world-implementation/second-pass/engine-absorption/FINDINGS.json EA06-EA07 dated 2026-10-04: optional Ink/inkjs for a proven long-scene need; a full versioned cursor and atomic native command bridge required.",
+    "currentSelection": "Later feature-wave scope selected Ink for authored story continuation.",
+    "evidence": [
+      "package.json dependency inkjs 2.4.0",
+      "build.js runs scripts/compile_feature_ink.mjs --check and includes dist/INKJS_NOTICE.txt and dist/INKJS_AUTHORS.txt",
+      "docs/gm/feature-wave/ink/DELIVERY.md: six scoped scenes, saved cursor/native command bridges and bundle 11aaa9cbfc69",
+      "docs/gm/feature-wave/ink/CHECKPOINT.md: scene/save schema, exact content identity and delivered shared integration"
+    ],
+    "state": "source/native/UI/save/current-build delivered; implemented-unverified",
+    "unresolved": "gameplay, cursor interruption, generated save/import/reload, failed/stale write, keyboard/focus, regression and director acceptance are deferred.",
+    "rotJs": "still conditional on a named grid sight/path behavior; no dependency or scheduler/RNG/map replacement."
+  },
+  "additionalSecondPassCoverage": [
+    {
+      "family": "runtime efficiency",
+      "read": [
+        "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md"
+      ],
+      "disposition": "one scheduler/publisher retained; historical helper fixture measurements do not establish current latency; no current regression or selected optimization was measured."
+    },
+    {
+      "family": "token/workflow efficiency",
+      "read": [
+        "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md"
+      ],
+      "disposition": "bounded retrieval and revision-bound evidence remain process guidance; no measured savings claim."
+    },
+    {
+      "family": "society and timeline/branching",
+      "read": [
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/gm/world-implementation/second-pass/timelines/REPORT.md"
+      ],
+      "disposition": "selected campaigns deliver bounded consent, received reports, causal/branch outcomes and continuing returns; broad belief network, households, aging, general rewind and universal clock policy remain optional/unselected."
+    },
+    {
+      "family": "items, powers, combat",
+      "read": [
+        "docs/gm/world-implementation/second-pass/items/REPORT.md",
+        "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+        "docs/gm/world-implementation/second-pass/combat/REPORT.md"
+      ],
+      "disposition": "Selected finite custody, tools, care, mastered methods and fixed battle consumers are delivered; generalized item lots, anatomy, party inventories, hostile AI/rosters and universal power composition remain unselected or later acceptance. Current native use_recipe directly draws random outcomes/removes materials/adds results and XP outside the extension staged publisher; older item audit called it static risk, not a reproduced defect. It is a bounded candidate pending a concrete failing/desired atomicity case, not a current selected repair."
+    },
+    {
+      "family": "regions, bases, granularity",
+      "read": [
+        "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+        "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+        "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md"
+      ],
+      "disposition": "selected home drain/crop/material, rights/funded work, furnishing and skill pathways have current or active owners; generic ecology, economy/town management and universal growth curves remain proposal-only."
+    },
+    {
+      "family": "repository and fork scans",
+      "read": [
+        "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+        "docs/gm/feature-wave/repositories/DELIVERY.md",
+        "docs/gm/audit-absorption-2026-10-07/reconciliation/game-findings.md"
+      ],
+      "disposition": "repository bank: 30 rows with 9 adopted, 15 already covered, 4 N/A, 2 rejected and delivered actual native consumers; fork review rejected full transplant but delivered narrow source subsets. Remaining Brogue/Shattered/deeper game questions stay in game-findings; no whole-game claim."
+    }
+  ],
+  "additionalReadSincePriorArtifact": [
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+    "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+    "docs/gm/world-implementation/second-pass/society/REPORT.md",
+    "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+    "docs/gm/world-implementation/second-pass/items/REPORT.md",
+    "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+    "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+    "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+    "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+    "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+    "docs/gm/feature-wave/repositories/DELIVERY.md",
+    "docs/gm/feature-wave/repositories/CHECKPOINT.md",
+    "docs/gm/feature-wave/ink/DELIVERY.md",
+    "docs/gm/feature-wave/ink/CHECKPOINT.md",
+    "docs/gm/feature-wave/ink/RELEASE.json",
+    "docs/gm/feature-wave/backlog/AMENDMENT_COVERAGE.json",
+    "docs/gm/book-world-player-agency/DELIVERY.md",
+    "docs/gm/audit-absorption-2026-10-07/routes/INTERFACE.md",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+    "package.json (dependency and compiler commands)",
+    "build.js (Ink compile/distribution integration)",
+    "src/main.js use_recipe 3448-3568 (direct native crafting producer path; source-only)"
+  ],
+  "currentBuild": "docs/gm/audit-absorption-2026-10-07/BUILD.json"
+}

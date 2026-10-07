@@ -1,0 +1,303 @@
+{
+  "schema": 1,
+  "status": "finite-source-research-complete",
+  "scope": "17 selected connected chains plus interpreter methods, not whole game or whole DLC",
+  "build_id": "22091683",
+  "game_version": "2026.1.f.3",
+  "raw_definition_inventory": {
+    "core_json_files": 177,
+    "definition_records": 7868,
+    "unique_resolved_runtime_entities": "not determined; duplicate IDs/inheritance/overlays exist",
+    "parse_errors": 0,
+    "parser_notes": "BOM-aware UTF-8/UTF-16, comments/trailing-comma normalization outside strings; tomes uses strict=False for a literal control character; original files untouched"
+  },
+  "source_access": {
+    "retained_raw_files": 867,
+    "retained_raw_bytes": 72989494,
+    "main_export_cs_files": 735,
+    "assembly_csharp_export_cs_files": 20,
+    "export_only_is_not_semantic_coverage": true
+  },
+  "semantic_coverage": {
+    "mechanical_field_rows_inspected": 179,
+    "core_files_with_selected_rows": 62,
+    "DLC_HOL_prefixed_rows_inspected": 56,
+    "definition_locator_index": "/Users/weiwei/.codex/research/book-of-hours/22091683/analysis/INSPECTED.json",
+    "selected_code_method_ranges": [
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Logic/RequirementsArbiter.cs",
+        "sha256": "a994dd1890189de0923b25c1498363e6e2e83fa469819c26b400b78f57e99b77",
+        "line_start": 1,
+        "line_end": 88,
+        "scope": "threshold and permissive matching",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Logic/RichEffectsParser.cs",
+        "sha256": "a050e30b6ded80aff8be2b420cc15f705db143135a7ef2571785a1fd8fa28e31",
+        "line_start": 1,
+        "line_end": 58,
+        "scope": "context-valued requirements/effects",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Entities/SphereSpec.cs",
+        "sha256": "fa7d00b74fd6f1c944a0c41d8818202f6029bb511cb1a1298e48f42df70fdbc5",
+        "line_start": 176,
+        "line_end": 216,
+        "scope": "slot conjunction/disjunction semantics",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Entities/Recipe.cs",
+        "sha256": "44c4344398969f3923ad01144b11c1bc153d104381073631edb18e99bda10cf2",
+        "line_start": 389,
+        "line_end": 477,
+        "scope": "local/group/extant/environment requirements",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Entities/LinkedRecipeDetails.cs",
+        "sha256": "aa2891d481801ea58ad8cb2baddc2542f90ae1c298b5f6e258f28b4bd518ba4a",
+        "line_start": 1,
+        "line_end": 128,
+        "scope": "chance, wildcard matching, shuffle and reference resolution",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Commands/RecipeCompletionEffectCommand.cs",
+        "sha256": "e8330854aa33dca8431879a0df0143e3cc9cafaa4e4f2fb73fe222cb6702a47d",
+        "line_start": 1,
+        "line_end": 217,
+        "scope": "ordered completion effects and world xpans",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Commands/ElementStackXTriggerCommand.cs",
+        "sha256": "1268a2fe5705a49e34ec4f896507b10a1a9aafced4b4eca8456cb3be0e10759c",
+        "line_start": 1,
+        "line_end": 97,
+        "scope": "transform/spawn/mutate/quantity morphology",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.States/OngoingState.cs",
+        "sha256": "bd7684b160960b5cd5c83660143ad9b9815d660abda8078df16034cbef9adff2",
+        "line_start": 1,
+        "line_end": 90,
+        "scope": "live alternative prediction and timer completion",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Logic/Timeshadow.cs",
+        "sha256": "86a6bd54091ed8f67a019af84d3c068d3f84f620ea7b11504b59b476fbe2790d",
+        "line_start": 1,
+        "line_end": 85,
+        "scope": "per-object fixed precision lifetime",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.UI/ElementStack.cs",
+        "sha256": "e70971a5444d6b2e4943734503221a16d00da8f13220ddd747931c55640f37c7",
+        "line_start": 589,
+        "line_end": 604,
+        "scope": "heartbeat decay transition",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Services/CompendiumLoader.cs",
+        "sha256": "da218c728ea3a773786a1192d94a885086030773d799cc96eab2cc587df46175",
+        "line_start": 1,
+        "line_end": 150,
+        "scope": "definition/localisation/mod loading and postimport",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Infrastructure.Persistence/PersistedGameState.cs",
+        "sha256": "71ae09ffb7e3775c0f3ffb9ce764c569d6447fd6a2c9650addc010c8514686e9",
+        "line_start": 1,
+        "line_end": 65,
+        "scope": "versioned reconstruction envelope",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Commands/RootPopulationCommand.cs",
+        "sha256": "8fdbc21582185aa2605536142f38f126e49b1662a01c1f67edc871f477db406e",
+        "line_start": 1,
+        "line_end": 65,
+        "scope": "root state, token paths, environmental effects and decks",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Infrastructure.Persistence/GamePersistenceProvider.cs",
+        "sha256": "43d021dd72e10fa30a821a8a06fd8d4187e9d1d5742595168648505ab36896e5",
+        "line_start": 84,
+        "line_end": 99,
+        "scope": "serializing actual roots and characters",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Infrastructure.Persistence/GamePersistenceProvider.cs",
+        "sha256": "43d021dd72e10fa30a821a8a06fd8d4187e9d1d5742595168648505ab36896e5",
+        "line_start": 225,
+        "line_end": 275,
+        "scope": "save/backup writer, no atomic guarantee",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Logic/Dealer.cs",
+        "sha256": "e8f9f6d5a9db3066dbf615d37e51cccb47beeb3dbadb923c5cf312790920539b",
+        "line_start": 1,
+        "line_end": 103,
+        "scope": "finite/reset deck, fallback and unique history",
+        "status": "selected-methods-read"
+      },
+      {
+        "file": "/Users/weiwei/.codex/research/book-of-hours/22091683/decompiled/SecretHistories.Main/SecretHistories.Services/Glory.cs",
+        "sha256": "598cc4f30fcbb0d79a97bffc21daf6766aad290b239990833cb26b8814bdb156",
+        "line_start": 194,
+        "line_end": 201,
+        "scope": "edition marker read only",
+        "status": "selected-methods-read"
+      }
+    ],
+    "paths": [
+      {
+        "id": "BH01",
+        "title": "Catalogue and repair",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Physical book state remains distinct from learned mastery. Decontamination has fatigue plus an actual byproduct; the drying workstation branch and every catalogue deck were not reviewed."
+      },
+      {
+        "id": "BH02",
+        "title": "Reading success, rescue and failure",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Exhausted opportunities lead to fatigue, consolation and soul-specific malady-risk links. Only Forge success and Phost/Lantern risk were followed; other principle branches were inventoried or sampled, not all reviewed."
+      },
+      {
+        "id": "BH03",
+        "title": "Lesson to skill to higher skill",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Memories are expendable distinct objects. The level-2 and level-9 bounds were inspected; every intermediate skill and lesson variant was not. Dawn forgetting and Numa persistent forgetting have distinct consumers."
+      },
+      {
+        "id": "BH04",
+        "title": "Wisdom choice and soul evolution",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Commitment, skill level, soul stock and one evolution opportunity are separate. Only the two Pyroglyphics choices and Mettle stages 1-to-2 and 2-to-3 were traced; full wisdom topology/placement rules remain outside this pass."
+      },
+      {
+        "id": "BH05",
+        "title": "Liquid, ink, hidden text and History",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "The higher History depends on accumulated functional outputs, a particular source discovery and a seasonal gate. Full acquisition of the involved skills, Oubliette unlocking, language acquisition and every ending are unreviewed. No whole-run completion claimed."
+      },
+      {
+        "id": "BH06",
+        "title": "Assistant preparation opens useful rooms",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Dawn departure removes daily assistance, while room-open effects remain separate. Full scene adjacency/rendering and all helper recruitment sources were not read. Slot requirements were checked against SphereSpec to avoid misreading OR as AND."
+      },
+      {
+        "id": "BH07",
+        "title": "Fatigue is not malady; cure is not refreshed capacity",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Treatment is a functional state chain with a concrete consumer and residual aftermath. All soul maladies, contamination and bed rules are not reviewed. No source-wide offline healing assumption."
+      },
+      {
+        "id": "BH08",
+        "title": "Calendar, weather, gathering and Numa exceptions",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Temporal opportunity is a changed action and changed product, not merely a date label. Night blocks the sampled gathering. Numa probability history, every season duration and closed-app elapsed-time policy were not established."
+      },
+      {
+        "id": "BH09",
+        "title": "Incident arrival, consultation and paid language",
+        "content_scope": "base",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Visitor lifetime, leaving after success/failure, remembered action and learned language differ. No all-visitor biography/affair survey. No inference of autonomous resource economies from token routing."
+      },
+      {
+        "id": "BH10",
+        "title": "Past advice becomes competing House of Light aftermath",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Outcome, visitor inspiration, physical reward and unfinished followup remain distinct. Only this casket chain was traced among 368 nrs recipe records. Other deaths/disappearances and the full House of Light incident graph remain unread."
+      },
+      {
+        "id": "BH11",
+        "title": "Known address to paid invitation and actual arrival",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Meeting, address, invitation, postage and physical availability are distinct. This is source token retrieval, not proven consent/appointment scheduling of all independent people. Only al-Adim's chain read."
+      },
+      {
+        "id": "BH12",
+        "title": "Supply, timing, engagement and meal aftermath",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Food/beverage fatigue is applied at the salon end, while conversations fatigue soul separately. Source warmup units are not assumed YAIR minutes. Only one formal lunch and selected cooking/responses, not every venue or menu."
+      },
+      {
+        "id": "BH13",
+        "title": "Directed pair histories change later relationships",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Relationship change is not a generic affection increment. It is a particular interaction history with explicit participants and timing. Wider social graph, romance and all 511 response records are unreviewed."
+      },
+      {
+        "id": "BH14",
+        "title": "Authored text has actual skill and ink quality",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Topic, author ability, physical manuscript and reader qualification differ. The casket example uses Sights and Sensations rather than Pyroglyphics, so it demonstrates the consumer schema, not that this exact Pyroglyphics manuscript solves that case. No universal self-teaching loop or all manuscript types claimed."
+      },
+      {
+        "id": "BH15",
+        "title": "Founder commitments, deadlock and institutional ending",
+        "content_scope": "house-of-light",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Foundation is a consequential commitment distinct from ending an ordinary run; candidate loss warning is source-authored, not an observed death playthrough. No complete institution office-roster or all possible ending combinations reviewed."
+      },
+      {
+        "id": "BH16",
+        "title": "Data, state machine and durable reconstruction",
+        "content_scope": "methods",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Decompiled code export was not rebuilt. Save writer uses direct WriteAllText plus backups in the inspected method, so no atomic-write guarantee is imported into YAIR. Generic cancellation/rollback, closed-app catchup, every serializer and graphics scene lifecycle remain unreviewed."
+      },
+      {
+        "id": "BH17",
+        "title": "Finite decks and unique history",
+        "content_scope": "methods",
+        "status": "selected-dependency-chain-source-reviewed",
+        "boundary": "Bounded authored decks can preserve eventual quiet ordinary life after exceptional events. No blanket claim that every random choice is without replacement or seeded/reproducible."
+      }
+    ]
+  },
+  "unread": [
+    "Most of 7,868 definition records",
+    "Most of 2,005 DLC_HOL-prefixed records",
+    "All retained further PDFs and most localised prose",
+    "Complete book catalogue/skill/wisdom topology",
+    "Most incident/visitor/salon/manuscript/institute branches",
+    "Scene-level spatial topology, complete DLC entitlement gating",
+    "Broad closed-app catchup/cancellation/rollback policies",
+    "Full serializer and all engine methods"
+  ],
+  "runtime_and_acceptance": {
+    "game_launched": false,
+    "gameplay_browser_save_tests": "deferred and unrun",
+    "decompiled_project_rebuild": "unrun; export success does not imply recompilability",
+    "yair_gameplay_implemented": false,
+    "director_acceptance": false
+  }
+}

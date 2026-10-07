@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-07",
+  "owner": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "scope": "finite source-ready combined wave",
+  "rows": [
+    {
+      "id": "visits",
+      "status": "source/native/current-build delivered implemented-unverified",
+      "proof": "visits/DELIVERY.md",
+      "compatibility": "same schemas, validated ended-row compaction; later save/import proof unrun"
+    },
+    {
+      "id": "home",
+      "status": "source/native/UI/current-build delivered implemented-unverified",
+      "proof": "base/DELIVERY.md",
+      "commands": 10
+    },
+    {
+      "id": "crush",
+      "status": "source/native/UI/current-build delivered implemented-unverified",
+      "proof": "social/DELIVERY.md",
+      "commands": 8,
+      "plans": 2,
+      "selected": [
+        "CC-P01",
+        "CC-P02",
+        "CC-P03",
+        "CC-P05"
+      ],
+      "excluded": {
+        "CC-P04": "separate retained Ink hash/cursor scene; not selected this wave"
+      }
+    },
+    {
+      "id": "proto23",
+      "status": "source/native/UI/optional-reader/current-build delivered implemented-unverified",
+      "proof": "proto23-native/INTERFACE.md",
+      "commands": 29,
+      "worlds": 1,
+      "places": 3,
+      "items": 4
+    },
+    {
+      "id": "retort/evidence",
+      "status": "source/native/UI/optional-reader/current-build delivered implemented-unverified",
+      "proof": "RETORT_ACQUISITION.json",
+      "commands": 6,
+      "plans": 1,
+      "items": 5,
+      "scope": "original retort usage only; complete native decompilation is another active owner"
+    }
+  ],
+  "newCommands": 53,
+  "registeredWorlds": 10,
+  "registeredCommands": 1206,
+  "registeredPlans": 7,
+  "newWorlds": 1,
+  "newItems": 9,
+  "build": "BUILD.json",
+  "staticReview": "integration-review/REVIEW.json",
+  "qualification": "No full-world, all-audits, gameplay/constructor/save/browser/director acceptance claim."
+}

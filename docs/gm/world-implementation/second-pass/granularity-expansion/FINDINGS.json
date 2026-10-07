@@ -1,0 +1,424 @@
+{
+  "kind": "planning-only granularity expansion",
+  "date": "2026-10-05",
+  "runtimeImplemented": false,
+  "runtimeValidated": false,
+  "sharedPlanWritten": false,
+  "allTaxonomiesMandatory": false,
+  "activeWaveIds": [
+    "frontier.brace_control",
+    "frontier.trail_reading",
+    "frontier.timber_judgment",
+    "frontier.shared_inquiry"
+  ],
+  "activeWaveStatus": "source return, pure discovery, registry and host/UI/main bindings present at closing read; matching final rebuild and behavior unconfirmed by this planning pass",
+  "gaps": [
+    {
+      "id": "GE01",
+      "requestLocators": [
+        "../../../../USER_VISION.md#u04",
+        "../../../../USER_VISION.md#complete-scoped-worlds-useful-skills-and-discovery-ui-2026-10-05"
+      ],
+      "existingOwnerStatus": "[Four skill requirements](../../abilities/SKILL_REQUIREMENTS.md), source module and registry/host/UI bindings present; [discovery/S2](../../INTERFACE.md) callers published; matching build/behavior unconfirmed here",
+      "missingConsumer": "Continuing applications after initial mastery bands, observer-safe learned/blocked/use feedback and actual career payoffs; preserve implemented foundations",
+      "playerExample": "GX1 uses learned reading and kits for supply, route work and teaching instead of replacing the opening",
+      "dependenciesAndRequiredness": "GC1/2/7/8, GP1; R for selected continuing skill path; current four IDs already required under their own wave",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE02",
+      "requestLocators": [
+        "../../../../USER_VISION.md#simple-skills-with-extraordinary-long-term-growth-2026-10-02",
+        "../../../../USER_VISION.md#skill-tiers-critical-points-and-advancement-routes-2026-10-02"
+      ],
+      "existingOwnerStatus": "[Power models](../../../../../src/power_models.js) practice capacity/bands and typed formula execution exist; broader curves remain proposals",
+      "missingConsumer": "Declare what levels alone can change, thresholds and useful upper function without requiring rare replacement/ritual on every skill",
+      "playerExample": "GX2 develops the same Throw into long-distance rescue-line delivery under an original local growth law",
+      "dependenciesAndRequiredness": "GC1/2/6, GP1/4; O local extraordinary law, R once selected; not Frontier canon",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE03",
+      "requestLocators": [
+        "../../../../USER_VISION.md#granular-progression-for-skills-talents-and-more-2026-10-02",
+        "../../../../USER_VISION.md#notebook-placement-bio-and-skill-influences-2026-10-03"
+      ],
+      "existingOwnerStatus": "[Body](../../../../../src/body_progression.js), source/faculty/energy and native XP owners exist; [Powers audit](../powers/REPORT.md) qualifies richer support gaps",
+      "missingConsumer": "Separate aptitude affecting opportunity/pacing, practiced competence, operating method, permanent form and acquired/inherited faculty; intrinsic source guidance may bypass ordinary learning",
+      "playerExample": "GX2's local growth and GX4's owned ward source cannot be granted by a high aptitude score or copied pattern",
+      "dependenciesAndRequiredness": "GC1/4/6, GP1/4; R for chosen body/source-dependent function; aptitude model itself O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE04",
+      "requestLocators": [
+        "../../../../USER_VISION.md#mastery-beyond-advanced-creators-and-rarity-2026-10-02"
+      ],
+      "existingOwnerStatus": "Native milestones and method mastery exist; [research owner](../../../../RESEARCH_LITRPG_SYSTEMS.md) saves comparison proposals",
+      "missingConsumer": "Versioned local benchmark, actual changed target/function and a meaningful comparison consumer; rarity must state scarcity, grade or access meaning",
+      "playerExample": "GX5 beats the teacher's recorded wet-stock result and supports a new accepted order, without claiming best in the universe",
+      "dependenciesAndRequiredness": "GC2/3/8, GP3; R if creator-comparison career selected; ranking/rarity display O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE05",
+      "requestLocators": [
+        "../../../../USER_VISION.md#personal-techniques-incomplete-skills-and-broader-book-inspiration-2026-10-02",
+        "../../../../USER_VISION.md#u06"
+      ],
+      "existingOwnerStatus": "Fragments, knowledge and power mastery have existing typed owners; [ability contract](../../../../worlds/ABILITY_AUTHORING.md) and micro audit distinguish means",
+      "missingConsumer": "Make an incomplete but usable method's supported subset explicit; test a hypothesis, retain failure evidence and publish a specific reusable variant",
+      "playerExample": "GX5 chooses cautious known output, paid reconstruction, teaching or trade; missing steps cannot be faked by a tier label",
+      "dependenciesAndRequiredness": "GC1/2/3, GP3; R for selected invention/fragment path; universal fragment system O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE06",
+      "requestLocators": [
+        "../../../../USER_VISION.md#full-depth-campaigns-and-parallel-specialist-gms-2026-10-03"
+      ],
+      "existingOwnerStatus": "[Assembly owner](../../../../worlds/PROGRESSION_AND_ASSEMBLY.md) is design; native equipment/recipes and fixed workshop are useful; general mounted-component runtime absent",
+      "missingConsumer": "One actual part/mount/mode changes an equipment or work output, with stock/custody, operating support, testing and repair consumers",
+      "playerExample": "GX3's frame holds a crate while one hand sets bracing; operator competence and battery stock remain distinct",
+      "dependenciesAndRequiredness": "GC3/4/5/6, GP4; O technology family by world, R for selected suit career",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE07",
+      "requestLocators": [
+        "../../../../USER_VISION.md#full-depth-campaigns-and-parallel-specialist-gms-2026-10-03",
+        "../../../../USER_VISION.md#ability-variants-and-fine-detail-roles-2026-10-03"
+      ],
+      "existingOwnerStatus": "[Items](../items/ITEM_FAMILY_COVERAGE.md) preserves useful alchemy/equipment and active-device gaps; design/hybrid models are not a physical assembler",
+      "missingConsumer": "Blueprint, object, operating source, anchored target and persistent physical aftermath need exact joins; keep superior protection superior",
+      "playerExample": "GX4 builds a directional ward and earns real storage-protection/care work; a paper sketch cannot protect a doorway",
+      "dependenciesAndRequiredness": "GC3/4/5/6, GP4; O magic family, R for selected artifice career",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE08",
+      "requestLocators": [
+        "../../../../USER_VISION.md#insight-and-wandering-idle-zones-follow-up-2026-10-02",
+        "../../../../USER_VISION.md#broader-gathering-and-character-interactions-2026-10-02"
+      ],
+      "existingOwnerStatus": "[Field design](../../../../WANDERING_ZONES_AND_INSIGHT.md), [resource uses](../../../../GATHERING_AND_RESOURCE_USES.md) and [Regions](../regions/REPORT.md) are qualified proposals beside native gathering",
+      "missingConsumer": "Chosen method changes producer/deposit/access/quality and actual revisit; dated knowledge needs re-survey; funded competition shares one stock",
+      "playerExample": "GX1 chooses intact specimens, bulk production or tending and then supplies a real recipient; no global ecology tax",
+      "dependenciesAndRequiredness": "GC3/5/6/8, GP2; R for selected managed-field path; full food web/map O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE09",
+      "requestLocators": [
+        "../../../../USER_VISION.md#u08",
+        "../../../../USER_VISION.md#u09",
+        "../../../../USER_VISION.md#text-based-play-and-independent-live-events-2026-10-02"
+      ],
+      "existingOwnerStatus": "Seeded committed draws, causal situations, knowledge and jobs exist; general rare-opportunity occurrence/availability policy remains selected-content work",
+      "missingConsumer": "Persist actual occurrence, eligibility, discovery, response window and owner; distinguish chance from physical reach and missed/declined/failed-paid consequences",
+      "playerExample": "GX6 may reach a scarce keeper demonstration, keep ordinary route work instead, or discover afterward why a lesson is unavailable",
+      "dependenciesAndRequiredness": "GC5/6/7/8, GP5; O specific rare opportunity; R non-reroll/retained consequence when selected",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE10",
+      "requestLocators": [
+        "../../../../USER_VISION.md#jojo-universal-thief-and-mechanical-difficulty-2026-10-03",
+        "../../../../USER_VISION.md#u01"
+      ],
+      "existingOwnerStatus": "[Combat](../combat/STATUS_AND_SMALL_INTERACTIONS.md), Powers POW05 and guarded fixed native contest give bounded target rules, not general counter coverage",
+      "missingConsumer": "A counter changes an actual function/target/channel; physical consequences remain. Numeric force, superior abilities and ordinary avoidance stay useful",
+      "playerExample": "GX6 interrupts one maintained wind barrier; ordinary burning brush still needs smothering or a safe detour",
+      "dependenciesAndRequiredness": "GC4/5/6, GP2/4; R for selected threat/counter; universal element/immunity tables O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE11",
+      "requestLocators": [
+        "../../../../USER_VISION.md#power-scale-combinations-and-distinct-world-systems-2026-10-02",
+        "../../../../USER_VISION.md#ability-variants-and-fine-detail-roles-2026-10-03"
+      ],
+      "existingOwnerStatus": "Typed hybrid/lineage and energy policies exist; [micro contracts](../../depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md) already qualify host/ownership/budgets",
+      "missingConsumer": "Compose specific outputs/support, conserve shared constituents/fuel, and declare portable versus local applicability. A source granting instinctive control actually grants it",
+      "playerExample": "GX1's dated survey helps GX3 choose a safe load; GX4 protection plus ordinary stores enables GX5 trials; neither combination duplicates stock/source",
+      "dependenciesAndRequiredness": "GC1/3/4/6, GP4/5; R for selected combination; every-pair compatibility or universal fuel conversion O",
+      "matrix": "VISION_MATRIX.md"
+    },
+    {
+      "id": "GE12",
+      "requestLocators": [
+        "../../../../USER_VISION.md#u02",
+        "../../../../USER_VISION.md#full-depth-campaigns-and-parallel-specialist-gms-2026-10-03",
+        "../../../dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md"
+      ],
+      "existingOwnerStatus": "[Current plan](../../IMPLEMENTATION_PLAN.md), original campaign owner, timeline/society branching assignments own completeness and outcome design; this pass is a consumer extension",
+      "missingConsumer": "Skill maturity must leave changed people, facilities, access, stock or teaching, with useful continuing life and returns. One retired career is not automatic world completion or a reset",
+      "playerExample": "GX1 sustained supplier/restorer, GX3 repair service, GX4 keeper school, GX5 inventor, GX6 failed/declined rescue remain distinct cumulative outcomes",
+      "dependenciesAndRequiredness": "GC8, GP1/5; R for selected world's required path/aftermath IDs; death/succession/reset policies remain separately unselected",
+      "matrix": "VISION_MATRIX.md"
+    }
+  ],
+  "cases": [
+    {
+      "id": "GX1",
+      "name": "mundane field career",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "route and ordinary supply"
+        },
+        {
+          "stage": "developed",
+          "function": "intact sample or bulk production"
+        },
+        {
+          "stage": "mature",
+          "function": "funded stewardship supply and teaching"
+        }
+      ],
+      "originalProposal": true
+    },
+    {
+      "id": "GX2",
+      "name": "level-only simple extraordinary method",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "8-meter object impulse"
+        },
+        {
+          "stage": "developed",
+          "function": "24-meter rescue line"
+        },
+        {
+          "stage": "mature",
+          "function": "80-meter delivery and lifeline service"
+        }
+      ],
+      "originalProposal": true
+    },
+    {
+      "id": "GX3",
+      "name": "load-frame technology career",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "one-hand-free measured lift"
+        },
+        {
+          "stage": "developed",
+          "function": "commissioned combined mode"
+        },
+        {
+          "stage": "mature",
+          "function": "rated heavy repair and service"
+        }
+      ],
+      "originalProposal": true
+    },
+    {
+      "id": "GX4",
+      "name": "anchored magical artifice",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "measured directional ward"
+        },
+        {
+          "stage": "developed",
+          "function": "supported store opening protection"
+        },
+        {
+          "stage": "mature",
+          "function": "larger protection and care school"
+        }
+      ],
+      "originalProposal": true
+    },
+    {
+      "id": "GX5",
+      "name": "incomplete method to invention",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "usable cautious subset"
+        },
+        {
+          "stage": "developed",
+          "function": "paid test and limited conclusion"
+        },
+        {
+          "stage": "mature",
+          "function": "tested personal variant and funded output"
+        }
+      ],
+      "originalProposal": true
+    },
+    {
+      "id": "GX6",
+      "name": "prepared rare opportunity",
+      "stages": [
+        {
+          "stage": "early",
+          "function": "known route saves opportunity time"
+        },
+        {
+          "stage": "developed",
+          "function": "supported exact barrier counter"
+        },
+        {
+          "stage": "mature",
+          "function": "cross-path care delivery and retained alternatives"
+        }
+      ],
+      "originalProposal": true
+    }
+  ],
+  "contracts": [
+    {
+      "id": "GC1",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC2",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC3",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC4",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC5",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC6",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC7",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    },
+    {
+      "id": "GC8",
+      "artifact": "CONSUMER_CONTRACTS.md",
+      "newPublicApi": false
+    }
+  ],
+  "packages": [
+    {
+      "id": "GP1",
+      "priority": 1,
+      "dependsOn": [],
+      "conditionalDependsOn": [],
+      "gaps": [
+        "GE01",
+        "GE02",
+        "GE03",
+        "GE04",
+        "GE12"
+      ],
+      "cases": [
+        "GX1",
+        "GX2",
+        "GX5"
+      ]
+    },
+    {
+      "id": "GP2",
+      "priority": 2,
+      "dependsOn": [
+        "GP1"
+      ],
+      "conditionalDependsOn": [],
+      "gaps": [
+        "GE08",
+        "GE10"
+      ],
+      "cases": [
+        "GX1",
+        "GX6"
+      ]
+    },
+    {
+      "id": "GP3",
+      "priority": 3,
+      "dependsOn": [
+        "GP1"
+      ],
+      "conditionalDependsOn": [],
+      "gaps": [
+        "GE04",
+        "GE05"
+      ],
+      "cases": [
+        "GX3",
+        "GX4",
+        "GX5"
+      ]
+    },
+    {
+      "id": "GP4",
+      "priority": 4,
+      "dependsOn": [
+        "GP1"
+      ],
+      "conditionalDependsOn": [
+        "GP3"
+      ],
+      "gaps": [
+        "GE03",
+        "GE06",
+        "GE07",
+        "GE10",
+        "GE11"
+      ],
+      "cases": [
+        "GX2",
+        "GX3",
+        "GX4",
+        "GX6"
+      ]
+    },
+    {
+      "id": "GP5",
+      "priority": 5,
+      "dependsOn": [
+        "GP1"
+      ],
+      "conditionalDependsOn": [
+        "GP2",
+        "GP3",
+        "GP4"
+      ],
+      "gaps": [
+        "GE09",
+        "GE11",
+        "GE12"
+      ],
+      "cases": [
+        "GX1",
+        "GX5",
+        "GX6"
+      ]
+    }
+  ],
+  "held": [
+    "runtime/shared-plan/source-library/save mutations",
+    "gameplay tests/build/browser work",
+    "new worlds or source policies",
+    "director fiction/balance and future behavior acceptance"
+  ],
+  "staticReceiptOwner": "CHECKPOINT.md"
+}

@@ -1,0 +1,469 @@
+{
+  "reader": "bounded-equipment-shield-trace",
+  "edition": "Tales of Maj'Eyal 1.7.6 base game with paired TE4 engine source",
+  "source_archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871",
+  "scope": "Trace a concrete shield's material combat profile and eligible ego generation through equipment state into Shield Pummel and Block. This is source observation, not an exhaustive item audit or YAIRPG gap claim.",
+  "claims": [
+    {
+      "id": "shield-material-profile",
+      "observation": "BASE_SHIELD is an OFFHAND armor/shield with special_combat.talented='shield', and points its ego pool to egos/shield.lua with prefix and suffix chances each resolved as mbonus(40,5). Five shield bodies step material_level 1 through 5: iron (levels 1-10, STR 11, damage rngavg(7,11), block rngavg(15,25), armor 2), steel (10-20, STR 16, damage 10-20, block 35-45, armor 4), dwarven steel (20-30, STR 24, damage 25-35, block 70-90, armor 6), stralite (30-40, STR 35, damage 40-55, block 130-150, armor 8), and voratun (40-50, STR 48, damage 60-75, block 180-220, armor 10). Each has physcrit rising 2.5 to 5, dammod STR=1, fatigue 8, and wield-grants one level of T_BLOCK. Thus base material_level, generation level_range, equip STR requirement, shield attack damage and block value are distinct fields/scales.",
+      "sources": [
+        {
+          "path": "unpacked/tome-1.7.6/data/general/objects/shields.lua",
+          "symbol": "BASE_SHIELD; iron/steel/dwarven-steel/stralite/voratun shield entities",
+          "sha256": "5fa91b3f8fbdd6b33a8f03b5233a7e3a264eb8c4daffd7175027bc7b8e482d5b",
+          "spans": [
+            [
+              21,
+              135
+            ]
+          ]
+        }
+      ],
+      "inference": "The material ladder produces both stronger shield-based attacks and a larger defensive block payload; object required STR is an explicit gate rather than being inferred from material level."
+    },
+    {
+      "id": "generation-and-ego-scaling",
+      "observation": "The shield's prefix and suffix chances are each resolvers.mbonus(40,5), so neither is a fixed 40%: resolvers.calc.mbonus computes a level-dependent random value up to the stated max plus 5. Zone percent-rolls the resolved chance for the currently attempted ego type; after a success it calls pick_ego and only then chooses another unused type, while the first failed roll terminates the natural-ego loop, so a later suffix/prefix may never be attempted. Types are unique within that pass through picked_etype. Each successful type calls pick_ego, which fetches the shield ego group, applies computeRarities to candidates, then samples one entity. Candidate level_range and rarity affect weighted eligibility; picking an ego is not guaranteed by shield level or material tier. Ego application resolves instant resolvers before merging fields, then re-resolves the composed base object. mbonus_material computes from effective_ego_material_level, else material_level, else 1, with a level-dependent random component multiplied by material level/5 plus the ego's additive amount. The concrete 'reinforced ' prefix is technique-powered, available in ego level range 1-50, rarity 8, and gives special_combat.block mbonus_material(80,20) and wielder.combat_armor mbonus_material(10,1). A shield's generation eligibility range does not itself set ego strength: material resolver and level resolver do that work.",
+      "sources": [
+        {
+          "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+          "symbol": "computeRarities; pick_ego; applyEgo; Zone:makeEntity ego branch",
+          "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa",
+          "spans": [
+            [
+              214,
+              243
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+          "symbol": "pick_ego",
+          "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa",
+          "spans": [
+            [
+              510,
+              528
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+          "symbol": "Zone:applyEgo; natural ego generation and composition",
+          "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa",
+          "spans": [
+            [
+              533,
+              557
+            ],
+            [
+              652,
+              724
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/resolvers.lua",
+          "symbol": "resolvers.calc.mbonus_material",
+          "sha256": "250b5bdfc365cde762fbce6cfcecded14a0d37b2e10bfb7db06d2ef32ea87431",
+          "spans": [
+            [
+              626,
+              649
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/general/objects/egos/shield.lua",
+          "symbol": "reinforced ego",
+          "sha256": "085ea149c028eff5374fcd7c9f6c9e9a2a478cd12e1536fcb7d128c20ec4d197",
+          "spans": [
+            [
+              393,
+              408
+            ]
+          ]
+        }
+      ],
+      "inference": "Generation's level range influences rarity eligibility; the realized shield material level independently scales material-aware ego values. No sampled numeric ego result is asserted."
+    },
+    {
+      "id": "equip-and-remove-state",
+      "observation": "Actor:onWear applies every object.wielder entry as an actor temporary value and stores identifiers on the object; it separately calls learnItemTalent for each wielder.learn_talent entry. Actor:onTakeoff delegates inventory removal, removes the recorded temporary values, clears wielded bookkeeping, and calls unlearnItemTalent for those item-granted talents. Thus wearing a shield grants Block and its armor/fatigue, and taking it off retracts those effects/talent grant. Combat:hasShield reads OFFHAND then MAINHAND, rejects disarmed actors, recognizes an item by shield combat fields, and returns the corresponding special_combat record; with neither a valid equipped shield nor shield-combat data it returns nil. Shield skills fail pre-use when this live check finds no shield. learnItemTalent records ranks it personally grants and surplus ranks separately when raw talent rank is already at cap, flags personally learned ranks no_unlearn, and sets an initial cooldown only if none exists (ceil(cooldown/1.5)); unlearnItemTalent first deactivates an active talent, then consumes surplus before removing a granted rank. A pre-existing cooldown is preserved. The source comment at 5176 says fresh item talents do not start on cooldown, which conflicts with the executable assignment at 5196-5199; this reader follows the code path and records the comment/code discrepancy rather than treating the comment as current behavior. Talent grant counts are aggregate per talent rather than a source-specific rank ledger: repeated grants increment item_talent_levels_learnt or item_talent_surplus_levels, and each takeoff removes the grant count it declares.",
+      "sources": [
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "Actor:onWear",
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+          "spans": [
+            [
+              4549,
+              4552
+            ],
+            [
+              4630,
+              4638
+            ],
+            [
+              4697,
+              4702
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "Actor:onTakeoff",
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+          "spans": [
+            [
+              4718,
+              4725
+            ],
+            [
+              4814,
+              4824
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorInventory.lua",
+          "symbol": "ActorInventory:onTakeoff",
+          "sha256": "363d34dc551e83cdbef6477cb5fbbc8ee1814e055a4f6fe358232488c8e926eb",
+          "spans": [
+            [
+              601,
+              618
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "Combat:hasShield",
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+          "spans": [
+            [
+              2548,
+              2573
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "Actor:learnItemTalent; Actor:unlearnItemTalent",
+          "spans": [
+            [
+              5176,
+              5200
+            ],
+            [
+              5202,
+              5221
+            ]
+          ],
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        }
+      ],
+      "exception": "A disarmed actor is treated as having no shield even while an item occupies a shield slot. An item without its expected combat data is also rejected as a shield. The source comment/code disagreement is noted above; the executable code assigns an initial cooldown when none exists, and leaves an existing cooldown unchanged. The shield's Block hard cap is one. The engine also comments that item-talent bookkeeping has no sanity checks. The engine tracks counts per talent, not which exact rank came from which item."
+    },
+    {
+      "id": "shield-pummel-consumer",
+      "observation": "Shield Pummel requires a target, costs 8 stamina, has cooldown 6, and its pre-use gate requires hasShield(). At execution it obtains the current shield special combat data, rechecks the shield, validates a projectable target, performs two attacks against that same shield combat record using talent scaling parameters base/max 1.0/1.7 and 1.2/2.1 (with half the Shield Expertise level added to the talent-level input), and attempts stun only if the second attack hits. Missing shield returns nil with a message; missing/invalid target returns nil. Shield base special_combat dam/dammod/physcrit feed this shield attack record, while the block statistic is consumed by Block instead. combatTalentWeaponDamage evaluates base + (max-base)*sqrt((talent_level + expertise/2)/5), so the displayed max values are not hard caps and effective mastery can raise the multiplier above them.",
+      "sources": [
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+          "symbol": "T_SHIELD_PUMMEL",
+          "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea",
+          "spans": [
+            [
+              22,
+              71
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "Combat:hasShield",
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+          "spans": [
+            [
+              2559,
+              2572
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "Combat:combatTalentWeaponDamage",
+          "spans": [
+            [
+              1834,
+              1841
+            ]
+          ],
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13"
+        }
+      ],
+      "exception": "A target can pass pre-use while shield is equipped, then a missing shield at action time still returns without performing attacks; an invalid target likewise returns without applying the pummel."
+    },
+    {
+      "id": "block-consumer",
+      "observation": "Block is an item talent with cooldown 8, shield action speed, one hard-capped point and a shield pre-use requirement. Its action reads current shield special combat block through combatShieldBlock and stores that value as a two-turn BLOCKING effect. combatShieldBlock sums block from recognized shield combat entries and actor block_bonus; shield_windwall conditionally adds its value when hostile-projectile checks do not early-return. Block's tooltip states non-Mind damage reduction, and the effect metadata carries blocked damage types, shield properties and from_block provenance. Consequently base shield block plus a reinforced ego's special_combat.block changes Block's payload; the ego's wielder armor applies independently while equipped. The actual downstream consumer is DamageType's damage projector: when damage remains positive and target.block is active, it calls EFF_BLOCKING.do_block and replaces incoming damage with that function's returned remainder. BLOCKING rejects self-inflicted damage and unblocked types, subtracts eff.power with a zero floor, applies any type bonus multiplier, calls equipped shields' on_block hooks, can heal or reflect blocked damage, and can grant counterstrike on a full block (or when incomplete blocks are allowed). It marks did_block and fires callbackOnBlock.",
+      "sources": [
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/misc/objects.lua",
+          "symbol": "T_BLOCK",
+          "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2",
+          "spans": [
+            [
+              250,
+              276
+            ],
+            [
+              318,
+              345
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "Combat:combatShieldBlock",
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+          "spans": [
+            [
+              2575,
+              2600
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/general/objects/egos/shield.lua",
+          "symbol": "reinforced ego",
+          "sha256": "085ea149c028eff5374fcd7c9f6c9e9a2a478cd12e1536fcb7d128c20ec4d197",
+          "spans": [
+            [
+              393,
+              408
+            ]
+          ]
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/timed_effects/physical.lua",
+          "symbol": "EFF_BLOCKING.do_block; activate/deactivate",
+          "spans": [
+            [
+              2305,
+              2314
+            ],
+            [
+              2325,
+              2376
+            ],
+            [
+              2378,
+              2385
+            ]
+          ],
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/damage_types.lua",
+          "symbol": "DamageType projector block consumer",
+          "spans": [
+            [
+              409,
+              415
+            ]
+          ],
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "Actor:learnItemTalent; Actor:unlearnItemTalent",
+          "spans": [
+            [
+              5176,
+              5221
+            ]
+          ],
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        }
+      ],
+      "exception": "If combatShieldBlock has no recognized combat shield it returns nil, and Block's getBlockValue normalizes that to zero; the Block action itself remains gated by hasShield. The windwall special branch can return early when a qualifying friendly source is found in the inspected projectile scan."
+    }
+  ],
+  "semantically_read_ranges": [
+    {
+      "path": "unpacked/tome-1.7.6/data/general/objects/shields.lua",
+      "purpose": "Base shield template and all five material stat entries.",
+      "spans": [
+        [
+          21,
+          135
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/general/objects/egos/shield.lua",
+      "purpose": "Ego file headers/example material-aware ego declarations and reinforced ego.",
+      "spans": [
+        [
+          1,
+          35
+        ],
+        [
+          315,
+          408
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+      "purpose": "Shield Pummel and Block-adjacent shield defense definitions; only Shield Pummel from requested consumer scope is traced fully.",
+      "spans": [
+        [
+          20,
+          72
+        ],
+        [
+          192,
+          345
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+      "purpose": "Live equipped-shield resolver and block aggregation.",
+      "spans": [
+        [
+          2548,
+          2600
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+      "purpose": "Wear/takeoff effect and granted-talent application/removal.",
+      "spans": [
+        [
+          4549,
+          4715
+        ],
+        [
+          4718,
+          4824
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/misc/objects.lua",
+      "purpose": "Block gates, payload computation and effect application.",
+      "spans": [
+        [
+          250,
+          345
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/resolvers.lua",
+      "purpose": "Material-aware random ego stat resolver.",
+      "spans": [
+        [
+          626,
+          650
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+      "purpose": "Rarity/level-range processing, ego selection, merging and natural chance loop.",
+      "spans": [
+        [
+          214,
+          243
+        ],
+        [
+          294,
+          316
+        ],
+        [
+          342,
+          380
+        ],
+        [
+          510,
+          557
+        ],
+        [
+          652,
+          724
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/ActorInventory.lua",
+      "purpose": "Inventory-state removal entry point delegated by Actor:onTakeoff.",
+      "spans": [
+        [
+          601,
+          618
+        ]
+      ]
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/damage_types.lua",
+      "spans": [
+        [
+          400,
+          418
+        ]
+      ],
+      "purpose": "Incoming damage pipeline calls BLOCKING and uses its returned damage remainder."
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+      "spans": [
+        [
+          5176,
+          5221
+        ]
+      ],
+      "purpose": "Item-granted talent rank bookkeeping, cooldown behavior, active-talent removal and surplus-rank handling."
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+      "spans": [
+        [
+          1834,
+          1841
+        ]
+      ],
+      "purpose": "Weapon-damage talent scaling formula explains why nominal max values are not hard caps."
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/resolvers.lua",
+      "spans": [
+        [
+          679,
+          692
+        ]
+      ],
+      "purpose": "Level-dependent mbonus resolver used by prefix/suffix ego chance fields."
+    }
+  ],
+  "unknowns_and_limits": [
+    "No random seed or generated item instance was inspected, so no specific ego outcome, resolved numeric bonus, or actual drop is claimed.",
+    "The source calculation uses level and material inputs but balance distributions were not simulated.",
+    "This reader did not inspect DLC modules, randart behavior, or every shield ego, and does not claim full ToME coverage.",
+    "No YAIRPG owner modules were read in this bounded source-reader task; mapping and current-gap decisions remain with the parent/canonical owner."
+  ],
+  "original_behavior_ideas": [
+    "A shield-bearing character can learn one temporary defensive move from the currently equipped object, but removing that object also removes the granted move; treat learned ownership and active equipment requirement as separate explicit state so the UI can explain a failed action.",
+    "Let a material tier affect both an item's baseline attack/block profile and the scale of a separately rolled modifier, then have one real combat action consume the exact equipped item's resulting stat. Keep generation chance, eligibility band, and realized modifier magnitude visible as distinct concepts."
+  ],
+  "validation": {
+    "written_bytes": "Parent-requested correction applied; JSON parse verified.",
+    "tests_or_builds_run": false
+  }
+}

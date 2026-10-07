@@ -1,0 +1,2212 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-06",
+  "steam_app_id": 1546320,
+  "steam_build_id": "25001959",
+  "delivery_state": "finite selected five-family research complete; runtime and whole-game coverage unverified",
+  "definitions": {
+    "source-inspected-selected": "Actual decoded data plus selected native body/disassembly consumers; exact bounds in COVERAGE, not every subsystem.",
+    "installed-primary-help": "Installed authored explanation; formula/behavior not assumed fully executable-reviewed.",
+    "primary-documentation-only": "Publisher store/announcement claims, not installed/native coverage.",
+    "metadata-declaration-only": "Identity/token/field/RVA evidence, never a method body.",
+    "original-proposal": "Unselected YAIRPG adaptation or broader design implication, not source/game fact."
+  },
+  "selected_traces": [
+    {
+      "id": "YC-T-TRAINING",
+      "name": "Training buys practical help, then actual craft changes a companion",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Father alive; preceding solo training cleared, Rank10/20/30/40 gates; last talk and Repairsmith agreement required for invitation."
+      ],
+      "decision": [
+        "Train first, pay subsequent Father conversations, invite him, then fund and fit a crafted arm."
+      ],
+      "cost_and_time": [
+        "Training unlock costs100/150/200/250Destiny. H conversations2000+2100+2200Destiny; invitation2300. Arm route7000+7500Destiny,10Mithril+30MP, then actual arm+8000Destiny. Combat completion time not fixed by the table; no live campaign timing measured."
+      ],
+      "mutations": [
+        "First clears grant action regeneration; final conversations grant HabitEfficiency and Destiny capacity; invite makes npcD available; arm crafting removes npcD, fitting makes npcD2 available."
+      ],
+      "downstream_consumers": [
+        "Changed companion stamina/element/Destiny stats and attack data; MainFlag hasFather; ChronicleE guide among other actor/gem requirements."
+      ],
+      "failure_and_aftermath": [
+        "Failure/noncompletion blocks later conversations; father-dead flag blocks the chain. Accompaniment availability is distinct from allocating an occupied party slot."
+      ],
+      "limits": [
+        "No live father fight or full damage/save behavior. ChronicleE actual ending gate is separate finale-branch predicate. Data locators:pathID60records26\u201329,115records65\u201382/1931\u20131934,83records8\u20139,99record13."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-CAREER",
+      "name": "Early career commitment versus costly Elemental Master alternative",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Elemental unlocks, sequential lessons and Rank50; four fifth lessons; earlier careers and Elemental Master mutually exclude each other."
+      ],
+      "decision": [
+        "Take Rank35 career power earlier, or invest130units per element and5000Destiny into later specialization; choose spirit-root intervention."
+      ],
+      "cost_and_time": [
+        "Early career costs2300/2700Destiny; final root spell30each of four elements. Learning boosts capacity/regeneration routine speed. Later fights/actions still required; no fabricated minutes."
+      ],
+      "mutations": [
+        "Title/capacity/regeneration and mutually locked routes; spirit intervention locks sword/gem substitutes and reveals a weakened encounter."
+      ],
+      "downstream_consumers": [
+        "Weakened Demon King, aftermath and later Mutant/castle steps feed endingD; specialization supplies a specific alternative rather than universal power."
+      ],
+      "failure_and_aftermath": [
+        "Earlier career choice closes specialist route; unprepared capacity or missing lessons cannot pay root magic; later combat still needs success."
+      ],
+      "limits": [
+        "Source narrative resurrection statement is not a separately observed revival simulation. pathID130records9\u201312;115records17\u201323/1057\u20131076/2033\u20132040/2081/2087\u20132093;60records18\u201319."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-ROUTES",
+      "name": "Eight route guides, explicit terminal predicates and differentiated clear rewards",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Guide flags/restrictions, actual current UpgradeAction prerequisites, supplementary flow dependencies and Pride restriction where authored remain distinct."
+      ],
+      "decision": [
+        "Choose committed departure/career/companion/Justice-or-Destiny/help/sword/gem/spirit branches; complete one authored ending action."
+      ],
+      "cost_and_time": [
+        "Taking Norn50Destiny+2sandwiches+40firewood; leaving-alone branch requires1700Destiny refusal then2000Destiny+1sandwich+20firewood. Terminal ending rows have no extra Cost; prior branch expenditure remains real. Every main Chronicle MaxClearNum5."
+      ],
+      "mutations": [
+        "Branches lock alternatives; school enrollment consumes200Gold and removes companion availability; endings declare ClearChronicle, achievement and reincarnation unlock."
+      ],
+      "downstream_consumers": [
+        "Eight guide rows; terminal predicates reviewed by root; first/each/full-clear bonuses differ and feed capacity/regeneration/title/ritual/currency/queue-slot consumers. Chronicle.PayReward guards paid count against current/max count, CalculateAllReward selects each/first/max groups."
+      ],
+      "failure_and_aftermath": [
+        "A guide list alone does not prove an ending can be clicked. Source endings A/B/C/F final predicates are now inspected, but preceding complete route/flow choreography remains unread. Reward persistence/rollback not tested."
+      ],
+      "limits": [
+        "Terminal condition/effect rows alone do not prove all preceding campaigns. See ROOT_REVIEW ending records and Chronicle selected native bonus groups; most story actions unreviewed."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-C7-TREATMENT",
+      "name": "Ordinary medicine reaches a costly late rescue decision",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Specific C7 aftermath; available medicine and discovered production materials. Treatment choices mutually exclude one another."
+      ],
+      "decision": [
+        "Use ordinary Potion, HolyWater, a costly Elixir, or the no-supply option; accept distinct aftermath."
+      ],
+      "cost_and_time": [
+        "Medicine4Herb/duration4; Potion6Water+3Medicine/duration10. Elixir baseDuration40, initial25MP+50SpiritWater+10DragonClaw+6Mandragora+5Potion+5HolyWater+1GoddessBlessing, progress1Action, output1. Effective time depends on speed; no live measurement."
+      ],
+      "mutations": [
+        "Treatment consumes chosen stock. Potion/HolyWater fail and later text records death; Elixir heals body but leaves unconscious, unlocks evacuation and paid family/OldWoman scenes."
+      ],
+      "downstream_consumers": [
+        "Earlier gathering/crafting feeds an earned less terminal narrative alternative; retained later dialogue reflects actual choice, not a free retry."
+      ],
+      "failure_and_aftermath": [
+        "No-treatment available only without the three relevant supplies; failed medicine is spent; Elixir is not evidence of full cure or later rejoining."
+      ],
+      "limits": [
+        "Selected native OnClick and typed data support costs/locks; full battle, medical-stat simulation and later cure remain unread. pathID88record8 and80records222\u2013231."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-A13-WORK",
+      "name": "Old research funds late cooperation with a temporary contributor",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Selected A13 graph edges attach full-completion prerequisites despite empty CSV Requires; earlier access before PickG2 unreviewed."
+      ],
+      "decision": [
+        "Trade stones, accept Fili temporarily, spend large research through chores, then complete the handoff."
+      ],
+      "cost_and_time": [
+        "Stone rows consume20base then20each elemental twice; G3cost30Fate. G4rows spend50\u201390billionresearch across1\u20135species; final30Fate. No fixed duration field or measured campaign waiting."
+      ],
+      "mutations": [
+        "Stone bonuses improve subsequent collection; Fili available with research amount/chance passives; later final action removes her while retaining authored drop-chance gains."
+      ],
+      "downstream_consumers": [
+        "Familiar research remains a late narrative/economic input; passive contributor affects acquisition before later spending. FlowSetter/UpgradeActionVertex materialize directed-edge conditions."
+      ],
+      "failure_and_aftermath": [
+        "Cannot skip full completed graph predecessor merely because CSV Requires empty; helper availability is temporary, no universal permanent party bonus."
+      ],
+      "limits": [
+        "Selected five edges and G2\u2013G4, not all A13 story/flows. pathID78records167\u2013179,83record10,104edges140/191/193/195/197."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-REPLAY-MARK",
+      "name": "Route commitments retain penalties and earn later bypasses",
+      "status": "source-inspected-selected",
+      "prerequisites": [
+        "Trained Norn tiers,15Fate help/enemy choice and DemonKing scene; C8 accepts a sealed mark or already earned costly shortcut."
+      ],
+      "decision": [
+        "Commit to help and reconciliation; manage the resulting mark; on a later earned replay use the shortcut."
+      ],
+      "cost_and_time": [
+        "Help/enemy15Fate each, mutually exclusive. Mark suppression1Sin. easyMark200000Inspiration and already clearedH; no initial bypass. Temporary DemonKing passives+1000%DarkRitual but-100%InspirationGain/-100%SacredRitual."
+      ],
+      "mutations": [
+        "Norn joins trained form; DemonKing temporarily available; betrayal removes Norn, orb destruction removes DemonKing. Goddess mark imposes capacity/rate costs; suppression creates sealedMark; later healing consumes it."
+      ],
+      "downstream_consumers": [
+        "G/H route guide/terminal predicates, resource carryover flags and later replay convenience; remembered access/earned bypass are distinct from currently held resource."
+      ],
+      "failure_and_aftermath": [
+        "A powerful recruit can suppress ordinary progress; temporary party availability ends with story; the Elixir branch does not invent a cure; retained mark can be a constraint."
+      ],
+      "limits": [
+        "Full application/rate parser topology and entire C7/C8 chronology are not audited. Resource mark native-retention join has its own qualified evidence."
+      ],
+      "evidence": {
+        "semantic_coverage": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/semantic-coverage.json",
+          "sha256": "4913fe89b3bd65f5f53651c210c6247c817b3ff63b13bbb57eae049efafbdce6"
+        },
+        "native_review": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/native-review.json",
+          "sha256": "964dfbdcdf9d185e64587d1d1ed16b16854d9ab3501c34cc9ac7297bcb1916ef"
+        },
+        "flow_edges": {
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/selected-flow-edges.json",
+          "sha256": "1f2e90855ab8143504ac605a2435efaf2ad0a557ad8a9a6e656d817757d89a7f"
+        },
+        "analytical_note": "traces/NARRATIVE.md"
+      }
+    },
+    {
+      "id": "YC-T-PARTY",
+      "status": "native-and-decoded-data-source-reviewed",
+      "prerequisite": "ally-specific research and remaining level/luck headroom",
+      "decision": "spend summon research manually or reserve limited auto-summon slot",
+      "cost": "signed SummonCost per actual completed quantity; duration10 cadence for selected automation",
+      "mutations": [
+        "Obtained",
+        "Level to max",
+        "LuckLevel after Level",
+        "research stock debit",
+        "summon result count"
+      ],
+      "consumers": [
+        "eligible party-luck research drop multiplier",
+        "later research purchases",
+        "maxed-ally achievement high-water mark"
+      ],
+      "failure": "unaffordable or no headroom returns without payment; auto uses same spending gates",
+      "limits": [
+        "pin-to-container reorder not reviewed",
+        "full party luck aggregation not reviewed",
+        "Dark Ritual Ally Completion formula documented in Help only here"
+      ],
+      "original_leaf_id": "YC-party-research-luck",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/EVIDENCE.json",
+        "sha256": "fdc6e77fcfb2f5b8f5e232b8a467165a56d8729cb4e7af52deef0dd40c75fdf2"
+      },
+      "data_evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/DATA_LOCATORS.json",
+        "sha256": "e8c52c20a2fb6a0a6f4fc88be73bd733e5b82c7de7f1a52a8537823b0a3670a1"
+      },
+      "analytical_note": "traces/PARTY_AND_EQUIPMENT.md"
+    },
+    {
+      "id": "YC-T-SKILL-FALLBACK",
+      "status": "native-and-decoded-data-source-reviewed",
+      "prerequisite": "available learned skill; ordinary rank/attribute UI filtering or CanEquipAllSkill bypass",
+      "decision": "save one skill assignment for ally",
+      "cost": "resource cost per selected attack, interval retained in skill row",
+      "mutations": [
+        "per-ally preferredSkills save entry",
+        "cost stock consumed when paid",
+        "lastUsed_Skill for continuation"
+      ],
+      "consumers": [
+        "DefaultSkillCombination.SelectSkill",
+        "Base_SkillCombination.GetNextSkill pays selected cost"
+      ],
+      "failure": "lack cost selects default without deleting assignment; conditional/initial/continuation exceptions exist",
+      "limits": [
+        "click path itself lacks prerequisite recheck",
+        "full damage/effect consumer unreviewed",
+        "Base_Attack_Skill dedup body unresolved"
+      ],
+      "original_leaf_id": "YC-party-assigned-skill-fallback",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/EVIDENCE.json",
+        "sha256": "fdc6e77fcfb2f5b8f5e232b8a467165a56d8729cb4e7af52deef0dd40c75fdf2"
+      },
+      "data_evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/DATA_LOCATORS.json",
+        "sha256": "e8c52c20a2fb6a0a6f4fc88be73bd733e5b82c7de7f1a52a8537823b0a3670a1"
+      },
+      "analytical_note": "traces/PARTY_AND_EQUIPMENT.md"
+    },
+    {
+      "id": "YC-T-EQUIPMENT",
+      "status": "native-source-reviewed-selected-chain",
+      "prerequisite": "uniqueEquipment element released; dungeon shard rewards; unequipped unfavorited discarded gear; typed powder for retained target",
+      "decision": "keep/equip/favorite versus confirm destruction; consume matching powder to improve another passive",
+      "cost": "1000 glowing shards per conversion attempt; destroyed object; optional Powder+ stock; typed powder debit",
+      "mutations": [
+        "generated gear inserted if capacity permits",
+        "destroyed object removed from dictionary/save and LevelEffect client",
+        "matching powder credited",
+        "retained passive innerLevel incremented and saved"
+      ],
+      "consumers": [
+        "passive inner-level multiplier composes with piece-level calculation",
+        "inventory capacity for future acquisition"
+      ],
+      "failure": "static drop-converter path debits1000 before Add rejects at full capacity; no refund in selected chain; deletion disallows equipped or favorite pieces; upgrade rejects insufficient powder",
+      "limits": [
+        "no live cap-loss reproduction",
+        "precise drop probability and enemy kill exp caller unreviewed",
+        "full effect-generation distribution unreviewed",
+        "other acquisition callers can capacity-check"
+      ],
+      "original_leaf_id": "YC-secondary-equipment-reinvestment",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/EVIDENCE.json",
+        "sha256": "fdc6e77fcfb2f5b8f5e232b8a467165a56d8729cb4e7af52deef0dd40c75fdf2"
+      },
+      "data_evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/DATA_LOCATORS.json",
+        "sha256": "e8c52c20a2fb6a0a6f4fc88be73bd733e5b82c7de7f1a52a8537823b0a3670a1"
+      },
+      "analytical_note": "traces/PARTY_AND_EQUIPMENT.md"
+    },
+    {
+      "id": "YC-T-RETENTION",
+      "name": "Habit allocation earns class points, shallow retention and renewed class speed",
+      "status": "selected_native_semantics_reviewed; runtime_unverified",
+      "prerequisites": [
+        "Routine must be released, pass CanAllocateAgentList and restrictions. Routine.Requires also accepts a saved unlocked_ability flag or its require-condition list. Story acquisition of class-school access is outside this leaf review.",
+        "Unused Habit must be positive. HabitPlus_Click.IsMet checks remaining Habit; the Plus helper returns without change when none remain and clips requested allocation to available amount."
+      ],
+      "decision": [
+        "Allocate scarce Habit to an available Warrior routine instead of another routine; manual and automatic assignments sum into actual AgentNum.",
+        "Wait and train through repeated completions; decide when to Dark Ritual rather than assuming every trained level is permanent."
+      ],
+      "cost_and_time": [
+        "Allocated Habit is unavailable to other routines until reassigned; ApplyRemain recomputes cap minus summed allocations.",
+        "Warrior1=RoutineKind101 uses an interval parameter50 progress units, awards warriorPoint=ResourceKind111 with value1 per completion, and uses linear cost factor parameters0,1,0. Actual completion time depends on allocated Habit, HabitEfficiency and routine-specific multiplier; no live timeline measured.",
+        "GetProgress divides power by30 per online call, pays/checks cost when not already Paid, advances CurrentExp only on its permitted branch, gives the completion effect at interval, calls SliderFullAction and clears current progress/Paid. Installed Help documents a30 completions/sec maximum."
+      ],
+      "mutations": [
+        "SliderFullAction increments run-local Level in SaveR.levels_ability and PermanentLevel in Save.levels_ability, then executes the authored slider-max callback list.",
+        "ClassRoutine.Talent = P/(P+100000)+0.1*S, where P is the current class-point resource and S is the run-local accumulated class sum. DarkRitualFactor returns this talent component.",
+        "On shallow reset, ClassRoutineContainer adds P/(P+100000) to class sum and zeroes class-point resource. WarriorAbility.ValueSum is SaveR.warrior_ability_sum0x140.",
+        "Each Class_Routine.AddSumLevel adds min(current Level,10000) to SaveR.subLevels_ability[kind], clamping0..100000. It does this before Habit_Routine.AscendedAction resets current level/progress when ToResetAfterAscend is true."
+      ],
+      "downstream_consumers": [
+        "Class_Routine.Power multiplies base habit power by1+SumLevel/100000, giving at most+10 percentage points of proficiency per shallow reset and+100% overall. The cap is native-verified, not merely copied from Help.",
+        "The selected StatsFactorRegister callback b__0_62 returns1+Warrior.DarkRitualFactor; AscendCtrl.GetTalent consumes the assembled DarkRitual stats multiplicative result. The exact full parent stats-registration entry is not exhaustively traced.",
+        "Persistent routine completion counts are distinct from retained proficiency. Root separately reviewed AhaContentsList275-346: PermanentLevel<=0 excludes the routine from its list. This leaf confirms the producer and persistent field, not the AHA list consumer itself."
+      ],
+      "failure_and_aftermath": [
+        "No unused Habit produces no allocation. Restricted/unreleased routines fail their allocation eligibility predicate; the complete UI wiring of all restriction owners is not audited here.",
+        "Extra current level above10000 contributes no additional proficiency at that shallow reset; accumulated proficiency above100000 is clamped. Extra Habit beyond the documented fill cap has no further rate effect.",
+        "Class-point sums and proficiency belong to SaveR, so they survive Dark Ritual but are discarded by the inspected deep SaveR replacement. Permanent completion records live in Save and are a different retained carrier."
+      ],
+      "native_evidence": [
+        {
+          "id": "HabitPlus_Click.IsMet",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/HabitPlus_Click.txt",
+          "lines": [
+            5,
+            64
+          ],
+          "rva": "0x81EBC0",
+          "sha256": "308f9cc2ff9f01022c93d5c94f99b821bcf84ea3a102497606f7dbc79c55623c"
+        },
+        {
+          "id": "HabitPlus_Click.OnClick",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/HabitPlus_Click.txt",
+          "lines": [
+            132,
+            218
+          ],
+          "rva": "0x81ECA0",
+          "sha256": "308f9cc2ff9f01022c93d5c94f99b821bcf84ea3a102497606f7dbc79c55623c"
+        },
+        {
+          "id": "IAgentAccepterExtension.Plus",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/IAgentAccepterExtension.txt",
+          "lines": [
+            5,
+            184
+          ],
+          "rva": "0x6CFA10",
+          "sha256": "624e547740e97bbda36ed053b0af9e9da0be7e82373f966d250826551abadde2"
+        },
+        {
+          "id": "HabitCtrl.ApplyRemain",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/HabitCtrl.txt",
+          "lines": [
+            538,
+            671
+          ],
+          "rva": "0x6BE2A0",
+          "sha256": "c032c8cedd47d3c73653e2a80371c6e6fe736466b6daf944da1067c17b9ff53e"
+        },
+        {
+          "id": "Routine.CanAllocateAgent",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Routine.txt",
+          "lines": [
+            1132,
+            1164
+          ],
+          "rva": "0x819640",
+          "sha256": "b11b8c2a84b9f3161a6bdb93462ee2712f523aa0a86b4d7f6e9898e1bcf3cf65"
+        },
+        {
+          "id": "Routine.get_AgentNum",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Routine.txt",
+          "lines": [
+            1208,
+            1221
+          ],
+          "rva": "0x818AB0",
+          "sha256": "b11b8c2a84b9f3161a6bdb93462ee2712f523aa0a86b4d7f6e9898e1bcf3cf65"
+        },
+        {
+          "id": "Routine.Requires",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Routine.txt",
+          "lines": [
+            2302,
+            2390
+          ],
+          "rva": "0x819D80",
+          "sha256": "b11b8c2a84b9f3161a6bdb93462ee2712f523aa0a86b4d7f6e9898e1bcf3cf65"
+        },
+        {
+          "id": "Routines_Warrior_NestedType_Warrior1.SetParameters",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Client/Routines_Warrior_NestedType_Warrior1.txt",
+          "lines": [
+            100,
+            208
+          ],
+          "rva": "0x557870",
+          "sha256": "213f4aec203463519da707cca3a54eacdb9a8863a41d5b6e29a9c0e3eb7f3551"
+        },
+        {
+          "id": "Habit_Routine.GetProgress",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Habit_Routine.txt",
+          "lines": [
+            699,
+            944
+          ],
+          "rva": "0x81BD50",
+          "sha256": "4921c6ceb75d9dfa7feb4f12abc107c9478424e2b130be41b4a6b480593c62c9"
+        },
+        {
+          "id": "Habit_Routine.SliderFullAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Habit_Routine.txt",
+          "lines": [
+            2825,
+            2882
+          ],
+          "rva": "0x81C610",
+          "sha256": "4921c6ceb75d9dfa7feb4f12abc107c9478424e2b130be41b4a6b480593c62c9"
+        },
+        {
+          "id": "Habit_Routine.Power",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Habit_Routine.txt",
+          "lines": [
+            3034,
+            3167
+          ],
+          "rva": "0x81D120",
+          "sha256": "4921c6ceb75d9dfa7feb4f12abc107c9478424e2b130be41b4a6b480593c62c9"
+        },
+        {
+          "id": "ClassRoutine.Talent",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ClassRoutine.txt",
+          "lines": [
+            5,
+            54
+          ],
+          "rva": "0x6E55B0",
+          "sha256": "bb57c847b1f0808a9b1972a6171972055209b9078199c0c70280ca6032a0ab68"
+        },
+        {
+          "id": "ClassRoutine.AscendedAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ClassRoutine.txt",
+          "lines": [
+            916,
+            942
+          ],
+          "rva": "0x6E5BB0",
+          "sha256": "bb57c847b1f0808a9b1972a6171972055209b9078199c0c70280ca6032a0ab68"
+        },
+        {
+          "id": "Class_Routine.AddSumLevel",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Class_Routine.txt",
+          "lines": [
+            287,
+            346
+          ],
+          "rva": "0x6E7C30",
+          "sha256": "5df5be1e961bf515d39fa46b7d299af6446f06d4a49958531a8c855df72e1e1d"
+        },
+        {
+          "id": "Class_Routine.Power",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Class_Routine.txt",
+          "lines": [
+            419,
+            463
+          ],
+          "rva": "0x6E7D10",
+          "sha256": "5df5be1e961bf515d39fa46b7d299af6446f06d4a49958531a8c855df72e1e1d"
+        },
+        {
+          "id": "Class_Routine.AscendedAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Class_Routine.txt",
+          "lines": [
+            521,
+            535
+          ],
+          "rva": "0x6E7DB0",
+          "sha256": "5df5be1e961bf515d39fa46b7d299af6446f06d4a49958531a8c855df72e1e1d"
+        },
+        {
+          "id": "WarriorAbility.get_ValueSum",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/WarriorAbility.txt",
+          "lines": [
+            191,
+            213
+          ],
+          "rva": "0x6E5E90",
+          "sha256": "1e358a57c6b622030309fd8e773754c9aca53db43e9f8051fe607dcfd648dec4"
+        },
+        {
+          "id": "Routine.get_PermanentLevel",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Routine.txt",
+          "lines": [
+            815,
+            886
+          ],
+          "rva": "0x8193F0",
+          "sha256": "b11b8c2a84b9f3161a6bdb93462ee2712f523aa0a86b4d7f6e9898e1bcf3cf65"
+        }
+      ],
+      "help_rows": [
+        "routine",
+        "class_routine"
+      ],
+      "original_leaf_id": "YC-R01",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-retention/EVIDENCE.json",
+        "sha256": "d41cdada8358c6a6efc674e002686cc2434e4ba52c622fccfae6df5887d97762"
+      },
+      "analytical_note": "traces/RETENTION.md"
+    },
+    {
+      "id": "YC-T-SHALLOW-RESET",
+      "name": "Dark Ritual refreshes routine/rank growth without replacing campaign state",
+      "status": "selected_native_semantics_reviewed; callbacks_partial; runtime_unverified",
+      "prerequisites": [
+        "AscendCtrl.Available requires DarkRitualIsRestricted=false and saved timeFromLastAscend>=3600 seconds. DoShallowAscend checks this first and returns before reset when false. This is a real source timer, not a guessed campaign timeline."
+      ],
+      "decision": [
+        "Perform the shallow ritual when available, selecting a tradeoff between current trained/rank power and the currently earned next talent."
+      ],
+      "cost_and_time": [
+        "One-hour minimum native timer; many rates and next-talent factors can change what is earned during that hour. No exact travel/story duration is inferred.",
+        "Installed Help documents rank reset to0 and basic routine levels reset to0 except Energy. Native Habit_Routine reset is controlled per routine by ToResetAfterAscend; the Energy master-data flag itself was not independently checked here."
+      ],
+      "mutations": [
+        "The method runs beforeAscendActionList callbacks, then sets Save.talentFactor0x618 to GetTalent rather than adding to existing talent, and resets timeFromLastAscend0x30.",
+        "It adds current Exp resource to saved exp_sum_in_one__reincarnation0x7F8 and exp_sum_in_this_run0x800 before zeroing the current Exp resource, then calls JudgeSacredRitual.JudgeRank and Will_Information.AscendedAction.",
+        "It runs the normal ascendActionList, clears manual/automatic Habit allocation arrays in SaveR at0x120/0x128, calls HabitCtrl.ApplyRemain, clears SaveR.clearedInThisLoop_Dungeon, increments darkritual_num, and resets gainedInspirations.",
+        "It runs afterAscendActionList and finally recalculates level effects. No new SaveR object or scene reload occurs inside DoShallowAscend."
+      ],
+      "downstream_consumers": [
+        "Registered HabitRoutineController routines receive the shallow action; class routines retain the proficiency/saturating class-sum benefits described in YC-R01.",
+        "Habit.AscendedAction caches log(talentFactor+99,base100) for its breakdown; native constants are verified from the pinned x86_64 slice. Exact complete Habit stat-registration topology remains partial.",
+        "GetTalent reads DarkRitual stats and its multiplicative summary. Thus earned routine/capability factors can affect the next ritual, but raw method declarations alone are not evidence of that result."
+      ],
+      "failure_and_aftermath": [
+        "Unavailable/hardmode-restricted ritual returns before mutation. Current talent can become lower if the chosen GetTalent result is lower, since the native operation replaces it.",
+        "The installed Help describes campaign continuity, while native evidence establishes the narrow owner preservation: the same Save and SaveR survive. This does not certify every quest or action callback.",
+        "Before/normal/after callback registration order is dynamic; only the routine/class/Habit-related chosen joins are reviewed. Guardian-kill and other callbacks exist, and complete rollback/exception behavior is unreviewed."
+      ],
+      "native_evidence": [
+        {
+          "id": "AscendCtrl.Available",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/AscendCtrl.txt",
+          "lines": [
+            1529,
+            1571
+          ],
+          "rva": "0x89C470",
+          "sha256": "9d1a68ed76ed032cdc32a74c6259d6ea2867a63c7599286e429fc3ae0a73440f"
+        },
+        {
+          "id": "AscendCtrl.DoShallowAscend",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/AscendCtrl.txt",
+          "lines": [
+            111,
+            702
+          ],
+          "rva": "0x89BA60",
+          "sha256": "9d1a68ed76ed032cdc32a74c6259d6ea2867a63c7599286e429fc3ae0a73440f"
+        },
+        {
+          "id": "AscendCtrl.GetTalent",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/AscendCtrl.txt",
+          "lines": [
+            1855,
+            1941
+          ],
+          "rva": "0x89C500",
+          "sha256": "9d1a68ed76ed032cdc32a74c6259d6ea2867a63c7599286e429fc3ae0a73440f"
+        },
+        {
+          "id": "Habit.AscendedAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Habit.txt",
+          "lines": [
+            978,
+            1051
+          ],
+          "rva": "0x6BCFA0",
+          "sha256": "f6694195e7bf939ee48f3258d1d79e560b181026038689a24b0fbb7adfc2e6f0"
+        },
+        {
+          "id": "Habit_Routine.AscendedAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Habit_Routine.txt",
+          "lines": [
+            2952,
+            2987
+          ],
+          "rva": "0x81D0B0",
+          "sha256": "4921c6ceb75d9dfa7feb4f12abc107c9478424e2b130be41b4a6b480593c62c9"
+        },
+        {
+          "id": "Class_Routine.AscendedAction",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Class_Routine.txt",
+          "lines": [
+            521,
+            535
+          ],
+          "rva": "0x6E7DB0",
+          "sha256": "5df5be1e961bf515d39fa46b7d299af6446f06d4a49958531a8c855df72e1e1d"
+        }
+      ],
+      "help_rows": [
+        "dark_ritual",
+        "sacred_ritual",
+        "class_routine"
+      ],
+      "original_leaf_id": "YC-R02",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-retention/EVIDENCE.json",
+        "sha256": "d41cdada8358c6a6efc674e002686cc2434e4ba52c622fccfae6df5887d97762"
+      },
+      "analytical_note": "traces/RETENTION.md"
+    },
+    {
+      "id": "YC-T-DEEP-RESET",
+      "name": "Reincarnation preserves selected ordinary progress and can retain costly marks",
+      "status": "selected_native_semantics_reviewed; data_supported_exceptions; initialization_partial; runtime_unverified",
+      "prerequisites": [
+        "The inspected execute control installs ReservedHardmodeToNextChronicle_Restriction and shows a confirmation. Its affirmative callback calls DoDeepAscend. Narrative unlock of the Reincarnation UI and all hardmode restrictions are outside this leaf review."
+      ],
+      "decision": [
+        "Confirm a new run, accepting the lost run-local work in exchange for computed Sin and retained cross-run systems."
+      ],
+      "cost_and_time": [
+        "Most run-local progression and non-carryover current resources are lost. Exact source timer prerequisite for deep reset was not found in this selected path; do not reuse the one-hour shallow-ritual timer as its prerequisite.",
+        "ExpSum reads saved exp_sum_in_one__reincarnation plus current Exp; the selected reward path uses that accumulated value and the assembled factor_to_sin, with truncation on the executed path. Exact complete reward-factor sources were not exhaustively audited."
+      ],
+      "mutations": [
+        "DoDeepAscend first runs _beforeReincarnationActions, briefly sets timeScale0, adds CanGetSin(true) to the Sin resource, adds current Exp to the persistent accumulated Exp field, and zeroes exp_sum_in_this_run.",
+        "It invokes selected hardmode transition, assigns starting talent from stats, resets shallow/deep timers, stores current time, selects current Chronicle, clears cleared_chronicle_in_this_run and resets resources.",
+        "ResetResource loops known resource IDs. IsCarryOverResources returns false if no UI master data exists; otherwise it invokes IResourceMasterData.ToCarryOver. A false result calls IResource.SetValue(0).",
+        "It sets toInitialize_reincarnation, toSkipOfflineBonusAfterReincarnation and toSkipDiffOfflineBonusAfterReincarnation true, removes accompanying obtained allies on a selected condition branch, clears selected Gluttony/Greed/Will/Envy run fields, then invokes SaveManager.DeepAscend.",
+        "SaveManager.DeepAscend invokes the reset-request handler, preserves the current Save in the selected main static slot, assigns a new SaveR, recalculates level effects, and disposes/reloads the scene."
+      ],
+      "downstream_consumers": [
+        "SaveR contains rank, run-local routine levels/proficiency/class sums, run-local action/dungeon releases and temporary quest multipliers. The new SaveR provides the broad reset boundary; deep callbacks and later initialization may add exceptions.",
+        "Persistent Save contains routine PermanentLevel and retained upgrade clear counts. DecideParameter.Initialize calls _InitializeAfterReincarnation; with toInitialize_reincarnation and enabled_inheritance_of_classRoutine it checks retained warrior_school79/sorcerer_school80/tamer_school81 completion counts and releases class elements30/31/32 plus skill_party15. It then clears the initialization flag. This reopens class access without copying the inspected proficiency or class sums.",
+        "Reviewed installed resource rows carry ShouldCarryOver=true for inspiration, sin, sin_gluttony, ePoint1, ePoint2, ePoint3, envyUpgradePoint, markOfGoddess, sealedMark and spiritMark. Help only names Inspiration and Sin, so its broad exception sentence is a simplified description for this build.",
+        "The retained markOfGoddess row declares ResourceRegen:destiny:-1000, blessing:-1000 and fate:-1000; spiritMark declares+20% elemental regeneration. This establishes authored positive/negative retained effects, not a live rate measurement or full resource-effect installation audit."
+      ],
+      "failure_and_aftermath": [
+        "Ordinary Gold, Destiny, Exp and Warrior/Sorcerer/Tamer points are explicitly non-carryover in the reviewed resource rows. A previously earned resource is not automatically retained.",
+        "Class proficiency/class talent accumulation are within-run retention, while class access and recorded routine completions have persistent carriers. Treating all three as one permanent multiplier would misdescribe the reset.",
+        "The complete _beforeReincarnationActions list, reset handler, SaveR constructor defaults, every replayed initialization action and save-file error/rollback behavior remain unreviewed. No claim of uninterrupted active-quest behavior is made from native code; that claim is installed-Help-only."
+      ],
+      "native_evidence": [
+        {
+          "id": "ReincarnationCtrl.Awake",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            3300,
+            3403
+          ],
+          "rva": "0x8A0B00",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.<Awake>b__14_2",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            4651,
+            4711
+          ],
+          "rva": "0x8A1370",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.<Awake>b__14_3",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            4785,
+            4791
+          ],
+          "rva": "0x8A14D0",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.DoDeepAscend",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            583,
+            1032
+          ],
+          "rva": "0x89F440",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.IsCarryOverResources",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            5,
+            66
+          ],
+          "rva": "0x89F0A0",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.ResetResource",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            366,
+            466
+          ],
+          "rva": "0x89F2C0",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.ExpSum",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            1497,
+            1582
+          ],
+          "rva": "0x89FF10",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "ReincarnationCtrl.CanGetSin",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/ReincarnationCtrl.txt",
+          "lines": [
+            1933,
+            2096
+          ],
+          "rva": "0x89FC00",
+          "sha256": "b6ff7ec6970973e50986d24b5b1b8237c34afc04649432919746db646ee9c8b0"
+        },
+        {
+          "id": "SaveManager.DeepAscend",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/SaveManager.txt",
+          "lines": [
+            2418,
+            2477
+          ],
+          "rva": "0x8DFA60",
+          "sha256": "21e7479c5af7d4e341e41f465521966ae2c982bec0402c526e256d2bc0885b43"
+        }
+      ],
+      "help_rows": [
+        "reincarnation"
+      ],
+      "original_leaf_id": "YC-R03",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-retention/EVIDENCE.json",
+        "sha256": "d41cdada8358c6a6efc674e002686cc2434e4ba52c622fccfae6df5887d97762"
+      },
+      "analytical_note": "traces/RETENTION.md"
+    },
+    {
+      "id": "YC-T-OFFLINE",
+      "family": "automation-offline",
+      "status": "source-inspected-selected",
+      "prerequisites": "Loaded settings/routines/equipment, existing Sloth state and passed offline duration; exact time-acquisition and DI binding not completely reviewed.",
+      "decision": "Return after absence with previously configured activities; eligible offline components run via existing progression rather than new rewards per UI click.",
+      "real_cost_time": "Offline elapsed seconds validate to0..63,072,000 in this selected native method; effective simulation seconds differ from full seconds via a nerf policy. Scheduled activities still delegate their real cost checks; no measured actual campaign duration.",
+      "mutation": "Snapshots DiffStateList before/after dispatch; calls main offline progress with nerfed seconds, fulltime component with validated full seconds, and fulltime-but-calc component with excess beyond300seconds.",
+      "consumer": "GetProgressResult carries DiffList, full seconds and nerfed seconds; selected controller awaits result and marks ExecutedOfflineBonus flag. DefineOfflineTimeProgress composes current Routine, party/autosummon/autolevel and other timers.",
+      "failure_aftermath": "Negative interval validates0; excessive duration clamps. UpgradeAction_Slothable.CanWorkInOffline returnsfalse, so new story progression is not assumed automatic. Not all indirect interfaces, crash/idempotence or clock anomalies reviewed.",
+      "evidence": [
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Domain/TimeProgresses/ValidateOfflineTime.txt",
+          "sha256": "3b9192653f0d0704d4c6e4b896193afa9f5d93b1f12c4084c9a8307691b38a46",
+          "spans": [
+            [
+              3,
+              36
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/Domain/TimeProgresses/ValidateOfflineTime.cs",
+            "sha256": "6341f769293022dd9db3e723f9a6e29fe7f281ca05b137dac126965cc6bb9421"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Usecase/Usecase/TimeProgresses/GetOfflineBonusUsecase.txt",
+          "sha256": "ecb24e65c42491bd7ac6a31351c96ed82aca9b6f9ef4f8130d0111cb3b8b1e99",
+          "spans": [
+            [
+              107,
+              560
+            ],
+            [
+              646,
+              770
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Usecase/Usecase/TimeProgresses/GetOfflineBonusUsecase.cs",
+            "sha256": "94b9a381127031214696485b2ae6db43b4aae17e9671aee06f27443c9aafeb47"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Infrastructure/Infrastructure/TimeProgresses/DefineOfflineTimeProgress.txt",
+          "sha256": "7665c529a79bfcfbd319e38cfc15273a17843efe73c068bfce58b93fa3d901f7",
+          "spans": [
+            [
+              3,
+              422
+            ],
+            [
+              525,
+              1287
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Infrastructure/Infrastructure/TimeProgresses/DefineOfflineTimeProgress.cs",
+            "sha256": "c845bbf525bf52112354d6944adb31223a85b57aeeb120389fbd8b8771c94ef1"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Presenter/Presenter/TimeProgresses/OfflineBonusController_NestedType__GetOfflineBonus_d__6.txt",
+          "sha256": "f12a7ec08aebed4b28aa32fcccae1a1d0a4905d78ed8402647975c0d035e2c09",
+          "spans": [
+            [
+              510,
+              626
+            ]
+          ]
+        }
+      ],
+      "constants_manifest": "/Users/weiwei/.codex/research/your-chronicle/25001959/NATIVE_CONSTANTS.json"
+    },
+    {
+      "id": "YC-T-EARNED-AUTOMATION",
+      "family": "automation-discovery",
+      "status": "source-inspected-selected",
+      "prerequisites": "Upgrade action automation conditions plus historical completion, with authored IsSlothableAlways/multiple-stage exceptions.",
+      "decision": "Register a known action in a Sloth queue and select blocking/skip policy; changing history does not waive current resource/condition checks.",
+      "real_cost_time": "Help describes0.1second action scheduling; actual selected wrapper delegates DoAllClick to action, not a cost-free reward. Interval performance not measured.",
+      "mutation": "Available calls CanAutomate; CanExecute checks virtual availability then the upgrade requirements; ExecuteUniqueAction delegates Narou1Extensions.DoAllClick and checks updated release/continuation state.",
+      "consumer": "GameGetProgressUsecase delegates SlothProcessor.ExecuteAll and returns/presents actual queue position/count. QueueProcessor checks current cell and blocked-cell skip option before GoNextCell.",
+      "failure_aftermath": "Unmet current condition returnsfalse; offline wrapper returnsfalse. Selected StuckChecker guards repeated identical execution results, internal exception path not equated with player-facing normal pause. Full queue algorithm/per-kind offline behavior remains partially unread.",
+      "evidence": [
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/UpgradeAction.txt",
+          "sha256": "573d8b2b0a440ac3e98c40a18c90d946945e6f235555cc213887b2e3579e750a",
+          "spans": [
+            [
+              742,
+              861
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/UpgradeAction.cs",
+            "sha256": "7e05d87c89034c3032f324ce3ce881821521423b63b72b1fe0e65369fb20d8b5"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Infrastructure/Sloths/UpgradeAction_Slothable.txt",
+          "sha256": "794a2c74b5d8a7f00700059168ede814698de237729b1241cc6cc91fc521309f",
+          "spans": [
+            [
+              3,
+              281
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/Infrastructure/Sloths/UpgradeAction_Slothable.cs",
+            "sha256": "8ec0b2df647b5d77dcc8a5a1b07ee917cc1fe0d7b45a96153052e10ebdf76087"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Domain/Sloths/QueueProcessor.txt",
+          "sha256": "f8ed9b244f656fad36a13cc6aa1ae66f2105d58f844202d088cbd2d0467c72e0",
+          "spans": [
+            [
+              690,
+              785
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/Domain/Sloths/QueueProcessor.cs",
+            "sha256": "3053294936b271eec0a93933a80092b65c10327b33925be8fe3c8324e49305ec"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Domain/Sloths/StuckChecker.txt",
+          "sha256": "b61c11c544ed0bf90bcfe7ef62bc8b10810e00334fbd13b19390f88711c96af6",
+          "spans": [
+            [
+              3,
+              198
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/Domain/Sloths/StuckChecker.cs",
+            "sha256": "c1a153b87b12810b2904646f86674cf23a3b4fe81d7275d6e743eecc8cc979de"
+          }
+        },
+        {
+          "kind": "native-disassembly-with-lossy-ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/Usecase/Sloths/GameGetProgressUsecase.txt",
+          "sha256": "8f874d908a3c5fe08cba0aff1ece509b0a0d55563a41e2bcbf2e3a0d4a413bd9",
+          "spans": [
+            [
+              174,
+              357
+            ]
+          ],
+          "address_metadata": {
+            "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/annotated/DiffableCs/Domain/Usecase/Sloths/GameGetProgressUsecase.cs",
+            "sha256": "720132918d81a31b36a0ba4312aecb5fa509ceefeecac1853b9d90300847483e"
+          }
+        }
+      ]
+    },
+    {
+      "id": "YC-T-AHA-DISCOVERY",
+      "family": "automation-discovery",
+      "status": "source-inspected-selected",
+      "prerequisites": "Specific routine permanent completion count>0, with one special-ID exception; actual unlock still checked by allocation per installed Help.",
+      "decision": "Include an already experienced routine in a future Auto Habit Allocation template.",
+      "real_cost_time": "Help: unused Habit Points assigned every10seconds; template activation immediate; disabling removes automatic allocations but leaves manual ones.",
+      "mutation": "Routine completion increments permanent count in long-lived Save and current level in SaveR (native-retention owns mutation trace).",
+      "consumer": "AhaContentsList selected CreateList reads Routine.PermanentLevel and skips<=0 candidates, except special-ID branch.",
+      "failure_aftermath": "Remembered routine can be template-listed after reset but locked routines ignored by AHA per Help; permanent history does not imply current execution permission.",
+      "evidence": [
+        {
+          "kind": "native-disassembly/ISIL",
+          "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/recovery/native/IsilDump/Domain/AhaContentsList.txt",
+          "sha256": "907c48a3a7a789c890cd950c89d3c911d2c23e91dd14110a5a6354ed1ffb69ce",
+          "spans": [
+            [
+              267,
+              372
+            ]
+          ]
+        }
+      ],
+      "limit": "Complete AHA timing/allocation body and exceptional routine ID not reconciled."
+    },
+    {
+      "id": "YC-T-ARTWORK",
+      "name": "Paid artwork projects existing ending history",
+      "status": "source-inspected-selected-consumer; payload-unavailable",
+      "prerequisites": "Steam initialization and native installed flag for app1682010; inspected only, not queried. External bundle and named sprite must exist.",
+      "decision": "View ending progress or a past Chronicle illustration; no gameplay choice/unlock added by inspected artwork methods.",
+      "cost_and_time": "Paid DLC official catalog; five clears complete artwork, based on current clearNum/maxClearNum. No purchase requested.",
+      "mutation": "SetUp loads external bundle/sprites and only marks setup if first sprite exists; Show creates cover reveal from clamped ratio; no inspected gameplay mutation.",
+      "downstream_consumers": "Covers at0.2/0.4/0.6/0.8 ratios; complete reveals; start image uses completed artwork after setup.",
+      "failure_and_aftermath": "Installedfalse does nothing; missing bundle logs/returns; missing sprite does not establish setup. Artwork payload not obtained or inspected; no account/entitlement inference.",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/EVIDENCE.json",
+        "sha256": "fdc6e77fcfb2f5b8f5e232b8a467165a56d8729cb4e7af52deef0dd40c75fdf2"
+      },
+      "official_sources": [
+        "https://store.steampowered.com/dlc/1546320/Your_Chronicle/",
+        "https://store.steampowered.com/app/1682010/Your_Chronicle__Artwork_Addition/"
+      ],
+      "limits": "Expected bundle path literal/test-version string and exact random distribution unresolved; no art export/viewing."
+    }
+  ],
+  "installed_help_findings": [
+    {
+      "id": "YC-H-GLUTTONY",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Eating consumes increasing food cost, retains effects across Dark Ritual while clearing current Satiety and retaining10% as Max Satiety; usefulness differs from a current level.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "gluttony",
+        "spans": [
+          [
+            945,
+            982
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    },
+    {
+      "id": "YC-H-GREED",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Research competes between summon/level activity and Examine; area summons plus reincarnation-count gates introduce new categories; effects remain across Dark Ritual while Desire/current costs reset.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "greed",
+        "spans": [
+          [
+            983,
+            1018
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    },
+    {
+      "id": "YC-H-ENVY",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Overflow Sin becomes Complaints; unlocked routines spend increasing Complaints to improve permanent Envy Level speed. Current Routine Level resets on Reincarnation; next Strategy commits at ritual/reset, chosen Strategy doubles effects while off-strategy speed grows with elapsed reset time.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "envy",
+        "spans": [
+          [
+            1019,
+            1082
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    },
+    {
+      "id": "YC-H-WRATH",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Enemy and defeating-ally WrathEXP feed points. Nine Personality investments share escalating cost, role-sensitive benefits, half refund on ordinary reset/full via WrathPoint+; Stress links distributed investment to ritual/inspiration and later Pride unlocks. Native full acquisition/refund execution not reviewed here.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "wrath",
+        "spans": [
+          [
+            1083,
+            1318
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    },
+    {
+      "id": "YC-H-PRIDE",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Reserve a Chronicle-specific challenge, start it on Reincarnation, accept restrictions and earn rewards by clearing the named Chronicle; cancel remains available. Full concrete challenge rows and reward/persistence bodies unread.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "pride",
+        "spans": [
+          [
+            1417,
+            1464
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    },
+    {
+      "id": "YC-H-ALCHEMY",
+      "family": "late-system-joins",
+      "status": "installed-primary-help",
+      "fact": "Stock enters a pot to produce bonus-bearing Orbs, then breaking gives powder for Tarot; actual full recipe/orb combinations unread here.",
+      "source": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/text/sharedassets1.assets/10.txt",
+        "sha256": "0465cc2f5bbfdafdfe78819eeb46bfbd9f1f9e1aa444077a117e041a2e7aa79a",
+        "id": "alchemy",
+        "spans": [
+          [
+            804,
+            807
+          ]
+        ]
+      },
+      "limit": "Installed help semantics only, not every native formula/callback or observed gameplay."
+    }
+  ],
+  "supplemental_native_joins": [
+    {
+      "id": "YC-normal-equipment-positional",
+      "status": "native-selected-and-data-reviewed",
+      "finding": "recipe plus deposited ingredients precede IsMade; equipment slots map positionally to party allies; applying changes marks summary dirty and resets current dungeon; support gear can affect stock caps and regeneration",
+      "limits": [
+        "complete passive aggregation",
+        "recipe release-parser consumer"
+      ]
+    },
+    {
+      "id": "YC-artwork-consumer",
+      "status": "native-source-reviewed-payload-unavailable-in-this-lane",
+      "finding": "DLC1682010 entitlement flag gates external bundle sprite load; chronicle clear fraction controls cover reveal; no reviewed gameplay mutation",
+      "entitlement_query_performed": false,
+      "artwork_export_performed": false,
+      "limits": [
+        "actual artwork external bundle not read",
+        "exact test-version restricted literal unresolved",
+        "random-start-image selection partly reviewed"
+      ]
+    },
+    {
+      "id": "YC-secondary-cap",
+      "status": "native-source-reviewed",
+      "finding": "base100 + save.purchasedNum_RubyItem[DomainRubyItem.uniqueEquipmentInventory]; Help100 is base-only"
+    }
+  ],
+  "primary_documentation_claims": [
+    {
+      "id": "OFF01",
+      "family": "base",
+      "status": "primary-documentation-only",
+      "fact": "Publisher describes action buttons, automatic dungeon battles, summonable monsters with skills/equipment, routines, action/dungeon automation, choice-dependent endings and other systems revealed through progress.",
+      "sources": [
+        {
+          "url": "https://store.steampowered.com/app/1546320/Your_Chronicle/",
+          "span": "About This Game, web lines99-122; publisher store copy"
+        }
+      ],
+      "limits": "Existence and broad purpose only; no formulas, unlock numbers or verified runtime behavior."
+    },
+    {
+      "id": "OFF02",
+      "family": "narrative",
+      "status": "primary-documentation-only",
+      "fact": "Version2.5.0 adds a Chronicle and remakes Story Flow; Chronicle names display conditionally and guide selection conditions no longer reset.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497196950774351300",
+          "title": "[ ver 2.5.0 ] New Chronicle!",
+          "published_utc": "2025-06-04T01:03:05+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/35/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1801617199342526",
+          "reviewed_contents_lines": [
+            1,
+            20
+          ]
+        }
+      ],
+      "limits": "No route/ending prerequisites or retained world state specified."
+    },
+    {
+      "id": "OFF03",
+      "family": "narrative",
+      "status": "primary-documentation-only",
+      "fact": "Version2.6.0 adds a Chronicle, hides rewards while its name is concealed, changes Title calculation category from Ally to Title, adds Fate Conversion conditions and fixes action conditions.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/519725729918746709",
+          "title": "[ ver 2.6.0 ] New Chronicle",
+          "published_utc": "2025-09-24T02:11:21+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/26/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1811772772196071",
+          "reviewed_contents_lines": [
+            1,
+            17
+          ]
+        }
+      ],
+      "limits": "The precise title formula, Fate Conversion gate and branch chain are unpublished in this note."
+    },
+    {
+      "id": "OFF04",
+      "family": "narrative",
+      "status": "primary-documentation-only",
+      "fact": "Version2.6.4 changes lock conditions for some actions, revises guides for Chronicles3,5,8 and changes Flower action.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/567015514185924848",
+          "title": "[ ver 2.6.4 ] Save Function Changes and Bug Fixes",
+          "published_utc": "2025-10-17T03:29:11+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/21/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1813674388957652",
+          "reviewed_contents_lines": [
+            1,
+            10
+          ]
+        }
+      ],
+      "limits": "Names, conditions and costs are not given."
+    },
+    {
+      "id": "OFF05",
+      "family": "narrative",
+      "status": "primary-documentation-only",
+      "fact": "Version2.2.7 fixes impossible progress after acquiring elemental master under ED2/ED3 guides, a Sloth talk-to-Mr-Gourmet setting and a missing Holy City Mysterious Man action.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/4172096829911464666",
+          "title": "[ ver 2.2.7 ] Bug Fix!",
+          "published_utc": "2024-04-10T01:40:36+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/59/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5762993398267517021",
+          "reviewed_contents_lines": [
+            1,
+            4
+          ]
+        }
+      ],
+      "limits": "This establishes interactions and past bugs, not the exact intended current prerequisites."
+    },
+    {
+      "id": "OFF06",
+      "family": "routines",
+      "status": "primary-documentation-only",
+      "fact": "Version1.6.3 adds a way to set AHA cells based on current habits;1.7.3 changes routine multiplier buttons to /10 and x10 and displays inactive ally/routine effects.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3071994960995433165",
+          "title": "[ Update ] ver1.6.3",
+          "published_utc": "2021-05-03T02:52:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/105/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4074045878085502578",
+          "reviewed_contents_lines": [
+            1,
+            7
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2979681315577608090",
+          "title": "[ Update ] ver1.7.3",
+          "published_utc": "2021-08-19T02:41:46+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/99/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4022264629309717898",
+          "reviewed_contents_lines": [
+            1,
+            15
+          ]
+        }
+      ],
+      "limits": "AHA can use current allocation, but habit budgets, refund rules and routine cost formulas are not specified by these notes."
+    },
+    {
+      "id": "OFF07",
+      "family": "routines",
+      "status": "primary-documentation-only",
+      "fact": "Version1.7.2 modifies routine level limits and adds a Sorcerer routine loop-action effect;2.7.4 adds a Will Routine.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2995442283585122948",
+          "title": "[ Update ] ver1.7.2",
+          "published_utc": "2021-08-03T06:43:18+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/100/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4038025597328821038",
+          "reviewed_contents_lines": [
+            1,
+            18
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/690881000795799897",
+          "title": "[ ver 2.7.4 ] New Will Routine",
+          "published_utc": "2026-04-17T06:05:41+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/11/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1830163047259197",
+          "reviewed_contents_lines": [
+            1,
+            5
+          ]
+        }
+      ],
+      "limits": "Routine effects and unlock conditions need data/method traces."
+    },
+    {
+      "id": "OFF08",
+      "family": "routines",
+      "status": "primary-documentation-only",
+      "fact": "Version2.7.10 exposes current Dust in Tarot tooltips and Research consumed by Greed in tooltips;2.7.15 adds research-order options and Examine All for Greed, Eat All for Gluttony.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/693137779588071427",
+          "title": "[ ver 2.7.10 ] UI Adjustments for Some Routines",
+          "published_utc": "2026-06-10T01:41:04+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/6/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1835236783556302",
+          "reviewed_contents_lines": [
+            1,
+            3
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/674004457340535109",
+          "title": "[ ver 2.7.15 ] Improving Usability for Logs and Greed",
+          "published_utc": "2026-08-27T19:27:30+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/1/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1842212951301097",
+          "reviewed_contents_lines": [
+            1,
+            10
+          ]
+        }
+      ],
+      "limits": "Exact resource formulas and bulk-selection semantics are unspecified."
+    },
+    {
+      "id": "OFF09",
+      "family": "party-equipment",
+      "status": "primary-documentation-only",
+      "fact": "Version1.6.3 adds Greed and Equipment;1.7.0 adds area, Guardian, Routine, Equipment and Greed;1.9.0 adds Secondary Equipment and Pride and changes equipping and Party UI.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3071994960995433165",
+          "title": "[ Update ] ver1.6.3",
+          "published_utc": "2021-05-03T02:52:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/105/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4074045878085502578",
+          "reviewed_contents_lines": [
+            1,
+            7
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2994312940968877822",
+          "title": "[ Update ] ver1.7.0",
+          "published_utc": "2021-06-28T03:44:08+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/101/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4032392655076868853",
+          "reviewed_contents_lines": [
+            1,
+            12
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3136194721941890199",
+          "title": "[ Update ] ver1.9.0",
+          "published_utc": "2022-01-17T03:42:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/91/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4224939931841031962",
+          "reviewed_contents_lines": [
+            1,
+            17
+          ]
+        }
+      ],
+      "limits": "Announcements establish additions, not full party-slot, power or challenge semantics."
+    },
+    {
+      "id": "OFF10",
+      "family": "party-equipment",
+      "status": "primary-documentation-only",
+      "fact": "Version1.6.5 adds removal of members from squads in progress and automatic equipment removal under auto-equipping;2.7.14 adds equipment locking and sorting.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3055109632949266574",
+          "title": "[ Update ] ver1.6.5",
+          "published_utc": "2021-06-07T04:43:19+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/102/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4093189347056204942",
+          "reviewed_contents_lines": [
+            1,
+            24
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/697646452743078536",
+          "title": "[ ver 2.7.14 ] Improving the Usability of Equipment",
+          "published_utc": "2026-08-07T17:21:25+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/2/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1840310314345726",
+          "reviewed_contents_lines": [
+            1,
+            9
+          ]
+        }
+      ],
+      "limits": "No exact squad cancellation/refund, comparison or locking effect is specified."
+    },
+    {
+      "id": "OFF11",
+      "family": "party-equipment",
+      "status": "primary-documentation-only",
+      "fact": "Version2.5.6 changes Alchemy orb templates, mix score, set bonus, Tarot tier costs and seed/formation orb effects and adds second equipment inventory in shop;2.7.12 returns picked Tarot count on orb transmutation and adds Auto Deal.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497202023769309607",
+          "title": "[ ver 2.5.6 ] Alchemy Rework, etc",
+          "published_utc": "2025-07-26T03:04:28+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/27/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1806064758661913",
+          "reviewed_contents_lines": [
+            1,
+            14
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/714531147199025505",
+          "title": "[ ver 2.7.12] Changes to Some Alchemy Specifications",
+          "published_utc": "2026-07-05T07:31:16+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/4/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1836506165573602",
+          "reviewed_contents_lines": [
+            1,
+            5
+          ]
+        }
+      ],
+      "limits": "These name interacting systems but do not expose formulas or a reproducible combination outcome."
+    },
+    {
+      "id": "OFF12",
+      "family": "reset-retention",
+      "status": "primary-documentation-only",
+      "fact": "Version1.6.4 retains familiar/will checkmarks across reincarnation;1.7.3 saves Envy next strategy;1.8.2 shows next strategy at Dark Ritual/reincarnation.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3053982465473498925",
+          "title": "[ Update ] ver1.6.4",
+          "published_utc": "2021-05-20T03:55:19+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/103/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4069544181426705383",
+          "reviewed_contents_lines": [
+            1,
+            12
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2979681315577608090",
+          "title": "[ Update ] ver1.7.3",
+          "published_utc": "2021-08-19T02:41:46+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/99/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4022264629309717898",
+          "reviewed_contents_lines": [
+            1,
+            15
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2896368527162673748",
+          "title": "[ Update ] ver1.8.2",
+          "published_utc": "2021-10-04T07:30:32+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/97/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "3938951840893852350",
+          "reviewed_contents_lines": [
+            1,
+            11
+          ]
+        }
+      ],
+      "limits": "Retained settings only. Do not infer retained routine levels, familiars, combat state or material stock."
+    },
+    {
+      "id": "OFF13",
+      "family": "reset-retention",
+      "status": "primary-documentation-only",
+      "fact": "Version2.5.3 retains Auto Eat Slots on reincarnation and retains Gluttony release status; it adds Enable Auto Eat and Disable Auto Eat on Reset options.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497199486905352543",
+          "title": "[ ver 2.5.3 ] Adjustments around Auto Eat:)",
+          "published_utc": "2025-06-26T04:02:05+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/30/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1803527891495033",
+          "reviewed_contents_lines": [
+            1,
+            8
+          ]
+        }
+      ],
+      "limits": "No food/stat/Gluttony level retention claim and no default option state established."
+    },
+    {
+      "id": "OFF14",
+      "family": "reset-retention",
+      "status": "primary-documentation-only",
+      "fact": "Version2.7.11 turns Auto Wrath off when Wrath Level resets and saves the Wrath Points+ checkmark;2.7.14 exposes Envy next strategy on Ritual screen.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/680753515027499395",
+          "title": "[ ver 2.7.11 ] Modify Auto Wrath",
+          "published_utc": "2026-06-18T01:28:07+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/5/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1835871199302451",
+          "reviewed_contents_lines": [
+            1,
+            4
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/697646452743078536",
+          "title": "[ ver 2.7.14 ] Improving the Usability of Equipment",
+          "published_utc": "2026-08-07T17:21:25+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/2/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1840310314345726",
+          "reviewed_contents_lines": [
+            1,
+            9
+          ]
+        }
+      ],
+      "limits": "Wrath-specific reset is a distinct named operation; exact retained points/EXP and relation to Dark Ritual/reincarnation are not specified."
+    },
+    {
+      "id": "OFF15",
+      "family": "reset-retention",
+      "status": "primary-documentation-only",
+      "fact": "Launch-thread author SamuraiGames_AC answered that full rebirth is accessed after clearing the first Chronicle.",
+      "sources": [
+        {
+          "url": "https://www.reddit.com/r/incremental_games/comments/mk8nc9/your_chronicle_has_been_published_on_steam/",
+          "published_date": "2021-04-05",
+          "span": "developer account reply to smilinreap, web lines85-99; direct primary speaker, not user mechanic claims"
+        }
+      ],
+      "limits": "Historical developer statement, current2026 build not verified; reset outputs/losses/costs unspecified."
+    },
+    {
+      "id": "OFF16",
+      "family": "automation-offline",
+      "status": "primary-documentation-only",
+      "fact": "Version2.1.0 remakes offline bonuses for dungeons and looping actions and remakes Sloth. Prior notice says old/new Sloth settings incompatible and new Sloth works without shortcut slots and has offline bonuses.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3632747650631353377",
+          "title": "[ ver2.1.0 ] Offline Bonus Update!",
+          "published_utc": "2022-12-22T03:58:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/83/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5000716037440988914",
+          "reviewed_contents_lines": [
+            1,
+            19
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/6610752365348017770",
+          "title": "Sloth will be remade at the next patch!",
+          "published_utc": "2022-12-15T08:22:44+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/84/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5623338145750014874",
+          "reviewed_contents_lines": [
+            1,
+            9
+          ]
+        }
+      ],
+      "limits": "Historical system migration. Offline time caps/efficiency, tick ordering and exact queue mechanics are not specified."
+    },
+    {
+      "id": "OFF17",
+      "family": "automation-offline",
+      "status": "primary-documentation-only",
+      "fact": "Version2.1.3 makes Sloth unlock Dungeons automatically;2.1.4 adds Skip/Loop to Sloth templates, reasons for failure to add content and Sacred Ritual registration only when Auto Sacred Ritual is unlocked.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3638379056148398025",
+          "title": "[ ver2.1.3 ] Bug Fix!",
+          "published_utc": "2023-01-11T07:07:23+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/80/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5035620840526475414",
+          "reviewed_contents_lines": [
+            1,
+            7
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3638380959498113129",
+          "title": "[ ver2.1.4 ] New Shortcuts!",
+          "published_utc": "2023-02-04T03:06:27+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/79/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5035622743885711673",
+          "reviewed_contents_lines": [
+            1,
+            13
+          ]
+        }
+      ],
+      "limits": "No automatic Next Action/ending selection is established. Eligibility and failures matter."
+    },
+    {
+      "id": "OFF18",
+      "family": "automation-offline",
+      "status": "primary-documentation-only",
+      "fact": "Version2.5.5 fixes Sloth executing Loop Actions without requirements and registering uncompleted Upgrade Actions;2.2.10 fixes repeated Upgrade execution.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497199486905356784",
+          "title": "[ ver 2.5.5 ] Fixed bugs",
+          "published_utc": "2025-07-09T03:46:21+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/28/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1803527891915961",
+          "reviewed_contents_lines": [
+            1,
+            8
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/4371390165249295188",
+          "title": "[ ver 2.2.10 ] Bug fixes!",
+          "published_utc": "2024-07-21T04:42:32+00:00",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/54/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "reviewed_contents_lines": [
+            1,
+            9
+          ]
+        }
+      ],
+      "limits": "Source confirms past defects and intended constraints; no current build runtime proof."
+    },
+    {
+      "id": "OFF19",
+      "family": "automation-offline",
+      "status": "primary-documentation-only",
+      "fact": "Version2.2.0 includes automatic summon/level-up in offline bonuses and changes loop interval multiplier so progress-effect/cost resource amounts stay constant despite interval multiplication.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3873721309643456803",
+          "title": "[ ver 2.2.0 ] Major Update!",
+          "published_utc": "2023-12-04T05:27:05+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/68/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5395937983674465637",
+          "reviewed_contents_lines": [
+            1,
+            25
+          ]
+        }
+      ],
+      "limits": "Current numerical cost/interval formula, caps and update scheduling require implementation evidence."
+    },
+    {
+      "id": "OFF20",
+      "family": "automation-offline",
+      "status": "primary-documentation-only",
+      "fact": "Version2.1.2 resets a Dungeon when party or Sloth is modified;2.1.5 exposes loop completion time and current resources in Dungeon/Upgrade tooltips.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3632747650653138984",
+          "title": "[ ver2.1.2 ] Bug fix!",
+          "published_utc": "2022-12-28T04:35:05+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/81/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5000716037462944520",
+          "reviewed_contents_lines": [
+            1,
+            11
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3638381592945591111",
+          "title": "[ ver2.1.5 ] Bug Fixes and so on",
+          "published_utc": "2023-02-10T03:13:04+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/77/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5036749277231623244",
+          "reviewed_contents_lines": [
+            1,
+            11
+          ]
+        }
+      ],
+      "limits": "Reset means dungeon restart as published; consumable loss/death aftermath unspecified."
+    },
+    {
+      "id": "OFF21",
+      "family": "discovery-updates",
+      "status": "primary-documentation-only",
+      "fact": "Version2.7.0 adds a new area, Wrath, achievements and shop Queue Slots.2.7.2 fixes Wrath Pack unlocking before Wrath and achievements unlocking before their elements.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/490468185936495794",
+          "title": "[ ver 2.7.0 ] New Area, New Sin",
+          "published_utc": "2026-03-25T02:30:19+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/16/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1827626365767144",
+          "reviewed_contents_lines": [
+            1,
+            1
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/532127297744928827",
+          "title": "[ 2.7.2 ] Bug Fixes",
+          "published_utc": "2026-03-27T04:02:38+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/13/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1828441623103508",
+          "reviewed_contents_lines": [
+            1,
+            7
+          ]
+        }
+      ],
+      "limits": "New named base systems, not a paid expansion. Area identity, Wrath cost and mechanical pack contents not published here."
+    },
+    {
+      "id": "OFF22",
+      "family": "discovery-updates",
+      "status": "primary-documentation-only",
+      "fact": "Free base update records add areas in1.7.0,1.8.0,1.9.0,2.2.0,2.4.0,2.7.0;2.2.0 adds an element;2.0.0 explicitly adds Chronicle6 and later2.5.0/2.6.0 add Chronicles.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2994312940968877822",
+          "title": "[ Update ] ver1.7.0",
+          "published_utc": "2021-06-28T03:44:08+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/101/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4032392655076868853",
+          "reviewed_contents_lines": [
+            1,
+            12
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3136194721941890199",
+          "title": "[ Update ] ver1.9.0",
+          "published_utc": "2022-01-17T03:42:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/91/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4224939931841031962",
+          "reviewed_contents_lines": [
+            1,
+            17
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3873721309643456803",
+          "title": "[ ver 2.2.0 ] Major Update!",
+          "published_utc": "2023-12-04T05:27:05+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/68/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "5395937983674465637",
+          "reviewed_contents_lines": [
+            1,
+            25
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497190789924782090",
+          "title": "[ ver 2.4.0 ] New Area!!!",
+          "published_utc": "2025-03-21T02:36:43+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/39/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1794830910890407",
+          "reviewed_contents_lines": [
+            1,
+            13
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/490468185936495794",
+          "title": "[ ver 2.7.0 ] New Area, New Sin",
+          "published_utc": "2026-03-25T02:30:19+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/16/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1827626365767144",
+          "reviewed_contents_lines": [
+            1,
+            1
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3211639524382859082",
+          "title": "[ ver 2.0.0 ] New Chronicle",
+          "published_utc": "2022-05-01T07:48:49+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/89/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4348798430284602687",
+          "reviewed_contents_lines": [
+            1,
+            23
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/497196950774351300",
+          "title": "[ ver 2.5.0 ] New Chronicle!",
+          "published_utc": "2025-06-04T01:03:05+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/35/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1801617199342526",
+          "reviewed_contents_lines": [
+            1,
+            20
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/519725729918746709",
+          "title": "[ ver 2.6.0 ] New Chronicle",
+          "published_utc": "2025-09-24T02:11:21+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/26/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1811772772196071",
+          "reviewed_contents_lines": [
+            1,
+            17
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/2977430785378245643",
+          "title": "[ Update ] ver1.8.0",
+          "published_utc": "2021-09-07T05:24:51+00:00",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/98/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "reviewed_contents_lines": [
+            1,
+            3
+          ]
+        }
+      ],
+      "limits": "Series inventory only, not exhaustive content reading or exact area identity."
+    },
+    {
+      "id": "OFF23",
+      "family": "events",
+      "status": "primary-documentation-only",
+      "fact": "Mimic Harvest Festivals expose a once-daily Mimic-only Dungeon and double normal-Dungeon Mimic appearance. Mimics may drop chests and normally are rare in non-boss dungeons. Latest official event was2026-04-01 through04-07 UTC.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/490468185936496520",
+          "title": "[Event] Mimic harvest festival!",
+          "published_utc": "2026-03-25T06:56:49+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/15/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1827626365767378",
+          "reviewed_contents_lines": [
+            1,
+            4
+          ]
+        }
+      ],
+      "limits": "Event expired as of2026-10-06; not permanent gameplay or DLC ownership reward. Chest probabilities/rewards not given."
+    },
+    {
+      "id": "OFF24",
+      "family": "dlc",
+      "status": "primary-documentation-only",
+      "fact": "Official appdetails1546320 DLC array is[1682010], matching browse page1-1 of1. Artwork Addition adds story-clear illustrations: one fragment per clear, complete after five clears, random completed image on start and revisit from Chronicle tab. Current list ED1-ED8.",
+      "sources": [
+        {
+          "url": "https://store.steampowered.com/api/appdetails?appids=1546320&l=english",
+          "snapshot": "steam_appdetails_1546320.json",
+          "json_pointer": "/1546320/data/dlc"
+        },
+        {
+          "url": "https://store.steampowered.com/dlc/1546320/Your_Chronicle/",
+          "span": "web lines34-42"
+        },
+        {
+          "url": "https://store.steampowered.com/app/1682010/Your_Chronicle__Artwork_Addition/",
+          "span": "About This Content, web lines99-125"
+        }
+      ],
+      "limits": "Primary-documentation-only. Installation/entitlement/art asset payload not inspected by this lane; cosmetic reward does not establish a mechanical expansion."
+    },
+    {
+      "id": "OFF25",
+      "family": "dlc",
+      "status": "primary-documentation-only",
+      "fact": "Version1.9.0 listed a character-side-story DLC as an idea explicitly not yet an actual plan. No separately listed side-story expansion appears in the current official DLC catalog.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3136194721941890199",
+          "title": "[ Update ] ver1.9.0",
+          "published_utc": "2022-01-17T03:42:54+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/91/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4224939931841031962",
+          "reviewed_contents_lines": [
+            1,
+            17
+          ]
+        },
+        {
+          "url": "https://store.steampowered.com/api/appdetails?appids=1546320&l=english",
+          "snapshot": "steam_appdetails_1546320.json",
+          "json_pointer": "/1546320/data/dlc"
+        }
+      ],
+      "limits": "A historical development wish is not a released DLC or supported content claim."
+    },
+    {
+      "id": "OFF26",
+      "family": "purchases",
+      "status": "primary-documentation-only",
+      "fact": "Official iOS listing currently enumerates Starter Pack, Alchemy Pack, Wrath Pack and Ruby bundles. Version2.0.0 added Party Template to Starter Pack and Equip Automation Slot Exp+ to shop;2.7.7 says Wrath EXP+ was then chest-only and Wrath Point+/EXP+ could appear from chests.",
+      "sources": [
+        {
+          "url": "https://apps.apple.com/us/app/your-chronicle/id1608143731",
+          "span": "Information > In-App Purchases list, web lines332-351; not player reviews"
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3211639524382859082",
+          "title": "[ ver 2.0.0 ] New Chronicle",
+          "published_utc": "2022-05-01T07:48:49+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/89/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4348798430284602687",
+          "reviewed_contents_lines": [
+            1,
+            23
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/679623809418920682",
+          "title": "[ ver 2.7.7 ] Adjustments Related to Wrath Point+",
+          "published_utc": "2026-05-07T06:29:17+00:00",
+          "author": "samuraibox3601",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/9/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "1832065502811028",
+          "reviewed_contents_lines": [
+            1,
+            10
+          ]
+        }
+      ],
+      "limits": "In-game/mobile purchase products, not separate Steam DLC. Current full pack contents/Steam shop values and post-patch exclusivity unknown; no purchases/account inspection done."
+    },
+    {
+      "id": "OFF27",
+      "family": "presentation",
+      "status": "primary-documentation-only",
+      "fact": "Version1.8.3 adds Steam Bestiary art function;1.8.3.1 modifies imported-image overwrite and hide/show option. This is separate from the paid ending artwork DLC.",
+      "sources": [
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3097907147118210660",
+          "title": "[ Update ] ver1.8.3",
+          "published_utc": "2021-11-01T04:23:32+00:00",
+          "author": "Kazuma",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/95/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "news_gid": "4186652357037275608",
+          "reviewed_contents_lines": [
+            1,
+            10
+          ]
+        },
+        {
+          "url": "https://steamcommunity.com/games/1546320/announcements/detail/3097907781187916122",
+          "title": "[ Update ] ver1.8.3.1",
+          "published_utc": "2021-11-03T05:54:39+00:00",
+          "snapshot": "steam_news_300.json",
+          "json_pointer": "/appnews/newsitems/92/contents",
+          "span": "Entire small publisher announcement contents field reviewed; exact raw JSON property identified.",
+          "reviewed_contents_lines": [
+            1,
+            5
+          ]
+        }
+      ],
+      "limits": "User-image presentation capability only; imported artwork and local art content not examined."
+    }
+  ],
+  "official_claim_count": 27,
+  "larger_original_implications": [
+    {
+      "id": "YC-I1",
+      "status": "original-proposal",
+      "principle": "Useful ordinary learning should change specific social/campaign means.",
+      "joins": [
+        "routine/training->capacity/efficiency->named help",
+        "craft->real companion form",
+        "medicine->less terminal aftermath",
+        "research->temporary late cooperation"
+      ],
+      "limit": "Reuse existing YAIRPG knowledge/stock/people consumers; no universal progress bar or copied Father/Norn plot selected."
+    },
+    {
+      "id": "YC-I2",
+      "status": "original-proposal",
+      "principle": "Route commitments can reserve means and close alternatives while keeping a useful life afterward.",
+      "joins": [
+        "career timing->mutually excluded solutions",
+        "companion availability->absence/return/temporary penalty",
+        "failed event->ordinary later work without rewriting history"
+      ],
+      "limit": "Rich original NPC consent/memory and local institutions are YAIRPG extensions, not claims about Your Chronicle simulation."
+    },
+    {
+      "id": "YC-I3",
+      "status": "original-proposal",
+      "principle": "Current mastery, practiced familiarity, permanent completion, access and carried constraints need different retention policies.",
+      "joins": [
+        "SaveR class/proficiency->lost at deep reset",
+        "Save permanent count->AHA list",
+        "inheritance school access->reopened permission",
+        "mark carryover->retained cost"
+      ],
+      "limit": "Keep existing one field renewal; no second prestige/reset policy selected."
+    },
+    {
+      "id": "YC-I4",
+      "status": "original-proposal",
+      "principle": "Automation should reproduce earned paid actions with explicit shortage/decision boundaries and capacity-safe settlement.",
+      "joins": [
+        "past completion->queue eligibility",
+        "current affordability->fallback/default",
+        "offline-scaled/full-time components->honest diff",
+        "gear cap->potential loss path"
+      ],
+      "limit": "Use current command/job/stock/native publisher; native study adapter is a lower-ranked proposal, general offline simulation parked."
+    }
+  ],
+  "unresolved_queries": [
+    {
+      "family": "narrative/ending",
+      "remaining": "Full preceding A/B/C/F campaigns, the remaining A13/A14/A15 branches and supplementary graph/guide/Pride interactions; all eight terminal predicates are reviewed but not all route chronology.",
+      "bounded_next_question": "Pick one still-unreviewed route and compare an actual incompatible preparation chain to its final predicate, including paid resources and failed aftermath."
+    },
+    {
+      "family": "routines/retention",
+      "remaining": "Complete shallow/deep callback registries, all stats/effect parser registrations and active squad/quest state across reset; selected Save versus SaveR evidence does not establish whole-save retention.",
+      "bounded_next_question": "Follow one late retained mark or one active quest through its explicit reset callback/initialization consumer."
+    },
+    {
+      "family": "party/equipment",
+      "remaining": "Complete luck aggregation, pin-to-container priority, every seed spend, real damage/additional-effect resolution, full generated-gear distribution and every acquisition route.",
+      "bounded_next_question": "Trace one formation-qualified costly skill through actual attack/effect/cost and compare a supported cheap fallback, without treating deduplicated methods as empty."
+    },
+    {
+      "family": "automation/offline",
+      "remaining": "Exact DI policy/time acquisition, clock anomaly handling, complete per-kind queue/offline behavior, full AHA allocation algorithm and compound replay/idempotence.",
+      "bounded_next_question": "Compare one allowed dungeon/loop with a blocked story/upgrade action through actual offline dispatch, cost and resulting diff."
+    },
+    {
+      "family": "late systems/DLC",
+      "remaining": "Most Pride/Greed/Gluttony/Envy/Wrath/Alchemy concrete content rows and acquisition/callbacks; artwork external bundle unavailable, entitlement unknown.",
+      "bounded_next_question": "Follow one late challenge or strategy investment into actual ordinary-work benefits and reset loss/refund; obtain no DLC/art payload or entitlement without separate scope."
+    }
+  ],
+  "packet_selection_owner": "PACKETS.json",
+  "evidence_private_root": "/Users/weiwei/.codex/research/your-chronicle/25001959",
+  "raw_source_or_prose_corpus_in_git": false
+}

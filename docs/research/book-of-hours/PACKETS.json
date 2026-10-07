@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "selection_count": 5,
+  "status": "unaccepted-original-proposals",
+  "packets": [
+    {
+      "id": "BOH-P01",
+      "title": "A difficult manual with a useful failed attempt",
+      "paths": [
+        "BH01",
+        "BH02",
+        "BH03",
+        "BH07"
+      ],
+      "proposal": "One original manual can be mastered through the existing paid instruction or a bounded prepared reading attempt. The attempt uses current body/attention, a relevant sample and permitted desk; a real failed trial retains a diagnostic note and spent effort, while a later specific treatment restores availability.",
+      "reuse": "Native reading/item state plus existing sources/knowledge/body/status care/common clock/durable publication. Existing Eda/Neri paid datum lessons remain their own completed content.",
+      "new_gap": "A manual-specific prepared rescue window and failed diagnostic consumer, with object mastery distinct from the actor's earned procedure.",
+      "choices": [
+        "Pay for qualified instruction",
+        "Attempt prepared study",
+        "Keep the manual unread"
+      ],
+      "migration": "Optional additive stable-ID record absent on old saves; no retroactive fatigue, knowledge or reward. Define cancellation and failed-persistence effects through current owners.",
+      "acceptance": "Later fresh-origin journey: failed attempt -> exact diagnostic -> relevant treatment/preparation -> earned usable procedure -> reload retains independent book/mastery/actor facts.",
+      "status": "original-proposal-only",
+      "accepted": false,
+      "implemented": false,
+      "all_gameplay_checks": "deferred; later gate, not a current test request"
+    },
+    {
+      "id": "BOH-P02",
+      "title": "Original workshop notes from actual making",
+      "paths": [
+        "BH05",
+        "BH06",
+        "BH14"
+      ],
+      "proposal": "An existing trained maker authors a counted workshop note from one actual measured product and owned paper/ink. The note records method, current sample and maker. A recipient can use it only for that compatible question, and can request an actual demonstration if the text is incomplete.",
+      "reuse": "Existing stamped materials, learner source, native stock and attributed knowledge. Do not replace the implemented datum strip or duplicate its acquisition path.",
+      "new_gap": "A physical authored evidence carrier whose quality and recipient qualification reach a later funded job.",
+      "choices": [
+        "Write a careful note with actual evidence",
+        "Offer an incomplete note honestly",
+        "Keep the product and knowledge private"
+      ],
+      "migration": "Version note provenance and immutable sample references; retain physical custody through existing item transfer. No paper or expertise minted by rendering.",
+      "acceptance": "Later note creation -> actual transfer -> compatible recipient job succeeds; irrelevant/stale note blocks or needs fresh demonstration; original maker keeps their own procedure.",
+      "status": "original-proposal-only",
+      "accepted": false,
+      "implemented": false,
+      "all_gameplay_checks": "deferred; later gate, not a current test request"
+    },
+    {
+      "id": "BOH-P03",
+      "title": "A shared case with incompatible interventions",
+      "paths": [
+        "BH09",
+        "BH10",
+        "BH17"
+      ],
+      "proposal": "One original finite Village material dispute has two independently motivated people. The player may fund one remedy, transmit accurate evidence to either, or refuse. Each actual intervention changes the case, and a second opposed intervention can obstruct the first rather than grant two victories. A disclosed incomplete resolution leaves one later evidence remedy.",
+      "reuse": "Existing causal situations, funded NPC jobs, directed received accounts, claims and native stock. Earlier shutter/rain/drain outcomes are not retconned.",
+      "new_gap": "Joint-case resolution evaluates two retained interventions and one object-specific later remedy.",
+      "choices": [
+        "Support the first practical remedy",
+        "Support the competing remedy",
+        "Preserve evidence and stay uninvolved"
+      ],
+      "migration": "One opt-in case version with absence inert; stamps only actual completed interventions. No automatic offscreen omniscience or duplicated reward.",
+      "acceptance": "Later three branches plus conflict: funded intervention -> actor action -> retained mutual obstruction or success -> later account/remedy with same people/property.",
+      "status": "original-proposal-only",
+      "accepted": false,
+      "implemented": false,
+      "all_gameplay_checks": "deferred; later gate, not a current test request"
+    },
+    {
+      "id": "BOH-P04",
+      "title": "A small hosted technical discussion",
+      "paths": [
+        "BH11",
+        "BH12",
+        "BH13",
+        "BH14"
+      ],
+      "proposal": "Use an existing permitted room to invite two known willing makers to discuss one actual report. The host supplies per-person food and preparation; each participant retains independent availability, stock and right to decline. A directed disagreement or agreement is earned by witnessed exchanges, not a generic favorability increment.",
+      "reuse": "Existing person contact/co-location, room rights, kitchen/material work, native stock, participant knowledge and common played clock.",
+      "new_gap": "Participant acceptance/travel/attendance and pair-specific exchange history with a later consumer. Source invitation token retrieval alone does not establish consent, so the original adaptation must add those actor decisions.",
+      "choices": [
+        "Supply a modest two-person meeting",
+        "Postpone until a willing participant is free",
+        "Share the report separately"
+      ],
+      "migration": "Opt-in finite occurrence with attendee commitments/reservations under current jobs. Interrupted gathering returns only unchanged inputs per explicit policy.",
+      "acceptance": "Later invite -> accept/refuse -> funded travel -> supplied discussion -> one directed remembered outcome -> changed later work offer, with no fabricated attendance.",
+      "status": "original-proposal-only",
+      "accepted": false,
+      "implemented": false,
+      "all_gameplay_checks": "deferred; later gate, not a current test request"
+    },
+    {
+      "id": "BOH-P05",
+      "title": "An institution that can disagree",
+      "paths": [
+        "BH04",
+        "BH15"
+      ],
+      "proposal": "An existing optional local circle may accept a charter for one funded public service. Candidate purpose, practical competence, consent and contributed means remain separate. Opposing missions can deadlock until the group accepts a narrower service or closes the proposal; founding changes a specific later job/access, not the ordinary life or prestige count.",
+      "reuse": "Existing institutions/standing, personal claims, active jobs, native means and retained public/private accounts; no global guild simulation or new realm.",
+      "new_gap": "A finite charter commitment with actual consenting member roles, incompatible-purpose resolution and one downstream service.",
+      "choices": [
+        "Adopt one feasible shared service",
+        "Negotiate a narrower charter",
+        "Close without forming the group"
+      ],
+      "migration": "Charter version and membership record only after opt-in; preserve previous standing and all private property. No automatic soul grant/ending/reset.",
+      "acceptance": "Later candidate selection -> explicit acceptance -> real contribution -> deadlock/narrowing -> actual service -> changed return; loss/withdrawal closes or reopens only the bounded commitment.",
+      "status": "original-proposal-only",
+      "accepted": false,
+      "implemented": false,
+      "all_gameplay_checks": "deferred; later gate, not a current test request"
+    }
+  ],
+  "not_selected": "Larger design and implementation lessons remain in REPORT.md/FINDINGS.json; no runtime dispatch authorized here."
+}

@@ -1,0 +1,649 @@
+{
+  "status": "implemented-unverified; exclusive writes released to root",
+  "module": "src/book_world_paradise_actions.js",
+  "sourceSnapshot": "PD-MTL-67f15d112389-r1",
+  "epubSha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+  "sourceCut": "ERA_CARD_SID20; supplied MTL qualified; sid20 task midnight and negotiated next-day18:00 are distinct/uncertain",
+  "sourceHash": "b13a4e8e2bc0629763e55a9cd807dea1bff809f0024e9b69d938e4fe10d72cf8",
+  "exports": [
+    "paradiseActions",
+    "paradiseCommands",
+    "paradiseContext",
+    "paradiseControllers",
+    "paradiseFacts",
+    "paradisePowers",
+    "paradiseSituations",
+    "paradiseSources"
+  ],
+  "counts": {
+    "commands": 51,
+    "playerCommands": 38,
+    "npcCommands": 13,
+    "controllers": 5,
+    "powers": 2,
+    "sources": 3,
+    "situations": 1
+  },
+  "commandIds": [
+    "book.paradise.chart",
+    "book.paradise.hub_meet",
+    "book.paradise.hub_shift",
+    "book.paradise.lesson",
+    "book.paradise.hub_kit",
+    "book.paradise.hub_rope",
+    "book.paradise.hub_ration",
+    "book.paradise.hub_rest",
+    "book.paradise.goa_meet",
+    "book.paradise.porter_meet",
+    "book.paradise.porter_shift",
+    "book.paradise.goa_logs",
+    "book.paradise.goa_rope",
+    "book.paradise.goa_spare_rope",
+    "book.paradise.goa_ration",
+    "book.paradise.eat",
+    "book.paradise.hank_meet",
+    "book.paradise.hank_copy",
+    "book.paradise.su_meet",
+    "book.paradise.su_cooperate",
+    "book.paradise.su_refuse",
+    "book.paradise.krieg_meet",
+    "book.paradise.cache_ordinary",
+    "book.paradise.cache_braced",
+    "book.paradise.warn_civilians",
+    "book.paradise.divert_fuel",
+    "book.paradise.guard_access",
+    "book.paradise.palace_warning",
+    "book.paradise.abstain",
+    "book.paradise.report_fire_burned",
+    "book.paradise.report_fire_contained",
+    "book.paradise.report_hank_sheltered",
+    "book.paradise.report_hank_dead",
+    "book.paradise.report_king_killed",
+    "book.paradise.report_king_escaped",
+    "book.paradise.report_king_alive",
+    "book.paradise.close_account",
+    "book.paradise.continued_life",
+    "book.paradise.npc.mia_account",
+    "book.paradise.npc.krieg_ignite",
+    "book.paradise.npc.krieg_contained",
+    "book.paradise.npc.krieg_breach",
+    "book.paradise.npc.hank_shelter_route",
+    "book.paradise.npc.hank_shelter_contained",
+    "book.paradise.npc.hank_afterfire_death",
+    "book.paradise.npc.king_evacuate",
+    "book.paradise.npc.su_prepare",
+    "book.paradise.npc.su_move",
+    "book.paradise.npc.su_attempt",
+    "book.paradise.npc.su_search",
+    "book.paradise.npc.su_end_search"
+  ],
+  "controllers": [
+    {
+      "id": "book.paradise.mia.controller",
+      "actorId": "book.paradise.mia",
+      "commands": [
+        "book.paradise.npc.mia_account"
+      ]
+    },
+    {
+      "id": "book.paradise.krieg.controller",
+      "actorId": "book.paradise.krieg",
+      "commands": [
+        "book.paradise.npc.krieg_contained",
+        "book.paradise.npc.krieg_ignite",
+        "book.paradise.npc.krieg_breach"
+      ]
+    },
+    {
+      "id": "book.paradise.hank.controller",
+      "actorId": "book.paradise.hank",
+      "commands": [
+        "book.paradise.npc.hank_shelter_route",
+        "book.paradise.npc.hank_shelter_contained",
+        "book.paradise.npc.hank_afterfire_death"
+      ]
+    },
+    {
+      "id": "book.paradise.king.controller",
+      "actorId": "book.paradise.philip_herbert",
+      "commands": [
+        "book.paradise.npc.king_evacuate"
+      ]
+    },
+    {
+      "id": "book.paradise.su.controller",
+      "actorId": "book.paradise.su_xiao",
+      "commands": [
+        "book.paradise.npc.su_prepare",
+        "book.paradise.npc.su_move",
+        "book.paradise.npc.su_attempt",
+        "book.paradise.npc.su_search",
+        "book.paradise.npc.su_end_search"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "command": "book.paradise.hub_shift",
+      "key": "book.paradise.hub.packing_receipt"
+    },
+    {
+      "command": "book.paradise.lesson",
+      "key": "book.paradise.receipt.lesson"
+    },
+    {
+      "command": "book.paradise.hub_kit",
+      "key": "book.paradise.receipt.hub_kit"
+    },
+    {
+      "command": "book.paradise.hub_rope",
+      "key": "book.paradise.receipt.hub_rope"
+    },
+    {
+      "command": "book.paradise.hub_ration",
+      "key": "book.paradise.receipt.hub_ration"
+    },
+    {
+      "command": "book.paradise.hub_rest",
+      "key": "book.paradise.receipt.hub_rest"
+    },
+    {
+      "command": "book.paradise.porter_shift",
+      "key": "book.paradise.goa.porter_receipt"
+    },
+    {
+      "command": "book.paradise.goa_logs",
+      "key": "book.paradise.receipt.goa_logs"
+    },
+    {
+      "command": "book.paradise.goa_rope",
+      "key": "book.paradise.receipt.goa_rope"
+    },
+    {
+      "command": "book.paradise.goa_spare_rope",
+      "key": "book.paradise.receipt.goa_spare_rope"
+    },
+    {
+      "command": "book.paradise.goa_ration",
+      "key": "book.paradise.receipt.goa_ration"
+    },
+    {
+      "command": "book.paradise.eat",
+      "key": "book.paradise.receipt.eat"
+    },
+    {
+      "command": "book.paradise.hank_copy",
+      "key": "book.paradise.receipt.hank_copy"
+    },
+    {
+      "command": "book.paradise.su_meet",
+      "key": "book.paradise.receipt.su_meet"
+    },
+    {
+      "command": "book.paradise.su_cooperate",
+      "key": "book.paradise.receipt.su_cooperate"
+    },
+    {
+      "command": "book.paradise.krieg_meet",
+      "key": "book.paradise.receipt.krieg_meet"
+    },
+    {
+      "command": "book.paradise.cache_ordinary",
+      "key": "book.paradise.goa.civil_cache"
+    },
+    {
+      "command": "book.paradise.cache_braced",
+      "key": "book.paradise.goa.civil_cache"
+    },
+    {
+      "command": "book.paradise.warn_civilians",
+      "key": "book.paradise.goa.warning_delivery"
+    },
+    {
+      "command": "book.paradise.divert_fuel",
+      "key": "book.paradise.goa.fuel_bargain"
+    },
+    {
+      "command": "book.paradise.guard_access",
+      "key": "book.paradise.receipt.guard_access"
+    },
+    {
+      "command": "book.paradise.palace_warning",
+      "key": "book.paradise.goa.palace_warning"
+    },
+    {
+      "command": "book.paradise.close_account",
+      "key": "book.paradise.goa.civil_account"
+    },
+    {
+      "command": "book.paradise.continued_life",
+      "key": "book.paradise.goa.continued_work"
+    },
+    {
+      "command": "book.paradise.npc.mia_account",
+      "key": "book.paradise.npc.receipt.mia_account"
+    },
+    {
+      "command": "book.paradise.npc.krieg_ignite",
+      "key": "book.paradise.goa.fire_operation"
+    },
+    {
+      "command": "book.paradise.npc.krieg_contained",
+      "key": "book.paradise.goa.fire_operation"
+    },
+    {
+      "command": "book.paradise.npc.krieg_breach",
+      "key": "book.paradise.npc.receipt.krieg_breach"
+    },
+    {
+      "command": "book.paradise.npc.hank_shelter_route",
+      "key": "book.paradise.npc.receipt.hank_shelter_route"
+    },
+    {
+      "command": "book.paradise.npc.hank_shelter_contained",
+      "key": "book.paradise.npc.receipt.hank_shelter_contained"
+    },
+    {
+      "command": "book.paradise.npc.hank_afterfire_death",
+      "key": "book.paradise.npc.receipt.hank_afterfire_death"
+    },
+    {
+      "command": "book.paradise.npc.king_evacuate",
+      "key": "book.paradise.npc.receipt.king_evacuate"
+    },
+    {
+      "command": "book.paradise.npc.su_prepare",
+      "key": "book.paradise.npc.receipt.su_prepare"
+    },
+    {
+      "command": "book.paradise.npc.su_move",
+      "key": "book.paradise.npc.receipt.su_move"
+    },
+    {
+      "command": "book.paradise.npc.su_attempt",
+      "key": "book.paradise.npc.receipt.su_attempt"
+    },
+    {
+      "command": "book.paradise.npc.su_search",
+      "key": "book.paradise.npc.receipt.su_search"
+    },
+    {
+      "command": "book.paradise.npc.su_end_search",
+      "key": "book.paradise.npc.receipt.su_end_search"
+    }
+  ],
+  "worldFacts": {
+    "book.paradise.hub": {
+      "book.paradise.hub.met": [
+        true
+      ],
+      "book.paradise.hub.workDone": [
+        true
+      ]
+    },
+    "book.paradise.goa": {
+      "book.goa.met": [
+        true
+      ],
+      "book.goa.lifeDone": [
+        true
+      ],
+      "book.goa.cache": [
+        true
+      ],
+      "book.goa.cacheCapacity": [
+        2,
+        3
+      ],
+      "book.goa.cacheMethod": [
+        "ordinary",
+        "braced"
+      ],
+      "book.goa.warning": [
+        true
+      ],
+      "book.goa.gate": [
+        "escape_route",
+        "breached"
+      ],
+      "book.goa.fuelDiverted": [
+        true
+      ],
+      "book.goa.kingWarned": [
+        true
+      ],
+      "book.goa.arcClosed": [
+        true
+      ],
+      "book.goa.aftermath": [
+        "accounted"
+      ],
+      "book.goa.pierRepaired": [
+        true
+      ],
+      "book.goa.fire": [
+        "burned",
+        "contained"
+      ],
+      "book.goa.hank": [
+        "sheltered",
+        "dead"
+      ],
+      "book.goa.king": [
+        "escaped",
+        "killed"
+      ],
+      "book.goa.suXiao": [
+        "moving",
+        "departed",
+        "searching"
+      ],
+      "book.goa.palaceAccountDispatched": [
+        true
+      ]
+    }
+  },
+  "actorFacts": {
+    "player": {
+      "book.paradise.chart": [
+        true
+      ],
+      "book.paradise.hubPaid": [
+        true
+      ],
+      "book.paradise.lessonTaken": [
+        true
+      ],
+      "book.paradise.miaMet": [
+        true
+      ],
+      "book.paradise.porterMet": [
+        true
+      ],
+      "book.paradise.lifePaid": [
+        true
+      ],
+      "book.paradise.hankMet": [
+        true
+      ],
+      "book.paradise.warningLearned": [
+        true
+      ],
+      "book.paradise.suMet": [
+        true
+      ],
+      "book.paradise.routeDecided": [
+        true
+      ],
+      "book.paradise.route": [
+        "cooperate",
+        "independent"
+      ],
+      "book.paradise.kriegMet": [
+        true
+      ],
+      "book.paradise.civilWarningDelivered": [
+        true
+      ],
+      "book.paradise.fuelConsent": [
+        true
+      ],
+      "book.paradise.palaceAccess": [
+        true
+      ],
+      "book.paradise.localPermit": [
+        true
+      ],
+      "book.paradise.palaceWarningDelivered": [
+        true
+      ],
+      "book.paradise.operationChoice": [
+        "abstained"
+      ],
+      "book.paradise.fireReport": [
+        true
+      ],
+      "book.paradise.hankReport": [
+        true
+      ],
+      "book.paradise.kingReport": [
+        true
+      ],
+      "book.paradise.localAccount": [
+        true
+      ],
+      "book.paradise.continuedDone": [
+        true
+      ]
+    },
+    "book.paradise.su_xiao": {
+      "book.paradise.supplyReceived": [
+        true
+      ],
+      "book.paradise.bladePrepared": [
+        true
+      ],
+      "book.paradise.searchAccountClosed": [
+        true
+      ]
+    },
+    "book.paradise.mia": {
+      "book.paradise.accountReady": [
+        true
+      ]
+    }
+  },
+  "knowledgeIds": [
+    "book.paradise.chart",
+    "book.paradise.hub",
+    "book.paradise.packingReceipt",
+    "book.paradise.lesson",
+    "book.paradise.purchase.hub_kit",
+    "book.paradise.purchase.hub_rope",
+    "book.paradise.purchase.hub_ration",
+    "book.paradise.rest",
+    "book.paradise.mia",
+    "book.paradise.porter",
+    "book.paradise.porterReceipt",
+    "book.paradise.purchase.goa_logs",
+    "book.paradise.purchase.goa_rope",
+    "book.paradise.purchase.goa_spare_rope",
+    "book.paradise.purchase.goa_ration",
+    "book.paradise.meal",
+    "book.paradise.hank",
+    "book.paradise.dutyWarning",
+    "book.paradise.su",
+    "book.paradise.route",
+    "book.paradise.krieg",
+    "book.paradise.cache",
+    "book.paradise.civilWarning",
+    "book.paradise.fuelBargain",
+    "book.paradise.palaceAccess",
+    "book.paradise.palaceWarning",
+    "book.paradise.abstention",
+    "book.paradise.fireReport",
+    "book.paradise.hankReport",
+    "book.paradise.kingReport",
+    "book.paradise.ownAccount",
+    "book.paradise.continuedLife",
+    "book.paradise.private.account",
+    "book.paradise.private.fire",
+    "book.paradise.private.gate",
+    "book.paradise.private.shelter",
+    "book.paradise.private.evacuation",
+    "book.paradise.private.preparation",
+    "book.paradise.private.approach",
+    "book.paradise.private.target",
+    "book.paradise.private.search",
+    "book.paradise.private.searchEnd"
+  ],
+  "stockRequests": [
+    {
+      "command": "book.paradise.hub_kit",
+      "requests": [
+        {
+          "owner": "book.paradise.hub.shop",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.hub_rope",
+      "requests": [
+        {
+          "owner": "book.paradise.hub.shop",
+          "key": "{\"id\":\"Survey rope\"}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.hub_ration",
+      "requests": [
+        {
+          "owner": "book.paradise.hub.shop",
+          "key": "{\"id\":\"Goa ration parcel\"}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.goa_logs",
+      "requests": [
+        {
+          "owner": "book.paradise.goa.shop",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.goa_rope",
+      "requests": [
+        {
+          "owner": "book.paradise.goa.shop",
+          "key": "{\"id\":\"Survey rope\"}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.goa_spare_rope",
+      "requests": [
+        {
+          "owner": "book.paradise.goa.shop",
+          "key": "{\"id\":\"Survey rope\"}",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "command": "book.paradise.goa_ration",
+      "requests": [
+        {
+          "owner": "book.paradise.goa.shop",
+          "key": "{\"id\":\"Goa ration parcel\"}",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "rootRequirements": [
+    "Import/spread paradiseSituations into registry, chart deliberately begins the actual side_branch situation before received knowledge",
+    "Import paradiseFacts into common simulationFacts for fresh completion/controller evaluations; root context projection alone is insufficient after staged outcomes",
+    "Add book_paradise and book_paradise_npc to schema4 reservation-return job groups",
+    "Explicit enrollment grants Su Xiao own blade source/power trained, soul awakened faculty acquired with analytical max91 only; no unknown mana/currentfuel or kill yield",
+    "Funded native NPC relocate only root exact same-world locations after fresh native body/owner/revision/absence support; stage actual location occupancy after durable publish/restore",
+    "Native stock acquisition uses exact authored paradiseStock owner/key/count and one publisher; shop revenues credit actual local employee/porter, no stock refill",
+    "Permit and palaceAccess admitted only from actual Hank proof/payment; public guardhouse outerdesk avoids circular permit",
+    "Fresh activeVisit uses visits[].id/instanceId/endpoint.worldId; native bound/revision/body, nativeAlive and grouped vitalsByActor, actual native gameplay bags/custody and people body/life/location remain required",
+    "Completion of reusable tools checks fresh source faculty/body while accepted actual job escrow owns the reserved item; start separately checks current native bag; root schema4 cancels/unsupported completion refund",
+    "Player report waits for actual fire, Hank and king/Su Xiao outcomes then Mia own funded body/attention account; no NPC private plan/public whole-author prophecy",
+    "Native relocation effects need fresh nonserialized actual owner context: instant completion passes original current context; delayed completion uses contexts[actorId] plus staged gameplay/vitals. Frozen job.context contains no paradiseNative and cannot authorize movement.",
+    "Lethal native health uses fresh paradise.health.actor dynamic scale:-1 and explicit life dead lethal:true, not an assumed damage number.",
+    "Disrupted Su Xiao remains alive/searching in Goa after paid finite search stage; searchAccountClosed qualifies local account only, and his source mission/return is unresolved. Supported-kill departed means local represented palace-scene departure only, retaining actor world Goa."
+  ],
+  "prototypes": {
+    "kingOpportunityElapsed": 42,
+    "fireOperationElapsed": 54,
+    "intervalPolicy": "original played local finite scheduler, never source-clock conversion",
+    "cacheCapacity": {
+      "ordinary": 2,
+      "braced": 3
+    },
+    "wage": {
+      "hub": 8,
+      "porter": 8,
+      "continued": 3
+    },
+    "teacher": "original portable desk-side paid booth at actual service-worker hub position"
+  },
+  "checks": [
+    "node --check passed",
+    "module import passed",
+    "createSimulationRegistry definition construction/link checks passed with 51commands/38player/13NPC/5controllers/2powers/3sources/1situation",
+    "Definition exports are deeply frozen; no behavior/preview/command/evaluator/save/browser/test execution"
+  ],
+  "acceptanceDeferred": [
+    "native gameplay/actual consequence branches",
+    "refunded cancellation and unsupported completion",
+    "controller absence freeze and native relocation",
+    "shop/item/material/resource conservation",
+    "save/reload/import/failure",
+    "keyboard/browser/player/director acceptance"
+  ],
+  "ownership": {
+    "writes": [
+      "src/book_world_paradise_actions.js",
+      "docs/gm/book-world-player-agency/actions/CHECKPOINT.md",
+      "docs/gm/book-world-player-agency/actions/INTEGRATION.json",
+      "docs/gm/book-world-player-agency/actions/DELIVERY.md"
+    ],
+    "release": true,
+    "processes": [],
+    "sharedWrites": false
+  },
+  "inputHashes": {
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md": "8f185a3e3077c11721cbe0801191e1c78a220b8c1a4960a40eb0108a446ddd14"
+  },
+  "requiredProjectionFacts": [
+    "paradise.at.book.paradise.hank",
+    "paradise.at.book.paradise.krieg",
+    "paradise.at.book.paradise.mia",
+    "paradise.at.book.paradise.philip_herbert",
+    "paradise.at.book.paradise.su_xiao",
+    "paradise.chartSupported",
+    "paradise.goaElapsed",
+    "paradise.hankOwnsProof",
+    "paradise.health.book.paradise.hank",
+    "paradise.health.book.paradise.philip_herbert",
+    "paradise.kingReachable",
+    "paradise.kriegCasks",
+    "paradise.local.book.paradise.goa",
+    "paradise.local.book.paradise.hub",
+    "paradise.methodFacultySupported",
+    "paradise.methodSupported",
+    "paradise.miaAccountReady",
+    "paradise.nativeBound",
+    "paradise.outcomesResolved",
+    "paradise.playerSupported",
+    "paradise.stock.book.paradise.goa.shop.{\"id\":\"Goa ration parcel\"}",
+    "paradise.stock.book.paradise.goa.shop.{\"id\":\"Rough wood log\"}",
+    "paradise.stock.book.paradise.goa.shop.{\"id\":\"Survey rope\"}",
+    "paradise.stock.book.paradise.hub.shop.{\"id\":\"Goa ration parcel\"}",
+    "paradise.stock.book.paradise.hub.shop.{\"id\":\"Prepared survey kit\"}",
+    "paradise.stock.book.paradise.hub.shop.{\"id\":\"Survey rope\"}",
+    "paradise.suSwordFacultySupported",
+    "paradise.suSwordSupported",
+    "paradise.support.book.paradise.employee",
+    "paradise.support.book.paradise.hank",
+    "paradise.support.book.paradise.krieg",
+    "paradise.support.book.paradise.mia",
+    "paradise.support.book.paradise.philip_herbert",
+    "paradise.support.book.paradise.porter",
+    "paradise.support.book.paradise.su_xiao"
+  ]
+}

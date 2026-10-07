@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "worker": "/root/remainder_offers",
+  "parent": "/root",
+  "candidateIds": [
+    "elin:P5",
+    "rogue-legacy:P3"
+  ],
+  "status": "implemented-unverified",
+  "capturedAt": "2026-10-06T19:33:33.070882+00:00",
+  "inputSnapshot": "Live read/source-check dependencies at leaf release; shared root may continue editing. No final integrated build claimed.",
+  "inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": "3de63868ff2d365190b82ad883130b5adc93e72a2d88d71077a56a9304547fd6",
+    "docs/research/elin/IMPLEMENTATION_PACKETS.md": "86ccddb2f23ee45e595308f02825b3782a87d7c3a99f4d77e24751020043f0d6",
+    "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md": "e4ac274689ea8f76b0d93ce6ae6f4ced5715a5a848e596e55bc427cb497fd8e7",
+    "docs/research/elin/FINDINGS.json": "ccef350cccdacffde8317f7d789624cadfc159984f65234c05a0870eb9b529ba",
+    "docs/research/rogue-legacy/readers/yair.json": "991c45273efc96aa6aca042baadfe3929333a120c97108c5b6d473dbb31f774e",
+    "docs/research/rogue-legacy/readers/root_yair.json": "1067544002d98d4c599f264e8d2dba7413cb72a2f2e05920a0701d78705006b5",
+    "src/helper_content.js": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d",
+    "src/simulation.js": "434e2b29214edbdaf7b1f751b7007ed1c1cf9c0ba0f24c9a5a386742214892fb",
+    "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+    "src/simulation_contracts.js": "fc777eeb90d597dfa4715d9dac320e888b1b7389aedfc54393092daa78c907f3",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/simulation_effects.js": "388f816363bf4837685134069285a633bb35244c427b7985d3b244f52de75243",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/original_frontier_facts.js": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/game_time.js": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+    "src/expansion_engine.js": "0eb36aa7fc0f08bd85295c72d9b2c78c54726b4f3823e71ced19725a6f34b7ab",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/feature_expansion_host.js": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467",
+    "src/native_gameplay_adapter.js": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+    "src/native_equipment_transaction.js": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/gameplay_transactions.js": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81"
+  },
+  "outputs": {
+    "src/audit_remainder_offers_content.js": "0513318f63a127ae71be958afbd861746e41ce1ef2474e8ae634a31c4aca118e",
+    "src/audit_remainder_offers_state.js": "02b39c080b4217398dbee66b03ecb6f7903c2b950e2816c0068aa83862f877bd",
+    "src/audit_remainder_offers_host.js": "263942b055657ec2ff70abd4032f1736fdb9a1428c2821e8b8f7609c0ce255fc",
+    "docs/gm/audit-implementation/remainder/offers/CHECKPOINT.md": "1035c7470c87bce080007d3d1f2c596917757aa4beac98dc28ebb76bb59c6c1c",
+    "docs/gm/audit-implementation/remainder/offers/INTEGRATION.md": "13df5f34d733b3544f453e5add2a001f80cbdc4d444344f5bbe3016d3ff6f060",
+    "docs/gm/audit-implementation/remainder/offers/RELEASE.md": "6f6d7c6a9fee0c502c565e73ca9a6633fb27ffee452a1a9fced51055ca0d5cc1"
+  },
+  "sourceChecks": [
+    {
+      "kind": "syntax",
+      "paths": [
+        "src/audit_remainder_offers_content.js",
+        "src/audit_remainder_offers_state.js",
+        "src/audit_remainder_offers_host.js"
+      ],
+      "command": "node --check each path",
+      "exitCode": 0
+    },
+    {
+      "kind": "esm-import-exports",
+      "paths": [
+        "src/audit_remainder_offers_content.js",
+        "src/audit_remainder_offers_state.js",
+        "src/audit_remainder_offers_host.js"
+      ],
+      "exitCode": 0,
+      "exports": {
+        "content": [
+          "remainderOffersDefinitions",
+          "remainderOffersItemSpecifications",
+          "REMAINDER_OFFERS_GROUP",
+          "REMAINDER_OFFERS_KEYS",
+          "REMAINDER_OFFERS_WORLD",
+          "REMAINDER_PATHFINDER_PROFILES",
+          "REMAINDER_SUPPLY",
+          "remainderOffersTemplate"
+        ],
+        "state": [
+          "remainderOffersFacts",
+          "validateRemainderOffers",
+          "createRemainderOffersSolicitation",
+          "advanceRemainderOffers",
+          "retainRemainderOffersWindow",
+          "frozenRemainderOffersRegistry"
+        ],
+        "host": [
+          "remainderOffersContext",
+          "commitRemainderOffersCommand",
+          "remainderOffersPresentation"
+        ]
+      }
+    },
+    {
+      "kind": "definition-reference",
+      "command": "createSimulationRegistry(current simulationDefinitions + deduplicated remainderOffersDefinitions)",
+      "exitCode": 0,
+      "laneCounts": {
+        "commands": 26,
+        "people": 4,
+        "controllers": 4,
+        "situations": 1,
+        "items": 0
+      },
+      "combinedCommandsAtCheck": 762
+    }
+  ],
+  "deferred": [
+    "gameplay/UI",
+    "save/reload/import/compatibility",
+    "failure/custody/conservation",
+    "clock/observer/keyboard/regression",
+    "director acceptance"
+  ],
+  "scopePreservation": [
+    "No shared writes",
+    "No source libraries or personal saves",
+    "No build or behavioral tests",
+    "No dependency install",
+    "No commit/push/publication/automation",
+    "No subagents or user-visible chat"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "worker": "/root/nested_chains",
+  "status": "source-delivered-implemented-unverified",
+  "released": true,
+  "commandCount": 17,
+  "sourceHashes": {
+    "src/feature_expansion_nested_life.js": "fd5161393c65a3a9a70a99a0d7a39a82e57af41207e3c85141251719c6a9949f"
+  },
+  "documentHashes": {
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/INTEGRATION.json": "cc45eb4182bcac592ade442fb793c6fed7c352a4be2ae5c85a4c2df0e0f614c3",
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/DESCRIPTIONS.md": "d6099ef50bcc72236e828525e638b7ac8dd615cb62c1fab28868fc23f7b91406",
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/CHECKPOINT.md": "f0f65dcbb510e20adb66b7b9e469a733aa7b68535836862720769ae8e1a48117",
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/DELIVERY.md": "fbdcae14dec0d83beadd44168097f936c1387b8103f108274bbc623c20e9487d"
+  },
+  "checks": {
+    "performed": [
+      "node --check new module",
+      "cold import new module",
+      "actual merged native/local-life createSimulationRegistry definition compilation",
+      "local document links and source/document hashes"
+    ],
+    "deferred": [
+      "planner/action/predicate/story evaluation",
+      "unit",
+      "gameplay/browser",
+      "save/reload/import/failure",
+      "keyboard/regression/director",
+      "final shared source/native/UI/save/build admission: root"
+    ]
+  }
+}

@@ -1,5 +1,18 @@
+import {validateWorldCompletionNativeEnvelope} from './world_completion_native.js';
+import {validateCausalStoryEnvelope} from './causal_story_native.js';
+import {validateParadiseEnvelope} from './book_world_paradise_native.js';
+import {validateMolEnvelope} from './book_world_mol_native.js';
+import {validateFactorioRetortNativeEnvelope} from './factorio_retort_native.js';
+import {validateProto23Envelope} from './proto23_world_native.js';
+import {validateBacklogEnvelope} from './backlog_expansion_host.js';
+import {validateNestedEnvelope} from './feature_expansion_nested_native.js';
+import {validateTidemarkEnvelope} from './feature_expansion_destination_native.js';
+import {validateRealmEnvelope} from './realm_state.js';
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
 import {validateExpansionState} from "./expansion_engine.js";
+import {validateChronicleCalendar} from "./chronicle.js";
+import {validateItemKey} from "./gameplay_transactions.js";
+import {stableId} from "./simulation_contracts.js";
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -24,17 +37,40 @@ export function validateSaveEnvelope(original, currentVersion) {
     // Retirement is validated before any active game or storage mutation.
     const {save, retired} = prepareFoundationSave(original);
     if(save.expansion != null) validateExpansionState(save.expansion);
+    validateRealmEnvelope(save);
+    validateTidemarkEnvelope(save);
+    validateNestedEnvelope(save);
+    validateParadiseEnvelope(save);
+    validateMolEnvelope(save);
+    validateProto23Envelope(save);
+    validateFactorioRetortNativeEnvelope(save);
+    validateCausalStoryEnvelope(save);
+    validateBacklogEnvelope(save);
+    validateWorldCompletionNativeEnvelope(save);
+    if(save.npc_equipment != null) {
+        object(save.npc_equipment, "NPC equipment");
+        for(const [id, slots] of Object.entries(save.npc_equipment)) {
+            if(!stableId(id)) throw new Error("Invalid NPC equipment owner.");
+            object(slots, "NPC equipment slots");
+            for(const [slot, key] of Object.entries(slots)) {
+                if(!stableId(slot)) throw new Error("Invalid NPC equipment slot."); validateItemKey(key);
+            }
+        }
+    }
     for(const entry of retired.entries) {
         object(entry, "Retired entry");
         if(!Array.isArray(entry.path) || !entry.path.length || !entry.path.every(key => typeof key === "string") ||
             !Object.hasOwn(entry, "value")) throw new Error("Invalid retired-content entry.");
     }
-    if(save.fork_schema != null && save.fork_schema !== 1) throw new Error("Unsupported fork save schema.");
+    if(save.fork_schema != null && ![1,2].includes(save.fork_schema)) throw new Error("Unsupported fork save schema.");
     const componentSave = incoming[0] > 0 || incoming[1] >= 6;
     for(const key of ["character", "locations", "current time", ...(componentSave
         ? ["levels", "inventories", "availabilities", "npcs"] : ["skills", "activities", "dialogues", "traders"])]) {
         object(save[key], key);
     }
+    const travel=save.expansion?.actors.player.facts;
+    if(travel?.['original_frontier.travel.remaining']>0 && (save['current location']!==travel['original_frontier.travel.from'] ||
+        !Object.hasOwn(save.locations,travel['original_frontier.travel.from']) || !Object.hasOwn(save.locations,travel['original_frontier.travel.to']))) throw new Error('Saved native journey does not match its actual origin and supported destination.');
     const c = save.character;
     if(c.titles != null) object(c.titles, "Character titles");
     for(const key of ["xp", "equipment", ...(!componentSave ? ["inventory"] : [])]) object(c[key], `character.${key}`);
@@ -72,6 +108,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     for(const key of ["year", "month", "day", "hour", "minute"]) {
         number(save["current time"][key], `Time ${key}`);
     }
+    if(save.expansion?.chronicle) validateChronicleCalendar(save.expansion.chronicle, save.expansion.clock, save["current time"]);
     if(typeof save["current location"] !== "string") throw new Error("Current location is missing.");
     // Catch malformed optional containers before the real-loader preflight.
     for(const key of ["books", "stances", "quests", "recipes", "options", "active_effects", "global_flags", "item_log",

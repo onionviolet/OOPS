@@ -1,0 +1,3490 @@
+{
+  "schema": 1,
+  "reviewed_at_utc": "2026-10-07T06:00:07.723789+00:00",
+  "role": "/root/factorio_native_successor/native_logistics_heat_reader",
+  "status": "completed bounded semantic review; writer released after delivery",
+  "ownership": {
+    "repository": "docs/research/factorio/native/readers/logistics-heat/",
+    "private": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat",
+    "shared_index_writes": false
+  },
+  "input": {
+    "version": "2.0.77",
+    "steam_buildid": "23347942",
+    "architecture": "arm64",
+    "slice": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-arm64.macho",
+    "slice_sha256_verified_this_review": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+    "qualified_chunks": [
+      4,
+      5,
+      6
+    ],
+    "qualified_records_hash_count_raw_body_C_verified": 250,
+    "qualification_owner": "../../SCHEMA2_QUALIFICATION.json",
+    "sqlite_access": "URI mode=ro only; no update/extract utility which could mutate index used",
+    "analysis_limit": "Parent whole analysis partial/saved; generated evidence is not original types/comments/buildable C++ or all semantic reading"
+  },
+  "coverage": {
+    "unique_complete_C_bodies_read": 43,
+    "complete_C_lines_read": 3052,
+    "retained_instruction_records_in_selected_bodies": 3760,
+    "instruction_coverage": "selected consequential branches/type/store/call checks, not all retained instructions claimed read",
+    "native_claim_count": 11,
+    "installed_selected_file_hashes": 12,
+    "x86_64_read": false,
+    "whole_native_semantic_reading": false,
+    "runtime_execution": false,
+    "new_gameplay": false,
+    "raw_code_in_git": false
+  },
+  "functions": [
+    {
+      "entry": "10029a42c",
+      "name": "__ZN10HeatBuffer14transferEnergyEd",
+      "c_sha256": "7f14a5144a8778775ee6108d5d9e5fe5845f220cf67c3d4ecd1305b9ea47ccbf",
+      "body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+      "c_lines": 24,
+      "instructions": 13,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 42,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a42c/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a42c/record.json",
+      "record_sha256": "6d1d012daf889cc19d928d7390f5e3d13f3858659036863456c02251b5abb379",
+      "body_ranges": [
+        {
+          "min": "10029a42c",
+          "max": "10029a45f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer14transferEnergyEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029a460",
+      "name": "__ZN10HeatBuffer16transferEnergyToERS_d",
+      "c_sha256": "b7e9d1434709ffc58215780b256274e54a3cc2f8e21c788d9e6df1153f19034b",
+      "body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+      "c_lines": 26,
+      "instructions": 21,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 43,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a460/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a460/record.json",
+      "record_sha256": "773da0a5234242755396fa0c95a6f9de8afd9b588ee900c683e53e819eb8188c",
+      "body_ranges": [
+        {
+          "min": "10029a460",
+          "max": "10029a4b3"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer16transferEnergyToERS_d()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029a4b4",
+      "name": "__ZN10HeatBuffer10transferToERS_",
+      "c_sha256": "fa60179f3e112371ed188e2ec3455acbe64cb18c632ce37cbaf2eabedf275c11",
+      "body_sha256": "35b4ca5726f42c2e7ef589a6d0a1f1496181e4a222fc8347202788e7198ff645",
+      "c_lines": 54,
+      "instructions": 55,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 44,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a4b4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a4b4/record.json",
+      "record_sha256": "7fb5f6559661775487f2a69d81765d6973c13390920f0022d920c4f8dffa8a5a",
+      "body_ranges": [
+        {
+          "min": "10029a4b4",
+          "max": "10029a58f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer10transferToERS_()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [
+        {
+          "entry": "10029ba98",
+          "name": "__ZN10HeatBuffer6updateE7MapTickRNSt3__16vectorIjNS1_9allocatorIjEEEE",
+          "external": false
+        },
+        {
+          "entry": "10029b984",
+          "name": "__ZN10HeatBuffer6updateE7MapTick",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029a590",
+      "name": "__ZN10HeatBuffer14setTemperatureEd",
+      "c_sha256": "f1bf21a0623b0f2043e28109c48dc6e6580ac81051f3729201eca66d7fac0df3",
+      "body_sha256": "a87c3a48588e222cdd1c12ecb8712062c6f112b5f0df117f65f9f71cf0060e91",
+      "c_lines": 19,
+      "instructions": 11,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 45,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a590/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029a590/record.json",
+      "record_sha256": "e201ec21b6a4c7a70199322e4fe8e2e0c7b7d2d1f8f263857ff80a953d9c347b",
+      "body_ranges": [
+        {
+          "min": "10029a590",
+          "max": "10029a5bb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer14setTemperatureEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1001e8af4",
+      "name": "__ZNK10HeatBuffer14getTemperatureEv",
+      "c_sha256": "686c8ab0d8853fad1c888dbe1ea6c954747449a743987657c209bd3fa9e3efbc",
+      "body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+      "c_lines": 11,
+      "instructions": 6,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 41,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1001e8af4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1001e8af4/record.json",
+      "record_sha256": "7125c16f966395efd1351b9c43a83f512fd2b0e609a6f4681394b762d180e8e5",
+      "body_ranges": [
+        {
+          "min": "1001e8af4",
+          "max": "1001e8b0b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK10HeatBuffer14getTemperatureEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029b984",
+      "name": "__ZN10HeatBuffer6updateE7MapTick",
+      "c_sha256": "2ea06c67f0a5097f02ee3e09cdc23f5788473693ea3c8410219fb610ca2e2e79",
+      "body_sha256": "849dd747409200fc8fb67d186e686df85ffe6b46641d855a114735bf237d79f8",
+      "c_lines": 38,
+      "instructions": 56,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 46,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029b984/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029b984/record.json",
+      "record_sha256": "4faad9f032707b878b09d88448b74603aba7b5ac3856a1ab1f185a83299fd79c",
+      "body_ranges": [
+        {
+          "min": "10029b984",
+          "max": "10029ba63"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer6updateE7MapTick()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "10029a4b4",
+          "name": "__ZN10HeatBuffer10transferToERS_",
+          "external": false
+        },
+        {
+          "entry": "10029b984",
+          "name": "__ZN10HeatBuffer6updateE7MapTick",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1002a0b54",
+          "name": "__ZN17HeatBufferManager19updateGroupInThreadEm",
+          "external": false
+        },
+        {
+          "entry": "10029b984",
+          "name": "__ZN10HeatBuffer6updateE7MapTick",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029ba64",
+      "name": "__ZN10HeatBuffer26updateEnergyRunningAverageE7MapTick",
+      "c_sha256": "bfeca643d7e041e1f1df94edb174d6d3425eaa801a3883787d4eb61ec1f67c73",
+      "body_sha256": "5d05325db7e958b7589699208c4a2526fd52c18554cf407d84831f919b160b1d",
+      "c_lines": 16,
+      "instructions": 13,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 47,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029ba64/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029ba64/record.json",
+      "record_sha256": "c6dea2b5e719abbfd1688b4672f164de41e3621494283630e1029c6d108cb884",
+      "body_ranges": [
+        {
+          "min": "10029ba64",
+          "max": "10029ba97"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer26updateEnergyRunningAverageE7MapTick()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029ba98",
+      "name": "__ZN10HeatBuffer6updateE7MapTickRNSt3__16vectorIjNS1_9allocatorIjEEEE",
+      "c_sha256": "4475d2dd89e904ea012ef6175d3a978c9989b63c54cd5d0310efae00908c75f1",
+      "body_sha256": "bd18fe1d3496d32ec4fc15a32ac70797db4c5efae6ba9f0852711707e88420fa",
+      "c_lines": 94,
+      "instructions": 116,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 48,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029ba98/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029ba98/record.json",
+      "record_sha256": "bb8cb525281c09df50378ae2ea1546a0da1a0123ef1fa12be3af3602f5cb0fbb",
+      "body_ranges": [
+        {
+          "min": "10029ba98",
+          "max": "10029bc67"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer6updateE7MapTickRNSt3__16vectorIjNS1_9allocatorIjEEEE()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1027d2ff8",
+          "name": "__ZdlPv",
+          "external": false
+        },
+        {
+          "entry": "10029ba98",
+          "name": "__ZN10HeatBuffer6updateE7MapTickRNSt3__16vectorIjNS1_9allocatorIjEEEE",
+          "external": false
+        },
+        {
+          "entry": "101b6bff4",
+          "name": "__ZNKSt3__16vectorIjNS_9allocatorIjEEE20__throw_length_errorB7v160006Ev",
+          "external": false
+        },
+        {
+          "entry": "10029a4b4",
+          "name": "__ZN10HeatBuffer10transferToERS_",
+          "external": false
+        },
+        {
+          "entry": "100035550",
+          "name": "__ZSt28__throw_bad_array_new_lengthB7v160006v",
+          "external": false
+        },
+        {
+          "entry": "1027d3028",
+          "name": "__Znwm",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "10029ba98",
+          "name": "__ZN10HeatBuffer6updateE7MapTickRNSt3__16vectorIjNS1_9allocatorIjEEEE",
+          "external": false
+        },
+        {
+          "entry": "1002a0b54",
+          "name": "__ZN17HeatBufferManager19updateGroupInThreadEm",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029bc88",
+      "name": "__ZNK10HeatBuffer18getAvailableEnergyEv",
+      "c_sha256": "e543da1093d2ae6cc1ce82a6f801aa21b5a8ab4a97aeb5285c05defd716d41ff",
+      "body_sha256": "6c5457ac805758affb373f561a82221d34f48ac8eefc19cbecc30f51ed6cd021",
+      "c_lines": 16,
+      "instructions": 7,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 49,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bc88/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bc88/record.json",
+      "record_sha256": "5288bb322f545c36230b81b579dbadb2567295171ee36cc3a226147691f0227c",
+      "body_ranges": [
+        {
+          "min": "10029bc88",
+          "max": "10029bca3"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK10HeatBuffer18getAvailableEnergyEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029bccc",
+      "name": "__ZN10HeatBuffer18setAvailableEnergyEd",
+      "c_sha256": "7358f36b55f76bbc1ab75f8589171b8613966af960e39e9ade25f22289394f7f",
+      "body_sha256": "f9beb77d1be80833dfca2d994a8c7e6371511ccd5e45d0b987ac49a1ff7c51bf",
+      "c_lines": 14,
+      "instructions": 8,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 50,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bccc/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bccc/record.json",
+      "record_sha256": "fa0cfbd6c2041b37795e3cf4633f52b52adf484d98d49c78998e70430255cc19",
+      "body_ranges": [
+        {
+          "min": "10029bccc",
+          "max": "10029bceb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer18setAvailableEnergyEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029bcec",
+      "name": "__ZN10HeatBuffer13extractEnergyEd",
+      "c_sha256": "1c24c03ac2fa4fe8dc5c33c6710e06b20e01f2717d02911d26532bb8ece23c0d",
+      "body_sha256": "1b84ff2da876b67e140eb6799bef41dce7c612f0655b4a2cb03e5ac44f367a71",
+      "c_lines": 28,
+      "instructions": 19,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 51,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bcec/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bcec/record.json",
+      "record_sha256": "70af92b461e327111e497f4f550aac3cd678ccf98a6238279d04b302278559d6",
+      "body_ranges": [
+        {
+          "min": "10029bcec",
+          "max": "10029bd37"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer13extractEnergyEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10029bd38",
+      "name": "__ZN10HeatBuffer24extractEnergyIfAvailableEd",
+      "c_sha256": "ecb9e4f3353f96aadde496cce1cb8ef3a7049206e62c8abbdac6105e496757b2",
+      "body_sha256": "ae582de9b48aa8a228ff623f2894bb07350aeb0a8c41da8eaf11da408babbe7b",
+      "c_lines": 26,
+      "instructions": 21,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 52,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bd38/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10029bd38/record.json",
+      "record_sha256": "9831b20e3af4a77dd8339a5315c00894cdc9d312dce428513538008b5297d6e5",
+      "body_ranges": [
+        {
+          "min": "10029bd38",
+          "max": "10029bd8b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN10HeatBuffer24extractEnergyIfAvailableEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005df238",
+      "name": "__ZNK20ElectricEnergySource33calculateAvailableEnergyToExtractEd",
+      "c_sha256": "d4b2b993d319ebb2fe5931623ae1669dc6f4940901aae8160fc8477f8621fd86",
+      "body_sha256": "88a91c152db719d52d039d7534e82cbb7e3fa982d3b4611f2d7f86a371cfea4c",
+      "c_lines": 15,
+      "instructions": 4,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 72,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df238/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df238/record.json",
+      "record_sha256": "54022f0dab5e2b47c19b63d1b976eb551fb458db22b253150493013e63c17269",
+      "body_ranges": [
+        {
+          "min": "1005df238",
+          "max": "1005df247"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK20ElectricEnergySource33calculateAvailableEnergyToExtractEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005df250",
+      "name": "__ZN20ElectricEnergySource13extractEnergyEd",
+      "c_sha256": "63739a9b5aa5287027bf51584efde5ae6fcd2bc9a2307da5f273c65dcebb43d3",
+      "body_sha256": "921d6e40743f3ef4461ec504a0577f05604a27ced9fd67eb2a24cd8682fa3911",
+      "c_lines": 19,
+      "instructions": 8,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 74,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df250/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df250/record.json",
+      "record_sha256": "6e5a49c631b0ee752f01e6a51aa968bbaf68b9179312b606483460e69b331f3b",
+      "body_ranges": [
+        {
+          "min": "1005df250",
+          "max": "1005df26f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN20ElectricEnergySource13extractEnergyEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005df350",
+      "name": "__ZN20ElectricEnergySource24extractEnergyIfAvailableEd",
+      "c_sha256": "3028dc65909c562e7d811dc6b59c9ffbd831dfeb2cc1b75ff480ebd99e06501d",
+      "body_sha256": "468198457a2c8a0b75efb4f78eef5d6767613b8dbcb22f27b0849366221195bf",
+      "c_lines": 11,
+      "instructions": 8,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 76,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df350/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005df350/record.json",
+      "record_sha256": "dce17cc26d6625c84e51be7aff95ca97bf90288689e5b08075bd7944f63fa2cb",
+      "body_ranges": [
+        {
+          "min": "1005df350",
+          "max": "1005df36f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN20ElectricEnergySource24extractEnergyIfAvailableEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005fce08",
+      "name": "__ZN16HeatEnergySource13extractEnergyEd",
+      "c_sha256": "004d5aa8ad22b27477c9fdd30cb2831e9b71831829c39dea50d8872033d61198",
+      "body_sha256": "9a68c3690494e5710335205c86beab10649027bd5b718b045fa104505ebea5e3",
+      "c_lines": 30,
+      "instructions": 20,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 77,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fce08/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fce08/record.json",
+      "record_sha256": "1cb1ad68dfeb437d63bb56de4e8a9f6edd4a6e8c3353cfb443bf5beff3270cfe",
+      "body_ranges": [
+        {
+          "min": "1005fce08",
+          "max": "1005fce57"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN16HeatEnergySource13extractEnergyEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005fcf68",
+      "name": "__ZN16HeatEnergySource24extractEnergyIfAvailableEd",
+      "c_sha256": "e812294eee3c191b55bf6eb6b989d3e3df523b0187c45c6b90de47592999add2",
+      "body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+      "c_lines": 26,
+      "instructions": 21,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 79,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fcf68/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fcf68/record.json",
+      "record_sha256": "5538a148a5c0692e489f8addd00767e14d403fd81df783b2b85ebe41d2f740f1",
+      "body_ranges": [
+        {
+          "min": "1005fcf68",
+          "max": "1005fcfbb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN16HeatEnergySource24extractEnergyIfAvailableEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005fcfbc",
+      "name": "__ZNK16HeatEnergySource15availableEnergyEv",
+      "c_sha256": "2fa3b10502ef114e3ac2fe053218b9e1bfe704bf10fbdd28e743bcbe017e22ae",
+      "body_sha256": "f5ec1ece49d4b00ae5b409a35fc1506f6f961ad14b483041b99b73a4ac5857e5",
+      "c_lines": 17,
+      "instructions": 8,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 80,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fcfbc/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fcfbc/record.json",
+      "record_sha256": "af9a55783f37628c421b30e6023f726e6be5f537cd9b6155a092c78a4f315f9e",
+      "body_ranges": [
+        {
+          "min": "1005fcfbc",
+          "max": "1005fcfdb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK16HeatEnergySource15availableEnergyEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005fd074",
+      "name": "__ZNK16HeatEnergySource33calculateAvailableEnergyToExtractEd",
+      "c_sha256": "2d371ba32b115d0428c8c67a41b72108a86edb5af630c7d714722a95dcd071e1",
+      "body_sha256": "63fc64f16ee30fcf27d381369698f71780f1fbed190a393c48ccaefeaddf86e5",
+      "c_lines": 21,
+      "instructions": 10,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 82,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fd074/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fd074/record.json",
+      "record_sha256": "d53e75d2f1ba75826aa86634fa65038637b6df9657d9aff773479ea1a895bfdd",
+      "body_ranges": [
+        {
+          "min": "1005fd074",
+          "max": "1005fd09b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK16HeatEnergySource33calculateAvailableEnergyToExtractEd()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005fd680",
+      "name": "__ZNK16HeatEnergySource20hasEnergyPotentiallyEv",
+      "c_sha256": "4ac5394c4c80afe3338732e6a175f312faa7d6921eb065b01a6eb4824826e760",
+      "body_sha256": "a6d588adfafd8a7fee321b4de69c4febd895942619cb9d63d12ad512347cca30",
+      "c_lines": 12,
+      "instructions": 10,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 83,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fd680/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005fd680/record.json",
+      "record_sha256": "4020895555350b562ba88e7333d040649bfb69da82a44160bc8c9c8368941742",
+      "body_ranges": [
+        {
+          "min": "1005fd680",
+          "max": "1005fd6a7"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK16HeatEnergySource20hasEnergyPotentiallyEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1003fde70",
+      "name": "__ZN13TransportLine6updateE7MapTickj",
+      "c_sha256": "67c7d53d2eab4c1d9e7e689971af49e389707ea9e73f18b535dba7715701b253",
+      "body_sha256": "9a50fe549d22374d02090f80b0e17516e5874234a06801e722de5d0e03112ed9",
+      "c_lines": 128,
+      "instructions": 204,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 55,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1003fde70/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1003fde70/record.json",
+      "record_sha256": "5c499965388495d8154a6466e39f9698c3d34e98bb585d52a04522ece06f28bf",
+      "body_ranges": [
+        {
+          "min": "1003fde70",
+          "max": "1003fe19f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine6updateE7MapTickj()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1003fde70",
+          "name": "__ZN13TransportLine6updateE7MapTickj",
+          "external": false
+        },
+        {
+          "entry": "1003fd9cc",
+          "name": "__ZN13SplitterLogic20updateTransportLinesE7MapTickj",
+          "external": false
+        },
+        {
+          "entry": "1003fe3b4",
+          "name": "__ZN13SplitterLogic27activateInputTransportLinesEv",
+          "external": false
+        },
+        {
+          "entry": "1003fd4b4",
+          "name": "__ZN13TransportLine4moveE24FixedPointNumberTemplateIiLj8ELb0EE7MapTickPS_S3_R22SplitterMovementResultbS1_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1003fde70",
+          "name": "__ZN13TransportLine6updateE7MapTickj",
+          "external": false
+        },
+        {
+          "entry": "1003fd9cc",
+          "name": "__ZN13SplitterLogic20updateTransportLinesE7MapTickj",
+          "external": false
+        },
+        {
+          "entry": "10040e1b0",
+          "name": "__ZN20TransportLineManager6updateEj",
+          "external": false
+        },
+        {
+          "entry": "10040c9d8",
+          "name": "__ZN18TransportLineGroup6updateER26TransportLineUpdateContext7MapTick",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1004011e0",
+      "name": "__ZN13TransportLine17tryToInsertAtBackE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EEb",
+      "c_sha256": "3443117270b194779789bec50e13e9ed89161d71c6f1324b20850993a1a98a6a",
+      "body_sha256": "27d174a064d798a632a901a8583878af6530487640b4824414ff8994ec149b66",
+      "c_lines": 128,
+      "instructions": 151,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 57,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004011e0/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004011e0/record.json",
+      "record_sha256": "81e4987235786ba47e90c4ddcf779455d2c4abdef0a145098a57b469cb12e1e3",
+      "body_ranges": [
+        {
+          "min": "1004011e0",
+          "max": "10040143b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine17tryToInsertAtBackE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EEb()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "101e946f0",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE4growEj",
+          "external": false
+        },
+        {
+          "entry": "1004091d8",
+          "name": "__ZN19ItemOnTransportLineC2ER12ItemToInsertR13TransportLine",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "100401454",
+          "name": "__ZN13TransportLine11tryToInsertE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EES2_b",
+          "external": false
+        },
+        {
+          "entry": "1003fd4b4",
+          "name": "__ZN13TransportLine4moveE24FixedPointNumberTemplateIiLj8ELb0EE7MapTickPS_S3_R22SplitterMovementResultbS1_",
+          "external": false
+        },
+        {
+          "entry": "100838db8",
+          "name": "__ZN6Loader22tryToGrabFromContainerER22TransportLineConnectorR12StaticVectorIP10WakeUpListLm4EEP13SignalMapping",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1004080f8",
+      "name": "__ZN13TransportLine36shrinkContainersAndUpdateWakeUpListsEv",
+      "c_sha256": "9287c047650ab8edc6384213c8909582b2c761f0b49f510382f57df5d118d830",
+      "body_sha256": "5d9fd55825046ab9ff6cbbe890474e5778602e83077968196b98f24fda013ae4",
+      "c_lines": 36,
+      "instructions": 40,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 63,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004080f8/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004080f8/record.json",
+      "record_sha256": "aaa45ad1867b95807b4c23703a188c60159d644cc0a9e4fe116b08e6446b19ff",
+      "body_ranges": [
+        {
+          "min": "1004080f8",
+          "max": "100408197"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine36shrinkContainersAndUpdateWakeUpListsEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1027d34d8",
+          "name": "_free",
+          "external": false
+        },
+        {
+          "entry": "101e946f0",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE4growEj",
+          "external": false
+        },
+        {
+          "entry": "100408198",
+          "name": "__ZNSt3__16vectorIP22TransportLineConnectorNS_9allocatorIS2_EEE13shrink_to_fitEv",
+          "external": false
+        },
+        {
+          "entry": "101e954f0",
+          "name": "__ZNSt3__16vectorIP13TransportLineNS_9allocatorIS2_EEE13shrink_to_fitEv",
+          "external": false
+        },
+        {
+          "entry": "100381a70",
+          "name": "__ZN10WakeUpList28updateTransportBeltWakeablesEv",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "100407868",
+          "name": "__ZN13TransportLine20unmergeTransportLineEjb",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1004087b0",
+      "name": "__ZN13TransportLine14onStackSpoiledERK16NotificationData",
+      "c_sha256": "f788b807704c49c6d14e5550b787bd39d7c227de06d04aabde98c4d8b00eb17c",
+      "body_sha256": "05ae6d125c4dfb07ae8fc0acc5245a49bab28055d31295801239acd1ce8b954e",
+      "c_lines": 68,
+      "instructions": 83,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 64,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004087b0/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1004087b0/record.json",
+      "record_sha256": "2483d78bb254dd53d05cb9de16a86b2ee134db64826ba84a844192537e0498c3",
+      "body_ranges": [
+        {
+          "min": "1004087b0",
+          "max": "1004088fb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine14onStackSpoiledERK16NotificationData()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1003ff7ec",
+          "name": "__ZN13TransportLine6removeEjbb",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "10040ace0",
+      "name": "__ZN13TransportLine16postTransferHookERK16NotificationData",
+      "c_sha256": "0f98e6f6d5d7596fb30b08e3db5eca4101a709bf418838658c21da8f1caac4dc",
+      "body_sha256": "7b2d7cf108ef1d871b0c7640b58eeea3f6ebb5bc3d062d675895a01fc9c1da62",
+      "c_lines": 12,
+      "instructions": 7,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 68,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10040ace0/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/10040ace0/record.json",
+      "record_sha256": "e8a6f9625bedd7d2cd5f3fab4816039e269939a950a596f27cdf3717334c8e6c",
+      "body_ranges": [
+        {
+          "min": "10040ace0",
+          "max": "10040acfb"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine16postTransferHookERK16NotificationData()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1004093fc",
+          "name": "__ZN15BeltReaderState3addE13IDWithQualityI2IDI13ItemPrototypetEEi",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007fc1c4",
+      "name": "__ZN8Inserter30updateTransportBeltWakeUpListsEv",
+      "c_sha256": "1c99f44a0f9d9f59cabcf95915bcf4d87c4ff6c695d9741b6ba15e4b96386774",
+      "body_sha256": "607d4e9d4aa066d0f06c1bdd14cfbb484a75ad6dfe29bc76607c0da82def7cc6",
+      "c_lines": 271,
+      "instructions": 390,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 25,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007fc1c4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007fc1c4/record.json",
+      "record_sha256": "8a42cac4a0cc0dc65b09f9d28d2e8519ea87c9dd6f0fc63a789d8b3392543361",
+      "body_ranges": [
+        {
+          "min": "1007fc1c4",
+          "max": "1007fc7db"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter30updateTransportBeltWakeUpListsEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1003817f8",
+          "name": "__ZN9HeapArrayIP8WakeableE9push_backES1_",
+          "external": false
+        },
+        {
+          "entry": "1000f1948",
+          "name": "__ZN7Logging18logAndAbortOrThrowEPKcj8LogLevelS1_z",
+          "external": false
+        },
+        {
+          "entry": "1004c64c8",
+          "name": "__ZN8Inserter5alarmEv",
+          "external": false
+        },
+        {
+          "entry": "1027d388c",
+          "name": "_memmove",
+          "external": false
+        },
+        {
+          "entry": "101e82a64",
+          "name": "__ZN9HeapArrayIP8WakeableE6resizeEm",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007fc7dc",
+          "name": "__ZThn216_N8Inserter30updateTransportBeltWakeUpListsEv",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1005217e4",
+      "name": "__ZNK9Inventory9canInsertERK9ItemStackP27InventoryOwnerSpecification",
+      "c_sha256": "fb73ab931844e95d7c21f928d6f7e3fbcb8d2d0a0e16c65cbce5debf01201020",
+      "body_sha256": "0810a37090db13aa317e5f621c1f18db45ecb5641b78b1f61ca7a95b68f110c9",
+      "c_lines": 96,
+      "instructions": 120,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 69,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005217e4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1005217e4/record.json",
+      "record_sha256": "5aacc5c4368cfa09f710707fce13f9f75730773d8e2a484607741042ecf3142f",
+      "body_ranges": [
+        {
+          "min": "1005217e4",
+          "max": "1005219c3"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK9Inventory9canInsertERK9ItemStackP27InventoryOwnerSpecification()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "101416074",
+          "name": "__ZNK27InventoryOwnerSpecification11canInsertAtERK9ItemStackt",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "100519d20",
+          "name": "__ZNK20InventoryWithFilters9canInsertERK9ItemStackP27InventoryOwnerSpecification",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f6c24",
+      "name": "__ZN8Inserter14transferToHandER9ItemStack",
+      "c_sha256": "ed6972ae3a6ef7ca0829168201c44a6a9d1ca7cc3f2aa315028513c5db8eb987",
+      "body_sha256": "cf42116940764424c9fcdce424b55675e3a6029aed643f6513425de460f3e921",
+      "c_lines": 54,
+      "instructions": 69,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 3,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6c24/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6c24/record.json",
+      "record_sha256": "161ac7b90031fb80d778efd6d8b2c53625a7dca43baa1607d2df988100b6e4b3",
+      "body_ranges": [
+        {
+          "min": "1007f6c24",
+          "max": "1007f6d37"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter14transferToHandER9ItemStack()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "10083b770",
+          "name": "__ZN9ItemStack12transferRealERS_jj",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f6820",
+      "name": "__ZNK8Inserter31dropPositionCollidesWithNonItemEv",
+      "c_sha256": "aa0a1fbbf9aaf200001e7b7553da1637a9e1d40f579ba96f77ef5c2986bb9063",
+      "body_sha256": "fef84fe5b7a860aa2f3322879046619148505fa37687ef4a2ad4dcdf172001f2",
+      "c_lines": 76,
+      "instructions": 78,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 1,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6820/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6820/record.json",
+      "record_sha256": "4db889572c147c40afbca642e0d44278e9475d81e765f9492670678db7f96f12",
+      "body_ranges": [
+        {
+          "min": "1007f6820",
+          "max": "1007f6957"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK8Inserter31dropPositionCollidesWithNonItemEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1027ceab0",
+          "name": "__ZN23HeuristicEntityIteratorIK7SurfaceEC1ERS1_RK11BoundingBox",
+          "external": false
+        },
+        {
+          "entry": "1027ceaa4",
+          "name": "__ZN23HeuristicEntityIteratorIK7SurfaceE20moveUntilEntityFoundEv",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f542c",
+          "name": "__ZN8Inserter15getPickupTargetEv",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f74a0",
+      "name": "__ZN8Inserter41transferFromInventoryWithoutSpoilPriorityER9Inventory",
+      "c_sha256": "a6b92fc320268ac44371ae6e42bdd2c1c5d32478e427ea1d49ecd13cbee5bdff",
+      "body_sha256": "2d731077a4d0f03fbb1106fe4fd33a119688b5b85542b068e2fc5f8cbf26892d",
+      "c_lines": 133,
+      "instructions": 162,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 6,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f74a0/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f74a0/record.json",
+      "record_sha256": "1b338d2df648522a9996508d78cc9d2d0b08c472f492c181b3464edb0ec9d20c",
+      "body_ranges": [
+        {
+          "min": "1007f74a0",
+          "max": "1007f7727"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter41transferFromInventoryWithoutSpoilPriorityER9Inventory()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1007f4270",
+          "name": "__ZNK8Inserter13matchesFilterE13IDWithQualityI2IDI13ItemPrototypetEE",
+          "external": false
+        },
+        {
+          "entry": "10083b770",
+          "name": "__ZN9ItemStack12transferRealERS_jj",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f6d50",
+          "name": "__ZN8Inserter21transferFromInventoryER9Inventory",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f7728",
+      "name": "__ZNK8Inserter23betterSpoilPriorityWiseERK9ItemStackS2_",
+      "c_sha256": "414b5be4139a0ea2b824f68682683803ab37808ab2c9e5d4001e7c725dec1d52",
+      "body_sha256": "be1e77f121880765baf40a25a496286da2dbd9fbe2fc6b0e7ac8ab93a92b4dd2",
+      "c_lines": 72,
+      "instructions": 73,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 7,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f7728/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f7728/record.json",
+      "record_sha256": "2453d24b3629a0366fda9ee01cbde5a912f505f3da30d147c16dc9b78f6900e2",
+      "body_ranges": [
+        {
+          "min": "1007f7728",
+          "max": "1007f784b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK8Inserter23betterSpoilPriorityWiseERK9ItemStackS2_()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "100153cc4",
+          "name": "__Z19ReleaseAssertFailedPKcjS0_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f784c",
+      "name": "__ZNK9ItemStack17isMoreSpoiledThanERKS_",
+      "c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+      "body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+      "c_lines": 42,
+      "instructions": 47,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 8,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f784c/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f784c/record.json",
+      "record_sha256": "b6ff5989f0de11668af779a8909b56a8f6359a166e4c91af9d2857beb2d693f2",
+      "body_ranges": [
+        {
+          "min": "1007f784c",
+          "max": "1007f7907"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZNK9ItemStack17isMoreSpoiledThanERKS_()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "100153cc4",
+          "name": "__Z19ReleaseAssertFailedPKcjS0_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f827c",
+      "name": "__ZN8Inserter18parseSpoilPriorityENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEE",
+      "c_sha256": "22c59e5fb682b75668d6fd61bf78b7235126ba8018388e3a2f3c0fdfeefff28d",
+      "body_sha256": "3a897af8c5cf8f72f501d78d44c586b70f4d051162c16f812ef2ad3ea0f3d9ee",
+      "c_lines": 41,
+      "instructions": 66,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 9,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f827c/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f827c/record.json",
+      "record_sha256": "74c6d2082e1f9824ce8ef88dc5bdd1346dea44fcf8abb3fe1689fffcce24138c",
+      "body_ranges": [
+        {
+          "min": "1007f827c",
+          "max": "1007f83e7"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter18parseSpoilPriorityENSt3__117basic_string_viewIcNS0_11char_traitsIcEEEE()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1000ea874",
+          "name": "___cxa_allocate_exception",
+          "external": false
+        },
+        {
+          "entry": "1027d3874",
+          "name": "_memcmp",
+          "external": false
+        },
+        {
+          "entry": "1000a87e8",
+          "name": "__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1INS_17basic_string_viewIcS2_EEvEERKT_",
+          "external": false
+        },
+        {
+          "entry": "1000789d4",
+          "name": "__ZNSt3__1plB7v160006IcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_OS9_",
+          "external": false
+        },
+        {
+          "entry": "1000eabe4",
+          "name": "___cxa_throw",
+          "external": false
+        },
+        {
+          "entry": "100141888",
+          "name": "__ZN15ScriptExceptionC1ERKNSt3__112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "101a8db2c",
+          "name": "__ZN9LuaHelper5parseI13SpoilPriorityEET_P9lua_StateiPKc",
+          "external": false
+        },
+        {
+          "entry": "1016ef8c4",
+          "name": "__ZN9LuaEntity29luaWriteInserterSpoilPriorityEP9lua_State",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f83e8",
+      "name": "__ZN8Inserter21spoilPriorityToStringE13SpoilPriority",
+      "c_sha256": "1083c799f8a30b97759671c321fed2752b670b3d66c7503d175b58db2234b26e",
+      "body_sha256": "19834ab6d08a61bf8233c536fe14d7a32e18f13a9a8869b4a03db5e7c1b8eaf5",
+      "c_lines": 13,
+      "instructions": 16,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 10,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f83e8/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f83e8/record.json",
+      "record_sha256": "b5fe82ce64606183283c4202dec1346defc63ed0e70ebbd6f825e9e719408985",
+      "body_ranges": [
+        {
+          "min": "1007f83e8",
+          "max": "1007f8427"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter21spoilPriorityToStringE13SpoilPriority()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1007f8428",
+          "name": "__ZN7Logging22logEnumAndAbortOrThrowI13SpoilPriorityEEvPKcj8LogLevelT_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f8448",
+      "name": "__ZN8Inserter12dropHeldItemERK6Vector",
+      "c_sha256": "badc3c579df2d9115a31eadd552f3831a6af054a5bebd76fb991c9dd6e385796",
+      "body_sha256": "50dca7e614bf16284b397e555a1547980d75d7af82edc0536c59a13141c47481",
+      "c_lines": 158,
+      "instructions": 258,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 11,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8448/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8448/record.json",
+      "record_sha256": "55e5b38c297c1c941cc7a74d045db38a5e48a89f9ec86aaa8d1b293ae44f9b7d",
+      "body_ranges": [
+        {
+          "min": "1007f8448",
+          "max": "1007f884f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter12dropHeldItemERK6Vector()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "101839ce8",
+          "name": "__ZN13SpacePlatform17dropItemIntoSpaceER9ItemStack11MapPosition6Vector",
+          "external": false
+        },
+        {
+          "entry": "1003817f8",
+          "name": "__ZN9HeapArrayIP8WakeableE9push_backES1_",
+          "external": false
+        },
+        {
+          "entry": "1001c3760",
+          "name": "__ZN7Surface16createItemEntityER9ItemStackRK11MapPosition9NamedBoolI13DropAsLootTagE7ForceIDS5_I16DropFullStackTagE",
+          "external": false
+        },
+        {
+          "entry": "100738a9c",
+          "name": "__ZN10DropTarget5clearEv",
+          "external": false
+        },
+        {
+          "entry": "1000f1948",
+          "name": "__ZN7Logging18logAndAbortOrThrowEPKcj8LogLevelS1_z",
+          "external": false
+        },
+        {
+          "entry": "100401454",
+          "name": "__ZN13TransportLine11tryToInsertE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EES2_b",
+          "external": false
+        },
+        {
+          "entry": "1006176f4",
+          "name": "__ZN15UpdatableEntity10deactivateER6Entity",
+          "external": false
+        },
+        {
+          "entry": "1003818e0",
+          "name": "__ZN10WakeUpList15registerSleeperEP8Wakeable",
+          "external": false
+        },
+        {
+          "entry": "1001c2f5c",
+          "name": "__ZNK7Surface11itemCollideERK11BoundingBox13CollisionMaskbPbS4_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f8a4c",
+          "name": "__ZN8Inserter6updateEv",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f8850",
+      "name": "__ZN8Inserter20dropOffVectorChangedEv",
+      "c_sha256": "8b69732e5dd13e5a14dc1bc06a62ef7334cc35ccad1f8c742b90d48ef11cd70e",
+      "body_sha256": "cc29f81c8eb7300bf937940b9cc24427177941bb622dfeb01277394b2bdac03b",
+      "c_lines": 54,
+      "instructions": 68,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 12,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8850/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8850/record.json",
+      "record_sha256": "e039cccfce618c72300a907652862ff1859780bf5707ee650ba32d4d8b5aaab0",
+      "body_ranges": [
+        {
+          "min": "1007f8850",
+          "max": "1007f895f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter20dropOffVectorChangedEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1004c64c8",
+          "name": "__ZN8Inserter5alarmEv",
+          "external": false
+        },
+        {
+          "entry": "1001c42a0",
+          "name": "__ZN11BoundingBox7tileBoxERK12TilePositiond",
+          "external": false
+        },
+        {
+          "entry": "100155674",
+          "name": "__ZNK11BoundingBox7collideERKS_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007ed6f0",
+          "name": "__ZN8InserterC2ERK24EntityCreationParameters",
+          "external": false
+        },
+        {
+          "entry": "1007ee9b0",
+          "name": "__ZN8Inserter16setDropoffVectorERK6Vector",
+          "external": false
+        },
+        {
+          "entry": "1007fe054",
+          "name": "__ZN8Inserter9flipSidesEv",
+          "external": false
+        },
+        {
+          "entry": "1007fc938",
+          "name": "__ZN8Inserter18copyEntitySettingsERK22CopyEntitySettingsData",
+          "external": false
+        },
+        {
+          "entry": "1016e6504",
+          "name": "__ZN9LuaEntity20luaWriteDropPositionEP9lua_State",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f8960",
+      "name": "__ZN8Inserter19pickupVectorChangedEv",
+      "c_sha256": "cdad338426d40a870279143016f15963cfcefb6eb7fbfb5e2c0f9a845b4bfc65",
+      "body_sha256": "4332ff4abbd0074ff0461deae1b796c062e1dc19a0a77386a6c29718c55e9824",
+      "c_lines": 47,
+      "instructions": 59,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 13,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8960/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8960/record.json",
+      "record_sha256": "8c91094270c58c76066abab4afa9f977f01d8fb3e3b640e362fbf73ab0fd736f",
+      "body_ranges": [
+        {
+          "min": "1007f8960",
+          "max": "1007f8a4b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter19pickupVectorChangedEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1004c64c8",
+          "name": "__ZN8Inserter5alarmEv",
+          "external": false
+        },
+        {
+          "entry": "1001c42a0",
+          "name": "__ZN11BoundingBox7tileBoxERK12TilePositiond",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007eea84",
+          "name": "__ZN8Inserter15setPickupVectorERK6Vector",
+          "external": false
+        },
+        {
+          "entry": "1007ed6f0",
+          "name": "__ZN8InserterC2ERK24EntityCreationParameters",
+          "external": false
+        },
+        {
+          "entry": "1007fe054",
+          "name": "__ZN8Inserter9flipSidesEv",
+          "external": false
+        },
+        {
+          "entry": "1007fc938",
+          "name": "__ZN8Inserter18copyEntitySettingsERK22CopyEntitySettingsData",
+          "external": false
+        },
+        {
+          "entry": "1016e682c",
+          "name": "__ZN9LuaEntity22luaWritePickupPositionEP9lua_State",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f8a4c",
+      "name": "__ZN8Inserter6updateEv",
+      "c_sha256": "5bbb67211089db447ef135f0c639b379ad547d6f4aa10eac65dea4afc2f879a5",
+      "body_sha256": "74e3e4961c76811ab5c10bf36e61df8e262231d06d178d3e3e137ba207be55a5",
+      "c_lines": 168,
+      "instructions": 260,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 14,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8a4c/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f8a4c/record.json",
+      "record_sha256": "b2b2c8a04852ef6844edcd4f6ba8a3956c0eb363adb7d5aae6be7dbb734e061f",
+      "body_ranges": [
+        {
+          "min": "1007f8a4c",
+          "max": "1007f8e5b"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter6updateEv()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1007f3bdc",
+          "name": "__ZN8Inserter16findPickupTargetERK12TilePosition",
+          "external": false
+        },
+        {
+          "entry": "1001c3eec",
+          "name": "__ZN10DropTarget14findDropTargetER15EntityWithOwnerRK11MapPosition",
+          "external": false
+        },
+        {
+          "entry": "1007f8448",
+          "name": "__ZN8Inserter12dropHeldItemERK6Vector",
+          "external": false
+        },
+        {
+          "entry": "1007f609c",
+          "name": "__ZN8Inserter15tryToGetToSleepEbb",
+          "external": false
+        },
+        {
+          "entry": "1007f602c",
+          "name": "__ZN8Inserter10moveHandToERK18InserterHandTarget",
+          "external": false
+        },
+        {
+          "entry": "1006176f4",
+          "name": "__ZN15UpdatableEntity10deactivateER6Entity",
+          "external": false
+        },
+        {
+          "entry": "1025e94e0",
+          "name": "__ZN4Math5atan2Edd",
+          "external": false
+        },
+        {
+          "entry": "1005d60b0",
+          "name": "__ZNK6Burner9canInsertERK9ItemStackb",
+          "external": false
+        },
+        {
+          "entry": "1005d4944",
+          "name": "__ZN6Burner6updateER3MapP6Entityb22EnergySourceUpdateMode",
+          "external": false
+        },
+        {
+          "entry": "1007f542c",
+          "name": "__ZN8Inserter15getPickupTargetEv",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "101dc0fec",
+          "name": "__ZN18EntityOrderHelpers15EntityOrderListIJ13LogisticRobot17ConstructionRobot8Inserter8Roboport6Loader17AssemblingMachine17AgriculturalTower20OldAgriculturalTower7Furnace11MiningDrill10FluidWagon14ArtilleryWagon18InfinityCargoWagon10CargoWagon10Locomotive9Character6Boiler9Generator15BurnerGenerator7Reactor3Lab8LandMine14ArtilleryFlare19ArtilleryProjectile15ArtilleryTurret4Beam3Car13SpiderVehicle18TemporaryContainer15CharacterCorpse11CombatRobot12CaptureRobot6Corpse23ElectricEnergyInterface12EnemySpawner9Explosion21FlameThrowerExplosion11FluidStream11FluidTurret16FlyingTextEntity15FusionGenerator13FusionReactor4Gate13HeatInterface18HighlightBoxEntity17InfinityContainer12InfinityPipe16ItemRequestProxy12OffshorePump14ParticleSource11PowerSwitch10Projectile4Pump5Valve5Radar19ProgrammableSpeaker10RocketSilo16RocketSiloRocket8CargoPod16SmokeWithTrigger12SpeechBubble7Sticker6Turret17AsteroidCollector8Asteroid8Thruster10SpiderUnit4UnitEE6updateIS3_EEvRNS_19ActiveEntitiesEntryEbRN27IntrusiveListImplementationI15UpdatableEntityvLb0ELb0EE8IteratorE",
+          "external": false
+        },
+        {
+          "entry": "1007f8e5c",
+          "name": "__ZThn176_N8Inserter6updateEv",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f4370",
+      "name": "__ZN8Inserter12pickupEntityEP6EntityRK12TilePosition",
+      "c_sha256": "8e53812647c6db84468b4228fb1488b51efc266e95de634393c6ff047eb34f10",
+      "body_sha256": "53c58fde35fa24898b970fa298050fb6ad2bd246fff1438f98cbfad4c67a8a5d",
+      "c_lines": 277,
+      "instructions": 350,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 99,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f4370/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f4370/record.json",
+      "record_sha256": "1edd9517c7b263b735f6dd0002582befe16dc289edb497c18e7a35e50b875f7e",
+      "body_ranges": [
+        {
+          "min": "1007f4370",
+          "max": "1007f4903"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter12pickupEntityEP6EntityRK12TilePosition()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "100acae6c",
+          "name": "__ZNK11BoundingBox18getRotatedVerticesER11MapPositionS1_S1_S1_",
+          "external": false
+        },
+        {
+          "entry": "1007826dc",
+          "name": "__ZNK17MinableProperties18isSingleSimpleItemEv",
+          "external": false
+        },
+        {
+          "entry": "1007f4270",
+          "name": "__ZNK8Inserter13matchesFilterE13IDWithQualityI2IDI13ItemPrototypetEE",
+          "external": false
+        },
+        {
+          "entry": "1006b12bc",
+          "name": "__ZN6Entity12forceDestroyEv",
+          "external": false
+        },
+        {
+          "entry": "100675d28",
+          "name": "__ZNK17MinableProperties19getSingleSimpleItemEv",
+          "external": false
+        },
+        {
+          "entry": "10083b770",
+          "name": "__ZN9ItemStack12transferRealERS_jj",
+          "external": false
+        },
+        {
+          "entry": "101a54c20",
+          "name": "__ZNK18RotatedBoundingBox7collideERK11MapPosition",
+          "external": false
+        },
+        {
+          "entry": "10013f7b8",
+          "name": "__ZN15InventoryBufferD1Ev",
+          "external": false
+        },
+        {
+          "entry": "1001c42a0",
+          "name": "__ZN11BoundingBox7tileBoxERK12TilePositiond",
+          "external": false
+        },
+        {
+          "entry": "1027cd904",
+          "name": "__ZN21LazyCreatedStatisticsI14FlowStatisticsI13IDWithQualityI2IDI15EntityPrototypetEEyvEE6onFlowES5_f",
+          "external": false
+        },
+        {
+          "entry": "1001abf60",
+          "name": "__ZN15InventoryBuffer8NonEmpty5beginEv",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f3bdc",
+          "name": "__ZN8Inserter16findPickupTargetERK12TilePosition",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f6d50",
+      "name": "__ZN8Inserter21transferFromInventoryER9Inventory",
+      "c_sha256": "b4d608c0f04398a21b5c39c74b748dcc4585a6734de85648c40bcbbc8de1fe31",
+      "body_sha256": "aec1f254089b68044e8d36c9efddc39b94f9b1a79e7ea9119b254a772615bf5c",
+      "c_lines": 154,
+      "instructions": 221,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 4,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6d50/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f6d50/record.json",
+      "record_sha256": "a0cb1da6831a03e68e4ad91bfabbc60973ae0ba22d2de3a15f3f532ae063b500",
+      "body_ranges": [
+        {
+          "min": "1007f6d50",
+          "max": "1007f70c3"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter21transferFromInventoryER9Inventory()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "10083b770",
+          "name": "__ZN9ItemStack12transferRealERS_jj",
+          "external": false
+        },
+        {
+          "entry": "1007f70c4",
+          "name": "__ZN8Inserter38transferFromInventoryWithSpoilPriorityER9Inventory",
+          "external": false
+        },
+        {
+          "entry": "1007f74a0",
+          "name": "__ZN8Inserter41transferFromInventoryWithoutSpoilPriorityER9Inventory",
+          "external": false
+        },
+        {
+          "entry": "1005d60b0",
+          "name": "__ZNK6Burner9canInsertERK9ItemStackb",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f542c",
+          "name": "__ZN8Inserter15getPickupTargetEv",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007f70c4",
+      "name": "__ZN8Inserter38transferFromInventoryWithSpoilPriorityER9Inventory",
+      "c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+      "body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+      "c_lines": 212,
+      "instructions": 231,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 5,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f70c4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007f70c4/record.json",
+      "record_sha256": "344808564a9054490a483cf7ea0a6f1c48b378ff32f6d9b2865e39ff031435f0",
+      "body_ranges": [
+        {
+          "min": "1007f70c4",
+          "max": "1007f725b"
+        },
+        {
+          "min": "1007f7264",
+          "max": "1007f72af"
+        },
+        {
+          "min": "1007f72e8",
+          "max": "1007f749f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter38transferFromInventoryWithSpoilPriorityER9Inventory()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "10019cf10",
+          "name": "__ZN7Logging22logEnumAndAbortOrThrowIN10Comparison4EnumEEEvPKcj8LogLevelT_",
+          "external": false
+        },
+        {
+          "entry": "10083b770",
+          "name": "__ZN9ItemStack12transferRealERS_jj",
+          "external": false
+        },
+        {
+          "entry": "100153cc4",
+          "name": "__Z19ReleaseAssertFailedPKcjS0_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "1007f6d50",
+          "name": "__ZN8Inserter21transferFromInventoryER9Inventory",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "100401454",
+      "name": "__ZN13TransportLine11tryToInsertE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EES2_b",
+      "c_sha256": "39fd486a3d232e7985928e93c729e2cd1f66c3ac83f307ee51d7811d8919b36d",
+      "body_sha256": "77b9682639c5ff27e3d05f523f7938de55ed1cd556fa751d8d8899e73f849634",
+      "c_lines": 282,
+      "instructions": 349,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "line": 58,
+      "chunk_sha256": "769bc0195ab0d6de58f6ece615a64603616e9c2ae491123dbb1c4bc616d6c9c0",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/100401454/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/100401454/record.json",
+      "record_sha256": "d9c6ec2fddc1de16f3d85f93811919f5148b63190f47bb0014c589e4ca259a8e",
+      "body_ranges": [
+        {
+          "min": "100401454",
+          "max": "1004019e7"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN13TransportLine11tryToInsertE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EES2_b()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "1004011e0",
+          "name": "__ZN13TransportLine17tryToInsertAtBackE12ItemToInsert24FixedPointNumberTemplateIiLj8ELb0EEb",
+          "external": false
+        },
+        {
+          "entry": "101e946f0",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE4growEj",
+          "external": false
+        },
+        {
+          "entry": "1003ff73c",
+          "name": "__ZN13TransportLine20advanceFirstGapIndexEv",
+          "external": false
+        },
+        {
+          "entry": "1004091d8",
+          "name": "__ZN19ItemOnTransportLineC2ER12ItemToInsertR13TransportLine",
+          "external": false
+        },
+        {
+          "entry": "100401ac8",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE12emplace_backIJR12ItemToInsertR13TransportLineEEERS0_DpOT_",
+          "external": false
+        },
+        {
+          "entry": "100401c84",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE7emplaceIJS0_EEERS0_jDpOT_",
+          "external": false
+        },
+        {
+          "entry": "100401bf4",
+          "name": "__ZN12CompactDequeI19ItemOnTransportLineE13emplace_frontIJR12ItemToInsertR13TransportLineEEERS0_DpOT_",
+          "external": false
+        }
+      ],
+      "discovered_callers": [
+        {
+          "entry": "101885dbc",
+          "name": "__ZN16LuaTransportLine18luaCanInsertAtBackEP9lua_State",
+          "external": false
+        },
+        {
+          "entry": "101885ca8",
+          "name": "__ZN16LuaTransportLine14luaCanInsertAtEP9lua_State",
+          "external": false
+        },
+        {
+          "entry": "100855ca8",
+          "name": "__ZN24TransportBeltConnectable12registerItemE11MapPosition12ItemToInsertb",
+          "external": false
+        },
+        {
+          "entry": "10073984c",
+          "name": "__ZN24TransportBeltConnectable12registerItemE11MapPositionR9ItemStackb",
+          "external": false
+        },
+        {
+          "entry": "1003fd4b4",
+          "name": "__ZN13TransportLine4moveE24FixedPointNumberTemplateIiLj8ELb0EE7MapTickPS_S3_R22SplitterMovementResultbS1_",
+          "external": false
+        },
+        {
+          "entry": "100855928",
+          "name": "__ZN11MiningDrill18clearStorageBufferEv",
+          "external": false
+        },
+        {
+          "entry": "100806480",
+          "name": "__ZN10ItemEntity28updateTransportBeltOwnershipER12TilePosition",
+          "external": false
+        },
+        {
+          "entry": "10188603c",
+          "name": "__ZN16LuaTransportLine15luaInsertAtBackEP9lua_State",
+          "external": false
+        },
+        {
+          "entry": "100981628",
+          "name": "__ZNK24TransportBeltConnectable12canPlaceItemERK11MapPosition",
+          "external": false
+        },
+        {
+          "entry": "1019a864c",
+          "name": "__ZNK7Surface17itemCollideCommonERK11BoundingBox13CollisionMaskPbS4_",
+          "external": false
+        },
+        {
+          "entry": "1007f8448",
+          "name": "__ZN8Inserter12dropHeldItemERK6Vector",
+          "external": false
+        },
+        {
+          "entry": "101885e2c",
+          "name": "__ZN16LuaTransportLine11luaInsertAtEP9lua_State",
+          "external": false
+        },
+        {
+          "entry": "1007395ac",
+          "name": "__ZN15CraftingMachine23ejectOutputToDropTargetEv",
+          "external": false
+        },
+        {
+          "entry": "1009805d4",
+          "name": "__ZN24TransportBeltConnectable22registerEntitiesOnTileERK12TilePositionPK9SetupData",
+          "external": false
+        }
+      ],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "1007fddd4",
+      "name": "__ZN8Inserter14onStackSpoiledERK16NotificationData",
+      "c_sha256": "6cdb510d8697d749fd70024b1381769dbf542760bdb6c63a2a43086467ece00b",
+      "body_sha256": "669fbc1c55bd54a7e163c219401f6437d5bd559b7ce9843da5647de609b779d6",
+      "c_lines": 13,
+      "instructions": 23,
+      "chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+      "line": 30,
+      "chunk_sha256": "f629464e43bd90e909de9be91b58aaea5051be2c4b18d048dfea5587a4854045",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007fddd4/recovered.c",
+      "private_record": "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat/1007fddd4/record.json",
+      "record_sha256": "9f5f2eafd47018a6989a4db2f2c851d31948b0e5354c3618821e083d62c94a71",
+      "body_ranges": [
+        {
+          "min": "1007fddd4",
+          "max": "1007fde2f"
+        }
+      ],
+      "status": "success",
+      "schema": 2,
+      "signature": "undefined __ZN8Inserter14onStackSpoiledERK16NotificationData()",
+      "signature_source": "DEFAULT",
+      "no_return": false,
+      "semantic_review": "complete generated C body read; selected instruction and reference checks; not all callees read",
+      "discovered_direct_calls": [
+        {
+          "entry": "10061479c",
+          "name": "__ZN6Entity14onStackSpoiledERK16NotificationData",
+          "external": false
+        }
+      ],
+      "discovered_callers": [],
+      "call_graph_limit": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    }
+  ],
+  "installed_sources": [
+    {
+      "id": "base-info",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/info.json",
+      "sha256": "fe566a0b08b331d7cfbd13a5857d7f6f2414591efa26723a6f8dbd3781ac4786",
+      "selected_bounds_reread": [
+        [
+          1,
+          9
+        ]
+      ],
+      "reviewed_fields": [
+        "version"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": false,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "space-age-info",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/info.json",
+      "sha256": "f8957fc975949bb647b64ca246a4de7f981232c4ab47c4db4f60ccea6aef5e1a",
+      "selected_bounds_reread": [
+        [
+          1,
+          16
+        ]
+      ],
+      "reviewed_fields": [
+        "version",
+        "dependencies",
+        "spoiling_required",
+        "freezing_required"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": false,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "quality-info",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/info.json",
+      "sha256": "2c2578fd84cc2e920c944c90047eaa5a1f6984a1ce07c246fc1906d90c5505ad",
+      "selected_bounds_reread": [
+        [
+          1,
+          11
+        ]
+      ],
+      "reviewed_fields": [
+        "version",
+        "dependencies",
+        "quality_required"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": false,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "base-entities",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+      "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+      "selected_bounds_reread": [
+        [
+          5487,
+          5520
+        ],
+        [
+          8647,
+          8659
+        ],
+        [
+          9045,
+          9059
+        ],
+        [
+          9427,
+          9438
+        ]
+      ],
+      "reviewed_fields": [
+        "bulk-inserter: movement/rotation energy, drain, speeds, filters",
+        "reactor/heat-exchanger/heat-pipe: heat capacities, transfer, working threshold, connections"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "base-belt",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/transport-belts.lua",
+      "sha256": "46cec8476aa185d82f4a40de4e8ff5852538447a4f4b8115ba6e97533b51bf6f",
+      "selected_bounds_reread": [
+        [
+          149,
+          184
+        ]
+      ],
+      "reviewed_fields": [
+        "transport-belt speed 0.03125"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "space-age-entities",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+      "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+      "selected_bounds_reread": [
+        [
+          2138,
+          2148
+        ],
+        [
+          2521,
+          2561
+        ]
+      ],
+      "reviewed_fields": [
+        "heating-tower heat buffer",
+        "stack-inserter stack bonus4, belt stack4, partial-grab, wait-full, spoiled-hand exception, movement/rotation40kJ, drain1kW, heating50kW"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "space-age-updates",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/base-data-updates.lua",
+      "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+      "selected_bounds_reread": [
+        [
+          85,
+          130
+        ]
+      ],
+      "reviewed_fields": [
+        "base inserter/belt heating_energy assignments"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "quality-levels",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/quality.lua",
+      "sha256": "5db9b95306d12f796e384eb44f6d2e4584aff57cde579f8b763ad62a012fa75d",
+      "selected_bounds_reread": [
+        [
+          1,
+          58
+        ]
+      ],
+      "reviewed_fields": [
+        "uncommon1, rare2, epic3, legendary5; distinct prototype identities"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "space-age-spoil",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+      "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+      "selected_bounds_reread": [
+        [
+          791,
+          822
+        ]
+      ],
+      "reviewed_fields": [
+        "nutrients5*minute -> spoilage; yumako-mash3*minute -> spoilage"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "aquilo",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/planet/planet.lua",
+      "sha256": "e4714d8e3f18cd629b31d5925d2bd69745e509b673c432a39b27ff31ea8a5bba",
+      "selected_bounds_reread": [
+        [
+          599,
+          633
+        ],
+        [
+          660,
+          673
+        ]
+      ],
+      "reviewed_fields": [
+        "planet aquilo; surface properties; entities_require_heating at668"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "runtime-api",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+      "selected_bounds_reread": [],
+      "reviewed_fields": [
+        "LuaEntity held_stack, inserter_spoil_priority, target_pickup_count, energy, temperature",
+        "LuaTransportLine can_insert_at_back, insert_at, insert_at_back",
+        "SpoilPriority"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    },
+    {
+      "id": "prototype-api",
+      "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selected_bounds_reread": [],
+      "reviewed_fields": [
+        "HeatBuffer, HeatEnergySource, InserterPrototype, EntityPrototype"
+      ],
+      "version": "2.0.77",
+      "receipt_hash_match": true,
+      "coverage": "selected gameplay fields only; graphics and whole source file not semantically read"
+    }
+  ],
+  "installed_API_selections": [
+    {
+      "source": "runtime-api.json",
+      "group": "classes",
+      "object": "LuaEntity",
+      "json_pointer": "/classes/38",
+      "selected_fields": [
+        {
+          "field": "energy",
+          "json_pointer": "/classes/38/attributes/77",
+          "type": "double",
+          "default": null,
+          "visibility": null,
+          "order": 42
+        },
+        {
+          "field": "held_stack",
+          "json_pointer": "/classes/38/attributes/98",
+          "type": "LuaItemStack",
+          "default": null,
+          "visibility": null,
+          "order": 45
+        },
+        {
+          "field": "inserter_spoil_priority",
+          "json_pointer": "/classes/38/attributes/107",
+          "type": "SpoilPriority",
+          "default": null,
+          "visibility": null,
+          "order": 143
+        },
+        {
+          "field": "inserter_stack_size_override",
+          "json_pointer": "/classes/38/attributes/108",
+          "type": "uint32",
+          "default": null,
+          "visibility": null,
+          "order": 118
+        },
+        {
+          "field": "inserter_target_pickup_count",
+          "json_pointer": "/classes/38/attributes/109",
+          "type": "uint32",
+          "default": null,
+          "visibility": null,
+          "order": 117
+        },
+        {
+          "field": "temperature",
+          "json_pointer": "/classes/38/attributes/208",
+          "type": "double",
+          "default": null,
+          "visibility": null,
+          "order": 43
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578"
+    },
+    {
+      "source": "runtime-api.json",
+      "group": "classes",
+      "object": "LuaTransportLine",
+      "json_pointer": "/classes/140",
+      "selected_fields": [
+        {
+          "field": "can_insert_at_back",
+          "json_pointer": "/classes/140/methods/1",
+          "type": null,
+          "default": null,
+          "visibility": null,
+          "order": 4
+        },
+        {
+          "field": "insert_at",
+          "json_pointer": "/classes/140/methods/8",
+          "type": null,
+          "default": null,
+          "visibility": null,
+          "order": 5
+        },
+        {
+          "field": "insert_at_back",
+          "json_pointer": "/classes/140/methods/9",
+          "type": null,
+          "default": null,
+          "visibility": null,
+          "order": 6
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578"
+    },
+    {
+      "source": "runtime-api.json",
+      "group": "concepts",
+      "object": "SpoilPriority",
+      "json_pointer": "/concepts/343",
+      "selected_fields": [],
+      "concept_type": {
+        "complex_type": "union",
+        "options": [
+          {
+            "complex_type": "literal",
+            "value": "fresh_first",
+            "description": ""
+          },
+          {
+            "complex_type": "literal",
+            "value": "none",
+            "description": ""
+          },
+          {
+            "complex_type": "literal",
+            "value": "spoiled_first",
+            "description": ""
+          }
+        ],
+        "full_format": true
+      },
+      "version": "2.0.77",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578"
+    },
+    {
+      "source": "prototype-api.json",
+      "group": "types",
+      "object": "HeatBuffer",
+      "json_pointer": "/types/272",
+      "selected_fields": [
+        {
+          "field": "connections",
+          "json_pointer": "/types/272/properties/0",
+          "type": {
+            "complex_type": "array",
+            "value": "HeatConnection"
+          },
+          "default": null,
+          "visibility": null,
+          "order": 11
+        },
+        {
+          "field": "default_temperature",
+          "json_pointer": "/types/272/properties/1",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 15
+          },
+          "visibility": null,
+          "order": 3
+        },
+        {
+          "field": "max_temperature",
+          "json_pointer": "/types/272/properties/5",
+          "type": "double",
+          "default": null,
+          "visibility": null,
+          "order": 0
+        },
+        {
+          "field": "max_transfer",
+          "json_pointer": "/types/272/properties/6",
+          "type": "Energy",
+          "default": null,
+          "visibility": null,
+          "order": 2
+        },
+        {
+          "field": "min_temperature_gradient",
+          "json_pointer": "/types/272/properties/7",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 1
+          },
+          "visibility": null,
+          "order": 4
+        },
+        {
+          "field": "min_working_temperature",
+          "json_pointer": "/types/272/properties/8",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 15
+          },
+          "visibility": null,
+          "order": 5
+        },
+        {
+          "field": "specific_heat",
+          "json_pointer": "/types/272/properties/11",
+          "type": "Energy",
+          "default": null,
+          "visibility": null,
+          "order": 1
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756"
+    },
+    {
+      "source": "prototype-api.json",
+      "group": "types",
+      "object": "HeatEnergySource",
+      "json_pointer": "/types/274",
+      "selected_fields": [
+        {
+          "field": "connections",
+          "json_pointer": "/types/274/properties/0",
+          "type": {
+            "complex_type": "array",
+            "value": "HeatConnection"
+          },
+          "default": null,
+          "visibility": null,
+          "order": 12
+        },
+        {
+          "field": "default_temperature",
+          "json_pointer": "/types/274/properties/1",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 15
+          },
+          "visibility": null,
+          "order": 4
+        },
+        {
+          "field": "max_temperature",
+          "json_pointer": "/types/274/properties/6",
+          "type": "double",
+          "default": null,
+          "visibility": null,
+          "order": 1
+        },
+        {
+          "field": "max_transfer",
+          "json_pointer": "/types/274/properties/7",
+          "type": "Energy",
+          "default": null,
+          "visibility": null,
+          "order": 3
+        },
+        {
+          "field": "min_temperature_gradient",
+          "json_pointer": "/types/274/properties/8",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 1
+          },
+          "visibility": null,
+          "order": 5
+        },
+        {
+          "field": "min_working_temperature",
+          "json_pointer": "/types/274/properties/9",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 15
+          },
+          "visibility": null,
+          "order": 6
+        },
+        {
+          "field": "specific_heat",
+          "json_pointer": "/types/274/properties/12",
+          "type": "Energy",
+          "default": null,
+          "visibility": null,
+          "order": 2
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756"
+    },
+    {
+      "source": "prototype-api.json",
+      "group": "prototypes",
+      "object": "InserterPrototype",
+      "json_pointer": "/prototypes/128",
+      "selected_fields": [
+        {
+          "field": "chases_belt_items",
+          "json_pointer": "/prototypes/128/properties/3",
+          "type": "boolean",
+          "default": {
+            "complex_type": "literal",
+            "value": true
+          },
+          "visibility": null,
+          "order": 36
+        },
+        {
+          "field": "energy_per_movement",
+          "json_pointer": "/prototypes/128/properties/11",
+          "type": "Energy",
+          "default": {
+            "complex_type": "literal",
+            "value": 0
+          },
+          "visibility": null,
+          "order": 17
+        },
+        {
+          "field": "energy_per_rotation",
+          "json_pointer": "/prototypes/128/properties/12",
+          "type": "Energy",
+          "default": {
+            "complex_type": "literal",
+            "value": 0
+          },
+          "visibility": null,
+          "order": 18
+        },
+        {
+          "field": "enter_drop_mode_if_held_stack_spoiled",
+          "json_pointer": "/prototypes/128/properties/14",
+          "type": "boolean",
+          "default": {
+            "complex_type": "literal",
+            "value": false
+          },
+          "visibility": null,
+          "order": 27
+        },
+        {
+          "field": "grab_less_to_match_belt_stack",
+          "json_pointer": "/prototypes/128/properties/17",
+          "type": "boolean",
+          "default": {
+            "complex_type": "literal",
+            "value": false
+          },
+          "visibility": null,
+          "order": 25
+        },
+        {
+          "field": "hand_size",
+          "json_pointer": "/prototypes/128/properties/27",
+          "type": "double",
+          "default": {
+            "complex_type": "literal",
+            "value": 0.75
+          },
+          "visibility": null,
+          "order": 30
+        },
+        {
+          "field": "max_belt_stack_size",
+          "json_pointer": "/prototypes/128/properties/29",
+          "type": "uint8",
+          "default": {
+            "complex_type": "literal",
+            "value": 1
+          },
+          "visibility": [
+            "space_age"
+          ],
+          "order": 28
+        },
+        {
+          "field": "stack_size_bonus",
+          "json_pointer": "/prototypes/128/properties/34",
+          "type": "uint8",
+          "default": {
+            "complex_type": "literal",
+            "value": 0
+          },
+          "visibility": null,
+          "order": 37
+        },
+        {
+          "field": "wait_for_full_hand",
+          "json_pointer": "/prototypes/128/properties/38",
+          "type": "boolean",
+          "default": {
+            "complex_type": "literal",
+            "value": false
+          },
+          "visibility": null,
+          "order": 26
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756"
+    },
+    {
+      "source": "prototype-api.json",
+      "group": "prototypes",
+      "object": "EntityPrototype",
+      "json_pointer": "/prototypes/92",
+      "selected_fields": [
+        {
+          "field": "heating_energy",
+          "json_pointer": "/prototypes/92/properties/24",
+          "type": "Energy",
+          "default": {
+            "complex_type": "literal",
+            "value": "0W"
+          },
+          "visibility": [
+            "space_age"
+          ],
+          "order": 41
+        }
+      ],
+      "concept_type": null,
+      "version": "2.0.77",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756"
+    }
+  ],
+  "installed_join_limit": "Exact2.0.77source hashes/fields reread; structural native-to-prototype/API joins are distinct from unread loader/API-wrapper binding or observed runtime. Installed Base/Space Age/Quality payload does not establish entitlement/enablement. Experimental2.1.21sources unused.",
+  "claims": [
+    {
+      "id": "NLH-01",
+      "title": "Inventory admission includes stack identity, quality, metadata and owner rules",
+      "native_claim": "canInsert obtains virtual slot limits, scans admitted slots, accepts empty slots or compatible nonfull item/quality stacks, and invokes InventoryOwnerSpecification::canInsertAt when a specification exists. This is a boolean opportunity to insert, not proof the entire incoming count fits.",
+      "evidence": [
+        {
+          "entry": "1005217e4",
+          "c_lines": [
+            19,
+            94
+          ],
+          "c_sha256": "fb73ab931844e95d7c21f928d6f7e3fbcb8d2d0a0e16c65cbce5debf01201020",
+          "body_sha256": "0810a37090db13aa317e5f621c1f18db45ecb5641b78b1f61ca7a95b68f110c9",
+          "instructions": [
+            "100521810: virtual offset0x170",
+            "100521820: virtual offset0x120",
+            "100521898: call101416074",
+            "1005218f8/10052196c: metadata virtual offset0x40"
+          ]
+        }
+      ],
+      "guard": "slot window, free capacity, item ID/quality, metadata compatibility, optional owner specification",
+      "state_change": "none in this predicate",
+      "material_custody": "predicate does not transfer or spend items",
+      "time_support": "none",
+      "consumer_join": [
+        "LuaTransportLine boolean insertion contract is also capacity-sensitive; distinct native inventory path",
+        "Quality prototype identities exist in installed quality-levels; no quality creation here"
+      ],
+      "exception_or_failure": "returns false after exhaustion; metadata/slot-limit virtual callbacks unresolved",
+      "limit": "Exact meaning of virtual limits and special item metadata requires their implementations. No inventory batch reservation or concurrency guarantee is established.",
+      "original_application": "Retort two actual empty trays form an intentionally stricter complete-output reservation, not a copy of native canInsert."
+    },
+    {
+      "id": "NLH-02",
+      "title": "Inventory pickup separates receiver eligibility, selection, hand limits and transfer",
+      "native_claim": "transferFromInventory first has a burner-fuel pickup branch, then dispatches by spoil-priority mode. Both ordinary and priority scans require held item/quality compatibility and receiver admission through virtual offset0x188 before ItemStack::transferReal. Transfer size is bounded by the item limit and current live hand count; successful transfer records the current map tick.",
+      "evidence": [
+        {
+          "entry": "1007f6d50",
+          "c_lines": [
+            21,
+            152
+          ],
+          "c_sha256": "b4d608c0f04398a21b5c39c74b748dcc4585a6734de85648c40bcbbc8de1fe31",
+          "body_sha256": "aec1f254089b68044e8d36c9efddc39b94f9b1a79e7ea9119b254a772615bf5c",
+          "instructions": [
+            "1007f6d50..1007f70c0: complete bounded body"
+          ]
+        },
+        {
+          "entry": "1007f74a0",
+          "c_lines": [
+            39,
+            112
+          ],
+          "c_sha256": "a6b92fc320268ac44371ae6e42bdd2c1c5d32478e427ea1d49ecd13cbee5bdff",
+          "body_sha256": "2d731077a4d0f03fbb1106fe4fd33a119688b5b85542b068e2fc5f8cbf26892d",
+          "instructions": [
+            "receiver virtual0x188; direct transferReal target10083b770"
+          ]
+        },
+        {
+          "entry": "1007f70c4",
+          "c_lines": [
+            42,
+            204
+          ],
+          "c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "instructions": [
+            "1007f730c: receiver blr",
+            "1007f73cc/1007f73f0: transferReal10083b770"
+          ]
+        },
+        {
+          "entry": "1007f6c24",
+          "c_lines": [
+            19,
+            52
+          ],
+          "c_sha256": "ed6972ae3a6ef7ca0829168201c44a6a9d1ca7cc3f2aa315028513c5db8eb987",
+          "body_sha256": "cf42116940764424c9fcdce424b55675e3a6029aed643f6513425de460f3e921",
+          "instructions": [
+            "1007f6cc4/1007f6d18: transferReal10083b770"
+          ]
+        }
+      ],
+      "guard": "compatible held identity/quality; filter; target admission; live hand capacity; conditional belt-stack multiple",
+      "state_change": "real transfer into existing held stack; update last successful transfer tick; mode bookkeeping",
+      "material_custody": "source inventory -> held stack; no free item creation is visible here",
+      "time_support": "map tick recorded only when transferReal reports a nonzero transfer",
+      "consumer_join": [
+        "space-age-entities stack-inserter grab_less_to_match_belt_stack/wait_for_full_hand/max_belt_stack_size4",
+        "runtime LuaEntity held_stack and inserter_target_pickup_count"
+      ],
+      "exception_or_failure": "no eligible candidate or no transferred count takes alternate statuses; receiver virtual method and transferReal internals are unreviewed",
+      "limit": "Numeric pickup result values0/1/2 are not assigned original enum names; receiver admission is not an irrevocable later-delivery promise.",
+      "original_application": "Keep target capacity and physical custody in separate facts; accepting a job should reserve its concrete receivers through the shared publisher."
+    },
+    {
+      "id": "NLH-03",
+      "title": "Spoil priority is explicit selection policy with invalid-input exceptions",
+      "native_claim": "parseSpoilPriority maps none->0, fresh_first->1 and spoiled_first->2, rejecting unknown input with ScriptException. Priority selection reverses its comparison orientation by mode, examines a prototype byte at0x431 when identities differ, then nonzero item metadata at0x40. The comparator asserts if either item identity is empty.",
+      "evidence": [
+        {
+          "entry": "1007f827c",
+          "c_lines": [
+            16,
+            39
+          ],
+          "c_sha256": "22c59e5fb682b75668d6fd61bf78b7235126ba8018388e3a2f3c0fdfeefff28d",
+          "body_sha256": "3a897af8c5cf8f72f501d78d44c586b70f4d051162c16f812ef2ad3ea0f3d9ee",
+          "instructions": [
+            "1007f827c..1007f83e4: bounded parse body"
+          ]
+        },
+        {
+          "entry": "1007f7728",
+          "c_lines": [
+            12,
+            70
+          ],
+          "c_sha256": "414b5be4139a0ea2b824f68682683803ab37808ab2c9e5d4001e7c725dec1d52",
+          "body_sha256": "be1e77f121880765baf40a25a496286da2dbd9fbe2fc6b0e7ac8ab93a92b4dd2",
+          "instructions": [
+            "1007f7830/1007f7848: assertion calls100153cc4"
+          ]
+        },
+        {
+          "entry": "1007f784c",
+          "c_lines": [
+            12,
+            40
+          ],
+          "c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+          "body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+          "instructions": [
+            "1007f784c..1007f7904: bounded comparator body"
+          ]
+        },
+        {
+          "entry": "1007f70c4",
+          "c_lines": [
+            105,
+            145
+          ],
+          "c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "instructions": [
+            "comparison branches within body"
+          ]
+        }
+      ],
+      "guard": "nonempty item identities, mode, prototype ordering and metadata presence",
+      "state_change": "selection only until the separate real transfer",
+      "material_custody": "no free replacement for old material",
+      "time_support": "metadata0x40 participates in ordered selection; exact timestamp lifecycle not recovered here",
+      "consumer_join": [
+        "runtime API SpoilPriority concept exactly lists the same3strings",
+        "space-age-spoil nutrients5*minute and yumako-mash3*minute both produce spoilage"
+      ],
+      "exception_or_failure": "unknown mode throws ScriptException; out-of-range enum conversion logs abort/throw; empty comparator input triggers ReleaseAssertFailed",
+      "limit": "Prototype byte0x431 and metadata0x40 are not given original member names; no global freshness algorithm, preserved deadline transfer or enabled DLC state is proved.",
+      "original_application": "A future perishable batch policy should expose fresh-first versus oldest-first and preserve actual material identity; current retort has no spoil clock."
+    },
+    {
+      "id": "NLH-04",
+      "title": "Blocked delivery preserves held material and registers a wake dependency",
+      "native_claim": "dropHeldItem treats machine receivers, belts and ground/space as distinct destinations. Machine transfer is virtual0x1c0; a remaining held stack can registerSleeper and deactivate. Belt delivery calls tryToInsert and, after rejection on an inactive line, registers the wakeable on line+0xa0 and deactivates. Empty held identity is required before the ordinary dropped-state flag is set.",
+      "evidence": [
+        {
+          "entry": "1007f8448",
+          "c_lines": [
+            26,
+            155
+          ],
+          "c_sha256": "badc3c579df2d9115a31eadd552f3831a6af054a5bebd76fb991c9dd6e385796",
+          "body_sha256": "50dca7e614bf16284b397e555a1547980d75d7af82edc0536c59a13141c47481",
+          "instructions": [
+            "1007f8510: tryToInsert100401454",
+            "1007f85c4: receiver offset0x1c0",
+            "1007f85e8: receiver offset0xc8",
+            "1007f85a0/1007f8604/1007f877c: deactivate1006176f4",
+            "1007f884c: wake-list capacity error1000f1948"
+          ]
+        },
+        {
+          "entry": "1007f8a4c",
+          "c_lines": [
+            80,
+            163
+          ],
+          "c_sha256": "5bbb67211089db447ef135f0c639b379ad547d6f4aa10eac65dea4afc2f879a5",
+          "body_sha256": "74e3e4961c76811ab5c10bf36e61df8e262231d06d178d3e3e137ba207be55a5",
+          "instructions": [
+            "1007f8bbc/1007f8e30: dropHeldItem1007f8448"
+          ]
+        }
+      ],
+      "guard": "real destination, collision/space tile, receiver/belt admission, remaining held identity, active-list status",
+      "state_change": "successful transfer or retained held stack plus wake-list registration/deactivation; drop state only after empty hand",
+      "material_custody": "rejected drop does not visibly delete held stack; explicit ground item and space-drop paths are different calls",
+      "time_support": "deactivation waits on a concrete receiver/line wakeable dependency",
+      "consumer_join": [
+        "LuaEntity held_stack; LuaTransportLine insert_at returns success boolean",
+        "Space Age introduces a distinct dropItemIntoSpace path, but its internals were not read"
+      ],
+      "exception_or_failure": "all3wake-list reference slots occupied logs abort/throw; blocked ground collision can leave stack held",
+      "limit": "Machine transfer, surface createItemEntity, dropItemIntoSpace and actual wake callback implementations remain callees; no launch/runtime observation.",
+      "original_application": "A queued retort action can pause with specific resin/residue receiver reasons; keep its reserved material visible and let actual receiver clearing enable retry."
+    },
+    {
+      "id": "NLH-05",
+      "title": "Transport insertion is spatial admission before item construction",
+      "native_claim": "tryToInsert rejects invalid/out-of-line positions, evaluates0x40 fixed-point spacing and neighboring-line gaps, then constructs/emplace items only on an admitted path. It delegates exact-back positions to tryToInsertAtBack. The back method can return false on cramped spacing; null item payload can probe a successful position without item construction. Successful real insertion may attach the line to active work and notify its wake-list owner.",
+      "evidence": [
+        {
+          "entry": "100401454",
+          "c_lines": [
+            30,
+            280
+          ],
+          "c_sha256": "39fd486a3d232e7985928e93c729e2cd1f66c3ac83f307ee51d7811d8919b36d",
+          "body_sha256": "77b9682639c5ff27e3d05f523f7938de55ed1cd556fa751d8d8899e73f849634",
+          "instructions": [
+            "100401454..1004019e7: complete body",
+            "tryToInsertAtBack direct target1004011e0"
+          ]
+        },
+        {
+          "entry": "1004011e0",
+          "c_lines": [
+            19,
+            126
+          ],
+          "c_sha256": "3443117270b194779789bec50e13e9ed89161d71c6f1324b20850993a1a98a6a",
+          "body_sha256": "27d174a064d798a632a901a8583878af6530487640b4824414ff8994ec149b66",
+          "instructions": [
+            "1004012e4: CompactDeque grow101e946f0",
+            "10040131c: ItemOnTransportLine constructor1004091d8"
+          ]
+        }
+      ],
+      "guard": "position bounds, back/front/interior gaps, neighboring line spacing, item payload",
+      "state_change": "deque item and gap bookkeeping only after admission; active-list linkage and wake notification",
+      "material_custody": "constructor handles actual inserted material; its internals remain unread",
+      "time_support": "moving line can be enrolled in scheduled active work",
+      "consumer_join": [
+        "base-belt speed0.03125",
+        "LuaTransportLine can_insert_at_back/insert_at/insert_at_back and belt_stack_size parameter"
+      ],
+      "exception_or_failure": "false returns for inadmissible geometry; virtual notification callback unresolved",
+      "limit": "FixedPointNumberTemplate with8fractional bits is in the symbol, but complete geometric conversion, constructor custody and API-wrapper call graph are not read. No direct count throughput claim.",
+      "original_application": "Separate a previewed capacity fact from commit-time receiver admission; current finite physical trays do not need continuous belt simulation."
+    },
+    {
+      "id": "NLH-06",
+      "title": "Conveyor scheduling and spoil notifications react to concrete state",
+      "native_claim": "TransportLine::update returns when depth>999 or its stored full tick already matches, delegates splitter work when present, marks the tick before recursively updating a linked line, and calls move. An unsuccessful move result unlinks active work; a successful result can reactivate neighboring lines and invoke wake notifications. Spoil notification removes the specific stack when its item ID became empty, otherwise can activate a nonempty moving line and drains a wake-list callback loop. Container shrink explicitly refreshes both wake-list regions.",
+      "evidence": [
+        {
+          "entry": "1003fde70",
+          "c_lines": [
+            19,
+            125
+          ],
+          "c_sha256": "67c7d53d2eab4c1d9e7e689971af49e389707ea9e73f18b535dba7715701b253",
+          "body_sha256": "9a50fe549d22374d02090f80b0e17516e5874234a06801e722de5d0e03112ed9",
+          "instructions": [
+            "1003fdee8: splitter update1003fd9cc",
+            "1003fdf10: recursive update",
+            "1003fdf34: move1003fd4b4",
+            "1003fe19c: unresolved indirect callback"
+          ]
+        },
+        {
+          "entry": "1004087b0",
+          "c_lines": [
+            16,
+            65
+          ],
+          "c_sha256": "f788b807704c49c6d14e5550b787bd39d7c227de06d04aabde98c4d8b00eb17c",
+          "body_sha256": "05ae6d125c4dfb07ae8fc0acc5245a49bab28055d31295801239acd1ce8b954e",
+          "instructions": [
+            "1004088f8: remove1003ff7ec"
+          ]
+        },
+        {
+          "entry": "1004080f8",
+          "c_lines": [
+            9,
+            33
+          ],
+          "c_sha256": "9287c047650ab8edc6384213c8909582b2c761f0b49f510382f57df5d118d830",
+          "body_sha256": "5d9fd55825046ab9ff6cbbe890474e5778602e83077968196b98f24fda013ae4",
+          "instructions": [
+            "WakeUpList::updateTransportBeltWakeables calls"
+          ]
+        },
+        {
+          "entry": "10040ace0",
+          "c_lines": [
+            5,
+            7
+          ],
+          "c_sha256": "0f98e6f6d5d7596fb30b08e3db5eca4101a709bf418838658c21da8f1caac4dc",
+          "body_sha256": "7b2d7cf108ef1d871b0c7640b58eeea3f6ebb5bc3d062d675895a01fc9c1da62",
+          "instructions": [
+            "BeltReaderState::add direct downstream instrumentation"
+          ]
+        }
+      ],
+      "guard": "tick/depth, splitter ownership, nonzero movement/item state, existing active/wake membership",
+      "state_change": "tick mark, work-list linkage, specific item removal or activation, wake callbacks, optional belt reader delta",
+      "material_custody": "spoil disappearance removes only the matching deque item; replacement generation is not implemented by this notification",
+      "time_support": "simulation MapTick; explicit recursive guard and active work lists",
+      "consumer_join": [
+        "installed Space Age spoil-result item definitions",
+        "base-belt speed and optional circuit reader consumer"
+      ],
+      "exception_or_failure": "depth cut-off prevents more recursion here; unresolved virtual/jumptable callback at1003fe19c",
+      "limit": "move, splitter, remove and WakeUpList callback internals are not semantically read. No all-network deadlock or ordering guarantee.",
+      "original_application": "Use the existing played clock once per accepted job and react to concrete custody/support changes rather than creating a second timer."
+    },
+    {
+      "id": "NLH-07",
+      "title": "Wake registrations are rebuilt when belt dependencies change; spoiled hand has its own notification",
+      "native_claim": "updateTransportBeltWakeUpLists removes matching references from old lists whose type values are4/5, clears old list pointers and reconstructs pickup/drop lists from current target geometry. It falls back to alarm when targets are absent and aborts/throws if all3slots are used. Inserter::onStackSpoiled handles only its actual held stack and sets bit9 according to whether its new identity is nonempty.",
+      "evidence": [
+        {
+          "entry": "1007fc1c4",
+          "c_lines": [
+            24,
+            263
+          ],
+          "c_sha256": "1c99f44a0f9d9f59cabcf95915bcf4d87c4ff6c695d9741b6ba15e4b96386774",
+          "body_sha256": "607d4e9d4aa066d0f06c1bdd14cfbb484a75ad6dfe29bc76607c0da82def7cc6",
+          "instructions": [
+            "1007fc650/1007fc6d8/1007fc76c: wakeable push1003817f8",
+            "1007fc5c0/1007fc79c: alarm1004c64c8",
+            "1007fc7d8: logging1000f1948"
+          ]
+        },
+        {
+          "entry": "1007fddd4",
+          "c_lines": [
+            5,
+            10
+          ],
+          "c_sha256": "6cdb510d8697d749fd70024b1381769dbf542760bdb6c63a2a43086467ece00b",
+          "body_sha256": "669fbc1c55bd54a7e163c219401f6437d5bd559b7ce9843da5647de609b779d6",
+          "instructions": [
+            "1007fddec..1007fde20: held identity and flag update"
+          ]
+        },
+        {
+          "entry": "1007f8850",
+          "c_lines": [
+            14,
+            48
+          ],
+          "c_sha256": "8b69732e5dd13e5a14dc1bc06a62ef7334cc35ccad1f8c742b90d48ef11cd70e",
+          "body_sha256": "cc29f81c8eb7300bf937940b9cc24427177941bb622dfeb01277394b2bdac03b",
+          "instructions": [
+            "drop target geometry refresh"
+          ]
+        },
+        {
+          "entry": "1007f8960",
+          "c_lines": [
+            13,
+            41
+          ],
+          "c_sha256": "cdad338426d40a870279143016f15963cfcefb6eb7fbfb5e2c0f9a845b4bfc65",
+          "body_sha256": "4332ff4abbd0074ff0461deae1b796c062e1dc19a0a77386a6c29718c55e9824",
+          "instructions": [
+            "pickup target geometry refresh"
+          ]
+        }
+      ],
+      "guard": "old list type4/5 and exact wakeable identity, current target geometry, available3reference slots, notification stack identity",
+      "state_change": "remove stale dependencies, register current ones, alarm fallback, held-spoil flag",
+      "material_custody": "wake-list update grants no material; held-spoil flag refers to actual stack",
+      "time_support": "event-driven wake registration rather than polling every dormant inserter",
+      "consumer_join": [
+        "space-age stack-inserter enter_drop_mode_if_held_stack_spoiled=true",
+        "prototype API explains spoiled full-hand wait exception"
+      ],
+      "exception_or_failure": "type propagation warning on wake-update C; all3slots occupied logs abort/throw",
+      "limit": "List type values4/5 are not assigned original enum names; bit9 does not alone prove the complete drop-mode transition consumer. Alarm/virtual target callbacks unreviewed.",
+      "original_application": "A later dependency change should invalidate cached receiver/support reasons; original retort completion rechecks actual rack/body/local support."
+    },
+    {
+      "id": "NLH-08",
+      "title": "Temperature is derived from a stored double, not integer energy",
+      "native_claim": "HeatBuffer::getTemperature computes stored value at0x60 divided by prototype coefficient0x88 plus baseline0x80. setTemperature bounds the temperature to baseline0x80 and ceiling0x70 and stores coefficient*(boundedTemperature-baseline). transferEnergy adds no more than remaining capacity0x78. setAvailableEnergy stores the input clamped to0..capacity; it does not add the reserve used by getAvailableEnergy.",
+      "evidence": [
+        {
+          "entry": "1001e8af4",
+          "c_lines": [
+            7,
+            9
+          ],
+          "c_sha256": "686c8ab0d8853fad1c888dbe1ea6c954747449a743987657c209bd3fa9e3efbc",
+          "body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+          "instructions": [
+            "1001e8af4..1001e8b08: floating temperature"
+          ]
+        },
+        {
+          "entry": "10029a590",
+          "c_lines": [
+            8,
+            16
+          ],
+          "c_sha256": "f1bf21a0623b0f2043e28109c48dc6e6580ac81051f3729201eca66d7fac0df3",
+          "body_sha256": "a87c3a48588e222cdd1c12ecb8712062c6f112b5f0df117f65f9f71cf0060e91",
+          "instructions": [
+            "10029a598: ldp d2,d3 baseline/coefficient",
+            "10029a5b4: str d0,[x0,#0x60]"
+          ]
+        },
+        {
+          "entry": "10029a42c",
+          "c_lines": [
+            10,
+            21
+          ],
+          "c_sha256": "7f14a5144a8778775ee6108d5d9e5fe5845f220cf67c3d4ecd1305b9ea47ccbf",
+          "body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+          "instructions": [
+            "10029a42c..10029a45c: floating capacity/add"
+          ]
+        },
+        {
+          "entry": "10029bccc",
+          "c_lines": [
+            5,
+            11
+          ],
+          "c_sha256": "7358f36b55f76bbc1ab75f8589171b8613966af960e39e9ade25f22289394f7f",
+          "body_sha256": "f9beb77d1be80833dfca2d994a8c7e6371511ccd5e45d0b987ac49a1ff7c51bf",
+          "instructions": [
+            "10029bcd8: fmaxnm",
+            "10029bce4: str d0"
+          ]
+        }
+      ],
+      "guard": "temperature baseline/ceiling and storage headroom",
+      "state_change": "stored floating energy changes with temperature/add/set",
+      "material_custody": "bounded addition is separate from donor transfer; no fuel-item consumption shown",
+      "time_support": "no timer inside these helpers",
+      "consumer_join": [
+        "HeatBuffer/HeatEnergySource API default_temperature15, max_temperature, specific_heat",
+        "base reactor1000/10MJ, heat-pipe1000/1MJ; heating tower1000/5MJ"
+      ],
+      "exception_or_failure": "no explicit exception in these helpers; finite supported inputs assumed",
+      "limit": "Generated C wrongly models some energy fields as long with casts; LDR/STR d and arithmetic prove floating storage. Named field mapping is structural inference without prototype loader read; set/getAvailableEnergy are not assumed mathematical inverses.",
+      "original_application": "A future warm process needs separate stored heat and useful operating condition, but the current retort is authored discrete preparation with no simulated heat buffer."
+    },
+    {
+      "id": "NLH-09",
+      "title": "Usable heat has a reserve and a per-call extraction cap; full requests fail atomically",
+      "native_claim": "HeatBuffer available energy is max(E-reserve0xb0,0). extractEnergy returns and spends min(request,available,cap0x90). extractEnergyIfAvailable spends only when that bounded amount covers the request and is nonzero, otherwise leaves E unchanged. HeatEnergySource accesses the buffer through source+0x18 and repeats that extraction rule. hasEnergyPotentially compares actual derived temperature strictly above prototype0xa8.",
+      "evidence": [
+        {
+          "entry": "10029bc88",
+          "c_lines": [
+            8,
+            13
+          ],
+          "c_sha256": "e543da1093d2ae6cc1ce82a6f801aa21b5a8ab4a97aeb5285c05defd716d41ff",
+          "body_sha256": "6c5457ac805758affb373f561a82221d34f48ac8eefc19cbecc30f51ed6cd021",
+          "instructions": [
+            "10029bc94/10029bc9c: fsub/fmaxnm"
+          ]
+        },
+        {
+          "entry": "10029bcec",
+          "c_lines": [
+            9,
+            25
+          ],
+          "c_sha256": "1c24c03ac2fa4fe8dc5c33c6710e06b20e01f2717d02911d26532bb8ece23c0d",
+          "body_sha256": "1b84ff2da876b67e140eb6799bef41dce7c612f0655b4a2cb03e5ac44f367a71",
+          "instructions": [
+            "10029bd10: cap load",
+            "10029bd28..10029bd30: subtract/store/result"
+          ]
+        },
+        {
+          "entry": "10029bd38",
+          "c_lines": [
+            9,
+            24
+          ],
+          "c_sha256": "ecb9e4f3353f96aadde496cce1cb8ef3a7049206e62c8abbdac6105e496757b2",
+          "body_sha256": "ae582de9b48aa8a228ff623f2894bb07350aeb0a8c41da8eaf11da408babbe7b",
+          "instructions": [
+            "10029bd74..10029bd84: conditional store"
+          ]
+        },
+        {
+          "entry": "1005fce08",
+          "c_lines": [
+            10,
+            27
+          ],
+          "c_sha256": "004d5aa8ad22b27477c9fdd30cb2831e9b71831829c39dea50d8872033d61198",
+          "body_sha256": "9a68c3690494e5710335205c86beab10649027bd5b718b045fa104505ebea5e3",
+          "instructions": [
+            "1005fce30: cap load",
+            "1005fce4c: conditional store"
+          ]
+        },
+        {
+          "entry": "1005fcf68",
+          "c_lines": [
+            9,
+            23
+          ],
+          "c_sha256": "e812294eee3c191b55bf6eb6b989d3e3df523b0187c45c6b90de47592999add2",
+          "body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+          "instructions": [
+            "1005fcfa4: boolean result w0 despite void C signature",
+            "1005fcfb4: guarded store"
+          ]
+        },
+        {
+          "entry": "1005fcfbc",
+          "c_lines": [
+            8,
+            14
+          ],
+          "c_sha256": "2fa3b10502ef114e3ac2fe053218b9e1bfe704bf10fbdd28e743bcbe017e22ae",
+          "body_sha256": "f5ec1ece49d4b00ae5b409a35fc1506f6f961ad14b483041b99b73a4ac5857e5",
+          "instructions": [
+            "buffer surplus"
+          ]
+        },
+        {
+          "entry": "1005fd680",
+          "c_lines": [
+            7,
+            10
+          ],
+          "c_sha256": "4ac5394c4c80afe3338732e6a175f312faa7d6921eb065b01a6eb4824826e760",
+          "body_sha256": "a6d588adfafd8a7fee321b4de69c4febd895942619cb9d63d12ad512347cca30",
+          "instructions": [
+            "1005fd698..1005fd6a0: strict temperature comparison"
+          ]
+        }
+      ],
+      "guard": "surplus above reserve, request, cap, nonzero amount and full-request satisfaction",
+      "state_change": "decrement buffer only for delivered partial amount or fully admitted conditional request",
+      "material_custody": "no energy duplication: mutation equals admitted extraction",
+      "time_support": "cap is local to each invocation; whole dispatch frequency not proved",
+      "consumer_join": [
+        "HeatEnergySource min_working_temperature/max_transfer/specific_heat API",
+        "base heat-exchanger working500, specific_heat1MJ, max_transfer2GW"
+      ],
+      "exception_or_failure": "zero conditional heat request fails because amount must be nonzero; exhausted/capped full request leaves stored E untouched",
+      "limit": "No NaN/negative-input contract is claimed. Original names/units for offsets are inferred from helpers plus API; no loader-derived rate conversion or global per-tick sum proof.",
+      "original_application": "Capacity, usable operating reserve and spend rate should remain distinct predicates; current fuel reservation/refund is an original preparation contract, not extraction of a running heat buffer."
+    },
+    {
+      "id": "NLH-10",
+      "title": "Heat transfer is constrained equalization with separate consumer reserves",
+      "native_claim": "transferEnergyTo bounds positive transfer by donor raw E, receiver headroom, requested amount and donor cap0x90 before paired addition/subtraction. transferTo compares prototype identity; same-prototype transfer takes0.2*(Esource-Ereceiver-gradient0xa0) when positive, while different prototypes use both0x88coefficients and0x80baselines then divide the excess by2.5. Both paths also respect donor E, recipient capacity and donor rate. These transfers do not read consumer reserve0xb0.",
+      "evidence": [
+        {
+          "entry": "10029a460",
+          "c_lines": [
+            8,
+            22
+          ],
+          "c_sha256": "b7e9d1434709ffc58215780b256274e54a3cc2f8e21c788d9e6df1153f19034b",
+          "body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+          "instructions": [
+            "10029a49c..10029a4ac: paired receiver/source mutations"
+          ]
+        },
+        {
+          "entry": "10029a4b4",
+          "c_lines": [
+            12,
+            50
+          ],
+          "c_sha256": "fa60179f3e112371ed188e2ec3455acbe64cb18c632ce37cbaf2eabedf275c11",
+          "body_sha256": "35b4ca5726f42c2e7ef589a6d0a1f1496181e4a222fc8347202788e7198ff645",
+          "instructions": [
+            "10029a4c4..10029a510: different-prototype arithmetic",
+            "10029a51c..10029a548: same-prototype coefficient",
+            "10029a578..10029a588: paired stores"
+          ]
+        }
+      ],
+      "guard": "positive gradient-adjusted difference, donor raw E, receiver headroom, donor cap",
+      "state_change": "paired source decrease/target increase",
+      "material_custody": "same positive amount moves between two buffers; ordinary extraction reserve is distinct",
+      "time_support": "called by heat update; complete network scheduling remains outside this leaf",
+      "consumer_join": [
+        "HeatBuffer min_temperature_gradient/default_temperature/specific_heat/max_transfer/connections API",
+        "base reactor/heat pipe and Space Age heating tower have different coefficients"
+      ],
+      "exception_or_failure": "nonpositive calculated transfer returns without mutation; saturated receiver stops transfer",
+      "limit": "0.2/2.5 are observed native constants, not YAIR balance recommendations. Full physical conservation/float error and global ordering are untested.",
+      "original_application": "A future connected heating system should expose donor capacity, network transfer and useful temperature separately; no need to copy a universal continuous network into the discrete retort."
+    },
+    {
+      "id": "NLH-11",
+      "title": "Heat scheduling guards recursion and keeps smoothed display separate from usable energy",
+      "native_claim": "HeatBuffer::update compares the low8bits of the supplied tick to a visited byte, marks before recursion, visits a colder neighbor first and then transfers to it. It accumulates stored E as float and every tick whose low5bits are0 writes accumulator/32 and clears it. The vector overload also appends the visited buffer index. HeatEnergySource::calculateAvailableEnergyToExtract caps only by surplus, without reading rate0x90; later extraction is stricter. Electric extraction has partial-clamped and full-conditional variants.",
+      "evidence": [
+        {
+          "entry": "10029b984",
+          "c_lines": [
+            11,
+            32
+          ],
+          "c_sha256": "2ea06c67f0a5097f02ee3e09cdc23f5788473693ea3c8410219fb610ca2e2e79",
+          "body_sha256": "849dd747409200fc8fb67d186e686df85ffe6b46641d855a114735bf237d79f8",
+          "instructions": [
+            "10029b99c/10029b9a8: lowbyte guard/mark",
+            "10029ba00/10029ba0c: recursion/transfer",
+            "10029ba1c..10029ba4c: float aggregate"
+          ]
+        },
+        {
+          "entry": "10029ba64",
+          "c_lines": [
+            7,
+            13
+          ],
+          "c_sha256": "bfeca643d7e041e1f1df94edb174d6d3425eaa801a3883787d4eb61ec1f67c73",
+          "body_sha256": "5d05325db7e958b7589699208c4a2526fd52c18554cf407d84831f919b160b1d",
+          "instructions": [
+            "10029ba78..10029ba90:32boundary average/reset"
+          ]
+        },
+        {
+          "entry": "10029ba98",
+          "c_lines": [
+            21,
+            88
+          ],
+          "c_sha256": "4475d2dd89e904ea012ef6175d3a978c9989b63c54cd5d0310efae00908c75f1",
+          "body_sha256": "bd18fe1d3496d32ec4fc15a32ac70797db4c5efae6ba9f0852711707e88420fa",
+          "instructions": [
+            "vector append, allocation guards, recursion/transfer"
+          ]
+        },
+        {
+          "entry": "1005fd074",
+          "c_lines": [
+            9,
+            18
+          ],
+          "c_sha256": "2d371ba32b115d0428c8c67a41b72108a86edb5af630c7d714722a95dcd071e1",
+          "body_sha256": "63fc64f16ee30fcf27d381369698f71780f1fbed190a393c48ccaefeaddf86e5",
+          "instructions": [
+            "1005fd074..1005fd098: surplus-only preflight; no0x90read"
+          ]
+        },
+        {
+          "entry": "1005df238",
+          "c_lines": [
+            8,
+            12
+          ],
+          "c_sha256": "d4b2b993d319ebb2fe5931623ae1669dc6f4940901aae8160fc8477f8621fd86",
+          "body_sha256": "88a91c152db719d52d039d7534e82cbb7e3fa982d3b4611f2d7f86a371cfea4c",
+          "instructions": [
+            "electric preflight"
+          ]
+        },
+        {
+          "entry": "1005df250",
+          "c_lines": [
+            9,
+            16
+          ],
+          "c_sha256": "63739a9b5aa5287027bf51584efde5ae6fcd2bc9a2307da5f273c65dcebb43d3",
+          "body_sha256": "921d6e40743f3ef4461ec504a0577f05604a27ced9fd67eb2a24cd8682fa3911",
+          "instructions": [
+            "1005df25c: fmax d3,d2,0",
+            "1005df268: str d3 clamped result"
+          ]
+        },
+        {
+          "entry": "1005df350",
+          "c_lines": [
+            5,
+            9
+          ],
+          "c_sha256": "3028dc65909c562e7d811dc6b59c9ffbd831dfeb2cc1b75ff480ebd99e06501d",
+          "body_sha256": "468198457a2c8a0b75efb4f78eef5d6767613b8dbcb22f27b0849366221195bf",
+          "instructions": [
+            "1005df35c: failed conditional request skips store"
+          ]
+        }
+      ],
+      "guard": "visited lowbyte, colder neighbor, tick32boundary; consumer request versus surplus versus cap",
+      "state_change": "visited byte, neighbor transfers, float aggregate/display average, visited vector; energy mutation only extraction rules",
+      "material_custody": "averaged display is not newly available energy",
+      "time_support": "MapTick lowbyte recursion guard and32boundary aggregate; not wall clock or idle/offline timer",
+      "consumer_join": [
+        "runtime LuaEntity energy and temperature are separate properties",
+        "Space Age Aquilo entities_require_heating plus explicit entity heating_energy; freeze engine not recovered"
+      ],
+      "exception_or_failure": "vector length/bad-array allocation exceptions; unresolved whole group ordering and callbacks",
+      "limit": "The32boundary output is accumulator/32, not proof of32actual samples if caller skips updates. Ghidra C for electric extract omits the fmax store source; instruction evidence wins. HeatEnergySource conditional C signature says void but arm64 sets w0 boolean. Electric zero request can succeed while heat zero request fails. No full heat/freezing simulation coverage.",
+      "original_application": "Use one authoritative played clock and commit-time capability/spend check; display estimates must not grant resources or replace actual completion predicates."
+    }
+  ],
+  "original_YAIR_source_bindings": [
+    {
+      "path": "src/factorio_retort_content.js",
+      "sha256_at_read": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "selected_bounds": [
+        [
+          24,
+          26
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          58,
+          97
+        ]
+      ],
+      "status": "source-only current dirty working tree; owned by shared integrator, untouched by this leaf"
+    },
+    {
+      "path": "src/factorio_retort_facts.js",
+      "sha256_at_read": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "selected_bounds": [
+        [
+          9,
+          41
+        ]
+      ],
+      "status": "source-only current dirty working tree; owned by shared integrator, untouched by this leaf"
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "sha256_at_read": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "selected_bounds": [
+        [
+          20,
+          22
+        ],
+        [
+          48,
+          59
+        ],
+        [
+          79,
+          113
+        ]
+      ],
+      "status": "source-only current dirty working tree; owned by shared integrator, untouched by this leaf"
+    }
+  ],
+  "original_use": {
+    "current_source": "Physical resin/residue trays, owned rack/body support, one finite batch reservation, shared clock/publisher and refund-on-cancel/unsupported-completion are original discrete contracts. They do not implement continuous heat, burners, conveyors, freshness or Factorio parity.",
+    "proposals": [
+      "Retain complete receiver reservation before accepting a batch, which is stricter than native boolean canInsert.",
+      "Use concrete receiver/support block reasons and recheck after actual custody or geometry changes.",
+      "If future perishable work is added, keep selection policy and deadline/custody separate from a quality label.",
+      "If future warm work is added, distinguish stored heat, usable reserve, transfer rate, temperature and display smoothing."
+    ],
+    "implementation_owner": "/root and currently leased shared YAIR integrator",
+    "gameplay_status": "source review only by leaf; existing retort integration/acceptance is parent-owned"
+  },
+  "gaps": [
+    "ItemStack::transferReal/ItemOnTransportLine constructor custody semantics",
+    "Receiver virtual0x188/0x1c0 and wake/circuit callback targets",
+    "TransportLine::move/splitter/remove scheduling and full network ordering",
+    "HeatBuffer prototype loader field names and unit conversion",
+    "HeatBufferManager dispatch/global per-tick cap and256tick visited-byte behavior",
+    "Entire freeze/freezing manager and spoiled-hand drop-mode consumer",
+    "Burner internals, API wrapper entry joins, x86_64 cross-check",
+    "Current retort rebuilt/playable/save/reload/failure acceptance is owned by integrator and deferred under current project phase"
+  ],
+  "verification": {
+    "private_snapshot_hashes": "pass",
+    "installed_known_owner_hash_matches": "pass",
+    "module_versions": "all read2.0.77",
+    "JSON_and_link_validation": "pass:43unique schema2 success records/C/body hashes; all claim C bounds;12source hashes;local Markdown links; no raw C in report",
+    "native_or_game_execution": "not run/authorized",
+    "tests_build_browser_saves": "not run; no gameplay edit"
+  },
+  "memory_use": "MEMORY.md296-299 used only as a pointer: live project source/owners outrank exploratory remembered design."
+}

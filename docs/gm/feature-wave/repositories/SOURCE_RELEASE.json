@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "status": "final28-command-source-released-awaiting-coordinated-Features-build",
+  "sourceHashes": {
+    "src/repository_absorption_chains.js": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+    "src/repository_absorption_content.js": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+    "src/repository_absorption_facts.js": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86",
+    "src/repository_absorption_host.js": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+    "src/repository_absorption_substitutions.js": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8",
+    "src/repository_absorption_ui.js": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+    "src/repository_absorption_workplan.js": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+  },
+  "registeredCommands": 28,
+  "writerRelease": true,
+  "children": [
+    "source_matrix completed/released",
+    "workplan completed/released",
+    "slice_ui completed/released"
+  ],
+  "processSessions": [],
+  "sourceChecked": "syntax/import/actual registry/callback/native typed costs and source guards/scoped whitespace",
+  "next": "Features current final bundle source correspondence; no new source work absent failed gate",
+  "checksDeferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "requiredAmendmentRecords": [
+    "BOOK_SUBTLETY_JOINS.json",
+    "NESTED_CHAIN_JOINS.json"
+  ],
+  "nativeItemNameRepair": "Actual OtherItem delegates Item.name with no id fallback; all3specs now explicitly name=id. IDs/counts/jobs/saved meaning unchanged; final coordinated build consumes corrected native display names.",
+  "displayedOfferRepair": "UI callback now sends displayedView exact request/target/job and displayedSequence. It no longer refreshes a next-step offer at click time, so stale single-kit versus paired-kit work rejects under existing host expectedSequence/identity checks.",
+  "state": "source-native-ui-save-current-build-admitted; implemented-unverified",
+  "currentBuild": {
+    "bundleFingerprint": "11aaa9cbfc69",
+    "receipt": "docs/gm/feature-wave/features/BUILD.json",
+    "localSourcesMatched": 221,
+    "roleModulesMatched": 7,
+    "sourceDrift": 0
+  }
+}

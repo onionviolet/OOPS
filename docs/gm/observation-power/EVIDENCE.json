@@ -1,0 +1,263 @@
+{
+  "checkedAt": "2026-10-04T15:39:23.394172+00:00",
+  "status": "pass",
+  "scope": "Research/Develop document, descriptor and source-locator checks only; no runtime changes, build/browser/save, source semantic reread or human acceptance",
+  "checks": {
+    "localLinks": 62,
+    "brokenLinks": [],
+    "authoredWhitespace": [],
+    "apiSymbols": [
+      {
+        "path": "src/simulation.js",
+        "symbol": "previewSimulationCommand",
+        "present": true
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "commitSimulationCommand",
+        "present": true
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "advanceSimulationBoundary",
+        "present": true
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "previewCampaignTransition",
+        "present": true
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "commitCampaignTransition",
+        "present": true
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "symbol": "simulationFacts",
+        "present": true
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "symbol": "applySimulationEffects",
+        "present": true
+      },
+      {
+        "path": "src/causal_situations.js",
+        "symbol": "applySituationEffect",
+        "present": true
+      },
+      {
+        "path": "src/causal_situations.js",
+        "symbol": "validateKnowledgeBasis",
+        "present": true
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "symbol": "persistExpansionPlan",
+        "present": true
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "actSimulation",
+        "present": true
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "persistExpansion",
+        "present": true
+      },
+      {
+        "path": "src/simulation_ui.js",
+        "symbol": "createSimulationPanel",
+        "present": true
+      }
+    ],
+    "registryDefinitionProbe": {
+      "result": "pass",
+      "situations": 1,
+      "powers": 1,
+      "effectDescriptors": 8,
+      "limit": "in-memory definition validation only; no actual command/persistence"
+    },
+    "sourceManifestJson": "parsed",
+    "sourceEPUBHashMatches": true,
+    "sourceMembers": [
+      {
+        "chapter": 1576,
+        "member": "2/3/OEBPS/page-345.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1350
+      },
+      {
+        "chapter": 1577,
+        "member": "2/3/OEBPS/page-346.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1502
+      },
+      {
+        "chapter": 1578,
+        "member": "2/3/OEBPS/page-347.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1403
+      },
+      {
+        "chapter": 1579,
+        "member": "2/3/OEBPS/page-348.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1214
+      },
+      {
+        "chapter": 1580,
+        "member": "2/3/OEBPS/page-349.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1374
+      },
+      {
+        "chapter": 1581,
+        "member": "2/3/OEBPS/page-350.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1135
+      },
+      {
+        "chapter": 1585,
+        "member": "2/3/OEBPS/page-354.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1303
+      },
+      {
+        "chapter": 1589,
+        "member": "2/3/OEBPS/page-358.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1007
+      },
+      {
+        "chapter": 1790,
+        "member": "2/4/OEBPS/page-199_u1_u1.html",
+        "sha256_matches": true,
+        "coverage": "reviewed",
+        "words": 1636
+      }
+    ],
+    "reviewedWords": 11924,
+    "sourceReviewLimit": "GM-source analysis and metadata inspected; nine member bytes/hash checked, not independent semantic reread. Escape remains focal theory; primary edition authenticity unverified.",
+    "localAnchors": 11,
+    "scopedGitDiffCheck": true,
+    "jsonArtifactsParsed": [
+      "INPUTS.json",
+      "EVIDENCE.json",
+      "Shadow chapter_manifest.json"
+    ]
+  },
+  "inputDrift": [
+    "PROJECT.md",
+    "docs/gm/WORLD_IMPLEMENTATION_RUN.md",
+    "docs/gm/observation-power/BRIEF.md",
+    "docs/USER_VISION.md",
+    "src/simulation_content.js",
+    "src/people_knowledge.js",
+    "src/main.js"
+  ],
+  "currentInputSHA256": {
+    "AGENTS.md": "3524712083267d0cddbad38ccc10c9eee2181ba64904490a9e367cd7d7973aaa",
+    "PROJECT.md": "c610d68d04bdf7520443d3dc3bc4dcb9853ccbce0bcf3cd72ea353ff9d67d0d2",
+    "docs/GAME_MASTER_PROMPT.md": "9d38b0784850d72aec19034151ad0b40b2971adf05906f76db09b25317e8f479",
+    "docs/gm/WORLD_IMPLEMENTATION_RUN.md": "180a3928bce6c0408bf7484fa8af4b165280c1fdd43a415f1d8fc8673802f9e1",
+    "docs/gm/observation-power/BRIEF.md": "db0b016bb9cfb3bc85f5c12d6b654e075fc731d20163b0f0e42dbfdfd66302ae",
+    "docs/USER_VISION.md": "fc3fed91fe08657010faa66952b5805b4c514cc10940429e86a9bc5d786e6d55",
+    "docs/IDEA_INDEX.md": "6444d0df05783523e786d99fbea9a656480aab110160c756b0580bcaf7a6b207",
+    "docs/worlds/ABILITY_AUTHORING.md": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687",
+    "docs/worlds/conceptual/ENGINE_PACKET.md": "75363b68048108ec99bfbcec95f036de60f806aaa38b8440435e3c97c72a8c06",
+    "src/simulation.js": "96add971b1b9a80d9f092da3ad139fab2d3201f17a408952a359dd62a773d4e9",
+    "src/simulation_contracts.js": "7469e5f6ae0a268c9db0a8d9e1a02480536049b07485cdafd1ccce37932dee39",
+    "src/simulation_effects.js": "72f2788aca2e583cef14affd3613d89493713421f87ef7d5450f67571f59fb6b",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/expansion_engine.js": "3fc85b2b973b9c377d9d3c32bc1580cc0322b721cec0af3a8d6a4b501e4e92d1",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/simulation_content.js": "4ccba16cea858f9808ec63519286a9c4f5c4a9c3aa7aa66424794f9b32574d1a",
+    "src/expedition_content.js": "61e41fe3e6dcadfb0f0cbf6fcb3a185d44a7d4b6cf85e009059f815a5d823cee",
+    "src/promise_content.js": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+    "src/promise_ui.js": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+    "src/people_knowledge.js": "2401be7889ca05400159b6a2c0bcfedaae438790ba2b590e07ecae31d5d4a563",
+    "src/event_feed.js": "8c93855617ae91ed9e2900d8a5c7d6c944667a5cfdb1cdcfa11a848c4d449436",
+    "src/main.js": "9feb8a1070d4d7e42d46a7e575d55776f7094a9dcce4680b0fdc870837e30cf8",
+    "tests/promise_situation.test.js": "7a93487a52f8bfbcc290f5a068e657875954a793dc1017197e190abc381059d6"
+  },
+  "additionalInputSHA256": {
+    "docs/research/novels/shadow-slave/observation-emergence/BRIEF.md": "9129e66b56265ed888a157c12309c6f8db1b95c7925c78f2e1e991411158781c",
+    "docs/research/novels/shadow-slave/observation-emergence/CHECKPOINT.md": "0660b1a5304eb95cedfa2ab7c7d55e83964f4600b4728ac48ec07cba20705436",
+    "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md": "5be28bf1dd8c489f6c667fbaac5a65b76672b09f70b388b4cb9fdc7ee7b805ea",
+    "docs/research/novels/shadow-slave/observation-emergence/SYNTHESIS.md": "f6dae9c1c441bf5ae9c3e0ccec60286929eae6085d87aefb706abc5a7a386193",
+    "docs/research/novels/shadow-slave/observation-emergence/chapter_manifest.json": "302ff341d4fd360ebde8e6a3719593763b4723069e5fcfdab34b39f6f1ff1664",
+    "docs/gm/dispatch/RIFT_AND_PLANE_RESEARCH.md": "fff0eaf1aa95e05ea0293c81eae4372c4ea71429cadfd0e0ecc05feaab738c59",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "25ffa3a8003eb450273b3afe6f2fb67671d136d30143fdc4e992fe33ff17a4a1",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/simulation_ui.js": "7cd5dc30f31c2976d0a4e0d71f131f63c4cf4fa0362007c55833af81bfed0378"
+  },
+  "webSources": [
+    {
+      "url": "https://www.dndbeyond.com/spells/2619088-demiplane",
+      "scope": "current header/rule block before Comments; PHB261; earlier version uninspected",
+      "checked": "2026-10-04"
+    },
+    {
+      "url": "https://www.dndbeyond.com/spells/2619193-etherealness",
+      "scope": "current header/rule block before Comments; PHB269; earlier version uninspected",
+      "checked": "2026-10-04"
+    },
+    {
+      "url": "https://www.dndbeyond.com/posts/1239-what-is-the-ethereal-plane-get-lost-in-this-realm",
+      "scope": "Michael J Karr2022-05-05; What/Traveling/Using overview; comments excluded",
+      "checked": "2026-10-04"
+    },
+    {
+      "url": "https://scp-wiki.wikidot.com/scp-3812",
+      "scope": "djkaktus live revision99; Description/Addenda1-7/licensing; fictional reports/theory/creator-framed statement/dialogue separate",
+      "checked": "2026-10-04"
+    }
+  ],
+  "workers": {
+    "children": [],
+    "conceptualLeafGrant": false,
+    "batching": false,
+    "cheaperQualification": "not run; no workers assigned; Shadow reader slot belongs to master/source GM"
+  },
+  "deliverables": [
+    "BRIEF.md",
+    "DESIGN.md",
+    "ENGINE_PACKET.md",
+    "INPUTS.json",
+    "EVIDENCE.json"
+  ],
+  "inputDriftReview": "Own BRIEF revisions are expected. Master PROJECT/USER_VISION/run/registry/People/main changed during authorized Exchange work. Current relevant functions remain present and current registry composition is still existing-family based. Master must compare final live fingerprints before implementation; no shared edit was reverted.",
+  "repairs": [
+    {
+      "check": "initial local/API validation",
+      "finding": "Host function was mislabeled simulationCommand; evidence link checked before first file creation.",
+      "repair": "Inspected actual src/main.js and changed packet to actSimulation; created evidence then rechecked all links.",
+      "rounds": 1
+    }
+  ],
+  "authoredSHA256": {
+    "ENGINE_PACKET.md": "5c155d7741a4eebcf238ffb86caf19ee502a7e550a0b25ffe482e20ae716afc9",
+    "INPUTS.json": "f93e1b5f9c62333d95e90f81589098d945df974b348b75452603c5c34e24b5da",
+    "DESIGN.md": "08f9740be5ea8831d18f10e5dba432a1f6823f96a519ab1a40c7a6cb29793102",
+    "BRIEF.md": "db0b016bb9cfb3bc85f5c12d6b654e075fc731d20163b0f0e42dbfdfd66302ae"
+  },
+  "unrunGates": [
+    "Runtime registration/actual command execution",
+    "Native save/import/reload/failure publication",
+    "Build and browser journeys",
+    "Broader O1-O8 adapters",
+    "Human fiction/balance acceptance",
+    "Cheaper leaf qualification; no batching assigned"
+  ]
+}

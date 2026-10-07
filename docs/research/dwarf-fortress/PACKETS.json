@@ -1,0 +1,256 @@
+{
+  "status": "five-selected-original-proposals",
+  "selection": "Five bounded proposals from33 wider findings/17 paths, not the research ceiling or an implementation assignment. Recheck moving YAIR input hashes before implementation.",
+  "packets": [
+    {
+      "id": "DF-P01",
+      "rank": 1,
+      "title": "A material treatment keeps the exact repaired object",
+      "source_findings": [
+        "DF-M01",
+        "DF-M03",
+        "DF-M04",
+        "DF-M05"
+      ],
+      "player_journey": "At the existing Village workshop, inspect one actually owned measured strip or repair component. Choose a coating or reinforcement using actual eligible input, tool/right and willing worker. The retained object gains one purpose-specific quality and is later used on the same drainage/cover project.",
+      "costs": "Proposed original fees, material, effort and played duration are chosen by integrator; source DF balance is not copied. Preserve reusable tool/container.",
+      "mutation_and_consumer": "One native item identity carries bounded treatment provenance; existing drainage/cover reader consumes its property. No duplicate item or mirrored inventory.",
+      "failure_and_recovery": "Unsupported body/right/material pauses or rejects before new spending; interrupted job follows its frozen reservation policy. Treatment cannot be farmed through split/merge or reapply.",
+      "reuse": [
+        {
+          "file": "src/world_completion_strip.js",
+          "lines": [
+            1,
+            18
+          ],
+          "sha256": "ba8030590b39a5410924b92f68ccd63465968cc1628553629a95f9290ce488d6",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/world_completion_materials_facts.js",
+          "lines": [
+            44,
+            87
+          ],
+          "sha256": "6a6c6d87ed81e6abeab7e5a544a7587ea808a764c3bc3fc947b728ec5e01c7d9",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/site_projects.js",
+          "lines": [
+            4,
+            26
+          ],
+          "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+          "layer": "current-YAIR-source-read-only"
+        }
+      ],
+      "gap": "Current measured-strip identity exists, but a general bounded purpose-specific item treatment descriptor/consumer needs the integrator.",
+      "acceptance": "Later permitted playable check must show exact object before/after, useful alternate untreated route, real costs, cancellation, transfer and reload retaining one identity.",
+      "status": "original-proposal-not-implemented",
+      "disposition": "adapt-later",
+      "save_policy": "Preserve current native/state owners and old IDs/frozen meanings; integrator must decide compatible admission/migration. Current gameplay/save tests remain deferred.",
+      "scope": "Existing base.frontier slice; no new realm/prestige or source-code/art transplant."
+    },
+    {
+      "id": "DF-P02",
+      "rank": 2,
+      "title": "A small functional injury has specific care and useful work consequences",
+      "source_findings": [
+        "DF-B01",
+        "DF-B02",
+        "DF-B03",
+        "DF-B04"
+      ],
+      "player_journey": "After an explicitly accepted local challenge, receive at most one supported hand wound or exposure with observed cause. Choose supplied dressing, safer rest or paid willing care; a precision task remains blocked or reduced only while the actual condition persists.",
+      "costs": "Actual care stock, consenting actor effort and shared played time; reversible original intensity/duration.",
+      "mutation_and_consumer": "Existing condition/cause owner feeds native dexterity/work eligibility. Distinguish cleaned exposure, closed wound and recovered hand use; do not add a second HP drain.",
+      "failure_and_recovery": "Unsupported/nonliving/alternate bodies do not inherit human treatment. No occult cure of unobserved venom, permanent marks or another actor.",
+      "reuse": [
+        {
+          "file": "src/status_care_facts.js",
+          "lines": [
+            24,
+            74
+          ],
+          "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/field_care_facts.js",
+          "lines": [
+            1,
+            24
+          ],
+          "sha256": "ca2c1d1ccc43e66df9ae423f7203fc67e31c3c490ecb5fd9a1f8efa5ae5f43c5",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            424,
+            446
+          ],
+          "sha256": "807501963c7a45f7bbe5d99d460d40e020c117a9c608e5e436524394b1b58950",
+          "layer": "current-YAIR-source-read-only"
+        }
+      ],
+      "gap": "Current cut/listed-venom care exists; the meaningful extension is one explicitly differentiated tissue/faculty recovery state, not another renamed cut action.",
+      "acceptance": "Later allowed gameplay proof must show cause, observed symptom, a practical alternate task, stock use, treatment-specific partial recovery, expiry and supported-body behavior.",
+      "status": "original-proposal-not-implemented",
+      "disposition": "adapt-later",
+      "save_policy": "Preserve current native/state owners and old IDs/frozen meanings; integrator must decide compatible admission/migration. Current gameplay/save tests remain deferred.",
+      "scope": "Existing base.frontier slice; no new realm/prestige or source-code/art transplant."
+    },
+    {
+      "id": "DF-P03",
+      "rank": 3,
+      "title": "A physical workshop record can be copied, entrusted and taught",
+      "source_findings": [
+        "DF-K01",
+        "DF-K04",
+        "DF-M04",
+        "DF-A03"
+      ],
+      "player_journey": "The existing archive/workshop produces one owned field-method record from actual material. Keep it for study, pay a willing reader to make an attributed copy, or entrust the exact record to an eligible apprentice. Later useful work requires learned method and actual body/tool support.",
+      "costs": "Actual writing material, copy labor/funding, ordinary study time; copying does not itself grant comprehension.",
+      "mutation_and_consumer": "One native record item retains author/sample/copy provenance. Existing knowledge owner records receipt, study and capable execution separately.",
+      "failure_and_recovery": "Withheld/lost/loaned original affects access; a received account is not direct witnessing. Unsupported language/body/method leaves knowledge retained and execution unavailable.",
+      "reuse": [
+        {
+          "file": "src/people_knowledge.js",
+          "lines": [
+            4,
+            34
+          ],
+          "sha256": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/site_projects.js",
+          "lines": [
+            4,
+            26
+          ],
+          "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            472,
+            501
+          ],
+          "sha256": "807501963c7a45f7bbe5d99d460d40e020c117a9c608e5e436524394b1b58950",
+          "layer": "current-YAIR-source-read-only"
+        }
+      ],
+      "gap": "Current knowledge/custody/jobs support bounded authored steps; native physical record-copy/writing provenance and instructional completion need a scoped integrator binding.",
+      "acceptance": "Later playable gate follows one original/copy through custody, actual material expenditure, study, independent learner choice, useful production and reload.",
+      "status": "original-proposal-not-implemented",
+      "disposition": "adapt-later",
+      "save_policy": "Preserve current native/state owners and old IDs/frozen meanings; integrator must decide compatible admission/migration. Current gameplay/save tests remain deferred.",
+      "scope": "Existing base.frontier slice; no new realm/prestige or source-code/art transplant."
+    },
+    {
+      "id": "DF-P04",
+      "rank": 4,
+      "title": "Pay for a qualified inventory report that can become stale",
+      "source_findings": [
+        "DF-A01",
+        "DF-A03",
+        "DF-A04"
+      ],
+      "player_journey": "Ask an existing willing Village worker to count one workshop stock or appraise one sample at an actual desk. A quick estimate and a funded full count differ in precision and time; a later delivery/withdrawal leaves the prior report visibly dated.",
+      "costs": "Actual worker attention, site access and funds; voluntary refusal/other committed work remain valid.",
+      "mutation_and_consumer": "Observer-scoped knowledge receipt includes count basis/time/precision and source cause. Planning UI labels the report while durable executor still checks authoritative stock.",
+      "failure_and_recovery": "A stale estimate never authorizes nonexistent stock; private possessions never appear merely because an NPC is registered. Update requires another real observation.",
+      "reuse": [
+        {
+          "file": "src/people_knowledge.js",
+          "lines": [
+            4,
+            34
+          ],
+          "sha256": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            472,
+            501
+          ],
+          "sha256": "807501963c7a45f7bbe5d99d460d40e020c117a9c608e5e436524394b1b58950",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/world_completion_materials_facts.js",
+          "lines": [
+            44,
+            87
+          ],
+          "sha256": "6a6c6d87ed81e6abeab7e5a544a7587ea808a764c3bc3fc947b728ec5e01c7d9",
+          "layer": "current-YAIR-source-read-only"
+        }
+      ],
+      "gap": "Existing sample provenance and witnessed views can be reused. A bounded estimate/exact-report definition and stale-report UI need authored content; no second accounting state.",
+      "acceptance": "Later gate demonstrates estimate, full count, real worker costs/refusal, stock change, stale display and executor refusal on unsupported stock.",
+      "status": "original-proposal-not-implemented",
+      "disposition": "adapt-later",
+      "save_policy": "Preserve current native/state owners and old IDs/frozen meanings; integrator must decide compatible admission/migration. Current gameplay/save tests remain deferred.",
+      "scope": "Existing base.frontier slice; no new realm/prestige or source-code/art transplant."
+    },
+    {
+      "id": "DF-P05",
+      "rank": 5,
+      "title": "One settlement change attracts a specific informed danger",
+      "source_findings": [
+        "DF-E02",
+        "DF-E03",
+        "DF-E04",
+        "DF-A05"
+      ],
+      "player_journey": "One completed frontier extraction/storage project changes the local situation. A visible report reveals a finite attracted animal or rival response. Choose quieter production, practical shelter/guard or a negotiated claim, then revisit the changed site.",
+      "costs": "Actual worker/tool/material/effort or finite trade cost; no daily mandatory upkeep and no automatic refill.",
+      "mutation_and_consumer": "Existing situation and event/controller owners retain cause, target, observation and aftermath. Habitat/body/exposure facts determine the response.",
+      "failure_and_recovery": "Retaliation targets an actual informed actor/cause; unknown private work cannot create omniscient hostility. Withdrawal can leave a changed site while preserving separately owned body/stock time policies.",
+      "reuse": [
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            350,
+            392
+          ],
+          "sha256": "807501963c7a45f7bbe5d99d460d40e020c117a9c608e5e436524394b1b58950",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            448,
+            501
+          ],
+          "sha256": "807501963c7a45f7bbe5d99d460d40e020c117a9c608e5e436524394b1b58950",
+          "layer": "current-YAIR-source-read-only"
+        },
+        {
+          "file": "src/world_completion_crop_clock.js",
+          "lines": [
+            1,
+            12
+          ],
+          "sha256": "3e9fe3b2d3ae5251148f48113d937ae38a8f4be16cb368a228b9d2b9955a4a35",
+          "layer": "current-YAIR-source-read-only"
+        }
+      ],
+      "gap": "Current finite events/controllers and crop clock exist. One authored ecology/attention threshold with original danger/recovery outcomes needs integrator content, not a universal ecology simulator.",
+      "acceptance": "Later gate follows real development through known warning, chosen preparation/negotiation, actual costs, failure/withdrawal and a visibly changed return.",
+      "status": "original-proposal-not-implemented",
+      "disposition": "adapt-later",
+      "save_policy": "Preserve current native/state owners and old IDs/frozen meanings; integrator must decide compatible admission/migration. Current gameplay/save tests remain deferred.",
+      "scope": "Existing base.frontier slice; no new realm/prestige or source-code/art transplant."
+    }
+  ],
+  "parked": "General anatomy, full history/economy/ecology, native DF engine absorption and graphics port are unsupported by this pass."
+}

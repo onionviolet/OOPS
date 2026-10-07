@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-04",
+  "phase": "autonomous integration continuation",
+  "code": {
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325"
+  },
+  "inspectedIntegrationInputs": {
+    "src/pocket_realm_host.js": "17d53c94fbd6afc4f1aadb48dbb8b180d60276e4b6afeb6f356a24981f71b814",
+    "src/realm_state.js": "41e58e85b0c04e0a58876cb04c0e455c07acc4d5b7978977dd4eba0a4b94dc7d",
+    "src/native_realm_traveler.js": "10211b786234115a35e78ebb67f0fa5cfde45d4ae95b1bd347a2c0feb4815300",
+    "src/realm_connections.js": "471789a1d23547443a155c20243ce025cd063dc3c4008e20e0b93a6ef26f4bc6",
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "f764f2396b228ba299d3fa5cf78ccafa244cd8de2ca22f3197bddf7330facfa3",
+    "docs/research/novels/trailblaze-reading/realm-transit/NOTES.md": "63e63d42c03511830ebc0707d94825a206deb16312cb2c3519b0a10673c9770e"
+  },
+  "exports": {
+    "worldModule": 16,
+    "contentModule": 4
+  },
+  "checks": {
+    "syntaxImport": "passed",
+    "declarativeManifestRegistry": "passed;14 commands,1person,3sites,1controller;no commands committed",
+    "sourceReview": "BINDING_REVIEW.md;exact code hashes checked",
+    "integrationReview": "INTEGRATION_REVIEW.md;live owners moving;loan-support mismatch clarified and relayed"
+  },
+  "goal": "complete;matching finite source/integration lane;no token budget;host recorded281735tokens/4160seconds",
+  "reviewChild": {
+    "id": "/root/miniworld_contract_review",
+    "model": "gpt-6-luna",
+    "reasoning": "medium",
+    "status": "completed",
+    "exclusiveWrites": [
+      "INTEGRATION_REVIEW.md",
+      "BINDING_REVIEW.md"
+    ]
+  },
+  "master": "01a1056b-d82c-7ef2-babb-d8316c45f396;actual imports now consume createWorldBindings/worldInstanceFacts;native/shared/build ownership retained",
+  "remaining": "owned source integrated and owned ESM memory-build passed;source writers released;final native game/UI rebuild and broader engine lanes remain master-owned;behavioral/browser/save suites deferred"
+}

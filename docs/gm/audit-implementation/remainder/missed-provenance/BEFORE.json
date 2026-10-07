@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T20:05:45.996259+00:00",
+  "inputHashes": {
+    "docs/gm/book-world-player-agency/contracts/CONTRACTS.json": "e96d85c7c2529f143e7b60dfc72d8f94576819a7ef344802f2993e36c849f66c",
+    "src/book_world_player_agency_contracts.js": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+    "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7"
+  },
+  "contractCount": 19,
+  "unactivated": true,
+  "nonSourceContractHashes": {
+    "original-frontier": "5149092bdcc7d61b93c724fd8076b884f02f857aca5f98365dd6ba9133032f2e",
+    "reincarnation-paradise": "b64c73ac1f73978457f098c19843991974c6e5d2ce54fe46e6849bfbd13e0cd6",
+    "fated-villain": "b7d14505ce231a26179fcfe4eb0b429c30d02f7226dbba58ff0b3b9ea64b30bc",
+    "reverend-insanity": "dc581023bd6d6afeb70e4db2cfa9581d24d68f786415fd11fd5401a5c9f60f26",
+    "shadow-slave": "2a77d8298aa5d7381fb6dc7647b0cdcb29756051fa2490b64a0734518a4d7284",
+    "regressors-tale": "1fcdc3d9c44fda504bddfc927e8166b79ae287d7dca72e34af05a72c513db6ab",
+    "omniscient-reader": "71adc08509be4d4e9e83ae5e3548abf1555267d9ba25eddd38151015e2b40e77",
+    "labyrinth-mad-god": "9bcee2b1e71812de691d82f88e2082da9cf2610ccca0c3af8ecddfb3415d3336",
+    "mother-of-learning": "bc511ce0aa0f2a913be37ede0b1367e65d8c59b6c6a5c9dea036686b4cd9dc38",
+    "lord-of-mysteries": "857b5413f0bcf961dbbaff91e5b655fe70649850128a3d453b92beed3d7367fe",
+    "circle-of-inevitability": "debd0294c3f74c5c0661c59e64167f19ec41e05b4a4722fb49b69b0a2ef2553f",
+    "worm": "4637ca1aa6a5f2cbce0ed860c83c100c7301e40937da5b856682a90ee5c52aa1",
+    "legendary-mechanic": "5fb731b463aef63b870275e7c95ce94a4858098fe5b40edbefdfb6fd1d835725",
+    "skyrim": "15a44c6d30e0bd63e29b448ac324e1b3bf084b6dedbc2058a84381a44144d20e",
+    "fallout4": "20d7df23bf4364d51b5b97407ae558244b3ae916d075df915dcd33e606ed85cc",
+    "elden-ring": "04cf2d5356a03fc46c7bdb0f9190081e4166b9d859622ad172fa95129508e6e7",
+    "naruto": "89aa727ec656ab1490eeab51a9f29dec618bd6b305cb3311aeb9ffcb4302746d",
+    "bleach": "05c487aa5a5d7deecf9fc1a1c1ae7c7dcc32bbc92590490fc6aa00ac5c775271",
+    "harry-potter": "267cf96aa4c5368d6d04a0c0304bbee218b3346a70236791c02fe6cf5f78f499"
+  },
+  "beforeProvenance": {
+    "original-frontier": {
+      "emptyEditions": 1,
+      "emptyCitations": 5,
+      "reviewedSourceRefs": 0
+    },
+    "reincarnation-paradise": {
+      "emptyEditions": 0,
+      "emptyCitations": 7,
+      "reviewedSourceRefs": 0
+    },
+    "fated-villain": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "reverend-insanity": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "shadow-slave": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "regressors-tale": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "omniscient-reader": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "labyrinth-mad-god": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "mother-of-learning": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "lord-of-mysteries": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "circle-of-inevitability": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "worm": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "legendary-mechanic": {
+      "emptyEditions": 0,
+      "emptyCitations": 0,
+      "reviewedSourceRefs": 0
+    },
+    "skyrim": {
+      "emptyEditions": 0,
+      "emptyCitations": 4,
+      "reviewedSourceRefs": 0
+    },
+    "fallout4": {
+      "emptyEditions": 0,
+      "emptyCitations": 4,
+      "reviewedSourceRefs": 0
+    },
+    "elden-ring": {
+      "emptyEditions": 0,
+      "emptyCitations": 4,
+      "reviewedSourceRefs": 0
+    },
+    "naruto": {
+      "emptyEditions": 0,
+      "emptyCitations": 4,
+      "reviewedSourceRefs": 0
+    },
+    "bleach": {
+      "emptyEditions": 0,
+      "emptyCitations": 4,
+      "reviewedSourceRefs": 0
+    },
+    "harry-potter": {
+      "emptyEditions": 0,
+      "emptyCitations": 2,
+      "reviewedSourceRefs": 0
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "state": "qualified-source-roster-and-current-native-consumers-reconciled",
+  "rows": 19,
+  "canonicalOwner": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+  "canonicalCurrentSha256": "e71c72bef93d64532d2394320cbab812604b19eddce941c7eb6f5d0794264627",
+  "assembly": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+  "assemblySnapshotSha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+  "exactCanonicalLabelsPreserved": true,
+  "sourceModulesCurrent": {
+    "src/feature_expansion_book_recognition.js": "ed4b6534175dd1ff83cf842825cf5414de3b6489aa8c4d8f64473ff3d861afcd",
+    "src/feature_expansion_book_roster.js": "880bd66b18d3d8dfc451370ecb9cc8fb8b1028619e3dfbf1f6a33dfbc43d254c",
+    "src/feature_expansion_book_host.js": "ae0543aa6b88d286e90a115c51a40bcfb655ff848184d1709027d32e61450d69",
+    "src/feature_expansion_book_cultivation.js": "540e99414192ec73cfbe26feb11e5dc6783a3286dd7765649830bd4fed79286c",
+    "src/feature_expansion_book_situated.js": "53445ec8421f2b0d219ea62835dcec67b45884ea9dbbfc504141e617b67e996f",
+    "src/feature_expansion_book_catalogue.js": "6702347d008d1294cf213ccbb3da0838e68780faa46c5ae732efe2cf846712dd"
+  },
+  "nativeAdaptationBindings": 0,
+  "selectedOriginalConsumers": [
+    "qualified Backlog office",
+    "relay office",
+    "source-comparison original reference desk",
+    "Paradise-qualified original early-service hub + Saltworks/Archive/three chains"
+  ],
+  "sourceFitSnapshot": "docs/gm/feature-wave/features/nested-campaign/source-fit/SOURCE_FIT.json",
+  "newRootCarrierChanges": "Source fit snapshot predates root actual carrier/main/save/UI joins. Final BUILD hashes and bounded source reviews cover those subsequent original prototype guards; no new book-canon assertion.",
+  "fullWorldParity": false,
+  "build": "11aaa9cbfc69",
+  "gameplay": "deferred"
+}

@@ -1,0 +1,55 @@
+{
+  "PROJECT.status": "Status: Selected feature wave and refinements source/native/UI/save/build delivered, 2026-10-05, **implemented-unverified**. Existing objects/powers/combat/society/Tidemark/eight Backlog proofs/30repository dispositions remain integrated. Added qualified office/relay/reference scenes, all19source-world dispositions, original Paradise-qualified hub plus Saltworks/Archive, four staged missions and three branchable causal chains. Current bundle `11aaa9cbfc69` matches221local source contents and37qualified vendor maps. [Delivery](docs/gm/feature-wave/features/DELIVERY.md), [coverage](docs/gm/feature-wave/features/COVERAGE.json), [build](docs/gm/feature-wave/features/BUILD.json) and [later acceptance](docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md) own evidence. Features root01a10dc5 resumes after completed recovery01a10df7; all internal sources/reviews released. Behavior/director gates remain deferred; no nineteen-world native adaptation or full-world parity claim.",
+  "PROJECT.resume": "The selected feature wave and both later refinements now have actual shared admission and matching rebuild `11aaa9cbfc69`. Registry635commands/21controllers includes36nested/62chain/24relay/7reference/31Ink/28repository commands; Backlog58controls and two mixed itineraries remain. Native hub/two destinations have independent people/stock/shop/quest/calendars, separate mission/extraction/settlement and preserved changed revisits. Actual same-body/full-cargo/rights/source/clock guards, qualified office transfer, observed recognition, paid/refusal/ordinary paths and scoped narrative cursors are joined. All19source dispositions/voice cues retain reviewed limits and unactivated adaptation gaps. New optional expansion7/nestedCampaign1 and Ink wrapper2/content3 retain old5/6/legacy/content1+2; all play/save/failure/director checks remain deferred. [Current delivery](docs/gm/feature-wave/features/DELIVERY.md) supersedes earlier active-worker summaries below.",
+  "PLAN.revision17": "Revision17 implementation receipt, 2026-10-05: both directly selected refinements and the initial feature wave are source/native/UI/save/build delivered by Features01a10dc5, **implemented-unverified**. [Delivery](../feature-wave/features/DELIVERY.md), [coverage](../feature-wave/features/COVERAGE.json), [build](../feature-wave/features/BUILD.json) and [later gates](../feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md) own actual635-command/19source-profile/221local-map correspondence, hub/two retained native destinations/four missions/three chains/qualified office and scoped Ink. Every canonical roster row is dispositioned; native book-world parity remains unclaimed. Old5/6 and absent states remain; explicit nested7, Backlog2 and scoped Ink2/content3 preserve older supported meanings. Prototype prices/fiction remain reviewable; one prestige/private saves/attribution and deferred behavior/director gates persist.",
+  "PLAN.status14": "Status: **REVISION14 selected feature wave source/native/UI/save/build delivered, implemented-unverified.** [Delivery](../feature-wave/features/DELIVERY.md)/[coverage](../feature-wave/features/COVERAGE.json)/[build](../feature-wave/features/BUILD.json) own current bundle `48e8a7514ff2` and195local source matches. Successor `01a10df7-41b1-7810-89c8-083d8fefd5f5` finished the interrupted Features integration after live writer transfer. INC-P2\u2013P5, Backlog8, Legibility, Ink and useful30-row mechanisms remain the same selected scope; behavior/director gates stay deferred. Earlier holds apply only to unrelated scope.",
+  "RUN.priorPlanRevision": 13,
+  "RUN.featureWave": {
+    "packet": "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md",
+    "release": "docs/gm/feature-wave/features/RELEASE.json",
+    "checkpoint": "docs/gm/feature-wave/features/CHECKPOINT.md",
+    "soleSharedWriter": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "staticBuildChecks": "allowed",
+    "gameplayChecks": "deferred",
+    "predecessor": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "succession": "docs/gm/feature-wave/features/SUCCESSION.json",
+    "delivery": "docs/gm/feature-wave/features/DELIVERY.md",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "11aaa9cbfc69",
+    "sourceMatches": 221,
+    "recoveryWorkers": "All content and read-only review reservations released; current root follows completed recovery successor"
+  },
+  "RUN.bookWorldSubtleties": {
+    "authority": "direct human steering01a10db8",
+    "packet": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "checkpoint": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT.md",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "cataloguedWorlds": 19,
+    "noCompetingIntegrator": true,
+    "behaviorGates": "deferred",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "11aaa9cbfc69",
+    "sourceProfileBindings": "19registered profiles, source adaptations unactivated; selected original office/relay/reference actual consumers"
+  },
+  "RUN.nestedCampaign": {
+    "packet": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "interface": "docs/gm/feature-wave/features/nested-campaign/INTERFACE.md",
+    "workers": "all source released",
+    "sourceAudit": "completed PR01-08 audit; original divergences explicit",
+    "finiteCases": {
+      "hub": 1,
+      "retainedDestinations": 2,
+      "branchableChains": 3
+    },
+    "behavior": "deferred",
+    "sameBodyNativeProgress": "preserved",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "11aaa9cbfc69",
+    "acceptanceBacklog": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md"
+  }
+}

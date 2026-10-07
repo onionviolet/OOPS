@@ -1,0 +1,310 @@
+{
+  "schema": 1,
+  "humanDirection": "begin implementation of audited gaps in parallel; existing GMs retain separate scopes",
+  "firstWave": "ASSIGNMENT.md",
+  "candidateCount": 22,
+  "candidates": [
+    {
+      "id": "elin:P1",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "title": "Two funded resident shifts",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "elin:P2",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "title": "A useful home-work amenity",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "elin:P3",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "title": "Research that unlocks a reusable measuring jig",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "elin:P4",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "title": "One earned specialization with a working tradeoff",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "elin:P5",
+      "source": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "title": "One stock-backed local supply opportunity",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "idling-to-rule-the-gods:P1",
+      "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "title": "Let Lio choose one funded work shift or a contest",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "idling-to-rule-the-gods:P2",
+      "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "title": "Build a clamping frame that opens an ordinary resin route",
+      "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+      "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+    },
+    {
+      "id": "idling-to-rule-the-gods:P3",
+      "source": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+      "title": "Offer one ordinary-craft supply attempt",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "keeperrl:P1",
+      "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "title": "Complete one room, then choose a funded resident invitation",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "keeperrl:P2",
+      "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "title": "Allocate one scarce toolkit between two useful independent jobs",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "keeperrl:P3",
+      "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "title": "Give earned Conditioned grip one small combat consumer",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "keeperrl:P4",
+      "source": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "title": "Let one retained grievance fund a finite collection response",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rimworld:P1",
+      "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "title": "A bounded kit reserve for a journey",
+      "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+      "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+    },
+    {
+      "id": "rimworld:P2",
+      "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "title": "Recent friction expires; an actual promise remains",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rimworld:P3",
+      "source": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "title": "A frost warning with one actual herb outcome",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rogue-legacy:P1",
+      "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "title": "Choose a useful physical preparation before one encounter",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rogue-legacy:P2",
+      "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "title": "Let existing body aptitudes change a specific maneuver",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rogue-legacy:P3",
+      "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "title": "Compare three retained, funded pathfinder offers",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "rogue-legacy:P4",
+      "source": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+      "title": "Put a useful recipe behind a new optional objective",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "tales-of-maj-eyal:P1",
+      "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "title": "Choose a harness fit that changes an actual guarded blow",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "tales-of-maj-eyal:P2",
+      "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "title": "Maintain one finite brace instead of spreading protection",
+      "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json"
+    },
+    {
+      "id": "tales-of-maj-eyal:P3",
+      "source": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+      "title": "Earn one specific lesson or one real stocked reward",
+      "state": "implemented source/native/state/UI/build; gameplay/save/director deferred",
+      "delivery": "docs/gm/audit-implementation/DELIVERY.md"
+    }
+  ],
+  "reuseWithoutNewCode": [
+    "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+    "docs/gm/reference-gameplay/DELIVERY.md",
+    "docs/gm/book-world-player-agency/DELIVERY.md"
+  ],
+  "otherAuditOwners": [
+    "docs/gm/causal-endings/IMPLEMENTATION_PACKETS.md",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "docs/gm/world-implementation/second-pass/",
+    "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+    "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json"
+  ],
+  "unverified": "All current new gameplay awaits existing deferred playable/save/director gates.",
+  "firstWaveState": "delivered implemented-unverified",
+  "remainingLatestCandidates": [],
+  "currentDelivery": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+  "currentBuild": "docs/gm/audit-implementation/remainder/BUILD.json",
+  "currentCandidateDisposition": "All22 latest candidates source delivered: historical first3 plus current remainder19, all gameplay implemented-unverified",
+  "connectedDeliveries": [
+    {
+      "id": "MW-01/connected:artifact-collection",
+      "result": "Useful loose apparatus, conserved single/paired assemblies and exact disassembly, useful kit work, one carried paired-frame encounter, earned reusable pin; one Vela stock owner",
+      "sources": [
+        "src/artifact_collection.js",
+        "src/artifact_workshop_content.js",
+        "src/artifact_workshop_host.js"
+      ],
+      "nativeUIStateConsumers": [
+        "src/feature_expansion_content.js",
+        "src/data/expedition_items.js",
+        "src/main.js",
+        "src/feature_expansion_wave_host.js",
+        "src/simulation.js",
+        "src/simulation_contracts.js",
+        "src/simulation_ui.js",
+        "src/adventure_notebook.js"
+      ],
+      "receipt": "docs/gm/audit-implementation/remainder/artifact-joins/RELEASE.json",
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "behaviorVerified": false,
+      "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+    },
+    {
+      "id": "connected:causal-proof/P1-P5",
+      "result": "Three original mortal/covenant/established-anchor proofs, five independent actual native people, paid physical capture/severance/release and finite funded responses; retained separate causal closure and attributed reports/quests",
+      "sources": [
+        "src/causal_story_actors.js",
+        "src/causal_story_content.js",
+        "src/causal_story_core.js",
+        "src/causal_story_host.js",
+        "src/causal_story_ids.js",
+        "src/causal_story_native.js",
+        "src/causal_story_ui.js"
+      ],
+      "nativeUIStateConsumers": [
+        "src/feature_expansion_content.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/simulation_contracts.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/save_files.js",
+        "src/expansion_persistence.js",
+        "src/adventure_notebook.js"
+      ],
+      "receipts": [
+        "docs/gm/causal-endings/INTEGRATION.json",
+        "docs/gm/audit-implementation/remainder/EXTERNAL_ADOPTION.json",
+        "docs/gm/audit-implementation/remainder/causal-engine/RELEASE.md",
+        "docs/gm/audit-implementation/remainder/review-native/REVIEW.md"
+      ],
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "behaviorVerified": false,
+      "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+    },
+    {
+      "id": "MW-02/repair:goa-warning-route",
+      "result": "Actual two-minute supported player report supplies Hank-owned received route evidence; only new revision2 shelter work consumes it; old frozen1 untouched",
+      "sources": [
+        "src/book_world_paradise_actions.js"
+      ],
+      "nativeUIStateConsumers": [
+        "src/book_world_paradise_content.js",
+        "src/book_world_paradise_state.js",
+        "src/book_world_paradise_host.js",
+        "src/book_world_paradise_native.js",
+        "src/main.js",
+        "src/people_knowledge.js"
+      ],
+      "receipt": "docs/gm/audit-implementation/remainder/missed-hank/EVIDENCE.json",
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "behaviorVerified": false,
+      "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+    },
+    {
+      "id": "MW-03/repair:book-profile-provenance",
+      "result": "All19 still-unactivated source profiles preserve available edition/hash/path/locator/extent fields, own exact qualified assembled-row retrieval, nonempty reviewed refs and class-aware validation; main checks integrity result",
+      "sources": [
+        "src/book_world_player_agency_contracts.js",
+        "docs/gm/book-world-player-agency/contracts/CONTRACTS.json"
+      ],
+      "nativeUIStateConsumers": [
+        "src/main.js"
+      ],
+      "receipt": "docs/gm/audit-implementation/remainder/missed-provenance/EVIDENCE.json",
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "behaviorVerified": false,
+      "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+    },
+    {
+      "id": "MW-04/current-recovery",
+      "result": "Current coordinator/scope/delivery/checkpoint and Paradise brief reconciled; exact pre-revision21 surfaces preserved, old receipts kept historical",
+      "sources": [
+        "PROJECT.md",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/world-implementation/CHECKPOINT.md",
+        "docs/worlds/paradise-hub/WORLD_BRIEF.md"
+      ],
+      "receipt": "docs/gm/audit-implementation/remainder/BEFORE_CANONICAL.json",
+      "status": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "behaviorVerified": false,
+      "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md"
+    }
+  ],
+  "previousQueue": "docs/gm/audit-implementation/remainder/BEFORE_CANONICAL.json",
+  "updatedAtUtc": "2026-10-06T20:27:47.815430+00:00",
+  "broaderResearchFollowup": {
+    "receivedAtCloseout": "2026-10-06",
+    "owner": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+    "coverage": "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json",
+    "currentPackets": "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+    "status": "Current remainder source objective unchanged; new ACS packets and deeper cross-game/DLC questions remain research/proposed later implementation",
+    "preservation": "Completed original five-family31finding/15path pass stays scoped complete; two source DLC traces supplement it, wider listed DLC/runtime systems remain unread",
+    "runtimeScopeExpanded": false,
+    "directingChats": "Actual research note receipts in docs/research/amazing-cultivation-simulator/FOLLOWUP_MESSAGES.json",
+    "sourceHashes": {
+      "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+      "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json": "eb9e9e557c4f745b2d39efcf0fcdf685dc027fcbada7a9c3f8011bd37acdf633",
+      "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md": "582699dfe6988a70bded50599283abcbd9a346bf66702b8939f0bd4d0d2a1014"
+    }
+  }
+}

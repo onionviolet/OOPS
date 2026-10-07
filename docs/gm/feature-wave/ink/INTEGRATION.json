@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "role": "ink",
+  "roleThreadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+  "readiness": "source-native-ui-save-current-build-admitted",
+  "status": "implemented-unverified",
+  "soleSharedIntegrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "roleWriterReleased": true,
+  "paths": {
+    "runtime": "src/ink_narrative.js",
+    "contentBridge": "src/ink_scene_content.js",
+    "ui": "src/ink_narrative_ui.js",
+    "source": "stories/feature_wave.ink",
+    "compiled": "stories/feature_wave.json",
+    "compiler": "scripts/compile_feature_ink.mjs",
+    "dependency": "docs/gm/feature-wave/ink/DEPENDENCY.json",
+    "notices": "docs/gm/feature-wave/ink/COMPILER.md"
+  },
+  "exports": {
+    "src/ink_narrative.js": [
+      "INK_NARRATIVE_SCHEMA=1",
+      "INK_NARRATIVE_SCOPED_SCHEMA=2",
+      "INK_NARRATIVE_SCOPE_LIMIT=32",
+      "INK_RUNTIME_VERSION",
+      "INK_CONTENT",
+      "INK_CONTENTS",
+      "validateInkNarrative(state)",
+      "getInkNarrativeRecord(state,host=null)",
+      "commitInkNarrativeAction(state,registry,request,context,host)",
+      "inkNarrativeRequest(state,id,host=null)",
+      "previewInkNarrativeAction(state,registry,id,context,host)",
+      "inkNarrativeView(state,registry,context,host)"
+    ],
+    "src/ink_scene_content.js": [
+      "INK_RESPONSES",
+      "INK_SCENE_IDS",
+      "inkSceneDefinitions",
+      "INK_COMMAND_BINDINGS",
+      "inkObserverVariables(observed)",
+      "inkBindingFor(host,id)",
+      "createTidemarkInkHost({bindings?})",
+      "INK_WORLD_VOICE_CUES",
+      "ORIGINAL_RELAY_VOICE",
+      "inkVoiceProjection(profile,{state,context,sceneId,nativeBinding})",
+      "inkRelayDefinitions",
+      "INK_RELAY_BINDINGS",
+      "createRelayInkHost({previewReplacement,commitReplacement,voiceProfile?,bindings?})",
+      "inkNestedDefinitions",
+      "inkNestedObserverVariables(observed)",
+      "validateNestedInkScope(state,registry,scope,context,{sceneId,missionId,endpoint})",
+      "createNestedInkHost({state,registry,context,sceneId,missionId?,previewNative,commitNative,roleChoice?})"
+    ],
+    "src/ink_narrative_ui.js": [
+      "createInkNarrativeUI({read,act:(id,token),choose:(id,token),panelId?}) -> {element,render}"
+    ]
+  },
+  "compatibility": {
+    "expansion": "5 untouched old saves;6 optional core wave;7 only explicit nested enrollment, native validator owned by Features",
+    "narrative": "legacy1 retained; explicit first scoped commit introduces wrapper2 with unchanged legacy and independent scopes; no read/render migration",
+    "currentContent": {
+      "schemaVersion": 1,
+      "storyId": "feature-wave-negotiation",
+      "storyRevision": 3,
+      "sceneIds": [
+        "tidemark.negotiation",
+        "relay.office",
+        "nested.hub",
+        "nested.offer",
+        "nested.mission",
+        "nested.return"
+      ],
+      "compilerPackage": "inkjs",
+      "compilerVersion": "2.4.0",
+      "sourceSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+      "compiledSha256": "72faf9b6431a00129cd1f959d4a67a5066bee59eca55c94741c15c236e7dc293",
+      "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f",
+      "inkFormat": 21,
+      "saveFormat": 10
+    },
+    "retainedContent": "content/RETAINED.json records immutable revisions1/2; exact content/scene lookup never replays effects",
+    "runtime": "inkjs@2.4.0, story21/save10 exact",
+    "bounds": "32 scopes,64receipts per scoped record,262144 cursor bytes,32768 frame bytes,12choices,2MBaggregate; runtime supplies exact validation",
+    "absentDefault": null
+  },
+  "joins": [
+    {
+      "owner": "package/build",
+      "action": "Exact production inkjs2.4.0/lock and compiler --check remain admitted; full MIT/AUTHORS copies retained. Current compile has6scenes/47choice-only stable response tags; compiler stays outside browser."
+    },
+    {
+      "owner": "registry",
+      "action": "Actual simulationDefinitions admits all31 commands:3Tidemark+4relay+24nested endpoints. Backlog replacement commands resolve the native backlogActions/qualifiedBacklog path, not simulation command registry."
+    },
+    {
+      "owner": "validation/save",
+      "action": "Existing validateExpansionState calls validateInkNarrative; optional nested schema7 native envelope and stage/write/publish/snapshot/restore remain root-owned. Preserve old wrapper1 and immutable1/2 artifacts."
+    },
+    {
+      "owner": "legacy/relay main",
+      "action": "currentInkHost selects saved legacy slot via wrapper.legacy when schema2; use actual backlogContext nativeAlive/vitals for relay. qualifiedBacklog preview/commit remains authoritative. UI displayed token is passed unchanged to commitInkNarrativeAction, then persistExpansion once."
+    },
+    {
+      "owner": "nested UI/main",
+      "action": "Construct createNestedInkHost with actual state, expeditionRegistry, featureWaveContext (nativeAlive/nestedNative/body/vitals/stock), exact scene and actual offered/current/returned mission. Native selectors use current world/location. Read inkNarrativeView and getInkNarrativeRecord(state,host), never treat wrapper2 as one session."
+    },
+    {
+      "owner": "nested native/clock",
+      "action": "previewNative=previewNestedCommand; commitNative=planNestedAction pure staged planner. Resolve nestedAdvanceBy using stageNestedCarrierClock+advanceChroniclePlan before narrative continuation. No act/persist callback inside host. Final native effects/cursor/external/gameplay/vitals/equipment publish once via persistExpansion."
+    },
+    {
+      "owner": "scope/token/UI",
+      "action": "validateScope checks initialized destination instance and mission, actual physical contact, active visit, native revision, supported same living body/current health. Tokens bind expectedSequence/Clock/Scene/Scope/Session/Revision. Each UI instance has unique IDs; current keyed getHost and displayed token guards changed contract/location. Retain interrupted old scopes."
+    }
+  ],
+  "nestedBindings": {
+    "hub": "actual shift/fragment-or-support_lesson/refit/employee-or-contractor role",
+    "offer": "actual nested.accept.<missionId>; cooperative response accepts only contract, local assent/work remain separate",
+    "mission": "actual local deliver/register, ordinary_brace/preserve, extend/withdraw, extraction initiate/wait/arrive or recover, withhold/refuse",
+    "return": "actual mission.settle; welfare/roles.account chain review; move.workroom to arrange refit; offer finite followup; paid staff_rest/rest for residence",
+    "talk": "24 actual no-reward immediate begin/terms/leave commands across8native endpoints"
+  },
+  "observerPolicy": "Only delivered player records and own contract/approval/custody/receipts. Chain history explicitly labelled last delivered; irrelevant other-world role/welfare accounts suppressed in local scenes. Never NPC private knowledge, future success or free source/rights/stock. Saltworks and Archive voices/physical detail distinct and original.",
+  "voiceCues": {
+    "rows": "voice-cues/VOICE_CUES.json",
+    "review": "voice-cues/REVIEW.json",
+    "count": 19,
+    "originalLines": 38,
+    "runtimeActivation": false,
+    "nativeConsumer": "Original relay voice profile actually projected; book rows require exact native world/people/era/cutoff binding and remain authoring proposals."
+  },
+  "sourceRepair": "Removed duplicate nested_return_stay reported by root. Actual final binding uses paid staff_rest/rest. Nested inspect IDs now world-qualified in native owner source. No shared Ink edit required.",
+  "roleHashes": {
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative_ui.js": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+    "stories/feature_wave.ink": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "stories/feature_wave.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "scripts/compile_feature_ink.mjs": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+    "docs/gm/feature-wave/ink/content/feature_wave_v1.json": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+    "docs/gm/feature-wave/ink/content/feature_wave_v2.json": "12ac8ccdca19c8e4c6b63fe79210efc4e267e4b1953b2c4c3b18a038e4876486",
+    "docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json": "d6053db460cc9fcda3221419a5fbd0e60d7d7f6286d4f023585c0c2296e15bcc"
+  },
+  "sourceEvidence": "REFINEMENT_STATIC.json",
+  "release": "REFINEMENT_RELEASE.json",
+  "observedConsumers": {
+    "registryCommands": 635,
+    "inkCommands": 31,
+    "browserBuildLocalSources": 221,
+    "vendorSources": 37,
+    "sourceMapCorrespondence": "Final Features shared bundle11aaa9cbfc69, all221local source bytes match live inputs,37qualified vendor maps",
+    "main": "legacy/relay and createNestedInkPanels observed with pure planNestedAction and displayed token",
+    "native": "actual nested factory stage/write/publish/snapshot/restore observed"
+  },
+  "pending": [
+    "deferred playable/save/reload/failure/keyboard/regression/director acceptance in LATER_ACCEPTANCE.md"
+  ],
+  "historicalCore": "BUILD.json/RELEASE.json prove released48e8a7514ff2 baseline only; history/INTEGRATION_BEFORE_REFINEMENT_RELEASE.json retains earlier joins. No earlier behavior receipt proves changed code.",
+  "currentBuild": "REFINEMENT_ADMISSION.json",
+  "finalAdmission": {
+    "bundleFingerprint": "11aaa9cbfc69",
+    "roleReleaseHashesMatch": true,
+    "requiredConsumersIncluded": [
+      "src/ink_narrative.js",
+      "src/ink_scene_content.js",
+      "src/ink_narrative_ui.js",
+      "stories/feature_wave.json",
+      "docs/gm/feature-wave/ink/content/feature_wave_v1.json",
+      "docs/gm/feature-wave/ink/content/feature_wave_v2.json",
+      "docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json",
+      "src/feature_expansion_nested_ink_ui.js",
+      "src/feature_expansion_nested_native.js",
+      "src/feature_expansion_nested_carriers.js",
+      "src/main.js",
+      "src/simulation_content.js",
+      "src/expansion_engine.js",
+      "src/expansion_persistence.js",
+      "src/save_files.js"
+    ],
+    "builder": "Features01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "evidence": "REFINEMENT_ADMISSION.json",
+    "behaviorExecuted": false
+  }
+}

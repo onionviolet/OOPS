@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-07",
+  "worker": "/root/proto23_native",
+  "status": "implemented-unverified",
+  "sourcePin": {
+    "revision": "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+    "sha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5"
+  },
+  "counts": {
+    "commands": 29,
+    "people": 2,
+    "sites": 2,
+    "items": 4,
+    "worlds": 1,
+    "sources": 0
+  },
+  "checks": {
+    "syntax": true,
+    "coldImport": true,
+    "simulationDefinitions": true,
+    "worldDefinitions": true,
+    "localSourceLinks": true,
+    "localDocumentLinks": true,
+    "staticExistingItemReferences": true
+  },
+  "notRun": [
+    "unit",
+    "model",
+    "native constructors",
+    "gameplay",
+    "browser",
+    "save",
+    "reload",
+    "import",
+    "failure",
+    "regression",
+    "keyboard",
+    "director"
+  ],
+  "itemReferences": {
+    "bed": {
+      "id": "Proto23 plain bed",
+      "kind": "new_proto23"
+    },
+    "hearth": {
+      "id": "Proto23 cottage hearth",
+      "kind": "new_proto23"
+    },
+    "bookstand": {
+      "id": "Proto23 bookstand",
+      "kind": "new_proto23"
+    },
+    "notes": {
+      "id": "Proto23 annotated practice notebook",
+      "kind": "new_proto23"
+    },
+    "log": {
+      "id": "Rough wood log",
+      "kind": "existing_native"
+    },
+    "sap": {
+      "id": "Tree sap",
+      "kind": "existing_native"
+    },
+    "sharp": {
+      "id": "Field fitting knife",
+      "kind": "existing_native"
+    },
+    "dull": {
+      "id": "Dulled field fitting knife",
+      "kind": "existing_native"
+    },
+    "wet": {
+      "id": "Wet repair stave",
+      "kind": "existing_native"
+    },
+    "sound": {
+      "id": "Sound repair stave",
+      "kind": "existing_native"
+    },
+    "green": {
+      "id": "Green repair offcut",
+      "kind": "existing_native"
+    },
+    "offcut": {
+      "id": "Compatible repair offcut",
+      "kind": "existing_native"
+    },
+    "kit": {
+      "id": "Prepared survey kit",
+      "kind": "existing_native"
+    },
+    "paper": {
+      "id": "Cyorian research paper",
+      "kind": "existing_native"
+    },
+    "ink": {
+      "id": "Cyorian formula ink",
+      "kind": "existing_native"
+    }
+  },
+  "sourceFiles": {
+    "src/proto23_world_ids.js": "404ce79d0b29215c716af1a0b802e900a215f8772c67ad343b77b73eb7a0fb38",
+    "src/proto23_world_content.js": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+    "src/proto23_world_actions.js": "bce1a1b809448f76812a4c900415d5cfbd05ec62a4d1f97fcb12ea9c23f96303",
+    "src/proto23_world_state.js": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524",
+    "src/proto23_world_host.js": "0a67b06a26b098631a6b6e1796a285efa8ffde5999f0c1a0e349c59fd79fae19",
+    "src/proto23_world_native.js": "e1ca6283195b80e025495b3b3d19bcd0b55b021a8a6268599241808ab3224f5d"
+  },
+  "sharedDependencies": {
+    "src/world_visit_history.js": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+  },
+  "sourceReview": [
+    "Finite Proto23-native paper/ink purchases avoid a Cyoria prerequisite.",
+    "Paid reading now reserves present steward attention; both approaches retain observed instruction attribution.",
+    "Supported jobs retain the exact actual current world/place and held-item descriptor.",
+    "Resident purses/attention reconcile completed deltas and active reservations.",
+    "Fixed fixture physical counts plus installations equal the original finite supply; notebook count matches once compilation.",
+    "Host rejects arbitrary targets and sets proto23Host for root generic-admission binding."
+  ]
+}

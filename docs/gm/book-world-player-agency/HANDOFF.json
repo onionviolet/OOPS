@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T05:10:14.135316+00:00",
+  "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "predecessor": "01a10f81-ee24-7531-b509-6b509160ea8f",
+  "predecessorTurn": "01a10f81-f253-7771-9e87-5ea82620956b",
+  "observedTurn": "completed",
+  "observedThread": "idle",
+  "cursor": "a3d05eca-1732-473d-9f6e-c99f9722202b:7",
+  "handoff": "docs/gm/reference-gameplay/BOOK_WORLD_HANDOFF.json",
+  "handoffSha256": "2e2fca7efe62b3b58d24ecac93a1139174e86df8be61635d617c0216ed8fb540",
+  "releasedChildren": "all3 completed/released in sealed handoff",
+  "processes": "no writer/build/compiler process observed",
+  "inputHashesMatched": 28,
+  "priorBundle": "2f04d677a4db",
+  "priorLocalMapsMatched": 226,
+  "versions": {
+    "expansionAdmitted": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "newOptionalReferenceGameplay": 1,
+    "workshop": 1,
+    "workPlans": 1,
+    "oldSluiceBattle": 3,
+    "newEnrolledSluiceBattle": 4
+  },
+  "sharedWriterTransfer": "accepted; this root solely owns necessary shared/native/save/UI/build/canonical integration for selected book-world campaign",
+  "privateSaves": "untouched",
+  "scope": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+  "sourceSnapshot": [
+    {
+      "file": "src/feature_expansion_nested_life.js",
+      "sha256": "3caa519b87c96465dbbda6f7916abf536a87acb2a2fff13a0a9b15063f01b066"
+    },
+    {
+      "file": "src/feature_expansion_nested_host.js",
+      "sha256": "fda1161bcbb2dd59d2fdc3695ccf8e137c6db06a8133654bfc5b5795bdffb8a8"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657"
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "file": "src/native_battle_contracts.js",
+      "sha256": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8"
+    },
+    {
+      "file": "src/feature_expansion_work_plan.js",
+      "sha256": "669f684cb5f0b8d5becd3e17db7a4aee4c206ae7ce0e1426e2d659a1d028dfc2"
+    },
+    {
+      "file": "src/simulation.js",
+      "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536"
+    },
+    {
+      "file": "src/expansion_engine.js",
+      "sha256": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37"
+    },
+    {
+      "file": "src/feature_expansion_powers_host.js",
+      "sha256": "3cfdc58e451c8add4d38ed9a0f4db3b423b87de26d435ac8f43f24013c06d987"
+    },
+    {
+      "file": "src/feature_expansion_battle_host.js",
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+    },
+    {
+      "file": "src/feature_expansion_society_host.js",
+      "sha256": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824"
+    },
+    {
+      "file": "src/feature_expansion_ui.js",
+      "sha256": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0"
+    },
+    {
+      "file": "src/feature_expansion_wave_host.js",
+      "sha256": "a27849a35739b4c8d7effaa020682412bd4ed60662b8d6ae60436cb0be556eb2"
+    },
+    {
+      "file": "src/feature_expansion_content.js",
+      "sha256": "500cce49b89308d317a804913662271b0aa4e365c5b2cb5af72119710cea92b0"
+    },
+    {
+      "file": "src/expedition_content.js",
+      "sha256": "485a2ddd73b787d9e3c2cae1e343d2ce05a251e79699fcc3b25a94935b6fa554"
+    },
+    {
+      "file": "src/data/expedition_items.js",
+      "sha256": "c0809133d349d3321afec0b4d3d38a39e87886e1f86cf8418cfda3645cc9a0cb"
+    },
+    {
+      "file": "src/adventure_notebook.js",
+      "sha256": "66ed81b156c75879773851d6e6374a38e097aba818f06b7444dfb966602beaa7"
+    },
+    {
+      "file": "src/main.js",
+      "sha256": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5"
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "sha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808"
+    },
+    {
+      "file": "src/reference_gameplay_feats.js",
+      "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3"
+    },
+    {
+      "file": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f"
+    },
+    {
+      "file": "src/reference_gameplay_host.js",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1"
+    },
+    {
+      "file": "PROJECT.md",
+      "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352"
+    },
+    {
+      "file": "docs/ENGINE_AUTHORING.md",
+      "sha256": "ced41fb6d3f3e21aa59e1f2b70e32a05add474f6c4b2a922e0c9ecf7a7faba53"
+    },
+    {
+      "file": "docs/PLAYTEST.md",
+      "sha256": "ae8a7df38a988423a197bb22e24df3d03554a23c36cc7ff393be8aad5db0a41f"
+    },
+    {
+      "file": "index.html",
+      "sha256": "004ac7e50981ab604d9c00261e18271dd3c8b3f4e4a57cc73fe2b0570caeabd4"
+    },
+    {
+      "file": "dist/bundle.js",
+      "sha256": "2f04d677a4db6f937cd2685d3324cdb766c3c6b769eaea7c2bc6b62af2d5881a"
+    },
+    {
+      "file": "dist/bundle.js.map",
+      "sha256": "cc57882c8179767fbb07826578bb17be5848775e596f2a01bc25b47e9f8fe3e1"
+    }
+  ]
+}

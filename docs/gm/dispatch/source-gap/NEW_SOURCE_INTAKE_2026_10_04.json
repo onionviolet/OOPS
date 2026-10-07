@@ -1,0 +1,245 @@
+{
+  "date": "2026-10-04",
+  "scope": "Five newly supplied EPUB metadata/structure receipts; source files untouched",
+  "sources": [
+    {
+      "path": "/Users/weiwei/Downloads/Shadow Slave - Volume 11 The Song of Ariadne (Guiltythree) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "b1151c9f2e7ace31781ddef0482a37cd48f5581b8d6b139df7f5992e14fd5b75",
+      "bytes": 2663846,
+      "inspection": "OPF/navigation/heading structure only; not semantic reading",
+      "metadata": {
+        "title": [
+          "Shadow Slave - Volume 11: The Song of Ariadne"
+        ],
+        "creator": [
+          "Author: Guiltythree"
+        ],
+        "language": [
+          "en"
+        ],
+        "publisher": [
+          "zs"
+        ]
+      },
+      "spine_count": 284,
+      "missing_spine_members": [
+        "OEBPS/title-page.html"
+      ],
+      "missing_declared_ncx": "OEBPS/toc.ncx",
+      "locator_basis": "available spine heading scan; GM must reconcile absent navigation/members",
+      "label_count": 284,
+      "first_titles": [
+        "Table of Contents",
+        "Chapter 2721 The Ship of Theseus",
+        "Chapter 2722 Monster of Crete",
+        "Chapter 2723 Herald of the Dreamspawn",
+        "Chapter 2724 Insidious Paradox",
+        "Chapter 2725 Collateral Damage"
+      ],
+      "last_titles": [
+        "Chapter 2998 Shadow and Light",
+        "Chapter 2999 Fallen Tyrant",
+        "Chapter 3000 Memories of Oblivion",
+        "Shadow Slave",
+        "End of Volume 11",
+        "The Song of Ariadne"
+      ],
+      "numbered_count": 280,
+      "numbered_span": [
+        2721,
+        3000
+      ],
+      "missing_in_span": [],
+      "duplicates": []
+    },
+    {
+      "path": "/Users/weiwei/Downloads/Shadow Slave Vol 9 - Throne of War (Guiltythree) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "b8fcea86e2761833b5ce995fbd7df8872f65a0ad7b64e4542ce9128d731dd7c8",
+      "bytes": 1542555,
+      "inspection": "OPF/navigation/heading structure only; not semantic reading",
+      "metadata": {
+        "title": [
+          "Shadow Slave Novel Vol 9"
+        ],
+        "creator": [
+          "<unknown>"
+        ],
+        "language": [
+          "en_US"
+        ],
+        "publisher": []
+      },
+      "spine_count": 422,
+      "missing_spine_members": [],
+      "locator_basis": "NCX navigation",
+      "label_count": 421,
+      "first_titles": [
+        "Information",
+        "1841: Evil Minds That Plot Destruction",
+        "1842: First Blood",
+        "1843: Crash Landing on You",
+        "1844: On the Other Side",
+        "1845: Seventh Loyal Legion"
+      ],
+      "last_titles": [
+        "2255: Shadow Legion",
+        "2256: Abominable Curse",
+        "2257: Mercy of Shadow",
+        "2258: Regicide",
+        "2259: Triumph",
+        "2260: Peace"
+      ],
+      "numbered_count": 420,
+      "numbered_span": [
+        1841,
+        2260
+      ],
+      "missing_in_span": [],
+      "duplicates": []
+    },
+    {
+      "path": "/Users/weiwei/Downloads/Shadow Slave Volume 10 - Dark Lord’s Dreadful Travelogue (Guiltythree) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "18e8216c63ce675e87e145b6f7547b446f548d848ffc517502e63bec19ba6f99",
+      "bytes": 1815487,
+      "inspection": "OPF/navigation/heading structure only; not semantic reading",
+      "metadata": {
+        "title": [
+          "Shadow Slave: Volume 10 - Dark Lord’s Dreadful Travelogue"
+        ],
+        "creator": [
+          "Guiltythree"
+        ],
+        "language": [
+          "en"
+        ],
+        "publisher": [
+          "Eminent Translations"
+        ]
+      },
+      "spine_count": 462,
+      "missing_spine_members": [],
+      "locator_basis": "NCX navigation",
+      "label_count": 461,
+      "first_titles": [
+        "Volume 10: Dark Lord’s Dreadful Travelogue",
+        "Chapter 2261: Keeping a Promise",
+        "Chapter 2262: Foundation",
+        "Chapter 2263: Beginning of the End",
+        "Chapter 2264: Two Sides of the Same Coin",
+        "Chapter 2265: One Man Army"
+      ],
+      "last_titles": [
+        "Chapter 2715: In Stitches",
+        "Chapter 2716: Grand Escape",
+        "Chapter 2717: Ruin Raider",
+        "Chapter 2718: Garden of Flowers",
+        "Chapter 2719: The Incredible Adventures and Astonishing Deeds of Heroic Dreamer Sunless and His Intrepid Disciples, Abridged (Volume X)",
+        "Chapter 2720: A New Beginning"
+      ],
+      "numbered_count": 460,
+      "numbered_span": [
+        2261,
+        2720
+      ],
+      "missing_in_span": [],
+      "duplicates": []
+    },
+    {
+      "path": "/Users/weiwei/Downloads/The Legendary Mechanic (Chocolion) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "fcf19109551a4cc5cc355cb30a93b4947278473737fc2004935c540dd5e1991e",
+      "bytes": 8912694,
+      "inspection": "OPF/navigation/heading structure only; not semantic reading",
+      "metadata": {
+        "title": [
+          "The Legendary Mechanic"
+        ],
+        "creator": [
+          "Chocolion"
+        ],
+        "language": [
+          "en"
+        ],
+        "publisher": []
+      },
+      "spine_count": 1464,
+      "missing_spine_members": [],
+      "locator_basis": "NCX navigation",
+      "label_count": 1463,
+      "first_titles": [
+        "Chapter 1. Rebirth",
+        "Chapter 2. Mechanic",
+        "Chapter 3. Life Is All About Acting",
+        "Chapter 4. 600,000 experience points!",
+        "Chapter 5. Lightweight Mechanical Arm",
+        "Chapter 6. Taking Action!"
+      ],
+      "last_titles": [
+        "Chapter 1458: Information Form Anchor (1)\n28 days ago",
+        "Chapter 1459: Information Form Anchor (2)\n28 days ago",
+        "Chapter 1460: Information Form Anchor (3)\n27 days ago",
+        "Chapter 1461: Information Form Anchor (4)\n21 day ago",
+        "Chapter 1462: Information Form Anchor (5)\n21 day ago",
+        "Chapter 1463: Final Relay, Destination Point (End)\n21 day ago"
+      ],
+      "numbered_count": 1463,
+      "numbered_span": [
+        1,
+        1463
+      ],
+      "missing_in_span": [],
+      "duplicates": [],
+      "inspection_notes": [
+        "NCX lists 1463 story entries. Chapter 478 has a bare label without title; it is present. The expected 811 entry is labelled Chapter 8111 between 810 and 812; its content needs semantic reconciliation, not assumed correction. No declared spine member is missing. Creator Chocolion is compilation metadata, not verified novelist attribution."
+      ],
+      "numbering_anomalies": [
+        {
+          "expected": 811,
+          "label": "Chapter 8111",
+          "member": "OEBPS/Text/0810_Chapter_8111.xhtml"
+        }
+      ]
+    },
+    {
+      "path": "/Users/weiwei/Downloads/Worm (J. C. McCrae) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "sha256": "5eb58f982c240739ac639de456c858e394c3ea787b21a901e63b0c95eaad2936",
+      "bytes": 4247099,
+      "inspection": "OPF/navigation/heading structure only; not semantic reading",
+      "metadata": {
+        "title": [
+          "Worm"
+        ],
+        "creator": [
+          "John McCrae"
+        ],
+        "language": [
+          "en"
+        ],
+        "publisher": []
+      },
+      "spine_count": 307,
+      "missing_spine_members": [],
+      "locator_basis": "NCX navigation",
+      "label_count": 304,
+      "first_titles": [
+        "Gestation 1.1",
+        "Gestation 1.2",
+        "Gestation 1.3",
+        "Gestation 1.4",
+        "Gestation 1.5",
+        "Gestation 1.6"
+      ],
+      "last_titles": [
+        "Teneral e.1",
+        "Teneral e.2",
+        "Teneral e.3",
+        "Teneral e.4",
+        "Teneral e.5",
+        "Interlude: End"
+      ],
+      "numbered_count": 0,
+      "inspection_notes": [
+        "304 NCX story/interlude entries run from Gestation 1.1 to Teneral epilogues and Interlude: End; complete authoritative chapter comparison remains assigned to GM."
+      ]
+    }
+  ]
+}

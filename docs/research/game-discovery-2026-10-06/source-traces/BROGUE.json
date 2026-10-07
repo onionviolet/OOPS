@@ -1,0 +1,715 @@
+{
+  "schema": 1,
+  "id": "BROGUE-NEGATIVE-DIAGNOSIS-01",
+  "status": "source-ready research proposal; no runtime implementation or rank selected by leaf",
+  "capturedAt": "2026-10-06T19:47:59.106737+00:00",
+  "owner": {
+    "parentChat": "01a112b9-410a-7da2-9182-392141662439",
+    "leaf": "/root/brogue_trace",
+    "exclusiveOutputs": [
+      "docs/research/game-discovery-2026-10-06/source-traces/BROGUE.md",
+      "docs/research/game-discovery-2026-10-06/source-traces/BROGUE.json"
+    ]
+  },
+  "source": {
+    "title": "Brogue: Community Edition",
+    "repository": "https://github.com/tmewett/BrogueCE",
+    "commit": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+    "branchAtAcquisition": "master",
+    "commitDate": "2026-09-27",
+    "commitSubject": "Fix two replay bugs with the \"call\" command (#896)",
+    "version": "main CE 1.15.1; current master snapshot, not a claimed release tag",
+    "versionLocator": "src/brogue/Rogue.h:37-40",
+    "snapshotPath": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE",
+    "cleanAtPinAndEnd": true,
+    "license": "GNU AGPL v3 or later in Items.c header; LICENSE.txt supplies AGPL v3 text",
+    "licenseUrl": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/LICENSE.txt",
+    "attribution": "Brogue by Brian Walker; Community Edition continuation by tmewett and contributors",
+    "copyPolicy": "Research and original behavior design only. No source code, catalogue prose, assets or data copied into YAIRPG. Preserve YAIRPG MIT/upstream attribution.",
+    "reviewedFileHashes": {
+      "LICENSE.txt": "91b65277959ec273763d28ef002e83a6b3fba57c7a35436c9e5b66536333d720",
+      "src/brogue/Items.c": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "src/brogue/Rogue.h": "33ece1d192529d163cb027f9f877f254e42555d5eaa6ac1eb20bfe86a3fc3fe2",
+      "src/variants/GlobalsBrogue.c": "e8903aede4fad21b7823ccc547cf4219c76e87e061543188d8d90141cebffa1e",
+      "src/brogue/Time.c": "1a76da7c4d71249363feb799a3dd74214604384ca3225c2cf450b1653a607318",
+      "src/brogue/IO.c": "0cce67fb80b03ad64a627a566cb23b6a38bbf384ffc1dbe191c2d36e207bdfd4",
+      "src/brogue/Monsters.c": "2adb6f3d2c65649a040469949fb154467d5c749e6d3be2a7e90cb12f90ab2a3b"
+    }
+  },
+  "sourceQuestion": "When can a failed/inconclusive thrown-potion experiment identify a substance, what was truly spent, and what does that knowledge prevent or enable next?",
+  "distinctConsumer": "throwItem harmless-splash branch combines the actual released result with already-revealed polarity/classification to autoIdentify. tryIdentifyLastItemKind also performs constrained partition elimination. Exact distinction is negative evidence becoming decisive under independent class evidence, with conserved expenditure and future functional use/avoidance.",
+  "evidence": [
+    {
+      "id": "BRC-E01",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        7956,
+        7993
+      ],
+      "functions": [
+        "resetItemTableEntry",
+        "shuffleFlavors"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7956-L7993",
+      "claim": "New-run potion kind identification, revealed polarity and call labels reset; color appearances are shuffled independently of potion function."
+    },
+    {
+      "id": "BRC-E02",
+      "file": "src/variants/GlobalsBrogue.c",
+      "lines": [
+        665,
+        681
+      ],
+      "functions": [
+        "potionTable_Brogue"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/variants/GlobalsBrogue.c#L665-L681",
+      "claim": "Main CE catalogue has eight beneficial kinds, followed by eight malevolent kinds. Hallucination is malevolent and has fixed magnitude 300; life has magnitude 10 and strength 1. Types have genuinely different ingestion/release effects."
+    },
+    {
+      "id": "BRC-E03",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        7231,
+        7242
+      ],
+      "functions": [
+        "detectMagicOnItem"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7231-L7242",
+      "claim": "Detection marks the individual item and reveals intrinsic polarity for its whole kind, without identifying its exact kind."
+    },
+    {
+      "id": "BRC-E04",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        7341,
+        7387
+      ],
+      "functions": [
+        "drinkPotion: POTION_DETECT_MAGIC"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7341-L7387",
+      "claim": "A detect-magic potion processes eligible floor items, monster-held items and pack items, then attempts evidence-constrained final-kind identification. It is a potion, not a scroll."
+    },
+    {
+      "id": "BRC-E05",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        5844,
+        5927
+      ],
+      "functions": [
+        "tryGetLastUnidentifiedItemKind",
+        "magicPolarityRevealedItemKindCount",
+        "tryIdentifyLastItemKind",
+        "tryIdentifyLastItemKinds"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5844-L5927",
+      "claim": "More than one unidentified kind in a polarity partition fails deduction. A sole kind is identified only when its own polarity is known or all opposite-polarity kinds have been identified or polarity-revealed. The dispatcher actually calls the positive and negative partitions; the generic ANY branch is present but is not called here."
+    },
+    {
+      "id": "BRC-E06",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        5931,
+        5994
+      ],
+      "functions": [
+        "identifyItemKind",
+        "autoIdentify"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5931-L5994",
+      "claim": "Identification mutates the shared kind table, invokes further constrained deduction and names the result; it is retained even when the identifying sample disappears."
+    },
+    {
+      "id": "BRC-E07",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        6294,
+        6357
+      ],
+      "functions": [
+        "throwCommand"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6294-L6357",
+      "claim": "Player selects an owned item and target; cancellation at selection or target choice returns before inventory expenditure."
+    },
+    {
+      "id": "BRC-E08",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        6368,
+        6392
+      ],
+      "functions": [
+        "throwCommand"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6368-L6392",
+      "claim": "One cloned unit resolves through throwItem, then exactly one pack unit is removed and playerTurnEnded is called."
+    },
+    {
+      "id": "BRC-E09",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        6202,
+        6273
+      ],
+      "functions": [
+        "throwItem"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6202-L6273",
+      "claim": "A potion only shatters under the solid-impact/non-auto-descent condition. Seven malevolent kinds create distinctive terrain effects and auto-identify. A harmless splash is normally inconclusive; hallucination auto-identifies only with individual detection or classification of all eight beneficial kinds. Shattered sample is deleted."
+    },
+    {
+      "id": "BRC-E10",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        7245,
+        7284
+      ],
+      "functions": [
+        "drinkPotion"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7245-L7284",
+      "claim": "Known/detected malevolent ingestion requests confirmation; declining returns false. Drinking life mutates maxHP and heals; drinking hallucination sets hallucination status to catalogue magnitude 300."
+    },
+    {
+      "id": "BRC-E11",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        7407,
+        7413
+      ],
+      "functions": [
+        "drinkPotion"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7407-L7413",
+      "claim": "A completed drink auto-identifies if needed, records command and consumes one pack item, returning true."
+    },
+    {
+      "id": "BRC-E12",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        6803,
+        6852
+      ],
+      "functions": [
+        "apply"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6803-L6852",
+      "claim": "Cancelled/declined drinking returns before playerTurnEnded; completed potion application ends the player turn."
+    },
+    {
+      "id": "BRC-E13",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        1545,
+        1561
+      ],
+      "functions": [
+        "itemName: POTION"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L1545-L1561",
+      "claim": "Future objects of an identified kind use their functional name; unknown objects use appearance or player call label."
+    },
+    {
+      "id": "BRC-E14",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        5191,
+        5247
+      ],
+      "functions": [
+        "itemMagicPolarityIsKnown",
+        "canAutoTargetMonster"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5191-L5247",
+      "claim": "Targeting reads known polarity and excludes known-beneficial thrown potions from auto-targets. Hallucination without telepathy disables auto-targeting changing animate appearances. These are selection conveniences, not a blanket manual-throw prohibition."
+    },
+    {
+      "id": "BRC-E15",
+      "file": "src/brogue/IO.c",
+      "lines": [
+        1240,
+        1292
+      ],
+      "functions": [
+        "getCellAppearance"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/IO.c#L1240-L1292",
+      "claim": "Hallucination changes animate monster glyph/color and item-category appearance, with explicit telepathy, inanimate/invulnerable and playback exceptions."
+    },
+    {
+      "id": "BRC-E16",
+      "file": "src/brogue/Monsters.c",
+      "lines": [
+        255,
+        277
+      ],
+      "functions": [
+        "monsterName"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Monsters.c#L255-L277",
+      "claim": "Hallucination also substitutes perceived monster names, using cosmetic RNG; telepathy or playback bypasses it."
+    },
+    {
+      "id": "BRC-E17",
+      "file": "src/brogue/Time.c",
+      "lines": [
+        2004,
+        2007
+      ],
+      "functions": [
+        "decrementPlayerStatus"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Time.c#L2004-L2007",
+      "claim": "Ordinary status ticking decrements hallucination; reaching zero redraws the level and reports recovery. Identification is a different table owner and is not cleared here."
+    },
+    {
+      "id": "BRC-E18",
+      "file": "src/brogue/Items.c",
+      "lines": [
+        6679,
+        6689
+      ],
+      "functions": [
+        "consumePackItem"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6679-L6689",
+      "claim": "The actual drink cost helper decrements quantity by exactly one or removes/deletes the last owned pack item."
+    },
+    {
+      "id": "BRC-E19",
+      "file": "src/brogue/Time.c",
+      "lines": [
+        2402,
+        2431
+      ],
+      "functions": [
+        "playerTurnEnded: objective environment tick segment"
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Time.c#L2402-L2431",
+      "claim": "Player statuses decrement with objective periodic environment updates, not necessarily one-for-one with player commands. Hallucination magnitude 300 means 300 objective status decrements."
+    }
+  ],
+  "sourceCausalPath": [
+    {
+      "stage": "prerequisite",
+      "evidence": [
+        "BRC-E01",
+        "BRC-E02"
+      ],
+      "fact": "Appearance does not disclose function; actor possesses a potion of a stable but unknown kind. Catalogue types have fixed positive/negative polarity and different consumers."
+    },
+    {
+      "stage": "classification decision and expenditure",
+      "evidence": [
+        "BRC-E03",
+        "BRC-E04",
+        "BRC-E11",
+        "BRC-E12",
+        "BRC-E18"
+      ],
+      "fact": "Drink a detect-magic potion now, spending one bottle and an action. Detection learns broad polarity for currently detectable items/kinds, not precise function."
+    },
+    {
+      "stage": "trial decision and expenditure",
+      "evidence": [
+        "BRC-E07",
+        "BRC-E08",
+        "BRC-E09"
+      ],
+      "fact": "Choose a potion and supported impact target. Completed throw spends one pack bottle and turn. Harmless splash plus known negative evidence uniquely identifies hallucination; absent independent evidence it remains unknown."
+    },
+    {
+      "stage": "mutation",
+      "evidence": [
+        "BRC-E06"
+      ],
+      "fact": "Shared potion-kind table gains identified=true; bottle is destroyed, but the next bottle of this kind is still known. Further partition elimination may identify a remaining type."
+    },
+    {
+      "stage": "next consumer",
+      "evidence": [
+        "BRC-E10",
+        "BRC-E13",
+        "BRC-E14"
+      ],
+      "fact": "Future bottles have functional names. Known harmful drinking asks confirmation; declining spends no bottle/turn. Known beneficial throw auto-targets are avoided. Manual use is still possible."
+    },
+    {
+      "stage": "actual aftermath of accepting danger",
+      "evidence": [
+        "BRC-E02",
+        "BRC-E10",
+        "BRC-E11",
+        "BRC-E12",
+        "BRC-E14",
+        "BRC-E15",
+        "BRC-E16",
+        "BRC-E17",
+        "BRC-E18",
+        "BRC-E19"
+      ],
+      "fact": "Drinking hallucination consumes one potion and applies 300 objective status ticks; rendered creatures/items and monster names become unreliable, and auto-targeting changes until ticking expires the condition. Learned identity remains after recovery."
+    }
+  ],
+  "sourceFailures": [
+    {
+      "kind": "unspent refusal",
+      "evidence": [
+        "BRC-E07",
+        "BRC-E10",
+        "BRC-E12"
+      ],
+      "path": "Cancel target or decline known-bad drink: return before consumption/end-turn."
+    },
+    {
+      "kind": "paid ambiguous experiment",
+      "evidence": [
+        "BRC-E08",
+        "BRC-E09"
+      ],
+      "path": "Throw hallucination without detection and without all beneficial kinds classified: harmless splash, deleted sample, pack count -1, action spent, no exact ID."
+    },
+    {
+      "kind": "valuable item wasted",
+      "evidence": [
+        "BRC-E08",
+        "BRC-E09",
+        "BRC-E10"
+      ],
+      "path": "Throw a beneficial life potion on ordinary ground: harmless splash and consumption, no permanent +10 maxHP/heal that drinking would provide. Harmless result alone is not proof of harmless ingestion."
+    },
+    {
+      "kind": "unsafe certainty",
+      "evidence": [
+        "BRC-E10",
+        "BRC-E11",
+        "BRC-E15",
+        "BRC-E17"
+      ],
+      "path": "Drink unknown hallucination: immediate exact ID plus paid bodily/perceptual condition lasting until ordinary recovery."
+    },
+    {
+      "kind": "insufficient catalogue evidence",
+      "evidence": [
+        "BRC-E05"
+      ],
+      "path": "Two unidentified kinds in the relevant partition, or unknown own polarity with incomplete opposite partition, prevents final-kind deduction."
+    },
+    {
+      "kind": "bad experimental target",
+      "evidence": [
+        "BRC-E09"
+      ],
+      "path": "Shattering condition excludes unsupported auto-descent ground without a solid hit; no assumption that every throw delivers this diagnostic splash."
+    }
+  ],
+  "coverageLimits": [
+    "Semantic review is only the named functions/ranges, not the whole Brogue repository, game, variants, release history or full terrain/combat engine.",
+    "Brogue does not store a structured negative-test receipt in the reviewed harmless-splash branch. It combines evidence available at throw time. Persisting and re-evaluating a negative receipt after later classification is explicitly an original YAIRPG extension.",
+    "No source build, game/browser run, private save inspection, gameplay test or balancing check ran.",
+    "Source catalogue semantics are not transplanted as world canon; no potion skill, fantasy polarity, dungeon or direct Brogue adaptation is selected.",
+    "The exact number of player commands or real-time duration for 300 objective status ticks was not measured; haste/speed can change the relation to actions."
+  ],
+  "nativeReviewedInputs": [
+    {
+      "path": "src/nethack_fieldcraft_content.js",
+      "lines": [
+        58,
+        78
+      ],
+      "exportsOrConsumers": [
+        "nethackFieldcraftDefinitions"
+      ],
+      "claim": "Existing stock-backed buy, fixed reed-oil successful assay/knife trial, external use and full-to-empty conservation; no candidate-set deduction.",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "path": "src/nethack_fieldcraft_item_view.js",
+      "lines": [
+        26,
+        67
+      ],
+      "exportsOrConsumers": [
+        "projectFieldcraftItemView"
+      ],
+      "claim": "Existing native display projection recognizes only the full pale vial and empty bench vial, and requires explicit completed application plus understood knowledge.",
+      "sha256": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015"
+    },
+    {
+      "path": "src/nethack_fieldcraft_facts.js",
+      "lines": [
+        16,
+        57
+      ],
+      "exportsOrConsumers": [
+        "nethackFieldcraftFacts"
+      ],
+      "claim": "Current native inventory, custody/body/contact/readiness facts and known identity are derived from actual owners.",
+      "sha256": "068ec400b967873a795d789122da2454d6c28086c54527ef66448e49476505fc"
+    },
+    {
+      "path": "src/nethack_fieldcraft_host.js",
+      "lines": [
+        6,
+        43
+      ],
+      "exportsOrConsumers": [
+        "nethackFieldcraftContext",
+        "commitNethackFieldcraftCommand",
+        "nethackFieldcraftPresentation"
+      ],
+      "claim": "Host delegates to the actual command executor and projects recorded knowledge/actions. No diagnostic solver here.",
+      "sha256": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "lines": [
+        145,
+        193
+      ],
+      "exportsOrConsumers": [
+        "applySimulationEffects"
+      ],
+      "claim": "Existing native vital/resource costs, primitive actor facts, exact native/simulation item consume/transfer, and monotone staged knowledge with cause/time/basis.",
+      "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60"
+    },
+    {
+      "path": "src/simulation.js",
+      "lines": [
+        94,
+        152
+      ],
+      "exportsOrConsumers": [
+        "previewSimulationCommand",
+        "startCommand"
+      ],
+      "claim": "Preview checks costs/outcomes; start applies costs atomically and freezes outcome effects from current facts.",
+      "sha256": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373"
+    },
+    {
+      "path": "src/simulation.js",
+      "lines": [
+        176,
+        214
+      ],
+      "exportsOrConsumers": [
+        "commitSimulationCommand",
+        "completeJob"
+      ],
+      "claim": "Sequence-aware commit, existing timed jobs, support loss with refund/forfeit and no unsupported award; completion applies effects and records actual command receipt.",
+      "sha256": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "lines": [
+        43,
+        81
+      ],
+      "exportsOrConsumers": [
+        "validateSimulationEffect"
+      ],
+      "claim": "Knowledge is string prose/stage plus optional basis; facts are boolean/number/string. There is no candidate-set effect type.",
+      "sha256": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836"
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "lines": [
+        22,
+        56
+      ],
+      "exportsOrConsumers": [
+        "projectFeatureCommands",
+        "featureRecordedKnowledge",
+        "featureWorkControls"
+      ],
+      "claim": "Current notebook action/cost/job/aftermath projection; reading spends nothing.",
+      "sha256": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467"
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "lines": [
+        3,
+        61
+      ],
+      "exportsOrConsumers": [
+        "readGameplayActor",
+        "prepareGameplayPublication"
+      ],
+      "claim": "Native inventories and reconstruction/publish use current authoritative adapter.",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+    },
+    {
+      "path": "src/main.js",
+      "lines": [
+        487,
+        514
+      ],
+      "exportsOrConsumers": [
+        "publishExpansionPlan: durable publication segment"
+      ],
+      "claim": "Persistence precedes all actual native state publication; one shared publisher remains reserved to the current integrator.",
+      "sha256": "3e6b716ba16abb4442e99223ad92fecbaa68dd18e7a1a6f4ece8611038b0bc84"
+    },
+    {
+      "path": "src/display.js",
+      "lines": [
+        412,
+        426
+      ],
+      "exportsOrConsumers": [
+        "setFieldcraftKnowledgeReader",
+        "nativeItemView"
+      ],
+      "claim": "Native item tooltip hook is currently wired to the fixed two-item fieldcraft projector.",
+      "sha256": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "lines": [
+        4,
+        31
+      ],
+      "exportsOrConsumers": [
+        "validateSituationDefinition",
+        "applySituationEffect"
+      ],
+      "claim": "Actual situation context/participants and privately owned truth can freeze this optional lot under the existing simulation situation owner. No new situation engine is needed.",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "lines": [
+        52,
+        57
+      ],
+      "exportsOrConsumers": [
+        "validateKnowledgeBasis"
+      ],
+      "claim": "Existing basis accepts observation/instruction/inference, but requires a real attributedTo actor and situationId; prose stage alone does not perform deduction.",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+    }
+  ],
+  "existingOwnerComparison": {
+    "alreadyPresent": [
+      "Real native/simulation item ownership, paid transfer/consume, jobs/clock, conditions, stage/cause/basis knowledge, useful fixed reed-oil trial and naming projection.",
+      "Existing successful oil application changes tool condition and later dog-retrieval scent consumer. This is not a missing feature."
+    ],
+    "missingConsumer": "No reviewed native path evaluates a finite public catalogue against an inconclusive paid-test receipt and an independent classified-evidence receipt, then lets that inferred identity change a real subsequent material action/avoidance. knowledge basis can record inference provenance but does not itself solve candidates.",
+    "reservationExclusions": [
+      "ALL19 remainder rows and current audit_remainder_*",
+      "causal_story_* and causal/endings work",
+      "artifact_collection/artifact_workshop_*",
+      "existing fixed NetHack reed-oil/dog/pin family",
+      "shared main/save/registry/UI/build/native files while root01a10fe7 owns them"
+    ]
+  },
+  "originalProposal": {
+    "status": "original reversible proposal, not accepted fiction, numbers or implementation",
+    "title": "Identify a destructive wash before spending the only recoverable route rubbing",
+    "setting": "One optional local Frontier waypost salvage task. Four sealed wash-bottle appearances have authored fixed lot identities: fixative, rinse, etchant and bleaching wash. Add no world/prestige/body system.",
+    "publicCatalogue": "A learned local catalogue says fixative and rinse are paper-conserving; etchant and bleaching wash are paper-stripping. Etchant reacts on a glazed practice chip; bleaching wash and rinse splash harmlessly; fixative leaves a distinctive film. Appearance and hidden map are never player knowledge.",
+    "finiteStock": "An explicitly met, willing original steward owns two sealed flasks of each lot, two classification strips, one fragile charcoal route rubbing, and five actual coins held for one accepted preserved-note delivery. Enrollment provisions once; sales/revisits never refill. Names/quantities/prices are proposals.",
+    "decisions": [
+      {
+        "id": "obtain",
+        "action": "Buy actual stock or refuse",
+        "cost": "Each flask two native coins to the steward; one classification strip one coin; rubbing only transferred under explicit one-time salvage terms. No identity from purchase.",
+        "result": "Actual transfer changes seller/player counts and purse."
+      },
+      {
+        "id": "classify",
+        "action": "Spend a strip on one owned flask to learn conserving vs stripping",
+        "cost": "One strip, one stamina and two played minutes; tested sealed flask remains owned.",
+        "result": "Independent attributed classified evidence. Conserving still leaves fixative/rinse; stripping still leaves etchant/bleach."
+      },
+      {
+        "id": "trial",
+        "action": "Release one owned flask on the glazed practice chip",
+        "cost": "One full flask, one stamina and two played minutes; one empty container remains, no refill.",
+        "result": "Film or reaction may identify; harmless result alone remains ambiguous. Combining stripping + harmless proves bleaching wash, while conserving + harmless proves rinse. Paid ambiguous test stays paid; later classification can recompute from the original retained receipt."
+      },
+      {
+        "id": "apply",
+        "action": "Use a remaining flask on the unique fragile route rubbing, safely after deduction or as an explicitly uncertain gamble",
+        "cost": "One full flask plus one actual fragile rubbing, two stamina and three minutes.",
+        "result": "Fixative yields one Preserved route rubbing; bleach/etchant yields one Spoiled route rubbing; rinse yields the fragile rubbing back without preservation. The hidden truth determines physical result, not the player naming it. Destructive use is a disclosed possibility but unseen exact outcome must not leak in preview."
+      },
+      {
+        "id": "deliver",
+        "action": "Keep the preserved rubbing or deliver it for the stated escrow",
+        "cost": "Delivery transfers one actual Preserved route rubbing to the willing steward and deducts five coins from that actor\u2019s actual purse, crediting player native money once.",
+        "result": "Retained useful native output or funded settlement. Spoiled rubbing cannot satisfy delivery; no replacement rubbing, restored payment, automatic refund or repeat reward."
+      }
+    ],
+    "sourceInspiredInvariant": "An inconclusive material result can become decisive with independent category evidence; an experiment spends real means even when no precise identity or useful product is obtained.",
+    "originalExtension": "Persistent negative receipts and recomputation after later evidence. Brogue currently checks its harmless-splash inference at impact time.",
+    "actualUsefulConsumer": "The apply command physically preserves, leaves unresolved, or destroys a unique native rubbing. Inferred identity lets the player conserve remaining fixative and avoid bleaching the only deliverable. The deliver command consumes preserved output and real funded purse, not a knowledge flag or invented reward.",
+    "doNotDuplicate": "Do not reuse/edit the pale reed-oil vial, oil ID fact, Eda fixed assay or its existing native projector. No global randomized unknown-item catalogue is required for this finite original lot."
+  },
+  "integrationShape": {
+    "newLane": "Parent may select new disjoint src/game_absorption_*.js only; this leaf implements none.",
+    "reuse": [
+      {
+        "owner": "state.actors.player.facts",
+        "use": "Bounded explicit enrollment and typed per-lot observable results/classification facts; absent is false. Do not copy private truth into player facts."
+      },
+      {
+        "owner": "state.simulation.situations / applySituationEffect",
+        "use": "Begin one optional finite salvage situation on actual acceptance, with current Frontier world/instance/continuity/era/region context and actual player/steward participants. Authored lot truth stays private and frozen there; it chooses physical effects but never enters actor-observable facts or UI. Every observation/instruction/inference basis points to this actual situation and its real attributable actor."
+      },
+      {
+        "owner": "state.simulation.knowledge.player",
+        "use": "Attributed seen/understood observation/classification receipts and understood inference prose with cause/time/basis. Derive the finite candidate set purely from actual evidence, rather than saving another inventory or catalogue."
+      },
+      {
+        "owner": "state.simulation.owners / plan.gameplay.player.inventory / native item registry",
+        "use": "Real finite steward stock, stable full/empty/rubbing keys, conserved purchase/sample/use/delivery."
+      },
+      {
+        "owner": "previewSimulationCommand / commitSimulationCommand / applySimulationEffects",
+        "use": "Existing atomic costs and frozen outcomes, jobs, complete/cancel support and item/resource transfers. Recompute inference through an explicit host transition before durable publication, never by rendering."
+      },
+      {
+        "owner": "projectFeatureCommands / featureRecordedKnowledge / featureWorkControls",
+        "use": "Here/Notebook local action projection plus durable evidence and explained ambiguous candidates."
+      },
+      {
+        "owner": "prepareGameplayPublication / existing persistExpansionPlan publisher",
+        "use": "Single envelope/native publication and failure atomicity. No second durable publisher."
+      }
+    ],
+    "exactMissingBindings": [
+      "Pure finite diagnostic candidate evaluator using only public catalogue version plus observed receipts; no exported solver currently exists in reviewed modules.",
+      "Committed inference effect/receipt producer after trial/classification, with proof that more than one candidate retains ambiguity.",
+      "Apply and delivery material-result consumers described above; a pure solver alone is incomplete.",
+      "Parent/native integrator registers original item specifications/commands, joins facts on admission and completion, dispatches host commands, adds Notebook projection and extends native knowledge-aware naming for NEW IDs. Existing fieldcraft projector stays intact."
+    ],
+    "compatibility": "Prefer additive namespaced primitive facts and existing knowledge receipts with explicit enrollment. New IDs require this fork registry. Missing state remains inert; preserve expansion5\u201311/frozen old jobs, native IDs/keys/quality/stock/custody and private saves. Any new optional saved domain/version is selected by the actual shared integrator after live reservation release, never assumed by leaf.",
+    "failureSemantics": "Cancellation/refund before a specimen is actually released grants no observation. A completed ambiguous or destructive experiment retains actual spent material. A support-loss refund/forfeit policy must be disclosed and use the existing executor. Stale commands, absent buyer funds, borrowed/equipped flasks, insufficient stamina/stock or wrong location fail before publication."
+  },
+  "laterPlayableGate": [
+    "On generated saves and matching rebuild, purchase/classify/test visibly spends exact owned inputs; unknown names never leak catalogue truth; no rendering side effects.",
+    "Harmless trial alone retains multiple candidates; stripping+harmless proves bleach; conserving+harmless proves rinse. Reordered later classification reuses actual negative evidence, repeated trials consume remaining finite stock and never duplicate receipts/rewards.",
+    "Applying inferred fixative physically creates preserved native rubbing; applying bleach destroys it; rinse leaves it fragile. Correct evidence does not conjure bottles or automatically preserve anything.",
+    "Keeping versus funded delivery transfers exact rubbing and five actual steward coins; failed/destructive path cannot claim escrow. Save/reload/import at each branch preserves spent sample, inferred identity, output and finite purse.",
+    "Injected save failure, stale commands, cancellation/completion support loss, custody/equipment exclusion, keyboard/focus and director review. All gameplay/save/failure/browser/regression gates remain deferred under current phase."
+  ],
+  "checksPerformed": [
+    "Read-only primary repository access and raw source clone into authorized outside-Git snapshot.",
+    "Pinned commit/version/license; git status clean at pin/readback.",
+    "Named semantic source/native ranges and current reserved assignment reconciled.",
+    "Output JSON parse/readback, 19 unique pinned source evidence file/line anchors, seven source hashes and current native locator existence checked. Shared native drift explicitly recorded; no runtime/canonical writes."
+  ],
+  "nativeDriftAtFinalReadback": {
+    "checkedAt": "2026-10-06T19:50:00.389478+00:00",
+    "changedSinceReviewedFingerprint": [
+      "src/main.js",
+      "src/simulation.js"
+    ],
+    "decision": "Preserve exact reviewed fingerprints; active shared integrator is modifying inputs. Refresh current hooks before integration; these hashes are not a claim of latest native source."
+  }
+}

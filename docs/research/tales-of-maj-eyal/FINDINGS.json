@@ -1,0 +1,854 @@
+{
+  "source_pin": {
+    "official_page": "https://te4.org/download",
+    "official_source_link": "https://te4.org/dl/t-engine/t-engine4-src-1.7.6-nomusic.tar.bz2",
+    "route": "official 1.7.6 Source/no-music link, direct HTTPS curl (exit0)",
+    "version": "1.7.6",
+    "commit": null,
+    "pin_kind": "sha256 archive and package hashes",
+    "archive_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/acquisition/t-engine4-src-1.7.6-nomusic.tar.bz2",
+    "archive_bytes": 355293835,
+    "archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871"
+  },
+  "status": "five selected source paths traced; original proposals only",
+  "findings": [
+    {
+      "id": "T1",
+      "mechanic": "Talent acquisition, prerequisites and effective scaling",
+      "kind": "observed source",
+      "chain": [
+        "Bulwark category descriptor -> Birther assigns known/locked category and additive mastery",
+        "Levelup spends class or generic point only after prerequisite and cap checks",
+        "ActorTalents.learnTalent changes raw rank and refreshes passives",
+        "getTalentLevel applies temporary raw-rank alterations and category multiplier",
+        "Shield Pummel duration and weapon damage consume effective level and Shield Expertise"
+      ],
+      "rules": [
+        "techs_req1 uses the next raw talent rank: STR12+2*(rank-1) and actor level rank-1. Category known and earlier-category talent-count rules are separate gates.",
+        "Bulwark supplies shield-offense mastery offset0.3. Birther stores that offset and effective mastery adds1. Other selected descriptors can also contribute; this is not an assertion that every possible actor has exactly1.3.",
+        "Raw rank, additive equipment/effect rank and category mastery are separate. An unlearned talent remains zero: alterTalentLevelRaw is only applied to positive raw rank.",
+        "Pummel duration uses diminishing returns then floors. Weapon multiplier uses base+(high-base)*sqrt((effectiveRank+effectiveShieldExpertise/2)/5). Nominal high parameters are not hard caps.",
+        "The ordinary level-up UI caps points, including extra caps above level50 or explicit talent cap bonuses. Forced learn calls intentionally bypass ordinary prerequisites."
+      ],
+      "exception": "Insufficient stat/level/category/dependency or available points stops ordinary learning. Forced birth/item/escort grants use a different acquisition path and must not be interpreted as ordinary training eligibility.",
+      "evidence": [
+        {
+          "path": "unpacked/tome-1.7.6/data/birth/classes/warrior.lua",
+          "symbol": "Bulwark talents_types/talents",
+          "start": 130,
+          "end": 150,
+          "sha256": "f1206f33a02b0707c23c64febed3bfb940dcf1e7b26599fd054e125a185910d3"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Birther.lua",
+          "symbol": "descriptor category/rank assignment",
+          "start": 408,
+          "end": 425,
+          "sha256": "61dc1f8968621a6b7c74c44bebb3b45c48a560c19312ba83f9801da6033bc8f8"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/techniques/techniques.lua",
+          "symbol": "techs_req1-4",
+          "start": 97,
+          "end": 114,
+          "sha256": "02cecfa4b919747aa8d1f4220a9a9280b2fbf0a537bc476e31f3d085a606c9ce"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "canLearnTalent",
+          "start": 742,
+          "end": 805,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/dialogs/LevelupDialog.lua",
+          "symbol": "getMaxTPoints",
+          "start": 171,
+          "end": 174,
+          "sha256": "0b2e95043ce0b67c92a113c5ef4743ab04666d1f739f23830488f704f495ec83"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/dialogs/LevelupDialog.lua",
+          "symbol": "learnTalent UI point/cap checks",
+          "start": 378,
+          "end": 400,
+          "sha256": "0b2e95043ce0b67c92a113c5ef4743ab04666d1f739f23830488f704f495ec83"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "learnTalent guarded mutation",
+          "start": 550,
+          "end": 558,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "learnTalent rank/passive update",
+          "start": 603,
+          "end": 629,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "raw/effective/category mastery",
+          "start": 906,
+          "end": 949,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "alterTalentLevelRaw",
+          "start": 6949,
+          "end": 6962,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "combatTalentScale",
+          "start": 1536,
+          "end": 1565,
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "combatTalentWeaponDamage",
+          "start": 1835,
+          "end": 1841,
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+          "symbol": "Shield Pummel",
+          "start": 24,
+          "end": 71,
+          "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea"
+        }
+      ],
+      "inference": "The useful design separation is owned learning versus currently enhanced execution. YAIR already separates observed/understood/owned proficiency and functional mastery; no second rank system is justified."
+    },
+    {
+      "id": "T2",
+      "mechanic": "Legal use, resource costs, cooldowns and effect lifecycle",
+      "kind": "observed source",
+      "chain": [
+        "useTalent checks cooldown -> preUseTalent checks body/resource/custom restrictions",
+        "Pummel validates equipped shield and projectable target -> two shield attacks",
+        "Second hit -> stun immunity -> setEffect physical-save/duration hook",
+        "STUNNED adds temporary attributes -> damage and actBase consume them",
+        "timedEffects expires -> removeEffect calls deactivate and removes attributes"
+      ],
+      "rules": [
+        "Pummel declares base stamina8/cooldown6/range1. Pre/post resource code adjusts real cost; these are not guaranteed final costs for every actor.",
+        "No shield or missing/unprojectable target returns failure. postUseTalent exits on falsy result, before normal energy/resource spending and cooldown start. A legal completed attack spends even if the second blow misses or the effect is resisted. Other talents may have explicit failed-attempt penalties, so this is not a universal free-failure claim.",
+        "Pummel checks canBe(stun), then setEffect calls a distinct physical-save hook that may reject the effect or shorten its duration. Immunity and save are different mechanisms.",
+        "STUNNED halves outgoing projected damage, slows movement, puts up to three eligible activated talents on cooldown, and adds half_talents_cooldown. Executable actBase code decrements cooldowns by0.5 rather than1; the effect inline comment saying cooldown does not decrease is stale.",
+        "Effect expiry removes the temporary movement/stun/half-cooldown modifiers. It does not rewind damage dealt or restore prior cooldown values.",
+        "Shield Wall is a sustain with stamina reservation30, armor/block/control-resistance effects and Block cooldown reduction. The generic sustain path lowers resource maximum, tracks applied costs, and restores maximum/deactivates effects on release. Reservation, one-time action payment and ongoing resource drain are distinct fields."
+      ],
+      "exception": "Cooldown/resource/equipment failure blocks normal use; a second-hit miss/immunity/save rejection yields no stun while the legal action still completes. Release and effect expiry remove future modifiers without undoing spent effort. Shield Wall can be deactivated even when activation custom checks would fail.",
+      "evidence": [
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "activated useTalent lifecycle",
+          "start": 168,
+          "end": 202,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "preUseTalent body/energy restrictions",
+          "start": 5742,
+          "end": 5805,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "resource eligibility",
+          "start": 5835,
+          "end": 5866,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "custom on_pre_use exception",
+          "start": 6000,
+          "end": 6003,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "postUseTalent ret/energy gate",
+          "start": 6328,
+          "end": 6353,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "resource deduction",
+          "start": 6487,
+          "end": 6518,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "canBe stun immunity",
+          "start": 7599,
+          "end": 7629,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "effect save/duration and rejection",
+          "start": 7631,
+          "end": 7698,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/timed_effects/physical.lua",
+          "symbol": "STUNNED activation/deactivation",
+          "start": 479,
+          "end": 509,
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/damage_types.lua",
+          "symbol": "stunned outgoing damage",
+          "start": 171,
+          "end": 179,
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "actBase effect/cooldown cadence",
+          "start": 640,
+          "end": 653,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTemporaryEffects.lua",
+          "symbol": "timedEffects",
+          "start": 78,
+          "end": 110,
+          "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTemporaryEffects.lua",
+          "symbol": "setEffect hooks/merge/activation",
+          "start": 117,
+          "end": 178,
+          "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTemporaryEffects.lua",
+          "symbol": "removeEffect deactivation",
+          "start": 189,
+          "end": 231,
+          "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+          "symbol": "Shield Wall sustain",
+          "start": 190,
+          "end": 237,
+          "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "sustain capacity precheck",
+          "start": 5807,
+          "end": 5823,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "sustain capacity payment",
+          "start": 6380,
+          "end": 6397,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "sustain capacity restoration",
+          "start": 6437,
+          "end": 6453,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        }
+      ],
+      "inference": "Named status effects need real consumers and cleanup. YAIR already has a paid four-minute hook-cooling condition, immunity predicates, power readyAt and defensive windows. Copying the whole stun package would be redundant and poor idle UX; a finite maintained guard is a more distinct proposal."
+    },
+    {
+      "id": "T3",
+      "mechanic": "Contextual actor AI and bounded fallback",
+      "kind": "observed source",
+      "chain": [
+        "Elven elite warrior declares tactical AI, equipped shield and Pummel",
+        "Engine doAI -> ToME runAI, transition-enabled tactical redirection",
+        "Candidate legality/target/resource/range filters -> resolved tactics",
+        "Current wants/speed/other actions -> score and choice",
+        "useTalent rechecks action -> failed candidate score zero -> bounded retry -> maintenance/movement"
+      ],
+      "rules": [
+        "ActorAI source initializes ai_transition=true. A tactical actor such as the elven elite warrior therefore routes to improved_tactical under that setting. No runtime configuration was inspected; simple AI actors are not all tactical actors.",
+        "Pummel tactical ATTACK1 and DISABLE.stun3 are usefulness inputs, not deterministic priority or guaranteed selection. Candidate admission checks no_npc_use, cooldown, preUseTalent(fake), target range and custom AI checks.",
+        "Resolved tactics are multiplied by current wants; speed and level adjustments participate in scoring. Execution calls the same useTalent path. Failed candidate score is zeroed and selection repeats until no useful score, energy used or bounded attempt limit.",
+        "If no energy was used, outer AI can perform specified maintenance or safe/approach/flee movement. Eligibility is independent from tactical desirability."
+      ],
+      "exception": "Missing shield/target/range, cooldown or current resource excludes Pummel. A legal but resisted stun is an effect outcome, not an AI execution failure. This review makes no claim of optimal decisions or real use frequencies.",
+      "evidence": [
+        {
+          "path": "unpacked/tome-1.7.6/data/general/npcs/elven-warrior.lua",
+          "symbol": "elven elite warrior authored AI/gear/Pummel",
+          "start": 97,
+          "end": 117,
+          "sha256": "28a4a2cc0c50f66f1e2b74bba82895adb490a9a9f4880eb86b195b545a5ee3a1"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorAI.lua",
+          "symbol": "doAI",
+          "start": 135,
+          "end": 155,
+          "sha256": "d1960eceed805d42950d91b0f9ef2735f41be7cab3c8273f9e7ee8a3177c026f"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/ActorAI.lua",
+          "symbol": "transition default",
+          "start": 34,
+          "end": 37,
+          "sha256": "1e7f69685e49b5e356a1bb2c6516ec8544921a103a490b6e1ac53a83eb660e26"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/ActorAI.lua",
+          "symbol": "runAI routing",
+          "start": 48,
+          "end": 75,
+          "sha256": "1e7f69685e49b5e356a1bb2c6516ec8544921a103a490b6e1ac53a83eb660e26"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/ai/improved_tactical.lua",
+          "symbol": "candidate eligibility/usefulness",
+          "start": 557,
+          "end": 595,
+          "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/ai/improved_tactical.lua",
+          "symbol": "current wants accumulation",
+          "start": 1004,
+          "end": 1023,
+          "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/ai/improved_tactical.lua",
+          "symbol": "useTalent and failure retry",
+          "start": 1078,
+          "end": 1113,
+          "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/ai/improved_tactical.lua",
+          "symbol": "tactical entry/cadence/fallback",
+          "start": 1118,
+          "end": 1180,
+          "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829"
+        }
+      ],
+      "inference": "Current YAIR already implements fixed-kit contextual rush/hook/guard/jab selection, legal fallback and revalidation. Reuse that owner for any new guard/material consumers; neither a general utility-AI engine nor a new NPC scaling system is proposed."
+    },
+    {
+      "id": "T4",
+      "mechanic": "Quest aftermath, focused progression rewards and separate unlock lifetimes",
+      "kind": "observed source",
+      "chain": [
+        "Escort quest grant -> actor and reachable portal -> escort movement/combat AI",
+        "Arrival sets DONE -> reward choice -> selected party member gets specific stat/talent/category state",
+        "Failure sets FAILED -> cleanup plus attributed fate and achievement progress",
+        "Player-mode partial achievement lives on main actor; completed accolade goes to module profile",
+        "Fallen separately requires profile unlock plus current-actor heinous-act predicate"
+      ],
+      "rules": [
+        "Escort spawns with linked quest, level-matched actor and an eligible distant portal. Spawn/portal failure returns true from on_grant; Quest.init sets do_not_gain and ActorQuest does not register it.",
+        "Portal completion opens a selectable reward chat. Individual talent reward may set mastery1 if category unknown, then force-learns that talent. It does NOT call learnTalentType. Category reward calls learnTalentType(tt,false), storing an untrained category that later needs category learning. Specific method, school access and effective mastery are distinct.",
+        "Run actor/quest reward state differs from registerEscorts fate counts written through saveModuleProfile. Player-mode partial achievement counts are actor.achievement_data; completed global records use profile achievement output.",
+        "Escort saved/lost thresholds9 and player-attributed killed threshold6 are displayed achievements. Fallen heinous-act eligibility reads current-actor killed-escort progress greater than0, so first qualifying event can satisfy that one prerequisite without awarding the six-event accolade.",
+        "Fallen also checks profile.mod.allow_build.paladin_fallen and Sun Paladin subclass/Magic25. An inspected end-chat Aeryn-sacrifice path for a Sun Paladin calls Game.setAllowedBuild, which records allow_build in the profile. Meeting the escort-act predicate alone does not grant evolution or future-character policy."
+      ],
+      "exception": "Escort death distinguishes player-attributed betrayal from other loss, removes matching actors and supplies no success reward. Unknown category is not immediately trained; a qualifying local deed cannot bypass remaining profile/class/stat/evolution requirements. Neither source reading nor profile call sites prove save/online durability timing.",
+      "evidence": [
+        {
+          "path": "unpacked/tome-1.7.6/data/quests/escort-duty.lua",
+          "symbol": "failure cleanup",
+          "start": 78,
+          "end": 88,
+          "sha256": "33c9c1c516b776537ab94a49e089c0aec409701ffe735c9a4cab28799ee61449"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/quests/escort-duty.lua",
+          "symbol": "grant/death/portal setup",
+          "start": 118,
+          "end": 164,
+          "sha256": "33c9c1c516b776537ab94a49e089c0aec409701ffe735c9a4cab28799ee61449"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/quests/escort-duty.lua",
+          "symbol": "portal arrival",
+          "start": 181,
+          "end": 198,
+          "sha256": "33c9c1c516b776537ab94a49e089c0aec409701ffe735c9a4cab28799ee61449"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Quest.lua",
+          "symbol": "grant callback abort",
+          "start": 38,
+          "end": 45,
+          "sha256": "377f0a5babd9a4bacf21ccf42a3d84baf3b86788100fa3c28435293fcd570f8d"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorQuest.lua",
+          "symbol": "abort before quest registration",
+          "start": 55,
+          "end": 62,
+          "sha256": "b6642ccf629dcef435df41e65e66dc0d36bbcf5a0939d793340aea9346812344"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/chats/escort-quest.lua",
+          "symbol": "reward choice and fate profile",
+          "start": 24,
+          "end": 37,
+          "sha256": "55cbe2fc47ec4ab405d230eac446502b6169190d24adda6481f89a029dc466ca"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/EscortRewards.lua",
+          "symbol": "specific talent versus untrained category rewards",
+          "start": 528,
+          "end": 570,
+          "sha256": "e514ab5c4c2b76ace82286dd412290813bed26fc18c200eddf36e343fe9dd75e"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "knowTalentType",
+          "start": 889,
+          "end": 891,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbol": "learnTalentType state",
+          "start": 987,
+          "end": 993,
+          "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/PlayerStats.lua",
+          "symbol": "registerEscorts",
+          "start": 60,
+          "end": 62,
+          "sha256": "6d77b5a993ceb7ddad0af5e52e78a13c659cecee267d87ab3cedf0c83e38e124"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/achievements/kills.lua",
+          "symbol": "escort count thresholds",
+          "start": 93,
+          "end": 127,
+          "sha256": "b47b27a9eb7162028e5c1b1cf8651d7739f70c3912802f5ab13f2baeaa04b318"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/interface/WorldAchievements.lua",
+          "symbol": "partial player progress versus completed profile",
+          "start": 125,
+          "end": 160,
+          "sha256": "894d5e15bbfa82933e6ca512d6c7b6a7aa9225a90e409f29565b99029d8eccf2"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/birth/worlds.lua",
+          "symbol": "current-actor Fallen act gate",
+          "start": 93,
+          "end": 100,
+          "sha256": "f5d1cfae60c777536e6cfa2eca4bf7cc05c302d9f7d449b015a27faf624db784"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/uber/wil.lua",
+          "symbol": "Fallen prerequisite conjunction",
+          "start": 298,
+          "end": 306,
+          "sha256": "bde073032f50b20d456193dd79131b7e54e2dcdfc42ca92736e6f406e8c28931"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/chats/sorcerer-end.lua",
+          "symbol": "Aeryn-sacrifice profile unlock caller",
+          "start": 210,
+          "end": 221,
+          "sha256": "aedf48a16a5bb74fdecbe3768ccbc78cb4a10e825a625abcc74110ad5c20bfc6"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Game.lua",
+          "symbol": "setAllowedBuild",
+          "start": 2909,
+          "end": 2925,
+          "sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a"
+        }
+      ],
+      "inference": "An earned focused lesson versus a stocked object reward is a useful local addition. YAIR already has retained feats and one prestige; no account, new-start or generic trophy-driven power system is proposed."
+    },
+    {
+      "id": "T5",
+      "mechanic": "Material/ego generation, equipped function and actual damage consumers",
+      "kind": "observed source",
+      "chain": [
+        "Base shield material/generation/equip requirements -> resolved modifier chance",
+        "Natural sequential ego attempts -> eligible rarity/level sampling -> material-aware stat merge",
+        "Actor wear adds modifiers and item-granted Block -> takeoff reverses own grants",
+        "Pummel reads current shield special_combat for attacks",
+        "Block reads actual block value -> timed BLOCKING -> damage projector reduces incoming damage"
+      ],
+      "rules": [
+        "Five base shields have distinct material_level1-5, generation level bands, STR gates11/16/24/35/48, attack payload and block payload. Material level is not the same field as drop level or equip eligibility.",
+        "Prefix/suffix chances resolve through mbonus(40,5); they are not fixed40%. Natural ego generation picks an unattempted type and percent-rolls it. Only success advances to another type; first failure terminates the loop, so a later type may never be attempted.",
+        "Ego eligibility uses level_range/rarity; material-aware values use effective_ego_material_level or material_level plus current generation level. The reinforced example modifies special_combat.block and independently equipped armor. No actual sampled shield or drop frequency was tested.",
+        "hasShield reads real equipped combat records and rejects disarmed actors. onWear/onTakeoff apply/retract temporary values and item talent grants. Grant counts and surplus are per talent, not a source-specific rank ledger.",
+        "learnItemTalent executable code assigns an initial cooldown if none exists and preserves an existing cooldown. The nearby comment saying newly learned talents do not start on cooldown conflicts with code and is not used as a rule.",
+        "Block builds a two-turn effect from live combatShieldBlock. The damage projector calls do_block for positive damage. The effect returns unchanged damage for self-hit or unsupported type; eligible damage is reduced by actual block power and can feed shield hooks/counterstrike. Taking off an item removes that item grant; neither equipment nor its grant permanently teaches all shield techniques.",
+        "The C rng_percent binding reads an integer percent and returns rand_div(100)<threshold. Its registered percent function is called by the Lua immunity/ego checks. Fractional Lua percent inputs are converted to int here. RNG seeding/replay and all distributions are outside this review."
+      ],
+      "exception": "No equipped valid shield/disarmed actor blocks shield techniques. Natural ego roll failure can stop later attempts. Block rejects unsupported/self damage; changed equipment removes future supported function, while spent cooldown/effort is not a free reusable item bonus.",
+      "evidence": [
+        {
+          "path": "unpacked/tome-1.7.6/data/general/objects/shields.lua",
+          "symbol": "base shield and five material profiles",
+          "start": 22,
+          "end": 135,
+          "sha256": "5fa91b3f8fbdd6b33a8f03b5233a7e3a264eb8c4daffd7175027bc7b8e482d5b"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/resolvers.lua",
+          "symbol": "material-aware bonus",
+          "start": 626,
+          "end": 649,
+          "sha256": "250b5bdfc365cde762fbce6cfcecded14a0d37b2e10bfb7db06d2ef32ea87431"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/general/objects/egos/shield.lua",
+          "symbol": "reinforced shield ego",
+          "start": 392,
+          "end": 404,
+          "sha256": "085ea149c028eff5374fcd7c9f6c9e9a2a478cd12e1536fcb7d128c20ec4d197"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+          "symbol": "natural ego conditional/stop-on-failure",
+          "start": 652,
+          "end": 679,
+          "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa"
+        },
+        {
+          "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+          "symbol": "ego application and re-resolution",
+          "start": 713,
+          "end": 721,
+          "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+          "symbol": "hasShield/current block",
+          "start": 2548,
+          "end": 2600,
+          "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "wear temporary effects",
+          "start": 4630,
+          "end": 4638,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "wear grants",
+          "start": 4697,
+          "end": 4702,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "takeoff reversals",
+          "start": 4814,
+          "end": 4824,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+          "symbol": "item talent cooldown and reversible grants",
+          "start": 5176,
+          "end": 5221,
+          "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/misc/objects.lua",
+          "symbol": "Block data/current block getter",
+          "start": 250,
+          "end": 276,
+          "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/talents/misc/objects.lua",
+          "symbol": "Block action",
+          "start": 318,
+          "end": 345,
+          "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/timed_effects/physical.lua",
+          "symbol": "BLOCKING guards and damage return",
+          "start": 2314,
+          "end": 2376,
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/timed_effects/physical.lua",
+          "symbol": "BLOCKING temporary value lifecycle",
+          "start": 2378,
+          "end": 2385,
+          "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e"
+        },
+        {
+          "path": "unpacked/tome-1.7.6/data/damage_types.lua",
+          "symbol": "damage projector Block consumer",
+          "start": 409,
+          "end": 415,
+          "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479"
+        },
+        {
+          "path": "src/core_lua.c",
+          "symbol": "rng_chance and rng_percent",
+          "start": 3727,
+          "end": 3739,
+          "sha256": "9006a07b9ba0581d916e5e2f2e2f2f287aa9964710e82137ddac0039497d8f04"
+        },
+        {
+          "path": "src/core_lua.c",
+          "symbol": "Lua RNG registry",
+          "start": 3903,
+          "end": 3910,
+          "sha256": "9006a07b9ba0581d916e5e2f2e2f2f287aa9964710e82137ddac0039497d8f04"
+        }
+      ],
+      "inference": "YAIR already has quality/components/rarity and real equipped gear. The specific gap is current sluice field-frame keys projecting one fixed profile, not a missing item/material engine. Two authored material fits are a smaller transfer than procedural ego infrastructure."
+    }
+  ],
+  "yair_evidence": [
+    {
+      "path": "src/techniques.js",
+      "symbol": "technique knowledge/ownership/execution",
+      "start": 85,
+      "end": 126,
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735"
+    },
+    {
+      "path": "src/power_models.js",
+      "symbol": "mastery bands/capacity/formulas",
+      "start": 5,
+      "end": 39,
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+    },
+    {
+      "path": "src/skill_discovery.js",
+      "symbol": "discovery versus unlock versus eligibility",
+      "start": 44,
+      "end": 69,
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+    },
+    {
+      "path": "src/feature_expansion_powers.js",
+      "symbol": "specialization/mastery/physical harness",
+      "start": 13,
+      "end": 25,
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a"
+    },
+    {
+      "path": "src/feature_expansion_powers.js",
+      "symbol": "paid choices/refinement",
+      "start": 34,
+      "end": 53,
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a"
+    },
+    {
+      "path": "src/feature_expansion_powers.js",
+      "symbol": "actual harness crafting/transfer/drills",
+      "start": 54,
+      "end": 81,
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "symbol": "equipment/condition/defensive-window eligibility",
+      "start": 128,
+      "end": 180,
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "symbol": "legal current action quote",
+      "start": 215,
+      "end": 260,
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "symbol": "current guard consumption/gear effects",
+      "start": 288,
+      "end": 340,
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "symbol": "contextual fixed-kit AI",
+      "start": 369,
+      "end": 411,
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "symbol": "fixed current gear projection",
+      "start": 14,
+      "end": 28,
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "symbol": "native action publish",
+      "start": 34,
+      "end": 38,
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "symbol": "fixed block profile and cadence",
+      "start": 51,
+      "end": 73,
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "symbol": "actual cooling stock/lesson/practice/effect",
+      "start": 38,
+      "end": 98,
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f"
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "symbol": "source/body/owned gear context",
+      "start": 9,
+      "end": 32,
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1"
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "symbol": "shared command/field validation",
+      "start": 37,
+      "end": 76,
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1"
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "symbol": "idempotent receipts/committed methods",
+      "start": 116,
+      "end": 130,
+      "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3"
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "symbol": "committed progress consumer",
+      "start": 208,
+      "end": 225,
+      "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "symbol": "explicit enrollment/attempts",
+      "start": 60,
+      "end": 94,
+      "sha256": "c3d22b6ea093e3c9afaf40eebc12e5cdad1eae82dbce3b49dbcbaebc79acd3ae"
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "power readiness and shared staged eligibility",
+      "start": 60,
+      "end": 108,
+      "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc"
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "committed power readyAt",
+      "start": 144,
+      "end": 146,
+      "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc"
+    },
+    {
+      "path": "src/simulation.js",
+      "symbol": "shared condition expiry",
+      "start": 375,
+      "end": 380,
+      "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "symbol": "active source/condition projections",
+      "start": 55,
+      "end": 62,
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "symbol": "condition immunity/expiry cause",
+      "start": 206,
+      "end": 217,
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "symbol": "learn/refine state",
+      "start": 238,
+      "end": 257,
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+    },
+    {
+      "path": "src/items.js",
+      "symbol": "native shield components/quality",
+      "start": 751,
+      "end": 790,
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5"
+    },
+    {
+      "path": "src/combat_stances.js",
+      "symbol": "existing defensive native stance",
+      "start": 111,
+      "end": 123,
+      "sha256": "642df72156c03305606c9b6aac536b8183018bc082cd02d987ff7ee20d5d2265"
+    },
+    {
+      "path": "src/feature_expansion_objects.js",
+      "symbol": "joint consequence and funded finite orders",
+      "start": 160,
+      "end": 175,
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "symbol": "save before native publication",
+      "start": 7,
+      "end": 51,
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    }
+  ],
+  "duplicate_dispositions": {
+    "generic_achievement_engine": "existing Reference feat receipts and challenges; no new packet",
+    "generic_tactical_ai": "existing fixed-kit contextual action selection and fallback; reuse",
+    "generic_effect_cooldown_engine": "existing conditions/immunity/readyAt/expiry; reuse",
+    "second_mastery_or_material_engine": "existing raw XP/technique ownership/power bands/components/quality; reuse"
+  },
+  "limitations": [
+    "No ToME/YAIR gameplay or build executed.",
+    "No full-repository/DLC/asset/balance/exploit review.",
+    "No source copied into YAIR runtime.",
+    "Existing YAIR source remains implemented-unverified under its owner receipt."
+  ]
+}

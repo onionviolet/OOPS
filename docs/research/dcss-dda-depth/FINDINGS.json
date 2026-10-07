@@ -1,0 +1,1103 @@
+{
+  "schema_version": 1,
+  "status": "complete-source-review-proposed-transfers",
+  "review_date": "2026-10-05",
+  "assignment": "ASSIGNMENT.md",
+  "report": "REPORT.md",
+  "checkpoint": "CHECKPOINT.md",
+  "sources": {
+    "dcss": {
+      "directory": "/tmp/yair-dcss-dda-depth/crawl",
+      "url": "https://github.com/crawl/crawl",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "prior_revision": "ea329046556431e4bb9d3cc38c39ec998495ab69",
+      "terms": "LICENSE: GPL-2.0-or-later for program; listed component exceptions and qualified artwork provenance. No code, content or asset reuse selected."
+    },
+    "dda": {
+      "directory": "/tmp/yair-dcss-dda-depth/cdda",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "prior_revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+      "terms": "LICENSE.txt: CC BY-SA 3.0 Unported plus listed separately licensed components/fonts. This records source terms, not general permission for arbitrary reuse. No code, content or asset reuse selected."
+    }
+  },
+  "coverage": {
+    "dcss_paths": 3,
+    "dda_paths": 4,
+    "total_paths": 7,
+    "required_families": [
+      "hard accomplishment/record",
+      "interacting combat/item/effect",
+      "mastery/work progression"
+    ],
+    "method": "Selected data/eligibility -> runtime execution -> record or actual consequence. Overlapping DDA achievement/conduct paths share the attributed event engine. Not whole-repository coverage.",
+    "reference_games_run": false,
+    "tests_run": false,
+    "gameplay_modified": false
+  },
+  "prior_review": {
+    "owner": "../repository-bank/SOURCES.json",
+    "findings_owner": "../../gm/world-implementation/second-pass/repository-bank-absorption/FINDINGS.json",
+    "reused_findings": [
+      "RB-POW-02",
+      "RB-LIV-01",
+      "RB-LIV-02",
+      "RB-LIV-03"
+    ],
+    "delta": "New pins and new traced subsystems. Prior review is a baseline, not current behavior proof. Current YAIR now has finite stock bands and independent lessons/work, so prior missing-consumer claims are not repeated as live gaps."
+  },
+  "evidence": {
+    "C-RUNE": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/items.cc",
+      "symbols": [
+        "_get_rune",
+        "mark_milestone"
+      ],
+      "line_spans": [
+        [
+          1162,
+          1174
+        ],
+        [
+          1914,
+          1946
+        ]
+      ],
+      "sha256": "3e89196001f7e89682ae62c55418f8e34151bd226efb7924980370e14222df17",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/items.cc#L1162"
+    },
+    "C-ACCESS": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/main.cc",
+      "symbols": [
+        "rune locks"
+      ],
+      "line_spans": [
+        [
+          1443,
+          1461
+        ]
+      ],
+      "sha256": "49cb4509086ca4168752bc058df91aa494ba4e3b57476209a8fefacf59dff6fd",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/main.cc#L1443"
+    },
+    "C-EXIT": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/stairs.cc",
+      "symbols": [
+        "DNGN_EXIT_DUNGEON"
+      ],
+      "line_spans": [
+        [
+          868,
+          875
+        ]
+      ],
+      "sha256": "0267eff770ba7c4ee4f73e311e5aa8e3f202a8692a12f85bf3541429d605ec34",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/stairs.cc#L868"
+    },
+    "C-SCORE": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/hiscores.cc",
+      "symbols": [
+        "scorefile_entry::init",
+        "xlog fields"
+      ],
+      "line_spans": [
+        [
+          1193,
+          1197
+        ],
+        [
+          1232,
+          1232
+        ],
+        [
+          1672,
+          1710
+        ]
+      ],
+      "sha256": "35dc7712b2ca0a4ce5e948ffcea69f2b3f472e600a170fab3f35e39272244a7f",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/hiscores.cc#L1193"
+    },
+    "C-END": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/end.cc",
+      "symbols": [
+        "end_game"
+      ],
+      "line_spans": [
+        [
+          275,
+          302
+        ]
+      ],
+      "sha256": "5afdc42130b3fe886dd14be58642308c2478ff2a79ac9facddc9a2faab80f7d5",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/end.cc#L275"
+    },
+    "C-BRAND-DATA": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/item-prop.cc",
+      "symbols": [
+        "SPWPN_ENTANGLING",
+        "brand weighting"
+      ],
+      "line_spans": [
+        [
+          464,
+          480
+        ],
+        [
+          1308,
+          1319
+        ]
+      ],
+      "sha256": "4af1d6f3320dae0b3e42fe0fba57cd37a8a78ff6402406990b974d6ea7245cfc",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/item-prop.cc#L464"
+    },
+    "C-BRAND": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/attack.cc",
+      "symbols": [
+        "attack::apply_damage_brand",
+        "SPWPN_ENTANGLING"
+      ],
+      "line_spans": [
+        [
+          1412,
+          1419
+        ]
+      ],
+      "sha256": "dd372ccdc111d78b3eabf6f6129d15d54b1107d15c39b916a37e0ba32bd94c5c",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/attack.cc#L1412"
+    },
+    "C-HOLD": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/actor.cc",
+      "symbols": [
+        "can_constrict",
+        "start_constricting",
+        "clear_invalid_constrictions",
+        "handle_constriction"
+      ],
+      "line_spans": [
+        [
+          600,
+          677
+        ],
+        [
+          716,
+          737
+        ],
+        [
+          747,
+          759
+        ],
+        [
+          824,
+          864
+        ]
+      ],
+      "sha256": "e0ea7d7461a4f66a6ecd6268439face8f9247bb3a0ab705ac87afc5ca9398b72",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/actor.cc#L600"
+    },
+    "C-SKILL": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/skills.cc",
+      "symbols": [
+        "reset_training",
+        "exercise",
+        "_check_training_target",
+        "train_skills",
+        "player::set_training_target"
+      ],
+      "line_spans": [
+        [
+          762,
+          878
+        ],
+        [
+          1040,
+          1089
+        ],
+        [
+          1274,
+          1288
+        ],
+        [
+          1314,
+          1323
+        ],
+        [
+          1630,
+          1672
+        ],
+        [
+          1931,
+          1969
+        ]
+      ],
+      "sha256": "05e243a5ab0d4d9abcbebabfdef56a271d83d786e0a9f2458ec7df9c018cf1f3",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/skills.cc#L762"
+    },
+    "C-SAVE": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "crawl-ref/source/tags.cc",
+      "symbols": [
+        "marshall actor constriction",
+        "marshall skill points/targets"
+      ],
+      "line_spans": [
+        [
+          742,
+          760
+        ],
+        [
+          1805,
+          1815
+        ],
+        [
+          3526,
+          3549
+        ]
+      ],
+      "sha256": "a6eb69952543fd667b570cda07728c315515d61e45c31a24e39d8dc105adaf2f",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/crawl-ref/source/tags.cc#L742"
+    },
+    "C-TERMS": {
+      "game": "dcss",
+      "revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+      "path": "LICENSE",
+      "symbols": [
+        "licensing notice"
+      ],
+      "line_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "sha256": "9567806dee0f63849647525d0e3a739f1e5f40e8956e394ef51b0026ebad96eb",
+      "url": "https://github.com/crawl/crawl/blob/b005dc6fb05073307685cbb4d3ccec29962e6c2c/LICENSE#L1"
+    },
+    "D-ACH-DATA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "data/json/achievements.json",
+      "symbols": [
+        "achievement_kill_zombie",
+        "achievement_kill_in_first_minute",
+        "hidden_by"
+      ],
+      "line_spans": [
+        [
+          1,
+          7
+        ],
+        [
+          37,
+          74
+        ]
+      ],
+      "sha256": "0dea2d5fee8ccb78aac08f754d7edaf2d805b675b5d82eafc672f6483f94e314",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/data/json/achievements.json#L1"
+    },
+    "D-CONDUCT-DATA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "data/json/conducts.json",
+      "symbols": [
+        "conduct_zero_kills",
+        "conduct_no_attacks"
+      ],
+      "line_spans": [
+        [
+          9,
+          49
+        ]
+      ],
+      "sha256": "0ebfa62a3c0b71e8eea5d0a59d23c2737e473fff77f8d04ca025f0e30eb14c83",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/data/json/conducts.json#L9"
+    },
+    "D-STATS-DATA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "data/json/statistics.json",
+      "symbols": [
+        "avatar_kills_monster",
+        "avatar_species_kills",
+        "avatar_zombie_kills",
+        "num_avatar_zombie_kills"
+      ],
+      "line_spans": [
+        [
+          30,
+          56
+        ],
+        [
+          88,
+          108
+        ]
+      ],
+      "sha256": "95219b91102a672584eec96ce55fd6ae68b78ba686289dc6af3a42119129df72",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/data/json/statistics.json#L30"
+    },
+    "D-KILL": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/monster.cpp",
+      "symbols": [
+        "monster::die",
+        "character_kills_monster"
+      ],
+      "line_spans": [
+        [
+          3123,
+          3137
+        ]
+      ],
+      "sha256": "6b00dbfe84386573018e56d7ca26095c7c1b1388d308a8d0066dc000ee24c5bb",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/monster.cpp#L3123"
+    },
+    "D-STATS": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/stats_tracker.cpp",
+      "symbols": [
+        "stats_tracker::notify"
+      ],
+      "line_spans": [
+        [
+          363,
+          378
+        ]
+      ],
+      "sha256": "b5ed31c188f43f0b61fea252f26c4666ea9563f61e0863d603ec05eeab1462e3",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/stats_tracker.cpp#L363"
+    },
+    "D-ACH": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/achievement.cpp",
+      "symbols": [
+        "requirement_watcher::new_value",
+        "achievement_tracker::set_requirement",
+        "achievements_tracker::report_achievement",
+        "serialize",
+        "init_watchers"
+      ],
+      "line_spans": [
+        [
+          569,
+          582
+        ],
+        [
+          670,
+          698
+        ],
+        [
+          793,
+          815
+        ],
+        [
+          851,
+          868
+        ],
+        [
+          897,
+          942
+        ]
+      ],
+      "sha256": "8cccf0e8d0e4ea3b93dcb7278c7cd699ba744e820d2273942fc275928930f319",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/achievement.cpp#L569"
+    },
+    "D-ACH-CALL": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/game.cpp",
+      "symbols": [
+        "achievement_attained",
+        "achievement_failed"
+      ],
+      "line_spans": [
+        [
+          413,
+          453
+        ]
+      ],
+      "sha256": "f3892b4280c140e183e226146ef1f77d94e5e2016741852d683571bfcee45a16",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/game.cpp#L413"
+    },
+    "D-PAST": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/past_achievements_info.cpp",
+      "symbols": [
+        "past_achievements_info::load",
+        "avatars_completed"
+      ],
+      "line_spans": [
+        [
+          19,
+          80
+        ]
+      ],
+      "sha256": "c83b27d2cd2ee3de2c634fa237b79138d9013006d1c6633cb4ff8c5719777f28",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/past_achievements_info.cpp#L19"
+    },
+    "D-ACH-SAVE": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/game_io.cpp",
+      "symbols": [
+        "game::save_achievements"
+      ],
+      "line_spans": [
+        [
+          644,
+          660
+        ]
+      ],
+      "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/game_io.cpp#L644"
+    },
+    "D-MA-DATA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "data/json/martialarts.json",
+      "symbols": [
+        "style_aikido",
+        "buff_aikido_onblock",
+        "buff_aikido_static2",
+        "buff_aikido_static3"
+      ],
+      "line_spans": [
+        [
+          28,
+          94
+        ]
+      ],
+      "sha256": "3b6737e6c7bd2c173a6cb3df2cb42c2dc3be664088d2892ffd58eeea8b2fdee7",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/data/json/martialarts.json#L28"
+    },
+    "D-MA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/martialarts.cpp",
+      "symbols": [
+        "ma_requirements::is_valid_character",
+        "ma_buff::apply_buff",
+        "simultaneous_add",
+        "apply_onblock_buffs",
+        "ma_onblock_effects",
+        "mabuff_attack_cost_mult"
+      ],
+      "line_spans": [
+        [
+          744,
+          830
+        ],
+        [
+          1025,
+          1028
+        ],
+        [
+          1178,
+          1190
+        ],
+        [
+          1313,
+          1316
+        ],
+        [
+          1835,
+          1840
+        ],
+        [
+          1971,
+          1988
+        ]
+      ],
+      "sha256": "c3b67bf1ac01ae00c7fbadbf7bc2b0bf32130ff912fd71cb7fd8126a9f38cb50",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/martialarts.cpp#L744"
+    },
+    "D-MELEE": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/melee.cpp",
+      "symbols": [
+        "Character::block_hit",
+        "Character::attack_speed"
+      ],
+      "line_spans": [
+        [
+          2215,
+          2234
+        ],
+        [
+          2690,
+          2720
+        ]
+      ],
+      "sha256": "91e66e08a7e472f49535a4004511baa5923af70eb8bafb9fe1c83435cdf67d63",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/melee.cpp#L2215"
+    },
+    "D-PRACTICE-DATA": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "data/json/recipes/practice/mechanics.json",
+      "symbols": [
+        "prac_mechanics_basic_hydraulics",
+        "prac_mechanics_basic_engine"
+      ],
+      "line_spans": [
+        [
+          1,
+          18
+        ],
+        [
+          37,
+          53
+        ]
+      ],
+      "sha256": "68fc30cfa2bf33aa708ce3e10a71db264be1fa4e48009909509e237e57388477",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/data/json/recipes/practice/mechanics.json#L1"
+    },
+    "D-RECIPE": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/recipe.cpp",
+      "symbols": [
+        "recipe::get_difficulty",
+        "recipe::get_skill_cap",
+        "practice_data loading"
+      ],
+      "line_spans": [
+        [
+          90,
+          108
+        ],
+        [
+          599,
+          610
+        ]
+      ],
+      "sha256": "aab5d723bfa4af98e09f0ec040407163d43f05ce97b29d703cbad573d063124f",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/recipe.cpp#L90"
+    },
+    "D-CRAFT": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/crafting.cpp",
+      "symbols": [
+        "Character::can_start_craft",
+        "craft_skill_gain",
+        "craft_proficiency_gain",
+        "complete_craft"
+      ],
+      "line_spans": [
+        [
+          656,
+          672
+        ],
+        [
+          3109,
+          3163
+        ],
+        [
+          3198,
+          3233
+        ],
+        [
+          3707,
+          3740
+        ],
+        [
+          3751,
+          3776
+        ]
+      ],
+      "sha256": "11f59062b0992e6a2e17b260d4cb37400db32d27454cf09caca33bf68bc720d0",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/crafting.cpp#L656"
+    },
+    "D-CRAFT-ACTOR": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "src/activity_actor.cpp",
+      "symbols": [
+        "craft_activity_actor::do_turn",
+        "resource/tool debit before skill gain"
+      ],
+      "line_spans": [
+        [
+          6835,
+          6875
+        ]
+      ],
+      "sha256": "7668d1550d7341db690ca5562794cc0d1e6005c3609e5ec54f4f91d82b3b8788",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/src/activity_actor.cpp#L6835"
+    },
+    "D-TERMS": {
+      "game": "dda",
+      "revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+      "path": "LICENSE.txt",
+      "symbols": [
+        "licensing notice"
+      ],
+      "line_spans": [
+        [
+          1,
+          31
+        ]
+      ],
+      "sha256": "6e3d17bae7a8f0dee4b0d0c6af5bdf4396a0e685455efa8c2ad4ce52acdd99e2",
+      "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25/LICENSE.txt#L1"
+    }
+  },
+  "findings": [
+    {
+      "id": "DEPTH-C1",
+      "game": "dcss",
+      "category": "hard-goal/collection/run-record",
+      "trace": {
+        "data_eligibility": [
+          "C-RUNE",
+          "C-ACCESS"
+        ],
+        "execution": [
+          "C-EXIT"
+        ],
+        "recorded_result": [
+          "C-SCORE",
+          "C-END"
+        ]
+      },
+      "observed": "Rune pickup sets a distinct-rune bit and supplies collection messaging; pickup milestones separately identify collectibles. Default Zot access requires three runes (descent mode differs). Dungeon exit classifies a run as winning only with the Orb, otherwise leaving. Default score combines modified experience, rune count, gems and an extra rune/turn term for winners; it does not award carried inventory value. End-game writes score and logfile, excluding wizard/explore by default. Custom sprint score may override the default.",
+      "limits": "No formal general in-client achievement catalogue established by this path. Server tournament banners, external accounts and all branch generation are outside review. Score tuning and player behavior were not exercised.",
+      "prior_delta": "RB-POW-02 inspected casting risk, not hard collection/access/win/score paths. New revision is explicitly different; no old spell evidence silently upgraded.",
+      "yair_disposition": "extension",
+      "current_owners": [
+        "src/frontier_campaign.js",
+        "src/original_frontier_career_content.js",
+        "src/feature_expansion_battle.js",
+        "src/event_feed.js"
+      ],
+      "smallest_original_application": "Retain an earned local feat receipt for completing a field goal by a recorded route, then show it beside existing finite endings. Optional harder criteria can deepen the same campaign without a new world or reset.",
+      "inference": "A completion record should describe what was done and with what constraints. Importing numerical high-score pressure would be a separate design choice."
+    },
+    {
+      "id": "DEPTH-C2",
+      "game": "dcss",
+      "category": "interacting-item/combat/effect",
+      "trace": {
+        "data_eligibility": [
+          "C-BRAND-DATA",
+          "C-HOLD"
+        ],
+        "execution": [
+          "C-BRAND",
+          "C-HOLD"
+        ],
+        "recorded_result": [
+          "C-HOLD",
+          "C-SAVE"
+        ]
+      },
+      "observed": "Entangling is a weighted weapon brand and a polearm-related choice. A successful brand branch rolls coinflip and checks can_constrict before storing attacker/victim IDs and hold type. A resistant or already-held victim is excluded; entangling requires reach and at most one entangling target. Hold validity depends on actual actor life, line of sight and range; moving farther away can break direct holds. Continuing damage applies half-AC handling, timescale and hurt/death consequences. Sanctuary releases holds. Constriction IDs/type are serialized.",
+      "limits": "This is one brand path, not full item generation or damage balance. No general wet-electricity interaction is inferred. YAIR arena has no DCSS tile geometry, so spatial holds are poor first fit.",
+      "prior_delta": "Adds a concrete actor-linked ongoing effect and release lifecycle beyond casting failure.",
+      "yair_disposition": "covered core; new consumer for persistent hold",
+      "current_owners": [
+        "src/feature_expansion_battle.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/simulation_effects.js"
+      ],
+      "smallest_original_application": "Prefer one short actual-defense opening in the existing battle before attempting a persistent tether. If later selected, a hold must name actor/target/source, capacity, escape and termination; a label alone is insufficient.",
+      "inference": "Source-linked termination matters more than copying the vines or adding a generic damage-over-time status."
+    },
+    {
+      "id": "DEPTH-C3",
+      "game": "dcss",
+      "category": "mastery/training-choice",
+      "trace": {
+        "data_eligibility": [
+          "C-SKILL"
+        ],
+        "execution": [
+          "C-SKILL"
+        ],
+        "recorded_result": [
+          "C-SKILL",
+          "C-SAVE"
+        ]
+      },
+      "observed": "Automatic training weights recent exercise queues; manual training weights enabled/focused skills. Exercise changes weights, rather than independently creating unlimited skill XP. train_skills distributes available XP, with actual point cost debited and manual bonus points consumed. The player may set a base or modified skill target within 0..27, subject to trainability. Reaching a target clears it, disables training and announces the result. Skill points and both targets serialize. Species/mutation cases alter training policy.",
+      "limits": "DCSS has a finite level ceiling and pooled XP. Neither policy is recommended for YAIR. Cross-training and every skill function were not traced.",
+      "prior_delta": "New training allocation/target/record path; prior casting evidence used skill as an input, not this training lifecycle.",
+      "yair_disposition": "extension",
+      "current_owners": [
+        "src/power_models.js",
+        "src/feature_expansion_powers.js",
+        "src/feature_expansion_work_plan.js",
+        "src/simulation.js"
+      ],
+      "smallest_original_application": "Stop a funded practice plan after a chosen functional band is earned and explain the newly available function. Reuse current method/mastery owner and finite work plan rather than adding pooled XP.",
+      "inference": "A chosen stopping goal can make active-to-idle practice purposeful; no universal cap or skill substitution is implied."
+    },
+    {
+      "id": "DEPTH-D1",
+      "game": "dda",
+      "category": "achievement/record/hard-goal",
+      "trace": {
+        "data_eligibility": [
+          "D-ACH-DATA",
+          "D-STATS-DATA"
+        ],
+        "execution": [
+          "D-KILL",
+          "D-STATS",
+          "D-ACH"
+        ],
+        "recorded_result": [
+          "D-ACH",
+          "D-ACH-CALL",
+          "D-PAST",
+          "D-ACH-SAVE"
+        ]
+      },
+      "observed": "An achievement specifies statistic comparisons, optional time bounds and visibility/hiding. Monster death emits an attributed character_kills_monster event for non-hallucinations; summoner attribution is possible. Avatar-ID and species transformations filter those events before the zombie count. Statistic watchers update requirements; satisfying all requirements with a completed time condition records completion once, stores turn/current values and removes the live tracker. Callback emits player_gets_achievement and configurable notices. Status/initial IDs serialize, and a separate completed-ID/avatar record supports past achievements. The reviewed callback does not grant combat power or item rewards.",
+      "limits": "No full catalogue audit, event latency test, migration test or exploit/kill-attribution audit. Large count ladders and minute deadlines are examples, not recommended YAIR pacing.",
+      "prior_delta": "RB-LIV-01/02/03 covered teacher offers, proficiency and authored mission work, not achievement statistics/watchers/records.",
+      "yair_disposition": "new consumer for qualified cross-action accomplishment view; existing receipts covered",
+      "current_owners": [
+        "src/simulation.js",
+        "src/event_feed.js",
+        "src/adventure_notebook.js",
+        "src/feature_expansion_battle.js"
+      ],
+      "smallest_original_application": "Add a few original earned feats projected from committed current-owner facts and an immutable completion receipt. Avoid a second event bus or generic kill treadmill.",
+      "inference": "Source separates cosmetic recognition from power reward, allowing accomplishments without automatic stat inflation."
+    },
+    {
+      "id": "DEPTH-D2",
+      "game": "dda",
+      "category": "conduct/constraint/hard-goal",
+      "trace": {
+        "data_eligibility": [
+          "D-CONDUCT-DATA",
+          "D-STATS-DATA"
+        ],
+        "execution": [
+          "D-KILL",
+          "D-STATS",
+          "D-ACH"
+        ],
+        "recorded_result": [
+          "D-ACH",
+          "D-ACH-CALL"
+        ]
+      },
+      "observed": "No-attacks and no-kills are different conducts: one checks melee/ranged attack events, the other attributed death counts. A conduct is not granted as a normal positive achievement when its requirements remain satisfied. A monotonic requirement becoming false records failure once; conduct failure callback emits a distinct event and notice. Tracker status persists.",
+      "limits": "Reviewed through the shared kill-event path, not every attack or death attribution. Global no-kill rules include indirect attribution and cannot be assumed to mean only player button presses. No account reward for intact conduct was established.",
+      "prior_delta": "Adds negative historical conditions and irreversible failure records, distinct from proficiency thresholds.",
+      "yair_disposition": "new consumer",
+      "current_owners": [
+        "src/feature_expansion_battle.js",
+        "src/simulation.js",
+        "src/causal_situations.js",
+        "src/people_knowledge.js"
+      ],
+      "smallest_original_application": "An opt-in local route certificate could require resolving the sluice without strikes after enrollment. It records completed, violated or withdrawn separately; ordinary passage and prior earned progress remain available.",
+      "inference": "One bounded contract is preferable to policing the entire save or retroactively judging earlier actions."
+    },
+    {
+      "id": "DEPTH-D3",
+      "game": "dda",
+      "category": "combat/effect/mastery",
+      "trace": {
+        "data_eligibility": [
+          "D-MA-DATA",
+          "D-MA"
+        ],
+        "execution": [
+          "D-MELEE",
+          "D-MA"
+        ],
+        "recorded_result": [
+          "D-MA",
+          "D-MELEE"
+        ]
+      },
+      "observed": "Aikido data defines skill-gated static tiers and a one-turn on-block move-cost buff. Runtime requirements inspect buffs, armedness/style-weapon compatibility, skill and character flags. simultaneous_add first checks every candidate against the same pre-application state, then applies effects. Native block resolution spends stamina and dispatches on-block effects; timed ma_buff effects feed attack-cost calculation. On-block buff is triggered by a block event, not simply possessing a style.",
+      "limits": "No full technique-selection audit, combat session or balance claim. Static-tier descriptions do not prove all combat outcomes. Buff application is actual effect state/consequence; persistence of every transient combat buff was not separately audited.",
+      "prior_delta": "New data-to-native-combat effect consumer, rather than prior teaching/proficiency interface.",
+      "yair_disposition": "covered structural pattern; extension for earned defensive opportunity",
+      "current_owners": [
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_powers.js",
+        "src/combat_math.js",
+        "src/native_battle_host.js"
+      ],
+      "smallest_original_application": "After a real redirected or blocked attempt, offer one lower-cost retreat or counter window. The chosen event must be confirmed from the native strike outcome, with a single consumption/expiry rule.",
+      "inference": "Current YAIR already has guards, actual gear, fatigue counters, read/track openings and method bands. A new broad martial-art engine would duplicate it."
+    },
+    {
+      "id": "DEPTH-D4",
+      "game": "dda",
+      "category": "work/practice/mastery",
+      "trace": {
+        "data_eligibility": [
+          "D-PRACTICE-DATA",
+          "D-RECIPE",
+          "D-CRAFT"
+        ],
+        "execution": [
+          "D-CRAFT-ACTOR",
+          "D-CRAFT"
+        ],
+        "recorded_result": [
+          "D-CRAFT"
+        ]
+      },
+      "observed": "Hydraulics practice declares skill bounds, plumbing proficiency, one hour, tool qualities, a charged reusable kit and a book source. Runtime practice difficulty clamps to declared bounds; its skill cap is skill_limit minus one. Start checks required proficiencies/character requirements and available recipe inputs. Craft progress debits required resources and tools before skill gain; skill and proficiency gains occur during work. Qualified helpers gain different skill practice, and another crafter who knows a proficiency can double proficiency learning. Practice completion creates no product. Ordinary referenced crafting has a separate probabilistic recipe-memorization path.",
+      "limits": "Proficiency practice/persistence itself was already reviewed in RB-LIV-02. Recipe availability/memorization and all helper selection are partial context, not a new full trace of NPC autonomy. No free output is implied by practice.",
+      "prior_delta": "Adds actual recipe/tool/progress/output distinctions and helper learning context to the prior proficiency API finding.",
+      "yair_disposition": "covered; curriculum authoring extension only",
+      "current_owners": [
+        "src/repository_absorption_content.js",
+        "src/feature_expansion_society.js",
+        "src/original_frontier_field_content.js",
+        "src/feature_expansion_work_plan.js"
+      ],
+      "smallest_original_application": "Keep drill, productive craft and teacher lesson as separate actions. Current sealing practice advances owned mastery while producing real paid goods; Vale has independent paid teaching and demonstration. No extra global curriculum engine is justified by this review.",
+      "inference": "Useful distinction is what work can teach and what it actually produces, rather than another practice bar."
+    }
+  ],
+  "recommendations": [
+    {
+      "rank": 1,
+      "id": "TRANSFER-1",
+      "title": "Keep a small earned-feat record beside the existing endings",
+      "classification": "new consumer using existing durable outcomes",
+      "findings": [
+        "DEPTH-C1",
+        "DEPTH-D1"
+      ],
+      "player_goal_choice": "Complete one local field accomplishment by a selected route, then optionally meet a harder constraint. Example proposal: restore the floodline with actual protected supplies and preserve the courier\u2019s stock.",
+      "early_late_repeat": "Early completion records the route and useful result; later mastery permits a distinct improved solution. Revisit past receipts after renewal or a rematch without repeating rewards.",
+      "reward_aftermath": "Existing route, stock, relationship and skill effects remain the reward. A readable dated feat receipt preserves the accomplishment; no automatic stat bonus.",
+      "current_qualification": "Finite endings, actor facts, completed counters, result knowledge and battle lastReceipt already exist. event_feed is recent news, not a persistent qualified accomplishment catalogue; last battle fields can be overwritten.",
+      "owners": [
+        "src/original_frontier_career_content.js",
+        "src/repository_absorption_content.js",
+        "src/feature_expansion_battle.js",
+        "src/event_feed.js",
+        "src/adventure_notebook.js"
+      ],
+      "integration_cost": "Medium: small versioned definition/projection layer and receipt lifetime policy at existing durable publisher. Do not infer success from preview, count polling or scrape prose.",
+      "later_playable_gate": "A committed successful goal appears once with its method/cause; preview, failed settlement and repeat visits cannot award it. Existing aftermath stays useful. A generated save/reload retains the same receipt and unknown feats remain hidden.",
+      "compatibility": "Any new saved receipt field needs explicit optional-schema/default and retention/migration policy; old private saves are not touched during research."
+    },
+    {
+      "rank": 2,
+      "id": "TRANSFER-2",
+      "title": "Offer one voluntary local conduct challenge",
+      "classification": "new consumer",
+      "findings": [
+        "DEPTH-D2",
+        "DEPTH-C1"
+      ],
+      "player_goal_choice": "Before a new sluice attempt, choose a certificate challenge such as secure passage without making a strike, using support, objective work or the longer walk. Enrollment makes the scope and prohibited actions explicit.",
+      "early_late_repeat": "Ordinary completion comes first; a later prepared player can attempt a more demanding approach with mature methods. Attempt IDs allow a new challenge without erasing an earlier violation.",
+      "reward_aftermath": "Recorded certificate or honest violated/withdrawn attempt; an authored local recognition response only if a witness/report actually reaches the resident. Passage reward is still granted by existing route rules.",
+      "current_qualification": "Battle receipts and lastActions exist, but no saved optional conduct enrollment/violation contract was found in these owners. Current nonlethal battles cannot certify literal no-kills as a meaningful extra goal.",
+      "owners": [
+        "src/feature_expansion_battle.js",
+        "src/causal_situations.js",
+        "src/people_knowledge.js",
+        "src/gameplay_publication.js"
+      ],
+      "integration_cost": "Medium: exact enrollment/attempt scope and violation flag set by the committed action, then settled at the existing outcome boundary. No global action telemetry or retroactive conduct system.",
+      "later_playable_gate": "Enroll, preview a strike without violation, then commit a strike and see one durable violation. Complete an eligible non-strike route on another attempt; decline/withdraw remains available and grants no certificate. Save/reload preserves attempt identity and ordinary passage works either way.",
+      "compatibility": "New optional records require an explicit schema/absent default; enrollment does not judge the prior save or impose a universal rule."
+    },
+    {
+      "rank": 3,
+      "id": "TRANSFER-3",
+      "title": "Earn a short retreat opening from actual defense",
+      "classification": "extension",
+      "findings": [
+        "DEPTH-D3",
+        "DEPTH-C2"
+      ],
+      "player_goal_choice": "Spend a guard or release-pressure response, then choose between the earned one-action retreat discount and a counter opportunity after the actual defended strike.",
+      "early_late_repeat": "Ordinary defense permits a narrow exit; mature learned control may widen target support or efficiency. Fixed opponent equipment and anchoring still affect whether it works.",
+      "reward_aftermath": "Reduced cost or one concrete retreat step only after the qualifying event. Wounds, spent stock and helper fatigue remain; no passive permanent buff.",
+      "current_qualification": "Current sluice code already has guard consumption, redirect fatigue, anchored resistance, track/read openings, escape progress, actual hook gear and cause-bearing receipts. Add only one missing event-to-next-choice consumer. Full spatial tether/constriction remains poor fit without movement/reach consumers.",
+      "owners": [
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_powers.js",
+        "src/combat_math.js"
+      ],
+      "integration_cost": "Low to medium for one battle-state token, but exact blocked/hit/evaded trigger and action lifetime must be authored. High for importing DCSS spatial holds; exclude that larger system.",
+      "later_playable_gate": "A qualifying actual defense exposes the window once; an evasion, failed guard, unsupported helper or merely selecting the method does not. Use or expire it, then verify no free repeated discount and anchoring still applies. Generated save/reload retains or explicitly clears it according to the declared battle policy.",
+      "compatibility": "Battle schema/version decision belongs to its current runtime owner; no generic status engine is selected."
+    },
+    {
+      "rank": 4,
+      "id": "TRANSFER-4",
+      "title": "Let a practice plan stop at a useful functional milestone",
+      "classification": "extension with covered mastery/work core",
+      "findings": [
+        "DEPTH-C3",
+        "DEPTH-D4"
+      ],
+      "player_goal_choice": "Choose a specific next method function, see its real cost/prerequisite, and run funded known practice only until that band or a finite maximum is reached.",
+      "early_late_repeat": "Early single-target control leads to current higher mastery functions; later plans can aim at the next supported function without erasing the earlier path. The same skill remains useful.",
+      "reward_aftermath": "Existing method mastery/function and paid products, with a stopped-plan receipt and visible newly legal action. No transferred pooled XP or universal level cap.",
+      "current_qualification": "Current power models already support masteryBands; feature methods have mature functions and work plans have finite steps/paused reasons. Repository sealing and Vale\u2019s independent demonstration cover practice/work distinction. The proposed delta is goal-based stopping and function-oriented plan display, not a new training engine.",
+      "owners": [
+        "src/power_models.js",
+        "src/feature_expansion_powers.js",
+        "src/feature_expansion_work_plan.js",
+        "src/repository_absorption_workplan.js",
+        "src/repository_absorption_content.js"
+      ],
+      "integration_cost": "Low for an authored finite plan using current completion counts; medium only if persistent generic goal predicates are actually needed. Prefer existing finite plan first.",
+      "later_playable_gate": "Select one declared band, complete funded jobs and see the actual function become legal. Plan stops before an unnecessary new reservation; loss of tools/source pauses honestly; preview/cancellation does not add mastery. Save/reload preserves funded active work and the stopping goal.",
+      "compatibility": "No new skill economy. Any generic saved target requires explicit optional versioning; current plan/definition support must remain available."
+    }
+  ],
+  "current_consumer_snapshots": [
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "0fab313f5f754bed1147e75fd1958f0f61e92a8568ef32e91076af5160d1c0fe",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/combat_math.js",
+      "sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "sha256": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/feature_expansion_powers.js",
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "8a74c4eead0dfe11d517bf595c0898c02969b8ff2b1e7f075c33f6948e8eff33",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/frontier_campaign.js",
+      "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/native_battle_host.js",
+      "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/original_frontier_career_content.js",
+      "sha256": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/original_frontier_field_content.js",
+      "sha256": "faee6d0d221637b40b48a564072ebbea5fdb623d42a795ba2934163478b5f9c3",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "a9a5500e1480afec33983b3ccc6402cc0c7962d23bf2e8526a52036bf061c3b2",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/repository_absorption_content.js",
+      "sha256": "bd68300168e0a851675192b6659135ada89ea6b44924d3f4c6f28e2f682be90c",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/repository_absorption_workplan.js",
+      "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "186c211aa3ed0a0408c3946afd413fe021cdc57ac1be2cbddeb27e8cb7440411",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "ecda0411636d243f5c13bbb00e65da54ee6810531d13d01590c0f0774a0b1722",
+      "qualification": "read-only source qualification; moving Features owners; no behavioral proof"
+    }
+  ],
+  "limits": [
+    "Research only, no implementation authorization or runtime edits.",
+    "No game install/launch, build, gameplay/browser/save/regression suite or balance verification.",
+    "No raw source corpus/code imports/assets copied into YAIR; temporary official source checkouts only.",
+    "No private user save, source library, dependency, global owner, commercial acquisition, publication or external message.",
+    "No automatic NPC recognition from player achievement; reports and witnesses retain existing knowledge rules.",
+    "Current source is moving and must be reread before implementation. New gameplay remains implemented-unverified under the current project policy."
+  ],
+  "checks": {
+    "json_and_local_references": "verified at completion; see CHECKPOINT.md",
+    "source_anchors": "bounded spans and hashes checked against exact pinned local official source",
+    "rank_count": 4
+  }
+}

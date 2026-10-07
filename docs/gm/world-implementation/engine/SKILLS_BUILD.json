@@ -1,0 +1,65 @@
+{
+  "recordedAt": "2026-10-05T14:22:18.194105+00:00",
+  "scope": "four useful skill families and progressive native discovery; gameplay implemented-unverified",
+  "build": "npm run build passed",
+  "syntaxFiles": 11,
+  "registryReceipt": "SKILLS_REGISTRY.json",
+  "prebuildSourceHashes": 154,
+  "sourceDrift": [],
+  "sourceMapMatches": 152,
+  "sourceMapMismatch": [],
+  "missingChangedSources": [],
+  "bundleSHA256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3",
+  "sourceMapSHA256": "18374948a1599f0e0afd7949646699c99444802645ba667acc728a19a85b8e03",
+  "indexSHA256": "e6fc595703b1fe9b763c513357db7808bc84d476e49adb52e6642fd1cb558d72",
+  "indexCacheFingerprintMatches": true,
+  "changedInputs": {
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "src/skill_discovery_native.js": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+    "src/skill_expansion_host.js": "1cc711679510eb661d130744177f7a80e07302fc7180f4c8b2c32af59882cf55",
+    "src/skill_expansion_ui.js": "4f3ad801f8cfb036081c332276a32d16a21d66ce9d9e5b060b0fc146cecbc423",
+    "src/main.js": "4e26a58a645592480d1ed5496e99cebef4e9361fc6147c8ac3c700dea38143ba",
+    "src/simulation_content.js": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4",
+    "src/simulation_ui.js": "6678a1d2202944c8d9a01100215e7600df366473c93dd352542e6dc7f158de3e",
+    "src/adventure_notebook.js": "c1cbe41be447591759fd5aad7a1562a8c4cfc4162c8838f48742d45cef288947",
+    "src/technique_ui.js": "01d72e6a0c241ad7c20fd0b0e959697dd3d97296d85a329e0c410b836e6df61b",
+    "src/display.js": "1c8ca2da8da306c0aa0ae9cd637f35b49536e2090b448107e0412b9b0ca6bfb7"
+  },
+  "compatibility": {
+    "expansion": 5,
+    "simulation": 3,
+    "records": "additive existing owners only; no backfill, render/import grants or private-save access"
+  },
+  "unrun": [
+    "unit",
+    "generated gameplay scenarios",
+    "browser",
+    "save/reload/import",
+    "failure",
+    "regression",
+    "keyboard/playability",
+    "director acceptance"
+  ],
+  "staticHTTP": {
+    "index.html": {
+      "status": 200,
+      "bytes": 97673
+    },
+    "dist/bundle.js": {
+      "status": 200,
+      "bytes": 1449662,
+      "sha256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3"
+    },
+    "style.css": {
+      "status": 200,
+      "bytes": 65341
+    }
+  },
+  "reviewServer": {
+    "url": "http://127.0.0.1:18628/",
+    "execSession": 14470,
+    "listener": "COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nPython  38380 weiwei    3u  IPv4 0xb8a3fe118ff77155      0t0  TCP 127.0.0.1:18628 (LISTEN)",
+    "gameplay": "not opened or exercised"
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema": 1,
+  "snapshot_date": "2026-10-06",
+  "scope": "Official US-English base Steam API declared7products reconciled with installed depots and pinned private input data; not historical/regional exhaustive",
+  "five_gameplay_expansions": 5,
+  "products": [
+    {
+      "appid": 1452490,
+      "content_id": "EXPANSION1_ID",
+      "name": "Spaced Out!",
+      "classification": "gameplay",
+      "official_url": "https://store.steampowered.com/app/1452490/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "selected_source_dependency_chains_inspected",
+      "covered_paths": [
+        "ONI-19",
+        "ONI-11"
+      ],
+      "source_accessible_unread": [
+        "rocket modules/interiors/landing",
+        "radiation/nuclear conversion",
+        "full multi-colony scheduling"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 2952300,
+      "content_id": "DLC2_ID",
+      "name": "The Frosty Planet Pack",
+      "classification": "gameplay",
+      "official_url": "https://store.steampowered.com/app/2952300/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "selected_source_dependency_chains_inspected",
+      "covered_paths": [
+        "ONI-20"
+      ],
+      "source_accessible_unread": [
+        "full flora/fauna",
+        "all thermal gear/buildings",
+        "all geothermal failure and impurity branches"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 3302470,
+      "content_id": "DLC3_ID",
+      "name": "The Bionic Booster Pack",
+      "classification": "gameplay",
+      "official_url": "https://store.steampowered.com/app/3302470/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "selected_source_dependency_chains_inspected",
+      "covered_paths": [
+        "ONI-21"
+      ],
+      "source_accessible_unread": [
+        "all boosters and gunk/maintenance stations",
+        "remote operator lease and resource internals",
+        "robo-pilot modules"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 3655420,
+      "content_id": "DLC4_ID",
+      "name": "The Prehistoric Planet Pack",
+      "classification": "gameplay",
+      "official_url": "https://store.steampowered.com/app/3655420/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "selected_source_dependency_chains_inspected",
+      "covered_paths": [
+        "ONI-22"
+      ],
+      "source_accessible_unread": [
+        "all dinosaur diet/ecology and hanging plants",
+        "crater/destruction/projectile damage",
+        "all peat/iridium recipes"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 4310080,
+      "content_id": "DLC5_ID",
+      "name": "The Aquatic Planet Pack",
+      "classification": "gameplay",
+      "official_url": "https://store.steampowered.com/app/4310080/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "selected_source_dependency_chains_inspected",
+      "covered_paths": [
+        "ONI-23"
+      ],
+      "source_accessible_unread": [
+        "rubber/gasket production chain",
+        "full marine aquaculture/breathing fish",
+        "sole survivor recruit/story and all worldgen"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 4157740,
+      "content_id": "COSMETIC1_ID",
+      "name": "Neutronium Cosmetics Pack",
+      "classification": "cosmetic/personality",
+      "official_url": "https://store.steampowered.com/app/4157740/",
+      "declared_by_base_api": true,
+      "installed_depot_present": true,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "retained rule data/bundle and managed definitions",
+      "semantic_status": "classification/gating_inspected_only",
+      "covered_paths": [
+        "ONI-18"
+      ],
+      "source_accessible_unread": [
+        "cosmetic definition and Sena personality details"
+      ],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    },
+    {
+      "appid": 1244160,
+      "content_id": null,
+      "name": "Soundtrack",
+      "classification": "non_gameplay",
+      "official_url": "https://store.steampowered.com/app/1244160/",
+      "declared_by_base_api": true,
+      "installed_depot_present": false,
+      "ownership_verified": false,
+      "enabled_in_current_or_any_save": "not_inspected",
+      "assets": "not acquired; documented product only",
+      "semantic_status": "documented_only",
+      "covered_paths": [],
+      "source_accessible_unread": [],
+      "whole_dlc_reviewed": false,
+      "no_purchase_enablement_launch": true
+    }
+  ],
+  "gating_evidence": [
+    "E02",
+    "E36",
+    "E37"
+  ],
+  "bound": "Depot/bundle presence does not establish entitlement, enabled save context, whole DLC semantic review or executed gameplay. Neutronium includes a Duplicant personality but is officially classified as a cosmetic collection."
+}

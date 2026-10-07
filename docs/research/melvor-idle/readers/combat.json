@@ -1,0 +1,1599 @@
+{
+  "schema": 1,
+  "lane": "melvor-idle",
+  "reader": "combat_reader",
+  "status": "source-traced; parent review/integration pending",
+  "created_at": "2026-10-06T20:43:30.502080+00:00",
+  "reservation": {
+    "exclusive_output": "docs/research/melvor-idle/readers/combat.json",
+    "raw_work": "/Users/weiwei/.codex/research/melvor-idle/13311431/combat/",
+    "released_on_return": true,
+    "parent_final_integrator": true,
+    "children": [],
+    "live_processes": []
+  },
+  "source_pin": {
+    "installed_build_reference": "Steam1267910 build13311431; installed package1.2.2 is launcher according to parent intake, not mechanics edition reviewed here",
+    "reviewed_mechanics": "public hosted title v1.3.1 / scripts ?12097 / packages ?528",
+    "script_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/script-manifest.json",
+    "data_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/manifest.json",
+    "raw_inputs_read_only": true,
+    "entitlement_inference": false,
+    "source_inventory_is_not_semantic_coverage": true
+  },
+  "sources": {
+    "player": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/player.js",
+      "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+      "line_count": 3455,
+      "semantic_reviewed_spans": [
+        [
+          50,
+          88
+        ],
+        [
+          100,
+          123
+        ],
+        [
+          133,
+          207
+        ],
+        [
+          233,
+          245
+        ],
+        [
+          268,
+          305
+        ],
+        [
+          336,
+          406
+        ],
+        [
+          540,
+          575
+        ],
+        [
+          605,
+          815
+        ],
+        [
+          831,
+          935
+        ],
+        [
+          1008,
+          1101
+        ],
+        [
+          1296,
+          1318
+        ],
+        [
+          1337,
+          1366
+        ],
+        [
+          1456,
+          1538
+        ],
+        [
+          1630,
+          1663
+        ],
+        [
+          1682,
+          2017
+        ],
+        [
+          2046,
+          2078
+        ],
+        [
+          2144,
+          2175
+        ],
+        [
+          2222,
+          2331
+        ],
+        [
+          2370,
+          2468
+        ],
+        [
+          2487,
+          2517
+        ],
+        [
+          2569,
+          2671
+        ],
+        [
+          2691,
+          2715
+        ],
+        [
+          3210,
+          3255
+        ],
+        [
+          1241,
+          1261
+        ],
+        [
+          1428,
+          1455
+        ]
+      ],
+      "reviewed_scope": "Equipment/bank conservation and restrictions; food/manual and automatic consumption; attack/ammo/rune/prayer/summon cadence; modifiers and damage types; death; serialization.",
+      "complete_file_review": false
+    },
+    "character": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/character.js",
+      "sha256": "6fbf32388217e80ac4a61f91f20f02bac453c14046318cc98516a00a85df3701",
+      "line_count": 2233,
+      "semantic_reviewed_spans": [
+        [
+          150,
+          170
+        ],
+        [
+          226,
+          230
+        ],
+        [
+          682,
+          783
+        ],
+        [
+          965,
+          1070
+        ],
+        [
+          1100,
+          1155
+        ],
+        [
+          1178,
+          1193
+        ],
+        [
+          1372,
+          1485
+        ],
+        [
+          1648,
+          1701
+        ]
+      ],
+      "reviewed_scope": "HP/barrier/immunity dispatch; attack damage and events; timer queue; saved combat action.",
+      "complete_file_review": false
+    },
+    "equipment": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/equipment.js",
+      "sha256": "727a15e6d8846fae363714c49138d6fbae6aa062be24597dc0a00cee802fda4c",
+      "line_count": 1053,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          65
+        ],
+        [
+          188,
+          438
+        ]
+      ],
+      "reviewed_scope": "Slot requirements; item versus occupied slot ownership; conserved equip/unequip; quantity depletion; stat contribution; serialization/load compatibility.",
+      "complete_file_review": false
+    },
+    "food": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/equippedFood.js",
+      "sha256": "62541eea540ab6c3a5bd7a0bdf04378b22835560168a3209f7d1ceba15dbd232",
+      "line_count": 264,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          264
+        ]
+      ],
+      "reviewed_scope": "Full EquippedFood owner and UI selection/eat callbacks; selected quantities, consume/empty, save/load. This file was read completely.",
+      "complete_file_review": true
+    },
+    "base": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/baseManager.js",
+      "sha256": "ba1db6605148a0eb1d7c20adafd43a322c24d17ace0104cb8489a1ba312745a8",
+      "line_count": 748,
+      "semantic_reviewed_spans": [
+        [
+          95,
+          114
+        ],
+        [
+          501,
+          654
+        ]
+      ],
+      "reviewed_scope": "Death resolution/stop, enemy turnover, spawn HP/barrier, timer entry and exit, auto-food UI.",
+      "complete_file_review": false
+    },
+    "combat": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatManager.js",
+      "sha256": "0ab7c443acdfcb26141a60d3c60393b6ae708f42d5f449d6ae55494671a773a6",
+      "line_count": 1911,
+      "semantic_reviewed_spans": [
+        [
+          123,
+          141
+        ],
+        [
+          230,
+          301
+        ],
+        [
+          497,
+          707
+        ],
+        [
+          836,
+          978
+        ],
+        [
+          1183,
+          1340
+        ],
+        [
+          1363,
+          1437
+        ],
+        [
+          1494,
+          1522
+        ],
+        [
+          1530,
+          1574
+        ],
+        [
+          967,
+          1024
+        ],
+        [
+          1438,
+          1478
+        ]
+      ],
+      "reviewed_scope": "Entry/weapon type restrictions, stats at active cadence, drops and task/dungeon consumers, dungeon repeat/pause, death modes, corruption cost.",
+      "complete_file_review": false
+    },
+    "areas": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatAreas.js",
+      "sha256": "6a9e765446247578144a23e7fde6d6377bb8f81a9377c32815b78bd973fd9ae3",
+      "line_count": 1983,
+      "semantic_reviewed_spans": [
+        [
+          619,
+          680
+        ],
+        [
+          974,
+          1006
+        ],
+        [
+          1193,
+          1284
+        ],
+        [
+          1418,
+          1419
+        ]
+      ],
+      "reviewed_scope": "UI unlock versus runtime entry, selection callbacks, area allowed damage types/override and entry requirements.",
+      "complete_file_review": false
+    },
+    "slayer": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/slayer.js",
+      "sha256": "a96b2edf7c6a0732bb67e01ed9305f0f1e5f059a69de71533ecaa3b575262405",
+      "line_count": 733,
+      "semantic_reviewed_spans": [
+        [
+          140,
+          158
+        ],
+        [
+          207,
+          330
+        ],
+        [
+          336,
+          408
+        ]
+      ],
+      "reviewed_scope": "Manual/automatic task filtering, paid roll/extend, delayed activation, actual task kill/downstream completion, persisted task owner.",
+      "complete_file_review": false
+    },
+    "prayer": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/prayer.js",
+      "sha256": "be9b2c75c4cf592a440d2fbe2eb56e291d6ae77261d7f14c8a9b145e27643384",
+      "line_count": 329,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          88
+        ],
+        [
+          168,
+          230
+        ],
+        [
+          246,
+          298
+        ]
+      ],
+      "reviewed_scope": "Data-backed prayer books/types, UI level lock callbacks and unlock consumers.",
+      "complete_file_review": false
+    },
+    "potion": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/potionManager.js",
+      "sha256": "d52b9de5545ad64a283298fe4be903d97b08fe06f3731fde2056868798b7ed6f",
+      "line_count": 290,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          210
+        ]
+      ],
+      "reviewed_scope": "Owned bottle to active charges; event matching, per-proc exceptions, auto reuse and expiry; stat recomputation; serialization.",
+      "complete_file_review": false
+    },
+    "summon": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/summoning.js",
+      "sha256": "b4f23b5388142176324d63e4a4f104b0abb7cb2f5117a82d7af251a3e237a78d",
+      "line_count": 871,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          80
+        ],
+        [
+          133,
+          161
+        ],
+        [
+          266,
+          286
+        ],
+        [
+          314,
+          368
+        ],
+        [
+          395,
+          440
+        ],
+        [
+          464,
+          656
+        ],
+        [
+          651,
+          726
+        ],
+        [
+          848,
+          855
+        ]
+      ],
+      "reviewed_scope": "Tablet consumption XP, selected material alternatives/costs, recipe production result, mark and synergy consumer gates.",
+      "complete_file_review": false
+    },
+    "melvorMain": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/main.js",
+      "sha256": "da2b00d1dc192b51775e1c3eaa7b5d3431afe4d446f7da5d213b842807e9d2cb",
+      "line_count": 996,
+      "semantic_reviewed_spans": [
+        [
+          583,
+          594
+        ]
+      ],
+      "reviewed_scope": "Current character local save deletion plus optional signed-in PlayFab character-save deletion and index reload; no cloud account deletion.",
+      "complete_file_review": false
+    },
+    "bank": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/bank2.js",
+      "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+      "line_count": 1780,
+      "semantic_reviewed_spans": [
+        [
+          1212,
+          1264
+        ]
+      ],
+      "reviewed_scope": "Prayer/soul point creation consumes existing bank bones/souls.",
+      "complete_file_review": false
+    },
+    "game": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/game.js",
+      "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+      "line_count": 3859,
+      "semantic_reviewed_spans": [
+        [
+          152,
+          152
+        ],
+        [
+          481,
+          481
+        ],
+        [
+          1778,
+          1801
+        ],
+        [
+          2074,
+          2168
+        ],
+        [
+          2198,
+          2226
+        ]
+      ],
+      "reviewed_scope": "Potion stat-provider binding, online/offline same tick and death consumer, offline admission and error-stop. Coordinator independently owns the larger offline review.",
+      "complete_file_review": false
+    },
+    "requirements": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/requirements.js",
+      "sha256": "65538d0e720cc1d6d83c9082696f7f425a2afb7ba123dbfcced40f6f7c50a1df",
+      "line_count": 881,
+      "semantic_reviewed_spans": [
+        [
+          291,
+          315
+        ],
+        [
+          404,
+          441
+        ],
+        [
+          460,
+          488
+        ],
+        [
+          544,
+          566
+        ]
+      ],
+      "reviewed_scope": "Dungeon completion, persistent shop purchase, actually equipped SlayerItem, lifetime ItemFound distinction.",
+      "complete_file_review": false
+    },
+    "demo": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorDemo.json",
+      "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06",
+      "line_count": 63673,
+      "semantic_reviewed_spans": [
+        [
+          14362,
+          14388
+        ],
+        [
+          32515,
+          32547
+        ],
+        [
+          33620,
+          33737
+        ]
+      ],
+      "reviewed_scope": "Representative one-point bones, Wind Strike rune recipe and complete auto-eat three-tier data.",
+      "complete_file_review": false
+    },
+    "full": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorFull.json",
+      "sha256": "aa3d0babaaa5ef1bde4f0c0d6b5c50ae5d5db88b042684762cc97f50f24263f8",
+      "line_count": 90062,
+      "semantic_reviewed_spans": [
+        [
+          40144,
+          40181
+        ],
+        [
+          48427,
+          48595
+        ]
+      ],
+      "reviewed_scope": "Protect Item prayer versus ordinary Hawk Eye stat modifier.",
+      "complete_file_review": false
+    },
+    "aod": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorExpansion2.json",
+      "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5",
+      "line_count": 85817,
+      "semantic_reviewed_spans": [
+        [
+          10032,
+          10121
+        ],
+        [
+          31832,
+          31940
+        ],
+        [
+          35505,
+          35589
+        ],
+        [
+          48076,
+          48138
+        ],
+        [
+          48420,
+          48482
+        ]
+      ],
+      "reviewed_scope": "Tortoise summon/Barrier Touch potion event/cost data, Granite Golem barrier, Golem Territory entry/normal-type/sequence; Barrier recipe and downstream dust craft.",
+      "complete_file_review": false
+    },
+    "ita": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorItA.json",
+      "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78",
+      "line_count": 120307,
+      "semantic_reviewed_spans": [
+        [
+          512,
+          571
+        ],
+        [
+          11055,
+          11082
+        ],
+        [
+          47422,
+          47525
+        ],
+        [
+          52944,
+          53030
+        ],
+        [
+          105648,
+          105705
+        ],
+        [
+          117785,
+          117832
+        ]
+      ],
+      "reviewed_scope": "Abyssal/Eternal immunities; realm requirement data; Strange Sword functional damage type; selected soup damage-type healing; Into the Abyss progression; cooking relic modifier.",
+      "complete_file_review": false
+    },
+    "toth": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorTotH.json",
+      "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f",
+      "line_count": 59230,
+      "semantic_reviewed_spans": [
+        [
+          27700,
+          27765
+        ],
+        [
+          34302,
+          34396
+        ],
+        [
+          36735,
+          36806
+        ]
+      ],
+      "reviewed_scope": "Late multi-hit special; Herald dungeon pause/requirements and paid access item data; task category representative. No complete TotH encounter/reward audit.",
+      "complete_file_review": false
+    },
+    "y.native": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "line_count": 68,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          68
+        ]
+      ],
+      "reviewed_scope": "Complete current two-person staged native nonlethal encounter and finish.",
+      "complete_file_review": true
+    },
+    "y.party": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "line_count": 103,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          103
+        ]
+      ],
+      "reviewed_scope": "Complete current party consent/source/owned means, per-guard cost, helper exit and nonlethal aftermath.",
+      "complete_file_review": true
+    },
+    "y.objectives": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_objectives_battle.js",
+      "sha256": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83",
+      "line_count": 167,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          167
+        ]
+      ],
+      "reviewed_scope": "Complete schema5 physical reservation, paid guard upkeep, recovery objective, exact returns and native policy hook.",
+      "complete_file_review": true
+    },
+    "y.fit": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_fit_host.js",
+      "sha256": "0883c135c06c956afcbc924ea470fad7eede0fdd993a82f763d47543db8c2f87",
+      "line_count": 78,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          78
+        ]
+      ],
+      "reviewed_scope": "Visible native fit/preparation context and host preview/admission read.",
+      "complete_file_review": false
+    },
+    "y.battle": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_battle.js",
+      "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+      "line_count": 473,
+      "semantic_reviewed_spans": [
+        [
+          225,
+          255
+        ],
+        [
+          314,
+          457
+        ]
+      ],
+      "reviewed_scope": "Current authoritative action quote/commit/receipt/settlement and automatic choice. Earlier admission/validation lines located by search only.",
+      "complete_file_review": false
+    },
+    "y.host": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_battle_host.js",
+      "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7",
+      "line_count": 84,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          84
+        ]
+      ],
+      "reviewed_scope": "Current native actionAdapter invokes shared persist per cadence; no separate timer/publication owner.",
+      "complete_file_review": false
+    },
+    "y.storage": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_storage_transaction.js",
+      "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+      "line_count": 33,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          33
+        ]
+      ],
+      "reviewed_scope": "Complete current stock/equipment exclusion and stale count/custody-aware staged chest transfer.",
+      "complete_file_review": true
+    },
+    "y.gear": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_equipment_transaction.js",
+      "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+      "line_count": 29,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "reviewed_scope": "Complete native saved equipment staging then publication.",
+      "complete_file_review": true
+    },
+    "y.reserve": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audited_kit_reserve_content.js",
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "line_count": 23,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          23
+        ]
+      ],
+      "reviewed_scope": "Complete current finite stock thresholds and batch material/stamina/time costs.",
+      "complete_file_review": true
+    },
+    "y.reserveHost": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audited_kit_reserve_host.js",
+      "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+      "line_count": 77,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          77
+        ]
+      ],
+      "reviewed_scope": "Existing reserve controller/presentation distinguishing carried/chest/custody/equipped stock.",
+      "complete_file_review": false
+    },
+    "y.publisher": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "line_count": 62,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "reviewed_scope": "Existing native inventory/XP stage and post-save publish owner.",
+      "complete_file_review": true
+    },
+    "y.main": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/main.js",
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "line_count": 7386,
+      "semantic_reviewed_spans": [
+        [
+          2948,
+          2984
+        ],
+        [
+          3835,
+          3909
+        ],
+        [
+          6470,
+          6502
+        ],
+        [
+          6640,
+          6690
+        ]
+      ],
+      "reviewed_scope": "Existing native unconsciousness/recovery, manual/favourite effect consumable loop, shared regeneration. Not full main.js audit.",
+      "complete_file_review": false
+    },
+    "y.checkpoint": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+      "line_count": 13,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          13
+        ]
+      ],
+      "reviewed_scope": "Current finite source-delivery phase is implemented-unverified; actual native/current acceptance gates remain deferred.",
+      "complete_file_review": false
+    },
+    "y.backlog": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "sha256": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+      "line_count": 13,
+      "semantic_reviewed_spans": [
+        [
+          1,
+          13
+        ]
+      ],
+      "reviewed_scope": "Existing five later gate families including combat, compatibility and durable publication.",
+      "complete_file_review": false
+    }
+  },
+  "chains": [
+    {
+      "id": "C1",
+      "family": "Food preparation -> timed combat survival -> depletion -> death",
+      "classification": "source fact with one explicitly labelled ordering inference",
+      "prerequisite": {
+        "fact": "Owned food moves from bank into one of three equipped slots. Auto-eat Tier I data is a one-time1,000,000GP purchase granting20% threshold/40% refill target/60% efficiency. Tier II and III data add10/20/20 to those respective modifiers with5,000,000/20,000,000GP and prior-purchase unlock gates. Purchase mutation itself was not reviewed.",
+        "evidence": [
+          "player:50-88",
+          "player:1682-1705",
+          "food:1-30",
+          "demo:33625-33727"
+        ]
+      },
+      "decision": {
+        "fact": "Choose active food slot or eat/hold-to-eat manually, versus using purchased auto eat; optional auto swap additionally requires unlocked modifier and setting. Food with stats only contributes while selected.",
+        "evidence": [
+          "food:220-259",
+          "player:1724-1742",
+          "player:2422-2426"
+        ]
+      },
+      "cost_time": {
+        "fact": "Healing consumes quantity from selected equipped stock unless preserved. Auto eat computes ceil((limit-HP)/floor(foodHealing*efficiency/100)), caps it by equipped quantity, and does not interrupt. Manual eat interrupts the player action and restarts the summon bar; hold-to-eat tries every200ms. Base attack interval is equipment speed or4000ms, then modifiers and tick rounding, floor250ms. These are action delays, not free HP.",
+        "evidence": [
+          "player:652-672",
+          "player:1744-1813",
+          "character:226-230"
+        ]
+      },
+      "mutation": {
+        "fact": "HP heals only to max; consumption lowers EquippedFood quantity, clears slot at0 and recomputes food stats when selected item changes. Stat/food eaten events record actual healing/use.",
+        "evidence": [
+          "character:706-728",
+          "food:31-43",
+          "player:1737-1789"
+        ]
+      },
+      "consumer": {
+        "fact": "Player.damage calls autoEat only after damage and only if HP remains above0. Same shared game tick then calls combat.checkDeath. The stocked food can prevent later HP depletion but cannot recover a character already killed by the triggering hit. checkDeath processes both detected player and enemy deaths before deciding to stop, so a simultaneous enemy kill can still dispatch rewards/completion.",
+        "evidence": [
+          "player:623-635",
+          "game:1781-1797",
+          "base:501-532"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "When selected stock ends, unlocked/enabled swap can use another nonempty slot; otherwise food owner is empty. Player death removes effects, restores20% maxHP with minimum1, tracks death, applies current item-protection/free-death penalty branch and disables prayers. Combat stops. Standard item penalty picks among lowest deathPenaltyPriority equipment slots and, if the selected item is not empty and tutorial is complete, loses that equipped stack and all its charges. Perma-death mode resets the current character save except Golbin Raid/event/freeDeath. The actual reset consumer deletes the current local save slot, requests current-character PlayFab save deletion only if signed in, then reloads the index; it does not delete the cloud account. No offline invulnerability branch was found.",
+        "evidence": [
+          "player:652-672",
+          "player:2569-2576",
+          "player:2628-2669",
+          "base:501-532",
+          "combat:497-518",
+          "melvorMain:583-594"
+        ]
+      },
+      "boundary": "Auto-eat shop consumption/UI purchase behavior not source-traced. No player runtime or private save used; zero-effective-healing edge cases were not exercised."
+    },
+    {
+      "id": "C2",
+      "family": "Owned equipment + usable spell/ammo -> timed attack -> actual fuel -> damage reward -> unusable continuation",
+      "classification": "source fact",
+      "prerequisite": {
+        "fact": "Equipment swap conserves bank/equipped quantities, requires equip requirements, current combat restrictions, compatible concurrent equipment and available bank space. Weapon selects attackType and damageType. A combat spell requires normal and Abyssal magic level, requirements and required equipped item, unless explicit ignoreReqs mode. Wind Strike data requires2Air+1Mind rune and magic level1.",
+        "evidence": [
+          "player:1456-1535",
+          "equipment:229-258",
+          "player:2272-2331",
+          "player:1897-1904",
+          "demo:32520-32542"
+        ]
+      },
+      "decision": {
+        "fact": "Choose ranged/magic equipment, attack spell and combination rune policy; curse/aurora also have spellbook/required-item restrictions. Ordinary hit bonuses do not satisfy fuel or damage-type compatibility.",
+        "evidence": [
+          "player:193-196",
+          "player:336-406",
+          "player:1905-1972"
+        ]
+      },
+      "cost_time": {
+        "fact": "Character queues base attack interval or special inter-hit interval. First proc checks runes; magic special with usesRunesPerProc checks each proc and can append extraRuneConsumption. Rune cost subtracts provided runes/flat adjustments but clamps each positive cost to at least1; preservation can waive actual bank consumption. Ranged verifies required ammoType (type4 exception) before attack and consumes one equipped arrow after first attack unless preserved.",
+        "evidence": [
+          "character:1439-1481",
+          "player:605-618",
+          "player:673-692",
+          "player:736-815",
+          "player:1008-1016",
+          "player:1068-1084"
+        ]
+      },
+      "mutation": {
+        "fact": "Actual rune costs reduce bank stock; successful final-arrow attack retains that arrow stats until postattack consumption, then equipment quantity0 unequips and recomputes stats/rebinds consumption events.",
+        "evidence": [
+          "player:1008-1016",
+          "player:1068-1084",
+          "equipment:320-328",
+          "player:1296-1310"
+        ]
+      },
+      "consumer": {
+        "fact": "Permitted attacks invoke Character.attack; ordinary damage is gated by immunity, area hit check and barrier, then damage gives weapon/combat XP/currency rewards; enemy death dispatches combat drops, task counters and dungeon progress.",
+        "evidence": [
+          "player:620-622",
+          "character:770-775",
+          "character:978-1039",
+          "player:730-736",
+          "combat:520-582",
+          "combat:597-648"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Missing runes or wrong/empty ammo causes notification and no super.attack for that attempt. Character.act still queues the next action; this check does not stop combat, while enemy cadence continues. Missing curse/aurora runes turn that augmentation off rather than cancelling the base attack. Failed attacks and continued exposure can reach C1 death.",
+        "evidence": [
+          "player:694-728",
+          "player:736-790",
+          "character:1397-1420",
+          "combat:276-293",
+          "base:501-532"
+        ]
+      },
+      "boundary": "Not a complete attack/XP balance audit. All ranged weapon types, spellbooks and special attacks remain unread; source-shown flags establish distinct cadence rather than exhaustive content coverage."
+    },
+    {
+      "id": "C3",
+      "family": "Atlas barrier -> summoning owned tablets/potion charges -> distinct barrier damage -> ordinary combat resumes -> reward feeds crafting",
+      "classification": "source fact",
+      "prerequisite": {
+        "fact": "Golem Territory data needs lifetime finding of Ancient Stone Tablet and Normal damage type; its nine-monster sequence includes Granite Golem with50% barrier. Tortoise tablet equips in Summon1/2, gives summoningMaxhit16 and+75% barrierSummonDamage, consumes on PlayerSummonAttack. Barrier recipe data atSummoning70 has25base output,14Red+6Blue shards plus selected non-shard barrier gem alternative; Summoning cost functions add non-shard material cost.",
+        "evidence": [
+          "aod:35509-35548",
+          "requirements:544-557",
+          "aod:31836-31938",
+          "aod:10042-10073",
+          "aod:48086-48122",
+          "summon:318-368",
+          "summon:395-417"
+        ]
+      },
+      "decision": {
+        "fact": "Equip an actually owned attacking familiar, optionally a second earned synergy and a Barrier Touch potion. Synergy is enabled by actual mark-tier cross-checks or explicit all-synergy/master-relic exception. Barrier Touch I adds1flat barrier summon damage, has2charges and consumes on same summon event; it is a bonus to an enabled action, not an attack enabler by itself.",
+        "evidence": [
+          "player:1456-1535",
+          "summon:685-704",
+          "player:2442-2445",
+          "aod:10075-10097",
+          "potion:25-68"
+        ]
+      },
+      "cost_time": {
+        "fact": "Summon cadence starts at3000ms plus modifiers, tick-rounded and floor250ms. Summon attack emits interval-bearing PlayerSummonAttack; equipment event handlers spend one tablet unless preserved and gain Summoning XP from consumption interval (except Eternal damage type). Potion consumes an owned bottle on activation and one event charge unless preserved; matching auto-reuse may consume next owned bottle. Tablet recipe source base interval5000ms and GP-equivalent non-shard budget1000 exist, but complete production caller was not reviewed.",
+        "evidence": [
+          "player:113-119",
+          "player:882-913",
+          "player:1630-1650",
+          "player:2487-2507",
+          "summon:270-285",
+          "summon:133-138",
+          "summon:848-850",
+          "potion:32-106"
+        ]
+      },
+      "mutation": {
+        "fact": "Summon damage clamps to remaining barrier when active, otherwise HP. Damage dispatch permits SummonAttack/BarrierBleed/BarrierBurn to reduce barrier, while ordinary attacks have0HP damage until barrier ends. Barrier reaches0, invokes removal hook, and later ordinary attacks can affect HP.",
+        "evidence": [
+          "player:844-903",
+          "character:682-705",
+          "character:733-758",
+          "character:978-982",
+          "character:1182-1191"
+        ]
+      },
+      "consumer": {
+        "fact": "Enemy death enables reward path. Barrier monster dust quantity is max(floor(HPlevel*barrierPercent/100/20),1), with doubling and autoloot/container branches. Dust is an actual ingredient in the AoD crafting Imbued Leather recipe (Leather1+Dust1), so barrier victory supplies another skill. Dungeon finish awards Golem Chest and completion, which the Unholy Forest UI unlock requirement consumes.",
+        "evidence": [
+          "combat:597-621",
+          "combat:678-705",
+          "aod:48443-48461",
+          "combat:864-916",
+          "aod:35549-35589",
+          "areas:635-660"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Tablet0 unequips and stats recalc can remove canSummonAttack; empty summoningMaxHit stats means no new summon timer. Potion expiry removes its stats/events and notifies, unless selected auto-reuse finds another bottle. Enemy attacks continue while remaining barrier prevents ordinary HP damage. Important exception: successful first regular hits can separately apply flatBarrierDamage directly; barrier bleed/burn also work, so neither summons-only nor every-attack-barrier-damage is accurate.",
+        "evidence": [
+          "player:2272-2285",
+          "player:909-913",
+          "player:2487-2507",
+          "potion:69-107",
+          "character:1065-1069",
+          "character:682-692"
+        ]
+      },
+      "boundary": "Crafting recipe content inspected, full crafting execution delegated to production reader. Full Atlas monsters/equipment/synergies/Ancient Relics campaign unread; no purchased/owned DLC claim."
+    },
+    {
+      "id": "C4",
+      "family": "Bank bones/souls -> prayer decision -> per-attack/regen fuel -> modifier/protection -> expiration and death",
+      "classification": "source fact; timing risk separated as source inference",
+      "prerequisite": {
+        "fact": "Burying unlocked-skill bank bones consumes bounded owned quantity and adds prayer points; basic Bones give1point before modifiers. Souls consume stock separately to create soulPoints. UI prayer button is usable only after normal/Abyssal level gates. Protect Item requiresPrayer26 in data, Normal/Pure damage types and2points per enemy attack; grants itemProtection1.",
+        "evidence": [
+          "bank:1212-1260",
+          "demo:14367-14378",
+          "prayer:168-192",
+          "prayer:277-286",
+          "full:40149-40165"
+        ]
+      },
+      "decision": {
+        "fact": "Choose at most two active prayers, compatible books and current weapon damage type; Unholy requires at least2allowUnholyPrayerUse modifier and Abyssal uses separate soul fuel. Choosing ordinary accuracy/damage prayer differs from selecting functional loss protection.",
+        "evidence": [
+          "player:1815-1889",
+          "prayer:1-52",
+          "full:40166-40181"
+        ]
+      },
+      "cost_time": {
+        "fact": "Player attack costs pointsPerPlayer on first hit, each special proc if flagged, or every Unholy proc. Enemy Character.attack calls target.postAttack, which spends pointsPerEnemy. Regen spending occurs on a real healing regen event. Cost modifiers/preservation apply; choosing a prayer upfront requires current max per-event cost rather than one fixed tick drain.",
+        "evidence": [
+          "player:794-799",
+          "character:1100-1128",
+          "player:915-923",
+          "player:1973-2007",
+          "player:2046-2071",
+          "player:2691-2714"
+        ]
+      },
+      "mutation": {
+        "fact": "Current PP/SP are decremented and clamped0; when below maximum active cost, prayers disable through toggle->computeAllStats. Active prayer modifiers are derived from that active set, not permanently granted.",
+        "evidence": [
+          "player:1973-2016",
+          "player:1869-1889",
+          "player:2454-2467"
+        ]
+      },
+      "consumer": {
+        "fact": "Death penalty tests the current itemProtection/freeDeath value before removing chosen equipment. Prayer depletion thus affects the actual loss consumer, rather than merely changing displayed stats.",
+        "evidence": [
+          "player:2569-2576",
+          "player:2628-2633"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Insufficient budget or incompatible type prevents activation. After depletion, the player continues combat without active prayer benefits. Standard loss and perma-death branches follow C1.",
+        "evidence": [
+          "player:1815-1836",
+          "player:1973-2007",
+          "combat:497-518"
+        ]
+      },
+      "inference": "Because enemy attack calls postAttack after damage, and game.tick checks death after activeTick, a lethal enemy attack can spend the last Protect Item budget and disable it before death penalty consults current itemProtection. This ordering is source-derived and not runtime verified; do not promise last-budget protection."
+    },
+    {
+      "id": "C5",
+      "family": "Dungeon/task access -> player commitment -> sequence resources/time -> persistent completion -> later action unlock",
+      "classification": "source fact, with data-only late admission cost",
+      "prerequisite": {
+        "fact": "Entry requirements and UI unlock are distinct: selectDungeon checks entry plus damage compatibility; CombatAreaMenu UI also hides selectable content until unlockRequirement. Entry ItemFound uses lifetime find, SlayerItem uses actual equipped required item or explicit bypass, DungeonCompletion uses retained clear count. TotH Herald UI unlock requires Necromancers Palace clear; entry needs Golden Key shop purchase. Data defines that access purchase consuming one Golden Key, but shop mutator was not reviewed.",
+        "evidence": [
+          "combat:1190-1220",
+          "combat:1293-1308",
+          "areas:619-680",
+          "requirements:291-315",
+          "requirements:460-488",
+          "requirements:544-566",
+          "toth:34308-34347",
+          "toth:36773-36804"
+        ]
+      },
+      "decision": {
+        "fact": "Select a monster/dungeon, choose autoRestartDungeon, resume an authored boss pause, or buy/reroll/extend a Slayer category. Manual Slayer selection soft-checks having found the Slayer item; automatic selection requires runtime equipped support via normal requirement check.",
+        "evidence": [
+          "combat:1274-1310",
+          "combat:899-916",
+          "combat:1534-1558",
+          "slayer:207-330",
+          "slayer:349-361"
+        ]
+      },
+      "cost_time": {
+        "fact": "Dungeon entry itself has no generic material/time charge in selectDungeon; actual cost is fighting each monster after spawn+attack delays and C1–C4 consumables. Current area requirements remain checked in player.rollToHit and summoning hits. Slayer roll/extension constructs modified Costs and consumes only after eligibility; roll activates after1000ms. TotH Legendary data uses50,000SlayerCoins roll,21,600extend,level102,60base kills, providing a late-game example of greater commitment rather than just higher stats.",
+        "evidence": [
+          "combat:1293-1308",
+          "base:587-613",
+          "player:268-272",
+          "player:620-622",
+          "player:882-895",
+          "slayer:207-315",
+          "toth:34352-34395"
+        ]
+      },
+      "mutation": {
+        "fact": "Combat kill increases areaProgress; full dungeon sequence resets progress, grants rewards/once-only reward, increments retained completion and emits dungeonCompleted. Slayer matching kill decrements killsLeft; at0 tasksCompleted increases, event fires and selects next task without roll charge.",
+        "evidence": [
+          "combat:864-917",
+          "combat:625-648",
+          "slayer:222-234"
+        ]
+      },
+      "consumer": {
+        "fact": "Retained completion feeds DungeonRequirement, UI later unlock and events; new Slayer category completions remain persisted. Finishing a dungeon can repeat automatically except Into the Mist or a listener preventAutoRestart; otherwise loots/stops. Boss pause prevents active combat ticking until explicit resume.",
+        "evidence": [
+          "requirements:291-304",
+          "areas:635-660",
+          "combat:899-917",
+          "combat:276-283",
+          "combat:1534-1558",
+          "slayer:391-408"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Invalid entry/damage type does not select; missing ongoing requirements makes player hit checks fail. Unaffordable/no-eligible task does not consume its roll cost. Fleeing stops timer/action and may loot; player death stops combat, but checkDeath also processes an enemy death detected in the same tick, so a simultaneous final kill may still dispatch completion/rewards. Prior kills and consumed resources stay actual; partial areaProgress alone is not a clear.",
+        "evidence": [
+          "combat:1190-1220",
+          "combat:1274-1308",
+          "player:620-622",
+          "slayer:260-288",
+          "combat:1366-1387",
+          "base:501-518"
+        ]
+      },
+      "boundary": "No full TotH Herald combat effects/reward chain or Golden Key acquisition/shop mutation review. Entry checks alone should not be claimed to enforce every UI unlock requirement through arbitrary programmatic calls."
+    },
+    {
+      "id": "C6",
+      "family": "ItA weapon means -> allowed damage type -> food suitability -> Into the Abyss clear -> realm gate data",
+      "classification": "source fact with unreviewed realm consumer clearly bounded",
+      "prerequisite": {
+        "fact": "Strange Sword data requiresAttack99 and changes weapon damageType toAbyssal. Into the Abyss dungeon allows onlyAbyssal, entryAttack99, UI unlock after The Abyssal Approach. Abyssal damage type makes its owner immune toNormal; Eternal makes owner immune toNormal andAbyssal.",
+        "evidence": [
+          "ita:47430-47482",
+          "ita:105654-105701",
+          "ita:519-541"
+        ]
+      },
+      "decision": {
+        "fact": "Bring functional compatible weapon and select suitable food/prayer/spellbook, rather than merely increasing a Normal attack bonus. Player.computeDamageType reads equipped weapon type; selector and in-combat equipment changes validate allowed area/monster types.",
+        "evidence": [
+          "player:2304-2324",
+          "combat:1194-1220",
+          "player:1355-1365",
+          "player:1815-1836",
+          "player:1905-1910"
+        ]
+      },
+      "cost_time": {
+        "fact": "Weapon equip moves owned item out of bank (not destroyed), and equipping may be forbidden during dungeons/strongholds without swapping modifier. Same fight consumables/time remain C1–C4. Toxic Crab Cream Soup hashealsFor28 and selected foodHealingValue+1000 scoped toAbyssal. That modifier is consumed by getFoodHealing query using current damageType/cooking action; last-food depletion removes selected modifier.",
+        "evidence": [
+          "player:1456-1535",
+          "player:2144-2165",
+          "ita:52957-52976",
+          "player:1781-1790",
+          "player:2422-2426",
+          "player:1737-1742"
+        ]
+      },
+      "mutation": {
+        "fact": "Actual compatible attacks can progress the nineteen-monster dungeon; same dungeon-completion map/event mutates after last kill.",
+        "evidence": [
+          "ita:105654-105679",
+          "combat:864-917",
+          "player:620-622",
+          "character:770-775"
+        ]
+      },
+      "consumer": {
+        "fact": "ItA Abyssal realm data declares Into the Abyss completion>=1 as its unlockRequirement; DungeonRequirement reads actual retained count. This is integrated data+completion-owner evidence, but realm UI/activation consumer belongs to expansion reader and is not claimed reviewed here.",
+        "evidence": [
+          "ita:11058-11072",
+          "requirements:291-304",
+          "combat:129-141"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Normal weapon rejects area/immune monster instead of becoming sufficient through stat scaling. Depletion removes healing suitability and active benefits, retaining real death risk. Eternal branch additionally suppresses tablet-consumption XP and ordinary Slayer/Corruption XP in reviewed kill consumers; its full reward/progression rules are not covered.",
+        "evidence": [
+          "combat:1194-1220",
+          "character:770-775",
+          "player:2487-2491",
+          "combat:623-646",
+          "player:623-635"
+        ]
+      },
+      "boundary": "All ItA depth rewards, Corruption effect rules, Eternal content and full realm activation unread. No DLC ownership claim."
+    },
+    {
+      "id": "C7",
+      "family": "Base-package Stronghold tier equipment -> actual passives/encounter -> repeated completion/reward -> higher-tier commitment",
+      "classification": "source fact; selected stronghold only; free-update chronology left to parent primary docs",
+      "prerequisite": {
+        "fact": "Stronghold of the Undead data requiresSlayer10 and25Undead Graveyard completions, allowsNormal player damage and overrides monster damage toPure. Standard has no required items; Augmented needs three actual Undead Enhancement1/2/3 items; Superior needs the three corresponding Augmented items. These are actual equipped requirements, not lifetime find or an arbitrary power score.",
+        "evidence": [
+          "full:48429-48595",
+          "combat:1322-1340"
+        ]
+      },
+      "decision": {
+        "fact": "Select a legal stronghold tier and equipped loadout. Required tier gear must remain equipped: areaRequirementsMet rechecks, current manager restrictions expose areaItems, and equipment-set/removal paths reject taking required items out. Generic stronghold swapping also needs its modifier.",
+        "evidence": [
+          "combat:129-141",
+          "combat:243-266",
+          "player:1241-1261",
+          "player:1428-1455",
+          "player:2144-2165"
+        ]
+      },
+      "cost_time": {
+        "fact": "No generic admission consumption occurs in selectStronghold. Opportunity cost is occupying gear slots plus fighting the full fixed sequence with real spawn/attack and C1–C4 supplies. Tier passives change actual enemy state via computeUnsavedPassives and computePassivesForEnemy, rather than merely decorating the reward UI.",
+        "evidence": [
+          "combat:1322-1340",
+          "combat:1389-1433",
+          "combat:1438-1469",
+          "base:587-613"
+        ]
+      },
+      "mutation": {
+        "fact": "Each completed full sequence resets areaProgress, increments timesCompleted, picks selected tier rewards and emits StrongholdCompleted. Standard and Augmented data award one corresponding enhancement scroll at100% chance; Superior reward is Undead Enhancement Superior at1% chance. Rewards use current loot doubling/item-drop suppression and bank add; counters do not imply a guaranteed rare item.",
+        "evidence": [
+          "combat:970-1024",
+          "full:48531-48589"
+        ]
+      },
+      "consumer": {
+        "fact": "Actual selected tier passives affect enemy initialization, and Superior completions also call the pet roll/fixed-clear branch. AutoRestartDungeon controls continuing the current sequence; absent repeat it loots and shows completion with or without successful reward.",
+        "evidence": [
+          "combat:1447-1461",
+          "combat:994-1024",
+          "base:591-613"
+        ]
+      },
+      "depletion_failure_aftermath": {
+        "fact": "Insufficient gear/entry/type prevents admission without a generic material charge. During combat, depleted food/prayer/ammo/tablets use prior real failure semantics; death stops combat but simultaneous enemy death may still complete the sequence in the same tick. Existing completed counts and prior earned reward remain actual. Gear loss after a standard death can prevent reentry, creating a means-restoration prerequisite; perma-death remains a separate mode.",
+        "evidence": [
+          "combat:1322-1340",
+          "player:2628-2669",
+          "combat:497-518",
+          "base:501-518"
+        ]
+      },
+      "boundary": "Reward scroll upgrade execution and all other Strongholds/passive formulas remain unread. This trace establishes selected tier gating, passives, counter and reward consumers, not full stronghold progression/rare-drop balance."
+    }
+  ],
+  "dependency_map": [
+    {
+      "from": "Bank owned equipment",
+      "via": "equip requirements, slots, conflict/bank space/combat restrictions",
+      "to": "equipped stats + weapon attackType/damageType + event costs",
+      "evidence": [
+        "player:1456-1535",
+        "player:2272-2331",
+        "player:1630-1650"
+      ]
+    },
+    {
+      "from": "Bank food + purchase modifiers + selected food",
+      "via": "HP>0 damage callback / manual choice / damageType healing query",
+      "to": "HP survival + stock/stat depletion + manual attack interruption",
+      "evidence": [
+        "player:623-672",
+        "player:1682-1813",
+        "player:2422-2426"
+      ]
+    },
+    {
+      "from": "Spell selection + required item/level/book",
+      "via": "rune provision and per-first/per-proc bank costs",
+      "to": "actual normal/special attack or failed exposed attempt",
+      "evidence": [
+        "player:336-406",
+        "player:673-790",
+        "player:1897-1939"
+      ]
+    },
+    {
+      "from": "Familiar owned tablets + marks + optional potion",
+      "via": "summon timer/event, damageType-specific maxhit, charged bonuses",
+      "to": "barrier removal / HP attack / Summoning XP / conserved last-charge expiry",
+      "evidence": [
+        "player:882-913",
+        "player:2272-2285",
+        "player:2487-2507",
+        "summon:685-704",
+        "potion:32-107"
+      ]
+    },
+    {
+      "from": "Bones/souls bank stock",
+      "via": "bank consumption into PP/SP then chosen prayer/book per-event cost",
+      "to": "current stat modifier or functional item-loss protection",
+      "evidence": [
+        "bank:1212-1260",
+        "player:1815-1889",
+        "player:1973-2007",
+        "player:2628-2633"
+      ]
+    },
+    {
+      "from": "Life-time find, actual equipped requirement, prior dungeon/shop record",
+      "via": "UI unlock + selection entry + current areaRequirementsMet",
+      "to": "legal fight + drops + Slayer and clear counters",
+      "evidence": [
+        "areas:619-680",
+        "combat:129-141",
+        "combat:1190-1340",
+        "slayer:315-328",
+        "requirements:291-304",
+        "requirements:460-488",
+        "requirements:544-557"
+      ]
+    },
+    {
+      "from": "Barrier kill + loot owner",
+      "via": "actual dust drop and crafting item cost",
+      "to": "Imbued Leather material support",
+      "evidence": [
+        "combat:678-705",
+        "aod:48443-48461"
+      ]
+    },
+    {
+      "from": "Repeated fight/completion events",
+      "via": "same active/passive ticks and retained time/resource state",
+      "to": "later dungeon access, task tiers, realm requirement data and possible death",
+      "evidence": [
+        "game:1781-1797",
+        "game:2198-2226",
+        "combat:864-917",
+        "slayer:222-234",
+        "ita:11058-11072"
+      ]
+    },
+    {
+      "from": "Actual equipped Stronghold tier set + retained prior dungeon clears",
+      "via": "legal tier admission, persistent gear restrictions and selected enemy passives",
+      "to": "timesCompleted, tier-specific bank rewards, Superior pet and repeat/stop",
+      "evidence": [
+        "combat:129-141",
+        "combat:1322-1340",
+        "combat:970-1024",
+        "combat:1438-1469",
+        "full:48429-48595"
+      ]
+    }
+  ],
+  "exceptional_late_branches": [
+    {
+      "fact": "Unholy prayer book cannot mix with standard/Abyssal; requires equipped enabling count and each proc consumption; normal point stat bonuses are distinct from enabling its use. Abyssal uses souls and allowedDamageType.",
+      "evidence": [
+        "player:1815-1889",
+        "player:794-799",
+        "bank:1238-1260"
+      ]
+    },
+    {
+      "fact": "Magic extraRuneConsumption, usesRunesPerProc, attack usesPrayerPointsPerProc, and potion usesPotionChargesPerProc each govern distinct costs; a multi-hit attack is not universally one cost per hit or per bar.",
+      "evidence": [
+        "player:741-749",
+        "player:794-799",
+        "potion:88-93",
+        "character:1439-1453"
+      ]
+    },
+    {
+      "fact": "AttackSpell spellbook allowDamageModifiers=false bypasses ordinary max-hit/stat damage scaling; required equipment and fuel still apply.",
+      "evidence": [
+        "character:150-156",
+        "player:2253-2270",
+        "player:736-760"
+      ]
+    },
+    {
+      "fact": "Equipment requirement change can unequip invalid gear and grant giveFreeDeath while combat/thieving active; it protects the next death after forced requirement invalidation, not infinite combat safety.",
+      "evidence": [
+        "player:281-305",
+        "combat:497-518"
+      ]
+    },
+    {
+      "fact": "Protect Item can prevent ordinary item loss but does not exempt normal perma-death save deletion. FreeDeath/event/raid exemptions belong to manager death-mode branch.",
+      "evidence": [
+        "player:2628-2669",
+        "combat:497-518"
+      ]
+    },
+    {
+      "fact": "Abyssal versus Eternal actual immunities, compatible prayer/spell/weapon types and selected food healing are functional. Eternal consumption/reward XP exceptions are preserved; unknown later content is not folded into base progression.",
+      "evidence": [
+        "ita:519-541",
+        "player:1815-1836",
+        "player:1905-1910",
+        "player:2487-2491",
+        "combat:623-646",
+        "ita:52957-52976"
+      ]
+    },
+    {
+      "fact": "TotH Herald pauseOnBosses triggers manager pause and explicit resume; dungeon equipment/food swaps can require modifiers. Thus the whole sequence is not necessarily unattended repeatable.",
+      "evidence": [
+        "toth:34308-34347",
+        "combat:1534-1558",
+        "player:2144-2165"
+      ]
+    },
+    {
+      "fact": "Permanent Corruption auto activation checks available soul points, consumes its actual modified cost, then adds a passive. If insufficient, it notifies online instead; full passive effect/content remains expansion-reader scope.",
+      "evidence": [
+        "combat:1494-1519"
+      ]
+    },
+    {
+      "fact": "Rune spending happens before hit rolls, so a miss still costs fuel unless preserved. Aurora costs are processed before the canAttack branch, so a failed base-rune/ammo attempt can still consume an available active Aurora. A PlayerSummonAttack event is emitted after both hit and miss paths, so matching tablet/potion consumption is attempt-based.",
+      "evidence": [
+        "player:736-790",
+        "player:882-906",
+        "player:1630-1650",
+        "potion:88-107"
+      ]
+    },
+    {
+      "fact": "Both playerDied and enemyDied are detected at the start of checkDeath; player death is processed, then enemy death/rewards, then stop. Simultaneous final death is not categorically an unfinished dungeon.",
+      "evidence": [
+        "base:501-518",
+        "combat:520-582",
+        "combat:864-917"
+      ]
+    },
+    {
+      "fact": "Stronghold tiers require actual owned/equipped gear as live means, select actual enemy passives and probabilistic rewards; gear slot/compatibility cost differs from a consumable entry fee. Selected base-package Undead source trace is C7.",
+      "evidence": [
+        "full:48429-48595",
+        "combat:1322-1340",
+        "combat:970-1024",
+        "combat:1438-1469"
+      ]
+    }
+  ],
+  "offline_safety": {
+    "classification": "source-traced; shared with parent offline lane",
+    "fact": "24h cap is elapsed processing bound, not survival guarantee. enterOfflineLoop stops combat when !enableOfflineCombat OR (SlayerArea and !slayer.isUnlocked). Enabled offline loop calls same runTicks; tick uses passive/active combat and checkDeath, therefore consumes real food/runes/ammo/prayers/tablets/potions with same death branches. Error attempts to stop active action. No safe-offline policy is inferred.",
+    "evidence": [
+      "game:152-152",
+      "game:1781-1797",
+      "game:2106-2112",
+      "game:2198-2225",
+      "base:501-532"
+    ]
+  },
+  "yair_current_fit": [
+    {
+      "fact": "Native schema1duel and schema2party contest already spend stamina, keep injuries, clamp atHP1 and retain separate relationship/insight/withdraw outcomes. Lio requires consent/presence/body/actual trained source and unencumbered owned harness, then spends2stamina+1brace effort per guard; helper loss is actual.",
+      "evidence": [
+        "y.native:10-68",
+        "y.party:9-40",
+        "y.party:61-103"
+      ]
+    },
+    {
+      "fact": "Current schema5 already reserves actual one physical prep from unborrowed unequipped stock; guard spends2stamina, traversal spends2stamina and has returned reusable rope; unused prep returns exactly at settlement. Maintained brace pays2activation and1each incoming attempt including misses, capacity2, body/source/helper/expiry checks. Those consumers should not be recreated as Melvor-inspired new features.",
+      "evidence": [
+        "y.objectives:15-60",
+        "y.objectives:62-145",
+        "y.battle:314-398"
+      ]
+    },
+    {
+      "fact": "Current native battle host uses saved actionAdapter at existing Combat cadence; shared persist publishes each staged action. Separate host-owned timers/stock/publication are explicitly absent.",
+      "evidence": [
+        "y.host:7-9",
+        "y.host:33-41",
+        "y.host:61-83",
+        "y.publisher:15-62"
+      ]
+    },
+    {
+      "fact": "Finite survey-kit reserve exists:1resin+2sound staves+1stamina+3played minutes->2kits; upper4/lower2, max3batches, only actual carried owned available stock. Storage and equipment are distinct owners, with chest expected counts and equipment reconstruction in current native transactions.",
+      "evidence": [
+        "y.reserve:5-23",
+        "y.reserveHost:27-77",
+        "y.storage:7-33",
+        "y.gear:3-29"
+      ]
+    },
+    {
+      "fact": "Native favourite consumables already reapply effects when their chosen effect expires in parent_location combat zones, using owned native inventory. Native defeat is unconsciousness plus recovery, optionally return to bed. Research must preserve that familiar behavior and cannot claim no auto-consume support.",
+      "evidence": [
+        "y.main:3839-3886",
+        "y.main:6474-6500",
+        "y.main:2964-2978"
+      ]
+    },
+    {
+      "fact": "Latest combat remainder is implemented-unverified. New schema5/source fits and current build/static receipts do not establish playable/save behavior; existing later gate families include upkeep/expiry, consumption/return, stale tokens, save failure and legacy compatibility. PROJECT top and checkpoint bundle prefixes differ in inspected text, so these facts are source-hash pinned, not a current-build verification claim.",
+      "evidence": [
+        "y.checkpoint:1-13",
+        "y.backlog:1-13"
+      ]
+    }
+  ],
+  "adaptation_ideas": [
+    {
+      "id": "YAIR-C1",
+      "rank_within_combat_reader": 1,
+      "title": "Optional finite preparation and withdrawal policy at existing native combat cadence",
+      "status": "original reversible proposal; research only; not selected or implemented",
+      "source_lessons": [
+        "Preparation must own real stock and charge cadence rather than grant free buffs.",
+        "Depletion can remove the action that enabled a fight, so permitted continuation is a player decision.",
+        "Auto food/offline enabled does not guarantee survival; truthful intent and stopping reason matter."
+      ],
+      "existing_parts": [
+        "y.host:7-9",
+        "y.host:33-41",
+        "y.host:61-83",
+        "y.battle:225-255",
+        "y.battle:314-457",
+        "y.objectives:15-38",
+        "y.objectives:92-167",
+        "y.reserve:5-23",
+        "y.storage:7-33",
+        "y.publisher:15-62"
+      ],
+      "precise_missing_consumer": "featureNativeAction currently handles defended-open-choice pauses, conduct/recovery guards, existing helper release and default strike; it has no explicitly accepted finite preparation manifest that chooses one admitted physical guard at a player-set readiness boundary and withdraws when that accepted resource/condition limit is reached. Existing automatic favourite effects and stock reserve remain their owners; this proposal does not replace them.",
+      "proposed_choice": "At one explicitly accepted new encounter, select manual behavior or one finite policy: spend the already admitted guard prep at the next supported player cadence below a visible HP/stamina readiness boundary, then withdraw at an agreed later boundary. Open defense-earned windows still await the player rather than being spent automatically. No NPC private values are revealed.",
+      "explicit_costs": "Reuse one actual admitted kit-brace-pad/learned-wrap stock and existing2stamina physical guard cost; policy adds no stats/stock. Existing native cadence pays time. Withdraw costs remain existing rules and retains prior stamina/injury/supply use. Stock reserve crafting remains actual1resin+2staves+1stamina+3played minutes per2kits, at most3accepted batches.",
+      "functional_change": "Connects current preparation choice to a deliberate finite legal action/stop condition. It enables chosen guarded continuation, rather than increasing damage/evasion numbers.",
+      "failure_and_aftermath": "If body/source/helper/stock/stamina support fails, return an explicit pause/withdraw reason using current quote rules before spending. A hostile strike may land before the next player cadence; do not market this as death immunity. Preserve unused preparation and rope settlement exactly once, spent inputs/injuries and separate won/lost/objective/escaped/withdrawn records.",
+      "compatibility": "Explicit versioned policy only in newly admitted encounter. Absent policy retains current choices; old frozen3/4 and existing5 must not acquire hidden behavior. Existing simulation session/item/stock/clock/vitals/RNG/token/one durable publisher remain authoritative; no new inventory/save publisher/scheduler or offline combat guarantee.",
+      "later_observable_gate": [
+        "With a generated opt-in encounter, show exact quoted finite stock/cost and manual alternative.",
+        "Observe one paid physical guard at the selected cadence and no duplicate use after repeated refresh/stale token.",
+        "Reach stop boundary, retain spent injuries/materials, and return unused/reusable stock once; compare ordinary manual play.",
+        "Save/reload/import and failed-save cases preserve policy/action/token/stock/vitals atomically under existing publisher.",
+        "Verify existing opening/native favourite consumables, old battles and one-realm/one-prestige remain usable; director judges pacing."
+      ],
+      "runtime_gate_status": "deferred and unrun",
+      "broader_implication": "Treat readiness plans as explicit choices with causal cost/aftermath across later actor/body/source families, without introducing a universal stat treadmill or retroactive private-state disclosure."
+    }
+  ],
+  "limits": [
+    "Reviewed exact selected spans and complete small owners, not all13,859combat-family script lines or whole game.",
+    "No installed game launch, account/private-save/cloud/login/profile inspection, DLC entitlement change or source-library mutation.",
+    "Only selected public Demo/Full/AoD/ItA/TotH content windows were semantically reviewed. Birthday/AprilFools packages were not semantically reviewed in this combat leaf.",
+    "All spell/weapon/prayer/synergy/monster/dungeon/drop tables and special-effect balance remain incomplete; full TotH Herald, Ancient Relics, ItA depth/Eternal campaign and Golbin Raid implementation are outside this finite leaf.",
+    "Summoning production cost/data reviewed but complete artisan action/mark-to-craft UI execution belongs to production reader; dust-crafting recipe data not complete craft runtime proof.",
+    "Golden Key and auto-eat purchase costs are data-inspected; shop purchase mutation absent from provided selected scripts, not claimed complete.",
+    "Realm activation, loot-chest opening and Corruption effects beyond the reviewed auto-cost branch belong to expansion/other lanes.",
+    "Current YAIR source fit is exact hash-pinned. No new tests, builds, browser/play/save/import/failure/regression/director checks ran; prior counts/bundles are not proof of changed code."
+  ],
+  "memory_use": {
+    "role": "search pointers only; source status refreshed against live owners",
+    "path": "/Users/weiwei/.codex/memories/MEMORY.md",
+    "spans": [
+      [
+        536,
+        538
+      ],
+      [
+        559,
+        564
+      ]
+    ],
+    "unverified_memory_claims_used": false
+  },
+  "checks": {
+    "json_readback": "pass",
+    "evidence_ranges": {
+      "status": "pass",
+      "reference_count": 297
+    },
+    "source_hashes": {
+      "status": "pass",
+      "sources": 34
+    },
+    "semantic_reference_coverage": "pass",
+    "consequential_self_review": "food/death/barrier/cost/order/stronghold claims checked; parent perma-death consumer correction applied",
+    "source_manifest_hash_match": {
+      "status": "pass",
+      "matched_public_inputs": [
+        "player",
+        "character",
+        "equipment",
+        "food",
+        "base",
+        "combat",
+        "areas",
+        "slayer",
+        "prayer",
+        "potion",
+        "summon",
+        "melvorMain",
+        "bank",
+        "game",
+        "requirements",
+        "demo",
+        "full",
+        "aod",
+        "ita",
+        "toth"
+      ]
+    },
+    "runtime": "not run; outside leaf scope",
+    "yair_test_build": "not run; deferred and outside leaf scope",
+    "writer_boundaries": "only reserved output and private raw combat helper written"
+  }
+}

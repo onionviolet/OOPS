@@ -1,0 +1,267 @@
+{
+  "checkedAtUtc": "2026-10-05T22:30:40.119004+00:00",
+  "allowedScope": "Static source/syntax/import/export/immutable-array/JSON/path inspections only; no helper behavior or native game action invoked.",
+  "nodeSyntax": "pass",
+  "moduleStaticImport": "pass",
+  "exportCount": 9,
+  "profiles": [
+    "original-frontier",
+    "reincarnation-paradise",
+    "skyrim",
+    "fallout4",
+    "elden-ring",
+    "naruto",
+    "bleach",
+    "harry-potter"
+  ],
+  "sceneCount": 8,
+  "topologyCount": 8,
+  "deepChainCount": 8,
+  "finiteChainPhaseCount": 40,
+  "sourceHashChecks": [
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/AGGREGATE_COVERAGE.json",
+      "expectedSha256": "149b643f9bc4cc64870bd42d3b7bf1eec9381c17064a349a30f580bebe5865a1",
+      "actualSha256": "149b643f9bc4cc64870bd42d3b7bf1eec9381c17064a349a30f580bebe5865a1",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/AUTHORING_BOUNDARIES.md",
+      "expectedSha256": "44ca0acbe2cef6a31b57f9ad20c642a319a20c77f0b371b36cd02e10ada6cfa3",
+      "actualSha256": "44ca0acbe2cef6a31b57f9ad20c642a319a20c77f0b371b36cd02e10ada6cfa3",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/CHECKPOINT.md",
+      "expectedSha256": "62774ad32bcdb1ecc373208740d1c05b64afa504f340bb269c300b7cb15994d2",
+      "actualSha256": "62774ad32bcdb1ecc373208740d1c05b64afa504f340bb269c300b7cb15994d2",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/FINAL_VALIDATION.json",
+      "expectedSha256": "ec81773bdd9597686020cac148666a1f703a06bed114571c261ec12db1e16c5a",
+      "actualSha256": "ec81773bdd9597686020cac148666a1f703a06bed114571c261ec12db1e16c5a",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md",
+      "expectedSha256": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84",
+      "actualSha256": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/PEOPLE_AND_INSTITUTIONS.md",
+      "expectedSha256": "b2a21f2534ec9386badc984d6b4294bb127d439b5379bfe3e35244b07f387ff4",
+      "actualSha256": "b2a21f2534ec9386badc984d6b4294bb127d439b5379bfe3e35244b07f387ff4",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/bleach/CAMPAIGN.md",
+      "expectedSha256": "cff4a6d881a08f46c3beaa8c015348fa3eed73456c23fee8be0ae7e1bf970b4d",
+      "actualSha256": "cff4a6d881a08f46c3beaa8c015348fa3eed73456c23fee8be0ae7e1bf970b4d",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/bleach/INTERACTIONS.md",
+      "expectedSha256": "5eb805c752262929441c5e76c6d62791df6ef7d9764d8c087cdef634a3f91a79",
+      "actualSha256": "5eb805c752262929441c5e76c6d62791df6ef7d9764d8c087cdef634a3f91a79",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/bleach/SOURCE_LEDGER.md",
+      "expectedSha256": "9d41e919192d7ffdd7ec324135c99afbe3b0bdb633d145616c76f6d153c7ec57",
+      "actualSha256": "9d41e919192d7ffdd7ec324135c99afbe3b0bdb633d145616c76f6d153c7ec57",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/bleach/WORLD_BRIEF.md",
+      "expectedSha256": "45f87d89e0ba70c889d8fd000bebd8c480208819c67c976ecf29f004cc3ad288",
+      "actualSha256": "45f87d89e0ba70c889d8fd000bebd8c480208819c67c976ecf29f004cc3ad288",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/elden-ring/CAMPAIGN.md",
+      "expectedSha256": "d841e8d552eece42d162816aa24bcd1018837ddbf2b44c8fa1d057216947d8ad",
+      "actualSha256": "d841e8d552eece42d162816aa24bcd1018837ddbf2b44c8fa1d057216947d8ad",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/elden-ring/INTERACTIONS.md",
+      "expectedSha256": "bd6101d723660b8fac5028588e6ab96d5abcb700ae7b8768b10277e852b9fecd",
+      "actualSha256": "bd6101d723660b8fac5028588e6ab96d5abcb700ae7b8768b10277e852b9fecd",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/elden-ring/SOURCE_LEDGER.md",
+      "expectedSha256": "46799b854b3b6cb7c000c9796461e319132dbde033560577a557af2d1fca1052",
+      "actualSha256": "46799b854b3b6cb7c000c9796461e319132dbde033560577a557af2d1fca1052",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/elden-ring/WORLD_BRIEF.md",
+      "expectedSha256": "0fdfd4ca718705fa9ea8923ef6483538e9a8399150fdb5a90b9a307fbfbe1678",
+      "actualSha256": "0fdfd4ca718705fa9ea8923ef6483538e9a8399150fdb5a90b9a307fbfbe1678",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/fallout/CAMPAIGN.md",
+      "expectedSha256": "f5a7adccf642dcd955cda490e142a317c53380e35b601e5e496fc90ba052d790",
+      "actualSha256": "f5a7adccf642dcd955cda490e142a317c53380e35b601e5e496fc90ba052d790",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/fallout/INTERACTIONS.md",
+      "expectedSha256": "6ca0f95460378e32a5a630d17c78dfbacbfee3ff54d201badfcb700985ffa322",
+      "actualSha256": "6ca0f95460378e32a5a630d17c78dfbacbfee3ff54d201badfcb700985ffa322",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/fallout/SOURCE_LEDGER.md",
+      "expectedSha256": "d4c4eed832b8937879df19dae543de538dd5e7ab839bc4fa28c36d9fc5455c2f",
+      "actualSha256": "d4c4eed832b8937879df19dae543de538dd5e7ab839bc4fa28c36d9fc5455c2f",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/fallout/WORLD_BRIEF.md",
+      "expectedSha256": "e77f0f0f53639956d1ec9e3cdc6f5dbf09398520ffcd27266c2c2d422e3f791f",
+      "actualSha256": "e77f0f0f53639956d1ec9e3cdc6f5dbf09398520ffcd27266c2c2d422e3f791f",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "expectedSha256": "3cc43e541609e7e471e0bd8996fdc68fe31ce5aa6f9c0f4c526585e2fd4bad9c",
+      "actualSha256": "3cc43e541609e7e471e0bd8996fdc68fe31ce5aa6f9c0f4c526585e2fd4bad9c",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "expectedSha256": "d26bb9a47bdb003d0a2a50776ea82ed2e0459066ca2b234eebc6c4fa6e31e765",
+      "actualSha256": "d26bb9a47bdb003d0a2a50776ea82ed2e0459066ca2b234eebc6c4fa6e31e765",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/naruto/CAMPAIGN.md",
+      "expectedSha256": "d9b4af786a4faa084ca9b0172321307fd4e65156a1492a2b65cf1bd4075b40b0",
+      "actualSha256": "d9b4af786a4faa084ca9b0172321307fd4e65156a1492a2b65cf1bd4075b40b0",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/naruto/INTERACTIONS.md",
+      "expectedSha256": "ec6dd4a72c1787384049a7be1e9c1fc2c138a025e82da8276b73f1dcc2d2b59d",
+      "actualSha256": "ec6dd4a72c1787384049a7be1e9c1fc2c138a025e82da8276b73f1dcc2d2b59d",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/naruto/SOURCE_LEDGER.md",
+      "expectedSha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+      "actualSha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/naruto/WORLD_BRIEF.md",
+      "expectedSha256": "4e42a09b6ea51075d0f04fcc6a80bcdf31b8b3ce1f228992b99f86c0c860669c",
+      "actualSha256": "4e42a09b6ea51075d0f04fcc6a80bcdf31b8b3ce1f228992b99f86c0c860669c",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "expectedSha256": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a",
+      "actualSha256": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "expectedSha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193",
+      "actualSha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "expectedSha256": "cb39a4e9f939a834f8e4eba2b25deac46b7ea7f016e11380f4be87a56ba90ed7",
+      "actualSha256": "cb39a4e9f939a834f8e4eba2b25deac46b7ea7f016e11380f4be87a56ba90ed7",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/skyrim/CAMPAIGN.md",
+      "expectedSha256": "f943464572698c190ec0f2402fd3c948b59fd62d485332b50ef45fa9b909a329",
+      "actualSha256": "f943464572698c190ec0f2402fd3c948b59fd62d485332b50ef45fa9b909a329",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/skyrim/INTERACTIONS.md",
+      "expectedSha256": "f79be62e19c907866e9d0208d36d866e3d0da99eb28c337501f6f68240339f9e",
+      "actualSha256": "f79be62e19c907866e9d0208d36d866e3d0da99eb28c337501f6f68240339f9e",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/skyrim/SOURCE_LEDGER.md",
+      "expectedSha256": "2820aaffdf7ab84eb68401fe8b90418563cf8c05b8108187544b39b87a2774f3",
+      "actualSha256": "2820aaffdf7ab84eb68401fe8b90418563cf8c05b8108187544b39b87a2774f3",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/skyrim/WORLD_BRIEF.md",
+      "expectedSha256": "188d40c2b40cc03ccb0c6a56da8109959e37075981f0b9244612030e3c4addb9",
+      "actualSha256": "188d40c2b40cc03ccb0c6a56da8109959e37075981f0b9244612030e3c4addb9",
+      "matches": true
+    },
+    {
+      "path": "src/backlog_expansion_replacement.js",
+      "expectedSha256": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+      "actualSha256": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+      "matches": true
+    },
+    {
+      "path": "src/frontier_campaign.js",
+      "expectedSha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "actualSha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "matches": true
+    },
+    {
+      "path": "src/original_frontier_career_content.js",
+      "expectedSha256": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+      "actualSha256": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+      "matches": true
+    }
+  ],
+  "sourceSnapshotRefresh": [
+    {
+      "path": "src/backlog_expansion_replacement.js",
+      "priorHash": "43ecb66dec8e74b11ae81c5cb5ac6d72165227fad9bdb5ec64f25a6b4110fbdb",
+      "currentHash": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+      "review": "Reread current REPLACEMENT_IDS/CONTRACT, exact accept_office/recognition and transfer/retention validator. Fixed contract remains revision1; presentation descriptions changed in active owner."
+    }
+  ],
+  "localLinks": [
+    {
+      "file": "INTEGRATION.md",
+      "target": "../../../../../../src/backlog_expansion_replacement.js",
+      "exists": true
+    },
+    {
+      "file": "INTEGRATION.md",
+      "target": "COVERAGE.json",
+      "exists": true
+    },
+    {
+      "file": "INTEGRATION.md",
+      "target": "SOURCE_REVIEW.md",
+      "exists": true
+    },
+    {
+      "file": "INTEGRATION.md",
+      "target": "CHECKS.json",
+      "exists": true
+    }
+  ],
+  "gameplayHelpersInvoked": false,
+  "checksDeferred": [
+    "behavior",
+    "save/reload",
+    "failure injection",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "result": "pass"
+}

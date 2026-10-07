@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-06",
+  "assigningThreadId": "01a10db8-e981-76f3-aa4c-600e99310cda",
+  "authority": "Direct human: \"Implement accordingly? Do we follow along the protaginist or do other stuff accordingly? Have we had a GM consider how we interact with book world and more?\"",
+  "packet": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+  "inputs": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06_INPUTS.json",
+  "bookWorldGM": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "currentIntegrator": "01a10f81-ee24-7531-b509-6b509160ea8f",
+  "default": "Independent participant in a selected source world/era with an optional protagonist-linked local arc and actual causal divergence",
+  "messagesAccepted": {
+    "features": true,
+    "reference": true
+  },
+  "sharedReservation": "Reference retains current existing/canonical paths until actual completed/released handoff; Features starts new reserved book-world modules immediately",
+  "observations": [
+    {
+      "threadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "daea37c8-adfc-45f0-93cc-0e874459c9e9:55"
+    },
+    {
+      "threadId": "01a10f81-ee24-7531-b509-6b509160ea8f",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "a3d05eca-1732-473d-9f6e-c99f9722202b:4"
+    }
+  ],
+  "checks": "New packet/baseline readback and source ownership checks; no dispatcher code/build/test changes",
+  "newSourceCampaignDelivered": false
+}

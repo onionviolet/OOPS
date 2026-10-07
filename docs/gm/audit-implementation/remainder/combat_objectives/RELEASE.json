@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "parent": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "worker": "/root/remainder_combat_objectives",
+  "released": true,
+  "scope": [
+    "src/audit_remainder_combat_objectives_*.js",
+    "docs/gm/audit-implementation/remainder/combat_objectives"
+  ],
+  "allAssignedRows": [
+    "tales-of-maj-eyal:P2",
+    "rogue-legacy:P1",
+    "rogue-legacy:P4",
+    "idling-to-rule-the-gods:P3"
+  ],
+  "status": "source/content/validators/hooks ready, implemented-unverified",
+  "sharedIntegrationOwner": "root",
+  "pendingProcesses": [],
+  "children": [],
+  "privateSavesTouched": false,
+  "buildRun": false
+}

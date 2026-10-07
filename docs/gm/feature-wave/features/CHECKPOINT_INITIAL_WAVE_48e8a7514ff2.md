@@ -1,0 +1,21 @@
+# Features GM checkpoint
+
+2026-10-05. Current integrator: `01a10df7-41b1-7810-89c8-083d8fefd5f5`. Predecessor `01a10dc5-ac2c-72e2-98fa-61b297638709` was interrupted/notLoaded; Objects/Society were completed and other predecessor roles/children interrupted. No competing npm/build/compiler/source writer was observed. [SUCCESSION.json](SUCCESSION.json) freezes transfer inputs; [RELEASE.json](RELEASE.json) retains Frontier's historical release.
+
+The existing authorized feature wave is source/native/UI/save/build delivered, **implemented-unverified**. Functional objects, mature methods/native team objectives, funded society/two readable mixed itineraries, optional independent Tidemark, eight Backlog proofs, shared legibility, actual pinned Ink and useful mechanisms from all30 reviewed repository rows are integrated. [DELIVERY.md](DELIVERY.md), [COVERAGE.json](COVERAGE.json) and [BUILD.json](BUILD.json) own current scope and evidence. Bundle `48e8a7514ff2` matches195local source contents.37vendor Ink embedded TypeScript maps are qualified separately.126new registered wave commands,41Backlog controls and two mixed plans have actual consumer paths.
+
+Root owned shared/canonical integration. Bounded recovery workers `/root/powers`, `/root/backlog`, `/root/destination_society`, `/root/specialists` released their reserved scopes; no child is assigned continuing code work. Specialist follow-up admitted Frontier frozen-work/known-account lists and Ink core/list/token consumers. Source repair includes exact battle resume tokens, Tidemark native availability/body/quest restore/display, scheduler-preserving itinerary commits, cold-import cycle removal, Backlog native alive/vital/seal guards, native clock pause/explicit catch-up, dedicated Notebook/Workshop/session routing and truthful plan controls.
+
+Compatibility: existing expansion5 remains; absent optional namespaces never enroll on load/render. Opted destination/backlog/Ink/workPlans require6. Native battle3 is explicitly validated with1/2retained. Existing common clock/publisher/native stock/vitals and first one-prestige baseline remain. Tidemark absence freezes; catch-up uses explicit bounded escrow/wall review. Personal saves/source libraries/attribution remain protected; no Git publication.
+
+Performed:53syntax checks plus final changed-module checks; cold registry/host/UI imports; definitions/registrations; Ink2.4.0freshness/zero diagnostics; build/source-map/index fingerprints; scoped whitespace. Unit/browser/gameplay/save/reload/failure/keyboard/regression/director checks are deferred by current wave authority. No old result verifies changed code.
+
+Next acceptance is the saved deferred behavior backlog in DELIVERY/PLAYTEST, including generated-origin conservation, native team controls, funded itinerary interruptions, Tidemark revisit and Ink cursor atomicity. Finite implementation/build objective is delivered; behavior/director acceptance remains open. Do not restart completed source lanes without a named failed gate.
+
+## Ink choice-tag rebuild follow-up
+
+2026-10-05. Original Features01a10dc5 resumed only the named shared build/receipt window after recovery successor01a10df7 completed/idle. Ink source owner corrected response tags inside offered choice-only strings and added compiler structure guards. Build 48e8a7514ff2 now matches all195local source contents, with37qualified vendor maps. INK_TAG_REBUILD_RESUME.json records the transfer/failure; BUILD_RECOVERY_BEFORE_INK_TAG_FIX.json preserves the earlier receipt. No specialist source, personal save or gameplay was mutated by this follow-up. Shared rebuild window released. Final implementation/build goal is delivered, behavioral/director gates remain deferred.
+
+## Latest direct steering and current owner
+
+Original assigning human chat01a10db8 directly reassigns Features01a10dc5 as active coordinator for BOOK_WORLD_SUBTLETY_2026_10_05.md. The existing initial wave remains built48e8a7514ff2; new per-world replacement/trope/little-life refinement is active. book-world-subtleties/CHECKPOINT.md and INTERFACE.md own finite scope, workers and next action. Features alone owns shared/canonical integration; completed recovery successor is not reactivated. Backlog, Legibility, Ink and Repository retain their active new role modules via file queue. No gameplay tests or private-save access.

@@ -1,0 +1,333 @@
+{
+  "schema": 2,
+  "capturedAtUtc": "2026-10-06T21:21:04.158981+00:00",
+  "phase": "genre-open continuation",
+  "evidenceVocabulary": {
+    "source-demonstrated": "Selected source behavior exists by reading, not execution.",
+    "source-traced": "Connected selected prerequisite/decision/cost/mutation/consumer/failure paths read, not execution.",
+    "documented-only": "Primary documentation/store description; no algorithm/runtime proof.",
+    "inferred": "Reasoned static arithmetic or integration judgment; not measured.",
+    "proposed-untested": "Original adaptation/trial not implemented or exercised."
+  },
+  "incumbentInputs": {
+    "manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/CONTINUATION_INPUTS.json",
+    "sha256": "e23a3fe1b5153e1aca32c183bffa32c2bdf781c2332eedb9feec3fb5c7b7ccb4",
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+        "bytes": 144593
+      },
+      {
+        "path": "package.json",
+        "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+        "bytes": 497
+      },
+      {
+        "path": "src/items.js",
+        "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+        "bytes": 164071
+      },
+      {
+        "path": "src/acquisition.js",
+        "sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+        "bytes": 4703
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "bytes": 51840
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+        "bytes": 33510
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "bytes": 27572
+      },
+      {
+        "path": "src/power_models.js",
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "bytes": 4477
+      },
+      {
+        "path": "src/energy_resources.js",
+        "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "bytes": 4384
+      },
+      {
+        "path": "src/realm_boundary_rules.js",
+        "sha256": "d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2",
+        "bytes": 12985
+      },
+      {
+        "path": "src/realm_state.js",
+        "sha256": "b53d36095b7156f4b050f80b433f3cd9020f04549549203c1dea8ac6c331e3fe",
+        "bytes": 13250
+      },
+      {
+        "path": "src/world_instances.js",
+        "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "bytes": 27893
+      },
+      {
+        "path": "src/causal_situations.js",
+        "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+        "bytes": 4988
+      },
+      {
+        "path": "src/feature_expansion_objects.js",
+        "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+        "bytes": 27136
+      },
+      {
+        "path": "src/feature_expansion_powers.js",
+        "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+        "bytes": 10418
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+        "bytes": 45034
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "bytes": 3191
+      },
+      {
+        "path": "src/ink_narrative.js",
+        "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+        "bytes": 26405
+      },
+      {
+        "path": "src/feature_expansion_subtlety_host.js",
+        "sha256": "edf27f5e13829b72e75252135037e065e5f1d63b18491eb23118defaf09552a1",
+        "bytes": 13478
+      },
+      {
+        "path": "src/audit_remainder_livelihood_content.js",
+        "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+        "bytes": 20506
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/RELEASE.json",
+        "sha256": "d208e4066d61d3149f5c479320aeae3ba5123b4fa06b8893d14dc21f28a512aa",
+        "bytes": 4447
+      },
+      {
+        "path": "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md",
+        "sha256": "89c8f0b779825812eca82d8808a308657c95325973a58cc7c18066f0e18c49af",
+        "bytes": 14194
+      },
+      {
+        "path": "src/promise_content.js",
+        "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+        "bytes": 11954
+      },
+      {
+        "path": "src/town_content.js",
+        "sha256": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+        "bytes": 7657
+      },
+      {
+        "path": "src/feature_expansion_society.js",
+        "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "bytes": 30667
+      },
+      {
+        "path": "src/feature_expansion_subtlety_scene.js",
+        "sha256": "2da0e17e45d495a43872330377e9c42bfe15694b4277dd3627e1eb6fbf984671",
+        "bytes": 22190
+      },
+      {
+        "path": "src/site_projects.js",
+        "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+        "bytes": 2927
+      },
+      {
+        "path": "src/feature_expansion_work_plan.js",
+        "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+        "bytes": 28771
+      },
+      {
+        "path": "src/reference_gameplay_content.js",
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "bytes": 13705
+      },
+      {
+        "path": "src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "bytes": 387376
+      }
+    ],
+    "qualification": "Relevant dirty native/source contracts, read-only; no source/runtime/build/save qualification from earlier checks. Current role owns research only."
+  },
+  "activeCandidates": [
+    {
+      "id": "mindustry",
+      "rank": 1,
+      "trace": "traces/MINDUSTRY.json",
+      "traceSha256": "d2af32a30572f47be5e49bf646ae0611d2146cf5c9aa121ce4b1867695f8caa0",
+      "pin": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "proof": "connected selected stable source inspected; no execution/full save guarantee",
+      "semanticCoverageOwner": "traces/MINDUSTRY.json",
+      "sourceStageVsSelection": "Reader trace describes review scope; only root CANDIDATES assigns active rank."
+    },
+    {
+      "id": "papers-please",
+      "rank": 2,
+      "trace": "traces/PAPERS_PLEASE.json",
+      "traceSha256": "360358387e45ad1736e60888350fa09aebcaf9489a82fdaabd2763952ca13a45",
+      "pin": "1fba12973b37b847ec0867076e8b4eb471ece600",
+      "proof": "Detailed creator-primary documentary gameplay trace; selected public localization-tool source only",
+      "semanticCoverageOwner": "traces/PAPERS_PLEASE.json",
+      "sourceStageVsSelection": "Reader trace describes review scope; only root CANDIDATES assigns active rank."
+    },
+    {
+      "id": "baba",
+      "rank": 3,
+      "trace": "traces/BABA.json",
+      "traceSha256": "6458f25c23e21b83aba37187cd49a4a819f3482c921555a9b0f93180bc1710f7",
+      "pin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "proof": "Whole557-line original jam Lua read and selected consumers; host callbacks/loop opaque, retail documentation-only",
+      "semanticCoverageOwner": "traces/BABA.json",
+      "sourceStageVsSelection": "Reader trace describes review scope; only root CANDIDATES assigns active rank."
+    },
+    {
+      "id": "factorio",
+      "rank": 4,
+      "trace": "traces/FACTORIO.json",
+      "traceSha256": "00282b86b9c5b54efc00d37adf86541f602bc672d2a515760023cabe1ab3ce53",
+      "pin": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "proof": "Stable Lua data/generator source and version-matched API contracts; C++ consumers closed/documented, unexecuted",
+      "semanticCoverageOwner": "traces/FACTORIO.json",
+      "sourceStageVsSelection": "Reader trace describes review scope; only root CANDIDATES assigns active rank."
+    },
+    {
+      "id": "ensemble",
+      "rank": 5,
+      "trace": "traces/ENSEMBLE.json",
+      "traceSha256": "e3eb35eb96b4d991361c7ced2fdb0d34431e36dbe0d247ed52083ad0fcf9b2a3",
+      "pin": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "proof": "Prior complete bounded source trace reused at unchanged pin; no new runtime qualification",
+      "semanticCoverageOwner": "traces/ENSEMBLE.json",
+      "sourceStageVsSelection": "Reader trace describes review scope; only root CANDIDATES assigns active rank."
+    }
+  ],
+  "newSourceReview": {
+    "MINDUSTRY": {
+      "trace": "traces/MINDUSTRY.json",
+      "classification": "connected stable code paths, no runtime/save integrity proof",
+      "sourceLocators": 34,
+      "coverage": "See exact ranges/API selectors/document sections and unread limits in trace"
+    },
+    "PAPERS_PLEASE": {
+      "trace": "traces/PAPERS_PLEASE.json",
+      "classification": "creator documentary gameplay; separate public authoring source",
+      "sourceLocators": 2,
+      "coverage": "Two public localization-tool source ranges and11 primary document records, with closed gameplay algorithms explicitly uninspected; exact sections and limits in trace.",
+      "primaryDocumentRecords": 11
+    },
+    "BABA": {
+      "trace": "traces/BABA.json",
+      "classification": "original jam Lua, opaque host/modern retail",
+      "sourceLocators": 10,
+      "coverage": "See exact ranges/API selectors/document sections and unread limits in trace"
+    },
+    "FACTORIO": {
+      "trace": "traces/FACTORIO.json",
+      "classification": "stable/experimental Lua definitions/generation with documented closed C++ API",
+      "sourceLocators": 32,
+      "coverage": "See exact ranges/API selectors/document sections and unread limits in trace"
+    }
+  },
+  "independentRootReview": [
+    {
+      "candidate": "mindustry",
+      "sourcePin": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "paths": [
+        "ImpactReactor.java83-110",
+        "PowerGraph.java180-256",
+        "GenericCrafter.java287-318",
+        "NuclearReactor.java114-150"
+      ],
+      "finding": "Startup threshold/output curve and graph storage/coverage, useful crafting callback, distinct coolant heat hazard read. Original four-minute arithmetic not runtime."
+    },
+    {
+      "candidate": "baba",
+      "sourcePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "paths": [
+        "syntax.lua1-557",
+        "credits.txt1-16"
+      ],
+      "finding": "Original jam Lua read: feature parse/lookup to obstruction/control/contact/conversion callbacks. Host loop/order/implementation/save/undo remain opaque."
+    },
+    {
+      "candidate": "papers-please",
+      "url": "https://dukope.com/devlogs/papers-please/mobile/",
+      "sections": [
+        "Enhanced Inspect Mode",
+        "Wanted: Criminal Poster"
+      ],
+      "finding": "Creator2022 explanation of intentional discrepancy selection and reference visibility; no core source/timeline/fine proof. Root also reread both localization packer ranges and confirmed full-file hash; tool source is not closed gameplay source.",
+      "publicToolPin": "1fba12973b37b847ec0867076e8b4eb471ece600",
+      "publicToolPaths": [
+        "packer/index.js359-438",
+        "packer/index.js496-558"
+      ],
+      "publicToolSha256": "6f7816b2a31e8c8ecd3002cbb94bcf2648d40297ca1c486d65c8cd6d1aea456f"
+    },
+    {
+      "candidate": "factorio",
+      "sourcePin": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "paths": [
+        "space-age/prototypes/recipe.lua379-408 and784-805",
+        "quality/prototypes/recycling.lua75-106",
+        "quality/data-updates.lua1-27"
+      ],
+      "finding": "Stable reproduction/science environment/input/output definitions and reverse-recipe generator/invocation read. C++ execution not exposed."
+    }
+  ],
+  "priorEvidence": "history/FIRST_PASS_EVIDENCE.json",
+  "priorReuseQualification": "Earlier source pins/semantic bounds retained; old checks not proof of continuation behavior.",
+  "selectedPacketOwner": "CONTINUATION_PACKETS.md",
+  "candidateProposalOwners": [
+    "traces/BABA.json",
+    "traces/FACTORIO.json"
+  ],
+  "verification": {
+    "status": "passed final document/source review",
+    "game_build": "not-run; no runtime changes assigned",
+    "unit_browser_gameplay_save_regression_director": "deferred/not-run",
+    "benchmark_authoring_speed": "not-run",
+    "private_saves_accounts_source_libraries": "untouched",
+    "game_tool_installations_purchases_entitlements": "none",
+    "commit_push_publication_automation_other_chat_messages": "none",
+    "receipt": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/CONTINUATION_VALIDATION.json",
+    "jsonParsed": 13,
+    "localLinksAndHeadings": 109,
+    "newPublicSourceRangeChecks": 94,
+    "activeRanks": 5,
+    "inspectedRuntimeDrift": [],
+    "incumbentDocumentDrift": [],
+    "sourceChecksQualification": "92 immutable public source windows from the current continuation review plus2 independently checked localization-tool ranges; no runtime behavior proof. Prior-phase checks are separate historical evidence.",
+    "childReaders": "all three completed/released; live status confirmed after context refresh",
+    "pendingProcessesOperationsOrUnsavedDeltas": "none"
+  },
+  "laterQudAndSavedReferences": {
+    "asOfUtc": "2026-10-07T01:52:29.694924+00:00",
+    "owner": "QUD_REAUDIT.json",
+    "savedReferenceOwner": "FOLLOW_UP_REFERENCES.json",
+    "qualification": "Separate later phase: original18 Qud evidence records reverified; two new bounded source traces and three initial documentation screens. Earlier94 range checks do not prove this new phase.",
+    "verificationReceipt": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/VALIDATION.json"
+  }
+}

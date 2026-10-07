@@ -1,0 +1,148 @@
+{
+  "capturedAtUtc": "2026-10-07T05:47:05.626Z",
+  "worlds": [
+    {
+      "id": "reference.proto23.village",
+      "name": "Proto23 village",
+      "playerCommandDefinitions": 27,
+      "explicitCommandPlaces": [
+        "Proto23 Village Center",
+        "Proto23 Dojo lobby",
+        "Proto23 visitor cottage"
+      ],
+      "nativePlaces": [
+        "Proto23 Village Center",
+        "Proto23 Dojo lobby",
+        "Proto23 visitor cottage"
+      ]
+    },
+    {
+      "id": "book.mol.cyoria",
+      "name": "Cyoria",
+      "playerCommandDefinitions": 56,
+      "explicitCommandPlaces": [
+        "Cyoria visitor arrival",
+        "Cyoria Imaya household",
+        "Cyoria academy guest desk",
+        "Cyoria academy guest library",
+        "Cyoria formula workshop",
+        "Cyoria supervised practice court",
+        "Cyoria sewer service hatch"
+      ],
+      "nativePlaces": [
+        "Cyoria visitor arrival",
+        "Cyoria Imaya household",
+        "Cyoria academy guest desk",
+        "Cyoria academy guest library",
+        "Cyoria formula workshop",
+        "Cyoria supervised practice court",
+        "Cyoria sewer service hatch"
+      ]
+    },
+    {
+      "id": "book.paradise.hub",
+      "name": "Paradise contractor district",
+      "playerCommandDefinitions": 29,
+      "explicitCommandPlaces": [
+        "Paradise independent-contractor desk",
+        "Paradise paid training booth"
+      ],
+      "nativePlaces": [
+        "Paradise independent-contractor desk",
+        "Paradise paid training booth"
+      ]
+    },
+    {
+      "id": "book.paradise.goa",
+      "name": "Goa · Gray Terminal",
+      "playerCommandDefinitions": 61,
+      "explicitCommandPlaces": [
+        "Goa Gray Terminal",
+        "Goa provision pier",
+        "Goa city gate",
+        "Goa guardhouse",
+        "Goa palace approach"
+      ],
+      "nativePlaces": [
+        "Goa Gray Terminal",
+        "Goa provision pier",
+        "Goa guardhouse",
+        "Goa city gate",
+        "Goa palace approach"
+      ]
+    },
+    {
+      "id": "nested.paradise_hub",
+      "name": "Paradise service district",
+      "playerCommandDefinitions": 45,
+      "explicitCommandPlaces": [
+        "Paradise service street",
+        "Paradise workroom"
+      ],
+      "nativePlaces": null
+    },
+    {
+      "id": "nested.saltworks",
+      "name": "Saltworks",
+      "playerCommandDefinitions": 49,
+      "explicitCommandPlaces": [
+        "Saltworks landing",
+        "Saltworks enginehouse"
+      ],
+      "nativePlaces": null
+    },
+    {
+      "id": "nested.archive",
+      "name": "The Lamplit Archive",
+      "playerCommandDefinitions": 37,
+      "explicitCommandPlaces": [
+        "Archive reception",
+        "Archive records room"
+      ],
+      "nativePlaces": null
+    },
+    {
+      "id": "feature.tidemark",
+      "name": "Tidemark",
+      "playerCommandDefinitions": 18,
+      "explicitCommandPlaces": [
+        "Tidemark landing",
+        "Tidemark terraces"
+      ],
+      "nativePlaces": null
+    },
+    {
+      "id": "pocket.folded_glasshouse",
+      "name": "Folded Glasshouse",
+      "playerCommandDefinitions": 27,
+      "explicitCommandPlaces": [
+        "Folded Glasshouse"
+      ],
+      "nativePlaces": null
+    },
+    {
+      "id": "base.frontier",
+      "name": "Frontier",
+      "playerCommandDefinitions": 710,
+      "explicitCommandPlaces": [
+        "Village",
+        "Shack",
+        "Town square",
+        "Forest road",
+        "Nearby cave"
+      ],
+      "nativePlaces": null
+    }
+  ],
+  "commands": 1206,
+  "plans": [
+    "feature_society.household_itinerary",
+    "feature_society.apprentice_itinerary",
+    "reference_gameplay.cooling_plan",
+    "audited_kit_reserve.resin_plan",
+    "crush_social.household_preparation",
+    "crush_social.household_known_use",
+    "factorio_retort.three_batches"
+  ],
+  "qualification": "Cold source definition counts; no executed reachability, pacing or playtime claim."
+}

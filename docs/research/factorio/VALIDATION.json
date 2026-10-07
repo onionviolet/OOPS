@@ -1,0 +1,21 @@
+{
+  "observed_at_utc": "2026-10-07T03:58:04.327471+00:00",
+  "status": "passed",
+  "checks": {
+    "all_json_parse": true,
+    "public_source_blobs": 51,
+    "api_version_and_hash": true,
+    "stable_metadata_hash": true,
+    "findings_and_packets": true,
+    "local_md_links": true,
+    "input_drift": [
+      "PROJECT.md"
+    ]
+  },
+  "errors": [],
+  "not_run": [
+    "Factorio launch/runtime/native decompilation",
+    "YAIR build or game suites (no gameplay edits; current deferral)",
+    "human design acceptance"
+  ]
+}

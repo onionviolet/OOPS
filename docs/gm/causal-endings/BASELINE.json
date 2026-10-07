@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-06",
+  "capturedAtUtc": "2026-10-06T05:18:56.437331+00:00",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "sourceIsMoving": true,
+  "gameplayWriter": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "analysisWriterScope": "docs/gm/causal-endings except dispatcher records",
+  "files": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+    "docs/worlds/LORE_AND_CONTINUITY.md": "8eb966d8ce49b3e0cbfa3bb4823289dfdac97e2dec884fa18cbe3c52f3ef3fa7",
+    "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936",
+    "docs/ENEMY_PROTAGONISTS.md": "cc7e769b7e9b18d387c5bbebc9e685c298362cce57c52da673ab72a6efdfc0c2",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "346b9a0ebc506de28393f8075e8a7919ebe93e931c3608f8fb4ea0f0f914029c",
+    "docs/gm/book-world-player-agency/INTERFACE.md": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+    "docs/gm/book-world-player-agency/CHECKPOINT.md": "593eb4bc72574b776d8093613c82a39faf249cad389f369fa1841f1f559cd672",
+    "docs/gm/book-world-player-agency/HANDOFF.json": "3f9ff90e3799d89f92e6161a934427d888e9dedd02d49021124c2e7b3ca871bf",
+    "src/simulation_effects.js": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/native_battle_host.js": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+    "src/native_battle_contracts.js": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8",
+    "src/feature_expansion_nested_chains_host.js": "2dfb3f0d195bebf0cc2a7c4d9a729e6c0bf107ad246ff1b268c6a972e678c4b6",
+    "src/original_frontier_career_content.js": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+    "src/book_world_player_agency_contracts.js": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+    "src/book_world_paradise_native.js": "3c5203252a4e11bc215381284df8f79a7e058ee6e1b979d923e0ab56316e0978",
+    "src/main.js": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+    "src/simulation_content.js": "c36b749cf8d069158469c655e2ecbcdb8b8453004cca624e778f3a6557eb284f"
+  }
+}

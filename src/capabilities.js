@@ -2,6 +2,7 @@ import {evaluateRule} from "./rules.js";
 
 const check = (condition, message) => {if(!condition) throw new Error(message);};
 export const SOURCE_KINDS = ["skill", "equipment", "knowledge", "trait", "bloodline", "technique", "condition", "world", "support"];
+export const SOURCE_ORIGINS = ["unknown", "inherited", "trained", "acquired"];
 const validId = value => typeof value === "string" && /^[a-z][a-z0-9_.:-]*$/i.test(value) &&
     !["__proto__", "constructor", "prototype"].includes(value);
 
@@ -19,6 +20,7 @@ export function validateCapabilityDefinitions(registry, validateRule) {
         }
     }
     for(const source of registry.sources.values()) {
+        check(source.origin == null || SOURCE_ORIGINS.includes(source.origin), "Invalid source origin.");
         check(typeof source.label === "string" && SOURCE_KINDS.includes(source.kind) &&
             Number.isSafeInteger(source.revision) && source.revision > 0 && Array.isArray(source.grants), "Invalid source definition.");
         const seen = new Set();
@@ -48,6 +50,8 @@ export function queryCapabilities(state, registry, context, facts) {
         }
         for(const [sourceId, instance] of Object.entries(active)) {
             if(instance.expiresAt != null && instance.expiresAt <= state.clock) continue;
+            const faculty = state.simulation?.faculties[context.actorId]?.[sourceId];
+            if(faculty && (!faculty.awakened || !faculty.active || faculty.suppressed)) continue;
             const source = registry.sources.get(sourceId);
             check(source, `Unknown capability source ${sourceId}.`);
             for(const grant of source.grants.filter(g => g.capability === definition.id)) {

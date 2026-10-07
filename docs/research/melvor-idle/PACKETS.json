@@ -1,0 +1,291 @@
+{
+  "status": "completed-research-proposals-only",
+  "selection": "Four ranked original packets are a small subset of broader findings/maps. No runtime work selected.",
+  "packets": [
+    {
+      "id": "MEL-P02",
+      "rank": 1,
+      "title": "Choose the real recipe for a finite kit reserve",
+      "status": "original-proposal-not-implemented",
+      "decision": "adapt existing route selector narrowly",
+      "source_findings": [
+        "MEL-PROD-C01",
+        "MEL-PROD-C03",
+        "MEL-PROD-C07"
+      ],
+      "player_journey": "Meet Eda at the existing Village bench. Deliberately choose the resin method or your earned ordinary frame for up to three accepted supply batches. Compare actual owned inputs,effort and time. Spend the resulting kits on the existing field work; the reserve holds or pauses using its selected recipe.",
+      "prerequisites": "Resin route retains its current enrollment/method/support. Frame route needs actual completed frame,retained bench-use right and supported hands/body. The ordinary frame needs no special charged source,teacher participation or cooling sleeve.",
+      "costs": "Current resin:1 Set repair resin +2 Sound repair staves +1 stamina +3 played minutes ->2 Prepared survey kits. Current ordinary frame:1 Tree sap +2 Sound repair staves +2 stamina +6 minutes ->2 same native kits. Costs are source-existing,not new balance.",
+      "reuse": [
+        {
+          "path": "src/audited_workshop_fixture.js",
+          "lines": [
+            63,
+            67
+          ],
+          "role": "existing ordinary frame recipe and completion support",
+          "sha256": "091972f4a508bb0a9d6b9eeca7b5f35c211badf01ab4c3f501940d8345ddd2c3"
+        },
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            23,
+            47
+          ],
+          "role": "current exact resin-policy validator",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+        },
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            179,
+            260
+          ],
+          "role": "existing reservation/hold/pause/budget boundary",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+        },
+        {
+          "path": "src/audited_kit_reserve_content.js",
+          "lines": [
+            5,
+            23
+          ],
+          "role": "existing stock thresholds/recipe terms",
+          "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            51
+          ],
+          "role": "same durable publisher",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        }
+      ],
+      "exact_missing_consumer": "src/feature_expansion_work_plan.js23-47 admits only resin policy/definition/costs; advanceOne207-209 only checks resin+sound inputs. Add one explicit frame-route plan/facts projection and narrowly admitted exact-definition branch. No general purpose crafting planner is required.",
+      "retained_consequences": "Selected route does not silently fall back when sap,resin,body,bench support or stamina is missing. Exact held materials/refunds remain owned by current jobs; accepted cancellations still consume the finite allowance. Whole two-kit batch output and4/2 hold/restart semantics persist.",
+      "compatibility": "Keep existing revision1 resin cursor and frozen jobs byte-compatible. Frame route must require explicit new optional accepted plan/receipt and existing audit fixture enrollment; absent state inert. Named route stored as exact definition/revision, not inferred from old completed counts. If additional state field/schema is required, migration/compatibility decision and later save/reload gate belong to integrator.",
+      "later_player_gate": "From supported enrolled Village state, compare the two real quotes. A chosen frame batch spends1 sap+2 sound staves+2 stamina, reserves6 played minutes and creates2 native kits; the selected resin route retains3min terms. Spend kits through an existing field consumer; hold/resume at4/2, pause on missing selected means, no fallback, no kit/output after cancelled or unsupported completion, no4th accepted batch. Deferred save/reload checks preserve old resin cursor and original opening.",
+      "exclusions": "No replacement inventory/scheduler/mastery currency/world/prestige,automatic old-save enrollment or runtime implementation."
+    },
+    {
+      "id": "MEL-P03",
+      "rank": 2,
+      "title": "An earned local survey becomes a finite recovery lead",
+      "status": "original-proposal-not-implemented",
+      "decision": "adapt one concrete discovery consumer",
+      "source_findings": [
+        "MEL-EXP01",
+        "MEL-EXP03"
+      ],
+      "player_journey": "Finish the existing ordinary or loaded Shack survey,then learn one attributed local recovery lead. Choose a supported paid search or ordinary inspection. A finite actual compatible offcut can reach the existing repair/salvage consumer; remembered knowledge remains when the material source is exhausted.",
+      "prerequisites": "Own actual completed survey knowledge and current earned workshop access. Existing ordinary survey holds1 log+1 kit for4 minutes and3 stamina; loaded specialization uses2 stamina and the same time,returning held objects. Knowledge alone is not physical loot.",
+      "costs": "Proposed original first proof:one local3-minute/1-stamina search using a held owned survey kit,returning that kit. Success transfers at most1 Compatible repair offcut from an explicitly declared finite world/local owner. No absent stock becomes free player stock. Exact location/name/result/stock and balance remain reversible proposals.",
+      "reuse": [
+        {
+          "path": "src/audit_remainder_home_content.js",
+          "lines": [
+            143,
+            151
+          ],
+          "role": "actual survey cost/returned objects and knowledge",
+          "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5"
+        },
+        {
+          "path": "src/skill_discovery.js",
+          "lines": [
+            123,
+            138
+          ],
+          "role": "knowledge-filtered known lead projection",
+          "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+        },
+        {
+          "path": "src/audit_remainder_home_host.js",
+          "lines": [
+            1,
+            40
+          ],
+          "role": "existing local command projection/host",
+          "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            214,
+            259
+          ],
+          "role": "actual timed support/failure/settlement",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6"
+        },
+        {
+          "path": "src/artifact_collection.js",
+          "lines": [
+            100,
+            125
+          ],
+          "role": "reusable carrier/actual item scene compiler already exists",
+          "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            51
+          ],
+          "role": "same durable publisher",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        }
+      ],
+      "exact_missing_consumer": "A leaf local availability/search adapter consumes the specific retained remainder_home.survey_ordinary/loaded knowledge and transfers finite real stock. Current survey commands only record firsthand load knowledge; no targeted consumer of those specific receipts was found. Refresh source before implementation.",
+      "retained_consequences": "Unknown lead stays hidden from search/badges/tooltips. Survey does not grant material ownership. Empty or interrupted search retains disclosed spent effort unless an explicit job refund applies. Exhausted source cannot be farmed; ordinary survey remains useful without exclusive training.",
+      "compatibility": "Explicit optional leaf admission; missing old state remains inert/unknown,no backfilled survey history. Same actor/body,known provenance,site,custody,inventory,job,clock and durable publisher. Existing frozen jobs retain meaning.",
+      "later_player_gate": "Disposable opt-in state:complete ordinary survey -> known lead without spoiler -> pay one real search -> transfer finite stock and spend it through an existing repair use -> exhausted lead retains knowledge; old unenrolled state receives no grant. Reload/import/failure/director gates deferred.",
+      "exclusions": "No second realm,global route unlock,omniscient map search,new museum/artifact platform or arbitrary loot generation."
+    },
+    {
+      "id": "MEL-P04",
+      "rank": 3,
+      "title": "An explicitly accepted guard-and-withdraw policy",
+      "status": "original-proposal-not-implemented",
+      "decision": "trial one finite native encounter policy",
+      "source_findings": [
+        "MEL-C1",
+        "MEL-C2",
+        "MEL-C3",
+        "MEL-C4",
+        "SHOP01"
+      ],
+      "player_journey": "For one newly admitted native encounter,choose manual action or a finite preparation policy. Use one actually reserved physical guard at a visible readiness boundary; withdraw at the agreed later boundary while retaining injuries,spent stock and unspent equipment.",
+      "prerequisites": "Current supported body,source,consent and real admitted prep; existing host legal-action quote. A known enemy name or high stat is not sufficient preparation.",
+      "costs": "Reuse current one physical preparation and2-stamina guard. Existing combat cadence pays time. Proposed proof thresholds,subject to balance review:guard once when own HP reaches60% or lower;withdraw at30% or lower or below2 stamina at a later legal player cadence. Enemy cadence can act first; this is no survival guarantee.",
+      "reuse": [
+        {
+          "path": "src/feature_expansion_battle.js",
+          "lines": [
+            407,
+            438
+          ],
+          "role": "existing legal native action selection/defensive-window pause",
+          "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7"
+        },
+        {
+          "path": "src/feature_expansion_battle_host.js",
+          "lines": [
+            61,
+            84
+          ],
+          "role": "saved action adapter on same combat cadence",
+          "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7"
+        },
+        {
+          "path": "src/audit_remainder_combat_objectives_battle.js",
+          "lines": [
+            15,
+            145
+          ],
+          "role": "real physical prep/rope and settlement",
+          "sha256": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83"
+        },
+        {
+          "path": "src/native_storage_transaction.js",
+          "lines": [
+            7,
+            33
+          ],
+          "role": "owned stock conservation",
+          "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            51
+          ],
+          "role": "same durable publisher",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        }
+      ],
+      "exact_missing_consumer": "featureNativeAction currently handles defended-open-choice pauses, conduct/recovery guards, existing helper release and default strike; it has no explicitly accepted finite preparation manifest that chooses one admitted physical guard at a player-set readiness boundary and withdraws when that accepted resource/condition limit is reached. Existing automatic favourite effects and stock reserve remain their owners; this proposal does not replace them.",
+      "retained_consequences": "Keep existing defense-earned choice manual,helper loss/body/stock/stamina support and single unused-prep/rope return. Spent inputs/injuries and won/lost/escaped/objective/withdrawn records remain distinct. Native favourite consumables already exist and retain their current owner.",
+      "compatibility": "Explicit versioned policy only in newly admitted encounter. Absent policy retains current choices; old frozen3/4 and existing5 must not acquire hidden behavior. Existing simulation session/item/stock/clock/vitals/RNG/token/one durable publisher remain authoritative; no new inventory/save publisher/scheduler or offline combat guarantee.",
+      "later_player_gate": "Generated newly admitted encounter:review actual prep quote/manual alternative;observe one legal paid guard;hit stop boundary and withdraw with exact spent/returned stock;stale tokens cannot repeat it. Reload/import/failed-save/legacy/director gates deferred.",
+      "exclusions": "No second scheduler,food/gear owner,publisher,retroactive behavior in old battles or automatic offline combat."
+    },
+    {
+      "id": "MEL-P01",
+      "rank": 4,
+      "title": "A settlement slip for one finite supply plan",
+      "status": "original-proposal-not-implemented",
+      "source_findings": [
+        "OFF01",
+        "OFF02"
+      ],
+      "player_journey": "At Eda's familiar Village bench, accept the existing finite resin reserve. After real played boundaries, open its slip to see accepted/refunded/finished batches, owned materials and stamina spent, actual kits received, played minutes and why future work held or paused. Resume only through the existing eligible control.",
+      "reuse": [
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            146,
+            159
+          ],
+          "role": "settle exact accepted job/cursor outcome",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+        },
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            179,
+            260
+          ],
+          "role": "supported stock hold/pause/budget and re-quote",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+        },
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "lines": [
+            331,
+            354
+          ],
+          "role": "current accepted and next-step view",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            214,
+            259
+          ],
+          "role": "actual completed/refunded/cancelled outcome",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            51
+          ],
+          "role": "existing durable publisher",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        },
+        {
+          "path": "src/event_feed.js",
+          "lines": [
+            71,
+            78
+          ],
+          "role": "known recent news already exists",
+          "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f"
+        }
+      ],
+      "exact_missing_consumer": "WorkPlanView projects state, next price and accepted job, and current logs/news give labels. Add a bounded per-plan settlement projection joining each accepted job to its actual conserved stock/vital deltas, outcome and time. Do not substitute current unrelated stock changes or repeat reward effects.",
+      "retained_consequences": "Cancelled/refunded accepted batches still use the current3-commitment reserve allowance; elapsed played time remains spent. Real depletion, custody exclusion, site/body/consent pauses persist.",
+      "compatibility": "Start as an ephemeral view from successful staged before/after publication plus exact job IDs. If a durable slip is selected, use optional versioned bounded metadata tied to retained receipt IDs under existing reader/publisher; missing old metadata is unknown rather than invented history. No offline catchup policy or scheduler added.",
+      "later_player_gate": "Fresh disposable save: accept3 finite commitments across complete/cancel/support-loss; inspect real owned stock/stamina/time and exact slip, reload and confirm no doubled reward or invented old receipt. These gameplay/save gates remain deferred.",
+      "exclusions": "No second realm/prestige, account entitlement change, user-save inspection, runtime integration or new automatic jobs selected.",
+      "decision": "propose bounded view; no implementation selected"
+    }
+  ],
+  "parked_option": "Site continuity option remains in FINDINGS reader implications,unselected and unranked."
+}

@@ -1,0 +1,1294 @@
+{
+  "title": "Book-world voice and detail dispositions",
+  "date": "2026-10-05",
+  "scope": "All 19 canonical implementation-plan roster rows; analytic authoring retrieval only. Reuses existing dossier and campaign-owner evidence; grants no new full-book semantic reading credit.",
+  "source_hash_convention": "SHA-256 of each exact cited analytical source-note file at qualification time; it authenticates the local note bytes, not the underlying novel/game publication.",
+  "activation_policy": "Every row remains false unless a real source-native runtime binding is present; none is established in this record.",
+  "rows": [
+    {
+      "id": "vf.original-frontier",
+      "world": "Original Frontier",
+      "classification": "original YAIRPG setting; not a novel adaptation",
+      "reviewed_extent": "Live project and campaign owner checked; campaign contains reversible new local proposals.",
+      "era_place_entry_boundary": "Familiar village/roads/Town continuity; use actual acquired access and the existing player timeline. New episodes remain explicitly original.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "sha256": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a",
+          "section_locator": "Live source baseline; Preservation and entry; Connected geography",
+          "claim_or_locator_strings": [
+            "village below mountains, beside fields and southern river",
+            "Shack route and Eastern mill access",
+            "240-minute Forest road legs; Town square additional 40 minutes"
+          ],
+          "role": "original setting/campaign owner"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Village geography is practical: the river, fields, mountain edge, earned Shack, forest road, Town and cave each have different access and travel costs.",
+          "evidence": "CAMPAIGN.md: Live source baseline; Connected geography; native location contracts.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Useful work is often preparation or handover: supplied logs become another worker’s materials; hired helpers have finite focus and depart when their commission ends.",
+          "evidence": "CAMPAIGN.md: Live source baseline; helper/simulation content.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A heard technique, owned method, and trained execution are separate stages; a useful neighbor can teach without turning into a free permanent workforce.",
+          "evidence": "CAMPAIGN.md: live technique and helper boundaries.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The bridge crew can take the timber after the ledger is signed. Until then, it stays stacked by the mill.",
+          "voice_frame": "Original village storekeeper or project hand.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Proposed local stock, custody, delivery, and ledger distinctions."
+        },
+        {
+          "text": "I can show you the grip once. The next crossing still waits on your own practice.",
+          "voice_frame": "Original local instructor.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Campaign separates hearing a technique from ownership and execution."
+        }
+      ],
+      "unknowns": [
+        "This is an original game world; no historical canon or new source world is asserted.",
+        "No fresh browser acceptance is claimed by this voice record."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Campaign facts and new fiction are kept separately; local wording is proposal."
+    },
+    {
+      "id": "vf.paradise",
+      "world": "Reincarnation Paradise",
+      "classification": "MTL novel source; qualified supplied snapshot",
+      "reviewed_extent": "Supplied Calibre English MTL, snapshot PD-MTL-67f15d112389-r1: spine 1–4656, 4,505 distinct full text bodies with 151 exact duplicates; complete supplied-text review. Original publication/translation authenticity unverified.",
+      "era_place_entry_boundary": "Use only an explicitly selected mission/hub stage and its known local facts; source record itself does not set a single universal era or make every entrant a contractor.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md",
+          "sha256": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84",
+          "section_locator": "Opening rules and later qualifications; PR04–PR07",
+          "claim_or_locator_strings": [
+            "PR04 sid26 Chapter 25; sid27 Chapter 26",
+            "PR05 sid213 Chapter 198",
+            "PR07 sid125 Chapter 121"
+          ],
+          "role": "qualified MTL synthesis"
+        },
+        {
+          "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+          "sha256": "cb39a4e9f939a834f8e4eba2b25deac46b7ea7f016e11380f4be87a56ba90ed7",
+          "section_locator": "Residence connects to journeys; Bounded scenario and deeper world are compatible",
+          "claim_or_locator_strings": [
+            "Wayfarer Exchange original proposal; Iona ledger authority, Venn partial maps, Kes competing route work"
+          ],
+          "role": "original hub candidate, not source canon"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "The hub can feel like a lived workplace between journeys: service staff, shops, rest periods, paid guidance and household concerns sit beside mission business. Employee claims remain attributed, not universal law.",
+          "evidence": "FULL_SYNTHESIS.md: PR04, sid26–27.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Return permissions, extraction, settlement and safe arrival are separate events; a receipt can settle one mission while a destination’s people remain in danger.",
+          "evidence": "FULL_SYNTHESIS.md: PR02/PR03/PR07.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A traveler’s retained attributes, carried items, local permissions and usable abilities can differ by stage; storage/access needs a named service and terms.",
+          "evidence": "FULL_SYNTHESIS.md: PR05; WORLD_BRIEF: residence/journey distinction.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "Your room is paid through morning. If the return desk changes the route, bring the notice back before you book another bed.",
+          "voice_frame": "Original hub lodging clerk.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Paid lodging and qualified return permissions; line is authored proposal."
+        },
+        {
+          "text": "I can compare the two maps after the shift. The eastern copy is still missing its last page.",
+          "voice_frame": "Original route researcher.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Partial maps and ordinary service work are owner-level original design."
+        }
+      ],
+      "unknowns": [
+        "All translated findings retain U status for original primary canon; exact source translation and compilation authenticity are not established.",
+        "Numerical reward curves and universal extraction guarantees are not supported."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Use translated source findings as qualified observations and keep original hub details labeled O."
+    },
+    {
+      "id": "vf.fated-villain",
+      "world": "Fated Villain",
+      "classification": "qualified English MTL supplied-edition novel dossier",
+      "reviewed_extent": "All 2,239 included sections and opening inspected, reviewed and integrated; source includes numbering jumps, repetition, damaged language and an explicit translation-error marker; not authenticated primary canon.",
+      "era_place_entry_boundary": "No single start era selected. Pick an authored stage/profile from the supplied edition; never silently move later revelations into an earlier observer’s knowledge.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/fated-villain/SYNTHESIS.md",
+          "sha256": "e322767a6b413a88daff7659984f110f52e2e29e1748b8cafdcb464990866295",
+          "section_locator": "What the source supports; Usable original authoring inputs",
+          "claim_or_locator_strings": [
+            "continuity/body reconstruction; custody changes; private knowledge/revelation limits",
+            "section ordinal 2239 translation-error marker"
+          ],
+          "role": "qualified MTL synthesis"
+        },
+        {
+          "path": "docs/research/novels/full-book/fated-villain/WORLD.md",
+          "sha256": "c9fb30c35c0c31b21bcdc9784586a05412f843a2bee907335a53059b59e29f7c",
+          "section_locator": "Integrated 71–150; Integrated 151–230; Integrated 831–930",
+          "claim_or_locator_strings": [
+            "source index by chapter tranche; use claim IDs in linked reader notes for any promoted exact rule"
+          ],
+          "role": "reviewed world index"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Institutional life is built from actual patronage, permits, transport, guarded supply and evidence; being powerful does not erase access or public-policy consequences.",
+          "evidence": "SYNTHESIS.md: “Institutions carry resources and agency”; WORLD.md: governed continent and material evidence.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A forged or partial report can move policy while the audience knows more; speakers should reveal only what their evidence channel gives them.",
+          "evidence": "SYNTHESIS.md: “Private knowledge drives causality.”",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Rebuilt bodies, retained spirit fragments, artifacts and memories are separate carriers; restoration needs real material and does not revive every lost person.",
+          "evidence": "SYNTHESIS.md: “Continuity is a sequence of material changes.”",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The permit covers the east gate and the listed crates. If you add a passenger, the clerk needs a new manifest.",
+          "voice_frame": "Original gate clerk in a source-inspired but locally authored scene.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Permits, transport, custody and jurisdiction are distinct source themes."
+        },
+        {
+          "text": "I heard the elder’s account. I did not see the missing convoy, so I will mark that part as unconfirmed.",
+          "voice_frame": "Original local witness.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source synthesis emphasizes attribution, partial reports, and public belief."
+        }
+      ],
+      "unknowns": [
+        "MTL defects, unresolved source passages, and the post-end blank sections remain unknown.",
+        "No source-specific price or complete modern calendar is asserted."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Dossier supports broad recurring patterns; exact dialogue/costs and branch details remain proposed."
+    },
+    {
+      "id": "vf.reverend-insanity",
+      "world": "Reverend Insanity",
+      "classification": "partially reviewed supplied novel snapshot",
+      "reviewed_extent": "Chapters 1–590 root-reviewed (1,259,728 unique manifest words/2,118 claims); chapters 591–2334 reader-consumed but pending root review. Supplied-edition provenance and later-publication scope remain qualified.",
+      "era_place_entry_boundary": "A Southern Border/Qing Mao opening is one source stage; later regions and changed passes are separate. Never merge pre- and post-rewind inventories or forecasts.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+          "sha256": "ff4b841154f9d49e2405143b7a753d4832bddb6c1347176fb2f61283a2a70ecc",
+          "section_locator": "Institutional and domestic implications from chapters 16–25; continuation101–200",
+          "claim_or_locator_strings": [
+            "RI-c0007-01/03; RI-c0022-01/02/03; RI-c0023-01/02/03",
+            "Qing Mao household/academy/market table"
+          ],
+          "role": "reviewed institution/life index"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md",
+          "sha256": "90cb4e0c3da0d0858261d25007bc0933dafa19421899317e63428977574d2836",
+          "section_locator": "Opening synthesis; Original game implications",
+          "claim_or_locator_strings": [
+            "chapters 1–590 reviewed boundary; future reading pending root review"
+          ],
+          "role": "reviewed synthesis"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Village life carries sharp material texture: wet stilt homes and steep paths, servants and night watch, academy practice, limited stone subsidy, perishable petals, wine and seasonal caravans.",
+          "evidence": "INSTITUTIONS_AND_LIFE.md: Qing Mao; Household; Academy; Village market/inn; Caravan.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A Gu portfolio is upkeep as much as collection: each creature has feed, activation, control and fuel needs, competing with food, training time, and scarce cash.",
+          "evidence": "SYNTHESIS.md: “Gu cultivation combines living ecology, production and a portfolio economy.”",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Public aptitude, official judgment, clan standing and actual ability can diverge; a mistaken theory can still change how people treat someone.",
+          "evidence": "INSTITUTIONS_AND_LIFE.md: Academy; SYNTHESIS.md: “Institutions turn resources and partial knowledge into actionable constraints.”",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The petals will spoil before the caravan returns. Sell this basket today or pay to keep it cold.",
+          "voice_frame": "Original market worker in an explicitly authored local scene.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source owner records five-day petal spoilage and storage exceptions."
+        },
+        {
+          "text": "The hall marked you eligible. It did not refill your aperture. Practice first, then ask for another stone.",
+          "voice_frame": "Original academy clerk.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source separates status, practice, and fuel; wording is new."
+        }
+      ],
+      "unknowns": [
+        "Post-chapter-590 claims are not treated as root-reviewed facts in this record.",
+        "No universal Gu-slot cap or simple XP conversion is supported."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Use only early reviewed locators for these cues; later timeline and late-book details remain outside this pass. Coverage counts are the as-retrieved dossier snapshot; only the cited sections support this row."
+    },
+    {
+      "id": "vf.shadow-slave",
+      "world": "Shadow Slave",
+      "classification": "active partial supplied novel dossier",
+      "reviewed_extent": "Active 1–3000 reading/review goal. Initial forward integration through 1000; 19 later-inspected chapters are a bounded baseline, not intervening history. Exact live detail gates remain in COVERAGE/CHECKPOINT.",
+      "era_place_entry_boundary": "State an explicit book cutoff and body/region. Keep waking-world, Dream Realm, constructed memories, nightmare cycles and inner-time relation separate.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/shadow-slave/AUTHORING.md",
+          "sha256": "da847958c5a38d0b610e23331a1b78514301417a6af9c0da3d560242893ff91f",
+          "section_locator": "Opening/first batch facet map; City rupture, market and expedition161–200; reviewed opening detail1–40",
+          "claim_or_locator_strings": [
+            "opening body/custody/food/cold; first batch; source cutoff in each section"
+          ],
+          "role": "active authoring index"
+        },
+        {
+          "path": "docs/research/novels/full-book/shadow-slave/WORLD_INDEX.md",
+          "sha256": "ac258e00677571ab0b19abadefde6cb2c8c4e44ee3032a2a627d418ef52c9bc9",
+          "section_locator": "Opening ordinary and institutional baseline; Practical expedition world201–280",
+          "claim_or_locator_strings": [
+            "OE05/OE09; transit1586–1588; 201–280 source section"
+          ],
+          "role": "world index"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Survival scenes are grounded by bodily deprivation and mundane logistics: injury, custody, keys, food, cold and travel preparation affect what a power can accomplish.",
+          "evidence": "AUTHORING.md: opening/first batch facet map.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A shadow can move or perceive without moving the bearer; armor may stop penetration while leaving impact injury. Keep visible effect and body position distinct.",
+          "evidence": "AUTHORING.md: opening detail1–40.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Markets, refuge, fleet capacity and domain authority shape evacuation; rescue is paid in stock, time, workers and risk.",
+          "evidence": "WORLD_INDEX.md: Refuge/recruitment; Evacuation and waking institutions; transit1587.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The gate closes at dusk. If the ferry is full, the next crossing is tomorrow and the east camp has no spare blankets.",
+          "voice_frame": "Original refuge quartermaster.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source notes capacity, danger, timing, refugees and prepared logistics."
+        },
+        {
+          "text": "I saw the shadow cross the wall. I did not see anyone pass through the door.",
+          "voice_frame": "Original witness.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source separates shadow movement/perception from physical body movement."
+        }
+      ],
+      "unknowns": [
+        "No full-book integration or authentication is claimed; only bounded reviewed sections support the cues.",
+        "Unknown source cutoffs must not be bridged by assumed events."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Exact attributes, costs, identities and late events need current source index review before use. Coverage counts are the as-retrieved dossier snapshot; only the cited sections support this row."
+    },
+    {
+      "id": "vf.regressors-tale",
+      "world": "Regressor’s Tale",
+      "classification": "complete supplied-snapshot dossier; translation qualified",
+      "reviewed_extent": "Integrated Prologue plus chapters 1–640, ordinals 1–644; entire supplied snapshot; source authenticity/translation remains U.",
+      "era_place_entry_boundary": "Choose explicit earlier/current life and local branch; remembered experience informs a character but does not grant authority over stronger actors or guarantee repeated outcomes.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/regressors-tale/SYNTHESIS.md",
+          "sha256": "3d1c37701a4fc79943b41796fbc99f7d6e60fb4ec07fe5e45f2678bc7598d5e9",
+          "section_locator": "Authoring synthesis; Original authoring implications after reviewed ordinals142–165",
+          "claim_or_locator_strings": [
+            "RT-Q03/10, revisable forecast",
+            "RT-Q07/09, funded teaching with unequal talent",
+            "RT-Q08, encounter-specific power comparison"
+          ],
+          "role": "reviewed synthesis"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Ordinary remembered work can fund survival and a lesson, while aptitude and institution access still determine what each person can actually do.",
+          "evidence": "SYNTHESIS.md: opening; proposals 1–3.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A forecast belongs to its teller and premises; altered cargo, route or action can break the expected chain without erasing the earlier memory.",
+          "evidence": "SYNTHESIS.md: “Revisable forecast.”",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "The powerful ally may advance quickly and a stronger opponent can accept a narrow contest while retaining overwhelming combat advantage.",
+          "evidence": "SYNTHESIS.md: opening; “Encounter-specific power comparison.”",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "I remember the old road, but the bridge was repaired last week. Let me check before we pay the guide.",
+          "voice_frame": "Original traveler in a divergent branch.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier supports revisable recollection and current evidence."
+        },
+        {
+          "text": "The herb money covers one lesson. You still have to do the practice yourself.",
+          "voice_frame": "Original local teacher.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier supports funded teaching while preserving aptitude and practice."
+        }
+      ],
+      "unknowns": [
+        "The dossier qualifies its supplied translation and does not assert primary-publication authenticity.",
+        "Exact future predictions remain uncertain; old outcomes are not guaranteed to recur."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "This is a source-bound scene proposal, not runtime regression, dream, death, or reset implementation."
+    },
+    {
+      "id": "vf.omniscient-reader",
+      "world": "Omniscient Reader’s Viewpoint",
+      "classification": "complete supplied-edition dossier",
+      "reviewed_extent": "All 551 chapters read, reviewed and integrated; final source ambiguity remains explicit; dossier is author reference, not implemented world.",
+      "era_place_entry_boundary": "Choose one scenario/stage and observer knowledge cutoff. Private remembered-story knowledge belongs to its carrier, not the world or every party member.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/omniscient-reader/SYNTHESIS.md",
+          "sha256": "e074811cad01f94d25f499f58cc1b29e99d8313885eacfe6a5dff45e9f6e4b39",
+          "section_locator": "Original proposals; Authoring implications after first150chapters; Full supplied-edition authoring result331–551",
+          "claim_or_locator_strings": [
+            "ORV-005-02/006-03 conditions",
+            "ORV-004-01/005-01/007-02 forecasts",
+            "ORV-008-01 offer/gift/contract",
+            "ORV-006-01/006-02/010-02 temporary function"
+          ],
+          "role": "reviewed synthesis"
+        },
+        {
+          "path": "docs/research/novels/full-book/omniscient-reader/SOURCE_BOUNDARIES.md",
+          "sha256": "a877a3da7bce855c28f8bc976c23f4fb27b04a652b89a44e47da86c4c7a1061f",
+          "section_locator": "Source and translation boundaries",
+          "claim_or_locator_strings": [
+            "complete supplied-edition status; final ambiguity"
+          ],
+          "role": "source boundary"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Scenario wording, conditions, goods and payout can be read together; an eligible lower-harm route may change the reward without making a kill-grind compulsory.",
+          "evidence": "SYNTHESIS.md: condition-led alternate route, ORV-005-02/006-03.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Foreknowledge is a private forecast; changing one prerequisite invalidates dependent expectations, while other people keep their own plans and beliefs.",
+          "evidence": "SYNTHESIS.md: revisable foreknowledge, ORV-004-01/005-01/007-02.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A sponsor’s offer, separately funded gift, explicit contract, temporary borrowed function and permanent learning are different exchanges.",
+          "evidence": "SYNTHESIS.md: offer/gift/contract and familiarity-supported temporary technique.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "Read the condition card twice. The west stair meets it, but your pack is too heavy for the return gate.",
+          "voice_frame": "Original scenario participant.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source distinguishes condition wording, local materials, body/cargo and route eligibility."
+        },
+        {
+          "text": "You can keep the token. My offer was for this crossing, not a promise to join your company.",
+          "voice_frame": "Original sponsor.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source distinguishes a one-time gift/offer from contract and loyalty."
+        }
+      ],
+      "unknowns": [
+        "The supplied edition retains a final ambiguity; do not infer its missing resolution.",
+        "No actor receives universal future knowledge or guaranteed system rewards."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Only stage-specific source evidence is used; both lines are newly authored and source-title-free."
+    },
+    {
+      "id": "vf.labyrinth",
+      "world": "Labyrinth of the Mad God (volumes 1–2)",
+      "classification": "two supplied local volumes; each edition-qualified, no publication authentication",
+      "reviewed_extent": "Vol.1: all 119 numbered narrative chapters semantically read/reviewed/integrated (216,003 words). Vol.2: supplied local volume synthesis and chapter dossiers; metadata is not independent authenticity evidence.",
+      "era_place_entry_boundary": "Preserve the endings of both supplied volumes and choose actual region/body/arrival. Changing terrain and source conditions remain local; no universal tower or clock rule is implied.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/labyrinth-mad-god-1/SYNTHESIS.md",
+          "sha256": "34cd6a4bc1d565b1f61957f71b62b2f8a1fd0bf89ec61bca9b4fecb2e0421e2a",
+          "section_locator": "Source results that change authoring; Remaining source boundaries",
+          "claim_or_locator_strings": [
+            "B02-C27; B04-C19/C20 resource revaluation",
+            "B03-C04/C05/C13 cure versus external threat",
+            "B07-C24/C28–31 travel/custody"
+          ],
+          "role": "reviewed vol.1 synthesis"
+        },
+        {
+          "path": "docs/research/novels/full-book/labyrinth-mad-god-2/SYNTHESIS.md",
+          "sha256": "ea877c8abfcd95720b05edeaf2ef38abe49c1f2cb36095a0a2ffe871d697c308",
+          "section_locator": "Whole-volume findings; Included ending and excluded conclusions",
+          "claim_or_locator_strings": [
+            "R01-C08–C11; R02-C47–C49; contested class/reward authority"
+          ],
+          "role": "reviewed vol.2 synthesis"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "The landscape changes under people’s feet: routes flood, heat/rain and weight can shift from hazard to useful means, and returning requires checking present conditions.",
+          "evidence": "Vol.1 SYNTHESIS.md: source results; B02/B03/B04.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Nonhuman creatures can plan, cooperate, grieve and remember without becoming translated player-owned helpers.",
+          "evidence": "Vol.1 SYNTHESIS.md: source results; B03-C22/C23, B05-C09, B06-C19/C22.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A gift can create cooperation, but access, body compatibility, authority and reward remain negotiable; a System claim may be contested with costs.",
+          "evidence": "Vol.1 SYNTHESIS.md; vol.2 SYNTHESIS.md: R01/R02.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The old tunnel is underwater now. I can show you the ridge path, but I have not checked what moved there.",
+          "voice_frame": "Original local scout.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Vol.1 supports changed routes and revised knowledge; wording is new."
+        },
+        {
+          "text": "The meal was a gift. The dry blankets are on loan, and I want them back before the storm.",
+          "voice_frame": "Original shelter host.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Vol.1 records material aid opening cooperation; exact exchange terms are original."
+        }
+      ],
+      "unknowns": [
+        "Vol.2 metadata and source boundaries are qualified; no outside publication authentication is supplied.",
+        "Cross-volume cosmology and exact rule priority remain bounded to each volume’s evidence."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Cues combine two distinct supplied books only for shared proposed setting treatment; keep volume-specific endings and facts separate."
+    },
+    {
+      "id": "vf.mother-of-learning",
+      "world": "Mother of Learning",
+      "classification": "complete supplied-edition dossier",
+      "reviewed_extent": "Completed supplied WebToEpub snapshot: 106 numbered chapters plus Epilogue (107 story items); dossier reports semantic reading/integration. Edition authenticity beyond snapshot unverified.",
+      "era_place_entry_boundary": "Use Cyoria/Royal Academy around the explicitly named chapter cutoff. Opening, festival-eve recurrence, later ending, and one-month epilogue are different observer states; no exact calendar year or total loop time.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+          "sha256": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+          "section_locator": "Reconciled source rules; Five original authoring implications",
+          "claim_or_locator_strings": [
+            "C001-04/05/12; C002-01/04/13; C003-07",
+            "C003-01/04/08; C001-07/10/12/13; C005-07"
+          ],
+          "role": "reviewed dossier"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/WORLD.md",
+          "sha256": "77f6027e60afc3df982b3a5b179ec549c903839a23e88db89fbfab4f17f4c008",
+          "section_locator": "Institutions, geography and ordinary means; Reviewed chapters 6–20 ordinary-life and institutional links",
+          "claim_or_locator_strings": [
+            "academy opening domain table",
+            "C006-03; C007-09; C015-02/03",
+            "C024-04; C025-05/07/09; C028-01/04; C031-01"
+          ],
+          "role": "reviewed world index"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/PEOPLE.md",
+          "sha256": "586b019b67ebe35ea8f82a55b364e9db30d0f5506bca2c96bf0adf1846ba3b52",
+          "section_locator": "People, aliases and knowledge; Reviewed chapters 6–20 continuity",
+          "claim_or_locator_strings": [
+            "C011-03/04; C014-02/03",
+            "EP01–16"
+          ],
+          "role": "reviewed people index"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/TIMELINE.md",
+          "sha256": "5a441deab922cf3737ebf0a6f4d0eaa60707f7dcf8d6e17436586e7c4896a97d",
+          "section_locator": "Causal timeline and narrative order; Reviewed chapters 6–20 causal bridge",
+          "claim_or_locator_strings": [
+            "T01/ch.1–3; ch.6–8 causal bridge; Epilogue"
+          ],
+          "role": "reviewed timeline"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Academy access is procedural: certification, housing, mentor quotas, electives, library/guild access and student work coexist; status is separate from expertise.",
+          "evidence": "SYNTHESIS.md: Reconciled source rules; C001-04/05/12, C002-01/04/13, C003-07.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "City travel has mundane friction: crystal train, station labor/services, long academy walk and expensive apartments; travel does not erase time, money or information.",
+          "evidence": "WORLD.md: opening domain table; C001-07/10/12/13, C005-07.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Student craft uses their own reagents and cleanup; jobs, apprenticeship, and restricted access exchange time for conditional opportunity.",
+          "evidence": "WORLD.md: ordinary-life 6–20; C006-03, C007-09, C024-04, C025-05/07/09.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The library wants its ledger before my mentor hour. A borrowed pass does not finish either job.",
+          "voice_frame": "Original academy student balancing library work with scheduled instruction.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier-derived academy access, student jobs, mentor quotas, and distinct credentials; line is newly authored."
+        },
+        {
+          "text": "Use your own powder, please. The wash basin is for the residue, and the next group gets the bench at noon.",
+          "voice_frame": "Original workshop assistant or student.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier-derived supplied reagents, cleanup, and shared workshop use; line is newly authored."
+        }
+      ],
+      "unknowns": [
+        "No exhaustive Cyoria price list, exact calendar year, complete map or audited total elapsed-time conversion.",
+        "Canonical speaker for these authored lines is intentionally not asserted."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Representative row reviewed and accepted; original dialogue kept distinct from dossier facts."
+    },
+    {
+      "id": "vf.lord-of-mysteries",
+      "world": "Lord of the Mysteries",
+      "classification": "partial supplied Chinese compilation; review pending for remaining scope",
+      "reviewed_extent": "Current integrated scope: Part One entries 1–213 and Part Two entries 1–150, 1,313 accepted claims; later returned readings await GM review; 1,402 required entries overall. Unaudited publication authenticity.",
+      "era_place_entry_boundary": "Choose Part/sequence and knowledge cutoff; ordinary household/job stage precedes possible initiation. Visions, dreams, and waking body actions remain distinct.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/lord-of-mysteries/DESIGN.md",
+          "sha256": "5e10e96146c73158f848aef2504133e21fc20031e394f1612bf7befc527ee41b",
+          "section_locator": "Institutional/domestic implications 16–25; Acquisition/information 26–35; Service/context 36–45",
+          "claim_or_locator_strings": [
+            "C08/C16–C25 access/provenance",
+            "C07–C19 ingredient/permitted transformation",
+            "C24–C28 service reputation"
+          ],
+          "role": "partial reviewed authoring design"
+        },
+        {
+          "path": "docs/research/novels/full-book/lord-of-mysteries/SYNTHESIS.md",
+          "sha256": "441ce548a67a51366e4a4d1ac988b41e9797dfe812808625a914d5f481a3c32d",
+          "section_locator": "Author-facing synthesis; completed scope boundary",
+          "claim_or_locator_strings": [
+            "Part One 1–213; Part Two 1–150; 1,313 accepted claims"
+          ],
+          "role": "partial synthesis"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Household education, precarious work, rent, food prices, vendors and family obligations matter before supernatural advancement.",
+          "evidence": "SYNTHESIS.md: opening ordinary life; DESIGN.md: clerical career implications.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A paid clerical or service job can provide a rota, stipend, badge, limited catalogue or referral without automatically granting initiation or execution skill.",
+          "evidence": "DESIGN.md: Institutional and domestic implications 16–25; C28–C30.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A dream report, waking observation, attributed testimony and supernatural interpretation are separate evidence channels; useful services return bounded clues.",
+          "evidence": "DESIGN.md: investigation implications and witness/service reputation, C19–C28.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The flat is paid through the month. If you want the archive shift, bring a reference from someone who knows your handwriting.",
+          "voice_frame": "Original clerk applicant and employer.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Partial dossier supports precarious employment, housing costs, and credentials."
+        },
+        {
+          "text": "I can tell you where the witness was seen. I cannot tell you what the dream meant.",
+          "voice_frame": "Original paid investigator.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier supports bounded clue delivery and distinct report/interpretation."
+        }
+      ],
+      "unknowns": [
+        "Most of the source remains outside current integrated/reviewed scope; later plot and rules are unavailable here.",
+        "Compilation authenticity and translation claims remain qualified."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Only reviewed claims from the named ranges support these proposals; source title and canonical characters are not used in dialogue. Coverage counts are the as-retrieved dossier snapshot; only the cited sections support this row."
+    },
+    {
+      "id": "vf.circle-of-inevitability",
+      "world": "Circle of Inevitability",
+      "classification": "active partial sequel-source dossier",
+      "reviewed_extent": "Full supplied-edition goal active. Current accepted review progresses through 1170; supplied spine 1–8 opening and bounded later ranges are individually reviewed. See CHECKPOINT for live progress; not full-book complete.",
+      "era_place_entry_boundary": "Sequel-era only. Preserve Cordu physical ruin versus shared dream/recovered memory distinctions and each reviewed cutoff; do not backfill later knowledge into opening actors.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/circle-of-inevitability/EARLY_CONTEXT.md",
+          "sha256": "9d1e5b3a5fa1c20cfcb4486b59155b3cfa3d92533078878a0e00e98bf3c18c1a",
+          "section_locator": "Reviewed COI opening context card; extensions through 22 and 36",
+          "claim_or_locator_strings": [
+            "Cordu physical ruin vs shared dream vs recovered memory; opening living facts"
+          ],
+          "role": "reviewed early context"
+        },
+        {
+          "path": "docs/research/novels/full-book/circle-of-inevitability/CHECKPOINT.md",
+          "sha256": "a2c5166894c62ea4aa54af8f6cb7c276182b120577a5e630060c585c046af304",
+          "section_locator": "Progress/resume; latest accepted r066/r065/r064",
+          "claim_or_locator_strings": [
+            "accepted source currently through 1170; active full-source work"
+          ],
+          "role": "live checkpoint"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Cordu’s ruin, a shared dream, and later recovered memory are separate events and knowledge; the record explicitly revises early interpretations.",
+          "evidence": "CHECKPOINT.md: Progress/resume; EARLY_CONTEXT.md: opening card.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Early local relationships, shepherd calendars, church records and private correspondence make ordinary evidence useful before a supernatural answer is known.",
+          "evidence": "SYNTHESIS.md: opening summary; EARLY_CONTEXT.md.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A person may have a name, face, report and attributed belief that do not identify the actual controller or cause; retain uncertainty until reviewed evidence resolves it.",
+          "evidence": "CHECKPOINT.md: accepted r063–r066 notes; identity/cause distinctions.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The bell was rung before dawn. That is what the shepherd wrote; I have not seen the damaged road myself.",
+          "voice_frame": "Original local record keeper.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Early dossier emphasizes local calendars, records and attribution."
+        },
+        {
+          "text": "I remember the square in sunlight. That does not tell me whether we were awake.",
+          "voice_frame": "Original town resident recalling a disputed event.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier distinguishes physical setting, dream experience, and recovered memory."
+        }
+      ],
+      "unknowns": [
+        "The source-reading goal is still active; unreviewed chapters and later rules are unknown.",
+        "Opening messages, symbolic dates and apparent visions are not automatically physical history."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Only specific accepted/reviewed windows are used; no new semantic-reading credit is claimed. Coverage counts are the as-retrieved dossier snapshot; only the cited sections support this row."
+    },
+    {
+      "id": "vf.worm",
+      "world": "Worm",
+      "classification": "complete supplied-edition dossier",
+      "reviewed_extent": "All 304 supplied story entries read/reviewed; 2,112 claims; two bonus interludes structurally relocated. Compilation structure does not authenticate every paragraph; no sequel/Ward history imported.",
+      "era_place_entry_boundary": "Select source cutoff and Earth/instance before seeding. Later revelations revise earlier reports; changed causes produce a new branch, not guaranteed canon events.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/worm/SYNTHESIS.md",
+          "sha256": "1eb01636fbee0808c7adc3e631ac4fffb1613c40076977983865ada7a4c9056f",
+          "section_locator": "Five original proposals; edition boundary",
+          "claim_or_locator_strings": [
+            "W161-C02/C03; W268-C03; W280-C05; W304-C04",
+            "source entries 304/304"
+          ],
+          "role": "reviewed synthesis"
+        },
+        {
+          "path": "docs/research/novels/full-book/worm/SYSTEMS.md",
+          "sha256": "12526f9e67406ba8fe3247243c425077fca700486fb56c290aea3d2de92b17e8",
+          "section_locator": "local-infrastructure-and-repair; careers-households-and-work; territorial-coalitions-and-emergency-norms",
+          "claim_or_locator_strings": [
+            "work, public services, household, repair and local power systems"
+          ],
+          "role": "reviewed systems index"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Neighborhood life is carried by food, fuel, schools, care, damaged roads, privacy and paid repair, alongside cape organizations.",
+          "evidence": "SYNTHESIS.md: reusable pattern; SYSTEMS.md: local infrastructure/careers.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A power needs an actual body, material, range, observation channel and opportunity; group work needs named people, permissions and finite supplies.",
+          "evidence": "SYNTHESIS.md: reusable pattern.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A repair job can open a route or service and leave a remembered public consequence; an observer can know the fix without knowing every hidden motive.",
+          "evidence": "SYNTHESIS.md: P01 local repair; W161/W268/W280/W304 locators.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The streetlight is back, but the clinic still needs a working pump before tonight. I have parts for one job.",
+          "voice_frame": "Original neighborhood repair worker.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source-grounded infrastructure repair and finite parts; line original."
+        },
+        {
+          "text": "I can tell the board what I saw on the corner. I cannot put my sister’s name on a report she never gave me.",
+          "voice_frame": "Original resident.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier centers privacy, observer channels and attributable evidence."
+        }
+      ],
+      "unknowns": [
+        "No Worm cast, power, adaptation or canon branch is selected by these cues.",
+        "No Ward/sequel history is imported."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Source dossier confirms patterns; all dialogue and local campaign choices are original proposals."
+    },
+    {
+      "id": "vf.legendary-mechanic",
+      "world": "The Legendary Mechanic",
+      "classification": "complete supplied-edition dossier",
+      "reviewed_extent": "All 1,463 supplied chapters integrated/reconciled across 74 ranges; use final audit for exact edition and identity. Research evidence does not select an adaptation or runtime.",
+      "era_place_entry_boundary": "Select the specified story phase, faction/region and workshop access; do not assume later technology, body or logistics are present in earlier stages.",
+      "source_notes": [
+        {
+          "path": "docs/research/novels/full-book/legendary-mechanic/GAME_IMPLICATIONS.md",
+          "sha256": "119423fbd1c6a6d18be927045a033966d3cb353f5313c0c4e2a2a6d3061e3613",
+          "section_locator": "Original game implications; reviewed extensions through c0105, c0145, c0165",
+          "claim_or_locator_strings": [
+            "c0002:p151–203; c0005:p83–128,p179–185",
+            "c0004:p10–22,p49–56",
+            "c0001:p78–92; c0003:p11–48; c0005:p18–48"
+          ],
+          "role": "reviewed implications"
+        },
+        {
+          "path": "docs/research/novels/full-book/legendary-mechanic/FINAL_AUDIT.json",
+          "sha256": "374b22be9cd308495405def2236c08d45c36a4309fb0aa56341dff50a71e5289",
+          "section_locator": "supplied-edition receipt",
+          "claim_or_locator_strings": [
+            "1463 chapters across 74 integrated ranges"
+          ],
+          "role": "completion receipt"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Blueprint, craftable plan, physical parts, workshop, fabricated stock and functioning equipment are separate states.",
+          "evidence": "GAME_IMPLICATIONS.md: Knowledge plus actual means; c0002/c0005.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Maintenance and enhancement can reward varied practice, while repeated identical work, workshop access and institutional attention have opportunity costs.",
+          "evidence": "GAME_IMPLICATIONS.md: Practice with finite opportunity; c0004.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A manual or remembered future can be true and still fail when source confidentiality, credentials, body fit or command authority blocks use.",
+          "evidence": "GAME_IMPLICATIONS.md: Attributed knowledge; reviewed c0042/c0077/c0079/c0080.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The drawing tells me the bracket angle. It does not tell me where the alloy came from or whether this frame can bear it.",
+          "voice_frame": "Original workshop engineer.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier separates plan, materials, facility and body capacity."
+        },
+        {
+          "text": "I can fit the spare module today. The test bay is booked, so it stays unpowered until tomorrow.",
+          "voice_frame": "Original production scheduler.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Dossier emphasizes stock, access, throughput and opportunity cost."
+        }
+      ],
+      "unknowns": [
+        "Only claims in the reviewed supplied edition are assumed; later author releases require separate evidence.",
+        "No universal player-system, respawn policy or balance values are selected."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "This is an analytic authoring handoff, not current-build mechanic proof."
+    },
+    {
+      "id": "vf.skyrim",
+      "world": "Skyrim",
+      "classification": "licensed base-game source anchors plus original fan campaign",
+      "reviewed_extent": "Base game of The Elder Scrolls V: Skyrim; campaign selects no ending and excludes DLC/Creation Club; campaign and manual-grounded bounded source notes.",
+      "era_place_entry_boundary": "Ordinary visitor in the base game, no Dragonborn role or selected ending. Local workyard fiction is O, not canonical Whiterun history.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/skyrim/CAMPAIGN.md",
+          "sha256": "f943464572698c190ec0f2402fd3c948b59fd62d485332b50ef45fa9b909a329",
+          "section_locator": "Source and invention boundary; Places and institutions; Ordinary life, research and useful returns",
+          "claim_or_locator_strings": [
+            "S1 official manual pp.8,16–17",
+            "O Whiterun lower workyards; O mill watershed; O pass refuge"
+          ],
+          "role": "source-qualified campaign proposal"
+        },
+        {
+          "path": "docs/worlds/skyrim/SOURCE_LEDGER.md",
+          "sha256": "2820aaffdf7ab84eb68401fe8b90418563cf8c05b8108187544b39b87a2774f3",
+          "section_locator": "Source boundary and S1–S3",
+          "claim_or_locator_strings": [
+            "base game; Dragonborn status not assumed"
+          ],
+          "role": "bounded official-source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Spell work spends Magicka; enchanting uses a known effect, eligible item and filled soul gem, with a distinct behavior for worn and charged gear.",
+          "evidence": "CAMPAIGN.md: S1 official manual; keep source rule separate from proposed workshop careers.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "The original local career proposal centers on carts, timber, iron fitting, dry stock, road shelter and freight, not only combat.",
+          "evidence": "CAMPAIGN.md: Places and institutions; each listed local yard/refuge is O.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Guild or College access, instruction, specimen destruction, and item ownership are different steps; Dragonborn is not the visitor’s default identity.",
+          "evidence": "CAMPAIGN.md: source boundary and progression careers.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The iron fitting is ready. If you want the enchantment tested, bring the filled gem and book the College bench.",
+          "voice_frame": "Original Whiterun workyard artisan.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Campaign proposal joins ordinary fittings and sourced enchantment prerequisites."
+        },
+        {
+          "text": "The pass notice says two wagons before snow. We have room for one cart and the wounded porter.",
+          "voice_frame": "Original road quartermaster.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Original refuge/freight design, not a canonical quest line."
+        }
+      ],
+      "unknowns": [
+        "Campaign locations, people, costs and later arcs are original proposals.",
+        "No DLC, Creation Club, copied game dialogue or automatic Dragonborn identity."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Official source anchors and O local lives are deliberately labeled separately."
+    },
+    {
+      "id": "vf.fallout4",
+      "world": "Fallout 4",
+      "classification": "licensed base-game anchors plus original fan campaign",
+      "reviewed_extent": "Bethesda base game in Boston Commonwealth, year 2287; excluded DLC, Creation Club, TV continuity and copied assets/dialogue.",
+      "era_place_entry_boundary": "Commonwealth visitor at selected base-game time; player is not presumed Sole Survivor. Earlier eras are separate local histories.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/fallout/CAMPAIGN.md",
+          "sha256": "f5a7adccf642dcd955cda490e142a317c53380e35b601e5e496fc90ba052d790",
+          "section_locator": "Source boundary; Connected contexts; Everyday life/projects",
+          "claim_or_locator_strings": [
+            "F1 official date/location 2287",
+            "F2 settlements, modified weapons, personalized Power Armor",
+            "O aid station, service detachment, refuge workshop, contact lab"
+          ],
+          "role": "source-qualified campaign proposal"
+        },
+        {
+          "path": "docs/worlds/fallout/SOURCE_LEDGER.md",
+          "sha256": "d4c4eed832b8937879df19dae543de538dd5e7ab839bc4fa28c36d9fc5455c2f",
+          "section_locator": "Source anchors F1–F4",
+          "claim_or_locator_strings": [
+            "base game factions and source boundaries"
+          ],
+          "role": "bounded official-source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Settlement work combines repair orders, refuge stock, volunteers and route preparation; faction affiliation can change access and obligation.",
+          "evidence": "CAMPAIGN.md: Connected contexts; all named facilities are O campaign proposals.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A powered rig needs its frame, parts, compatible power, fitting instruction and service access; equipment fails in specific functions when support fails.",
+          "evidence": "CAMPAIGN.md: progression careers, powered-rig operator.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Water infrastructure requires diagnosis and compatible seals; evidence of contamination is different from an actual treatment or safe flow.",
+          "evidence": "CAMPAIGN.md: utility engineer and medic/contamination specialist.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The pump is running again. I logged the filter change, but nobody has tested the water at the far tap.",
+          "voice_frame": "Original settlement utility worker.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Campaign separates repair, diagnosis and safety evidence."
+        },
+        {
+          "text": "Armor frame is yours once the requisition clears. The spare cells stay on the service rack.",
+          "voice_frame": "Original detachment quartermaster.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Original O logistics proposal; source factions do not imply personal property."
+        }
+      ],
+      "unknowns": [
+        "Source era and local facility layouts require an explicit branch; the proposed local people are not canonical.",
+        "Survival mode is a logistics reference, not automatic gameplay rules."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Use source anchors for setting only; local dialogue is original fan continuity."
+    },
+    {
+      "id": "vf.elden-ring",
+      "world": "Elden Ring",
+      "classification": "licensed base-game anchors plus original fan campaign",
+      "reviewed_extent": "2022 base-game premise before a chosen ending; excludes Shadow of the Erdtree, Nightreign, Tarnished Edition additions, copied assets/dialogue.",
+      "era_place_entry_boundary": "Supported living visitor or local; no chosen ending or resurrection policy selected. Limgrave/Liurnia source anchors coexist with O waystations and careers.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/elden-ring/CAMPAIGN.md",
+          "sha256": "d841e8d552eece42d162816aa24bcd1018837ddbf2b44c8fa1d057216947d8ad",
+          "section_locator": "Bounded source and original continuity; Contexts and institutions; Local life and meaningful projects",
+          "claim_or_locator_strings": [
+            "E1–E5 official source anchors",
+            "O Limgrave cinder waystation; O Liurnia register-house; O witness archive"
+          ],
+          "role": "source-qualified campaign proposal"
+        },
+        {
+          "path": "docs/worlds/elden-ring/SOURCE_LEDGER.md",
+          "sha256": "46799b854b3b6cb7c000c9796461e319132dbde033560577a557af2d1fca1052",
+          "section_locator": "E1–E5 and source boundary",
+          "claim_or_locator_strings": [
+            "HP/FP/stamina; catalyst; spirit support; region/night danger"
+          ],
+          "role": "bounded official-source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "HP, FP and stamina serve different functions; catalysts and monument support qualify specific arts and summons rather than granting them by sight.",
+          "evidence": "CAMPAIGN.md: E2–E4 source anchors.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Local original support work is portering, dry copying damaged records, repair, care and witness interviews among hostile crossings.",
+          "evidence": "CAMPAIGN.md: Contexts and institutions; local contexts are explicitly O.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A weapon’s custody, rightful name, registry, learned method and combat ability are separate; testimony can change access without granting armor or authority.",
+          "evidence": "CAMPAIGN.md: O disputed-name archive; witness/registry career.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The page is dry enough to copy. The name beside it is water-blurred, so I will not guess who carried the seal.",
+          "voice_frame": "Original Liurnia record porter.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Campaign proposes careful custody and uncertainty after flooding."
+        },
+        {
+          "text": "The bell rings here because the monument is standing. Cross beyond its marker and I cannot promise the same help.",
+          "voice_frame": "Original road guide.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source supports monument-qualified spirit assistance; wording is new."
+        }
+      ],
+      "unknowns": [
+        "Exact local history and all O facilities remain proposals.",
+        "Resurrection and world cycles are not selected or generalized."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Licensed game facts and original local institutions remain distinct."
+    },
+    {
+      "id": "vf.naruto",
+      "world": "Naruto",
+      "classification": "bounded official-source anchors to the completed original series, plus original fan campaign",
+      "reviewed_extent": "Masashi Kishimoto original manga, volumes 1–72, chapters 1–700; exclude Boruto/sequels, novels, films, games and filler unless a separate branch selects them. This names the complete original-series edition boundary; actual reviewed evidence is the bounded official-source/campaign ledger, not a full semantic manga read.",
+      "era_place_entry_boundary": "Select source-era location and entry status; a visitor does not inherit a bloodline, rank, school history or protagonist identity.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/naruto/CAMPAIGN.md",
+          "sha256": "d9b4af786a4faa084ca9b0172321307fd4e65156a1492a2b65cf1bd4075b40b0",
+          "section_locator": "Completed-source boundary; Regions and institutional contexts; Distinct progression paths",
+          "claim_or_locator_strings": [
+            "official manga volume 3 chapter 18 control training",
+            "vol.10 ch.85–86 and vol.20 ch.173 Gates/injury",
+            "vol.28,30–31,55 puppet anchors"
+          ],
+          "role": "source-qualified campaign proposal"
+        },
+        {
+          "path": "docs/worlds/naruto/SOURCE_LEDGER.md",
+          "sha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+          "section_locator": "N6/N7/N11 and source boundary",
+          "claim_or_locator_strings": [
+            "medical training; puppetry; bodily risk"
+          ],
+          "role": "bounded official-source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Tree-climbing control practice is a source anchor; actual access, body/source, taught exercise and sustained execution still need to be earned.",
+          "evidence": "CAMPAIGN.md: Completed-source boundary; source-control locator.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Medical work and puppet engineering are different specialties: care requires demonstrated competence, while a puppet needs actual parts and operator control.",
+          "evidence": "CAMPAIGN.md: N6/N7 and regional contexts.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Team and clinic life can hinge on sterile stock, recovery, route witnesses and mission contracts; the local repair yard is an original civilian opening.",
+          "evidence": "CAMPAIGN.md: Regions and institutional contexts; O tags.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The control drill ends when your soles slip. We can try again after the clinic runner brings the next water jar.",
+          "voice_frame": "Original adult practice instructor.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source control practice plus original training logistics."
+        },
+        {
+          "text": "The puppet joint is true. I still need a second set of hands to hold the frame while I test the wire.",
+          "voice_frame": "Original Sand-side service artisan.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Source puppet function and O workshop practice; wording new."
+        }
+      ],
+      "unknowns": [
+        "Exact source-era placement for proposed Rain and local annexes still needs ledger reconciliation.",
+        "No canonical technique list, bloodline or exam history is given to a visitor."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Use only bounded official-source manga locators; all local facility and character lines are original."
+    },
+    {
+      "id": "vf.bleach",
+      "world": "Bleach",
+      "classification": "bounded official-source anchors to the completed original series, plus original fan campaign",
+      "reviewed_extent": "Tite Kubo original manga volumes 1–74 through original ending; exclude sequel/one-shot lore, novels, films, filler and extra anime lore unless explicitly branched. This names the complete original-series edition boundary; actual reviewed evidence is the bounded official-source/campaign ledger, not a full semantic manga read.",
+      "era_place_entry_boundary": "A living-district outsider, eligible spiritual resident or supported visitor are different body/source profiles; no hybrid soul, lineage or personal Zanpakuto on arrival.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/bleach/CAMPAIGN.md",
+          "sha256": "cff4a6d881a08f46c3beaa8c015348fa3eed73456c23fee8be0ae7e1bf970b4d",
+          "section_locator": "Source snapshot and epistemic boundary; Regional and institutional contexts; Life/projects/methods",
+          "claim_or_locator_strings": [
+            "P1 vol.1 ghosts/Rukia/Hollows",
+            "P2 vol.5 distinct careers",
+            "P3 vol.51 Fullbring training; P6 vol.74 ending"
+          ],
+          "role": "source-qualified campaign proposal"
+        },
+        {
+          "path": "docs/worlds/bleach/SOURCE_LEDGER.md",
+          "sha256": "9d41e919192d7ffdd7ec324135c99afbe3b0bdb633d145616c76f6d153c7ec57",
+          "section_locator": "B-series source ledger; source boundary",
+          "claim_or_locator_strings": [
+            "source-specific perception/contact/training questions"
+          ],
+          "role": "bounded source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Perceiving a spirit, reaching it, physically contacting it and passing between domains are distinct capabilities; an instrument does not automatically reveal every hidden actor.",
+          "evidence": "CAMPAIGN.md: Source snapshot; campaign promise.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Ordinary living-district work can include rent, parcels, clinic errands, repair and witness interviews before any spiritual career.",
+          "evidence": "CAMPAIGN.md: Regional and institutional contexts; O living-town river street.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "Quincy, Soul Reaper, Fullbring and other source careers have distinct origins; source power transfer is a specific event rather than visitor eligibility.",
+          "evidence": "CAMPAIGN.md: P1–P4 source anchors.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "I can hear the shop bell and see the clerk. I cannot tell you whether the empty chair is empty to everyone else.",
+          "voice_frame": "Original living-district courier.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Campaign distinguishes perception channels and observer belief."
+        },
+        {
+          "text": "The report is paid for, but it only names a likely crossing. Someone still has to check the street.",
+          "voice_frame": "Original independent service worker.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "Original paid evidence/service route; no omniscient diagnosis."
+        }
+      ],
+      "unknowns": [
+        "Exact source-local geography, body compatibility and spiritual technique acquisition need the source ledger before rules are frozen.",
+        "No copied release, source dialogue, canonical genius apprenticeship or hybrid powers."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Source anchors and O living-district people are kept separate."
+    },
+    {
+      "id": "vf.harry-potter",
+      "world": "Harry Potter",
+      "classification": "bounded original-novel candidate and original fan-continuity proposal",
+      "reviewed_extent": "Proposed baseline is seven original novels; source ledger H1–H4 offers bounded publisher/companion evidence. No full-novel semantic dossier or world implementation claim.",
+      "era_place_entry_boundary": "Before-letter/household proposal is O; school-age opening is supported only as a recognizable entry, and adult visitor is a separate profile. A letter or magical potential is not guaranteed.",
+      "source_notes": [
+        {
+          "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+          "sha256": "d26bb9a47bdb003d0a2a50776ea82ed2e0459066ca2b234eebc6c4fa6e31e765",
+          "section_locator": "Identity, scope and fantasy; Origin variants; Connected contexts and progression careers",
+          "claim_or_locator_strings": [
+            "H1–H4 bounded evidence; source extent proposed seven novels",
+            "ordinary adult, child, counterpart and tree branches"
+          ],
+          "role": "original fan-continuity candidate"
+        },
+        {
+          "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+          "sha256": "3cc43e541609e7e471e0bd8996fdc68fe31ce5aa6f9c0f4c526585e2fd4bad9c",
+          "section_locator": "H1–H4; source boundary",
+          "claim_or_locator_strings": [
+            "publisher/companion evidence qualifiers"
+          ],
+          "role": "bounded source ledger"
+        }
+      ],
+      "texture_cues": [
+        {
+          "cue": "Family, household care, supervised lessons, school access, nursery work, craft and food can shape a magical life before any school letter.",
+          "evidence": "WORLD_BRIEF.md: Identity/scope; Connected contexts.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A borrowed tool, a taught method and a trained spell are separate; possession of a wand-like tool cannot create source or mastery.",
+          "evidence": "WORLD_BRIEF.md: Connected contexts and progression careers.",
+          "status": "dossier/owner-grounded analytical cue"
+        },
+        {
+          "cue": "A counterpart appearance does not transfer a former person’s skill, property, relationships or obligations; a generated family owns its own stock.",
+          "evidence": "WORLD_BRIEF.md: Origin variants; original continuity and property rules.",
+          "status": "dossier/owner-grounded analytical cue"
+        }
+      ],
+      "original_dialogue": [
+        {
+          "text": "The seedlings are ready for another pot. Please ask Mara before moving them; she planted the row for winter.",
+          "voice_frame": "Original household caretaker.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "O nursery and household ownership proposal."
+        },
+        {
+          "text": "I can lend you the practice tool until supper. It will not teach the charm by itself.",
+          "voice_frame": "Original supervised instructor.",
+          "provenance": "Original proposed wording; not quoted or paraphrased source dialogue.",
+          "analytical_basis": "O distinction between loan, source eligibility, and mastery."
+        }
+      ],
+      "unknowns": [
+        "The source ledger is bounded, not a complete seven-book semantic review.",
+        "Local family, prices, schools and named people are original proposals; magic-tree origin is explicitly speculative."
+      ],
+      "runtime_activation": false,
+      "activation_basis": "Voice/detail disposition only; no source-native runtime binding is established.",
+      "implementation_status": "unactivated analytical proposal",
+      "review_boundary": "Do not present the before-letter branch or local prose as canonical source-world facts."
+    }
+  ]
+}

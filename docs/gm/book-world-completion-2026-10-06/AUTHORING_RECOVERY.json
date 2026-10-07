@@ -1,0 +1,475 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "role": "/root/integration_map",
+  "status": "exact_pre_overwrite_guide_recovered",
+  "writeScope": [
+    "AUTHORING_RECOVERY.md",
+    "AUTHORING_RECOVERY.json",
+    "RECOVERED_ENGINE_AUTHORING.md"
+  ],
+  "originalFileUntouched": true,
+  "exactBase": {
+    "source": "/Users/weiwei/.codex/sessions/2026/10/02/rollout-2026-10-02T22-26-49-01a0ff95-e7bc-7351-aaab-813b878012be.jsonl",
+    "line": 504,
+    "timestamp": "2026-10-03T02:58:09.458Z",
+    "record": "completed FileChange add exact content",
+    "bytes": 11979,
+    "sha256": "18531fbfa389f4680bbde57b989a898d9a65f1669c747487f5e2c55cc47193ca",
+    "qualification": "Exact original creation content; not the later current guide"
+  },
+  "targets": {
+    "homeAcquisitionBeforeAppend": "3816542038c7f29526688107731da47acbb453db3b4951ce3c8f4831737a9ebe",
+    "homeEvidenceAfterAppendBeforeOverwrite": "7dd0cfb6dc68544aeffe57d72b9f3c72aa648b256be611d34fb4ae9094938ef0"
+  },
+  "knownHistory": {
+    "completedGuideFileChangeSessions": [
+      "01a10034-a55a-7643-b09e-e504af3f2b38",
+      "01a0fef2-6617-7152-a1ce-31e039ba1719",
+      "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "01a10c67-f169-7612-b632-723af591cb68",
+      "01a10f81-ee24-7531-b509-6b509160ea8f"
+    ],
+    "successfulLiteralAppendReplaceSessions": [
+      "01a10034-a55a-7643-b09e-e504af3f2b38",
+      "01a0ff95-e7bc-7351-aaab-813b878012be",
+      "01a103e4-7b89-7113-aa95-d3726f87ff12",
+      "01a1042d-b1dd-79c3-a65e-183c7715e3dd",
+      "01a1051c-ed9f-7a92-81fb-53403489e007",
+      "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+      "01a112fe-13f6-7493-89c7-db0f42123ff6",
+      "01a113f0-a07e-72a3-bb2f-6af475c2ce94"
+    ]
+  },
+  "knownGap": null,
+  "nextAction": "Root copies the exact recovered bytes to docs/ENGINE_AUTHORING.md, then adds current book-world authoring notes under root ownership. Root owns canonical anchor/link checks.",
+  "processes": "No running recovery process or pending mutation",
+  "sourceLibraryPrivateSavesUntouched": true,
+  "candidateBytes": 68278,
+  "candidateSha256": "7dd0cfb6dc68544aeffe57d72b9f3c72aa648b256be611d34fb4ae9094938ef0",
+  "literalOnlyTransforms": [
+    {
+      "session": "rollout-2026-10-03T01-20-12-01a10034-a55a-7643-b09e-e504af3f2b38.jsonl",
+      "line": 532,
+      "time": "2026-10-03T06:09:22.265Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "18531fbfa389f4680bbde57b989a898d9a65f1669c747487f5e2c55cc47193ca",
+      "afterSha256": "955b65e21ddcdedce3618d67893d3cbb34e06c7790a44185f11ae7491c1682ae",
+      "bytes": 12629
+    },
+    {
+      "session": "rollout-2026-10-03T01-20-12-01a10034-a55a-7643-b09e-e504af3f2b38.jsonl",
+      "line": 791,
+      "time": "2026-10-03T06:38:58.430Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "955b65e21ddcdedce3618d67893d3cbb34e06c7790a44185f11ae7491c1682ae",
+      "afterSha256": "a6d5fa7ad5d18d72c7fba93bd354fd26f007cb2911c821da818ee5444d778d0d",
+      "bytes": 13050
+    },
+    {
+      "session": "rollout-2026-10-03T01-20-12-01a10034-a55a-7643-b09e-e504af3f2b38.jsonl",
+      "line": 1107,
+      "time": "2026-10-03T16:03:20.373Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1",
+        "literal appended string"
+      ],
+      "beforeSha256": "a6d5fa7ad5d18d72c7fba93bd354fd26f007cb2911c821da818ee5444d778d0d",
+      "afterSha256": "37769961972460a45a20049c708c52888a71f2ac75650ac25e707723b5b5ca13",
+      "bytes": 13854
+    },
+    {
+      "session": "rollout-2026-10-03T01-20-12-01a10034-a55a-7643-b09e-e504af3f2b38.jsonl",
+      "line": 1584,
+      "time": "2026-10-03T16:28:30.144Z",
+      "mode": "literal",
+      "operations": [
+        "literal read-plus-string append"
+      ],
+      "beforeSha256": "37769961972460a45a20049c708c52888a71f2ac75650ac25e707723b5b5ca13",
+      "afterSha256": "109b4ab11bf03fa4da029174039a5d81f22bcdfd8c1769cba1394c329ebc5fac",
+      "bytes": 14785
+    },
+    {
+      "session": "rollout-2026-10-02T22-26-49-01a0ff95-e7bc-7351-aaab-813b878012be.jsonl",
+      "line": 1120,
+      "time": "2026-10-03T16:44:33.670Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "109b4ab11bf03fa4da029174039a5d81f22bcdfd8c1769cba1394c329ebc5fac",
+      "afterSha256": "54b0e3e6b8e6862375ab441f1bf81728e9a2b4c0f9758790f0fb8bd03ca0c88f",
+      "bytes": 18017
+    },
+    {
+      "session": "rollout-2026-10-02T22-26-49-01a0ff95-e7bc-7351-aaab-813b878012be.jsonl",
+      "line": 1201,
+      "time": "2026-10-03T16:48:26.448Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1",
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "54b0e3e6b8e6862375ab441f1bf81728e9a2b4c0f9758790f0fb8bd03ca0c88f",
+      "afterSha256": "6cde6bb7e4e13128f52fbbb0a2e4f502a6748bd88bdd19426220f2a2a02635c8",
+      "bytes": 18230
+    },
+    {
+      "session": "rollout-2026-10-02T19-28-13-01a0fef2-6617-7152-a1ce-31e039ba1719.jsonl",
+      "line": 845,
+      "time": "2026-10-03T16:54:40.313Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "6cde6bb7e4e13128f52fbbb0a2e4f502a6748bd88bdd19426220f2a2a02635c8",
+      "afterSha256": "63008c0a1ed04cc87cf95c049526273b7ed67496af981026cbf9a2ad5893ae66",
+      "bytes": 21792
+    },
+    {
+      "session": "rollout-2026-10-02T22-26-49-01a0ff95-e7bc-7351-aaab-813b878012be.jsonl",
+      "line": 1381,
+      "time": "2026-10-03T16:58:05.844Z",
+      "mode": "literal",
+      "operations": [
+        "literal reported-privacy insert hits 1"
+      ],
+      "beforeSha256": "63008c0a1ed04cc87cf95c049526273b7ed67496af981026cbf9a2ad5893ae66",
+      "afterSha256": "c6c68855314d3f4ffd955b59febab65d8c49817543ffc3f437824bb722bb6a15",
+      "bytes": 21901
+    },
+    {
+      "session": "rollout-2026-10-03T01-20-12-01a10034-a55a-7643-b09e-e504af3f2b38.jsonl",
+      "line": 2014,
+      "time": "2026-10-03T17:15:13.382Z",
+      "mode": "literal",
+      "operations": [
+        "literal read-plus-string append"
+      ],
+      "beforeSha256": "c6c68855314d3f4ffd955b59febab65d8c49817543ffc3f437824bb722bb6a15",
+      "afterSha256": "ab1cd38bce5475db0bcdbc986eae9b05249f6bb270e3eff5021bdc0e9ac9f85a",
+      "bytes": 23762
+    },
+    {
+      "session": "rollout-2026-10-03T18-31-08-01a103e4-7b89-7113-aa95-d3726f87ff12.jsonl",
+      "line": 365,
+      "time": "2026-10-03T23:00:55.942Z",
+      "mode": "literal",
+      "operations": [
+        "literal shell heredoc append"
+      ],
+      "beforeSha256": "ab1cd38bce5475db0bcdbc986eae9b05249f6bb270e3eff5021bdc0e9ac9f85a",
+      "afterSha256": "edc30adaa53b9b208e3c9632850ea85e58b44fa6a0992aaedaf39b1c1347e959",
+      "bytes": 27384
+    },
+    {
+      "session": "rollout-2026-10-03T19-51-06-01a1042d-b1dd-79c3-a65e-183c7715e3dd.jsonl",
+      "line": 474,
+      "time": "2026-10-04T00:34:23.605Z",
+      "mode": "literal",
+      "operations": [
+        "literal first-section insert"
+      ],
+      "beforeSha256": "edc30adaa53b9b208e3c9632850ea85e58b44fa6a0992aaedaf39b1c1347e959",
+      "afterSha256": "d1afd6dd19758bf4c814276d066f176f65398b6c70c7aaa78786d92b0b5a1be6",
+      "bytes": 30945
+    },
+    {
+      "session": "rollout-2026-10-04T00-12-24-01a1051c-ed9f-7a92-81fb-53403489e007.jsonl",
+      "line": 488,
+      "time": "2026-10-04T04:49:54.882Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "d1afd6dd19758bf4c814276d066f176f65398b6c70c7aaa78786d92b0b5a1be6",
+      "afterSha256": "99e8e44fc9818f82cd8033e810c0da21364db4dd13facaddabbfa97565044672",
+      "bytes": 34673
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 474,
+      "time": "2026-10-04T05:59:04.261Z",
+      "mode": "literal",
+      "operations": [
+        "literal read-plus-string append"
+      ],
+      "beforeSha256": "99e8e44fc9818f82cd8033e810c0da21364db4dd13facaddabbfa97565044672",
+      "afterSha256": "654eb0e91c2ddec4e961b00f376dcb2106157beb04c913465ac9ca93d477f37c",
+      "bytes": 37263
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 617,
+      "time": "2026-10-04T06:10:02.145Z",
+      "mode": "literal",
+      "operations": [
+        "literal read-plus-string append"
+      ],
+      "beforeSha256": "654eb0e91c2ddec4e961b00f376dcb2106157beb04c913465ac9ca93d477f37c",
+      "afterSha256": "21e76b4ced211491b06c7c4b6b7b5c5237ee79507ced371354b60d9983a9bc98",
+      "bytes": 37711
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 771,
+      "time": "2026-10-04T06:25:14.529Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "21e76b4ced211491b06c7c4b6b7b5c5237ee79507ced371354b60d9983a9bc98",
+      "afterSha256": "5b5897a644fc05dcdd94e885a9d198c090a18801ff6269631caebe819e3f2aaf",
+      "bytes": 37911
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 1478,
+      "time": "2026-10-04T08:37:12.146Z",
+      "mode": "literal",
+      "operations": [
+        "literal appended string"
+      ],
+      "beforeSha256": "5b5897a644fc05dcdd94e885a9d198c090a18801ff6269631caebe819e3f2aaf",
+      "afterSha256": "8e69440ef84198b36b3eb3548bcf22e2c1dabb2546710fb934652633668ebf04",
+      "bytes": 41515
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 3988,
+      "time": "2026-10-04T19:39:07.066Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "8e69440ef84198b36b3eb3548bcf22e2c1dabb2546710fb934652633668ebf04",
+      "afterSha256": "464eb6997755ff7bf8166c76aa85f6cc1028b33fd03820dcfd49bf3f261726d2",
+      "bytes": 46505
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 4174,
+      "time": "2026-10-04T20:02:10.534Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "464eb6997755ff7bf8166c76aa85f6cc1028b33fd03820dcfd49bf3f261726d2",
+      "afterSha256": "44f39ba2e788516fa7b985003e2e988746b03ccca26b4743142ca2d405a14432",
+      "bytes": 46681
+    },
+    {
+      "session": "rollout-2026-10-05T10-11-41-01a10c67-f169-7612-b632-723af591cb68.jsonl",
+      "line": 73,
+      "time": "2026-10-05T14:15:30.745Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "44f39ba2e788516fa7b985003e2e988746b03ccca26b4743142ca2d405a14432",
+      "afterSha256": "1bcb3c6bce338d3c6c8cb5777d22dcb42e0217a3e4831b9f217e812df0661c20",
+      "bytes": 50839
+    },
+    {
+      "session": "rollout-2026-10-05T10-11-41-01a10c67-f169-7612-b632-723af591cb68.jsonl",
+      "line": 94,
+      "time": "2026-10-05T14:16:33.386Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "1bcb3c6bce338d3c6c8cb5777d22dcb42e0217a3e4831b9f217e812df0661c20",
+      "afterSha256": "7c64c9a5884c474eff247c1349e24ff92c7685ac898dfd43fb51faae682a6e6d",
+      "bytes": 50844
+    },
+    {
+      "session": "rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+      "line": 5505,
+      "time": "2026-10-05T14:19:33.642Z",
+      "mode": "diff",
+      "operations": [
+        "exact unified text hunk",
+        "exact unified text hunk"
+      ],
+      "beforeSha256": "7c64c9a5884c474eff247c1349e24ff92c7685ac898dfd43fb51faae682a6e6d",
+      "afterSha256": "b4bb8521fe8be24da1429f1934aa3353bb153125e61ac7917b8b4f0f329e04a4",
+      "bytes": 50936
+    },
+    {
+      "session": "rollout-2026-10-05T15-50-20-01a10d9d-fd4a-7b62-8a41-a3c93cc97711.jsonl",
+      "line": 760,
+      "time": "2026-10-05T20:30:26.604Z",
+      "mode": "literal",
+      "operations": [
+        "literal tuple guide section inserted after title"
+      ],
+      "beforeSha256": "b4bb8521fe8be24da1429f1934aa3353bb153125e61ac7917b8b4f0f329e04a4",
+      "afterSha256": "04e30a97b5e7f732ec22ec09996b101afae5fec67098db5c550eae9bbb69c019",
+      "bytes": 52506
+    },
+    {
+      "session": "rollout-2026-10-05T17-27-50-01a10df7-41b1-7810-89c8-083d8fefd5f5.jsonl",
+      "line": 527,
+      "time": "2026-10-05T21:46:54.814Z",
+      "mode": "literal",
+      "operations": [
+        "literal replace hits 1"
+      ],
+      "beforeSha256": "04e30a97b5e7f732ec22ec09996b101afae5fec67098db5c550eae9bbb69c019",
+      "afterSha256": "37d22e8e5594d1f8026266ca12c96e51efceea64b23ad9fd6509f3fa2c1d6649",
+      "bytes": 54412
+    },
+    {
+      "session": "rollout-2026-10-06T00-38-55-01a10f81-ee24-7531-b509-6b509160ea8f.jsonl",
+      "line": 559,
+      "time": "2026-10-06T05:08:40.245Z",
+      "mode": "diff",
+      "operations": [],
+      "beforeSha256": "37d22e8e5594d1f8026266ca12c96e51efceea64b23ad9fd6509f3fa2c1d6649",
+      "afterSha256": "37d22e8e5594d1f8026266ca12c96e51efceea64b23ad9fd6509f3fa2c1d6649",
+      "bytes": 54412
+    },
+    {
+      "session": "rollout-2026-10-06T16-53-23-01a112fe-13f6-7493-89c7-db0f42123ff6.jsonl",
+      "line": 810,
+      "time": "2026-10-06T23:32:22.381Z",
+      "mode": "literal",
+      "operations": [
+        "literal guide header insert hits 1"
+      ],
+      "beforeSha256": "37d22e8e5594d1f8026266ca12c96e51efceea64b23ad9fd6509f3fa2c1d6649",
+      "afterSha256": "189357a8cba5fad06fd30280c9837afbbe4c5261a4288976d5970bed0250da84",
+      "bytes": 56928
+    },
+    {
+      "session": "rollout-2026-10-06T16-53-23-01a112fe-13f6-7493-89c7-db0f42123ff6.jsonl",
+      "line": 1580,
+      "time": "2026-10-07T02:03:57.782Z",
+      "mode": "literal",
+      "operations": [
+        "literal guide header insert hits 1"
+      ],
+      "beforeSha256": "189357a8cba5fad06fd30280c9837afbbe4c5261a4288976d5970bed0250da84",
+      "afterSha256": "c1cf1fa84aaebef5cba21b5e62bc247c5483c111fc7511768cd0532fa89a3d83",
+      "bytes": 59796
+    },
+    {
+      "session": "rollout-2026-10-06T21-18-19-01a113f0-a07e-72a3-bb2f-6af475c2ce94.jsonl",
+      "line": 1125,
+      "time": "2026-10-07T02:33:56.069Z",
+      "mode": "literal",
+      "operations": [
+        "literal appended string"
+      ],
+      "beforeSha256": "c1cf1fa84aaebef5cba21b5e62bc247c5483c111fc7511768cd0532fa89a3d83",
+      "afterSha256": "0e4ac0c6a2cb83ed8f5c6e3bbd7d72922ec3e93516fae9bbe59f954814118c83",
+      "bytes": 62868
+    }
+  ],
+  "reconciliationGaps": [],
+  "targetMatches": {
+    "beforeHomeAppend": true,
+    "afterHomeAppend": true
+  },
+  "beforeHomeAppendSha256": "3816542038c7f29526688107731da47acbb453db3b4951ce3c8f4831737a9ebe",
+  "reconciliationRepairs": [
+    {
+      "operation": "Recovered inner chained custody replacement, master line771",
+      "matches": 1,
+      "beforeSha256": "0e4ac0c6a2cb83ed8f5c6e3bbd7d72922ec3e93516fae9bbe59f954814118c83",
+      "afterSha256": "2f20e24848810dd827cec7d543c1cf611ad659f1bfd85cb3699afc9c7fe4eefb"
+    },
+    {
+      "operation": "Recovered skill integration footer, master line5559",
+      "matches": 1,
+      "beforeSha256": "2f20e24848810dd827cec7d543c1cf611ad659f1bfd85cb3699afc9c7fe4eefb",
+      "afterSha256": "86577cea1d1d0670123de559148785188d9dbc0260b758dd5860d41cdfda71e1"
+    },
+    {
+      "operation": "Recovered exact reference-wave unified hunk, reference line559",
+      "matches": 1,
+      "beforeSha256": "86577cea1d1d0670123de559148785188d9dbc0260b758dd5860d41cdfda71e1",
+      "afterSha256": "3a6ae681a99420d4cb19aca49e87f5e8b4e99803e8adc8f339e1c570bcf57825"
+    },
+    {
+      "operation": "Connected module literal API replacement, line569",
+      "matches": 1,
+      "beforeSha256": "3a6ae681a99420d4cb19aca49e87f5e8b4e99803e8adc8f339e1c570bcf57825",
+      "afterSha256": "8af69f32b81fc3c87820d41e6cec0f14c5b1c785b653cd6e724b0765747fd123"
+    },
+    {
+      "operation": "Connected module literal API replacement, line569",
+      "matches": 1,
+      "beforeSha256": "8af69f32b81fc3c87820d41e6cec0f14c5b1c785b653cd6e724b0765747fd123",
+      "afterSha256": "8e865004ef759c2d962810e2837ae94a65142d1243b27bfc3b2709718e6c0dcf"
+    },
+    {
+      "operation": "Connected module exact literal append at original chronological boundary, line569",
+      "matches": 1,
+      "beforeSha256": "8e865004ef759c2d962810e2837ae94a65142d1243b27bfc3b2709718e6c0dcf",
+      "afterSha256": "7dd0cfb6dc68544aeffe57d72b9f3c72aa648b256be611d34fb4ae9094938ef0"
+    }
+  ],
+  "beforeHomeAppendBytes": 65206,
+  "recoveredGuide": "docs/gm/book-world-completion-2026-10-06/RECOVERED_ENGINE_AUTHORING.md",
+  "recoveredOriginalPath": "docs/ENGINE_AUTHORING.md",
+  "qualification": "Exact 68,278-byte pre-overwrite guide restored as a separate artifact. Both independent recorded target SHA256 values match. It includes all historical sections through the home-world appendix; current book-world integration notes belong to root after canonical restoration.",
+  "method": "Parsed completed native session FileChange content/diffs and successful CommandExecution shell bodies as data. Extracted Python AST literal strings and identified exact document string transformations. No historical shell, Python or JavaScript was executed. No original guide, shared source, library, save, build or preview mutation.",
+  "historicalOverwriteExcluded": {
+    "session": "rollout-2026-10-06T21-18-19-01a113f0-a07e-72a3-bb2f-6af475c2ce94.jsonl",
+    "line": 1143,
+    "timestamp": "2026-10-07T02:36:14.263Z",
+    "cause": "Successful final evidence script reused p from a document-link loop; p referenced ENGINE_AUTHORING.md when the evidence JSON write ran. JSON overwrite was excluded from guide reconstruction.",
+    "badJsonPreservation": "Root owns archival copy in BEFORE_CANONICAL.json; recovery did not modify or discard it."
+  },
+  "verification": {
+    "utf8Bytes": 68278,
+    "lines": 272,
+    "headings": 24,
+    "literalBackslashNSequences": 0,
+    "postAppendTargetSha256Match": true,
+    "preAppendTargetSha256Match": true,
+    "homeAppendixBytes": 3072,
+    "sourceOnly": true,
+    "behavioralRuntimeSuitesRun": false
+  },
+  "additionalLocatedGuideMutation": {
+    "source": "/Users/weiwei/.codex/sessions/2026/10/03/rollout-2026-10-03T15-13-19-01a1032f-6342-76b0-8db8-c801a71ca21a.jsonl",
+    "line": 569,
+    "timestamp": "2026-10-03T20:12:21.912Z",
+    "scope": "author variable block only; two API literal replacements and exact Connected modules and compatibility append"
+  },
+  "excludedSnapshot": {
+    "source": "/Users/weiwei/.codex/sessions/2026/10/04/rollout-2026-10-04T01-38-36-01a1056b-d82c-7ef2-babb-d8316c45f396.jsonl",
+    "line": 5305,
+    "qualification": "Heading rg output, not complete document text; used only for locating the omitted Connected modules heading."
+  },
+  "writerReleased": true,
+  "literalOnlyTransformsQualification": "Initial chronological extraction trace is retained as history. Exact recovery additionally applies reconciliationRepairs; the supplied target hashes, not the partial trace alone, qualify final bytes.",
+  "initialReconciliationGapsHistory": [
+    {
+      "session": "rollout-2026-10-06T00-38-55-01a10f81-ee24-7531-b509-6b509160ea8f.jsonl",
+      "line": 559,
+      "time": "2026-10-06T05:08:40.245Z",
+      "error": "Diff context count 0 oldPrefix Use `expansion5` and `simulation3` as the compatibility baseline. These families add defin",
+      "resolved": true,
+      "resolution": "Literal footer and omitted connected-modules transformations recovered; exact pre/post home-append hashes both match"
+    }
+  ],
+  "receiptChecks": {
+    "jsonReadback": true,
+    "receiptLocalLinkTargetsExist": true,
+    "recoveredGuideHashReadback": "7dd0cfb6dc68544aeffe57d72b9f3c72aa648b256be611d34fb4ae9094938ef0",
+    "rootCanonicalGuideLinksPendingRoot": true
+  }
+}

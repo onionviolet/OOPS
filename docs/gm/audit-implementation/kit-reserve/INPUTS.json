@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:35:34.726835+00:00",
+  "parent": "/root",
+  "worker": "/root/kit_reserve",
+  "inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/gm/audit-implementation/ASSIGNMENT.md": "272b26bd25f80825f955606d890904557cfd4a23e0b991b130b4f32d880a0240",
+    "docs/gm/audit-implementation/BASELINE.json": "d8eb79272bec094603472777637904d3c937f27d87d78bab6f521323751fe640",
+    "docs/research/rimworld/IMPLEMENTATION_PACKETS.md": "43d6c48e12dc7f26b56793ddadc0b0a2f1e377f34705cbc18558ccaba9e1f3c7",
+    "src/feature_expansion_work_plan.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+    "src/simulation.js": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+    "src/simulation_effects.js": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+    "src/expansion_engine.js": "a345ad0f45bf2d6243be219818ec0764469c8518494cb237f5bf8a5362fcb3d1",
+    "src/main.js": "627f5e41eead6cf1bebed22bf21290f72d8d8a08292ce229efb25a6ffe4d4eba",
+    "src/expedition_content.js": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a"
+  }
+}

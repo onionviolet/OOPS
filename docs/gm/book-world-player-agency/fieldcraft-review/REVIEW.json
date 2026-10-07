@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-10-06",
+  "reviewer": "fieldcraft shared-admission reviewer",
+  "sourceFingerprint": {
+    "method": "sha256 of live files at review; no files modified",
+    "files": {
+      "src/nethack_fieldcraft_content.js": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+      "src/nethack_fieldcraft_facts.js": "5e95f308f65c12841d21ee45c3b82462eba853d90f5a05e02d2cacc445a7d46b",
+      "src/nethack_fieldcraft_host.js": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03",
+      "src/nethack_fieldcraft_feats.js": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392",
+      "src/simulation.js": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+      "src/simulation_effects.js": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+      "src/reference_gameplay_state.js": "c3d22b6ea093e3c9afaf40eebc12e5cdad1eae82dbce3b49dbcbaebc79acd3ae",
+      "src/reference_gameplay_feats.js": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+      "src/feature_expansion_content.js": "500cce49b89308d317a804913662271b0aa4e365c5b2cb5af72119710cea92b0",
+      "src/data/expedition_items.js": "327853d526e181dbd9cf3dc9c82f3f1dcce561af46286f18159b3127e7db2a1e",
+      "src/feature_expansion_wave_host.js": "a27849a35739b4c8d7effaa020682412bd4ed60662b8d6ae60436cb0be556eb2",
+      "src/main.js": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+      "docs/gm/nethack/INTEGRATION.patch": "a6e58154bc4dbd4a67c848e99c2235269ac9e233e6e6d5d90c25746f4d70be8b",
+      "docs/gm/nethack/INTEGRATION.json": "f94f7d044b23d365a7fcabada7ab0f30d4c780aefe06ccad3dafc82ea527d743"
+    }
+  },
+  "findings": [
+    {
+      "id": "P1-live-facts",
+      "severity": "P1",
+      "evidence": "src/simulation_effects.js:simulationFacts currently combines context.facts with the shared feature fact providers but does not call nethackFieldcraftFacts. The integration patch contains no simulation_effects.js hunk.",
+      "impact": "Admission presentation can use the nethackFieldcraftContext overlay, but timed-job settlement uses simulationFacts. Without the central provider join, declared completionRequires fields such as fieldcraft.supported, fieldcraft.edaSupported, fieldcraft.dogSupported and fieldcraft.scented are absent or frozen in job context. Lost body, consent, living support, local presence or expired scent therefore cannot reliably trigger the specified refund/no-result path.",
+      "requiredAdaptation": "Integrate nethackFieldcraftFacts into simulationFacts at the same durable fact-provider boundary as referenceGameplayFacts, then ensure settlement contexts preserve the live location/vitals/gameplay inputs used by that provider."
+    },
+    {
+      "id": "P1-schema10",
+      "severity": "P1",
+      "evidence": "src/nethack_fieldcraft_facts.js:validateNethackFieldcraft asserts state.schema === 9. The active book-world campaign checkpoint admits schema 10, and live src/reference_gameplay_state.js already accepts [9,10] for the shared root.",
+      "impact": "A fieldcraft-opened state on the current schema-10 campaign is rejected by fieldcraft validation, blocking the combined save publisher/validation path.",
+      "requiredAdaptation": "Accept the currently supported schema-10 state (while retaining existing legacy admission policy) and align with the root publisher's schema ownership; do not roll the campaign root back to schema 9."
+    }
+  ],
+  "integrationPatchDrift": {
+    "summary": "The saved patch is a predecessor snapshot, not directly applicable as a complete shared-source patch.",
+    "filesAtBeforeHash": ["src/feature_expansion_content.js", "src/feature_expansion_wave_host.js", "src/reference_gameplay_feats.js"],
+    "filesWithRootDrift": ["src/data/expedition_items.js", "src/simulation_effects.js", "src/simulation.js", "src/reference_gameplay_state.js", "src/main.js"],
+    "adaptation": "Reapply the intended insertions to current root-owned files, preserving Paradise/group/schema-10 changes and all shared main context/publisher composition. The fieldcraft features/inventory registration and feat catalogue hooks should be merged once into their current owners."
+  },
+  "reviewedBoundaries": {
+    "admission": "Nethack host computes facts for command projection and commit context; shared executor remains authoritative.",
+    "escrow": "All four timed jobs depend on the existing reservationReturns group allowlist for exact item refunds; current simulation.js does not list nethack_fieldcraft.",
+    "completion": "Current command declarations distinguish non-job scent application from timed train/manual/dog retrieval/assay/trial/kit work; dog retrieval checks current will/body/legs/jaws and scent in its authored support rule.",
+    "costs": "Native money is paid to Eda via native resource cost and simulation transfer; ration, vial, stamina, player knife and Eda pin are actual reserved costs. Retrieval requires disclosed dog satiety/stamina and player stamina.",
+    "willingness": "Feed permits calm handoff; train/retrieve require willing dog. Eda needs alive, local, capable hands and existing willingness.",
+    "feats": "Evidence helper requires a newly increased command completion and observation provenance; dog feat additionally checks two completed lessons and a positive native pin inventory delta. Recognition still needs the existing shared advanceReferenceFeats hook to invoke it after durable staging.",
+    "optionalActivation": "Fieldcraft receipt is optional; absence validator rejects orphan fieldcraft actor/fact/knowledge/condition/job state. Explicit opening receipt is created only after the opening command completion in host wrapper.",
+    "validation": "No action, preview, evaluator, test, browser, save, or gameplay call was made. Findings are source/interface review only; behavior remains implemented-unverified."
+  },
+  "state": "review-complete; root-owned adaptation required; no source/shared-owner edits made"
+}

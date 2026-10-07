@@ -1,0 +1,272 @@
+{
+  "revision": 1,
+  "date": "2026-10-05",
+  "owner": "/root/situated_subtleties",
+  "exclusivePaths": [
+    "src/feature_expansion_book_situated.js",
+    "docs/gm/feature-wave/features/book-world-subtleties/situated/"
+  ],
+  "exports": [
+    "SITUATED_BOOK_CHAINS",
+    "SITUATED_BOOK_PROFILES",
+    "SITUATED_BOOK_RULES",
+    "SITUATED_BOOK_SCENES",
+    "SITUATED_BOOK_TOPOLOGIES",
+    "evaluateSituatedBookRule",
+    "evaluateSituatedRecognition",
+    "getSituatedBookChain",
+    "getSituatedBookProfile",
+    "getSituatedBookScene",
+    "getSituatedBookTopology",
+    "situatedBookProjection"
+  ],
+  "registrations": {
+    "worlds": [],
+    "scenes": [],
+    "commands": [],
+    "nativeEffects": [],
+    "saveNamespaces": [],
+    "runtimeConsumers": []
+  },
+  "api": {
+    "getters": "getSituatedBookProfile(worldId),getSituatedBookScene(sceneId),getSituatedBookTopology(worldId),getSituatedBookChain(chainId): immutable specification or null",
+    "evaluateSituatedBookRule": {
+      "signature": "(worldId,ruleId,context={})",
+      "requiredContext": {
+        "sceneId": "one listed bounded scene",
+        "binding": "{worldId,sceneId,eraId,nativeBound:true} from the actual native owner; absence/mismatch returns unknown",
+        "actor": "{id,life:\"alive\",bodyId,controllerId}; dead returns blocked, unspecified unknown",
+        "carriers": "actual separate appearance/role/event/opportunity/equipment/body snapshot; no face/title-to-source inheritance",
+        "stock": "unique {holderId,itemId,quantity:nonnegativeInteger,owned:boolean,available:boolean} records; duplicated/absent records unknown",
+        "knownMeans": "per-rule explicit boolean means read from actual native authority. Missing is unknown, explicit false blocked; no invented method/source/fuel",
+        "request": "exact proposed actor/recipient/item/count/operation. A request grants nothing.",
+        "observer": "{id,knownRuleIds:[...]}; public explanation reveals only rules this observer knows"
+      },
+      "receipt": "supported/blocked/unknown; authoringReason/evidence are author-facing, never use directly as player UI. prospectiveCarriers lists potential role IDs only; transferableCarriers/grants empty, committed:false,worldActivation:unregistered. supported is admission of supplied conditions, not execution/registration."
+    },
+    "evaluateSituatedRecognition": {
+      "signature": "(worldId,context={})",
+      "requiredContext": "actual observer.id plus tests with observerId,subjectId,claimId,evidenceId,kind,result; actual appearance carrier {claimantId,claimedPersonId,claimId}; exact actor/scene required",
+      "scope": "Only matching explicitly supplied observer evidence is projected. Supported means supplied tests agree, not established actual identity or transfer. Unknown/mismatched tests persist separately. Source-unknown signature mechanisms cannot be fabricated by adapter."
+    },
+    "situatedBookProjection": {
+      "signature": "(worldId,context={})",
+      "requiredContext": "knownSceneIds,observer.id,observer.knownRuleIds and receipts from these pure helpers",
+      "scope": "Returns only known scene entry text and observer-safe receipt hints. Hides authoringReason, canonical spoilers, topology, chain goals and source evidence."
+    }
+  },
+  "ruleIds": [
+    {
+      "id": "ordinary_entry",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "appearance_claim",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "recognized_role",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "credit_claim",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "opportunity_redirect",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "equipment_substitution",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "body_replacement",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "learned_execution",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "ordinary_work",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "share_owned_stock",
+      "classification": "original conservative snapshot admission; not a universal source law",
+      "worldId": "all four local original scene admissions",
+      "eraPrefix": null
+    },
+    {
+      "id": "mechanic.face_cover",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.legendary_mechanic",
+      "eraPrefix": null
+    },
+    {
+      "id": "mechanic.robot_control",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.legendary_mechanic",
+      "eraPrefix": null
+    },
+    {
+      "id": "worm.bulletproof_claim",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.worm",
+      "eraPrefix": null
+    },
+    {
+      "id": "labyrinth.bag_process",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.labyrinth_mad_god",
+      "eraPrefix": null
+    },
+    {
+      "id": "labyrinth.staff_use",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.labyrinth_mad_god",
+      "eraPrefix": "labyrinth.v2."
+    },
+    {
+      "id": "labyrinth.matrix_identity",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.labyrinth_mad_god",
+      "eraPrefix": "labyrinth.v2."
+    },
+    {
+      "id": "labyrinth.force_control",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.labyrinth_mad_god",
+      "eraPrefix": "labyrinth.v2."
+    },
+    {
+      "id": "labyrinth.flask_use",
+      "classification": "source-qualified local restriction; native snapshot admission is proposed",
+      "worldId": "book.labyrinth_mad_god",
+      "eraPrefix": "labyrinth.v2."
+    }
+  ],
+  "nativeJoins": [
+    {
+      "family": "world/entry",
+      "path": "src/world_instances.js",
+      "exports": [
+        "validateWorldBindings",
+        "validateWorldVisit",
+        "worldInstanceFacts"
+      ],
+      "status": "existing generic owner; no book-specific instance/people/stock binding"
+    },
+    {
+      "family": "body/controller/cargo",
+      "path": "src/realm_traveler_profiles.js",
+      "exports": [
+        "validateRealmTraveler",
+        "previewRealmTraveler"
+      ],
+      "status": "existing generic owner; source-era body/controller/source policy still required"
+    },
+    {
+      "family": "equipment/custody",
+      "path": "src/native_equipment_transaction.js",
+      "exports": [
+        "prepareNativeEquipment"
+      ],
+      "status": "existing native owner; source-specific item/fit/charge binding still required"
+    },
+    {
+      "family": "storage conservation",
+      "path": "src/native_storage_transaction.js",
+      "exports": [
+        "stageNativeStorageTransfer"
+      ],
+      "status": "existing native owner; actual local stock and custody still required"
+    },
+    {
+      "family": "source/fuel/control",
+      "path": "src/power_models.js",
+      "exports": [
+        "previewPowerModel"
+      ],
+      "status": "existing generic owner; named source rule/native target effect still required"
+    },
+    {
+      "family": "observer knowledge",
+      "path": "src/people_knowledge.js",
+      "exports": [
+        "knownPeopleView"
+      ],
+      "status": "existing projection owner; actual claim/evidence/history and observer-safe receipt consumer required"
+    },
+    {
+      "family": "durable settlement",
+      "path": "src/gameplay_publication.js",
+      "exports": [
+        "prepareGameplayPublication"
+      ],
+      "status": "single existing publisher; no mutation from this module"
+    },
+    {
+      "family": "replacement carriers",
+      "path": "Backlog reserved replacement module",
+      "exports": [],
+      "status": "external owner integration queue must freeze exact exports; not guessed or edited here"
+    },
+    {
+      "family": "dialogue continuation",
+      "path": "Ink reserved continuation",
+      "exports": [],
+      "status": "external owner supplies original scene continuation/native continuation binding; no story compiler or Ink state in this module"
+    }
+  ],
+  "sourceAndOriginalBoundary": "Source baselines/exception analyses are immutable. Original people/props/lines/handovers/branch chains are labelled proposed. The generic one-right living handover policy is a limited original insertion, not a source law.",
+  "requiredBeforeActivation": [
+    "Register a selected bounded scene against actual world/era and native people/stock/history without provisioning others",
+    "Backlog conserves exact donor/recipient/rights/duties/body/source/custody and retains actor life",
+    "Ink uses original voice/continuation with host-owned commitments and prior history",
+    "Legibility uses safe projection/actual known proof, never authoringReason/evidence",
+    "Root binds target effects/costs/once-only native publication and declares optional version/default/recoverable rejection for saved meaning"
+  ],
+  "topologyAndChains": {
+    "exports": [
+      "SITUATED_BOOK_TOPOLOGIES",
+      "SITUATED_BOOK_CHAINS"
+    ],
+    "status": "unactivated source-qualified dispositions only; root has separate actual hub/two-destination/three-chain runtime owners",
+    "joins": "Existing instance/traveler/publication owners plus actual root chain/hub/mission schemas. No secondary state/XP/reward/clock/chain engine here."
+  },
+  "checksAllowed": [
+    "syntax",
+    "import/export",
+    "source file/hash/claim/link checks"
+  ],
+  "deferred": [
+    "gameplay",
+    "browser",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "release": "All reserved outputs released to sole Features integrator after DELIVERY.json; specialist did not edit shared runtime/canonical/build/source libraries/private saves."
+}

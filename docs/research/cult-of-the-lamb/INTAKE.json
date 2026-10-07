@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "status": "finite_source_research_complete",
+  "steam_app_id": 1313140,
+  "steam_build_id": "25223484",
+  "packaged_version": "1.5.26",
+  "packaged_build_label": "202411181131:DLC_1:5af9fb0d",
+  "build_label_qualification": "Shipped resource label, not Steam publication date or source revision. Steam build/hash pins are authoritative inputs.",
+  "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Cult of the Lamb",
+  "state_flags": 4,
+  "stable_gate": "same final manifest before/after; every copied source size/mtime and SHA256 matches snapshot",
+  "format": "macOS Unity Mono build, with real PE/.NET managed gameplay assemblies; not IL2CPP/native reconstruction",
+  "private_workspace": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484",
+  "copied_files": 216,
+  "copied_bytes": 139489797,
+  "assemblies": [
+    {
+      "installed_relative_path": "Cult Of The Lamb.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+      "snapshot": "input/Managed/Assembly-CSharp.dll",
+      "bytes": 15946752,
+      "sha256": "cebab7cf18ec3efd2b4ae08e46c584b3e3f5c7242de0450929ad1efdf535b154"
+    },
+    {
+      "installed_relative_path": "Cult Of The Lamb.app/Contents/Resources/Data/Managed/Assembly-CSharp-firstpass.dll",
+      "snapshot": "input/Managed/Assembly-CSharp-firstpass.dll",
+      "bytes": 819200,
+      "sha256": "59a55b5f6444d6a60794dde51aa27d8f995e384aa84be6b3cda2269c900c649d"
+    }
+  ],
+  "tools": {
+    "checked_utc": "2026-10-07T03:40:35.652484+00:00",
+    "command": [
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+      "--disable-updatecheck",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "ilspycmd: 9.1.0.7988\nICSharpCode.Decompiler: 9.1.0.7988\n",
+    "stderr": "",
+    "hashes": {
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet": "81925e68da4f4ebcd8edd72a952e2a7f3ca64e90d9df0ff0be5c697c41fec473",
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll": "58ef1a86bea09f2e5a114720b607dd0bdaaf91cfe498c6b7a3412bd960d0f57d"
+    },
+    "qualification": "existing tools reused; no installation; no game export until stable installed payload"
+  },
+  "data_tool": "existing UnityPy1.25.4 from private CrushCrush tools; no installation",
+  "export_runs": [
+    {
+      "assembly": "Assembly-CSharp",
+      "command": [
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+        "--disable-updatecheck",
+        "-p",
+        "-o",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/decompiled/Assembly-CSharp",
+        "-r",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/input/Managed",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/input/Managed/Assembly-CSharp.dll"
+      ],
+      "started_utc": "2026-10-07T03:42:26.141269+00:00",
+      "finished_utc": "2026-10-07T03:43:41.223433+00:00",
+      "exit_code": 0,
+      "input_sha256": "cebab7cf18ec3efd2b4ae08e46c584b3e3f5c7242de0450929ad1efdf535b154",
+      "export_files": 3575,
+      "csharp_files": 3574
+    },
+    {
+      "assembly": "Assembly-CSharp-firstpass",
+      "command": [
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+        "--disable-updatecheck",
+        "-p",
+        "-o",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/decompiled/Assembly-CSharp-firstpass",
+        "-r",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/input/Managed",
+        "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/input/Managed/Assembly-CSharp-firstpass.dll"
+      ],
+      "started_utc": "2026-10-07T03:43:41.326870+00:00",
+      "finished_utc": "2026-10-07T03:43:47.160977+00:00",
+      "exit_code": 0,
+      "input_sha256": "59a55b5f6444d6a60794dde51aa27d8f995e384aa84be6b3cda2269c900c649d",
+      "export_files": 394,
+      "csharp_files": 393
+    }
+  ],
+  "export_files": 3969,
+  "export_csharp_files": 3967,
+  "diagnostic_scan": {
+    "count": 0,
+    "qualification": "IL comments/unknown-result/invalid-target/expected-I4 scan, not recompilation or proof of every decompiled method"
+  },
+  "asset_limits": "resources.assets has5,676 MonoBehaviours:5,403 object-decoding errors from missing/stripped type detail and273 anonymous metadata-only reads. No MonoBehaviour serialized defaults were semantically reviewed. Addressables catalog retained; most bundles remain unexpanded.",
+  "private_manifests": [
+    "INPUT_MANIFEST.json",
+    "DECOMPILATION_MANIFEST.json",
+    "DECOMPILATION_RUN.json",
+    "DECOMPILER_DIAGNOSTICS.json",
+    "DATA_INVENTORY.json",
+    "TEXT_EXTRACTION.json",
+    "READ_LOG.json"
+  ],
+  "game_launched": false,
+  "profiles_or_saves_read": false,
+  "entitlements_inspected_or_changed": false,
+  "raw_source_in_git": false,
+  "omitted_snapshot": "Audio banks, textures/mesh sidecars, native runtime and unselected addressable bundles. Original install retained; no save/profile/entitlement inspection.",
+  "semantic_coverage": "COVERAGE.json:68 selected source files/9,324 union lines/16 finite paths/47 findings; neither whole-game nor whole-DLC review",
+  "managed_dependency_dlls": 203,
+  "private_bytes_at_source_boundary": 170028577,
+  "mono_behaviour_inventory": {
+    "total": 5676,
+    "read_errors": 5403,
+    "metadata_only_reads": 273,
+    "semantic_defaults_reviewed": 0
+  },
+  "unity_serialized_metadata": [
+    {
+      "file": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484/input/globalgamemanagers",
+      "unity_version": "2022.3.62f2"
+    }
+  ]
+}

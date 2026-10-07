@@ -1,0 +1,436 @@
+{
+  "title": "KeeperRL facility training, body eligibility, and combat growth notes",
+  "as_of": "2026-10-06",
+  "scope": "Bounded semantic trace for K3: facility-driven attribute experience, minion/body eligibility boundaries, growth limits, and actual melee/effect consumption. This is not full KeeperRL or gameplay coverage.",
+  "source": {
+    "repository": "https://github.com/miki151/keeperrl",
+    "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+    "local_read_only_checkout": "/Users/weiwei/.codex/research/keeperrl/source",
+    "github_link_rule": "Every anchor is pinned to the inspected commit and names the read line range.",
+    "snapshot_caveat": "This identifies one published-source snapshot only. No correspondence to a current packaged commercial build is claimed."
+  },
+  "K3_facility_training_body_and_combat": {
+    "observed_flow": [
+      "The collective's scheduled furniture-use callback maps TRAIN to DAMAGE, STUDY to SPELL_DAMAGE, ARCHERY_RANGE to RANGED_DAMAGE, and PRAY to DIVINITY. Its increment is 0.012 times furniture/room/light efficiency times the creature's training-speed effect. The furniture's configured maxTraining clips the increment, and CreatureAttributes clips it again against the creature's own maximum training potential. Creature::increaseExpLevel emits a level event and forwards an integer level crossing to SpellMap; the value is fractional experience until the integer boundary.",
+      "CollectiveConfig maps TRAIN/STUDY/PRAYER to furniture whose maxTraining supports the respective attribute. MinionActivityMap excludes prisoners from TRAIN/STUDY/ARCHERY; ARCHERY also requires a carried ranged weapon. PRAYER is likewise a furniture predicate. A maxed-out minion is ineligible. The training-room upgrade helper returns no missing furniture when the minion is maxed, or when an already-built eligible dummy covers remaining potential; this is a concrete stop/availability boundary.",
+      "The selected facility callback itself has no anatomy check. Body enters at the consumer: Creature::attack asks the body's weapon selector for usable equipped/intrinsic attacks and returns an empty action if none exist. For an attack that can be made, it reads the weapon's melee attribute through getAttr, combines special and weapon modifiers, constructs Attack, and invokes the victim's takeDamage. getRawAttr includes trained experience; Creature::getRawAttr adds combat experience for attributes that have training potential. Thus trained DAMAGE can contribute to an eligible melee strike, while the body determines whether and how a strike exists.",
+      "At integer level-up, SpellMap receives the new level, which can make level-dependent spell/ability growth available. This trace did not inspect spell definitions or claim a specific spell unlock. SPELL_DAMAGE is assigned by STUDY at the facility, but its damage execution path is outside this bounded K3 trace.",
+      "Creature::takeDamage computes defense and attack/defense ratio, then routes successful damage into Body::takeDamage; attack-damage-type effects and per-attack effects are applied at the consumer boundary. This is where bodily vulnerability/health and authored effect outcomes matter, not at the training callback. A lethal body-damage result returns before the later damage-type and per-attack effect loop, so follow-on effects are not guaranteed merely because an attack connected."
+    ],
+    "eligibility_and_failure_boundaries": [
+      "Prisoner status blocks TRAIN, STUDY, and ARCHERY. ARCHERY requires a carried ranged weapon. Reaching the creature or facility's max training potential blocks further activity/growth; the callback adds nothing when the bounded increment is nonpositive.",
+      "The facility code does not establish body-part or humanoid requirements for TRAIN. The downstream Body::chooseRandomWeapon clears equipped weapons for non-humanoid bodies and only admits intrinsic attacks from body parts with at least one good part. If no compatible weapon remains, Creature::attack returns an empty action. A trained attribute therefore does not guarantee an executable combat action.",
+      "The minion-activity/body checks are independent gates: prisoner/gear status governs the assigned activity; body anatomy governs executable attacks. The source does not imply that every creature can use every training point in combat."
+    ],
+    "limits_and_distinctions": [
+      "Training potential is a hard cap; accumulated fractional exp level is not the same field as combatExperience/teamExperience. Creature::getAttr may also add capped combat experience, so observed combat output can combine static attributes, training exp, combat exp, equipment, specials, and lasting-effect bonuses.",
+      "The available code proves how values are selected and applied, not that a particular training room is faster/better balanced or that a given minion survives long enough to reach a level.",
+      "This K3 note reads only the listed spans. It does not cover full spell learning, all attribute consumers, creature generation/body definitions, all combat effects, or the game as a whole. No source was built or run."
+    ],
+    "actual_semantically_read_ranges": [
+      {
+        "file": "collective.cpp",
+        "line_ranges": [
+          "1498-1528",
+          "1577-1620",
+          "1657-1669"
+        ],
+        "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+        "span_sha256": [
+          "6e1133f04099d9f7fa1f028b3bdf8bcfd738a87cc776d6e023926e66c172f6b1",
+          "793df0626f2b82a77538130581cfccb8746a572adb9249802a33a00032e7a3b0",
+          "979b1d62f2ffa8893c04ad9ec5b74685989384e8ae7e74ea52e2721ed43cfe1a"
+        ]
+      },
+      {
+        "file": "collective_config.cpp",
+        "line_ranges": [
+          "267-292",
+          "316-321",
+          "358-364"
+        ],
+        "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+        "span_sha256": [
+          "4ed4568f7b1dafd910edf60bd9d34cd63b911c18e3df1ba4f5cf8e852f0a353b",
+          "b887d083a93f6d86534c82f64ba8414c75ebb20956b8158faaf4e51c043e4251",
+          "8b46d9755f6467bd587792d64c319b0ddd2fabdfcaaacf412ae711fbfd7c5dae"
+        ]
+      },
+      {
+        "file": "minion_activity_map.cpp",
+        "line_ranges": [
+          "78-99"
+        ],
+        "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+        "span_sha256": [
+          "5b02200a5b8f45ee85fd824cd2b45f2e420527dd38e0739d12f389d46e0b50e7"
+        ]
+      },
+      {
+        "file": "furniture.cpp",
+        "line_ranges": [
+          "489-495"
+        ],
+        "file_sha256": "ec63097e9e6a48e190879f77df0757996ae1e32cccda4571582f241fa4f3fecd",
+        "span_sha256": [
+          "152e593d4eb95fad2977b6f9450aa71432d0f50cb76e755193aeb1f0da6750b8"
+        ]
+      },
+      {
+        "file": "creature_attributes.cpp",
+        "line_ranges": [
+          "148-183"
+        ],
+        "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+        "span_sha256": [
+          "fb2e5f3833934921979cac0093b654749a2eac71e7efccc96ac6422462350cc5"
+        ]
+      },
+      {
+        "file": "creature.cpp",
+        "line_ranges": [
+          "1153-1175",
+          "1200-1210",
+          "1630-1665",
+          "1761-1815",
+          "2163-2179",
+          "2185-2198",
+          "2483-2494"
+        ],
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": [
+          "7f426916293b4d96fdd5e345ef5ccb1e6848b5c1d74c82991f277755230e0eab",
+          "b50b7b8c6df0c4b56a066f21ce43051502c8b2146339c74a71ca7064dab90574",
+          "74596f71d728bfe20ad098409fb5bd0b73de1a71e3ae365301a49f585fdf21b3",
+          "155a40c2ec8bc8129c692fb6786bdd11f4f4cc5a7f0dffbf67784e853e45129b",
+          "e208db91831410c7a77c1fcffda75b53a3be69e13009a28b13f20aa1138d33c4",
+          "1f550ea61660d9bf350322eebcf8684939378d5a7f26c26bddd2e999edb1e9c0",
+          "586fb931c07ee0b7c7df7ec6601489535db1ab606a2b3aa4a79d79b734214332"
+        ]
+      },
+      {
+        "file": "body.cpp",
+        "line_ranges": [
+          "134-159"
+        ],
+        "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+        "span_sha256": [
+          "255e351a25bf3224f886096b5d7de1eb77132487da95af2e585e6cd499b6631c"
+        ]
+      },
+      {
+        "file": "lasting_effect.cpp",
+        "line_ranges": [
+          "1163-1170"
+        ],
+        "file_sha256": "b444643090a5cea8f67ae8e9b959928cd06e93b716a87ecbfff3e3557a764b81",
+        "span_sha256": [
+          "627943d3e2b8776ac9b1f340d3d4da72f39fbcd4126a1f83e88f62b347786305"
+        ]
+      }
+    ],
+    "selected_evidence_anchors": [
+      {
+        "symbol": "Collective::onAppliedSquare training callback",
+        "file": "collective.cpp",
+        "start_line": 1583,
+        "end_line": 1619,
+        "meaning": "Attribute gains selected by each training furniture use.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1583-L1619",
+        "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+        "span_sha256": "9f2b6317df66dfa60e48df527b87e034f2fc5542803158f0bfbd6e0c267c2450"
+      },
+      {
+        "symbol": "Collective::getMissingTrainingFurniture",
+        "file": "collective.cpp",
+        "start_line": 1657,
+        "end_line": 1669,
+        "meaning": "Trainer availability ends at the creature potential cap or an already-built suitable trainer.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1657-L1669",
+        "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+        "span_sha256": "979b1d62f2ffa8893c04ad9ec5b74685989384e8ae7e74ea52e2721ed43cfe1a"
+      },
+      {
+        "symbol": "CollectiveConfig::getTrainingPredicate",
+        "file": "collective_config.cpp",
+        "start_line": 271,
+        "end_line": 276,
+        "meaning": "Furniture must support this attribute and creature must remain below its cap.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L271-L276",
+        "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+        "span_sha256": "36a395f3f68cc8d8e175958e46ec90e4f304d20b662856f423c61744d7a3c540"
+      },
+      {
+        "symbol": "CollectiveConfig::getActivityInfo TRAIN/STUDY/PRAYER",
+        "file": "collective_config.cpp",
+        "start_line": 286,
+        "end_line": 289,
+        "meaning": "TRAIN and STUDY map to their experience attributes.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L286-L289",
+        "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+        "span_sha256": "ebbea8f937bd3459ed20122f533dee8d045caf961d142a6cb7daa1463c71bc5c"
+      },
+      {
+        "symbol": "CollectiveConfig::getActivityInfo PRAYER",
+        "file": "collective_config.cpp",
+        "start_line": 363,
+        "end_line": 363,
+        "meaning": "Prayer maps to DIVINITY training furniture.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L363-L363",
+        "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+        "span_sha256": "d9f6af2a481e37a90adea5c8e86f5da86a7a5e3e3e674e27c8a01e822d57c745"
+      },
+      {
+        "symbol": "MinionActivityMap::isAvailable",
+        "file": "minion_activity_map.cpp",
+        "start_line": 78,
+        "end_line": 99,
+        "meaning": "Prisoner, max-level, and carried ranged-weapon activity eligibility.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L78-L99",
+        "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+        "span_sha256": "5b02200a5b8f45ee85fd824cd2b45f2e420527dd38e0739d12f389d46e0b50e7"
+      },
+      {
+        "symbol": "Furniture::getMaxTraining",
+        "file": "furniture.cpp",
+        "start_line": 489,
+        "end_line": 495,
+        "meaning": "Furniture attribute-specific cap access.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/furniture.cpp#L489-L495",
+        "file_sha256": "ec63097e9e6a48e190879f77df0757996ae1e32cccda4571582f241fa4f3fecd",
+        "span_sha256": "152e593d4eb95fad2977b6f9450aa71432d0f50cb76e755193aeb1f0da6750b8"
+      },
+      {
+        "symbol": "CreatureAttributes::increaseExpLevel / isTrainingMaxedOut",
+        "file": "creature_attributes.cpp",
+        "start_line": 171,
+        "end_line": 183,
+        "meaning": "Clipped fractional experience and max-potential check.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L171-L183",
+        "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+        "span_sha256": "4231ce78f8534e571f418a64727df74ef8b3b80871a2bd2e3aee85ba175e88ce"
+      },
+      {
+        "symbol": "Creature::increaseExpLevel",
+        "file": "creature.cpp",
+        "start_line": 2163,
+        "end_line": 2179,
+        "meaning": "Level crossing event and spell map notification.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2163-L2179",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "e208db91831410c7a77c1fcffda75b53a3be69e13009a28b13f20aa1138d33c4"
+      },
+      {
+        "symbol": "CreatureAttributes::getRawAttr",
+        "file": "creature_attributes.cpp",
+        "start_line": 148,
+        "end_line": 157,
+        "meaning": "Raw attribute includes trained exp; defense also uses max trained value.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L148-L157",
+        "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+        "span_sha256": "290d3098ed1bb73a583ebf90b1603b70145a77d23b9917620806ba78d5bf4a8d"
+      },
+      {
+        "symbol": "Creature::getAttrWithExp / getRawAttr",
+        "file": "creature.cpp",
+        "start_line": 1167,
+        "end_line": 1175,
+        "meaning": "Combat attribute reads raw values and applicable bonuses.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1167-L1175",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "c1834d19b54c5b358ce8370204240bc39ccc302369a2265154033ac7ccd85bed"
+      },
+      {
+        "symbol": "Creature::getRawAttr",
+        "file": "creature.cpp",
+        "start_line": 1200,
+        "end_line": 1210,
+        "meaning": "Combat experience is added only for eligible non-fixed/potential attributes.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1200-L1210",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "b50b7b8c6df0c4b56a066f21ce43051502c8b2146339c74a71ca7064dab90574"
+      },
+      {
+        "symbol": "Creature::attack",
+        "file": "creature.cpp",
+        "start_line": 1630,
+        "end_line": 1665,
+        "meaning": "Real melee action uses damage attribute, effects, and target damage handling.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1630-L1665",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "74596f71d728bfe20ad098409fb5bd0b73de1a71e3ae365301a49f585fdf21b3"
+      },
+      {
+        "symbol": "Creature::takeDamage",
+        "file": "creature.cpp",
+        "start_line": 1761,
+        "end_line": 1815,
+        "meaning": "Defense, body damage, lethal early return, then damage-type/per-attack effects.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1761-L1815",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "155a40c2ec8bc8129c692fb6786bdd11f4f4cc5a7f0dffbf67784e853e45129b"
+      },
+      {
+        "symbol": "Body::chooseRandomWeapon",
+        "file": "body.cpp",
+        "start_line": 134,
+        "end_line": 150,
+        "meaning": "Non-humanoid bodies lose equipped weapon choices; intrinsic attacks require a good part.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L134-L150",
+        "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+        "span_sha256": "7252d05da314a33bf4a2ae1213a791090faf0e97536d484941fbf212226fb64d"
+      },
+      {
+        "symbol": "Creature::getRandomWeapons",
+        "file": "creature.cpp",
+        "start_line": 2483,
+        "end_line": 2487,
+        "meaning": "Body chooses usable weapons for this creature.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2483-L2487",
+        "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "span_sha256": "b8f5369246af5b0ae0d97b78cf5ce5de991f1f4d370b382dc22c9beb4001339d"
+      },
+      {
+        "symbol": "LastingEffects::getTrainingSpeed",
+        "file": "lasting_effect.cpp",
+        "start_line": 1163,
+        "end_line": 1170,
+        "meaning": "Actual fast/slow training effects scale facility gains.",
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/lasting_effect.cpp#L1163-L1170",
+        "file_sha256": "b444643090a5cea8f67ae8e9b959928cd06e93b716a87ecbfff3e3557a764b81",
+        "span_sha256": "627943d3e2b8776ac9b1f340d3d4da72f39fbcd4126a1f83e88f62b347786305"
+      }
+    ]
+  },
+  "current_yair_comparison": {
+    "interpretation": "YAIR already owns power models and refinable practice, explicit body traits/conditions, current-stat and body-aware native combat, and actual battle consumers. The feature battle already gates some body-dependent actions on recovered hands and gives NPC fighters bodily brace limits. The narrower inspected gap is that the Conditioned grip trait itself currently feeds carry/work-time capability but not a battle action consumer. This is not an anatomy-gap claim or a claim that current combat is unplayable.",
+    "inspected_files": [
+      {
+        "file": "src/power_models.js",
+        "file_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "spans": [
+          {
+            "lines": "5-43",
+            "span_sha256": "e26db08473b8f8581e4bc997dd26fb2d5d98b6b504ee77c5378382265e89fa23"
+          }
+        ],
+        "anchors": "previewPowerModel, resolveEffectAmount: typed capacity/mastery models and bounded numeric effect expressions."
+      },
+      {
+        "file": "src/body_progression.js",
+        "file_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "spans": [
+          {
+            "lines": "15-24",
+            "span_sha256": "759e0b9a61d5cb36f3091edbc9cc335749c559ec9ee987486bc6cbe5c117732d"
+          },
+          {
+            "lines": "42-58",
+            "span_sha256": "1e1a72abda70e7fdf288c1a8987a56983d9475ffac803db9e180cc3f80542802"
+          }
+        ],
+        "anchors": "bodySources, bodyCapabilities, bodyCommands grip/recovery/rough-kit flows."
+      },
+      {
+        "file": "src/backlog_expansion_body.js",
+        "file_sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+        "spans": [
+          {
+            "lines": "42-60",
+            "span_sha256": "712e87f4e96fdb1c94385a6134ac1da6dbb0823d0fc931be04d364d4edd0e120"
+          }
+        ],
+        "anchors": "bodyCapabilities/bodySources bind capabilities to actual physical-body properties; inspected as a finite draft subsystem, not an implemented consumer claim."
+      },
+      {
+        "file": "src/feature_expansion_powers.js",
+        "file_sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+        "spans": [
+          {
+            "lines": "35-54",
+            "span_sha256": "3de4abba93696250c67a1e1526697ed6b89767554c4250f836101b27734eb4b0"
+          }
+        ],
+        "anchors": "paid specialisation/refinement choices, native skill XP, fatigue/body gates; mastery is not one global generic rank."
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "spans": [
+          {
+            "lines": "148-169",
+            "span_sha256": "fe22a8f5d7f8acc23fb82323a335adcd00d527a4ee9b69e835fa5762022059f5"
+          },
+          {
+            "lines": "195-258",
+            "span_sha256": "c13e235c952b9f2373217425da3ac39a5eee022cd3a98aa6a832ceb73bd134ec"
+          }
+        ],
+        "anchors": "native Battle action eligibility binds actual current body, vitals, equipment, trained source, specialization, target and costs."
+      },
+      {
+        "file": "src/reference_gameplay_content.js",
+        "file_sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "spans": [
+          {
+            "lines": "28-43",
+            "span_sha256": "80d80b5111bcef8539e24d2952ffe2e98ac428517b48248a12c537b2b7f1db41"
+          },
+          {
+            "lines": "73-96",
+            "span_sha256": "0cf5978659cd4ea917c884acba4eefbabfb068d24afaccad5b4bf47731d5819c"
+          }
+        ],
+        "anchors": "Eda's paid source/mastery practice advances mastery into a particular field-effect consumer; practice and tool/body/charge remain distinct."
+      },
+      {
+        "file": "src/town_content.js",
+        "file_sha256": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+        "spans": [
+          {
+            "lines": "31-36",
+            "span_sha256": "4fde58669eab878ecdd1035c7fbfbe60b3a447f61e7662cdac453a8b85df985a"
+          }
+        ],
+        "anchors": "Conditioned grip speeds an actual two-log local marker job by a minute; tender hands add time."
+      },
+      {
+        "file": "src/combat_math.js",
+        "file_sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+        "spans": [
+          {
+            "lines": "34-56",
+            "span_sha256": "dbbdc79ae741dd21e9aa23c725029c924bb7712c79c46e6414a2a50156daf37f"
+          }
+        ],
+        "anchors": "actual battle damage derivation from attack power and target defensive stats."
+      },
+      {
+        "file": "src/native_battle.js",
+        "file_sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "spans": [
+          {
+            "lines": "1-65",
+            "span_sha256": "517115f4d5ae5f7f0a9063b96a50638d164f3a3d13b1813d109c069de573f112"
+          }
+        ],
+        "anchors": "native actor snapshots and committed encounter action apply actual combat math to current state."
+      }
+    ],
+    "proposal": {
+      "status": "original_reversible_proposal_not_implemented",
+      "player_choice": "After earning Conditioned grip through its two drills and recovering, choose an optional four-minute Village brace practice, spending two stamina; completion leaves the existing twelve-minute sore-hands condition, cancellation forfeits effort and awards no practice.",
+      "aftermath": "On completion, retain a trained one-use 'set grip' receipt for the next feature battle. The player can spend it to reduce one self-guard's stamina cost from two to one; it expires when that battle ends. Existing guard behavior remains available without the receipt.",
+      "actual_missing_consumer": "The inspected body trait currently grants carry and work-time capabilities, and feature battle's guard cost is calculated in its battle action-cost path without consulting Conditioned grip. A receipt-backed one-use cost modifier would connect a visible body practice to that existing combat consumer while keeping current combat math intact.",
+      "implementation_notes": "Would require an explicit durable receipt/effect owner, battle eligibility and consume-once logic, plus save/reload verification; no code or save schema was changed in this source-reading task."
+    }
+  },
+  "checks_and_limits": {
+    "source_build_or_run": false,
+    "game_install_or_launch": false,
+    "tests": false,
+    "yair_runtime_edits": false,
+    "user_saves_accessed": false,
+    "proposal_status": "not implemented or accepted"
+  }
+}

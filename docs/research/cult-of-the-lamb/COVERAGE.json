@@ -1,0 +1,1378 @@
+{
+  "schema_version": 1,
+  "status": "finite_selected_source_trace_complete",
+  "checked_utc": "2026-10-07T04:03:58.487677+00:00",
+  "edition": "Steam1313140/build25223484/version1.5.26",
+  "finite_path_count": 16,
+  "finding_count": 47,
+  "selected_source_files": 68,
+  "selected_source_lines_union": 9324,
+  "source_records": [
+    {
+      "path": "decompiled/Assembly-CSharp/CookingData.cs",
+      "sha256": "dbc739b309361ff813eb1fa38481651cad8a84af73c110e1655acbde5d2b7a6e",
+      "read_spans": [
+        [
+          314,
+          354
+        ],
+        [
+          1535,
+          1585
+        ],
+        [
+          1919,
+          2113
+        ],
+        [
+          2220,
+          2233
+        ]
+      ],
+      "total_lines": 2401,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/CultFaithManager.cs",
+      "sha256": "422fa08ebf9e3d0845f81fa7bc10cd14845d77e836b7ba28dbaa57c32afc4924",
+      "read_spans": [
+        [
+          238,
+          347
+        ],
+        [
+          387,
+          425
+        ],
+        [
+          443,
+          467
+        ]
+      ],
+      "total_lines": 554,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/DataManager.cs",
+      "sha256": "237e0e94a029f5ad296f7511cd2561e294d06460d0febbedf1a85cf4970c7a15",
+      "read_spans": [
+        [
+          12224,
+          12248
+        ]
+      ],
+      "total_lines": 15045,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Demon.cs",
+      "sha256": "8df2e18b4c7c92aea122275b1eb6217cd8d3b66fc20a01ed2ffbcf07790ed084",
+      "read_spans": [
+        [
+          31,
+          56
+        ]
+      ],
+      "total_lines": 134,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/DemonModel.cs",
+      "sha256": "bc4ce1f3cc54ec339266bfd1836989a2d4aacae226209af9f8dec0adf67d615c",
+      "read_spans": [
+        [
+          57,
+          82
+        ]
+      ],
+      "total_lines": 243,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Demon_Shooty.cs",
+      "sha256": "40bfd85c6bf10c1f84fa6fa50a8834a55cad8549cb4d6d2d979c8802a2b33603",
+      "read_spans": [
+        [
+          115,
+          222
+        ]
+      ],
+      "total_lines": 277,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/DoctrineUpgradeSystem.cs",
+      "sha256": "b447c67a888250de31b3d34c7914deffbc11c510757d02b80a85e29224b088ba",
+      "read_spans": [
+        [
+          949,
+          1105
+        ]
+      ],
+      "total_lines": 1336,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/EnableOnMajorDLC.cs",
+      "sha256": "1d4f22fb1aa03f2f2ef38be0b19d1e565de5a6d4d8de22477f614c91d1fa067c",
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "total_lines": 62,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Follower.cs",
+      "sha256": "2932231985c387cc2f723aca9d3f6f544b0231205688006792e7e9d29c7c6e77",
+      "read_spans": [
+        [
+          1627,
+          1678
+        ]
+      ],
+      "total_lines": 2827,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+      "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+      "read_spans": [
+        [
+          1340,
+          1536
+        ],
+        [
+          1604,
+          1697
+        ],
+        [
+          1710,
+          1777
+        ],
+        [
+          1817,
+          1914
+        ],
+        [
+          2031,
+          2055
+        ],
+        [
+          2110,
+          2260
+        ],
+        [
+          3005,
+          3105
+        ],
+        [
+          3136,
+          3153
+        ],
+        [
+          3366,
+          3546
+        ],
+        [
+          3709,
+          4114
+        ],
+        [
+          4186,
+          4274
+        ],
+        [
+          5027,
+          5049
+        ]
+      ],
+      "total_lines": 6031,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+      "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+      "read_spans": [
+        [
+          477,
+          576
+        ]
+      ],
+      "total_lines": 616,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+      "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+      "read_spans": [
+        [
+          1,
+          145
+        ],
+        [
+          155,
+          220
+        ],
+        [
+          305,
+          335
+        ],
+        [
+          823,
+          851
+        ],
+        [
+          1058,
+          1084
+        ]
+      ],
+      "total_lines": 1084,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+      "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "read_spans": [
+        [
+          1030,
+          1140
+        ],
+        [
+          1526,
+          1555
+        ],
+        [
+          1760,
+          1890
+        ],
+        [
+          2136,
+          2140
+        ]
+      ],
+      "total_lines": 2299,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+      "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+      "read_spans": [
+        [
+          57,
+          97
+        ],
+        [
+          214,
+          363
+        ]
+      ],
+      "total_lines": 603,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Build.cs",
+      "sha256": "2a65824cccfcfe96a790ea5bc72c84677af03c17d37af586124f5149b08e7b55",
+      "read_spans": [
+        [
+          60,
+          148
+        ]
+      ],
+      "total_lines": 198,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Chat.cs",
+      "sha256": "bc74fec4366a422760ee7235ae5f2f31071a71b8dc000bc77b8b3043a3c43ac9",
+      "read_spans": [
+        [
+          178,
+          200
+        ],
+        [
+          210,
+          325
+        ]
+      ],
+      "total_lines": 701,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Dissent.cs",
+      "sha256": "5e1531fac019f8c5cdf237a1b5a11dc9571b80904a473abf013f7148e567fd37",
+      "read_spans": [
+        [
+          1,
+          78
+        ]
+      ],
+      "total_lines": 130,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_DissentListen.cs",
+      "sha256": "e903f7bd3401e067b962846467fc2a9c989dc32a4e2ca60c73e9f8c82b66a5a8",
+      "read_spans": [
+        [
+          1,
+          84
+        ]
+      ],
+      "total_lines": 175,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_EatStoredFood.cs",
+      "sha256": "0d17bff443b85ee2a13140f988090a64ac3e787845d8ce1191dffd9a87794dc0",
+      "read_spans": [
+        [
+          28,
+          100
+        ],
+        [
+          258,
+          322
+        ]
+      ],
+      "total_lines": 392,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Farm.cs",
+      "sha256": "371b8892a80c5ab0ea8d2bec818a2e45e641528df70a1eb37722113f46ee5e4d",
+      "read_spans": [
+        [
+          92,
+          175
+        ],
+        [
+          483,
+          548
+        ]
+      ],
+      "total_lines": 1431,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_FightFollower.cs",
+      "sha256": "4a22b8b1f0060656765ee6b860768b6f7231ea4b0f84a62b006ec6724b01624b",
+      "read_spans": [
+        [
+          451,
+          542
+        ],
+        [
+          562,
+          572
+        ],
+        [
+          610,
+          624
+        ]
+      ],
+      "total_lines": 843,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_IsDemon.cs",
+      "sha256": "edf29a4780390081445f0faddecdf8894838976a76a216a95df8240f7e67cb3b",
+      "read_spans": [
+        [
+          1,
+          75
+        ]
+      ],
+      "total_lines": 75,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_LeaveCult.cs",
+      "sha256": "5ce57cb76aeb6fc6c14fe6f67a6d72ad079056db42bff256a5109c343a682b1e",
+      "read_spans": [
+        [
+          1,
+          98
+        ]
+      ],
+      "total_lines": 98,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_OnMissionary.cs",
+      "sha256": "a84e8e57db66caf2bdfd0f8f4c7d5b9d87afa40888572de675d132dc3f167f93",
+      "read_spans": [
+        [
+          67,
+          130
+        ]
+      ],
+      "total_lines": 135,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Rancher.cs",
+      "sha256": "776519d39c0b6515dba69d6f5b4592b8c9b09882c61c754778dcc5efd001c641",
+      "read_spans": [
+        [
+          77,
+          271
+        ],
+        [
+          368,
+          416
+        ],
+        [
+          500,
+          518
+        ]
+      ],
+      "total_lines": 551,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_ReeducateDissenter.cs",
+      "sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+      "read_spans": [
+        [
+          165,
+          198
+        ]
+      ],
+      "total_lines": 198,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_Refinery.cs",
+      "sha256": "0f308a2cea320618d8a219fc75abe4f484f14d2dc87376d0749ccf59ba68a987",
+      "read_spans": [
+        [
+          1,
+          131
+        ]
+      ],
+      "total_lines": 131,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTrait.cs",
+      "sha256": "7fe1205a05eaa4f0fd4cb78da0005efb0a18ea1ed4584d50e9f5cb957e608549",
+      "read_spans": [
+        [
+          751,
+          816
+        ]
+      ],
+      "total_lines": 816,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/GameManager.cs",
+      "sha256": "f3f0b6881dd4242e0e6d2f61d8f0c5620fdf8c5d488c1625d9023800065b86a2",
+      "read_spans": [
+        [
+          598,
+          635
+        ],
+        [
+          1804,
+          1851
+        ],
+        [
+          1881,
+          1929
+        ]
+      ],
+      "total_lines": 1996,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_AddFuel.cs",
+      "sha256": "36e858ce004f4f7ecf8f18457db3a940a0194a2baaf3a0f4efceebe8a75f85bc",
+      "read_spans": [
+        [
+          235,
+          274
+        ]
+      ],
+      "total_lines": 319,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_Chest.cs",
+      "sha256": "7df36c409fed1175790e9aafa1991b4181929f702fd469f4f778d329daba0707",
+      "read_spans": [
+        [
+          1410,
+          1481
+        ]
+      ],
+      "total_lines": 1866,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_DLCFurnace.cs",
+      "sha256": "7ccf168b94b3a4347647b1a0f5204961b8bba179290b259c9323507180f254bb",
+      "read_spans": [
+        [
+          633,
+          647
+        ]
+      ],
+      "total_lines": 1128,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_DLCShrine.cs",
+      "sha256": "d08edb74e202d9e0ba7ba3cc5a6c7d27d9748afad1d7a0bbb9bca9e5103d532f",
+      "read_spans": [
+        [
+          278,
+          437
+        ]
+      ],
+      "total_lines": 1018,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_DLCYngyaShrine.cs",
+      "sha256": "fa62249da42f9fa069cf0faee357dacf171bbd953c4c494b0b4c0a052432ff5f",
+      "read_spans": [
+        [
+          109,
+          138
+        ],
+        [
+          358,
+          410
+        ],
+        [
+          451,
+          535
+        ]
+      ],
+      "total_lines": 733,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_DemonSummoner.cs",
+      "sha256": "7ff6915551e3af8e5c7dbc3c20265dad5aca5b2961af9fd4f9b80cd518733daf",
+      "read_spans": [
+        [
+          77,
+          109
+        ],
+        [
+          147,
+          170
+        ],
+        [
+          283,
+          333
+        ]
+      ],
+      "total_lines": 333,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_Hatchery.cs",
+      "sha256": "a5ce9e3d0140c0f825e93979cc0b6efebbb6d31eea1339799438a5ba3654860d",
+      "read_spans": [
+        [
+          335,
+          434
+        ]
+      ],
+      "total_lines": 771,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_HealingBay.cs",
+      "sha256": "caeebf8200a1611e4823332218a090a4af583d11411765d023f001bd1f1b5c7f",
+      "read_spans": [
+        [
+          137,
+          165
+        ],
+        [
+          305,
+          397
+        ]
+      ],
+      "total_lines": 402,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_JalalasBag.cs",
+      "sha256": "44f2861f88e3e55f8fc4f7f48c683f181d682979b35fc5e438764b0cab181557",
+      "read_spans": [
+        [
+          1,
+          20
+        ]
+      ],
+      "total_lines": 20,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_MatingTent.cs",
+      "sha256": "aaae7aa30a34e5b56835fcb5456b4e7e8a55d58de0cab7b6069cf3d369b374c1",
+      "read_spans": [
+        [
+          255,
+          282
+        ],
+        [
+          294,
+          309
+        ],
+        [
+          410,
+          435
+        ],
+        [
+          643,
+          783
+        ]
+      ],
+      "total_lines": 1361,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_Missionaries.cs",
+      "sha256": "38b50c34e84d138108249c2fb893f770e3017955994e4b8906af9f234f7dd7b0",
+      "read_spans": [
+        [
+          263,
+          314
+        ]
+      ],
+      "total_lines": 320,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_MissionaryComplete.cs",
+      "sha256": "b2b84066d033fb76a751c3ef29d0a17b6e83328e7ac8018eff01739a2cab008a",
+      "read_spans": [
+        [
+          49,
+          229
+        ]
+      ],
+      "total_lines": 230,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_Ranchable.cs",
+      "sha256": "6f5995c3f5e559317c4bff372618a35fa41c5671692fdff10344f18b4f4afd99",
+      "read_spans": [
+        [
+          2700,
+          2729
+        ],
+        [
+          2775,
+          2891
+        ],
+        [
+          2922,
+          2972
+        ]
+      ],
+      "total_lines": 4160,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_Refinery.cs",
+      "sha256": "817ebdf65760155a39841d09371bfc215c2dc9f155951f9efe35f01f62bf8bf3",
+      "read_spans": [
+        [
+          75,
+          168
+        ]
+      ],
+      "total_lines": 242,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Interaction_TempleAltar.cs",
+      "sha256": "466e8a4bf75913ccd2d9530d37fc0c372d65d17abadbc4d4dfe38a8b7b1d333e",
+      "read_spans": [
+        [
+          1716,
+          1756
+        ]
+      ],
+      "total_lines": 2155,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.DeathScreen/UIDeathScreenOverlayController.cs",
+      "sha256": "2c03b05a42dd0b661c9de6d6a0fb8e0eec84211b70efe68ada228d725d834c33",
+      "read_spans": [
+        [
+          625,
+          644
+        ],
+        [
+          1110,
+          1209
+        ],
+        [
+          1266,
+          1349
+        ]
+      ],
+      "total_lines": 1349,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.RefineryMenu/UIRefineryMenuController.cs",
+      "sha256": "a640e9eeab7c85dd1771a13fd047b1d10d6cd90961e8af167e7125114632732c",
+      "read_spans": [
+        [
+          152,
+          285
+        ]
+      ],
+      "total_lines": 314,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/RitualItem.cs",
+      "sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+      "read_spans": [
+        [
+          88,
+          128
+        ]
+      ],
+      "total_lines": 301,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/UIRitualsMenuController.cs",
+      "sha256": "8ce444b8ebc153b2393a95ade1c5c64e8721ccc88159944b7478b4e2711fa087",
+      "read_spans": [
+        [
+          253,
+          258
+        ]
+      ],
+      "total_lines": 282,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+      "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+      "read_spans": [
+        [
+          1,
+          125
+        ]
+      ],
+      "total_lines": 381,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Onboarding.cs",
+      "sha256": "caa5bbe4bbb261927515232638474c1afe772b781bf15d17f4f441b88f8e9e08",
+      "read_spans": [
+        [
+          1456,
+          1489
+        ],
+        [
+          1945,
+          1977
+        ]
+      ],
+      "total_lines": 2140,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/PlacementRegion.cs",
+      "sha256": "55d1551dc0cce2ba85e1ca573c6e98be2046957f54dfa4271cf8ba74ca5db1c5",
+      "read_spans": [
+        [
+          2445,
+          2535
+        ]
+      ],
+      "total_lines": 2884,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Ritual.cs",
+      "sha256": "c3910166af3acba5eded2adf65acf6d59133bac7f71c5269982e7542f68f7f7d",
+      "read_spans": [
+        [
+          67,
+          109
+        ]
+      ],
+      "total_lines": 314,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/RitualBecomeDisciple.cs",
+      "sha256": "b8b67a1498739b2c23bba91d0f0f2c610b12eedd031297832c7af13b741bd35b",
+      "read_spans": [
+        [
+          65,
+          144
+        ]
+      ],
+      "total_lines": 189,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/RitualRessurect.cs",
+      "sha256": "ef6dda92d9f7a02c289eac0cf31ea62e52f94e3ec09d670d3a4cb6abf1960096",
+      "read_spans": [
+        [
+          79,
+          230
+        ]
+      ],
+      "total_lines": 236,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/SeasonsManager.cs",
+      "sha256": "dfadee7de9ca0a691da1f91ac6cb48953d299df54f8ae727cfd043ab29802ded",
+      "read_spans": [
+        [
+          336,
+          369
+        ],
+        [
+          794,
+          882
+        ]
+      ],
+      "total_lines": 1795,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/SermonsAndRituals.cs",
+      "sha256": "5aeba5abf29920a3c60a0e676c91fc1bf4a5ce7a967e4f661e4ddc4d80e152de",
+      "read_spans": [
+        [
+          171,
+          199
+        ],
+        [
+          318,
+          343
+        ]
+      ],
+      "total_lines": 343,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/SimulationManager.cs",
+      "sha256": "bc0c8b697a19ae1f2e70b8892903272eb6be651665c35e868e237a55a964bf79",
+      "read_spans": [
+        [
+          87,
+          181
+        ]
+      ],
+      "total_lines": 305,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/StructureBrain.cs",
+      "sha256": "f70ad2455020b16298f4f2b5714cbb6afa979768c0f7cc1c1f986c26be957ed7",
+      "read_spans": [
+        [
+          787,
+          831
+        ]
+      ],
+      "total_lines": 1576,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/StructuresData.cs",
+      "sha256": "0a3b37983f83c667d1bd0ca3ca43719d3ebc5ad2fdf197dafa790100a4ca7b01",
+      "read_spans": [
+        [
+          9010,
+          9084
+        ]
+      ],
+      "total_lines": 9084,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Structures_BuildSite.cs",
+      "sha256": "22b88d201e6108665009ea4e7942fbab88abad1c5b6a2fab06a1ac720e0b5443",
+      "read_spans": [
+        [
+          42,
+          141
+        ]
+      ],
+      "total_lines": 226,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Structures_Furnace.cs",
+      "sha256": "6a04dd8bc571cd6b00e70f509d23d941502cd4f38088da4d83ba545789078120",
+      "read_spans": [
+        [
+          1,
+          59
+        ]
+      ],
+      "total_lines": 59,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Structures_MatingTent.cs",
+      "sha256": "1c5383bbccdcd2c5c05f8d408c752ed9a60ef8000bde2234b07bd24377baa849",
+      "read_spans": [
+        [
+          1,
+          106
+        ]
+      ],
+      "total_lines": 106,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+      "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+      "read_spans": [
+        [
+          1,
+          56
+        ],
+        [
+          447,
+          731
+        ]
+      ],
+      "total_lines": 805,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Structures_Refinery.cs",
+      "sha256": "d4e8f133b4f6c5d6e73ff67bf4fbb533c6ae8b738944694b146a623a8790982a",
+      "read_spans": [
+        [
+          1,
+          128
+        ]
+      ],
+      "total_lines": 128,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+      "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+      "read_spans": [
+        [
+          176,
+          205
+        ],
+        [
+          516,
+          977
+        ]
+      ],
+      "total_lines": 1193,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/UpgradeSystem.cs",
+      "sha256": "b5d830d3bd37b9fab97a74791756e40bfdf5e27d959ea089393bb4e0eb64237d",
+      "read_spans": [
+        [
+          1408,
+          1448
+        ],
+        [
+          1550,
+          1575
+        ]
+      ],
+      "total_lines": 2040,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/WoolhavenYngyaStatue.cs",
+      "sha256": "e67c9e6fe16262595c7ef0b498e3e0ba5549a1c07f6a616b3fc11192e4d63bf0",
+      "read_spans": [
+        [
+          537,
+          635
+        ]
+      ],
+      "total_lines": 1134,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/interaction_FollowerInteraction.cs",
+      "sha256": "8d5e3b8b5fdeca41b9435806c995db61386b18df312a5d108f834a99a1dc93ab",
+      "read_spans": [
+        [
+          954,
+          994
+        ],
+        [
+          1128,
+          1190
+        ]
+      ],
+      "total_lines": 5367,
+      "qualification": "selected semantic spans only; full-file hash pins input, not whole-file reading"
+    }
+  ],
+  "paths": [
+    {
+      "id": "people",
+      "finding_ids": [
+        "LAMB-F01",
+        "LAMB-F02",
+        "LAMB-F03",
+        "LAMB-F04",
+        "LAMB-F05"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "body/traits/care needs -> personal state -> task exclusion or later consequence",
+      "time_failure_aftermath_limit": "Daily or task-specific played time; conditional illness, aging and care aftermath.",
+      "decision": "Keep a follower supplied or ask them to work",
+      "prerequisites": "Supported body/task, actual home/care state and declared traits",
+      "real_spend": "Actor time and actual care/food when a consumer requires it",
+      "state_mutation": "Individual state, age, thoughts and daily claims",
+      "downstream_consumer": "Task availability, needs, housing/care and later bodily outcome",
+      "time_policy": "Per-task played-time rates and day boundaries",
+      "failure": "Untreated state, neglect, age or unsupported work",
+      "later_aftermath": "Retained identity/care history and named condition"
+    },
+    {
+      "id": "allocation",
+      "finding_ids": [
+        "LAMB-F06"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "personal need -> eligible role -> actual actor/site reservation -> interruption/reselection",
+      "time_failure_aftermath_limit": "Shared location task selection; unavailable facilities block work.",
+      "decision": "Allocate a real job",
+      "prerequisites": "Personal need resolved; role/priority and available task/facility",
+      "real_spend": "One actor plus claimed facility/task capacity",
+      "state_mutation": "Pending/current task and reservations",
+      "downstream_consumer": "Worker executes one chosen task; unavailable tasks remain unfilled",
+      "time_policy": "Shared location reconsideration cadence",
+      "failure": "Unavailable reservation or higher personal priority",
+      "later_aftermath": "Old task released/retained and explicit replacement"
+    },
+    {
+      "id": "production",
+      "finding_ids": [
+        "LAMB-F07",
+        "LAMB-F08"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "recipe/material custody -> paid queue/carrying -> worker progress -> stored output or explicit refund",
+      "time_failure_aftermath_limit": "Partial progress and missing-silo exceptions preserved.",
+      "decision": "Queue refinement or move farm supplies",
+      "prerequisites": "Actual recipe items, facility or originating silo",
+      "real_spend": "Recipe stock at enqueue; carried stock leaves storage",
+      "state_mutation": "Frozen output variant, progress, carrying and reservation flags",
+      "downstream_consumer": "Completed stored material or returned stock",
+      "time_policy": "Productivity-weighted saved progress; task abort boundaries",
+      "failure": "No ingredients/site; missing silo limits refund",
+      "later_aftermath": "Partial progress, conserved remaining custody and queue"
+    },
+    {
+      "id": "construction",
+      "finding_ids": [
+        "LAMB-F09"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "affordability -> actual placement payment -> reserved worker slots -> target facility/state carryover",
+      "time_failure_aftermath_limit": "Work completion differs from unlock; no whole demolition/refund audit.",
+      "decision": "Place and finish a facility",
+      "prerequisites": "Unlock/affordability, valid placement and worker slots",
+      "real_spend": "Actual construction items at placement, worker time",
+      "state_mutation": "Build site progress and eventual target definition",
+      "downstream_consumer": "Actual facility/task-provider plus trait-qualified reactions",
+      "time_policy": "Worker progress and saved site threshold",
+      "failure": "Unaffordable placement returns before spend; occupancy blocks work",
+      "later_aftermath": "Inventory/queue/occupants survive site replacement; demolition/refund policies unread"
+    },
+    {
+      "id": "belief-dissent",
+      "finding_ids": [
+        "LAMB-F10",
+        "LAMB-F11",
+        "LAMB-F12",
+        "LAMB-F13",
+        "LAMB-F14"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "community thought/confidence -> eligible individual dissent -> nearby transmission -> warning -> cure or theft/retained opponent",
+      "time_failure_aftermath_limit": "Phase/cadence/identity/gear exceptions and dormant Happiness branch preserved.",
+      "decision": "Respond to low confidence and a particular dissenter",
+      "prerequisites": "Community threshold, phase/cadence, personal exceptions; nearby speech or valid cure target",
+      "real_spend": "Actual available gold at departure; reeducation actor time",
+      "state_mutation": "Thought stacks, dissent state, warning/receiver IDs, departure record",
+      "downstream_consumer": "Faith display, task interruption, cure or retained named opponent",
+      "time_policy": "Thought expiry, pair contact interval and dissent timer",
+      "failure": "Unchecked dissent leaves; only timely eligible intervention cures",
+      "later_aftermath": "Actual bounded theft, identity/history and later encounter death"
+    },
+    {
+      "id": "advancement-office",
+      "finding_ids": [
+        "LAMB-F15",
+        "LAMB-F16",
+        "LAMB-F17"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "adoration -> uncapped earned level -> capped function consumers -> separate promoted office -> service",
+      "time_failure_aftermath_limit": "Current version differs from old capped-level patch notes.",
+      "decision": "Claim a level and separately appoint an office",
+      "prerequisites": "Adoration threshold; specific office requires level 10, no prior office and ritual availability",
+      "real_spend": "Named ritual stock and actor/ceremony availability",
+      "state_mutation": "Adoration reset/level increment; separate disciple status/created count",
+      "downstream_consumer": "Capped work/demon consumer or actual disciple reeducation service",
+      "time_policy": "Accumulation versus appointment are separate actions",
+      "failure": "No eligible candidate/affordability; obsolete helper must not supply a false cap",
+      "later_aftermath": "Retained level/title and actual resulting duties"
+    },
+    {
+      "id": "doctrine-ritual",
+      "finding_ids": [
+        "LAMB-F18",
+        "LAMB-F19"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "policy unlock -> collective effect/ritual eligibility -> actual completion cost -> selected service/pressure",
+      "time_failure_aftermath_limit": "Cancelled/forced/free/night branches differ; no general consent inference.",
+      "decision": "Choose policy and perform a ritual",
+      "prerequisites": "Recorded unlock, candidate, cooldown and affordability; current policy",
+      "real_spend": "Successful normal ritual cost; forced/free/cancel cases differ",
+      "state_mutation": "Collective traits, unlocks, cooldown/result and free-use flag",
+      "downstream_consumer": "Work/food/season functions, ceremony-specific effects and objective",
+      "time_policy": "Current game cooldown and completion boundary",
+      "failure": "Rejected/absent candidate, cancellation or night disturbance",
+      "later_aftermath": "Actual policy identity, completed service and future modifiers"
+    },
+    {
+      "id": "life-care",
+      "finding_ids": [
+        "LAMB-F20",
+        "LAMB-F21",
+        "LAMB-F22"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "dead identity/remains -> resurrection/preparation history -> adverse state -> target-specific paid cure",
+      "time_failure_aftermath_limit": "No complete death, burial or save failure review; selected resurrection/care chain.",
+      "decision": "Restore a dead person or treat a current condition",
+      "prerequisites": "Existing identity/remains; funeral/time/trait/cure-doctrine gates",
+      "real_spend": "Current ritual recipe or condition-specific medical stock",
+      "state_mutation": "Collection reconciliation, changed bodily state/lifespan/traits",
+      "downstream_consumer": "Ordinary work/task restoration or remaining incomplete cure",
+      "time_policy": "Resurrection timing/history and named treatment effect",
+      "failure": "Possible post-return zombie/dread or doctrine-limited mutation removal",
+      "later_aftermath": "Same identity, preparation history, state and later care costs"
+    },
+    {
+      "id": "food",
+      "finding_ids": [
+        "LAMB-F23",
+        "LAMB-F24"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "actual recipe/meal -> reservation -> consumption -> independent effects -> body/work/affinity/cure consumer",
+      "time_failure_aftermath_limit": "Abort-after-bite, special risky outcome, doctrine/onboarding and overflow policy preserved.",
+      "decision": "Reserve and eat actual food",
+      "prerequisites": "Actual stock, reservation, current task and effect gates",
+      "real_spend": "One actual meal at arrival; recipe definitions require actual ingredients",
+      "state_mutation": "Food removed, satiation changed, selected effect or state",
+      "downstream_consumer": "Body, task, loyalty, care and waste/cure functions",
+      "time_policy": "Consumption/abort boundary and independent effect draw",
+      "failure": "Missing reservation ends; dangerous food has harmful outcomes",
+      "later_aftermath": "Condition/trait/age change and explicit abstract overflow policy"
+    },
+    {
+      "id": "relationships-family",
+      "finding_ids": [
+        "LAMB-F25",
+        "LAMB-F26",
+        "LAMB-F27",
+        "LAMB-F28"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "nearby conversation -> pair record -> friendship/romance/enmity -> intervention/fight or eligible offspring -> care/parent history",
+      "time_failure_aftermath_limit": "Parentage and body exceptions; source response/probability is not a consent model.",
+      "decision": "Interact, intervene or pursue family formation",
+      "prerequisites": "Nearby task freedom; eligible pair/adults/parentage/body/history",
+      "real_spend": "Actor interaction time; sin spent before a mating attempt",
+      "state_mutation": "Shared pair record, fight attribution, egg/parent/child data",
+      "downstream_consumer": "Later friendship/romance/enmity, injury/care or family state",
+      "time_policy": "Conversation/telegraph/interruption/day and incubation boundaries",
+      "failure": "Bad conversation, declined probability, injury/death or exceptional egg failure",
+      "later_aftermath": "Remembered pair state, named cause, parentage and care history"
+    },
+    {
+      "id": "missionary",
+      "finding_ids": [
+        "LAMB-F29",
+        "LAMB-F30",
+        "LAMB-F31"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "actual person/facility commitment -> frozen start/outcome -> due return -> delivered resource/recruit or death -> later trait/care effects",
+      "time_failure_aftermath_limit": "No reroll, known introductory guarantees and tier-condition anomaly; whole mission graph unread.",
+      "decision": "Dispatch a real missionary",
+      "prerequisites": "Chosen actual person and facility; level/body/trait readiness",
+      "real_spend": "Actor availability and time; no invented universal coin cost",
+      "state_mutation": "Frozen start/duration/type/chance/outcome, then retained reward/return state",
+      "downstream_consumer": "Actually delivered normal stock/recruit or failed return death",
+      "time_policy": "Stored played-time due boundary and explicit settlement",
+      "failure": "Failure produces no reward and can end the person life",
+      "later_aftermath": "Removed mission occupancy; fatigue/experience affects later actions"
+    },
+    {
+      "id": "combat-home",
+      "finding_ids": [
+        "LAMB-F32",
+        "LAMB-F33",
+        "LAMB-F34"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "home person assigned to support -> distinct demon function -> telegraph/counter timing -> run settlement -> restored fatigue/history",
+      "time_failure_aftermath_limit": "One demon path and stock result consumers; all weapons/relics/bosses not reviewed.",
+      "decision": "Assign home support and resolve a run",
+      "prerequisites": "Actual available follower/summoner; run/result/item-policy gates",
+      "real_spend": "Actual occupied actor role and later exhaustion; cargo loss where selected",
+      "state_mutation": "Support membership and functional level; inventory/run deltas",
+      "downstream_consumer": "Actual telegraphed demon combat and later restored home work",
+      "time_policy": "Combat timing, result settlement and supported home return",
+      "failure": "Escape/death differ; fragile stock can be lost; GameOver is another domain",
+      "later_aftermath": "Same person fatigue/history and adjusted cargo, not a full source reset"
+    },
+    {
+      "id": "time",
+      "finding_ids": [
+        "LAMB-F35"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "normal/skip frame delta -> active/unloaded actors -> task/body/world progress -> explicit stop-time option",
+      "time_failure_aftermath_limit": "No OS-offline advancement claim; UI/simulation/calendar pauses remain distinct.",
+      "decision": "Continue or explicitly pause simulation while raiding",
+      "prerequisites": "Current active/unloaded representation and pause/accessibility settings",
+      "real_spend": "Only declared task/body/world changes on supported simulated time",
+      "state_mutation": "Calendar, tasks, research, conditions and location representation",
+      "downstream_consumer": "Home work/people while player crusades or deliberate full simulation pause",
+      "time_policy": "Frame conversion, explicit skip, game-calendar pause and simulation pause differ",
+      "failure": "Unsupported/offline policy is not inferred",
+      "later_aftermath": "Preserved actor/state across representation changes"
+    },
+    {
+      "id": "winter",
+      "finding_ids": [
+        "LAMB-F36",
+        "LAMB-F37",
+        "LAMB-F42"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "supplied advancement -> future severity -> actual fuel/material protection -> cold/facility exposure -> warnings/waste/changed work",
+      "time_failure_aftermath_limit": "Specific winter/grace/body/boss/progression branches, not whole Woolhaven campaign.",
+      "decision": "Fund progression and prepare for later winter",
+      "prerequisites": "Winter system/severity/grace/cadence, actual fuel, body protection and spatial facilities",
+      "real_spend": "Actual offering/fuel items; meaningful future exposure",
+      "state_mutation": "Progress/received delivery, severity, fuel and condition/facility state",
+      "downstream_consumer": "Access/unlocks, colder next challenge, protective material use and waste",
+      "time_policy": "Season and played time with boss/body/upgrade/lock exceptions",
+      "failure": "Fuel exhaustion/cold/snow-covered facility; no invented mandatory offline loss",
+      "later_aftermath": "Warnings, changed work and new challenge after success"
+    },
+    {
+      "id": "ranch",
+      "finding_ids": [
+        "LAMB-F38",
+        "LAMB-F39",
+        "LAMB-F40",
+        "LAMB-F41"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "real habitat/feed/parents -> phase needs/readiness -> actual worker custody/output -> retained ailment/age/offspring",
+      "time_failure_aftermath_limit": "Player reservation, overcrowding, offscreen differences and early spend-return exception preserved.",
+      "decision": "Care for and use a real ranch animal",
+      "prerequisites": "Real habitat capacity, actual food, available parents/readiness and reservation",
+      "real_spend": "Actual ordinary feed and caretaker time; specific early-return branch differs",
+      "state_mutation": "Need/readiness/ailment/parent custody and unique child/cargo",
+      "downstream_consumer": "Produced materials, milk, ordinary work and future care",
+      "time_policy": "Phases/days, target mating phase and explicit absent-player differences",
+      "failure": "Overcrowding, illness/feral state, age death, abort or missing animal",
+      "later_aftermath": "Named animal, saved parental parameters and conserved worker delivery"
+    },
+    {
+      "id": "dlc-state-engine",
+      "finding_ids": [
+        "LAMB-F43",
+        "LAMB-F44",
+        "LAMB-F45",
+        "LAMB-F46",
+        "LAMB-F47"
+      ],
+      "status": "selected_static_dependency_chain_complete",
+      "flow": "content flag/named actor/elapsed discovery -> quest -> actual retrieval -> local/meta state; rules/data/render joins",
+      "time_failure_aftermath_limit": "Catalog, export, source read, activation and behavior acceptance remain separate axes.",
+      "decision": "Follow a named DLC pursuit and retain its outcome",
+      "prerequisites": "Content flag, named actor, elapsed days and actual clue/recruit/bag state",
+      "real_spend": "Actual retrieval/actor availability/time; no fabricated purchase or gate bypass",
+      "state_mutation": "Campaign acceptance/objective/recruit and separate persistent story unlock",
+      "downstream_consumer": "Later pursuit stage and bonus content access",
+      "time_policy": "Version-pinned source, elapsed days and static/local/meta state joins",
+      "failure": "Missing stage prerequisites; stage-two repair reconciles true objective state",
+      "later_aftermath": "Retained identity/discovery/unlock and explicit unread content bounds"
+    }
+  ],
+  "export_vs_read": {
+    "exported_game_csharp_files": 3967,
+    "main_exported_csharp_files": 3574,
+    "firstpass_exported_csharp_files": 393,
+    "main_selected_files": 68,
+    "firstpass_semantic_files": 0,
+    "qualification": "Export and file metadata do not imply semantic review. The selected union includes declarations and support spans, not every operation of these files."
+  },
+  "data_coverage": {
+    "resource_object_inventory": "metadata inventory only",
+    "selected_text_assets": [
+      "version",
+      "build",
+      "DLC"
+    ],
+    "addressables": "catalog retained and selected identifiers inspected; bundles/scene defaults mostly unexpanded",
+    "mono_behaviour_typetree_limit": "resources.assets has5,676 MonoBehaviours:5,403 object-decoding errors from missing/stripped type detail and273 anonymous metadata-only reads. No MonoBehaviour serialized defaults were semantically reviewed. Addressables catalog retained; most bundles remain unexpanded."
+  },
+  "observed_gameplay": false,
+  "deferred": [
+    "game launch",
+    "browser/gameplay",
+    "unit/regression",
+    "save/reload/import",
+    "failure rollback",
+    "keyboard/director acceptance"
+  ],
+  "unread_families": [
+    "most follower tasks/traits and all exact seasonal balance",
+    "full buildings/material/cooking catalogs and demolition recovery",
+    "all relationships/lineage/unique-character exceptions",
+    "complete crusade combat/weapon/relic/tarot/boss/progression",
+    "full Woolhaven story, quests, weather, animal riding/fences and serialized settings",
+    "Pilgrim comic prose and complete quest graph",
+    "firstpass/dependency semantic code, networking/Twitch/platform services",
+    "whole persistence migration/atomicity/offline policies"
+  ]
+}

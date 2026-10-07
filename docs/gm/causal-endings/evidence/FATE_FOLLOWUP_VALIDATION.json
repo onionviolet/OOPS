@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-10-06T06:42:29.953959+00:00",
+  "status": "passed",
+  "checks": {
+    "localMarkdownLinks": 65,
+    "jsonParsed": 11,
+    "stableRequirements": 20,
+    "packetIds": [
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5"
+    ],
+    "qualifiedWorkerSourceHashesMatched": 18,
+    "bookChains": 4,
+    "coreWorkedCases": 4,
+    "originalScenarioFamilies": 5,
+    "publicSourcesRetained": 11,
+    "representativeReview": [
+      "RI196/197",
+      "ORV525/527",
+      "RI1966",
+      "ORV514/517/534",
+      "Shadow Slave OE04-08 bounded reused notes"
+    ]
+  },
+  "errors": [],
+  "performed": "Scoped read-only existing source/dossier/public discussion inspection, fingerprint/JSON/link/coverage/document checks. No new full book reread.",
+  "deferred": [
+    "gameplay",
+    "unit",
+    "browser play",
+    "build/compiler",
+    "save/reload/import",
+    "failure injection",
+    "keyboard/regression",
+    "director acceptance"
+  ],
+  "writes": "Only role analysis owners/evidence; no canonical/gameplay/source-library/private-save/package/test writes",
+  "outputSha256": {
+    "ACTION_OUTCOME_MATRIX.md": "8ef414e4295df17438ba68d098edb472fae07fc5169f58eb99977872319a2018",
+    "CAUSAL_MODEL.md": "614067920e96aee92e5248d1f2b90880deb3312c24355be75d8b2d6bc97dfb62",
+    "CHECKPOINT.md": "b5b490d0da379b13cf525444ae6ae4d5774924b9b36cfa8f34696c49923b172b",
+    "COVERAGE.json": "93bc64d39c4f864094d00e2a8ec7a4c62781daa8d0c32d30989b9e388e9184c6",
+    "CURRENT_CAPABILITIES.md": "a970864b6c38f061f1889cd72adeea534d6dd3361dafdf88d2269614e81e316c",
+    "ENDING_MODEL.md": "fca3723f5e52b03c64e1ced57a2799f6ea3cb28dcd1ef90df6d5ebb3ae9c75b1",
+    "IMPLEMENTATION_PACKETS.md": "44b6ad3c6969fa9cdddb44e572688f27fd93b0253398867004d5bfcebc15100c",
+    "LIVE_SOURCE_DELTA.md": "6df7b6be39a7b2af40598be69294f1cb1c0f695883f4365333e1562f055f348d",
+    "REPORT.md": "38a48d7a13207a8233fc8923eb8f8ecd4525d745bdb44dae094850215f887629",
+    "SOURCE_SNAPSHOT.json": "929c33e11229a07949b07df53fd8434892aa5cd20a2fea93318e6c9850fe5f61",
+    "VALIDATION.json": "f0978e0f55565051db95b51742ffe9d9f159f6ef209d47322440204e12567595",
+    "WORKED_CASES.md": "b151ac9e857d37fe51c540bec913f968c8a54a71f3e647ac9488fb8f31b82586",
+    "evidence/COMBAT_LIFE_AUDIT.json": "dbd8464f41a23e6f0a6199f63c22dfc1ee455e89b03c4d56833e19980437d3a9",
+    "evidence/COMBAT_LIFE_AUDIT.md": "de45bdc95f36968e9cd0e8013ea75b3d042f74fa3b6c4547d566c22cb84c0099",
+    "evidence/DIRECTION_REVISION_2026_10_06.md": "33270246a937e07ccba767a4d4779dca03b9b9891586cc80091e7dda02d79c29",
+    "evidence/FATE_FOLLOWUP_SNAPSHOT.json": "2ac680164c0b2262c949c5e300b647a419d6852e5632a804e24827cd01d187c6",
+    "evidence/FATE_TEMPORAL_SOURCES.json": "d96244be68263114d0c8d4e7bc712c88381b7db3139c270433f39e2d542bad65",
+    "evidence/FATE_TEMPORAL_SOURCES.md": "a37f4a781eaab58866c9a49e001cd47a38d765f7367e1fbf52c263e08915288b",
+    "evidence/PARADISE_CASE.json": "bba0fc7a26f284c9c4396f2a112229a5a02437812c34151ac8cbbbb51619c9cf",
+    "evidence/PARADISE_CASE.md": "d344419ee0c93ddbfc8c51e33660cae0f55d5b880c70ebffc58ea715a5c6e9ed",
+    "evidence/SOURCE_EXCEPTIONS.json": "8d1384cbac699c8f81b639424545989ae6ed8c1659bb365b82ae21bb700c4ec1",
+    "evidence/SOURCE_EXCEPTIONS.md": "fda4552fdf0484b8642cf5f1e79c4d6ad0e2f3dc1af7aae9694d68f56ec88a02",
+    "evidence/TROPE_THEORYCRAFT_AUDIT.md": "3b5ab09d324d97edbbba3f1a69d543e6b85914e683bfa21650083ad1ed35ab32"
+  }
+}

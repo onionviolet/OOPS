@@ -1,0 +1,12 @@
+{
+  "src/simulation_content.js": "e8b1da6286a6280fd8cc100407fe34914ce5ecb7fc3d616adbf3ecd785514593",
+  "src/simulation_effects.js": "d8c8865d20ad8039e8254536b099e5d1788528487e82e574240b99e64b43cf32",
+  "src/expansion_engine.js": "f6ef2ab7fec973ef71fc30d3e2fdd566a3330a38b72f8415b24199cd42a36c59",
+  "src/simulation.js": "e9d4e9b3223b7b93854550b9249bf3b17e75dcb8ea30b35bc81ceffcb905b6b6",
+  "src/feature_expansion_wave_host.js": "7c290b244f1dea1d7d111a42c5a690f225d2eb72aa4f7b8ff7a9643674aadb1a",
+  "src/simulation_ui.js": "e0103896086f210a34442e0f7633061bc507a7e2f378d0e5212ee698dd25ab3d",
+  "src/adventure_notebook.js": "26946ef6c65e57dd6d6d3aeb3723142a34f40c7c3a589753c0a3b71c062f134b",
+  "src/feature_expansion_society_host.js": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824",
+  "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+  "src/main.js": "e487a3672e1ea1928c1413f683c8683465d0faa338ed354b1436e6c627c0d09b"
+}

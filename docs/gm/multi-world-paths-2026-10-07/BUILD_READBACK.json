@@ -1,0 +1,29 @@
+{
+  "capturedAtUtc": "2026-10-07T04:41:42.358411+00:00",
+  "check": "read-only registry/build source qualification, no behavior execution",
+  "bundleFingerprint": "ebf951d62861",
+  "bundleMatchesReceipt": true,
+  "mapMatchesReceipt": true,
+  "localMatchingSourceCount": 335,
+  "sourceMapDrift": [],
+  "deferred": [
+    "browser",
+    "gameplay",
+    "unit",
+    "save/reload/import",
+    "failure",
+    "regression",
+    "director acceptance"
+  ],
+  "previewBundleMatches": true,
+  "auditedInputHashes": {
+    "src/expedition_content.js": "aa6c57853a8f1813bda1b1a1f5c3fe282c441359942a09a6fa113738c1e40c6f",
+    "src/main.js": "99f4ece298c84ddb02c0ea3d21db3c8a54845d011f9b82ac3a4613bda08dc32b",
+    "src/feature_expansion_nested_host.js": "ea461d24e53078667f78b026e57c1ebb121c04090f79f955324fb5617207cef9",
+    "src/book_world_mol_host.js": "bff62276ab5177013c83c515e24693f119f8b6066c8970c05598f3bea7ced657",
+    "src/book_world_paradise_host.js": "758913d57d105c23b0908d3765b035e9947240fbf21e0644d7d629d6d7a2018f",
+    "src/realm_connections.js": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710",
+    "src/realm_traveler_profiles.js": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "25ffa3a8003eb450273b3afe6f2fb67671d136d30143fdc4e992fe33ff17a4a1"
+  }
+}

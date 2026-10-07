@@ -1,0 +1,84 @@
+{
+  "observed_utc": "2026-10-07T12:47:18.554424+00:00",
+  "state": "finite read-only review acquired/released",
+  "writer": "/root/factorio_backend_review",
+  "source_hashes_verified": [
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/funcdata_varnode.cc",
+      "sha256": "318b2f68fbf93375d826a8c2418661801b84a045751b7b7109775dc0f7caf388"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/dynamic.cc",
+      "sha256": "740772b620e5383045819ecc0381395014505a4af6c4125657eed32ffc5ba0a7"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/fspec.cc",
+      "sha256": "40b0bb5d4cf59d36ba16d06fc6cccc17d75d04cfce555cf3d28b5e7e07587ce2"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/merge.cc",
+      "sha256": "bfcc34d726fcceac0ef0ffb46e0cddb5d1fc4b8d1d35ca8b640f56f114df42ce"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/coreaction.cc",
+      "sha256": "fe71d656fbf919dc96cbbc58c966ee3fda6b58c942c6dabbb9f219bfb80065fa"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/src/decompile/cpp/ghidra_process.cc",
+      "sha256": "d7b1ed2b70cec9209cadcdb4029641da0e00774c0a5c62be7dd940423413148e"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioFullContextRepair.java",
+      "sha256": "264add30d19ad731eda7194a7ef33da8b912206807190f9b26bac7ddfa295e4b"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioExport.java",
+      "sha256": "82510ee0d44fe34ed91f51a9ee55b440dbc75bb0165df731fe4a158b27706770"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/lib/Decompiler-src.zip",
+      "entry": "ghidra/app/decompiler/DecompileProcess.java",
+      "sha256": "09914ee6421b84660b412377dd5e04e6bbf268b70fa5775cf66342b4871bc363"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/lib/Decompiler-src.zip",
+      "entry": "ghidra/app/decompiler/DecompInterface.java",
+      "sha256": "296eb7147ab65f6caed59b97518679659093d925a44819127aa5ae8dcbda878c"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Framework/SoftwareModeling/lib/SoftwareModeling-src.zip",
+      "entry": "ghidra/program/model/pcode/DynamicHash.java",
+      "sha256": "bb69743f2e2e156656b1602fcc21d69a86decf9409398f27226ed0b73ba7ec61"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Framework/SoftwareModeling/lib/SoftwareModeling-src.zip",
+      "entry": "ghidra/program/model/pcode/JumpTable.java",
+      "sha256": "0ce302fb4577da19db04ac1be31b6a6b20db609b58f6859a5b4e497570cd7dd4"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Framework/SoftwareModeling/lib/SoftwareModeling-src.zip",
+      "entry": "ghidra/program/model/pcode/HighFunction.java",
+      "sha256": "6066c1830e01e3acc50b0fdc3a70374530fb6c71c43b352287c79cda5cded25f"
+    },
+    {
+      "archive": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Framework/SoftwareModeling/lib/SoftwareModeling-src.zip",
+      "entry": "ghidra/program/model/listing/InstructionPcodeOverride.java",
+      "sha256": "ece7f416fd5063ae160ac04a32379b98768dc95438507ffa03b8d5d8773e4381"
+    }
+  ],
+  "table_pattern_target_arithmetic_checked": 14,
+  "current_fullcontext_preparation_covers": 2,
+  "artifacts": [
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/backend-review/REVIEW.md",
+      "bytes": 14640,
+      "sha256": "dee374b5302042902047d36527182d68fffc7b17a23c81063c34f26fa96f140a"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/backend-review/EVIDENCE.json",
+      "bytes": 17832,
+      "sha256": "13ea862c8d7b68399e5fb7a4c0663dc7e77fbca52ed255463c4c2bd4a11d8d47"
+    }
+  ],
+  "semantic_limit": "Guard/reachable-case/actualnativeoverride qualification stillrequired;14patterns arepreparationevidence,notCrecovery orprovencrashcause. Instrumentzero-hash/actualnativeexit/forcedmergepair beforemechanism-specificrepair."
+}

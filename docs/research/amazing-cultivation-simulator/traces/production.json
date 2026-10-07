@@ -1,0 +1,1812 @@
+{
+  "schema": 1,
+  "family": "artifact_material_medicine_production",
+  "date": "2026-10-06",
+  "writer": "/root/production",
+  "ownership": "Only traces/production.json and traces/production.md; released after completion",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "source_edition": "Steam app955900 build17074448",
+  "assembly_pins": {
+    "Assembly-CSharp.dll": {
+      "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902",
+      "bytes": 7948800
+    },
+    "Assembly-CSharp-firstpass.dll": {
+      "sha256": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad",
+      "bytes": 2471424
+    }
+  },
+  "readable_before_managed": "Initial Fabao/Dan formula and Fabao Lua intake before decompiled refinement; sword/material context was added during the managed trace, with affected claims checked against actual methods.",
+  "input_copy_readback": [
+    {
+      "path": "input/Settings/Practice/FabaoFormula/Fabao.xml",
+      "installed_sha256": "27e1f1fe8ea7db8ee6a2bb28202c124f5fd7e2481f280502af8335186e21880b",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/Practice/DanFormula/Dan.xml",
+      "installed_sha256": "623556d1ede2d5c5da910eed8e7d5e7f6ea6af091fb579d73e60af6954cd1607",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Scripts/Fabao/FabaoMgr.lua",
+      "installed_sha256": "0478b7252de765f4a731c92ae46b8befb716898ac67ba9f72d7a52bbdc6d8fd4",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Consumable_Dan.xml",
+      "installed_sha256": "dbc4835cc4e9b64c873ece3b9a439bd52e734b5d0a88b027289f01dacbbbefd1",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/Modifiers/Modifier_Dan.xml",
+      "installed_sha256": "ac6de178739e39f16b44622de677a940e428f3b0cb130e6277025dc108deccbf",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/ThingDef/Building/Building_Magic.xml",
+      "installed_sha256": "02e1d64eecedded0453865d4347d42da63bdc3de94c1cc23d7212c8e942a9b0e",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Equipment_Weapon.xml",
+      "installed_sha256": "ae4ed5dfa175f9835fc49fffed642c56133f3c2535cb090325a61055276ca74a",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Material_2_MetalBlock.xml",
+      "installed_sha256": "299e565c7e94447951c1526898207cd4acde2cdf04226eeaff679611be3aa15e",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+      "installed_sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+      "matches_pinned_copy": true
+    },
+    {
+      "path": "input/Settings/World/ItemPhysicalLable/ItemPhysicalLable.xml",
+      "installed_sha256": "661eaf87ba87f75f7428bbf22bbcd809defff5e5f342cd67ae453de4e46271fe",
+      "matches_pinned_copy": true
+    }
+  ],
+  "evidence_order": "Readable Fabao/Dan formula and Lua intake preceded managed refinement. Additional sword/material definitions narrowed the already-stocked manufacturing chain; selected managed producer/failure/consumer methods were reviewed against them. No live game execution.",
+  "sources": [
+    {
+      "id": "P01",
+      "path": "input/Settings/Practice/FabaoFormula/Fabao.xml",
+      "sha256": "27e1f1fe8ea7db8ee6a2bb28202c124f5fd7e2481f280502af8335186e21880b",
+      "line_count": 312,
+      "semantically_read_spans": [
+        [
+          1,
+          125
+        ],
+        [
+          180,
+          312
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Named special recipes are distinct from ordinary object refining; no full secret-artifact trace claimed.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 125,
+          "sha256": "cb60df0fb76e44f0a689afc2d0c6268d35e4c51024c095dd7c84d036297977fd"
+        },
+        {
+          "start": 180,
+          "end": 312,
+          "sha256": "d0acc165925a0bceac9217dd05bb3dd173bd64a2960a7873a84beb972a633b8b"
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "path": "input/Settings/Practice/DanFormula/Dan.xml",
+      "sha256": "623556d1ede2d5c5da910eed8e7d5e7f6ea6af091fb579d73e60af6954cd1607",
+      "line_count": 574,
+      "semantically_read_spans": [
+        [
+          1,
+          180
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "NoHunger1 and JingYuan recipe thresholds, base success additions and base counts.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 180,
+          "sha256": "075a3fc0ae72bf6da18429b1d5807c0bf942ed7f35ce6c7d192157e826c30ee4"
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "path": "input/Scripts/Fabao/FabaoMgr.lua",
+      "sha256": "0478b7252de765f4a731c92ae46b8befb716898ac67ba9f72d7a52bbdc6d8fd4",
+      "line_count": 62,
+      "semantically_read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "kind": "lua",
+      "relevance": "Supplementary activation callbacks: weather absorption, clear night once per day, self-feeding damage. Not selected artifact manufacture/combat call path.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 62,
+          "sha256": "901b78d7a5881eb39fc405befc2c1baf68b213aab740913770613eae77949582"
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "path": "input/Settings/ThingDef/Item/Item_Consumable_Dan.xml",
+      "sha256": "dbc4835cc4e9b64c873ece3b9a439bd52e734b5d0a88b027289f01dacbbbefd1",
+      "line_count": 3916,
+      "semantically_read_spans": [
+        [
+          1,
+          141
+        ],
+        [
+          633,
+          698
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Selected medicine ingredients/work/food/elixir modifier declarations.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 141,
+          "sha256": "826fb1369a2dc910ccceb4ed58eee298113ed9645d57e405c6b9196109a26382"
+        },
+        {
+          "start": 633,
+          "end": 698,
+          "sha256": "9938a63094cf7fa8909df14ce402d92979963b0e1db34f5c2ce47dcaca188ab2"
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "path": "input/Settings/Modifiers/Modifier_Dan.xml",
+      "sha256": "ac6de178739e39f16b44622de677a940e428f3b0cb130e6277025dc108deccbf",
+      "line_count": 953,
+      "semantically_read_spans": [
+        [
+          1,
+          50
+        ],
+        [
+          245,
+          280
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "NoHunger1 and JingYuan timed property modifications, not merely description strings.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 50,
+          "sha256": "72d6c5b8c4dcb7ca9c62377c31a923dfcfb0c868654834b9efa0923be541654c"
+        },
+        {
+          "start": 245,
+          "end": 280,
+          "sha256": "5d804817874404edb00c1335ce4c988ab475c9c37b526b4f56184736728604c0"
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "path": "input/Settings/ThingDef/Building/Building_Magic.xml",
+      "sha256": "02e1d64eecedded0453865d4347d42da63bdc3de94c1cc23d7212c8e942a9b0e",
+      "line_count": 1048,
+      "semantically_read_spans": [
+        [
+          725,
+          793
+        ],
+        [
+          811,
+          875
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "DanStove, RefiningCushion tags, workspaces, fuel declaration and produce kinds.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 725,
+          "end": 793,
+          "sha256": "be8fd38fad0f2c47a8b154a8e5491e82f1ac0c28de7565e590eccaa89d62e985"
+        },
+        {
+          "start": 811,
+          "end": 875,
+          "sha256": "b3941b9204bafce90b7a9850e44b0121242dee598666e0727848c12142d44595"
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "path": "input/Settings/ThingDef/Item/Item_Equipment_Weapon.xml",
+      "sha256": "ae4ed5dfa175f9835fc49fffed642c56133f3c2535cb090325a61055276ca74a",
+      "line_count": 632,
+      "semantically_read_spans": [
+        [
+          1,
+          80
+        ],
+        [
+          335,
+          386
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Sword BeMade exact fixed ingredients, allowed main material classes and Sharp label.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 80,
+          "sha256": "274bfd403051cd803ba44184ca022b75dbfc3cfb4b8617fcc01c38fe9504a18d"
+        },
+        {
+          "start": 335,
+          "end": 386,
+          "sha256": "81c6b5d038a84863b863c7b19edf3eb19c5e1560c800a065f29379066cf92952"
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "path": "input/Settings/ThingDef/Item/Item_Material_2_MetalBlock.xml",
+      "sha256": "299e565c7e94447951c1526898207cd4acde2cdf04226eeaff679611be3aa15e",
+      "line_count": 632,
+      "semantically_read_spans": [
+        [
+          1,
+          134
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Iron material choice, nominal smelt ingredients, multiplier and inherited material labels. Smelting itself is outside selected execution trace.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 134,
+          "sha256": "38dec20278894b125d30013cffee700bbb0b18263c25b85e7a0dde32ee78cb46"
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+      "sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+      "line_count": 1621,
+      "semantically_read_spans": [
+        [
+          556,
+          572
+        ],
+        [
+          607,
+          662
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Smithing station sword menu emits one sword; declared fuel.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 556,
+          "end": 572,
+          "sha256": "19bb79626583f5c7abfe9ad9ee7690c47f928192d8707354e53b7d957bf1d54c"
+        },
+        {
+          "start": 607,
+          "end": 662,
+          "sha256": "cd5c6221271a3d5315f35249c137acba3de1ecea35997e70e7de3c1095063f9c"
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "path": "input/Settings/World/ItemPhysicalLable/ItemPhysicalLable.xml",
+      "sha256": "661eaf87ba87f75f7428bbf22bbcd809defff5e5f342cd67ae453de4e46271fe",
+      "line_count": 382,
+      "semantically_read_spans": [
+        [
+          62,
+          78
+        ],
+        [
+          181,
+          194
+        ],
+        [
+          220,
+          231
+        ]
+      ],
+      "kind": "configuration",
+      "relevance": "Sharp and selected material physical labels affect combat dimensions.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 62,
+          "end": 78,
+          "sha256": "70337434f402b2b0a62e0c89cd8fd25736187adb24ff230069672b4508bead4a"
+        },
+        {
+          "start": 181,
+          "end": 194,
+          "sha256": "e4dfc133d32dc610063357643e606a1dac3aedc6a8fa1c07f7103031b255cd69"
+        },
+        {
+          "start": 220,
+          "end": 231,
+          "sha256": "8e32e9fb4638c564db7d7f772c85cce2491cc4da967e77d02b56ae1aeafbd82d"
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "path": "decompiled/Assembly-CSharp/ThingUICommandDefine.cs",
+      "sha256": "21b1a190a2ddaf6942f65c9d7278b407dd7472987e6aeca774e37eafd19b6476",
+      "line_count": 4679,
+      "semantically_read_spans": [
+        [
+          3180,
+          3300
+        ],
+        [
+          3537,
+          3627
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Dao disciple eligibility and separate ordinary/special refining UI; medicine knowledge, skill and energy gates.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 3180,
+          "end": 3300,
+          "sha256": "f14cadf6089855a076501985695af14bffdf6be3795fddea41ad993ab7154ea0"
+        },
+        {
+          "start": 3537,
+          "end": 3627,
+          "sha256": "b98fe1c760f0957fccac6b578fabe768316d60232ca8e37ecd8cb03c6d1f87e0"
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_IndividualCommand.cs",
+      "sha256": "28d34ac6d0c1ec73772e0cab7e07c4567b12e9a5f9fc4a6fbe448b13a8fb3682",
+      "line_count": 3075,
+      "semantically_read_spans": [
+        [
+          1399,
+          1426
+        ],
+        [
+          2791,
+          2858
+        ],
+        [
+          3013,
+          3032
+        ],
+        [
+          3064,
+          3069
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Ordinary object selection free-count/energy check; medicine Maker/Param queue and station selection gates.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1399,
+          "end": 1426,
+          "sha256": "8980a16a9b595b4627a90b92f6a5bd0ac71540b2b5f07e2ce2cc1dba63af6d46"
+        },
+        {
+          "start": 2791,
+          "end": 2858,
+          "sha256": "df0dcdcd5e6eb55fe882f53e6ca284213495e75684543985e91e9b8fecf1d023"
+        },
+        {
+          "start": 3013,
+          "end": 3032,
+          "sha256": "abc93ca9c35b39aa03c61f327962b9b252d51e16eb9e7bacdc0e9d5b40033953"
+        },
+        {
+          "start": 3064,
+          "end": 3069,
+          "sha256": "786e20051c1d226f7f601e7d402f02ea40189953e14792863ed76fdb873ba978"
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandRefiningFabao.cs",
+      "sha256": "a7dcbecdd47e633d745c3ab9ae3f8923c1afd704849293099215be5d4079f063",
+      "line_count": 102,
+      "semantically_read_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Lock one selected object, restore ID, require path and a Refining workspace, cleanup unlock.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 102,
+          "sha256": "18cf82557740fd0ed5acdd6a080ea793aa16faa1c07610a52eb5cfebf0f6f133"
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobRefiningFabao.cs",
+      "sha256": "2bd761076a6b4b69b1044be957fbf2f4c54028c922f14818255095a57efb6ba3",
+      "line_count": 66,
+      "semantically_read_spans": [
+        [
+          1,
+          66
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Lock object/workspace, pickup/goto, run ToilRefining, drop held item on leaving.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 66,
+          "sha256": "245552c9bc9719c38ce19023c1cd265055bb07ab3ccd36cd1e96e00ec42cdb0d"
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourRefiningFabao.cs",
+      "sha256": "6c2217bf56ece54255ebb76218d3f6615feca87535879fe883b914687b79368b",
+      "line_count": 29,
+      "semantically_read_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Only healthy worker can discover this refining command and create job.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 29,
+          "sha256": "fd08ee716ea35d489c0bef0bf93b393fac5f2f1b8acd0852ede1b12d455f0f5a"
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilRefining.cs",
+      "sha256": "880f659ef37e6ce1e7f8bbb4a99f96d9c18a9b54c92e15814ad17349c900549c",
+      "line_count": 338,
+      "semantically_read_spans": [
+        [
+          1,
+          338
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Ordinary type0 energy/time/success/loss, actual output mutation, author/XP/events. Helian read but not selected.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 338,
+          "sha256": "b7179d5928c9cefd5538f4158071ebf5c2c20ca04e251023f6ab8818dfac5b63"
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+      "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+      "line_count": 3321,
+      "semantically_read_spans": [
+        [
+          2457,
+          2467
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Create FightFaBao/TreasureFabao and initialize it from actual selected object.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 2457,
+          "end": 2467,
+          "sha256": "f52f0889852037d1182b61f4e59f1f40ea4acc3adc9983dfcbe70e1d12b942f4"
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemThing.cs",
+      "sha256": "b35f48a2de59ecda0434982bdbf35a9bc32f02806601938fb1b35d747fdeacf3",
+      "line_count": 1774,
+      "semantically_read_spans": [
+        [
+          914,
+          938
+        ],
+        [
+          1041,
+          1103
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Source Ling/rank cap, material identity/element/quality provenance, InitFabao/Init and ordinary material inheritance.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 914,
+          "end": 938,
+          "sha256": "f6c45d54db83bd0f5819c94fbab2816f5ed4b9ff2d830af34a35c0b8468f6a25"
+        },
+        {
+          "start": 1041,
+          "end": 1103,
+          "sha256": "6b870d963085f6ba20601ec019bf575ea95de1ea95f462d61d8aab17875f7377"
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FabaoData.cs",
+      "sha256": "923ff00706f23b341bf65d9ac4aeba213d28206bbd2821f1585e573c7a043554",
+      "line_count": 505,
+      "semantically_read_spans": [
+        [
+          268,
+          406
+        ],
+        [
+          490,
+          504
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Parse source-object/material/element physical labels into actual property dictionary; distinguish quality/rank/random factor.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 268,
+          "end": 406,
+          "sha256": "a0e3d19599a1b8de48b39b5c543be9729b792befa735aaff462cabb069faefcf"
+        },
+        {
+          "start": 490,
+          "end": 504,
+          "sha256": "557409d69c23cfa5c0b221014090aca0f753f21dd89675a6742ddc40a5aafb5b"
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FabaoBase.cs",
+      "sha256": "1d3f1a76465ec8824d31b79fa7d70dae9ba12b5e8816fd3cebc8183ca026a89c",
+      "line_count": 2062,
+      "semantically_read_spans": [
+        [
+          327,
+          360
+        ],
+        [
+          414,
+          463
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Combat stores FromItem and reads its computed AttackPower through GetPower/GetAtkPower path.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 327,
+          "end": 360,
+          "sha256": "af7df65b9748517e0e610d68b541f1620fc4fab4cce3682d8d1b2ad38cabaf5b"
+        },
+        {
+          "start": 414,
+          "end": 463,
+          "sha256": "07aff427a8532ee0ff866a3cc3c8c48f490961731363a382e586a2b586bcb3cf"
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+      "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+      "line_count": 624,
+      "semantically_read_spans": [
+        [
+          1,
+          140
+        ],
+        [
+          176,
+          245
+        ],
+        [
+          350,
+          523
+        ],
+        [
+          530,
+          623
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Queue, save fields, stock request/locks/debit, progress/yield/failure, loops, outputs and downstream events.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 140,
+          "sha256": "833791c064ff95b38cafc3861ca348811cea069887e6095f4f6de04ae2721c82"
+        },
+        {
+          "start": 176,
+          "end": 245,
+          "sha256": "3fbbf3be78c17dc247ea1730ad1d56038a47b9248e48b867ecd1e3ef8937184f"
+        },
+        {
+          "start": 350,
+          "end": 523,
+          "sha256": "33a13cb7b2e97ad1925b7296bc8c6a90de14c247cded889c4225b9cf736ccd45"
+        },
+        {
+          "start": 530,
+          "end": 623,
+          "sha256": "2c0f9271af0aefda6aea84c8222b5be1c3b4fba14305433939aa82f1017a6414"
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMakeItem.cs",
+      "sha256": "238de0545a48cdf96f9f32a084bb8cc04b222435b2a0d03a23aa2dd322852ddc",
+      "line_count": 53,
+      "semantically_read_spans": [
+        [
+          1,
+          53
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Fuel/workspace/path, queue, exact designated medicine/artifact maker gates.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 53,
+          "sha256": "7f01f89102dd70b137f53b399e07e2c935625f76b95d3e0f80ba0496a8fadb06"
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobMakeItem.cs",
+      "sha256": "fe555918f4328eab69780cc5d770b3c24a69a16c06b3dc6104092287ad679307",
+      "line_count": 45,
+      "semantically_read_spans": [
+        [
+          1,
+          45
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Common manufacturing workstation lock and ToilMakeItem entry.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 45,
+          "sha256": "7c283356ba9870b7495859fcd7ac842f18a011e1216a10c0b028912a747b9d68"
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilMakeItem.cs",
+      "sha256": "3f129c67974759e44fd634105313dd10cfa283e021c269349aa71e366170ea04",
+      "line_count": 354,
+      "semantically_read_spans": [
+        [
+          1,
+          285
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Medicine energy debit, work/time interruptions, room/element/skill success/yield and failed pills; forge skill speed and injury chance.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 285,
+          "sha256": "075d6920a3825815d031ca1cc4d5a6cb4859664b8fa72c6a86cbdf6c8b23bb09"
+        }
+      ]
+    },
+    {
+      "id": "P25",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingBeMadeData.cs",
+      "sha256": "d8a92ffebd74db16b570d55351a08ffd2c415c545fc218dde58cf76a17d3d1d7",
+      "line_count": 61,
+      "semantically_read_spans": [
+        [
+          1,
+          61
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Real material count uses declared scale.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 61,
+          "sha256": "97d89effd97766f3e4cb2ad0c68336af555b4794b0912f12da16ce38e45283ee"
+        }
+      ]
+    },
+    {
+      "id": "P26",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemDataBeMaterial.cs",
+      "sha256": "d638170b946432e123eefad1f736896feac4b427501c404b71540846e90ffb17",
+      "line_count": 108,
+      "semantically_read_spans": [
+        [
+          88,
+          108
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Actual count ceiling and material work multiplier.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 88,
+          "end": 108,
+          "sha256": "a322579c79c23b6531b2ec66a608ea43a2346d7a5ccd465720210864188274d5"
+        }
+      ]
+    },
+    {
+      "id": "P27",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilEatItem.cs",
+      "sha256": "e88c04bcb08a10810fe07f351046f306c268bf65cb71f418e88c606bb1bbdc1c",
+      "line_count": 182,
+      "semantically_read_spans": [
+        [
+          1,
+          182
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Timed consuming job locks one medicine and debits only after EatItem succeeds.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 182,
+          "sha256": "57be88347c64f127fc276aa301bdedf224e73a31da1c74a2f41544fcb01cd1a2"
+        }
+      ]
+    },
+    {
+      "id": "P28",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+      "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+      "line_count": 9577,
+      "semantically_read_spans": [
+        [
+          4297,
+          4318
+        ],
+        [
+          4370,
+          4397
+        ],
+        [
+          4420,
+          4436
+        ],
+        [
+          4490,
+          4550
+        ],
+        [
+          4660,
+          4688
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Selected normal food route; modifier/resistance and eligibility; normal nutrition; no full EatItem-special-race coverage.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 4297,
+          "end": 4318,
+          "sha256": "4da94cb91ad8035371ac193240f9769e59f78d301c81f67074c6f67b1e76c2a5"
+        },
+        {
+          "start": 4370,
+          "end": 4397,
+          "sha256": "cb7fc6fccd280d08f7480f2d9c6df1cfa28bf28c20f562303cfc631ea38da100"
+        },
+        {
+          "start": 4420,
+          "end": 4436,
+          "sha256": "f75df58dde1cf96c435500ceb8cd43355eee625aa467527132d7d8d9bc32d998"
+        },
+        {
+          "start": 4490,
+          "end": 4550,
+          "sha256": "14fe9e45562ddf9380035effd0b9706da299303ac3be43f282e4289fbc3406b1"
+        },
+        {
+          "start": 4660,
+          "end": 4688,
+          "sha256": "a1b594831fc794ca52343c0ec98efe1ad1486280aa4cfaae1f1fa5eb296fd7bf"
+        }
+      ]
+    },
+    {
+      "id": "P29",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FoodNeed.cs",
+      "sha256": "a8c1cbd10d974b5c635bb81605e946eca94286546e863bcfbf8047cacc7076b1",
+      "line_count": 180,
+      "semantically_read_spans": [
+        [
+          25,
+          61
+        ],
+        [
+          117,
+          162
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Nutrition multiplier affects hunger; consumed nutrition feeds practice resource; hunger interrupts ordinary jobs.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 25,
+          "end": 61,
+          "sha256": "def732f86b302085e2f85e18c4ad9bf0c7911f775f7ede17d0b3628d4426e279"
+        },
+        {
+          "start": 117,
+          "end": 162,
+          "sha256": "598c148db410e2513b06796a0f58146bb14a619abf37ac198202380ba5a61d16"
+        }
+      ]
+    },
+    {
+      "id": "P30",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/RestNeed.cs",
+      "sha256": "99b36f126f79ae2ae0535164942445ed8dcfb827432d3af0540d304147afc12a",
+      "line_count": 73,
+      "semantically_read_spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Fatigue multiplier affects awake rest decay; severe fatigue interrupts ordinary jobs.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 60,
+          "sha256": "7195c67a330d8540613c56852d445fed960c5f57b13a75404db383d5c9280e6a"
+        }
+      ]
+    },
+    {
+      "id": "P31",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPropertyMgr.cs",
+      "sha256": "5c479844d3e460bf1ec8f13098d5a6905ba3604813135ed4d92a435c6eb14132",
+      "line_count": 1331,
+      "semantically_read_spans": [
+        [
+          849,
+          887
+        ],
+        [
+          1283,
+          1323
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Modifier application/reapplication, world dt step and removal.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 849,
+          "end": 887,
+          "sha256": "a5fed44102fe8844a6e50c9ebb1a7be9c3ddabe07969da1b4b83dff42512b338"
+        },
+        {
+          "start": 1283,
+          "end": 1323,
+          "sha256": "e670bdae5c8a5ee97844fbcd8ec4f6ed1a6a93e88ab7bcab1295d0a5decb3a08"
+        }
+      ]
+    },
+    {
+      "id": "P32",
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Modifier/ModifierBase.cs",
+      "sha256": "2c9b8f03247236fc594e408b8882bb4cdf52b8aa706da21339f89b9f931e5a12",
+      "line_count": 1229,
+      "semantically_read_spans": [
+        [
+          1,
+          75
+        ],
+        [
+          130,
+          169
+        ],
+        [
+          1047,
+          1110
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Duration/read and expiration use world TolSecond/AddTimes; update resets time.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 75,
+          "sha256": "af82c0360c494e8d2680d8e5f9d8eb7e9db7a480e1f5896417cb506a46d1e627"
+        },
+        {
+          "start": 130,
+          "end": 169,
+          "sha256": "30205b49351cf50d9091f0a3b5dd801b1e68908918ed46ecafd0c3058ae7f4ca"
+        },
+        {
+          "start": 1047,
+          "end": 1110,
+          "sha256": "d37789ffbee44130bb203e7da7929b633bbeb63e6531246c33f9adfba98d58a8"
+        }
+      ]
+    },
+    {
+      "id": "P33",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ElixirData.cs",
+      "sha256": "092ac142b595b7d4f587ffddf0dbb4794a3c585e83a57ee38b88dcabff4df8b5",
+      "line_count": 61,
+      "semantically_read_spans": [
+        [
+          1,
+          61
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Elixir defaults include resistance multiplier1, so selected pills do not imply diminishing efficacy from generic resistance code alone.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 61,
+          "sha256": "711327c7b8fcde934267a1a68ee7d31c670e3743289a22336c8d7b86d31effaa"
+        }
+      ]
+    },
+    {
+      "id": "P34",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemCostData.cs",
+      "sha256": "f30f62782b21be009b30e11b8dbbb6d10f412691f4ab6e8bee39c1b02210aab7",
+      "line_count": 44,
+      "semantically_read_spans": [
+        [
+          1,
+          44
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Fixed recipe item rcount uses ceil(count*countscale), unless noscale; input declarations alone do not freeze live difficulty counts.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 44,
+          "sha256": "5e422f2b1fad90ffb0d78cd30406de29eb51b5ea598807c1781e509507d15c73"
+        }
+      ]
+    },
+    {
+      "id": "P35",
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FightBody.cs",
+      "sha256": "c915ff1a2381146b6f8081dc8abf1963bbf1dda8d941a982b6aec9fa6d13f18f",
+      "line_count": 2257,
+      "semantically_read_spans": [
+        [
+          2175,
+          2250
+        ]
+      ],
+      "kind": "managed_decompile",
+      "relevance": "Actual FB_BeHit reads GetAtkPower and passes it to ReduceDamage, then source-specific damage/events.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 2175,
+          "end": 2250,
+          "sha256": "b0a86bd54ac7e293c5894cb2101079e5e640d9f3e41d781ed4d7b91d235b2304"
+        }
+      ]
+    }
+  ],
+  "yairpg_sources": [
+    {
+      "id": "Y01",
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "semantically_read_spans": [
+        [
+          1,
+          149
+        ]
+      ],
+      "relevance": "Exact variant/assembly/use conservation compiler; assembly explicitly disallows hidden outcomes.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 149,
+          "sha256": "030e1d807b8094a8e364d56e34560bec6e8fdf263eb46eab4ae50df8d78583fb"
+        }
+      ]
+    },
+    {
+      "id": "Y02",
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "semantically_read_spans": [
+        [
+          1,
+          124
+        ]
+      ],
+      "relevance": "Existing Vela pieces/partial assemblies/carried-item kit functions and finite stock, reserved artifact GM owner.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 124,
+          "sha256": "73a9674fa3fe258c4d00137de6ec38ff4b22e4c19be8d35c31160bb78d48fd94"
+        }
+      ]
+    },
+    {
+      "id": "Y03",
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "semantically_read_spans": [
+        [
+          1,
+          72
+        ]
+      ],
+      "relevance": "Artifact commit/presentation/equipment adapter; reserved artifact GM owner.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 72,
+          "sha256": "0a6f68a429d8d97707eaa8236f615cbfd637bdb1f28df53502222c326cdb1404"
+        }
+      ]
+    },
+    {
+      "id": "Y04",
+      "path": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "semantically_read_spans": [
+        [
+          1,
+          80
+        ]
+      ],
+      "relevance": "Native owned/borrowed sharp and dulled variants; wet/sound/matched staves and usable kit batches.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 80,
+          "sha256": "cc56178d7992d31b5823961af2c599fabb3e2fcccf9bf607ea6a177115c59f27"
+        }
+      ]
+    },
+    {
+      "id": "Y05",
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "semantically_read_spans": [
+        [
+          1,
+          42
+        ],
+        [
+          61,
+          67
+        ]
+      ],
+      "relevance": "Conserved charged sleeve -> set resin -> usable kit. No new general artifact framework needed.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 42,
+          "sha256": "57b451956ba3c090505e550a83269c9ae039f467951698f02d057c6bb123bce1"
+        },
+        {
+          "start": 61,
+          "end": 67,
+          "sha256": "2c1e90f77d4a8dc799882cf83942750d648a920869ec83f48c9ca335eace19c0"
+        }
+      ]
+    },
+    {
+      "id": "Y06",
+      "path": "src/audited_workshop_fixture.js",
+      "sha256": "091972f4a508bb0a9d6b9eeca7b5f35c211badf01ab4c3f501940d8345ddd2c3",
+      "semantically_read_spans": [
+        [
+          1,
+          160
+        ]
+      ],
+      "relevance": "Same bench/permission/body support/recheck/refund/retained fixture and exact two-kit output.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 160,
+          "sha256": "302ffcf7375b41276db8b9fa6f970c9fbdd1a8cde6e2ba9b0b139c9ed252beb1"
+        }
+      ]
+    },
+    {
+      "id": "Y07",
+      "path": "src/items.js",
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "semantically_read_spans": [
+        [
+          1784,
+          1808
+        ],
+        [
+          4248,
+          4260
+        ]
+      ],
+      "relevance": "Existing ingredient identities and Healing balm/Thick healing balm native item effects.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1784,
+          "end": 1808,
+          "sha256": "07aa8d7299a85687d2f72f2f1df2a984ce87c178a95044a317722c2c7c019b7a"
+        },
+        {
+          "start": 4248,
+          "end": 4260,
+          "sha256": "f50ad2370b8f1a281048c448fa84131df47832f3f6bf1ca2730cf61755eef47e"
+        }
+      ]
+    },
+    {
+      "id": "Y08",
+      "path": "src/crafting_recipes.js",
+      "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+      "semantically_read_spans": [
+        [
+          1,
+          48
+        ],
+        [
+          1897,
+          1921
+        ]
+      ],
+      "relevance": "Existing native Healing balm and thick variant recipe; unlock remains false by default.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 48,
+          "sha256": "1a7570fefea6d17628d84f0d46a5666bcc067ec0368b97976a32ac1020a99cd0"
+        },
+        {
+          "start": 1897,
+          "end": 1921,
+          "sha256": "696cc1f1aa87daea0b646ebccf8268f3ce368ea9cb8107e69104783f3899a79b"
+        }
+      ]
+    },
+    {
+      "id": "Y09",
+      "path": "src/active_effects.js",
+      "sha256": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+      "semantically_read_spans": [
+        [
+          178,
+          214
+        ]
+      ],
+      "relevance": "Weak healing balm native HP regeneration, no body-condition effect in this definition.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 178,
+          "end": 214,
+          "sha256": "7524e7c25031875bff1fdac4949d1c583f8d349a11b9d1ce4251f5d7c1540702"
+        }
+      ]
+    },
+    {
+      "id": "Y10",
+      "path": "src/main.js",
+      "sha256": "e4795e0998dfb13a73adc2b4b3a7477d618de5c53cb0b455e9c798431d927c1f",
+      "semantically_read_spans": [
+        [
+          485,
+          548
+        ],
+        [
+          3828,
+          3881
+        ]
+      ],
+      "relevance": "Current persistExpansion uses nativePublication/write/save-before-publish; use_item independently applies native effect/debits inventory without removing simulation hand conditions.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 485,
+          "end": 548,
+          "sha256": "ca150eba0b66603b9c7cf9514ce0ef1e433eb0eb1cb594f6c774c588f958cacd"
+        },
+        {
+          "start": 3828,
+          "end": 3881,
+          "sha256": "a5919f471f82ac3e998c8226721faee691ac07049b7553fc3e68cb0ce322ed36"
+        }
+      ]
+    },
+    {
+      "id": "Y11",
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "semantically_read_spans": [
+        [
+          19,
+          28
+        ],
+        [
+          54,
+          78
+        ]
+      ],
+      "relevance": "SCRAPED_HANDS/SORE_HANDS current definitions, bodyFacts and three-minute rest alternative.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 19,
+          "end": 28,
+          "sha256": "985b973dd7406520bcc194febe09bd6bed657781602adcc45801436ef265e8a5"
+        },
+        {
+          "start": 54,
+          "end": 78,
+          "sha256": "31d6254da4205f1095d3da34aac1d0d56de4b87a68f96d7d0467f625b0ad9bf2"
+        }
+      ]
+    },
+    {
+      "id": "Y12",
+      "path": "src/expedition_content.js",
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+      "semantically_read_spans": [
+        [
+          75,
+          101
+        ]
+      ],
+      "relevance": "Actual packing duration consumes body.handsTender; existing survey kit downstream.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 75,
+          "end": 101,
+          "sha256": "08f59e71a0d14d856b8b0d1907d84411d3c4d6dacb77e29cac60628e91b78258"
+        }
+      ]
+    },
+    {
+      "id": "Y13",
+      "path": "src/simulation.js",
+      "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "semantically_read_spans": [
+        [
+          92,
+          173
+        ],
+        [
+          373,
+          400
+        ]
+      ],
+      "relevance": "Costs/outcomes freeze, jobs and condition expiry use current shared clock.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 92,
+          "end": 173,
+          "sha256": "2a15ccd64710391d8921e6c1789a8a09b578ab176d0981824f8bc65a315b6975"
+        },
+        {
+          "start": 373,
+          "end": 400,
+          "sha256": "ecc85c8a41abc4d19d3789f429020e2d2738d483dcb6f63cd15176afdad1f0a8"
+        }
+      ]
+    },
+    {
+      "id": "Y14",
+      "path": "src/simulation_effects.js",
+      "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+      "semantically_read_spans": [
+        [
+          30,
+          44
+        ],
+        [
+          117,
+          129
+        ],
+        [
+          208,
+          226
+        ]
+      ],
+      "relevance": "Native/simulation inventory split; timed condition apply/remove carrier already exists.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 30,
+          "end": 44,
+          "sha256": "4364b450b406c2d10e5f79df65102fecd12261a4f2d7d22d2057dcf6eb37ac48"
+        },
+        {
+          "start": 117,
+          "end": 129,
+          "sha256": "372f7dfc9c85f33a3fbd986b1abe30095e2fba8f073a7e2855dc827ebde9000f"
+        },
+        {
+          "start": 208,
+          "end": 226,
+          "sha256": "b287379ca07a145e6fd267b6457b265197270bd9daeb723b6318d9a93fee4dae"
+        }
+      ]
+    },
+    {
+      "id": "Y15",
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "semantically_read_spans": [
+        [
+          1,
+          41
+        ]
+      ],
+      "relevance": "Source-aware frozen weighted outcomes exist; not a missing random engine.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 41,
+          "sha256": "d0babf71a480ab65e25fddf020152e6eb215018db3d247c0aec53aaad663f1f7"
+        }
+      ]
+    },
+    {
+      "id": "Y16",
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "semantically_read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "relevance": "Current staged native publication snapshot carries inventory/skills/reputation, lacks active effects.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 62,
+          "sha256": "052bb32ce9ba4519882f3e8b67c00309474c19a3500f38da547885923d7f7cae"
+        }
+      ]
+    },
+    {
+      "id": "Y17",
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "semantically_read_spans": [
+        [
+          1,
+          55
+        ]
+      ],
+      "relevance": "Existing snapshot/native vital read/publish and busy/custody guards.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 55,
+          "sha256": "9f26f1842220f296505073db69ba7a98e227f4e0ae7e2d79dcb9a7d36ef90b52"
+        }
+      ]
+    },
+    {
+      "id": "Y18",
+      "path": "src/energy_resources.js",
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "semantically_read_spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "relevance": "Current shared-clock owned reserve/strain policy; no replacement cultivation resource needed.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 60,
+          "sha256": "9524027dde8055a8818881ced5379a3aa915c3cdda877785ea1107e0468087d5"
+        }
+      ]
+    },
+    {
+      "id": "Y19",
+      "path": "src/crafting_visibility.js",
+      "sha256": "cedb3c64fd9ccc0708956c600e94a67840547399fc196bed8979e162e12f0d93",
+      "semantically_read_spans": [
+        [
+          1,
+          34
+        ]
+      ],
+      "relevance": "Makeable now projection gates recipe unlock/station/count; no manufacture result.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 34,
+          "sha256": "59185ae995c6f5e68eb20197fba59e00cf1cf2e9b54ba1983d135aeca5cdfaa9"
+        }
+      ]
+    },
+    {
+      "id": "Y20",
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "semantically_read_spans": [
+        [
+          1,
+          51
+        ]
+      ],
+      "relevance": "Existing effectDurations only updates existing effects; nativePatch/nativePublication write to the same validated save before native publish. Reuse this publisher for new native-effect admission.",
+      "qualification": "Active dirty source snapshot, not deployed or browser verified.",
+      "semantic_window_hash_format": "UTF-8 lines joined with LF, no trailing LF; strips initial BOM only",
+      "semantic_windows": [
+        {
+          "start": 1,
+          "end": 51,
+          "sha256": "4dd4f9510437db2dab1584d0f07de4b48babd1d9ad6e81c32e0b97313f314019"
+        }
+      ]
+    }
+  ],
+  "traces": [
+    {
+      "id": "ACS-PROD-ARTIFACT",
+      "title": "Already-stocked material -> ordinary sword -> source-sensitive combat artifact",
+      "evidence_status": "semantically_traced_configuration_and_managed_code; runtime_not_observed",
+      "prerequisites": [
+        "A Smithing station with a workspace, fuel and reachable resources; sword recipe admits MetalBlock, RockBlock or WoodBlock as main material.",
+        "Ordinary refining UI requires a player Dao disciple able to do magic/disciple handwork, not rented/visitor/attacker or job banned; reachable Refining station and free selected object.",
+        "UI selection rejects current FightFabao/TreasureFabao/Esoterica inputs, requires free count and Ling >= item.Rate^2 * 500. BehaviourRefiningFabao separately requires normal health."
+      ],
+      "decisions": [
+        "Choose sword as the station product and its actual main material. This traces already-stocked ingots, not mining or smelting.",
+        "Choose ordinary object refining, pick the owned/free sword, and choose the character doing it. Keeping the sword ordinary is a viable alternative; secret recipe and Helian branches are distinct.",
+        "Choose preparation through current character Manual skill, mind-state/property bonuses and building quality before committing; the source ties those values to actual outcomes."
+      ],
+      "expenditures": [
+        "Sword data declares main material volume5, one Item_RoughWoodBlock and100 Item_Water, nominal600work. Actual main-material count uses ceil(CostStuffCount*CostStuffScale) then ceil(material multiplier*that count); fixed items use their separate rcount=ceil(count*countscale) unless noscale. Iron declares multiplier1, but live difficulty scaling is not frozen.",
+        "BuildingProduce locks actual ingredients, debits them only on the first nonzero work addition, accumulates their Ling/material provenance, and then advances paid work. Station Drive adds a separate fuel requirement; exact fuel cadence was not traced.",
+        "Ordinary refining type0 debits item.Rate^2*500 Ling when its toil enters. One input object is debited on completed success or completed random failure; an interrupted ordinary refining toil also consumes one input."
+      ],
+      "state_changes": [
+        "Smithing completes into one sword with actual StuffDef, quality/element and input provenance; no mere recipe flag supplies it.",
+        "Ordinary refine success constructs a new FightFaBao, retains source material/element and object provenance, computes artifact rank from source rank and inherited Ling, then sets name, author and need-click; source object loses one count.",
+        "Success adds school Fabao count, rank-squared TreeExp, stories/events; random failure gives30TreeExp, failure story/message and failure event with no output. Interruption alters obsession mind value and reports failure."
+      ],
+      "downstream_consumers": [
+        "ItemThing.InitFabao -> FabaoData.Init parses both main-material and source-object physical labels plus element into PS values. Sharp data adds AttackPower/FlySpeed/RotSpeed; Hard2 trades power against Ling recovery/capacity/rotation and knockback.",
+        "XiaWorld.Fight.FabaoBase.Init binds FromItem; GetPower reads that actual item Fabao AttackPower, owner modifiers and current powerup; GetAtkPower uses GetPower. FightBody.FB_BeHit calls GetAtkPower and passes the value, owner and artifact element to BindThing.ReduceDamage. The manufactured object therefore has a real damage consumer."
+      ],
+      "time_policy": [
+        "Ordinary artifact toil target: min((80*input.Rate + input.LingV/100)/(1 + 0.02*Manual + speed bonus),300) world-time units; QuickWork overrides40. Progress follows unit.keeptime. These are simulation-time values, not measured wall-clock durations.",
+        "Smithing advances work by dt*work efficiency*SmithingSpeed*building FengShui efficiency; generic manufacturing can yield to a higher priority job after48time units, checked on5-unit world-time cadence.",
+        "This object-refining command is a finite actor job; formula-based production uses a separate queue."
+      ],
+      "failure_and_aftermath": [
+        "Selection has explicit no-energy/no-free-object rejection without a source mutation; unavailable path/workspace prevents discovery.",
+        "Toil random success uses 0.6 -0.4*input.Rate +0.1*Manual +mind-state map +success property, with special success/failure overrides. UI displays clamped probability except RealMode conceals it. No measured success rate claimed.",
+        "Random failure consumes the valuable chosen object and energy but preserves a smaller TreeExp trace. Cancellation/interruption type0 also destroys one object once toil is entered. Pre-toil cancellation cleanup unlocks it; exact every JobEngine interruption boundary not audited.",
+        "Smithing may injure the actor on leave according to SmithingInjuredChance. Exact injury content not traced."
+      ],
+      "sources": [
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17",
+        "P18",
+        "P19",
+        "P20",
+        "P21",
+        "P22",
+        "P23",
+        "P24",
+        "P25",
+        "P26",
+        "P34",
+        "P35"
+      ],
+      "limits": [
+        "No selected live manufacture/refine/combat session, balancing measurement or personal save inspection.",
+        "Mining/smelting, fuel driver cadence, all inherited XML merge rules, every material effect and full combat hit/AI behavior are outside coverage.",
+        "Secret FabaoFormula creation, Helian sacrifice and God artifacts were read only as contextual branches; not folded into ordinary recipe facts."
+      ]
+    },
+    {
+      "id": "ACS-PROD-MEDICINE",
+      "title": "NoHunger1 batch -> consumed medicine -> less food/rest interruption; JingYuan contrast",
+      "evidence_status": "semantically_traced_configuration_and_managed_code; runtime_not_observed",
+      "prerequisites": [
+        "Dao disciple eligible for magic/treatment work; RefiningDan station and empty usable queue; formula either Normal>0 or actually learned.",
+        "NoHunger1 is Normal1, Medicine level5, base success addition0.8, base Count9; item Rate6 causes entry energy debit200. Its XML declares3Fruit+9Ginkgo+9Healroot and200nominalwork; actual fixed-item request/debit uses rcount with its current countscale.",
+        "Actual ingredients must reach the building bag; reachable workspace and fuel required. CommandMakeItem only allows the exact Maker selected in the recipe queue."
+      ],
+      "decisions": [
+        "Choose NoHunger1 rather than JingYuan or another medicine, select current maker and station.",
+        "Station element relation and FengShui, maker Medicine-derived properties, yield/speed bonuses and runtime difficulty modifiers change actual batch success/count/time.",
+        "Consume the output before extended work, retain/sell it, or use ordinary food/rest. JingYuan instead buys faster practice-resource conversion with increased nutrition use."
+      ],
+      "expenditures": [
+        "UILogicMode queues exact Maker/Param/output/base Count. BuildingProduce waits for all actual stock and locks it; first Making call consumes reserved ingredients.",
+        "ToilMakeItem.OnEnter deducts200*max(1,output.Rate-5)^3 Ling; NoHunger1 Rate6 gives200 independent of batch success.",
+        "ToilEatItem spends a timed consumption action, locks one actual pill and SubCount(1) only after completed EatItem returns true."
+      ],
+      "state_changes": [
+        "Work completion removes current queue task before rolling, may enqueue next loop, and returns success1 or failure-1. Success yields max(1,floor(9*adjustedYield)) actual authored output count, copied manufacture provenance, school Danyao count, TreeExp, elixir gas callback for player production and actual item events.",
+        "Completed failure spends already-debited ingredients/energy, creates one randomly selected failed-pill type with World.RandomRange(1,6) count, gives50TreeExp, obsession/failure story/message/event. The exact upper bound of random count is not asserted without RandomRange implementation.",
+        "Normal eligible EatItem applies Dan_NoHunger1 modifier. It declares MaxStack1, Duration1200 and NutritionConsumeConstant/FatigueConsumeConstant AddP-0.5, as well as Food Nutrition50.",
+        "JingYuan declares modifier Duration4200, NutritionConsumeConstant AddP1 and NutritionToJingYuanK AddV0.005; its formula level0/base0.9/count1 and25MagicHerb+9LingStone/200work differ from NoHunger1."
+      ],
+      "downstream_consumers": [
+        "Npc.NormalEatItem adds declared nutrition to FoodNeed. FoodNeed.GetSubValue multiplies hunger loss by NutritionConsumeConstant; RestNeed.GetSubValue multiplies awake fatigue loss by FatigueConsumeConstant.",
+        "FoodNeed extreme hunger and RestNeed severe fatigue can interrupt ordinary jobs, so these pill modifiers affect continued useful labor.",
+        "FoodNeed.OnValueChange converts lost food increments into Practice need using NutritionToJingYuanK for disciples; JingYuan trades more food use for that actual conversion consumer."
+      ],
+      "time_policy": [
+        "Work advances with dt, current work efficiency, DanMake speed and building FengShui; nominal200 is work, not200real seconds.",
+        "Born station relation adds0.2success and multiplies yield1.5; Contrary subtracts0.2 and halves yield; Same adds0.1 and multiplies1.2. Runtime RefineDanFailRate caps success and RefineDanProduceScale adjusts yield.",
+        "Current task value/progress live with the building and are serialized with queue; higher-priority work may interrupt the actor without removing accumulated task value. Entry energy is paid again whenever a new ToilMakeItem enters; exact resumed/reload cost behavior remains a live acceptance query.",
+        "Loop=-1 or Loop>1 enqueues a replacement on completion before success/failure; each loop requires new ingredients and a maker. No free output from defining a loop.",
+        "ModifierBase checks TolSecond-AddTimes against Duration; same-scale reapplication refreshes time through NpcPropertyMgr. Duration1200 is two days in source description; inspected code establishes1200world-time units, not a measured user session."
+      ],
+      "failure_and_aftermath": [
+        "Missing ingredient/path/fuel/workspace/maker has a waiting/rejection path before actual craft; it is not a failed paid batch.",
+        "Post-start random failure creates failed pills, exp/obsession and events rather than resetting stock. Failed-pill uses/effects were not traced.",
+        "Body-cultivation or lingering eligibility can prevent the shared elixir modifier branch; normal food still has its own route. No universal potion effect across body types claimed.",
+        "Generic per-item ElixirFesistance is updated in EatItem. ElixirData default multiplier1 means these selected pills do not establish diminishing efficacy; other medicines may explicitly set it."
+      ],
+      "sources": [
+        "P02",
+        "P04",
+        "P05",
+        "P06",
+        "P11",
+        "P12",
+        "P21",
+        "P22",
+        "P23",
+        "P24",
+        "P27",
+        "P28",
+        "P29",
+        "P30",
+        "P31",
+        "P32",
+        "P33",
+        "P34"
+      ],
+      "limits": [
+        "No full medicine catalogue, failed-pill consumer, elixir-gas system, alternative-race eating branch or medicine acquisition/learn source audit.",
+        "Live generated inputs, UI balance, ingestion safety/balance, exact difficulty values and save/reload interruption behavior remain unobserved."
+      ]
+    }
+  ],
+  "adaptation": {
+    "id": "ACS-PROD-PACKET",
+    "status": "original_candidate_not_selected_or_implemented",
+    "title": "Dress scraped palms with an actual existing balm, then resume useful hand work",
+    "source_reason": "ACS ties consumed pills to actual needs/work consumers and a world-time lifetime. Adapt a specific character condition consequence instead of copying colony stations or adding a generic artifact/material framework.",
+    "player_journey": [
+      "Earn/unlock and craft, buy or already own one existing Healing balm through native owners; no research packet grants stock or recipe unlock.",
+      "When actual SCRAPED_HANDS is active in the Village/Shack, review one-minute dressing with one actual balm versus current three-minute body.recover without a balm.",
+      "Accepted dressing reserves the real native item, current living body/location/usable-hand support and current shared clock. Completion consumes one balm, applies its existing native Weak healing balm semantics, removes only SCRAPED_HANDS and records treatment/means.",
+      "Resume existing packing or eligible kit work. If SORE_HANDS remains, the tenderness penalty/block remains. Learned grip, calluses/marks, prior injury knowledge, inventory and named outcomes stay retained."
+    ],
+    "reused_owners": [
+      "src/items.js Healing balm identity and Weak healing balm90duration",
+      "src/crafting_recipes.js existing Healing balm recipe (10Oneberry+5Golmoon leaf+1Animal fat, Alchemy, original unlock/level/success policy retained)",
+      "src/active_effects.js existing native HP regeneration",
+      "src/body_progression.js SCRAPED_HANDS/SORE_HANDS/bodyFacts and ordinary body.recover",
+      "src/expedition_content.js packing duration modifier; existing kit work body gates",
+      "src/simulation.js existing reservation/frozen job/shared clock and src/simulation_effects.js condition removal",
+      "src/gameplay_publication.js plus src/main.js persistExpansion and src/expansion_persistence.js nativePublication/nativePatch for the existing validated durable native stock/effect transaction"
+    ],
+    "exact_missing_consumers": [
+      "No contextual balm-use command currently couples native medicine to SCRAPED_HANDS; src/main.js:3828-3881 only applies native active effects/debits native item, while bodyFacts still sees separate hand conditions.",
+      "prepareGameplayPublication/readGameplayActor currently stage inventory/skills/reputation, not native active_effects. Main persistExpansion already supports staged nativePublication, and persistExpansionPlan supports nativePatch/nativePublication in the one validated envelope. Existing effectDurations only adjusts already-present effects. Missing piece is a staged validated new/reapplied balm-effect adapter in these existing paths, coupled with balm debit and body-condition removal; no second publisher.",
+      "Current bodyFacts and packing gates already consume tenderness. New command/facts/receipt and supported optional save admission need current host registration; do not change legacy body.recover revision or existing native use_item semantics automatically."
+    ],
+    "proposed_cost_result": [
+      "Proposal:1owned Healing balm+1played minute; recipe costs and the90-duration native effect remain whatever current native owner admits. No new item required.",
+      "Result removes only actual scraped-palms condition and preserves native medicine-use effect policy. No added full stamina recovery, soreness removal, mastery/XP beyond existing native medicine-use behavior, permanent body reset or regional reputation.",
+      "Retained consequence:spent balm and prior scrape/treatment observation; hand condition settles, other body conditions and marks remain. Native medicine effect expiration remains owned by its current system."
+    ],
+    "failure_compatibility": [
+      "If no genuine scrape/stock/body support, preview blocks without consuming. Cancel or lose supported completion before treatment:refund reserved balm and no condition/HP change. Successful treatment cannot be replayed from receipt to recreate stock.",
+      "Keep old saves and undeclared packet state inert. Optional new enrollment/receipt must preserve current schema5-11 and frozen jobs per integrator policy; exact admission revision left to sole integrator.",
+      "Freeze native active-effect and simulation condition states in the same validated save transaction. Preserve both native-effect lifetime semantics and current shared clock; no replacement hunger timer, inventory, scheduler or save publisher.",
+      "Avoid consuming medicine solely for an already-active native effect rejected by add_active_effect; contextual scrape treatment is its own disclosed useful result, so one debit must be tied to actual condition change."
+    ],
+    "ownership": [
+      "Shared integrator01a10fe7 owns any runtime/native/UI/save registration; artifact GM retains artifact_collection/workshop until release. This research writer changes none of those files.",
+      "GD-01 material evidence and GD-02 site transformation are separate ready discovery proposals. This packet adds a medicine-to-body/work consumer and does not duplicate them."
+    ],
+    "later_playable_gate": [
+      "On a generated private test origin with rebuilt changed source:earn a balm by current recipe/stock, incur actual scraped palms, compare rest/dressing, commit and observe one real item debit plus native healing effect and exact hand-condition removal; packing duration/work eligibility changes only when no other tenderness remains.",
+      "Cancel and stale/lost-support cases preserve stock/conditions; failed save publishes neither debit nor HP/condition change; reload/import retains the paid result and independent native effect lifetime without duplicated medicine, new mastery or grants.",
+      "Original opening and one-realm/one-prestige remain intact. Gameplay/unit/browser/save-failure/regression/director suites are currently deferred; proposal is not implemented, and no gate was run here."
+    ],
+    "source_refs": [
+      "ACS-PROD-MEDICINE",
+      "Y07",
+      "Y08",
+      "Y09",
+      "Y10",
+      "Y11",
+      "Y12",
+      "Y13",
+      "Y14",
+      "Y16",
+      "Y17",
+      "Y20"
+    ],
+    "design_limits": [
+      "High recipe cost versus three-minute rest makes dressing mainly useful for already-owned medicine or urgent work. Numeric advantage and fiction are provisional director choices, not ACS balance copied wholesale.",
+      "No claim of pharmacology or medical realism; this is original game behavior around existing fictional items.",
+      "Existing Vela loose/paired artifact functions already supply kit-time alternatives; their source is a reuse owner, not a requested ACS remake."
+    ]
+  },
+  "coverage": {
+    "status": "bounded selected producer-to-consumer semantic trace complete",
+    "semantic_scope": "Selected ordinary source-object artifact, already-stocked sword material batch, NoHunger1 medicine and JingYuan needs/practice contrast. Supplementary activation Lua and branch definitions read but not promoted to complete traces.",
+    "unread": "All settings/assemblies outside declared spans, full decompiled game, most recipe catalogue, complete combat/equipment deploy path, mining/smelting execution, station fuel cadence, all damage/story/failed-pill consumers, all Lua callback bindings, live difficulty and save/reload/runtime.",
+    "source_or_runtime": "Claims are from selected installed configuration and decompiled managed methods. No observed play, balance or migration proof.",
+    "firstpass_semantic_spans": []
+  },
+  "verification": {
+    "performed": [
+      "Both primary copied assembly hashes match parent dispatch pins.",
+      "Every selected readable input hash compared with installed read-only counterpart; matches recorded.",
+      "Source spans, produced JSON parsing and file/hash readback checks."
+    ],
+    "not_run": [
+      "gameplay implementation",
+      "game launch/browser",
+      "unit/gameplay/save/reload/failure/regression/director suites"
+    ],
+    "excluded_preserved": [
+      "installed game writes",
+      "personal saves/profiles",
+      "source libraries",
+      "runtime/canonical/build writes",
+      "commit/push/publication",
+      "global installs",
+      "external chat messages"
+    ]
+  },
+  "handoff": {
+    "done": "Both selected traces and one distinct medicine candidate complete; parent owns report/packet integration.",
+    "next": "Parent reviews source windows and integrates finite production family; sole runtime integrator may later select/revise packet.",
+    "live_child_processes": [],
+    "write_reservation": "released"
+  }
+}

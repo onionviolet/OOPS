@@ -1,0 +1,154 @@
+{
+  "reader": "AI combat path reader",
+  "scope": "One source-traced Shield Pummel path through improved tactical scoring, action dispatch, talent validation, and talent effect. No runtime execution performed.",
+  "source": {
+    "edition": "Tales of Maj'Eyal 1.7.6, official nomusic source archive",
+    "archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871",
+    "source_root": "/Users/weiwei/.codex/research/tales-of-maj-eyal/source/t-engine4-src-1.7.6",
+    "base_game_module": "tome-1.7.6",
+    "engine_module": "te4-1.7.6/engine",
+    "license_boundary": "Source read only. No source, library, asset, save, account, or runtime mutation. This note contains paraphrased findings and brief identifiers, not source text reproduction.",
+    "coverage_limit": "Only the listed files and semantic spans were read for this subtask. This is not a full-module audit or runtime proof."
+  },
+  "files": [
+    {
+      "path": "tome-1.7.6/data/talents/techniques/weaponshield.lua",
+      "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea",
+      "read_ranges": [[24, 69]],
+      "symbols": ["Shield Pummel talent definition", "action", "getStunDuration"]
+    },
+    {
+      "path": "tome-1.7.6/mod/ai/improved_tactical.lua",
+      "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829",
+      "read_ranges": [[352, 390], [517, 645], [950, 1015], [1071, 1113], [1115, 1180]],
+      "symbols": ["use_improved_tactical", "improved_tactical"]
+    },
+    {
+      "path": "tome-1.7.6/mod/ai/tactical.lua",
+      "sha256": "fd135bf7f762e396d31060b2a597d143e548e514e683ea355f7408590f6a8d47",
+      "read_ranges": [[23, 55], [57, 110], [134, 195], [430, 505]],
+      "symbols": ["use_tactical", "tactical"]
+    },
+    {
+      "path": "tome-1.7.6/mod/class/interface/ActorAI.lua",
+      "sha256": "1e7f69685e49b5e356a1bb2c6516ec8544921a103a490b6e1ac53a83eb660e26",
+      "read_ranges": [[34, 37], [43, 76], [419, 441]],
+      "symbols": ["runAI", "aiPreUseTalent"]
+    },
+    {
+      "path": "tome-1.7.6/mod/class/Actor.lua",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "read_ranges": [[5740, 5805], [5980, 6013]],
+      "symbols": ["preUseTalent"]
+    },
+    {
+      "path": "tome-1.7.6/data/general/npcs/elven-warrior.lua",
+      "sha256": "92bd30799ea28f5243a88043275df3f58880da06e8b579f58a14d7ac4f4212e4",
+      "read_ranges": [[35, 50], [97, 117]],
+      "symbols": ["BASE_NPC_ELVEN_WARRIOR", "elven elite warrior"]
+    },
+    {
+      "path": "te4-1.7.6/engine/interface/ActorAI.lua",
+      "sha256": "d1960eceed805d42950d91b0f9ef2735f41be7cab3c8273f9e7ee8a3177c026f",
+      "read_ranges": [[135, 155]],
+      "symbols": ["doAI"]
+    }
+  ],
+  "claims": [
+    {
+      "kind": "observed",
+      "claim": "Shield Pummel is an activated, targeted, range-1 talent with a six-turn cooldown, eight stamina cost, an explicit shield pre-use guard, ATTACK weight 1 and DISABLE stun weight 3. Its action rechecks shield, resolves the talent target and projection, then makes two shield attacks. Only the second attack's hit gates the stun attempt; stun immunity produces a resistance message. Duration scales with talent level, while the attack damage formulas also incorporate Shield Expertise talent level.",
+      "evidence": [
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "Shield Pummel", "lines": [24, 38]},
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "action", "lines": [39, 62]}
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "The engine actor turn's doAI calls runAI(self.ai). ToME's ActorAI module sets config.settings.ai_transition=true at load (line 37), and runAI then redirects actors configured with ai='tactical' to improved_tactical. The same source also has a randboss tactical redirect inside that transition branch. A concrete example is the rank-3 elven elite warrior: it declares ai='tactical', equips a shield, and learns T_SHIELD_PUMMEL, so source configuration routes this actor through improved_tactical while that setting remains enabled. The source assignment is evidence of the configured default; no runtime/config override state was inspected. This claim does not extend to unrelated actors such as those using dumb_talented_simple.",
+      "evidence": [
+        {"path": "te4-1.7.6/engine/interface/ActorAI.lua", "symbol": "doAI", "lines": [135, 155]},
+        {"path": "tome-1.7.6/mod/class/interface/ActorAI.lua", "symbol": "ai_transition initialization and runAI", "lines": [34, 75]},
+        {"path": "tome-1.7.6/data/general/npcs/elven-warrior.lua", "symbol": "elven elite warrior configured ai/equipment/talent", "lines": [97, 117]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "improved_tactical", "lines": [1118, 1145]},
+        {"path": "tome-1.7.6/mod/ai/tactical.lua", "symbol": "tactical", "lines": [450, 476]}
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "Improved tactical targets first, may skip the talent list according to talent_in or no_talents, then considers learned talents. Shield Pummel is considered only when a target exists because requires_target is true. Candidate availability requires NPC-use permission, no cooldown, preUseTalent checks, target within reach, and any on_pre_use_ai check. The shield guard is included in preUseTalent. The AI resolves tactical weights through aiTalentTactics and stores only positive useful tactics/actions; candidate availability or an ATTACK/DISABLE weight alone does not prove it will be selected.",
+      "evidence": [
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "improved_tactical", "lines": [1120, 1142]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical candidate evaluation", "lines": [557, 590]},
+        {"path": "tome-1.7.6/mod/class/Actor.lua", "symbol": "preUseTalent", "lines": [5742, 5759]},
+        {"path": "tome-1.7.6/mod/class/Actor.lua", "symbol": "preUseTalent special checks", "lines": [6000, 6013]}
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "The improved selector compares action tactic values against current wants, including speed and talent-level adjustments, and chooses an action. It sets ai_state.tactic and dispatches a talent with useTalent. If that call fails, it zeros that candidate's score and repeats evaluation, bounded by the action-attempt limit; on success it updates fight counters and returns the selected talent. If no useful action is selected and the actor still has energy, the outer improved_tactical entry attempts configured maintenance, then safe-grid movement or its normal move/flee action.",
+      "evidence": [
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical scoring", "lines": [956, 1015]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical execution and retry", "lines": [1071, 1113]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "improved_tactical movement continuation", "lines": [1156, 1180]}
+      ]
+    }
+  ],
+  "caller_consumer_chain": [
+    {"step": 1, "path": "te4-1.7.6/engine/interface/ActorAI.lua", "symbol": "doAI", "lines": [135, 155], "role": "Engine actor turn dispatches the actor's configured AI."},
+    {"step": 2, "path": "tome-1.7.6/mod/class/interface/ActorAI.lua", "symbol": "ai_transition initialization and runAI", "lines": [34, 75], "role": "Module initialization enables the transition setting; ToME validates and redirects the configured AI name, then invokes the registered AI function."},
+    {"step": 2, "path": "tome-1.7.6/data/general/npcs/elven-warrior.lua", "symbol": "elven elite warrior", "lines": [97, 117], "role": "Concrete source-defined rank-3 actor with ai='tactical', shield equipment, and Shield Pummel talent; its tactical AI is routed to improved_tactical by the enabled transition setting."},
+    {"step": 3, "path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "improved_tactical", "lines": [1118, 1145], "role": "Targets, applies talent-use cadence and enters improved selection."},
+    {"step": 4, "path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical", "lines": [557, 645], "role": "Checks Pummel eligibility, computes tactical effects, and admits useful actions."},
+    {"step": 5, "path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical", "lines": [956, 1015], "role": "Scores admitted actions against tactical wants."},
+    {"step": 6, "path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical", "lines": [1071, 1113], "role": "Calls useTalent for the selected talent, retries after failure, returns on success."},
+    {"step": 7, "path": "tome-1.7.6/mod/class/Actor.lua", "symbol": "preUseTalent", "lines": [5742, 5805], "role": "Performs final eligibility checks, including generic restrictions and energy."},
+    {"step": 8, "path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "Shield Pummel action", "lines": [39, 62], "role": "Performs two shield attacks and conditionally applies stun."}
+  ],
+  "blocked_and_fallback_cases": [
+    {
+      "case": "No shield equipped",
+      "selection_effect": "preUseTalent invokes the talent's on_pre_use shield guard, so the candidate is excluded before scoring.",
+      "execution_guard": "The action checks hasShield again and returns nil if the shield is absent, protecting against state changes after consideration.",
+      "evidence": [
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "on_pre_use", "lines": [35, 37]},
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "action", "lines": [39, 44]},
+        {"path": "tome-1.7.6/mod/class/Actor.lua", "symbol": "preUseTalent special checks", "lines": [6000, 6013]}
+      ]
+    },
+    {
+      "case": "No target or target beyond effective range",
+      "selection_effect": "Targeted Shield Pummel is not considered when there is no AI target; with a target, candidate evaluation requires target_dist within t_reach. Its configured range is one.",
+      "execution_effect": "The action gets a target and checks canProject; missing/unprojectable target returns nil. The improved selector treats a failed call as a failed attempt and reevaluates remaining actions; no successful action leaves the outer AI's move/fallback path available.",
+      "evidence": [
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical target gating", "lines": [557, 567]},
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "action", "lines": [46, 49]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "use_improved_tactical failed action retry", "lines": [1099, 1111]},
+        {"path": "tome-1.7.6/mod/ai/improved_tactical.lua", "symbol": "improved_tactical", "lines": [1156, 1180]}
+      ]
+    },
+    {
+      "case": "Second shield strike misses or target resists stun",
+      "effect": "A first-hit result alone does not trigger stun; only the second attack's hit is checked. If hit but target cannot be stunned, the source logs resistance. These are effect outcomes after a legal talent action, not AI selection failures.",
+      "evidence": [
+        {"path": "tome-1.7.6/data/talents/techniques/weaponshield.lua", "symbol": "action", "lines": [50, 59]}
+      ]
+    }
+  ],
+  "unknowns": [
+    "No game or AI runtime was run, so no observation establishes actual selected action frequency, target choices in a real encounter, or successful Shield Pummel execution.",
+    "ActorAI.lua assigns config.settings.ai_transition=true at module load, so source-configured ai='tactical' actors are routed to improved_tactical by default under that setting. Runtime overrides were not inspected. Actors using other AI names, including dumb_talented_simple, follow their own path unless separately redirected; no blanket claim is made for them.",
+    "A source-level score cannot establish optimal decisions; final selection depends on current want values, other candidates, actor state, randomness, speed, and timing of final use checks.",
+    "This trace does not audit expansion/DLC variants or every possible talent-state hook that can alter legality."
+  ],
+  "original_transfer_ideas": [
+    {
+      "idea": "For an existing YAIR technique owner, give a combat choice explicit context weights (damage, interrupt, guard break, control) and compute usefulness from the current encounter, rather than triggering solely because the move is unlocked. Keep the first milestone to authored per-move conditions and current combat state; do not add a generic AI framework from this evidence alone.",
+      "status": "Original proposal, not a ToME fact."
+    },
+    {
+      "idea": "Use a two-stage safety contract for consequential actions: cheaply filter unavailable moves before they compete, then revalidate equipment, target, reach and legal effect at execution; if execution fails, clear the candidate and try a bounded alternative or the existing basic action. This preserves a visible fallback when equipment or target state changes.",
+      "status": "Original proposal, not a ToME fact."
+    }
+  ]
+}

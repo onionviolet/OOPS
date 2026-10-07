@@ -1,0 +1,14 @@
+# Bounded skill coverage
+
+2026-10-05. Scope is [the four-family exception](SKILL_REQUIREMENTS.md); other worlds remain held. [Return and evidence](SKILL_RETURN.md) own current concrete details. Module [source](../../../../src/skill_expansion_content.js) follows [Engine S2](../INTERFACE.md).
+
+| Required ID / world | Implemented source/API | Actual native consumer | Current gap/status |
+|---|---|---|---|
+| frontier.brace_control / base.frontier | `skillDefinitions`: observe/learn/practice/contest; nonlethal press response effects and live support; `skillExpansionFacts` | Native shared encounter/job UI and player/Lio vitality publication; existing `party.rest` recovery | Native registry/context/controls/publication confirmed under S3; matching final build confirmed. Status: integrated-built-unverified. Behavior deferred. |
+| frontier.trail_reading / base.frontier | observe/ordinary field learn/practice/route procedure; canonical actor knowledge | Existing `village.dry_bank` one-survey/guide/departure, `village.route_board` | Native skill commands/downstream procedure and original one-survey owner confirmed under S3; matching final build confirmed. Status: integrated-built-unverified. Behavior deferred. |
+| frontier.timber_judgment / base.frontier | held-log observation; earned cut method; actual reserved dry bench and owned-log recipe; mastery-dependent one/two-kit output | Native stock/XP publication; existing field supply, road and `party.rest` consumers | Native stock/site/result/UI integration confirmed under S3; matching final build confirmed. Status: integrated-built-unverified. Custody/weather/stock behavior deferred. |
+| frontier.shared_inquiry / base.frontier | earned comparison; funded/reserved teacher focus; canonical route procedure and actual observed workshop/road reports; recovery | Native `village.dry_bank`/board, field project/report controls, native payment/XP and existing NPC job owner | Native funded work/report/discovery controls confirmed under S3; matching final build confirmed. Status: integrated-built-unverified. Reporting/scarcity/retention/cancellation behavior deferred. |
+
+No fan/book world is implemented by this wave. No generic future-sight/time/loop/graft runtime is delivered or required for these selected consumers. Method records and native competence are distinct; lack of native registration and a build cannot be closed by catalogue rows or module import. Update this ledger only from actual Engine source/build feedback and later permitted behavioral/director evidence.
+
+Final [Engine build receipt](../engine/SKILLS_BUILD.json) matches content SHA256 `00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2` and bundle `246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3`. Native/source/build coverage for the four required IDs is complete; all behavioral/director gates remain deferred.

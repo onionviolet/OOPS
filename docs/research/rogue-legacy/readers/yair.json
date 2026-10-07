@@ -1,0 +1,285 @@
+{
+  "snapshot_utc": "2026-10-06 05:30 UTC",
+  "checkout_state": "Shared checkout was already heavily dirty/untracked before this read. Source files fingerprinted below matched again at the end of the read. No gameplay or other project file was edited.",
+  "mappings": [
+    {
+      "id": "functional-kit-choice",
+      "reuse": "Native equipment and inventory remain owned by their current player/NPC owners. The sluice already makes Nera's actually owned/equipped field frame alter defense/blocking and Oren's actual equipped hook pole enable hook-specific stamina/guard effects. Feature-object fitting knives are conserved, custody-checked hand tools and explicitly not equipment bonuses. These are useful precedents for functional gear, but there is no player kit choice inside this encounter.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 10,
+          "end": 18,
+          "symbol": "FEATURE_OBJECT_ITEMS",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects_host.js",
+          "start": 41,
+          "end": 50,
+          "symbol": "featureObjectFacts",
+          "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+        },
+        {
+          "file": "src/feature_expansion_battle_host.js",
+          "start": 14,
+          "end": 29,
+          "symbol": "sync / readBindings",
+          "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91"
+        },
+        {
+          "file": "src/native_battle.js",
+          "start": 16,
+          "end": 20,
+          "symbol": "readNativeFighter",
+          "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0"
+        }
+      ],
+      "narrow_candidate": "As a reversible original encounter proposal, let the player prepare one of two real carried kits before admission: a lighter traversal kit that changes an escape affordance, or a braced kit that changes a guard affordance. Reuse actual inventory/equipment custody and fighter snapshots; do not make either a flat stat reward.",
+      "missing_consumer": "featureBattleView and commitFeatureBattleAction expose combat/objective actions but no player kit-selection action or kit-specific player behavior; the current gear-derived special case is authored for the NPC frame/pole. Do not call fitting knives missing gear; they already have separate tool consumers.",
+      "retention": "Prefer existing player inventory/equipment as durable ownership and put only encounter-local choice/effect receipts into a separately versioned nativeBattle payload. Keep prior battle schemas frozen; explicit compatibility decision and save/reload verification would be required before persistence changes.",
+      "later_gate": "Rebuild and exercise both choices in a browser: verify each changes its declared action result, switching/withdrawal conserves ownership, and a save/reload resumes the same admitted choice."
+    },
+    {
+      "id": "optional-objective-payout",
+      "reuse": "Optional conduct/prepared challenges already require explicit enrollment, bind actual battle IDs/results and preserve finite attempt histories. Feats retain committed receipts. A successful sluice passage earns the existing one-time Combat XP and route fact; current challenge descriptions explicitly promise recognition only and no repeat payment. The refreshed root now also validates an optional fieldcraft record; this additive integration does not change the cited attempt settlement or recognition-only reward boundary.",
+      "evidence": [
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 17,
+          "end": 39,
+          "symbol": "validateAttempts",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 107,
+          "end": 132,
+          "symbol": "advanceReferenceGameplay",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/reference_gameplay_state.js",
+          "start": 136,
+          "end": 160,
+          "symbol": "referenceControlPresentation",
+          "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 273,
+          "end": 287,
+          "symbol": "finish",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/reference_gameplay_feats.js",
+          "start": 14,
+          "end": 31,
+          "symbol": "BASIC_FEATS / EXCEPTIONAL / allFeats / APPROACH_TYPES",
+          "sha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79"
+        }
+      ],
+      "narrow_candidate": "A separate opt-in challenge can ask for one additional declared objective condition and grant one finite, concrete workshop material only on its first qualified receipt. Keep ordinary victory/objective settlement and existing no-strike/prepared recognition unchanged; the material payout is a proposal, not an existing reward.",
+      "missing_consumer": "The current challenge root retains result/admission/violation receipts and feat recognition, but has no challenge-owned reward claim or consumer. finish has one common success payout, not a challenge-specific material award. The already-implemented no-strike, prepared-team, and objective-completion gates are not gaps. The new fieldcraft validator/feats integration is separate and does not add a challenge payout.",
+      "retention": "Derive eligibility from the settled attempt receipt; persist an idempotent claim in the optional character record and grant through existing item/effect owners. Need optional enrollment/old-save absence behavior and an explicit schema compatibility decision if fields are added.",
+      "later_gate": "Browser acceptance: decline enrollment with no change; complete the declared objective once and receive one real item; repeat/failed/withdrawn attempts cannot pay again; save/reload preserves receipt and claim."
+    },
+    {
+      "id": "contextual-defense-window",
+      "reuse": "This proposed mechanic is already implemented for explicitly enrolled schema-4 sluice sessions: an actual defended strike earns a saved next-player-choice window against its actual attacker; retreat and counter are distinct paid actions, any other choice expires it, enemy cadence continues, and receipts validate the defended origin. Do not report this as missing from the current feature encounter.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 134,
+          "end": 173,
+          "symbol": "validateReferenceBattleFields / opportunityReasons / closeOpportunity",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 328,
+          "end": 355,
+          "symbol": "commitFeatureBattleAction defended outcome and settlement",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 369,
+          "end": 432,
+          "symbol": "featureNativeAction / featureBattleView",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/native_battle.js",
+          "start": 38,
+          "end": 68,
+          "symbol": "commitNativeBattleStrike / withdrawNativeBattle",
+          "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0"
+        },
+        {
+          "file": "src/native_battle_host.js",
+          "start": 21,
+          "end": 59,
+          "symbol": "createNativeBattleHost.resume / actionAdapter",
+          "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc"
+        }
+      ],
+      "narrow_candidate": "Reuse the current defended-next-choice contract for one explicitly enrolled original encounter with a different authored enemy trigger or counter consequence, only if play review shows a distinct context adds value. Otherwise keep the current sluice as the complete local proof.",
+      "missing_consumer": "The bounded native road duel remains a schema-1 automatic strike/withdraw exchange; its host has no such counter-window consumer. The feature sluice owns this effect only in its opted-in schema-4 path, while frozen schema-3 behavior stays separate. This is a scope boundary, not a claim that the requested defense mechanic is unimplemented overall.",
+      "retention": "Current schema-4 window and closing receipt persist within the session and close with an outcome; old sessions are not upgraded in place. A new encounter needs an explicit schema/validator/UI/action binding and save/reload path.",
+      "later_gate": "Browser acceptance for any new encounter: show the actual trigger, allow only retreat or counter against the earning attacker, prove other choices expire it, and verify old native duel and schema-3 sessions retain their prior behavior."
+    },
+    {
+      "id": "retained-workshop-investment",
+      "reuse": "The Village fitting bench already offers an ordinary drying rack, a retained brace investment, then a matched-part seal investment. The braced and sealed states change drying routes/durations and are retained in the world joint fact plus matching situation phase; seal accepts either the offered or braced phase, so this is upgrade progression, not a mutually exclusive brace/seal fork. The revisit action reads the actual retained state.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 141,
+          "end": 145,
+          "symbol": "drying route commands",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects.js",
+          "start": 160,
+          "end": 180,
+          "symbol": "install_brace / install_seal / revisit",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects_host.js",
+          "start": 88,
+          "end": 107,
+          "symbol": "validateFeatureObjectState",
+          "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+        }
+      ],
+      "narrow_candidate": "If extending workshop investments, add one second named worksite with a similarly material-funded upgrade chain whose stages support different actual interactions. Do not generalize the Village joint before another real consumer needs it.",
+      "missing_consumer": "No missing binding in the current fitting case. What is absent is a second authored worksite/investment consumer; the current staged upgrade chain is deliberately hard-coded to this one joint and its drying output.",
+      "retention": "Current persistent result uses existing world facts, actor facts and situation phase, not a new global upgrade ledger. A second worksite should follow its real world/state owner and preserve branch identity; any save schema change requires compatibility review and save/reload verification.",
+      "later_gate": "Browser acceptance: install the brace, observe its changed work route/time, then install the matched seal as an upgrade and verify the quicker shelf persists after reload. Confirm the ordinary rack still works before investment and a purchased matched part does not grant its maker’s method."
+    }
+  ],
+  "coverage": [
+    {
+      "file": "AGENTS.md",
+      "ranges_read": [
+        "1-23"
+      ],
+      "purpose": "Project preservation and authorized design constraints; supplied instructions were also checked against the file."
+    },
+    {
+      "file": "PROJECT.md",
+      "ranges_read": [
+        "1-23",
+        "159-210"
+      ],
+      "purpose": "Current implementation preservation, expansion plan and accepted first-milestone boundaries."
+    },
+    {
+      "file": "docs/research/rogue-legacy/ASSIGNMENT.md",
+      "ranges_read": [
+        "1-15"
+      ],
+      "purpose": "Reader scope, evidence format, boundaries, and required handoff.”"
+    },
+    {
+      "file": "src/feature_expansion_objects.js",
+      "ranges_read": [
+        "1-35",
+        "57-100",
+        "102-180"
+      ],
+      "purpose": "Functional item definitions, held-tool semantics, jobs, and retained Village investment branches."
+    },
+    {
+      "file": "src/feature_expansion_objects_host.js",
+      "ranges_read": [
+        "1-107",
+        "109-134"
+      ],
+      "purpose": "Equipment/custody eligibility, current owner validation, and player projection."
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "ranges_read": [
+        "1-53",
+        "80-126",
+        "128-181",
+        "182-215",
+        "215-267",
+        "273-365",
+        "366-432"
+      ],
+      "purpose": "Encounter admission, saved schema boundaries, action gates/effects, counter window, result payout, AI, and UI choices."
+    },
+    {
+      "file": "src/feature_expansion_battle_host.js",
+      "ranges_read": [
+        "1-80"
+      ],
+      "purpose": "Native fighter synchronization, equipment-backed NPC defense, bindings, and action adapter."
+    },
+    {
+      "file": "src/native_battle.js",
+      "ranges_read": [
+        "1-68"
+      ],
+      "purpose": "Existing road duel participant and action boundary versus feature encounter."
+    },
+    {
+      "file": "src/native_battle_host.js",
+      "ranges_read": [
+        "1-59"
+      ],
+      "purpose": "Existing native duel resume/action cadence and adapter boundary."
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "ranges_read": [
+        "1-160"
+      ],
+      "purpose": "Finite challenge admission, persistent receipt schema, actual settlement and recognition-only UI."
+    },
+    {
+      "file": "src/reference_gameplay_content.js",
+      "ranges_read": [
+        "1-99"
+      ],
+      "purpose": "Actual finite workshop purchases, functional cooling tool use and expiry behavior."
+    },
+    {
+      "file": "src/reference_gameplay_feats.js",
+      "ranges_read": [
+        "1-29",
+        "121-180",
+        "263-289",
+        "300-343"
+      ],
+      "purpose": "Retained feat definitions, actual battle-action receipts and recognition settlement.”"
+    },
+    {
+      "file": "src/original_frontier_campaign_content.js",
+      "ranges_read": [
+        "180-196"
+      ],
+      "purpose": "One existing native campaign objective projection, for contrast with encounter-specific objective consumers."
+    },
+    {
+      "file": "src/original_frontier_campaign_host.js",
+      "ranges_read": [
+        "56-78",
+        "80-118"
+      ],
+      "purpose": "Existing campaign objective/readback and native encounter contribution callback boundary."
+    }
+  ],
+  "limits": [
+    "Read-only mechanics mapping; no gameplay, tests, browser, build, save, source asset, or upstream source work was performed.",
+    "No Rogue Legacy source-derived design claims are made; the parent researcher owns the source comparison. These rows map current YAIR reuse and bounded additions only.",
+    "The dirty shared checkout can move. SHA-256 fingerprints apply to the named files at this snapshot; recheck before implementation or citation against a later tree.",
+    "No browser result, persistence compatibility, balance, or playable acceptance is claimed."
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "input_readback": {
+    "checked": 2188,
+    "mismatches": []
+  },
+  "source_review": "root institution trace and semantic leaf returns pending",
+  "moving_inputs": {
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": {
+      "before": "e4aa57bac67c9be5cf2d23f5c1335bbb2084cd3975cc27fdbe91fdcf1b1c1bcd",
+      "current": "47dd57044697cb2f3f56413b3a8680b74551f665425dfe5590b4dc0e5e4bba02"
+    },
+    "src/simulation.js": {
+      "before": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "current": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6"
+    },
+    "src/simulation_contracts.js": {
+      "before": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836",
+      "current": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292"
+    },
+    "src/simulation_effects.js": {
+      "before": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+      "current": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888"
+    },
+    "src/feature_expansion_work_plan.js": {
+      "before": "b32cb56b079d2f13a12e0717640f55dcc48bc39a62948472408f5553e5800ec6",
+      "current": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1"
+    },
+    "src/people_knowledge.js": {
+      "before": "93b47e911c66490e80390d4ba52b7a8047edacc096d6bd97285cb4a270987766",
+      "current": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731"
+    },
+    "src/main.js": {
+      "before": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8",
+      "current": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82"
+    }
+  },
+  "shared_writer": {
+    "thread": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "status": "active",
+    "turn": "01a112a4-ed73-72b0-8061-698b23671664",
+    "snapshot": "read-only immediate app snapshot during research; no release observed"
+  },
+  "prior_work_reused": [
+    "../idling-to-rule-the-gods/REPORT.md",
+    "../game-discovery-2026-10-06/METHOD_AND_REUSE.md",
+    "../../gm/audit-implementation/remainder/CHECKPOINT.md"
+  ],
+  "parent_semantic_review": [
+    {
+      "trace": "cultivation",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+      "spans": [
+        [
+          203,
+          242
+        ],
+        [
+          434,
+          479
+        ],
+        [
+          708,
+          884
+        ]
+      ],
+      "result": "Entry-paid costs, live Gold accrual, forced Gold success-flag and ordinary success-roll dispatch match leaf claim; root read the previously unselected guard region755\u2013856."
+    },
+    {
+      "trace": "cultivation",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "spans": [
+        [
+          2677,
+          2723
+        ],
+        [
+          3867,
+          3967
+        ],
+        [
+          4037,
+          4118
+        ]
+      ],
+      "result": "Resource subtype expenditure, selected30Ling drain overload, quality-capacity mutation and retained failure aftermath match leaf."
+    },
+    {
+      "trace": "institution",
+      "source": "traces/institution.json",
+      "result": "Root authored and self-reviewed actor/sect/archive separation, debit, downstream recipe/unlock, travel phases/zero launch-cost/return-cost and callback semantics; UI eligibility caveat explicit."
+    },
+    {
+      "trace": "production",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/ToilRefining.cs",
+      "spans": [
+        [
+          1,
+          108
+        ],
+        [
+          242,
+          338
+        ]
+      ],
+      "result": "Direct ordinary-input energy debit, completed success/failure and interrupt input loss match leaf; no blanket refund claimed."
+    },
+    {
+      "trace": "production",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+      "spans": [
+        [
+          350,
+          424
+        ]
+      ],
+      "result": "Actual ingredient debit on first Making call and loop admission before success roll match leaf."
+    },
+    {
+      "trace": "production",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/FoodNeed.cs",
+      "spans": [
+        [
+          25,
+          61
+        ]
+      ],
+      "result": "Actual hunger-decay consumer reads modifier property with explicit no-need/breakthrough exemptions."
+    },
+    {
+      "trace": "production",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/RestNeed.cs",
+      "spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "result": "Actual fatigue-decay/interruption consumer reads property; sleeping/breakthrough/coma exemptions retained."
+    },
+    {
+      "trace": "actors",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/JobCleanFloor.cs",
+      "spans": [
+        [
+          1,
+          38
+        ]
+      ],
+      "result": "Successful Did condition gates command finish; interrupted work does not synthesize cleaning result."
+    },
+    {
+      "trace": "actors",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/NpcRelation.cs",
+      "spans": [
+        [
+          754,
+          827
+        ],
+        [
+          1336,
+          1386
+        ]
+      ],
+      "result": "Temporary favor expires separately from retained BaseValue drift; warmup/timing dispatch is distinct from outcome, cached affinity limit preserved."
+    },
+    {
+      "trace": "pacing",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/MessageMgr.cs",
+      "spans": [
+        [
+          1107,
+          1132
+        ],
+        [
+          1395,
+          1415
+        ]
+      ],
+      "result": "Actual registered message speed policy and top-speed warning pause branch match; no global offline policy inferred."
+    },
+    {
+      "trace": "pacing",
+      "source": "decompiled/Assembly-CSharp/XiaWorld/MainManager.cs",
+      "spans": [
+        [
+          353,
+          388
+        ],
+        [
+          855,
+          939
+        ]
+      ],
+      "result": "Nested system holds/player pause/run-gated manager Steps are distinct; pause-update exceptions retained."
+    },
+    {
+      "trace": "pacing",
+      "source": "decompiled/Assembly-CSharp/AllIllustratedHandMgr.cs",
+      "spans": [
+        [
+          654,
+          702
+        ],
+        [
+          845,
+          894
+        ]
+      ],
+      "result": "Mode-gated global light ledger, dirty flush and separate account-file write are source-backed. Actual personal ledger not opened."
+    },
+    {
+      "trace": "pacing",
+      "source": "input/Scripts/Misc/timescript.lua",
+      "spans": [
+        [
+          1,
+          112
+        ]
+      ],
+      "result": "Strict deadline, remove-before-wait-callback and mark-before-file-callback semantics match; no transaction rollback/retry imported."
+    }
+  ],
+  "leaf_release": {
+    "cultivation": "complete/released",
+    "production": "complete/released",
+    "actors": "complete/released",
+    "pacing": "complete/released"
+  },
+  "moving_input_reconciliation": "Current startCommand129 onward, completeJob206 onward, current use_item3828 onward, cause-deduplicated effects, finite cursor and actual current controller admission reread. Same frozen-cost/job/support/knowledge/no-balm-scrape conclusions remain. PACKETS source windows re-located by functions and pins refreshed; sources continue to move under integrator.",
+  "checked_utc": "2026-10-06T20:15:53.785962+00:00",
+  "selected_packet_reason": "Three new consumers chosen. Generic material classification/site transformation reused from completed discovery lane; general reservations/stock plans/social friction already active. Pacing candidate remains unselected rather than duplicate current legal stops.",
+  "final_writer_state": {
+    "root": "finite research complete/released after final readback",
+    "internal_readers": "all four completed/released, no children/processes",
+    "external_shared_integrator": "active as observed; no release inferred",
+    "scope": "this research directory only"
+  },
+  "repairs": [
+    "Relocated mutable current YAIR symbols and pins after active integrator drift.",
+    "Corrected native admission/custody adapter source window to actual lines45\u201358.",
+    "Selected three stronger packets; generic wet-bench stop already handled by existing eligibility, manual-review candidate remains unselected."
+  ],
+  "finished_utc": "2026-10-06T20:19:59.544753+00:00"
+}

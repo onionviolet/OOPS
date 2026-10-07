@@ -1,0 +1,413 @@
+{
+  "captured_utc": "2026-10-06T05:50:21.178459+00:00",
+  "git_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "dirty": true,
+  "private_snapshot_root": "/Users/weiwei/.codex/research/rogue-legacy/yair-read-snapshot-20261006T055021Z",
+  "snapshot_policy": "Exact read-input code/doc copies only, outside Git; no user saves/profiles/assets. Live source is moving. Recheck before implementation.",
+  "source_drift_reconciled": [
+    "simulation.js/effects added NetHack group/facts; paid/frozen/transition spans re-read and moved by1 line where applicable",
+    "reference_gameplay_state/feats added fieldcraft validation/definitions; scoped existing challenge/feat semantics re-read by assigned mapper"
+  ],
+  "files": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "lines": 23,
+      "semantic_read_ranges": [
+        [
+          1,
+          23
+        ]
+      ]
+    },
+    {
+      "file": "PROJECT.md",
+      "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "lines": 496,
+      "semantic_read_ranges": [
+        [
+          1,
+          23
+        ],
+        [
+          159,
+          210
+        ]
+      ]
+    },
+    {
+      "file": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "lines": 236,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md",
+      "sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "lines": 65,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "lines": 51,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/gm/dispatch/game-source-research-2026-10-06/README.md",
+      "sha256": "6ec009e5b71ff9a8dcf4c3be796bfb13dc749bf0cb0c97e69733064cab9c72b4",
+      "lines": 27,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/research/caves-of-qud/REPORT.md",
+      "sha256": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "lines": 36,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/research/dcss-dda-depth/REPORT.md",
+      "sha256": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+      "lines": 51,
+      "semantic_read_ranges": []
+    },
+    {
+      "file": "docs/research/rogue-legacy/ASSIGNMENT.md",
+      "sha256": "8d668dd6c7509a7452158056d3343e8c5ccff74305d21f85708b7f813dcf562e",
+      "lines": 15,
+      "semantic_read_ranges": [
+        [
+          1,
+          15
+        ]
+      ]
+    },
+    {
+      "file": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "lines": 85,
+      "semantic_read_ranges": [
+        [
+          1,
+          85
+        ]
+      ]
+    },
+    {
+      "file": "src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "lines": 242,
+      "semantic_read_ranges": [
+        [
+          64,
+          108
+        ]
+      ]
+    },
+    {
+      "file": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "lines": 51,
+      "semantic_read_ranges": [
+        [
+          1,
+          51
+        ]
+      ]
+    },
+    {
+      "file": "src/expedition_content.js",
+      "sha256": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a",
+      "lines": 156,
+      "semantic_read_ranges": [
+        [
+          50,
+          61
+        ],
+        [
+          79,
+          130
+        ]
+      ]
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "lines": 433,
+      "semantic_read_ranges": [
+        [
+          1,
+          53
+        ],
+        [
+          80,
+          126
+        ],
+        [
+          128,
+          267
+        ],
+        [
+          273,
+          432
+        ]
+      ]
+    },
+    {
+      "file": "src/feature_expansion_battle_host.js",
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+      "lines": 81,
+      "semantic_read_ranges": [
+        [
+          1,
+          80
+        ]
+      ]
+    },
+    {
+      "file": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "lines": 193,
+      "semantic_read_ranges": [
+        [
+          1,
+          35
+        ],
+        [
+          57,
+          100
+        ],
+        [
+          102,
+          180
+        ]
+      ]
+    },
+    {
+      "file": "src/feature_expansion_objects_host.js",
+      "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+      "lines": 134,
+      "semantic_read_ranges": [
+        [
+          1,
+          107
+        ],
+        [
+          109,
+          134
+        ]
+      ]
+    },
+    {
+      "file": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "lines": 122,
+      "semantic_read_ranges": [
+        [
+          1,
+          54
+        ]
+      ]
+    },
+    {
+      "file": "src/frontier_campaign.js",
+      "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "lines": 108,
+      "semantic_read_ranges": [
+        [
+          36,
+          108
+        ]
+      ]
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "lines": 62,
+      "semantic_read_ranges": [
+        [
+          1,
+          62
+        ]
+      ]
+    },
+    {
+      "file": "src/helper_content.js",
+      "sha256": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d",
+      "lines": 45,
+      "semantic_read_ranges": [
+        [
+          1,
+          45
+        ]
+      ]
+    },
+    {
+      "file": "src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "lines": 68,
+      "semantic_read_ranges": [
+        [
+          1,
+          68
+        ]
+      ]
+    },
+    {
+      "file": "src/native_battle_host.js",
+      "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "lines": 60,
+      "semantic_read_ranges": [
+        [
+          1,
+          59
+        ]
+      ]
+    },
+    {
+      "file": "src/native_equipment_transaction.js",
+      "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+      "lines": 29,
+      "semantic_read_ranges": [
+        [
+          1,
+          29
+        ]
+      ]
+    },
+    {
+      "file": "src/original_frontier_campaign_content.js",
+      "sha256": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866",
+      "lines": 197,
+      "semantic_read_ranges": [
+        [
+          180,
+          196
+        ]
+      ]
+    },
+    {
+      "file": "src/original_frontier_campaign_host.js",
+      "sha256": "80d5abd69b1c42f937c6dbf4dc07a74d9c135638a64a8146786298b0fe5b9675",
+      "lines": 119,
+      "semantic_read_ranges": [
+        [
+          56,
+          78
+        ],
+        [
+          80,
+          118
+        ]
+      ]
+    },
+    {
+      "file": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "lines": 55,
+      "semantic_read_ranges": [
+        [
+          1,
+          55
+        ]
+      ]
+    },
+    {
+      "file": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "lines": 105,
+      "semantic_read_ranges": [
+        [
+          1,
+          99
+        ]
+      ]
+    },
+    {
+      "file": "src/reference_gameplay_feats.js",
+      "sha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79",
+      "lines": 357,
+      "semantic_read_ranges": [
+        [
+          1,
+          29
+        ],
+        [
+          121,
+          180
+        ],
+        [
+          263,
+          289
+        ],
+        [
+          300,
+          343
+        ]
+      ]
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+      "lines": 161,
+      "semantic_read_ranges": [
+        [
+          1,
+          160
+        ]
+      ]
+    },
+    {
+      "file": "src/simulation.js",
+      "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+      "lines": 527,
+      "semantic_read_ranges": [
+        [
+          109,
+          162
+        ],
+        [
+          452,
+          511
+        ]
+      ]
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+      "lines": 295,
+      "semantic_read_ranges": [
+        [
+          106,
+          130
+        ],
+        [
+          225,
+          247
+        ]
+      ]
+    },
+    {
+      "file": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41,
+      "semantic_read_ranges": [
+        [
+          1,
+          41
+        ]
+      ]
+    },
+    {
+      "file": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "lines": 32,
+      "semantic_read_ranges": [
+        [
+          1,
+          32
+        ]
+      ]
+    }
+  ]
+}

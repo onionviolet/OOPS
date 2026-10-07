@@ -1,0 +1,11 @@
+import {worldCompletionLifeDefinitions} from './world_completion_life_content.js';
+import {worldCompletionLensDefinitions} from './world_completion_lens_content.js';
+import {worldCompletionLearningDefinitions,worldCompletionLearningSources,worldCompletionLearningItemSpecifications} from './world_completion_learning_content.js';
+import {createWorldCompletionMaterialsDefinitions} from './world_completion_materials_content.js';
+import {remainderConsequencesCoveredPlotEffects} from './audit_remainder_consequences_content.js';
+const materials=createWorldCompletionMaterialsDefinitions({coveredPlotEffects:remainderConsequencesCoveredPlotEffects,notchLocation:'Village',notchSiteId:'lore.warning.notch'});
+const families=[worldCompletionLifeDefinitions,worldCompletionLensDefinitions,worldCompletionLearningDefinitions,materials];
+export const WORLD_COMPLETION_GROUPS=Object.freeze(['world_completion_life','world_completion_lens','world_completion_learning','world_completion_materials']);
+export const worldCompletionDefinitions=Object.fromEntries([...new Set(families.flatMap(f=>Object.keys(f)))].map(k=>[k,families.flatMap(f=>f[k]||[])]));
+export const worldCompletionSources=worldCompletionLearningSources;
+export const worldCompletionItemSpecifications=worldCompletionLearningItemSpecifications;

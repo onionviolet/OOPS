@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-06T20:41:44.319497+00:00",
+  "authority": "Direct source-thread human save/coordination request verified by read_thread; existing future-engine ideaboard question retained.",
+  "owner": "docs/gm/dispatch/game-source-research-2026-10-06/",
+  "source_specific_acs_owner": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+  "cross_game_lenses": [
+    "progression_body_retention",
+    "materials_medicine_production",
+    "people_institutions_information",
+    "encounters_ecology_consequences",
+    "simulation_persistence_authoring_presentation"
+  ],
+  "games": [
+    {
+      "game_slug": "caves-of-qud",
+      "source_thread_id": null,
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Most recovered methods and split blueprint catalogues remain outside selected coverage.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Trace further fluid/material/status interactions into actual item/body/action consumers.",
+        "Inspect companion ownership, behavior and retained consequences only when Pets package/source is qualified."
+      ],
+      "report": "docs/research/caves-of-qud/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/caves-of-qud/REPORT.md": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+        "docs/research/caves-of-qud/INTAKE.json": "004eee9d6804803ae93cbfb9e2f35ce0a4a58742bc7e03a87f3424461337dba9",
+        "docs/research/caves-of-qud/VALIDATION.json": "63783c0ab636982a0c37312291eb75e1d090c9d573d0168a337db1602a46a741"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "rimworld",
+      "source_thread_id": "01a10f9a-bd2e-7fc3-bdbe-24b84cbb8711",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Base source selected; full health/combat/pathfinding/quality/incidents and DLC packages remain unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Follow a full injury/treatment/work/relationship consequence chain and exception.",
+        "Compare base institutional/work state with one source-accessible expansion system without treating installed installers as reading."
+      ],
+      "report": "docs/research/rimworld/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/rimworld/REPORT.md": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+        "docs/research/rimworld/COVERAGE.json": "aa86df42055707da48e60db8bf21c762e975893464349f8a4322e085de53ac7e",
+        "docs/research/rimworld/INTAKE.json": "ceed0a0dd17b5b02955863c15c64957ff6366c81a793372a8efe8ba02502df29",
+        "docs/research/rimworld/VALIDATION.json": "3cc74aef16eabdb12d8d34d1f313890e3b474f20ffec523f05201ae21a2d33de",
+        "docs/research/rimworld/CHECKPOINT.md": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "tales-of-maj-eyal",
+      "source_thread_id": "01a10f9a-c62e-73c2-91d3-fc8ca7f9f9c8",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Full talent/ego/campaign/hook catalogs, paid DLC, serialization/profile durability and RNG lifecycle are unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Trace a complete late-game resource/talent/status/AI counter interaction, including incompatibility and failure.",
+        "Qualify an available expansion source before comparing its distinct progression/campaign rules; retain source access gap."
+      ],
+      "report": "docs/research/tales-of-maj-eyal/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/tales-of-maj-eyal/REPORT.md": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+        "docs/research/tales-of-maj-eyal/COVERAGE.json": "eaa5c674b915dcae1fd4d720718c43806d188a3421c3141b3985c6a8fc15ce73",
+        "docs/research/tales-of-maj-eyal/INTAKE.json": "22b0dcff614dab7239751f29bae4b409aa690c2f425aa64b94a0efd5a9386bdc",
+        "docs/research/tales-of-maj-eyal/VALIDATION.json": "88e93ddaaf499e553950b8bd7ff5ccd68784004e121aa18a8c8f4d272064923a",
+        "docs/research/tales-of-maj-eyal/CHECKPOINT.md": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "elin",
+      "source_thread_id": "01a10f9a-cdf2-75b0-816a-cf12514a32f7",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "External source rows, scene/prefab data, full content catalogs and complete WorkSummary payout/cleanup chains remain unavailable or unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Trace work completion, payout, stock/needs/relations and interruption through full available consumers.",
+        "Qualify missing sheet/scene data before claiming specific content values or complete institutional/home progression."
+      ],
+      "report": "docs/research/elin/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/elin/REPORT.md": "eb0520ad82014a2eac6bd151dcddaadb11f9a2dbcbf857a393514a6ab1d9e56e",
+        "docs/research/elin/COVERAGE.json": "1ad5971ac1471cbe7db4701289fdab97e1fb0eedd364ff590d4808bd69632ac4",
+        "docs/research/elin/INTAKE.json": "9720273a133a672bb60ae1633d05b4629d903f5be72ef2d77f31d5fe140d8819",
+        "docs/research/elin/VALIDATION.json": "fe31ef93ad26207dfe8912cb3a9b412ef328d5b82dc074e9463f87e8e1ba10af",
+        "docs/research/elin/CHECKPOINT.md": "5624b49e0cbcba636778025428e36f7896d3964c7b3e0e423a84a4ba80b694b1"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "idling-to-rule-the-gods",
+      "source_thread_id": "01a10fa5-e9c3-7b31-9e4f-b8c7b59f298c",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Late creation/automation, full challenge carryover, dungeon/crafting/evolution, non-Growth campaigns and pet-specific modifiers remain unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Compare a Hard/Root challenge through actual commitment, reset/retention, multipliers and later use.",
+        "Trace pet dungeon combat or equipment evolution through paid preparation, failure and useful retained output."
+      ],
+      "report": "docs/research/idling-to-rule-the-gods/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/idling-to-rule-the-gods/REPORT.md": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+        "docs/research/idling-to-rule-the-gods/COVERAGE.json": "3d8abc444fe4d4e046eaffd2f63e3b122600a53e778981a0f1cd211c57e697c6",
+        "docs/research/idling-to-rule-the-gods/INTAKE.json": "ced29b7ac889d0c76686e956f9354a3e9344273ff31f9aadb1b36913a7e064d4",
+        "docs/research/idling-to-rule-the-gods/VALIDATION.json": "e91eb86d69221100cfe37fb909bd619f0102d28e1303d203d93f8e0980db2654",
+        "docs/research/idling-to-rule-the-gods/CHECKPOINT.md": "04ffba122960c4787557f175de5a3a0494d5e3836c499aa94786a315b8961dc2"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "rogue-legacy",
+      "source_thread_id": "01a10fac-d555-7690-8b87-41cd0c78980c",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Full classes/spells/enemies, procedural templates/absent room assets, other fairy objectives and save revision/backup/corruption remain unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Compare specific successor trait/class/spell combinations and their actual opportunity or cost changes.",
+        "Trace an unread objective/room-generation path or save-recovery exception without assuming asset-complete source."
+      ],
+      "report": "docs/research/rogue-legacy/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/rogue-legacy/REPORT.md": "5308717b7cbcd66310665e7a263c5e1d4d1ecbb9273dba2c36ed478ceb17ba7f",
+        "docs/research/rogue-legacy/COVERAGE.json": "6ec4ba4ad0bafbcae4471b0248cb6fe029f86dc492a844d1d489cf9a684ec9bb",
+        "docs/research/rogue-legacy/INTAKE.json": "b0b7cdaedf181c70a4c9c9e1731d0ba6ecf0c26831c73e6186146991f0f07e7a",
+        "docs/research/rogue-legacy/VALIDATION.json": "221454216252ffe6ad5cc62bec924c3f9c2164d65f13dd90ac14f774b4f3314c",
+        "docs/research/rogue-legacy/CHECKPOINT.md": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "streets-of-rogue",
+      "source_thread_id": "01a10fac-e18a-77d3-908d-39c38e11bb37",
+      "completed_scope": "available_source_fallback_complete_original_gameplay_gate_unmet",
+      "original_scope_limit": "Five original gameplay paths remain0/5; public framework/mod reading is not original-game source.",
+      "followup_state": "source_gate_unmet_no_restart_dispatched",
+      "proposed_questions": [
+        "Obtain or qualify supplied Assembly-CSharp.dll/dependencies or an actual pinned original-gameplay reference before the five game paths resume.",
+        "Then trace one alternative objective solution into NPC/property/status/environment/retained consequences; qualify Character Pack separately."
+      ],
+      "report": "docs/research/streets-of-rogue/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/streets-of-rogue/REPORT.md": "c0c24db0c25db33bc1cde40163edff4ebfcaae7e69dce4a72f7070b6ea504718",
+        "docs/research/streets-of-rogue/COVERAGE.json": "6683cf12d6acc116a0c3e95583232ebd81bb13eb8e4d2676fa0af9384e1417cc",
+        "docs/research/streets-of-rogue/INTAKE.json": "590379e6bd8f4bf8d2322f20e4907858aac3cb210d604555b9280597cc8c5c35",
+        "docs/research/streets-of-rogue/VALIDATION.json": "886622c341a278a30a674e2e02754990bcb0ff25cbd0a0e9a247a3bb805a60af",
+        "docs/research/streets-of-rogue/CHECKPOINT.md": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "keeperrl",
+      "source_thread_id": "01a10fac-e89b-75f2-b868-358189a66ade",
+      "completed_scope": "selected_five_path_review_complete",
+      "original_scope_limit": "Concrete spell/cooldown/resources, body/material/effect/item catalogs, full factions/retirement/adventurer/network/generation and save/scheduling remain unreviewed.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Trace concrete spell or body/material interactions through costs, tactical choices, harm and later work capability.",
+        "Follow one fuller faction/raid/travel/retirement chain into actual resource/person/world-state consequences."
+      ],
+      "report": "docs/research/keeperrl/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/keeperrl/REPORT.md": "00e3b232af375474b7ee1f3ac9f909ef9bf378c8f02b62b05719ee6eb7eb7d67",
+        "docs/research/keeperrl/COVERAGE.json": "ac288824c83768d3922f4c5e5861a369e565f7de3ab3236f07cbec80a97cc298",
+        "docs/research/keeperrl/INTAKE.json": "f7a31ce4af30545f20c2e75cc204317fa156e4aa846d9c820e266963b6904463",
+        "docs/research/keeperrl/VALIDATION.json": "b14ccdf79cda54ae28beee9ebf898250ef5e99699ad173e0554561ed508f7823",
+        "docs/research/keeperrl/CHECKPOINT.md": "9544ae970c3afb59a552bc0fd7205bbc244a94caa2952977fba32d78b7df63fa"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    },
+    {
+      "game_slug": "amazing-cultivation-simulator",
+      "source_thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+      "completed_scope": "original_five_families_plus_two_selected_dlc_traces",
+      "original_scope_limit": "Original31findings/15finite paths plus two DLC traces; deeper body/God/FuPractice/ascension, formations/fengshui, tribulations/artifacts, ecology and sect systems remain open.",
+      "followup_state": "proposed_not_dispatched",
+      "proposed_questions": [
+        "Reuse the ACS five-priority depth owner; select one route/formation/tribulation/production/institution dependency chain.",
+        "Extend Wudang acquisition/high-stage ratio consumers or Bamboo pet/ecology/useful-yield consequences only through named unread paths."
+      ],
+      "report": "docs/research/amazing-cultivation-simulator/REPORT.md",
+      "input_fingerprints": {
+        "docs/research/amazing-cultivation-simulator/REPORT.md": "5807ae2d22045da23209e81aa770b13d622a759836b2f5ef8506f91fe02bedd0",
+        "docs/research/amazing-cultivation-simulator/COVERAGE.json": "2dc7e5ee1ad60470044f972d04950d448ef2bf3aac96785d23d686d885320bb2",
+        "docs/research/amazing-cultivation-simulator/INTAKE.json": "098e00666937c622e8fd2b01948cc5403e4edeb7830727461f7ace4cfb1fb45c",
+        "docs/research/amazing-cultivation-simulator/VALIDATION.json": "1769b1c4f8cee974a51211101f5d199208d86a8f12039ef4ad70fd9e640f7e60",
+        "docs/research/amazing-cultivation-simulator/CHECKPOINT.md": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2"
+      },
+      "required_trace": [
+        "decision",
+        "prerequisites",
+        "expenditure",
+        "mutation",
+        "actual_downstream_consumer",
+        "time_policy",
+        "failure",
+        "aftermath"
+      ],
+      "source_questions_are_not_findings": true,
+      "selected_packets_are_separate_from_larger_lessons": true
+    }
+  ],
+  "dispatch_policy": "Reuse completed pins/coverage. Select concrete deeper gaps only in an authorized future assignment; no blanket rereading, duplicate exports, purchases, new chats or runtime takeover.",
+  "runtime_or_behavior_checks_performed": false
+}

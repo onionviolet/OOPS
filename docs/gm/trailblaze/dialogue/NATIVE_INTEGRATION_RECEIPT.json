@@ -1,0 +1,253 @@
+{
+  "at": "2026-10-04T20:19:26.658Z",
+  "status": "native integration and build complete; gameplay unverified",
+  "scope": "Finite original Glasshouse scene slice, including selected alternate native observation; final prose provisional",
+  "sourceHash": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+  "sourceInputs": {
+    "src/pocket_realm_scenes.js": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/pocket_realm_ui.js": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/pocket_realm_rules.js": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+    "src/native_realm_traveler.js": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+    "src/pocket_observation.js": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+    "src/observation_channels.js": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/expedition_content.js": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+  },
+  "artifacts": {
+    "bundle": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+    "sourceMap": "cb13c6c75d83801904e7905b3806d42aa0a035b5c02094e0c087326ca0e769b8"
+  },
+  "sourceMapMatches": [
+    {
+      "path": "src/pocket_realm_scenes.js",
+      "sourceHash": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/pocket_realm_content.js",
+      "sourceHash": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/pocket_realm_host.js",
+      "sourceHash": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/pocket_realm_ui.js",
+      "sourceHash": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/realm_state.js",
+      "sourceHash": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/pocket_realm_rules.js",
+      "sourceHash": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "sourceHash": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/pocket_observation.js",
+      "sourceHash": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/observation_channels.js",
+      "sourceHash": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "sourceHash": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/main.js",
+      "sourceHash": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sourceHash": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sourceHash": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sourceHash": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sourceHash": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "embedded": true,
+      "matches": true
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sourceHash": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "embedded": true,
+      "matches": true
+    }
+  ],
+  "checks": {
+    "syntax": "node --check source passed",
+    "imports": "ESM scene/host/observer/actual expeditionRegistry imports passed",
+    "factory": "18 declarations/four families serialize as JSON",
+    "proposedConstructor": {
+      "connectionId": "exchange.glasshouse.view",
+      "open": false,
+      "bidirectional": false,
+      "scope": {
+        "singleSample": true,
+        "bodyMovement": false,
+        "cargoMovement": false,
+        "reactiveActionsAdvanceClock": false,
+        "replayWritesState": false
+      }
+    },
+    "ordinaryCommandsRegistered": [
+      "glasshouse.main.glasshouse.scenes.welcome",
+      "glasshouse.main.glasshouse.scenes.paid_work",
+      "glasshouse.main.glasshouse.scenes.damp_trial",
+      "glasshouse.main.glasshouse.scenes.sound_trial",
+      "glasshouse.main.glasshouse.scenes.cooperative_trial",
+      "glasshouse.main.glasshouse.scenes.shelf",
+      "glasshouse.main.glasshouse.scenes.private_research",
+      "glasshouse.main.glasshouse.scenes.offer_research",
+      "glasshouse.main.glasshouse.scenes.hear_research",
+      "glasshouse.main.glasshouse.scenes.return",
+      "glasshouse.main.glasshouse.scenes.refuse",
+      "glasshouse.main.glasshouse.scenes.leave_terms"
+    ],
+    "selectedNativeObservationCommandsRegistered": [
+      "pocket.observation.earn_listener",
+      "pocket.observation.craft_device",
+      "pocket.observation.activate",
+      "pocket.observation.sample",
+      "pocket.observation.detect",
+      "pocket.observation.notice",
+      "pocket.observation.shutter",
+      "pocket.observation.claim",
+      "pocket.observation.cooperate"
+    ],
+    "selectedNativeObservationControls": [
+      "pocket.observation.earn_listener",
+      "pocket.observation.craft_device",
+      "pocket.observation.activate",
+      "pocket.observation.shutter",
+      "pocket.observation.claim",
+      "pocket.observation.cooperate",
+      "pocket.observation.replay"
+    ],
+    "internalSampleDetectNoticeExcludedFromControls": true,
+    "listenerSourceRegistered": true,
+    "registry": {
+      "sources": 22,
+      "commands": 173,
+      "powers": 4
+    }
+  },
+  "selectedBinding": {
+    "owner": "Engine master",
+    "receipt": "docs/gm/dispatch/ENGINE_PARALLEL_REPLY.md#late-scene-delta-selection-2026-10-04",
+    "adapter": "src/pocket_observation.js",
+    "listener": "Earned local calibration after actual NPC funded research/shelf/packing instruction; one real player coin; NPC source/body/power only",
+    "device": "Owned reusable template, two logs, one kit and two stamina; no copied source",
+    "view": "One coin for twelve joined played minutes, public timestamped actual sample, anonymous actual detection and one zero-fuel notice per activation",
+    "cooperation": "Actual local co-location and one coin; remote scalar service settlement unselected",
+    "replay": "main.js returns before write guard/publisher; native view projection only",
+    "unselectedSceneObserverDeclarations": [
+      "glasshouse.main.glasshouse.scenes.supply_listener",
+      "glasshouse.main.glasshouse.scenes.listener_setup",
+      "glasshouse.main.glasshouse.scenes.notice_sample",
+      "glasshouse.main.glasshouse.scenes.send_notice",
+      "glasshouse.main.glasshouse.scenes.cooperate",
+      "glasshouse.main.glasshouse.scenes.replay"
+    ]
+  },
+  "staticReadback": [
+    "Twelve ordinary scene command IDs consumed by selected host; preparation/shelf keys map to canonical instance",
+    "Private NPC research pays its actual owner; explicit co-located offer targets player; report has heard cause/basis",
+    "Real typed one-way viewing edge/channel validates actual body, acquired source/faculty/power, anchor and current sample/detection/notice recipients",
+    "Source/device grants occur in consented command effects, never import/render/replay; other existing body form rejects calibration",
+    "View shutter/expiry/support loss retain causal evidence; stored replay only exposes player-recipient receipts",
+    "Native ordinary travel and physical entry require shutting view; local co-operation retains common participant/currency publisher",
+    "Final saved active view/activity-clock authorization matches real saved Village body/contact/cause/source/anchor/expiry/endpoint"
+  ],
+  "review": {
+    "agent": "/root/glasshouse_scene_review",
+    "status": "completed",
+    "report": "OBSERVATION_SOURCE_REVIEW.md",
+    "sourceHash": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "disposition": "Conditional spare-kit stock finding closed for unselected declaration; no further source edit pending"
+  },
+  "compatibility": {
+    "expansion": 5,
+    "simulation": 3,
+    "optionalRealmPrototype": 2,
+    "compiledDefinition": 2,
+    "optionalObservation": 1,
+    "optionalActivityClock": 1,
+    "missingOptionalRecords": "No enrollment/reward",
+    "wrapper1": "Undelivered prototype explicitly incompatible",
+    "proof": "Source decision only; save/reload proof deferred"
+  },
+  "rootReported": {
+    "build": "npm run build passed on exact final source",
+    "unchangedInputs": 23,
+    "sourcemapMatches": 22,
+    "localAssets": "index/bundle/SVG HTTP200; not parent browser play"
+  },
+  "deferred": [
+    "unit/scenario/regression suites",
+    "generated-save journey/return/repeat/cancel and actual controller/stock/privacy checks",
+    "view/notice/claim/co-location/shutter/expiry/support-loss behavior",
+    "save/import/reload/failure injection",
+    "final dialogue/lore/voice/costs/game-feel acceptance"
+  ],
+  "noGameplayProofClaimed": true,
+  "noPrivateSaveAccess": true,
+  "sourceFrozen": true,
+  "docCheck": {
+    "currentMarkdownFiles": 4,
+    "localLinks": 32,
+    "anchors": 6,
+    "errors": [],
+    "sourceDrift": [],
+    "allTaskJsonParsed": true
+  }
+}

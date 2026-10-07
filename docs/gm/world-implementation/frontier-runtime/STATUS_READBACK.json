@@ -1,0 +1,56 @@
+{
+  "capturedAtUtc": "2026-10-05T20:39:40.974559+00:00",
+  "owner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+  "sourceBuild": "f381c6503a58",
+  "sourceMapMatch": "160/160",
+  "staticSourceDrift": [],
+  "frozenIDs": "33parents/15steps/seven endings unchanged",
+  "codeGaps": 0,
+  "currentGateStates": {
+    "codeNativeUIBuild": "delivered-implemented-unverified",
+    "behavior": "deferred-not-run",
+    "director": "pending"
+  },
+  "authoredLocalLinks": "passed; original-relative verbatim history excluded",
+  "statusHashes": {
+    "PROJECT.md": "7280321d8430badd0276678c836af928d535284b86dc735f46d06d5b0a52dbd5",
+    "docs/USER_VISION.md": "b5aea8db00abd38c2c733f1e79d780686456d3038e6b366dcea33afc23c2efda",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "1ae10cd711ce99ba678b0e8fcdcc47490dc11468d922795f0e2b0932603a599e",
+    "docs/gm/world-implementation/RUN.json": "0f8c4b9c23a1048ac362728834d95ae56c02960e45046bf3c2abdae63a219aaf",
+    "docs/gm/world-implementation/README.md": "257e3690e918c36805672296d2ca4a2ebadfb590458da657c453b5e8917b25ef",
+    "docs/gm/world-implementation/CHECKPOINT.md": "73c5a68562a1f53c94fd4e3e0b1ce96c9e2e11459cc8f4529155e0b5552f80a0",
+    "docs/gm/world-implementation/INTERFACE.md": "c4fe78bbb44e512dfdb9e04cb3b01425ab653da08a541c381b609a3904523da8",
+    "docs/ENGINE_AUTHORING.md": "c26e7362abbe8336f6232947a93432e3dac4b10880ba4a636cf63a2b56450d6f",
+    "docs/ENGINE_EXPANSION.md": "540ead5ec1d1959271f2ed05a400a980a22a57e4357fafb74249702df8a6bb49",
+    "docs/PLAYTEST.md": "d13b88140d07cb14594e4e9a7af847a702c97fe5265514cb102bfff74ce2665e",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md": "99ca9c0d9097a56f685a19dc6b64c41bc5717361fc4487c673a772b0fa81aa9f",
+    "docs/worlds/original-frontier/COMPLETION_LEDGER.json": "2f20ef9560c3950dca148e186d4b5738b4a3dfa35431d6ec3122ff2493bbdb29",
+    "docs/worlds/original-frontier/WORLD_COMPLETION.md": "043f89406b20f4591b141332f27c6b7bc455c5564788b8ab955d5e10281f5ded",
+    "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md": "ee40e949b072675b5615ceb13a544a7baaa06dc06d4e21ab2475f92418399de0",
+    "docs/worlds/original-frontier/REPORT.md": "9bd9308a5146f333e4d9f76c02193e4acc78cd200cd04cb9543134b9c2219438",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/COVERAGE.md": "2b652f1eb5ac4c5a2b37100be1391da8317e86c0084a568cdd1e5d64b9da7589",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/DELIVERY.md": "5bedcd36933c879788901beb363c7a3f8054ac5b5e87961a87e0dfe8e2940bf3"
+  },
+  "runtimeEvidenceHashes": {
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md": "8e9a3d61f0061da42033820afc82451e2c14ac35e583a26d7750acd2987ea4b7",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/FIELD_RETURN.md": "ecc74a2f213a06c7b79b6ddde625b6f38ba2348f98c3f667b6abcf3d754d674e",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/INITIAL_PROGRESS.json": "7d5d6c6c53372ecaf52cb904ae5868a990dd98070205ca2fbf815be91bf6b10f",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/DISPATCH_PROGRESS_HISTORY.md": "e3ccda5894b5ab23ea82c88df7d8cd42f8879aca98525196d0402c34486ddd18",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/CAREER_RETURN.md": "e8e2e4990c55c2b804d58a4383cf44a3431eb7be511cccbb86c52c8d60d764ed",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/DELIVERY.md": "5bedcd36933c879788901beb363c7a3f8054ac5b5e87961a87e0dfe8e2940bf3",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/RUNTIME_BASELINE.json": "1502dc90ea435487c7197a39338e5378bc3860ebf463b67513860d20cd0ccd12",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/UI_RETURN.md": "8de6dfa43442ad61df3ba4caf9ed0ad1f36d311267375666fc01b1b48e0ac827",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/COVERAGE.json": "95acfa51d9e5602ca147d34fd7e71e609fd5aa171b6e7ed44be82bda29aef459",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/COVERAGE.md": "2b652f1eb5ac4c5a2b37100be1391da8317e86c0084a568cdd1e5d64b9da7589",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/DISPATCH_RECEIPT.json": "10ba0e423fc2a71dddbea8b77af905c2f7b7e9a0f3d1d08af68f0b7aebb91193",
+    "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/world-implementation/frontier-runtime/BUILD.json": "4b422a60551ccd9a1b4efaf0dbc11d34dc7826fe24053a7d0f821c5adf6924aa"
+  },
+  "localServer": {
+    "sessionId": 17764,
+    "pid": 82714,
+    "port": 8123
+  },
+  "privateSaves": "untouched"
+}

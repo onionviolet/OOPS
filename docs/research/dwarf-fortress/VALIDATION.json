@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "checked_at": "2026-10-07T03:49:37.504669+00:00",
+  "checks": [
+    "JSON parse",
+    "33 unique findings/17 paths/all findings covered",
+    "five packets with supported finding IDs",
+    "all source/reuse line bounds and current hashes",
+    "semantic-review span bounds",
+    "relative report/packet/checkpoint links",
+    "full retained-file hash verification receipt"
+  ],
+  "source_or_gameplay_checks": "Source syntax/runtime/gameplay not run; no build affected.",
+  "gameplay_tests": "deferred/unrun",
+  "source_refs_checked": 102,
+  "retained_files_verified": 2749
+}

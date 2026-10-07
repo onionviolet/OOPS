@@ -1,0 +1,1533 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "role": "Items crafting and refinement GM",
+  "status": "planning-complete-checked",
+  "authority": "Planning/report-only; master alone merges canonical plan/RUN. Runtime remains held for human review.",
+  "base": {
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty": true
+  },
+  "priority_meaning": {
+    "0": "necessary transaction/identity integration for selected item cases",
+    "1": "depth or support contract needed when the selected case uses it",
+    "2": "scope simplification and qualification"
+  },
+  "measurement": {
+    "runtime": "not measured; no benchmark/build/game execution",
+    "tokens": "not available; no savings claimed",
+    "static_counts": "only evidence/file/check counts, not cost measurements"
+  },
+  "input_snapshot_reference": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "wave_match": true
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "inspected_scope": [
+        "1-31",
+        "285-349"
+      ],
+      "frozen_wave_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "wave_match": true
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "inspected_scope": [
+        "181-218"
+      ],
+      "frozen_wave_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "wave_match": true
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/ASSIGNMENT.md",
+      "sha256": "5c321a411345475da416ed0f9eb28beb78583509de197bb34addb49fd2994a6c",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "5c321a411345475da416ed0f9eb28beb78583509de197bb34addb49fd2994a6c",
+      "wave_match": true
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "sha256": "7a6ea6814ef7a12832dd09ff475f2b4bd04dd4df34fbca59d2654f367d4668d1",
+      "inspected_scope": [
+        "all",
+        "follow-up targeted authority/index row readback; runtime hold unchanged"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null,
+      "capture_history": [
+        {
+          "sha256": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+          "note": "initial audit read/check; earlier claims remain scoped"
+        }
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+      "inspected_scope": [
+        "targeted depth/roles/translation/RNG/phases and review sections",
+        "7-11,207-235 drift reconciliation: new integration strategy planning lane; runtime hold remains",
+        "follow-up targeted authority/index row readback; runtime hold unchanged"
+      ],
+      "frozen_wave_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "wave_match": false,
+      "capture_history": [
+        {
+          "sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+          "note": "initial audit read/check; earlier claims remain scoped"
+        }
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae",
+      "inspected_scope": [
+        "base/checks/roles; exact items and held role records",
+        "final role/hold readback; other aspect dispatch bookkeeping can continue",
+        "follow-up targeted authority/index row readback; runtime hold unchanged"
+      ],
+      "frozen_wave_sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+      "wave_match": false,
+      "prior_capture_sha256": "a368ccfb04c217522393c7dde60d4db370fe8d61a4a70b62d5ad11a20035fa1f",
+      "capture_history": [
+        {
+          "sha256": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4",
+          "note": "initial audit read/check; earlier claims remain scoped"
+        }
+      ]
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "wave_match": true
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "wave_match": true
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+      "sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "wave_match": true
+    },
+    {
+      "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "sha256": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+      "wave_match": true
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+      "inspected_scope": [
+        "targeted material/Gu/production rows"
+      ],
+      "frozen_wave_sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+      "wave_match": true
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "inspected_scope": [
+        "1-55",
+        "152-350",
+        "class declaration index",
+        "447-750",
+        "1158-1248",
+        "4170-4277",
+        "1089-1150",
+        "1291-1313"
+      ],
+      "frozen_wave_sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "wave_match": true
+    },
+    {
+      "path": "src/acquisition.js",
+      "sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "wave_match": true
+    },
+    {
+      "path": "src/native_equipment_transaction.js",
+      "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+      "wave_match": true
+    },
+    {
+      "path": "src/native_storage_transaction.js",
+      "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+      "wave_match": true
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "inspected_scope": [
+        "1-116",
+        "118-198"
+      ],
+      "frozen_wave_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "wave_match": true
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "inspected_scope": [
+        "305-355",
+        "2920-2948",
+        "2970-3055",
+        "3100-3230",
+        "3260-3295",
+        "3399-3464",
+        "targeted crafting/consumption/publication references",
+        "1684-1733"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "sha256": "649a1b0b8cd04536f493fa51e213923f37a744c952241c5cc476bd68a4daa3ba",
+      "inspected_scope": [
+        "44-140",
+        "210-264",
+        "285-329",
+        "1138-1188",
+        "targeted declarations and smelting references",
+        "1-32",
+        "1830-1921"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/components/inventory_component.js",
+      "sha256": "7f1efc3709b7c89ab554c12f774578dd02568ef24f73c050935a7eb96c698bea",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+      "inspected_scope": [
+        "all"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "inspected_scope": [
+        "90-211",
+        "249-283",
+        "targeted job/cost/reservation references"
+      ],
+      "frozen_wave_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "wave_match": true
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "inspected_scope": [
+        "1-72"
+      ],
+      "frozen_wave_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "wave_match": true
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "inspected_scope": [
+        "30-49",
+        "targeted publication references"
+      ],
+      "frozen_wave_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "wave_match": true
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "inspected_scope": [
+        "targeted project/phases/commands"
+      ],
+      "frozen_wave_sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "wave_match": true
+    },
+    {
+      "path": "src/pocket_realm_scenes.js",
+      "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "inspected_scope": [
+        "1-67",
+        "79-146",
+        "targeted paid trial/research/listener references"
+      ],
+      "frozen_wave_sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "wave_match": true
+    },
+    {
+      "path": "src/pocket_realm_content.js",
+      "sha256": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+      "inspected_scope": [
+        "124-158",
+        "targeted repair references"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/realm_cargo.js",
+      "sha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+      "inspected_scope": [
+        "40-75",
+        "91-144",
+        "targeted custody/cargo declarations"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/gameplay_transactions.js",
+      "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+      "inspected_scope": [
+        "1-74"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/models/person.js",
+      "sha256": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+      "inspected_scope": [
+        "482-547"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "inspected_scope": [
+        "1-45"
+      ],
+      "frozen_wave_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "wave_match": true
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "sha256": "c5f3e5365727cf87a4ea8fc0113de29c8e25e815fb6a00b9019cc278a5a00cc9",
+      "inspected_scope": [
+        "3-12",
+        "24-32",
+        "follow-up targeted authority/index row readback; runtime hold unchanged"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null,
+      "capture_history": [
+        {
+          "sha256": "d78e28c30170f48bb153ba96d8234085ac15fe63abae8853921dc9d3349a4d6f",
+          "note": "initial audit read/check; earlier claims remain scoped"
+        }
+      ]
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+      "sha256": "b6189133633fbf1fe057747c405ea1985b03482ea994b554a0b05c4ea335fa1d",
+      "inspected_scope": [
+        "chapter-102/106 index and RI-c0102 claim window only"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    },
+    {
+      "path": "src/active_effects.js",
+      "sha256": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+      "inspected_scope": [
+        "1-46",
+        "163-185",
+        "targeted effect declarations"
+      ],
+      "frozen_wave_sha256": null,
+      "wave_match": null
+    }
+  ],
+  "findings": [
+    {
+      "id": "IT01",
+      "priority": 0,
+      "kind": "risk",
+      "title": "Exact item portions must survive native reconstruction and disposition",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 224,
+          "line_end": 245,
+          "claim": "Inventory identity is id/components plus optional quality; the key is memoized."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 1209,
+          "line_end": 1245,
+          "claim": "Reconstruction destructures only id/components/quality and recreates template equipment."
+        },
+        {
+          "path": "src/acquisition.js",
+          "line_start": 70,
+          "line_end": 94,
+          "claim": "Publication reconstructs key/count inventory; envelope writes counts."
+        },
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "line_start": 52,
+          "line_end": 56,
+          "claim": "A custody entry blocks disposition of the entire matching key."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 144,
+          "line_end": 165,
+          "claim": "Item/transfer effects reject matching equipped keys and key-level loans."
+        },
+        {
+          "path": "src/native_storage_transaction.js",
+          "line_start": 14,
+          "line_end": 30,
+          "claim": "Chest correctly permits bag spares alongside equipment, while rejecting equipped-only and stale requests."
+        },
+        {
+          "path": "src/realm_cargo.js",
+          "line_start": 114,
+          "line_end": 142,
+          "claim": "Cargo already validates explicit custody allocations and separates owned/borrowed quantity slices."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "line_start": 20,
+          "line_end": 26,
+          "claim": "C2 already proposes lot/provenance conservation, separate custody and compatible native aggregation."
+        }
+      ],
+      "current_player_behavior": "Same-type/quality stock is aggregated. A player holding both owned and loaned copies cannot selectively dispose of the owned portion through key-level guards. Bag spares transfer through the chest despite a worn same-key copy; generic simulation item effects reject a matching equipped key. Extra JSON properties alone are not durable native specimen support.",
+      "proposed_player_behavior": "Resolve a selected owned/loaned/reserved/installed portion against one authoritative stock owner and expected revision. Use bulk counts for indistinguishable goods, lots for condition/provenance distinctions and stable specimens for unique/installed objects. Project those references into existing bag/chest/equipment/cargo consumers; preserve visible aggregation without losing the actual selection.",
+      "authoritative_owner": {
+        "current": [
+          "native inventory/equipment owners",
+          "simulation custody",
+          "native cargo projection"
+        ],
+        "proposed_writer": "Engine integrates identity/projection/native/save consumers; Items specifies object/lot rules; master selects compatibility."
+      },
+      "dependencies": [
+        "Micro C2",
+        "native reconstruction and import validation",
+        "Engine-selected schema/projection",
+        "cargo/custody reconciliation"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Two owned survey kits and one loaned identical kit share a display row. Craft with an owned kit, return the lender’s kit, and preserve an equipped same-type spare distinction. No kit exists twice."
+      },
+      "acceptance_case": {
+        "positive": "Consume one selected owned portion and deposit an owned bag spare while its sibling remains installed.",
+        "adverse": "Reject spending the loaned/reserved/installed portion and an old selection revision without changing stock.",
+        "retention": "Split/merge/transfer/import/reload keeps total quantities, legal claims and the same unique specimen; old ordinary keys retain their selected compatibility."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Local numerical balance and schema remain unselected."
+      },
+      "verification_limits": "Static inspection of named consumers only. Cargo slicing is actual support, not evidence of general lot persistence. No gameplay, reload or mixed-custody probe ran.",
+      "retain": [
+        "stageAcquisition initial ownership validation",
+        "chest owned-spare behavior",
+        "cargo exact allocation and custody bindings",
+        "legacy fungible key compatibility"
+      ],
+      "cheaper_correct_alternative": "Do not give every log an instance ID. Use aggregate counts until a meaningful condition/custody distinction is introduced; no parallel inventory or unconsumed instance property.",
+      "baseline_delta": "Already-covered C2 becomes a concrete native selector/reconstruction contract, including positive cargo/chest functions and currently inconsistent same-key disposal."
+    },
+    {
+      "id": "IT02",
+      "priority": 0,
+      "kind": "risk",
+      "title": "Native crafting and consumption need the existing staged publication boundary",
+      "evidence": [
+        {
+          "path": "src/acquisition.js",
+          "line_start": 36,
+          "line_end": 66,
+          "claim": "stageAcquisition validates all debits against initial owners before grants within its call."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 108,
+          "line_end": 142,
+          "claim": "Simulation start spends costs before frozen output and seeded outcome selection on a plan."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 2970,
+          "line_end": 3029,
+          "claim": "Bulk craft draws Math.random and mutates live counters/materials/output."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3153,
+          "line_end": 3165,
+          "claim": "Native component craft adds result before removing material."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3269,
+          "line_end": 3282,
+          "claim": "Native equipment craft adds result before removing components."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3399,
+          "line_end": 3449,
+          "claim": "Native consumption applies active effects and random recovery before removing the dose."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 305,
+          "line_end": 355,
+          "claim": "Existing expansion publication stages native domains, persists, then publishes them."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "line_start": 30,
+          "line_end": 49,
+          "claim": "Envelope domains validate and storage.setItem completes before return."
+        }
+      ],
+      "current_player_behavior": "Guarded native crafting exists, but its legacy handler mutates inventory, XP, statistics and browser RNG outside the staged expansion path. Some branches grant live output before input removal. Consumption similarly publishes effects/recovery before removal. This is a static integration risk, not an observed duplication or save failure.",
+      "proposed_player_behavior": "Stage the whole selected native craft/use result, including input debits, XP/unlocks, statistics, active effects, recovered containers and RNG state. Validate initial required stock and selected support before any output becomes available. Persist the combined envelope, then publish. Preserve level-by-level craft skill transitions and current no-op consumption rules rather than silently replacing their outcomes.",
+      "authoritative_owner": {
+        "current": [
+          "legacy use_recipe/use_item native handlers",
+          "staged gameplay/acquisition/equipment publication"
+        ],
+        "proposed_writer": "Engine owns native transaction/persistence bridge; Items owns recipe semantics; Powers owns native effect/body execution."
+      },
+      "dependencies": [
+        "IT01 selectors",
+        "active effect/statistics/unlock staging",
+        "frozen deterministic RNG outcome",
+        "all required ownership debits in one phase"
+      ],
+      "world_example": {
+        "world": "Native Frontier",
+        "case": "A component craft reaches a skill unlock and produces one quality-specific blade. Input, blade, XP/unlock and roll commit together. A potion commits its effect and surviving phial together with the consumed dose."
+      },
+      "acceptance_case": {
+        "positive": "One accepted craft has the declared input, output quality, XP/unlock and statistics; one accepted potion use consumes exactly one dose.",
+        "adverse": "A missing late input, reconstruction error or failed durable publication leaves original live inventory/effects/XP/bytes/RNG unchanged.",
+        "retention": "Duplicate request, refresh and reload cannot replay the result. Old bulk crafting outcomes retain explicitly chosen compatibility."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Whether every existing vanilla crafting branch should migrate in the first selected slice is a master scope decision; no new balance is selected."
+      },
+      "verification_limits": "Static branch inspection. stageAcquisition guarantees apply to one call, not an arbitrary series of effect calls; simulation effects can be ordered transformations. No exploit/failure/replay test ran.",
+      "retain": [
+        "native quality and crafting mastery",
+        "failure XP and partial-output semantics",
+        "existing staged native publication",
+        "seeded simulation preview/commit separation"
+      ],
+      "cheaper_correct_alternative": "Adapt selected legacy handlers to one shared transaction service rather than build a second craft economy or a full replacement of all recipes at once.",
+      "baseline_delta": "Macro/Micro require conservation generally; this finding identifies the actual legacy input/output/effect bridge and preserves its useful outcomes."
+    },
+    {
+      "id": "IT03",
+      "priority": 1,
+      "kind": "missing",
+      "title": "Multi-output recipes and explicit input roles expose useful chains",
+      "evidence": [
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 48,
+          "line_end": 71,
+          "claim": "Native Recipe has one result/getResult and availability/skill metadata."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 103,
+          "line_end": 137,
+          "claim": "ItemRecipe counts input materials to derive batch availability."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 298,
+          "line_end": 322,
+          "claim": "Material selection uses ID/type and base-price ordering."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 1140,
+          "line_end": 1156,
+          "claim": "Real ore-plus-coal smelting already exists."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 4194,
+          "line_end": 4200,
+          "claim": "Cooked clam explicitly documents that multiple native recipe results are unsupported."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 144,
+          "line_end": 152,
+          "claim": "Staged effects can grant several ordinary item keys; lower-level output-vector support exists."
+        }
+      ],
+      "current_player_behavior": "Cooking/smelting/component production are present. Native recipes yield one item type, select material by ID/type/price and do not declare retained tools, catalysts, byproducts or containers as separate input/output roles. The clam comment gives a concrete missed use.",
+      "proposed_player_behavior": "Author recipes as explicit consumed reagents/fuel, retained/reserved apparatus, installed inputs and output vectors. Include declared partial results, waste and surviving containers once. Freeze compatible material selection, known versus unknown properties and quantity allocations. A substitute is legal for a particular design, not because it shares a global rarity. Multiple outputs may reuse current staged item effects.",
+      "authoritative_owner": {
+        "current": [
+          "crafting_recipes/native material selection",
+          "simulation item effects"
+        ],
+        "proposed_writer": "Items owns recipe definitions/yield/input roles; Engine binds exact selection/staging; Regions supplies actual harvested stock."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "IT07 retained tools",
+        "condition-aware recipe selectors"
+      ],
+      "world_example": {
+        "world": "Native Frontier; original extension of an existing clam intent",
+        "case": "One clam-cooking batch yields broth and cooked clams. A pot remains a retained tool; supplied fuel is spent. Selling the clams reduces what is available for the next meal or delivery."
+      },
+      "acceptance_case": {
+        "positive": "One accepted batch creates each declared output once and releases the same surviving pot.",
+        "adverse": "Reject an incompatible selected lot or unavailable tool before spend; partial failure follows its declared used-input and output policy.",
+        "retention": "Replay/reload preserves exact yields/lot causes and cannot recover the pot twice or use a produced byproduct as an initial input to the same phase."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "All new recipe quantities, substitutions and byproduct rules are original proposals; existing clam intent and smelting are verified code.",
+        "uncertainty": "Local numerical balance and schema remain unselected."
+      },
+      "verification_limits": "Inspected native recipe paths only. This is not a claim that simulation cannot grant multiple items. No invented franchise metallurgy, core-manufacturing recipe or material-physics balance is asserted.",
+      "retain": [
+        "current smelting and mastery-dependent yield",
+        "compatible cheap-material selection and stop-on-material-change behavior where valid",
+        "existing multi-effect staging"
+      ],
+      "cheaper_correct_alternative": "Use a bounded output list and typed input roles, not a chemistry solver. Collapse safe preparation stages that add no decision, evidence or irreversible state.",
+      "baseline_delta": "Adds native multi-output/retained-input and material-substitution semantics beyond the earlier generic refinement requirement."
+    },
+    {
+      "id": "IT04",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Operating state must affect the item that is actually equipped",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 164,
+          "line_end": 191,
+          "claim": "Base item fields include quality/components, without a general wear/charge/contamination lifecycle."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 521,
+          "line_end": 548,
+          "claim": "Rarity and stats are memoized and calculated from quality/template component stats."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 239,
+          "line_end": 261,
+          "claim": "Native assemblies retain component template IDs and aggregate quality, not individual installed component instances."
+        },
+        {
+          "path": "src/native_equipment_transaction.js",
+          "line_start": 3,
+          "line_end": 29,
+          "claim": "Native equipment reconstructs item keys and recomputes equipment/stat containers."
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 64,
+          "line_end": 80,
+          "claim": "Specimen/mount identity and condition/charge/calibration lifecycle are already proposed."
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 97,
+          "line_end": 105,
+          "claim": "Operating budgets and known trial conditions are already proposed separately from universal rank."
+        }
+      ],
+      "current_player_behavior": "Quality genuinely changes native equipment, and tools/artifacts have their own classes. Existing assemblies are template combinations with one quality value. Changing an unrelated scalar or adding a condition property cannot make the native equipped function consume charge or reflect a broken installed part.",
+      "proposed_player_behavior": "Bind selected integrity/wear, calibration, stored charge and contamination to the actual specimen or lot. Functions read the appropriate channels and current operative constituent set; replacing/removing a part updates the native effective function/stats without creating a fresh charge or losing unrelated mastery. Keep quality as quality, and invalidate derived item/stat projections when their selected dependencies change.",
+      "authoritative_owner": {
+        "current": [
+          "native Item/Equippable templates",
+          "native equipment/stat owner"
+        ],
+        "proposed_writer": "Items authors condition transforms/modes; Powers owns actual execution/budgets; Engine owns installed graph/native projection and persistence."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "Micro C3 channels",
+        "selected native equipment projection"
+      ],
+      "world_example": {
+        "world": "Original Frontier workshop",
+        "case": "An acquired actuator has fine machining but damaged seals and two charge units. Repair restores its seal-dependent lifting mode; a use consumes charge without reducing craftsmanship quality. Removing it returns that same repaired unit."
+      },
+      "acceptance_case": {
+        "positive": "A maintained supported mode really lifts its declared load; superior output remains superior.",
+        "adverse": "Reject a missing installed source, incompatible replacement or exhausted charge; suppress only functions actually dependent on a damaged part.",
+        "retention": "Unequip/refit/reload preserves specimen condition/charge and current derived stats; replacing a part does not refill the whole assembly."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Local numerical balance and schema remain unselected."
+      },
+      "verification_limits": "No runtime dynamic assembly or charge/wear execution was verified. The proposed actuator and its budget are original; this does not establish Fallout mechanics or selected thermal physics.",
+      "retain": [
+        "current native quality/stat behavior",
+        "real artifact/tool distinctions",
+        "assembly contract specimen/mount concept",
+        "source-supported immunity or superior functions"
+      ],
+      "cheaper_correct_alternative": "Begin with one fixed authored repairable/charged instrument and explicit dependencies. Do not make all equipment wear every hit, impose universal sockets or build a general heat solver.",
+      "baseline_delta": "Converts already-covered condition/installation metadata into actual native execution and cache/projection requirements."
+    },
+    {
+      "id": "IT05",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Consumable portions, care and contamination need a real use path",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 481,
+          "line_end": 490,
+          "claim": "UsableItem carries timed effects and recoverable-container chances."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 4180,
+          "line_end": 4191,
+          "claim": "Raw potato can poison; cooked potato provides a meal effect."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 4203,
+          "line_end": 4239,
+          "claim": "Healing powders and potion variants provide existing medicinal effects and phial recovery."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 4263,
+          "line_end": 4275,
+          "claim": "Roasted/purified rat meat differ in poisoning effects."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3399,
+          "line_end": 3449,
+          "claim": "Native use resolves effects/recovery from template ID, applies to the player and removes one item only if used."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 189,
+          "line_end": 198,
+          "claim": "Simulation conditions support definition-backed intensity/duration/immunity."
+        }
+      ],
+      "current_player_behavior": "Food preparation, medicine and poison already have positive and harmful timed functions. Native use consumes whole items and resolves template-level effects, so lot contamination, selected dose/serving, recipient-specific treatment and preserved liquid contents are not represented by that handler.",
+      "proposed_player_behavior": "Select an actual portion and its preparation/contamination/container state, then bind a selected native active-effect or body-response adapter to the actual recipient and cause. Support useful meal preparation, medicine delivery/treatment and toxin exposure/remedy where authored. Known food safety and discovered assays differ from hidden actual state. Preserve current no-op consumption behavior where chosen, and separate nutrition support from a compulsory hunger meter.",
+      "authoritative_owner": {
+        "current": [
+          "native usable/effect/consumption owners",
+          "simulation condition/body/vitals"
+        ],
+        "proposed_writer": "Items owns portion/preparation/container state; Powers owns condition/medicine/body response; Society/World owns knowledge and recipient contact; Engine binds native active effects."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02 active effect publication",
+        "selected recipient/contact/body checks",
+        "IT03 returned containers"
+      ],
+      "world_example": {
+        "world": "Original Frontier clinic",
+        "case": "Two same-recipe balm batches have different contamination histories. Supply two sealed integer doses to a consenting patient; an actual treatment consumes one suitable dose. Cooking a safe meal supports an agreed work session without forcing daily feeding."
+      },
+      "acceptance_case": {
+        "positive": "The selected prepared dose has its actual effect on the intended recipient and debits one portion.",
+        "adverse": "A wrong/unknown preparation cannot be silently treated as certified safe; a failed/no-op use follows the selected spend rule and cannot apply an effect before rejecting its missing dose.",
+        "retention": "Sharing, storing, splitting and reload preserve dose counts, contamination and effect cause; any source-specific same-target restriction belongs to that target."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "No medical simulation formula or universal drug interaction is selected; all clinic quantities/effects are original game proposals."
+      },
+      "verification_limits": "Game-mechanic design only, not real medical guidance. No claim of a general nutrition, poison-delivery or targeted-treatment engine. Existing template effects are verified statically; no gameplay check ran.",
+      "retain": [
+        "existing cooked/uncooked food choice",
+        "native medicine/poison and consumption skill effects",
+        "recoverable phials",
+        "condition immunity when source-supported"
+      ],
+      "cheaper_correct_alternative": "Use whole integer servings/doses or the smallest declared integer unit first. Add fractional fluid mixing, full diet modelling or universal spoilage only when a selected case requires it.",
+      "baseline_delta": "Adds actual portions/recipient/effect/container binding to earlier lot/condition proposals while preserving existing food and medicine functions."
+    },
+    {
+      "id": "IT06",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Blueprint research needs bounded evidence and reproducibility",
+      "evidence": [
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 79,
+          "line_end": 99,
+          "claim": "Glasshouse has actual funded kit work, consumed damp failure and successful fitting with instruction/tool requirements."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 109,
+          "line_end": 131,
+          "claim": "Paid private research, offered report and heard report remain separate knowledge events."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 168,
+          "line_end": 171,
+          "claim": "Knowledge tracks seen/interpreted/understood stages with optional attributed basis."
+        },
+        {
+          "path": "src/power_models.js",
+          "line_start": 13,
+          "line_end": 22,
+          "claim": "Design model checks chosen functional capacity; it does not fabricate equipment or an arbitrary blueprint graph."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 48,
+          "line_end": 71,
+          "claim": "Recipe availability and craft skill are present, without general design/trial evidence records."
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 105,
+          "line_end": 117,
+          "claim": "Known budgets, paid tests, blueprints and preserved refit plans are already proposed."
+        }
+      ],
+      "current_player_behavior": "Instruction, observation and paid controlled trials exist in specific content. Current recipe availability is a recipe unlock and Glasshouse preparation is a local fact/knowledge record. There is no demonstrated general blueprint-version/material-trial-to-reproducible-production binding in these inspected paths.",
+      "proposed_player_behavior": "A selected blueprint/trial records design revision, operator, actual sample/tool/setting, declared measured result/failure and who observed or heard it. Reproducible production checks the tested envelope and current apparatus/support. A failed test can teach one real condition while leaving previously validated designs valid. Transfer instruction/report rights and physical notes/tools separately.",
+      "authoritative_owner": {
+        "current": [
+          "knowledge and recipe availability",
+          "local Glasshouse trials",
+          "power-model capacity planner"
+        ],
+        "proposed_writer": "Items owns selected design/trial evidence; Source GM qualifies lore; Society owns disclosure; Engine binds costs/jobs/recipe availability."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "IT03/IT07",
+        "observer-qualified knowledge",
+        "selected recipe unlock bridge"
+      ],
+      "world_example": {
+        "world": "Folded Glasshouse; original extension",
+        "case": "A disclosed dry-seal result permits a known packing recipe with that substrate. Testing an unfamiliar lining costs one sample and yields a qualified failure report; it does not erase the dry-seal result or manufacture a new template."
+      },
+      "acceptance_case": {
+        "positive": "Reproduce a validated fitting using the same supported design envelope and actual apparatus.",
+        "adverse": "A heard result does not certify a new substrate, grant a tool or reveal private trial data; failed trial spends only its declared inputs.",
+        "retention": "Reload/report repetition never rerolls a trial or grants stock; design/evidence revision and the operator’s private knowledge persist through their chosen carriers."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Local numerical balance and schema remain unselected."
+      },
+      "verification_limits": "Specific paid research is supported and retained, not counted as missing. No dynamic invention/LLM recipe generation or new book experiment was performed.",
+      "retain": [
+        "Glasshouse expected failure and later sound fitting",
+        "private research versus offer versus report",
+        "observed/instructed/attributed knowledge",
+        "current craft skill progression"
+      ],
+      "cheaper_correct_alternative": "Use bounded authored hypotheses and a small evidence record for the selected design. Known safe recipes need no repeated experiment or research XP bar.",
+      "baseline_delta": "Extends already-covered blueprint knowledge into concrete reproducibility and failed-trial retention; avoids falsely claiming research is absent."
+    },
+    {
+      "id": "IT07",
+      "priority": 1,
+      "kind": "risk",
+      "title": "Tools and production support need reserved use, not ingredient consumption",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 738,
+          "line_end": 748,
+          "claim": "Tool is actual equip-slot equipment with its own tags."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 78,
+          "line_end": 99,
+          "claim": "Native station tier/skill influences success and quality."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 58,
+          "line_end": 65,
+          "claim": "Glasshouse work binds a site and co-participant."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 93,
+          "line_end": 108,
+          "claim": "Sound/cooperative trials check support and spend real distinct inputs."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 140,
+          "line_end": 169,
+          "claim": "Jobs save participants/site/costs/effects; completion applies frozen effects and releases the site."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "line_start": 32,
+          "line_end": 34,
+          "claim": "Earlier support review identifies missing all-worker/tool binding and completion-time physical/consent/source rechecks."
+        }
+      ],
+      "current_player_behavior": "Craft station tiers, body/tool facts, sites and job participants already support work. A generic item-cost list cannot represent a reusable mold’s occupancy or a borrowed tool’s allowed operation. Frozen completion applies job effects without a general current tool/substrate/condition policy.",
+      "proposed_player_behavior": "Recipes declare tool/facility/worker use rights and reserve actual support only for the phase that needs it. Ordinary prepaid escrow may legitimately complete after departure; physical fitting/live trials declare their ongoing support and completion recheck. Loss, interruption or cancellation returns only untouched reserved inputs. Allowed tool operation differs from permission to sell/consume/export it.",
+      "authoritative_owner": {
+        "current": [
+          "native tools and crafting stations",
+          "simulation sites/jobs/participants"
+        ],
+        "proposed_writer": "Items declares operating support/input role; Engine binds tool/material/participant reservations and phase policies; Bases owns collective facility/worker scheduling."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "IT03",
+        "Micro C4/C6/C7",
+        "selected prepaid-versus-live phase rule"
+      ],
+      "world_example": {
+        "world": "Original Frontier workshop",
+        "case": "A borrowed mold may be used under a local lease to cast owned metal. The same mold cannot be used in two simultaneous jobs; tool return differs from selling it. An ongoing actuator fitting cannot finish against a removed socket, while a completed paid casting escrow retains its output."
+      },
+      "acceptance_case": {
+        "positive": "Reserved tool returns in its actual condition and accepted work completes under its declared support/clock policy.",
+        "adverse": "Conflicting tool occupancy or withdrawn current fitting support pauses/fails the correct phase; no fresh mold or refund of already used fuel appears.",
+        "retention": "Reload keeps reservations/due times/used-versus-unused inputs and releases each reservation once."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Exact completion revalidation, interruption/refund and authorized clock semantics must be selected by Engine/master; no blanket absence rule is imposed."
+      },
+      "verification_limits": "The earlier project participant gap is inherited planning evidence; no new project implementation was inspected or run. Existing Glasshouse co-participant support is positive, not a generic absence claim.",
+      "retain": [
+        "station skill/quality effects",
+        "current site and participant reservation",
+        "paid escrow completion",
+        "custody restrictions on disposal"
+      ],
+      "cheaper_correct_alternative": "Use one bounded resource/occupancy reservation plus phase-required checks. Do not turn every station into a fully simulated factory or force all prepaid jobs to cancel on travel.",
+      "baseline_delta": "Concrete reusable/borrowed tooling contract builds on already-covered job revalidation; it is not a second Bases production planner."
+    },
+    {
+      "id": "IT08",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Repair, refit and salvage need different same-object transitions",
+      "evidence": [
+        {
+          "path": "src/pocket_realm_content.js",
+          "line_start": 135,
+          "line_end": 155,
+          "claim": "Glasshouse ordinary/practiced/NPC repairs already consume real stock and restore local bench support."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 239,
+          "line_end": 261,
+          "claim": "Native equipment manufacture retains template component IDs, not detachable individual instances."
+        },
+        {
+          "path": "src/models/person.js",
+          "line_start": 496,
+          "line_end": 530,
+          "claim": "Native equip/unequip recomputes stats and returns the equipped item to inventory."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 1209,
+          "line_end": 1245,
+          "claim": "Native reconstruction recreates supported template/quality equipment."
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 109,
+          "line_end": 117,
+          "claim": "Earlier proposal explicitly distinguishes same-unit repair/removal and consumed-unit salvage."
+        }
+      ],
+      "current_player_behavior": "Local structure repair works. The inspected item classes/manufacturing paths do not represent recovering the same worn component with its condition/charge, remelting its actual recoverable substrate or a general repair/salvage transform. Template component IDs cannot recover original child quality/provenance after disassembly.",
+      "proposed_player_behavior": "Repair changes selected condition on the surviving same specimen; refit moves actual parts under mount/support rules; disassembly releases surviving child specimens; salvage consumes the destroyed unit and creates declared recoverable lots with a transformation cause. Remelting consumes those materials/fuel under the local recipe and preserves impurity restrictions. Choose condition-aware paid repairs or sale/salvage as real alternatives.",
+      "authoritative_owner": {
+        "current": [
+          "local frame repair",
+          "native equipment/inventory"
+        ],
+        "proposed_writer": "Items owns lifecycle transforms/recipes; Engine owns installed graph/native stats/publication; Bases owns repair service rights."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "IT03",
+        "IT04",
+        "IT07",
+        "unique transformation receipt"
+      ],
+      "world_example": {
+        "world": "Original Frontier; original assembly fixture",
+        "case": "Repair a purchased damaged actuator or salvage its copper. The repair route retains its serial/provenance and remaining charge; salvage destroys it once and leaves defined scrap. Neither route respawns its parent assembly or donor source."
+      },
+      "acceptance_case": {
+        "positive": "Repair restores the actual seal-dependent function; removing an intact part returns that part with current state.",
+        "adverse": "Cannot repair and salvage the same reserved unit, dispose of a lender’s part, or recover template-new children from a destroyed component.",
+        "retention": "Duplicate/reentry/import/reload keeps once-only salvage outputs and declared irreversible losses; loops require export conservation rather than refunding disposed stock."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "original proposal",
+        "uncertainty": "Recovery rates and perfect/source-assisted restoration remain source-specific or original proposals; no universal material-loss percentage is imposed."
+      },
+      "verification_limits": "No claim that all repair is absent. No native salvage/remelting/condition runtime execution occurred; absence is limited to the inspected paths.",
+      "retain": [
+        "actual Glasshouse repair routes",
+        "native equip/unequip owner",
+        "source-supported restoration or genuine perfect recovery where qualified"
+      ],
+      "cheaper_correct_alternative": "First implement one same-specimen repair and one salvage recipe; a fixed repairable item is a useful limited proof. Dynamic nested refit waits until a selected case needs it.",
+      "baseline_delta": "Adds exact repair/disassembly/remelt alternatives and component recovery limits to the earlier assembly proposal."
+    },
+    {
+      "id": "IT09",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Living and unique sources require particular operating and product lifecycles",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 720,
+          "line_end": 735,
+          "claim": "Current Artifact is equipment with authored stats, not a general living artifact controller."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 181,
+          "line_end": 188,
+          "claim": "Claims protect held/settled unique acquisitions and explicit renewable release."
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+          "line_start": 37,
+          "line_end": 41,
+          "claim": "RI-c0102-02 is supplied-edition narrator evidence: detachable one-use healing leaves, essence-funded replenishment and a one-hour same-person healing restriction. Inheritance custody is distinct."
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+          "line_start": 10,
+          "line_end": 12,
+          "claim": "Existing source index distinguishes species-specific food/stock preservation, cultivation-fuel competition and dead/absent fossil Gu."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 69,
+          "line_end": 94,
+          "claim": "Earlier Gu loop already qualifies its bounded source scope and living upkeep/control paths."
+        }
+      ],
+      "current_player_behavior": "Artifact stats, sources/faculties, claims and finite item spending exist. They do not establish a particular living item’s body/aperture/control, species diet, product generation, source-preserving refinement or unique acquisition consequences. A generic artifact tag or loot row is insufficient.",
+      "proposed_player_behavior": "A selected living producer binds one real source specimen, its legal custody/controller, source-qualified feeding/essence/body support, function and explicit product lots. Source-specific refinement declares surviving/transformed/destroyed constituents and donor consequences. Unique artifacts/organs cannot be awarded from repeatable generic loot; genuine renewable products and superior sources remain genuinely useful under their own actual rules.",
+      "authoritative_owner": {
+        "current": [
+          "artifact templates",
+          "simulation claims/source/faculty/energy owners"
+        ],
+        "proposed_writer": "Items owns specimen/feed/product/lifecycle; Powers owns body/aperture/control/execution; Regions owns population acquisition; existing Source GM owns exact lore; Engine integrates."
+      },
+      "dependencies": [
+        "IT01",
+        "IT02",
+        "IT03",
+        "IT04",
+        "IT05 recipient restrictions if selected",
+        "Powers source control/energy",
+        "source cutoff and targeted claims"
+      ],
+      "world_example": {
+        "world": "Reverend Insanity; source-qualified optional branch example",
+        "case": "A legally acquired Nine Leaf Vitality Grass supplies real one-use leaves through essence-funded replenishment. Selling or consuming a leaf reduces owned stock; the same patient’s source-specific restriction survives trade/reload. Player access, clinic casting and all prices are original proposals; no Fang Yuan portfolio is inherited."
+      },
+      "acceptance_case": {
+        "positive": "Supported producer really regenerates declared products through its source rule, providing useful healing/trade.",
+        "adverse": "No leaves without its actual source/support or funds; a claimed name or nonlethal victory cannot produce unique organ loot. The selected same-target healing restriction is enforced by recipient state.",
+        "retention": "Transfer/refine/return/reset resolves source ownership and exported product stock once. A source-supported inexhaustible faculty remains inexhaustible under its actual conditions; do not impose invented universal decay."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Re-read existing supplied-edition analytical claim RI-c0102-02 (chapter_102.xhtml, c0102.b046-b070), classified narrator N; the actual chapter was not reopened. Earlier completed Macro case was baseline.",
+        "proposed": "Game acquisition/clinic/workflow and all quantities/balance are original proposals.",
+        "uncertainty": "Exact source upkeep/refinement/availability must come from the selected species and source cutoff. No all-Gu diet or full-book reread/primary-authenticity claim."
+      },
+      "verification_limits": "Inherited reviewed supplied-source evidence, not independent raw chapter verification. No new world or source/living runtime registration and no source/library mutation occurred.",
+      "retain": [
+        "renewable healing producer and genuine economic advantage",
+        "legal inheritance versus holder stock",
+        "unique claim conservation",
+        "species-specific superiority, feeding and exceptional retention"
+      ],
+      "cheaper_correct_alternative": "One selected species/product lifecycle and targeted source retrieval suffice. Do not normalize all Gu/artifacts into native quality tiers, add artificial drawbacks or reread entire books.",
+      "baseline_delta": "Preserves Macro positive producer example and makes the product/specimen/recipient transaction boundary explicit; does not repeat its whole source analysis."
+    },
+    {
+      "id": "IT10",
+      "priority": 2,
+      "kind": "simplify",
+      "title": "Qualify two connected chains while keeping familiar crafting usable",
+      "evidence": [
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 109,
+          "line_end": 119,
+          "claim": "Earlier proposal supports batching safe work, finite owned loadouts and native expandable inspection."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 189,
+          "line_end": 205,
+          "claim": "Simulation programs already support finite repeat targets and pause/resume."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 257,
+          "line_end": 299,
+          "claim": "Native items already participate in market saturation and multi-item valuation."
+        },
+        {
+          "path": "src/native_storage_transaction.js",
+          "line_start": 6,
+          "line_end": 30,
+          "claim": "Chest transfer already uses actual stock, sequence/count rechecks and native action/custody guards."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 221,
+          "line_end": 227,
+          "claim": "Reviewed sequence qualifies connected worlds/mechanics before broader integration; no implementation approval is implied."
+        }
+      ],
+      "current_player_behavior": "Useful bulk craft, sale valuation, guarded storage, finite routines and native interfaces already exist. Earlier plans contain a detailed optional assembly hierarchy and many worlds. Requiring all of that before any useful item loop would hide progress and duplicate owners.",
+      "proposed_player_behavior": "Choose an ordinary multi-output bulk chain and one repairable/operating specimen chain inside the master’s selected campaign qualification. Retain existing inventory/equipment views with expandable known-condition inspection and batch targets/stop reasons. Maintenance settles at actual use or declared authorized-clock boundaries; route/market/right simulation stays with its actual owners. Item transport preserves selected containers/custody/condition rather than copying stock.",
+      "authoritative_owner": {
+        "current": [
+          "native crafting/inventory/equipment/market/storage",
+          "simulation routine/job owner"
+        ],
+        "proposed_writer": "Master chooses scope; World GM integrates local loops; Engine integrates native owners; Experience owns inspection/control; Bases owns logistics/economy."
+      },
+      "dependencies": [
+        "selected IT01-IT08 subsets",
+        "IT09 only if chosen campaign needs it",
+        "master campaign/mechanic IDs",
+        "deferred native UI/compatibility acceptance"
+      ],
+      "world_example": {
+        "world": "Native/Original Frontier inside the master-selected qualification pair",
+        "case": "Cook a batch for paid work or sale, and repair a used instrument for better field service or salvage. Delivering stock leaves less for personal use; leaving a supported tool at the workshop leaves it unavailable on the route. Refusal retains actual stock and lets the independent supplier take another job."
+      },
+      "acceptance_case": {
+        "positive": "Both chains create useful native actions and a later local consequence with actual finite stock.",
+        "adverse": "Batch stops with an intelligible known reason at unavailable input/tool/route; no hidden extra clock or mandatory daily upkeep is introduced.",
+        "retention": "Return sees the same repaired item, delivered stock and paid commitments, not reissued rewards. Each exact function remains implemented-unverified until its deferred playable checks run."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Live source inspection; no new primary fiction reading.",
+        "proposed": "Complexity simplifications and the two chains are original planning recommendations; no runtime or token savings measured.",
+        "uncertainty": "Local numerical balance and schema remain unselected."
+      },
+      "verification_limits": "No benchmark/gameplay experiment. Boundary-based scheduling is a semantic proposal, not measured performance. This does not replace the master’s qualification world pair or claim full campaign closure.",
+      "retain": [
+        "native vanilla quality/mastery/market/storage",
+        "batch and pause/resume where supported",
+        "real route consequences",
+        "genuine superiority without forced lower-tier niches"
+      ],
+      "cheaper_correct_alternative": "Bulk counts plus one selected specimen chain; bounded recipe roles and trial evidence; fixed variants before optional editable assemblies. Avoid universal item ranks, nine repeated rope timers, a full physics solver and a second inventory.",
+      "baseline_delta": "Turns the existing simplification policy into a concrete item delivery gate and identifies which richer systems can remain optional."
+    },
+    {
+      "id": "IT11",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Pills and elixirs need explicit temporary, restorative and permanent outcome carriers",
+      "evidence": [
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 1830,
+          "line_end": 1883,
+          "claim": "Real alchemy crafts powders/juice/potions using herbs and phials with skill/station success rules."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 1291,
+          "line_end": 1313,
+          "claim": "A medicine manual already awards alchemy recipe unlocks, Medicine XP and a multiplier."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 481,
+          "line_end": 490,
+          "claim": "UsableItem supports effects and recovery chances."
+        },
+        {
+          "path": "src/active_effects.js",
+          "line_start": 14,
+          "line_end": 33,
+          "claim": "Native active effects carry duration, stat bonuses, potency/group tags and travel policy."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3399,
+          "line_end": 3449,
+          "claim": "Native consumption applies timed template effects to the player and recovers containers before removing the item."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 123,
+          "line_end": 133,
+          "claim": "Body values and actual vital effects are separate consumers from native consumable template effects."
+        }
+      ],
+      "current_player_behavior": "Alchemy and restorative timed medicines are present. A basic pill with an existing effect can use ordinary content. The inspected native use path does not itself establish a permanently altered body/source, supported breakthrough trial, another recipient’s treatment or a selected antidote relationship.",
+      "proposed_player_behavior": "Each dose declares consumption, actual recipient/support, outcome carrier and lifetime: timed effect, resource restoration, progression trial modifier, body change, learned knowledge or acquired source. Refining a pill binds real recipe/ingredients/apparatus and local potency/purity rules; permanent outcomes settle once in the correct owner. Tolerance, toxicity, contraindications, decay and diminished repeat benefit apply only under a selected particular rule. Preserve truly superior or permanent sourced effects.",
+      "authoritative_owner": {
+        "current": [
+          "native alchemy recipes and medicinal effects",
+          "reading recipe/skill rewards",
+          "body/vital/source/progression owners"
+        ],
+        "proposed_writer": "Items owns dose/recipe and outcome declaration; Powers/Progression owns body/source/trial outcome; Engine stages native effects and compatibility."
+      },
+      "dependencies": [
+        "IT01 exact dose",
+        "IT02 publication",
+        "IT05 care",
+        "IT06 tested recipe",
+        "actual Powers/Progression outcome adapter"
+      ],
+      "world_example": {
+        "world": "Original cultivation/workshop branch proposal",
+        "case": "Keep or sell a temporary focus pill; consume one preparation before an eligible controlled trial. A separately authored restoration pill changes one supported body condition once. A pill cannot supply a missing organ, technique or fuel just because its label says breakthrough."
+      },
+      "acceptance_case": {
+        "positive": "Temporary focus expires under the chosen clock; restorative dose changes the actual resource/condition; a selected permanent outcome survives expiry and item removal.",
+        "adverse": "Unsupported recipient/trial/source rejects before consumption; replay never grants another permanent change. No generic poison penalty is invented for a source-safe superior pill.",
+        "retention": "Dose debit, container recovery, effect lifetime and permanent carrier commit together; trade/reload/reset respects declared body/source/progression retention."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Targeted live code/owner inspection; existing alchemy, medicine, artifact stats and reading rewards are retained.",
+        "proposed": "All new pills, active relics, wards, containers and keys in these examples are original proposals.",
+        "uncertainty": "No source-specific canon, numerical balance, universal toxicity/binding law, new schema or new world is selected."
+      },
+      "verification_limits": "Static source/report review only. No runtime edits, build, game suite, browser or save execution. A noun/class/tag does not prove a family’s function.",
+      "retain": [
+        "existing Alchemy production",
+        "book-to-recipe progression",
+        "restorative powders/potions/balms",
+        "source-specific superiority and exceptions"
+      ],
+      "cheaper_correct_alternative": "Use existing timed effects for basic pills. Add typed permanent/trial outcome routes only for selected items; no pill-specific class, full pharmacology solver or mandatory resistance meter.",
+      "baseline_delta": "Direct human pills/artifacts/consumables follow-up broadens explicit functional coverage; see ITEM_FAMILY_COVERAGE.md. Existing IT01–IT10 remain foundations."
+    },
+    {
+      "id": "IT12",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Active artifacts and deployed consumables need actual object-bound execution and aftermath",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 720,
+          "line_end": 735,
+          "claim": "Native Artifact defines an equipment slot and authored stats."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 481,
+          "line_end": 490,
+          "claim": "UsableItem defines effects and recovery, without deployment identity/target fields in this constructor."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3399,
+          "line_end": 3449,
+          "claim": "Inspected native use handles player template effects, not a generic throw/fire/place/arm operation."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 181,
+          "line_end": 198,
+          "claim": "Unique claims and definition-backed conditions provide reusable conservation/effect support."
+        }
+      ],
+      "current_player_behavior": "Passive native artifact stats and player consumables are implemented in these paths. They do not demonstrate a relic with active sensing/flight/ward/anchor operation, an attuned evolving object, a sentient object controller, projectile ammunition or a consumed token that leaves a persistent placed ward.",
+      "proposed_player_behavior": "An object mode binds the actual held/equipped/installed specimen, operator/control/attunement where applicable, support/cost, target/contact and effect. A one-use scroll/talisman/mixture debits its dose and creates the declared effect or one actual deployed object with location, owner/controller, trigger/expiry and cause. Charged, rechargeable, passive, evolving, cursed or living artifacts retain their particular lifecycle rather than sharing universal charges/binding/slot limits. Powers executes functions; Combat resolves tactical use; Items owns the object and consumed/deployed relationship.",
+      "authoritative_owner": {
+        "current": [
+          "native artifact/equipment stats",
+          "native player consumable effects",
+          "claim/source/condition services"
+        ],
+        "proposed_writer": "Items owns object modes/refinement/deployment material; Powers owns active execution/controller; Combat owns aim/contact/trigger; Engine binds native publication and persistence."
+      },
+      "dependencies": [
+        "IT01 specimen/portion",
+        "IT02 stage use",
+        "IT04 operating state",
+        "IT09 unique/living rules",
+        "Powers/Combat contact and target resolver"
+      ],
+      "world_example": {
+        "world": "Original Frontier artifice proposal",
+        "case": "A retained signal lens spends its actual stored charge to detect a supported nearby mark. A one-use ward strip becomes a placed protection object at a specific worksite. Retrieving the surviving frame is distinct from refunding the consumed inscription."
+      },
+      "acceptance_case": {
+        "positive": "Passive relic bonuses remain effective; the lens observes only supported signals; the real placed ward protects its eligible target for its declared duration.",
+        "adverse": "Cannot use a sold/loan-forbidden/unsupported relic or arm the same strip twice. Breaking the placed ward removes its dependent protection while leaving independent ordinary aftermath intact.",
+        "retention": "RNG/output/debit and deployed identity commit once; equipment swaps, travel, expiry/reload preserve actual charge, location/controller and irreversible spend."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Targeted live code/owner inspection; existing alchemy, medicine, artifact stats and reading rewards are retained.",
+        "proposed": "All new pills, active relics, wards, containers and keys in these examples are original proposals.",
+        "uncertainty": "No source-specific canon, numerical balance, universal toxicity/binding law, new schema or new world is selected."
+      },
+      "verification_limits": "Static source/report review only. No runtime edits, build, game suite, browser or save execution. A noun/class/tag does not prove a family’s function.",
+      "retain": [
+        "native passive artifacts",
+        "actual custody/source prerequisites",
+        "genuine powerful protection/sensing functions",
+        "source-specific inexhaustibility where demonstrated"
+      ],
+      "cheaper_correct_alternative": "First qualify one supported active relic and one deterministic deployed ward through shared commands/effects. No generic item AI, projectile physics or mandatory artifact attunement system until a chosen case requires it.",
+      "baseline_delta": "Direct human pills/artifacts/consumables follow-up broadens explicit functional coverage; see ITEM_FAMILY_COVERAGE.md. Existing IT01–IT10 remain foundations."
+    },
+    {
+      "id": "IT13",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Containers, manuals and access objects must separate contents, knowledge and permission",
+      "evidence": [
+        {
+          "path": "src/items.js",
+          "line_start": 1089,
+          "line_end": 1150,
+          "claim": "Native BookData/Book provide reading time, accumulated progress and rewards, looked up by book name."
+        },
+        {
+          "path": "src/items.js",
+          "line_start": 1291,
+          "line_end": 1313,
+          "claim": "Reading can unlock actual medicinal recipes without creating ingredients."
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "line_start": 1860,
+          "line_end": 1883,
+          "claim": "Potion production consumes a Glass phial as a material input."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 3423,
+          "line_end": 3449,
+          "claim": "Native recovery can produce a phial and removes the used potion dose."
+        },
+        {
+          "path": "src/realm_cargo.js",
+          "line_start": 93,
+          "line_end": 110,
+          "claim": "Cargo reads actual bag/equipment/custody references; that API does not itself establish arbitrary nested container contents."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 168,
+          "line_end": 188,
+          "claim": "Attributed knowledge and held/settled claims have distinct records."
+        }
+      ],
+      "current_player_behavior": "Native books already teach/unlock, and phials participate in potion production/recovery. Bulk inventory and the inspected cargo API do not establish a general nested-content graph, preserved liquid contents, private physical notes or issuer-qualified key/license permission simply from item possession.",
+      "proposed_player_behavior": "Selected containers hold references to actual content portions with declared containment/preservation/capacity rules; filling/emptying/transfer never duplicates children. Source-qualified spatial storage binds a supported boundary/endpoint rather than copying bag counts. Manuals/maps/formulas convey declared knowledge through reading/observation; keys/seals/licenses reference the actual lock/issuer/claim and use/revocation rules. Physical evidence, understood information and institution permission remain separate owners. Old ordinary book progress retains chosen compatibility.",
+      "authoritative_owner": {
+        "current": [
+          "native Book reading/reward owner",
+          "native potion/phial inventory",
+          "cargo/knowledge/claim owners"
+        ],
+        "proposed_writer": "Items owns containment/material/information object references; Society owns issuer/disclosure; Realm/Engine owns spatial boundaries and native stock/save binding."
+      },
+      "dependencies": [
+        "IT01 containment references",
+        "IT02 fill/empty transfer",
+        "IT03 containers",
+        "IT06 knowledge evidence",
+        "issuer/lock access rules",
+        "spatial boundary support only if selected"
+      ],
+      "world_example": {
+        "world": "Original Frontier workshop/clinic proposal",
+        "case": "Carry three balm doses in a sealed preservation vessel, lend the vessel under stated contents terms, and return its surviving contents. Reading a repair manual unlocks instruction; an institution’s key opens its authorized cabinet without granting ownership of the cabinet’s stock."
+      },
+      "acceptance_case": {
+        "positive": "Contents move with the same vessel exactly once under the selected custody policy; learned instruction remains while the book can be transferred; an authorized key opens its specific lock.",
+        "adverse": "An empty vessel supplies no dose; nested cycles/ambiguous ownership reject; a copy/name/expired license supplies no issuer right unless the local source rule permits it.",
+        "retention": "Transfer/reload/return retains sealed contents and current condition/claims; selling a book does not erase learned knowledge or duplicate reading rewards; revoked access does not erase historical learning."
+      },
+      "source_invention_uncertainty": {
+        "verified": "Targeted live code/owner inspection; existing alchemy, medicine, artifact stats and reading rewards are retained.",
+        "proposed": "All new pills, active relics, wards, containers and keys in these examples are original proposals.",
+        "uncertainty": "No source-specific canon, numerical balance, universal toxicity/binding law, new schema or new world is selected."
+      },
+      "verification_limits": "Static source/report review only. No runtime edits, build, game suite, browser or save execution. A noun/class/tag does not prove a family’s function.",
+      "retain": [
+        "existing reading progress and recipe rewards",
+        "phials as real material/recovery",
+        "cargo exact references",
+        "attributed knowledge and unique claims"
+      ],
+      "cheaper_correct_alternative": "Begin with one explicit filled vessel and authored key/manual relations. Keep ordinary fungible bottles/books simple; general bags-within-bags and spatial realms require separate chosen support, not every container.",
+      "baseline_delta": "Direct human pills/artifacts/consumables follow-up broadens explicit functional coverage; see ITEM_FAMILY_COVERAGE.md. Existing IT01–IT10 remain foundations."
+    }
+  ],
+  "drift_reconciliation": {
+    "canonical_plan": "Frozen-wave drift adds a separate integration-strategy planning lane and shifts phase lines; re-read current authority/qualification, refreshed IT10 line range. No runtime approval or changed item authority.",
+    "RUN": "Master-owned separate-aspect/integration dispatch bookkeeping advanced during the audit; re-read actual items chat and Engine/Ability/Original held-confirmed at closeout. Initial wave and prior capture hash retained. No source/runtime policy change.",
+    "inspected_gameplay": "No drift in overlapping inspected gameplay source against frozen wave; no drift across captured inputs at first validation.",
+    "follow_up": "Shared README/plan/RUN add integration/world-bank planning coordination; current authority still holds runtime. Existing RI institution rows8–12 retain the used food/preservation evidence while the independent source dossier advances. Core inspected gameplay source remains unchanged. No new fiction claim is introduced."
+  },
+  "follow_up": {
+    "date": "2026-10-04",
+    "request": "Pills, artifacts, consumables, other stuff and more?",
+    "coverage": "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md",
+    "new_findings": [
+      "IT11",
+      "IT12",
+      "IT13"
+    ],
+    "authority": "Direct human expansion of item planning coverage; runtime hold and exclusive report writes retained."
+  },
+  "prior_checks": {
+    "JSON_and_required_fields": "pass; priority zero accepted",
+    "evidence_path_and_line_bounds": {
+      "status": "pass",
+      "references": 61
+    },
+    "Markdown_local_targets_anchors_and_source_line_links": {
+      "status": "pass",
+      "links": 19
+    },
+    "whitespace_and_readback": "pass; JSON and four reports read back",
+    "report_words": 540,
+    "inspected_inputs": 34,
+    "input_drift": "Canonical plan/RUN differ from frozen wave; plan adds held integration-strategy audit. Final RUN role readback retained held-confirmed Engine/Ability/Original; gameplay evidence stable.",
+    "writer_process_closeout": "live internal-agent list: root only; no helper, background process, open shell session or uncertain write outcome started by this audit",
+    "gameplay_build_browser_save_benchmark": "not run; prohibited/deferred for this planning scope",
+    "cost": "No actual runtime/token cost telemetry."
+  },
+  "checks": {
+    "JSON_required_fields_kinds_unique_IDs": "pass; 13 findings",
+    "evidence_path_line_bounds": {
+      "status": "pass",
+      "references": 77
+    },
+    "Markdown_local_targets_anchors_source_line_links": {
+      "status": "pass",
+      "links": 32
+    },
+    "own_file_readback_whitespace": "pass; five owned outputs",
+    "report_words": 555,
+    "inspected_inputs": 35,
+    "input_drift": "none at follow-up final capture; historical master/source drift preserved and reconciled",
+    "writer_process_closeout": "live internal-agent list root only; no child/background process/open shell session or uncertain mutation started",
+    "gameplay_build_browser_save_benchmark": "not run; runtime remains held",
+    "cost": "no actual runtime/token measurement"
+  }
+}

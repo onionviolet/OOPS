@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-03",
+  "tests": {
+    "passed": 110,
+    "failed": 0
+  },
+  "build": "success",
+  "fingerprint": "v0.6-28d6f9a2b9bf",
+  "cssFingerprint": "v0.6-f6fdc2fb8418",
+  "sourceHashes": {
+    "src/world_knowledge.js": "3346eae6fd3c0a5efc57c5ccee7d685ab3ec00f6fdd7ff009e65171fc496819c",
+    "src/adventure_notebook.js": "38b140f41c192cb6319032de8af86a562d4e8d1b19c07fed9f7dce6df187ef5f",
+    "src/main.js": "7d8ebf677c6478fa31ecc7a2d62aedd3647d2ac438dbb792aa08769d3bef39f5",
+    "src/expedition_content.js": "feabbd55d6d76a374123a1ef2da5b19d9599757a179c8a0252f4b002174600e0",
+    "src/expedition_ui.js": "4caef46af0b9a49be7a1b1f0eec7dc6195a05e2928c3078be0375a7624deb8ad",
+    "src/technique_ui.js": "917b4d5a7fd290cecfe0e5667228a08d9a08f3a156b88f901bd7fa32c615c057",
+    "src/chronicle_ui.js": "de4ba05a7d1ebe0892ef6d24f2cf50a0407849ee7b5812f0636f167f44295413",
+    "src/simulation_ui.js": "6ce1eebebc0dca7241009a55d34627c2f2fe656dcfe5cd3e8f1bcb23bfad80dc",
+    "src/town_ui.js": "6683062f06baa69c9060ab068922a27ce6e50b89603dd6b470f3efe397e827e4",
+    "src/village_ui.js": "d943f9d66c6f8499c846614e732af9ca2fa22ecb7fc28e01dee73fe8cbfa2c79",
+    "style.css": "f6fdc2fb8418063fdc65bdc76a2bdce950529b20ad7a09de3b783839c6344e99",
+    "tests/world_knowledge.test.js": "8b8620f5badada2cfd977ea2044065a29d85281416cdd0cfaab29a0155485781",
+    "dist/bundle.js": "28d6f9a2b9bff28cf8c9df77e5e6d8e779f498dee87fd6c01a91fdbac9a3a768"
+  },
+  "browserResults": {
+    "notebook": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-28d6f9a2b9bf",
+      "findings": [
+        "Original opening has no notebook overlay. After the native elder greeting, Here groups local notes, keyboard tabs retain focus across ticks, saved timed practice resumes in Practice and can be cancelled there. Switching to Journal during work does not get forced back each tick.",
+        "An old generated town save stays in the same world with its inventory/money. Here shows the survey office without unrelated Village route/elder/training panels. Header and Journal both keep world and branch unknown, including tooltip text.",
+        "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "town": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-28d6f9a2b9bf",
+      "findings": [
+        "Fresh original character creation and elder greeting remain playable; the town chapter is absent in Village, with no native town access, age or living-world enrollment.",
+        "Optional permit atomically opens the native Town square; ordinary native travel, saved survey, unique payment and return knowledge complete with unchanged original quests/dialogue. Native encoded export/import and reload retain town access, kit, money and one completion.",
+        "Injected browser storage failure publishes no permit/access or costs and retains exact stored bytes; reload restores the unjoined native adventure.",
+        "The timber alternative reserves actual gathered logs, refunds cancellation, resumes through reload and consumes its materials once."
+      ],
+      "errors": [],
+      "warnings": [],
+      "failedRequests": [
+        {
+          "url": "https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "generatedSavesOnly": true
+    },
+    "village": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-28d6f9a2b9bf",
+      "findings": [
+        "Native-menu discovery, pending reload, real objects, partial native reading reload and one completion pass without chronicle enrollment.",
+        "A real preparation contribution, one saved claim per day, native encoded file import/export and completed-book reload pass without duplicate rewards.",
+        "Generated story-access/material fixture: native craftsman greeting, real token handover, reputation, faster packing, actual Shack travel, material refund, mid-build/packing reload, real kit consumption and changing home-board text pass.",
+        "The understood booklet opens a separate guaranteed-ready route, retaining the token and using no kit while leaving the crossing unrepaired.",
+        "Generated later-day and closed-window calendars reopen only the current gathering, with no payouts for skipped days.",
+        "Injected storage failure publishes no claim, reward or advanced joined calendar; reload restores the available gathering."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "simulation": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-28d6f9a2b9bf",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "chronicle": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-28d6f9a2b9bf",
+      "findings": [
+        "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+        "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+        "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+        "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+        "Attended briefing contributes usable preparation through the existing capability/read model.",
+        "Stronger generated native XP build wins against the same fixed elder.",
+        "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+        "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+        "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "visibleReview": "http://127.0.0.1:18522/",
+  "screenshot": "/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/town-review/notebook-and-unknown-identity.jpg",
+  "personalSavesTouched": false,
+  "limits": [
+    "Player knowledge presentation and first menu refinement; no new dimensional travel.",
+    "Independent identity flags are tested with generated fixtures; no live revelation event is authored.",
+    "Existing native-panel frame retained; full responsive redesign remains separate.",
+    "Grouping, density and wording await human acceptance."
+  ]
+}

@@ -1,0 +1,29 @@
+# Current traveler integration follow-through
+
+2026-10-04. The human [autonomous goal policy](../../dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md) supersedes the former stop-at-prototype packet gate. This role resumes its finite traveler/body/source/identity/cargo/consent contract objective; a packet/context boundary is a checkpoint. Source books have their own assigned GMs and are not a reason to duplicate whole-book reading or wait for every edition before implementation.
+
+## Actual native connection
+
+Engine's [native_realm_traveler.js](../../../../src/native_realm_traveler.js) imports this lane's `previewRealmTraveler` and constructs a read-only conventional **one-body player** snapshot from current native inventory/equipment/vitals and route context. [pocket_realm_host.js](../../../../src/pocket_realm_host.js) calls it in ordinary Glasshouse enter/exit preview and again before committing the actual native command/visit/location plan. This advances beyond a detached draft. All shared native/save/registry/UI/build code remains Engine-owned; this role did not edit those files.
+
+Current integration retains the original player/identity/mind owner and existing body. Canonical native stock bindings remain read snapshots. The selected permanent route has zero travel duration and no passage fee; opening payment remains its existing one-coin simulation command. No second stock, body, pool, save or timer owner was added by the pure module.
+
+This **source integration is implemented-unverified**. It proves a current call path, not runtime, save, browser or human acceptance. The broader projection/shared-body examples and alternate-body control plans are still detached source-qualified prototypes. Companions and loaned-item passage are currently rejected/unbound rather than assumed supported. New player/origin replacement, body death/resurrection, remote physiology, family/lifespan generation and arbitrary world-rank normalization remain outside this role's current implementation.
+
+## Concrete adapter repair and review
+
+Parent identified an index mismatch in the first adapter snapshot: route cargo IDs were indexed from the full sorted inventory/full equipment entries, while the adapter removed zero-count/null entries before using those indices. That could map a carried record to the wrong native item key or throw. Parent sent the exact repair to Engine under authorized in-project ownership coordination; Engine changed its own adapter to preserve the full indexed arrays. The live repaired native source was reinspected at SHA256 `10211b786234115a35e78ebb67f0fa5cfde45d4ae95b1bd347a2c0feb4815300`.
+
+Reused qualified read-only worker `/root/shared_body_evidence`, GPT-6 Luna medium, inspected the current conventional doorway path after the repair and found no remaining concrete defect in that limited slice. It did not execute planner cases, tests, native actions, saves or browser. Parent's earlier identified issue and the worker's later clean read refer to different live native snapshots; the clean read does not erase the repair history.
+
+The native wrapper's hardcoded request/access `duration:0` and `expiresAt:null` are coherent for **this selected permanent zero-duration route**. Reusing it for a timed/expiring route requires binding real passage duration and expiry before it can claim support. General source/route/native cost aggregation, sustain/termination, source suppression, companion consent, loan destination/return duty, independent body/vitals and shared fuel bindings remain exact integration dependencies listed in [REPORT](REPORT.md#integration-and-verification-gate).
+
+## Packaging receipt and current ownership
+
+Read-only `dist/bundle.js.map` source-content comparison found the pure traveler module included and matching its unchanged SHA256 `8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775`. The native traveler and pocket host's map sources did **not** match their latest live source at this inspection. Parent notified Engine that its usual rebuild after shared edits is required; no leaf build ran concurrently or wrote the generated bundles. This receipt is static packaging evidence, not a behavior test. Later build receipts belong to Engine and must supersede it explicitly.
+
+The old pure-module reservation was released at the previous delivery. On resume parent asked Engine about reacquisition and preserved the unchanged file while ownership was uncertain. No pure-module change is needed for the selected current one-body doorway after its native repair; Engine retains the released source reservation unless it requests a concrete extension. This role owns reports/checkpoints only during this follow-through and creates no parallel native adapter. No reply/reapproval is required to retain that existing release or complete the work already done.
+
+The finite traveler role result exists: pure contract/validators/views and three authored cases are implemented; current native ordinary entry/return calls the planner; the identified adapter defect was repaired by its owner and reread; exact remaining native bindings, ownership and deferred checks are saved and communicated. Final native-adapter syntax/import/export discovery also passed without executing its planner. [Current receipt](INTEGRATION_RECEIPT.json) freezes inspected source hashes and map parity; it is not a runtime check.
+
+No required traveler-only edit remains, so its matching host goal can complete. Engine continues its active shared integration and normal final rebuild, with the stale adapter/host packaging receipt clearly reported. Remote body gameplay is a separately unsupported native family rather than an extra unlimited task silently added to this finite pure-planner role. Tests stay deferred as requested. A concrete later Engine extension can reopen work under its actual assigned scope; packet boundaries do not require another human continuation.

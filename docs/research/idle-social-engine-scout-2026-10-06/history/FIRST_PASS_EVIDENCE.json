@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T20:41:57.991590+00:00",
+  "evidenceVocabulary": {
+    "source-demonstrated": "Selected source behavior exists by reading, not execution.",
+    "source-traced": "Connected selected prerequisite/decision/cost/mutation/consumer/failure paths read, not execution.",
+    "documented-only": "Primary documentation/store description; no algorithm/runtime proof.",
+    "inferred": "Reasoned static arithmetic or integration judgment; not measured.",
+    "proposed-untested": "Original adaptation/trial not implemented or exercised."
+  },
+  "incumbentInputs": {
+    "manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/INCUMBENT_INPUTS.json",
+    "sha256": "5acc43b060dc3da36789fe9fd87b5de627d2384618e048f66f6cc020efbcc7a1",
+    "gitHead": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+        "bytes": 144593
+      },
+      {
+        "path": "package.json",
+        "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+        "bytes": 497
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+        "bytes": 45034
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "bytes": 51840
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+        "bytes": 33510
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "bytes": 27572
+      },
+      {
+        "path": "src/feature_expansion_work_plan.js",
+        "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+        "bytes": 28771
+      },
+      {
+        "path": "src/audit_remainder_home_content.js",
+        "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+        "bytes": 30762
+      },
+      {
+        "path": "src/audit_remainder_home_host.js",
+        "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+        "bytes": 5487
+      },
+      {
+        "path": "src/audit_remainder_home_facts.js",
+        "sha256": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+        "bytes": 31553
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "bytes": 3191
+      },
+      {
+        "path": "src/ink_narrative.js",
+        "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+        "bytes": 26405
+      },
+      {
+        "path": "src/ink_scene_content.js",
+        "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+        "bytes": 41500
+      },
+      {
+        "path": "src/native_gameplay_adapter.js",
+        "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+        "bytes": 3036
+      },
+      {
+        "path": "src/save_files.js",
+        "sha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+        "bytes": 8811
+      },
+      {
+        "path": "src/world_instances.js",
+        "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "bytes": 27893
+      },
+      {
+        "path": "src/realm_state.js",
+        "sha256": "b53d36095b7156f4b050f80b433f3cd9020f04549549203c1dea8ac6c331e3fe",
+        "bytes": 13250
+      },
+      {
+        "path": "src/people_knowledge.js",
+        "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+        "bytes": 9482
+      },
+      {
+        "path": "src/frontier_campaign.js",
+        "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+        "bytes": 13006
+      },
+      {
+        "path": "src/original_frontier_campaign_host.js",
+        "sha256": "80d5abd69b1c42f937c6dbf4dc07a74d9c135638a64a8146786298b0fe5b9675",
+        "bytes": 11061
+      },
+      {
+        "path": "src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "bytes": 387376
+      },
+      {
+        "path": "docs/gm/audit-implementation/RELEASE.json",
+        "sha256": "9af666b7e8663f96ab8a3cc2d8f1b2a9d6545ec96ccfe8e1420e8e2834cd3694",
+        "bytes": 2486
+      },
+      {
+        "path": "docs/gm/audit-implementation/CLOSEOUT.json",
+        "sha256": "a23b27bc8613ba7c6b6536df2db2c77837a76b2b8ca20cc9b18ef8a49be8c514",
+        "bytes": 294
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+        "sha256": "e101b1fb4fe4c30f52f6950b284271f2a6a78479d7899a6c5c59cfa3beeb9066",
+        "bytes": 4534
+      },
+      {
+        "path": "docs/research/game-discovery-2026-10-06/CANDIDATES.md",
+        "sha256": "aff18d359e18722555e92b8593e2f524a6ce3dae3db85525f98327424a444103",
+        "bytes": 3100,
+        "previousSha256": "9c0cc216af7635fc47a45ba90bb399a6a29196d3027d3c4c0fb284ada93aeabb"
+      },
+      {
+        "path": "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md",
+        "sha256": "2a6dd8200e1a691e879daef6dea88d5c30aa44163fbcab318f2e0abfa5fa74b1",
+        "bytes": 12852,
+        "priorSha256": "caf2df0f0c65766e8cda341a9e89862ae26fc8acaedb8e5bdfc142210e5f44d2",
+        "previousSha256": "7813a922f73b5192220d73ef874fcfb5cdc478b379e7d16d12078c9843b687c5",
+        "lastPreviousSha256": "912ad3995452d2a0f5c9ff65d028a044570d9be1bb3222cbfcbfaaf71d16a274"
+      },
+      {
+        "path": "docs/gm/dispatch/idle-social-gms-2026-10-06/INTAKE.json",
+        "sha256": "506085a08b9c5ffdd77269fba8ff5bc138a2eb9fa48c8aced784b5e6c3cffc5c",
+        "bytes": 4374
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+        "sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+        "bytes": 3770
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/INTERFACE.md",
+        "sha256": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+        "bytes": 5201
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+        "sha256": "a401f71e33d3fa61956c26c0c2dbd67e5d0ca8891bcfb4639c752397cc5dd9da",
+        "bytes": 8767
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/RELEASE.json",
+        "sha256": "d208e4066d61d3149f5c479320aeae3ba5123b4fa06b8893d14dc21f28a512aa",
+        "bytes": 4447
+      },
+      {
+        "path": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+        "sha256": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+        "bytes": 8339
+      },
+      {
+        "path": "src/reference_gameplay_content.js",
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "bytes": 13705
+      },
+      {
+        "path": "src/expedition_content.js",
+        "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+        "bytes": 14697
+      },
+      {
+        "path": "src/feature_expansion_society.js",
+        "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "bytes": 30667
+      },
+      {
+        "path": "src/promise_content.js",
+        "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+        "bytes": 11954
+      },
+      {
+        "path": "src/power_models.js",
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "bytes": 4477
+      },
+      {
+        "path": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+        "sha256": "e59e353fc6abbdc5aa5b473ab01592161315711bbf39f3947181be5b70411ad6",
+        "bytes": 13681,
+        "lastPreviousSha256": "ad8b07d5014e54fb7def30c311d995c9528bacd4ed776b561bbaa4c5daf059ed"
+      }
+    ],
+    "qualification": "Task-specific snapshots of dirty code. Current assignment/depth/release additions reconciled; all inspected runtime hashes unchanged. No private save/library/account access.",
+    "ownership": {
+      "currentCheckpoint": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "currentInterface": "docs/gm/audit-implementation/remainder/INTERFACE.md",
+      "observation": "Revision6 checkpoint/source delivery now present; shared integrator remains root01a10fe7 and reports no pending source/process. Gameplay remains implemented-unverified. Parent RELEASE.json still absent at this refresh. Build identity differs earlier PROJECT header, so no independent current-bundle certification by scout.",
+      "finalRelease": "docs/gm/audit-implementation/remainder/RELEASE.json",
+      "finalObservation": "Current parent RELEASE now present, finite source reservation released, no pending process or unknown write reported; gameplay remains deferred. Scout does not independently certify bundle."
+    },
+    "finalInstructionRefresh": "Latest dispatch append links nine-game depth/DLC routing owners without new source pass or engine decision. Diff read and reconciled; no changed scope/packets/runtime.",
+    "finalGenreRefresh": "Genre similarity is not eligibility. Latest broader discovery addition read; current five already include distinct strategy/social/middleware/engine systems. REPORT retains direction, no new audit or ranked candidate."
+  },
+  "candidateEvidence": [
+    {
+      "candidate": "ensemble",
+      "pin": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "trace": "traces/ENSEMBLE.json",
+      "traceSha256": "e3eb35eb96b4d991361c7ced2fdb0d34431e36dbe0d247ed52083ad0fcf9b2a3",
+      "status": "source-traced-not-executed",
+      "sourceReferences": 24,
+      "coverageOwner": "traces/ENSEMBLE.json"
+    },
+    {
+      "candidate": "unciv",
+      "pin": "5bb7611a736f540486d6153d3f07b173d4ef91dd",
+      "trace": "traces/UNCIV.json",
+      "traceSha256": "6abbf5f6ac6f6d3999e425cdf860d36024d509f1b76d8f6849375bdcd3abc04f",
+      "status": "source-traced-not-executed",
+      "sourceReferences": 26,
+      "coverageOwner": "traces/UNCIV.json"
+    },
+    {
+      "candidate": "xstate",
+      "pin": "fbee62e7c1586315ed478c2fedf530d7e0ff5a3e",
+      "trace": "traces/XSTATE.json",
+      "traceSha256": "6982a3c64826834cf02f7698f8368f6dda138542c926d8c91203e4a66a0ab03b",
+      "status": "selected-source-demonstrated; proposed trial unexecuted",
+      "sourceReferences": 6,
+      "coverageOwner": "traces/XSTATE.json"
+    },
+    {
+      "candidate": "ck3",
+      "pin": null,
+      "trace": "traces/CK3.json",
+      "traceSha256": "516350d0f7d5075d28fe4dea0baafd2e226fbdbc263251ae441e730bf98627d8",
+      "status": "primary-documentation-only; algorithms inaccessible and scripts uninspected",
+      "sourceReferences": 4,
+      "coverageOwner": "traces/CK3.json",
+      "inventoryEntries": "see trace",
+      "versionQualification": "No current executable pin; historical primary documents and dated store inventory."
+    },
+    {
+      "candidate": "godot",
+      "pin": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "trace": "traces/GODOT.json",
+      "traceSha256": "f297e257bea8ea382ec31052f9434c233bb74ef72d7b1c7e583821626a3038b5",
+      "status": "selected-bridge/export-source-demonstrated; official web support documented; migration untested",
+      "sourceReferences": 7,
+      "coverageOwner": "traces/GODOT.json"
+    }
+  ],
+  "rootIndependentReview": [
+    {
+      "candidate": "ensemble",
+      "paths": [
+        "ensemble/Volition.js108-140",
+        "ensemble/ActionLibrary.js42-52",
+        "examples/loversAndRivals/data/triggerRules.json61-90",
+        "LICENSE.md"
+      ],
+      "finding": "Default acceptance, direct mutation, unobserved third-party trigger and BSD4 license confirmed against pinned source."
+    },
+    {
+      "candidate": "unciv",
+      "paths": [
+        "TechManager.kt243-275",
+        "CityConstructions.kt322-374",
+        "G&K Policies.json218-231 and423-435"
+      ],
+      "finding": "Science progress, placement failure and exclusive conditional policy confirmed. Failed placement still increments increasing-cost bookkeeping; do not infer zero mutation/refund."
+    },
+    {
+      "candidate": "xstate",
+      "paths": [
+        "transition.ts20-69",
+        "createActor.ts61-69 and265-304",
+        "State.ts420-483",
+        "StateMachine.ts493-511 and566-626",
+        "system.ts108-135"
+      ],
+      "finding": "Stable5.33.2 selected APIs read; no live actor trial."
+    },
+    {
+      "candidate": "godot",
+      "paths": [
+        "JS singleton136-245 and344-392",
+        "library_godot_os.js112-171 and191-205",
+        "C++ bridge399-412",
+        "export plugin357-396"
+      ],
+      "finding": "Stable bridge/async IDBFS and thread configuration read; no runtime/export claim."
+    },
+    {
+      "candidate": "incumbent-power-models",
+      "paths": [
+        "src/power_models.js1-56"
+      ],
+      "finding": "Five legal scope/cost families and typed formula boundary read; effect execution remains shared, no full combination gameplay proof."
+    }
+  ],
+  "strongestAccessibleMechanisms": [
+    "ensemble: rejected-note -> trigger/history/ending",
+    "unciv: research queue -> reveal/resource/production/placement; exclusive policy -> conditional science"
+  ],
+  "packetOwner": "IMPLEMENTATION_PACKETS.md",
+  "verification": {
+    "status": "pass",
+    "game_build": "not-run; no runtime changes assigned",
+    "unit_browser_gameplay_save_regression_director": "deferred/not-run",
+    "benchmark_authoring_speed": "not-run",
+    "private_saves_source_libraries": "untouched",
+    "purchases_entitlements_installations": "none",
+    "commit_push_publication_automation": "none",
+    "documentationJSONFiles": 7,
+    "localMarkdownLinksAndHeadingAnchors": 41,
+    "sourceRangeChecks": 94,
+    "sourceRangeQualification": "Earlier94 range/fullfile-hash checks passed; trace inputs unchanged, checks reused. Final changed documentation JSON/links/input drift rechecked.",
+    "sourceDrift": [],
+    "issues": [],
+    "externalValidation": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/FINAL_VALIDATION.json",
+    "liveDocumentDrift": "Mutable sibling documents are dated inspected snapshots; reviewed relevant append diffs preserved externally. No material scope/authority conflict. Live unchanged-document bytes are not a completion requirement."
+  },
+  "genreOpenFollowup": {
+    "receivedDate": "2026-10-06",
+    "dispatcherThread": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+    "originalHumanTurn": "01a112f4-826c-7172-a8dc-eb2a2934dd28",
+    "verificationQualification": "Dispatcher reports verifying the original human message; scout refreshed live assignment/depth owners and its existing report.",
+    "scope": "Already reflected in REPORT; checkpoint and machine-readable eligibility made explicit. No additional candidate/source audit/runtime assignment.",
+    "preserved": [
+      "five ranked candidates",
+      "prior finite coverage",
+      "broader dependency map",
+      "two small original packets",
+      "DLC/source-access distinctions",
+      "exclusive research ownership",
+      "deferred gameplay/save/tests"
+    ],
+    "validation": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/GENRE_OPEN_FOLLOWUP_VALIDATION.json",
+    "validationStatus": "pass"
+  }
+}

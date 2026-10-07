@@ -1,0 +1,25 @@
+# Causal stories and endings checkpoint
+
+2026-10-06, revision6: **SOURCE READY, IMPLEMENTED-UNVERIFIED, WRITERS RELEASED**. Current authority is [AUDIT_REMAINDER](../dispatch/AUDIT_REMAINDER_2026_10_06.md), direct delegated human instruction to implement P1–P5. Causal role01a10fa6-d749-70a1-882b-eae0fd454060 completed its seven exclusive new source modules and scoped evidence. Sole shared/native/main/registry/save/UI/build/canonical integrator01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd now receives those sources through [INTEGRATION](INTEGRATION.md) and [exact JSON release](INTEGRATION.json). No competing Causal source writer remains, no peer message needed, no pending process or uncertain mutation. Source, shared integration, matching build and playable/director acceptance are distinct gates.
+
+## Delivered source
+
+- `src/causal_story_ids.js`: frozen three original proof profiles, actual IDs and optional schema constants.
+- `src/causal_story_actors.js` / `src/causal_story_content.js`: five independent actual native people,63commands/five finite controllers/six sites/three situations/four sources/two powers/97explicit one-time seed effects.
+- `src/causal_story_core.js`: strict optional domain/source/knowledge/custody/receipt contracts, actual combat math, conditional terminal protection, retained independent closure facets and source counter admission.
+- `src/causal_story_host.js`: actual paid named strike/capture/release/current-source counter, finite custody/current support invalidation, existing job/completion/clock joins, actual causal receipts, known presentation and exact fresh command token.
+- `src/causal_story_native.js` / `src/causal_story_ui.js`: injected five real native owners/three observer-safe quests, optional native envelope metadata/projection/publication/restore and current existing location panel.
+
+Original mortal/covenant/established-anchor cases use Village/base.frontier, actual body/stats/stock/purse/source/knowledge/site/job owners and36shared played minutes. No new world/item/prestige/offline clock/automatic loot/old fight rewrite. Present strength or a future prediction creates no anchor; the selected future proof starts with an explicitly authored original limited established identity-local relation. Later supported research/severance/body change can continue after the retained delivery closes. A last normal capture receipt cannot block recovery/report; actual reservation authority prevents replayed counter refunds. Actual local paid living-body witnesses learn only their own evidence and trust response.
+
+## Evidence and released reservations
+
+Seven syntax and real-module imports,22local source import links, full combined current+new registry definitions and declared controller target consistency pass. [implementation/VALIDATION.json](implementation/VALIDATION.json) and INTEGRATION.json own final hashes. Worker receipts remain historical before root repairs; [ROOT_REPAIRS](implementation/ROOT_REPAIRS.md) records reconciliation. Initial role analysis/source/community research remains preserved in REPORT/models/cases/packets/evidence, explicitly distinguished from current source delivery.
+
+Actual host children `/root/causal_core`, `/root/causal_content`, `/root/causal_native`, `/root/causal_ui` completed and released. Two bounded read-only host reviews also completed/released; root repaired their concrete observer/capacity/controller/refund/boundary findings before final fingerprints. Earlier analysis children are historical completed roles. [Prior checkpoint](evidence/CHECKPOINT_BEFORE_SOURCE_RELEASE_2026_10_06.md) preserves superseded progress/ownership statements without treating them as current.
+
+## Remaining integration and acceptance
+
+The integrator must adopt the exact seven hashes, merge registry definitions, preserve expansion11 for valid auditRemainder OR causalStories and validate both, attach current Causal facts/native contexts, actual completion/support/boundary/reconciliation/travel hooks, native save/publication/restore and the real existing location UI/command path. Its body reader must include current hands/mobile; its job reader validates present opt-in descriptors while full Causal domain rejects saved missing counters. No generic public sever_job bypass. One durable publisher and one final build owner.
+
+Do not rerun game/unit/browser/save-failure/regression/director/dependency/build suites in this role. Current instructions defer those checks; no private saves, library/source corpus, shared/package/test/canonical/build mutation, commit/push/publish/automation occurred. Later five gates: actual initial owners/held-stock-custody; current mortal/protected/severed/anchor physical results; source/body/contact/deadline/NPC continuity; observer/report/quest/UI keyboard/menu; generated old/absent/enrolled/frozen save-reload/import/failed-save rollback. Sole integrator supplies matching final bundle and canonical delivery. If resuming Causal work, read this checkpoint, INTEGRATION, live files and actual writer status before any repair; release does not authorize competing shared edits.

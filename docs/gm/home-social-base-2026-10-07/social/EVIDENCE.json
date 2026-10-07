@@ -1,0 +1,668 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-07T05:26:46.782Z",
+  "worker": "/root/crush_social_resume",
+  "parent": "/root",
+  "status": "owned-source-complete-implemented-unverified",
+  "files": [
+    {
+      "path": "src/crush_social_content.js",
+      "sha256": "d86b864863bdb516aec260cfcb63db077a37cee0c83f7407ea26d3216d2bc7ba",
+      "bytes": 11332,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/crush_social_facts.js",
+      "sha256": "fdc1f50a0c84af82b71fc848c96fc1872e374ee72a572a367b172b3aab253a5a",
+      "bytes": 2490,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/crush_social_host.js",
+      "sha256": "e3ab705936e938ba30c9c469ce23e14b362e672d9931589e7c7181fa185a0333",
+      "bytes": 9433,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/crush_social_views.js",
+      "sha256": "3c78862b88d3ecda48ac93a9c6af02faf82645615ed9a1bae771fd8affc086ed",
+      "bytes": 24999,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/promise_ui.js",
+      "sha256": "ae0cff4c11da250dbe4d645dce74e3d723854129f6a88f639887670f9b9ba28a",
+      "bytes": 7105,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "bytes": 11954,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "bytes": 2866,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "bytes": 10714,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/party_ui.js",
+      "sha256": "75669280c54cf77275c7789c41c83f74b4694ba60d607d87c681b26cbf272f19",
+      "bytes": 5293,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "bytes": 20506,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "bytes": 24899,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_host.js",
+      "sha256": "785b6a7f50f5ce5a293e1b37de28690dc6dff3d68c637a2c639a5706ec6c0063",
+      "bytes": 7146,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "bytes": 28799,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+      "bytes": 38737,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "f4694817b730dffbea6dd14eabe5a35df4641a318029502f90bcefd1040bed45",
+      "bytes": 56936,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "f74bb74149fc5c8d93f48e0862ea890818133d26512e4ab05532c8ac1c31cab9",
+      "bytes": 29898,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "bytes": 33625,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "4dd285b186a9077bad0abc87370c699871c3c5fb1bb11bd99c99a47c00c3c86a",
+      "bytes": 14949,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "20f54bfa3e5c6d39844670b1013a29a83754542b5c37623d4bdd3605b30de85e",
+      "bytes": 48830,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "4800dbc2bde7ee9a25cdae15675f8b2b5262e3d06ff7aec29864d7295f9de8f0",
+      "bytes": 396819,
+      "ownership": "read-only-shared-input"
+    }
+  ],
+  "checks": [
+    {
+      "kind": "syntax",
+      "result": "passed",
+      "command": "node --check",
+      "paths": [
+        "src/crush_social_content.js",
+        "src/crush_social_facts.js",
+        "src/crush_social_host.js",
+        "src/crush_social_views.js",
+        "src/promise_ui.js"
+      ]
+    },
+    {
+      "kind": "cold-import-and-definition-registry-validation",
+      "result": "passed",
+      "modules": [
+        "expedition_content",
+        "crush_social_content",
+        "crush_social_facts",
+        "crush_social_host",
+        "crush_social_views",
+        "promise_ui"
+      ],
+      "runtimeStateConstructed": false,
+      "commandsExecuted": false,
+      "stablePromiseIDsMatch": true,
+      "commands": [
+        {
+          "id": "crush_social.outing_offer",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 0,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [],
+          "cancellation": "none",
+          "reservationReturns": null,
+          "completionSupport": null
+        },
+        {
+          "id": "crush_social.outing_patient",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 5,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [
+            {
+              "type": "item",
+              "actor": "player",
+              "key": "{\"id\":\"Rough wood log\"}",
+              "amount": -1
+            },
+            {
+              "type": "vital",
+              "actor": "player",
+              "key": "stamina",
+              "amount": -2
+            },
+            {
+              "type": "vital",
+              "actor": "promiseVisitor",
+              "key": "stamina",
+              "amount": -1
+            }
+          ],
+          "cancellation": "refund",
+          "reservationReturns": 1,
+          "completionSupport": {
+            "requires": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "crushSocial.local",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Meet Tamsin in the Village with supported local contact."
+                    },
+                    {
+                      "fact": "crushSocial.playerSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Recover your own two usable hands and supported mobile body before this shared work."
+                    },
+                    {
+                      "fact": "crushSocial.tamsinSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Tamsin cannot currently take this shared work. Recover or restore actual contact first."
+                    },
+                    {
+                      "fact": "vital.health",
+                      "op": "gte",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "fact": "crushSocial.tamsinWilling",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Tamsin has not consented to this shared work."
+                }
+              ]
+            },
+            "coLocated": true,
+            "failure": "refund"
+          }
+        },
+        {
+          "id": "crush_social.outing_quick",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 2,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [
+            {
+              "type": "vital",
+              "actor": "player",
+              "key": "stamina",
+              "amount": -4
+            },
+            {
+              "type": "vital",
+              "actor": "promiseVisitor",
+              "key": "stamina",
+              "amount": -3
+            }
+          ],
+          "cancellation": "refund",
+          "reservationReturns": 1,
+          "completionSupport": {
+            "requires": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "crushSocial.local",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Meet Tamsin in the Village with supported local contact."
+                    },
+                    {
+                      "fact": "crushSocial.playerSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Recover your own two usable hands and supported mobile body before this shared work."
+                    },
+                    {
+                      "fact": "crushSocial.tamsinSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Tamsin cannot currently take this shared work. Recover or restore actual contact first."
+                    },
+                    {
+                      "fact": "vital.health",
+                      "op": "gte",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "fact": "crushSocial.tamsinWilling",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Tamsin has not consented to this shared work."
+                }
+              ]
+            },
+            "coLocated": true,
+            "failure": "refund"
+          }
+        },
+        {
+          "id": "crush_social.outing_decline",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 0,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [],
+          "cancellation": "none",
+          "reservationReturns": null,
+          "completionSupport": null
+        },
+        {
+          "id": "crush_social.report_patient",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 0,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [],
+          "cancellation": "none",
+          "reservationReturns": null,
+          "completionSupport": null
+        },
+        {
+          "id": "crush_social.report_quick",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 0,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [],
+          "cancellation": "none",
+          "reservationReturns": null,
+          "completionSupport": null
+        },
+        {
+          "id": "crush_social.shared_pack_patient",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 3,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [
+            {
+              "type": "item",
+              "actor": "player",
+              "key": "{\"id\":\"Rough wood log\"}",
+              "amount": -1
+            },
+            {
+              "type": "vital",
+              "actor": "player",
+              "key": "stamina",
+              "amount": -1
+            },
+            {
+              "type": "vital",
+              "actor": "promiseVisitor",
+              "key": "stamina",
+              "amount": -1
+            }
+          ],
+          "cancellation": "refund",
+          "reservationReturns": 1,
+          "completionSupport": {
+            "requires": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "crushSocial.local",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Meet Tamsin in the Village with supported local contact."
+                    },
+                    {
+                      "fact": "crushSocial.playerSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Recover your own two usable hands and supported mobile body before this shared work."
+                    },
+                    {
+                      "fact": "crushSocial.tamsinSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Tamsin cannot currently take this shared work. Recover or restore actual contact first."
+                    },
+                    {
+                      "fact": "vital.health",
+                      "op": "gte",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "fact": "crushSocial.tamsinWilling",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Tamsin has not consented to this shared work."
+                },
+                {
+                  "all": [
+                    {
+                      "fact": "knowledge.promise.bracing.understood",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "knowledge.promise.bracing.basis",
+                      "op": "eq",
+                      "value": "instruction"
+                    },
+                    {
+                      "fact": "faculty.promise.bracing_control.active",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "strength",
+                      "op": "gte",
+                      "value": 6
+                    }
+                  ]
+                }
+              ]
+            },
+            "coLocated": true,
+            "failure": "refund"
+          }
+        },
+        {
+          "id": "crush_social.shared_pack_quick",
+          "revision": 1,
+          "group": "promise",
+          "registered": true,
+          "duration": 4,
+          "targetId": "promiseVisitor",
+          "participants": [
+            "$target"
+          ],
+          "costs": [
+            {
+              "type": "item",
+              "actor": "player",
+              "key": "{\"id\":\"Rough wood log\"}",
+              "amount": -1
+            },
+            {
+              "type": "vital",
+              "actor": "player",
+              "key": "stamina",
+              "amount": -2
+            },
+            {
+              "type": "vital",
+              "actor": "promiseVisitor",
+              "key": "stamina",
+              "amount": -1
+            }
+          ],
+          "cancellation": "refund",
+          "reservationReturns": 1,
+          "completionSupport": {
+            "requires": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "crushSocial.local",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Meet Tamsin in the Village with supported local contact."
+                    },
+                    {
+                      "fact": "crushSocial.playerSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Recover your own two usable hands and supported mobile body before this shared work."
+                    },
+                    {
+                      "fact": "crushSocial.tamsinSupported",
+                      "op": "eq",
+                      "value": true,
+                      "reason": "Tamsin cannot currently take this shared work. Recover or restore actual contact first."
+                    },
+                    {
+                      "fact": "vital.health",
+                      "op": "gte",
+                      "value": 2
+                    }
+                  ]
+                },
+                {
+                  "fact": "crushSocial.tamsinWilling",
+                  "op": "eq",
+                  "value": true,
+                  "reason": "Tamsin has not consented to this shared work."
+                },
+                {
+                  "all": [
+                    {
+                      "fact": "knowledge.promise.bracing.understood",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "knowledge.promise.bracing.basis",
+                      "op": "eq",
+                      "value": "instruction"
+                    },
+                    {
+                      "fact": "faculty.promise.bracing_control.active",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "strength",
+                      "op": "gte",
+                      "value": 6
+                    }
+                  ]
+                }
+              ]
+            },
+            "coLocated": true,
+            "failure": "refund"
+          }
+        }
+      ],
+      "plans": [
+        {
+          "id": "crush_social.household_preparation",
+          "revision": 1,
+          "registered": true,
+          "origin": "feature_society.terms",
+          "steps": [
+            {
+              "id": "supply",
+              "kind": "command",
+              "commandId": "feature_society.supply",
+              "revision": 1,
+              "targetId": "feature_society.hessa"
+            },
+            {
+              "id": "permission",
+              "kind": "command",
+              "commandId": "feature_society.authorize_home",
+              "revision": 1,
+              "targetId": "feature_society.hessa"
+            },
+            {
+              "id": "wait_repair",
+              "kind": "wait",
+              "requires": {
+                "fact": "world.feature_society.homeRepaired",
+                "op": "eq",
+                "value": true
+              },
+              "actorId": "feature_society.orr",
+              "commandId": "feature_society.orr_repair",
+              "revision": 1,
+              "label": "Wait for Orr\u2019s funded repair, then stop before hearing Hessa\u2019s report"
+            }
+          ],
+          "goalAdded": false,
+          "stockPolicyAdded": false
+        },
+        {
+          "id": "crush_social.household_known_use",
+          "revision": 1,
+          "registered": true,
+          "origin": "feature_society.personal_lesson",
+          "steps": [
+            {
+              "id": "travel_home",
+              "kind": "travel",
+              "location": "Shack",
+              "label": "Travel to your Shack through native travel"
+            },
+            {
+              "id": "personal_use",
+              "kind": "command",
+              "commandId": "feature_society.personal_pack",
+              "revision": 1
+            }
+          ],
+          "goalAdded": false,
+          "stockPolicyAdded": false
+        }
+      ],
+      "exports": {
+        "facts": [
+          "CRUSH_SOCIAL_IDS",
+          "crushSocialContext",
+          "crushSocialFacts"
+        ],
+        "host": [
+          "commitCrushSocialAction",
+          "crushSocialContext",
+          "crushSocialFacts",
+          "validateCrushSocial"
+        ],
+        "views": [
+          "createCrushSocialPanel",
+          "crushSocialActionLine",
+          "crushSocialPresentation",
+          "lioReturnRecap",
+          "promiseReturnRecap"
+        ],
+        "promiseFactory": "function"
+      }
+    },
+    {
+      "kind": "source-review",
+      "result": "completed-source-only",
+      "record": "SOURCE_AUDIT.md"
+    },
+    {
+      "kind": "owned-markdown-local-file-links",
+      "result": "passed",
+      "linksChecked": 13,
+      "anchorsBehaviorChecked": false
+    }
+  ],
+  "deferred": "All five ACCEPTANCE_BACKLOG.md families are unrun. No suites, gameplay/model/DOM/browser/save/reload/import/failure/regression/private-save checks.",
+  "excluded": [
+    "CC-P04 personal Ink note",
+    "shared root writes",
+    "build artifacts",
+    "private saves",
+    "source libraries",
+    "global docs",
+    "external messages/publication"
+  ],
+  "releasedTo": "/root"
+}

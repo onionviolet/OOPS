@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "interfaceVersion": 1,
+  "role": "repositories",
+  "owner": "01a10dc6-adcd-7372-a0ce-6b85dd811f6d",
+  "integrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "state": "source-native-ui-save-current-build-admitted; implemented-unverified",
+  "authority": "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md",
+  "gameplayState": "implemented-unverified",
+  "noSharedWriterWindowHeld": true,
+  "modules": [
+    {
+      "path": "src/repository_absorption_content.js",
+      "exports": [
+        "REPOSITORY_ABSORPTION_VERSION",
+        "REPOSITORY_ABSORPTION_IDS",
+        "REPOSITORY_ABSORPTION_ITEMS",
+        "repositoryAbsorptionItemSpecifications",
+        "repositoryAbsorptionSources",
+        "repositoryAbsorptionDefinitions"
+      ],
+      "consumer": "simulation registry, capability source registry, native item templates"
+    },
+    {
+      "path": "src/repository_absorption_facts.js",
+      "exports": [
+        "repositoryAbsorptionFacts",
+        "retainRepositoryAbsorptionWindows"
+      ],
+      "consumer": "current simulationFacts and existing common-clock before-increment seam"
+    },
+    {
+      "path": "src/repository_absorption_host.js",
+      "exports": [
+        "repositoryAbsorptionContext",
+        "beginRepositoryAbsorption",
+        "commitRepositoryAbsorption",
+        "cancelRepositoryAbsorption",
+        "repositoryAbsorptionPresentation",
+        "commitRepositoryProjection"
+      ],
+      "consumer": "typed main handler, existing persistExpansion, native vitals/stock and Notebook projection"
+    },
+    {
+      "path": "src/repository_absorption_workplan.js",
+      "exports": [
+        "REPOSITORY_WORKPLAN_LIMITS",
+        "defineRepositoryWorkItinerary",
+        "previewRepositoryWorkItinerary",
+        "defineRepositoryStockBand",
+        "previewRepositoryStockBand"
+      ],
+      "consumer": "host.workViews known sealing itinerary/native protected-kit stock suggestion; Features mixed saved queue remains its separate owner"
+    },
+    {
+      "path": "src/repository_absorption_ui.js",
+      "exports": [
+        "createRepositoryAbsorptionPanel"
+      ],
+      "consumer": "main and Notebook here panel; stable callbacks and player-known rows"
+    },
+    {
+      "path": "src/repository_absorption_substitutions.js",
+      "exports": [
+        "REPOSITORY_SUBSTITUTION_IDS",
+        "repositoryAbsorptionSubstitutionCommands"
+      ],
+      "consumer": "imported by existing content, actual simulation registry and unchanged group-scoped host/UI/native durable publisher"
+    },
+    {
+      "path": "src/repository_absorption_chains.js",
+      "exports": [
+        "REPOSITORY_METHOD_CHAIN_ID",
+        "repositoryAbsorptionChainCommands",
+        "repositoryMethodChainView"
+      ],
+      "consumer": "content spreads2actualcommands; host reads known chain summary; existing UI renders it; current frozen jobs/source/cost/native publication owners execute consequences"
+    }
+  ],
+  "requiredExistingFileJoins": [
+    {
+      "file": "src/simulation_content.js",
+      "join": "Import repositoryAbsorptionDefinitions; append people, sites, powers, situations, commands, controllers arrays to the existing corresponding arrays. Retain old definitions and IDs. No onEnroll effects for this slice."
+    },
+    {
+      "file": "src/expedition_content.js",
+      "join": "Import repositoryAbsorptionSources and append to existing source array."
+    },
+    {
+      "file": "src/data/expedition_items.js",
+      "join": "Import repositoryAbsorptionItemSpecifications; register each as native OtherItem with id/name/description/value and expedition tag. No item instance/global stock grant at load."
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "join": "Import repositoryAbsorptionFacts from the pure facts module. Merge ...repositoryAbsorptionFacts(state,context) into simulationFacts alongside existing originalFrontierFacts. Recompute inside executor rather than trust earlier context for teacher/current support/optional absent boolean."
+    },
+    {
+      "file": "src/expansion_engine.js",
+      "join": "Import retainRepositoryAbsorptionWindows from pure facts module. At BOTH retainOriginalFrontierWindow before-clock-bump sites, call the new helper with identical state/from/through. No additional timer or catch-up policy."
+    },
+    {
+      "file": "src/simulation.js",
+      "join": "For new group repositories, opt accepted timed jobs into existing reservationReturns1 handling and simulation4 (same existing machinery as original_frontier). This prevents cancellation/refund of held native items from becoming fresh acquisitions. Existing jobs without the marker retain their frozen semantics. New completionSupport already selects schema4. Preserve audience:[repositories.miri] on NPC jobs."
+    },
+    {
+      "file": "src/main.js",
+      "join": "Import host functions and UI factory. Dedicated actRepositoryAbsorption handler uses campaignContext/expeditionContext plus vitals mapping from simulationNativeContexts and actual native save-write/busy gates. Stamp command.sequence, call begin/command/cancel with exact target or job ID, then persistExpansion(plan) ONCE. Add render call and construct UI from readProgression snapshot with inDialogue/inCombat/enabled/canWrite. UI never publishes itself. No alternate localStorage writer. Also route type projection to commitRepositoryProjection with the exact request; host re-previews current itinerary/stock identity and only reserves one legal current job."
+    },
+    {
+      "file": "src/adventure_notebook.js",
+      "join": "Include repository_absorption_panel in here view; map repositories group to same panel for active work/focus. Exclude group repositories from generic Workshop command enumeration so the dedicated truthful panel owns it."
+    },
+    {
+      "file": "src/expedition_ui.js",
+      "join": "If generic Workshop renders all commands, exclude group repositories because dedicated Notebook panel owns its player controls and NPC private actions."
+    },
+    {
+      "file": "dist/bundle.js and dist/bundle.js.map",
+      "join": "Features rebuilds after all joins, verifies each new source content in sourcemap equals live files. Role cannot write shared generated outputs."
+    }
+  ],
+  "activation": "Explicit Ask the courier about her lantern in Village after elder. Missing slice means no actor/pellet/source/reward/site activation on load or render. Opening spawns one fixed Miri and finite owned supplies once.",
+  "nativeConsumers": [
+    "Dry resin pellet moves from Miri actual simulation inventory to player native bag against one native coin crediting Miri",
+    "Native Rough wood log/stamina and Miri purse reserve and settle funded brace wage",
+    "Native Prepared survey kit + owned resin become Wax-sealed survey kit; mastery3 matched pair changes output capacity",
+    "Actual exposed native kit becomes Soaked survey kit with failed pump route; drying/opening conserves one kit",
+    "Protected native kit restoration vs funded surface bypass vs resident actual stock/coin bypass retains one same pump outcome",
+    "Pump draw consumes Miri finite water and stages actual native stamina before one publication"
+  ],
+  "privacy": "Private NPC jobs have audience Miri only. Direct attended demonstration reserves co-located participants through completion. Unattended self-help creates no player knowledge; later account is attributed recollection. Views read only knowledge.player plus player-owned stock and disclosed terms.",
+  "versions": {
+    "definitions": 1,
+    "sources": 1,
+    "content": 1,
+    "expansion": "Old5unenrolled; optional destination/backlog/Ink/workPlans6; opted nestedCampaign7. This lane adds no independent save namespace.",
+    "simulation": "1\u20134; new completionSupport/reservationReturns opts this slice into4",
+    "workProjections": 1,
+    "newOptionalSaveDomain": null,
+    "dependencies": [],
+    "oldSavedDefinitions": "retained; no rewrites",
+    "missingDefault": "unenrolled/no rewards",
+    "priorBuildCompatibility": "older engines reject unsupported simulation4; no covert downgrade"
+  },
+  "checksPerformed": [
+    "syntax content/host",
+    "module import/link UI-host-facts-workplan",
+    "22 commands/1 actor/1 power/1 site/2 situations/1 controller static registry validation",
+    "all five reserved modules syntax and UI/host/facts/workplan import/link",
+    "role-only esbuild0.25.10 memory bundle;135 sourcemap source-content entries match disk",
+    "cold actual native registry confirms all22 repository commands/actor/power/site/situations/controller/source",
+    "exact shared native/UI/save joins with verified source locations",
+    "all5 repository modules match current shared bundle input hashes",
+    "final new26-command actual cold registry/source bindings after trained inspection gate",
+    "final current shared build221local source contents matched independently",
+    "all7source hashes and all28registry bindings match live final inputs",
+    "exact native display-name and displayed-offer repairs included in current bundle"
+  ],
+  "checksDeferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "registeredIds": {
+    "people": [
+      {
+        "id": "repositories.miri",
+        "revision": 1
+      }
+    ],
+    "sites": [
+      {
+        "id": "repositories.sealing_bench",
+        "revision": 1
+      }
+    ],
+    "powers": [
+      {
+        "id": "repositories.wick_control",
+        "revision": 1
+      }
+    ],
+    "situations": [
+      {
+        "id": "repositories.lantern",
+        "revision": 1
+      },
+      {
+        "id": "repositories.pump",
+        "revision": 1
+      }
+    ],
+    "commands": [
+      {
+        "id": "repositories.ask_wick_sketch",
+        "revision": 1
+      },
+      {
+        "id": "repositories.inspect_substitute",
+        "revision": 1
+      },
+      {
+        "id": "repositories.deliver_substitute",
+        "revision": 1
+      },
+      {
+        "id": "repositories.hear_substitution",
+        "revision": 1
+      },
+      {
+        "id": "repositories.test_rough_seam",
+        "revision": 1
+      },
+      {
+        "id": "repositories.show_matched_method",
+        "revision": 1
+      },
+      {
+        "id": "repositories.begin",
+        "revision": 1
+      },
+      {
+        "id": "repositories.inspect_lantern",
+        "revision": 1
+      },
+      {
+        "id": "repositories.watch_repair",
+        "revision": 1
+      },
+      {
+        "id": "repositories.paid_repair",
+        "revision": 1
+      },
+      {
+        "id": "repositories.decline",
+        "revision": 1
+      },
+      {
+        "id": "repositories.self_repair",
+        "revision": 1
+      },
+      {
+        "id": "repositories.hear_lantern",
+        "revision": 1
+      },
+      {
+        "id": "repositories.buy_pellet",
+        "revision": 1
+      },
+      {
+        "id": "repositories.lesson",
+        "revision": 1
+      },
+      {
+        "id": "repositories.seal_kit",
+        "revision": 1
+      },
+      {
+        "id": "repositories.seal_pair",
+        "revision": 1
+      },
+      {
+        "id": "repositories.dry_kit",
+        "revision": 1
+      },
+      {
+        "id": "repositories.open_seal",
+        "revision": 1
+      },
+      {
+        "id": "repositories.inspect_pump",
+        "revision": 1
+      },
+      {
+        "id": "repositories.exposed_work",
+        "revision": 1
+      },
+      {
+        "id": "repositories.protected_work",
+        "revision": 1
+      },
+      {
+        "id": "repositories.surface_bypass",
+        "revision": 1
+      },
+      {
+        "id": "repositories.resident_bypass",
+        "revision": 1
+      },
+      {
+        "id": "repositories.hear_pump_restored",
+        "revision": 1
+      },
+      {
+        "id": "repositories.hear_pump_bypassed",
+        "revision": 1
+      },
+      {
+        "id": "repositories.hear_pump_resident_bypass",
+        "revision": 1
+      },
+      {
+        "id": "repositories.draw_water",
+        "revision": 1
+      }
+    ],
+    "controllers": [
+      {
+        "id": "repositories.miri_agenda",
+        "revision": 1
+      }
+    ],
+    "sources": [
+      {
+        "id": "repositories.wick_control",
+        "revision": 1
+      }
+    ],
+    "nativeItems": [
+      "Dry resin pellet",
+      "Wax-sealed survey kit",
+      "Soaked survey kit"
+    ]
+  },
+  "admissionEvidence": "docs/gm/feature-wave/repositories/ADMISSION.json",
+  "sourceStaticBuild": "docs/gm/feature-wave/repositories/STATIC_BUILD.json",
+  "implementationRecord": "docs/gm/feature-wave/repositories/IMPLEMENTATION_MATRIX.json",
+  "sourceCoverage": "docs/gm/feature-wave/repositories/COVERAGE.json",
+  "sourceMechanisms": "docs/gm/feature-wave/repositories/IMPLEMENTATION_MATRIX.json",
+  "recoverySourceReceipt": "docs/gm/feature-wave/repositories/RESUME_STATIC.json",
+  "recoveryJoinReceipt": "docs/gm/feature-wave/repositories/RESUME_JOIN.md",
+  "roleWriterReleased": true,
+  "recoverySourceHashes": {
+    "src/repository_absorption_content.js": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7",
+    "src/repository_absorption_facts.js": "44307c53039e9df19062a1eb2af60348fcb5bcd415bc273e2bd321267336c649",
+    "src/repository_absorption_host.js": "279335686f94e716ad3931a572b5073249f0c9e7c8f9e5b93ac5e101ab757ba8",
+    "src/repository_absorption_ui.js": "8ec10bcbd6fe65071bc7c5d6140451ac97772ec5324b1133d0762c6eefe58a06",
+    "src/repository_absorption_workplan.js": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+  },
+  "parentAdmission": {
+    "status": "source-native-ui-save-current-build-admitted; implemented-unverified",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "11aaa9cbfc69",
+    "roleModulesMatchBuild": 7,
+    "registeredRepositoryCommands": 28,
+    "gameplayChecks": "deferred",
+    "currentDrift": 0
+  },
+  "sourceStageState": "source-ready-awaiting-shared-admission",
+  "bookSubtletyAmendment": "docs/gm/feature-wave/repositories/BOOK_SUBTLETY_JOINS.json",
+  "newSourceHashes": {
+    "src/repository_absorption_chains.js": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+    "src/repository_absorption_content.js": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+    "src/repository_absorption_host.js": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+    "src/repository_absorption_ui.js": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+    "src/repository_absorption_facts.js": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86",
+    "src/repository_absorption_substitutions.js": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8"
+  },
+  "nestedChainSteering": "docs/gm/feature-wave/repositories/NESTED_CHAIN_JOINS.json",
+  "nativeItemNameRepair": "Actual OtherItem delegates Item.name with no id fallback; all3specs now explicitly name=id. IDs/counts/jobs/saved meaning unchanged; final coordinated build consumes corrected native display names.",
+  "displayedOfferRepair": "UI callback now sends displayedView exact request/target/job and displayedSequence. It no longer refreshes a next-step offer at click time, so stale single-kit versus paired-kit work rejects under existing host expectedSequence/identity checks."
+}

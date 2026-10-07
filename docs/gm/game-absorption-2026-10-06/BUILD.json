@@ -1,0 +1,20 @@
+{
+  "status": "source-native-ui-compatible-state-current-build-delivered-implemented-unverified",
+  "owner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "sharedIntegrationApplied": true,
+  "bundleCorrespondenceVerified": true,
+  "sourceHashes": {
+    "src/game_absorption_assay_content.js": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+    "src/game_absorption_assay_facts.js": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6",
+    "src/game_absorption_assay_host.js": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea",
+    "src/game_absorption_assay_item_view.js": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101"
+  },
+  "qualification": "Actual receiver refreshed/applied nine shared inputs, native body/readers/UI/publisher joined, matching current source-map/served bytes. Gameplay/native constructors/save/failure/director acceptance deferred.",
+  "currentSharedBuildLeaseOwner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "handoff": "RELEASE.json",
+  "capturedAtUtc": "2026-10-07T06:21:46.171508+00:00",
+  "currentBuild": "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+  "previewUrl": "http://127.0.0.1:18197/",
+  "bundleSha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4",
+  "appliedRefreshedPatch": "INTEGRATION.patch"
+}

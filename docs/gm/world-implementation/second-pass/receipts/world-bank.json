@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-04",
+  "slug": "world-bank",
+  "requestedTitle": "World absorption and adaptive characters GM",
+  "threadId": "01a109b5-80c1-75f3-acf5-cf2a39323bb0",
+  "hostId": "local",
+  "assignment": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+  "mode": "planning-only",
+  "state": "planning-active-observed",
+  "cursor": "88199440-7680-4ecb-a7cc-a7a09ad4dda5:1",
+  "latestTurn": "inProgress",
+  "observedCommentary": "Checking delivered peer reports and existing engine adapters for separate reviewed canon, game-branch state and observer beliefs.",
+  "inputSnapshot": "docs/gm/world-implementation/second-pass/world-bank/INPUT_SNAPSHOT.json"
+}

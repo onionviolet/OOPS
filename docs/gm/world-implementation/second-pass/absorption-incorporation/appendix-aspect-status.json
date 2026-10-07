@@ -1,0 +1,74 @@
+{
+  "observations": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-runtime-efficiency",
+        "threadId": "01a10997-a4c6-7402-8281-997f8f5ca597",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "752ea556-47a4-4a7e-b7b1-ba318d086f4b:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-token-efficiency",
+        "threadId": "01a10997-afcc-71f2-b437-060d0ef1308e",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "92541db0-f840-4e73-bb19-23fd01378b7e:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-regions",
+        "threadId": "01a10997-d522-7e53-b28c-f01548602d24",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "148ef8af-079d-4d45-a935-68945d2a8b28:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-items",
+        "threadId": "01a10997-eb61-7123-a961-f82304097f66",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "b662ceff-3dc8-4be5-bda1-ace69de298c7:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-powers",
+        "threadId": "01a10998-0eb6-7c12-8574-bc60c1173dd0",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "ccd9a09c-faac-4a0c-a226-4db9bb5b79b8:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-combat",
+        "threadId": "01a10998-2514-77c0-9271-d14516068db8",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "7b0bf20b-2f5d-4c77-9261-fcebab087fcb:1"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "role": "aspect-bases",
+        "threadId": "01a10998-50d9-7710-9eae-d6ac283b0a23",
+        "observedState": "notLoaded",
+        "latestTurn": "completed",
+        "cursor": "c0aa2859-e29f-4a85-8489-2843338d902f:1"
+      }
+    }
+  ]
+}

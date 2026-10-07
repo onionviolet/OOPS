@@ -32,19 +32,13 @@ function Game_Time(new_time) {
             this.day_count += d;
         }
     
-        if(this.day > 30) {
-            const d = this.day % 30;
-            const m = Math.floor(this.day/30);
-            this.day = d;
-            this.month += m;
-        }
-    
-        if(this.month > 12) {
-            const m = this.month % 12;
-            const y = Math.floor(this.month/12);
-            this.month = m;
-            this.year += y;
-        }
+        // Days and months are one-based. Exact boundaries must never become zero.
+        const months = Math.floor((this.day - 1) / 30);
+        this.day -= months * 30;
+        this.month += months;
+        const years = Math.floor((this.month - 1) / 12);
+        this.month -= years * 12;
+        this.year += years;
     }
 
     this.goUp(0);
@@ -58,6 +52,7 @@ function Game_Time(new_time) {
         this.hour = new_time.hour;
         this.minute = new_time.minute;
         this.day_count = new_time.day_count;
+        this.goUp(0);
     }
 
     /**
@@ -68,7 +63,7 @@ function Game_Time(new_time) {
     this.getSeason = function(day_count) {
         let month;
         if(day_count) {
-            month = this.month + Math.floor((this.day + day_count)/30);
+            month = (this.month - 1 + Math.floor((this.day - 1 + day_count)/30)) % 12 + 1;
         } else {
             month = this.month;
         }

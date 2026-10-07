@@ -1,0 +1,903 @@
+{
+  "schema": 1,
+  "capturedAtUTC": "2026-10-05T03:16:28.785955+00:00",
+  "branch": "codex/gameplay-foundations",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "frozenSnapshotUnmodified": true,
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "initialSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "frozenSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "frozenComparison": "match",
+      "finalSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "PROJECT.md",
+      "initialSha256": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+      "frozenSha256": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+      "frozenComparison": "match",
+      "finalSha256": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "initialSha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "frozenSha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "frozenComparison": "match",
+      "finalSha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "initialSha256": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+      "frozenSha256": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+      "frozenComparison": "match",
+      "finalSha256": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "initialSha256": "3dbae588a3a0945094c6b4af9a62159d24eed5a1e299e7235476cc2cbba36575",
+      "frozenSha256": "3dbae588a3a0945094c6b4af9a62159d24eed5a1e299e7235476cc2cbba36575",
+      "frozenComparison": "match",
+      "finalSha256": "3dbae588a3a0945094c6b4af9a62159d24eed5a1e299e7235476cc2cbba36575",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "initialSha256": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+      "frozenSha256": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+      "frozenComparison": "match",
+      "finalSha256": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "initialSha256": "3b5aa8f917f6888f9999b98336734850fd2bc8ec9dffab6786eca3d0bd73daf9",
+      "frozenSha256": "3c8f63b43391a8252a44b552b1074335205910733e65d726611c991321ec7da2",
+      "frozenComparison": "changed",
+      "finalSha256": "3b5aa8f917f6888f9999b98336734850fd2bc8ec9dffab6786eca3d0bd73daf9",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "initialSha256": "84a1efd1b30627121b32c6c86d7ae384ed935510dbf95e23721b977d64279da7",
+      "frozenSha256": "84a1efd1b30627121b32c6c86d7ae384ed935510dbf95e23721b977d64279da7",
+      "frozenComparison": "match",
+      "finalSha256": "84a1efd1b30627121b32c6c86d7ae384ed935510dbf95e23721b977d64279da7",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md",
+      "initialSha256": "bc8c8aae9dcf4f33d058bb26d88119aab1fc93d7de1cb94500806b178f24b76c",
+      "frozenSha256": "bc8c8aae9dcf4f33d058bb26d88119aab1fc93d7de1cb94500806b178f24b76c",
+      "frozenComparison": "match",
+      "finalSha256": "bc8c8aae9dcf4f33d058bb26d88119aab1fc93d7de1cb94500806b178f24b76c",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+      "initialSha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+      "frozenSha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+      "frozenComparison": "match",
+      "finalSha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "initialSha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "frozenSha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "frozenComparison": "match",
+      "finalSha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "initialSha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "frozenSha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "frozenComparison": "match",
+      "finalSha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+      "initialSha256": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+      "frozenSha256": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+      "frozenComparison": "match",
+      "finalSha256": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+      "initialSha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+      "frozenSha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+      "frozenComparison": "match",
+      "finalSha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+      "initialSha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+      "frozenSha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+      "frozenComparison": "match",
+      "finalSha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+      "initialSha256": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+      "frozenSha256": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+      "frozenComparison": "match",
+      "finalSha256": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/simulation.js",
+      "initialSha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "frozenSha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "frozenComparison": "match",
+      "finalSha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "initialSha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "frozenSha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "frozenComparison": "match",
+      "finalSha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "initialSha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "frozenSha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "frozenComparison": "match",
+      "finalSha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/scene_definitions.js",
+      "initialSha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+      "frozenSha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+      "frozenComparison": "match",
+      "finalSha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/causal_situations.js",
+      "initialSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "frozenSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "frozenComparison": "match",
+      "finalSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "initialSha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+      "frozenSha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+      "frozenComparison": "match",
+      "finalSha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/world_instances.js",
+      "initialSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "frozenSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "frozenComparison": "match",
+      "finalSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/pocket_realm_scenes.js",
+      "initialSha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "frozenSha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "frozenComparison": "match",
+      "finalSha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "package.json",
+      "initialSha256": "db8a5562435b2bd2d467ade0d386ab484426935b724ab1e8d981dd37ca6e9627",
+      "frozenSha256": "db8a5562435b2bd2d467ade0d386ab484426935b724ab1e8d981dd37ca6e9627",
+      "frozenComparison": "match",
+      "finalSha256": "db8a5562435b2bd2d467ade0d386ab484426935b724ab1e8d981dd37ca6e9627",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "package-lock.json",
+      "initialSha256": "115bccf437e1334e77b94bf04414f077dfe9ff2ff2016abec3daa378816c76e9",
+      "frozenSha256": "115bccf437e1334e77b94bf04414f077dfe9ff2ff2016abec3daa378816c76e9",
+      "frozenComparison": "match",
+      "finalSha256": "115bccf437e1334e77b94bf04414f077dfe9ff2ff2016abec3daa378816c76e9",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "dist/bundle.js",
+      "initialSha256": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+      "frozenSha256": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+      "frozenComparison": "match",
+      "finalSha256": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+      "initialSha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+      "initialSha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+      "initialSha256": "7a0b2b001973316d99c53f8658acd85abc4ed87d01f3d6a9c9a08f948b199a5e",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "7a0b2b001973316d99c53f8658acd85abc4ed87d01f3d6a9c9a08f948b199a5e",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
+      "initialSha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md",
+      "initialSha256": "162241a1516f50ad0e3eefb21332a4e37a0527ca50746ecb68f9fea836e4c859",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "162241a1516f50ad0e3eefb21332a4e37a0527ca50746ecb68f9fea836e4c859",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/CHECKPOINT.md",
+      "initialSha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "cbda28516754c11c2f00f0177e92de47202d0ea8bf3c61f6d74fe3e228596351",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/CHECKPOINT.md",
+      "initialSha256": "021b1948bb5a6e752ae53bb24e9ce7d6c49400364f6a8927f82df50914161bc7",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "021b1948bb5a6e752ae53bb24e9ce7d6c49400364f6a8927f82df50914161bc7",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/pocket_realm_host.js",
+      "initialSha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/pocket_realm_ui.js",
+      "initialSha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "initialSha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "initialSha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "initialSha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "initialSha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "initialSha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/realm_state.js",
+      "initialSha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/pursuit.js",
+      "initialSha256": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/native_battle_contracts.js",
+      "initialSha256": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/observation_channels.js",
+      "initialSha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "initialSha256": "588650c5ba72cbfd4376ca0f2cd3cbb9fa582ec08a562b960c7f61ce590344bb",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "588650c5ba72cbfd4376ca0f2cd3cbb9fa582ec08a562b960c7f61ce590344bb",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/TASK_PACKETS.md",
+      "initialSha256": "d34be55009d861be3d80ad030cb5811d69fe033647e2ca7fcd85edb023758a99",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "d34be55009d861be3d80ad030cb5811d69fe033647e2ca7fcd85edb023758a99",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/ROLLOUT.md",
+      "initialSha256": "e6c0ce7ebbfb095779bb50ce62d62cc6951f30bf8f74f6c6619c64137b61e382",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "e6c0ce7ebbfb095779bb50ce62d62cc6951f30bf8f74f6c6619c64137b61e382",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/EASE_OF_AUTHORING.md",
+      "initialSha256": "0929f0029d30ca1cbc3ea816318b717a98c702609b4ba8d3e1f691b29e6da091",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "0929f0029d30ca1cbc3ea816318b717a98c702609b4ba8d3e1f691b29e6da091",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/BANK_AND_QUERY_CONTRACT.md",
+      "initialSha256": "43785bea6b7e40836ab259a220c4c009d9dc126a34f0facfb44374f7524b1ede",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "43785bea6b7e40836ab259a220c4c009d9dc126a34f0facfb44374f7524b1ede",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/main.js",
+      "initialSha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/pocket_realm_content.js",
+      "initialSha256": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/power_models.js",
+      "initialSha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/energy_resources.js",
+      "initialSha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "initialSha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "src/rules.js",
+      "initialSha256": "3f20c44464efa945d35e5c42bdfccf27df7e2846acc2b314b07c22074a6e9c9a",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "3f20c44464efa945d35e5c42bdfccf27df7e2846acc2b314b07c22074a6e9c9a",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+      "initialSha256": "4abcdfb4e30e01dc64e42c01cadb37b34b47589f77b534a3d6a853b628162635",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "4abcdfb4e30e01dc64e42c01cadb37b34b47589f77b534a3d6a853b628162635",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json",
+      "initialSha256": "9541a5cc366b66844786389bc7581c09ef0eb79217cd3d5a6d05d7c4e679cf99",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "9541a5cc366b66844786389bc7581c09ef0eb79217cd3d5a6d05d7c4e679cf99",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+      "initialSha256": "1e4f818350376de03a6c8d440dd2cf6df665cf39140474e6e998ea1345685b92",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "1e4f818350376de03a6c8d440dd2cf6df665cf39140474e6e998ea1345685b92",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/FINDINGS.json",
+      "initialSha256": "02a0711f3ac472506564b6a5610d9ac93e65583b201d340ce9a7b57204dc8204",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "02a0711f3ac472506564b6a5610d9ac93e65583b201d340ce9a7b57204dc8204",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/FINDINGS.json",
+      "initialSha256": "442871cb305ca1f2529d7a29f98399ddd0569f12937987e160a06642137da745",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "442871cb305ca1f2529d7a29f98399ddd0569f12937987e160a06642137da745",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/COVERAGE_AND_CAPABILITY.json",
+      "initialSha256": "1a04a73d204b7b99e6c83fa1f6cb049e9c191172c854f79ef7e17c10c27a07ef",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "1a04a73d204b7b99e6c83fa1f6cb049e9c191172c854f79ef7e17c10c27a07ef",
+      "changedSinceCapture": false
+    },
+    {
+      "path": "LICENSE",
+      "initialSha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+      "frozenSha256": null,
+      "frozenComparison": "supplemental",
+      "finalSha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+      "changedSinceCapture": false
+    }
+  ],
+  "baselineGitStatus": [
+    " M AGENTS.md",
+    " M PROJECT.md",
+    " M dist/bundle.js",
+    " M dist/bundle.js.map",
+    " M docs/DIRECTION_SYNTHESIS.md",
+    " M docs/ENGINE_EXPANSION.md",
+    " M docs/NICHE_GAME_REFERENCES.md",
+    " M docs/PLAYTEST.md",
+    " M docs/PROTOTYPE_HISTORY.md",
+    " M docs/RESEARCH_GENRE_TROPES.md",
+    " M docs/RESEARCH_IDLE_GAMES.md",
+    " M docs/RESEARCH_LITRPG_SYSTEMS.md",
+    " M docs/RNG_ENCOUNTERS_AND_SOURCE_DEVELOPMENT.md",
+    " M docs/RUN_DEFINING_ADVANTAGES.md",
+    " M docs/USER_VISION.md",
+    " M index.html",
+    " M src/capabilities.js",
+    " M src/data/expedition_items.js",
+    " M src/data/storage.js",
+    " M src/display.js",
+    " M src/enemies.js",
+    " M src/expansion_engine.js",
+    " M src/expansion_persistence.js",
+    " M src/expedition_content.js",
+    " M src/expedition_ui.js",
+    " M src/game_time.js",
+    " M src/gameplay_publication.js",
+    " M src/items.js",
+    " M src/main.js",
+    " M src/misc.js",
+    " M src/models/combat.js",
+    " M src/models/person.js",
+    " M src/save_files.js",
+    " M src/technique_ui.js",
+    " M style.css",
+    " M tests/expansion_engine.test.js",
+    " M tests/gameplay_foundations.test.js",
+    " M tests/techniques.test.js",
+    "?? .codex/",
+    "?? assets/",
+    "?? docs/BOOKSHELF_INSPIRATION.md",
+    "?? docs/CHARACTERS_AND_WORLD_EVENTS.md",
+    "?? docs/ENCOUNTERS_AND_PURSUIT.md",
+    "?? docs/ENGINE_AUTHORING.md",
+    "?? docs/ENGINE_GM_CHECKPOINT.md",
+    "?? docs/ENGINE_GM_NEXT_CHECKPOINT.md",
+    "?? docs/GAME_IMPLEMENTER_TEMPLATE.md",
+    "?? docs/GAME_MASTER_PROMPT.md",
+    "?? docs/GATHERING_AND_RESOURCE_USES.md",
+    "?? docs/GRANULAR_SYSTEMS_AND_INTERACTIONS.md",
+    "?? docs/IDEA_INDEX.md",
+    "?? docs/WANDERING_ZONES_AND_INSIGHT.md",
+    "?? docs/WORLD_GAME_MASTER_TEMPLATE.md",
+    "?? docs/gm/",
+    "?? docs/research/",
+    "?? docs/worlds/",
+    "?? scripts/",
+    "?? src/adventure_notebook.js",
+    "?? src/body_progression.js",
+    "?? src/body_ui.js",
+    "?? src/causal_situations.js",
+    "?? src/character_bio.js",
+    "?? src/character_bio_ui.js",
+    "?? src/chronicle.js",
+    "?? src/chronicle_ui.js",
+    "?? src/combat_math.js",
+    "?? src/data/pocket_location.js",
+    "?? src/encounter_content.js",
+    "?? src/energy_resources.js",
+    "?? src/event_feed.js",
+    "?? src/event_feed_ui.js",
+    "?? src/everyday_life.js",
+    "?? src/exchange.js",
+    "?? src/exchange_content.js",
+    "?? src/exchange_ui.js",
+    "?? src/expansion_quest_ui.js",
+    "?? src/field_ui.js",
+    "?? src/field_workshop.js",
+    "?? src/frontier_campaign.js",
+    "?? src/frontier_campaign_ui.js",
+    "?? src/helper_content.js",
+    "?? src/native_battle.js",
+    "?? src/native_battle_contracts.js",
+    "?? src/native_battle_host.js",
+    "?? src/native_equipment_transaction.js",
+    "?? src/native_gameplay_adapter.js",
+    "?? src/native_realm_traveler.js",
+    "?? src/native_storage_transaction.js",
+    "?? src/native_unlock_transaction.js",
+    "?? src/observation_channels.js",
+    "?? src/observation_content.js",
+    "?? src/observation_ui.js",
+    "?? src/original_frontier_campaign_content.js",
+    "?? src/party_battle.js",
+    "?? src/party_content.js",
+    "?? src/party_ui.js",
+    "?? src/people_knowledge.js",
+    "?? src/people_ui.js",
+    "?? src/pocket_observation.js",
+    "?? src/pocket_realm_content.js",
+    "?? src/pocket_realm_host.js",
+    "?? src/pocket_realm_rules.js",
+    "?? src/pocket_realm_scenes.js",
+    "?? src/pocket_realm_ui.js",
+    "?? src/power_models.js",
+    "?? src/promise_content.js",
+    "?? src/promise_ui.js",
+    "?? src/pursuit.js",
+    "?? src/pursuit_content.js",
+    "?? src/pursuit_ui.js",
+    "?? src/realm_boundary_rules.js",
+    "?? src/realm_cargo.js",
+    "?? src/realm_clock_leases.js",
+    "?? src/realm_connections.js",
+    "?? src/realm_state.js",
+    "?? src/realm_traveler_profiles.js",
+    "?? src/scene_definitions.js",
+    "?? src/simulation.js",
+    "?? src/simulation_content.js",
+    "?? src/simulation_contracts.js",
+    "?? src/simulation_effects.js",
+    "?? src/simulation_resolution.js",
+    "?? src/simulation_ui.js",
+    "?? src/site_projects.js",
+    "?? src/town_content.js",
+    "?? src/town_ui.js",
+    "?? src/village_content.js",
+    "?? src/village_ui.js",
+    "?? src/world_instances.js",
+    "?? src/world_knowledge.js",
+    "?? src/world_rhythm.js",
+    "?? tests/body_progression.test.js",
+    "?? tests/character_bio.test.js",
+    "?? tests/chronicle.test.js",
+    "?? tests/event_feed.test.js",
+    "?? tests/everyday_life.test.js",
+    "?? tests/exchange.test.js",
+    "?? tests/field_workshop.test.js",
+    "?? tests/frontier_campaign.test.js",
+    "?? tests/native_storage_transaction.test.js",
+    "?? tests/observation.test.js",
+    "?? tests/party_battle.test.js",
+    "?? tests/people_knowledge.test.js",
+    "?? tests/promise_situation.test.js",
+    "?? tests/pursuit.test.js",
+    "?? tests/simulation.test.js",
+    "?? tests/simulation_extensions.test.js",
+    "?? tests/town.test.js",
+    "?? tests/village_life.test.js",
+    "?? tests/world_knowledge.test.js"
+  ],
+  "driftInterpretation": "RUN dispatch/progress is mutable coordination. Changed files must be reread before treating them as delivery. Runtime hold stays in force.",
+  "upstreamSourceValidation": {
+    "checkedAtUTC": "2026-10-05T03:30:26.868106+00:00",
+    "findingReferences": 38,
+    "uniqueRawFiles": 32,
+    "lineRangeErrors": [],
+    "files": {
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/doc/JSON/EFFECT_ON_CONDITION.md": {
+        "status": 200,
+        "sha256": "e927db74f3fb26f2110463d27fb5479c9e298ed0a77e9f6b0916763c7df70850",
+        "lines": 5922
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/condition.cpp": {
+        "status": 200,
+        "sha256": "d07833c835a1a6294b13282f30a1cc6ed6390e19345839b0e6e6e532b7526fe6",
+        "lines": 2820
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/effect_on_condition.cpp": {
+        "status": 200,
+        "sha256": "5aa53fc8b761ebc2fdfd9be0ab0f207a147bb914e1e3cdbd8d79b57b3c7bea07",
+        "lines": 637
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic.cpp": {
+        "status": 200,
+        "sha256": "5db41eed24c7eb5bb706587401a37b472d77f6743e8c84ead2e8c3a11096dbe2",
+        "lines": 3925
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic_spell_effect.cpp": {
+        "status": 200,
+        "sha256": "b52298df8fe7e27a0299e3d22b378121f338a8477b53b1abda53445a4d3ea176",
+        "lines": 2116
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/npctalk.cpp": {
+        "status": 200,
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "lines": 9652
+      },
+      "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/savegame_json.cpp": {
+        "status": 200,
+        "sha256": "ec31e10ab570c5213ee2552f0c8ed88c1385d827e7181b8998bd26ee57a29fe1",
+        "lines": 5933
+      },
+      "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/Actions.i6t": {
+        "status": 200,
+        "sha256": "7f5c5ad6face585e9a58c0b3ce5475b87ea27ed42fa056ab1b95d4561da684c5",
+        "lines": 830
+      },
+      "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/OrderOfPlay.i6t": {
+        "status": 200,
+        "sha256": "2edb16fc43cc9724c106c44b666a631effe0a1087efe295ca2a4dd80dfb5a36c",
+        "lines": 649
+      },
+      "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/State.i6t": {
+        "status": 200,
+        "sha256": "36aeeaa0a060a69f36460bc3c71e80d7d89242cc11dcc4277a998b7696364065",
+        "lines": 113
+      },
+      "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Source/Sections/Physical%20World%20Model.w": {
+        "status": 200,
+        "sha256": "07f17968cca19fd3098c8705d29f3fc50cef4e147ed260f55b3ab703b5a0c347",
+        "lines": 1044
+      },
+      "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Source/Sections/Variables%20and%20Rulebooks.w": {
+        "status": 200,
+        "sha256": "d5f2c3137956fdf7b17943b11833a7f33951311d7be811d99b123c37dc5de232",
+        "lines": 1247
+      },
+      "https://github.com/inkle/ink/blob/35c63e52f1d36060930dc7ed3cfba38ea224b528/README.md": {
+        "status": 200,
+        "sha256": "d4e1fb8405be61ba17d6aa08a2d7ca719521b0bc18278302a62af4826747d161",
+        "lines": 181
+      },
+      "https://github.com/inkle/ink/blob/35c63e52f1d36060930dc7ed3cfba38ea224b528/ink-engine-runtime/Story.cs": {
+        "status": 200,
+        "sha256": "10a150e6438360f346bfad4ffd17749bcdc5ae851fd11e4bb957ed27e0604340",
+        "lines": 2961
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/license.txt": {
+        "status": 200,
+        "sha256": "3631775a89d4c07e804baedcc91b61c01b55f50d5715168099d6daf61f67763b",
+        "lines": 25
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/package.json": {
+        "status": 200,
+        "sha256": "b82bea6a49686bb08770f1e8715a7936fc8bd85b13007b818b369f45192c9ba4",
+        "lines": 66
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/engine.ts": {
+        "status": 200,
+        "sha256": "03b37c5e8db8aac1faf7f590eaf07e4c44b0c4ad12c033f9e5d32653b0c98227",
+        "lines": 49
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/eventqueue.ts": {
+        "status": 200,
+        "sha256": "a9f2a7db3de41e110d73a91f73838e1a821f9e8c221190dce11b1da6c5e38c19",
+        "lines": 75
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/fov/precise-shadowcasting.ts": {
+        "status": 200,
+        "sha256": "f7cc6ac210ab83603e735d2dc9f0db04c13ee1d7ed11c1e1283ef3250ed30eb4",
+        "lines": 121
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/map/digger.ts": {
+        "status": 200,
+        "sha256": "393392589869a14d6a298f3c4bc9196744b9f4aca7f4687895e24a77107bc246",
+        "lines": 259
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/map/uniform.ts": {
+        "status": 200,
+        "sha256": "0d4003e47f7983d4312ae3f476bb7386ebbfa949a815e5e36046e1d7caa87ed0",
+        "lines": 363
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/astar.ts": {
+        "status": 200,
+        "sha256": "6be57639ab72c2c038b1b9ba85ef0ad7717393910150a9ec045dd198a58da4ba",
+        "lines": 110
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/dijkstra.ts": {
+        "status": 200,
+        "sha256": "381df53a8e94da66f04ab7c4782210aed6498520420d016c3d5fb560720ac03f",
+        "lines": 72
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/path.ts": {
+        "status": 200,
+        "sha256": "0cfd3eb3fe3c958055cfe7eee015e5630fc2c859823e96550b565b172a1f822e",
+        "lines": 69
+      },
+      "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/rng.ts": {
+        "status": 200,
+        "sha256": "a414bc0d550d56cd3ef924b19f1abf1a2a001fcd816d696c2964c931cb3bb4a0",
+        "lines": 153
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/README.md": {
+        "status": 200,
+        "sha256": "3619f0e838a4b392d80b88de8ffa76cf87f085e91aa7bba6d8cbbb8f2aacbbf6",
+        "lines": 229
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/package.json": {
+        "status": 200,
+        "sha256": "bb22dd4025ab5ad3ff6f9ee0fae2a746ebd16e95dd307296b3dbea789377bb6b",
+        "lines": 91
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/compiler/Compiler.ts": {
+        "status": 200,
+        "sha256": "56ce6db6a2b6999a41d427cb48aff8a27c7c0f1e189f36e524147d1911bc9b83",
+        "lines": 164
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/CallStack.ts": {
+        "status": 200,
+        "sha256": "de3b6876feb8979dcafded2140d6dd73ff38cdee295af9773bf9728468ccc86e",
+        "lines": 465
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Flow.ts": {
+        "status": 200,
+        "sha256": "9a736eda1e454d34cb50c5ba2f3a957498a5e6cff325ce62c75747215b579e34",
+        "lines": 109
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Story.ts": {
+        "status": 200,
+        "sha256": "f14f16ef055d57bd54abfbb96e352fe47e38452deeca6a9692fd4d4a55668fdc",
+        "lines": 2566
+      },
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/StoryState.ts": {
+        "status": 200,
+        "sha256": "1606c4d459db538e2cc07c88aa0e2881a5c4a2733794667c3886b8bcca8c7411",
+        "lines": 1260
+      }
+    },
+    "scope": "HTTP retrieval/line-bound checks only; no upstream or game code executed."
+  },
+  "finalCapturedAtUTC": "2026-10-05T03:31:49.276268+00:00",
+  "finalChangedInputs": [],
+  "scopeCheck": {
+    "ownedOutputs": [
+      "REPORT.md",
+      "FINDINGS.json",
+      "DEPENDENCIES.md",
+      "CHECKPOINT.md",
+      "INPUT_QUALIFICATION.json",
+      "CASES.md",
+      "PLAN_PACKETS.md",
+      "UPSTREAM_CDDA_INFORM.md",
+      "UPSTREAM_INK_ROT.md"
+    ],
+    "writeScope": "All own write tool calls targeted this assigned folder only; inspected read-only input hashes checked. Other chats may update RUN.",
+    "baselineTrackedStatusUnchanged": true,
+    "frozenAssignmentUnchanged": true,
+    "frozenSnapshotPreservation": {
+      "writeReview": "No own mutation targeted ASSIGNMENT.md or INPUT_SNAPSHOT.json.",
+      "currentSha256": "7362fb9eade0da7643d7e89c1245044559bc2ab1c50b81fac375797244c1db9a",
+      "initialSnapshotFileHashCaptured": false,
+      "limit": "Snapshot content was read at entry; the snapshot file itself was not separately hashed then. Listed snapshot input digests were compared and remain recorded."
+    }
+  },
+  "documentValidation": {
+    "findings": 9,
+    "localSourceSpans": 33,
+    "localMarkdownLinks": 34,
+    "localAnchors": 2,
+    "jsonParsing": "passed",
+    "idsRequiredFieldsPeerIdsPackets": "passed prior check",
+    "fixtureAccounting": "passed debit/conservation arithmetic only, before unrelated recovery",
+    "fixtureA": {
+      "initialSprigs": 4,
+      "tradeRemaining": [
+        2,
+        0,
+        2
+      ],
+      "craftRemaining": [
+        2,
+        0,
+        0
+      ],
+      "craftConsumed": 2,
+      "tradeCoinsInitial": 10,
+      "tradeCoinsFinal": 10,
+      "craftPlayerCoins": 3,
+      "craftStamina": 1
+    },
+    "fixtureB": {
+      "ordinaryPlayerLogs": 0,
+      "ordinaryPlayerKits": 0,
+      "ordinaryPlayerStamina": 1,
+      "ordinaryJossKits": 1,
+      "ordinaryJossStamina": 3,
+      "bracePlayerLogs": 1,
+      "bracePlayerKits": 1,
+      "bracePlayerStamina": 2,
+      "braceDriveDebit": 3
+    },
+    "whitespaceFinalNewline": "passed",
+    "errors": [],
+    "scope": "Document/source validation only; no gameplay, import, build, browser, save or failure suite.",
+    "finalReadback": "passed",
+    "finalOutputInventory": "11 files: nine outputs plus frozen assignment/snapshot",
+    "checkedAtUTC": "2026-10-05T03:33:41.247038+00:00"
+  }
+}

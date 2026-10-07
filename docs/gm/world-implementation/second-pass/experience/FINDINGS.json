@@ -1,0 +1,1006 @@
+{
+  "schema_version": 1,
+  "role": "Player experience and discoverability GM",
+  "date": "2026-10-04",
+  "revision": 1,
+  "status": "planning-complete-document-checks-passed",
+  "assignment": "docs/gm/world-implementation/second-pass/experience/ASSIGNMENT.md",
+  "audit_chat": "01a10998-7c21-7c02-9ffd-b288ec71f677",
+  "assigning_master": "01a10933-feaf-7503-878e-49a6d5ad113f",
+  "canonical_owner": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+  "scope": "Player-facing discoverability, clarity, pacing, control and accessible feedback. Four report files only; runtime/source/library/private-save/global writes and gameplay execution excluded.",
+  "input_provenance": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "files": {
+      "AGENTS.md": {
+        "inspected_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "shared_snapshot_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "closeout_comparison": "stable"
+      },
+      "PROJECT.md": {
+        "inspected_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "shared_snapshot_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "shared_comparison": "match",
+        "inspected_scope": "Current resume/hold and targeted UI/design sections, including lines 303-350; not an exhaustive upstream audit.",
+        "closeout_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "closeout_comparison": "stable"
+      },
+      "docs/GAME_MASTER_PROMPT.md": {
+        "inspected_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "shared_snapshot_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": {
+        "inspected_sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+        "shared_snapshot_sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": {
+        "inspected_sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+        "shared_snapshot_sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": {
+        "inspected_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "shared_snapshot_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+        "closeout_comparison": "reconciled-coordination-drift"
+      },
+      "docs/gm/world-implementation/RUN.json": {
+        "inspected_sha256": "c503822d403e99aaa7a2af48e0bf24b92bf7d760c587fd03012096b9f84a477f",
+        "shared_snapshot_sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+        "shared_comparison": "drift",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4",
+        "closeout_comparison": "reconciled-coordination-drift"
+      },
+      "docs/gm/world-implementation/depth/macro/REPORT.md": {
+        "inspected_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "shared_snapshot_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/world-implementation/depth/micro/REPORT.md": {
+        "inspected_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "shared_snapshot_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/world-implementation/second-pass/README.md": {
+        "inspected_sha256": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+        "closeout_comparison": "reconciled-coordination-drift"
+      },
+      "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": {
+        "inspected_sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Frozen digest manifest.",
+        "closeout_sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+        "closeout_comparison": "stable"
+      },
+      "docs/gm/world-implementation/second-pass/experience/ASSIGNMENT.md": {
+        "inspected_sha256": "d86cadd5d2b5a4b1b1667cd72ad80e2e1c5dbd7c9e7c6b8810edaa06d8351941",
+        "shared_snapshot_sha256": "d86cadd5d2b5a4b1b1667cd72ad80e2e1c5dbd7c9e7c6b8810edaa06d8351941",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "d86cadd5d2b5a4b1b1667cd72ad80e2e1c5dbd7c9e7c6b8810edaa06d8351941",
+        "closeout_comparison": "stable"
+      },
+      "src/adventure_notebook.js": {
+        "inspected_sha256": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+        "shared_snapshot_sha256": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+        "closeout_comparison": "stable"
+      },
+      "src/expedition_ui.js": {
+        "inspected_sha256": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+        "shared_snapshot_sha256": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+        "closeout_comparison": "stable"
+      },
+      "src/people_ui.js": {
+        "inspected_sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "shared_snapshot_sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "closeout_comparison": "stable"
+      },
+      "src/body_ui.js": {
+        "inspected_sha256": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d",
+        "shared_snapshot_sha256": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d",
+        "closeout_comparison": "stable"
+      },
+      "src/pocket_realm_ui.js": {
+        "inspected_sha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+        "shared_snapshot_sha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+        "shared_comparison": "match",
+        "inspected_scope": "Assignment/wave/hold/plan/policy or baseline report read; no gameplay proof inferred.",
+        "closeout_sha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+        "closeout_comparison": "stable"
+      },
+      "docs/PLAYTEST.md": {
+        "inspected_sha256": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+        "shared_snapshot_sha256": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+        "shared_comparison": "match",
+        "inspected_scope": "Current 1-20 and targeted historical UI/clock/performance gate excerpts 47-64,146-157,470-511; section search.",
+        "closeout_sha256": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+        "closeout_comparison": "stable"
+      },
+      "src/pocket_realm_host.js": {
+        "inspected_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Named group/action/preview/view excerpts 18-84,125-130 plus related symbol queries.",
+        "closeout_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+        "closeout_comparison": "stable"
+      },
+      "src/pocket_realm_scenes.js": {
+        "inspected_sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+        "shared_snapshot_sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+        "shared_comparison": "match",
+        "inspected_scope": "Current selected work/trial definitions 59-113 and relevant group/native binding queries.",
+        "closeout_sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+        "closeout_comparison": "stable"
+      },
+      "src/main.js": {
+        "inspected_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Targeted creation/attention/feed integration 6758-6800 and related named symbol queries.",
+        "closeout_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "closeout_comparison": "stable"
+      },
+      "src/people_knowledge.js": {
+        "inspected_sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+        "shared_snapshot_sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+        "shared_comparison": "match",
+        "inspected_scope": "Full 1-59.",
+        "closeout_sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+        "closeout_comparison": "stable"
+      },
+      "src/body_progression.js": {
+        "inspected_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "shared_snapshot_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "shared_comparison": "match",
+        "inspected_scope": "Definitions and scene excerpts 18-85.",
+        "closeout_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "closeout_comparison": "stable"
+      },
+      "src/simulation.js": {
+        "inspected_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "shared_snapshot_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "shared_comparison": "match",
+        "inspected_scope": "Preview/ownership excerpts 1-112 and program advancement 395-409; named symbol queries.",
+        "closeout_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "closeout_comparison": "stable"
+      },
+      "src/simulation_ui.js": {
+        "inspected_sha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Full 1-94.",
+        "closeout_sha256": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+        "closeout_comparison": "stable"
+      },
+      "src/event_feed.js": {
+        "inspected_sha256": "8c93855617ae91ed9e2900d8a5c7d6c944667a5cfdb1cdcfa11a848c4d449436",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Full 1-77.",
+        "closeout_sha256": "8c93855617ae91ed9e2900d8a5c7d6c944667a5cfdb1cdcfa11a848c4d449436",
+        "closeout_comparison": "stable"
+      },
+      "src/event_feed_ui.js": {
+        "inspected_sha256": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Full 1-42.",
+        "closeout_sha256": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+        "closeout_comparison": "stable"
+      },
+      "src/display.js": {
+        "inspected_sha256": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+        "shared_snapshot_sha256": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+        "shared_comparison": "match",
+        "inspected_scope": "Item-tooltip description 406-418 and relevant symbol queries only.",
+        "closeout_sha256": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+        "closeout_comparison": "stable"
+      },
+      "src/data/expedition_items.js": {
+        "inspected_sha256": "588650c5ba72cbfd4376ca0f2cd3cbb9fa582ec08a562b960c7f61ce590344bb",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Full 1-17.",
+        "closeout_sha256": "588650c5ba72cbfd4376ca0f2cd3cbb9fa582ec08a562b960c7f61ce590344bb",
+        "closeout_comparison": "stable"
+      },
+      "src/technique_ui.js": {
+        "inspected_sha256": "1ddf51acffc6c50d9504f8c19c6e70d34cc240dbb8e92545852f361fa1349fe2",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Full 1-103.",
+        "closeout_sha256": "1ddf51acffc6c50d9504f8c19c6e70d34cc240dbb8e92545852f361fa1349fe2",
+        "closeout_comparison": "stable"
+      },
+      "src/expansion_engine.js": {
+        "inspected_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+        "shared_snapshot_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+        "shared_comparison": "match",
+        "inspected_scope": "Named cost/duration/preview declarations, especially 355-388; no broad engine audit.",
+        "closeout_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+        "closeout_comparison": "stable"
+      },
+      "src/pocket_observation.js": {
+        "inspected_sha256": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+        "shared_snapshot_sha256": null,
+        "shared_comparison": "not-in-shared-snapshot",
+        "inspected_scope": "Owned-device costs/support 31-47 and preview 159-178; named symbol queries.",
+        "closeout_sha256": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+        "closeout_comparison": "stable"
+      }
+    },
+    "live_hold": {
+      "engine": "held-confirmed",
+      "ability": "held-confirmed",
+      "original": "held-confirmed"
+    },
+    "experience_role": {
+      "threadId": "01a10998-7c21-7c02-9ffd-b288ec71f677",
+      "state": "planning-active-observed",
+      "mode": "planning-only",
+      "requestedTitle": "Player experience and discoverability GM",
+      "assignment": "docs/gm/world-implementation/second-pass/experience/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/experience/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "14d794de-b114-42f7-8f44-56a8a3ca7108:1",
+      "latestTurn": "inProgress",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/experience.json"
+    },
+    "shared_snapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+    "drift_note": "Initial snapshotted inputs matched except RUN's planning-dispatch coordination changes. During the audit the canonical plan and wave README added the independent planning-only integration strategy role; RUN continued planning-role coordination. Targeted live readback confirmed the hold is unchanged. The six plan evidence ranges were shifted to the current text. All inspected runtime/source files, assignment, PROJECT, PLAYTEST, macro/micro and shared snapshot remained stable.",
+    "revision_limits": "Hash entries identify inspected live files, including narrowly read excerpts, not a claim of whole-file semantic coverage. Additional files absent from the shared snapshot were captured at this audit boundary and are rechecked at closeout.",
+    "coordination_refresh": {
+      "paths": [
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/second-pass/README.md",
+        "docs/gm/world-implementation/RUN.json"
+      ],
+      "meaning": "Integration strategy planning scope/dispatch status only; no runtime permission or writer transfer.",
+      "inspected_plan_sections": "Revision 3 addition, second-pass/integration rows, starts, source-function/dialogue/RNG and review decisions."
+    }
+  },
+  "cost_and_measurement": {
+    "new_runtime_benchmark": null,
+    "full_audit_token_or_money_cost": null,
+    "claim": "No runtime, token-saving or pricing measurement made. Structural simplifications are design proposals, not measured speed/cost savings. Any host goal counter covers only its tracked period and is not a full-audit cost."
+  },
+  "verification": {
+    "state": "passed",
+    "counts": {
+      "findings": 10,
+      "evidence_locators": 58,
+      "markdown_links_before_final_checkpoint": 26,
+      "authored_whitespace_files": 4,
+      "named_source_assertions": 14,
+      "input_files": 32,
+      "stable_initial_boundary_inputs": 29,
+      "reconciled_coordination_inputs": 3
+    },
+    "source_line_review": "Exact pointers reviewed against actual source; current canonical-plan locators repaired after insertion drift.",
+    "checks": "JSON/required-field/unique-ID validation, evidence path and nonempty line-range bounds, local Markdown targets/fences, authored whitespace, targeted source-text assertions, input fingerprints/hold readback and sole-writer/process inspection.",
+    "excluded": "No gameplay unit/browser/save/failure/regression, build/import, runtime benchmark or human acceptance.",
+    "writer_process": "Own live tree contained only /root. No child, command session, background process, pending mutation or successor exists.",
+    "final_receipt": "CHECKPOINT.md holds final full readback receipt; live coordination metadata can continue changing under the assigning master."
+  },
+  "findings": [
+    {
+      "id": "EX01",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Route waiting Glasshouse work to its actual Notebook section",
+      "evidence": [
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 4,
+          "line_end": 8,
+          "claim": "pocket_realm_panel belongs to Here."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 24,
+          "line_end": 25,
+          "claim": "Simulation work selects People for glasshouse while targeting pocket_realm_panel."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 74,
+          "line_end": 90,
+          "claim": "New attention selects active.view; availability fallback preserves People when known people exist."
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "line_start": 19,
+          "line_end": 33,
+          "claim": "Actual selected player scene commands use group glasshouse."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 79,
+          "line_end": 88,
+          "claim": "Paid kit work is a timed player job."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 6762,
+          "line_end": 6778,
+          "claim": "Native host creates the pocket renderer and Notebook from live progression snapshots."
+        }
+      ],
+      "current_player_behavior": "A new glasshouse job statically targets a Here panel through People. With known Joss, People can remain available, so the code does not necessarily fall back to Here; the active-work panel is in another hidden tab. This is a source inconsistency, not a reproduced visual failure.",
+      "proposed_player_behavior": "Waiting work opens Here/Folded Glasshouse once and leaves later player tab choices alone. Active work in another location or world shows its known location and correct existing destination.",
+      "authoritative_owner": {
+        "state": "Existing pending/simulation job owners; src/simulation.js and src/pocket_realm_host.js.",
+        "renderer": "Shared Engine integrator owns src/adventure_notebook.js/src/main.js; UI lane can supply an agreed route table."
+      },
+      "dependencies": [
+        "Engine/UI route binding per panel and command group",
+        "EX03 control-lifecycle acceptance"
+      ],
+      "world_example": "Original Folded Glasshouse: after meeting Joss, start the paid kit shift and continue following the same four-minute commitment.",
+      "acceptance_case": [
+        "With Joss known and a new timed Glasshouse job, Notebook selects Here and its visible pocket panel; waiting/cancel controls are reachable.",
+        "After selecting People during that job, ordinary ticks keep People; reload opens the recorded waiting-work destination without another cost or enrollment.",
+        "A plain routes job and saved practice still open their existing Here/Practice destinations."
+      ],
+      "simplify_or_retain": "Use one panel-to-view binding for attention and event navigation instead of another independent group switch. Preserve once-per-new-attention auto-open behavior.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Mapping mismatch verified directly; its player impact is inferred from availability/selection code. No browser reproduction."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX02",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Separate spent inputs, reusable support and known action terms",
+      "evidence": [
+        {
+          "path": "src/expedition_ui.js",
+          "line_start": 84,
+          "line_end": 93,
+          "claim": "Route UI shows duration/outcome odds/reasons but does not render returned costs."
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "line_start": 355,
+          "line_end": 388,
+          "claim": "Common action preview already supplies resolved costs, duration modifiers and contributors."
+        },
+        {
+          "path": "src/body_progression.js",
+          "line_start": 37,
+          "line_end": 57,
+          "claim": "Body labels/descriptions already explain costs, side effects and refund/forfeit policies."
+        },
+        {
+          "path": "src/technique_ui.js",
+          "line_start": 82,
+          "line_end": 86,
+          "claim": "Technique UI already renders resolved time and costs."
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "line_start": 8,
+          "line_end": 17,
+          "claim": "Pocket rows render label and reasons rather than a common cost/support quote."
+        },
+        {
+          "path": "src/pocket_observation.js",
+          "line_start": 36,
+          "line_end": 38,
+          "claim": "Craft label includes a template; actual costs omit it and saved instruction says it remains owned."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 74,
+          "line_end": 94,
+          "claim": "Early-rejected/hidden simulation previews return empty costs; this is not proof an action is free."
+        }
+      ],
+      "current_player_behavior": "Known action terms are distributed among labels, prose, reasons and preview fields. Existing body/technique examples are strong. The paired-device label does not visually distinguish its retained template from spent logs/kit/stamina; route cards omit the common preview cost field.",
+      "proposed_player_behavior": "One compact action card shows Spend, Use/keep, time on the applicable clock, known result/risk, affected participant and cancellation terms. A blocked card shows known declared terms plus the blocker, with no executable quote or invented free cost.",
+      "authoritative_owner": {
+        "state": "Existing common previews and authoritative item/source/job owners; action authors own known term text.",
+        "renderer": "UI/assets lane; Shared Engine integrates existing renderers. Items/powers lanes qualify reusable support versus actual debits."
+      },
+      "dependencies": [
+        "Resolved preview projection agreed with foundations/authoring lanes",
+        "Existing cancellation/clock owner",
+        "EX10 discovery guard"
+      ],
+      "world_example": "Folded Glasshouse device: Spend two logs, one kit and two stamina; Use and keep your taught Sealing template. Body rough-kit work returns its reserved log/coin if cancelled.",
+      "acceptance_case": [
+        "Owned template remains explicitly reusable while actual device stock/fuel debits are listed once.",
+        "A modifier-adjusted route displays actual preview duration and costs, not an outdated static label.",
+        "Insufficient support never renders empty costs as no fee; hidden future source/recipient terms remain absent."
+      ],
+      "simplify_or_retain": "Reuse existing preview objects and well-written body descriptions. Keep a short summary plus optional details; do not add a second inventory or full ingredient tree for every action.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Visual density, usability and pacing require later player review."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX03",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Make blocked reasons and disappearing controls readable without hover",
+      "evidence": [
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 34,
+          "line_end": 39,
+          "claim": "Workshop reasons are set on disabled button title; existing hide-focus fallback is present."
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 66,
+          "line_end": 69,
+          "claim": "Commission participant reasons also live in button title."
+        },
+        {
+          "path": "src/body_ui.js",
+          "line_start": 23,
+          "line_end": 31,
+          "claim": "Body rows show visible reasons; completed/hidden rows have no explicit focus fallback here."
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "line_start": 16,
+          "line_end": 19,
+          "claim": "Pocket uses visible reasons and focuses the summary when a focused row hides."
+        },
+        {
+          "path": "src/event_feed_ui.js",
+          "line_start": 28,
+          "line_end": 38,
+          "claim": "Feed controls preserve mounts across countdowns but removed leads have no explicit focus recovery here."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 33,
+          "line_end": 49,
+          "claim": "Notebook has status/tab roles and keyboard navigation."
+        }
+      ],
+      "current_player_behavior": "Some reasons are readable paragraphs, others only title text on disabled controls. Several panels already preserve focus correctly. Body completion and feed expiry remove/hide controls without their own explicit recovery in these excerpts; actual assistive behavior was not measured.",
+      "proposed_player_behavior": "All known blockers have adjacent persistent text connected to the control, with concise announced action results/errors. Completion, expiry and cancellation return focus to a visible nearby summary/next control, preserve expanded sections and avoid announcing every countdown tick.",
+      "authoritative_owner": {
+        "state": "Existing eligibility/error/attention projections remain read-only.",
+        "renderer": "UI/accessibility lane; sole Shared Engine writer integrates input/focus/status changes."
+      },
+      "dependencies": [
+        "EX01 destination consistency",
+        "Authoring-provided player-readable reason text",
+        "Native scrolling pane constraints"
+      ],
+      "world_example": "Frontier craftsman: keyboard user sees why a paid commission is blocked. Body work completes while its button is focused; an invitation expires while its World events control is focused.",
+      "acceptance_case": [
+        "Keyboard-only blocked commission exposes the same reason as pointer hover without enabling it.",
+        "Completing/cancelling body work and expiring a feed lead leave focus on visible meaningful content.",
+        "Later checks cover screen reader, 200% zoom, long labels and increased text size; timer ticks do not repeatedly announce unchanged notices."
+      ],
+      "simplify_or_retain": "Apply small shared control/status helpers and explicit lifecycle rules to existing semantic buttons/details/tabs. A broad UI framework rewrite is unnecessary for these cases.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Static gaps in local fallback/inline-reason markup, not measured WCAG conformance or observed focus loss."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX04",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Turn start and return policies into a player-readable journey preview",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 53,
+          "line_end": 67,
+          "claim": "Entry families are independent; previews are non-creating; separate lives must preserve Frontier."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 225,
+          "line_end": 233,
+          "claim": "Director still owns access/time/failure defaults."
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 315,
+          "line_end": 317,
+          "claim": "Travel, ascent and rebirth need different visible consequences."
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "line_start": 11,
+          "line_end": 14,
+          "claim": "Current original pocket already explains same-body entry versus viewing and no work accepted by opening."
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "line_start": 125,
+          "line_end": 129,
+          "claim": "Current room/return description retains place, work and ownership distinctions."
+        }
+      ],
+      "current_player_behavior": "The plan covers start/entry mechanics and current pocket text explains a bounded example. A generic world/origin selection and comparison UI is not shown by these inputs; core policies remain proposals.",
+      "proposed_player_behavior": "For supported known choices, show place/era, who you will be, starting means, what happens to the current traveler/possessions, local time, obligations, known exit and declared failure terms before commitment. After returning, show the same world's known changed state and useful next contact. Separate director/developer unsupported-feature status from in-world mysteries.",
+      "authoritative_owner": {
+        "state": "Origins/traveler/world/slot and route owners under Engine integration; master/director selects policies.",
+        "renderer": "UI lane renders those owners' legal previews; world GM authors player-known entry text."
+      },
+      "dependencies": [
+        "Director-approved entry/failure/clock policy",
+        "Actual legal configuration and persistence contracts",
+        "EX10 spoiler boundary"
+      ],
+      "world_example": "Proposed Mother of Learning local research life versus a supported visit: compare their separate life/means and return terms without copying protagonist loop knowledge. Existing Glasshouse remains a same-body visit.",
+      "acceptance_case": [
+        "Previewing alternatives creates no actor, stock, slot, reward or RNG draw; an unsupported combination has a truthful development reason in the appropriate out-of-world surface.",
+        "Committing a separate life preserves the current Frontier slot; supported return references the same instance/history.",
+        "Unknown source/death/return policy is identified before that start is offered, not invented by the renderer."
+      ],
+      "simplify_or_retain": "Initially compare authored legal configurations from real preview APIs; no universal five-axis character wizard or nineteen-world launch barrier. This refines an already covered plan requirement.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Book example is a design case from the roster, not new supplied-edition source verification. No start/reset policy selected."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX05",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Show time and interruption in terms of the actual commitment",
+      "evidence": [
+        {
+          "path": "src/expedition_ui.js",
+          "line_start": 66,
+          "line_end": 74,
+          "claim": "Current route panel explains pending departures and played game minutes including travel/sleep."
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "line_start": 377,
+          "line_end": 379,
+          "claim": "Current route preview can reject work that crosses a waiting choice."
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "line_start": 125,
+          "line_end": 129,
+          "claim": "Room local supported time/new resident work differs from already-paid joined jobs."
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "line_start": 14,
+          "line_end": 15,
+          "claim": "Live slit shows remaining played minutes; stored records show capture times."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 11,
+          "line_end": 27,
+          "claim": "Attention selects one active wait/job/decision."
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "line_start": 13,
+          "line_end": 17,
+          "claim": "Current clock/expiry/replay/return/focus cases are explicitly deferred."
+        }
+      ],
+      "current_player_behavior": "Several good local time explanations exist, but players must connect them across panels. The attention strip presents one item and a generic minute count; local resident decision time, paid due work and viewing expiry require distinct meanings.",
+      "proposed_player_behavior": "A read-only commitment recap distinguishes Waiting for you, Paid work continuing, and Known timed offer with its applicable played/local clock. At an interruption/reload it states reserved/spent inputs, whether work continues, available resume/cancel and known expiry. Link each to its existing owner/control.",
+      "authoritative_owner": {
+        "state": "Existing pending/jobs/events/leases and selected realm-clock policy, never a UI timer.",
+        "renderer": "UI lane and Shared Engine; timelines lane supplies approved clock relation text."
+      },
+      "dependencies": [
+        "EX01 route binding",
+        "Correct clock/absence projection from foundations/timelines",
+        "EX02 cancellation quote"
+      ],
+      "world_example": "Glasshouse: closing a Village view stops newly supported resident decisions under declared rules, but a previously funded job keeps its actual completion time. Stored replay is historical, not a renewed live view.",
+      "acceptance_case": [
+        "Show one known invitation, a paid job and a live view with their different clock semantics; preview never advances them.",
+        "Reload/resume keeps original costs and due boundaries; no duplicate job or silent clock conversion.",
+        "An expired offer tells what was retained and how to learn later news; no invented offline loss, grace period or wall-clock deadline."
+      ],
+      "simplify_or_retain": "Compose a recap from existing owners/event feed; do not create a second calendar or simulate absent worlds for the UI.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Current code supports only the inspected bounded clock cases. Broader world-clock policy remains unresolved."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX06",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Connect owned objects and experiments to demonstrated useful functions",
+      "evidence": [
+        {
+          "path": "src/data/expedition_items.js",
+          "line_start": 7,
+          "line_end": 13,
+          "claim": "Original item descriptions already explain kit consumption, rope reuse, gauge loan and template function."
+        },
+        {
+          "path": "src/display.js",
+          "line_start": 412,
+          "line_end": 415,
+          "claim": "Native item tooltip already includes item.description."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "line_start": 89,
+          "line_end": 113,
+          "claim": "Original damp/sound/joint trials and shelf specify real costs and bounded conclusions."
+        },
+        {
+          "path": "src/pocket_realm_ui.js",
+          "line_start": 15,
+          "line_end": 17,
+          "claim": "Current trial knowledge is rendered as timestamped paragraphs."
+        },
+        {
+          "path": "src/technique_ui.js",
+          "line_start": 71,
+          "line_end": 85,
+          "claim": "Technique panel separates observed/understood/owned/executable and connects to an actual route."
+        }
+      ],
+      "current_player_behavior": "Useful item prose and staged technique explanations are already present. Experimental results are flat records; there is no shared relation in these renderers between a selected owned item, known preparation, demonstrated result and current place to use it.",
+      "proposed_player_behavior": "On a known owned item/method, show demonstrated use, reusable/consumable/borrowed status, current legal action/location and why support is missing. A small trial record compares intended question, actual paid preparation, observed result and the limited conclusion. Keep successful prior observations alongside later failures.",
+      "authoritative_owner": {
+        "state": "Actual item/custody/knowledge/method/receipt owners; local authors define bounded function text.",
+        "renderer": "Items/authoring lanes provide projections; UI lane links existing actions; Shared Engine integrates."
+      },
+      "dependencies": [
+        "EX02 support versus cost",
+        "EX10 knowledge guards",
+        "Selected research/item-function consumer bindings"
+      ],
+      "world_example": "Glasshouse damp trial teaches this blank's failed fit without invalidating an earlier sound fitting; the acquired template enables real Shack packing after its pattern is taught.",
+      "acceptance_case": [
+        "Select an owned Survey rope and find its known reusable Village anchor route without being sent to unrelated Coil of rope use.",
+        "Damp trial consumes the declared blank/stamina, shows no fabricated output and preserves the qualified sound-trial evidence.",
+        "Remembered pattern without actual template is displayed as known information with unavailable execution; no new source is granted by reading."
+      ],
+      "simplify_or_retain": "Use concise item/action links and attributed existing knowledge records before building an encyclopedic recipe graph or general free-form experiment engine.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "All inspected trial mechanics are original authored prototypes; they do not establish arbitrary scientific experimentation or novel magic laws."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX07",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Give returning players a knowledge-qualified relationship and place recap",
+      "evidence": [
+        {
+          "path": "src/people_knowledge.js",
+          "line_start": 1,
+          "line_end": 30,
+          "claim": "Existing projection excludes private NPC axes/jobs and retains some memory at/cause fields."
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "line_start": 48,
+          "line_end": 57,
+          "claim": "Recent original contacts project selected learned text; several histories are empty or flatten metadata."
+        },
+        {
+          "path": "src/people_ui.js",
+          "line_start": 6,
+          "line_end": 23,
+          "claim": "Last-known caveat is explicit; history currently displays memory text only."
+        },
+        {
+          "path": "src/event_feed.js",
+          "line_start": 35,
+          "line_end": 45,
+          "claim": "Feed requires discovered events and avoids global unobserved logs."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 189,
+          "line_end": 193,
+          "claim": "Dialogue depends on actual witnessed knowledge, recent history and distinct later reactions."
+        }
+      ],
+      "current_player_behavior": "People is a useful persistent record with last-known wording and private relationship numbers excluded. Flat text omits stored timing/causal context for some contacts; read-only records do not themselves provide current location intelligence.",
+      "proposed_player_behavior": "On known return, show last witnessed agreement/result, unresolved promise where known, last reported place/time and the next supported way to meet or ask. Separate what I observed, what they said and what is now confirmed; show source/time only when actually carried by the record.",
+      "authoritative_owner": {
+        "state": "People/knowledge/directed-memory/event and world history owners; society lane authors contextual reaction variants.",
+        "renderer": "UI lane; Shared Engine owns current People/feed integration."
+      },
+      "dependencies": [
+        "Attributed evidence metadata and legal interaction destinations",
+        "Society/timeline return-context projection",
+        "EX10 no private-state scan"
+      ],
+      "world_example": "Original Joss: returning sees the last paid shift and heard research report, while unseen research remains undisclosed until a real later conversation. Craftsman tenderness response remains an earlier witnessed interaction after recovery.",
+      "acceptance_case": [
+        "Return after paid work, refusal and delayed response yields three different known recaps from actual saved aftermath.",
+        "Present recovery does not rewrite the earlier sore-hands memory or disclose hidden ancestry.",
+        "Last met is never relabelled live location; private work or relationship strength does not leak through history/search/tooltip."
+      ],
+      "simplify_or_retain": "Enrich existing People/history cards with bounded recaps and metadata; avoid a second friendship ledger or a universal numerical favor meter.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Generic return recaps are proposed. Existing contact-specific projections are present and should not be discarded."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX08",
+      "priority": "P2",
+      "kind": "simplify",
+      "title": "Organize growing local depth by known player purpose, not another tab per system",
+      "evidence": [
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 4,
+          "line_end": 8,
+          "claim": "Three top-level views group fifteen local feature panels."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 53,
+          "line_end": 91,
+          "claim": "Known-person gating, location wrappers, attention and availability select visible sections."
+        },
+        {
+          "path": "src/expedition_ui.js",
+          "line_start": 25,
+          "line_end": 28,
+          "claim": "Preparation details already collapse a broad capability explanation."
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 335,
+          "line_end": 350,
+          "claim": "Older places remain useful without mandatory daily upkeep; filters/summaries are requested as content grows."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+          "line_start": 18,
+          "line_end": 28,
+          "claim": "Connected stock-to-function loops and optional selected foundation families are the depth baseline."
+        }
+      ],
+      "current_player_behavior": "Three views already avoid top-level tab proliferation, but several disjoint feature panels and person records share them. The plan promises substantial zones/careers/returns; these source views provide no general purpose/known-location filter or meaningful late-stage summary.",
+      "proposed_player_behavior": "Keep the current views and add compact filters over discovered entries: Nearby work, Prepare/practice, Meet/collect, and a player-chosen objective. Summaries name useful output/access and known travel or missing means; older places show reasons to revisit, while irrelevant completed work collapses.",
+      "authoritative_owner": {
+        "state": "Existing legal activities, discovery, location/route and local campaign owners; no separate progression truth.",
+        "renderer": "UI/assets lane; regions/world GMs author meaningful known zone/activity purposes; Shared Engine integrates."
+      },
+      "dependencies": [
+        "EX01 shared destinations",
+        "EX02 known output/support projection",
+        "World-local discovery and route/travel bindings"
+      ],
+      "world_example": "Established Frontier crafter finds wood-to-kit work, a known Town marker order and Shack pattern use; explorer finds rope/footwork survey preparation; Glasshouse return lists useful paid work and the known bench.",
+      "acceptance_case": [
+        "Using only known entries, a later-stage player can locate one gathering-to-use chain and one remembered person without opening every unrelated panel.",
+        "Fresh opening gains no world/secret catalogue or forced objective; existing Quests and original native actions remain usable.",
+        "Filtering/opening known controls changes no stock, reward, enrollment, RNG or NPC knowledge."
+      ],
+      "simplify_or_retain": "Begin with filters and summaries of actual controls; detailed maps, a new quest ledger, universal build score and nineteen-world dashboard are unnecessary for the first selected region.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Cognitive load is inferred from composition and planned scale, not measured task time or visual usability."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX09",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Expose bounded automation and worthwhile progress without mandatory checking",
+      "evidence": [
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 22,
+          "line_end": 25,
+          "claim": "Existing packing routine has a three-kit target, per-start reservation and pause-after-current behavior."
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 44,
+          "line_end": 50,
+          "claim": "Current UI toggles pause/resume and shows active work/practice; it does not display program.remaining here."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 396,
+          "line_end": 402,
+          "claim": "Programs preserve remaining count, start through common eligibility and pause on missing means with a generic log."
+        },
+        {
+          "path": "src/technique_ui.js",
+          "line_start": 32,
+          "line_end": 44,
+          "claim": "Untimed active practice teaches despite errors."
+        },
+        {
+          "path": "src/technique_ui.js",
+          "line_start": 72,
+          "line_end": 81,
+          "claim": "Slow practice is optional and reaches the same technique; usable function is explained."
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 337,
+          "line_end": 350,
+          "claim": "No mandatory daily upkeep in older areas; readable progression/filtering is an explicit direction."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 200,
+          "line_end": 205,
+          "claim": "Ordinary progression remains viable; rare opportunities cannot be mandatory jackpot gates."
+        }
+      ],
+      "current_player_behavior": "Bounded packing and slow/active practice already support different play styles. Routine target/remainder and exact paused blocker are not a dedicated status in this UI; richer base/source upkeep could increase management burden if each requires repeated attention.",
+      "proposed_player_behavior": "Show current unit, completed/remaining target, next-start known inputs, pause-after-current status and the actual next-start blocker. Reuse legal prepared routines for optional production/training; keep meaningful choices/manual interventions visible and show functional progress at useful milestones.",
+      "authoritative_owner": {
+        "state": "Existing program/job/eligibility owners; local economy/progression policy author selects which tasks support routines.",
+        "renderer": "UI lane; foundations/runtime lane owns execution semantics, not this audit."
+      },
+      "dependencies": [
+        "EX02 next-unit quote",
+        "EX05 commitment clock/status",
+        "Director/local approval for new automatic action families"
+      ],
+      "world_example": "Frontier packer pauses a three-kit order after the currently paid kit, sees two units left and returns when wood is available. Planned Gu upkeep would require its selected source-specific feeding policy, not an assumed universal auto-feed or zero drain.",
+      "acceptance_case": [
+        "Pause leaves current reserved unit intact; resume shows and starts only actual remaining units without reserving the entire target twice.",
+        "Unavailable next inputs expose the existing preview reason and retain target; cancellation/refund differs from pause.",
+        "A noncombat crafter and slow-practice learner obtain useful functions without compulsory reaction drills, rare rolls or older-area daily check-ins."
+      ],
+      "simplify_or_retain": "Expose existing bounded program state before adding autonomous agents or a new scheduler. Keep safe batch options optional; this does not claim unattended irreversible source/body/relationship decisions are authorized.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "No grind duration, retention metric, token savings or runtime speedup measured; new batch policies remain local proposals."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    },
+    {
+      "id": "EX10",
+      "priority": "P1",
+      "kind": "already-covered",
+      "title": "Retain discovery privacy and real positive function across all new surfaces",
+      "evidence": [
+        {
+          "path": "src/people_knowledge.js",
+          "line_start": 1,
+          "line_end": 19,
+          "claim": "Registry membership/enrollment do not introduce people; private details are excluded."
+        },
+        {
+          "path": "src/event_feed.js",
+          "line_start": 35,
+          "line_end": 45,
+          "claim": "Known feed omits unobserved global log."
+        },
+        {
+          "path": "src/event_feed.js",
+          "line_start": 69,
+          "line_end": 72,
+          "claim": "Pending frozen outcomes stay private until completion receipt."
+        },
+        {
+          "path": "src/technique_ui.js",
+          "line_start": 71,
+          "line_end": 81,
+          "claim": "Observed/owned/executable and optional slow practice are distinct."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 164,
+          "line_end": 177,
+          "claim": "Source-to-runtime chain preserves genuine powerful positive functions and local costs."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 189,
+          "line_end": 205,
+          "claim": "Observer-qualified dialogue and committed legal randomness are existing plan requirements."
+        }
+      ],
+      "current_player_behavior": "Current code deliberately distinguishes learned people, witnessed history, pending results and acquired execution. The plan already protects meaningful superiority, ordinary careers and source-specific exceptions; these are strengths, not missing features.",
+      "proposed_player_behavior": "Carry these guards into action reasons, item-use links, search, start previews, return recaps and trial records. Explain known inability honestly while preserving exceptional supported function; local unknown knowledge and developer-unsupported adapters remain distinct.",
+      "authoritative_owner": {
+        "state": "Existing observer/knowledge/receipt/source owners; source/world authors qualify actual functions.",
+        "renderer": "Every UI author consumes guarded projections; Shared Engine is sole integrator; master owns coverage."
+      },
+      "dependencies": [
+        "Applies to EX01-EX09",
+        "Source/authoring contracts without a new canon-reading task"
+      ],
+      "world_example": "Frontier elder remains an ordinary introduced elder before witnessed revelation; Joss's private research becomes readable only after explicit offered/heard disclosure; a trained or genuinely superior supported power retains its actual advantage.",
+      "acceptance_case": [
+        "Before discovery, no name/private source/result leaks in text, disabled reasons, DOM labels, filtering or tooltips.",
+        "After actual evidence/acquisition, the useful function and provenance become understandable without granting donor stock/ancestry/permission.",
+        "An active supported positive exception is represented correctly; UI does not invent equalization costs or hide the advantage to make every route appear equivalent."
+      ],
+      "simplify_or_retain": "Reuse current knowledge and receipt projections, stable semantic controls and causal authoring. Do not introduce an omniscient codex, compulsory modal tutorial or generic balance meter.",
+      "source_status": {
+        "current": "Verified local source binding or cited planning text; runtime behavior was not exercised.",
+        "proposal": "Original UX proposal for review, not an approved schema or implemented mechanic.",
+        "novel_source": "No new novel-canon claim; book-world examples use the cited canonical plan only.",
+        "uncertainty": "Current protections are statically verified in inspected paths. This audit did not re-run the historical privacy/playstyle proofs."
+      },
+      "verification_limits": "Static source/design audit only. No game execution, browser, save, build, benchmark or human acceptance; later acceptance cases below are unrun."
+    }
+  ]
+}

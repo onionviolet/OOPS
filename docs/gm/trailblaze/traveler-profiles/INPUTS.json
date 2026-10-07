@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-04T17:52:54.718635+00:00",
+  "chatId": "01a107f2-b4d0-7051-8975-a9c8ec365741",
+  "integratorChatId": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "scope": [
+    "src/realm_traveler_profiles.js",
+    "docs/gm/trailblaze/traveler-profiles/"
+  ],
+  "status": "implemented_unverified_detached_prototype",
+  "note": "Read-only source snapshots. Other lane hashes can drift after capture; this module imports none. Own SHA256 identifies final syntax/import-check target.",
+  "sha256": {
+    "AGENTS.md": "b0262e81f84225da84b16a2beaeba6a201ceec6b5c49ed786e531bf79cb3f0c2",
+    "PROJECT.md": "2fbff8fbf5419b11471fb62a12ce72ce9a21d0cacb0ff87c2e721ce6d916b3e8",
+    "docs/GAME_MASTER_PROMPT.md": "de5aa8a0aa66f5a30627206cf9eb108a40342b122490836bf893a389f235bc2e",
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "323c8bc6cf613da9fb25d8ad6fbfbf575d2f36bee210fd2530a45ec9a6b2d60c",
+    "docs/gm/dispatch/TRAILBLAZE_PARALLEL.md": "e7b80fb7becd1a4c106174dc7dfb678dc690dbfaeb5c430bfa652d618d618402",
+    "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936",
+    "docs/worlds/ABILITY_AUTHORING.md": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687",
+    "docs/research/novels/shadow-slave/observation-emergence/SYNTHESIS.md": "874d3d2cef62c34587d5a85cd6b6cf1768fe4b9ab3a1d97338658ae54a7e1157",
+    "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md": "45b9e4458cf900bc3111c25eda177bb7f4617ff7f25a6b0a186cb0ed29bc0932",
+    "docs/research/novels/trailblaze-reading/realm-transit/NOTES.md": "63e63d42c03511830ebc0707d94825a206deb16312cb2c3519b0a10673c9770e",
+    "src/native_gameplay_adapter.js": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/world_instances.js": "bd2528e30575f98700a061353652b5275435ea5d277aab74ff1de2fbf916bb4c",
+    "src/pocket_realm_content.js": "38711055eac43d19905642ce1d2a45beff04740dffd66d72700c8f23b4580243",
+    "src/realm_connections.js": "32f964f8533735b58f16cb00c55f1c0d3acfbe01f21ca2fc77643328f19405de",
+    "src/realm_boundary_rules.js": "a373370f6d50806fa8eaeb977dfba63f421f219d5ecdfaef06f66dc9b2ec0a2a",
+    "src/realm_traveler_profiles.js": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+  }
+}

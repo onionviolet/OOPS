@@ -1,0 +1,116 @@
+{
+  "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "capturedAtUtc": "2026-10-06T23:12:01.612071+00:00",
+  "authority": "Direct user status effects/little stuff implementation request, after completed synthesis",
+  "sharedWriterTransfer": "Prior audited owner explicitly released after completed final turn; live read_thread confirms completed/notLoaded. Assay notLoaded/blocked never acquired shared scope. Root now owns only necessary status-care joins.",
+  "sharedFiles": [
+    "src/main.js",
+    "src/models/hero.js",
+    "src/display.js",
+    "src/simulation.js",
+    "src/simulation_effects.js",
+    "src/simulation_contracts.js",
+    "src/simulation_content.js",
+    "src/expansion_engine.js",
+    "src/expansion_persistence.js",
+    "src/feature_expansion_wave_host.js",
+    "src/simulation_ui.js",
+    "PROJECT.md",
+    "index.html",
+    "dist/bundle.js",
+    "dist/bundle.js.map",
+    "src/save_files.js"
+  ],
+  "before": [
+    {
+      "path": "src/main.js",
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82"
+    },
+    {
+      "path": "src/models/hero.js",
+      "sha256": "b37a64228a72deeb4a7b68313bfc39f4e2698b12faddc12a6f28d80b127aacb5"
+    },
+    {
+      "path": "src/display.js",
+      "sha256": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69"
+    },
+    {
+      "path": "index.html",
+      "sha256": "e1feb926bd58597471e6923cb10e1cd79d5c88634988adc71bf757809ba96902"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "c12c1524b341c222a67ad4554516030d9c8eb43e4cd2630ca915f98f52cc5784"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "c4a32b2e6827bfc1614e4724506e897d2f5c8c405fc7f8f427e58fa21d369483"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d"
+    }
+  ],
+  "workers": [
+    {
+      "id": "/root/status_content",
+      "model": "gpt-6-luna",
+      "reasoning": "high",
+      "scope": [
+        "src/status_care_content.js"
+      ],
+      "status": "running"
+    },
+    {
+      "id": "/root/native_joins",
+      "scope": "read-only bridge audit",
+      "status": "running"
+    }
+  ],
+  "privateSavesTouched": false,
+  "sourceLibrariesTouched": false,
+  "deferred": [
+    "unit",
+    "browser/gameplay",
+    "save/reload/import/failure",
+    "keyboard/regression",
+    "director"
+  ],
+  "predecessorDelivery": "docs/gm/audit-implementation/remainder/RELEASE.json"
+}

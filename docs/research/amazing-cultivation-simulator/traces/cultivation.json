@@ -1,0 +1,1074 @@
+{
+  "schema": 1,
+  "family": "cultivation methods, breakthrough preparation and environmental timing",
+  "build": "17074448",
+  "app_id": "955900",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "repository_root": "/Users/weiwei/code/yet-another-idle-rpg",
+  "prepared_at_utc": "2026-10-06T20:04:51.877064+00:00",
+  "authority": "Finite read-only research leaf assigned by ACS root; only this JSON and sibling Markdown written. No gameplay implementation.",
+  "input_assembly_sha256": {
+    "Assembly-CSharp.dll": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902",
+    "Assembly-CSharp-firstpass.dll": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad"
+  },
+  "qualification": "Installed configuration plus ILSpy-recovered managed source; no gameplay observations, performance/balance proof or whole-game semantic claim. Root owns export commands/manifest.",
+  "sources": [
+    {
+      "id": "law",
+      "root": "private_acs",
+      "path": "input/Settings/Practice/Gong/Gong_1.xml",
+      "sha256": "f1bb30e8a6195d8c7f64aa5d57f5d365683362936dec6d7357f9be8a53c174bb",
+      "bytes": 8005,
+      "line_count": 186,
+      "semantic_review_spans": [
+        [
+          1,
+          185
+        ]
+      ],
+      "qualification": "Full selected law configuration; comments separated from active XML."
+    },
+    {
+      "id": "weather_data",
+      "root": "private_acs",
+      "path": "input/Settings/Weather/Weather.xml",
+      "sha256": "b6c85b77be232a91a75b8d8b616c7f2e68b02df8f3a0eccb9a727d0513b051ec",
+      "bytes": 32096,
+      "line_count": 1173,
+      "semantic_review_spans": [
+        [
+          37,
+          169
+        ]
+      ],
+      "qualification": "SunnyDay, Overcast, LightRain and HeavyRain definitions only; preceding commented test excluded."
+    },
+    {
+      "id": "lua_boundary",
+      "root": "private_acs",
+      "path": "input/Scripts/gameult.lua",
+      "sha256": "c49b81d289769d340cba5a0ed63524253ebfb3ba0457570e3e42fe02d635a01a",
+      "bytes": 22240,
+      "line_count": 756,
+      "semantic_review_spans": [
+        [
+          434,
+          479
+        ]
+      ],
+      "qualification": "Ancillary Lua calls to practice penalty in shadow creation; not proof of cultivation control loop."
+    },
+    {
+      "id": "gong_def",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GongDef.cs",
+      "sha256": "7141fa00aa7f546f6d9eae47d60612d888ee24fbbf620b8d1386232bafb4712a",
+      "bytes": 2339,
+      "line_count": 137,
+      "semantic_review_spans": [
+        [
+          1,
+          137
+        ]
+      ],
+      "qualification": "Law fields, default data and aptitude parsing."
+    },
+    {
+      "id": "neck_def",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GongStageNeck.cs",
+      "sha256": "1b4ef6acb350464e5bc8a069d399d1e2fbe0c2025e8d8149a1081100b6e92fba",
+      "bytes": 1344,
+      "line_count": 80,
+      "semantic_review_spans": [
+        [
+          1,
+          80
+        ]
+      ],
+      "qualification": "Bottleneck fields and XML-bound resource/item cost types."
+    },
+    {
+      "id": "law_load",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/PracticeMgr.cs",
+      "sha256": "210a3ffd979931acfcc9a152ea9de8b4c3eb64c2b96c3aa7dc71b6445e7d0440",
+      "bytes": 34777,
+      "line_count": 1211,
+      "semantic_review_spans": [
+        [
+          571,
+          612
+        ]
+      ],
+      "qualification": "Loads/overrides law definitions, sorts bottlenecks, localizes."
+    },
+    {
+      "id": "practice",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+      "bytes": 112497,
+      "line_count": 4456,
+      "semantic_review_spans": [
+        [
+          184,
+          240
+        ],
+        [
+          363,
+          508
+        ],
+        [
+          862,
+          869
+        ],
+        [
+          2324,
+          2369
+        ],
+        [
+          2403,
+          2498
+        ],
+        [
+          2614,
+          2758
+        ],
+        [
+          3122,
+          3212
+        ],
+        [
+          3214,
+          3270
+        ],
+        [
+          3363,
+          3432
+        ],
+        [
+          3452,
+          3490
+        ],
+        [
+          3590,
+          3708
+        ],
+        [
+          3739,
+          3967
+        ],
+        [
+          3982,
+          4118
+        ],
+        [
+          4164,
+          4361
+        ]
+      ],
+      "qualification": "Bounded cultivation, Chance, Gold and timed-threat semantics. God/body/ascension branches seen incidentally are not complete semantic coverage."
+    },
+    {
+      "id": "practice_job",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobPractice.cs",
+      "sha256": "424d6cf6b1031f464d0110c2041fc6f2312ecfcdeaac17e370703d2df3916258",
+      "bytes": 2776,
+      "line_count": 95,
+      "semantic_review_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "qualification": "Practice site preference, navigation, job reconsideration and teardown."
+    },
+    {
+      "id": "practice_toil",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilPractice.cs",
+      "sha256": "2ac822a04bbf1cc8845b5fd1e765582190797c08c48dab7b3855afc96b650af6",
+      "bytes": 4161,
+      "line_count": 153,
+      "semantic_review_spans": [
+        [
+          1,
+          153
+        ]
+      ],
+      "qualification": "Practice need expenditure, dt progress, duration/leave policy."
+    },
+    {
+      "id": "command",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandBrokenNeck.cs",
+      "sha256": "7f289566643f30b169357a601e8896f7abd6f7f83ce6a5d43425457d0d63e96e",
+      "bytes": 1603,
+      "line_count": 75,
+      "semantic_review_spans": [
+        [
+          1,
+          75
+        ]
+      ],
+      "qualification": "Target/workspace lock and item availability. No standalone full admission proof."
+    },
+    {
+      "id": "break_job",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobBrokenNeck.cs",
+      "sha256": "1bcc85530f15b47774acba3f10b4951c9f75a681bce2babd5eaae4f8125ee62c",
+      "bytes": 6266,
+      "line_count": 196,
+      "semantic_review_spans": [
+        [
+          1,
+          90
+        ],
+        [
+          179,
+          196
+        ]
+      ],
+      "qualification": "Input obtaining, location, normal job toil, thunder interruption policy; ascension ceremony not semantically covered."
+    },
+    {
+      "id": "break_toil",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+      "sha256": "285d719037c3484cc4feaca7dacd20577ef4d293e8501a6633369fe929361d2e",
+      "bytes": 31677,
+      "line_count": 1006,
+      "semantic_review_spans": [
+        [
+          14,
+          85
+        ],
+        [
+          95,
+          134
+        ],
+        [
+          136,
+          251
+        ],
+        [
+          262,
+          330
+        ],
+        [
+          338,
+          400
+        ],
+        [
+          434,
+          479
+        ],
+        [
+          708,
+          761
+        ],
+        [
+          857,
+          937
+        ]
+      ],
+      "qualification": "Selected Chance/Gold/threat paths including actual expenditure and leave. FuPractice/body/godcity special branches excluded from complete claims."
+    },
+    {
+      "id": "break_ui",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/Wnd_BrokenNeck.cs",
+      "sha256": "24da922b4ec80fc7f15ce09e14cf1c76633033c2d227fbf2c37f7bda1808b0e3",
+      "bytes": 35927,
+      "line_count": 929,
+      "semantic_review_spans": [
+        [
+          150,
+          245
+        ],
+        [
+          680,
+          758
+        ],
+        [
+          838,
+          895
+        ]
+      ],
+      "qualification": "Chance modifier preview, near-full reserve gate, costs and location selection."
+    },
+    {
+      "id": "weather_code",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/WeatherMapData.cs",
+      "sha256": "89c1fcd7f9c699fd8f4d4bc0e3d1ca4500c83f4868c8e30b14c07d48fc7c5a05",
+      "bytes": 29008,
+      "line_count": 1068,
+      "semantic_review_spans": [
+        [
+          447,
+          459
+        ],
+        [
+          918,
+          966
+        ]
+      ],
+      "qualification": "Live light, annual phase and reversible map property application."
+    },
+    {
+      "id": "maps",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+      "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+      "bytes": 136790,
+      "line_count": 6053,
+      "semantic_review_spans": [
+        [
+          1888,
+          1910
+        ],
+        [
+          1924,
+          1962
+        ],
+        [
+          2315,
+          2328
+        ],
+        [
+          2893,
+          2918
+        ],
+        [
+          4675,
+          4683
+        ]
+      ],
+      "qualification": "Selected mental-state, grade, season, string value resolution maps."
+    },
+    {
+      "id": "map_enum",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emMapProperty.cs",
+      "sha256": "1a256c769e9851192425651ccb01fbd687214d6a5acd6ae0a669adecb22b7188",
+      "bytes": 506,
+      "line_count": 32,
+      "semantic_review_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "qualification": "Weather to breakthrough map-property enum binding."
+    },
+    {
+      "id": "npc_mutation",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+      "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+      "bytes": 238707,
+      "line_count": 9577,
+      "semantic_review_spans": [
+        [
+          5801,
+          5804
+        ],
+        [
+          6656,
+          6666
+        ]
+      ],
+      "qualification": "Maximum-age property mutation and delegated energy mutation."
+    },
+    {
+      "id": "thing_ling",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Thing.cs",
+      "sha256": "be94b3f1a7033e9f42ae845bb4b41ce67ae9c676a450553c2cb63a310ce21c8d",
+      "bytes": 69338,
+      "line_count": 3147,
+      "semantic_review_spans": [
+        [
+          1033,
+          1063
+        ]
+      ],
+      "qualification": "Energy mutation/clamp and special flag exceptions."
+    },
+    {
+      "id": "bag_cost",
+      "root": "private_acs",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingsBag.cs",
+      "sha256": "3a8478221e18180fa8baf9e8c736ddf9dbe7d8e10d4d1d201770d450c2e3a5a6",
+      "bytes": 23085,
+      "line_count": 868,
+      "semantic_review_spans": [
+        [
+          818,
+          850
+        ]
+      ],
+      "qualification": "Named item expenditure to actual SubCount and bag update."
+    },
+    {
+      "id": "yairpg_rhythm",
+      "root": "repository",
+      "path": "src/world_rhythm.js",
+      "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+      "bytes": 1892,
+      "line_count": 31,
+      "semantic_review_spans": [
+        [
+          1,
+          31
+        ]
+      ],
+      "qualification": "Saved native calendar, recurring-window calculation. Live integration is active; refresh hash before implementation."
+    },
+    {
+      "id": "yairpg_practice",
+      "root": "repository",
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705,
+      "line_count": 105,
+      "semantic_review_spans": [
+        [
+          30,
+          98
+        ]
+      ],
+      "qualification": "Existing learned cooling, finite actual-stock trials, later hook consumer. Live integration is active; refresh hash before implementation."
+    },
+    {
+      "id": "yairpg_command",
+      "root": "repository",
+      "path": "src/simulation.js",
+      "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "bytes": 49947,
+      "line_count": 542,
+      "semantic_review_spans": [
+        [
+          118,
+          140
+        ],
+        [
+          155,
+          221
+        ]
+      ],
+      "qualification": "Start-time frozen effects/outcomes, existing reservations and completion support. Live integration is active; refresh hash before implementation."
+    },
+    {
+      "id": "yairpg_energy",
+      "root": "repository",
+      "path": "src/energy_resources.js",
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "bytes": 4384,
+      "line_count": 60,
+      "semantic_review_spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "qualification": "Integer energy reserve/strain owner, no timer/save writer. Live integration is active; refresh hash before implementation."
+    },
+    {
+      "id": "yairpg_power",
+      "root": "repository",
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "bytes": 4477,
+      "line_count": 55,
+      "semantic_review_spans": [
+        [
+          1,
+          55
+        ]
+      ],
+      "qualification": "Practice mastery bands and typed numeric formulas. Live integration is active; refresh hash before implementation."
+    },
+    {
+      "id": "yairpg_effects",
+      "root": "repository",
+      "path": "src/simulation_effects.js",
+      "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+      "bytes": 27286,
+      "line_count": 300,
+      "semantic_review_spans": [
+        [
+          43,
+          79
+        ],
+        [
+          212,
+          242
+        ],
+        [
+          244,
+          266
+        ]
+      ],
+      "qualification": "Facts, typed conditions/source/power/progress effects. Not whole effect engine coverage. Live integration is active; refresh hash before implementation."
+    }
+  ],
+  "findings": [
+    {
+      "id": "C01",
+      "qualification": "code-established",
+      "claim": "Cultivation law content is declarative but read by a shared state machine: law loading sorts bottleneck locations, current law selects stages, and positive practice stops at the next fractional threshold until its distinct bottleneck is cleared. Aptitude mismatch changes efficiency rather than proving a universal hard admission gate.",
+      "evidence": [
+        {
+          "source": "law_load",
+          "lines": [
+            580,
+            601
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            436,
+            446
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            4177,
+            4248
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            4309,
+            4360
+          ]
+        },
+        {
+          "source": "gong_def",
+          "lines": [
+            99,
+            115
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C02",
+      "qualification": "code-established",
+      "claim": "Ordinary seated practice spends the Practice need per dt, gains stage value and tree experience, and restores Rest. Location element/ling, mental and emotional state, mentor effect, building effectiveness, season and event-driver modifiers alter the rate. The practice job prefers an assigned practice building, then room, then map; it can reconsider higher-priority work every five world-time units.",
+      "evidence": [
+        {
+          "source": "practice_toil",
+          "lines": [
+            62,
+            109
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3380,
+            3432
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            862,
+            868
+          ]
+        },
+        {
+          "source": "practice_job",
+          "lines": [
+            24,
+            81
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C03",
+      "qualification": "code-established",
+      "claim": "A normal Chance attempt obtains the configured required item, then consumes all configured ResourceCost entries and one item per ItemCost entry on toil entry, drains current Ling, waits CostTime, and attempts the current live chance on leave. The selected law Stage2 furnace bottleneck costs 10 maximum-age units and one Item_Dan_JingYuan2, not merely a possession check.",
+      "evidence": [
+        {
+          "source": "law",
+          "lines": [
+            84,
+            100
+          ]
+        },
+        {
+          "source": "break_job",
+          "lines": [
+            47,
+            62
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            203,
+            227
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            2677,
+            2723
+          ]
+        },
+        {
+          "source": "bag_cost",
+          "lines": [
+            818,
+            849
+          ]
+        },
+        {
+          "source": "npc_mutation",
+          "lines": [
+            5801,
+            5804
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            391,
+            400
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            857,
+            884
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C04",
+      "qualification": "code-established",
+      "claim": "Chance probability combines configured base plus retry experience, then luck, mind and active medicine/property multipliers, additive sect fengshui/light/weather/season/location factors, retained core-grade modifier, and current consciousness; it clamps to 0..1. Parameters are read when TryBrokenNeck runs, not copied from the earlier preview. Water/metal light bonuses favor lower light; fire/wood favor higher light; earth favors intermediate light.",
+      "evidence": [
+        {
+          "source": "practice",
+          "lines": [
+            3739,
+            3865
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3982,
+            4017
+          ]
+        },
+        {
+          "source": "break_ui",
+          "lines": [
+            158,
+            245
+          ]
+        },
+        {
+          "source": "maps",
+          "lines": [
+            1888,
+            1910
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C05",
+      "qualification": "code-established",
+      "claim": "Failure is a stateful outcome: retry count increments, configured body damage is rolled, failure mood/modifier may persist, a configured non-Chance timestamp resets, and depleted stage value can move the actor back below the gate. The reviewed normal leave/failure path contains no refund for the entry-consumed items or maximum age. Success clears TouchNeck/retry count, applies rewards and can advance stage; stage advance reactivates equipment and informs difficulty.",
+      "evidence": [
+        {
+          "source": "practice",
+          "lines": [
+            4037,
+            4118
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3214,
+            3270
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3599,
+            3708
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            708,
+            761
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            857,
+            937
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C06",
+      "qualification": "code-established",
+      "claim": "Golden-core formation is a finite conversion, not the normal Chance roll: it drains 30 Ling per dt, accumulates GoldEffectSpeed per dt using live preparation/environment factors, and ends when Ling is empty. Normal Gold leave forces m_bDid true, calls MakeGold, records quality/grade and adds 0.015 times accumulated quality to energy capacity before clearing the bottleneck. This also banks current accumulated quality on interrupted leave in the reviewed code; exact zero-duration/cancellation ordering is unobserved.",
+      "evidence": [
+        {
+          "source": "break_toil",
+          "lines": [
+            232,
+            235
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            434,
+            479
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            743,
+            748
+          ]
+        },
+        {
+          "source": "break_toil",
+          "lines": [
+            857,
+            859
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3867,
+            3889
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3906,
+            3967
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C07",
+      "qualification": "code-established",
+      "claim": "Retained core quality affects more than its display. MakeGold alters NpcLingMaxValue; GlodDanEffectBroken selects a grade-dependent multiplier for later breakthroughs with a separate post-stage-9 table column. GoldLevel ranking runs 1 through 9 with grade 1 at the highest configured quality threshold, so higher quality must not be described as a larger grade number.",
+      "evidence": [
+        {
+          "source": "practice",
+          "lines": [
+            3867,
+            3904
+          ]
+        },
+        {
+          "source": "maps",
+          "lines": [
+            1924,
+            1962
+          ]
+        },
+        {
+          "source": "maps",
+          "lines": [
+            2315,
+            2328
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C08",
+      "qualification": "code-established",
+      "claim": "The selected law also contains a timed threat: Stage3 at 20 percent has a Thunder bottleneck with 4900 countdown units and 10000 configured ThunderValue. Outside RPG mode, expiry can automatically start the owned JobBrokenNeck; action incapacity/selected suppression states adjust or defer the countdown. Thunder/God jobs cannot be interrupted, while Chance/Gold normal jobs are not marked noninterruptible here.",
+      "evidence": [
+        {
+          "source": "law",
+          "lines": [
+            115,
+            121
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            2324,
+            2369
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            2403,
+            2498
+          ]
+        },
+        {
+          "source": "break_job",
+          "lines": [
+            179,
+            194
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C09",
+      "qualification": "code-established",
+      "claim": "Environment has implementation-backed meaning: light uses a biome/time curve and LightAddP; the seasonal phase is year-day minus ten wrapped over eight annual segments; weather applies/unapplies map-property values. Active XML samples set Overcast ShuiBroken +0.02, LightRain ShuiBroken +0.02 / HuoBroken -0.04, HeavyRain ShuiBroken +0.03 / HuoBroken -0.06. These are modifiers, not full success probabilities.",
+      "evidence": [
+        {
+          "source": "weather_data",
+          "lines": [
+            69,
+            169
+          ]
+        },
+        {
+          "source": "weather_code",
+          "lines": [
+            447,
+            459
+          ]
+        },
+        {
+          "source": "weather_code",
+          "lines": [
+            918,
+            966
+          ]
+        },
+        {
+          "source": "map_enum",
+          "lines": [
+            17,
+            23
+          ]
+        },
+        {
+          "source": "practice",
+          "lines": [
+            3777,
+            3779
+          ]
+        },
+        {
+          "source": "maps",
+          "lines": [
+            2893,
+            2918
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C10",
+      "qualification": "code-established-ui",
+      "claim": "The ordinary Chance/Gold/FuPractice UI requires at least 99 percent of maximum Ling, enough configured resources/items, CanDoMagic and no already-running bottleneck. It exposes modifier breakdown and target-location factors; RealMode replaces the chance display with unknown. This is the verified UI path, not proof that every alternate command caller repeats all gates.",
+      "evidence": [
+        {
+          "source": "break_ui",
+          "lines": [
+            158,
+            245
+          ]
+        },
+        {
+          "source": "break_ui",
+          "lines": [
+            680,
+            758
+          ]
+        },
+        {
+          "source": "break_ui",
+          "lines": [
+            838,
+            895
+          ]
+        },
+        {
+          "source": "command",
+          "lines": [
+            37,
+            74
+          ]
+        }
+      ]
+    }
+  ],
+  "traces": [
+    {
+      "id": "cultivation.practice-to-gate",
+      "prerequisites": "Actor already has a selected Gong/stage; ordinary ToilPractice and accessible location. Full selection/discipleship admission and mentor-effect internals are outside this leaf scope.",
+      "decisions": "Choose existing law and Practice mode; assign a practice building/site; schedule ordinary labor versus practice.",
+      "actual_expenditures": "Practice need decreases by GetPracticeCost times special speed coefficient times dt. World-time occupancy; this trace does not spend inventory items.",
+      "mutations": "StageValue/StageValueP, tree experience, Rest and mood; reaching a threshold sets NeckIndex/TouchNeck/TimeEnterNeck and stops further positive stage gain.",
+      "downstream_consumers": "Next gate, practice UI/messages, changed PracticeMode, later skill-tree experience consumers delegated to institution trace.",
+      "time_policy": "Simulation dt; random practice run duration 480..720 world-time units; job rechecks work every five units. Season is interpolated; wall-clock/offline equivalence unreviewed.",
+      "failure_and_aftermath": "No more ordinary progression while TouchNeck; depleted Practice need ends toil. Night practice in a bad room may create meridian injury; exact mutation/need recovery systems outside scope.",
+      "finding_ids": [
+        "C01",
+        "C02"
+      ]
+    },
+    {
+      "id": "cultivation.chance-furnace",
+      "prerequisites": "TouchNeck active at selected law Stage2 Location 0.9. Verified UI: 99 percent Ling, more than 10 remaining maximum-age units, configured pill available and CanDoMagic.",
+      "decisions": "Attempt now or prepare/recover/wait; select location/workspace; choose available light, season, weather and mental-state circumstances.",
+      "actual_expenditures": "The selected config specifies CostTime 175, Age 10, one pill. Job obtains a map pill if needed; entry removes one pill, subtracts 10 from maximum age and drains current Ling. These costs remain spent on reviewed failure/interruption paths.",
+      "mutations": "Attempt state/flags, then RNG outcome. Success applies rewards/unlocks gate; failure adds retry count, mood, optional damage/modifier and possible stage regression.",
+      "downstream_consumers": "Future probability reads retry count; injuries/consciousness feed effective chance; maximum age stays changed; success resumes growth/equipment activation/difficulty events.",
+      "time_policy": "CostTime simulation units; probability samples current conditions at resolution, so selecting a place does not freeze the preview. Ordinary job can be interrupted.",
+      "failure_and_aftermath": "Failed attempt can injure meridian/organ from config and still loses costs; later retries can receive +0.15 configured experience per failed attempt before other multipliers. Numeric base property evaluation is named-property dependent and its complete parser is unread.",
+      "finding_ids": [
+        "C03",
+        "C04",
+        "C05",
+        "C09",
+        "C10"
+      ]
+    },
+    {
+      "id": "cultivation.gold-quality",
+      "prerequisites": "Selected law Stage2 Location1 Gold gate; verified normal UI requires 99 percent Ling and action support.",
+      "decisions": "Recover a larger actual energy reserve, choose compatible site and start during a useful environmental window; accept the lasting quality achieved.",
+      "actual_expenditures": "30 current Ling per simulation dt in the ordinary one-core loop, plus any configured entry resources/items (selected Gold neck has none). No ordinary random Chance roll is used for MakeGold settlement.",
+      "mutations": "Toil gold accumulator grows from live GoldEffectSpeed; departure stores GoldLing/GoldLevel, adds quality-derived NpcLingMaxValue and clears/advances bottleneck with configured Gong_Gold modifier.",
+      "downstream_consumers": "Future energy capacity, grade-dependent later bottleneck multiplier, core-specific mood and achievement/event consumers.",
+      "time_policy": "Each dt reuses light, season, weather, site, aptitude, luck and mind. Stops at reserve exhaustion; current quality is banked by normal Gold leave even if m_bDid had been false. Zero-duration ordering unobserved.",
+      "failure_and_aftermath": "Poor preparation can permanently settle a weak core. The source distinguishes this from generic failure; an actual restart/reset/recovery policy for weak cores was not traced.",
+      "finding_ids": [
+        "C06",
+        "C07",
+        "C09",
+        "C10"
+      ]
+    },
+    {
+      "id": "cultivation.countdown-boundary",
+      "prerequisites": "Selected law Stage3 Thunder threshold reached, configured countdown positive, non-RPG automatic policy, no active BrokenNeck or relevant suppression.",
+      "decisions": "Prepare before expiry or initiate controlled breakthrough early; job chooses current location on forced expiry.",
+      "actual_expenditures": "Cloud strength initialized from configured ThunderValue, element/JobFunc multiplier; precise protective-artifact energy expenditure is not fully traced here.",
+      "mutations": "Timestamp/countdown, cloud state, forced owned command/job, equipment restriction and weather; failure handler can inflict whole-body thunder damage/SysPracticeDie and God failure kills.",
+      "downstream_consumers": "UI warnings/remaining time, forced job, existing fight/cloud machinery, body life consequences.",
+      "time_policy": "World.TolSecond countdown with suppression/action/selected practice offsets; warning at 600 units and automatic job at expiry. Job noninterruptible for Thunder/God.",
+      "failure_and_aftermath": "Meaningful injury/death handlers exist, but full cloud combat damage and survival proof is deliberately unread. This is a supported timing boundary, not a full tribulation trace.",
+      "finding_ids": [
+        "C08",
+        "C05"
+      ]
+    }
+  ],
+  "proposal": {
+    "id": "acs-proposal-prepared-cooling-trial",
+    "status": "original-proposal-not-selected-or-implemented",
+    "journey": "After learning existing Measured cooling and completing its three paid trials, choose an optional quiet-hour self trial at the Village bench. Spend one actual salt packet, two stamina and three played minutes. Cool-hour preparation improves the disclosed success weight; an ordinary-hour attempt remains legal. Success retains a narrow steadied-control application; failure retains a failed-attempt progress count plus briefly sore hands. Later choose the new steadied hook method to discharge the same owned sleeve, extending the existing paid hook-field duration from four to five played minutes. Existing four-minute use remains available.",
+    "source_principles": [
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07",
+      "C09",
+      "C10"
+    ],
+    "reused_current_owners": [
+      {
+        "source": "yairpg_practice",
+        "consumer": "Existing Measured cooling acquired source/mastery/tool facts and real native salt/sleeve stock. Preserve practice cap3 and all old commands/jobs."
+      },
+      {
+        "source": "yairpg_rhythm",
+        "consumer": "calendarMinutes/recurringWindow derive a proposed quiet-hour period from the saved native calendar; no new clock or background timer."
+      },
+      {
+        "source": "yairpg_command",
+        "consumer": "startCommand reserves costs and freezes RNG/effects; completeJob settles on shared clock and handles support failures. Retain the existing durable publisher."
+      },
+      {
+        "source": "yairpg_effects",
+        "consumer": "Typed progress effect records resolved attempts, condition records sore hands, knowledge/fact records learned application; no second advancement/inventory owner."
+      },
+      {
+        "source": "yairpg_power",
+        "consumer": "Current practice/model and body/source legality; new application improves one actual downstream function rather than giving an unexplained cultivation rank."
+      }
+    ],
+    "exact_missing_consumers": [
+      "New environment fact provider for Village quiet-hour window, preview reason and sampled preparation receipt. Existing world_rhythm is service availability, not a gameplay weather/season cultivation consumer.",
+      "Additive command definitions for quiet-hand trial, failure/retained application outcomes, attempt progress and refundable support loss; no current cooling command consumes a preparation window.",
+      "Additive steadied-hook command checks the retained application and consumes actual native charged sleeve/2 stamina, then applies the existing hook field for5 played minutes. Current reference_gameplay.cool_hook always uses4.",
+      "Preview/notebook/bio consumer shows sampled window, disclosed costs, retained failed attempts and new application; outcome validators reject application receipts without a paid successful trial."
+    ],
+    "cost_result_retained_consequences": {
+      "original_balance_proposals": "one salt, two stamina,3 played minutes; cool-hour success weighting and brief soreness intensity/duration remain director-review proposals; no copied ACS balance values.",
+      "success": "Paid attempt receipt, narrow application knowledge and later5-minute hook option. No new mastery beyond current3, source, stock or prestige granted.",
+      "failure": "Paid salt/effort remains spent, recorded attempt count and finite hand soreness; retry after recovery with real remaining salt. Not terminal/death by default.",
+      "support_loss_or_cancel": "Disclosed reservation refund/no result policy through existing job owner; distinguish this from a completed failed trial."
+    },
+    "compatibility": "Explicit additive enrollment only; old absence inert, old cooling commands unchanged, frozen jobs retain effects/outcomes/revisions. Introduce only registered command/condition/progress/knowledge IDs through the current integrator; validate optional saved receipt relations in owning schema. No clock/inventory/save-publisher replacement or forced cultivation; same one-realm/one-prestige milestone.",
+    "deliberate_adaptation_difference": "YAIRPG freezes paid outcome weights/effects at startCommand. Use a disclosed preparation snapshot at acceptance for this first packet. Do not silently bolt ACS per-dt quality accumulation/live resolution onto frozen jobs; a later variable-environment job policy would be separate integration work.",
+    "later_playable_gate": "From a disposable state with the existing method/tool, inspect ordinary versus quiet-hour quote, complete one paid success and one paid failure across separate reproducible seeds, show exact stock/stamina/time consequences and retained application/soreness/retry record, then use the new hook option and show5-minute expiry while normal4 remains. Reload mid-job/after settlement without duplicated costs/result, and preserve old absence/frozen jobs/native save-failure atomicity. All gameplay/unit/browser/save/failure/director checks remain deferred now.",
+    "integration_owner": "Active shared integrator01a10fe7; refresh PROJECT and source hashes before implementation. Causal01a10fa6 remains exclusive causal_story owner; no writes requested there."
+  },
+  "unread_and_uncertain": [
+    "Full law roster, DLC/body/God/FuPractice/ascension systems; only one ordinary law is fully read as data.",
+    "Complete discipleship/law admission and mentor effect/teaching consumers; institution trace owns those.",
+    "Named dynamic-stat property parser for Physique_1_5_25 and Intelligence_2_25_5; no numeric base success rate asserted.",
+    "Full thunder-cloud combat/shield/artifact survival and JobFunc.GetThunderScale internals; timing boundary only.",
+    "Runtime enabled mod override precedence/result is unobserved despite definition override code. Pins establish copied installed edition, not the active loaded campaign.",
+    "Real-time/speed multiplier/offline/unloaded-world policy; all durations are source simulation units.",
+    "Zero-duration interrupted Gold ordering and weak-core restart/reset recovery are unobserved.",
+    "No romance claim, save serialization success claim, observed UI result or playable YAIRPG claim."
+  ],
+  "checks": {
+    "source_spans_in_bounds": "passed at creation",
+    "source_hashes": "computed from read private files and current repository owners",
+    "json_parse": "performed by writer with round-trip parse",
+    "unit_browser_gameplay_save_failure_regression_director": "deferred-unrun",
+    "build": "unrun, research-only",
+    "evidence_within_semantic_review_spans": "passed",
+    "source_hash_readback": {
+      "private_source_drift": [],
+      "repository_drift": [],
+      "qualification": "Live integrator changes are permissible; proposal uses the pinned inspected owner snapshot."
+    }
+  },
+  "writer_release": "released on delivery to parent; parent may integrate both files"
+}

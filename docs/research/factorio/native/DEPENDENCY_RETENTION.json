@@ -1,0 +1,352 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T13:38:18.349623+00:00",
+  "private_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/DEPENDENCY_RETENTION.json",
+  "private_receipt_sha256": "60a0a4dc47d28f45f3be819e4e8405dba722dbbb8e16c1de0425aceb5fbf2226",
+  "copied_entries": [
+    {
+      "relative_to_Contents": "MacOS/libsteam_api.dylib",
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/libsteam_api.dylib",
+      "private_copy": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/MacOS/libsteam_api.dylib",
+      "bytes": 610496,
+      "before_sha256": "4d47f19bdea2e7aba06a052570855903376ae47accca439ae9fb184528846d85",
+      "copy_sha256": "4d47f19bdea2e7aba06a052570855903376ae47accca439ae9fb184528846d85",
+      "after_sha256": "4d47f19bdea2e7aba06a052570855903376ae47accca439ae9fb184528846d85",
+      "original_unchanged": true
+    },
+    {
+      "relative_to_Contents": "data/licenses.txt",
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/licenses.txt",
+      "private_copy": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/data/licenses.txt",
+      "bytes": 72600,
+      "before_sha256": "a86fda4ca6a5b82f455b956e4743e33aa27038acc54a92972970cbe4251e9f1b",
+      "copy_sha256": "a86fda4ca6a5b82f455b956e4743e33aa27038acc54a92972970cbe4251e9f1b",
+      "after_sha256": "a86fda4ca6a5b82f455b956e4743e33aa27038acc54a92972970cbe4251e9f1b",
+      "original_unchanged": true
+    },
+    {
+      "relative_to_Contents": "doc-html/license.html",
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/license.html",
+      "private_copy": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/doc-html/license.html",
+      "bytes": 3779,
+      "before_sha256": "48692d0d3c46be9caaded489426400e27c0e022e63173e60dae0aa64fd0dadcd",
+      "copy_sha256": "48692d0d3c46be9caaded489426400e27c0e022e63173e60dae0aa64fd0dadcd",
+      "after_sha256": "48692d0d3c46be9caaded489426400e27c0e022e63173e60dae0aa64fd0dadcd",
+      "original_unchanged": true
+    }
+  ],
+  "main_slice_dependency_disposition": [
+    {
+      "architecture": "arm64",
+      "dependency_metadata": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-dependencies.txt",
+      "metadata_sha256": "d4d4725ce3185572b2bbd64a44640d782fb2483b4e7d55dadb7847ac8f889ded",
+      "load_dependencies": [
+        {
+          "name": "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreHaptics.framework/Versions/A/CoreHaptics",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/GameController.framework/Versions/A/GameController",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/ForceFeedback.framework/Versions/A/ForceFeedback",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libSystem.B.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenAL.framework/Versions/A/OpenAL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/LDAP.framework/Versions/A/LDAP",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libresolv.9.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "@loader_path/libsteam_api.dylib",
+          "disposition": "exactbundledlibraryprivatelyretained; bodyrecoveryoutofmainexescopenoexecution"
+        },
+        {
+          "name": "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libobjc.A.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        }
+      ]
+    },
+    {
+      "architecture": "x86_64",
+      "dependency_metadata": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/x86_64-dependencies.txt",
+      "metadata_sha256": "3b44b712c14511ecf0e97e03a7fda6a98fecf7167a73d71dfb1fd2612ada4c4d",
+      "load_dependencies": [
+        {
+          "name": "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreHaptics.framework/Versions/A/CoreHaptics",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/GameController.framework/Versions/A/GameController",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/ForceFeedback.framework/Versions/A/ForceFeedback",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Security.framework/Versions/A/Security",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libSystem.B.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/OpenAL.framework/Versions/A/OpenAL",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/LDAP.framework/Versions/A/LDAP",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/Metal.framework/Versions/A/Metal",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libresolv.9.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "@loader_path/libsteam_api.dylib",
+          "disposition": "exactbundledlibraryprivatelyretained; bodyrecoveryoutofmainexescopenoexecution"
+        },
+        {
+          "name": "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        },
+        {
+          "name": "/usr/lib/libobjc.A.dylib",
+          "disposition": "OSframework/systemdylibmetadataonly; bodyunrecoveredoutside mainbothslice scope"
+        }
+      ]
+    }
+  ],
+  "library_macho_metadata": [
+    {
+      "cpu_type_hex": "0x7",
+      "architecture": "i386",
+      "fat_slice_offset": 16384,
+      "fat_slice_bytes": 196432,
+      "commands": [
+        {
+          "load_command_hex": "0xd",
+          "name": "@loader_path/libsteam_api.dylib",
+          "current_version_raw": 65536,
+          "compatibility_version_raw": 65536,
+          "disposition": "libraryidentity"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libc++.1.dylib",
+          "current_version_raw": 7864320,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libSystem.B.dylib",
+          "current_version_raw": 79495168,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        }
+      ]
+    },
+    {
+      "cpu_type_hex": "0x1000007",
+      "architecture": "x86_64",
+      "fat_slice_offset": 212992,
+      "fat_slice_bytes": 184272,
+      "commands": [
+        {
+          "load_command_hex": "0xd",
+          "name": "@loader_path/libsteam_api.dylib",
+          "current_version_raw": 65536,
+          "compatibility_version_raw": 65536,
+          "disposition": "libraryidentity"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libc++.1.dylib",
+          "current_version_raw": 59245568,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libSystem.B.dylib",
+          "current_version_raw": 84687873,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        }
+      ]
+    },
+    {
+      "cpu_type_hex": "0x100000c",
+      "architecture": "arm64",
+      "fat_slice_offset": 409600,
+      "fat_slice_bytes": 200896,
+      "commands": [
+        {
+          "load_command_hex": "0xd",
+          "name": "@loader_path/libsteam_api.dylib",
+          "current_version_raw": 65536,
+          "compatibility_version_raw": 65536,
+          "disposition": "libraryidentity"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libc++.1.dylib",
+          "current_version_raw": 59245568,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        },
+        {
+          "load_command_hex": "0xc",
+          "name": "/usr/lib/libSystem.B.dylib",
+          "current_version_raw": 84687873,
+          "compatibility_version_raw": 65536,
+          "disposition": "systemexternalmetadataonly; no copy/import/recovery"
+        }
+      ]
+    }
+  ],
+  "scope": "ONLY actualusefulbundledlibsteam_api.dylib andoriginal relevantlicense/attributiontexts preservedprivately; exactbefore/copy/afterhash+bytes. No library/game/recoveredcodeexecution orlibrarybodydecompile; no Steamsettings/profile/account access orinstall/source mutation. Mainexe external calls remainunknown; systemdependenciesmetadataonly, outsidefullmainbothslice objective."
+}

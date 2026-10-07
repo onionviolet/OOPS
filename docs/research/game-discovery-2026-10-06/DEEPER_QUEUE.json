@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "owner": "01a112b9-410a-7da2-9182-392141662439",
+  "updatedAtUTC": "2026-10-06T20:45:00.792782+00:00",
+  "authority": {
+    "humanRequest": "save accordingly and note to relevant chat for deeper considerations and more for other games as well?",
+    "trustedReadback": "ACS chat01a112c9, user turn01a112e4-319f-7dd0-902d-8c903b40eab1 read through read_thread",
+    "receivedNote": "ACS coordination message requests saving standard/queue while original finite delivery stays complete"
+  },
+  "status": "saved-priorities; no research dispatch or standing work",
+  "selectionCoordinator": {
+    "threadId": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+    "title": "Assess deep idea implementation"
+  },
+  "completedPackets": [
+    "GD-01-EVIDENCE-ASSAY",
+    "GD-02-SITE-TRANSFORMATION"
+  ],
+  "noDuplicateDispatch": "Both original source leaves remain completed/released. Reuse pinned raw sources and previous coverage; select a named unresolved path only. No automatic whole-game audit/recovery or new chat.",
+  "rows": [
+    {
+      "id": "GD-D01-KEY-EXPLORATION",
+      "priority": 1,
+      "question": "How do origin-qualified keys, machines and player intervention change reachable discoveries and later access?",
+      "entryPaths": [
+        "src/brogue/Items.c",
+        "src/brogue/Architect.c",
+        "src/brogue/Movement.c"
+      ],
+      "searchLocators": [
+        "keyMatchesLocation",
+        "keyOnTileAt",
+        "promoteTile"
+      ],
+      "playerDecisionToInvestigate": "Use, carry, move or surrender one actual key; choose the accessible opportunity before committing a unique key/claim.",
+      "connectedDependencies": [
+        "item identity/custody",
+        "authored machine or location admission",
+        "player/monster movement",
+        "actual key spend or retention",
+        "retained level/access state"
+      ],
+      "failureAndLateQuestions": [
+        "Which keys work only at their authored origin?",
+        "When is a key consumed, lost, carried by another actor or unnecessary after promotion?",
+        "Does moving an item/actor remove support or permanently change the level, and which late machine exceptions override the ordinary rule?"
+      ],
+      "nativeOwnersToCompare": [
+        "src/acquisition.js",
+        "src/realm_cargo.js",
+        "src/world_instances.js",
+        "src/causal_situations.js"
+      ],
+      "exclusions": [
+        "Do not redo paid classification/negative-assay GD-01.",
+        "No tile renderer or general key engine assumed."
+      ],
+      "status": "parked-unassigned-source-question",
+      "sourceReady": false,
+      "source": {
+        "repository": "https://github.com/tmewett/BrogueCE",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "rawRoot": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE",
+        "coverageOwner": "source-traces/BROGUE.json"
+      },
+      "currentEvidence": "Function/path index only unless covered in the linked prior owner. No new semantic trace ran during this save-only follow-up.",
+      "acceptance": "Named caller -> prerequisite -> player decision -> actual expenditure -> mutation -> actual downstream consumer -> supported time/persistence/failure/late exception. Retain broader original YAIR implications, then separately select an affordable implementation packet."
+    },
+    {
+      "id": "GD-D02-STATUS-ENVIRONMENT",
+      "priority": 2,
+      "question": "Which actual body/status/terrain combinations change an action or danger, and where do late immunity/equipment exceptions break the simple rule?",
+      "entryPaths": [
+        "src/brogue/Monsters.c",
+        "src/brogue/Movement.c",
+        "src/brogue/Items.c",
+        "src/brogue/Time.c"
+      ],
+      "searchLocators": [
+        "applyInstantTileEffectsToCreature",
+        "exposeCreatureToFire"
+      ],
+      "playerDecisionToInvestigate": "Spend an actual protective effect, use a physical bypass, alter the hazard, or retain the resource for a later threat.",
+      "connectedDependencies": [
+        "status duration and objective ticks",
+        "terrain/gas/fire effect ordering",
+        "body/ally/enemy immunity",
+        "carried equipment",
+        "paid action and actual aftermath"
+      ],
+      "failureAndLateQuestions": [
+        "Do flight, fire protection, immunity and incapacitation protect against the same hazards?",
+        "Which damage/status effects apply before an actor can respond?",
+        "Which late runic/equipment/creature properties change expiry, stacking, suppression or protection, and how are those exceptions visible to the player?"
+      ],
+      "nativeOwnersToCompare": [
+        "src/body_progression.js",
+        "src/power_models.js",
+        "src/simulation_effects.js",
+        "src/native_battle.js"
+      ],
+      "exclusions": [
+        "Prior hallucination targeting/display/expiry was already traced.",
+        "No generic cold/scent/sustain reskin or forced permanent injury."
+      ],
+      "status": "parked-unassigned-source-question",
+      "sourceReady": false,
+      "source": {
+        "repository": "https://github.com/tmewett/BrogueCE",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "rawRoot": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE",
+        "coverageOwner": "source-traces/BROGUE.json"
+      },
+      "currentEvidence": "Function/path index only unless covered in the linked prior owner. No new semantic trace ran during this save-only follow-up.",
+      "acceptance": "Named caller -> prerequisite -> player decision -> actual expenditure -> mutation -> actual downstream consumer -> supported time/persistence/failure/late exception. Retain broader original YAIR implications, then separately select an affordable implementation packet."
+    },
+    {
+      "id": "GD-D03-ALCHEMY-RESOURCE-CHAIN",
+      "priority": 3,
+      "question": "How do acquired toolkit energy, recycling and alternative recipes make later alchemy choices compete for actual stock and capacity?",
+      "entryPaths": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/artifacts/AlchemistsToolkit.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AlchemyScene.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Recipe.java"
+      ],
+      "searchLocators": [
+        "consumeEnergy",
+        "availableEnergy",
+        "Recipe.findRecipes"
+      ],
+      "playerDecisionToInvestigate": "Retain a useful object or sacrifice it for a specific later transformation; choose which competing output receives scarce actual energy.",
+      "connectedDependencies": [
+        "toolkit acquisition/upgrade/curse state",
+        "item sacrifice",
+        "shared versus device energy",
+        "recipe eligibility",
+        "physical output and interrupted attempts"
+      ],
+      "failureAndLateQuestions": [
+        "What charges the toolkit, what actually consumes stock, and what is merely a preview?",
+        "Which curse, level/capacity, special recipe or late artifact exception changes the available conversion?",
+        "Does failure/recovery return materials, energy, both or neither, and what is retained across saving?"
+      ],
+      "nativeOwnersToCompare": [
+        "src/energy_resources.js",
+        "src/items.js",
+        "src/simulation.js",
+        "src/expansion_persistence.js"
+      ],
+      "exclusions": [
+        "Existing seed->Levitation->StormClouds and GD-02 site/conduction chain stay complete.",
+        "Previously sampled AquaBrew/Geyser path is not a new discovery.",
+        "No parallel alchemy currency or publisher presumed."
+      ],
+      "status": "parked-unassigned-source-question",
+      "sourceReady": false,
+      "source": {
+        "repository": "https://github.com/00-Evan/shattered-pixel-dungeon",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "rawRoot": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/shattered-pixel-dungeon",
+        "coverageOwner": "source-traces/SHATTERED.json"
+      },
+      "currentEvidence": "Function/path index only unless covered in the linked prior owner. No new semantic trace ran during this save-only follow-up.",
+      "acceptance": "Named caller -> prerequisite -> player decision -> actual expenditure -> mutation -> actual downstream consumer -> supported time/persistence/failure/late exception. Retain broader original YAIR implications, then separately select an affordable implementation packet."
+    },
+    {
+      "id": "GD-D04-EQUIPMENT-COMMITMENTS",
+      "priority": 4,
+      "question": "How does earned blacksmith access turn actual equipment into a useful retained modification, with meaningful incompatibility and loss?",
+      "entryPaths": [
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/mobs/npcs/Blacksmith.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/weapon/Weapon.java",
+        "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/armor/Armor.java"
+      ],
+      "searchLocators": [
+        "Blacksmith",
+        "upgrade",
+        "reforge"
+      ],
+      "playerDecisionToInvestigate": "Spend an earned service/reputation claim and one or more actual items, or keep the separate equipment/options.",
+      "connectedDependencies": [
+        "quest/access and service stock",
+        "identified/cursed/equipped item admission",
+        "quality/enchantment/glyph preservation",
+        "actual item mutation",
+        "later combat and remaining service claims"
+      ],
+      "failureAndLateQuestions": [
+        "What is consumed rather than merely reserved?",
+        "Which properties survive merging or upgrading, and what cannot be combined?",
+        "Which unique/late gear, curse or class interaction changes the normal output or regret cost?"
+      ],
+      "nativeOwnersToCompare": [
+        "src/items.js",
+        "src/native_equipment_transaction.js",
+        "src/artifact_collection.js",
+        "src/artifact_workshop_content.js",
+        "src/feature_expansion_objects.js"
+      ],
+      "exclusions": [
+        "Current ALL19 equipment-fit/body/fixture/specialization and artifact proofs are incumbent delivered source, not missing generic infrastructure.",
+        "No new equipment ledger or uncited whole-game mechanic claim."
+      ],
+      "status": "parked-unassigned-source-question",
+      "sourceReady": false,
+      "source": {
+        "repository": "https://github.com/00-Evan/shattered-pixel-dungeon",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "rawRoot": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/shattered-pixel-dungeon",
+        "coverageOwner": "source-traces/SHATTERED.json"
+      },
+      "currentEvidence": "Function/path index only unless covered in the linked prior owner. No new semantic trace ran during this save-only follow-up.",
+      "acceptance": "Named caller -> prerequisite -> player decision -> actual expenditure -> mutation -> actual downstream consumer -> supported time/persistence/failure/late exception. Retain broader original YAIR implications, then separately select an affordable implementation packet."
+    },
+    {
+      "id": "GD-D05-SONG-WARD-CONTINUITY",
+      "priority": 5,
+      "question": "Can a learned, maintained song create a lasting door ward whose later resistance/removal has an actual exploration consequence?",
+      "entryPaths": [
+        "src/spells1.c",
+        "src/cmd2.c",
+        "src/melee2.c",
+        "src/load.c",
+        "src/save.c"
+      ],
+      "searchLocators": [
+        "change_song",
+        "sing",
+        "do_cmd_close_aux",
+        "FEAT_WARDED"
+      ],
+      "playerDecisionToInvestigate": "Allocate the same voice pool and major/minor theme capacity to an immediate action, a ward, or conserving voice for later encounters.",
+      "connectedDependencies": [
+        "actual learning and active ability",
+        "shared voice/upkeep",
+        "minor theme reduced skill",
+        "door grade mutation",
+        "opposing actor ability/Will",
+        "retained door and later passage"
+      ],
+      "failureAndLateQuestions": [
+        "The screen covered switching/upkeep and representative door/Will predicates only; what is the real acquisition/payment path?",
+        "Does stopping/losing the song alter an already made ward or only further actions?",
+        "Which powerful creatures, damaged/secret doors or later abilities bypass or remove it, and what survives reload?"
+      ],
+      "nativeOwnersToCompare": [
+        "src/energy_resources.js",
+        "src/power_models.js",
+        "src/world_instances.js",
+        "src/simulation_effects.js"
+      ],
+      "exclusions": [
+        "Do not repeat the already delivered maintained-brace/finite-upkeep family.",
+        "No source-ready packet until acquisition, downstream door result, failure and persistence are traced."
+      ],
+      "status": "parked-unassigned-source-question",
+      "sourceReady": false,
+      "source": {
+        "repository": "https://github.com/sil-quirk/sil-q",
+        "pin": "1be7df63d6e7f9db2461e125acd17728caa53c3d",
+        "rawRoot": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/sil-q",
+        "coverageOwner": "FINDINGS.json /screenedAlternatives/0"
+      },
+      "currentEvidence": "Function/path index only unless covered in the linked prior owner. No new semantic trace ran during this save-only follow-up.",
+      "acceptance": "Named caller -> prerequisite -> player decision -> actual expenditure -> mutation -> actual downstream consumer -> supported time/persistence/failure/late exception. Retain broader original YAIR implications, then separately select an affordable implementation packet."
+    }
+  ],
+  "crossGameStandard": "DEEPER_RESEARCH.md",
+  "acsEvidence": {
+    "owner": "../amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+    "sha256": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+    "findingCount": 31,
+    "originalPaths": 15,
+    "selectedPackets": 3,
+    "dlcTraces": 2,
+    "qualification": "ACS owner results reused, not independently reread/recovered source here."
+  },
+  "gameplayStatus": "No gameplay selected/implemented by this follow-up; build/syntax/import/link useful, unit/browser/gameplay/save-failure/regression/director gates retain phase deferral.",
+  "genreOpenDirection": {
+    "authority": "Direct Weibao clarification in this chat,2026-10-06",
+    "principle": "No similar-game, idle-game or RPG filter. Interesting transferable player/world systems and authored/implementation methods are eligible across genres.",
+    "existingRows": "Five pinned unresolved paths are one source-follow-up subset, not the full direction or a restriction on other candidates.",
+    "broaderOwners": [
+      "../../gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+      "../idle-social-engine-scout-2026-10-06/REPORT.md"
+    ],
+    "examples": "Social commitments; institutional leverage/coalitions; production/logistics/externalities; document/evidence work; bounded rule manipulation. Source facts/proposals and access limits remain explicit."
+  }
+}

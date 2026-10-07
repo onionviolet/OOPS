@@ -1,0 +1,20 @@
+{
+  "packet": "ACS-P03",
+  "captured_at": "2026-10-07",
+  "files": [
+    {"path":"PROJECT.md","sha256":"c423406d32dca87b4f2c5931f5a2237f9cecfc600b69a3e9efd27836783f9f1e","role":"current intent and expansion proposal"},
+    {"path":"docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md","sha256":"fd10b2f7fe252c523d14d6ae5592814450795f4e3c8a22c81317149b01a431b8","role":"audit-absorption role scope and phase gates"},
+    {"path":"docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md","sha256":"b6d52b38a2ff2ccd6a8120d0a2abd80ac1d36639e1c3f1c4f57705433377760f","role":"live audit-absorption ownership and phase state at intake"},
+    {"path":"docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md","sha256":"582699dfe6988a70bded50599283abcbd9a346bf66702b8939f0bd4d0d2a1014","role":"ACS-P03 narrative packet"},
+    {"path":"docs/research/amazing-cultivation-simulator/PACKETS.json","sha256":"f628fc5a04a6f5ba394eb22cbd05265db615bd5c016f2db198818a2345c58080","role":"ACS-P03 structured requirements and source locator"},
+    {"path":"src/feature_expansion_society.js","sha256":"13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f","role":"existing Orr repair, lesson, facts, exact actor/site/item IDs and revision-1 controller"},
+    {"path":"src/feature_expansion_society_host.js","sha256":"ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824","role":"current society projection/panel and ownership boundary"},
+    {"path":"src/simulation.js","sha256":"bcdd2e8ef7efba11b04c3bd164d8eccda1038566021dcbbed4dba93ee8d4d329","role":"common participant lock, controller dispatch, job completion and cancellation boundaries"},
+    {"path":"src/simulation_effects.js","sha256":"08c00949db06dd1327cee3740aa22176f65b625180b756d8d167217ae4ad67b8","role":"existing actor/world facts and durable attributed knowledge owner"},
+    {"path":"src/simulation_contracts.js","sha256":"0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de","role":"existing predicate, fact and knowledge-basis validation"},
+    {"path":"src/people_knowledge.js","sha256":"5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982","role":"existing attributed People projection join point"},
+    {"path":"src/feature_expansion_content.js","sha256":"1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10","role":"current registry composition join point; not owned by this leaf"},
+    {"path":"src/feature_expansion_work_plan.js","sha256":"611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25","role":"existing finite cursor owner; confirms no second scheduler is needed"}
+  ],
+  "working_tree": "Extensively dirty before leaf work. The assigned paths src/agreed_duty_{content,facts,host}.js and docs/gm/audit-absorption-2026-10-07/duty/ were absent and reserved exclusively to this leaf. No shared source, UI, persistence, registry, build, bundle or canonical file was edited."
+}

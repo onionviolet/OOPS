@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-10-07T06:56:42.152574+00:00",
+  "status": "pass",
+  "scope": "All13currentfreshnativeproduction/helper/getterbindings; not whole corpus or semantic correctness",
+  "binding_sha256": "c8c1242bc51be4978ea2929128d458d70772909d4f342aceb6d028008ee3c065",
+  "verified_binding_records": 13,
+  "verified_closed_chunks": 3,
+  "checks": [
+    "closedcompressedhash/count",
+    "exactentry/name/status",
+    "C/bodyrawbytehashes",
+    "instructioncount",
+    "identicalfrozenC/JSONviews"
+  ],
+  "limits": [
+    "Full ARM and x86 exports and failure repair remain separate ongoing gates.",
+    "Generated types, hidden argument slots and floating storage/return semantics need instruction qualification; targeted official GNU/scalar signature repair remains pending.",
+    "Fresh body boundaries supersede old merged tails; old reader remains historical, not current signature/body proof.",
+    "Numeric input/output result codes observed, original enum identities not yet proven.",
+    "Reviewed consequential native/DLC joins are bounded, not complete semantic reading.",
+    "Installed DLC payload does not establish enabled profile/entitlement; no game/save/profile runtime inspected.",
+    "YAIR retort is original; stronger pre-batch capacity reservation does not claim literal Factorio ordering.",
+    "Gameplay/browser/save/failure/regression/director checks deferred; root owns implementation acceptance."
+  ],
+  "source_usage": "Retort controls retain originalstrongerpre-admission/custody; latest370-sourcebuildreceipt retained."
+}

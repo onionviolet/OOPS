@@ -1,0 +1,2005 @@
+{
+  "schema": 1,
+  "status": "completed_scoped_source_review",
+  "date_local": "2026-10-06",
+  "source": {
+    "kind": "published_original_cpp",
+    "repository": "https://github.com/miki151/keeperrl",
+    "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+    "intake": "INTAKE.json",
+    "commercial_build_equivalence": "not_established"
+  },
+  "paths": [
+    {
+      "id": "K1",
+      "title": "Individual needs and activities -> compatible work -> exclusive task ownership",
+      "classification": "source_observed_static_trace",
+      "status": "read_reviewed_integrated",
+      "flow": [
+        "MonsterAI's ByCollective turn first considers healing, then equipment, combat/team behavior, priority collective tasks, alarms, the actor's current task, new equipment tasks, and finally a standard task. Thus actor activity selection participates in an existing turn-order policy rather than replacing combat/team control.",
+        "For standard work, the actor checks whether its current activity remains good. When idle or invalid, it chooses among activities that pass canChooseRandomly and isActivityGoodAssumingHaveTasks; candidates may be an existing compatible task, a generated task, or idle. A selected activity gets a duration and can free the prior task.",
+        "Activity availability includes individual constraints: eating is blocked for SATIATED actors and prisoners; sleep requires a non-RESTED actor and is unavailable when poisoned or sleep-immune; craft requires a positive relevant skill; work/hauling/construction require a WORKER trait and item-carrying body. Activity locks and group locks also gate availability.",
+        "TaskMap holds actor-to-task and task-to-actor maps for assigned tasks, and separate activity queues for open tasks. Selection checks performer eligibility, reachability, delay, owner distance, and task transferability. Priority tasks can displace the current task. A transferable freed task is delayed for 50 visible time units; a nontransferable or done task is removed and returns its recorded completion cost to its caller.",
+        "Concrete needs are stateful outcomes, not just labels: an EAT activity generates an eat task over built pigsty positions; it finds or pursues farm animals/dead chickens, consumes a chicken through Creature::eat, removes that item, adds SATIATED for 500 visible time units, and spends three visible time units. Sleep selection respects RESTED and its activity duration is 100 time units."
+      ],
+      "failure_boundaries": [
+        "If no reachable eat position is found, the Eat task marks itself done and returns no move. If it reaches a position with no chicken, it clears the current target and waits; it does not mint food or satiation.",
+        "TaskMap::takeTask frees the task's prior owner before taking it and frees the new actor's current task. `freeFromTask` returns any recorded completion cost when removing a nontransferable task. Collective::setTask and setPriorityTask explicitly return that cost to resource stock; the priority-steal branch in ByCollective calls TaskMap::freeFromTask directly and ignores its return value, an observed exception worth preserving/reviewing rather than silently generalizing. In `getStandardTask`, a newly generated task may return null and the actor then waits."
+      ],
+      "evidence": [
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 811,
+          "end_line": 831,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "c7fcfeabd7c438d66fbc0a2836d1a1d014c53a4b83747697945a26e23804fb14",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L811-L831"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 904,
+          "end_line": 950,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "e059ed1378434f4ab217d2ef4e17bb9f4baf60817540d305c442f35bb1194649",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L904-L950"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 953,
+          "end_line": 1015,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "02edda98f52ddf91eeeb17af2139db3cdb00b517ff7bbf7125bfdf388f9275f8",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L953-L1015"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 1025,
+          "end_line": 1047,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "e5e06a3fce04ceffb239148827e27eb05fb5dbecc65c2393eb8c81085fa8d1b3",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1025-L1047"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 1050,
+          "end_line": 1070,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "277de9b02cb2a7d0bf334b2603c0de4e378075dc390293621bf33946a743ca2f",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1050-L1070"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K1 bounded monster_ai.cpp causal path",
+          "start_line": 1085,
+          "end_line": 1101,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "d39cd67584563e80bff279e5119fb6649d81a4dbab24ec45bc52d22485badcba",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1085-L1101"
+        },
+        {
+          "file": "minion_activity_map.cpp",
+          "symbol": "K1 bounded minion_activity_map.cpp causal path",
+          "start_line": 27,
+          "end_line": 45,
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "b888b03a2c385ff81bd1eae11a853ccb90dcc8e304f78b2da7bf028e999d1833",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L27-L45"
+        },
+        {
+          "file": "minion_activity_map.cpp",
+          "symbol": "K1 bounded minion_activity_map.cpp causal path",
+          "start_line": 47,
+          "end_line": 64,
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "542a626e9238935a85c5362f0f30c094834cd9ac1eae44e81cb70300b89d81ff",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L47-L64"
+        },
+        {
+          "file": "minion_activity_map.cpp",
+          "symbol": "K1 bounded minion_activity_map.cpp causal path",
+          "start_line": 66,
+          "end_line": 73,
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "11430ab998124ee4309b58c8eafdb02369ec0962d003bb511eefa5c99263eb4d",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L66-L73"
+        },
+        {
+          "file": "minion_activity_map.cpp",
+          "symbol": "K1 bounded minion_activity_map.cpp causal path",
+          "start_line": 75,
+          "end_line": 160,
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "47c9a2c03dc7c4199daa18441b231c1b07be3764baff34e5b4fe79217f893863",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L75-L160"
+        },
+        {
+          "file": "minion_activity_map.cpp",
+          "symbol": "K1 bounded minion_activity_map.cpp causal path",
+          "start_line": 162,
+          "end_line": 169,
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "3bbe1d5d88bd73c4062a06e1b85cdb3317d6707f46507c34a43bcd0d531383ab",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L162-L169"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K1 bounded collective.cpp causal path",
+          "start_line": 327,
+          "end_line": 410,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "ffb7ffe23c8b98bbcda56d1d14475f698a16b9db959ae266044680c088b2677b",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L327-L410"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K1 bounded collective.cpp causal path",
+          "start_line": 417,
+          "end_line": 432,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "15f58edef677a124a221de281a4e2718b2f83f2414f3c999c5565f63f9974e73",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L417-L432"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K1 bounded collective.cpp causal path",
+          "start_line": 616,
+          "end_line": 629,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "d9773fcb6e46e2d10db76f4df949c5d0831445352b3ad14c4fab41d167fccb78",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L616-L629"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "K1 bounded minion_activity.cpp causal path",
+          "start_line": 106,
+          "end_line": 120,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "bcf4e362cf207dfdcd090b4779eaa8752e5713db7bbe7dd4c7633d022470bc66",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L106-L120"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "K1 bounded minion_activity.cpp causal path",
+          "start_line": 221,
+          "end_line": 230,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "496e9494ea4b4e4bca018cc313303541bbe74e44e1570997433857749e7ee75d",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L221-L230"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "K1 bounded minion_activity.cpp causal path",
+          "start_line": 242,
+          "end_line": 259,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "0ed2836b055796caa3ad5f6106922803d39c1e7c2e48128ad1deb643d9d4e598",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L242-L259"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "K1 bounded minion_activity.cpp causal path",
+          "start_line": 261,
+          "end_line": 386,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "ed313d9417ae9c3b92c631b3ea2bd0c3aa2d1c65df3ae01a868cbbf2a3cedef6",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L261-L386"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "K1 bounded minion_activity.cpp causal path",
+          "start_line": 389,
+          "end_line": 410,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "0843640245837d582396d26a14c3fefdc892221612e33b7f265d874fcd693a7b",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L389-L410"
+        },
+        {
+          "file": "task_map.cpp",
+          "symbol": "K1 bounded task_map.cpp causal path",
+          "start_line": 39,
+          "end_line": 114,
+          "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+          "span_sha256": "0930a295ec8df33e5c71505acfc5f3195299cd78d11d555ec052fda80fd67d4e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L39-L114"
+        },
+        {
+          "file": "task_map.cpp",
+          "symbol": "K1 bounded task_map.cpp causal path",
+          "start_line": 126,
+          "end_line": 176,
+          "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+          "span_sha256": "a1b987d4c2235f8f1a118fffecab36d2545aaa80d7019c080b6d05baa969899e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L126-L176"
+        },
+        {
+          "file": "task_map.cpp",
+          "symbol": "K1 bounded task_map.cpp causal path",
+          "start_line": 210,
+          "end_line": 283,
+          "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+          "span_sha256": "9105567c720158238cb93cf7b6804d96b23e471baac8a280d597f8d5ad776b85",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L210-L283"
+        },
+        {
+          "file": "task_map.cpp",
+          "symbol": "K1 bounded task_map.cpp causal path",
+          "start_line": 286,
+          "end_line": 323,
+          "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+          "span_sha256": "c57dc2dfd03c569acb30027260a3810a96dfae6173091cb503a0c6839433e270",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L286-L323"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "K1 bounded task.cpp causal path",
+          "start_line": 1093,
+          "end_line": 1157,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "68e481111f0935b561a280908fce8d2f5d24d1b567c65b9b151f98cb5df4d4c9",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L1093-L1157"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "K1 bounded task.cpp causal path",
+          "start_line": 259,
+          "end_line": 294,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "53518a80447b5022ec962eae1176ef19a8c56417eb36ce4562b0620ad65c6c79",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L259-L294"
+        },
+        {
+          "file": "creature.cpp",
+          "symbol": "K1 bounded creature.cpp causal path",
+          "start_line": 2281,
+          "end_line": 2288,
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "343ff602c3b84fc8eab26d82c6d670287a94a238ce8fc9840dfd4ec27d788d2a",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2281-L2288"
+        }
+      ],
+      "notes": "ACTOR_MATERIAL_NOTES.json"
+    },
+    {
+      "id": "K2",
+      "title": "Owned material cost -> paid workshop work -> real product -> allocated usable equipment",
+      "classification": "source_observed_static_trace",
+      "status": "read_reviewed_integrated",
+      "flow": [
+        "The free resource configuration explicitly distinguishes physical resources (item and storage identity) from nonphysical resources. Collective::hasResource counts available credit and stored stock; takeResource spends credit first, then removes matching physical items from configured storage. returnResource recreates physical resource items and deposits them at a valid destination, or restores abstract credit when no physical storage route applies.",
+        "A workshop queue initially records unpaid debt. It pays a queued item when stock becomes available. Craft eligibility then requires payment or available cost stock, a rune when upgrades are required, and the minimum crafting skill. Unqueue refunds paid cost only before work has progressed; unpaid queue removal removes its debt.",
+        "A minion working at the matching workshop adds skill- and effect-scaled work. The first work step spends the required resource if not already paid; reaching completion instantiates the configured item, applies any prefix and rune upgrades, removes the queue entry, then the collective places the result in the worker's inventory (or assembles an item-defined minion). This is a real production and stock mutation path.",
+        "Collective equipment ownership is tracked per minion. Eligibility respects body/trait/config constraints, item use type, equipment slots, conflicts, locks, value and limits. Auto-assignment can claim unowned storage items, drop an inferior unlocked item to make room, and leave locked or effect-excluded items alone. The actor then receives a pickup-and-equip task for its owned stored item; EquipItem executes Creature::equip and marks itself done. Non-equipment consumables can be assigned to an owner and picked up, with their later actual use routed through the item's behavior.",
+        "The EAT task supplies an example of an actual consumable lifecycle: it seeks a physical farm animal/carcass, and Creature::eat removes the selected item from the map while applying the satiety effect."
+      ],
+      "failure_boundaries": [
+        "takeResource asserts positive cost, returns for zero, and reaches FATAL if the requested amount cannot be fulfilled from credit and configured storage. This is a consistency boundary: callers should establish availability before spending.",
+        "A recipe is not craftable until its prerequisites are met; unpaid insufficient stock, missing required runes, or low skill causes isIdle to consider it unavailable and addWork to skip it. No output is awarded in that branch.",
+        "Auto-equipment excludes items whose effects forbid automatic assignment. A locked full slot or conflicts can reject ownership/replacement; inability to carry or retrieve the owned item blocks its pickup task."
+      ],
+      "evidence": [
+        {
+          "file": "data_free/game_config/resource_info.txt",
+          "symbol": "K2 bounded data_free/game_config/resource_info.txt causal path",
+          "start_line": 1,
+          "end_line": 17,
+          "file_sha256": "cd6a5809831228e1c19896ae533d283ba09cce65da806fc7207503c4f819f18b",
+          "span_sha256": "cd6a5809831228e1c19896ae533d283ba09cce65da806fc7207503c4f819f18b",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/resource_info.txt#L1-L17"
+        },
+        {
+          "file": "data_free/game_config/workshop_info.txt",
+          "symbol": "K2 bounded data_free/game_config/workshop_info.txt causal path",
+          "start_line": 1,
+          "end_line": 76,
+          "file_sha256": "3b39b105eaacee5115a7d70c320625d7983e1a33c70c40e00ae1644424fbbe21",
+          "span_sha256": "3b39b105eaacee5115a7d70c320625d7983e1a33c70c40e00ae1644424fbbe21",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/workshop_info.txt#L1-L76"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K2 bounded collective.cpp causal path",
+          "start_line": 1013,
+          "end_line": 1068,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "a93aafb016f288f8d0235648bbf58b6601ceced45d670eb4216e7112193dcae5",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1013-L1068"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K2 bounded collective.cpp causal path",
+          "start_line": 1077,
+          "end_line": 1104,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "22a5eab930da312b2152667942e8a3753896fef699d9256d08aa305b464c5dcc",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1077-L1104"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K2 bounded collective.cpp causal path",
+          "start_line": 1621,
+          "end_line": 1653,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "74282fc64edd21784004696eb7d93d48e2c2563ffa35a29f12acd396cf68d850",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1621-L1653"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "K2 bounded collective.cpp causal path",
+          "start_line": 1744,
+          "end_line": 1750,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "46783fc9d5061a9ee8edcf8730dbce3b258a46b5fc5f262b440b64bf0f264d54",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1744-L1750"
+        },
+        {
+          "file": "workshops.cpp",
+          "symbol": "K2 bounded workshops.cpp causal path",
+          "start_line": 26,
+          "end_line": 132,
+          "file_sha256": "50746c7330e69118a1c3b77357771876e46f0934545bf1030f2e93f3f093fca1",
+          "span_sha256": "c508f8d9c4416f782b969a1356fcb84c1e88849a6d4561e64c0b8f5287ca22cc",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/workshops.cpp#L26-L132"
+        },
+        {
+          "file": "minion_equipment.cpp",
+          "symbol": "K2 bounded minion_equipment.cpp causal path",
+          "start_line": 41,
+          "end_line": 141,
+          "file_sha256": "2dbf823706d62bd5b1db6140bbbfc16e72cb95ad3c83ea62fed2758aa3e8847c",
+          "span_sha256": "b945712d3a0cf41a7dcb96627e5168d6469673df3e4f9d67d1ac107d323ae1e0",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_equipment.cpp#L41-L141"
+        },
+        {
+          "file": "minion_equipment.cpp",
+          "symbol": "K2 bounded minion_equipment.cpp causal path",
+          "start_line": 143,
+          "end_line": 203,
+          "file_sha256": "2dbf823706d62bd5b1db6140bbbfc16e72cb95ad3c83ea62fed2758aa3e8847c",
+          "span_sha256": "f1c217451d1a6cdfd957b519b50db2e743d30b9dbfcda5256b21c1eb44bfef48",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_equipment.cpp#L143-L203"
+        },
+        {
+          "file": "minion_equipment.cpp",
+          "symbol": "K2 bounded minion_equipment.cpp causal path",
+          "start_line": 206,
+          "end_line": 255,
+          "file_sha256": "2dbf823706d62bd5b1db6140bbbfc16e72cb95ad3c83ea62fed2758aa3e8847c",
+          "span_sha256": "426b1d152f4c587ca3176efada4c8143eaf02029bcdf1e01488119658d350e80",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_equipment.cpp#L206-L255"
+        },
+        {
+          "file": "minion_equipment.cpp",
+          "symbol": "K2 bounded minion_equipment.cpp causal path",
+          "start_line": 257,
+          "end_line": 307,
+          "file_sha256": "2dbf823706d62bd5b1db6140bbbfc16e72cb95ad3c83ea62fed2758aa3e8847c",
+          "span_sha256": "e54534bc6120cef22f706e0bc7100b4669445ebd84ddba18a88eda8473f05d04",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_equipment.cpp#L257-L307"
+        },
+        {
+          "file": "monster_ai.cpp",
+          "symbol": "K2 bounded monster_ai.cpp causal path",
+          "start_line": 904,
+          "end_line": 950,
+          "file_sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+          "span_sha256": "e059ed1378434f4ab217d2ef4e17bb9f4baf60817540d305c442f35bb1194649",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L904-L950"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "K2 bounded task.cpp causal path",
+          "start_line": 259,
+          "end_line": 280,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "7676556834157356a79fc620f72d5879efcd8c1c15756332126c26645e6a21be",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L259-L280"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "K2 bounded task.cpp causal path",
+          "start_line": 1093,
+          "end_line": 1157,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "68e481111f0935b561a280908fce8d2f5d24d1b567c65b9b151f98cb5df4d4c9",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L1093-L1157"
+        },
+        {
+          "file": "creature.cpp",
+          "symbol": "K2 bounded creature.cpp causal path",
+          "start_line": 2281,
+          "end_line": 2288,
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "343ff602c3b84fc8eab26d82c6d670287a94a238ce8fc9840dfd4ec27d788d2a",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2281-L2288"
+        }
+      ],
+      "notes": "ACTOR_MATERIAL_NOTES.json"
+    },
+    {
+      "id": "K3",
+      "title": "Actual facility use -> bounded attribute growth -> body-qualified strike -> injury/effects",
+      "classification": "source_observed_static_trace",
+      "status": "read_reviewed_integrated",
+      "flow": [
+        "The collective's scheduled furniture-use callback maps TRAIN to DAMAGE, STUDY to SPELL_DAMAGE, ARCHERY_RANGE to RANGED_DAMAGE, and PRAY to DIVINITY. Its increment is 0.012 times furniture/room/light efficiency times the creature's training-speed effect. The furniture's configured maxTraining clips the increment, and CreatureAttributes clips it again against the creature's own maximum training potential. Creature::increaseExpLevel emits a level event and forwards an integer level crossing to SpellMap; the value is fractional experience until the integer boundary.",
+        "CollectiveConfig maps TRAIN/STUDY/PRAYER to furniture whose maxTraining supports the respective attribute. MinionActivityMap excludes prisoners from TRAIN/STUDY/ARCHERY; ARCHERY also requires a carried ranged weapon. PRAYER is likewise a furniture predicate. A maxed-out minion is ineligible. The training-room upgrade helper returns no missing furniture when the minion is maxed, or when an already-built eligible dummy covers remaining potential; this is a concrete stop/availability boundary.",
+        "The selected facility callback itself has no anatomy check. Body enters at the consumer: Creature::attack asks the body's weapon selector for usable equipped/intrinsic attacks and returns an empty action if none exist. For an attack that can be made, it reads the weapon's melee attribute through getAttr, combines special and weapon modifiers, constructs Attack, and invokes the victim's takeDamage. getRawAttr includes trained experience; Creature::getRawAttr adds combat experience for attributes that have training potential. Thus trained DAMAGE can contribute to an eligible melee strike, while the body determines whether and how a strike exists.",
+        "At integer level-up, SpellMap receives the new level, which can make level-dependent spell/ability growth available. This trace did not inspect spell definitions or claim a specific spell unlock. SPELL_DAMAGE is assigned by STUDY at the facility, but its damage execution path is outside this bounded K3 trace.",
+        "Creature::takeDamage computes defense and attack/defense ratio, then routes successful damage into Body::takeDamage; attack-damage-type effects and per-attack effects are applied at the consumer boundary. This is where bodily vulnerability/health and authored effect outcomes matter, not at the training callback. A lethal body-damage result returns before the later damage-type and per-attack effect loop, so follow-on effects are not guaranteed merely because an attack connected.",
+        "MinionActivities generates ApplySquare from completed eligible furniture. ApplySquare calls onAppliedSquare only after a real supported furniture action; failed use/path has no callback reward.",
+        "Body::takeDamage calls bleed, reducing health only for a body material with health, and may injure/drop eligible parts or emit death. An injured part count reduces numGood used by intrinsic weapon selection; part effects can blind, collapse or remove flight and drop unsupported equipment. The anatomy/health fields serialize. This is static source trace; no YAIR dismemberment proposal.",
+        "SpellMap::getAvailable directly qualifies configured level-gated spells and suppresses superseded upgrades; equipped item abilities are a separate list. onExpLevelReached emits learning/improvement messages. The actual cast/cooldown/fuel execution and concrete spell definitions are outside this trace."
+      ],
+      "failure_boundaries": [
+        "Prisoner status blocks TRAIN, STUDY, and ARCHERY. ARCHERY requires a carried ranged weapon. Reaching the creature or facility's max training potential blocks further activity/growth; the callback adds nothing when the bounded increment is nonpositive.",
+        "The facility code does not establish body-part or humanoid requirements for TRAIN. The downstream Body::chooseRandomWeapon clears equipped weapons for non-humanoid bodies and only admits intrinsic attacks from body parts with at least one good part. If no compatible weapon remains, Creature::attack returns an empty action. A trained attribute therefore does not guarantee an executable combat action.",
+        "The minion-activity/body checks are independent gates: prisoner/gear status governs the assigned activity; body anatomy governs executable attacks. The source does not imply that every creature can use every training point in combat.",
+        "ApplySquare dispatches no training callback if supported use fails. Body material and usable part counts qualify health/attack/injury consequences."
+      ],
+      "limits": [
+        "Training potential is a hard cap; accumulated fractional exp level is not the same field as combatExperience/teamExperience. Creature::getAttr may also add capped combat experience, so observed combat output can combine static attributes, training exp, combat exp, equipment, specials, and lasting-effect bonuses.",
+        "The available code proves how values are selected and applied, not that a particular training room is faster/better balanced or that a given minion survives long enough to reach a level.",
+        "This K3 note reads only the listed spans. It does not cover full spell learning, all attribute consumers, creature generation/body definitions, all combat effects, or the game as a whole. No source was built or run."
+      ],
+      "evidence": [
+        {
+          "symbol": "Collective::onAppliedSquare training callback",
+          "file": "collective.cpp",
+          "start_line": 1583,
+          "end_line": 1619,
+          "meaning": "Attribute gains selected by each training furniture use.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1583-L1619",
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "9f2b6317df66dfa60e48df527b87e034f2fc5542803158f0bfbd6e0c267c2450"
+        },
+        {
+          "symbol": "Collective::getMissingTrainingFurniture",
+          "file": "collective.cpp",
+          "start_line": 1657,
+          "end_line": 1669,
+          "meaning": "Trainer availability ends at the creature potential cap or an already-built suitable trainer.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1657-L1669",
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "979b1d62f2ffa8893c04ad9ec5b74685989384e8ae7e74ea52e2721ed43cfe1a"
+        },
+        {
+          "symbol": "CollectiveConfig::getTrainingPredicate",
+          "file": "collective_config.cpp",
+          "start_line": 271,
+          "end_line": 276,
+          "meaning": "Furniture must support this attribute and creature must remain below its cap.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L271-L276",
+          "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+          "span_sha256": "36a395f3f68cc8d8e175958e46ec90e4f304d20b662856f423c61744d7a3c540"
+        },
+        {
+          "symbol": "CollectiveConfig::getActivityInfo TRAIN/STUDY/PRAYER",
+          "file": "collective_config.cpp",
+          "start_line": 286,
+          "end_line": 289,
+          "meaning": "TRAIN and STUDY map to their experience attributes.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L286-L289",
+          "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+          "span_sha256": "ebbea8f937bd3459ed20122f533dee8d045caf961d142a6cb7daa1463c71bc5c"
+        },
+        {
+          "symbol": "CollectiveConfig::getActivityInfo PRAYER",
+          "file": "collective_config.cpp",
+          "start_line": 363,
+          "end_line": 363,
+          "meaning": "Prayer maps to DIVINITY training furniture.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L363-L363",
+          "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+          "span_sha256": "d9f6af2a481e37a90adea5c8e86f5da86a7a5e3e3e674e27c8a01e822d57c745"
+        },
+        {
+          "symbol": "MinionActivityMap::isAvailable",
+          "file": "minion_activity_map.cpp",
+          "start_line": 78,
+          "end_line": 99,
+          "meaning": "Prisoner, max-level, and carried ranged-weapon activity eligibility.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L78-L99",
+          "file_sha256": "10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452",
+          "span_sha256": "5b02200a5b8f45ee85fd824cd2b45f2e420527dd38e0739d12f389d46e0b50e7"
+        },
+        {
+          "symbol": "Furniture::getMaxTraining",
+          "file": "furniture.cpp",
+          "start_line": 489,
+          "end_line": 495,
+          "meaning": "Furniture attribute-specific cap access.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/furniture.cpp#L489-L495",
+          "file_sha256": "ec63097e9e6a48e190879f77df0757996ae1e32cccda4571582f241fa4f3fecd",
+          "span_sha256": "152e593d4eb95fad2977b6f9450aa71432d0f50cb76e755193aeb1f0da6750b8"
+        },
+        {
+          "symbol": "CreatureAttributes::increaseExpLevel / isTrainingMaxedOut",
+          "file": "creature_attributes.cpp",
+          "start_line": 171,
+          "end_line": 183,
+          "meaning": "Clipped fractional experience and max-potential check.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L171-L183",
+          "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+          "span_sha256": "4231ce78f8534e571f418a64727df74ef8b3b80871a2bd2e3aee85ba175e88ce"
+        },
+        {
+          "symbol": "Creature::increaseExpLevel",
+          "file": "creature.cpp",
+          "start_line": 2163,
+          "end_line": 2179,
+          "meaning": "Level crossing event and spell map notification.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2163-L2179",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "e208db91831410c7a77c1fcffda75b53a3be69e13009a28b13f20aa1138d33c4"
+        },
+        {
+          "symbol": "CreatureAttributes::getRawAttr",
+          "file": "creature_attributes.cpp",
+          "start_line": 148,
+          "end_line": 157,
+          "meaning": "Raw attribute includes trained exp; defense also uses max trained value.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L148-L157",
+          "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+          "span_sha256": "290d3098ed1bb73a583ebf90b1603b70145a77d23b9917620806ba78d5bf4a8d"
+        },
+        {
+          "symbol": "Creature::getAttrWithExp / getRawAttr",
+          "file": "creature.cpp",
+          "start_line": 1167,
+          "end_line": 1175,
+          "meaning": "Combat attribute reads raw values and applicable bonuses.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1167-L1175",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "c1834d19b54c5b358ce8370204240bc39ccc302369a2265154033ac7ccd85bed"
+        },
+        {
+          "symbol": "Creature::getRawAttr",
+          "file": "creature.cpp",
+          "start_line": 1200,
+          "end_line": 1210,
+          "meaning": "Combat experience is added only for eligible non-fixed/potential attributes.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1200-L1210",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "b50b7b8c6df0c4b56a066f21ce43051502c8b2146339c74a71ca7064dab90574"
+        },
+        {
+          "symbol": "Creature::attack",
+          "file": "creature.cpp",
+          "start_line": 1630,
+          "end_line": 1665,
+          "meaning": "Real melee action uses damage attribute, effects, and target damage handling.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1630-L1665",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "74596f71d728bfe20ad098409fb5bd0b73de1a71e3ae365301a49f585fdf21b3"
+        },
+        {
+          "symbol": "Creature::takeDamage",
+          "file": "creature.cpp",
+          "start_line": 1761,
+          "end_line": 1815,
+          "meaning": "Defense, body damage, lethal early return, then damage-type/per-attack effects.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1761-L1815",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "155a40c2ec8bc8129c692fb6786bdd11f4f4cc5a7f0dffbf67784e853e45129b"
+        },
+        {
+          "symbol": "Body::chooseRandomWeapon",
+          "file": "body.cpp",
+          "start_line": 134,
+          "end_line": 150,
+          "meaning": "Non-humanoid bodies lose equipped weapon choices; intrinsic attacks require a good part.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L134-L150",
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "7252d05da314a33bf4a2ae1213a791090faf0e97536d484941fbf212226fb64d"
+        },
+        {
+          "symbol": "Creature::getRandomWeapons",
+          "file": "creature.cpp",
+          "start_line": 2483,
+          "end_line": 2487,
+          "meaning": "Body chooses usable weapons for this creature.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2483-L2487",
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "b8f5369246af5b0ae0d97b78cf5ce5de991f1f4d370b382dc22c9beb4001339d"
+        },
+        {
+          "symbol": "LastingEffects::getTrainingSpeed",
+          "file": "lasting_effect.cpp",
+          "start_line": 1163,
+          "end_line": 1170,
+          "meaning": "Actual fast/slow training effects scale facility gains.",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/lasting_effect.cpp#L1163-L1170",
+          "file_sha256": "b444643090a5cea8f67ae8e9b959928cd06e93b716a87ecbfff3e3557a764b81",
+          "span_sha256": "627943d3e2b8776ac9b1f340d3d4da72f39fbcd4126a1f83e88f62b347786305"
+        },
+        {
+          "file": "minion_activity.cpp",
+          "symbol": "MinionActivities::generate built furniture and archery task caller",
+          "start_line": 302,
+          "end_line": 315,
+          "file_sha256": "d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49",
+          "span_sha256": "bb626cc6c0b5addd3829b44cd9360ba5cb5cef1f943b31926d7459b33f447867",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L302-L315"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "ApplySquare::getMove eligible completed use dispatches callback",
+          "start_line": 369,
+          "end_line": 471,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "e46583b914658a8e9f819b55b3d7ae5ee52ffe56d775780c114780e329a6fd80",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L369-L471"
+        },
+        {
+          "file": "creature.cpp",
+          "symbol": "Creature::applySquare eligibility/use/played-time",
+          "start_line": 861,
+          "end_line": 881,
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "62cb014b9bbbf8574e91908f228bf7bb1477684f4048e6a9786bab16aed1b21e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L861-L881"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::takeDamage health/part injury/death result",
+          "start_line": 781,
+          "end_line": 818,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "5b60d13da9ed6f2d2b61a0b7019034ef3589333b79d8256314a019d3cb8f5f46",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L781-L818"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::bleed health and LeaderWounded event",
+          "start_line": 890,
+          "end_line": 899,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "702365ae27190ed767f887b1744273bc8f7fb5982bb982de66d61b4dc29b2748",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L890-L899"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::isPartDamaged material/part injury qualification",
+          "start_line": 218,
+          "end_line": 235,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "6c48fb941f126309a8cd372f2be2cb45f44421d8c493aa840f17a5ab63a728cf",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L218-L235"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::numGood injured-part capacity",
+          "start_line": 266,
+          "end_line": 272,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "e1da787cb727ef1c7230b17a90e19b9d9f9129b337b1e4befb59f6172a7d25d1",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L266-L272"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::injureBodyPart anatomy/effects/unsupported equipment",
+          "start_line": 374,
+          "end_line": 410,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "38c96e114aa835bf5bfc135faed9870d6edb023d37099b2e056eab01661857dc",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L374-L410"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body::injureBodyPart actual injury count",
+          "start_line": 475,
+          "end_line": 479,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "bd05d4fd4aed4091c1538b3ee267c56c134a3c3415663f02a2c2463072c54477",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L475-L479"
+        },
+        {
+          "file": "body.cpp",
+          "symbol": "Body serialized health/anatomy/intrinsic attack",
+          "start_line": 36,
+          "end_line": 42,
+          "file_sha256": "30b6920ac0a87564d5ace53d8f5ab3352cc1c3f88b2ff2f54d8ff04645a14346",
+          "span_sha256": "dee4c23c786aea08987dc11d0d0575ac89161aaef327afe53c6fe9e78136edde",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L36-L42"
+        },
+        {
+          "file": "creature_attributes.cpp",
+          "symbol": "CreatureAttributes saved exp level and training potential",
+          "start_line": 66,
+          "end_line": 76,
+          "file_sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+          "span_sha256": "0c669e3a6415d0a712e18c6a18537052a7e076a59a908ba5c9434f6a56483cd6",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L66-L76"
+        },
+        {
+          "file": "spell_map.cpp",
+          "symbol": "SpellMap actual level-gated available spells/equipped abilities/notification/saved elems",
+          "start_line": 90,
+          "end_line": 141,
+          "file_sha256": "459076bf9e5f4683d42ac12661d30e4e99b4d07f5543fe75bb960a7bc22bc37c",
+          "span_sha256": "5c38c7d9e76e60b6a6326db8aa150dedc19fc89c2de2739f916287430ad3fee5",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/spell_map.cpp#L90-L141"
+        }
+      ],
+      "notes": "TRAINING_BODY_NOTES.json"
+    },
+    {
+      "id": "K4",
+      "title": "Reserved construction -> built attraction/population -> rechecked paid invitation -> actual actor/occupancy",
+      "classification": "source_observed_static_trace",
+      "status": "read_reviewed_integrated",
+      "flow": [
+        "Construction adds a typed unbuilt plan and debt. When buildable and funded, Collective creates a Task::construction with the plan CostInfo, takes the resource, and associates task ID with the plan. Removing an unbuilt plan cancels its task and returns that cost.",
+        "Completion tracks built furniture and storage positions, claims nearby squares, and recalculates population increase using completed furniture counts, with a fenced-animal count for relevant furniture. Max population is configured capacity plus built-furniture increase plus INCREASE_POPULATION creatures; ordinary population size excludes NO_LIMIT creatures.",
+        "Immigrant offers are periodically weighted candidate generation; unmet requirements may reduce candidate probability, but acceptance rechecks strict eligibility. Attraction counts built furniture/items, subtracts already claimed attraction slots, and requirements scale with group size. The offer also needs population room unless NO_LIMIT and enough valid spawn positions; the population check blocks when current population is already at or above max, and this check does not test whether the full group would exceed remaining capacity.",
+        "Eligibility supports technology, sunlight, resource balances, required built furniture, turn/pregnancy/tutorial/unlock, attraction, and ally recruitment. CostInfo checks full group cost; ExponentialCost increases based on currently extant recruits after a free allowance.",
+        "RecruitmentInfo filters known matching enemy collectives to unstunned matching creatures, keeping their configured minimum population. Acceptance transfers an existing recruit into the player collective; ordinary offers add their generated creatures, while a RecruitmentInfo offer falls back to its generated candidate only if no existing recruit is found at mutation time. Successful acceptance occupies required resources/attractions, tracks members, consumes or regenerates the offer, and emits a join message. UI caller exposes accept/reject/auto behavior.",
+        "Root closes the missing completion call: Collective::onConstructed line1309 recomputes furniture population increase. Immigration::occupyRequirements is called for each accepted creature and takes its declared CostInfo and attraction allocation. Source population check does not guarantee group population+size<=cap."
+      ],
+      "failure_boundaries": [
+        "No construction task is assigned without funds/buildability. An unbuilt plan cancellation returns task completion cost and removes plan/debt. An immigration accept with missing requirements or too few spawn squares exits without adding a creature.",
+        "Population admission tests current population >= cap, not current + entire group against cap; do not transplant an assumed stronger guarantee.",
+        "Recruitment fallback can add a generated candidate if no source recruit is found during mutation."
+      ],
+      "evidence": [
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::removeUnbuiltFurniture",
+          "start_line": 1158,
+          "end_line": 1163,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "a9e83ec44e4fb6105efdb1cdee8b89930f6091282548ff9b3d4eca5cee127e21",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1158-L1163",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1158-L1163"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::addFurniture",
+          "start_line": 1196,
+          "end_line": 1201,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "732c42a5853cd3ff0cdd02e4feb87b4566171c71efd54a0490f74fb003d6983f",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1196-L1201",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1196-L1201"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::recalculateFurniturePopIncrease and onConstructed",
+          "start_line": 1277,
+          "end_line": 1305,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "5128cf74ab3faed7172bee6e8afdc079f8924c8fa0a07963f764fb6751efee2c",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1277-L1305",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1277-L1305"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::updateConstructions",
+          "start_line": 1328,
+          "end_line": 1342,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "315d188a5ca7940e865af538e4084dba83aba9ec5ac1edb7edf838db36ee9522",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1328-L1342",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1328-L1342"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::getPopulationSize/getMaxPopulation",
+          "start_line": 1843,
+          "end_line": 1850,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "a44a59440c2eeaadc53208c5f5c73b57cec513468b47b9a486f9d3f43aa826b4",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1843-L1850",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1843-L1850"
+        },
+        {
+          "file": "construction_map.cpp",
+          "symbol": "ConstructionMap plan/debt and addFurniture",
+          "start_line": 66,
+          "end_line": 116,
+          "file_sha256": "1ff74d40b242a7a711c2b96fad6478cf83285e5be824669bd4d2b1ff5b243950",
+          "span_sha256": "88132a893891731c5e1a7ca4c8ce0406d6019b0bda08858b2ec66c25f17d5dae",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L66-L116",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L66-L116"
+        },
+        {
+          "file": "construction_map.cpp",
+          "symbol": "ConstructionMap::onConstructed",
+          "start_line": 143,
+          "end_line": 158,
+          "file_sha256": "1ff74d40b242a7a711c2b96fad6478cf83285e5be824669bd4d2b1ff5b243950",
+          "span_sha256": "7791b51e106fe541e526eb48dc07ce4040e1a19a682d729c059c54718a290b15",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L143-L158",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/construction_map.cpp#L143-L158"
+        },
+        {
+          "file": "task_map.cpp",
+          "symbol": "TaskMap::removeTask",
+          "start_line": 131,
+          "end_line": 160,
+          "file_sha256": "e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad",
+          "span_sha256": "f18a5948b18986a34cd499755abfc3d983f87b8f7615e36d6c498e2e374fd0d0",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L131-L160",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L131-L160"
+        },
+        {
+          "file": "immigrant_info.h",
+          "symbol": "Immigrant requirement variants and recruitment metadata",
+          "start_line": 48,
+          "end_line": 58,
+          "file_sha256": "01da649150e8431111ebaeaca50adf395c6504393877a4dc0427c01b5540de3e",
+          "span_sha256": "b1e8898044a75c4e13132445b8306f42185a60f8394fb108ff5dad1e132f30d3",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L48-L58",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L48-L58"
+        },
+        {
+          "file": "immigrant_info.h",
+          "symbol": "ImmigrantInfo requirements/candidate fields",
+          "start_line": 129,
+          "end_line": 180,
+          "file_sha256": "01da649150e8431111ebaeaca50adf395c6504393877a4dc0427c01b5540de3e",
+          "span_sha256": "1d4f24994f6e60cb5babd8c5504010e8cbde5e743556a733d2f30d6353a1c514",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L129-L180",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.h#L129-L180"
+        },
+        {
+          "file": "immigrant_info.cpp",
+          "symbol": "RecruitmentInfo::getAvailableRecruits/findEnemy",
+          "start_line": 136,
+          "end_line": 164,
+          "file_sha256": "322a1dd98cf8f2798934776b4bfe4329d57b38c827a0e2f24184baba4d1b0f3b",
+          "span_sha256": "5b52b19998a47f1c34a8676bcd74522ce1473466b0af4986e99dee4c2bc02d13",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.cpp#L136-L164",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigrant_info.cpp#L136-L164"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Attraction occupancy/value and missing population/spawn checks",
+          "start_line": 46,
+          "end_line": 99,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "ed9a12ee8d2643429e37c482cab81bdd2617f8579f08c4c21afa4d7151ad292c",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L46-L99",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L46-L99"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::getMissingRequirement",
+          "start_line": 115,
+          "end_line": 215,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "2e755da9ae0dd57d6c35c0217022cac432b3df2bd7c413830023e228e8f29499",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L115-L215",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L115-L215"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::suppliesRecruits",
+          "start_line": 218,
+          "end_line": 226,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "7a3ca389dbceef358d39a9b4d09a06dd793bbb96131791bfc63768f4f7b82082",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L218-L226",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L218-L226"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::calculateCost",
+          "start_line": 423,
+          "end_line": 436,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "6ce24d9f8b3d19588c6ec25c749c2d909615ba555872fc9c0a3d1bb2a9bb8766",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L423-L436",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L423-L436"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Available::addAllCreatures/Immigration::accept",
+          "start_line": 447,
+          "end_line": 517,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "410195dd80ab68c32baea97b35155564d8d2d4dc30de267cb700427b9b83344b",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L447-L517",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L447-L517"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::update",
+          "start_line": 652,
+          "end_line": 680,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "4b0529a02e80086e396281634902ccc444459ab6895c4c72ba936971ccc73bf5",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L652-L680",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L652-L680"
+        },
+        {
+          "file": "player_control.cpp",
+          "symbol": "PlayerControl::fillImmigration",
+          "start_line": 1802,
+          "end_line": 1850,
+          "file_sha256": "ca0afd1f3d1e5efbfea194820853809cd2e3b6eb9cda4ba4f058cc4076c05310",
+          "span_sha256": "5e645c05bc43f52915ef5c88e025f5bc655673a836cf03193868b45e07fe9903",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L1802-L1850",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L1802-L1850"
+        },
+        {
+          "file": "player_control.cpp",
+          "symbol": "PlayerControl immigration action dispatch",
+          "start_line": 3018,
+          "end_line": 3051,
+          "file_sha256": "ca0afd1f3d1e5efbfea194820853809cd2e3b6eb9cda4ba4f058cc4076c05310",
+          "span_sha256": "7dd9216921bfa16d1d65ab825012157bbf3625f034b366f64b613c30e9efb1fc",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L3018-L3051",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L3018-L3051"
+        },
+        {
+          "file": "collective_config.cpp",
+          "symbol": "CollectiveConfig::addBedRequirementToImmigrants",
+          "start_line": 84,
+          "end_line": 105,
+          "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+          "span_sha256": "5514c3824166336f78b7fff801dc5db660ba4cde254b8a9308150bd862d11609",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L84-L105",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L84-L105"
+        },
+        {
+          "file": "data_free/game_config/immigration.txt",
+          "symbol": "DarkRecruits configuration",
+          "start_line": 151,
+          "end_line": 175,
+          "file_sha256": "4d60aa15c12a2ae5b8065eb1c8a31e32b87b66a9a8d39b4f48955633aa8fe03a",
+          "span_sha256": "59baafa940a8ceb5d03aa7d89e8d393402aa1eb22f1172dba7c63c891e23bfb5",
+          "pinned_github_url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/immigration.txt#L151-L175",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/immigration.txt#L151-L175"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::onConstructed recomputes population after actual build",
+          "start_line": 1277,
+          "end_line": 1310,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "d9851fb7e3643efb293f29ecd7168f16fc00d943250eff0eefd40c266e234d0f",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1277-L1310"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::occupyRequirements and occupyAttraction consumption",
+          "start_line": 240,
+          "end_line": 293,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "acf271fe68be201008c68468de534086585472153266b8ed4a646598b2e9a771",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L240-L293"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::Available::generate actual candidate creation",
+          "start_line": 545,
+          "end_line": 581,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "3ca451c1d1d78e7b1a9a3fde5a16a6399d99a3e9822d7f1aac6fb592e392151e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L545-L581"
+        }
+      ],
+      "notes": "BASE_RECRUITMENT_NOTES.json"
+    },
+    {
+      "id": "K5",
+      "title": "Attributed faction pressure -> eligible funded attack -> payment/retreat/conquest -> retained campaign access",
+      "classification": "source_observed_static_trace",
+      "flow": [
+        "VillageControl receives member death/stun and attributed item pickup/theft events. Those mutate victims/stolenItemCount; player membership and territorial/shop conditions qualify the trigger, with DOESNT_TRIGGER exceptions. Furniture removal can set mining-entry pressure.",
+        "VillageBehaviour computes per-trigger values from actual rooms, resources, population, power, casualties, theft, proximity and conquest. getAttackProbability uses the maximum trigger value, not the sum. Aggressor cutoff and main-villain progression ordinarily block early pressure; SelfVictims/StolenItems bypass that suppression. Configured GOBLIN_VILLAGE gives GOLD500 -> steal goal -> optional ransom, rather than a universal kill objective.",
+        "Game ticks only active collectives. VillageControl checks source base presence and sunlight-vulnerable fighters before attack; getAttackers filters existing non-team, mobile, sane fighters and requires minTeamSize plus a retained minPopulation. update uses a random draw, not a guaranteed event merely because a trigger is positive.",
+        "launchAttack transfers actual actors, forms a team, frees their old work and assigns goal+return chains. A steal goal enumerates existing configured resource storage; PickUpItem and Creature::pickUp actually remove items and add them to attacker equipment. Empty steal storage chooses the configured leader/fighter fallback, not a successful theft.",
+        "PlayerControl rechecks actual gold before optional ransom, spends it once and cancels attacker team tasks. This inspected ransom sink does not credit gold to the attacking collective. Heavy losses or a lone seriously wounded attacker produce a return/flee task and a resistance record.",
+        "Member stun/death removes relevant leaders/fighters and releases tasks; authored conquest condition can then emit ConqueredEnemy. Game marks the non-player campaign site defeated, refreshes influence/cutoff and can declare the main-villain victory. canTravelTo consumes influence plus nonempty sites, so aftermath changes actual access rather than only a log entry."
+      ],
+      "failure_boundaries": [
+        "Positive pressure is insufficient without source-active model, eligible surplus fighters and successful draw. Conquered factions and daylight-vulnerable groups cannot launch through this branch.",
+        "Pickup fails for unsupported body, empty stock or failed navigation; a steal plan with no item task falls back to a different hostile goal.",
+        "Ransom requires current affordability; onRansomPaid cancels tasks/teams but does not erase victims/stolenItemCount. Do not infer payment establishes lasting peace.",
+        "Conquest depends on the configured rule: leader only, leaders+fighters, buildings, or NEVER. The reviewed paths do not introduce YAIR lethal outcomes or KeeperRL conquest as a requirement."
+      ],
+      "retention": [
+        "VillageControl serializes behavior, victims, original-item identity set, theft count, initial team sizes, entry flag, observed maximum enemy power and cancelled teams.",
+        "Campaign serializes defeated sites, influence and aggressor-cutoff state. Runtime save/reload correctness was not exercised."
+      ],
+      "inferences": [
+        "A useful YAIR transfer is a small authored consequence over an existing causal grievance and finite actor means. This is design inference, not measured simulation performance or guaranteed commercial gameplay."
+      ],
+      "evidence": [
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl serialization and attributed victim accumulation",
+          "start_line": 47,
+          "end_line": 91,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "9c4c724b7af479e1b3f19cbdb081c456c9a9e04e976429b372638cf6aa557e4a",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L47-L91"
+        },
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl::onEvent stolen items and mining-entry cause",
+          "start_line": 116,
+          "end_line": 168,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "b235ef09b41f79749224125919d1dd7ac60dbcc905cc4a648582d1d69e1d6f5c",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L116-L168"
+        },
+        {
+          "file": "village_behaviour.cpp",
+          "symbol": "VillageBehaviour::getTriggerValue and getAttackProbability",
+          "start_line": 155,
+          "end_line": 254,
+          "file_sha256": "d696112e07910048fec207aae267728957b09597797a88ccdd42183fec00983b",
+          "span_sha256": "dacab09e763ec9b6b592c63da02039d9782a7a1a5f6679c89fcc49a28b257a70",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_behaviour.cpp#L155-L254"
+        },
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl::canPerformAttack and getAttackers",
+          "start_line": 346,
+          "end_line": 397,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "85256833ec10775d18b87de18a101ea0df1b0a436b463ed1ece774979128d774",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L346-L397"
+        },
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl::update attack candidate dispatch",
+          "start_line": 413,
+          "end_line": 462,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "cd410dbced2526cae01261f241f4da8c5e0637015f98f3b65ffdd9d157c36112",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L413-L462"
+        },
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl::launchAttack",
+          "start_line": 185,
+          "end_line": 217,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "07b91f44b03ccf3767179209214658db4a900dff6e3846be94b96d15bb57f056",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L185-L217"
+        },
+        {
+          "file": "village_behaviour.cpp",
+          "symbol": "VillageBehaviour::getAttackTask goal plus home return",
+          "start_line": 27,
+          "end_line": 71,
+          "file_sha256": "d696112e07910048fec207aae267728957b09597797a88ccdd42183fec00983b",
+          "span_sha256": "2482b9aba39e38c20c1bfeb38bf10af12ef6cea1369379846e4baed9e7aac7de",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_behaviour.cpp#L27-L71"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "Task::stealFrom",
+          "start_line": 831,
+          "end_line": 845,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "8ccc61554ab69d06db76bc5ec84cd5be6c8a7559ba8226d2b829490fbf7ee627",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L831-L845"
+        },
+        {
+          "file": "task.cpp",
+          "symbol": "PickUpItem::getMove/canPerformImpl",
+          "start_line": 1714,
+          "end_line": 1786,
+          "file_sha256": "08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d",
+          "span_sha256": "0b26aeeceb821ca314dc905df368124a3965c353813fe6f456ec55b9c1536350",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L1714-L1786"
+        },
+        {
+          "file": "creature.cpp",
+          "symbol": "Creature::pickUp inventory transfer and attributed pickup event",
+          "start_line": 687,
+          "end_line": 725,
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "f686083389a63b0e790462a225ce4f1102dc89250fd11cafa0bac68d44e6052a",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L687-L725"
+        },
+        {
+          "file": "village_control.cpp",
+          "symbol": "VillageControl::considerCancellingAttack / onRansomPaid",
+          "start_line": 310,
+          "end_line": 338,
+          "file_sha256": "c3044961c19882fdd371f2968fa9b718658951e7a2f553f95ac6442e30f3f833",
+          "span_sha256": "8b70f9e3a7bacb2538bce675a939ebaf20a2fff27d8c9562d1bde6d042008c2c",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L310-L338"
+        },
+        {
+          "file": "player_control.cpp",
+          "symbol": "PlayerControl::considerNewAttacks actual ransom cost and cancellation",
+          "start_line": 3791,
+          "end_line": 3815,
+          "file_sha256": "ca0afd1f3d1e5efbfea194820853809cd2e3b6eb9cda4ba4f058cc4076c05310",
+          "span_sha256": "d54756eef368305c2bcfc3cd17f95566a860f0c4c8d90654032d65e2f90710e4",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player_control.cpp#L3791-L3815"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::onEvent stun into conquest and task release",
+          "start_line": 804,
+          "end_line": 825,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "617a5cad063bfa32dfb53c4f0485f1b7e04a97c6dc15aa47bf3998066c55389f",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L804-L825"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::onMinionKilled into conquest",
+          "start_line": 847,
+          "end_line": 879,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "18ee0758ad6ca938099737d0e96e39f024203880ac75266685239d1b7153d67e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L847-L879"
+        },
+        {
+          "file": "collective_config.cpp",
+          "symbol": "CollectiveConfig::isConquered actual conditions",
+          "start_line": 198,
+          "end_line": 212,
+          "file_sha256": "a56ae17ca77519f42d7973a946dfbc857848f56a74c1c0c1bb44ca9f0945fd09",
+          "span_sha256": "d8719987bbbab3a94391ddcab95238ecc27119b4f563a5e67a987d289be5e0f1",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective_config.cpp#L198-L212"
+        },
+        {
+          "file": "game.cpp",
+          "symbol": "Game::isVillainActive/tick and source activation policy",
+          "start_line": 445,
+          "end_line": 484,
+          "file_sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+          "span_sha256": "e6bec6f4d0eb30b2632dbf00783cec940203a60162419d6bf359f9dd77eae44e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L445-L484"
+        },
+        {
+          "file": "game.cpp",
+          "symbol": "Game::addEvent ConqueredEnemy campaign settlement",
+          "start_line": 969,
+          "end_line": 1003,
+          "file_sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+          "span_sha256": "cc0a16b89eac5425dac54fcc4e4bae75a64ead2e5e4d60d79bfe0b6ff867fea0",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L969-L1003"
+        },
+        {
+          "file": "campaign.cpp",
+          "symbol": "Campaign saved defeated/influence/cutoff fields",
+          "start_line": 18,
+          "end_line": 20,
+          "file_sha256": "61967f5025ce404299ebe506a04a1d595644ff8c8ded54d76a0323838502da14",
+          "span_sha256": "075820526554d9cde829a68bca3914fddea568ecc5b15f7ccfe67aaae4d91ce3",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/campaign.cpp#L18-L20"
+        },
+        {
+          "file": "campaign.cpp",
+          "symbol": "Campaign::canTravelTo and setDefeated",
+          "start_line": 45,
+          "end_line": 89,
+          "file_sha256": "61967f5025ce404299ebe506a04a1d595644ff8c8ded54d76a0323838502da14",
+          "span_sha256": "47c92990174d4624442bac138c1eb944fbce53a92e4d85b7eacc49a22298a095",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/campaign.cpp#L45-L89"
+        },
+        {
+          "file": "campaign.cpp",
+          "symbol": "Campaign::refreshMaxAggressorCutOff",
+          "start_line": 192,
+          "end_line": 215,
+          "file_sha256": "61967f5025ce404299ebe506a04a1d595644ff8c8ded54d76a0323838502da14",
+          "span_sha256": "ff3f3a726d993f7b41719f3bc6c29d5b6fd2787b62e8702c25fc15cd85f4703a",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/campaign.cpp#L192-L215"
+        },
+        {
+          "file": "campaign.cpp",
+          "symbol": "Campaign::refreshInfluencePos boundary propagation",
+          "start_line": 255,
+          "end_line": 281,
+          "file_sha256": "61967f5025ce404299ebe506a04a1d595644ff8c8ded54d76a0323838502da14",
+          "span_sha256": "50b8d6814477dd15e95c9d85795c31561e44a0a74d45c49471c7b6a415bf1527",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/campaign.cpp#L255-L281"
+        },
+        {
+          "file": "data_free/game_config/enemies.txt",
+          "symbol": "GOBLIN_VILLAGE configured resource-triggered steal and ransom",
+          "start_line": 245,
+          "end_line": 257,
+          "file_sha256": "b02e7858d37c3096a906c847db66b20304975723e675c1d691dd871c947d0c08",
+          "span_sha256": "3b114bcb011dc54512c689cae19843b84012861ef789f07d97e65b04a6feb441",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/enemies.txt#L245-L257"
+        },
+        {
+          "file": "data_free/game_config/enemies.txt",
+          "symbol": "Configured room/casualty/stolen-goods attacks",
+          "start_line": 393,
+          "end_line": 410,
+          "file_sha256": "b02e7858d37c3096a906c847db66b20304975723e675c1d691dd871c947d0c08",
+          "span_sha256": "428ce9261f636941aab8b58580b42ffd28593014bbef16682609590633e0e52f",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/enemies.txt#L393-L410"
+        }
+      ],
+      "status": "read_reviewed_integrated",
+      "notes": "WORLD_CONSEQUENCE_NOTES.json"
+    }
+  ],
+  "interacting_joins": [
+    {
+      "from": "K1",
+      "to": "K2",
+      "source_fact": "The same creature activity system selects craft/haul tasks and later retrieves the items owned by that actor."
+    },
+    {
+      "from": "K2",
+      "to": "K4",
+      "source_fact": "Collective hasResource/takeResource/returnResource supplies workshop costs, construction reservations and immigrant requirement spending.",
+      "evidence": [
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::onConstructed recomputes population after actual build",
+          "start_line": 1277,
+          "end_line": 1310,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "d9851fb7e3643efb293f29ecd7168f16fc00d943250eff0eefd40c266e234d0f",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1277-L1310"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::occupyRequirements and occupyAttraction consumption",
+          "start_line": 240,
+          "end_line": 293,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "acf271fe68be201008c68468de534086585472153266b8ed4a646598b2e9a771",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L240-L293"
+        },
+        {
+          "file": "immigration.cpp",
+          "symbol": "Immigration::Available::generate actual candidate creation",
+          "start_line": 545,
+          "end_line": 581,
+          "file_sha256": "6e407ec37af0d2e32a4c298ba22afdd3c5f72d0547217035a84f4445f173ce45",
+          "span_sha256": "3ca451c1d1d78e7b1a9a3fde5a16a6399d99a3e9822d7f1aac6fb592e392151e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L545-L581"
+        }
+      ]
+    },
+    {
+      "from": "K4",
+      "to": "K3",
+      "source_fact": "Completed construction counts are consumed by training furniture predicates; the chosen furniture ApplySquare callback increases bounded actor experience."
+    },
+    {
+      "from": "K3",
+      "to": "K5",
+      "source_fact": "Creature difficulty points include actual defense and attack attributes and retain their observed maximum; Collective danger sums fighter difficulty and specified built structure. VillageBehaviour consumes that danger for power/finish-off pressure. Timing/cache refresh and balance are not established by this bounded source reading.",
+      "evidence": [
+        {
+          "file": "creature.cpp",
+          "symbol": "Creature::getDifficultyPoints actual attack/defense contribution",
+          "start_line": 2644,
+          "end_line": 2651,
+          "file_sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+          "span_sha256": "a9110e7b85e9673c5a7f03a71bb32d06c93ccc17130ffdd1c253c5cb964852cf",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2644-L2651"
+        },
+        {
+          "file": "collective.cpp",
+          "symbol": "Collective::getDangerLevel aggregate fighter points and built structure",
+          "start_line": 1673,
+          "end_line": 1681,
+          "file_sha256": "1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428",
+          "span_sha256": "aa76792cf33f54c16612261df9b2547e06cfad82696f3f53f2438939f30e029e",
+          "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1673-L1681"
+        }
+      ]
+    },
+    {
+      "from": "K5",
+      "to": "K1_K4",
+      "source_fact": "Attack launch frees previous actor work; casualties/stun remove actors/roles and free tasks. Defeat changes campaign influence, which controls active enemy updates and travel admission."
+    }
+  ],
+  "reviews": [
+    {
+      "id": "K1",
+      "worker": "actor_material_paths",
+      "result": "reviewed_integrated",
+      "root_inspected": [
+        "monster_ai.cpp816-830,904-1015",
+        "task_map.cpp64-114,274-283,313-323",
+        "minion_activity_map.cpp75-104,132-160",
+        "creature.cpp2281-2288"
+      ],
+      "qualification": "The priority-dispatch branch ignores the return value of freeFromTask/takeTask; preserve as observed exception, not a YAIR refund design."
+    },
+    {
+      "id": "K2",
+      "worker": "actor_material_paths",
+      "result": "reviewed_integrated",
+      "root_inspected": [
+        "workshops.cpp30-132",
+        "collective.cpp1013-1068,1621-1653",
+        "minion_equipment.cpp257-307",
+        "task.cpp259-294"
+      ],
+      "qualification": "Workshop queued debt, paid stock and created output are distinct. Cancellation refunds paid input only before work starts; YAIR retains its own frozen-job refund policy."
+    },
+    {
+      "id": "K3",
+      "worker": "training_body_path",
+      "result": "reviewed_integrated_after_one_focused_repair",
+      "root_inspected": [
+        "collective.cpp1517-1528,1583-1619,1657-1669",
+        "creature_attributes.cpp148-183",
+        "creature.cpp1630-1666,1761-1815,2163-2179",
+        "body.cpp134-159,374-410,781-818,890-899",
+        "task.cpp369-471",
+        "spell_map.cpp90-141"
+      ],
+      "repair": "Archery is carried weapon eligibility, not proven equipped. Replaced composite/mismatched selected hashes with exact per-file spans.",
+      "qualification": "Facility growth does not guarantee an executable body attack. Spell availability/notification read; concrete cast/fuel/cooldown paths remain unread."
+    },
+    {
+      "id": "K4",
+      "worker": "base_recruitment_path",
+      "result": "reviewed_integrated_after_one_focused_repair",
+      "root_inspected": [
+        "collective.cpp1158-1163,1277-1310,1328-1342",
+        "immigration.cpp46-99,115-148,176-226,248-293,447-517,545-581",
+        "immigrant_info.cpp136-164",
+        "construction_map.cpp143-158"
+      ],
+      "repair": "Corrected /source/ URL prefix and invalid evidence index; qualified actual population test and candidate fallback. Existing YAIR paid actor commissioning prevents a broad recruitment-gap claim.",
+      "qualification": "Built room -> resident occupancy -> funded Invite/Decline is a proposed missing content join, not missing generic spawn/job support.",
+      "root_correction": "After worker release, root bounded site_projects.js to actual1-32; its whole-file and span hash remain valid."
+    },
+    {
+      "id": "K5",
+      "worker": "root",
+      "result": "read_reviewed_integrated",
+      "root_inspected": [
+        "village_control.cpp47-91,116-218,310-462",
+        "village_behaviour.cpp27-71,155-254",
+        "task.cpp831-845,1714-1786",
+        "creature.cpp687-725",
+        "game.cpp445-484,969-1003",
+        "campaign.cpp45-89,192-215,255-281"
+      ],
+      "qualification": "Probability uses maximum trigger, not additive pressures; attacks need actual actors/capacity/source model. Ransom cancels attacks but does not clear grievances or transfer the paid gold to attacker stock."
+    }
+  ],
+  "current_yair": {
+    "scope": "actual selected moving source owners, not whole-YAIR parity audit",
+    "git_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "comparisons": [
+      {
+        "owner": "src/simulation.js + src/simulation_effects.js",
+        "existing": "Eligibility, participants, exclusive claims, site reservations, frozen paid jobs, due-job settlement before controller decisions, finite weighted events, privacy/observation, refunds and real item/stock/custody/equipment consumers.",
+        "gap_limit": "Author new actions with declared means and consequences; no second NPC engine/job/stock owner."
+      },
+      {
+        "owner": "src/site_projects.js + src/field_workshop.js",
+        "existing": "Project dependency phases use existing jobs and world facts. Paid commission already spawns fieldSurveyor before assembly; finished workshop enables actual kit production.",
+        "gap_limit": "Completed-room residence occupancy with a funded Invite/Decline consumer is absent from these inspected owners. Job capacity is not residence capacity."
+      },
+      {
+        "owner": "src/feature_expansion_society.js + src/feature_expansion_nested_life.js",
+        "existing": "Orr repair/teaching priorities, Vale autonomous refusal/lesson/work/handoff, real finite resident funds/materials, earned knowledge/rights, consent loss refund, retained local results.",
+        "gap_limit": "A new scarce-tool allocation between two independently funded work alternatives must be authored. Autonomous agency and funded NPC work already exist."
+      },
+      {
+        "owner": "src/feature_expansion_objects.js + src/reference_gameplay_content.js",
+        "existing": "Material variant functions, counted tools/custody loans, finite kit orders and conserved sleeve/salt/sap/resin/native-kit chain.",
+        "gap_limit": "Use existing native output functions; a new material/recipe engine or generic automatic equipment assignment is unnecessary."
+      },
+      {
+        "owner": "src/body_progression.js + src/feature_expansion_powers.js + src/feature_expansion_battle.js",
+        "existing": "Earned Conditioned grip/carry/hand-control, soreness/recovery, specialized paid mastery, body/equipment/native-stat/capability gates, Lio owned harness/drills and fixed battle effect consumers.",
+        "gap_limit": "Conditioned grip has current work/carry use; costOf ordinary self-guard does not consult it. One optional trained grip receipt can add a small combat consumer."
+      },
+      {
+        "owner": "src/causal_situations.js + src/feature_expansion_nested_chains.js",
+        "existing": "Attributed causal situations, retained forced-outlet grievance/access restriction, funded issuer audit, actual material restitution and later changed account.",
+        "gap_limit": "A finite mobile collection/response task grounded in available actor funds/body/stock is new authored content, not absence of consequences generally."
+      },
+      {
+        "owner": "src/expansion_persistence.js + src/main.js:421",
+        "existing": "Staged native gameplay/stock/equipment/domains written into one validated envelope before storage success, then publication. Current source contains optional bookWorldCampaign schema10 as well as reference9 and earlier layers.",
+        "gap_limit": "Future packets require current owner refresh, explicit optional schema/definition compatibility and generated save/reload/failure checks. No implementation/schema decision in this research."
+      }
+    ],
+    "evidence": [
+      {
+        "file": "src/simulation_resolution.js",
+        "symbol": "prepareSimulationEffects: 11-34; outcome-weight validation: 36-40",
+        "start_line": 1,
+        "end_line": 40,
+        "file_sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "span_sha256": "cf6e101a15f1adbbf60ee9cbdc9439b12cee8bc64165340c7d4ca00d74eb9670"
+      },
+      {
+        "file": "src/feature_expansion_nested_life.js",
+        "symbol": "finite consented NPC demand/wage/jobs and later purchase: 20-80; commit/cancel/projection/validation: 112-171",
+        "start_line": 10,
+        "end_line": 80,
+        "file_sha256": "7273a326353539a6ddf19d0eb66760f6fef1fa1394cc5c2a1b5c2f932a15aaa2",
+        "span_sha256": "daf91b47f03d9723052ceee959cd2a44ef5f20202c6db8268aab530e479d1774"
+      },
+      {
+        "file": "src/feature_expansion_nested_life.js",
+        "symbol": "finite consented NPC demand/wage/jobs and later purchase: 20-80; commit/cancel/projection/validation: 112-171",
+        "start_line": 112,
+        "end_line": 171,
+        "file_sha256": "7273a326353539a6ddf19d0eb66760f6fef1fa1394cc5c2a1b5c2f932a15aaa2",
+        "span_sha256": "62fece4c896fad7e43d4c30ead77f8e4c2cbe91d23d906d745c47534e58fa51f"
+      },
+      {
+        "file": "src/reference_gameplay_content.js",
+        "symbol": "conserved charged/empty sleeve, finite seller stock, actual salt/resin/stave/kit transformations, consumption and funded supervised practice",
+        "start_line": 1,
+        "end_line": 100,
+        "file_sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "span_sha256": "7b904e75968b6c71b32fb2570dfc12997d236debb0de5c90e5a4b364e3574c77"
+      },
+      {
+        "file": "src/feature_expansion_objects.js",
+        "symbol": "existing real seller stock/payer transfers, custody loan, consumed/transformed wet/sound/matched materials, persistent site result, capacity/duration/costs and funded finite orders",
+        "start_line": 112,
+        "end_line": 180,
+        "file_sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+        "span_sha256": "cf07caa4e0366b182c3d1187b1fa7f56316a3d004cb5130fda216341aa8f75d0"
+      },
+      {
+        "file": "src/power_models.js",
+        "symbol": "previewPowerModel, resolveEffectAmount: typed capacity/mastery models and bounded numeric effect expressions.",
+        "start_line": 5,
+        "end_line": 43,
+        "file_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "span_sha256": "e26db08473b8f8581e4bc997dd26fb2d5d98b6b504ee77c5378382265e89fa23"
+      },
+      {
+        "file": "src/body_progression.js",
+        "symbol": "bodySources, bodyCapabilities, bodyCommands grip/recovery/rough-kit flows.",
+        "start_line": 15,
+        "end_line": 24,
+        "file_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "span_sha256": "759e0b9a61d5cb36f3091edbc9cc335749c559ec9ee987486bc6cbe5c117732d"
+      },
+      {
+        "file": "src/body_progression.js",
+        "symbol": "bodySources, bodyCapabilities, bodyCommands grip/recovery/rough-kit flows.",
+        "start_line": 42,
+        "end_line": 58,
+        "file_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "span_sha256": "1e1a72abda70e7fdf288c1a8987a56983d9475ffac803db9e180cc3f80542802"
+      },
+      {
+        "file": "src/backlog_expansion_body.js",
+        "symbol": "bodyCapabilities/bodySources bind capabilities to actual physical-body properties; inspected as a finite draft subsystem, not an implemented consumer claim.",
+        "start_line": 42,
+        "end_line": 60,
+        "file_sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+        "span_sha256": "712e87f4e96fdb1c94385a6134ac1da6dbb0823d0fc931be04d364d4edd0e120"
+      },
+      {
+        "file": "src/feature_expansion_powers.js",
+        "symbol": "paid specialisation/refinement choices, native skill XP, fatigue/body gates; mastery is not one global generic rank.",
+        "start_line": 35,
+        "end_line": 54,
+        "file_sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+        "span_sha256": "3de4abba93696250c67a1e1526697ed6b89767554c4250f836101b27734eb4b0"
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "native Battle action eligibility binds actual current body, vitals, equipment, trained source, specialization, target and costs.",
+        "start_line": 148,
+        "end_line": 169,
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "span_sha256": "fe22a8f5d7f8acc23fb82323a335adcd00d527a4ee9b69e835fa5762022059f5"
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "native Battle action eligibility binds actual current body, vitals, equipment, trained source, specialization, target and costs.",
+        "start_line": 195,
+        "end_line": 258,
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "span_sha256": "c13e235c952b9f2373217425da3ac39a5eee022cd3a98aa6a832ceb73bd134ec"
+      },
+      {
+        "file": "src/reference_gameplay_content.js",
+        "symbol": "Eda's paid source/mastery practice advances mastery into a particular field-effect consumer; practice and tool/body/charge remain distinct.",
+        "start_line": 28,
+        "end_line": 43,
+        "file_sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "span_sha256": "80d80b5111bcef8539e24d2952ffe2e98ac428517b48248a12c537b2b7f1db41"
+      },
+      {
+        "file": "src/reference_gameplay_content.js",
+        "symbol": "Eda's paid source/mastery practice advances mastery into a particular field-effect consumer; practice and tool/body/charge remain distinct.",
+        "start_line": 73,
+        "end_line": 96,
+        "file_sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "span_sha256": "0cf5978659cd4ea917c884acba4eefbabfb068d24afaccad5b4bf47731d5819c"
+      },
+      {
+        "file": "src/town_content.js",
+        "symbol": "Conditioned grip speeds an actual two-log local marker job by a minute; tender hands add time.",
+        "start_line": 31,
+        "end_line": 36,
+        "file_sha256": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+        "span_sha256": "4fde58669eab878ecdd1035c7fbfbe60b3a447f61e7662cdac453a8b85df985a"
+      },
+      {
+        "file": "src/combat_math.js",
+        "symbol": "actual battle damage derivation from attack power and target defensive stats.",
+        "start_line": 34,
+        "end_line": 56,
+        "file_sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+        "span_sha256": "dbbdc79ae741dd21e9aa23c725029c924bb7712c79c46e6414a2a50156daf37f"
+      },
+      {
+        "file": "src/native_battle.js",
+        "symbol": "native actor snapshots and committed encounter action apply actual combat math to current state.",
+        "start_line": 1,
+        "end_line": 65,
+        "file_sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "span_sha256": "517115f4d5ae5f7f0a9063b96a50638d164f3a3d13b1813d109c069de573f112"
+      },
+      {
+        "file": "src/site_projects.js",
+        "symbol": "compileSiteProject/projectView",
+        "start_line": 1,
+        "end_line": 32,
+        "file_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+        "span_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+      },
+      {
+        "file": "src/feature_expansion_society.js",
+        "symbol": "society resident definitions/sites/meeting/funded work",
+        "start_line": 64,
+        "end_line": 120,
+        "file_sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "span_sha256": "4d162d6e946a0f9c209091b1a509d03d7f8f1631baa528027e07c0f676bef809"
+      },
+      {
+        "file": "src/feature_expansion_nested_life.js",
+        "symbol": "finite resident jobs and owned stock",
+        "start_line": 21,
+        "end_line": 58,
+        "file_sha256": "7273a326353539a6ddf19d0eb66760f6fef1fa1394cc5c2a1b5c2f932a15aaa2",
+        "span_sha256": "f71d784f695dc26c4c7bf62ad6ea9a9e7d7fb022d28c07118141971ac8ec472d"
+      },
+      {
+        "file": "src/feature_expansion_work_plan.js",
+        "symbol": "work plan receipt/revision contract",
+        "start_line": 53,
+        "end_line": 87,
+        "file_sha256": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+        "span_sha256": "c084aca9fcf069a59fc4106908033ffb1803b68dbbfe760612c80d3d17f4d41e"
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "previewSimulationCommand exact participant/capacity eligibility",
+        "start_line": 51,
+        "end_line": 82,
+        "file_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "span_sha256": "fa4c2f3d7db3c00c0575fc9dd0acdaecad6ed3418e380fecde171e22f6414b6a",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "startCommand actual cost/reservation/frozen job",
+        "start_line": 111,
+        "end_line": 175,
+        "file_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "span_sha256": "a02d83c58820769d977074338d13815686eb3e1942f3179691795e7b44a02a03",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "completeJob and cancelSimulationJob",
+        "start_line": 184,
+        "end_line": 230,
+        "file_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "span_sha256": "8a8c11658b828e0a37aed91f1b322b0ac13fbaa39de8b5da3b7af81eda8a71bc",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "occur and discovered/attributed response settlement",
+        "start_line": 302,
+        "end_line": 346,
+        "file_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "span_sha256": "deaa6021fa21de9b6effab49b3ea12cce4630ee565ce020b8850d1028214ac84",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation.js",
+        "symbol": "advanceSimulationBoundary actor controller candidate commit and program pause",
+        "start_line": 393,
+        "end_line": 449,
+        "file_sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "span_sha256": "198ddec9ad436c18795dc34dab7a23bcc4f145912712736d1a2b0f40b120515c",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation_effects.js",
+        "symbol": "simulationFacts actual-owned stock/body/source/conditions/observations",
+        "start_line": 26,
+        "end_line": 85,
+        "file_sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+        "span_sha256": "d32c3f656a82f6a047693d57451c9f61f770d6b53b7b391719d013e0238a5df6",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/simulation_effects.js",
+        "symbol": "item transfer custody and claim consumption",
+        "start_line": 162,
+        "end_line": 205,
+        "file_sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+        "span_sha256": "c4505ad9f1e9e356b274de7136c41edad76088b9af782493282e3bbbebd7dbe5",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/site_projects.js",
+        "symbol": "compileSiteProject completion facts and actual job reuse",
+        "start_line": 1,
+        "end_line": 32,
+        "file_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+        "span_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+      },
+      {
+        "file": "src/causal_situations.js",
+        "symbol": "applySituationEffect original context/causal transitions and receipt validation",
+        "start_line": 1,
+        "end_line": 57,
+        "file_sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+        "span_sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+      },
+      {
+        "file": "src/field_workshop.js",
+        "symbol": "existing paid actor commission and actual facility production",
+        "start_line": 20,
+        "end_line": 27,
+        "file_sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+        "span_sha256": "cf0050006fab38c62e3fcaffdf7d7806f8601f6889b8e07397105470ad8d9ef1"
+      },
+      {
+        "file": "src/field_workshop.js",
+        "symbol": "existing fieldSurveyor spawn and supplied commission",
+        "start_line": 78,
+        "end_line": 85,
+        "file_sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+        "span_sha256": "f21862816818414858a5153e1766aade77a940d97203046c5daacfe415c127ae"
+      },
+      {
+        "file": "src/feature_expansion_society.js",
+        "symbol": "funded Orr work/stock and actual independent residents",
+        "start_line": 64,
+        "end_line": 120,
+        "file_sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "span_sha256": "4d162d6e946a0f9c209091b1a509d03d7f8f1631baa528027e07c0f676bef809"
+      },
+      {
+        "file": "src/feature_expansion_society.js",
+        "symbol": "existing independent choice/priority controllers",
+        "start_line": 211,
+        "end_line": 220,
+        "file_sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "span_sha256": "340dd794b55a2e5823209ab57215ec17d61e35d176788f9802dc9be41906f1e8"
+      },
+      {
+        "file": "src/feature_expansion_nested_chains.js",
+        "symbol": "existing forced-outlet grievance and real restitution",
+        "start_line": 140,
+        "end_line": 177,
+        "file_sha256": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+        "span_sha256": "6d0bca51a858bdbb44bc9410a4559592b578502d182f262afc478b0608a1e5d3"
+      },
+      {
+        "file": "src/feature_expansion_objects.js",
+        "symbol": "actual material installation and finite kit order",
+        "start_line": 160,
+        "end_line": 180,
+        "file_sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+        "span_sha256": "5337476f607c6bd7f6ae4eeb34e91280abddef215140343036e1abd236650dd0"
+      },
+      {
+        "file": "src/native_storage_transaction.js",
+        "symbol": "stageNativeStorageTransfer actual counted chest owners and equipment boundary",
+        "start_line": 1,
+        "end_line": 33,
+        "file_sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+        "span_sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f"
+      },
+      {
+        "file": "src/expansion_persistence.js",
+        "symbol": "persistExpansionPlan writes staged domains before storage success",
+        "start_line": 1,
+        "end_line": 51,
+        "file_sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "span_sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+      },
+      {
+        "file": "src/main.js",
+        "symbol": "persistExpansion native write-before-publish boundary",
+        "start_line": 424,
+        "end_line": 515,
+        "file_sha256": "157d1758abc9fb8e3ac5dc6b67d7b0f12109d783e401abdd17c1b4a2af90ae37",
+        "span_sha256": "38f808badb81f7933277f32d088c88a094c10504e332e794856a1a803f4053ae",
+        "refresh_qualification": "Root reread changed caller/cost/fact/publication spans and/or confirmed exact unchanged span; shared other-GM nethack/paradise context additions retain the compared owners. Previous snapshot preserved in input_refresh."
+      },
+      {
+        "file": "src/body_progression.js",
+        "symbol": "Conditioned grip acquisition/recovery existing body consumers",
+        "start_line": 15,
+        "end_line": 69,
+        "file_sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "span_sha256": "8239a4699d72de85787be1dafcefe0ad3b4adebf9dc6319e666eff12e9e1af92"
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "costOf ordinary self-guard does not consume Conditioned grip",
+        "start_line": 195,
+        "end_line": 214,
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "span_sha256": "72fea855a96961a2bbb33b61cc691e7e08c2dee9e9a15be8f7c991b0236deda2"
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "commitFeatureBattleAction actual guarded fatigue/receipt",
+        "start_line": 288,
+        "end_line": 304,
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "span_sha256": "6bef80c730cf558bb1e4f312a18116b9966fd05f528ec5495524e6ffae93136e"
+      },
+      {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "battle settlement staged native vitals and action receipts",
+        "start_line": 351,
+        "end_line": 361,
+        "file_sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "span_sha256": "a9ba9fa2f2728ec943d11969993c12136eb0fcee3f191d2901355d6c6ae5c1ec"
+      },
+      {
+        "file": "src/frontier_campaign.js",
+        "symbol": "existing one optional field renewal explicit retention",
+        "start_line": 62,
+        "end_line": 66,
+        "file_sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+        "span_sha256": "4b6dd708a792958b5aec721c1d5a88b35413207a6f18976989cdbe832f50c473"
+      },
+      {
+        "file": "src/feature_expansion_society.js",
+        "symbol": "Vale own teaching/funding/kit/shelf/work-rights result",
+        "start_line": 130,
+        "end_line": 195,
+        "file_sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "span_sha256": "f350c5e6f0bf592d84ab6a97a32ea74d2e72519e3a5edba12bba06a3d4b9dfb2"
+      },
+      {
+        "file": "src/feature_expansion_powers.js",
+        "symbol": "existing paid functional mastery/material/harness consumers",
+        "start_line": 1,
+        "end_line": 84,
+        "file_sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+        "span_sha256": "8efbe2e485eeed5487131eaf60813d0b006669cc6fee12674fb516f316a97bc8"
+      }
+    ],
+    "current_recorded_hashes_match_at_integration": true,
+    "superseded_read_fingerprints": [
+      {
+        "reader": "actor_material_paths",
+        "file": "src/simulation.js",
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "read_lines": "51-182, 184-227, 359-450",
+        "qualification": "Preserved worker snapshot; refreshed compared consumers in root current_yair_evidence."
+      },
+      {
+        "reader": "actor_material_paths",
+        "file": "src/simulation_effects.js",
+        "file_sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+        "read_lines": "27-40, 140-177, 198-204, 264-295",
+        "qualification": "Preserved worker snapshot; refreshed compared consumers in root current_yair_evidence."
+      },
+      {
+        "reader": "base_recruitment_path",
+        "file": "src/simulation.js",
+        "symbol": "previewSimulationCommand eligibility/capacity",
+        "start_line": 64,
+        "end_line": 80,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "c371468d944b96813462a3f5376d743c6756491899880ed17225459c3c9495b2",
+        "qualification": "Preserved worker snapshot; refreshed compared consumers in root current_yair_evidence."
+      },
+      {
+        "reader": "base_recruitment_path",
+        "file": "src/simulation.js",
+        "symbol": "startCommand reservations and frozen jobs",
+        "start_line": 132,
+        "end_line": 174,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "e2bf691ea810ca0441218981ad68f4cf66075dcc47f5486770e4b3bce433e1b2",
+        "qualification": "Preserved worker snapshot; refreshed compared consumers in root current_yair_evidence."
+      },
+      {
+        "reader": "base_recruitment_path",
+        "file": "src/simulation.js",
+        "symbol": "completeJob/cancelSimulationJob release/refund",
+        "start_line": 184,
+        "end_line": 226,
+        "file_sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "span_sha256": "f83296481d8faf871d398c892d633a40609e8f7f80867cc15c3331e01fec53ce",
+        "qualification": "Preserved worker snapshot; refreshed compared consumers in root current_yair_evidence."
+      }
+    ],
+    "root_input_refresh": {
+      "status": "resolved_at_root_readback",
+      "changed_files": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_effects.js"
+      ],
+      "original_root_evidence": [
+        {
+          "file": "src/simulation.js",
+          "symbol": "previewSimulationCommand exact participant/capacity eligibility",
+          "start_line": 51,
+          "end_line": 82,
+          "file_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+          "span_sha256": "fa4c2f3d7db3c00c0575fc9dd0acdaecad6ed3418e380fecde171e22f6414b6a"
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "startCommand actual cost/reservation/frozen job",
+          "start_line": 111,
+          "end_line": 174,
+          "file_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+          "span_sha256": "0f7d3d4e14d38fd15af18ac39a1c494593580c629cec0c33e237bdbacdc99dff"
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "completeJob and cancelSimulationJob",
+          "start_line": 184,
+          "end_line": 227,
+          "file_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+          "span_sha256": "7bc37ca577a425e6baf5314b2ecf57ed86ff57553d01abaf55179214c4afd3fa"
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "occur and discovered/attributed response settlement",
+          "start_line": 302,
+          "end_line": 346,
+          "file_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+          "span_sha256": "deaa6021fa21de9b6effab49b3ea12cce4630ee565ce020b8850d1028214ac84"
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "advanceSimulationBoundary actor controller candidate commit and program pause",
+          "start_line": 393,
+          "end_line": 449,
+          "file_sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+          "span_sha256": "198ddec9ad436c18795dc34dab7a23bcc4f145912712736d1a2b0f40b120515c"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "simulationFacts actual-owned stock/body/source/conditions/observations",
+          "start_line": 25,
+          "end_line": 84,
+          "file_sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+          "span_sha256": "d95671f2c9947fd805e0ad624472e24965b9e068c4b62f20a77c250411016de2"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "item transfer custody and claim consumption",
+          "start_line": 161,
+          "end_line": 204,
+          "file_sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+          "span_sha256": "c4505ad9f1e9e356b274de7136c41edad76088b9af782493282e3bbbebd7dbe5"
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "persistExpansion native write-before-publish boundary",
+          "start_line": 421,
+          "end_line": 510,
+          "file_sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+          "span_sha256": "20bb079df205effa5f189cd2fbff7e0a299d5db589ad67f9f1888cc8aa968730"
+        }
+      ],
+      "observed_changes": [
+        "simulation startCommand adds nethack_fieldcraft to reservation-return groups and Paradise NPC completion context; completion uses the declared Paradise NPC current context.",
+        "simulation_effects adds nethack facts and shifts prior field spans one line; ownership/stock/custody/claim logic remains the compared same owner.",
+        "main persistExpansion shifts with imports and renames previousNight; one envelope save before native publication remains present."
+      ],
+      "runtime_written_by_this_gm": false,
+      "behavioral_verification": false,
+      "limits": "This is a refreshed selected source observation, not a full review of other active GM changes. Inputs may move again before implementation."
+    }
+  },
+  "prior_research_reused": [
+    {
+      "file": "docs/research/caves-of-qud/REPORT.md",
+      "sha256": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "reuse": "Existing part/function, qualified NPC choice and attributed service comparison; no repeated decompilation/source audit."
+    },
+    {
+      "file": "docs/research/dcss-dda-depth/REPORT.md",
+      "sha256": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+      "reuse": "Existing funded practice/earned function/body-trigger comparison. Their historical proposal status is superseded by current YAIR source where delivered."
+    }
+  ],
+  "worker_artifacts": [
+    {
+      "file": "ACTOR_MATERIAL_NOTES.json",
+      "sha256": "af9ad5ec4dbeeae3e0e45295bc1ef6449ffda2c1f54d879d003539c592c5d22e",
+      "status": "completed_reviewed_integrated"
+    },
+    {
+      "file": "TRAINING_BODY_NOTES.json",
+      "sha256": "46609fd98d78ba4d536f7301c0aa8c9c5304b53a798c50c5488309e1818b1fa2",
+      "status": "completed_reviewed_integrated"
+    },
+    {
+      "file": "BASE_RECRUITMENT_NOTES.json",
+      "sha256": "809e174d979ba5e435ea90bc5d8cd45f99232487bb39cc3708c897e45f8f7a95",
+      "status": "completed_reviewed_integrated"
+    },
+    {
+      "file": "WORLD_CONSEQUENCE_NOTES.json",
+      "sha256": "6a70047cb1a7c87faa728b9c05ab0f013f2583b8aac0dc1adb8ce652381b22eb",
+      "status": "completed_reviewed_integrated"
+    }
+  ],
+  "proposal_owner": "IMPLEMENTATION_PACKETS.md",
+  "not_claimed": [
+    "full KeeperRL repository or all available data read",
+    "whole current Steam build parity",
+    "gameplay/balance/performance/exploit resistance",
+    "YAIR runtime implementation or playable acceptance",
+    "new realm/prestige/offline production/hunger upkeep/lethal raid policy"
+  ],
+  "source_code_copied_into_yair": false,
+  "implementation_packet_index": [
+    {
+      "rank": 1,
+      "status": "original_proposal_not_accepted_or_implemented",
+      "title": "Completed room and funded resident invitation",
+      "source_paths": [
+        "K4",
+        "K1",
+        "K2"
+      ],
+      "owner": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "rank": 2,
+      "status": "original_proposal_not_accepted_or_implemented",
+      "title": "Scarce toolkit between useful independent jobs",
+      "source_paths": [
+        "K1",
+        "K2"
+      ],
+      "owner": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "rank": 3,
+      "status": "original_proposal_not_accepted_or_implemented",
+      "title": "Conditioned grip combat consumer",
+      "source_paths": [
+        "K3"
+      ],
+      "owner": "IMPLEMENTATION_PACKETS.md"
+    },
+    {
+      "rank": 4,
+      "status": "original_proposal_not_accepted_or_implemented",
+      "title": "Funded local collection response",
+      "source_paths": [
+        "K5"
+      ],
+      "owner": "IMPLEMENTATION_PACKETS.md"
+    }
+  ]
+}

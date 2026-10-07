@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "state": "finite-source-native-ui-save-build-delivered-implemented-unverified",
+  "bundleFingerprint": "c2e01eb71d2a",
+  "build": "docs/gm/book-world-player-agency/BUILD.json",
+  "sourceFootprint": "PD-MTL-67f15d112389-r1;sid20 firstGoa beforefire/sourcecast;sid26\u201328hubinstitution evidence placed concurrently byexplicitoriginal parallel-entry choice",
+  "sourceFit": "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json",
+  "sourceQualification": "All claims U fororiginalprimarycanon; suppliedMTL/franchise/translation/synchronizedclock/currentmana/currentunconfirmedstock limits explicit. No whole reread/library mutation.",
+  "sourceVersusAuthored": "Novelpresented cast/places/means/causes qualified; independentplayer entry/role/language/sourcebudget/numericalvitals/currencies/time/purchases/exit/outcomes/dialogue are originalreversiblebranchproposals",
+  "rows": [
+    {
+      "id": "P01",
+      "label": "Deliberate independent entry",
+      "implemented": "Same actual human body/control/cargo/known language terms; chart then explicit10/enrollment; no Hunter/protagonist replacement",
+      "sourcePaths": [
+        "src/book_world_paradise_host.js",
+        "src/book_world_paradise_state.js",
+        "src/book_world_paradise_carriers.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P02",
+      "label": "Independent life and growth",
+      "implemented": "Funded real district/pier work, separate coins/belli, paid own source/method, braced versus ordinary actual material work/XP",
+      "sourcePaths": [
+        "src/book_world_paradise_actions.js",
+        "src/simulation.js",
+        "src/simulation_effects.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P03",
+      "label": "Optional named protagonist involvement",
+      "implemented": "Actual Hank introduction/Su Xiao meeting, owned ration aid consumed for his preparation, refusal/independent route and palace warning opposition",
+      "sourcePaths": [
+        "src/book_world_paradise_actions.js",
+        "src/book_world_paradise_content.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P04",
+      "label": "Civilian capacity intervention",
+      "implemented": "Actual owned food/timber/rope/time and reusable kit create limited cache/route; material capacity and later work retained",
+      "sourcePaths": [
+        "src/book_world_paradise_actions.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P05",
+      "label": "Earned warning/diversion intervention",
+      "implemented": "Actual Hank copy/known warning, funded civilian delivery, real Krieg cask surrender or paid palace admission/proof; changed fire/guard/target conditions",
+      "sourcePaths": [
+        "src/book_world_paradise_actions.js",
+        "src/book_world_paradise_host.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P06",
+      "label": "Independent source-cast decisions",
+      "implemented": "Five controllers/fourteen private funded body/current-native actions; actual source sword preparation/approach/attempt/search, fuel operation, shelter/death, king evacuation and received paid account",
+      "sourcePaths": [
+        "src/book_world_paradise_actions.js",
+        "src/simulation.js",
+        "src/book_world_paradise_native.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P07",
+      "label": "Different retained local outcomes",
+      "implemented": "Burned/contained fire; shut/escape/breached gate; Hank actual shelter/death; king actual kill/escape/alive; no forced restoration; player contribution/obligation separate",
+      "sourcePaths": [
+        "src/book_world_paradise_state.js",
+        "src/book_world_paradise_actions.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P08",
+      "label": "Actual own return and settlement",
+      "implemented": "Personal visit/return and optional funded civilian survey offer/accept/arrival/outcome/two-minute preparation/actual arrival/once-only settlement; current body/full cargo/native owners, deadline90original",
+      "sourcePaths": [
+        "src/book_world_paradise_host.js",
+        "src/book_world_paradise_carriers.js",
+        "src/main.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P09",
+      "label": "Changed revisit and continued life",
+      "implemented": "Same persistent instances/people/stocks/life/history/learned source, finite continuing work and received later accounts; visit capacity96 never prunes; unsupported absence frozen",
+      "sourcePaths": [
+        "src/book_world_paradise_state.js",
+        "src/book_world_paradise_actions.js",
+        "src/book_world_paradise_host.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P10",
+      "label": "Reusable nineteen-world agency contracts",
+      "implemented": "Exact19IDs, independent default/source-baseline versus actual branch/knowledge/carrier/replacement alternatives; separately registered single finiteParadise binding, other contracts unactivated",
+      "sourcePaths": [
+        "src/book_world_player_agency_contracts.js",
+        "src/main.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    },
+    {
+      "id": "P11",
+      "label": "Actual shared admission and current output",
+      "implemented": "Registry/items/newnative stock/shop/quest/calendar/body/location owners, fresh legal/completion facts/current tokens/People/Notebook/strict10+old5\u20139/save/publisher/currentbuild",
+      "sourcePaths": [
+        "src/main.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js",
+        "src/feature_expansion_refinements_host.js",
+        "src/people_knowledge.js",
+        "src/adventure_notebook.js"
+      ],
+      "status": "implemented-unverified",
+      "behaviorGate": "deferred-unrun"
+    }
+  ],
+  "counts": {
+    "commands": 727,
+    "controllers": 26,
+    "worlds": 8,
+    "bookContracts": 19,
+    "nativeBookCampaignBindings": 1,
+    "fullBookOrRosterParity": false,
+    "paradiseCommands": 52,
+    "paradisePlayerCommands": 38,
+    "paradiseNpcCommands": 14,
+    "paradiseControllers": 5,
+    "sourceCastAndBranchPeople": 7,
+    "paradiseNativeLocations": 7,
+    "paradiseNativeWorldOwners": 2,
+    "paradiseNativeItems": 7,
+    "fieldcraftCommands": 14,
+    "fieldcraftItems": 4,
+    "fieldcraftFeats": 3,
+    "fieldcraftLocalDog": 1,
+    "fieldcraftConditions": 1,
+    "finiteWorkPlansRetained": 3
+  },
+  "compatibility": {
+    "newBookExpansion": 10,
+    "bookWorldCampaign": 1,
+    "nativeBookDomain": 1,
+    "earlierExpansions": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "referenceGameplay": 1,
+    "fieldcraft": 1,
+    "oldNarrativeAndFrozenJobs": "retained; new bookNPC completion context scoped to book_paradise_npc only",
+    "oldReaders": "reject new10/unknown activatedfieldcraft before native publication",
+    "absent": "inert/no enrollment/default/native stock grants; chart reading alone independent",
+    "saveReloadProof": "deferred-unrun"
+  },
+  "fieldcraft": {
+    "adoption": "docs/gm/book-world-player-agency/FIELDCRAFT_ADOPTION.json",
+    "nativeIdentity": "own completed application plus understood player knowledge updates labels/tooltips/itemlog; templates/IDs/count/quality/custody unchanged",
+    "coveredExisting": "ordinary native meals and stave drying retained, no duplicated generic owners"
+  },
+  "boundaries": {
+    "arbitraryNamedNpcAttack": "unimplemented; opposed/evidence scenes and authored NPC kills are not a generic attack/death resolver",
+    "protagonistReplacement": "distinct deliberate source/body/rights profile proposed, no playable selector or copied source grant",
+    "fullNovelOrRosterParity": false,
+    "laterCausalPackets": "docs/gm/causal-endings/IMPLEMENTATION_PACKETS.md; planning only, no extra shared integrator or current runtime selection"
+  },
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import roundtrip",
+    "save failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing/source-era acceptance"
+  ]
+}

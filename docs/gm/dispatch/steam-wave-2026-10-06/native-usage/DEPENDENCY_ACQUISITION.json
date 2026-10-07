@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-07T13:40:54.689051+00:00",
+  "scope": "Rootactualoriginal/privatebyte equality andbefore/copy/after pins; mainLCdependency metahash acquisition",
+  "native_receipt": "docs/research/factorio/native/DEPENDENCY_RETENTION.json",
+  "native_receipt_sha256": "14aa6ed81f5ad63f7cb0eecdddfb1d1aac21dd8ddcb33ca7b9e243a2c990c6ca",
+  "private_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/DEPENDENCY_RETENTION.json",
+  "private_receipt_sha256": "780e69f8357cc49bcad1fe8f2152bd594688e955d4577b7866fa86d449ac8ae0",
+  "copied_entries": [
+    {
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/libsteam_api.dylib",
+      "private": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/MacOS/libsteam_api.dylib",
+      "bytes": 610496,
+      "sha256": "4d47f19bdea2e7aba06a052570855903376ae47accca439ae9fb184528846d85"
+    },
+    {
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/licenses.txt",
+      "private": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/data/licenses.txt",
+      "bytes": 72600,
+      "sha256": "a86fda4ca6a5b82f455b956e4743e33aa27038acc54a92972970cbe4251e9f1b"
+    },
+    {
+      "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/license.html",
+      "private": "/Users/weiwei/.codex/research/factorio/native-23347942/input/auxiliary/doc-html/license.html",
+      "bytes": 3779,
+      "sha256": "48692d0d3c46be9caaded489426400e27c0e022e63173e60dae0aa64fd0dadcd"
+    }
+  ],
+  "main_architecture_dependency_metadata_hashes_pass": true,
+  "main_bothslice_scope_unchanged": true,
+  "DLL_execution_import_decompile": "none",
+  "systemframeworks": "metadataonly,outside mainrecoverybody scope",
+  "original_install_mutation": false
+}

@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-05",
+  "worker": "/root/destination_society",
+  "status": "implemented-unverified",
+  "released": true,
+  "children": [],
+  "processSessions": [],
+  "repairs": [
+    "Public action preview rejects internal opening/entry/exit receipts; only declared tidemarkActions reach the host.",
+    "Native quest tasks use an empty any group that ordinary quest events cannot satisfy; only committed local facts set progress.",
+    "Native durable write and snapshot include exact quest/task availability flags and keep the legacy trader closed. Dormant restore also closes the trader."
+  ],
+  "outputs": {
+    "src/feature_expansion_destination.js": {
+      "sha256": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725",
+      "bytes": 12157
+    },
+    "src/feature_expansion_destination_host.js": {
+      "sha256": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d",
+      "bytes": 22823
+    },
+    "src/feature_expansion_destination_native.js": {
+      "sha256": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "bytes": 17253
+    }
+  },
+  "checks": [
+    "Six owned modules imported successfully without actions.",
+    "Changed modules passed node --check.",
+    "Static source review of native owners, envelope publication, normal quest loader and common scheduler."
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "rootJoins": [
+    "Bind availabilities and actual body id/form.",
+    "Skip normal questManager loader for the independent Tidemark quest; restore its bridge before final native location/activity restoration.",
+    "Refresh native Quest display after durable bridge publication/restore without applying native quest rewards."
+  ],
+  "registryImport": "Full expedition_content import blocked at backlog_expansion_host.js:10 by eager bodyCommands temporal initialization; sent to root.",
+  "privateSavesTouched": false
+}

@@ -1,0 +1,14 @@
+{
+  "matchingOutputHashes": {
+    "src/world_visit_history.js": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/book_world_paradise_host.js": "8b59589d68248a12f60385b4aa632730547a8cda2cb6b6406a94baa1ef316d5e",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/feature_expansion_nested_host.js": "9d814bfe228ef9533d62cb3cebf0c0c7c16c194d982347a63d226b3584fe899e"
+  },
+  "previousWriter": "/root/visit_compaction",
+  "previousState": "completed/released; live child absent",
+  "currentWriter": "/root",
+  "qualification": "source acquisition, not behavior execution"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "status": "implemented-unverified; released to root",
+  "api": "projectFieldcraftItemView(item, state, {name, description} = {}) -> {name, description, identified, charge}",
+  "files": [
+    "src/nethack_fieldcraft_item_view.js",
+    "docs/gm/book-world-player-agency/item-view/CHECKPOINT.md",
+    "docs/gm/book-world-player-agency/item-view/DELIVERY.json",
+    "docs/gm/book-world-player-agency/item-view/DELIVERY.md"
+  ],
+  "identityConditions": [
+    "referenceGameplay.schema === 1",
+    "referenceGameplay.fieldcraft.schema === 1",
+    "actors.player.facts.nethack_fieldcraft.opened === true",
+    "actors.player.completed contains a positive assay, trial_dull, or trial_fineDull completion",
+    "simulation.knowledge.player[nethack_fieldcraft.reed_oil].stage === understood"
+  ],
+  "vialRules": {
+    "full": "exact stable ID/key; physical charge 1; learned name and application description only when identity conditions all hold",
+    "empty": "exact stable ID/key; charge 0; never reveals prior contents",
+    "unrelated": "supplied name/description pass through; charge null"
+  },
+  "checks": [
+    {"kind": "syntax", "command": "node --check src/nethack_fieldcraft_item_view.js", "result": "pass"},
+    {"kind": "static", "result": "imports and branch conditions reviewed; no projection was invoked"}
+  ],
+  "prohibitedActionsPerformed": false,
+  "rootOwnedWork": ["native display and tooltip wiring", "runtime/state reader integration", "later playable acceptance"]
+}

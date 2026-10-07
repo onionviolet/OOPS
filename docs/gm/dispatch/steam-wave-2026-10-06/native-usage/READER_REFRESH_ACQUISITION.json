@@ -1,0 +1,434 @@
+{
+  "observed_utc": "2026-10-07T13:23:46.118710+00:00",
+  "scope": "Rootread-only acquisition of boundedsemanticrefresh and exactInserterphysicalguard/table/casegap; doesnotclaimnewnativeC/ASMrepair",
+  "writer": "/root/factorio_backend_review",
+  "writer_state": "completed/released",
+  "actual_role_bindings_verified": 54,
+  "actual_unique_bodies_verified": 53,
+  "actual_C_and_ordered_raw_body_hashes": "pass",
+  "actual_live_and_private_source_role_hashes_verified": 26,
+  "actual_API_selected_pointers_verified": 61,
+  "API_pointer_identities": [
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/190/properties/24",
+      "name_or_literal": "level",
+      "selected_object_sha256": "9774c68c107a6f735021eec2dba47ae4e75b6345510451a009ce0fb132f6e36e"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/190/properties/31",
+      "name_or_literal": "next",
+      "selected_object_sha256": "d17d70f226b3af6ee202c064f9f551f0f9fc9f1a6e7b806cd56c9b342ac4baa2"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/190/properties/32",
+      "name_or_literal": "next_probability",
+      "selected_object_sha256": "3c99b2b90975821fd261f6f7f402a66b3ed0cd1f4cec562ca5b0baff69951497"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/132/properties/37",
+      "name_or_literal": "spoil_level",
+      "selected_object_sha256": "778515f68f284376fd6688521d63bd49ac634366ec495ad387e260954eb13e9e"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/132/properties/38",
+      "name_or_literal": "spoil_result",
+      "selected_object_sha256": "d11f53d1e6d457f80900908c319d9c120a55a0b95b8a3427d59af905ff3b1227"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/132/properties/39",
+      "name_or_literal": "spoil_ticks",
+      "selected_object_sha256": "0347c640c09822c09d95b99b825472a4c93e5786ca4d68901b29838d54b30289"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/132/properties/40",
+      "name_or_literal": "spoil_to_trigger_result",
+      "selected_object_sha256": "8b5684de27c2fea2aca7e9680b2de82c63cfff42fc66d7ea0ae984edf2d051e8"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/202/properties/11",
+      "name_or_literal": "allow_quality",
+      "selected_object_sha256": "d76552de0ed4248247a385437d87cc817c892cdd96a7dfa77aedba2e17555bf2"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/202/properties/37",
+      "name_or_literal": "preserve_products_in_machine_output",
+      "selected_object_sha256": "0945bbf4d0f0d79b22e194b63af1289f902de62d699e79364282c59622bab801"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/202/properties/39",
+      "name_or_literal": "reset_freshness_on_craft",
+      "selected_object_sha256": "35b8c08e16155d142135d2e2e7aa07c5f124968d490aee5340ff42e70a3cf155"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/202/properties/40",
+      "name_or_literal": "result_is_always_fresh",
+      "selected_object_sha256": "9ba2869de7416bea2684e2cf12f6ebabb3d0af0a3ddab91e58323132f263ad8d"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/183/properties/0",
+      "name_or_literal": "spoil_time_modifier",
+      "selected_object_sha256": "c9a6d71ddcd8b57a42eff3a31fe08004ec0af789e57e1a9eba80203a8826459d"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/295/properties/1",
+      "name_or_literal": "amount_max",
+      "selected_object_sha256": "10e5ed8a6d41385c0dac3eccdb58ab60087b3de4f3c3ee1d6d24e6b67f1e04af"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/295/properties/3",
+      "name_or_literal": "extra_count_fraction",
+      "selected_object_sha256": "f651500ea660f05b669c0829d9bf26fd4f3878f4a23b9aa62a973f38bfd0d18a"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/295/properties/7",
+      "name_or_literal": "percent_spoiled",
+      "selected_object_sha256": "87772dd34a5793436796cebf70b6f8ce04399a301378db9e53a0deed7ae08943"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/530/properties/0",
+      "name_or_literal": "items_per_trigger",
+      "selected_object_sha256": "432dcbdf1e4da64e09ec64a5414d2bc3488ad5a6e351c5ca6ab57febb5a2135b"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/530/properties/1",
+      "name_or_literal": "trigger",
+      "selected_object_sha256": "1e9b68763907e2905ab4ae02559332f6cbd1ab9ae466d7000bfd647c6941885c"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/67/attributes/8",
+      "name_or_literal": "spoil_percent",
+      "selected_object_sha256": "5b05bcadf5e85614dbc211f86dbfaf37d80bf9d629650f3f08deff117837d253"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/67/attributes/9",
+      "name_or_literal": "spoil_tick",
+      "selected_object_sha256": "a9dd17240baea4c23423ef3e89aa30b18478d10c395c0fb5a5f3a5e899d45ab5"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/66/attributes/58",
+      "name_or_literal": "spoil_result",
+      "selected_object_sha256": "b1a76cb944001825a24f7a9ce28f5e71b4a8bf12ddf17a1e4b6d38c2e31caae4"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/66/attributes/59",
+      "name_or_literal": "spoil_to_trigger_result",
+      "selected_object_sha256": "728812be99de7802eeb6c411d928b8696b2eaf82d20692411d7a40ef543e2f96"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/66/methods/10",
+      "name_or_literal": "get_spoil_ticks",
+      "selected_object_sha256": "02980dcd48049feadd069eff4b4ef44f956f0cf53520ce0066400b1856fd3140"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/96/attributes/21",
+      "name_or_literal": "level",
+      "selected_object_sha256": "dcb1e36e713e46f6a8c70f70fb84f5e8f989704b71c601970bac5b3916c03dc5"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/96/attributes/27",
+      "name_or_literal": "next",
+      "selected_object_sha256": "a2085d1719a07699f0c03ca80dac7e446c0c9ad2d99a2089eb193deb277b38aa"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/96/attributes/28",
+      "name_or_literal": "next_probability",
+      "selected_object_sha256": "71da9e5f001e0fefe0fc1ef092a1b9cdecf2a1abdc39956e06a6a70240a32926"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/296/type/value/options/5",
+      "name_or_literal": "not-stackable",
+      "selected_object_sha256": "ce7e813b77e7d91f6201da34359dddbf052d4b718cc3eb9bb74426debeadd252"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/296/type/value/options/11",
+      "name_or_literal": "ignore-spoil-time-modifier",
+      "selected_object_sha256": "699e6d5ba3cb25bc3a8174d82d0d807d68ab78ebebc5848fab30dd8763f62d46"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/77",
+      "name_or_literal": "energy",
+      "selected_object_sha256": "e7c130d210cff6b98e877cc2d39290af24fd6c7d16ba8f9d53582c5a03c287e9"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/98",
+      "name_or_literal": "held_stack",
+      "selected_object_sha256": "1fce89d6e0eb31b4f5d6258fe8ab654fae3bf39c8d1b55d2d811f22618db53a9"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/107",
+      "name_or_literal": "inserter_spoil_priority",
+      "selected_object_sha256": "0f89113f15c468f098af33294b10f99d850bfb8bbd225d69c2bad2422742bee2"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/108",
+      "name_or_literal": "inserter_stack_size_override",
+      "selected_object_sha256": "2a58022992c6968fbfb2cd0affde97ec515e136931c70824c0207b2b6afdcb5b"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/109",
+      "name_or_literal": "inserter_target_pickup_count",
+      "selected_object_sha256": "30d83505c971e8034566a1c12d497d9b35aad0d322ed0c2d2cee42d2d2b47c4b"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/208",
+      "name_or_literal": "temperature",
+      "selected_object_sha256": "65bb96fbd844eaba131c2ed09c0ad57a2e48978d6adfc2bece5759ee7a92fc2e"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/1",
+      "name_or_literal": "can_insert_at_back",
+      "selected_object_sha256": "4f08742038691a6d0361084e9d4d8d91a97b530de95c95b8fba2a546646124d0"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/8",
+      "name_or_literal": "insert_at",
+      "selected_object_sha256": "88274cc959e8969c041955bb5369f9b5d4ade5d18ce38d8924bb376a2790c852"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/9",
+      "name_or_literal": "insert_at_back",
+      "selected_object_sha256": "3478aac56ac5864066bfc1a02e6722a1ebd3e9ac07a381619c49d5059c4a7842"
+    },
+    {
+      "file": "runtime-api.json",
+      "pointer": "/concepts/343",
+      "name_or_literal": "SpoilPriority",
+      "selected_object_sha256": "0d5b8ea006d06a016409bdbf92cb46438edc10b0bbedb4c6f0d27dffb37321d9"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/0",
+      "name_or_literal": "connections",
+      "selected_object_sha256": "f90caf8446e803e3731e3790bd115bb6ff0ea0d0885e6f39f3c3f692f2dd4251"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/1",
+      "name_or_literal": "default_temperature",
+      "selected_object_sha256": "ffd6dc0b807476256f0be84f97a6f16a9339660a83fc739e4894d9f8964108cc"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/5",
+      "name_or_literal": "max_temperature",
+      "selected_object_sha256": "33531ef276d4f44dd679766d65331d210cb43fe6493e64faf49a038294c3323f"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/6",
+      "name_or_literal": "max_transfer",
+      "selected_object_sha256": "dfea262f76146ef824b39f2875e3b76873b13e1bfbccdd0ac254c5d09a66595e"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/7",
+      "name_or_literal": "min_temperature_gradient",
+      "selected_object_sha256": "6ea449916c68295dac03d773aec503c662f745874e6f6e61bbf6ec5311c3994b"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/8",
+      "name_or_literal": "min_working_temperature",
+      "selected_object_sha256": "ffa277ff6c69e303bcce234a0eceb3b9acb14c2d68fff4c4133b4decaad25b03"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/11",
+      "name_or_literal": "specific_heat",
+      "selected_object_sha256": "f304de78d6de77e918d2526a58c5d83ab9bdadd1837884f7834ab81e147fb2b6"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/0",
+      "name_or_literal": "connections",
+      "selected_object_sha256": "56dfdc4c1a46c949143e2a5e41f55735c80ddc31cf31b455867a97677c954c03"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/1",
+      "name_or_literal": "default_temperature",
+      "selected_object_sha256": "b19919ae00a7db0050c8790f19062d721f1860d92e57f07b30dbf78039f12bd3"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/6",
+      "name_or_literal": "max_temperature",
+      "selected_object_sha256": "1d3023ad2a4e4dd36ae822f35367f562501e69c4c9499a084613ba6a170d492d"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/7",
+      "name_or_literal": "max_transfer",
+      "selected_object_sha256": "aee381887982bfa622ad1d295511fac4f65e46f372efd311aab80c659a68a023"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/8",
+      "name_or_literal": "min_temperature_gradient",
+      "selected_object_sha256": "2f348fe4b70df22a749f84d77677a2f74447a3386a82aa30bfe2bd23446eed24"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/9",
+      "name_or_literal": "min_working_temperature",
+      "selected_object_sha256": "b8d75f92489967695b93afa20bfaf6846c312f05a71a9948bd87bd77cb3c431f"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/12",
+      "name_or_literal": "specific_heat",
+      "selected_object_sha256": "fad0d96f9b966a3d172a81792e3944c1d8e0085a8200f4142466218a7dbfb690"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/3",
+      "name_or_literal": "chases_belt_items",
+      "selected_object_sha256": "6e0114a59de3281a06ddade1ffe8b2dfb40cc9f43a72b1bd2f3f7b06441de107"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/11",
+      "name_or_literal": "energy_per_movement",
+      "selected_object_sha256": "eb90cbf5a5b4ce1d108f3cd585330c81ae0a38e94f5d78fc45113f4a62a3ef27"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/12",
+      "name_or_literal": "energy_per_rotation",
+      "selected_object_sha256": "0c27340db6e4056665fde7e9b93d50b6ebed9bc5ffe79782917b61f7799eca82"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/14",
+      "name_or_literal": "enter_drop_mode_if_held_stack_spoiled",
+      "selected_object_sha256": "d4f7862e541bed341690e7a4ee4b928ca982d9c184af5110fb72f552403f452c"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/17",
+      "name_or_literal": "grab_less_to_match_belt_stack",
+      "selected_object_sha256": "ebe037aca703e93c2954ccc771bc3a3ae1f6348871eefad0ad8334ce3b37ff74"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/27",
+      "name_or_literal": "hand_size",
+      "selected_object_sha256": "40681049945f98b6821fb5412d8d1f8653c58e02900a772ac364967051f9c23b"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/29",
+      "name_or_literal": "max_belt_stack_size",
+      "selected_object_sha256": "49b5d703adfc112832b0b748434a832f69063d41f0d2a71181422998d162dee6"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/34",
+      "name_or_literal": "stack_size_bonus",
+      "selected_object_sha256": "dbf06f3eb0a11b852c59397f9e51e92cbfacf53213c402b89bf61c5264258c09"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/38",
+      "name_or_literal": "wait_for_full_hand",
+      "selected_object_sha256": "5ef4eaaaa927e44995f16d4877f587380e3639d2ae5b91ff649a90d59aa19caa"
+    },
+    {
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/92/properties/24",
+      "name_or_literal": "heating_energy",
+      "selected_object_sha256": "e10ea74b31811951e3ddad956b05e795d806c3683984e544e8d726508d4458cb"
+    }
+  ],
+  "semantic_read_scope_reported": "53wholegeneratedCviews/4282uniqueClines,20whole disassemblies+selectedlocators; additionalhelper scopedonly",
+  "claim_dispositions": {
+    "unchanged": 19,
+    "needs-qualification": 2,
+    "strengthened": 1
+  },
+  "known_inserter_gap": {
+    "entry": "1007f70c4",
+    "physical_guard": "CMPW3,#5;BHIdefault1007f748c",
+    "table_address": "10296cf39",
+    "table_bytes": [
+      0,
+      21,
+      24,
+      27,
+      30,
+      33
+    ],
+    "target_addresses": [
+      "1007f725c",
+      "1007f72b0",
+      "1007f72bc",
+      "1007f72c8",
+      "1007f72d4",
+      "1007f72e0"
+    ],
+    "all_six_targets_absent_from_saved_body": true,
+    "all_six_C_numeric_cases_present": true,
+    "missing_case_bytes": 64,
+    "missing_case_bytes_sha256": "2f685082736d7114d21643b935c0cee6b65d9038f5cb280c2bfbcd03483d0934",
+    "native_writer_repair_queued": true
+  },
+  "artifacts": [
+    {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/reader-refresh/BINDINGS.json",
+      "bytes": 132971,
+      "sha256": "12acafd6a8a9c07ce803f9daddd09c84373a5c4ea3dbc54251e917a3d0394a1a"
+    },
+    {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/reader-refresh/REPORT.md",
+      "bytes": 12685,
+      "sha256": "d797b8bc953728ae4788e6e6c89d558c2afe7e1cf881fe23188e54183a53ffa3"
+    },
+    {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/reader-refresh/CLAIM_DISPOSITIONS.json",
+      "bytes": 82941,
+      "sha256": "54c43b535afe7b7c8aca25f7e65ec5012af876cc16220510abc1cb8f3b84462f"
+    },
+    {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/reader-refresh/JOIN_READBACK.json",
+      "bytes": 27122,
+      "sha256": "47def21afb13681de94eaf204bebbb1b2965cbd3453c37d1dcacd4ee4a7abe7a"
+    }
+  ],
+  "limitations": "UnknownABI/types/nonfinitefloat/virtualcallees/7otherinsidebodygaps408bytes/completeDLCactivation/fullsource semantics preserved; repairs+finalreconciliation required."
+}

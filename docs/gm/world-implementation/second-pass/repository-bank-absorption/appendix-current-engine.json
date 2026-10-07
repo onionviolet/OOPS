@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "branch": "codex/gameplay-foundations",
+  "source_evidence": [
+    {
+      "file": "src/simulation.js",
+      "lines": [
+        49,
+        170
+      ],
+      "symbol": "previewSimulationCommand / startCommand / commitSimulationCommand / completeJob",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "observation": "Available actual actor/target/stock/power/site checks; freezes selected outcome and paid jobs/claims. No generalized item-affordance selector.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/simulation.js",
+      "lines": [
+        373,
+        405
+      ],
+      "symbol": "advanceSimulationBoundary controllers/programs",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "observation": "Registered legal commands/responses from own contexts; finite same-command next-batch programs. No arbitrary queued mixed careers.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "lines": [
+        12,
+        38
+      ],
+      "symbol": "inventory / writeInventory",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "observation": "Chooses native vs simulation owner, no duplicated native inventory.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "lines": [
+        144,
+        179
+      ],
+      "symbol": "knowledge / relationship / claim",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "observation": "Directed attributed knowledge and memory use actor, cause, joined time; no unrestricted omniscient NPC catalog.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "lines": [
+        189,
+        240
+      ],
+      "symbol": "condition / life / source / faculty / power",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "observation": "Existing condition ticks, source lifecycle and separate procedure ownership. Body-source transplantation and fuel movement not supplied by power copy.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/capabilities.js",
+      "lines": [
+        39,
+        68
+      ],
+      "symbol": "queryCapabilities",
+      "sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+      "observation": "Pure provider/source query excludes expired dormant suppressed faculty; requires actual consumer.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/power_models.js",
+      "lines": [
+        5,
+        54
+      ],
+      "symbol": "previewPowerModel / resolveEffectAmount",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "observation": "Practice/design/investment/authority/hybrid scope and cost preview; function consequences need commands/native target adapters.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/energy_resources.js",
+      "lines": [
+        21,
+        55
+      ],
+      "symbol": "applyEnergyEffect / validateEnergyState",
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "observation": "Actual per-actor reserve/strain with integer conversion and refund validation; no second timer or imported fuel grant.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "lines": [
+        15,
+        61
+      ],
+      "symbol": "prepareGameplayPublication",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "observation": "Reconstructs native items and stages XP/reputation before live assignment.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/expansion_persistence.js",
+      "lines": [
+        7,
+        49
+      ],
+      "symbol": "persistExpansionPlan",
+      "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "observation": "Retains dormant envelope, writes existing owner projections, validates and persists once.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/main.js",
+      "lines": [
+        293,
+        359
+      ],
+      "symbol": "persistExpansion",
+      "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5",
+      "observation": "Stages stock/unlocks/equipment, validates pending reward capability, saves then publishes native domains/UI. Exact current dirty fingerprint matters.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay",
+      "refresh_note": "File changed concurrently in guarded native crafting/UI work; persistExpansion293-359 reread and same staged-persist-publish boundary retained."
+    },
+    {
+      "file": "src/scene_definitions.js",
+      "lines": [
+        4,
+        21
+      ],
+      "symbol": "compileSituation",
+      "sha256": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+      "observation": "Current caused phase recipe; ambient vs offer expiry and follow-on are explicit. No generic narrative interpreter required.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/skill_discovery.js",
+      "lines": [
+        54,
+        140
+      ],
+      "symbol": "projectDiscoveryFeature / projectTechniqueDiscovery / projectDiscoveryCatalog",
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "observation": "Known-safe text before search/count/controls, discovery separate from acquisition/execution. No catalog of hidden affordances.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/realm_state.js",
+      "lines": [
+        18,
+        47
+      ],
+      "symbol": "validateRealmState / validateRealmEnvelope",
+      "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "observation": "One optional compiled Glasshouse same-body binding, exact clock/contact/location closure. Not arbitrary campaign namespace.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/realm_traveler_profiles.js",
+      "lines": [
+        1,
+        5
+      ],
+      "symbol": "REALM_TRAVELER_MODES",
+      "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+      "observation": "Detached prototype explicitly says returned intents are not registered effects/commands; alternate_body flag is not implemented native possession.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    },
+    {
+      "file": "src/world_instances.js",
+      "lines": [
+        97,
+        112
+      ],
+      "symbol": "validateWorldInstance",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "observation": "Pure scoped instance/continuity/era/site/fact/claim state; supported played-minute absence freeze.",
+      "evidence_status": "current-source-inspected-not-executed-gameplay"
+    }
+  ],
+  "common_join_policy": {
+    "state": "Reuse saved actors/body/source/faculty/powers/progression/knowledge/conditions/jobs/site/custody/world-instance owners; no parallel ledgers.",
+    "rng": "Preview/query stays pure; freeze outcome stream and selected result once at accepted command.",
+    "time": "Shared scheduler and supported activity clocks only; no arbitrary absence progress or native historical reversal.",
+    "stock": "Exact carried item keys/counts, native versus simulation binding, equipment and custody restrictions; unique specimen/charge identity only when demanded.",
+    "publication": "Plan, native reconstruction/unlocks/equipment, full envelope validation, durable write, live publication then observer-qualified UI.",
+    "compatibility": "Current expansion5/simulation3. Additive content IDs may need no schema change but must remain registered for retained jobs/powers. New saved charge/body/queue/scene domains require optional-version/migration or explicit unsupported import boundary.",
+    "verification": "No runtime/build/test evidence newly produced. Skill build is prior owner evidence; all later adoption gameplay/save/failure/keyboard/director gates deferred."
+  }
+}

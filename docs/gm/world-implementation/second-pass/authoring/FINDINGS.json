@@ -1,0 +1,613 @@
+{
+  "audit": "world-authoring-and-integration-second-pass",
+  "date": "2026-10-04",
+  "status": "planning-complete-runtime-held",
+  "assignment": "docs/gm/world-implementation/second-pass/authoring/ASSIGNMENT.md",
+  "canonical_owner": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+  "scope": "Only role reports/checkpoint; all code, source dossiers, world packs, canonical plan/RUN, private saves and library remain read-only.",
+  "baseline": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "inspection_fingerprints_captured_at": "2026-10-04T21:08:29-04:00",
+    "frozen_wave": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+    "observed_drift_from_frozen_wave": [
+      "docs/gm/world-implementation/RUN.json"
+    ],
+    "subsequent_input_drift": [
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "docs/gm/world-implementation/RUN.json",
+      "docs/gm/world-implementation/second-pass/README.md"
+    ],
+    "drift_resolution": "Reread changed planning/strategy scope and own RUN/approval. The added integration-strategy role consumes aspect findings and has no runtime writer authority. Human-review hold and this role's report-only scope remain unchanged. Updated the source-to-feature evidence range after line movement.",
+    "qualification": "Fingerprints identify inspected revisions; long files were read by named ranges/searches, not claimed fully reviewed."
+  },
+  "measurements": {
+    "runtime": null,
+    "tokens": null,
+    "pricing": null,
+    "qualification": "No gameplay or import/build execution; no cost or savings inferred from reports, counts or static complexity."
+  },
+  "findings": [
+    {
+      "id": "AUTH01",
+      "rank": 1,
+      "priority": "P1",
+      "kind": "missing",
+      "title": "Link complete effect and native-consumer closure before labelling content integrated",
+      "evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "line_start": 170,
+          "line_end": 181,
+          "claim": "Nested reference traversal checks energy/event/site/situation/pursuit; it does not close source/power/spawn/native catalogue bindings."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 207,
+          "line_end": 224,
+          "claim": "Capability-source and executable-power acquisition resolve their definitions during execution."
+        },
+        {
+          "path": "src/gameplay_transactions.js",
+          "line_start": 27,
+          "line_end": 33,
+          "claim": "An encoded item key is validated for JSON shape and quality, not actual item reconstruction."
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "line_start": 15,
+          "line_end": 39,
+          "claim": "Native publication resolves actual actors/items/skills and milestone unlock adapters."
+        },
+        {
+          "path": "src/native_unlock_transaction.js",
+          "line_start": 3,
+          "line_end": 18,
+          "claim": "Actual native quest/flag/availability entries must exist."
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 299,
+          "line_end": 319,
+          "claim": "The host already stages native publication and checks future committed rewards; retain this boundary."
+        }
+      ],
+      "current_player_behavior": "Existing registered work can produce actual kits and XP through guarded native publication. A detached definition can pass registry shape validation while still lacking a referenced source, native item/unlock, or usable consumer; this is not player-accessible delivery.",
+      "proposed_player_behavior": "A selected paid action reaches a real native item, skill/availability, body/source and local UI owner; unsupported bindings are reported to the author before release while runtime rechecks remain.",
+      "authoritative_owner": {
+        "current": "Engine registry/effect services and main native publication",
+        "proposed": "Shared Engine supplies read-only binding/capability catalogue; authoring tooling consumes it; local integrator corrects definitions",
+        "boundary": "No new effect or native state owner; foundations selects runtime semantics."
+      },
+      "dependencies": [
+        "Actual exported host capabilities and native ID catalogue",
+        "Typed per-effect reference descriptors, including outcomes/responses/ticks/enrollment",
+        "Existing campaign/mechanic IDs and status ledger"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Short Measure inspection → funded wage/report → learned Load tally → actual later kit or stock effect",
+        "qualifier": "Original held draft; current stock/travel/native UI gaps remain open."
+      },
+      "acceptance_case": {
+        "static": "Deleting a declared source or native recipe binding produces a diagnostic at the authored effect path; JSON-valid unknown item is unresolved rather than marked functional. Context-dependent references remain explicitly late-bound.",
+        "later_playable": "A paid inspection binds employer stock and participants, publishes exactly one earned wage/item/source, and appears in its local native view; unsupported output rejects without spending.",
+        "executed_here": false
+      },
+      "source_status": "Current code evidence plus original workflow proposal. No new novel fact or universal superiority limit.",
+      "verification_limits": [
+        "Read-only source tracing; no import or registry construction was executed here.",
+        "Reference closure cannot prove gameplay or dynamic predicate satisfaction."
+      ],
+      "retain_or_simplify": "Reuse item reconstruction, native unlock staging and the durable-before-publication host; add static closure around them.",
+      "cheaper_alternative": "An Engine-exported read-only descriptor of existing consumers suffices initially; do not instantiate native UI or author a parallel item system."
+    },
+    {
+      "id": "AUTH02",
+      "rank": 2,
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Declare package activation and enrollment blast radius",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "line_start": 16,
+          "line_end": 36,
+          "claim": "Common enrollment provisions all people except provision:false, creates all registered sites and schedules automatic events/controllers."
+        },
+        {
+          "path": "src/simulation_content.js",
+          "line_start": 27,
+          "line_end": 43,
+          "claim": "Several content families are manually composed into one shared simulation registry."
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "line_start": 48,
+          "line_end": 54,
+          "claim": "The held draft's two people explicitly use provision:false."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 98,
+          "line_end": 107,
+          "claim": "Explicit spawn requires an existing world and allocates a simulation actor/owner, including template controllers."
+        },
+        {
+          "path": "docs/worlds/original-frontier/REPORT.md",
+          "line_start": 26,
+          "line_end": 29,
+          "claim": "Explicit opening/enrollment/native publication remains Engine integration work."
+        }
+      ],
+      "current_player_behavior": "The current shared service enrollment deliberately provisions its configured services. Registering additional destination definitions changes that scan unless their activation fields and host policy say otherwise; import alone creates no live state.",
+      "proposed_player_behavior": "Register-only content stays dormant; explicit world/episode entry creates only the chosen supported actors, stock, sites/events and causes once. Intentionally common services remain available under a declared policy.",
+      "authoritative_owner": {
+        "current": "Shared Engine enrollment/spawn services and composed registry",
+        "proposed": "Engine owns activation/instance contracts; each local integrator declares package activation; master selects entry policy",
+        "boundary": "Authoring flags cannot allocate isolated native worlds or select a new origin/reset policy."
+      },
+      "dependencies": [
+        "Foundations' instance/world binding contract",
+        "Explicit activation policy for new packages",
+        "Declared initialization, automatic events and controller dependencies"
+      ],
+      "world_example": {
+        "world": "Original Frontier and a proposed Mother of Learning destination",
+        "case": "Opening Frontier work services must not silently create the destination's trainees or trial stock simply because their definitions were composed.",
+        "qualifier": "Future destination activation example is original; no book-specific rule is asserted."
+      },
+      "acceptance_case": {
+        "static": "Manifest lists register-only, explicit-start and intentionally common-enroll effects, people/sites/automatic checks. Omitted activation intent on a new package is reported, with current services grandfathered explicitly.",
+        "later_playable": "Frontier enrollment leaves the unchosen destination absent; chosen entry creates the declared state once and reentry retains it. An explicitly shared service is not suppressed accidentally.",
+        "executed_here": false
+      },
+      "source_status": "Verified enrollment source; cross-package consequence is a static integration risk, not a reproduced failure.",
+      "verification_limits": [
+        "No new world was registered or enrolled.",
+        "All-site initialization and instance partition choices belong to foundations; no final record shape selected."
+      ],
+      "retain_or_simplify": "Retain explicit provision:false and existing opt-in wrappers. Prefer a lifecycle manifest over a second bootstrap engine.",
+      "cheaper_alternative": "Initially require an explicit activation declaration and composed closure review; use host-supported entry wrappers instead of a generic world-instantiation framework."
+    },
+    {
+      "id": "AUTH03",
+      "rank": 3,
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Preserve compiler execution fields and project-local observations",
+      "evidence": [
+        {
+          "path": "src/site_projects.js",
+          "line_start": 13,
+          "line_end": 23,
+          "claim": "Compiler returns actorId/location/site/cost/effect fields but does not carry participant/target/co-location/role fields from phases; group and default UI section are field/workshop."
+        },
+        {
+          "path": "src/site_projects.js",
+          "line_start": 26,
+          "line_end": 30,
+          "claim": "projectView reads field.project.<phase> observation facts without the project ID."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 44,
+          "line_end": 67,
+          "claim": "Executor supports role/target checks and explicit participant occupancy."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "line_start": 227,
+          "line_end": 235,
+          "claim": "Saved jobs retain and validate participant reservations."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 20,
+          "line_end": 27,
+          "claim": "Current compiled workshop phases have one worker each."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+          "line_start": 20,
+          "line_end": 26,
+          "claim": "Micro already asks for all-worker/tool/material reservations and actual project function."
+        }
+      ],
+      "current_player_behavior": "The current one-worker workshop compiles to ordinary commands with real costs, dependencies and claims. That example does not establish cooperative phases or project-neutral observed completion; silently added execution fields would not survive this compiler.",
+      "proposed_player_behavior": "A declared two-person construction phase reserves both actual workers and the relevant site/means. Multiple projects can reuse local phase names without sharing displayed progress or revealing unobserved world completion.",
+      "authoritative_owner": {
+        "current": "Engine site-project compiler and existing participant/knowledge services",
+        "proposed": "Engine compiler writer plus local project integrator",
+        "boundary": "Foundations chooses reservations/observation identity. This report reserves no code and creates no second project queue."
+      },
+      "dependencies": [
+        "Frozen supported phase schema and participant policy",
+        "Project-local observed-completion key contract",
+        "Read-only generated command/source-path map"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Original workshop beam-fitting by player and craftsman, alongside a separate roof project with its own parts phase.",
+        "qualifier": "Cooperative variant and roof are original proposals; current field workshop remains the baseline."
+      },
+      "acceptance_case": {
+        "static": "A phase declaring participants/target/co-location either emits those fields faithfully or fails with its exact authored path. Two parts phases map to distinct observed-completion keys. Unsupported fields do not disappear silently.",
+        "later_playable": "A busy craftsman prevents beam-fitting; acceptance reserves both, cancellation follows the frozen cost policy, and the second project's People/Here view does not show the first project's completion.",
+        "executed_here": false
+      },
+      "source_status": "Verified compiler output omissions; missing generalization for selected future cooperative content, not a claim that current one-worker gameplay is broken.",
+      "verification_limits": [
+        "No compiler or gameplay was executed.",
+        "A stable-ID/observation migration must be decided by Engine if saved meaning changes."
+      ],
+      "retain_or_simplify": "Keep compilation to existing commands/jobs/claims. Add only declared fields; do not spread arbitrary unvalidated input into runtime commands.",
+      "cheaper_alternative": "A fixed explicit two-worker command can qualify the native case before extending every project phase; retain the later reusable compiler gap."
+    },
+    {
+      "id": "AUTH04",
+      "rank": 4,
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Show compiled control flow and external starts instead of assuming sequential scenes",
+      "evidence": [
+        {
+          "path": "src/scene_definitions.js",
+          "line_start": 12,
+          "line_end": 19,
+          "claim": "Ambient phases schedule a successor; offers schedule a successor on expiry. Responses retain their explicit effects."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 288,
+          "line_end": 303,
+          "claim": "Successful response applies its declared costs/effects and resolves the event; it does not execute the expiry list."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 28,
+          "line_end": 40,
+          "claim": "Road responses explicitly settle secured/detour while offer expiry leads to the later detour event."
+        },
+        {
+          "path": "src/site_projects.js",
+          "line_start": 20,
+          "line_end": 23,
+          "claim": "Project prerequisites assume an externally started world fact."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 49,
+          "line_end": 52,
+          "claim": "Field content initializes related facts outside the compiler."
+        }
+      ],
+      "current_player_behavior": "The current road's successful response and unanswered expiry intentionally have different aftermath. Project/event helpers need authored external starts and facts; registry validity alone does not explain these edges to an author.",
+      "proposed_player_behavior": "Selected responses, refusal/delay and unanswered expiry produce their declared distinct aftermath; no automatic next step overwrites a successful solution or accepts work through a missed deadline.",
+      "authoritative_owner": {
+        "current": "Engine scene/project compilers and event response executor",
+        "proposed": "Authoring compiler diagnostics expose flow; local scene writer chooses edges",
+        "boundary": "Scheduler/order/time semantics remain Engine-owned."
+      },
+      "dependencies": [
+        "AUTH03 compiler/source-path contracts",
+        "Explicit entry/start and terminal/continuation annotations",
+        "Known versus author-private fact classification"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Supply road support → secured; refuse → authored detour; leave unanswered → delayed association fallback.",
+        "qualifier": "Current original road definition inspected; no fresh behavior proof."
+      },
+      "acceptance_case": {
+        "static": "Generated graph shows response effects separately from expiry effects and marks external start dependencies unresolved until bound. Complex predicates remain opaque/unknown, with no fabricated reachability proof.",
+        "later_playable": "Supplying support retains secured aftermath; expiry takes fallback once; rendering a report causes no phase progression or obligation.",
+        "executed_here": false
+      },
+      "source_status": "Current code supports the asymmetry positively; flow graph and diagnostics are original authoring proposals.",
+      "verification_limits": [
+        "No event/expiry journey was run.",
+        "General phase reachability and arbitrary fact-condition satisfiability were not established."
+      ],
+      "retain_or_simplify": "Retain explicit response/expiry branches. Do not make every response schedule the next phase automatically.",
+      "cheaper_alternative": "A static adjacency/entry table with authored predicates is sufficient; a graph editor or model checker is unnecessary for the first case."
+    },
+    {
+      "id": "AUTH05",
+      "rank": 5,
+      "priority": "P2",
+      "kind": "simplify",
+      "title": "Use a small package descriptor and explicit view routing",
+      "evidence": [
+        {
+          "path": "src/expedition_content.js",
+          "line_start": 1,
+          "line_end": 9,
+          "claim": "Top-level content manually imports independent action/source/definition exports."
+        },
+        {
+          "path": "src/expedition_content.js",
+          "line_start": 25,
+          "line_end": 58,
+          "claim": "Registry composition combines worlds, simulation, capabilities, sources and actions."
+        },
+        {
+          "path": "src/simulation_content.js",
+          "line_start": 27,
+          "line_end": 80,
+          "claim": "Every simulation family is currently assembled with explicit spread lists."
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 18,
+          "line_end": 38,
+          "claim": "Generic panel excludes named groups and is gated to Village/Shack plus craftsman records."
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "line_start": 51,
+          "line_end": 59,
+          "claim": "Spawned people and role-target controls are also enumerated generically."
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "line_start": 17,
+          "line_end": 27,
+          "claim": "Pending-work attention routes through hardcoded group/panel choices."
+        },
+        {
+          "path": "docs/worlds/original-frontier/REPORT.md",
+          "line_start": 26,
+          "line_end": 28,
+          "claim": "Held content needs explicit family/source composition, local UI and exclusion from generic duplicate rows."
+        }
+      ],
+      "current_player_behavior": "Existing selected panels work through their own groups and native gates. New imported commands can remain inaccessible in Town, fall into generic attention routing or appear twice if a dedicated panel is added without coordinating generic enumeration.",
+      "proposed_player_behavior": "A package explicitly routes its actions, pending work, known people and quest projection into existing native Here/Practice/People consumers, with one action and attention target per declared route.",
+      "authoritative_owner": {
+        "current": "Engine composition/main/Notebook/UI owners; world modules own data",
+        "proposed": "One shared Engine integration writer consumes a local package descriptor and renderer contract; world GM owns descriptor",
+        "boundary": "Experience advises UI; renderer receives known read-only projections and does not grant enrollment/rewards."
+      },
+      "dependencies": [
+        "AUTH01 host feature/binding declarations",
+        "AUTH02 activation declarations",
+        "Experience's presentation/attention contract"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Short Measure opens in Village and later Town square, with earned receiver report and accepted-work quest projection.",
+        "qualifier": "Detached original draft; views/native integration unperformed."
+      },
+      "acceptance_case": {
+        "static": "Composition report includes every declared family/source and detects duplicate IDs or omitted required family exports. Every player command and pending-work type has a declared consumer or deliberate hidden/unsupported reason.",
+        "later_playable": "A Town report is reachable through its local panel; generic craftsman/helper UI does not duplicate its actions or leak NPC logs; attention reaches its declared panel while preserving selected tabs.",
+        "executed_here": false
+      },
+      "source_status": "Current assembly/routing evidence; proposed descriptor is authoring structure, not an implemented plugin system.",
+      "verification_limits": [
+        "No browser/UI accessibility check ran.",
+        "Static declared routing does not prove mounting, focus or final player wording."
+      ],
+      "retain_or_simplify": "Keep JS data/factories emitting existing JSON definitions. Shared descriptor references existing renderer functions separately from serializable definitions.",
+      "cheaper_alternative": "Use one explicit composition helper/descriptor with opt-in family lists. Defer a general DSL, hot reload, schema editor and universal world template."
+    },
+    {
+      "id": "AUTH06",
+      "rank": 6,
+      "priority": "P2",
+      "kind": "risk",
+      "title": "Review source corrections separately from persistent content compatibility",
+      "evidence": [
+        {
+          "path": "src/simulation_resolution.js",
+          "line_start": 9,
+          "line_end": 29,
+          "claim": "Templates, situation definitions and learned energy policies freeze in effect preparation."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 129,
+          "line_end": 148,
+          "claim": "Commands/jobs and encounter turns retain commitment data and definition revisions."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "line_start": 227,
+          "line_end": 250,
+          "claim": "Loaded jobs/events/controllers still require registered IDs."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 374,
+          "line_end": 385,
+          "claim": "Ongoing controllers resolve current registered definitions."
+        },
+        {
+          "path": "docs/ENGINE_AUTHORING.md",
+          "line_start": 84,
+          "line_end": 88,
+          "claim": "Existing schema/native/save owners and durable publication remain authoritative."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 164,
+          "line_end": 177,
+          "claim": "Existing source-to-feature requirements include claim/locator/cutoff, original additions and actual function."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 83,
+          "line_end": 89,
+          "claim": "Naruto transfer penalties remain unresolved or original prototype choices; positive supported functions are preserved."
+        }
+      ],
+      "current_player_behavior": "Paid jobs and spawned bodies retain frozen data, but ID removal can reject saved state and current controller/power definitions may govern future behavior. A revised source note alone does not choose how old acquired means should change.",
+      "proposed_player_behavior": "Typo/attribution corrections leave paid work and earned means intact. Semantic content or source-rule corrections receive an explicit compatibility decision; unsupported assumptions stay visible rather than silently rewritten into canon.",
+      "authoritative_owner": {
+        "current": "Source dossier owners, local mechanic ledger and Shared Engine save/registry services",
+        "proposed": "Source GM corrects claim; world integrator maps impacted mechanic IDs; Engine selects alias/migration/rejection; master approves scope",
+        "boundary": "This audit selects no schema/migration/body penalty or save mutation."
+      },
+      "dependencies": [
+        "Stable required mechanic IDs already proposed in canonical plan",
+        "Package/content and exported-contract revision descriptors",
+        "Reviewed claim status/locator/source-cutoff references",
+        "Foundations' compatibility policy"
+      ],
+      "world_example": {
+        "world": "Original Frontier; proposed Naruto adaptation",
+        "case": "Frontier paid inspection survives a wording correction. A future eye-transfer penalty correction changes only the reviewed affected rule, not ancestry, donor identity or unrelated positive functions.",
+        "qualifier": "Frontier case original; Naruto penalty remains U/O exactly as canonical plan states. No new canon fact."
+      },
+      "acceptance_case": {
+        "static": "Change report classifies cosmetic/evidence/cutoff, future-definition behavior and persistent-ID/meaning changes; lists affected commitments/controllers/UI/required IDs. Removed ID without compatibility disposition remains unresolved.",
+        "later_playable": "After an allowed correction, frozen paid work keeps its documented settlement and one source receipt; changed future behavior follows the declared version policy without duplicate rewards or stripped unrelated faculties.",
+        "executed_here": false
+      },
+      "source_status": "Code compatibility evidence; source qualifiers are copied by reference to current owner, not relabelled as primary reading.",
+      "verification_limits": [
+        "No source library/book was read or modified in this audit.",
+        "No migration/import/reload was run; version descriptors remain proposals."
+      ],
+      "retain_or_simplify": "Reference authoritative claim records and existing feature ledger rather than copy dossiers into every package or create a third ledger.",
+      "cheaper_alternative": "A small reviewed revision/impact table and explicit ID aliases may handle the first content correction; no automatic save-repair engine."
+    },
+    {
+      "id": "AUTH07",
+      "rank": 7,
+      "priority": "P2",
+      "kind": "already-covered",
+      "title": "Retain dynamic template-instance support and document the exact recipe",
+      "evidence": [
+        {
+          "path": "src/simulation_resolution.js",
+          "line_start": 9,
+          "line_end": 29,
+          "claim": "Cause-based spawn identity, frozen template and ordered same-list aliases already exist."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 98,
+          "line_end": 109,
+          "claim": "Actual spawned actors have separate owners and template-attached controllers; native relocation is explicitly rejected."
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 53,
+          "line_end": 62,
+          "claim": "Commands distinguish exact actor/target IDs from definition-role selectors."
+        },
+        {
+          "path": "src/helper_content.js",
+          "line_start": 14,
+          "line_end": 25,
+          "claim": "Existing funded helper uses spawn alias, actorDefinitionId and targetDefinitionId."
+        },
+        {
+          "path": "src/helper_content.js",
+          "line_start": 40,
+          "line_end": 43,
+          "claim": "Helper controller binds the reusable template role."
+        }
+      ],
+      "current_player_behavior": "The existing original helper can own inputs and execute role-bound commands under actual generated identity. Fixed cast content can use exact IDs. This already supplies a useful factory target, not proof of independent native world instances.",
+      "proposed_player_behavior": "More authored helpers use the same supported role recipe with independent actors, means and remembered aftermath, without copying the player/NPC inventory or leaking a transient alias into later commands.",
+      "authoritative_owner": {
+        "current": "Engine spawn/resolution/role services and local helper definitions",
+        "proposed": "Local authoring recipe/factory writer; Shared Engine retains identity/native services",
+        "boundary": "Foundation identity and world-instance semantics are retained, not redesigned by factories."
+      },
+      "dependencies": [
+        "AUTH01 declared runtime capabilities",
+        "Explicit definition ID versus actual actor ID roles",
+        "Namespaced immutable definitions and source-path metadata"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "Two original hired route carriers of one helper type each get one paid input, execute their own job and return their own output.",
+        "qualifier": "Existing one-helper source support inspected; two-carrier example is an original future qualification."
+      },
+      "acceptance_case": {
+        "static": "Recipe uses spawn before same-list aliases, role-based actor/target selectors and actual persisted target IDs for later calls. Native-bound spawn misuse receives an explicit capability diagnostic.",
+        "later_playable": "Both carriers retain separate stock/controllers/job outcomes across reload; duplicate/stale creation does not regrant supplies; collecting one output does not consume the other's.",
+        "executed_here": false
+      },
+      "source_status": "Positive current-code support; factory/recipe and multi-helper acceptance are original proposals.",
+      "verification_limits": [
+        "No helpers were spawned or exercised.",
+        "A reusable person template does not establish arbitrary repeated sites, native NPC copies or multiverse histories."
+      ],
+      "retain_or_simplify": "Keep cause-based IDs, frozen templates, private owners and role selectors. Provide recipes and small parameterized JS factories before designing another lifecycle service.",
+      "cheaper_alternative": "Use the existing helper shape verbatim for the first new local role; generalize only the fields the second actual case needs."
+    },
+    {
+      "id": "AUTH08",
+      "rank": 8,
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Give authors actionable diagnostics with explicit proof levels",
+      "evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "line_start": 8,
+          "line_end": 21,
+          "claim": "Validation throws messages and rejects unsafe/non-JSON data."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "line_start": 86,
+          "line_end": 118,
+          "claim": "Registry validation is fail-fast by family/definition with useful existing invariants but no authored source-path diagnostic record."
+        },
+        {
+          "path": "src/site_projects.js",
+          "line_start": 5,
+          "line_end": 15,
+          "claim": "Compiler checks IDs, dependency cycles and timing using error strings."
+        },
+        {
+          "path": "src/scene_definitions.js",
+          "line_start": 4,
+          "line_end": 10,
+          "claim": "Scene checks timing/effects before generating events."
+        },
+        {
+          "path": "docs/worlds/original-frontier/REPORT.md",
+          "line_start": 12,
+          "line_end": 22,
+          "claim": "Historical successful registry construction still coexists with unqualified gameplay premises and no native/UI proof."
+        }
+      ],
+      "current_player_behavior": "Runtime rejects many invalid definitions safely. An author receives the first generic failure; repeated fixing can still leave contextual stock/travel or native-consumer gaps that a successful registry check does not reveal.",
+      "proposed_player_behavior": "Local content ships with fewer broken/missing controls because authors can locate the exact rule, dependency and proof gap before integration. Player-facing reasons use actual supported requirements, not diagnostic jargon.",
+      "authoritative_owner": {
+        "current": "Engine validators/compilers; master status ledger",
+        "proposed": "Authoring preflight/report owner reuses validator contracts; local writers repair definitions; master keeps delivery status",
+        "boundary": "Player UI copy and behavior acceptance remain experience/Engine gates."
+      },
+      "dependencies": [
+        "AUTH01 link descriptors",
+        "AUTH03/AUTH04 generated-to-authored source map",
+        "Master's existing planned/implemented/built-unverified/behavior-verified/human-reviewed distinctions"
+      ],
+      "world_example": {
+        "world": "Original Frontier",
+        "case": "A compiler-generated workshop command reports the offending project/phase/effect path; Short Measure stays detached despite its historical registry receipt.",
+        "qualifier": "Diagnostic and status workflow original; held receipt is historical."
+      },
+      "acceptance_case": {
+        "static": "Diagnostic includes code/severity, package/feature ID, family/definition ID, authored field path, reference and remediation owner. Independent errors aggregate deterministically; dependent checks stop after invalid shape. Contextual claims are unresolved until operational evidence exists.",
+        "later_playable": "Local controls display correct ordinary eligibility reasons and selected actions pass the permitted journey/retention gate; source/publication safeguards remain active.",
+        "executed_here": false
+      },
+      "source_status": "Current fail-fast source evidence; structured diagnostics and proof-level output are proposals.",
+      "verification_limits": [
+        "No diagnostic tool was implemented or benchmarked.",
+        "No reduction in tokens, authoring time or runtime cost measured; file/word counts would be surrogates only."
+      ],
+      "retain_or_simplify": "Reuse validation rules and keep assertions at runtime. Diagnostics wrap or share those rules, rather than fork a second acceptance vocabulary.",
+      "cheaper_alternative": "A deterministic CLI/JSON link report suffices initially; editor integrations and automated gameplay generation are deferred."
+    }
+  ]
+}

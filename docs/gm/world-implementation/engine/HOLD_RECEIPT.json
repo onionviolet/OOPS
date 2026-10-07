@@ -1,0 +1,35 @@
+{
+  "status": "held for direct human plan review",
+  "branch": "codex/gameplay-foundations",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "hashes": {
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/pocket_realm_scenes.js": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "src/pocket_realm_ui.js": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/pocket_observation.js": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/save_files.js": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+    "dist/bundle.js": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+    "dist/bundle.js.map": "cb13c6c75d83801904e7905b3806d42aa0a035b5c02094e0c087326ca0e769b8"
+  },
+  "engineNewFiles": {
+    "src/settling_rack.js": false,
+    "docs/gm/world-implementation/INTERFACE.md": false,
+    "src/world_ability_runtime.js": false,
+    "src/original_frontier_campaign_content.js": true
+  },
+  "rootChildren": {
+    "cargo_engine_gm": "completed/released",
+    "observation_engine_gm": "completed/released",
+    "realm_clock_engine_gm": "completed/released"
+  },
+  "pendingRootToolOrExecSession": null,
+  "sharedDriftSincePreviousBuild": [],
+  "bundleMatchesPreviousBuild": true,
+  "otherRoleModuleObservedHash": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+  "otherRoleStatus": "file presence only; source owner/master controls live status"
+}

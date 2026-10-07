@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-04",
+  "purpose": "Depth planning input snapshot; source/plan drift must be reported, not silently assumed frozen. No runtime acceptance.",
+  "files": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "e3978739814091e9f5306723f00bd397d7ae68f7eb888ef989d4e74466e648ed",
+    "docs/gm/world-implementation/depth/macro/ASSIGNMENT.md": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645",
+    "docs/gm/world-implementation/depth/micro/ASSIGNMENT.md": "654e53270d12849ab8a7f8a6acd994f8353fd8c0b1218c77965424c74ad3b9b4",
+    "docs/worlds/naruto/ABILITY_VARIANTS.md": "c4c90ba43051787b7549910a5a3e45cc56c0722e39fd2218f586917f225ddf8b",
+    "docs/worlds/naruto/SOURCE_LEDGER.md": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/site_projects.js": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+  },
+  "supplementalInputs": {
+    "reason": "Supplemental source-to-action explanation received during planning; original frozen hashes retained. Primary dossier/source checks still required.",
+    "files": {
+      "docs/gm/dispatch/RESEARCH_FINDINGS_EXPLAINED.md": "eac5e67a64a79808a4bf1ec1a9a09740adb7a79cb1c809f899cd6fd7b597c48a",
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68"
+    }
+  }
+}

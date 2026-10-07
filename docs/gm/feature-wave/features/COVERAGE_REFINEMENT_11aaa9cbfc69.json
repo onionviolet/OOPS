@@ -1,0 +1,348 @@
+{
+  "schema": 1,
+  "state": "source-native-ui-save-build-delivered; gameplay-unverified",
+  "build": "docs/gm/feature-wave/features/BUILD.json",
+  "rows": [
+    {
+      "id": "objects",
+      "implemented": "Seven conserved native variants, custody loans/deposits, wear/repair/refit and witnessed fitting functions",
+      "sourcePaths": [
+        "src/feature_expansion_objects.js",
+        "src/feature_expansion_objects_host.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "powers-combat",
+      "implemented": "Four mature methods, paid specialization/drills, real helper gear and fixed native two-opponent gate/escape combat",
+      "sourcePaths": [
+        "src/feature_expansion_powers.js",
+        "src/feature_expansion_powers_host.js",
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_battle_host.js",
+        "src/native_battle_contracts.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "society-work",
+      "implemented": "Three funded residents, willing reciprocal rights/teaching/succession and two readable finite mixed itineraries",
+      "sourcePaths": [
+        "src/feature_expansion_society.js",
+        "src/feature_expansion_society_host.js",
+        "src/feature_expansion_work_plan.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "destination",
+      "implemented": "Optional Tidemark with actual independent native people/stock/shop/quest/local calendar, explicit human-body cargo entry/return and absent-time freeze",
+      "sourcePaths": [
+        "src/feature_expansion_destination.js",
+        "src/feature_expansion_destination_host.js",
+        "src/feature_expansion_destination_native.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "backlog-eight",
+      "implemented": "Optional nonhuman origin, same organ/device, possession, living inheritance, bounded live loop, consensual fate-right transfer, finite ecology and escrowed wall-window catch-up",
+      "sourcePaths": [
+        "src/backlog_expansion_body.js",
+        "src/backlog_expansion_time.js",
+        "src/backlog_expansion_opportunities.js",
+        "src/backlog_expansion_host.js",
+        "src/backlog_expansion_ui.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "legibility",
+      "implemented": "Actual command/blocker/term quotes, frozen accepted work, qualified player accounts and accessible keyed lists including combat, passages, Backlog and Ink",
+      "sourcePaths": [
+        "src/action_legibility.js",
+        "src/action_legibility_ui.js",
+        "src/feature_expansion_legibility.js",
+        "src/feature_expansion_host.js",
+        "src/original_frontier_campaign_host.js",
+        "src/original_frontier_campaign_ui.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "ink",
+      "implemented": "Pinned actual Ink compiler/runtime, compiled original negotiation, durable same-envelope cursor/host consequences and displayed stale-token rejection",
+      "sourcePaths": [
+        "src/ink_narrative.js",
+        "src/ink_scene_content.js",
+        "src/ink_narrative_ui.js",
+        "stories/feature_wave.json"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "repositories",
+      "implemented": "All30 rows dispositioned; useful original lantern/floodline work, material method, preparation/stock projections and attributed reports through current owners",
+      "sourcePaths": [
+        "src/repository_absorption_content.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_facts.js",
+        "src/repository_absorption_workplan.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "nativeConsumers": [
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js"
+      ],
+      "uiConsumers": [
+        "src/main.js",
+        "src/feature_expansion_ui.js",
+        "src/feature_expansion_wave_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "saveConsumers": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js"
+      ],
+      "allListedSourceContentBundled": true,
+      "status": "implemented-unverified"
+    }
+  ],
+  "repositoryRows": {
+    "total": 30,
+    "adopted": 9,
+    "alreadyCovered": 15,
+    "notApplicable": 4,
+    "rejected": 2,
+    "owner": "docs/gm/feature-wave/repositories/SOURCE_MATRIX.json"
+  },
+  "backlogFamilies": 8,
+  "compatibility": {
+    "absentDefaults": "Existing saves remain unenrolled; optional namespaces absent by default",
+    "expansion": "Existing5 retained; selected destination/backlog/legacy Ink/workPlans use6. NestedCampaign1 explicitly opts into7; older6readers reject new owner state. Schemas1-4 retain existing additive migration to5.",
+    "simulation": "Retained1-4, new conserved reservations require4 where declared; historical frozen jobs retain meaning",
+    "nativeBattle": "Optional3 added, retained1/2 unchanged",
+    "prestige": "Existing one-layer field renewal retained, no second prestige",
+    "time": "One common played clock and one publisher. Three native instance calendars advance only with actual local presence; unsupported absence frozen. Extraction wait stages existing shared advancement through actual carrier guard; readiness, hub arrival and settlement separate.",
+    "backlog": "Absent/Backlog1 retained; deliberate office meeting introducesBacklog2/replacement1.",
+    "ink": "Legacy wrapper1/content1+2 retained; explicit scoped sessions introducewrapper2/currentcontent3 with47response tags; unknown identities reject recoverably."
+  },
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import roundtrip",
+    "save failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "bundleFingerprint": "11aaa9cbfc69",
+  "amendments": {
+    "bookWorldSubtleties": {
+      "sourceRows": 19,
+      "sourceIndex": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+      "sourceIndexSha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+      "sourceProfilesBundled": 19,
+      "nativeBookAdaptations": "Not claimed. Selected original office/relay/reference consumers qualified separately; completed source metadata is not a native world.",
+      "replacementControls": 17,
+      "totalBacklogControls": 58,
+      "relayCommands": 24,
+      "relayItems": 4,
+      "referenceCommands": 7,
+      "nativeOfficeGuard": "Actual native body/control/consent/two-seal duty and retained personal/native owners; shared preview/commit/final publication",
+      "observerView": "Actual own knowledge/accounts/corrections, attributed basis/cause and reported People; private beliefs/agenda/author future excluded"
+    },
+    "nestedCampaign": {
+      "status": "actual-source-native-ui-save-build-admitted-implemented-unverified",
+      "worlds": [
+        "nested.paradise_hub",
+        "nested.saltworks",
+        "nested.archive"
+      ],
+      "nativeLocations": 6,
+      "nativePeople": 8,
+      "independentStockShopQuestCalendarOwners": 3,
+      "nativeDomain": "nested_campaign_native",
+      "nativeCampaignSchema": 1,
+      "missions": 4,
+      "sourceQualifiedFrame": "Paradise PR01-08 selected early service footprint; voluntary entry/approval/residence, residents, destinations, credits/prices and method all original divergences. Hunter unselected.",
+      "sourceFit": "docs/gm/feature-wave/features/nested-campaign/source-fit/SOURCE_FIT.json",
+      "ordinaryRoles": [
+        "resident",
+        "employee",
+        "contractor"
+      ],
+      "actualLifecycle": [
+        "offer",
+        "funded_acceptance",
+        "arrival",
+        "objective_outcome",
+        "extraction_initiation",
+        "interruption_recovery",
+        "ready",
+        "actual_hub_arrival",
+        "once_only_settlement",
+        "retained_changed_revisit"
+      ],
+      "carrierGuard": "Backlog transient snapshots wrap actual bare native moves, full cargo/body/source/rights/debt/observer/clock conservation, active edge-applicable mission, no historical visit deletion",
+      "clockGuard": "Existing shared advance + exact native local sync; compact receipt only, no private seals saved",
+      "chains": {
+        "count": 3,
+        "commands": 62,
+        "player": 53,
+        "npc": 9,
+        "controllers": 6,
+        "phases": 31,
+        "branchDispositions": 14
+      },
+      "registeredInkCommands": 31,
+      "oldContentRetained": [
+        1,
+        2
+      ],
+      "currentContent": 3,
+      "allCommands": 635,
+      "sourceWorldParity": false
+    },
+    "repositories": {
+      "registeredCommands": 28,
+      "bankRows": 30,
+      "dispositions": "9adopted/15already-covered/4not-applicable/2rejected retained; new original Miri substitution and incomplete-to-practiced continuation uses actual source/native stock/claims"
+    },
+    "reviews": {
+      "native": "all source findings resolved in bounded reviewed joins",
+      "ui": "all4source findings resolved; source readback",
+      "behavior": "deferred; not inferred from imports/build"
+    }
+  }
+}

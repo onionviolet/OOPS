@@ -1,0 +1,203 @@
+{
+  "schema": 1,
+  "lane": "paradise_depth",
+  "status": "leaf source complete/released; root reports native/UI integration and source findings closed; final root build/checks/canonical delivery pending; implemented-unverified",
+  "assignmentRows": [
+    1,
+    3,
+    4,
+    5
+  ],
+  "source": {
+    "snapshot": "PD-MTL-67f15d112389-r1",
+    "epubSha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+    "qualification": "Supplied English MTL; original primary canon, publication and translation fidelity remain unauthenticated.",
+    "scope": "Retained sid20 first-Goa before-fire era through fire/gate/palace and immediate productive aftermath. Existing sid26-28 service institutions beside sid20 remain an explicit original chronology divergence.",
+    "reusedReadOnlyOwners": [
+      "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md",
+      "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json",
+      "docs/research/novels/trailblaze-reading/paradise-depth/CHECKPOINT.md",
+      "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md"
+    ],
+    "pins": [
+      {
+        "sid": 20,
+        "member": "EPUB/Chapter 19 Before the Event..._19.xhtml",
+        "memberSha256": "23661c691ddd65388b93e88aa39d174ecaab06b20ccd3db1209726c185e3045d",
+        "paragraphs": [
+          "9-36",
+          "58-65"
+        ],
+        "use": "Actual current negotiated ignition, mistrust, promised means and separate private Su plan. No player inherited office, source or future knowledge."
+      },
+      {
+        "sid": 21,
+        "member": "EPUB/Chapter 20 Deception!_20.xhtml",
+        "memberSha256": "c5722c45640bbf5ff3cf324cf9f8d2c4b9ea46724f4e488dc31da8d9a9d74610",
+        "paragraphs": [
+          "3-19",
+          "22-29",
+          "39-56",
+          "64-84"
+        ],
+        "use": "Fire, escaping pirates, shut gate, actual Hank danger and consumed explosives form the opposition/rescue causal base. New response choices and bounded scene are original."
+      },
+      {
+        "sid": 26,
+        "member": "EPUB/Chapter 25 Various Classes_25.xhtml",
+        "paragraphs": [
+          "25-65"
+        ],
+        "use": "Employee/store/paid information and ordinary lived hub services. New personal bench/orders/teacher remain original independent branch services."
+      },
+      {
+        "sid": 28,
+        "member": "EPUB/Chapter 27 Training!_27.xhtml",
+        "paragraphs": [
+          "1-45"
+        ],
+        "use": "Paid training institutions coexist with ordinary services. The player's new line procedure is original physical training, not Su's purchased image or source mastery."
+      }
+    ],
+    "unresolved": [
+      "Exact source midnight versus tomorrow18:00 synchronization",
+      "Primary/franchise canon names and translation fidelity",
+      "Current Su spendable mana",
+      "General district population/evacuation capacity",
+      "Post-fire political office survival beyond a private personal supply order",
+      "Arbitrary attack/replacement, magical source rights and broader novel parity"
+    ]
+  },
+  "connectedCampaign": [
+    {
+      "phase": "early ordinary life",
+      "behavior": "Voluntary extended terms; actual personally built hub bench; two finite actual kit repair orders paid from the present employee's own credits and attention.",
+      "consumers": [
+        "native player/employee inventories",
+        "book.paradise.coin own purses",
+        "simulation sites",
+        "exact refundable common-clock jobs",
+        "current local center/Notebook via root host join"
+      ]
+    },
+    {
+      "phase": "acquisition and control",
+      "behavior": "Paid paired instruction or self development after own actually learned bracing; source activation/pause/resume; up to three own effort practices; control2 and mastery3 affect different supported functions.",
+      "consumers": [
+        "capability source lifecycle",
+        "saved personal power/mastery",
+        "owned unborrowed unequipped kit/rope",
+        "protected gate lift",
+        "cheaper/faster personal bench work",
+        "one-log-saving shelter work"
+      ]
+    },
+    {
+      "phase": "preparation and discovery",
+      "behavior": "Spent cloth makes one temporary smoke wrap; personally inspected gate anchors support a line lift; current observation reveals only actual endangered Hank/fleeing Krieg and the original declared game window.",
+      "consumers": [
+        "native cloth/stamina",
+        "saved condition",
+        "attributed own observed knowledge",
+        "actual native place/body",
+        "local retained clock"
+      ]
+    },
+    {
+      "phase": "actual bounded threat",
+      "behavior": "Existing source-era cask/fire/gate operation remains; opt-in new Hank duty and Krieg escape consume their own means and physically reach the actual gate. Three-turn scene offers controlled/ordinary/paid/exposed gap, protected/ordinary/hurried lift, food or wounds, and honest retreat.",
+      "consumers": [
+        "independent existing native bodies/locations",
+        "Krieg actual attention/stamina/purse",
+        "Hank own actual vitals",
+        "native player materials/HP/stamina",
+        "frozen encounter responses/participants",
+        "actual life and lasting world consequences"
+      ]
+    },
+    {
+      "phase": "failure and prior outcome",
+      "behavior": "Unrescued closing-window danger can actually kill Hank; original previously frozen death keeps its old cause. Earlier real own shelter bypasses rescue without new injury/reward. Withdrawal retains already spent means; withdrawal after a performed lift preserves that real rescue.",
+      "consumers": [
+        "actual native lifeCause/HP",
+        "once source claims",
+        "new admission-only old-death gate",
+        "exact before/staged reconciliation",
+        "attributed post-arc account"
+      ]
+    },
+    {
+      "phase": "lasting body consequences",
+      "behavior": "Disclosed exposed rescue leaves player/Hank smoke irritation/bruising. Hero source stats have exact same-body projection; Hank's careful personal duty-kit order waits for his own actual recovery. Supplied versus time-only player care and actual consenting Hank food/care spend their own supplies and finite attention.",
+      "consumers": [
+        "Hero native perception/dexterity/stamina efficiency",
+        "no duplicate HP drain",
+        "saved conditions and actual played expiry",
+        "actual native player/Hank HP/stamina",
+        "Hank paid kit-order body gate"
+      ]
+    },
+    {
+      "phase": "mature retained function",
+      "behavior": "One sound beam can be recovered only from the player's actual previously supplied cache, disabling that consumed cache afterward. Ordinary or mastered real materials construct one retained two-person-scale shelter. Repeat personal kit work, Rin/Hank finite own-budget orders and a current attributed branch account continue in the same district.",
+      "consumers": [
+        "native acquired material/item ownership",
+        "actual existing cache consumption facts",
+        "persistent shared site owner",
+        "native player/Rin/Hank inventories/purses",
+        "native old arc closure",
+        "changed same-instance life/work"
+      ]
+    },
+    {
+      "phase": "return and continuing relevance",
+      "behavior": "Existing personal return or separate funded contract/extraction/settlement remains. Actual hub return reception records the player's performed new work and account; own bench/method/shelter remain useful across subsequent retained visits without stock/reward/people reset.",
+      "consumers": [
+        "existing actual visit/connection/body/cargo owners",
+        "same retained Paradise/Goa instances",
+        "source-qualified received employee knowledge",
+        "ordinary continuing material work"
+      ]
+    }
+  ],
+  "originalProposals": [
+    "All numeric costs, wages, vitals, durations and local rescue58-72 clock",
+    "Line procedure, controlled anchor geometry and bounded physical rescue responses",
+    "Smoke wrap/irritation/bruising and exact treatment/support policies",
+    "Personal bench, two repair orders, small shelter and changed-district personal kit orders",
+    "One sound component recovered from actually spent small-cache timber",
+    "All player/employee/Rin/Hank dialogue and alternative branch outcomes"
+  ],
+  "preserved": [
+    "Existing source era and independent retained-body contract",
+    "Existing ordinary shifts/cache/warning/fuel/royal/Su/care work",
+    "Su's own finite source-era body/equipment/talent/private plans and unknown mana",
+    "Existing home world and meaningful vanilla opening",
+    "Earlier expansion5-11/simulation/frozen jobs and old absence meanings",
+    "Private saves/read-only dossiers/libraries/attribution/LICENSE",
+    "One prestige and no rewind",
+    "Four reserved game_absorption_assay leaves",
+    "Prior static preview"
+  ],
+  "checksRun": [
+    "All four new modules syntax",
+    "Combined old Paradise plus new exact simulation definitions",
+    "All four new module imports",
+    "Targeted source/consumer/reservation/shared-claim/withdrawal/controller idempotence review"
+  ],
+  "notRun": [
+    "unit tests",
+    "gameplay",
+    "browser",
+    "save/reload",
+    "import behavior",
+    "failure injection",
+    "regression",
+    "keyboard",
+    "director acceptance"
+  ],
+  "rootRemaining": [
+    "Final shared compiler/build/map/served-byte evidence",
+    "Canonical PROJECT/world brief/checkpoint delivery"
+  ]
+}

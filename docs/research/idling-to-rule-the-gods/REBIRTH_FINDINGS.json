@@ -1,0 +1,137 @@
+{
+  "schema": "yair.itrtg.rebirth-findings.v1",
+  "scope": "Bounded source trace of rebirth reset boundary and selected challenge consequences; not a complete rebirth implementation specification.",
+  "source": {
+    "game": "Idling to Rule the Gods",
+    "steam_build": 25514347,
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c",
+    "decompiled_root": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/decompiled",
+    "tool": "ILSpy export; decompiled C#; symbol names obfuscated",
+    "source_file_hashes": {
+      "EIEEGDPHEPO.cs": "eaca1c0ad0318cdc3a572ccfe0ce7276c1587b65d4996c7400910e6d1e74c245",
+      "Assets.Scripts/UpdateStats.cs": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+      "HJDMNBANOMG.cs": "6f7a6680a2befad3e6f40047a98516bccf295b6750616ab201060e5ba9997452",
+      "Assets.Scripts.Gui/Gui.cs": "efad0fc9fef4675623cadbad900f2812f89cc1fb23a5f5142e8e7917d7e022bb",
+      "JENBACKJIFC.cs": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+      "OHCPKHJMFOO.cs": "5709e1e65127395a29cd0eef9ac0a4c2b818bae28217730503670d9bbf924dee",
+      "NLHFJIOHPDO.cs": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+      "DNBDCFFIEDG.cs": "24d475e5edbfdf1c9a3c7a5c4800aac511d15cf30fa8f3a4608a9e84038e6fdc"
+    }
+  },
+  "trace": {
+    "symbols": [
+      {
+        "file": "EIEEGDPHEPO.cs",
+        "class": "EIEEGDPHEPO",
+        "method": "ACCKPNGPBHC(bool DBAGMKHFGIO = true, OHCPKHJMFOO PPLFHCKDNDN = null)",
+        "lines": [4546, 5316],
+        "role": "Large state-transition routine that snapshots selected state, installs a fresh PFBFLAJEGBI state object, restores selected managers, increments rebirth-related state and applies challenge-sensitive cleanup."
+      },
+      {
+        "file": "Assets.Scripts/UpdateStats.cs",
+        "class": "UpdateStats",
+        "method": "call sites of EIEEGDPHEPO.ACCKPNGPBHC",
+        "lines": [2366, 2366],
+        "role": "One caller passes DBAGMKHFGIO:false; this is a caller anchor only and does not establish the player-facing eligibility gate."
+      },
+      {
+        "file": "HJDMNBANOMG.cs",
+        "class": "HJDMNBANOMG",
+        "method": "call sites of EIEEGDPHEPO.ACCKPNGPBHC",
+        "lines": [204, 266],
+        "role": "Challenge lifecycle caller family passes challenge context and boolean options into the shared state transition."
+      },
+      {
+        "file": "JENBACKJIFC.cs",
+        "class": "JENBACKJIFC",
+        "method": "JFBCBDOKOFJ()",
+        "lines": [9526, 9580],
+        "role": "Active generic rebirth dispatch: optional autosave and challenge selection; when no challenge is pending it calls ACCKPNGPBHC() with the default true option, then performs follow-up hooks."
+      },
+      {
+        "file": "OHCPKHJMFOO.cs",
+        "class": "OHCPKHJMFOO",
+        "method": "challenge metadata switch case BGCBFIGDIPC.NTC",
+        "lines": [761, 770],
+        "role": "Names No Training Challenge, its stated unlock text and reward modifier; confirms NTC as a semantic enum label."
+      },
+      {
+        "file": "NLHFJIOHPDO.cs",
+        "class": "NLHFJIOHPDO",
+        "method": "BPMABPHBKOP(long BIKNOLNJNLC)",
+        "lines": [766, 772],
+        "role": "While NTC is active, returns before this method applies the GEHGBKPHENJ-weighted progress increment. The exact concrete subclass/caller is not established here."
+      },
+      {
+        "file": "DNBDCFFIEDG.cs",
+        "class": "DNBDCFFIEDG",
+        "method": "statistics rendering for Training, Skill stats gain",
+        "lines": [5858, 5859],
+        "role": "Live calculated display: 100% + 5% per completed NTC, capped at 200%; the text explicitly identifies this as training and skill stat gain."
+      }
+    ],
+    "eligibility_and_multiplier": {
+      "status": "Player-facing generic confirmation path partially traced; the full eligibility gate and rebirth multiplier calculation remain unestablished.",
+      "observed": "JENBACKJIFC.JFBCBDOKOFJ (9526-9580) is the active generic rebirth dispatch: after optional autosave/challenge selection, its no-pending-challenge branch calls ACCKPNGPBHC() with default true and runs post-transition hooks. The full upstream UI control caller and every eligibility precondition are not established here. BEOFDFCIDDD contains branch-specific automatic rebirth routines, not a verified general GUI formula.",
+      "inference": "None. Need resolve the live tooltip/comparison getter and its called source formula before stating a multiplier."
+    },
+    "state_transition": {
+      "observed_rules": [
+        "ACCKPNGPBHC captures several existing managers and values, calls the existing clone/training manager's rebirth hook, then replaces the central PFBFLAJEGBI state object with a newly constructed instance (EIEEGDPHEPO.cs:4740-4900).",
+        "After replacement, selected manager objects and selected subcollections are assigned back, while inspected clone records have per-run values GEHGBKPHENJ, GIBPIPCKDNN, JNMLPIDLJBN zeroed and PNCGEDLCMHJ cleared (EIEEGDPHEPO.cs:4780-4885).",
+        "The routine records the rebirth count to statistics and invokes post-transition manager recalculations before returning (EIEEGDPHEPO.cs:5270-5316)."
+      ],
+      "formula": null,
+      "retention_table": [
+        {"inspected_state": "JPCMDMHEPNC settings object", "observed_disposition": "Captured and assigned to the new state; PANFNCLAKLD is set false.", "evidence": "EIEEGDPHEPO.cs:4770-4790", "coverage": "field-level spot check only"},
+        {"inspected_state": "LJNCGBNDJII and BKHLLPDOGLC managers", "observed_disposition": "Captured and assigned to the new state.", "evidence": "EIEEGDPHEPO.cs:4780-4800", "coverage": "manager identity only; internals not audited"},
+        {"inspected_state": "JCKGEOKODPK selected collections", "observed_disposition": "Three lists and one nested collection are reassigned; inspected records then have selected run fields reset.", "evidence": "EIEEGDPHEPO.cs:4780-4840", "coverage": "selected members only"},
+        {"inspected_state": "PCPBFBBDCAG cap fields ACEJEFIKDEE, LHLDNDMDBNK, IPLDCELNDNM, AKEPDNAJIII", "observed_disposition": "Copied into corresponding new manager fields.", "evidence": "EIEEGDPHEPO.cs:4820-4860", "coverage": "four named fields only"},
+        {"inspected_state": "KMOLHMLNAPA run counters JLGHCABBKBE, FPLMOJGONBK, IKNKGELLCJD, LOJDLKGKKMI", "observed_disposition": "JLGHCABBKBE set to zero and the latter three set to zero in the inspected transition block.", "evidence": "EIEEGDPHEPO.cs:4870-4900", "coverage": "four fields only"}
+      ],
+      "limits": "The state class has many fields and this is not an exhaustive retained/reset inventory. Do not treat absence from this table as evidence that a field resets or persists."
+    },
+    "challenge_consequences": {
+      "selected_challenge": "No Training Challenge (BGCBFIGDIPC.NTC)",
+      "enrollment_and_modifier": [
+        "The challenge metadata names it No Training Challenge and says it is unlocked after maxing Monster Queen Challenges; the same case states the objective is to beat P.Baal V20 (Mew) with training, skills and might disabled (OHCPKHJMFOO.cs:761-770). This is the metadata description, not an independently traced unlock UI gate.",
+        "The metadata describes a +5% per completed challenge increase to Physical and Mystic obtained from Skills and Physical trainings, with an additional stated effect on Mystic Regen + Might at 20 completions (OHCPKHJMFOO.cs:761-770). Statistics rendering computes the first multiplier as min(100 + 5 * completed NTC count, 200) percent (DNBDCFFIEDG.cs:5858-5859).",
+        "HJDMNBANOMG.AKLNHKMJGFJ clears challenge-run counters, applies the common rebirth routine with the challenge object, and then stores the challenge enum as active state (HJDMNBANOMG.cs:241-273). This establishes the generic challenge enrollment transition, not an NTC-specific menu click path."
+      ],
+      "restriction_and_rejection": [
+        "NLHFJIOHPDO.BPMABPHBKOP returns immediately when the active challenge is NTC, before applying its GEHGBKPHENJ-weighted progress update (NLHFJIOHPDO.cs:766-772). The implementation object is shared/inherited; its precise gameplay category and all affected actions were not established, so this is a concrete method-level restriction only."
+      ],
+      "observed_rules": [
+        "If the active challenge type satisfies OHCPKHJMFOO.IEHJKNGNNGE, the transition reports that rebirth lost the No Rebirth Challenge and calls MLNFJDJIDDA.KOFIDBHKBIG with the current state (EIEEGDPHEPO.cs:4615-4622). The predicate's full enum coverage was not reviewed, so this is not generalized to all challenges.",
+        "For two specific challenge enum values, the transition adds challenge-derived values to run-state fields before completing the reset (EIEEGDPHEPO.cs:4623-4635). Their obfuscated enum names are preserved rather than semantically relabeled.",
+        "The transition's optional challenge argument is forwarded by HJDMNBANOMG callers; exact enrollment restrictions and completion rewards were not traced in this note (HJDMNBANOMG.cs:204-266)."
+      ],
+      "modifier_formula": "NTC training/skill stat gain = min(100% + 5% * completed_NTC_count, 200%) as displayed by DNBDCFFIEDG. Additional 20-completion Mystic Regen + Might effect is described in challenge metadata but its full consumer formula was not traced.",
+      "failure_path": "The NTC restriction path is a rejected progress update: BPMABPHBKOP exits before incrementing its progress accumulator when NTC is active. Full challenge loss/timeout behavior was not traced.",
+      "completion_path": "Completion accounting and reward application were not traced to their commit point. The metadata and statistics getter expose the resulting completion count and modifier only."
+    }
+  },
+  "coverage": {
+    "semantic_reviewed": [
+      {"file": "EIEEGDPHEPO.cs", "spans": [[4546, 4900], [5270, 5316]], "note": "Read transition setup, selected state preservation/reset and tail bookkeeping; middle block spot-checked around challenge and manager mutations."},
+      {"file": "HJDMNBANOMG.cs", "spans": [[190, 270]], "note": "Reviewed caller neighborhood to confirm challenge-context arguments."},
+      {"file": "Assets.Scripts/UpdateStats.cs", "spans": [[2360, 2370]], "note": "Reviewed one direct call site only."},
+      {"file": "JENBACKJIFC.cs", "spans": [[9526, 9580]], "note": "Reviewed active generic rebirth dispatch; CENNOKOKPGC false-option path excluded as duplicate-looking."},
+      {"file": "OHCPKHJMFOO.cs", "spans": [[761, 770], [4412, 4415]], "note": "Reviewed NTC metadata and a challenge-list gate; the meaning of the list context is not fully traced."},
+      {"file": "NLHFJIOHPDO.cs", "spans": [[766, 772], [830, 853]], "note": "Reviewed NTC early return and NTC completion-count modifier applied to selected subclasses."},
+      {"file": "DNBDCFFIEDG.cs", "spans": [[5854, 5859]], "note": "Reviewed displayed training/skill stat multiplier formula."}
+    ],
+    "search_only": [
+      {"files": ["Assets.Scripts.Gui/Gui.cs", "PCGKILNJOIF.cs", "Assets.Scripts/UpdateStats.cs", "Assets.Scripts.Helper/OfflineCalc.cs"], "note": "Searched for rebirth terms and candidate roots; did not semantically review every hit or establish the UI action call chain."}
+    ],
+    "unread_or_unverified": [
+      "Complete player-facing rebirth eligibility/action chain into JENBACKJIFC.CENNOKOKPGC.",
+      "General rebirth multiplier formula and comparison/tooltip getter; branch-specific automatic rebirth formulas are not substitutes.",
+      "Exhaustive reset-versus-retain inventory.",
+      "NTC's challenge-specific enrollment UI and committed completion/reward/failure path.",
+      "Runtime behavior, platform-specific challenge behavior and any server-side authority."
+    ],
+    "semantic_spans_reviewed_not_exhaustive": true,
+    "runtime_validation": "None; source inspection only."
+  }
+}

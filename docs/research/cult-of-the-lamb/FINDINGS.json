@@ -1,0 +1,2172 @@
+{
+  "schema_version": 1,
+  "status": "finite_source_research_complete",
+  "checked_utc": "2026-10-07T04:03:58.487677+00:00",
+  "edition": "Steam1313140/build25223484/version1.5.26",
+  "private_root": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484",
+  "scope": "47 findings across16connected finite paths, with selected methods and exceptions; not whole-game or whole-DLC semantic coverage",
+  "findings": [
+    {
+      "id": "LAMB-F01",
+      "family": "people",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Follower state is resolved before task selection. Disease, injury, intoxication, childhood, exhaustion, cold and exceptional body/trait states have distinct precedence; they are not interchangeable mood labels.",
+      "original_yair_method": "Keep bodily conditions, personal motives and chosen task separate; derive available work from the current supported body.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3366,
+              3474
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3709,
+              3755
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3831,
+              4020
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F02",
+      "family": "people",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Ordinary tasks drain rest and food and change individual conditions; disease, injury and dissent use different rates. Fasting and cursed states alter food policy. Food and dissent rates are multiplied by0.7 while the player is away from base.",
+      "original_yair_method": "Declare each task or condition time policy explicitly. Reuse YAIR played time and supported absence leases instead of importing universal upkeep.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+          "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+          "spans": [
+            [
+              214,
+              363
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F03",
+      "family": "people",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Trait lookup combines personal traits with cult-wide traits, while another info-level lookup reads the personal list alone. Adding a trait removes declared exclusive traits and may immediately clear or add thoughts and bodily states.",
+      "original_yair_method": "Store personal dispositions and institution policy separately; expose which rule actually supplies a modifier.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1817,
+              1914
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              533,
+              545
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTrait.cs",
+          "sha256": "7fe1205a05eaa4f0fd4cb78da0005efb0a18ea1ed4584d50e9f5cb957e608549",
+          "spans": [
+            [
+              751,
+              786
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F04",
+      "family": "people",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Daily advancement resets named interaction claims, ages followers and handles distinct old-age, immortal and child branches. Housing thoughts distinguish facility quality and materialistic reactions; unattended children can leave neglect thoughts.",
+      "original_yair_method": "Retain daily claim, age, home quality and care history as separate original fields; use authored optional lifecycle policy, not automatic new YAIR aging.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1340,
+              1461
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F05",
+      "family": "belief",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Personal thoughts have groups, stack limits and per-stack expiry. Expiry can cause later illness or old-age task changes. However the current Happiness getter is constant 50 and its change handler is empty; these thoughts do not establish a working general mood-stat simulation.",
+      "original_yair_method": "Use cause-qualified memories and selected functional consumers. Do not infer emotional depth from a named field or port dormant happiness branches.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1604,
+              1697
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1710,
+              1777
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              305,
+              335
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              1065,
+              1072
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F06",
+      "family": "work",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Reconsideration releases old reservations, resolves personal priorities, tries to keep an existing unique task, then claims eligible tasks by role/priority category. The shared location scheduler can displace lower-priority allocations and then settles pending choices. The named level-requirement helper currently returns true.",
+      "original_yair_method": "Separate eligibility, actor willingness, priority and allocation. Reserve a real actor/site before progress; avoid decorative level gates.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3484,
+              3546
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+          "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+          "spans": [
+            [
+              623,
+              783
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+          "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+          "spans": [
+            [
+              57,
+              97
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F07",
+      "family": "production",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Refinery enqueue removes actual ingredients and stores output type/variant. An assigned worker reserves the refinery and advances its saved progress using productivity. Completion deposits actual stored output and removes the queue head. Removing a queued recipe returns ingredients; removing the active head resets progress.",
+      "original_yair_method": "Use a funded production job with a conserved reservation, frozen recipe variant, partial progress and explicit cancellation policy.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.RefineryMenu/UIRefineryMenuController.cs",
+          "sha256": "a640e9eeab7c85dd1771a13fd047b1d10d6cd90961e8af167e7125114632732c",
+          "spans": [
+            [
+              152,
+              285
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Refinery.cs",
+          "sha256": "0f308a2cea320618d8a219fc75abe4f484f14d2dc87376d0749ccf59ba68a987",
+          "spans": [
+            [
+              1,
+              131
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Refinery.cs",
+          "sha256": "d4e8f133b4f6c5d6e73ff67bf4fbb533c6ae8b738944694b146a623a8790982a",
+          "spans": [
+            [
+              1,
+              128
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/StructureBrain.cs",
+          "sha256": "f70ad2455020b16298f4f2b5714cbb6afa979768c0f7cc1c1f986c26be957ed7",
+          "spans": [
+            [
+              789,
+              809
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F08",
+      "family": "production",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Farming reserves the station, current plot operation and selected seed/fertilizer stores separately. Refund methods return carried seeds or fertilizer to their original silo and clear carried stock, with explicit missing-silo early exits.",
+      "original_yair_method": "Distinguish custody in storage, in transit and spent on a plot; define the missing-recipient failure route instead of assuming every cancel refunds.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Farm.cs",
+          "sha256": "371b8892a80c5ab0ea8d2bec818a2e45e641528df70a1eb37722113f46ee5e4d",
+          "spans": [
+            [
+              92,
+              175
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Farm.cs",
+          "sha256": "371b8892a80c5ab0ea8d2bec818a2e45e641528df70a1eb37722113f46ee5e4d",
+          "spans": [
+            [
+              483,
+              548
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F09",
+      "family": "buildings",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Placement checks current affordability, spends construction ingredients and creates a build site. Worker slots are separately claimed; productivity advances site progress. Completion replaces the build site with the target facility while carrying its inventory, queue and occupant references forward, and creates trait-qualified thoughts.",
+      "original_yair_method": "Keep unlock, placement/payment, work and usable facility distinct. Preserve state when replacing a construction shell with its completed definition.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/StructuresData.cs",
+          "sha256": "0a3b37983f83c667d1bd0ca3ca43719d3ebc5ad2fdf197dafa790100a4ca7b01",
+          "spans": [
+            [
+              9017,
+              9028
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/PlacementRegion.cs",
+          "sha256": "55d1551dc0cce2ba85e1ca573c6e98be2046957f54dfa4271cf8ba74ca5db1c5",
+          "spans": [
+            [
+              2468,
+              2535
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Build.cs",
+          "sha256": "2a65824cccfcfe96a790ea5bc72c84677af03c17d37af586124f5149b08e7b55",
+          "spans": [
+            [
+              60,
+              148
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_BuildSite.cs",
+          "sha256": "22b88d201e6108665009ea4e7942fbab88abad1c5b6a2fab06a1ac720e0b5443",
+          "spans": [
+            [
+              42,
+              138
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F10",
+      "family": "belief",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Community faith combines a clamped persistent base value with tracked thought modifiers. Thoughts replace by group or stack with individual cooldowns; expiration changes the displayed total. Temporary and permanent effects therefore differ.",
+      "original_yair_method": "Use a small original institution confidence model with durable commitments and temporary witnessed events, rather than one unexplained reputation delta.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/CultFaithManager.cs",
+          "sha256": "422fa08ebf9e3d0845f81fa7bc10cd14845d77e836b7ba28dbaa57c32afc4924",
+          "spans": [
+            [
+              238,
+              347
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/CultFaithManager.cs",
+          "sha256": "422fa08ebf9e3d0845f81fa7bc10cd14845d77e836b7ba28dbaa57c32afc4924",
+          "spans": [
+            [
+              387,
+              425
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F11",
+      "family": "belief",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Low community faith can select an eligible follower after cadence/onboarding/day-phase checks. Loyalty necklaces, bishops, zombies, snowmen and mutation branches limit dissent. A low global value does not turn every follower into a dissenter at once.",
+      "original_yair_method": "Resolve an eligible individual response with its own reason and cadence; do not broadcast a shared policy as personal knowledge or willingness.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/CultFaithManager.cs",
+          "sha256": "422fa08ebf9e3d0845f81fa7bc10cd14845d77e836b7ba28dbaa57c32afc4924",
+          "spans": [
+            [
+              443,
+              467
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3136,
+              3153
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F12",
+      "family": "belief",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Listening to a speaking dissenter requires nearby contact and a per-pair elapsed-time check. Listening can add a personal thought; the listener task includes a Happiness>=80 counterargument branch, but the selected current getter is constant 50.",
+      "original_yair_method": "Transmit grievances through actual contact and remembered sender/recipient information. Treat dormant source branches as limits, not verified social counters.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2242,
+              2246
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_DissentListen.cs",
+          "sha256": "e903f7bd3401e067b962846467fc2a9c989dc32a4e2ca60c73e9f8c82b66a5a8",
+          "spans": [
+            [
+              1,
+              84
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              305,
+              335
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F13",
+      "family": "aftermath",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "A dissenter stores a warning and planned theft amount before leaving. The visible departure removes no more than current gold. Its original person record joins a dissented list and can later become a named dungeon enemy; death moves that same record to dead history.",
+      "original_yair_method": "Keep warning, committed consequence, actual bounded loss and later encounter identity separate. Give original residents proportionate repair/refusal/return routes.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1463,
+              1535
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Follower.cs",
+          "sha256": "2932231985c387cc2f723aca9d3f6f544b0231205688006792e7e9d29c7c6e77",
+          "spans": [
+            [
+              1652,
+              1671
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2031,
+              2055
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Chest.cs",
+          "sha256": "7df36c409fed1175790e9aafa1991b4181929f702fd469f4f778d329daba0707",
+          "spans": [
+            [
+              1423,
+              1481
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F14",
+      "family": "belief",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Disciple reeducation reduces a target counter, doubles the reduction for an imprisoned target and records the receiver ID in a daily list. Crossing to zero removes dissent, resolves a cure objective and produces a community thought. Daily list clearing and treatment outcome are separate joins.",
+      "original_yair_method": "Record who helped whom and the actual counter/effect, with explicit attempt gating. Do not copy imprisonment as an original community default.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_ReeducateDissenter.cs",
+          "sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+          "spans": [
+            [
+              165,
+              198
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              823,
+              849
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1340,
+              1359
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F15",
+      "family": "progression",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "The current level-up routine clears adoration and increments level without a cap check; CanLevelUp checks adoration alone. A leftover IsMaxLevel method still returns level >= 10 but has no caller in the exported code search. Loyalty and sin have different thresholds.",
+      "original_yair_method": "Separate accrued progress, claimable advancement and the consumer ceiling. A retired helper or old patch note cannot establish current progression.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/interaction_FollowerInteraction.cs",
+          "sha256": "8d5e3b8b5fdeca41b9435806c995db61386b18df312a5d108f834a99a1dc93ab",
+          "spans": [
+            [
+              1130,
+              1159
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2136,
+              2156
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              5027,
+              5035
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F16",
+      "family": "progression",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Productivity uses a level contribution clamped at10 and then trait, relationship, institution and season modifiers. Missionary success uses its own level tiers; demon effectiveness separately clamps level at10 plus a necklace bonus. The productivity winter-body conditional has a negative false branch even if the trait is absent.",
+      "original_yair_method": "Define original consumers explicitly and retain exact source anomalies as review questions. Higher retained level need not amplify every function indefinitely.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              477,
+              511
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+          "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+          "spans": [
+            [
+              65,
+              114
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+          "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+          "spans": [
+            [
+              2137,
+              2140
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F17",
+      "family": "progression",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Discipleship requires an available follower of at least level 10 who is not already a disciple, plus ritual availability/affordability. The ceremony explicitly grants the trait/status and increments the created count; reaching the level alone is not this promotion.",
+      "original_yair_method": "An original office should require earned competence, a separate accepted appointment and an actual service consumer; a title is not a new body or fuel source.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/RitualItem.cs",
+          "sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+          "spans": [
+            [
+              88,
+              119
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/RitualBecomeDisciple.cs",
+          "sha256": "b8b67a1498739b2c23bba91d0f0f2c610b12eedd031297832c7af13b741bd35b",
+          "spans": [
+            [
+              65,
+              143
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2141,
+              2145
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_ReeducateDissenter.cs",
+          "sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+          "spans": [
+            [
+              165,
+              177
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F18",
+      "family": "institutions",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Doctrine unlocks are recorded once and drive collective traits or specific ritual/building abilities. Collective traits remove conflicting personal traits and are consulted by actual work, food and winter consumers. This source treats cult policy as authority over members.",
+      "original_yair_method": "Adapt to a voluntary local charter: keep policy version, actual members, accepted duties, personal disagreement and received information distinct.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/DoctrineUpgradeSystem.cs",
+          "sha256": "b447c67a888250de31b3d34c7914deffbc11c510757d02b80a85e29224b088ba",
+          "spans": [
+            [
+              949,
+              1015
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/DoctrineUpgradeSystem.cs",
+          "sha256": "b447c67a888250de31b3d34c7914deffbc11c510757d02b80a85e29224b088ba",
+          "spans": [
+            [
+              1013,
+              1105
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTrait.cs",
+          "sha256": "7fe1205a05eaa4f0fd4cb78da0005efb0a18ea1ed4584d50e9f5cb957e608549",
+          "spans": [
+            [
+              766,
+              786
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1817,
+              1827
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              477,
+              499
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F19",
+      "family": "rituals",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Current ritual UI checks unlocked/maxed/cooldown/affordability and specific candidate requirements. Normal successful completion charges UpgradeSystem costs; cancelled and forced branches differ. Promotion and resurrection list a 150-bone base recipe before discounts. Completion also clears the next-free flag and can cause night disruption.",
+      "original_yair_method": "Use YAIR durable commands to freeze consent/cost/candidate and publish a result once. Source cinematic callbacks are a comparison, not an atomic transaction template.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/RitualItem.cs",
+          "sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+          "spans": [
+            [
+              88,
+              119
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_TempleAltar.cs",
+          "sha256": "466e8a4bf75913ccd2d9530d37fc0c372d65d17abadbc4d4dfe38a8b7b1d333e",
+          "spans": [
+            [
+              1716,
+              1756
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/UpgradeSystem.cs",
+          "sha256": "b5d830d3bd37b9fab97a74791756e40bfdf5e27d959ea089393bb4e0eb64237d",
+          "spans": [
+            [
+              1550,
+              1575
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Ritual.cs",
+          "sha256": "c3910166af3acba5eded2adf65acf6d59133bac7f71c5269982e7542f68f7f7d",
+          "spans": [
+            [
+              67,
+              109
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F20",
+      "family": "rituals",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Resurrection removes the selected identity from dead/imprisoned collections, clears its actual grave/crypt/morgue occupancy and recreates the visible follower from the same person data. It resets stats through a helper and extends life expectancy.",
+      "original_yair_method": "Make an original life transition reconcile physical remains, custody, work, person identity and state domains; do not grant a duplicate actor or erase history implicitly.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/RitualRessurect.cs",
+          "sha256": "ef6dda92d9f7a02c289eac0cf31ea62e52f94e3ec09d670d3a4cb6abf1960096",
+          "spans": [
+            [
+              79,
+              145
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/RitualRessurect.cs",
+          "sha256": "ef6dda92d9f7a02c289eac0cf31ea62e52f94e3ec09d670d3a4cb6abf1960096",
+          "spans": [
+            [
+              165,
+              230
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F21",
+      "family": "rituals",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "After day20, resurrection without a funeral can produce zombie or existential-dread aftermath, with a special Sozo exception. Dread changes the post-ceremony task instead of simply adding a negative description.",
+      "original_yair_method": "Care and preparation history can affect a later transition. Preserve preparation, risk, aftermath and a paid recovery consumer as separate original stages.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/RitualRessurect.cs",
+          "sha256": "ef6dda92d9f7a02c289eac0cf31ea62e52f94e3ec09d670d3a4cb6abf1960096",
+          "spans": [
+            [
+              146,
+              165
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/RitualRessurect.cs",
+          "sha256": "ef6dda92d9f7a02c289eac0cf31ea62e52f94e3ec09d670d3a4cb6abf1960096",
+          "spans": [
+            [
+              218,
+              228
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3375,
+              3412
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_HealingBay.cs",
+          "sha256": "caeebf8200a1611e4823332218a090a4af583d11411765d023f001bd1f1b5c7f",
+          "spans": [
+            [
+              305,
+              397
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F22",
+      "family": "care",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Healing checks the selected person cost against actual inventory and removes those items. Costs differ for illness, zombie, mutation and distress and by facility tier. It clears named conditions/traits; mutation removal additionally needs the corresponding doctrine, so spend and complete cure are not identical.",
+      "original_yair_method": "Offer named treatments with condition-specific requirements and effects, optional actual supplied care and clear incomplete outcomes. Reuse current YAIR care/stock owners.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_HealingBay.cs",
+          "sha256": "caeebf8200a1611e4823332218a090a4af583d11411765d023f001bd1f1b5c7f",
+          "spans": [
+            [
+              137,
+              165
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_HealingBay.cs",
+          "sha256": "caeebf8200a1611e4823332218a090a4af583d11411765d023f001bd1f1b5c7f",
+          "spans": [
+            [
+              305,
+              397
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F23",
+      "family": "food",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Stored-food work reserves a real meal, ends when the reserved item cannot be eaten and removes the food at arrival. Interrupting while already doing still resolves eating. Satiation overflow is redistributed to other eligible followers, an abstract communal policy rather than per-person nutrition conservation.",
+      "original_yair_method": "Keep stock reservation and bite/consumption boundary explicit. Choose and disclose an original ration policy instead of silently adopting source overflow.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_EatStoredFood.cs",
+          "sha256": "0d17bff443b85ee2a13140f988090a64ac3e787845d8ce1191dffd9a87794dc0",
+          "spans": [
+            [
+              28,
+              100
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_EatStoredFood.cs",
+          "sha256": "0d17bff443b85ee2a13140f988090a64ac3e787845d8ce1191dffd9a87794dc0",
+          "spans": [
+            [
+              264,
+              322
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F24",
+      "family": "food",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Recipe definitions and meal effects are separate. Effects draw independently; some dangerous meals use a special death-versus-loot branch. Food can cure specific states, alter loyalty, add traits or change age. Doctrines, onboarding and heavyweight traits modify these results.",
+      "original_yair_method": "Let an actual consumed material reach useful or harmful body functions, with typed effect prerequisites and honest chance. A recipe name alone grants no treatment.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/CookingData.cs",
+          "sha256": "dbc739b309361ff813eb1fa38481651cad8a84af73c110e1655acbde5d2b7a6e",
+          "spans": [
+            [
+              314,
+              354
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/CookingData.cs",
+          "sha256": "dbc739b309361ff813eb1fa38481651cad8a84af73c110e1655acbde5d2b7a6e",
+          "spans": [
+            [
+              1535,
+              1585
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/CookingData.cs",
+          "sha256": "dbc739b309361ff813eb1fa38481651cad8a84af73c110e1655acbde5d2b7a6e",
+          "spans": [
+            [
+              1919,
+              2113
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/CookingData.cs",
+          "sha256": "dbc739b309361ff813eb1fa38481651cad8a84af73c110e1655acbde5d2b7a6e",
+          "spans": [
+            [
+              2220,
+              2233
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F25",
+      "family": "relationships",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Social contact requires nearby eligible people and task freedom. A conversation is scored across turns, modifies a shared pair record and can cross friends/lovers/enemies thresholds. Parent/sibling and specific-person exceptions block lover transitions; dispositions modify positive talk chance.",
+      "original_yair_method": "Model remembered pair interaction, individual willingness and explicit relationship type separately. A generic affinity number must not imply romantic consent.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2157,
+              2162
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              547,
+              576
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Chat.cs",
+          "sha256": "bc74fec4366a422760ee7235ae5f2f31071a71b8dc000bc77b8b3043a3c43ac9",
+          "spans": [
+            [
+              178,
+              193
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Chat.cs",
+          "sha256": "bc74fec4366a422760ee7235ae5f2f31071a71b8dc000bc77b8b3043a3c43ac9",
+          "spans": [
+            [
+              210,
+              323
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F26",
+      "family": "relationships",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Fight aftermath records the aggressor and reason, can kill or injure the victim, rewards a surviving winner and changes thoughts. The delayed result rechecks interruption before committing. Jealous-spouse branches use different risks.",
+      "original_yair_method": "Keep visible warning, intervention window, actual injury/death and attributed aftermath. Avoid converting a generic relationship disagreement into inevitable lethal combat.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_FightFollower.cs",
+          "sha256": "4a22b8b1f0060656765ee6b860768b6f7231ea4b0f84a62b006ec6724b01624b",
+          "spans": [
+            [
+              451,
+              542
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_FightFollower.cs",
+          "sha256": "4a22b8b1f0060656765ee6b860768b6f7231ea4b0f84a62b006ec6724b01624b",
+          "spans": [
+            [
+              610,
+              624
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F27",
+      "family": "offspring",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Mating eligibility excludes children, siblings, parent-child pairs and some named/body cases. Relationship, traits, exhaustion, illness and daily seeded variation affect the chance; a story objective can force it. The attempt spends sin before resolution, and the first positive-chance attempt has a special guarantee. These responses are game mechanics, not a general consent model.",
+      "original_yair_method": "For an original family or succession system, keep explicit adult willingness, eligibility, commitment cost, failure and body/lineage compatibility separate.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MatingTent.cs",
+          "sha256": "aaae7aa30a34e5b56835fcb5456b4e7e8a55d58de0cab7b6069cf3d369b374c1",
+          "spans": [
+            [
+              643,
+              783
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MatingTent.cs",
+          "sha256": "aaae7aa30a34e5b56835fcb5456b4e7e8a55d58de0cab7b6069cf3d369b374c1",
+          "spans": [
+            [
+              273,
+              282
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MatingTent.cs",
+          "sha256": "aaae7aa30a34e5b56835fcb5456b4e7e8a55d58de0cab7b6069cf3d369b374c1",
+          "spans": [
+            [
+              294,
+              309
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F28",
+      "family": "offspring",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Egg data retains parent IDs/names/appearance, seed and selected traits, with golden/unique/mutated/body exceptions and an additional failure flag. Parent trait pools exclude named traits. Hatching updates parent calculations, creates a child and applies specific cult doctrines; daily care has a neglect route.",
+      "original_yair_method": "Retain parentage and trait-source provenance without auto-granting powers. Treat lineage, childhood care, later learned competence and office as different progression domains.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_MatingTent.cs",
+          "sha256": "1c5383bbccdcd2c5c05f8d408c752ed9a60ef8000bde2234b07bd24377baa849",
+          "spans": [
+            [
+              1,
+              106
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MatingTent.cs",
+          "sha256": "aaae7aa30a34e5b56835fcb5456b4e7e8a55d58de0cab7b6069cf3d369b374c1",
+          "spans": [
+            [
+              410,
+              435
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Hatchery.cs",
+          "sha256": "a5ce9e3d0140c0f825e93979cc0b6efebbb6d31eea1339799438a5ba3654860d",
+          "spans": [
+            [
+              335,
+              434
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              1340,
+              1359
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F29",
+      "family": "expeditions",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Missionary dispatch stores person-specific departure time, duration, objective type, chance and facility association, then changes the person task/location. Success is determined before return. Its rules consider level, exhaustion, intoxication and named mission traits; special guaranteed-success states are consumed/reset separately.",
+      "original_yair_method": "Freeze a funded original dispatch at commitment; reserve actual worker availability and supply. Show assumptions and avoid rerolling success by reopening a menu.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+          "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+          "spans": [
+            [
+              65,
+              125
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Missionaries.cs",
+          "sha256": "38b50c34e84d138108249c2fb893f770e3017955994e4b8906af9f234f7dd7b0",
+          "spans": [
+            [
+              263,
+              314
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_OnMissionary.cs",
+          "sha256": "a84e8e57db66caf2bdfd0f8f4c7d5b9d87afa40888572de675d132dc3f167f93",
+          "spans": [
+            [
+              81,
+              130
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+          "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+          "spans": [
+            [
+              1068,
+              1090
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F30",
+      "family": "expeditions",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "At the due boundary, a mission stores real rewards or none and enters a return task. The completed interaction either adds resources to normal inventory or produces a recruit; failure has a return death path. Settlement clears rewards, facility membership and mission occupancy.",
+      "original_yair_method": "Separate travel/elapsed completion, delivered cargo, report, failure and once-only settlement. Provide explicit unsupported-recipient and changed-return outcomes.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_OnMissionary.cs",
+          "sha256": "a84e8e57db66caf2bdfd0f8f4c7d5b9d87afa40888572de675d132dc3f167f93",
+          "spans": [
+            [
+              67,
+              130
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MissionaryComplete.cs",
+          "sha256": "b2b84066d033fb76a751c3ef29d0a17b6e83328e7ac8018eff01739a2cab008a",
+          "spans": [
+            [
+              80,
+              133
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MissionaryComplete.cs",
+          "sha256": "b2b84066d033fb76a751c3ef29d0a17b6e83328e7ac8018eff01739a2cab008a",
+          "spans": [
+            [
+              171,
+              229
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F31",
+      "family": "expeditions",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Successful returning missionaries become exhausted and may acquire inspired, excited or terrified traits after the introductory days. Those traits change later mission chance and bodily/task behavior; paid healing can remove the distress trait.",
+      "original_yair_method": "An expedition can change a person\u2019s future actions, not only the player\u2019s inventory. Give remembered experience a bounded consumer and recovery route.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_MissionaryComplete.cs",
+          "sha256": "b2b84066d033fb76a751c3ef29d0a17b6e83328e7ac8018eff01739a2cab008a",
+          "spans": [
+            [
+              134,
+              169
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+          "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+          "spans": [
+            [
+              89,
+              108
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              4021,
+              4028
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_HealingBay.cs",
+          "sha256": "caeebf8200a1611e4823332218a090a4af583d11411765d023f001bd1f1b5c7f",
+          "spans": [
+            [
+              305,
+              397
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F32",
+      "family": "combat-home",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Demon assignment occupies actual follower IDs in a summoner and moves them into a task that blocks normal task changes, sermons and thoughts. Ordinary demons are chosen deterministically from identity; unique and mutated people have special roles. Missing facilities or cleared membership restore ordinary tasks.",
+      "original_yair_method": "Make a consenting original support role occupy the same actor and actual facility/capacity used at home. A copied skill is not an extra free simultaneous worker.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DemonSummoner.cs",
+          "sha256": "7ff6915551e3af8e5c7dbc3c20265dad5aca5b2961af9fd4f9b80cd518733daf",
+          "spans": [
+            [
+              283,
+              333
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_IsDemon.cs",
+          "sha256": "edf29a4780390081445f0faddecdf8894838976a76a216a95df8240f7e67cb3b",
+          "spans": [
+            [
+              1,
+              75
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/DemonModel.cs",
+          "sha256": "bc4ce1f3cc54ec339266bfd1836989a2d4aacae226209af9f8dec0adf67d615c",
+          "spans": [
+            [
+              57,
+              82
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F33",
+      "family": "combat-home",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "A demon reads the actual follower\u2019s capped effective level; the selected shooter changes its attack and bomb cooldowns and has a telegraph/recovery sequence. Normal run completion clears demon membership; restoring the person adds exhaustion and repeat-use history when the facility survives.",
+      "original_yair_method": "Connect earned home competence to a defined battle function, then retain real return fatigue/history. Do not claim the rest of the combat system was reviewed.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Demon.cs",
+          "sha256": "8df2e18b4c7c92aea122275b1eb6217cd8d3b66fc20a01ed2ffbcf07790ed084",
+          "spans": [
+            [
+              31,
+              48
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+          "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+          "spans": [
+            [
+              2137,
+              2140
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Demon_Shooty.cs",
+          "sha256": "40bfd85c6bf10c1f84fa6fa50a8834a55cad8549cb4d6d2d979c8802a2b33603",
+          "spans": [
+            [
+              115,
+              222
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.DeathScreen/UIDeathScreenOverlayController.cs",
+          "sha256": "2c03b05a42dd0b661c9de6d6a0fb8e0eec84211b70efe68ada228d725d834c33",
+          "spans": [
+            [
+              625,
+              637
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DemonSummoner.cs",
+          "sha256": "7ff6915551e3af8e5c7dbc3c20265dad5aca5b2961af9fd4f9b80cd518733daf",
+          "spans": [
+            [
+              147,
+              170
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F34",
+      "family": "combat-home",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Run results distinguish escape, death and completion, with difficulty/fleece and shrine/sandbox exceptions. Result adjustments mutate both run stock and inventory. Quest-target resources can be excluded from loss; fragile loot is separately removed. A GameOver path is another domain and calls save-slot deletion, unlike ordinary killed/escaped settlement.",
+      "original_yair_method": "Define original defeat, withdrawal, cargo fragility, protected commitments and life-ending domains independently; disclose exact retention before a chosen challenge.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.DeathScreen/UIDeathScreenOverlayController.cs",
+          "sha256": "2c03b05a42dd0b661c9de6d6a0fb8e0eec84211b70efe68ada228d725d834c33",
+          "spans": [
+            [
+              1110,
+              1209
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.DeathScreen/UIDeathScreenOverlayController.cs",
+          "sha256": "2c03b05a42dd0b661c9de6d6a0fb8e0eec84211b70efe68ada228d725d834c33",
+          "spans": [
+            [
+              1266,
+              1320
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Lamb.UI.DeathScreen/UIDeathScreenOverlayController.cs",
+          "sha256": "2c03b05a42dd0b661c9de6d6a0fb8e0eec84211b70efe68ada228d725d834c33",
+          "spans": [
+            [
+              625,
+              644
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F35",
+      "family": "time",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "The normal simulation uses frame delta converted to game time and visits active and unloaded follower representations. Skipping time is an explicit path. Normal colony work can continue during a crusade; the accessibility StopTimeInCrusade option instead pauses the simulation manager. UI pause, simulation pause and PauseGameTime are distinct controls. No browser-closed or OS-offline policy was established.",
+      "original_yair_method": "Retain one authoritative played clock and explicit activity/region absence policies. Rendering/unloaded state must not decide whether a job progresses or loses resources.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/SimulationManager.cs",
+          "sha256": "bc0c8b697a19ae1f2e70b8892903272eb6be651665c35e868e237a55a964bf79",
+          "spans": [
+            [
+              87,
+              181
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+          "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+          "spans": [
+            [
+              516,
+              977
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/GameManager.cs",
+          "sha256": "f3f0b6881dd4242e0e6d2f61d8f0c5620fdf8c5d488c1625d9023800065b86a2",
+          "spans": [
+            [
+              1804,
+              1851
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+          "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+          "spans": [
+            [
+              186,
+              205
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F36",
+      "family": "winter",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Active winter with exhausted warmth can select a follower to freeze after severity/grace/cadence checks. Blizzard and trait branches change cadence. Personal protection, scarf, exceptional body, traits and necklace qualify cold exposure. Winter also has facility snow-cover and spatial heating-range rules.",
+      "original_yair_method": "Use a specific local exposure rule with meaningful preparation and bodily compatibility. Preserve the current YAIR crop/care policy instead of making winter global compulsory maintenance.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/SeasonsManager.cs",
+          "sha256": "dfadee7de9ca0a691da1f91ac6cb48953d299df54f8ae727cfd043ab29802ded",
+          "spans": [
+            [
+              794,
+              882
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              3005,
+              3105
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+          "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+          "spans": [
+            [
+              296,
+              304
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F37",
+      "family": "winter",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Fuel insertion spends an actual item and uses its weight up to facility capacity. Winter simulation drains furnace fuel and gives bounded low/empty warnings. A declared upgrade can refill on seasonal entry; another lock suppresses burn. Furnace waste can occupy a real nearby place.",
+      "original_yair_method": "Separate fuel stock, burn, capacity, permitted exceptions, warning and waste consumer. An original material should have an actual protective function and aftereffect.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_AddFuel.cs",
+          "sha256": "36e858ce004f4f7ecf8f18457db3a940a0194a2baaf3a0f4efceebe8a75f85bc",
+          "spans": [
+            [
+              235,
+              274
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCFurnace.cs",
+          "sha256": "7ccf168b94b3a4347647b1a0f5204961b8bba179290b259c9323507180f254bb",
+          "spans": [
+            [
+              633,
+              647
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/SimulationManager.cs",
+          "sha256": "bc0c8b697a19ae1f2e70b8892903272eb6be651665c35e868e237a55a964bf79",
+          "spans": [
+            [
+              131,
+              162
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Furnace.cs",
+          "sha256": "6a04dd8bc571cd6b00e70f509d23d941502cd4f38088da4d83ba545789078120",
+          "spans": [
+            [
+              18,
+              59
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F38",
+      "family": "ranch",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Ranch animals age and change need/readiness on phases. Away from base, low satiation takes actual trough food; adult growth readiness is suppressed by overcrowding, milk readiness resets separately, and selected older unprotected animals can die. Player-animal and riding/leashed branches differ.",
+      "original_yair_method": "Represent optional livestock as actors with real feed, capacity and output readiness. Name the absence exceptions instead of extrapolating one uniform animal simulation.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+          "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+          "spans": [
+            [
+              447,
+              453
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+          "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+          "spans": [
+            [
+              511,
+              627
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F39",
+      "family": "ranch",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Animal work produces species-specific materials; milk is separate. Work consumes readiness and sets a daily flag. Ordinary feeding deducts an item, but special feed can change ailments and schedule a fight; a feral branch can return before the ordinary deduction. Meat output also changes under feral state.",
+      "original_yair_method": "Give original care materials multiple useful outputs/costs and transactional failure behavior. Preserve the exceptional source spend ordering as a question, not a model to copy.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Ranchable.cs",
+          "sha256": "6f5995c3f5e559317c4bff372618a35fa41c5671692fdff10344f18b4f4afd99",
+          "spans": [
+            [
+              2775,
+              2889
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Ranchable.cs",
+          "sha256": "6f5995c3f5e559317c4bff372618a35fa41c5671692fdff10344f18b4f4afd99",
+          "spans": [
+            [
+              2709,
+              2728
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Ranchable.cs",
+          "sha256": "6f5995c3f5e559317c4bff372618a35fa41c5671692fdff10344f18b4f4afd99",
+          "spans": [
+            [
+              2922,
+              2972
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F40",
+      "family": "ranch",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Ranch capacity comes from real enclosure tiles. Mating moves the actual parents into a hutch until a target phase, supports detachment/abort and creates one fresh-ID child whose appearance, speed and favorite food depend on both parents. The full riding/speed consumer and fence-search algorithm are outside this pass.",
+      "original_yair_method": "Keep habitat capacity, custody, parent availability, offspring identity and functional inherited parameters independent from their illustration.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+          "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+          "spans": [
+            [
+              1,
+              56
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+          "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+          "spans": [
+            [
+              628,
+              731
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F41",
+      "family": "ranch",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "An assigned rancher respects player reservations, cleans or works actual animals, carries produced material in its own inventory and later deposits it in ranch storage before clearing cargo. The offscreen branches operate on saved animal data and differ from visible animation callbacks.",
+      "original_yair_method": "Use conserved worker cargo and explicit delivery for earned automation. Inspect both visible and absent branches; a animation-free path is not automatically equivalent.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Rancher.cs",
+          "sha256": "776519d39c0b6515dba69d6f5b4592b8c9b09882c61c754778dcc5efd001c641",
+          "spans": [
+            [
+              77,
+              271
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Rancher.cs",
+          "sha256": "776519d39c0b6515dba69d6f5b4592b8c9b09882c61c754778dcc5efd001c641",
+          "spans": [
+            [
+              368,
+              416
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask_Rancher.cs",
+          "sha256": "776519d39c0b6515dba69d6f5b4592b8c9b09882c61c754778dcc5efd001c641",
+          "spans": [
+            [
+              500,
+              518
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/StructureBrain.cs",
+          "sha256": "f70ad2455020b16298f4f2b5714cbb6afa979768c0f7cc1c1f986c26be957ed7",
+          "spans": [
+            [
+              789,
+              821
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F42",
+      "family": "dlc-progression",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Woolhaven shrine offerings check and spend actual stock and advance distinct unlock stages. Ghost deposit removes inventory before a tracked in-air delivery, then increments received/total progress. Thresholds can advance winter severity, unlock later access and introduce additional pressures such as blizzards and buried structures, with boss-completion exceptions.",
+      "original_yair_method": "Advancement can open a capability and change a future challenge at the same time. Preserve paid commitment, pending delivery, unlock and subsequent pressure as separate original state transitions.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCShrine.cs",
+          "sha256": "d08edb74e202d9e0ba7ba3cc5a6c7d27d9748afad1d7a0bbb9bca9e5103d532f",
+          "spans": [
+            [
+              278,
+              313
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCShrine.cs",
+          "sha256": "d08edb74e202d9e0ba7ba3cc5a6c7d27d9748afad1d7a0bbb9bca9e5103d532f",
+          "spans": [
+            [
+              419,
+              435
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCYngyaShrine.cs",
+          "sha256": "fa62249da42f9fa069cf0faee357dacf171bbd953c4c494b0b4c0a052432ff5f",
+          "spans": [
+            [
+              109,
+              136
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCYngyaShrine.cs",
+          "sha256": "fa62249da42f9fa069cf0faee357dacf171bbd953c4c494b0b4c0a052432ff5f",
+          "spans": [
+            [
+              358,
+              410
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_DLCYngyaShrine.cs",
+          "sha256": "fa62249da42f9fa069cf0faee357dacf171bbd953c4c494b0b4c0a052432ff5f",
+          "spans": [
+            [
+              451,
+              535
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/WoolhavenYngyaStatue.cs",
+          "sha256": "e67c9e6fe16262595c7ef0b498e3e0ba5549a1c07f6a616b3fc11192e4d63bf0",
+          "spans": [
+            [
+              537,
+              635
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/SeasonsManager.cs",
+          "sha256": "dfadee7de9ca0a691da1f91ac6cb48953d299df54f8ae727cfd043ab29802ded",
+          "spans": [
+            [
+              799,
+              882
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F43",
+      "family": "dlc-quest",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Pilgrim quests require the pack flag, named people, prior acceptance, elapsed days and actual discoveries. Stages create protected objectives, recruits/searches and a bag recovery. Completion unlocks bonus comic pages through persistent data; a stage-two repair rechecks actual objectives/recruited IDs before retaining acceptance. The comic prose and whole quest graph were not read.",
+      "original_yair_method": "Author an original multi-visit personal pursuit with actual people, received clues, elapsed waiting, meaningful retrieval and retained rewards. Distinguish local campaign facts from a deliberate meta unlock.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/Onboarding.cs",
+          "sha256": "caa5bbe4bbb261927515232638474c1afe772b781bf15d17f4f441b88f8e9e08",
+          "spans": [
+            [
+              1456,
+              1489
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Onboarding.cs",
+          "sha256": "caa5bbe4bbb261927515232638474c1afe772b781bf15d17f4f441b88f8e9e08",
+          "spans": [
+            [
+              1945,
+              1969
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_JalalasBag.cs",
+          "sha256": "44f2861f88e3e55f8fc4f7f48c683f181d682979b35fc5e438764b0cab181557",
+          "spans": [
+            [
+              1,
+              20
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/interaction_FollowerInteraction.cs",
+          "sha256": "8d5e3b8b5fdeca41b9435806c995db61386b18df312a5d108f834a99a1dc93ab",
+          "spans": [
+            [
+              976,
+              986
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/DataManager.cs",
+          "sha256": "237e0e94a029f5ad296f7511cd2561e294d06460d0febbedf1a85cf4970c7a15",
+          "spans": [
+            [
+              12224,
+              12236
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F44",
+      "family": "state-authoring",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Follower data declares keyed identity/location/task destination/home, mission commitments, rewards, parentage, inventory, traits, funeral history and pair relationships. Loaded and simulated follower objects share the brain/data model; visible entity replacement is not a new person. These are selected static definitions, not a save roundtrip audit.",
+      "original_yair_method": "Persist identity and causal commitments outside scene nodes. Reuse YAIR\u2019s existing state/publisher and explicit compatibility admission; a future visual engine should render projections.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+          "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+          "spans": [
+            [
+              1030,
+              1140
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+          "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+          "spans": [
+            [
+              1526,
+              1555
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+          "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+          "spans": [
+            [
+              849,
+              977
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              527,
+              576
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F45",
+      "family": "source-limits",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Some convincing names are dormant or simplified in this build: GetXP is empty, GetDevotionGeneration returns zero, Happiness is constant 50, and RequiredFollowerLevel returns true. The export also has a repeated missionary-tier condition and conditional modifier asymmetries. Successful export and readable names are not equivalent to intended or tested behavior.",
+      "original_yair_method": "Trace callers, true writes and downstream consumers before adopting a rule; preserve anomalies and require a later bounded behavior gate if that exact branch matters.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2136,
+              2156
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              1058,
+              1084
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainStats.cs",
+          "sha256": "fed252b02f03ce3d746e556e09f9f4a0db089d284e2e464bedeae8365c776ba2",
+          "spans": [
+            [
+              305,
+              335
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+          "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+          "spans": [
+            [
+              57,
+              65
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Interaction_Missionaries.cs",
+          "sha256": "38b50c34e84d138108249c2fb893f770e3017955994e4b8906af9f234f7dd7b0",
+          "spans": [
+            [
+              263,
+              284
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+          "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+          "spans": [
+            [
+              477,
+              499
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F46",
+      "family": "dlc-access",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "The supplied base payload includes Woolhaven and Pilgrim implementation classes and packaged DLC definitions. Woolhaven activation checks Steam subscription for app3840050 in the normal static route; source presence therefore does not establish activation or ownership. No entitlement check was executed. Cosmetic/music classification is based on the official catalog, with packaged historical bonus metadata separate.",
+      "original_yair_method": "Keep package presence, static rule coverage, activated content and player ownership as different evidence axes. No purchase or gate bypass follows from research.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/GameManager.cs",
+          "sha256": "f3f0b6881dd4242e0e6d2f61d8f0c5620fdf8c5d488c1625d9023800065b86a2",
+          "spans": [
+            [
+              598,
+              609
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/EnableOnMajorDLC.cs",
+          "sha256": "1d4f22fb1aa03f2f2ef38be0b19d1e565de5a6d4d8de22477f614c91d1fa067c",
+          "spans": [
+            [
+              1,
+              62
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Onboarding.cs",
+          "sha256": "caa5bbe4bbb261927515232638474c1afe772b781bf15d17f4f441b88f8e9e08",
+          "spans": [
+            [
+              1945,
+              1969
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    },
+    {
+      "id": "LAMB-F47",
+      "family": "engine-methods",
+      "qualification": "source-established static path, runtime unobserved",
+      "claim": "Some spatial rules are real mechanics: follower interaction distance, habitat tile capacity and heating coverage qualify outcomes. Other presentation work merely reflects data or delivers a callback. The code distinguishes active, loaded and unloaded locations, but full pathfinding, room prefabs and serialized defaults remain unread.",
+      "original_yair_method": "Decide whether a YAIR scene illustrates commands or introduces reach/path/sight rules. Keep rules, event scheduling, save state and authoring independent of the renderer.",
+      "evidence": [
+        {
+          "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+          "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+          "spans": [
+            [
+              2157,
+              2178
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/Structures_Ranch.cs",
+          "sha256": "45f42ed63967ec68b265f0595a71204c70f47cc961f95448497f0f840946c10e",
+          "spans": [
+            [
+              1,
+              56
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/SeasonsManager.cs",
+          "sha256": "dfadee7de9ca0a691da1f91ac6cb48953d299df54f8ae727cfd043ab29802ded",
+          "spans": [
+            [
+              826,
+              862
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        },
+        {
+          "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+          "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+          "spans": [
+            [
+              849,
+              953
+            ]
+          ],
+          "qualification": "selected static decompiled source; no runtime observation"
+        }
+      ]
+    }
+  ],
+  "research_vs_implementation": "Original YAIR methods are proposals. No source/gameplay integration or behavior verification occurred."
+}

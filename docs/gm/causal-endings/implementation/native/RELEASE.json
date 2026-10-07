@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-06T19:39:47.821848+00:00",
+  "writer": "/root/causal_native",
+  "writer_status": "released",
+  "released_to": "causal root /root",
+  "exclusive_return": [
+    "src/causal_story_native.js",
+    "docs/gm/causal-endings/implementation/native/"
+  ],
+  "source_sha256": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7",
+  "validation_sha256": "f64fff01a9deb6d5557d516390fbdba7933165e9377983238868fe4fd54972b1",
+  "delivery_sha256": "94fd4655f01250278d0e3f4bbeb2a9554580e006cd6d635e278f048d4f7bcc6f",
+  "shared_integration_owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "packaged_or_playable_acceptance": false,
+  "pending_native_worker_writes": false
+}

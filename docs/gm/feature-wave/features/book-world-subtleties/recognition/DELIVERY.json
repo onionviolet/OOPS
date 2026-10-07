@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "writer": "recognition_subtleties",
+  "status": "finite-four-world-worker-complete; released for parent integration",
+  "changedPaths": [
+    "src/feature_expansion_book_recognition.js",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/CHECKPOINT.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/SOURCE_AUDIT.py",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/SOURCE_PINS.json",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/circle-of-inevitability/COVERAGE.json",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/lord-of-mysteries/COVERAGE.json",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/shadow-slave/COVERAGE.json"
+  ],
+  "sha256": {
+    "src/feature_expansion_book_recognition.js": "ed4b6534175dd1ff83cf842825cf5414de3b6489aa8c4d8f64473ff3d861afcd",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/CHECKPOINT.md": "ebe5e891ce184209412f893509341f7d286959ff6ff7faab253ad9e22424775c",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/INTEGRATION.md": "9aed80967d88e019b2604c678dc8e2640c83c32dad4276e04181198235a7caba",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/SOURCE_AUDIT.py": "9b79c764241e6ff16825aa0771d0d0e29c93a9a5f1bebc4e27723659a6a66653",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/SOURCE_PINS.json": "bbb29a554f7c4fc1d23c383f7817ff24a11d966f29c6bc5d1869320ec234e4d4",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/circle-of-inevitability/COVERAGE.json": "85afebfddef991fe38a3fca5653dc8dda18ce97e77832ca63fdf9501c58b25a7",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/lord-of-mysteries/COVERAGE.json": "b176563536cfc5074c83412d8fc924ed1edea9b15f1674fcb6f43c61222e6ed4",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/mother-of-learning/COVERAGE.json": "5024d60addc9e78e6531f9659d223ef4781ad0eb193fe506949ebc9604d9bbcf",
+    "docs/gm/feature-wave/features/book-world-subtleties/recognition/shadow-slave/COVERAGE.json": "4e1bb61d452fc8dd1f2647e1aa5063fea783bf82d77d8fd547b72e89a81910c4"
+  },
+  "exports": [
+    "BOOK_RECOGNITION_PROFILES",
+    "BOOK_RECOGNITION_SCENE",
+    "getBookRecognitionProfile",
+    "recognizeBookWorld",
+    "bookRecognitionSceneView"
+  ],
+  "counts": {
+    "worlds": 4,
+    "rules": 12,
+    "topologyDispositions": 4,
+    "deepChainDispositions": 4,
+    "chainPhases": 20,
+    "exactLocatorIntervals": 88,
+    "sourceInputHashes": 51
+  },
+  "staticChecks": {
+    "syntax": "passed",
+    "esmImportAndFrozenExportShape": "passed",
+    "sourceProfileDocumentManifestClaimCorrespondence": "passed",
+    "capturedSourceInputDrift": [],
+    "localIntegrationMarkdownLinks": "passed",
+    "sourceEditionHashes": "read-only verified"
+  },
+  "runtimeRegistration": {
+    "prospectiveSceneId": "subtlety.reference_desk",
+    "hostSceneId": "subtlety.relay_office",
+    "workerRegisteredCommands": [],
+    "workerNativeEffects": [],
+    "registeredConsumer": "parent integration receipt required",
+    "nativeBookWorldsActivated": [],
+    "build": "parent-owned; not run by worker"
+  },
+  "compatibility": "Pure module has no saved state/version, default enrollment, grants, rewards, stock, fuel, clock, body or publication. Missing data returns unknown. Existing native IDs and private saves untouched.",
+  "deferred": [
+    "actual scene/observer gameplay and conservation",
+    "source-world native activation/era/voice/topology acceptance",
+    "save/reload/failure",
+    "keyboard/regression",
+    "director acceptance"
+  ],
+  "sourceLimits": [
+    "Supplied-edition authenticity qualified.",
+    "LOTM1 accepted 363 story entries, not all 1402 reader returns.",
+    "COI accepted narrative spine1–1170 at capture, not its later pending source.",
+    "Shadow accepted1–1000/1576–1589/1788–1792; 1019 of supplied3000. Volumes9–11 source-hashed but unaccepted in this snapshot.",
+    "Early versus late source eras and observer-private knowledge stay explicit."
+  ]
+}

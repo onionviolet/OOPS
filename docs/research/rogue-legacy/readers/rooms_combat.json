@@ -1,0 +1,584 @@
+{
+  "paths": [
+    {
+      "path_id": "P4_rooms_objectives_boss_progression",
+      "title": "Generated regions, optional timed fairy objective, and boss-clear aftermath",
+      "claims": [
+        {
+          "id": "P4-1",
+          "observation": "Boss-bearing sequential areas sample the room count with RandomInt((int)TotalRooms.X,(int)TotalRooms.Y), then retry area construction until size and EntranceBoss conditions pass. Each attempt increments creationCounter; creationCounter > 15 jumps to restartAll. Separately, missing top/bottom/right exits jumps to restartSequential.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1718,
+              "end": 1787,
+              "symbol": "CreateLevel / sequential area loop",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5"
+            },
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1819,
+              "end": 1842,
+              "symbol": "CreateLevel / non-sequential retry safety",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "The sequential retry counter increments after each boss-entrance attempt; the safety log text says non-sequential even in the sequential branch. Exit-layout failure restarts the area through a separate label."
+        },
+        {
+          "id": "P4-2",
+          "observation": "A template room named Boss is replaced by a concrete boss-room object selected by its numeric Tag. Room properties and objects are copied and linked rooms are relinked when present.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/LevelBuilder2.cs",
+              "start": 1961,
+              "end": 2009,
+              "symbol": "ConvertBossRooms",
+              "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Unknown tags leave the template unchanged; room assets/templates are outside this source span."
+        },
+        {
+          "id": "P4-3",
+          "observation": "An Eyeball miniboss kill sets persistent EyeballBossBeaten when the target player remains alive. The boss-room base cleanup also sets per-hero NewBossBeaten. When the player later returns to CastleEntranceRoomObj, LastBossDoorHack opens the final door only if all four region boss flags are true and FinalDoorOpened is false. PlayerData writes and reads the four regional flags; MapData separately stores room visitation, bonus completion/IDs, chest type/open state, fairy failure, ordinary enemy deaths and breakables.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Eyeball.cs",
+              "start": 764,
+              "end": 785,
+              "symbol": "EnemyObj_Eyeball.Kill",
+              "sha256": "2b1152e7d0193c5fe1c7eae5472a4169e9caa961d5f025b36c3ba75e875790e1"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/BossRoomObj.cs",
+              "start": 171,
+              "end": 177,
+              "symbol": "BossCleanup",
+              "sha256": "a9ba72672bc51b63429e6cfde6216e042a324a562799d9cdebe29d39b5bf46af"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2225,
+              "end": 2236,
+              "symbol": "LastBossDoorHack",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 563,
+              "end": 566,
+              "symbol": "SavePlayerData boss flags",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1385,
+              "end": 1388,
+              "symbol": "LoadPlayerData boss flags",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1014,
+              "end": 1052,
+              "symbol": "SaveMapData room/enemy state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1054,
+              "end": 1087,
+              "symbol": "SaveMapData chest/fairy state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1092,
+              "end": 1131,
+              "symbol": "SaveMapData serialized arrays",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1757,
+              "end": 1809,
+              "symbol": "LoadMapData arrays",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1834,
+              "end": 1874,
+              "symbol": "LoadMapData bonus/enemy restoration",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1897,
+              "end": 1925,
+              "symbol": "LoadMapData chest/fairy restoration",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "EyeballBossBeaten is a player-wide progression flag written to PlayerData, while NewBossBeaten marks the current heir and is consumed/reset by GameOver. MapData restores only the listed world-map state; boss room/chests and challenge rooms are excluded from relevant arrays, and enemy revival/retention depends on LockCastle."
+        },
+        {
+          "id": "P4-4",
+          "observation": "Fairy chest condition state is checked by FairyChestObj.Draw while locked. For ReachIn5Seconds, the timer counts down during unpaused play; the checker fails it when the player remains farther than 100 units after timer reaches zero, or unlocks it when within 100 units while time remains. TakeNoDamage fails when PlayerObj.State is HURT, otherwise unlocks upon reaching within 100 units. Unlock reports ObjectiveComplete for ordinary conditions; failure reports ObjectiveFailed unless skipped. Opening a free chest marks a missing rune FoundButNotSeen, or grants a stat drop when all runes have been found.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/ChestConditionChecker.cs",
+              "start": 19,
+              "end": 79,
+              "symbol": "SetConditionState",
+              "sha256": "719652b97023a967ce92a954c6593f02dd5bae6ef625f13edd3ba5289207cb63"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 50,
+              "end": 80,
+              "symbol": "SetChestUnlocked / SetChestFailed",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 83,
+              "end": 125,
+              "symbol": "OpenChest",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 139,
+              "end": 143,
+              "symbol": "Draw condition caller",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+              "start": 166,
+              "end": 178,
+              "symbol": "ReachIn5Seconds countdown and objective progress",
+              "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1054,
+              "end": 1087,
+              "symbol": "SaveMapData fairy failure state",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            },
+            {
+              "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+              "start": 1913,
+              "end": 1925,
+              "symbol": "LoadMapData fairy failure restore",
+              "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "ChestConditionChecker runs from Draw only while locked; drawing/caller timing is code-driven. MapData persists failed state as a boolean, not the detailed condition/timer state. Some objective conditions can be changed by proximity/order and are not all enumerated here."
+        }
+      ],
+      "trace": {
+        "caller": "LevelBuilder2.CreateLevel assembles rooms and converts boss templates; ProceduralLevelScreen handles room entry, boss doors, and room-entry saves. FairyChestObj.Draw calls ChestConditionChecker.SetConditionState while locked. ",
+        "gates": "Boss-bearing area requires EntranceBoss and valid exits; safety counter is >15 before whole-map restart. Timed fairy condition is proximity <100 before timer expires; TakeNoDamage requires no HURT state before proximity <100. Boss final-door gate requires all four region flags and FinalDoorOpened false.",
+        "costs": "No currency cost shown; the player incurs traversal/time/health risk and some fairy objectives impose conditions or timers.",
+        "mutations": "Cloned room lists, boss-room replacement/link mutation, rune inventory state, NewBossBeaten, boss door lock state.",
+        "consumers": "Minimap, room traversal, boss chest/teleport, challenge access, rune inventory and item screen, SaveManager.",
+        "failure_boundaries": "Area retries; non-sequential creation has a 15-attempt map restart; missing linker triggers restartAll. Fairy objective can fail. A beaten-region boss door can lock and challenge access remains separate.",
+        "persistence": "PlayerData explicitly serializes the four regional boss flags. MapData serializes visited rooms, bonus completion/IDs, chest types/open booleans, fairy failure booleans, ordinary enemy dead booleans, and breakable booleans; corresponding loader restores them. Boss/challenge rooms are omitted from certain chest/enemy arrays. Ordinary enemies are silently killed on restore only when LockCastle is false; fairy failure restores under that same no-lock condition. Timer duration and objective completion states are not saved as such."
+      }
+    },
+    {
+      "path_id": "P5_shieldknight_combat_status_death",
+      "title": "ShieldKnight spacing, shield-facing defense, player block/damage, kill or death aftermath",
+      "claims": [
+        {
+          "id": "P5-1",
+          "observation": "EnemyObj.Update maps configured radii into four range states and, once active logic/cooldown permit, dispatches by difficulty. ShieldKnight InitializeLogic creates stop/walk/turn sets; basic/advanced use the basic logic block, expert uses an expert turn set, and engaged states turn when heading disagrees with target position or walk toward the target otherwise. Miniboss logic always chooses stop in these three states.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 254,
+              "end": 345,
+              "symbol": "Update",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 190,
+              "end": 267,
+              "symbol": "InitializeLogic / RunBasicLogic",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "This is a movement/turn loop, not a melee/projectile attack set. Specific attack behavior is not present for this ShieldKnight implementation excerpt."
+        },
+        {
+          "id": "P5-2",
+          "observation": "ShieldKnight CollisionResponse has a guard requiring a PlayerObj (`player != null`) as well as front-side position, first-box-hit, and applicable invulnerability. Its additional guard excludes the PlayerAirAttack sprite. Thus a pure projectile cannot enter this branch, despite a nested projectile-destroy block. Eligible front player contact runs the shield response and specific knockback. HitEnemy reduction is separate: code tests current m_target position and current m_target.SpriteName, not the actual attacker/source or isPlayer; despite the nearby comment, qualifying calls can include non-sword damage if those current-target tests pass. The scalar is 0.6, so the applied formula is `(int)(damage * (1 - 0.6))`.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 339,
+              "end": 406,
+              "symbol": "CollisionResponse",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 14,
+              "end": 18,
+              "symbol": "ShieldKnight damage reduction scalar",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+              "start": 409,
+              "end": 422,
+              "symbol": "HitEnemy",
+              "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Comment at lines 416-417 says air attacks and all other damage besides sword swipes should deal full damage, but executable check is target sprite name only. The nested projectile destruction is structurally present but excluded for ordinary pure projectile inputs by the outer player != null guard."
+        },
+        {
+          "id": "P5-3",
+          "observation": "Player block absorbs eligible collisions while blocking and when mana is positive or block invulnerability remains; each hit outside that window drains BlockManaDrain and starts BlockInvincibleTime. Otherwise HitPlayer computes mitigated damage, suppresses it in tutorial/GodMode, and subtracts health. Lethal damage may consume Revive, pass a Death_Dodge roll, eject the player from a challenge boss room, or kill and run game over.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2063,
+              "end": 2100,
+              "symbol": "CollisionResponse",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2252,
+              "end": 2402,
+              "symbol": "HitPlayer",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+              "start": 2449,
+              "end": 2468,
+              "symbol": "Kill",
+              "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Death_Dodge probability is configured by a skill modifier whose bought value is not traced."
+        },
+        {
+          "id": "P5-4",
+          "observation": "Enemy kill may grant vampirism/mana and drops, records current room/enemy index in EnemiesKilledInRun when SaveToFile is true, increments total and type/difficulty kill counters, then enters base killed state. The room lookup throws if that enemy cannot be found.",
+          "evidence": [
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 808,
+              "end": 873,
+              "symbol": "HitEnemy",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 881,
+              "end": 955,
+              "symbol": "Kill",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3"
+            },
+            {
+              "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+              "start": 985,
+              "end": 1012,
+              "symbol": "Kill / counters",
+              "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3"
+            },
+            {
+              "file": "RogueCastle/src/Screens/ProceduralLevelScreen.cs",
+              "start": 2830,
+              "end": 2840,
+              "symbol": "KillEnemy",
+              "sha256": "7dc0080ec94e57afb3dee89c2d49321bb4b2168c1202c69a88a7ba847097c2c4"
+            }
+          ],
+          "kind": "source_observed",
+          "limits": "Drop rates and class-specific gains depend on values outside this excerpt; no runtime play observed."
+        }
+      ],
+      "trace": {
+        "caller": "ProceduralLevelScreen updates attached enemies; EnemyObj.Update selects range state and AI logic; collision dispatch reaches ShieldKnight or PlayerObj response.",
+        "gates": "Shield response outer guard requires first-box hit, appropriate invulnerability state, front-facing collision, and player != null; air-attack sprite is excluded. This makes the nested projectile destruction unreachable for an ordinary projectile-only collision. Player damage mitigation instead checks player block state/resource.",
+        "costs": "Block costs BlockManaDrain mana on eligible hits outside invulnerability; unblocked hits cost computed health. Enemy tuning varies by difficulty.",
+        "mutations": "Shield collision produces player-specific knockback and enemy invulnerability; the nested projectile-destroy code exists but is unreachable for pure projectile input due to the player guard. HitEnemy damage factor uses target position/sprite checks, not attacker identity.",
+        "consumers": "Enemy HUD, item drop manager, vampirism/mana systems, current run map, kill counters, death-defy/game-over flow.",
+        "failure_boundaries": "Shield front branch requires player; pure projectile cannot enter it. HitEnemy comment claims sword-swipe semantics, while actual test uses m_target current sprite and facing. Tutorial/GodMode suppress player damage; Revive and Death_Dodge intercept lethal outcomes; challenge boss lethal hit ejects instead of ordinary death; missing enemy lookup throws.",
+        "persistence": "Enemy kill updates PlayerStats.EnemiesKilledInRun; room entry saves PlayerData/MapData. Exact serialization and kill-time durability are not traced."
+      }
+    }
+  ],
+  "coverage": [
+    {
+      "file": "RogueCastle/src/LevelBuilder2.cs",
+      "ranges_read": [
+        [
+          1710,
+          1762
+        ],
+        [
+          1816,
+          1860
+        ],
+        [
+          1961,
+          2012
+        ]
+      ],
+      "purpose": "Area generation retries and boss template conversion."
+    },
+    {
+      "file": "RogueCastle/src/Screens/ProceduralLevelScreen.cs",
+      "ranges_read": [
+        [
+          976,
+          1030
+        ],
+        [
+          1200,
+          1225
+        ],
+        [
+          2822,
+          2840
+        ]
+      ],
+      "purpose": "Boss doors, room-entry save, kill run mutation."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/BossRoomObj.cs",
+      "ranges_read": [
+        [
+          130,
+          200
+        ]
+      ],
+      "purpose": "Boss clear/chest/exit sequence."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/EyeballBossRoom.cs",
+      "ranges_read": [
+        [
+          105,
+          113
+        ]
+      ],
+      "purpose": "Boss killed predicate."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+      "ranges_read": [
+        [
+          50,
+          125
+        ],
+        [
+          185,
+          230
+        ]
+      ],
+      "purpose": "Fairy objective result, reward, reset."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+      "ranges_read": [
+        [
+          250,
+          345
+        ],
+        [
+          650,
+          736
+        ],
+        [
+          808,
+          873
+        ],
+        [
+          881,
+          1013
+        ]
+      ],
+      "purpose": "AI dispatch, collision, hit/kill consequences."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+      "ranges_read": [
+        [
+          1,
+          145
+        ],
+        [
+          350,
+          435
+        ]
+      ],
+      "purpose": "ShieldKnight setup and collision behavior."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+      "ranges_read": [
+        [
+          2060,
+          2102
+        ],
+        [
+          2252,
+          2405
+        ],
+        [
+          2449,
+          2468
+        ]
+      ],
+      "purpose": "Player block, damage and lethal response."
+    },
+    {
+      "file": "RogueCastle/src/LevelBuilder2.cs",
+      "ranges_read": [
+        [
+          1710,
+          1787
+        ],
+        [
+          1816,
+          1858
+        ],
+        [
+          1961,
+          2012
+        ]
+      ],
+      "purpose": "Sequential/non-sequential retries, exits, safety restart and boss template conversion."
+    },
+    {
+      "file": "RogueCastle/src/ChestConditionChecker.cs",
+      "ranges_read": [
+        [
+          11,
+          79
+        ]
+      ],
+      "purpose": "Concrete chest-condition dispatch for timed reach and no-damage."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+      "ranges_read": [
+        [
+          39,
+          80
+        ],
+        [
+          83,
+          125
+        ],
+        [
+          139,
+          143
+        ],
+        [
+          166,
+          178
+        ],
+        [
+          213,
+          226
+        ]
+      ],
+      "purpose": "Condition initialization, success/failure, reward, Draw caller and timer progress."
+    },
+    {
+      "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+      "ranges_read": [
+        [
+          563,
+          566
+        ],
+        [
+          1385,
+          1388
+        ],
+        [
+          1000,
+          1146
+        ],
+        [
+          1757,
+          1959
+        ]
+      ],
+      "purpose": "PlayerData regional boss flags and MapData saved arrays/restoration semantics."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Eyeball.cs",
+      "ranges_read": [
+        [
+          755,
+          785
+        ]
+      ],
+      "purpose": "Regional boss flag set on miniboss defeat."
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+      "ranges_read": [
+        [
+          2060,
+          2102
+        ],
+        [
+          2225,
+          2236
+        ],
+        [
+          2252,
+          2405
+        ],
+        [
+          2449,
+          2468
+        ]
+      ],
+      "purpose": "Player block/damage/death and final-door progression gate."
+    },
+    {
+      "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+      "ranges_read": [
+        [
+          150,
+          198
+        ]
+      ],
+      "purpose": "Current-hero boss flag handoff, run counters reset and save call."
+    }
+  ],
+  "unread": [
+    "PlayerData fields beyond the four regional boss flags; detailed serialization is only sampled at the relevant fields.",
+    "Other FairyChestChecker condition variants beyond the concrete timed-reach and take-no-damage path.",
+    "ShieldKnight does not define an attack set in this examined source; only movement/turn dispatch was traced."
+  ],
+  "notes": [
+    "Pinned source commit is b41c17888a91100bbf8f1febecaa636a1b421f5b; source HEAD matched pin.",
+    "No game launch/build/tests/assets/user saves inspected.",
+    "This reference does not establish YAIR behavior or license permission to copy implementation/content.",
+    "Focused review corrected the shield projectile interpretation: the outer guard requires player != null, so ordinary projectile-only hits do not enter the nested projectile destruction block. HitEnemy comment and executable m_target-based test are recorded separately."
+  ]
+}

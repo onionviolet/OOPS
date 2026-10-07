@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "lane": "campaigns",
+  "review_scope": {
+    "repositories": [
+      {
+        "id": "questjs",
+        "revision": "72fef6a7315b2d977d8b4f57c358a11ba85d765a",
+        "branch": "master",
+        "cache": "~/.cache/yairpg-repository-bank/2026-10-05/questjs.git",
+        "pin_verified": true,
+        "purpose_and_notice": "README calls QuestJS a browser-run pure-JavaScript rewrite of Quest 5 for parser interactive fiction and documents authoring through JavaScript; LICENSE is MIT, copyright Andy Joel (2019). Reviewed source was read from the pinned Git object database; no upstream code, script, build, or assets were executed or copied.",
+        "primary_url": "https://github.com/ThePix/QuestJS"
+      },
+      {
+        "id": "wesnoth",
+        "revision": "30130b779e724bcfb020bc5bef302fd2e8321e2c",
+        "branch": "master",
+        "cache": "~/.cache/yairpg-repository-bank/2026-10-05/wesnoth.git",
+        "pin_verified": true,
+        "purpose_and_notice": "README describes an open-source, turn-based tactical strategy game with authored campaigns and scenarios. Root COPYING is GNU GPL version 2. Scenario text and WML were reviewed as source; campaign art, music, and other data assets have their own provenance/licensing and were not assessed or proposed for reuse. No upstream source, game, scripts, or assets were executed or copied.",
+        "primary_url": "https://github.com/wesnoth/wesnoth"
+      }
+    ],
+    "limits": "These are default-head pinned-source subsystem reviews, not repository-wide reviews, campaign playthroughs, engine integrations, or human acceptance. Five source files were inspected for QuestJS including the additional pinned rpg/npc_templates.js blob; the selected Wesnoth scenario and its next scenario were read as raw pinned WML. The SOURCES.json seed hashes for README, license, attack, agenda, skill, and selected scenario match the observed raw bytes."
+  },
+  "findings": [
+    {
+      "id": "RB-CAM-01",
+      "repository_id": "questjs",
+      "revision": "72fef6a7315b2d977d8b4f57c358a11ba85d765a",
+      "title": "Attack resolution composes a successful action from skill gates, target/effect hooks, active effects, and state changes",
+      "evidence_files": [
+        {
+          "path": "rpg/skill.js",
+          "symbols": [
+            "Skill.constructor",
+            "WeaponAttack.testUseable",
+            "Spell.testUseable",
+            "SpellSelf",
+            "SpellInanimate"
+          ],
+          "lines": "4-20,35-89,141-150",
+          "raw_sha256": "83610b87c753707082de96de34bce06d4fbeab6472329cf3200f3dde42c24990",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/skill.js#L4-L20"
+        },
+        {
+          "path": "rpg/attack.js",
+          "symbols": [
+            "Attack.createAttack",
+            "Attack.apply",
+            "Attack.resolve",
+            "Attack.applyDamage",
+            "Attack.applyActiveEffects"
+          ],
+          "lines": "5-18,25-56,73-125,141-165,174-259,296-345",
+          "raw_sha256": "1bb13de32606d5ded8e2510b2fd403b31bb62183b73ced051ebb0c36e9e53df3",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/attack.js#L5-L18"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Successor to Quest 5",
+            "What does QuestJS code look like?"
+          ],
+          "lines": "3-16,36-67",
+          "raw_sha256": "f0b8c055441770310789a0bf6d5e1365967dd477b473b6763f34fc1844cfde85",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/README.md#L3-L16"
+        },
+        {
+          "path": "LICENSE",
+          "symbols": [
+            "MIT License"
+          ],
+          "lines": "1-21",
+          "raw_sha256": "4edbba313808c7984080a896df3896a2b25039d5778679d3330c19a4a7f2e36a",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/LICENSE#L1-L21"
+        }
+      ],
+      "observed_upstream_behavior": "Attack.createAttack selects a default or requested skill, checks activity and skill-specific usability before producing an attack, resolves primary and secondary targets, and builds the attack from the skill, weapon, actor, held objects, room, and active effects. Attack.apply resolves target copies; a successful resolve calls skill targetEffect, applies a named effect when configured, applies damage, invokes target.afterAttack, and terminates a target at zero health. Hit chance and each damage die draw randomness only during resolution. Skill definitions can register named effects, provide target-selection and effect callbacks, and specialize no-weapon, self, or inanimate targeting.",
+      "observed_vs_inference": "The eligibility, callback, effect, damage, RNG, and termination order above is observed in the pinned code. A declarative/shared YAIR combat-effect adapter is an inferred design route, not an existing feature, tested port, or selection of new combat rules.",
+      "original_yair_example": "Proposal only: a glasswright's hooked staff can catch an opponent's sleeve and expose a carried glass charm only when the attacker has the trained hook technique and the opponent is wearing a loose outer layer. The action would disclose the charm only after a successful, witnessed contact. Its authored gates and consequence could use current actors, sources, conditions, knowledge, and causal receipts; this review does not add the item, action, or campaign.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {
+            "owner": "src/native_battle.js",
+            "evidence": "A scoped player/Mara native duel reads actual fighter stats and equipment-derived combat properties, pays stamina, rolls from a saved battle seed, applies mitigation, holds both combatants at one HP, and publishes the result (16-19, 38-62)."
+          },
+          {
+            "owner": "src/party_battle.js",
+            "evidence": "The guarded contest uses the same native strike formula with separate guard/interposition decisions and independent fighter state (61-97)."
+          },
+          {
+            "owner": "src/combat_math.js and src/combat_math.js callers",
+            "evidence": "Native strike calculation and damage mitigation are factored into shared math; this is already the supported native combat formula owner."
+          },
+          {
+            "owner": "src/simulation_contracts.js, src/simulation_effects.js, src/power_models.js",
+            "evidence": "Registered effects cover resource/vital/condition/source/power/knowledge/relationship/claim/event/situation outcomes; effects consume current actor/owner state and retain causal attribution (contracts 37-76; effect application 77-100, 144-211)."
+          },
+          {
+            "owner": "src/causal_situations.js and src/people_knowledge.js",
+            "evidence": "Situations validate phase/effect state and attributed knowledge basis; the people projection deliberately exposes witnessed memories rather than private NPC inventory or state (causal_situations.js 4-57; people_knowledge.js 1-30)."
+          },
+          {
+            "owner": "src/expansion_persistence.js and src/gameplay_publication.js",
+            "evidence": "Expansion plans stage existing envelope, native vitals, effects, ownership, equipment, and unlocks before one save write (expansion_persistence.js 5-49; gameplay_publication.js 15-60)."
+          }
+        ],
+        "missing_consumer": "There is no general native attack-action layer that lets authored skills add eligibility predicates, target/effect callbacks, active-source modifiers, and multiple consequence types to arbitrary native attacks and commits all resulting native and expansion state through the existing publisher. The current native combat is a bounded duel adapter. The simulation has a separate command/effect contract and must not become a parallel native damage engine.",
+        "novelty_overlap": "High overlap in actor stats, powers/sources, conditions, events, causes, and native save publication. The useful new pattern is the exact order and composition boundary joining action eligibility to resolved target outcomes; a second generic effects engine or wholesale QuestJS runtime duplicates current YAIR owners.",
+        "route": "Independently author one fixed attack specialization on the existing native strike path if a later selected gameplay need calls for it. Keep source and effect application in existing power/effect/state owners, and stage it through current persistence/publication. Do not import QuestJS classes or adopt its browser engine.",
+        "dependencies": {
+          "required": [],
+          "optional": [],
+          "decision": "No runtime or library dependency is required or selected. QuestJS MIT would permit code reuse subject to preserving copyright and license notices, but its global RPG/world object model and parser combat runtime would duplicate YAIR and make selective reuse unattractive. No code reuse is proposed."
+        },
+        "effort": {
+          "qualitative": "Medium for one explicit native ability using existing strike/session/transaction owners; high for general callbacks, multi-target target-state staging, active effect stacking, UI descriptions, and save compatibility.",
+          "confidence": "High for the pinned QuestJS trace and current YAIR source evidence; medium for adaptation effort because no live browser behavior was exercised."
+        },
+        "state_rng_time_stock_publication_save": {
+          "state": "Preview eligibility must use current actor, target, body, equipment, condition, source, and encounter facts. A target/effect hook may run only for the resolved eligible target. Distinguish displayed preview from committed effect.",
+          "rng": "QuestJS attack rolls and dice draw during resolution. YAIR native battle already stores a seeded stream in its session. Any selected extension should continue that stream, save the updated seed with the action, and spend no draw for failed/stale/ineligible previews.",
+          "time": "QuestJS is turn-based and applies the action within attack resolution. YAIR must bind a native strike to its supported command/tick boundary; this source review selects no new global clock policy.",
+          "stock": "Resolve required item charges/equipment from their existing actual native or simulation owner. Reserve and spend exact current stock through the existing transaction, respecting custody and committed jobs; do not mirror equipment into simulation inventory.",
+          "publication": "Stage stamina, health, effects, power sources, knowledge, causes, battle session, and narrative receipt together through existing combat/effect publication. Rendering cannot trigger a callback or spend a resource.",
+          "save_compatibility": "No change made or selected. A new persisted action/effect state needs a declared optional schema/version or compatible absence behavior and a migration decision. Existing expansion/simulation saves and private user saves stay untouched; before release, rebuild and perform save/reload acceptance on a disposable generated save."
+        },
+        "provenance": {
+          "source_license": "QuestJS root LICENSE is MIT, copyright Andy Joel (2019), and requires its copyright and permission notice with copies or substantial portions.",
+          "yair_license": "YAIR root LICENSE is MIT and upstream attribution must remain intact.",
+          "file_content_assets": "The evidence is JavaScript source and license text only. No QuestJS names, prose, game files, or assets are proposed for copying; separately check individual asset/content rights if any later request includes them.",
+          "maintenance_removal_fallback": "An optional, fixed authored action can be unregistered if it adds no persistent schema. If it writes a new saved source/effect/receipt, keep a reader/migration path or explicitly reject unsupported versions. The fallback is the existing duel and party combat behavior."
+        }
+      }
+    },
+    {
+      "id": "RB-CAM-02",
+      "repository_id": "questjs",
+      "revision": "72fef6a7315b2d977d8b4f57c358a11ba85d765a",
+      "title": "NPC agendas encode finite turn-by-turn duties and a guarded return to the starting routine",
+      "evidence_files": [
+        {
+          "path": "rpg/agenda.js",
+          "symbols": [
+            "agenda.guardItem",
+            "agenda.guardItemNow",
+            "agenda.guardPatrol",
+            "agenda.guardWalkTo",
+            "agenda._saveInitial",
+            "agenda.antagonise"
+          ],
+          "lines": "6-52,65-174",
+          "raw_sha256": "9c1db8b61e98c0475d7179504dceab9eb82ed291f5eccc07cec7834d66d28282",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/agenda.js#L6-L52"
+        },
+        {
+          "path": "rpg/npc_templates.js",
+          "symbols": [
+            "agendaRestart",
+            "endTurn"
+          ],
+          "lines": "81-92,454-480",
+          "raw_sha256": "5eff4a22c807ea0ee54033a024c792edb99d82e69a9e6434fa8eb8f20fad25b9",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/rpg/npc_templates.js#L81-L92"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Successor to Quest 5"
+          ],
+          "lines": "3-16",
+          "raw_sha256": "f0b8c055441770310789a0bf6d5e1365967dd477b473b6763f34fc1844cfde85",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/README.md#L3-L16"
+        },
+        {
+          "path": "LICENSE",
+          "symbols": [
+            "MIT License"
+          ],
+          "lines": "1-21",
+          "raw_sha256": "4edbba313808c7984080a896df3896a2b25039d5778679d3330c19a4a7f2e36a",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/LICENSE#L1-L21"
+        },
+        {
+          "path": "lib/_saveload.js",
+          "symbols": [
+            "saveLoad.getSaveBody",
+            "saveLoad.setLoadString",
+            "saveLoad.encode",
+            "saveLoad.setFromArray"
+          ],
+          "lines": "8-20,79-85,135-153,244-273,383-387",
+          "raw_sha256": "397a81127b15a167ba4374d0ac2ff8d5283207af42dabf5dc83150ffc192ad04",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/lib/_saveload.js#L79-L85"
+        },
+        {
+          "path": "lib/_defaults.js",
+          "symbols": [
+            "getSaveString",
+            "saveLoadExclude"
+          ],
+          "lines": "160-183",
+          "raw_sha256": "124503df41d86ab4b1394453cd55f234d4c7de28b2c0496d2a65798dc873cc94",
+          "url": "https://github.com/ThePix/QuestJS/blob/72fef6a7315b2d977d8b4f57c358a11ba85d765a/lib/_defaults.js#L160-L183"
+        }
+      ],
+      "observed_upstream_behavior": "The agenda module authors guard-item, patrol, walk-to, and antagonize actions as sequential agenda entries. Patrol advances through a finite route; walk-to resolves a room/object destination and moves one step toward it, returning incomplete until arrival. Guard setup stores an initial action/location for later resumption. NPC endTurn selects among guard handler, current agenda when not paused/suspended, or hostile-target attack, then processes its event. agendaRestart rebuilds a return-to-origin plus original action pair unless settings are absent or resumption is disabled. Comments explicitly mark patrol/walk-to attack behavior as future work, so this is a finite routine/return pattern, not a general autonomous planner. The default save path serializes each world object and accepts string arrays, so a string-array agenda cursor can be saved; generic saveLoadExclude filters object-valued attributes and get/set save paths restore only encoded types. Thus the agenda sequence can survive through the default object serializer, while agendaOriginalSettings is a plain object and is omitted by default unless an author supplies a custom serialization route. This is a source-level save-path reading, not a save/reload execution.",
+      "observed_vs_inference": "These sequencing, pause/suspension, movement, and return mechanics are observed. Mapping such a routine into a YAIR finite actor controller or planned job is an inference. No QuestJS routine or game content is present in YAIR and no behavior is claimed as implemented by this review. Persistence qualification: string-array agenda data is accepted by the generic serializer, while a plain-object original-settings snapshot is excluded by default. Whether a particular game customizes this remains game-specific and was not executed.",
+      "original_yair_example": "Proposal only: a roaming lamp-mender has a finite evening duty to collect two actual wick bundles from the storehouse, repair one beacon if the storm warning is active, leave a note for the watch, and return to his bench. Player intervention can pause the route; whether he resumes depends on the authored obligation and the supplies actually remaining. This example proposes no new campaign or universal daily-life rule.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {
+            "owner": "src/simulation_contracts.js",
+            "evidence": "Controller definitions validate an actor, interval, ordered actions, priorities, and `when` predicates; actions bind only to a registered command, encounter response, or event response (133-139)."
+          },
+          {
+            "owner": "src/simulation.js",
+            "evidence": "Boundary advancement visits due controllers, advances their due time, checks authored action eligibility, and submits one supported action (317-380); jobs already have preview, commit, pause, resume, and cancel routes (49-207)."
+          },
+          {
+            "owner": "src/simulation_effects.js and src/simulation_resolution.js",
+            "evidence": "Effects can spend/transfer actual simulation inventory, change location/facts/conditions, add memories/causes, and spawn people; seeded event resolution is separate and deterministic by saved seed/id (simulation_effects.js 77-100, 144-211; simulation_resolution.js 4-41)."
+          },
+          {
+            "owner": "src/causal_situations.js and src/scene_definitions.js",
+            "evidence": "Authored situations provide finite phases with validated response effects, cause records, and attributed knowledge; scene compiler produces a typed native situation progression (causal_situations.js 4-57; scene_definitions.js 4-21)."
+          },
+          {
+            "owner": "src/world_instances.js",
+            "evidence": "World instance state owns local facts/sites, actor binding, unique claims, played-time clocks and departure records with revision guards (97-190, 310-405)."
+          }
+        ],
+        "missing_consumer": "Current controller actions are registered one-action commands or encounter/event responses at intervals. No owner provides a first-class finite itinerary that preserves its route/step cursor, pauses for an interruption, and resumes from a recorded origin while reserving real stock across its stages. Existing `jobs` represent committed bounded work; they are not automatically the same as a multi-location actor agenda. Avoid adding an independent global scheduler or activity framework.",
+        "novelty_overlap": "High overlap with controllers, scheduled boundaries, committed jobs, simulation effects, and local world clock. The gap is specifically ordered route continuation and explicit interruption/resumption with actual-stock eligibility. QuestJS's own comments warn that guard patrol and walk-to do not yet attack as their names might suggest; do not overstate them as complete tactical planning.",
+        "route": "If a later selected scene needs it, first encode a fixed finite routine with current controller/job/situation primitives and one owner for its cursor and reserved stock. Add a small agenda adapter only if the actual route cannot be authored through these current contracts. Do not import the parser engine or copy its runtime NPC object model.",
+        "dependencies": {
+          "required": [],
+          "optional": [],
+          "decision": "No dependency is required or selected. QuestJS is MIT, but its JavaScript NPC object and global world model are coupled to its own runtime and would duplicate YAIR's owner/clock/controller contracts. Independent pattern adaptation is the narrow route."
+        },
+        "effort": {
+          "qualitative": "Medium for one route across existing controller, job, location, inventory, and event owners; high for a generic interruptible multi-actor schedule language and conflict resolution.",
+          "confidence": "High for the pinned agenda and endTurn paths and present controller contracts; medium for deciding whether a new small adapter is necessary until one content itinerary is selected."
+        },
+        "state_rng_time_stock_publication_save": {
+          "state": "Keep actor location, agenda step, obligation, pause/resume cause, and endpoint on the owning simulation/world instance. NPC hidden plans remain private from the player's knowledge projection.",
+          "rng": "QuestJS route advancement is deterministic; the source makes no general agenda RNG policy. YAIR controllers should spend no RNG on ineligible actions. A genuinely random route choice must use the existing saved event/controller stream and record its receipt.",
+          "time": "The upstream NPC agenda advances on actor turns. YAIR must use its actual clock/actor interval and registered due boundary; suspension and return must not advance a world clock outside its selected owner policy.",
+          "stock": "Use owner inventory and stock claims for each segment. A step requiring a wick or coin is ineligible without available real stock; committed jobs reserve stock once and cancellation/failure follows existing refund rules.",
+          "publication": "Apply location, stock spend/transfer, stage cursor, relationship/memory cause, and rendered notification through the existing plan/publisher path so no partial step survives a failure.",
+          "save_compatibility": "No save change is selected. A persistent agenda cursor needs schema/migration or a compatible initialization route; saved player agendas and current private saves were not inspected or changed. Any later shipping implementation requires actual save/reload verification."
+        },
+        "provenance": {
+          "source_license": "QuestJS root LICENSE is MIT, copyright Andy Joel (2019), requiring preservation of its copyright and permission notice with reused code.",
+          "yair_license": "YAIR root LICENSE is MIT; preserve its existing upstream attribution.",
+          "file_content_assets": "Only source API and license facts are used. No NPC name, text, map, art, or other QuestJS content is proposed for reuse.",
+          "maintenance_removal_fallback": "A fixed controller or finite scene can be removed by unregistering its definitions if it adds no durable cursor. If cursor state is persisted, preserve a reader/migration route. Fallback is the present static actor/job behavior; no new schedule means no background advancement."
+        }
+      }
+    },
+    {
+      "id": "RB-CAM-03",
+      "repository_id": "wesnoth",
+      "revision": "30130b779e724bcfb020bc5bef302fd2e8321e2c",
+      "title": "Scenario WML joins discovery-gated encounters, a unit-bound reward, named recalls, and a campaign transition gate",
+      "evidence_files": [
+        {
+          "path": "data/campaigns/Under_the_Burning_Suns/scenarios/02_Across_the_Harsh_Sands.cfg",
+          "symbols": [
+            "scenario 02_Across_the_Harsh_Sands",
+            "prestart",
+            "scorpions_spotted",
+            "scorpion_ambush",
+            "take_traveler_ring",
+            "ogre_ambush",
+            "victory",
+            "endlevel"
+          ],
+          "lines": "3-9,190-283,363-560,621-738,1660-1771",
+          "raw_sha256": "c7e7e8d01b208a09205cd9a23b05341702fba732e7be99ddf9244d243f58fe39",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/data/campaigns/Under_the_Burning_Suns/scenarios/02_Across_the_Harsh_Sands.cfg#L363-L417"
+        },
+        {
+          "path": "data/campaigns/Under_the_Burning_Suns/scenarios/03_Stirring_in_the_Night.cfg",
+          "symbols": [
+            "scenario 03_Stirring_in_the_Night",
+            "prestart recall heroes",
+            "campaign turn-1 rallies",
+            "victory/endlevel"
+          ],
+          "lines": "11-24,269-295,444-495,1807-1811",
+          "raw_sha256": "e0a5a6b8f09634543b53e6c898f9a22f2c1c0d4dea9be8c23fa6f60e583723fa",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/data/campaigns/Under_the_Burning_Suns/scenarios/03_Stirring_in_the_Night.cfg#L269-L295"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "Features"
+          ],
+          "lines": "1-36",
+          "raw_sha256": "37539c6ba20f53e714237a530aa427898a1334cfa20fae2b0e7ccd6325388d50",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/README.md#L1-L36"
+        },
+        {
+          "path": "COPYING",
+          "symbols": [
+            "GNU General Public License, Version 2"
+          ],
+          "lines": "1-22,60-104",
+          "raw_sha256": "e6d6a009505e345fe949e1310334fcb0747f28dae2856759de102ab66b722cb4",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/COPYING#L1-L22"
+        },
+        {
+          "path": "src/carryover.hpp",
+          "symbols": [
+            "carryover",
+            "carryover_info"
+          ],
+          "lines": "25-58,61-107",
+          "raw_sha256": "c5305119986165d1847ec9edca44ab455f1c11ce31389742e91b7f98a175b1d5",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/src/carryover.hpp#L25-L58"
+        },
+        {
+          "path": "src/carryover.cpp",
+          "symbols": [
+            "carryover.constructor",
+            "transfer_all_gold_to",
+            "transfer_all_recalls_to",
+            "to_config",
+            "carryover_info.constructor",
+            "transfer_all_to",
+            "transfer_to",
+            "carryover_info.to_config"
+          ],
+          "lines": "27-42,46-76,98-109,111-137,158-227",
+          "raw_sha256": "395e71d85858208e046ee1483d88bed2e659139507741112e0555e83e4f56274",
+          "url": "https://github.com/wesnoth/wesnoth/blob/30130b779e724bcfb020bc5bef302fd2e8321e2c/src/carryover.cpp#L27-L42"
+        }
+      ],
+      "observed_upstream_behavior": "Scenario 02 starts with named hero recall calls for Nym, Garak, and Zhul and advertises the single next scenario. A scout moving within radius 8 of the scorpion nest triggers a warning and places the encounter; a non-scout entering radius 3 triggers the ambush directly. Defeating the last scuttler drops a ring and installs a one-time move event. The player can assign the unit-bound object that grants hydration immunity to the unit reaching the drop, or defer taking it; the event and location record are cleared on acceptance. A separate ogre path has scout-revealed and close-range ambush cases, while defeating the leader is mandatory before Kaleh can win by reaching the north edge. Victory carries 40 percent gold into the next scenario. Scenario 03's prestart recalls named heroes including the Dust Devil; its own turn-1 logic also recalls troops conditionally. The source scenario thus uses stable actor identity/recall plus local WML variables and event removal, while carryover and unit object effects are the visible reward/persistence routes. The C++ carryover owner makes the persistence boundary explicit: carryover stores recall units as config records because live units may depend on resources unavailable between scenarios; it removes board coordinates/hidden state when collecting the recall record, serializes the unit records and scenario variables, and transfers recall units, recruits, gold, variables, RNG and next-scenario identity into the next level/save config. This confirms the campaign-level retained-unit/variable path in source without executing the game.",
+      "observed_vs_inference": "The scenario WML and C++ carryover serialization/transfer paths above are observed at the pinned source. The claim that the ring object modification remains attached after recall is still an inference from unit-bound object assignment plus retained unit config; this review did not trace the object serializer payload in a running scenario or execute save/load. This is not a full campaign or engine review. The source scenario calls out one next_scenario; its local encounter alternatives are not alternate campaign destinations.",
+      "original_yair_example": "Proposal only: on a native frontier walk, a watch scout who spends a real field ration and has the required observation skill may expose a wind-carved cistern before the party enters its hazard radius. Resolving the encounter can earn one named travel charm assigned to an actual consenting carrier; either route leads to the same next local chapter, with a recorded fact changing the arrival support. This is an illustrative adaptation, not a selected new world, branch, death rule, second prestige layer, or campaign implementation.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {
+            "owner": "src/simulation_contracts.js and src/simulation.js",
+            "evidence": "Authored predicates, fixed response choices, encounter/event outcomes, command costs, effect commits, and explicit campaign transition previews/commits already exist (simulation_contracts.js 24-34, 80-168; simulation.js 49-125, 221-306, 408-455)."
+          },
+          {
+            "owner": "src/simulation_effects.js and src/causal_situations.js",
+            "evidence": "Current effects can grant unique claims, items, sources, knowledge, conditions, memories, actor state, facts, and world outcomes with a cause; situations enforce finite phase responses (simulation_effects.js 144-211; causal_situations.js 4-57)."
+          },
+          {
+            "owner": "src/world_instances.js",
+            "evidence": "Compiled local world definitions and records own revisioned facts/sites/unique claims, actor attachment, visits and played-time clock; views expose only known fields (97-190, 310-428)."
+          },
+          {
+            "owner": "src/frontier_campaign.js",
+            "evidence": "The existing original local campaign slice binds an optional recurring road rival, a resolved fact, an earned power source and an authored transition (13-69, 86-103)."
+          },
+          {
+            "owner": "src/native_battle.js and src/party_battle.js",
+            "evidence": "The existing scoped native combat sessions resolve and publish actual actor condition/effect outcomes; party combat keeps helper status/guard resource separate (native_battle.js 26-62; party_battle.js 48-97)."
+          },
+          {
+            "owner": "src/expansion_persistence.js and src/save_files.js",
+            "evidence": "Saved expansion plans publish through a validated envelope; current schema migrations are explicit and preserve unrelated/dormant state (expansion_persistence.js 5-49; save_files.js 17-103)."
+          }
+        ],
+        "missing_consumer": "No selected YAIR content currently joins encounter discovery-radius eligibility, explicit reward-carrier assignment, a named-actor recall roster, and a multi-stage local campaign transition as one authored scenario adapter. Existing transition planners can project explicitly authored reset/retention slices but are not a generic campaign graph runtime. Existing world instances already own local actor attachment and unique claims, so any later adapter should extend those instead of building another campaign persistence layer.",
+        "novelty_overlap": "High overlap in predicates, encounters, causes, power/item effects, unique claims, transitions, local world facts, actor identity, clock, and save envelope. The useful original authoring pattern is to keep eligibility, response, retained identity/reward ownership, and next-stage gate explicit in one scenario contract. WML, tactical map engine, tile renderer, and Vesnoth campaign serialization do not transfer to YAIR's idle/native world model.",
+        "route": "Adapt a single optional chapter using existing scene/situation, world-instance, encounter, effects, claim, and transition owners after a specific original chapter is selected. Prefer one destination with a few eligibility/reward facts before considering destination branching. No new campaign/world is selected here.",
+        "dependencies": {
+          "required": [],
+          "optional": [],
+          "decision": "No Wesnoth runtime or map library dependency is needed or selected. Reuse only the general WML authoring idea independently. This review makes no legal compatibility conclusion and assumes GPLv2 source is not reusable under YAIR's MIT release; any future direct incorporation needs separate review of applicable GPLv2 obligations and YAIR distribution goals. No scenario prose/art/audio is proposed for copying."
+        },
+        "effort": {
+          "qualitative": "Medium for one local chapter that uses current authored responses and world/claim transitions; high for a reusable campaign graph, named-actor recruitment/recall lifecycle, multi-world routing, and rollback-compatible save upgrades.",
+          "confidence": "High for pinned WML path evidence and the current owner map; medium for the cross-chapter retention interpretation because no game execution or save transfer was performed."
+        },
+        "state_rng_time_stock_publication_save": {
+          "state": "Keep eligibility, revealed route, chosen carrier, encounter result, and reward claim separate facts with explicit actor/world/continuity ownership. Do not infer that mere registry membership means the player knows a route or NPC.",
+          "rng": "Wesnoth source uses difficulty macros, random unit scatter and a saved campaign/turn context; the sample contains turn-1 conditional recall randomness in scenario 03. YAIR should use existing saved deterministic event/controller streams only for authored random alternatives and should spend no draw for hidden or ineligible occurrences.",
+          "time": "Upstream conditions are turn/hex driven, including a finite turn loss. YAIR would bind a local chapter to its supported played clock and visit leases; no world absence advancement or campaign-wide timer is selected.",
+          "stock": "An item reward must be created/transferred once into a chosen actual actor inventory or native item owner. Unique claims prevent duplicate payout. Costs to discover or traverse use real stock reservations and existing cancellation rules.",
+          "publication": "Stage the encounter response, actor/reward ownership, claim receipt, local world facts, route/transition state, memory/cause, and any native effects into one validated transaction. No reward should publish before its eligibility and owner binding pass.",
+          "save_compatibility": "No content or persistence change is selected. If retained named actors or new campaign facts are introduced, define explicit compatibility/migration behavior that preserves legacy state and use a disposable generated save for save/reload acceptance. Existing private saves remain untouched."
+        },
+        "provenance": {
+          "source_license": "Pinned root COPYING is GNU GPL version 2 and requires notices/license preservation and source/derivative distribution duties when covered program material is distributed. README identifies the game/campaign source context. This finding proposes no code copying. Individual graphics, music, and other campaign content may carry separate notices/licenses; they were not audited.",
+          "yair_license": "YAIR root LICENSE is MIT and project guidance requires upstream attribution/license preservation.",
+          "file_content_assets": "Only WML structure and behavioral relationships are cited. Do not reuse Under the Burning Suns names, dialogue, map, unit graphics, music, or other assets absent specific rights/source review and explicit creative selection.",
+          "maintenance_removal_fallback": "A single adapter can be unregistered if its effects remain inside optional world/campaign records. If new named-actor or reward state is persisted, retain old-reader/migration behavior and a no-enrollment fallback for legacy saves. If the adapter is removed, existing native opening and one-prestige progression remain available."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "validated_at": "2026-10-06T05:29:20.290979+00:00",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "JSON readback",
+      "status": "pass",
+      "detail": {
+        "files": [
+          "AI_READER.json",
+          "COVERAGE.json",
+          "EQUIPMENT_READER.json",
+          "FINDINGS.json",
+          "INTAKE.json",
+          "PROGRESSION_READER.json",
+          "YAIR_INPUTS.json"
+        ]
+      }
+    },
+    {
+      "check": "official archive pin",
+      "status": "pass",
+      "detail": {
+        "official_page": "https://te4.org/download",
+        "official_source_link": "https://te4.org/dl/t-engine/t-engine4-src-1.7.6-nomusic.tar.bz2",
+        "route": "official 1.7.6 Source/no-music link, direct HTTPS curl (exit0)",
+        "version": "1.7.6",
+        "commit": null,
+        "pin_kind": "sha256 archive and package hashes",
+        "archive_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/acquisition/t-engine4-src-1.7.6-nomusic.tar.bz2",
+        "archive_bytes": 355293835,
+        "archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871"
+      }
+    },
+    {
+      "check": "package hash game/engines/te4-1.7.6.teae",
+      "status": "pass",
+      "detail": {
+        "sha256": "3fb9b94b78ea48915c9dbbea985ca0bde1fa97aef303cb60b47bb8c5f352a454",
+        "bytes": 88959152
+      }
+    },
+    {
+      "check": "package hash game/modules/tome-1.7.6.team",
+      "status": "pass",
+      "detail": {
+        "sha256": "5f63966b02bb98676570e375aaf51c825425d3a8b2c1b580c63a8e9a74f6862d",
+        "bytes": 35042860
+      }
+    },
+    {
+      "check": "package hash game/modules/boot-te4-1.7.6-nomusic.team",
+      "status": "pass",
+      "detail": {
+        "sha256": "8948a7d1ef79d5d5f3e553aab00ef12281eeedc2acac83410e2352206b95cb75",
+        "bytes": 2662213
+      }
+    },
+    {
+      "check": "coverage hashes and bounds",
+      "status": "pass",
+      "detail": {
+        "errors": [],
+        "files": 37,
+        "unique_semantic_lines": 3112
+      }
+    },
+    {
+      "check": "coverage counts",
+      "status": "pass",
+      "detail": {
+        "selected_source_files": 37,
+        "unique_semantically_read_lines": 3112,
+        "paths_traced": 5,
+        "original_ranked_packets": 3
+      }
+    },
+    {
+      "check": "integrated claim source and YAIR anchors",
+      "status": "pass",
+      "detail": {
+        "anchors": 101,
+        "errors": []
+      }
+    },
+    {
+      "check": "reader evidence ranges/hashes",
+      "status": "pass",
+      "detail": {
+        "span_checks": 100,
+        "errors": []
+      }
+    },
+    {
+      "check": "inspected Lua matches original package bytes",
+      "status": "pass",
+      "detail": {
+        "files": 36,
+        "errors": []
+      }
+    },
+    {
+      "check": "inspected C matches original tar bytes",
+      "status": "pass",
+      "detail": {
+        "sha256": "9006a07b9ba0581d916e5e2f2e2f2f287aa9964710e82137ddac0039497d8f04"
+      }
+    },
+    {
+      "check": "Markdown local links and line targets",
+      "status": "pass",
+      "detail": {
+        "checked": 40,
+        "errors": []
+      }
+    },
+    {
+      "check": "live YAIR/authority input correspondence",
+      "status": "pass",
+      "detail": {
+        "inputs": 25,
+        "changed_since_final_snapshot": [],
+        "intake_drift": [
+          {
+            "path": "docs/gm/dispatch/game-source-research-2026-10-06/README.md",
+            "initial": {
+              "sha256": "6a8c441ddc4274394de4085516c513012ebfde4b438b69eabbe2fc1dadd54891",
+              "bytes": 2632
+            },
+            "final": {
+              "sha256": "6ec009e5b71ff9a8dcf4c3be796bfb13dc749bf0cb0c97e69733064cab9c72b4",
+              "bytes": 4246
+            },
+            "intermediate": {
+              "sha256": "c7675a3fa87dba1aa4a007d420872e685c8deabe23f41de9f8dc7a790c5e212c",
+              "bytes": 3351
+            },
+            "reconciliation": "Read back live dispatcher additions for other named games. ToME exclusive output/source boundaries and finite goal unchanged."
+          },
+          {
+            "path": "src/reference_gameplay_state.js",
+            "initial": {
+              "sha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808",
+              "bytes": 16611
+            },
+            "final": {
+              "sha256": "c3d22b6ea093e3c9afaf40eebc12e5cdad1eae82dbce3b49dbcbaebc79acd3ae",
+              "bytes": 16651,
+              "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_state.js"
+            },
+            "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+          },
+          {
+            "path": "src/simulation.js",
+            "initial": {
+              "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+              "bytes": 47628
+            },
+            "final": {
+              "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+              "bytes": 47664,
+              "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation.js"
+            },
+            "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+          },
+          {
+            "path": "src/simulation_effects.js",
+            "initial": {
+              "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+              "bytes": 25743
+            },
+            "final": {
+              "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+              "bytes": 26528,
+              "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation_effects.js"
+            },
+            "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+          }
+        ]
+      }
+    },
+    {
+      "check": "one lane only output inventory",
+      "status": "pass",
+      "detail": {
+        "owned_outputs": [
+          "AI_READER.json",
+          "CHECKPOINT.md",
+          "COVERAGE.json",
+          "EQUIPMENT_READER.json",
+          "FINDINGS.json",
+          "IMPLEMENTATION_PACKETS.md",
+          "INTAKE.json",
+          "PROGRESSION_READER.json",
+          "REPORT.md",
+          "VALIDATION.json",
+          "YAIR_INPUTS.json"
+        ],
+        "runtime_mutation": "No source/build/canonical/private-save commands executed by this lane; shared checkout changes by other writers are not attributed to this research.",
+        "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df"
+      }
+    },
+    {
+      "check": "five paths and three bounded original packets",
+      "status": "pass",
+      "detail": {
+        "paths": 5,
+        "ranked_packets": 3,
+        "gates": "Later behavior/save/director gates explicitly unperformed"
+      }
+    },
+    {
+      "check": "final artifact text/JSON readback and fingerprint seal",
+      "status": "pass",
+      "detail": {
+        "owned_files": 11,
+        "fingerprinted_outputs": 10,
+        "report_and_packets": "saved text read back in full, five traces/three packet fields and remaining gates checked",
+        "source_counts": {
+          "files": 37,
+          "unique_semantic_lines": 3112
+        },
+        "self_hash": "VALIDATION.json excluded from recursive hash"
+      }
+    }
+  ],
+  "errors": [],
+  "review_corrections": [
+    "AI transition initialized enabled and concrete tactical actor added.",
+    "Individual forced talent reward separated from trained category; actor progress separated from completed profile achievement/evolution profile unlock.",
+    "Block traced into actual damage return; item-talent grant removal/cooldown checked.",
+    "Natural ego attempts are sequential stop-on-failure, not independent trials for all types.",
+    "Nominal scaling high is not cap; mbonus chance is not fixed40; executable cooldown behavior outranks stale comments.",
+    "Primary range for YAIR persistence corrected to actual file end51 before final validation.",
+    "Two shield coverage citation lines beyond EOF135 removed; coverage count corrected to3112.",
+    "Concurrent dispatcher additions and three YAIR module edits reread; exact inspected inputs frozen outside Git before final pass. No source/build acceptance inferred for new hooks."
+  ],
+  "source_limits": [
+    "Paid DLC",
+    "Full base-game campaign/talent/ego inventory",
+    "All hook variants, serialization/network/profile durability",
+    "Tiles/sound/art",
+    "Numerical distributions/balance, gameplay behavior, exploit safety",
+    "RNG seed or replay lifecycle"
+  ],
+  "unperformed_checks": [
+    "ToME runtime/install/build",
+    "YAIR build/gameplay/browser",
+    "Generated save/reload/import/failure",
+    "Balance/drop simulation/exploit review",
+    "Director acceptance of proposals"
+  ],
+  "workers": "Three readers observed completed; no pending extraction/download/session",
+  "source_gate": "complete",
+  "artifacts": {
+    "AI_READER.json": {
+      "sha256": "c5abcf87704548f9925a5082d6fe0f85108594460a00a75cc73c819022170021",
+      "bytes": 13384
+    },
+    "CHECKPOINT.md": {
+      "sha256": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
+      "bytes": 4015
+    },
+    "COVERAGE.json": {
+      "sha256": "eaa5c674b915dcae1fd4d720718c43806d188a3421c3141b3985c6a8fc15ce73",
+      "bytes": 21525
+    },
+    "EQUIPMENT_READER.json": {
+      "sha256": "36d062e785afd9de561ed9013719343fe9e38812b737e18563e9bee221d33f0a",
+      "bytes": 20533
+    },
+    "FINDINGS.json": {
+      "sha256": "90bc9130feca0a24681cecc1d59e71d76ddc59d1a2ca5dfe971991dcc44218b8",
+      "bytes": 40580
+    },
+    "IMPLEMENTATION_PACKETS.md": {
+      "sha256": "ecc0cf13c29577c2f75203e8437be6a1c50c3e57dfa4e7cf4bc35d3aed7b48ef",
+      "bytes": 9709
+    },
+    "INTAKE.json": {
+      "sha256": "22b0dcff614dab7239751f29bae4b409aa690c2f425aa64b94a0efd5a9386bdc",
+      "bytes": 3577
+    },
+    "PROGRESSION_READER.json": {
+      "sha256": "17dbc67a06afd0f538838863bde9d60b087cd83a9f587ba11d0fcef8a72952bc",
+      "bytes": 15639
+    },
+    "REPORT.md": {
+      "sha256": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+      "bytes": 11346
+    },
+    "YAIR_INPUTS.json": {
+      "sha256": "e16164776479ff9837ef972e15fe3556c9671d71da2e5cd658fedfe630907d8d",
+      "bytes": 16066
+    }
+  },
+  "final_readback_at": "2026-10-06T05:29:57.421339+00:00"
+}

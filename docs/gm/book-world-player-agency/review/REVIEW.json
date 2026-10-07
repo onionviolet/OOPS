@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "reviewer": "/root/paradise_admission_review",
+  "capturedAtUtc": "2026-10-06T05:57:25.461089+00:00",
+  "qualification": "Source reasoning and source readback only; no behavioral proof. Root was editing shared files during review. Hashes are completion snapshot and findings before repair are dated observations, not claims about current source.",
+  "status": "completed; review-only writer scope released",
+  "findings": [
+    {
+      "id": "R01",
+      "priority": "P1",
+      "status": "root-repaired-source-readback-only",
+      "files": [
+        "src/book_world_paradise_actions.js:53",
+        "src/book_world_paradise_host.js:64",
+        "src/book_world_paradise_native.js:132"
+      ],
+      "observedDefect": "Shop definitions used positive-count array; host spread the array into a single malformed request; native demanded an exact negative-count scalar authored delta. Every purchase was rejected before publication.",
+      "repair": "Root changed helper to negative-count array deltas, host maps each request with cause/revision, native matches exact authored array member and keeps current revision/acquisition/finite stock guards."
+    },
+    {
+      "id": "R02",
+      "priority": "P2",
+      "status": "root-repaired-source-readback-only",
+      "files": [
+        "src/book_world_paradise_native.js:104",
+        "src/book_world_paradise_native.js:112"
+      ],
+      "observedDefect": "Native SafeLocation.npcs lists stayed at immutable starting locations after committed Hank/Su relocations.",
+      "repair": "Root now removes only campaign IDs and projects actually alive committed people into their retained locations during durable publish/restore applyAvailability."
+    }
+  ],
+  "openP1P2": [],
+  "withdrawnHypotheses": [
+    {
+      "hypothesis": "No UI entry because main only imported paradisePresentation",
+      "reason": "Withdrawn after reading feature_expansion_refinements_host.js:31, main present callback and generic feature panel action nonce path."
+    }
+  ],
+  "ledger": [
+    {
+      "id": "P01",
+      "sourceReview": "host preview/commit chart\u2192explicit enroll\u2192passage; native body/controller/cargo/current token guarded; no protagonist role copied",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P02",
+      "sourceReview": "funded hub/porter work reserves own payer funds/materials and living same actor; paid bracing faculty has useful native-kit cache consumer; shop mismatch repaired by root",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P03",
+      "sourceReview": "Su introduction/cooperate/refuse address actual source person; his personal blade/Soul Eater owned separately; unknown mana remains analytical only",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P04",
+      "sourceReview": "civilian cache/warning consumes counted inputs, creates finite capacity/escape route, changes Hank supported shelter",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P05",
+      "sourceReview": "paid consented two-cask diversion changes actual Krieg stock/fire outcome; distinct palace proof changes king evacuation/search opportunity",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P06",
+      "sourceReview": "five independent controllers consume actual funds/items/vitals/agenda; instant and delayed source-NPC effects retain fresh native bound/body/revision context; root native occupancy repair read back",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P07",
+      "sourceReview": "observed fire/Hank/king variants and ordinary/partial/cooperate/refusal/opposed warning paths retain facts; attributed Mia account requires resolved actual outcomes and own work",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P08",
+      "sourceReview": "mission reserves four employer coins; arrival starts local90 deadline (bounded late repair readback; earlier snapshot used60); two-minute extraction is separate from actual passage; actual hub return gates once settlement; personal passage distinct",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P09",
+      "sourceReview": "instances/visits retained,96 capacity reserves outward/return, no history pruning, absence freezes; finite continued pier repair and retained procedure/materials support revisit",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P10",
+      "sourceReview": "19 immutable contract rows remain unactivated with independent native binding status for selected Paradise; no full roster playability claim",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    },
+    {
+      "id": "P11",
+      "sourceReview": "native real constructors, distinct stocks/shops/quests/calendar/owners, optional absent guards, shared schema10 coexists with9/backlog/workplans, registered situation knowledge basis, refinement UI/action nonce join, observer-only People, one durable native stage/write/publish path",
+      "status": "implemented-unverified source support; behavioral acceptance deferred"
+    }
+  ],
+  "specificChecks": {
+    "schema10": "Exact campaign schema10 validated; main restores10 before publication validators; reference/backlog/workplans explicitly admit10; old absent state inert. NetHack modules retain separate source GM ownership and are outside review.",
+    "NPCeffectContexts": "simulation startCommand passes current context for instant book_paradise_npc; delayed completeJob merges contexts[job.actorId] and staged gameplay/vitals into effectContext, retaining nonserialized paradiseNative; frozen job.context is only actor/target/party. Relocation same-world allowlist/body/controller/revision/life guards read back.",
+    "oldAbsent": "register creates locked empty native placeholders; absent validation rejects retained enrolled state/stock/items/XP/equipment; import path reloads a fresh page rather than reusing populated owners; absent restore clears stock/quests/availability. No gameplay/save check executed.",
+    "observer": "People rows derive only player knowledge attributed to person; NPC private keys remain recipient-owned. Registered side_branch begins before chart knowledge and validates basis.",
+    "publisher": "all native stages compose into one existing persistExpansionPlan; metadata and owner writes precede publish; snapshot/restore use exact native revision and independent location/calendar/quest owners."
+  },
+  "checksPerformed": [
+    "read-only source searches/reads and SHA256 snapshot",
+    "node --check eight new book_world modules passed; no module execution",
+    "Bounded lexical late repair and display provider readback; no projector/evaluator execution"
+  ],
+  "prohibitedRuntimePerformed": false,
+  "deferred": [
+    "gameplay/branch/timed escrow conservation",
+    "native body/relocation/absence and NPC life behavior",
+    "save/reload/import/failure acceptance",
+    "browser/keyboard/director acceptance",
+    "matching final bundle correspondence by root"
+  ],
+  "hashes": {
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+    "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+    "src/book_world_paradise_actions.js": "1d528347f44597fa09b752da1e79b33707e6b91cef216ac4f90507645d15348e",
+    "src/book_world_paradise_state.js": "727394e3946ca5ffb9f55a5dbf14172c82c31189f5cdae8cc1d3872c203663d3",
+    "src/book_world_paradise_host.js": "12a66abbce80d39dfb9d150865d9a1d85a75b69c0fd16659892a632403b84bd6",
+    "src/book_world_paradise_carriers.js": "f6badd94934fd71128e995ad05567c0cb49e57c2ffbc8348753798244333a25b",
+    "src/book_world_paradise_native.js": "c12bd030f45927297fa086b00a9bb70b6ef9f05360b3ba47c258f7d49a85d77f",
+    "src/book_world_player_agency_contracts.js": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+    "src/main.js": "157d1758abc9fb8e3ac5dc6b67d7b0f12109d783e401abdd17c1b4a2af90ae37",
+    "src/expansion_engine.js": "a345ad0f45bf2d6243be219818ec0764469c8518494cb237f5bf8a5362fcb3d1",
+    "src/simulation.js": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+    "src/simulation_effects.js": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+    "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+    "src/save_files.js": "c2f7a47556521629d9c98eb79cfaf4b0643bcd88554e0fac9591129ed8e3c5a8",
+    "src/feature_expansion_refinements_host.js": "38e10c7721f3e1e24677b35f7bdb1660e04fba54b5186cb6856f36eeb051ca9e",
+    "src/feature_expansion_ui.js": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0",
+    "src/people_knowledge.js": "93b47e911c66490e80390d4ba52b7a8047edacc096d6bd97285cb4a270987766",
+    "src/feature_expansion_work_plan.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+    "src/reference_gameplay_state.js": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+    "src/backlog_expansion_host.js": "2b991e61cb014a0605f4d12d285367cf9b54facbdb7b60d609a8e562067e8e88",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70",
+    "src/display.js": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1",
+    "src/nethack_fieldcraft_item_view.js": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015",
+    "src/nethack_fieldcraft_content.js": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+    "src/nethack_fieldcraft_host.js": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03",
+    "src/nethack_fieldcraft_facts.js": "d3c8b9da5fefcbd1793af2580347253973714d07dc0fbefdf29d08cb1828976b",
+    "src/nethack_fieldcraft_feats.js": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392",
+    "docs/gm/book-world-player-agency/SOURCE_QUALIFICATION_READBACK.json": "7926820e96a0408ac610e24c08bb421ee556f47f248595d431c9d81ccd288bfa"
+  },
+  "priorSnapshots": [
+    {
+      "capturedAtUtc": "2026-10-06T05:36:00.183698+00:00",
+      "hashes": {
+        "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+        "src/book_world_paradise_content.js": "98132c4160f4af9bc3cac61cdd55b8beb7423a205f1f3428859ef83ae070100c",
+        "src/book_world_paradise_actions.js": "18d33c16a922af388658597b06ff58216b187b8a3742786e52bea52983ca5881",
+        "src/book_world_paradise_state.js": "0d029aca789ca316b12d6ac4144e77fac54414e7b8ce7d2d4c700cf2403b49c2",
+        "src/book_world_paradise_host.js": "4e0ba916a04f2860695c9a5d8a0eea671a15e4206ddb909f71b24e9c1aa76972",
+        "src/book_world_paradise_carriers.js": "f6badd94934fd71128e995ad05567c0cb49e57c2ffbc8348753798244333a25b",
+        "src/book_world_paradise_native.js": "c12bd030f45927297fa086b00a9bb70b6ef9f05360b3ba47c258f7d49a85d77f",
+        "src/book_world_player_agency_contracts.js": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+        "src/main.js": "cabfa80da10f399def1c7f0ebdf35fac661d2b6344619e52718900550c5685d4",
+        "src/expansion_engine.js": "3e8ea0eb513040b793dde098b603730762bf49b9e0dce639fd98bae94cd1032d",
+        "src/simulation.js": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+        "src/simulation_effects.js": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+        "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+        "src/save_files.js": "c2f7a47556521629d9c98eb79cfaf4b0643bcd88554e0fac9591129ed8e3c5a8",
+        "src/feature_expansion_refinements_host.js": "38e10c7721f3e1e24677b35f7bdb1660e04fba54b5186cb6856f36eeb051ca9e",
+        "src/feature_expansion_ui.js": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0",
+        "src/people_knowledge.js": "93b47e911c66490e80390d4ba52b7a8047edacc096d6bd97285cb4a270987766",
+        "src/feature_expansion_work_plan.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+        "src/reference_gameplay_state.js": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+        "src/backlog_expansion_host.js": "2b991e61cb014a0605f4d12d285367cf9b54facbdb7b60d609a8e562067e8e88",
+        "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70"
+      },
+      "qualification": "Initial P01-P11 completion source snapshot; superseded by bounded late repair readback. Prior findings retained."
+    }
+  ],
+  "boundedFollowup": {
+    "scope": "Root-requested late source repair and item identity display readback only; P01-P11 not rerun",
+    "status": "source readback supported; no new lexically concrete P1/P2 found",
+    "repairs": [
+      "host player definition visibility checks actual world/location before simulation preview; chart explicit absent special path retained",
+      "Hank dutyWarning now limited to source disclosed fire operation; no Su private midnight task",
+      "palaceOpportunityResolved waits current warning/escape/contained fire or resolved burned gate; kingReachable requires actual burned+breached pressure; su_search waits resolved opportunity rather than immediately restoring plot",
+      "terms.deadline90 and actual arrival uses residence+terms.deadline; public offer says90; original two-minute extraction and separate return retained",
+      "Su physical native inventory no uncertain flintlock/tiger proof; last-observed analytical facts retain unknown current custody",
+      "fieldcraft facts validator admits9/10; host has no forced schema downgrade; readonly item projection requires explicit assay/trial completion + player understood identity + opted-in fieldcraft"
+    ],
+    "displayWiring": "main sets setFieldcraftKnowledgeReader(()=>expansionState) after initial state initialization. Closure reads replacement validated/committed state after publication and validated load; display inventory names/tooltips/item log use pure item projection, retained rows refresh label when identity changes despite unchanged quantity; templates/keys/counts untouched. No execution of projector or UI.",
+    "limits": "Source record supplied by root was read as dated qualification evidence; no private source re-read or runtime evaluation. Matching final build and behavioral acceptance remain root-owned."
+  }
+}

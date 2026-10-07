@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-10-06T20:07:34.034586+00:00",
+  "writer": "/root/remainder_livelihood",
+  "parent": "/root",
+  "leasedFiles": {
+    "src/simulation.js": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+    "src/simulation_effects.js": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+    "src/simulation_contracts.js": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836",
+    "src/expansion_engine.js": "dd52f305db21849739b3065113aa833119d2d5f71e4c1e92dbc52f951a678089",
+    "src/audit_remainder_state.js": "65af7158d4a66ff429ecd299fc9acee1932ee074fac7908c9e5568f07eca132f"
+  },
+  "causalSourceHashes": {
+    "src/causal_story_ids.js": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_core.js": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+    "src/causal_story_content.js": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+    "src/causal_story_native.js": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7",
+    "src/causal_story_host.js": "a9eb61d3ddc32072344b9a0d05d482cf2954af9e1d983889e9ba60cde7fe7c15",
+    "src/causal_story_ui.js": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65"
+  },
+  "causalReleaseMatches": {
+    "src/causal_story_ids.js": true,
+    "src/causal_story_actors.js": true,
+    "src/causal_story_core.js": true,
+    "src/causal_story_content.js": true,
+    "src/causal_story_native.js": true,
+    "src/causal_story_host.js": true,
+    "src/causal_story_ui.js": true
+  },
+  "status": "source integration in progress; implemented-unverified"
+}

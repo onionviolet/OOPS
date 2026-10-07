@@ -1,0 +1,120 @@
+{
+  "status": "source-qualified design input; not a playable delivery",
+  "source": {
+    "snapshot": "PD-MTL-67f15d112389-r1",
+    "epub_sha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+    "claim_status": "U for original primary canon",
+    "limits": [
+      "Supplied English MTL only; translation fidelity and original canon authentication remain unverified.",
+      "Selected paragraph locators identify retrieved XHTML member paragraphs, not equivalent numbering in other editions.",
+      "Prototype player branch and all suggested costs, clocks, routes and outcomes are original proposals."
+    ]
+  },
+  "source_era": {
+    "protagonist": "Su Xiao",
+    "world_as_labeled": "Van Pease",
+    "location": ["Gray Terminal / Grey Terminal", "Kingdom of Goa", "Mount Kolubo", "Goa palace"],
+    "mission": "Kill King Philip Herbert within the displayed 72 hours; mission panel forbids leaving Goa territory and mentioning Paradise.",
+    "story_fuse": "Su Xiao later dates the Grey Terminal burning to three days after his arrival; negotiated fire timing is tomorrow at 6 p.m. in his branch.",
+    "parallel_player": "Original branch participant; no source evidence establishes a second entrant."
+  },
+  "evidence": [
+    {"sid": 3, "member": "EPUB/Chapter 2 The Hunter_2.xhtml", "sha256": "4524de7c72c26ae509d81b3a89b8795da92a69458b2c4db521dd95e14214ec47", "paragraphs": "41-50,52-59,69-83", "supports": ["mission notice and stated prohibitions", "Philip Herbert as named target", "Su Xiao revenge/strength motive", "his distinct incomplete era knowledge", "Gray Terminal and nearby Mount Kolubo"]},
+    {"sid": 4, "member": "EPUB/Chapter 3 The Shootout!_3.xhtml", "sha256": "363cd8f6be7e0c0e941944e21d950bc76c6caf7898430a5546c4b448d6e17968", "paragraphs": "18-34,41-55", "supports": ["level-1 vs level-6 context", "ordinary-person self-assessment", "Gray Terminal gangs and malnourished residents"]},
+    {"sid": 5, "member": "EPUB/Chapter 4 Weapons and Currency!_4.xhtml", "sha256": "b0067978725a6712b05e83d67ac50c244b8310739137e4016252e723f8ab6383", "paragraphs": "60-70", "supports": ["Mia's local knowledge and food vulnerability", "Su Xiao's reason to seek access" ]},
+    {"sid": 6, "member": "EPUB/Chapter 5 The Shot!_5.xhtml", "sha256": "af482e231318c23858d59e58d27cff01406c5eef5cae555446c0ef2ebccdcb31", "paragraphs": "20-43", "supports": ["dump caused by kingdom", "exile, fire, pollution, food/doctor scarcity", "Mia's cookie exchange", "guarded exile boundary", "garbage-cart entrance observation"]},
+    {"sid": 7, "member": "EPUB/Chapter 6 This is the real world_6.xhtml", "sha256": "1ace9a60dc9b9a4736c6a5cbbca12f26d28a5c394ff72fa2e7dfca25170f0e81", "paragraphs": "17-52", "supports": ["Toby/Roger gang information", "guard bribe conversation", "Su Xiao's distinct access method", "child-era conclusion about Luffy/Ace/Sabo", "ordinary capital civilians"]},
+    {"sid": 8, "member": "EPUB/Chapter 7 Letter of Recommendation_7.xhtml", "sha256": "3538403f1e3e65cf69b5848eed83c3b238d96d38eb1b456787e6d548016aaa1a", "paragraphs": "40-46", "supports": ["guard letter and money gate"]},
+    {"sid": 9, "member": "EPUB/Chapter 8 Ryoumeh's Sword!_8.xhtml", "sha256": "0e7e168808d4ba8fcbd387f0279f291336749c69a3ac2ff01f0bf0b41f0ef7c8", "paragraphs": "23-24,50-60", "supports": ["Hank's local weapon offer/one-weapon condition", "guardhouse", "clean-up schedule connected to nobles"]},
+    {"sid": 10, "member": "EPUB/Chapter 9 Impale!_9.xhtml", "sha256": "830e0601f4bed9aff7cca90067c96a63bc9db77724866e29c6d9cafa7d96a27b", "paragraphs": "2,14,37", "supports": ["three-day fire proximity", "guard-chief dinner information"]},
+    {"sid": 11, "member": "EPUB/Chapter 10 Lust for Power_10.xhtml", "sha256": "0ad921d1675117dc32c49f13268a2edc2e03e4d95ba99bc3fa08ced4a76ba3c4", "paragraphs": "12-21,32", "supports": ["guard official event and World Source reward distinction", "MTL name ambiguity Oka/Oki/Oku"]},
+    {"sid": 12, "member": "EPUB/Chapter 11 The Nobleman_11.xhtml", "sha256": "db291c0727afd18ac047c278fc1355a37499810277c6f941c472d229858daac2", "paragraphs": "13-22,30-54", "supports": ["dump-burning political inference", "Mount Kolubo tiger side objective and appointment bargain"]},
+    {"sid": 17, "member": "EPUB/Chapter 16 Kill a Legend_16.xhtml", "sha256": "4a835f881e02caef4d21c6534dbd3a9587731a3e2ab4bf391e4553a21478e6d6", "paragraphs": "20-32", "supports": ["Su Xiao meets child Luffy; early-body and personal-recognition boundary"]},
+    {"sid": 18, "member": "EPUB/Chapter 17 Success!_17.xhtml", "sha256": "e25f01c7904299af81b069f954f9e3fe4f7f5ba4f26583d7770e43f61030399d", "paragraphs": "3,10,34-45,58-61", "supports": ["guard-chief appointment", "pirate crew choices and Su Xiao's plan/inference"]},
+    {"sid": 19, "member": "EPUB/Chapter 18 Pirates!_18.xhtml", "sha256": "908e079049a91c3e1aff6afe771d4f34d9315168aa30c5a5d8e337b6182e6e4b", "paragraphs": "34-50", "supports": ["Bluejam/Krieg/Skeleton crews; Krieg and Gin contact"]},
+    {"sid": 20, "member": "EPUB/Chapter 19 Before the Event (Inside information about new chapters)_19.xhtml", "sha256": "23661c691ddd65388b93e88aa39d174ecaab06b20ccd3db1209726c185e3045d", "paragraphs": "9-36,58-65", "supports": ["negotiated fire clock, bomb/fuel and political bait", "Su Xiao's separate king plan", "noble visit rationale"]},
+    {"sid": 21, "member": "EPUB/Chapter 20 Deception!_20.xhtml", "sha256": "c5722c45640bbf5ff3cf324cf9f8d2c4b9ea46724f4e488dc31da8d9a9d74610", "paragraphs": "3-19,22-29,39-56,64-84", "supports": ["rapid fire and civilian flight", "closed gate, Hank thrown into fire", "wallman's explosive offer and breach", "Su Xiao's concurrent palace route"]},
+    {"sid": 22, "member": "EPUB/Chapter 21 The Humanoid Tank!_21.xhtml", "sha256": "580ac6fb352b23550318c374775df3dc3baf97e0565111249a78122c0669ebd0", "paragraphs": "2-19,31-44,47-64", "supports": ["pirate attack, civilian flight and palace pressure", "king and palace state"]},
+    {"sid": 23, "member": "EPUB/Chapter 22 Return and Reward!_22.xhtml", "sha256": "01e742305a20cb07ae1db08c16c11381705ab933e4058a220724f420973a84f9", "paragraphs": "14-18,35-42,59-91", "supports": ["Philip kill has no World Source", "30-second return trigger", "one interrupted/repaired transit", "specific settlement amounts and room notice"]},
+    {"sid": 26, "member": "EPUB/Chapter 25 Various Classes_25.xhtml", "sha256": "4bd1509955be80ae848d612c5b0aad5d56325e88bb8e00151a372673632acd89", "paragraphs": "25-65", "supports": ["post-return Xi Luoluo employee account", "drink shop and service institutions", "later visit not Goa-time testimony"]},
+    {"sid": 27, "member": "EPUB/Chapter 26 Growth_26.xhtml", "sha256": "e12ecc997b6a76186b50406a10cf07002340aea8bab116873efb4658c0d2ae0a", "paragraphs": "1-32", "supports": ["Su Xiao's then-held 8,400 coins and paid hall access", "building-specific stats access"]},
+    {"sid": 28, "member": "EPUB/Chapter 27 Training!_27.xhtml", "sha256": "68defc7d65b4d16fe6b0e631c8a2628417f453741f46911a978d320121b0145c", "paragraphs": "1-45", "supports": ["rest, meals, room furnishings and paid illusory Koshiro training"]}
+  ],
+  "named_cast_and_alias_risks": {
+    "confirmed_in_supplied_text": ["Su Xiao", "Philip Herbert", "Mia", "Hank", "Toby", "Roger", "Monkey D. Luffy", "Ace", "Sabo", "Bluejam pirates", "Krieg", "Gin", "Skeleton pirates", "Xi Luoluo (also MTL-rendered Si Luoluo)", "Koshiro (illusory training image)", "Mount Kolubo tiger (named by role, not personal name)"],
+    "unresolved": ["guard official/head rendered Brandon Oka, Oki, and Oku", "MTL aliases Xi/Si for Luoluo", "older wallman identity and source motive in the breach scene"]
+  },
+  "source_actor_state": {
+    "su_xiao_at_goa_entry": {
+      "body": "existing injured body had been transferred and treated in opening; he is alive at the Goa mission start",
+      "level": "displayed level/rank 1; world difficulty 6",
+      "abilities": "pre-entry trained anatomy/combat/lockpicking; source opening says ordinary in this world; mission inventory/skills/equipment menus unavailable",
+      "talent_and_fuel": "no post-awakening Soul Eater entitlement shown at entry; do not grant later world-kill mana gains early",
+      "held_stock": "appears without a firearm or ordinary stick in sid4; no inventory access at start; obtains items later through his own events",
+      "motive": "survive, gain strength and eventually avenge murdered parents",
+      "knowledge": "anime-informed expectations about Goa/Luffy/Ace/Sabo, but uncertain era and exact situation"
+    },
+    "player": "unknown until explicitly authored entry terms; never infer Su Xiao's body, Hunter status, fuel, inventory, motive, language notice, source, or foreknowledge"
+  },
+  "actor_state_at_sid20": {
+    "cutoff": "Goa scene before the next-day 18:00 fire negotiated with Krieg; source says it is the last day of Su Xiao's 72-hour task and failure occurs at midnight. Keep these mission and planned-fire clocks distinct; exact synchronized elapsed hours at a parallel player's arrival are not sourced.",
+    "identity_and_body": "Su Xiao remains the original living Hunter in his own body, not the player; source-era level/rank remains the displayed level 1 until post-task settlement.",
+    "owned_weapon": {
+      "primary": "Damaged long sword taken from the Goa guardhouse by bribing Hank; source says it belonged to Shimotsuki Ryouma and was confiscated from a pirate. Current scene has Su Xiao preferring cold weapons and negotiating/acting with this sword.",
+      "observed_properties": "sid9 panel reports condition 35/40, Strength 2/Dexterity 5 requirements, and a fear/shock effect on enemies. It is not his later named Dragon Flash/Sword Mage state.",
+      "other_stock": "A low-condition flintlock was collected earlier and put in his own inventory; the text confirms it cannot be taken out of Van Pease. At sid20 he has tiger claw and a small Soul Crystal in inventory after opening the tiger chest. Exact cash and currently worn arrangement are not re-displayed at this cutoff."
+    },
+    "talent_and_fuel": {
+      "talent": "Soul Eater was forcibly awakened at entry; kill notices are already demonstrated. After the Goa guard-chief kill the notice reports mana-cap gains and max 76 (sid11 p11-17); after the Mount Kolubo tiger it reports +15 and max 91 (sid16 p45-50).",
+      "world_source": "The same tiger notice reports 3.2% and total 8.9% World Source. Source data says king assassination itself yields no World Source; 8.9% remains the later settlement display, so its exact live pre-settlement readout at sid20 is inferred, not re-displayed there.",
+      "mana_use": "At sid11 he explicitly does not know how to use mana; no mana-powered technique/spell is demonstrated by sid20. Current spendable amount is not displayed in the cutoff scene. Do not turn mana into free unlimited combat fuel or a universal system currency."
+    },
+    "acquired_items": [
+      "Dead Wife's Necklace from the guard-chief chest, Strength +1; worn and then visually hidden while its effect remains (sid11 p40-72).",
+      "A second +1 Strength necklace from the Mount Kolubo white chest is reported at sid16 p62; exact worn/display state at sid20 is not re-shown.",
+      "Tiger teeth taken as the noble's bargain proof; his guard-chief appointment follows (sid18 p3-15).",
+      "The later green tiger chest has a small Soul Crystal and Tiger's Claw; he stores these in his inventory at sid20 (sid20 p69-104)."
+    ],
+    "authority_and_relationships": "At sid20 the guard-chief appointment is active and he has hundreds of guards available outside the Krieg meeting; the appointment is a Paradise-enforced bargain after he brings tiger teeth. Hank is a wary subordinate/contact, not an automatic trusted companion. Su Xiao dismisses Oki's cronies and sends the guards back to headquarters after the meeting; authority is real but he does not control the whole institution as a free action.",
+    "private_plan_and_knowledge": "Su Xiao privately intends to kill Philip Herbert tonight, independent of whether the dump-burning plan succeeds. He predicts palace guards can be drawn toward a strong enemy; he arranges Krieg's crew to burn the Gray Terminal tomorrow at 18:00, promising equipment and noble status, while understanding the king intends to exploit the pirates and may not honor the offer. He has disclosed limited terms to Krieg/Gin, and assigned Hank an unspecified important task. These beliefs/knowledge are not automatically available to the parallel player.",
+    "not_yet_owned_or_awarded": ["king-kill reward or post-Goa level increase", "the later four attribute points and 10,000 Paradise Coins", "later Sword Mage/Dragon Flash capabilities", "any player copy of Su Xiao's skills, items, body, office or contacts"]
+  },
+  "interventions_recommended": [
+    {
+      "key": "capacity_before_warning",
+      "kind": "original alternate branch",
+      "target": "willing Gray Terminal residents and a usable evacuation cache/route",
+      "means": "player-owned/earned food, water, cloth or handcarts plus local time and consent",
+      "effect": "improve limited readiness and preserve practical relationships even if the fire is not prevented",
+      "price_and_timing": "prototype values must be authored; no source cost, public service or sufficient rescue capacity is established",
+      "abstain": "ordinary paid work/training route continues without a hidden quest failure"
+    },
+    {
+      "key": "earned_warning_response",
+      "kind": "original alternate branch",
+      "target": "guard/pirate decision and resident access to actionable fire information",
+      "means": "only information actually overheard, negotiated, observed or disclosed; player-owned proof, time and any named payment",
+      "effect": "open a branch among warning, bargaining/diversion, attempted gate access or abstention; downstream fire/rescue/trust/stock must change by actual NPC decisions",
+      "price_and_timing": "prototype values must be authored; do not assume Su Xiao's office, Hank trust, guard access or his three-day task clock",
+      "abstain": "Su Xiao's separate source task and ordinary local progression continue; no authored secret failure"
+    }
+  ],
+  "finite_completion_ledger": [
+    "explicit entry body/source/cargo/knowledge/clock contract",
+    "useful independent local work or growth outcome",
+    "optional accept/refuse source-adjacent involvement",
+    "limited source-qualified information channel or an honest unknown",
+    "resolve two material capacity/information interventions and NPC responses",
+    "record contingent king/guard/fire/pirate and refusal outcomes",
+    "settle the player's separately stated exit and return terms",
+    "retain local rescue/loss, stock, trust, gate, evidence and work state",
+    "allow a later changed-district revisit and use for retained progress"
+  ],
+  "open_questions": [
+    "Primary-canon spelling and translation fidelity remain unresolved.",
+    "No source fact specifies a second entrant, that entrant's body/loadout, abilities/fuel, role/mission, safe exit or clock.",
+    "Goa fire timing and post-return hub visit are different source windows; no exact common synchronized clock is established.",
+    "Source does not establish total population, evacuation capacity, city fire service, broad safe routes, or the wallman's identity.",
+    "One repaired transit does not establish universal extraction guarantee or identical player rewards."
+  ]
+}

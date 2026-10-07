@@ -1,0 +1,925 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "role": "Engine foundations GM",
+  "state": "planning-audit-complete",
+  "base": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "dirty": true
+  },
+  "input_snapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+  "inputs": {
+    "AGENTS.md": {
+      "initial_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "snapshot_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "initial_matches_snapshot": true,
+      "final_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "unchanged_since_inspection": true
+    },
+    "PROJECT.md": {
+      "initial_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "snapshot_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "initial_matches_snapshot": true,
+      "final_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "unchanged_since_inspection": true
+    },
+    "docs/GAME_MASTER_PROMPT.md": {
+      "initial_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "snapshot_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "initial_matches_snapshot": true,
+      "final_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": {
+      "initial_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "snapshot_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "initial_matches_snapshot": true,
+      "final_sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+      "unchanged_since_inspection": false
+    },
+    "docs/gm/world-implementation/RUN.json": {
+      "initial_sha256": "848d1f984185d5dbd42ce51d00c504929aca667ee30d5737a32e2ac1e6d5d50c",
+      "snapshot_sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+      "initial_matches_snapshot": false,
+      "final_sha256": "5b5c2b9d3371a0aad9a21231fdd9132fb0e0e23cb1d80bf862ef6fa78f82fbbb",
+      "unchanged_since_inspection": false
+    },
+    "docs/gm/world-implementation/depth/macro/REPORT.md": {
+      "initial_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "snapshot_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "initial_matches_snapshot": true,
+      "final_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/depth/micro/REPORT.md": {
+      "initial_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "snapshot_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "initial_matches_snapshot": true,
+      "final_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/second-pass/README.md": {
+      "initial_sha256": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "final_sha256": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+      "unchanged_since_inspection": false
+    },
+    "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": {
+      "initial_sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "final_sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/second-pass/foundations/ASSIGNMENT.md": {
+      "initial_sha256": "13666c34be97af205f6a9bf4fea3419385939d1ef2a28219d246b1e69e1d4c60",
+      "snapshot_sha256": "13666c34be97af205f6a9bf4fea3419385939d1ef2a28219d246b1e69e1d4c60",
+      "initial_matches_snapshot": true,
+      "final_sha256": "13666c34be97af205f6a9bf4fea3419385939d1ef2a28219d246b1e69e1d4c60",
+      "unchanged_since_inspection": true
+    },
+    "src/expansion_engine.js": {
+      "initial_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "snapshot_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "initial_matches_snapshot": true,
+      "final_sha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "unchanged_since_inspection": true
+    },
+    "src/expansion_persistence.js": {
+      "initial_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "snapshot_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "initial_matches_snapshot": true,
+      "final_sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "unchanged_since_inspection": true
+    },
+    "src/simulation_contracts.js": {
+      "initial_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "snapshot_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "initial_matches_snapshot": true,
+      "final_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "unchanged_since_inspection": true
+    },
+    "src/simulation_effects.js": {
+      "initial_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "snapshot_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "initial_matches_snapshot": true,
+      "final_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "unchanged_since_inspection": true
+    },
+    "src/realm_state.js": {
+      "initial_sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "snapshot_sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "initial_matches_snapshot": true,
+      "final_sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "unchanged_since_inspection": true
+    },
+    "src/world_instances.js": {
+      "initial_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "snapshot_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "initial_matches_snapshot": true,
+      "final_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": {
+      "initial_sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "snapshot_sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "initial_matches_snapshot": true,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md": {
+      "initial_sha256": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "unchanged_since_inspection": true
+    },
+    "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md": {
+      "initial_sha256": "768037784d4bcea012566d96401912a97cc4359d3b5369fa9a15c0b4b9e105bd",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "768037784d4bcea012566d96401912a97cc4359d3b5369fa9a15c0b4b9e105bd",
+      "unchanged_since_inspection": true
+    },
+    "src/simulation.js": {
+      "initial_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "snapshot_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "initial_matches_snapshot": true,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "unchanged_since_inspection": true
+    },
+    "src/gameplay_publication.js": {
+      "initial_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "snapshot_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "initial_matches_snapshot": true,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "unchanged_since_inspection": true
+    },
+    "src/main.js": {
+      "initial_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "unchanged_since_inspection": true
+    },
+    "src/energy_resources.js": {
+      "initial_sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "snapshot_sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "initial_matches_snapshot": true,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "unchanged_since_inspection": true
+    },
+    "src/capabilities.js": {
+      "initial_sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+      "unchanged_since_inspection": true
+    },
+    "src/save_files.js": {
+      "initial_sha256": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+      "unchanged_since_inspection": true
+    },
+    "src/save_compatibility.js": {
+      "initial_sha256": "4800cd976ac5fa7edb6598f5deacc35d0d246c4d773315f889310297c4367334",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "4800cd976ac5fa7edb6598f5deacc35d0d246c4d773315f889310297c4367334",
+      "unchanged_since_inspection": true
+    },
+    "src/pocket_realm_host.js": {
+      "initial_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "snapshot_sha256": null,
+      "initial_matches_snapshot": null,
+      "inspection_mode": "targeted sections and symbol searches for named findings",
+      "final_sha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "unchanged_since_inspection": true
+    }
+  },
+  "findings": [
+    {
+      "id": "EF01",
+      "priority": "P1-retain",
+      "kind": "simplify",
+      "title": "Keep pure command planners and one staged native publisher",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            437,
+            488
+          ],
+          "claim": "Command planning clones state/resources, checks host sequence, reserves inputs, freezes draws/effects and validates before return."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            49
+          ],
+          "claim": "Envelope composition validates before one storage write; caller publishes after success."
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            290,
+            355
+          ],
+          "claim": "Save-owner gates and prepared gameplay/unlock/equipment/ownership projections precede storage; live publication follows it."
+        },
+        {
+          "path": "src/world_instances.js",
+          "lines": [
+            185,
+            190
+          ],
+          "claim": "Predicate facts are derived from the canonical instance without a persisted mirror."
+        }
+      ],
+      "current_player_behavior": "Existing commands can stage actual money/items/XP and saved state through a shared durable boundary. That source structure does not by itself prove current gameplay.",
+      "proposed_player_behavior": "Extend planners with typed references and selected domain adapters while preserving one native/save integrator. A simple purchase still settles in one command.",
+      "authoritative_owner": "Shared Engine owns runtime/publisher; assigning master alone changes the canonical plan.",
+      "dependencies": [],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "One paid kit or workshop job uses existing owners; an acquired organ is a richer optional command on the same host."
+      },
+      "acceptance_case": [
+        "Deferred: successful paid work updates stock, money and actual native outcome together.",
+        "Deferred: failed storage leaves durable bytes/live owners/draws unchanged; reload keeps exactly one settlement.",
+        "Architecture review: no second inventory, per-book engine or independently publishing UI path."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Existing pure/staged code structure.",
+        "proposal": "Retain and extend incrementally.",
+        "unknown": "Behavior under newly composed adapters."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Macro/micro endorse reuse; this audit makes the alternative architecture decision explicit and ties it to the actual native preparation path.",
+      "simplify_retain_alternative": "Prefer ordinary records plus pure functions. A full ECS, event-sourced world rewrite or database replacement has no demonstrated need here; bounded receipts can coexist with snapshots. No cost saving is measured."
+    },
+    {
+      "id": "EF02",
+      "priority": "P0-before-multi-instance",
+      "kind": "missing",
+      "title": "Bind commands and all world effects to actual instance endpoints",
+      "evidence": [
+        {
+          "path": "src/world_instances.js",
+          "lines": [
+            81,
+            105
+          ],
+          "claim": "Detached endpoints have world/instance/region/layer and instance/definition/continuity/era identity."
+        },
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            18,
+            34
+          ],
+          "claim": "Current host validates exactly one Glasshouse instance and empty duplicate world facts."
+        },
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            60,
+            70
+          ],
+          "claim": "Canonical fact/site routing is Glasshouse-specific."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            55,
+            67
+          ],
+          "claim": "Command/participant contact checks use worldId and string locations, not full instance endpoints."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            134,
+            136
+          ],
+          "claim": "fact(scope=world) directly writes world-domain facts; explicit world effects route via the Glasshouse hook."
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            296,
+            310
+          ],
+          "claim": "Expansion world domain resolution and predicate projection also use context.worldId."
+        }
+      ],
+      "current_player_behavior": "The bounded Glasshouse has a guarded canonical owner. General commands cannot distinguish two simultaneous histories with the same worldId and location label; alternate fact effect forms do not share its routing.",
+      "proposed_player_behavior": "A registered endpoint resolver binds actor/body, target/site and command to one actual instance. Every world-fact write resolves that owner, rejects a missing binding, and uses one explicit namespace. Location text remains display data.",
+      "authoritative_owner": "Shared Engine owns endpoint/domain/native bindings; world GM declares local regions/layers and contact rules.",
+      "dependencies": [
+        "EF01",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "Two authored branches both contain a Village workshop. A worker in branch A must not reserve branch B stock or observe its repaired roof."
+      },
+      "acceptance_case": [
+        "Deferred: same worldId/location in different instances rejects ordinary local transfer/contact; an explicitly supported cross-instance channel remains possible.",
+        "Deferred: each admitted fact effect form changes the same bound instance or rejects before cost publication.",
+        "Deferred: target/instance drift after preview rejects, and return refers to unchanged canonical identities."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Current detached endpoint support and Glasshouse-only native bridge.",
+        "proposal": "Generic resolver and validated reference join.",
+        "unknown": "No multi-instance native enrollment or passage permission is approved."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Micro C7/ME08 already require endpoints. New detail is the exact legacy fact write bypass and the need to cover both effect interpreters, not just visit creation.",
+      "simplify_retain_alternative": "Adapt the existing manifests and realm hooks behind a small host interface. Keep base.frontier as an explicit legacy binding; do not copy all native domains into every instance or infer passage from an endpoint."
+    },
+    {
+      "id": "EF03",
+      "priority": "P1-before-shared-sources",
+      "kind": "risk",
+      "title": "Give shared source grant/removal one declared lifecycle policy",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            404,
+            409
+          ],
+          "claim": "Expansion grant replaces expired sources; removal deletes only actor.sources."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            207,
+            219
+          ],
+          "claim": "Simulation grant uses existing source/faculty records via ||=; simulation removal deletes both source and faculty."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            223,
+            224
+          ],
+          "claim": "Faculty validity requires a corresponding actor source; stored power revisions are positive but not compared to live definitions."
+        },
+        {
+          "path": "src/capabilities.js",
+          "lines": [
+            51,
+            59
+          ],
+          "claim": "Expired sources and inactive faculties do not supply capability contributions."
+        }
+      ],
+      "current_player_behavior": "Equivalent-looking source effects have different expiry/regrant/removal semantics. A simulation regrant can retain an expired record; removing a faculty-backed source through the expansion path leaves an invalid faculty reference. These are static reachable edge cases, not a reproduced current content failure.",
+      "proposed_player_behavior": "Both command families call the same lifecycle primitive for the same source policy. Expired reacquisition explicitly rejects or establishes a new acquisition receipt/term, with declared retained training/activation behavior. Removal updates the operative binding and its faculty dependency together.",
+      "authoritative_owner": "Shared Engine owns common lifecycle/invariants; Ability/world owners declare source-specific renewal, training and donor consequences.",
+      "dependencies": [
+        "EF01",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "An original finite teaching-support source expires, is legitimately acquired again, then removed while its learned method remains."
+      },
+      "acceptance_case": [
+        "Deferred: either command family follows the selected renewal rule and cannot leave an expired source masquerading as renewed.",
+        "Deferred: either legal removal leaves no executable orphan faculty; retained learned information remains distinct.",
+        "Deferred: duplicate cause at clock zero does not duplicate an acquisition or grant."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Different grant/removal code and expiry/validation consumers.",
+        "proposal": "One policy-driven shared source primitive.",
+        "unknown": "Whether reacquisition retains awakening/control is a local policy, not selected here."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "New concrete interpreter discrepancy beyond the baseline organ/source identity requirements. The baseline clock-zero cause-dedupe warning is retained, not presented as newly discovered.",
+      "simplify_retain_alternative": "Share only common owner/lifecycle operations; do not merge every effect interpreter or force sources into one universal acquisition/awakening ladder. Preserve genuine functions and source-specific exceptions."
+    },
+    {
+      "id": "EF04",
+      "priority": "P0-before-components-lots",
+      "kind": "underexplored",
+      "title": "Join entity identities with native stock semantics before rich physical records",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            98,
+            106
+          ],
+          "claim": "Spawn distinguishes personId from definitionId/revision but keeps one actor/person binding."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            123,
+            133
+          ],
+          "claim": "Body changes are scalar; native vitals require an actual adapter."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            153,
+            165
+          ],
+          "claim": "Custody transfers template-key quantities; physical specimen identities are absent."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            247,
+            258
+          ],
+          "claim": "Native equipment consumes/returns bag stock, while simulation equipment references owned stock without moving it."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            207,
+            218
+          ],
+          "claim": "Current person/inventory/equipment/custody validation forbids a second native inventory but does not validate the proposed component graph."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            7,
+            26
+          ],
+          "claim": "C1/C2 propose person/body/component identity, host binding, lots and conservation."
+        }
+      ],
+      "current_player_behavior": "Current stock keys/quantities work for ordinary items and current equipment conventions. Scalar body/source fields cannot distinguish two same-type specimens or a detached item from installed support.",
+      "proposed_player_behavior": "Keep actor IDs. Add actual body/component/lot IDs only where selected mechanics need them; represent one physical placement plus separate legal claimant/custody, definition revision, provenance and host/socket or container reference. Binding-specific aggregate projections account for whether worn stock is inside or outside bag counts. Validate graph joins before publication/import.",
+      "authoritative_owner": "Shared Engine owns identity/stock/native codecs and invariants; Bodies/Items/Ability owners declare physical and functional rules.",
+      "dependencies": [
+        "EF01",
+        "EF02",
+        "EF07",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "Two original fitted lenses of one template have different damage and custody; one is fitted and the other stays in storage. Removing the fitted lens returns that same specimen."
+      },
+      "acceptance_case": [
+        "Deferred: each unique component occupies one declared physical state; attachment changes actual supported actions and no bag duplicate appears.",
+        "Deferred: a loaned lot portion cannot consume a personal portion by whole-key accident; split quantities and provenance reconcile.",
+        "Deferred: malformed duplicate placement/missing host references reject before live/native load."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Current definition/person split, scalar bodies and differing equipment stock conventions.",
+        "proposal": "Minimal typed relationship graph and native projection join.",
+        "unknown": "No new organ/socket/lot schema or anatomical policy accepted."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Micro defines the richer records. This audit adds the migration/native accounting trap: native worn objects leave the bag, simulation worn objects remain references. One generic bag-plus-equipment count invariant would double count one representation.",
+      "simplify_retain_alternative": "Preserve anonymous aggregate ordinary stock where properties are fungible. Instantiate a lot on meaningful provenance/condition/reservation differences, and a component on meaningful physical identity; no compulsory ID for every coin or abstract skill."
+    },
+    {
+      "id": "EF05",
+      "priority": "P0-before-local-due-work",
+      "kind": "missing",
+      "title": "Make due time and simultaneous boundary order explicit",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            140,
+            142
+          ],
+          "claim": "Jobs store due as joined state.clock plus duration."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            227,
+            235
+          ],
+          "claim": "Job validation compares due with joined state.clock."
+        },
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            90,
+            96
+          ],
+          "claim": "Instance elapsed time is reconciled through existing presence/activity planners."
+        },
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            136,
+            142
+          ],
+          "claim": "Glasshouse context gates new caretaker decisions by local activity; it does not change paid job due time."
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            506,
+            524
+          ],
+          "claim": "Host order reconciles realm/observation, expansion jobs, opportunities, chronicle, then simulation boundary."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            324,
+            352
+          ],
+          "claim": "Simulation boundary settles jobs before conditions/life/end-of-offer work."
+        }
+      ],
+      "current_player_behavior": "Local elapsed freeze and authorized activity exist, while paid jobs and periodic simulation work use joined played time. Existing ordering is deterministic but split across scheduler families, not a declared universal simultaneous-effect rule.",
+      "proposed_player_behavior": "A due-work record names its clock owner/unit and time basis. Resolve only authorized intervals; world-local work cannot finish during unsupported absence unless its declared policy allows that. Give interacting domains an explicit stable tie-break policy and preserve current ordinary job behavior. Body-carried upkeep follows its actual host/pool clock.",
+      "authoritative_owner": "Shared Engine owns clock conversion/scheduler/order; world/Ability owners select local timing and specific simultaneous exceptions.",
+      "dependencies": [
+        "EF01",
+        "EF02",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Folded Glasshouse / Original Frontier",
+        "case": "A new explicitly local repair pauses outside supported room activity, while a paid Frontier service retains joined-clock completion. A traveling body source and a stored material use different interval authorities."
+      },
+      "acceptance_case": [
+        "Deferred: unioned presence/leases advance one local interval, not one per observer; no unsupported elapsed work or retroactive reward.",
+        "Deferred: a job, source expiry and upkeep at the same timestamp settle in the declared stable order across one large or several small advances.",
+        "Deferred: leave/return/reload preserves the due basis and remaining obligation."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Existing freeze/activity scaffolding, joined jobs and exact current cross-family order.",
+        "proposal": "Clock references and explicit domain-order extension.",
+        "unknown": "Absence, body-time ratios and source-specific simultaneous policies are not selected."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Micro already flags ME08 and jobs-before-conditions. This audit adds the due validator change, explicit interval owner and cross-family ordering that a local scheduler adapter must cover.",
+      "simplify_retain_alternative": "Keep one scheduling authority and integer played-minute foundation initially. Use a fixed policy table and clock resolver for selected cases; no independent timers, offline simulation or general time algebra is required by this audit."
+    },
+    {
+      "id": "EF06",
+      "priority": "P0-before-consequential-work",
+      "kind": "already-covered",
+      "title": "Separate prepaid frozen outcomes from live phase obligations",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            117,
+            153
+          ],
+          "claim": "Commands freeze participants, costs, effects, RNG and due time."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            164,
+            172
+          ],
+          "claim": "completeJob applies frozen effects then claims/completion/site release, without general current support/consent/contact checks."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            174,
+            185
+          ],
+          "claim": "Generic cancellation refunds original costs or forfeits them."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            46,
+            53
+          ],
+          "claim": "C4 already proposes phase receipts, live continuation, irreversible boundaries and ordered settlement."
+        }
+      ],
+      "current_player_behavior": "Ordinary prepaid jobs finish from committed effects. Applying this policy to changing physical support or irreversible operations can settle stale outcomes or throw repeatedly at the same boundary.",
+      "proposed_player_behavior": "A command declares frozen-prepaid or live/phase-bound settlement. Only meaningful irreversible steps need individual receipts, used/unused escrow and exact relevant dependency revisions. Changed support yields a persisted paused/interrupted outcome with a legal resume/cancel path, instead of an endlessly retried invalid completion.",
+      "authoritative_owner": "Shared Engine owns phase settlement/occupancy/escrow; world/Ability/Body owners declare consequences and meaningful rechecks.",
+      "dependencies": [
+        "EF02",
+        "EF04",
+        "EF05",
+        "EF07",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "An original fitted-device procedure has a completed extraction/detachment step. A later fitting step loses access to the worker or supported tool; it pauses without restoring prior anatomy or consumed supplies."
+      },
+      "acceptance_case": [
+        "Deferred: ordinary kit-preparation keeps its declared paid-finish behavior.",
+        "Deferred: loss of actual participant/source/permission before an irreversible step stops that future step and settles unused escrow once.",
+        "Deferred: already published injuries, outputs and time survive interruption/reload; resume does not reroll or repeat a receipt."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Frozen job/cancellation path; no generalized dynamic phase delivery.",
+        "proposal": "Refine existing Micro C4 into an explicit settlement mode and terminal interruption result.",
+        "unknown": "Exact consent/refund/failure rules remain local reviewed decisions."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Explicitly retains Micro ME04 rather than claiming discovery. The extra contract detail is preventing a thrown completion from stranding the scheduler indefinitely and requiring resume support to be re-established.",
+      "simplify_retain_alternative": "One-step paid jobs need no six-state workflow. Phase only the operations whose outputs, refunds, support or interruption differ; do not automatically revalidate every historical prepaid entitlement."
+    },
+    {
+      "id": "EF07",
+      "priority": "P1-before-native-adapter-growth",
+      "kind": "risk",
+      "title": "Declare native write ownership and projection order",
+      "evidence": [
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            15,
+            46
+          ],
+          "claim": "Envelope overlays money/calendar/vitals/gameplay/ownership/unlock/equipment then arbitrary allowed nativePatch paths."
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            305,
+            355
+          ],
+          "claim": "Native preparation is centralized, but post-write publication invokes several ordered projections."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            444,
+            455
+          ],
+          "claim": "Native resets can replace an envelope, patch selected paths and require reload."
+        },
+        {
+          "path": "src/pocket_realm_host.js",
+          "lines": [
+            115,
+            120
+          ],
+          "claim": "Current passage stages both actor/person location and current-location save patch."
+        }
+      ],
+      "current_player_behavior": "Current root composes bounded native adapters and validates the resulting envelope. Structural validity alone cannot detect a future adapter overwriting another owner with a different but valid value. The present doorway patches are location-specific; no collision is claimed for them.",
+      "proposed_player_behavior": "Each adapter declares read/write domains and semantic authority. Reject overlapping incompatible writes or require an explicit reviewed override that rebuilds the final plan/projection. Derive native actor/body/equipment/vitals from the same candidate after modifiers are resolved; validate all joins before storage. Native reset may use the existing reload strategy.",
+      "authoritative_owner": "Shared Engine alone owns native envelope/publication and adapter arbitration; specialist modules return detached plans/patches.",
+      "dependencies": [
+        "EF01",
+        "EF02",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "An original equipment fit changes maximum stamina while a paid action spends stamina. Save/live projection must agree on both effective maximum and remaining reserve. A new reset must not silently overwrite an item transfer."
+      },
+      "acceptance_case": [
+        "Deferred: incompatible overlapping native writes reject before storage; explicit legal reset overrides have one resulting plan and native projection.",
+        "Deferred: item/equipment/body/vital/location joins agree in saved envelope and live state after publication/reload.",
+        "Deferred: missing reconstruction or failed storage leaves no partial costs/projection."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Current ordered composition, prepared publication and location/reset producers.",
+        "proposal": "Small declared write-set/owner contract, not a new storage system.",
+        "unknown": "No current corrupt-save or partial-publication failure was executed."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Micro ME10 calls for atomic new-record projection. This audit adds semantic overlap detection and distinguishes valid-shaped conflicting values from serialization failure.",
+      "simplify_retain_alternative": "Start with a static owner table and a few explicit overrides. Do not add general distributed transactions, save storage services or universal path patch permissions for worker modules."
+    },
+    {
+      "id": "EF08",
+      "priority": "P0-before-persistent-extension",
+      "kind": "underexplored",
+      "title": "Version operating definitions separately from save shape",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            103,
+            110
+          ],
+          "claim": "Sources record revisions, but registry checks existence rather than revision compatibility."
+        },
+        {
+          "path": "src/capabilities.js",
+          "lines": [
+            51,
+            59
+          ],
+          "claim": "Saved source capability grants resolve through current definitions."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            129,
+            142
+          ],
+          "claim": "Job effect snapshots are frozen; power cooldown is read from the current power definition."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            164,
+            172
+          ],
+          "claim": "Completion audience fallback reads the current command group."
+        },
+        {
+          "path": "src/world_instances.js",
+          "lines": [
+            97,
+            123
+          ],
+          "claim": "World instances require exact definition revision and exact sites/fact bindings."
+        },
+        {
+          "path": "src/energy_resources.js",
+          "lines": [
+            24,
+            33
+          ],
+          "claim": "Energy learning freezes its policy and later recovery/use consumes that owned policy."
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            160,
+            173
+          ],
+          "claim": "Existing expansion migrations are additive; absent state grants no new enrollment."
+        },
+        {
+          "path": "src/save_files.js",
+          "lines": [
+            28,
+            47
+          ],
+          "claim": "Structural/realm validation and preserved retirement precede active loader mutation."
+        }
+      ],
+      "current_player_behavior": "Existing schema migration and strict world-definition guards are valuable. Different record families use live definitions, frozen payloads or exact revisions, so a reused ID after a rule change can reject or change behavior despite the same outer save schema.",
+      "proposed_player_behavior": "For each persistent family declare live-compatible, frozen-operating or explicitly migrated revision semantics. New namespace schemas and definition manifests are validated before activation; active jobs retain necessary operational and observer fields. Unsupported revisions reject recoverably or stay dormant under an explicit policy, never silently grant/replace content.",
+      "authoritative_owner": "Shared Engine owns save compatibility/activation; world/Ability/Items owners provide rule revisions and migration intent. Director accepts incompatible changes.",
+      "dependencies": [
+        "EF01"
+      ],
+      "concrete_world_example": {
+        "world": "Folded Glasshouse / Original Frontier",
+        "case": "A definition update adds a site while an old instance and paid command remain saved. A teaching-source update changes its grant without changing the source ID."
+      },
+      "acceptance_case": [
+        "Deferred: old save with absent optional data gains no person/item/source/reward.",
+        "Deferred: a paid job/source uses its declared compatible/frozen/migrated rules, including audience and source grant; no accidental silent revision swap.",
+        "Deferred: unsupported shape/definition revisions preserve original bytes and prevent active/native mutation; unrelated dormant/retired data stays recoverable."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Mixed current revision semantics, existing migration/rejection and retirement preservation.",
+        "proposal": "Per-family compatibility matrix and active payload completeness.",
+        "unknown": "No new schema number, automatic migration or general source-world retirement policy is approved."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Macro/micro request migration. The missed distinction is schema-shape versus operational definition revision and mixed late reads in otherwise frozen work.",
+      "simplify_retain_alternative": "Pin only the operation fields that truly need historical semantics, or supply a named migration. Do not persist a whole definition library in every save or promise universal compatibility with every future build."
+    },
+    {
+      "id": "EF09",
+      "priority": "P1-before-composed-physiology",
+      "kind": "underexplored",
+      "title": "Keep base state, operative contributions and derived values distinct",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            123,
+            133
+          ],
+          "claim": "Body effects set scalar fields; vital effects clamp to existing supplied maxima."
+        },
+        {
+          "path": "src/energy_resources.js",
+          "lines": [
+            24,
+            44
+          ],
+          "claim": "Owned energy policy supports fixed capacity, discrete recovery/use/refund and strain."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            189,
+            200
+          ],
+          "claim": "Conditions store intensity/expiry and optional copied periodic effects."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            30,
+            44
+          ],
+          "claim": "C3 requires independent channels, typed stacking and explicit overflow/clamp policy."
+        }
+      ],
+      "current_player_behavior": "Scalar body properties, fixed owned pools and ticking conditions support bounded authored behaviors. They do not supply general reversible composition of host modifiers, source upkeep or derived native physiology.",
+      "proposed_player_behavior": "Store actual base pool/body state and cause/source-bound contributions; derive effective capacity/recovery/output/strain/suppression through declared channel composition. Removal invalidates only that contribution. Feed one derived result into actual execution and native projection; capacity loss uses an explicit clamp/overflow rule, while reserve and receipts remain actual state.",
+      "authoritative_owner": "Shared Engine owns derived-state/native joins and selected continuation primitives; Ability/Bodies/world owners choose channel rules and genuine functions.",
+      "dependencies": [
+        "EF03",
+        "EF04",
+        "EF05",
+        "EF08"
+      ],
+      "concrete_world_example": {
+        "world": "Original Frontier",
+        "case": "An original fitted aid lowers recovery while a separate support effect supplies continuous upkeep. Rest, removing the aid and ending support alter different terms; an expressly inexhaustible source remains inexhaustible under its own supported conditions."
+      },
+      "acceptance_case": [
+        "Deferred: removal restores only its own modifier and does not erase unrelated training or refill reserve.",
+        "Deferred: recovery reduction versus upkeep produces distinct declared reserve histories and meaningful remedies.",
+        "Deferred: a capacity change resolves overflow once; unsupported upkeep pauses/stops under policy without negative reserve or repeated failed settlement."
+      ],
+      "source_invention_uncertainty": {
+        "verified": "Scalar/fixed/ticking scaffolding, not a composed physiology engine.",
+        "proposal": "Targeted contribution resolver and projection join.",
+        "unknown": "All numerical formulas here remain unspecified original rules; no universal balancing penalty or exclusivity is selected."
+      },
+      "verification_limits": "Static source inspection only; no import, build, game suite, browser or save execution. Acceptance cases are a deferred backlog, not passed tests.",
+      "delta_from_macro_micro": "Micro already names the separate channels. This audit supplies the authoritative base/contribution/derived split needed to remove or recompute effects without destructively editing base values.",
+      "simplify_retain_alternative": "Use a pure resolver over only selected contributions, with fixed composition phases and specialized policies where necessary. Keep ordinary sources on existing fixed records; do not simulate every organ or force true exceptional functions into generic damage multipliers."
+    }
+  ],
+  "status": "planning-audit-complete",
+  "scope": "Read-only engine state/semantics audit; no runtime optimization or authoring ownership takeover.",
+  "source_qualification": {
+    "code": "Live dirty checkout; static inspection establishes declared code paths only.",
+    "baseline": "Completed macro/micro reports are planning inputs, not gameplay proof.",
+    "world_examples": "All new worked behaviors in these findings are original engineering acceptance fixtures. No franchise/book canon is asserted or newly read.",
+    "memory": "Retrieval and continuity pointers only; current facts were checked in repository owners.",
+    "measurements": "No token, runtime, pricing or allowance telemetry collected. No savings claimed."
+  },
+  "verification": {
+    "document_checks": {
+      "json_parse": "passed",
+      "required_finding_fields_and_enums": "passed",
+      "unique_findings": 9,
+      "evidence_path_line_references": 46,
+      "acyclic_dependencies": "passed",
+      "whitespace": "passed",
+      "local_links": "passed; final checkpoint link count recorded in CHECKPOINT",
+      "readback": "passed; final checked file readback recorded in CHECKPOINT"
+    },
+    "source_inspection": "Targeted static reads only; no code execution or complete-repository claim.",
+    "fingerprints": "Initial and final SHA-256 for 27 inspected inputs; coordination drift reconciled.",
+    "not_run": [
+      "game imports",
+      "build",
+      "game unit or regression suites",
+      "browser",
+      "save/reload/import/failure execution",
+      "source-library or raw-book reading",
+      "runtime or token measurements"
+    ],
+    "closeout": {
+      "host_tree": "collaboration.list_agents returned only /root running, no internal children",
+      "owned_async_tool_cells": [],
+      "owned_shell_sessions": [],
+      "unknown_write_outcomes": [],
+      "writer": "Only this foundations chat writes these four reports; assigning master integrates canonical plan/RUN."
+    }
+  },
+  "coordination_drift": {
+    "paths": [
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "docs/gm/world-implementation/RUN.json",
+      "docs/gm/world-implementation/second-pass/README.md"
+    ],
+    "reconciliation": "Reread live plan opening/depth/aspect sections, wave README and RUN role/approval/hold records. Changes add an integration-strategy planning role and dispatch/status receipts; foundations scope unchanged and Engine/Ability/Original holds remain confirmed. Initial hashes retained.",
+    "runtime_inputs": "All 14 inspected source files unchanged since capture; no code finding invalidated."
+  }
+}

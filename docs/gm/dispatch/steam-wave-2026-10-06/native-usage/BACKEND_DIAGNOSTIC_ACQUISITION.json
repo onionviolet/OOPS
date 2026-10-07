@@ -1,0 +1,95 @@
+{
+  "observed_utc": "2026-10-07T14:41:40.904358+00:00",
+  "scope": "Independent root read-only acquisition of the actual six-method full-program pre-repair diagnostic; no native execution or canonical C recovery.",
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "compiled_diagnostic_backend_sha256": "b382b2d2cf6b03196a9e967a76bff5ad699cd9cb87fbc2268e0a0c0574416de1",
+  "actual_signal_mechanism": "Four actual signal 11 handler events and PrintC label-emission stack frames correspond to the two Splitter methods/two attempts. Process exit value 1 follows the retained handler; it is not numeric signal inference.",
+  "actual_merge_mechanism": "Two attempts reproduce overlapping address-tied stack varnodes at s0xffffffffffffff34:4 with identical INDIRECT effect i0x000100aaf4ec:ce6. The trace does not establish the speculative preexisting CALL-whole repair.",
+  "qualification": "All six failed records, raw body/ASM bytes, 12 debug XML inputs, exact selected backend and factory restore are acquired. This establishes mechanisms, not a faithful repair or canonical C success.",
+  "private_detail_path": "/Users/weiwei/.codex/research/factorio/native-usage-audit/ARM_BACKEND_DIAGNOSTIC_ACQUISITION-before.json",
+  "private_detail_sha256": "fe1423f1bd75cde02ca2310b33fb3d54ae98bd1cddb81a0065e925e8e95818a8",
+  "methods_acquired": 6,
+  "actual_attempts": 12,
+  "debug_XML_inputs_matched": 12,
+  "failed_rows": 6,
+  "C_successes": 0,
+  "all_chunk_body_instruction_hashes_match": true,
+  "terminal_exit_code": 0,
+  "native_reported_guard_peaks": {
+    "maximum_native_rss_kib": 887888,
+    "maximum_java_rss_kib": 887888,
+    "qualification": "Guard-reported values; not an independently sampled per-process peak audit."
+  },
+  "hash_diagnosis": {
+    "reason_counts": {
+      "method_collision_candidates": 140,
+      "no_champion_at_8_collision_limit": 6
+    },
+    "logged_member_count_histogram": {
+      "2": 46,
+      "4": 32,
+      "1": 4,
+      "9": 54,
+      "0": 6,
+      "7": 4
+    },
+    "no_champion_events": [
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZN10BitmapUtil14copyBGRAtoRGBAEjjPhPKhib",
+        "entry": "0x000100a4edf4",
+        "method": "4",
+        "hash": "327f7a9ba2fa",
+        "address": "0x000100a4ef14",
+        "logged_member_count": 0
+      },
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZN10BitmapUtil14copyBGRAtoRGBAEjjPhPKhib",
+        "entry": "0x000100a4edf4",
+        "method": "4",
+        "hash": "327f7a9ba2fa",
+        "address": "0x000100a4ef14",
+        "logged_member_count": 0
+      },
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info",
+        "entry": "0x0001026c65c0",
+        "method": "4",
+        "hash": "327f7b292fd6",
+        "address": "0x0001026ccf00",
+        "logged_member_count": 0
+      },
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info",
+        "entry": "0x0001026c65c0",
+        "method": "4",
+        "hash": "327f7b292fd6",
+        "address": "0x0001026ccf00",
+        "logged_member_count": 0
+      },
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZL20stbi__convert_formatPhiijj",
+        "entry": "0x0001026cc9f8",
+        "method": "4",
+        "hash": "327f7b292fd6",
+        "address": "0x0001026ccf00",
+        "logged_member_count": 0
+      },
+      {
+        "why": "no_champion_at_8_collision_limit",
+        "function": "__ZL20stbi__convert_formatPhiijj",
+        "entry": "0x0001026cc9f8",
+        "method": "4",
+        "hash": "327f7b292fd6",
+        "address": "0x0001026ccf00",
+        "logged_member_count": 0
+      }
+    ],
+    "limit": "The original loop stops on member 9, so logged count 9 proves at least 9 collisions, not an exact complete group size."
+  },
+  "canonical_repair_state": "Pending. New table/Inserter diagnostic success requires canonical rows and independent flow/body acquisition before gate closure."
+}

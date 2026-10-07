@@ -1,0 +1,1198 @@
+{
+  "schemaVersion": 1,
+  "role": "society-relationships-dialogue",
+  "date": "2026-10-04",
+  "status": "planning-complete-with-family-history-extension-awaiting-master-integration",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "scope": "Directed personal/social/narrative dialogue state; no runtime or canonical plan writes.",
+  "sourcePolicy": "Code support is static; prior planning reports are baseline. All new YAIRPG cases/mechanics are original proposals. Family/history follow-up inspects five official game descriptions; no new primary novel/canonical character scene claim.",
+  "measurement": {
+    "runtimeCost": "not measured",
+    "tokenUsageOrSavings": "not exposed or measured",
+    "staticSurrogates": "No counts are used as speed/token evidence."
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "c503822d403e99aaa7a2af48e0bf24b92bf7d760c587fd03012096b9f84a477f",
+      "snapshotStatus": "changed"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "sha256": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+      "snapshotStatus": "not-in-shared-snapshot"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "snapshotStatus": "not-in-shared-snapshot"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/ASSIGNMENT.md",
+      "sha256": "ff320ca88ef1b0ff351b12b59097d4fd5d9ba23cf5973580958cf88bd65fd7fb",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+      "sha256": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md",
+      "sha256": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "snapshotStatus": "not-in-shared-snapshot"
+    },
+    {
+      "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+      "sha256": "755d9db027f26a5f4fe400dfa466453490c4797baa889b75195919f57a4b2746",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "sha256": "3c8d7022035683d1cab2259a697b2dad2df76c2e0fb8c1266ae09580a34ab0a7",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/pocket_realm_scenes.js",
+      "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/everyday_life.js",
+      "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "snapshotStatus": "not-in-shared-snapshot"
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "snapshotStatus": "match"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "snapshotStatus": "not-in-shared-snapshot"
+    }
+  ],
+  "baseline": "Macro people/rights; Micro MC04 and ME04/06/09/10; Dialogue D1-D6. Retain items are explicitly already-covered.",
+  "findings": [
+    {
+      "id": "SOC01",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Retain disputed assertions and belief revisions separately from knowledge stage",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 168,
+          "lineEnd": 171,
+          "claim": "One record per actor/key; equal-or-higher stage replaces its value, cause, time and basis. Stage order is not an evidence-conflict policy."
+        },
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 51,
+          "lineEnd": 57,
+          "claim": "Attribution supports recollection/observation/instruction/inference and a named situation/person, without a report chain or evidence history."
+        },
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 26,
+          "lineEnd": 33,
+          "claim": "Tamsin has recollection and inference, then replaces promise.belief after inspecting the slip."
+        },
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 42,
+          "lineEnd": 49,
+          "claim": "A funded register check and later spoken correction already provide a useful bounded positive case."
+        }
+      ],
+      "currentPlayerBehavior": "The visitor case correctly separates present help from an unmade promise and discloses the correction later. Current topic records alone cannot preserve competing reports or the superseded belief; authored phases/private truth carry this case.",
+      "proposedPlayerBehavior": "Compare two attributed accounts, demonstrate contrary evidence, keep a confidence or disclose a correction. NPC decisions use their current interpreted belief while the player sees only evidence actually received. Keep observation of an utterance distinct from accepting its proposition as true.",
+      "authoritativeOwner": {
+        "state": "Engine knowledge/evidence owner, extending current simulation.knowledge and causal situations",
+        "policy": "Dialogue GM plus local campaign/source owner"
+      },
+      "dependencies": [
+        "ME09/D5 provenance and discovery projection",
+        "Actual observer/channel and occurrence-versus-reveal context from timeline owner",
+        "SOC02 commitments must refer to accepted facts, not asserted debts"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier",
+          "case": "Tamsin receives a second contradictory mill slip; her earlier identification and correction remain attributed, while the player learns only her chosen report."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "Two conflicting accounts of one promise remain distinguishable; a current believed account can change after new evidence without awarding a taught skill.",
+        "counterexample": "An understood but false identification does not block later correction merely because correction is a lower stage. Hearing Rowan named does not reveal his hidden stock or location.",
+        "return": "A later greeting follows the speaker's current belief; an uninformed third party retains its earlier account until told.",
+        "laterPublicationGate": "Failed disclosure saves no heard record or belief change; replay never transmits news."
+      },
+      "cheaperCorrectAlternative": "For the first finite dispute, keep separate cause-keyed assertion/evidence records and authored corroboration/correction branches. A probabilistic belief network, global truth score and simulated town-wide rumor mesh are unnecessary.",
+      "sourceStatus": {
+        "support": "Live code and existing original visitor content, statically inspected",
+        "proposal": "Original evidence policy; no novel/canon claim or selected schema",
+        "uncertainty": "Exact record shape, correction/forgetting policy and migration remain Engine/master decisions"
+      },
+      "verificationLimits": "Static inspection only. This identifies a representational limitation, not a reproduced save/UI failure; no rumor, belief or runtime cost benchmark was executed."
+    },
+    {
+      "id": "SOC02",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Give accepted promises, debts and favors explicit scope and closure",
+      "evidence": [
+        {
+          "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+          "lineStart": 43,
+          "lineEnd": 53,
+          "claim": "Interaction proposals distinguish real loans, gifts, debt settlement and specific memories."
+        },
+        {
+          "path": "src/chronicle.js",
+          "lineStart": 48,
+          "lineEnd": 55,
+          "claim": "Chronicle ties and bounded display memories support the authored elder obligation without generic agreement terms."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 172,
+          "lineEnd": 187,
+          "claim": "Simulation relationships use axes/memory receipts; unique claims use held/settled ownership rather than negotiated social terms."
+        },
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 34,
+          "lineEnd": 41,
+          "claim": "Current help and refusal explicitly adopt no old promise or future debt."
+        }
+      ],
+      "currentPlayerBehavior": "The elder has a concrete archive-duty tie, and Tamsin correctly refuses to impose an old debt. General debt/accepted favor/renegotiation is still scene-specific scalar state, not a declared shared contract.",
+      "proposedPlayerBehavior": "Offer, accept, clarify, renegotiate, perform, forgive or contest a specific commitment with actual parties, scope, consideration, due-clock and closure. Distinguish an actor's voluntary unilateral promise from someone else's allegation. An apology, returned loan, unpaid wage and forgiven debt close different things.",
+      "authoritativeOwner": {
+        "state": "Engine agreement/receipt binding, composing current situations, custody, jobs and claims",
+        "policy": "Society/Dialogue defines personal terms; Bases owns institutional enforceability, wages/property; Timelines owns due clocks"
+      },
+      "dependencies": [
+        "SOC01 attributed claims",
+        "ME04 phase/cancellation revalidation",
+        "Existing custody/material reservations",
+        "Master-selected compatibility and absence-clock policy"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier",
+          "case": "Borrow the craftsman's actual template for one packing batch, then return it late, renegotiate the deadline or compensate the loss. Courtesy can improve the exchange while the loan remains due."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "Two parties can acknowledge amended terms; returning the actual template closes only that loan while an unrelated grievance remains.",
+        "counterexample": "Reading an offer, silence, a gift or an accusation creates no accepted obligation. A closed loan cannot pay twice.",
+        "return": "The known pending/contested/fulfilled agreement selects a different next meeting even after display-memory pruning.",
+        "laterPublicationGate": "Money/stock/custody and agreement changes stage together; failed storage publishes none."
+      },
+      "cheaperCorrectAlternative": "One explicit agreement policy compiled to existing situation phases and real custody/job receipts is enough for qualification. Add a reusable record only where cross-scene obligations demand it; no universal legal or debt simulator.",
+      "sourceStatus": {
+        "support": "Existing original elder/visitor and inspected typed effects",
+        "proposal": "Original scoped agreement lifecycle",
+        "uncertainty": "No schema, sanction, amount, household inheritance or institution-wide enforcement selected"
+      },
+      "verificationLimits": "No general agreement implementation or saved renegotiation is claimed. Acceptance cases are later unrun gates."
+    },
+    {
+      "id": "SOC03",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Make motives choose useful actions without collapsing relationships into a favor bar",
+      "evidence": [
+        {
+          "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+          "lineStart": 49,
+          "lineEnd": 57,
+          "claim": "A person may respect skill and refuse a loan; scene-used dimensions and independent initiative are already intended."
+        },
+        {
+          "path": "src/everyday_life.js",
+          "lineStart": 21,
+          "lineEnd": 36,
+          "claim": "Working preferences, interruption, quiet time and practical apology have distinct authored effects."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 115,
+          "lineEnd": 137,
+          "claim": "Joss spends his own stock on private work, offers a report and receives gifts without exchanging a faculty or debt."
+        },
+        {
+          "path": "src/simulation.js",
+          "lineStart": 373,
+          "lineEnd": 394,
+          "claim": "Controllers select one eligible paid action using authored predicates and priority; no new general planner is necessary."
+        }
+      ],
+      "currentPlayerBehavior": "Finite controllers, preferences and moods already create a few independent responses. Broad goals/relationship labels do not yet specify how competing personal motives alter concrete offers, choices or reconciliation.",
+      "proposedPlayerBehavior": "Earn reliability for one kind of work, disagree respectfully, choose a shared interest, introduce acquaintances or reconcile a particular harm. An NPC can like the player, disagree with an approach and choose a funded alternative. Friendship, rivalry and professional trust can coexist and yield different offers.",
+      "authoritativeOwner": {
+        "state": "Existing directed relations, actor facts/conditions and command/controller owners",
+        "policy": "Local character/context owner defines exercised motives, priorities and known boundaries"
+      },
+      "dependencies": [
+        "SOC01 accessible evidence",
+        "SOC02 active commitments",
+        "Actual actor means and occupancy",
+        "Public standing remains separate and Bases-owned"
+      ],
+      "worldExamples": [
+        {
+          "world": "Folded Glasshouse",
+          "case": "Joss values a useful shared room but needs his last kit for private research. He can decline a joint trial, offer a later report or accept a paid shift. Supplying a spare kit changes feasible choices, not universal affection."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A funded independent alternative continues after a declined invitation; warm speech can coexist with payment due or a refused request.",
+        "counterexample": "Respect for a successful craft does not clear an unrelated confidentiality breach; waiting for a temporary mood to pass does not erase durable harm.",
+        "return": "Observed help, disagreement and repaired harm cause distinct known responses; repeating greetings creates no progress."
+      },
+      "cheaperCorrectAlternative": "Use a small character policy with named goals/preferences, known evidence and ordered legal actions. Keep only axes a real scene consumes; no universal charisma, happiness, needs stack, GOAP or live LLM dependency.",
+      "sourceStatus": {
+        "support": "Existing original policies and paid controller code",
+        "proposal": "Original scene-specific multiplex relation/motive design",
+        "uncertainty": "No utility formula, relationship ceiling or mandatory daily maintenance selected"
+      },
+      "verificationLimits": "No new independent choice was executed. Existing code supports authored policies; it does not establish every planned motive or relationship."
+    },
+    {
+      "id": "SOC04",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Make communication and local norms change an actual choice",
+      "evidence": [
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 36,
+          "lineEnd": 50,
+          "claim": "Scenes already require language/channel, goals, means and local interpretation."
+        },
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 94,
+          "lineEnd": 106,
+          "claim": "Lifecycle proposals distinguish nonverbal signals, trees, interpreters, family ties and learned recognition."
+        },
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 51,
+          "lineEnd": 57,
+          "claim": "Knowledge basis identifies a person and situation but contains no comprehension/translation policy."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 152,
+          "lineEnd": 166,
+          "claim": "Current return channel and deliberate role claim correctly differ from sender identity."
+        }
+      ],
+      "currentPlayerBehavior": "The prose contracts name language/culture/contact requirements. Targeted current scene commands are authored strings with explicit contact/willingness predicates, not a general language or culturally interpreted agreement consumer.",
+      "proposedPlayerBehavior": "Ask for an interpreter, show an object, learn a sign, use a supported translation faculty or clarify whether a gift is thanks, hospitality or a job offer. Keep heard wording, interpreted meaning and accepted terms distinct. Norms belong to a setting/era/institution with individual variation, not one species-wide moral score.",
+      "authoritativeOwner": {
+        "state": "Engine communication eligibility and observer projections",
+        "policy": "Dialogue/local source owner for era-specific norms and original wording; Powers for actual translator capabilities"
+      },
+      "dependencies": [
+        "D1 scene/choice bridge",
+        "SOC01 utterance versus interpreted claim",
+        "SOC02 terms acknowledged in a supported channel",
+        "Body/senses and actual endpoint/contact owner"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier and Folded Glasshouse",
+          "case": "An original riverside visitor uses a learned two-tap sign to request a work break; Joss's anonymous frame reply supports hearing, while a role claim still needs clarification before a paid service."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A qualified interpreter enables one agreed conversation; a truly complete supported translator works without an invented compulsory misunderstanding penalty.",
+        "counterexample": "A visible signal or registered language label supplies neither understanding nor permission. Unknown motives are not exposed as a blocked-button reason.",
+        "return": "A learned sign/known custom is retained for this actual pair; a different counterpart does not inherit their familiarity."
+      },
+      "cheaperCorrectAlternative": "Start with explicit comprehension/channel predicates, a few declared sign/interpretation acts and authored norm exceptions. Do not simulate full grammars, random offense or force language grind on every encounter.",
+      "sourceStatus": {
+        "support": "Existing proposal and bounded live frame channel example",
+        "proposal": "All new norms/signs are original; no real-world culture or setting language is asserted",
+        "uncertainty": "Any canonical culture/language detail requires contemporary primary/supplied scenes before final adaptation"
+      },
+      "verificationLimits": "No language learner, interpreter or new channel was implemented/tested. Contact records are not evidence of fluency."
+    },
+    {
+      "id": "SOC05",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Separate authoritative social episodes from display prose and curated contact projection",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 174,
+          "lineEnd": 180,
+          "claim": "Directed memories cap at 32 display strings while cause receipts persist separately."
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "lineStart": 39,
+          "lineEnd": 46,
+          "claim": "Hired-helper handover is discovered by matching exact memory prose."
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "lineStart": 51,
+          "lineEnd": 58,
+          "claim": "Current People contacts use explicit authored projection branches."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 318,
+          "lineEnd": 328,
+          "claim": "The Glasshouse instead checks cause-backed knowledge records for remembered work and offered reports."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 357,
+          "lineEnd": 364,
+          "claim": "Its read-only scene view receives only supplied observer knowledge."
+        }
+      ],
+      "currentPlayerBehavior": "Curated People views protect private NPC state, which is valuable. However helper handover recognition depends on exact English memory text, and broader contacts need repeated custom projection branches. Display prose is a brittle semantic key.",
+      "proposedPlayerBehavior": "Keep stable person/episode identity and meaningful closure receipts; render human wording from typed known outcomes. A renamed line or pruning older display memories must preserve delivered work, broken/forgiven terms and discovered identity. Build a compact observer-context projection for native dialogue/People from the same owners.",
+      "authoritativeOwner": {
+        "state": "Engine social episode/receipt and native observer-context consumer",
+        "policy": "Dialogue owns fresh context/voice variants; Experience owns displayed structure"
+      },
+      "dependencies": [
+        "SOC01 evidence owner",
+        "SOC02 current commitment status",
+        "ME09/D1-D5 native bridge",
+        "Actual person/body/instance/era and observed recognition"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier",
+          "case": "A hired pathfinder's delivered kit remains known after changing the handover wording or adding 33 later memories. Their record retains the actual person, while another helper has a different episode."
+        },
+        {
+          "world": "Folded Glasshouse",
+          "case": "Current Joss context distinguishes known same-room return, heard report, unfinished work and anonymous role claim."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "Changing flavor wording leaves handover/settlement recognition intact; People and dialogue agree on a known completed episode.",
+        "counterexample": "A similar-looking counterpart, private body state or unknown source cannot leak through a shared context card. Rendering writes no memory or receipt.",
+        "return": "A durable closure survives display pruning; voice/context varies with witnessed history rather than replayed dialogue."
+      },
+      "cheaperCorrectAlternative": "For the first contact, bind a real completion/knowledge receipt and one explicit projection descriptor. Generalize after the native meeting works; avoid persisting a duplicate context cache, scanning every NPC or preallocating all pairs.",
+      "sourceStatus": {
+        "support": "Direct live prose-key check and current privacy-preserving projections",
+        "proposal": "Original projection/episode refinement, not a shipped API",
+        "uncertainty": "Exactly which durable episode facts matter is local authoring policy; full transcript retention is unnecessary"
+      },
+      "verificationLimits": "The prose dependency is statically verified; no actual historical memory loss or UI bug was reproduced. No runtime or token savings measured."
+    },
+    {
+      "id": "SOC06",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Let teaching and patronage become reciprocal development with bounded authority",
+      "evidence": [
+        {
+          "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+          "lineStart": 29,
+          "lineEnd": 33,
+          "claim": "Teachers retain competence; learners refine methods, with actual resources and lineage."
+        },
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 52,
+          "lineEnd": 61,
+          "claim": "Remembered bracing description, practiced control and source-supported kit execution already differ."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 225,
+          "lineEnd": 239,
+          "claim": "Power copying/transferring, fragments and mastery have distinct existing semantics."
+        },
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 114,
+          "lineEnd": 122,
+          "claim": "A favor can fund real stock, teaching or access; payment is not a broader settlement."
+        }
+      ],
+      "currentPlayerBehavior": "Existing original teaching grants a specific supported ordinary technique and use. Teacher learning from a student, sponsorship/endorsement and trusted secret disclosure are intended directions without worked reciprocal social cases.",
+      "proposedPlayerBehavior": "Demonstrate a refinement, accept critique, teach back, seek an introduction or earn sponsored access. The teacher independently evaluates known evidence and can practice a useful new variant using their own means. A patron funds or endorses a named opportunity without granting competence or control of the learner.",
+      "authoritativeOwner": {
+        "state": "Ability/progression/source owner for actual transmission/development; Engine for paid work and evidence",
+        "policy": "Society/Dialogue for teacher goals, confidentiality and introductions; Bases for institutional admission/authority"
+      },
+      "dependencies": [
+        "SOC01 demonstration/report distinction",
+        "SOC02 scoped sponsorship/secrecy terms",
+        "Actual teacher/student means and paid practice",
+        "Source-qualified local method acquisition rules"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier",
+          "case": "The player demonstrates a better bracing pattern to Tamsin. She compares it in a funded test, learns only that refinement and offers a mill introduction. The introduction enables an interview, not a free skill or guaranteed membership."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A supported transmissible method benefits both learners after actual instruction/practice; a genuinely superior technique retains its source-qualified advantage.",
+        "counterexample": "A copied manual or flattering conversation grants no body-bound faculty; an endorsement reveals only authorized credentials and no hidden method.",
+        "return": "The same teacher can use their learned refinement and remember attribution without respawning or losing earlier competence."
+      },
+      "cheaperCorrectAlternative": "One teach-back trial and one explicit introduction receipt exercise reciprocal growth. Reuse existing method/source/work policies; no separate social skill tree or universal school ranking.",
+      "sourceStatus": {
+        "support": "Existing original teaching and power effects",
+        "proposal": "Original reciprocal teaching/patronage case",
+        "uncertainty": "Canonical transmission constraints and voice require relevant scenes; no universal mastery or secrecy rule selected"
+      },
+      "verificationLimits": "No teacher development, admission or sponsorship gameplay was executed. Metadata fragments alone do not establish the new function."
+    },
+    {
+      "id": "SOC07",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Give kinship and care useful roles distinct from ownership and romance",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "lineStart": 79,
+          "lineEnd": 83,
+          "claim": "Household/care functions and family relationships are in the plan but not a personal caregiving lifecycle."
+        },
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 94,
+          "lineEnd": 106,
+          "claim": "Original lifecycle proposals distinguish actual guardians, uncertain nonverbal needs, household means and remembered signs."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "lineStart": 115,
+          "lineEnd": 127,
+          "claim": "The original clinic fixture separates staff rights, real care means and occupied workers; the same Mira cannot build, meet and treat at once."
+        }
+      ],
+      "currentPlayerBehavior": "Lifecycle/household/care are proposed context and project functions. The targeted social sources do not define a general kinship, caregiver appointment or personal support consumer; this is a scoped inspection limit, not a whole-repo absence claim.",
+      "proposedPlayerBehavior": "Ask a trusted person for accompaniment, agree a care shift, request an explanation, support a dependent or introduce a guardian/kin contact. Track who actually holds the role, what assistance was agreed and what the current body/channel supports. Kinship/guardianship recognition is neither possession nor inherited skill.",
+      "authoritativeOwner": {
+        "state": "Engine personal role/agreement and participant binding",
+        "policy": "Society/local cast owns kinship and care choices; Bases owns household stock/rights; Bodies owns actual treatment; Timelines owns age/body/role continuity"
+      },
+      "dependencies": [
+        "SOC02 accepted care scope",
+        "SOC04 supported communication",
+        "MC04 current-body eligibility policy where romance is relevant",
+        "ME04/07 actual worker reservations and material care"
+      ],
+      "worldExamples": [
+        {
+          "world": "Naruto River Clinic, original fan-setting fixture",
+          "case": "Mira chooses a clinic care shift using real wraps/water and cannot simultaneously join the player's break. Ito can schedule a trained caregiver, but office authority alone does not perform treatment or dictate private affection."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "An agreed shift supplies one real assistance function and a remembered personal exchange; another trained funded caregiver can provide a supported alternative.",
+        "counterexample": "Family title or a remembered prior-life bond grants no current property/source, automatic recognition, full understanding or romantic eligibility.",
+        "return": "A supported body/role change keeps valid past care memories while reevaluating current communication and assistance, without secretly applying browser-closed harm."
+      },
+      "cheaperCorrectAlternative": "One named caregiver relation plus paid/voluntary scoped appointment qualifies care. The directly requested SOC11-SOC15 extension now audits broader genealogy and generational history; no full generator, forced household or offline-loss policy is required for this initial care case.",
+      "sourceStatus": {
+        "support": "Plan/lifecycle proposals and Micro's O fixture",
+        "proposal": "All cast/roles/assistance examples are original, not Naruto canon or real legal/medical rules",
+        "uncertainty": "Current maturity/guardian/authority rules are local declared policies, not a universal age formula"
+      },
+      "verificationLimits": "No family, guardianship, treatment or care simulation is implemented by this audit. Physical treatment efficacy remains its source/function owner's gate."
+    },
+    {
+      "id": "SOC08",
+      "priority": "P2",
+      "kind": "already-covered",
+      "title": "Retain specific reciprocal adult invitations and complete nonromantic paths",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "lineStart": 95,
+          "lineEnd": 111,
+          "claim": "MC04 already specifies current-body adulthood, separate reciprocal choices, private history, gifts without entitlement, withdrawal and changed returns."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md",
+          "lineStart": 15,
+          "lineEnd": 18,
+          "claim": "ME06/09 already assign eligibility, disclosure and native interaction adapters."
+        },
+        {
+          "path": "src/simulation.js",
+          "lineStart": 164,
+          "lineEnd": 172,
+          "claim": "Completion applies frozen effects; a general ongoing willingness/contact recheck is not demonstrated."
+        }
+      ],
+      "currentPlayerBehavior": "Micro has a strong unimplemented original adult relationship fixture. General reciprocal invitations and current-body maturity still need runtime binding; no new romance engine is justified by the second pass.",
+      "proposedPlayerBehavior": "Reuse that specific invitation policy for an optional adult date/shared break and offer friendship, mentorship, rivalry, professional collaboration or a clean decline with useful outcomes. Preserve actual independent current willingness and recheck only meaningful live phases.",
+      "authoritativeOwner": {
+        "state": "Engine ME04/06 live invitation/eligibility and participant reservations",
+        "policy": "Society/Dialogue/local cast for private reciprocal choices; Bodies/Timelines for current-body maturity/context"
+      },
+      "dependencies": [
+        "Micro MC04/C6 and ME04/06/09/10",
+        "SOC02 specific scope",
+        "SOC04 communication/contact",
+        "Local source-qualified influence/power policy where actually used"
+      ],
+      "worldExamples": [
+        {
+          "world": "Naruto River Clinic, original fan-setting fixture",
+          "case": "Adult Mira accepts a shared meal, then withdraws from the later date. Completed work/payments remain; the work bench booking and friendship path are independently evaluated."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "Both eligible actual adults choose the specific step; a meaningful refusal/withdrawal leaves supported nonromantic routes playable.",
+        "counterexample": "Rank, employment, social pressure, gifts, fear, past-life memory or supernatural influence cannot be silently counted as ordinary reciprocal consent. A supported influence effect still has its actual separate function and aftermath.",
+        "return": "Past accepted time is remembered, but a later invitation needs current willingness and availability.",
+        "laterPublicationGate": "Failed acceptance changes no meal stock/booking/memory; duplicate receipt produces no second relationship step."
+      },
+      "cheaperCorrectAlternative": "A finite authored invitation/acceptance/withdrawal structure with typed outcomes; no attraction treadmill or generated romance personality. Expand only when an authored relationship uses more state.",
+      "sourceStatus": {
+        "support": "Already-delivered Micro original case",
+        "proposal": "Retain and apply, not a new canonical romance policy",
+        "uncertainty": "No partner roster, thresholds, scene prose, body-maturity schema or source-character romance accepted"
+      },
+      "verificationLimits": "Planning-only retain item. Adult eligibility/reciprocity are not inferred from metadata, imported modules or passing historical tests."
+    },
+    {
+      "id": "SOC09",
+      "priority": "P2",
+      "kind": "already-covered",
+      "title": "Retain independent paid work and private-to-offered-to-heard disclosure",
+      "evidence": [
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 115,
+          "lineEnd": 131,
+          "claim": "Private paid research, heard offer and requested report are distinct commands."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 147,
+          "lineEnd": 169,
+          "claim": "Trace detection, anonymous reply, role claim/payment and read-only replay are separate."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 239,
+          "lineEnd": 287,
+          "claim": "Detached definitions still require actual master registration, current contact/recipients and clock binding."
+        },
+        {
+          "path": "src/pocket_realm_scenes.js",
+          "lineStart": 318,
+          "lineEnd": 328,
+          "claim": "Current facts project actual own work memory and offered report records."
+        }
+      ],
+      "currentPlayerBehavior": "The Glasshouse is an implemented-unverified original bounded example, with explicit independent means, privacy, recipient willingness and offered knowledge. Its scene module alone does not prove native play or general rumor propagation.",
+      "proposedPlayerBehavior": "Use this disclosure sequence when composing future society content: notice an offer, choose whether to hear/share it, preserve silence/refusal, and let the NPC continue actual supported funded work. Match fresh source-era voice and motives to this settled situation before final prose.",
+      "authoritativeOwner": {
+        "state": "Existing Engine command/clock/contact publisher",
+        "policy": "Dialogue/local source-era context owner"
+      },
+      "dependencies": [
+        "Current native Glasshouse binding and deferred acceptance",
+        "SOC01 richer evidence only when conflicting accounts are required",
+        "D1-D6 for a new native speaker"
+      ],
+      "worldExamples": [
+        {
+          "world": "Folded Glasshouse",
+          "case": "Joss finishes private research, offers discussion, and only then reports his test. An anonymous remote notice stays anonymous until a deliberate claimed introduction; replay keeps no live channel."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A received report reveals its actual operator's claimed result while keeping their remaining purse, stock and hidden capacities private.",
+        "counterexample": "Private completion, a menu opening, a role label or old replay sends no report, enrolls no relationship and resumes no clock.",
+        "return": "Known same-instance work yields a specific response; parallel counterpart history and broader source powers stay absent."
+      },
+      "cheaperCorrectAlternative": "Retain authored condition-aware lines and source/context locators; no live LLM narrator, transcript corpus or full autonomous regional psychology needed.",
+      "sourceStatus": {
+        "support": "Actual inspected original scene definitions and projections",
+        "proposal": "Reusable authoring pattern; not universal campaign coverage",
+        "uncertainty": "Adapted character voice/motives require exact era-relevant primary/supplied scenes; none inspected here"
+      },
+      "verificationLimits": "Earlier builds/proofs are historical and not this audit's checks. Current gameplay/save/failure acceptance remains deferred; no measured cost claim."
+    },
+    {
+      "id": "SOC10",
+      "priority": "P1",
+      "kind": "already-covered",
+      "title": "Keep native reward integration and permanent receipts on the critical path",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "lineStart": 2313,
+          "lineEnd": 2325,
+          "claim": "Native start_textline processes rewards and otherUnlocks before rendering its answer."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 175,
+          "lineEnd": 180,
+          "claim": "Current relationship dedupe uses timestamp truthiness; a stored clock-zero cause is falsey."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md",
+          "lineStart": 18,
+          "lineEnd": 19,
+          "claim": "Micro ME09/10 already identify staged dialogue bridge and receipt-membership correction."
+        },
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 129,
+          "lineEnd": 141,
+          "claim": "D1-D6 already identify native knowledge/choice, atomic consequences, reservation and resume adapters."
+        }
+      ],
+      "currentPlayerBehavior": "Existing native textline consumers and simulation social effects are separate paths. Macro/Micro already flagged double-writer and timestamp-zero receipt risks; this pass confirms their precise live sites rather than claiming a new discovery.",
+      "proposedPlayerBehavior": "One selected native social meeting projects an observed context, quotes a legal action and stages its real locks/rewards/stock/history once. Effects use permanent receipt membership; rendering stays read-only. Retain voiced refusal, interruption and changed return without replaying completed rewards.",
+      "authoritativeOwner": {
+        "state": "Sole Engine native/persistence/receipt integrator",
+        "policy": "Dialogue supplies one frozen meeting; Authoring validates consumer fields; Experience owns visible action feedback"
+      },
+      "dependencies": [
+        "Existing ME04/09/10 and D1-D6",
+        "Master-frozen interface and compatibility decision",
+        "SOC01/02/05 only for the selected case"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier",
+          "case": "Use Tamsin's actual repair/lesson/correction meeting as a native-bridge qualification case while preserving the inherited elder dialogue."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A legitimate choice at clock zero settles exactly once across reentry; the quote, locks, stock and observed speech agree.",
+        "counterexample": "Repeated click/reload, stale participant/body/contact, changed costs and rejected save produce no double social/material reward.",
+        "return": "Unaccepted refusal, cancelled paid work and completed lesson have distinct retained state and fresh lines."
+      },
+      "cheaperCorrectAlternative": "Qualify one selected line/command bridge, retaining legacy behavior elsewhere until migrated. Do not rewrite all dialogue, introduce another reward publisher or infer integration from imports.",
+      "sourceStatus": {
+        "support": "Confirmed current sites and explicit already-delivered Micro requirements",
+        "proposal": "Retained blocking contract, no implementation approval",
+        "uncertainty": "The exact bridge/export/schema remains held and Engine-owned"
+      },
+      "verificationLimits": "No double-payment or clock-zero reproduction was run under the suite deferral. This is static reconfirmation of existing blockers, not gameplay proof."
+    },
+    {
+      "id": "SOC11",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Typed kinship and known genealogy need different relationships from feelings",
+      "evidence": [
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 54,
+          "lineEnd": 62,
+          "claim": "Family templates already propose members, sources, work, support and private history, but no operational genealogy schema is delivered."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 98,
+          "lineEnd": 105,
+          "claim": "Spawn binds an actual person but sets bornAt to the current clock; this is insufficient evidence for historical birth/parentage."
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lineStart": 219,
+          "lineEnd": 220,
+          "claim": "Current knowledge and directed relationships validate stages, axes and capped display memories, not typed kinship provenance."
+        },
+        {
+          "url": "https://store.steampowered.com/app/955900/Amazing_Cultivation_Simulator/",
+          "section": "Socializing",
+          "claim": "The developer explicitly lists parents, lovers, friends and enemies among disciple relationships.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        }
+      ],
+      "currentPlayerBehavior": "Family is proposed in origin/context authoring; existing actor/relationship primitives can hold a named cast but do not establish biological parentage, adoption, past households or a known family-tree consumer.",
+      "proposedPlayerBehavior": "Discover ancestry, meet adoptive relatives, reconcile uncertain parentage, ask who raised a person or trace a teacher lineage. Keep biological/soul/source ancestry, adoption/guardianship, household membership, adult partnership and master-student lineage as separate time-qualified links. NPC affection/trust remains directed state.",
+      "authoritativeOwner": {
+        "state": "Engine person/identity and typed relation/provenance owner",
+        "policy": "Society local kinship/recognition; Origins/Timelines define births/life/body/history; Bodies/Powers define actual inheritance"
+      },
+      "dependencies": [
+        "SOC01 evidence versus assertion",
+        "Stable actual person/world/continuity/era identity",
+        "Local origin/body/life and relation rules",
+        "Source qualifier for nonhuman/soul/clone/loop ancestry exceptions"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier, proposed family workshop",
+          "case": "Ena has an adult biological son Soren, adult adopted child Hale and unrelated adult apprentice Pera. Hale has family standing without automatic bodily ancestry; Pera has method lineage without becoming a biological child."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "The player can discover an adoption and a corroborated parent link without changing actual identity or granting powers; unknown ancestry stays unknown.",
+        "counterexample": "A surname, resemblance, createdBy field or spawn timestamp does not prove birth, kinship or age. Body replacement, a transplanted organ and counterpart resemblance cannot silently rewrite genealogy.",
+        "return": "Known family links/history retain the correct actual people and validity interval after separation or a supported role change; render discovers no secret parent."
+      },
+      "cheaperCorrectAlternative": "A sparse typed kinship/history graph for named meaningful people plus observer-known links. Permit larger generated families later under frozen origin rules; do not require a population-wide generator before this family works.",
+      "sourceStatus": {
+        "support": "Current origin proposals and inspected live scalar/directed support; ACS bounded official feature statement",
+        "proposal": "Original kinship/history contract and cast",
+        "uncertainty": "No general inheritance probabilities, genealogy generator, reproductive system or source-specific parentage rules verified/selected"
+      },
+      "verificationLimits": "No working family tree, biological birth or ACS genealogy algorithm was inspected/executed. See FAMILY_GENEALOGY_HISTORY.md for exact distinctions."
+    },
+    {
+      "id": "SOC12",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Upbringing, household membership and life transitions should change feasible careers",
+      "evidence": [
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 64,
+          "lineEnd": 72,
+          "claim": "Child play, useful learning, care and declared chapter transitions are proposed without real-time years/offline harms."
+        },
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 94,
+          "lineEnd": 108,
+          "claim": "A branching original life case is documented, while origin/family/age/chapter/native initialization remains a missing selected delivery."
+        },
+        {
+          "url": "https://rimworldgame.com/biotech/",
+          "section": "Raise a family; Watch over your children",
+          "claim": "Biotech describes family raising, taking in orphans and childhood learning that affects later trait/passion choices.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        }
+      ],
+      "currentPlayerBehavior": "Body/care/lifecycle context exists as proposed contracts. A family name or scalar source record does not yet supply a household career, childhood learning history or safe authored time advance.",
+      "proposedPlayerBehavior": "Learn from different caregivers, choose a family trade or another path, leave/rejoin a household, support a sibling, reconcile a separation or receive an actual introduction. Upbringing changes learned skills, contacts and expectations; a supported inherited bodily faculty follows its own world rule.",
+      "authoritativeOwner": {
+        "state": "Origins/Timelines and Engine life/household/command binding",
+        "policy": "Society caregivers and career expectations; Bases owns home/stock/rights; Ability owns teaching/function; Bodies owns development"
+      },
+      "dependencies": [
+        "SOC07 care scope and real occupancy",
+        "SOC11 kinship separate from household membership",
+        "Selected native limited-body/origin and chapter clock adapter",
+        "Funded caregivers and instruction"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier, proposed family workshop",
+          "case": "Hale learns fitting from Ena while Soren studies with another teacher. Pera earns a bench introduction through apprenticeship. Living together, inheriting a source and learning a trade yield different means."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A paid or actually supported learning episode changes one useful function/contact and preserves its teacher/cause; an authored chapter advance lists changed bodies, commitments and local history.",
+        "counterexample": "Adoption does not overwrite physiological ancestry; powerful inherited sources are not weakened merely to equalize starts. A time jump cannot award unperformed decades of stock or silently settle every quest.",
+        "return": "A departed household member retains their own learned work and kinship; present authority/availability is checked again without browser-closed aging/loss."
+      },
+      "cheaperCorrectAlternative": "A few meaningful authored life chapters and actual training/care episodes first. Detailed generations remain a possible later mode with their own clocks, coverage and acceptance.",
+      "sourceStatus": {
+        "support": "Origin owner proposals; RimWorld bounded official expansion description",
+        "proposal": "Original education/career/household design, not copied developmental ages or growth formulas",
+        "uncertainty": "No age schedule, life-stage length, upbringing score or broad reproduction/absence policy selected"
+      },
+      "verificationLimits": "No child-body menus, generational origin, chapter advance or upbringing mechanic was implemented/tested. Comparative description alone does not establish YAIRPG support."
+    },
+    {
+      "id": "SOC13",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Succession must name each transferred carrier and actual eligibility",
+      "evidence": [
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 41,
+          "lineEnd": 52,
+          "claim": "Predecessor identity, source, learned mastery, gear and recognized office already have distinct starting rules."
+        },
+        {
+          "path": "src/chronicle.js",
+          "lineStart": 159,
+          "lineEnd": 178,
+          "claim": "The existing elder names a concrete archive successor after a kept promise and resolved grievance; this is a bounded positive case."
+        },
+        {
+          "path": "src/simulation.js",
+          "lineStart": 340,
+          "lineEnd": 345,
+          "claim": "Authored life ending changes life/work state; this excerpt establishes no generic heir/property settlement."
+        },
+        {
+          "url": "https://www.paradoxinteractive.com/games/crusader-kings-iii/about",
+          "section": "Main Features",
+          "claim": "The publisher describes continuing a dynasty with playable heirs, inherited genetics and heir education.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        }
+      ],
+      "currentPlayerBehavior": "A concrete elder/archive succession exists and origin rules separate inherited domains. General workshop/property/office/method/descendant succession and estate disputes need explicit rules and carriers.",
+      "proposedPlayerBehavior": "Accept or contest a bequest, transfer a workshop during retirement, nominate an apprentice, divide stock, preserve a family archive or decline an office. Evaluate bodily source inheritance, taught knowledge, physical goods, site rights, institutional rank and social expectations independently.",
+      "authoritativeOwner": {
+        "state": "Engine conserved ownership/claim/receipt integration",
+        "policy": "Society accepted personal terms and lineage; Bases property/office/jurisdiction; Origins/Timelines actual life event; Ability/Bodies actual supported knowledge/source transfer"
+      },
+      "dependencies": [
+        "SOC02 accepted terms and disputes",
+        "SOC11 actual heirs/kin versus claimed relatives",
+        "Exact custody/object/site rights",
+        "Chosen compatibility/retention and life/retirement cause"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier, proposed family workshop",
+          "case": "Ena passes one unique tool to Hale, a validated bench-use right to Soren and a taught method to Pera. Inheriting the tool does not supply the method, and becoming the teacher's successor is not title to all family stock."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "Each transfer uses its actual carrier and local authority, preserves provenance and settles once; a genuinely hereditary faculty remains as powerful as the source rule supports.",
+        "counterexample": "Retirement or death cannot duplicate a heirloom, move an absent borrowed tool without policy, imply universal inherited debt or copy the parent's mastery into every relative.",
+        "return": "A successor still meets surviving family/apprentices and known contested claims; retirement does not despawn the predecessor or require a player death/reset."
+      },
+      "cheaperCorrectAlternative": "Extend the existing scoped archive succession with a conserved tool and declared right/method grants. A full probate or dynasty simulator is optional, not a prerequisite.",
+      "sourceStatus": {
+        "support": "Current bounded elder and origin contracts; CK3 official overview only",
+        "proposal": "Original retirement/bequest/estate case",
+        "uncertainty": "No real legal rule, automatic eldest-child policy, universal bloodline rule, death/reset or title inheritance formula accepted"
+      },
+      "verificationLimits": "No new inheritance transfer or estate logic executed. CK3 page does not verify exact succession-law algorithms or translatable implementation."
+    },
+    {
+      "id": "SOC14",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Personal and ancestral history should be causal, attributed and discoverable",
+      "evidence": [
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 22,
+          "lineEnd": 29,
+          "claim": "Current situations preserve a frozen historical context, participants and caused phase receipts."
+        },
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 42,
+          "lineEnd": 57,
+          "claim": "Situation receipts are capped at 32 and attribution has bounded forms, not a lifelong family-history/evidence index."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 168,
+          "lineEnd": 180,
+          "claim": "Single-topic knowledge and capped relationship prose need durable meaningful histories beyond display text."
+        },
+        {
+          "url": "https://store.steampowered.com/app/975370/Dwarf_Fortress/",
+          "section": "About This Game",
+          "claim": "The developer describes generated civilizations, personalities and cultures, including their rise and fall.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        }
+      ],
+      "currentPlayerBehavior": "Current bounded situations and chronicle retain specific causes/outcomes. A genealogical list alone would not explain former residence, migration, missing relatives, school splits, contested ancestry or who knows an ancestor's deed.",
+      "proposedPlayerBehavior": "Investigate a family archive, corroborate a rumor, reunite separated kin, repair a known historical grievance or revive a lost teaching tradition. Link actual events to participants, locations, periods, means and present outcomes; separately track records, testimony, interpretation and reveal to each observer.",
+      "authoritativeOwner": {
+        "state": "Engine durable event/evidence index; Timelines actual occurrence/branch/era history",
+        "policy": "Society personal interpretations/recognition; source owner qualifies canonical past; Bases owns resulting institutional claims"
+      },
+      "dependencies": [
+        "SOC01 assertions/corrections",
+        "SOC05 typed permanent episode facts",
+        "SOC11 graph endpoints",
+        "Selected clock/context and explicit source-branch divergence"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier, proposed family workshop",
+          "case": "An archive alleges Ena's ancestor took a flood fund. Pera has a contrary dated receipt; a local guild heard only the allegation. The player can investigate or disclose evidence, changing only recipients' known reactions."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A discovered past event can open a useful route/tradition or credible dispute with actual evidence; correction preserves what people formerly believed.",
+        "counterexample": "Ancestry does not mechanically make descendants guilty, trusted or omniscient. A setting's actual collective pressure can still act through known motives and specific institutions, without becoming author-truth guilt.",
+        "return": "Current family/source/ownership history survives display pruning; changing a prior cause invalidates dependent expectations rather than forcing the old future scene."
+      },
+      "cheaperCorrectAlternative": "Sparse consequential events and known links, with unknown intervals explicit. Larger history generation can use causally valid templates; no requirement to simulate every prior day or fabricate complete biographies.",
+      "sourceStatus": {
+        "support": "Current caused situation/evidence structures; DF broad developer feature description",
+        "proposal": "Original archive/history case and sparse causal model",
+        "uncertainty": "No Dwarf Fortress algorithm, procedural-history completeness or exhaustive genealogy/source timeline audited"
+      },
+      "verificationLimits": "No historical simulation or story branches executed. Source receipts/imports do not prove an operational whole-world history system."
+    },
+    {
+      "id": "SOC15",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Use living traditions and social occasions to make a family matter beyond ancestry",
+      "evidence": [
+        {
+          "path": "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+          "lineStart": 43,
+          "lineEnd": 57,
+          "claim": "Personal methods, shared hobbies, introductions, mediation and independent initiative already have intended functions."
+        },
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 70,
+          "lineEnd": 77,
+          "claim": "Purposeful ordinary exchanges, changed greetings and nonfarming reactions are explicitly desired."
+        },
+        {
+          "url": "https://store.steampowered.com/app/763890/Wildermyth/",
+          "section": "Extreme Character Depth; A Custom Pantheon of Legends",
+          "claim": "The developer describes evolving histories/relationships, aging or retirement, and selected heroes returning in later adventures.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        },
+        {
+          "url": "https://store.steampowered.com/app/955900/Amazing_Cultivation_Simulator/",
+          "section": "Socializing; Interactive World",
+          "claim": "The developer describes disciple social events and interacting NPC sects with changing influence.",
+          "status": "Developer/publisher description inspected live on 2026-10-04; not executed gameplay or implementation detail."
+        }
+      ],
+      "currentPlayerBehavior": "The first report named care and teaching opportunities but gave little family-specific ordinary life, institutional memory or lineage succession beyond one meeting.",
+      "proposedPlayerBehavior": "Join a reunion, memorial, festival, naming/entry ceremony, shared meal or craft tradition when the local setting supports it. Form sworn/chosen kin, mediate a sibling/apprentice dispute, care for an elder, continue a school or refuse an expected career. Purposeful low-stakes scenes can disclose useful preferences/history without rewards.",
+      "authoritativeOwner": {
+        "state": "Existing Engine social commands, paid means, scheduled causes and known records",
+        "policy": "Society local customs/motives/dialogue; Bases schools/factions/household structures; Timelines actual occasion/history; source GM for adapted rituals/voice"
+      },
+      "dependencies": [
+        "SOC03 independent motives",
+        "SOC04 communication/local norms",
+        "SOC06 method transmission",
+        "SOC11-14 where actual kin/history/succession is exercised"
+      ],
+      "worldExamples": [
+        {
+          "world": "Original Frontier, proposed family workshop",
+          "case": "At Ena's retirement gathering, Hale offers family help, Soren asks to leave the trade and Pera demonstrates a better fitting. Ena can recognize the improvement, preserve a private dispute or propose a successor without guaranteeing one response."
+        },
+        {
+          "world": "Original sect campaign proposal",
+          "case": "A long-lived master meets former students and their descendants: generation, current body/lifespan and teaching lineage need not align. A school can divide over a method or resource claim rather than through automatic betrayal."
+        }
+      ],
+      "acceptanceCase": {
+        "positive": "A small known family/teacher network yields distinct care, work, discovery or method routes and meaningful independent decisions; a shared tradition can develop beyond its founder.",
+        "counterexample": "Attending/repeating a feast awards no unlimited favor, compulsory loyalty or universally known secret. Wealthy/powerful kin and helpful institutions may offer genuine advantages rather than forced equalization or betrayal.",
+        "return": "Present roles, aging where authorized, learned traditions and known memories select fresh responses; a source's legend reintroduction is not silently treated as YAIRPG resurrection or cross-world identity."
+      },
+      "cheaperCorrectAlternative": "Promote relevant historical relatives/teachers to stable actors before personal interaction; use compact known family/history views and authored occasions, then expand connected generations where a campaign needs them.",
+      "sourceStatus": {
+        "support": "Existing proposals and two bounded official descriptions",
+        "proposal": "All rituals, cast, generational scenes and school splits are original examples",
+        "uncertainty": "No specific canonical custom, automatic social-event generator, immortal population or reincarnation model selected"
+      },
+      "verificationLimits": "No family occasion, lineage branch, legend return or social-generation UI implemented/tested; no cost savings measured."
+    }
+  ],
+  "verification": {
+    "gameplay": "not run; held/deferred",
+    "documentChecks": "Updated JSON/field/locator/link/whitespace/input-drift/readback checks completed; final family/history receipt in CHECKPOINT.md. Historical first-pass receipt retained separately.",
+    "internalWriters": "root only; no children or owned background processes",
+    "inputDrift": "Prior captures retained. Follow-up reread live plan/RUN/wave and corrected SOC07 plan locators to current base/relationship/timeline lines; no assigned runtime source changed."
+  },
+  "reconciledInputs": [
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+      "reason": "Live shared drift reread; planning-only integration-strategy role added, society boundary/runtime hold unchanged."
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "5b5c2b9d3371a0aad9a21231fdd9132fb0e0e23cb1d80bf862ef6fa78f82fbbb",
+      "reason": "Live shared drift reread; planning-only integration-strategy role added, society boundary/runtime hold unchanged."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "sha256": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+      "reason": "Live shared drift reread; planning-only integration-strategy role added, society boundary/runtime hold unchanged."
+    },
+    {
+      "path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "reason": "Targeted policy opening sections read; no delegation or full-book task undertaken."
+    },
+    {
+      "path": "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md",
+      "sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "reason": "Targeted policy opening sections read; no delegation or full-book task undertaken."
+    }
+  ],
+  "followUp": {
+    "date": "2026-10-04",
+    "authority": "Direct human asks family, genealogy, history and more, including Amazing Cultivation Simulator.",
+    "scope": "Further social planning audit; same exclusive report directory, no runtime/canonical writes.",
+    "appendix": "FAMILY_GENEALOGY_HISTORY.md",
+    "newFindings": [
+      "SOC11",
+      "SOC12",
+      "SOC13",
+      "SOC14",
+      "SOC15"
+    ],
+    "comparativeSources": [
+      {
+        "name": "ACS",
+        "url": "https://store.steampowered.com/app/955900/Amazing_Cultivation_Simulator/",
+        "checked": "2026-10-04",
+        "qualification": "Live developer/publisher feature description; no source-code/installed gameplay/mechanic-formula audit."
+      },
+      {
+        "name": "RimWorld",
+        "url": "https://rimworldgame.com/biotech/",
+        "checked": "2026-10-04",
+        "qualification": "Live developer/publisher feature description; no source-code/installed gameplay/mechanic-formula audit."
+      },
+      {
+        "name": "CK3",
+        "url": "https://www.paradoxinteractive.com/games/crusader-kings-iii/about",
+        "checked": "2026-10-04",
+        "qualification": "Live developer/publisher feature description; no source-code/installed gameplay/mechanic-formula audit."
+      },
+      {
+        "name": "DF",
+        "url": "https://store.steampowered.com/app/975370/Dwarf_Fortress/",
+        "checked": "2026-10-04",
+        "qualification": "Live developer/publisher feature description; no source-code/installed gameplay/mechanic-formula audit."
+      },
+      {
+        "name": "Wildermyth",
+        "url": "https://store.steampowered.com/app/763890/Wildermyth/",
+        "checked": "2026-10-04",
+        "qualification": "Live developer/publisher feature description; no source-code/installed gameplay/mechanic-formula audit."
+      }
+    ]
+  },
+  "followUpInputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/ASSIGNMENT.md",
+      "sha256": "ff320ca88ef1b0ff351b12b59097d4fd5d9ba23cf5973580958cf88bd65fd7fb"
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "sha256": "7a6ea6814ef7a12832dd09ff475f2b4bd04dd4df34fbca59d2654f367d4668d1",
+      "reconciliation": "Wave adds whole-world-bank planning; own society scope and runtime hold unchanged."
+    }
+  ]
+}

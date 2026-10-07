@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checks_only": "source/artifact readback, not gameplay tests",
+  "source_revisions": {
+    "dcss": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+    "dda": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25"
+  },
+  "upstream_file_evidence_count": 28,
+  "yair_consumer_snapshot_count": 21,
+  "trace_count": 7,
+  "recommendation_count": 4,
+  "local_report_reference_count": 16,
+  "output_hashes": {
+    "REPORT.md": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+    "FINDINGS.json": "68b075061dec8f87e806aac1b5287c51b56c969761d6c41a597afab41b2f9930"
+  },
+  "scope": "Only REPORT.md, FINDINGS.json, CHECKPOINT.md and VALIDATION.json written by this GM; temporary source and helper scripts outside YAIR."
+}

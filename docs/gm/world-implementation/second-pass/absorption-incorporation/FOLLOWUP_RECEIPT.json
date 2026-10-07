@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-05T18:12:47.425061+00:00",
+  "assigning_thread_id": "01a10cd6-3c4a-7502-95a8-b100a5d78efd",
+  "project_id": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "authority": "Direct human request in this assigning chat to create next incorporation GM and a separate missing-feature GM.",
+  "incorporation": {
+    "threadId": "01a10d43-b542-7630-a102-cb11c8d94763",
+    "hostId": "local",
+    "requestedTitle": "GM: incorporate absorption and audits",
+    "assignment": "docs/gm/world-implementation/second-pass/absorption-incorporation/ASSIGNMENT.md",
+    "status": "active/inProgress observed",
+    "writer": "Canonical planning reconciliation plus own report directory, as scoped in assignment; recheck former planner live status before ownership claim.",
+    "initial_observation": {
+      "status": "active",
+      "latest_turn_status": "inProgress",
+      "latest_turn_id": "01a10d43-be4a-7091-a795-ccc757166da0",
+      "progress": "Former planner idle/completed verified; limited canonical planning handoff claimed; current-state hygiene underway."
+    }
+  },
+  "missing_feature_audit": {
+    "threadId": "01a10d44-0649-7932-9869-32f293ed898a",
+    "hostId": "local",
+    "requestedTitle": "GM: missing features and depth audit",
+    "assignment": "docs/gm/world-implementation/second-pass/missing-feature-audit/ASSIGNMENT.md",
+    "status": "active/inProgress observed",
+    "writer": "Only own feature/gap report directory; canonical/game/source owners remain read-only.",
+    "initial_observation": {
+      "status": "active",
+      "latest_turn_status": "inProgress",
+      "latest_turn_id": "01a10d44-0d76-7d41-9483-1d095c9f9bf1",
+      "progress": "Own report-only scope verified; current consumers and prior-audit false gaps being checked."
+    }
+  },
+  "join": "Incorporation advances current completed review reconciliation, then consumes checked final gap artifacts; neither peer needs messaging.",
+  "settings": "Model/thinking omitted to retain user-configured defaults; local project checkout reused, no new worktree.",
+  "preserved": "Completed review/bank/private saves/game source and previous reports; no runtime implementation/dependency selection by dispatch.",
+  "assignment_hashes": {
+    "absorption-incorporation": "a7c4589f5868979cf6590ae6f91eabfc18d787873a6628ed20da4b1db9477b0a",
+    "missing-feature-audit": "efb7ac5eff816c8b8c1fc8d0afce3a2a8428c503a7d60d4fc0c6f465016191d8"
+  },
+  "observed_at_utc": "2026-10-05T18:13:39.635690+00:00"
+}

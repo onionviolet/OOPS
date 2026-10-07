@@ -1,5 +1,7 @@
 "use strict";
 
+import {get_hit_chance} from "./combat_math.js";
+
 import { game_options } from "./main.js"
 
 const stat_names = {  //can be removed once everything is moved to translations
@@ -143,31 +145,6 @@ function format_working_time(time) {
     return formatted;
 }
 
-function get_hit_chance(attack_points, evasion_points) {
-    let result = attack_points/(attack_points+evasion_points);
-
-    if(result >= 0.80) {
-        result = 0.971+(result-0.8)**1.4;
-    } else if(result >= 0.70) {
-        result = 0.846+(result-0.7)**0.9;
-    } else if(result >= 0.6) {
-        result = 0.688+(result-0.6)**0.8;
-    } else if(result >= 0.50) {
-        result = 0.53+(result-0.5)**0.8;
-    } else if(result >= 0.40) {
-        result = 0.331+(result-0.4)**0.7;
-    } else if(result >= 0.3) {
-        result = 0.173 + (result-0.3)**0.8;
-    } else if(result >= 0.20) {
-        result = 0.073 + (result-0.2);
-    } else if(result >= 0.10) {
-        result = 0.01 + (result-0.1)**1.2;
-    } else {
-        result = 0;
-    }
-
-    return result;
-}
 
 /**
  * 

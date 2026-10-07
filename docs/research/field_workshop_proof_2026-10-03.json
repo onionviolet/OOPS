@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-03",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "fingerprint": "v0.6-ccdbfec15887",
+  "tests": {
+    "pass": 167,
+    "fail": 0,
+    "newTests": 13
+  },
+  "browser": {
+    "field": {
+      "url": "http://127.0.0.1:18534/",
+      "fingerprint": "http://127.0.0.1:18534/dist/bundle.js?version=v0.6-ccdbfec15887",
+      "findings": [
+        "Vanilla opening remains undisclosed. Actual craftsman greeting and optional association entry preserve original quests. Two energy methods, participant-reserved teaching, paid mastery, independently funded specialists, native Shack travel, reported contributions, assembly, exact cancellation refunds, production, road assistance and a saved nonlethal assessment work through native controls. Export/import/reload retains one commission, one kit, fuel and earned route support.",
+        "Craft admission consumes two actual logs and one coin. Earned optional imprint copies demonstrated mastery at a real focus cost while the holder retains ownership.",
+        "An unattended offer expires into an actual local detour without a reward or assistance debt. A later explicit report reveals it, and a real supplied repair resumes through reload and earns useful route knowledge. Response focus survives timer ticks.",
+        "Injected storage failure preserves exact old bytes without partial enrollment, teacher power or debit."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "simulation": {
+      "url": "http://127.0.0.1:18534/",
+      "fingerprint": "http://127.0.0.1:18534/dist/bundle.js?version=v0.6-ccdbfec15887",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "notebook": {
+      "url": "http://127.0.0.1:18534/",
+      "fingerprint": "http://127.0.0.1:18534/dist/bundle.js?version=v0.6-ccdbfec15887",
+      "findings": [
+        "Notebook has its own native Journal tab and no DOM under the location menu. Fresh opening hides the new tab; local clues remain vague. Keyboard focus/user selection survive ticks; saved practice opens its Journal view and cancels there.",
+        "An old generated town save derives one contract in native Quests, retaining money/inventory/native quest state through reload. Local notes do not reveal the answer or later ledger. The separate list avoids the native quest sorter; no quest is copied into Notebook.",
+        "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "scale": {
+    "fixtureActors": 64,
+    "minutes": 480,
+    "jobsCompleted": 192,
+    "advanceMs": 858.5832909999999,
+    "loadMs": 1.8318329999999605,
+    "expansionBytes": 39077,
+    "remaining": 0,
+    "budgetExhausted": false,
+    "generatedFixtureOnly": true,
+    "scope": "Pure shared scheduler and expansion hydration; excludes legacy offline replay and full native UI cost."
+  },
+  "sha256": {
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/site_projects.js": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+    "src/scene_definitions.js": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/field_ui.js": "542d856d99c608f3901a0c4c809cd9c30d019c481579139640cfe8611281d9db",
+    "src/simulation.js": "e4c3b5a914cd1ed3e60547e53ba5317d7a500c26b1a1a5735c2cc3dc413a34c3",
+    "src/simulation_contracts.js": "bdd4d715ede927d4991ae952e8d6c490e2db1df84cbb810ecf5399bd4cbb11b6",
+    "src/simulation_effects.js": "4b6271aa8a5d5a80972a56678af535691a62e54feea48e9e292f7ba2647488e3",
+    "src/simulation_resolution.js": "8d32c68ac6b826479e0786a86259cecbff258736365d6e8dfa2d62bf4c520185",
+    "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+    "src/simulation_content.js": "b89cb2ab9e5857dde3c5560fcbf8ee012df08d128c6c6a272022baff87b9b1bc",
+    "src/expedition_content.js": "efb56814df176129c3143fb3c10ffbca086f22b52d5f58648b1b2e220c4df54b",
+    "src/main.js": "a1718009cb22c4af3389aab301fb998b646477ac5246f6d54ba9a5054a0f9c69",
+    "src/adventure_notebook.js": "d5186d02efb6cfb6151a9c7df6553e31d1824612497e8f0c4b24b1f8fa20c137",
+    "src/simulation_ui.js": "c6bf25ea375778d2745125089ccea039f0484c92201e53b240bb3fb506c49c2f",
+    "src/event_feed.js": "2b2b83c095c13a18d8a8efb2d4683a374b456adec25e8668a93f386d0e6e1457",
+    "src/expansion_quest_ui.js": "38a3d333813c7c515b28b9fc9be0922e5c09387f2f69479e30b32e96c5cc3da7",
+    "tests/field_workshop.test.js": "4a591c610dacc6783544437ba073dafa1e77ae645f22d91eff38e26ff0815bc9",
+    "scripts/field_fixtures.mjs": "4e91d6cedf0afff327cebabed277dba4f837bdf53a07d3fc01aa1d90a56bcae6",
+    "scripts/field_browser.cjs": "068c5777392e2fa97820608343e19cad0dafb9d55cfe72ad9a0ef58c1ed61839",
+    "scripts/field_scale.mjs": "5323270ad9ee4f0fb26c6d63768a773b230d4d36b9c056a452e53e0be87e2e51",
+    "style.css": "da3cf9ff226241ecab475771529ae26780b8fc44d10c9590bb87d9eae476b05d",
+    "index.html": "a236ffa5da48db978792bfba0216fd3b1928433a2d47819db390849ed0f8a907",
+    "dist/bundle.js": "ccdbfec15887061113a1c9ad35b56f4c5e7c2649d96d1597110fcbe9f2f25306"
+  },
+  "review": "http://127.0.0.1:62473/review.html",
+  "reviewFiles": "/Users/weiwei/.codex/visualizations/2026/10/03/01a1032f-6342-76b0-8db8-c801a71ca21a/field-workshop",
+  "scope": "Connected first-realm prototype and shared contracts; human acceptance pending. Existing dirty work preserved. Personal saves were not read or changed.",
+  "visibleReview": {
+    "origin": "http://127.0.0.1:62473",
+    "generatedFixture": "workshop-save.json",
+    "observed": "Shack, 94 coins, 17 logs, completed workshop, focus4/4 and drive6/6; native Notebook production controls open."
+  }
+}

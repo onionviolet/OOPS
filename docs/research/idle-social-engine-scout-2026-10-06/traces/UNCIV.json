@@ -1,0 +1,1156 @@
+{
+  "schema": 1,
+  "candidate": "Unciv",
+  "date": "2026-10-06",
+  "disposition": "adapt_patterns",
+  "dependency_selected": false,
+  "source_gate": "complete_for_bounded_trace",
+  "runtime_status": "untested_source_inspection_only",
+  "source_pin": {
+    "repository": "https://github.com/yairm210/Unciv",
+    "commit": "5bb7611a736f540486d6153d3f07b173d4ef91dd",
+    "ref_at_acquisition": "master",
+    "commit_timestamp": "2026-10-06T17:18:21+03:00",
+    "raw_manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/SOURCE_MANIFEST.json",
+    "raw_source": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/source"
+  },
+  "evidence": [
+    {
+      "id": "U01",
+      "kind": "source_demonstrated",
+      "path": "README.md",
+      "ranges": [
+        [
+          19,
+          49
+        ],
+        [
+          105,
+          109
+        ],
+        [
+          125,
+          136
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/README.md#L19-L49",
+      "sha256": "47b2b5fcbb19d79f4ca280e306a9bbc9e2f3d503ba7db5bc1ecae07b8293ccb1",
+      "claim": "FOSS Android/Desktop remake, installation routes and roadmap; source MPL-2.0, media licenses separate; original Civ assets excluded by project README."
+    },
+    {
+      "id": "U02",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/metadata/BaseRuleset.kt",
+      "ranges": [
+        [
+          1,
+          7
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/metadata/BaseRuleset.kt#L1-L7",
+      "sha256": "3e5ac98ed4cfae53fee62f07f52da494a6b0f9c1591e8b75d39acc3f4932c054",
+      "claim": "Built-in base-ruleset enum lists Vanilla and Gods & Kings, not Brave New World."
+    },
+    {
+      "id": "U03",
+      "kind": "source_demonstrated",
+      "path": "android/assets/jsons/Civ V - Gods & Kings/Techs.json",
+      "ranges": [
+        [
+          17,
+          20
+        ],
+        [
+          44,
+          49
+        ],
+        [
+          54,
+          57
+        ],
+        [
+          102,
+          107
+        ],
+        [
+          148,
+          151
+        ],
+        [
+          181,
+          186
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/android/assets/jsons/Civ%20V%20-%20Gods%20&%20Kings/Techs.json#L17-L20",
+      "sha256": "415cbf1c42de6396238330e4e185276e66879d28e8abdc9bee1ce03788aaa987",
+      "claim": "Agriculture -> Mining -> Bronze Working -> Iron Working; base column costs 35,55,175."
+    },
+    {
+      "id": "U04",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/Ruleset.kt",
+      "ranges": [
+        [
+          388,
+          398
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/Ruleset.kt#L388-L398",
+      "sha256": "d3ac468aaf8d46c5743c75fa89c08d8812d30a7f325f77039fbd0b58fd91e0c3",
+      "claim": "A technology with no explicit cost receives its column techCost."
+    },
+    {
+      "id": "U05",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/managers/TechManager.kt",
+      "ranges": [
+        [
+          65,
+          88
+        ],
+        [
+          108,
+          153
+        ],
+        [
+          156,
+          211
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/managers/TechManager.kt#L65-L88",
+      "sha256": "79bc967d4e8bdb73f894a4ef5964b7d4804b4b83de0bbbad59cd0471ab8b0867",
+      "claim": "Retained queue and progress; dynamic cost/turn quote; availability and prerequisite path."
+    },
+    {
+      "id": "U06",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/ui/screens/pickerscreens/TechPickerScreen.kt",
+      "ranges": [
+        [
+          129,
+          138
+        ],
+        [
+          214,
+          219
+        ],
+        [
+          427,
+          463
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/ui/screens/pickerscreens/TechPickerScreen.kt#L129-L138",
+      "sha256": "f7df467dfb436e81e389ad1764ebb954687fcbcfd832f2625501e9e4b32020f8",
+      "claim": "Selecting destination builds/replaces or appends prerequisite path; normal confirmation installs queue; unavailable path disables choice."
+    },
+    {
+      "id": "U07",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/managers/TechManager.kt",
+      "ranges": [
+        [
+          225,
+          231
+        ],
+        [
+          243,
+          275
+        ],
+        [
+          297,
+          345
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/managers/TechManager.kt#L243-L275",
+      "sha256": "79bc967d4e8bdb73f894a4ef5964b7d4804b4b83de0bbbad59cd0471ab8b0867",
+      "claim": "Per-turn science advances queue head; completion removes head/progress, retains research, triggers effects/reveal and updates resources."
+    },
+    {
+      "id": "U08",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/managers/TurnManager.kt",
+      "ranges": [
+        [
+          279,
+          288
+        ],
+        [
+          301,
+          323
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/managers/TurnManager.kt#L279-L288",
+      "sha256": "53fc105a73b844bb5567a90d46716ce4f421a6a88af74960fce896fb42b15a28",
+      "claim": "Actual computed culture/science enter managers on end turn; negative upkeep can disband real units."
+    },
+    {
+      "id": "U09",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/transients/CivInfoStatsForNextTurn.kt",
+      "ranges": [
+        [
+          177,
+          181
+        ],
+        [
+          214,
+          222
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/transients/CivInfoStatsForNextTurn.kt#L177-L181",
+      "sha256": "0982f8624a24c88ba232f40bcf8e60727daa28f34a0fe5fbc77c93870c544151",
+      "claim": "City output aggregates; negative treasury and negative gold yield reduce science at deficit correction stage."
+    },
+    {
+      "id": "U10",
+      "kind": "source_demonstrated",
+      "path": "android/assets/jsons/Civ V - Gods & Kings/TileResources.json",
+      "ranges": [
+        [
+          108,
+          114
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/android/assets/jsons/Civ%20V%20-%20Gods%20&%20Kings/TileResources.json#L108-L114",
+      "sha256": "44f379560eab1122906d806aa9d1dd4a43f9b8b31af0bdeca7cb9324cbec5dce",
+      "claim": "Iron is revealed by Iron Working and has Mine improvement; reveal is not supply."
+    },
+    {
+      "id": "U11",
+      "kind": "source_demonstrated",
+      "path": "android/assets/jsons/Civ V - Gods & Kings/Units.json",
+      "ranges": [
+        [
+          479,
+          490
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/android/assets/jsons/Civ%20V%20-%20Gods%20&%20Kings/Units.json#L479-L490",
+      "sha256": "f2786a1da6d444789f7c4d1c391294f94e4a59f2024524ccd3b8f1477d4b0ce0",
+      "claim": "Swordsman has Iron Working gate, 75 base production, one required Iron field and later Steel obsolescence data."
+    },
+    {
+      "id": "U12",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/unit/BaseUnit.kt",
+      "ranges": [
+        [
+          256,
+          289
+        ],
+        [
+          365,
+          381
+        ],
+        [
+          490,
+          496
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/unit/BaseUnit.kt#L256-L289",
+      "sha256": "3720c3ae8a1a07c7e07e2372bb5b80d1239587089d11b4c0de382067645d0119",
+      "claim": "Unresearched-tech and insufficient ongoing-resource rejection; requiredResource costs one capacity; constructing creates a real unit or returns null."
+    },
+    {
+      "id": "U13",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/unit/BaseUnitCost.kt",
+      "ranges": [
+        [
+          13,
+          34
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/unit/BaseUnitCost.kt#L13-L34",
+      "sha256": "7c395cd27da1bab2b0d254e112bcadbd9587139a9df8dbe0be3642dfe9869fdb",
+      "claim": "75 is base cost; unit cost modifiers and speed determine actual production cost."
+    },
+    {
+      "id": "U14",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/city/CityConstructions.kt",
+      "ranges": [
+        [
+          322,
+          374
+        ],
+        [
+          377,
+          404
+        ],
+        [
+          500,
+          505
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/city/CityConstructions.kt#L322-L374",
+      "sha256": "179a84a9c4df0638b8324c42a54ca952f9d4c027b0e2b2d813623b97fce125fd",
+      "claim": "Production accumulates, eligibility rechecks remove unsupported queue entries, actual completion constructs a unit; no-space failure notifies. Placement failure is not mutation-free: constructIfEnough increments builtItemsWithIncreasingCost after the success/failure branch. No universal refund/zero-mutation guarantee is inferred."
+    },
+    {
+      "id": "U15",
+      "kind": "source_demonstrated",
+      "path": "android/assets/jsons/Civ V - Gods & Kings/Policies.json",
+      "ranges": [
+        [
+          218,
+          231
+        ],
+        [
+          423,
+          435
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/android/assets/jsons/Civ%20V%20-%20Gods%20&%20Kings/Policies.json#L218-L231",
+      "sha256": "f724b15cca730295ad3c87f0ca8cedabee90aaae3262680595d6af8a47f57455",
+      "claim": "Piety and Rationalism exclude each other through before-adopting conditions; Rationalism is Renaissance and +15% Science while happy."
+    },
+    {
+      "id": "U16",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/managers/PolicyManager.kt",
+      "ranges": [
+        [
+          119,
+          128
+        ],
+        [
+          131,
+          146
+        ],
+        [
+          170,
+          180
+        ],
+        [
+          221,
+          287
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/managers/PolicyManager.kt#L119-L128",
+      "sha256": "a4347e659b48bd90b009cdb5491bca6bd3c53d5926a3c7a3770f3ec89bf7262d",
+      "claim": "Culture accrues per turn; increasing policy cost; era/parents/conditional eligibility; normal adoption spends culture or a free policy, retains adopted ID and updates city stats."
+    },
+    {
+      "id": "U17",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/ui/screens/pickerscreens/PolicyPickerScreen.kt",
+      "ranges": [
+        [
+          78,
+          86
+        ],
+        [
+          642,
+          651
+        ],
+        [
+          665,
+          675
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/ui/screens/pickerscreens/PolicyPickerScreen.kt#L78-L86",
+      "sha256": "ffed857695000992f0f3b8600c07b5e3e28af186f6868cf1ec277e1ab7de4500",
+      "claim": "Normal policy choice checks eligibility/cost, confirms and rechecks before adoption."
+    },
+    {
+      "id": "U18",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/unique/Conditionals.kt",
+      "ranges": [
+        [
+          141,
+          141
+        ],
+        [
+          191,
+          194
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/unique/Conditionals.kt#L141-L141",
+      "sha256": "417fad923671e76ad77057aa62c02dadf835960f2aac40f4052c9d983e2b1e67",
+      "claim": "Happy means happiness >=0; before-adoption condition tests absence of adopted policy/belief."
+    },
+    {
+      "id": "U19",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/unique/UniqueMap.kt",
+      "ranges": [
+        [
+          121,
+          127
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/unique/UniqueMap.kt#L121-L127",
+      "sha256": "7b13c8287c3d4d3daa0f29004239a45e28f6a6836ad4eb29def0f4d772fbf89f",
+      "claim": "Unique iteration excludes effects whose conditions fail."
+    },
+    {
+      "id": "U20",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/Civilization.kt",
+      "ranges": [
+        [
+          482,
+          493
+        ],
+        [
+          637,
+          648
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/Civilization.kt#L482-L493",
+      "sha256": "92e9e43dbe9a595aa98cf6c75bff7ce1a71666bf0ded77d85bc181bc261c5414",
+      "claim": "Policy unique map supplies city/global stat consumers; aggregated city output becomes statsForNextTurn."
+    },
+    {
+      "id": "U21",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/city/City.kt",
+      "ranges": [
+        [
+          665,
+          677
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/city/City.kt#L665-L677",
+      "sha256": "c712233f577007a4f4923c508773930f20c6156b812981bef5caa927c82d7b78",
+      "claim": "City unique iteration includes civilization uniques."
+    },
+    {
+      "id": "U22",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/city/CityStats.kt",
+      "ranges": [
+        [
+          258,
+          265
+        ],
+        [
+          549,
+          558
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/city/CityStats.kt#L258-L265",
+      "sha256": "fcf74d91f3319ab077092f289ff760a8309d464feb6a34f5275b824b8d5ef49d",
+      "claim": "Policy science percent enters stat bonuses and multiplies final science output."
+    },
+    {
+      "id": "U23",
+      "kind": "source_demonstrated",
+      "path": "LICENSE",
+      "ranges": [
+        [
+          160,
+          175
+        ],
+        [
+          185,
+          204
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/LICENSE#L160-L175",
+      "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "claim": "Covered source distribution/MPL availability and preservation of notices; no copying selected."
+    },
+    {
+      "id": "U24",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/civilization/managers/TechManager.kt",
+      "ranges": [
+        [
+          347,
+          351
+        ],
+        [
+          373,
+          422
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/civilization/managers/TechManager.kt#L347-L351",
+      "sha256": "79bc967d4e8bdb73f894a4ef5964b7d4804b4b83de0bbbad59cd0471ab8b0867",
+      "claim": "New research can transform obsolete construction queue entries into nation-equivalent upgrades and immediately validate already invested work, with notification."
+    },
+    {
+      "id": "U25",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/logic/city/CityConstructions.kt",
+      "ranges": [
+        [
+          430,
+          466
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/logic/city/CityConstructions.kt#L430-L466",
+      "sha256": "179a84a9c4df0638b8324c42a54ca952f9d4c027b0e2b2d813623b97fce125fd",
+      "claim": "Obsolete unit work transfers only if all rejection reasons are Obsoleted and a buildable upgrade exists; other invalid entries lose saved work. Wonder work instead refunds gold, illustrating distinct failure policies."
+    },
+    {
+      "id": "U26",
+      "kind": "source_demonstrated",
+      "path": "core/src/com/unciv/models/ruleset/unit/BaseUnit.kt",
+      "ranges": [
+        [
+          62,
+          64
+        ],
+        [
+          384,
+          391
+        ]
+      ],
+      "url": "https://github.com/yairm210/Unciv/blob/5bb7611a736f540486d6153d3f07b173d4ef91dd/core/src/com/unciv/models/ruleset/unit/BaseUnit.kt#L62-L64",
+      "sha256": "3720c3ae8a1a07c7e07e2372bb5b80d1239587089d11b4c0de382067645d0119",
+      "claim": "ObsoleteTech feeds both no-longer-available and automatic-in-production-upgrade paths; upgradesTo determines replacement."
+    }
+  ],
+  "primary_documents": [
+    {
+      "id": "D01",
+      "url": "https://yairm210.github.io/Unciv/",
+      "claim": "Official homepage describes open-source Android/Desktop LibGDX project; documentation only.",
+      "kind": "primary_documentation_only",
+      "checked_date": "2026-10-06",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/public-docs/D01.html",
+      "sha256": "6c13c0ada4809b77977e46442a3d95eaed7919ed57173d07d03b792215e2778a"
+    },
+    {
+      "id": "D02",
+      "url": "https://store.steampowered.com/app/8930/Sid_Meiers_Civilization_V/",
+      "claim": "Paid licensed Civilization V base game listing; entitlement/installation not inspected.",
+      "kind": "primary_documentation_only",
+      "checked_date": "2026-10-06",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/public-docs/D02.html",
+      "sha256": "f16733850659c51a47237ce996f076b4efa58179af66551942aaf78863af8cae"
+    },
+    {
+      "id": "D03",
+      "url": "https://store.steampowered.com/app/16870/Sid_Meiers_Civilization_V_Gods_and_Kings/",
+      "claim": "Paid licensed first expansion, requires Civilization V base game; gameplay contents not audited.",
+      "kind": "primary_documentation_only",
+      "checked_date": "2026-10-06",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/public-docs/D03.html",
+      "sha256": "d9fdfb9a2f2a5bb3042aee0e53cd8b9f6af7bab4f793fa30e10a85843561ba62"
+    },
+    {
+      "id": "D04",
+      "url": "https://store.steampowered.com/app/235580/Sid_Meiers_Civilization_V_Brave_New_World/",
+      "claim": "Paid licensed second expansion, requires Civilization V base game; gameplay contents not audited.",
+      "kind": "primary_documentation_only",
+      "checked_date": "2026-10-06",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/unciv/public-docs/D04.html",
+      "sha256": "a3a9768d0576342f4a8840dca9a1574df7df024033ad5fa100ba8f0f71ddcf44"
+    }
+  ],
+  "coverage": {
+    "semantic_scope": "G&K technology destination queue -> science progress -> Iron Working -> reveal/real Swordsman production gating; Piety/Rationalism choice -> actual conditional science consumer. Selected windows in evidence, not full files. Depth addendum traces economics/output, obsolescence/production carryover and conditional/excluded policy dependencies; no restarted whole-game audit.",
+    "source_demonstrated": "All U references establish code/data paths by inspection, not executed behavior.",
+    "documented_only": "Official installation/distribution and licensed Civilization V/DLC store access.",
+    "inferred": "Adapting destination-first navigation over YAIRPG finite workPlans may reduce repeated action selection; no measured user speed or engine superiority.",
+    "untested": "All mechanics at runtime and all proposed YAIRPG behavior.",
+    "unread_exact_limits": "Selected mechanism windows only. All other downloaded core/docs/ruleset files are unread; no whole-game, whole-ruleset or Civilization V expansion audit. Research agreements and diplomacy commitments, religion/espionage, AI strategy, unit combat, live unit-upgrade actions/costs, resource extraction/cache ownership details, broader policy tree, Vanilla rule content, all BNW mods and licensed Civ V content."
+  },
+  "licensing": {
+    "source": "MPL-2.0 except named exceptions; see U01/U23",
+    "assets": "Separate mixed media licensing. No code/assets/text copied into YAIRPG; new trial uses original wording and existing project items.",
+    "licensed_civ5": "The Unciv public source/rulesets are distinct from licensed Civilization V executable/assets and DLC. No DLC entitlement, purchase or installation change."
+  },
+  "expansion_coverage": [
+    {
+      "edition": "Unciv built-in Civ V - Gods & Kings ruleset",
+      "state": "selected_source_windows_inspected",
+      "evidence": [
+        "U02",
+        "U03",
+        "U10",
+        "U11",
+        "U15"
+      ],
+      "limits": "Selected research/policy data and consumers only; religion, espionage and full content unreviewed."
+    },
+    {
+      "edition": "Unciv built-in Civ V - Vanilla ruleset",
+      "state": "inventory_metadata_only_content_unread",
+      "evidence": [
+        "U02"
+      ],
+      "limits": "Enum existence establishes supplied ruleset name only; no Vanilla content parity claim."
+    },
+    {
+      "edition": "Unciv Brave New World mods/other rulesets",
+      "state": "not_acquired_not_source_audited",
+      "evidence": [
+        "U01",
+        "U02"
+      ],
+      "limits": "BNW is on README roadmap and absent from built-in enum; no inference that all BNW features are absent or all mods work. Mod discovery search results do not qualify a mod."
+    },
+    {
+      "edition": "Licensed Civilization V base/Gods & Kings/Brave New World",
+      "state": "primary_documentation_only_not_game_audited",
+      "evidence": [
+        "D02",
+        "D03",
+        "D04"
+      ],
+      "limits": "Store lists paid products and expansions require base game. Other scenario/civilization/map DLC listing is inventory only and all gameplay/assets unread."
+    }
+  ],
+  "traces": [
+    {
+      "id": "UNCIV-T1",
+      "name": "Destination research to actual capability means",
+      "status": "source_demonstrated_not_run",
+      "prerequisite": {
+        "claim": "With Agriculture already researched, Mining -> Bronze Working -> Iron Working; all predecessors required and unavailable paths rejected.",
+        "evidence": [
+          "U03",
+          "U04",
+          "U05"
+        ]
+      },
+      "decision": {
+        "claim": "Pick Iron Working as destination; picker expands missing prerequisites into one retained queue, replaces or appends it at player choice.",
+        "evidence": [
+          "U06"
+        ]
+      },
+      "cost_time": {
+        "claim": "Three technologies have 265 total base science (35+55+175), before difficulty/speed/map/city/known-civ/unique modifiers. Selection does not debit gold. Queue head consumes available science each end turn; other research destinations wait. Negative treasury plus negative gold yield reduces science.",
+        "evidence": [
+          "U03",
+          "U04",
+          "U05",
+          "U07",
+          "U08",
+          "U09"
+        ]
+      },
+      "mutation": {
+        "claim": "Completion adds researched tech, removes nonrepeatable head and in-progress entry, retains capped overflow, refreshes resource info and reveals explored Iron.",
+        "evidence": [
+          "U07",
+          "U10"
+        ]
+      },
+      "consumer": {
+        "claim": "Swordsman gate requires researched Iron Working AND available one Iron capacity; 75 base production is separately accumulated and adjusted. Successful completion calls actual unit construction. Research reveals availability but grants neither iron stock nor unit.",
+        "evidence": [
+          "U11",
+          "U12",
+          "U13",
+          "U14"
+        ]
+      },
+      "failure_aftermath": {
+        "claim": "Missing tech/iron yields concrete build rejection; construction rechecks remove unsupported queued work. Enough production without placement space returns false and notifies; researched technology stays retained. Placement failure is not mutation-free: constructIfEnough increments builtItemsWithIncreasingCost after the success/failure branch. No universal refund/zero-mutation guarantee is inferred.",
+        "evidence": [
+          "U12",
+          "U14"
+        ]
+      }
+    },
+    {
+      "id": "UNCIV-T2",
+      "name": "Paid exclusive policy with conditional future science",
+      "status": "source_demonstrated_not_run",
+      "prerequisite": {
+        "claim": "Rationalism requires Renaissance era, policy predecessors, no previously adopted Piety and culture budget or a free-policy entitlement; normal UI checks every gate.",
+        "evidence": [
+          "U15",
+          "U16",
+          "U17",
+          "U18"
+        ]
+      },
+      "decision": {
+        "claim": "Adopt Rationalism through confirmed picker; Piety and Rationalism exclude each other on normal adoption path.",
+        "evidence": [
+          "U15",
+          "U16",
+          "U17",
+          "U18"
+        ]
+      },
+      "cost_time": {
+        "claim": "Culture earned on end turns is stored. Adoption spends current increasing/multiplied culture cost and raises paid-policy count, or consumes one free policy. Spending culture delays another policy and Piety branch becomes unavailable.",
+        "evidence": [
+          "U08",
+          "U16"
+        ]
+      },
+      "mutation": {
+        "claim": "Adopted policy ID is retained and its unique enters policyUniques; city stats refresh.",
+        "evidence": [
+          "U16",
+          "U20"
+        ]
+      },
+      "consumer": {
+        "claim": "Rationalism adds +15% Science only when happiness >=0; city percent bonuses multiply final science, aggregate into next-turn output, and feed actual technology progress.",
+        "evidence": [
+          "U15",
+          "U18",
+          "U19",
+          "U20",
+          "U21",
+          "U22",
+          "U08",
+          "U07"
+        ]
+      },
+      "failure_aftermath": {
+        "claim": "Piety already adopted blocks Rationalism; not enough culture prevents pick/adoption. If happiness becomes negative, the multiplier fails its conditional while adopted ID/foregone branch remain. This is no promised universal permanent science bonus.",
+        "evidence": [
+          "U15",
+          "U16",
+          "U17",
+          "U18",
+          "U19"
+        ]
+      }
+    }
+  ],
+  "incumbent": [
+    {
+      "path": "PROJECT.md",
+      "ranges": [
+        [
+          3,
+          11
+        ],
+        [
+          137,
+          141
+        ],
+        [
+          155,
+          163
+        ]
+      ],
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "claim": "Live delivered-unverified status; one realm/one prestige and incumbent direction.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "ranges": [
+        [
+          6,
+          13
+        ],
+        [
+          45,
+          48
+        ],
+        [
+          71,
+          90
+        ],
+        [
+          113,
+          122
+        ],
+        [
+          130,
+          142
+        ]
+      ],
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "claim": "Existing paid research, actual jig, two salvage methods and exclusive choices with physical/time costs.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "ranges": [
+        [
+          14,
+          23
+        ],
+        [
+          31,
+          43
+        ]
+      ],
+      "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+      "claim": "Correct advancement dispatch and foregone choice presentation.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "ranges": [
+        [
+          94,
+          116
+        ]
+      ],
+      "sha256": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+      "claim": "Research/jig/branch require actual receipts, understanding and supported body.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "ranges": [
+        [
+          27,
+          38
+        ],
+        [
+          61,
+          68
+        ]
+      ],
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "claim": "Actual resin consumer spends one resin/two staves/one stamina over three minutes to grant two existing kits.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/audited_kit_reserve_content.js",
+      "ranges": [
+        [
+          5,
+          22
+        ]
+      ],
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "claim": "An existing finite kit reserve uses same jobs, capacity and work-plan service.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "ranges": [
+        [
+          49,
+          85
+        ],
+        [
+          138,
+          159
+        ],
+        [
+          233,
+          260
+        ],
+        [
+          272,
+          300
+        ],
+        [
+          331,
+          355
+        ]
+      ],
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "claim": "Finite cursor keeps IDs/revisions, stages jobs, checks real prerequisites each step and pauses on failure; no advancement step kind.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/simulation.js",
+      "ranges": [
+        [
+          209,
+          241
+        ],
+        [
+          280,
+          291
+        ],
+        [
+          474,
+          484
+        ]
+      ],
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "claim": "Refund/no-result completion failure, explicit exclusive advancement owner and common boundary advances itineraries.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "ranges": [
+        [
+          34,
+          41
+        ],
+        [
+          43,
+          74
+        ],
+        [
+          166,
+          197
+        ]
+      ],
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "claim": "Actor owned inventory/resources/knowledge facts and staged ownership/custody/understanding effects.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "ranges": [
+        [
+          542,
+          568
+        ]
+      ],
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "claim": "Existing common played-time clock and scheduler boundaries.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "ranges": [
+        [
+          5,
+          17
+        ],
+        [
+          30,
+          50
+        ]
+      ],
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "claim": "Existing save-envelope write validates and commits before publication.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "ranges": [
+        [
+          157,
+          157
+        ]
+      ],
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+      "claim": "Registered plans currently comprise society/reference/reserve, not this destination.",
+      "kind": "live_source_inspected_runtime_unverified"
+    },
+    {
+      "path": "src/main.js",
+      "ranges": [
+        [
+          526,
+          552
+        ],
+        [
+          844,
+          860
+        ]
+      ],
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "claim": "Single durable publish path and specific existing plan action adapters.",
+      "kind": "live_source_inspected_runtime_unverified"
+    }
+  ],
+  "packet": {
+    "id": "UNCIV-P1",
+    "title": "Optional measured-salvage destination at Eda's field bench",
+    "status": "original_proposal_unimplemented",
+    "source_readiness": "conditional_on_selected_UI_and_dispatch_adapter",
+    "benefit": "A destination-first prerequisite/cost view and one finite itinerary turns the existing paid study and physical jig into two useful existing survey kits; no new research currency, library dependency or scheduler.",
+    "scope": "Same existing world/body/Village bench and first one-realm/one-prestige milestone; field institute is optional original presentation for a work group, not empire-scale simulation.",
+    "inputs": "Optional home/reference enrollment and bench terms, actual two firsthand observations, Eda support/method, actor owned funds/materials/body, four compatible dry offcuts and one set resin supplied through existing play. No invented old-save input.",
+    "steps": [
+      {
+        "id": "study",
+        "command": "remainder_home.research",
+        "target": "same actual Eda target from source definition",
+        "duration": 4,
+        "cost": "2 native coins to Eda, 1 player stamina and 1 Eda stamina; once only"
+      },
+      {
+        "id": "jig",
+        "command": "remainder_home.build_jig",
+        "duration": 3,
+        "cost": "1 actual log, 1 sap, 1 player stamina; gives physical jig; once only"
+      },
+      {
+        "id": "stave_a",
+        "command": "remainder_home.salvage_ordinary",
+        "duration": 4,
+        "cost": "2 compatible offcuts, held/returned jig, 2 stamina; gives one sound stave"
+      },
+      {
+        "id": "stave_b",
+        "command": "remainder_home.salvage_ordinary",
+        "duration": 4,
+        "cost": "2 more compatible offcuts, held/returned jig, 2 stamina; gives one sound stave"
+      },
+      {
+        "id": "kits",
+        "command": "reference_gameplay.resin_kits",
+        "duration": 3,
+        "cost": "1 set resin, 2 produced sound staves and 1 stamina; gives two existing survey kits"
+      }
+    ],
+    "nominal_cost_if_none_of_once_steps_already_completed": "18 nominal uninterrupted job minutes (runtime timing not verified), 2 native coins, 7 player stamina, 1 Eda stamina, 1 log + 1 sap + 4 dry compatible offcuts + 1 set resin. Jig remains once owned; intermediate 2 staves become 2 kits. Per-step actual quotation/support remain authoritative.",
+    "choice_and_opportunity_cost": "Choose this finite ordinary itinerary versus keep materials/coins/time for another purpose or use existing manual delicate route if earned. Existing fine specialization makes each manual salvage 2 minutes/1 stamina; obtaining it has its own 2-coin/1-sap/effort cost and foregoes loaded-survey specialization. Do not auto-adopt or rewrite a committed specialization in the queue.",
+    "existing_owners": [
+      "simulation.knowledge[actor] and actual completion receipts",
+      "native/simulation actor inventory and resources",
+      "existing simulation jobs/participants/site reservation",
+      "workPlans cursor using command IDs and revisions",
+      "existing exclusive advancement owner",
+      "expedition registry/common played clock/single durable publisher"
+    ],
+    "missing_consumers": [
+      {
+        "path": "src/expedition_content.js:157",
+        "gap": "No registered measured-salvage destination itinerary among current plan families; add one explicit finite definition, not arbitrary research DAG."
+      },
+      {
+        "path": "src/audit_remainder_home_host.js:25",
+        "gap": "No source-traced terminal-output/prerequisite destination chooser for this chain; add view/control projection using actual job/knowledge/inventory facts and existing workPlanView."
+      },
+      {
+        "path": "src/main.js:852",
+        "gap": "Current reference plan adapter accepts only cooling_plan; selected future root integration needs exact dispatch/ID validation for new optional itinerary."
+      }
+    ],
+    "compatibility": "Additive explicit plan definition and optional workPlans cursor; no retroactive enrollment/rewards or changed persistence version selected. Refresh current source hashes/registry before implementation. Current workPlans accepts command/travel/wait, not advancement; specialization remains manual through actual progression host. Existing ordinary route remains valid with either/no specialization.",
+    "failure_policy": "Each job reserves/pays only its own real costs. Lost support uses existing refund/no-result policy and cursor pauses without claiming completion; resumed next steps re-preview true current means. Existing accepted obligations must finish/cancel under declared policy before reconsidering unreserved tail. Do not copy Unciv placement-counter behavior: preserve current YAIRPG staged failure/refund/publication semantics.",
+    "later_acceptance_gate": [
+      {
+        "id": "A1",
+        "pass": "Fresh generated test state with required own observations shows missing prerequisites and exact per-step costs; reading a destination grants no jig, stock, knowledge or enrollment."
+      },
+      {
+        "id": "A2",
+        "pass": "Accept one finite itinerary; only next job reserves actual costs; after 18 uninterrupted played minutes with no earlier once receipts, observe exact coin/material/effort transfers, one retained jig and two actual existing kits, with no free staves or repeated research."
+      },
+      {
+        "id": "A3",
+        "pass": "Lose real Eda/source/contact during a supported research commitment, or spend the still-unreserved resin before the next resin-job boundary; observe declared refund/no-result or paused cursor as appropriate. Restore actual means and resume remaining unpaid work without duplicate completed effects. Do not mutate or appropriate already-reserved items."
+      },
+      {
+        "id": "A4",
+        "pass": "Ordinary path remains usable for no/fine/loaded specialization; show the manual fine-route savings and foregone loaded choice, reject dual branch and auto-adoption, allow reconsideration only at safe job boundary."
+      },
+      {
+        "id": "A5",
+        "pass": "After implementation and rebuild, generated-save reload/export/import preserve cursor/index/current reservation, resources/jig/kits/branch receipts; failed durable publication exposes no partial result and absent/legacy cursor grants no output."
+      }
+    ],
+    "gate_status": "All proposed player/runtime/save gates not run; later phase backlog, no implementation claimed."
+  },
+  "comparison": {
+    "development_speed": "Adapt a small destination definition/view/dispatch over already available services. Full Kotlin/LibGDX game adoption requires new host/UI/save integration and is not justified.",
+    "save_reuse": "Existing YAIRPG owners retained; Unciv civilization save/controller replacement skipped.",
+    "narrative_social": "Research/policy choices support original institute incentives, but inspected Unciv slice has no rich character dialogue/relationship consumer. Keep Ink for authored character scenes.",
+    "simulation": "Strong source pattern for ordered dependencies, budget/output separation and conditional modifiers; empire-level resources should not become duplicate actor inventory.",
+    "spatial": "Hex/city presentation not needed for bounded Village bench trial; spatial engine switch not supported.",
+    "authoring_maintenance": "Declarative rules plus typed unique consumers are useful reference; copy no Kotlin code and maintain one finite authored route with actual command revisions.",
+    "disposition_reason": "Useful patterns, narrow incremental value over existing research/spec/workPlans, zero new runtime dependency."
+  },
+  "check_results": {
+    "source_ranges_and_hashes": "pass_26_source_reference_ranges_and_fullfile_sha256; 13_live_YAIRPG_owner_fingerprints_match",
+    "json": "pass_documentation_syntax_and_cross_reference_check",
+    "links": "pass_local_targets_and_pinned_source_paths_exist; HTTP/runtime behavior not inferred",
+    "source_runtime": "not_run",
+    "yairpg_runtime_tests_build": "not_run_deferred_by_assignment",
+    "scope": "pass_only_reserved_UNCIV.md_UNCIV.json_in_repo; external_source_worktree_unmodified"
+  },
+  "exclusions_respected": [
+    "Only reserved docs UNCIV.md/UNCIV.json written in repository",
+    "Raw public source/doc captures/manifests outside Git",
+    "No gameplay source edits, source builds/runtime/dependency installs, accounts/private saves/source-library mutation, purchases, commits/pushes/publication, messages to other chats"
+  ],
+  "depth_retention": {
+    "authority": "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md:9-17, read 2026-10-06",
+    "status": "bounded_supported_dependency_addendum_complete",
+    "map": [
+      {
+        "system_join": "economics -> science -> research time",
+        "mechanism": "City science and treasury pressure are distinct. Negative gold rate and negative treasury reduce effective science; queue costs are science and waiting, not an invented gold payment. At deep upkeep shortfall (-200 gold and negative flow), endTurn disbands real military units and recomputes stats.",
+        "evidence": [
+          "U05",
+          "U08",
+          "U09"
+        ],
+        "yairpg_implication": "A paid field study should reserve actual actor/site inputs before work; do not treat wealth as automatic knowledge or create a duplicate abstract science owner."
+      },
+      {
+        "system_join": "research eligibility -> reveal -> physical means -> production -> placement",
+        "mechanism": "All technology prerequisites, conditional availability, actual known Iron, available Iron capacity, production investment and tile placement remain separate gates. A technology reward grants neither materials nor unit. Unsupported queued construction is revalidated; placement failure gives notification instead of a fabricated unit. Placement failure is not mutation-free: constructIfEnough increments builtItemsWithIncreasingCost after the success/failure branch. No universal refund/zero-mutation guarantee is inferred.",
+        "evidence": [
+          "U03",
+          "U05",
+          "U07",
+          "U10",
+          "U11",
+          "U12",
+          "U13",
+          "U14"
+        ],
+        "yairpg_implication": "Existing Eda research understanding enables constructing the real jig; held jig/offcuts/bench/body produce sound staves, and two staves/resin/effort produce actual kits. Destination view should expose whichever real gate is currently missing."
+      },
+      {
+        "system_join": "new research -> obsolete planned production -> qualified work carryover",
+        "mechanism": "Swordsman data names Steel as obsoleteTech and Longswordsman as upgradesTo. Those fields feed automatic in-production queue replacement. Already invested production transfers only when obsolescence is the sole rejection and a buildable upgrade exists; otherwise removed invalid unit work is not universally refunded. This source path affects production queues, not already fielded units.",
+        "evidence": [
+          "U11",
+          "U12",
+          "U24",
+          "U25",
+          "U26"
+        ],
+        "yairpg_implication": "Original larger proposal: new methods can change useful future work without erasing completed learning or pretending accepted reservations automatically convert. In this finite trial, preserve accepted ordinary job and let player cancel/reconsider only unreserved tail; no automatic recipe migration selected."
+      },
+      {
+        "system_join": "culture economy -> exclusive institution -> conditional future yield",
+        "mechanism": "Turn culture funds adoption; normal picker checks era/prerequisites/exclusions/cost. Rationalism foregoes Piety and contributes conditional science, not an always-on reward. Happiness <0 suppresses the multiplier without restoring spent culture or reopening Piety through normal adoption.",
+        "evidence": [
+          "U15",
+          "U16",
+          "U17",
+          "U18",
+          "U19",
+          "U20",
+          "U21",
+          "U22",
+          "U08",
+          "U07"
+        ],
+        "yairpg_implication": "Retain earned branch and actual physical consumer separately from temporary body/source/site support. YAIRPG already has this division; an institute must not replace it with a generic global reputation/happiness meter."
+      },
+      {
+        "system_join": "base ruleset -> named expansion reach -> evidence boundary",
+        "mechanism": "Core manager code is shared, but concrete prerequisite/cost/policy/unit data inspected here comes from G&K. Vanilla enum presence is inventory only; BNW mods and licensed DLC are outside this semantic audit. README roadmap does not establish exhaustive feature absence or DLC parity.",
+        "evidence": [
+          "U01",
+          "U02",
+          "U03",
+          "U10",
+          "U11",
+          "U15",
+          "D02",
+          "D03",
+          "D04"
+        ],
+        "yairpg_implication": "Treat future ruleset/world variants as source-qualified definitions with compatible owner contracts, not guaranteed adaptations from a label."
+      }
+    ],
+    "unselected_targeted_questions": [
+      {
+        "question": "Which diplomacy/research-agreement commitments pay gold, lose future science at war/cancellation, and leave relationship aftermath?",
+        "status": "not_read",
+        "reason": "Would require diplomacy/trade end-turn consumers beyond this bounded queue/policy trace."
+      },
+      {
+        "question": "How are Iron ownership, mine extraction, trade, usage capacity and shortages updated after unit creation/loss?",
+        "status": "partial_gates_only",
+        "reason": "Resource reveal/requirement/rejection/cache refresh read; extraction and complete ongoing-resource ledger consumers unread."
+      },
+      {
+        "question": "How do BNW-compatible rulesets change ideology/trade routes/research agreements without substituting Vanilla/G&K semantics?",
+        "status": "not_acquired_not_audited",
+        "reason": "No chosen mod/pin and no licensed payload inspected; source accessibility does not demonstrate expansion parity."
+      },
+      {
+        "question": "What revalidates an already selected research queue after conditional availability changes mid-queue?",
+        "status": "not_completely_traced",
+        "reason": "Inspected endTurn/addScience directly advance current head without their own availability call. Queue-selection checks do not prove a complete later invalidation policy."
+      }
+    ],
+    "packet_count_independent_of_findings": true
+  }
+}

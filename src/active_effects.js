@@ -495,6 +495,18 @@ effect_templates["Spark of Inspiration"] = new ActiveEffect({
     affected_by_travel: false,
 });
 
+// Original care guidance describes exact native consumers; an old effect has
+// no invented historical attacker/source receipt. New wound accounts retain
+// the actual observed native event separately.
+const fieldCareGuidance={
+    Sticky:'Sticky residue restricts dexterity, agility and attack speed. An optional spent-linen field-care wipe removes this effect; other toxins and injuries remain separate.',
+    'Dragonfly venom':'Stinger venom causes its listed native health drain. The optional measured field treatment halves remaining venom time after completion; it does not restore lost health or grant immunity.',
+    'Dragonfly queen venom':'The stronger stinger venom causes its listed native health drain. The optional measured field treatment halves remaining time; a new sting can still renew the hazard.',
+    'Weak necrotizing venom':'This venom causes its listed native health drain. The optional measured field treatment halves only remaining time, without changing potency or granting immunity.',
+    'Mild necrotizing venom':'This stronger venom causes its listed native health drain. The optional measured field treatment halves only remaining time; other poison families keep their own rules.',
+};
+for(const [id,description]of Object.entries(fieldCareGuidance))effect_templates[id].description=description;
+
 Object.keys(effect_templates).forEach(effect_key => {
     effect_templates[effect_key].id = effect_key;
 });

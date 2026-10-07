@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-06",
+  "thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+  "host_id": "local",
+  "title": "GM: inspect Amazing Cultivation Simulator",
+  "project_id": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "assignment": "ASSIGNMENT.md",
+  "input_snapshot": "INPUTS.json",
+  "exclusive_output_directory": "docs/research/amazing-cultivation-simulator/",
+  "dispatch_status": "created; research acceptance pending",
+  "runtime_changes_by_dispatcher": false,
+  "installed_game_changes_by_dispatcher": false
+}

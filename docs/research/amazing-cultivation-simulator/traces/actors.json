@@ -1,0 +1,999 @@
+{
+  "schema": 1,
+  "family": "actor work selection and social memory",
+  "edition": "Steam app955900 build17074448",
+  "status": "finite static trace completed; behavior unobserved",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "observed_at_utc": "2026-10-06T20:07:35.726131+00:00",
+  "writer": "/root/actors",
+  "inputs": {
+    "Assembly-CSharp.dll": {
+      "path": "input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll",
+      "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902",
+      "bytes": 7948800,
+      "installed_copy_match": true
+    },
+    "Assembly-CSharp-firstpass.dll": {
+      "path": "input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp-firstpass.dll",
+      "sha256": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad",
+      "bytes": 2471424,
+      "installed_copy_match": true
+    }
+  },
+  "sources": {
+    "work_def": {
+      "path": "input/Settings/JobDef/JobDef_Work.xml",
+      "sha256": "215920c2b2defd304dddec58fcadcc91e65fe5a0437075bca8bffe6239e72b52",
+      "bytes": 5080,
+      "line_count": 171,
+      "semantic_read_spans": [
+        [
+          1,
+          171
+        ]
+      ],
+      "semantic_read_lines": 171,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "215920c2b2defd304dddec58fcadcc91e65fe5a0437075bca8bffe6239e72b52",
+      "installed_copy_match": true
+    },
+    "clean_command_def": {
+      "path": "input/Settings/CommandDef/CommandTypeDef_Work.xml",
+      "sha256": "8d62ec478e5cdacb260ce5119894c4faaa1f23fe19ddf82b4642a1f55f2ca5eb",
+      "bytes": 4252,
+      "line_count": 167,
+      "semantic_read_spans": [
+        [
+          150,
+          153
+        ]
+      ],
+      "semantic_read_lines": 4,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "8d62ec478e5cdacb260ce5119894c4faaa1f23fe19ddf82b4642a1f55f2ca5eb",
+      "installed_copy_match": true
+    },
+    "social_stories": {
+      "path": "input/Settings/NpcStories/social.xml",
+      "sha256": "26c75ae2b8711b05d793da59e18617942f453bea01771f4c18e689de49f2984b",
+      "bytes": 25998,
+      "line_count": 197,
+      "semantic_read_spans": [
+        [
+          1,
+          94
+        ],
+        [
+          98,
+          136
+        ]
+      ],
+      "semantic_read_lines": 133,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "26c75ae2b8711b05d793da59e18617942f453bea01771f4c18e689de49f2984b",
+      "installed_copy_match": true
+    },
+    "favour_def": {
+      "path": "input/Settings/Npc/Favour/Test.xml",
+      "sha256": "e1481332c7f78a6f7cfbf2df61c77d2599610171780a5aadab52b8874d349d5f",
+      "bytes": 21481,
+      "line_count": 724,
+      "semantic_read_spans": [
+        [
+          358,
+          454
+        ]
+      ],
+      "semantic_read_lines": 97,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "e1481332c7f78a6f7cfbf2df61c77d2599610171780a5aadab52b8874d349d5f",
+      "installed_copy_match": true
+    },
+    "mood_def": {
+      "path": "input/Settings/Npc/Moods/Moods_EventFeedback.xml",
+      "sha256": "30cc5640f5f88f5135df7f2eb69a0610ba745774d0c94de464c76e3b416bee5f",
+      "bytes": 40888,
+      "line_count": 1178,
+      "semantic_read_spans": [
+        [
+          558,
+          611
+        ]
+      ],
+      "semantic_read_lines": 54,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "30cc5640f5f88f5135df7f2eb69a0610ba745774d0c94de464c76e3b416bee5f",
+      "installed_copy_match": true
+    },
+    "practice_relation": {
+      "path": "input/Settings/Npc/Relation/PracticeKinship.xml",
+      "sha256": "f2d5861855215e0465d945db86d6735810b5eaa7a08f73406988d517b9d68271",
+      "bytes": 2626,
+      "line_count": 81,
+      "semantic_read_spans": [
+        [
+          1,
+          81
+        ]
+      ],
+      "semantic_read_lines": 81,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "f2d5861855215e0465d945db86d6735810b5eaa7a08f73406988d517b9d68271",
+      "installed_copy_match": true
+    },
+    "empty_behaviour": {
+      "path": "input/Settings/Behaviour/Human.xml",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "line_count": 0,
+      "semantic_read_spans": [],
+      "semantic_read_lines": 0,
+      "qualification": "copied installed readable XML",
+      "installed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_copy_match": true
+    },
+    "work_engine": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobNpcEngine.cs",
+      "sha256": "761553a22b1199fa8007411bb62ab6c832a2b636c4961ec06a9750185a3d2cfa",
+      "bytes": 15319,
+      "line_count": 694,
+      "semantic_read_spans": [
+        [
+          1,
+          694
+        ]
+      ],
+      "semantic_read_lines": 694,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "behaviour": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourBase.cs",
+      "sha256": "0743e122b5bfd75007b0314829af9daf386d3753d3e0833c8541024f4a0a560c",
+      "bytes": 1188,
+      "line_count": 56,
+      "semantic_read_spans": [
+        [
+          1,
+          56
+        ]
+      ],
+      "semantic_read_lines": 56,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "behaviour_kind": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emBehaviourKind.cs",
+      "sha256": "ad06fa46cd5016ad89f64041fd6289117fa6c275fb36b46bff8326db4799d4c3",
+      "bytes": 90,
+      "line_count": 10,
+      "semantic_read_spans": [
+        [
+          1,
+          10
+        ]
+      ],
+      "semantic_read_lines": 10,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "clean_admission": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourCleanFloor.cs",
+      "sha256": "4572cc03d924168277c3d2c7a8e721c7f9e1cbcc38ca27c31f6ff588c71b1624",
+      "bytes": 667,
+      "line_count": 24,
+      "semantic_read_spans": [
+        [
+          1,
+          24
+        ]
+      ],
+      "semantic_read_lines": 24,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "clean_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobCleanFloor.cs",
+      "sha256": "3898b43d7c316b1becd46fc022ca982bfcea548f50074892ecba66bf1026d111",
+      "bytes": 885,
+      "line_count": 38,
+      "semantic_read_spans": [
+        [
+          1,
+          38
+        ]
+      ],
+      "semantic_read_lines": 38,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "clean_command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandClean.cs",
+      "sha256": "3a705d9fc9b338444d381a659b5751e69dc706ce7d804cc616ea4a76cd72077f",
+      "bytes": 1544,
+      "line_count": 62,
+      "semantic_read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "semantic_read_lines": 62,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Command.cs",
+      "sha256": "f83d41515402285d557dfa78d79c0918b66276a0d045595bda1f1c8e1bdc8d82",
+      "bytes": 11204,
+      "line_count": 657,
+      "semantic_read_spans": [
+        [
+          401,
+          448
+        ],
+        [
+          478,
+          494
+        ],
+        [
+          517,
+          604
+        ]
+      ],
+      "semantic_read_lines": 153,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "command_search": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMgr.cs",
+      "sha256": "039c0ef3ab9d3c7831c32cde69c99c42d491182da5268c6cf6db88b2a2ce6024",
+      "bytes": 16146,
+      "line_count": 660,
+      "semantic_read_spans": [
+        [
+          390,
+          503
+        ]
+      ],
+      "semantic_read_lines": 114,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobBase.cs",
+      "sha256": "694b4ceb709b2be9dd37088dec3fe2f32df7c0f57ac026d507ab7932f78060b1",
+      "bytes": 13845,
+      "line_count": 725,
+      "semantic_read_spans": [
+        [
+          243,
+          258
+        ],
+        [
+          315,
+          345
+        ],
+        [
+          373,
+          412
+        ],
+        [
+          462,
+          552
+        ],
+        [
+          595,
+          689
+        ]
+      ],
+      "semantic_read_lines": 273,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "idle": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilIdle.cs",
+      "sha256": "cfb7b99b917cccc985493582a95bfb5d4f25ebeda6e434afdd7232a040dc8b20",
+      "bytes": 2763,
+      "line_count": 132,
+      "semantic_read_spans": [
+        [
+          1,
+          109
+        ]
+      ],
+      "semantic_read_lines": 109,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "free_retry": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobFree.cs",
+      "sha256": "304bb6e4f0dfb1fb8b9bb2d4009c257fb279ffc6de6dad30b37b38b0c7af9439",
+      "bytes": 11342,
+      "line_count": 402,
+      "semantic_read_spans": [
+        [
+          115,
+          129
+        ]
+      ],
+      "semantic_read_lines": 15,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "npc": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+      "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+      "bytes": 238707,
+      "line_count": 9577,
+      "semantic_read_spans": [
+        [
+          52,
+          61
+        ],
+        [
+          518,
+          525
+        ],
+        [
+          2437,
+          2469
+        ],
+        [
+          4777,
+          4805
+        ],
+        [
+          5269,
+          5284
+        ],
+        [
+          6326,
+          6358
+        ]
+      ],
+      "semantic_read_lines": 129,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "work_ui": {
+      "path": "decompiled/Assembly-CSharp/Wnd_NpcWork.cs",
+      "sha256": "b984c269fc754e7429aca58554d58c50f8a98244802d467e9419350fd8a9ea31",
+      "bytes": 9341,
+      "line_count": 249,
+      "semantic_read_spans": [
+        [
+          48,
+          64
+        ],
+        [
+          180,
+          198
+        ]
+      ],
+      "semantic_read_lines": 36,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "room": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/AreaRoom.cs",
+      "sha256": "48a28f7ee31e2ee6b43a29e45e8112b86565ffd0a0d81612015d045573ebe40f",
+      "bytes": 23034,
+      "line_count": 898,
+      "semantic_read_spans": [
+        [
+          253,
+          256
+        ],
+        [
+          332,
+          339
+        ],
+        [
+          407,
+          411
+        ],
+        [
+          500,
+          515
+        ]
+      ],
+      "semantic_read_lines": 33,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "map": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Map.cs",
+      "sha256": "4cec258d3f3fb207a4c1d915718196c80d850eb7f8c24018a0cfd5adbf8e6018",
+      "bytes": 83393,
+      "line_count": 3232,
+      "semantic_read_spans": [
+        [
+          519,
+          530
+        ],
+        [
+          2280,
+          2304
+        ]
+      ],
+      "semantic_read_lines": 37,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "relation": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcRelation.cs",
+      "sha256": "24e30a4879dff1227b58a4a1f1b637b63e3c53a33de11d2470509ed7bcee5932",
+      "bytes": 42360,
+      "line_count": 1540,
+      "semantic_read_spans": [
+        [
+          1,
+          131
+        ],
+        [
+          257,
+          301
+        ],
+        [
+          456,
+          508
+        ],
+        [
+          754,
+          920
+        ],
+        [
+          922,
+          939
+        ],
+        [
+          1037,
+          1129
+        ],
+        [
+          1298,
+          1386
+        ],
+        [
+          1406,
+          1423
+        ],
+        [
+          1431,
+          1479
+        ]
+      ],
+      "semantic_read_lines": 663,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "feeling": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFeeling.cs",
+      "sha256": "ea7866a2b6e01cc0e2709ac40ed3da7301f49bf09ff58836d06eb859bd3ce2b7",
+      "bytes": 20286,
+      "line_count": 786,
+      "semantic_read_spans": [
+        [
+          169,
+          239
+        ],
+        [
+          714,
+          771
+        ]
+      ],
+      "semantic_read_lines": 129,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "social_weights": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+      "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+      "bytes": 136790,
+      "line_count": 6053,
+      "semantic_read_spans": [
+        [
+          1748,
+          1778
+        ]
+      ],
+      "semantic_read_lines": 31,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "interactive_kinds": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emNpcInteractiveKind.cs",
+      "sha256": "3831d5b82652dc4370199216f070e73d62f112f6669bde7e5e619b65890742a9",
+      "bytes": 210,
+      "line_count": 20,
+      "semantic_read_spans": [
+        [
+          1,
+          20
+        ]
+      ],
+      "semantic_read_lines": 20,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "social_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobTalk.cs",
+      "sha256": "db674b0814c67c4059129422c005885d70ec1f1b9a22f24acb9e8fea83fb53b2",
+      "bytes": 2125,
+      "line_count": 87,
+      "semantic_read_spans": [
+        [
+          1,
+          87
+        ]
+      ],
+      "semantic_read_lines": 87,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "npc_story": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMgr.cs",
+      "sha256": "b22f6923fb292e2e98931b24a35a1ffce705a7863b00bac8069f625a9004d1c2",
+      "bytes": 57682,
+      "line_count": 1980,
+      "semantic_read_spans": [
+        [
+          1710,
+          1785
+        ]
+      ],
+      "semantic_read_lines": 76,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "memory_ui": {
+      "path": "decompiled/Assembly-CSharp/Wnd_NpcInfo.cs",
+      "sha256": "2af40ac247a7ff35eab5e052cf0c169798476bf00bcd7789f4af9425b2b78079",
+      "bytes": 27776,
+      "line_count": 1019,
+      "semantic_read_spans": [
+        [
+          200,
+          212
+        ],
+        [
+          306,
+          343
+        ]
+      ],
+      "semantic_read_lines": 51,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "mood": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMoodMgr.cs",
+      "sha256": "2609f4516540c543816b1dfc1f87ef91d3cef6aa3b75ed9defd49836d837ab5d",
+      "bytes": 13044,
+      "line_count": 562,
+      "semantic_read_spans": [
+        [
+          189,
+          285
+        ],
+        [
+          430,
+          439
+        ],
+        [
+          442,
+          491
+        ],
+        [
+          498,
+          529
+        ]
+      ],
+      "semantic_read_lines": 189,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "favour": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFavourDef.cs",
+      "sha256": "0e5018b320ac09c47e82db98d555efed29a70f7f316b34ff948827520a98f649",
+      "bytes": 1372,
+      "line_count": 84,
+      "semantic_read_spans": [
+        [
+          1,
+          84
+        ]
+      ],
+      "semantic_read_lines": 84,
+      "qualification": "ILSpy recovered C#; static source review only"
+    },
+    "property_step": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPropertyMgr.cs",
+      "sha256": "5c479844d3e460bf1ec8f13098d5a6905ba3604813135ed4d92a435c6eb14132",
+      "bytes": 32060,
+      "line_count": 1331,
+      "semantic_read_spans": [
+        [
+          1294,
+          1299
+        ]
+      ],
+      "semantic_read_lines": 6,
+      "qualification": "ILSpy recovered C#; static source review only"
+    }
+  },
+  "yairpg_sources": {
+    "source_effects": {
+      "path": "src/simulation_effects.js",
+      "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+      "line_count": 300,
+      "semantic_read_spans": [
+        [
+          41,
+          90
+        ],
+        [
+          195,
+          203
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "controller_execution": {
+      "path": "src/simulation.js",
+      "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "line_count": 542,
+      "semantic_read_spans": [
+        [
+          56,
+          89
+        ],
+        [
+          162,
+          169
+        ],
+        [
+          198,
+          242
+        ],
+        [
+          430,
+          450
+        ],
+        [
+          528,
+          541
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "society": {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "line_count": 246,
+      "semantic_read_spans": [
+        [
+          1,
+          8
+        ],
+        [
+          195,
+          219
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "livelihood": {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "line_count": 169,
+      "semantic_read_spans": [
+        [
+          1,
+          17
+        ],
+        [
+          47,
+          81
+        ],
+        [
+          147,
+          169
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "livelihood_facts": {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "line_count": 276,
+      "semantic_read_spans": [
+        [
+          27,
+          50
+        ],
+        [
+          61,
+          76
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "social_existing": {
+      "path": "src/everyday_life.js",
+      "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "line_count": 96,
+      "semantic_read_spans": [
+        [
+          1,
+          56
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "release_time_live_hash_match": true
+    },
+    "people_projection": {
+      "path": "src/people_knowledge.js",
+      "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+      "line_count": 97,
+      "semantic_read_spans": [
+        [
+          25,
+          53
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "drift_recheck": "Reread1-60 after root import shifted relevant lines; witnessed projection semantics retained.",
+      "release_time_live_hash_match": true
+    },
+    "finite_work_plan": {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "line_count": 356,
+      "semantic_read_spans": [
+        [
+          179,
+          245
+        ]
+      ],
+      "qualification": "live dirty moving source; shared integrator owns edits; no gameplay proof",
+      "drift_recheck": "Reread179-255 after whole-file hash drift; selected wait/pause/commit semantics retained.",
+      "release_time_live_hash_match": true
+    }
+  },
+  "traces": [
+    {
+      "id": "ACS-ACTOR-WORK",
+      "title": "Allowed worker completes cleaning",
+      "status": "static source-backed; unobserved",
+      "prerequisites": {
+        "finding": "Ordinary worker registers Clean priority3 and job bans. Idle dispatch excludes locked/RPG/dead/corpse/off-map actors. NeedClean is a single CommandClean. Cleaning needs fewer than two lost hands, activity scope, valid/unlocked owner, key-stay permission and reachable path.",
+        "source_spans": [
+          "npc:4777-4805",
+          "npc:6326-6358",
+          "clean_command_def:150-153",
+          "clean_admission:10-23",
+          "clean_command:46-60",
+          "command:517-604"
+        ]
+      },
+      "decision": {
+        "finding": "Work UI selects enable/VIP policy; Carry includes Clean. VIP changes main priority3 to2 while preserving disabled sign. NPC sorts ascending kind*100000+main*10000+workkind*100+insertion child; first enabled/unbanned/currently legal Check yielding job wins. Work-hour/health/body/magic filters remain. Command search scores squared distance minus owner/command priority, then applies eligibility/activity scope.",
+        "source_spans": [
+          "work_ui:48-64",
+          "work_ui:180-198",
+          "work_engine:161-206",
+          "behaviour:42-49",
+          "work_engine:592-661",
+          "command_search:390-503"
+        ]
+      },
+      "expenditure": {
+        "finding": "No direct item/purse debit in this selected path. Actor occupancy, movement and nominal Lerp(10,1,CleanSpeed/1.7) simulation-second toil are spent. Idle may extend to a nonloop animation length; exact visible time and wider needs expenditure are unobserved.",
+        "source_spans": [
+          "clean_job:19-24",
+          "idle:44-64",
+          "idle:83-108"
+        ]
+      },
+      "mutation": {
+        "finding": "Register/CurJob/start event, work-on and command lock precede stepping. Last successful toil sets Did. Successful clean leave finishes command, restoring10 beauty/removing dust and flagging room recalc; creation had applied minus10/dust.",
+        "source_spans": [
+          "work_engine:416-425",
+          "job:462-475",
+          "job:490-552",
+          "clean_job:27-32",
+          "command:401-448",
+          "clean_command:8-15",
+          "clean_command:27-34"
+        ]
+      },
+      "consumer": {
+        "finding": "Tile beauty feeds room average, Map.GetBeauty and NpcFeeling BeautyExpect mood bands. This is atmosphere feedback; GetCleanEvaluate returns1 and is not evidence of a functional cleanliness stat.",
+        "source_spans": [
+          "map:519-530",
+          "room:253-256",
+          "room:407-411",
+          "room:500-515",
+          "map:2280-2304",
+          "feeling:714-749",
+          "room:332-339"
+        ]
+      },
+      "time_policy": {
+        "finding": "Supplied dt drives JobEngine.Step. Cached WorkHour accumulates on CurJob changes for previous behavior category3 and positive stored day/hour; admission compares it with RuntimeVar limit. Free job probes higher-priority eligible work every5 TolSecond units, but individual jobs/toils control preemption probes. No universal per-tick preemption or daily accounting claim.",
+        "source_spans": [
+          "work_engine:73-105",
+          "work_engine:503-569",
+          "work_engine:623-639",
+          "free_retry:115-129"
+        ]
+      },
+      "failure": {
+        "finding": "No eligible reachable command yields no job. Loss of worker/owner/required command or interrupted toil sets Did false; normal interrupted clean does not finish/remove dust. BeginJob replaces only interruptible current work; job or parent can reject interruption. Rain can remove outdoor cleaning commands independently and cleanup restores beauty regardless of OnFinished did.",
+        "source_spans": [
+          "job:243-258",
+          "job:389-412",
+          "job:490-534",
+          "clean_job:27-32",
+          "work_engine:388-463",
+          "clean_command:18-34"
+        ]
+      },
+      "aftermath": {
+        "finding": "Leave removes work-on and unlocks command for later eligible pickup. No retained partial cleaning progress established. Child jobs attach parent; successful child restores parent, interrupted child attempts parent interruption. General command ownership is distinct from simple cancel-and-restart.",
+        "source_spans": [
+          "job:595-689",
+          "work_engine:388-463"
+        ]
+      }
+    },
+    {
+      "id": "ACS-ACTOR-SOCIAL",
+      "title": "Conversation separates prose memory, mood and retained relation drift",
+      "status": "static source-backed; unobserved",
+      "prerequisites": {
+        "finding": "Capable wisdom actor looks around outside fight mode with shared room, vision/line of sight, same camp/compatible race, squared distance<256, awake/actionable/non-god-practicing partner and no no-communication flags. One neighbor attempted per pass. Pair cooldown and first-contact random0-100 TolSecond warmup can return before effects. Selected warm pair has no Fancy/Lover/Spouse special path.",
+        "source_spans": [
+          "feeling:169-239",
+          "feeling:760-771",
+          "relation:922-939",
+          "relation:1056-1129",
+          "relation:1336-1354"
+        ]
+      },
+      "decision": {
+        "finding": "Directed Value maps to a social level; level modifier clamps[-3,3]. NPC samples SayHello/Talk/DeepTalk/Neglect/Quarrel/Insult. Level0 weights50/35/3/10/2/0; level-2 weights40/5/1/40/10/4. Partner applies same kind reciprocally. This is autonomous stochastic selection, not guaranteed player outcome.",
+        "source_spans": [
+          "relation:909-919",
+          "relation:1076-1116",
+          "social_weights:1748-1778",
+          "interactive_kinds:1-20"
+        ]
+      },
+      "expenditure": {
+        "finding": "Warm Talk has no direct item/currency/stamina debit here and grants property-valued SocialContact XP. If both are free/jobless at different keys, paired JobTalk occupies each for nominal3-second toil. Relation/mood may apply without that presentation job when busy.",
+        "source_spans": [
+          "relation:1115-1129",
+          "relation:1360-1364",
+          "relation:1406-1422",
+          "social_job:50-69"
+        ]
+      },
+      "mutation": {
+        "finding": "Warm Talk sets nexttime=(0.02+0.1667*(1-K))*random(0.5,1.5)*600+TolSecond, triggers Social_Talk, adds AfterTalk favor and mood and SocialContact XP. Favor value4/max6/duration0.5; AddFavour stores NPC/definition/explanation/KeepTime0, rejects self/mutex/full stack, optionally reverse-indexes, emits ModifierFavour. It does not immediately assign BaseValue/AddValue. Story-rate0.2/actor guards can skip prose while numeric effects occur. Successful parsed story appends dated partner-linked NpcMemery, outside RPG, dropping oldest at100.",
+        "source_spans": [
+          "relation:1336-1386",
+          "relation:1406-1422",
+          "favour_def:366-373",
+          "relation:1441-1479",
+          "social_stories:26-45",
+          "npc_story:1710-1785",
+          "npc:2437-2469"
+        ]
+      },
+      "consumer": {
+        "finding": "For IsPlayerThing actors, Relation.Step expires labels at Duration*600, sums permanent values into AddValue and timed values into CurValue, integrates timed values into BaseValue at0.0012*FavourChangeSpeedRate*dt clamped[-100,100]. Value=clamp(BaseValue+AddValue); future level/weighted interactions reread it. Expiring AfterTalk may leave baseline drift; it is not permanent immediate+4 friendship. Separate mood value4/max3/stack0.8/duration0.5 changes mood sum, later un-applies and affects moving RealMoodValue. Separate NpcInfo renders newest prose/time/tooltip; no prose-to-job AI parser established.",
+        "source_spans": [
+          "relation:25-40",
+          "relation:754-827",
+          "relation:909-919",
+          "relation:1076-1116",
+          "mood_def:567-575",
+          "mood:189-285",
+          "mood:430-439",
+          "mood:442-491",
+          "mood:498-529",
+          "memory_ui:200-212",
+          "memory_ui:306-343"
+        ]
+      },
+      "time_policy": {
+        "finding": "Simulation dt/TolSecond, not proven offline policy. IsPlayerThing relation updates staggered at least1 second. Duration0.5 means300 simulation units for both chosen favor/mood. K lazy builder can use inclinations/shared interests/features/oppositions, but normal path creates default cache before GetRelationK; cached K0 may bypass lazy affinity initialization. Actual initialization lifecycle and exact accumulated drift are uncertain.",
+        "source_spans": [
+          "relation:456-508",
+          "relation:754-816",
+          "relation:1064-1074",
+          "relation:1336-1354",
+          "property_step:1294-1299"
+        ]
+      },
+      "failure": {
+        "finding": "No neighbor/cooldown/first warmup yields no favor. Full favor stack rejects new label while mood can reset oldest timer. Story failure does not undo numeric interaction. Negative choices add distinct negative favor/mood; probabilistic escalation adds Fight labels/mood and possibly fight presentation. JobTalk movement/animation alone proves no injury. No romance claim.",
+        "source_spans": [
+          "relation:1441-1479",
+          "mood:224-242",
+          "npc_story:1710-1785",
+          "relation:1360-1386",
+          "favour_def:382-454",
+          "mood_def:585-611",
+          "relation:1117-1129",
+          "relation:1298-1333",
+          "social_job:64-69"
+        ]
+      },
+      "aftermath": {
+        "finding": "Timed labels/moods expire separately, existing BaseValue drift remains. Surviving relations/interactive clocks and JSON-marked prose list are serialized; Relation.Step removes absent NPCs. Runtime save/reload unobserved.",
+        "source_spans": [
+          "relation:754-827",
+          "relation:92-131",
+          "relation:257-301",
+          "npc:518-525"
+        ]
+      }
+    }
+  ],
+  "original_application": {
+    "id": "ACS-ACTOR-P1",
+    "status": "original proposal only; no gameplay assigned",
+    "title": "Negotiate Orr’s next eligible duty",
+    "journey": "At the already introduced Village bench, ask repair-first, lesson-first or leave Orr’s ordinary order when two existing genuinely funded/consented offers are available. Orr and Hessa must accept any delay. No forced permanent service. The selected legal duty enters only at a free common boundary; accepted jobs are intact. Later meeting records exact kept/deferred/refused agreement and one optional next-request response.",
+    "current_owners": [
+      "src/simulation.js:430 legal controller preview/admission; existing job participants/cancellation/completion support",
+      "src/feature_expansion_society.js:212 existing Orr repair priority2/teaching priority1, stock/rights/method/body/funding",
+      "src/simulation_effects.js:195 directed cause-deduplicated memory/axes and attributed knowledge",
+      "src/feature_expansion_work_plan.js:179 finite waits/pause/resume",
+      "src/people_knowledge.js:25 witnessed/attributed contact projection"
+    ],
+    "missing_consumers": [
+      {
+        "evidence": "society:211-214; controller_execution:430-450",
+        "missing": "Selected current Orr controller reads fixed priority2/1 and offered guards, with no optional negotiated next-duty fact. Add an explicitly enrolled bounded fact/guard for new requests, preserving original revision1 path on absence. No replacement scheduler."
+      },
+      {
+        "evidence": "source_effects:76-82; source_effects:195-203; social_existing:25-56",
+        "missing": "Common target-rule facts expose relationship axes only; selected craftsman recovery reads temporary conditions. New optional Orr repeat request needs a narrow kept-agreement account reader with specific cause/attribution, not prose parsing or universal friendship gate. Existing all19 friction/promise/grievance consumers are already owned, not claimed missing."
+      }
+    ],
+    "cost": "Negotiation may take1 original proposed played minute; real cost is deferring one future duty. Existing repair/teaching costs/time/outputs remain their frozen revisions. No order bonus, free stock or purchased affection.",
+    "result": "One supported existing duty really completes into the same home/learner/object owner; deferred offer and escrow stay pending. Preserve current finite shifts/site allocations.",
+    "retained_consequence": "Store typed/knowledge receipt for agreed order/actual completion/refusal and a directed reason memory. Brief condition can expire independently. Later optional scheduling consent reads exact receipt; paid alternatives/native quests remain.",
+    "compatibility": [
+      "Optional absent state inert; no new world/prestige/clock/inventory/publisher. Root chooses admission under live schema, preserving frozen jobs and revision1 definitions.",
+      "Receipt must survive bounded memory eviction; do not rely on prose-text equality.",
+      "Current all19 root01a10fe7 owns integration, causal01a10fa6 owns causal_story_*; re-pin moving source before implementation."
+    ],
+    "later_playable_gate": [
+      "Synthetic save: genuinely support both offers; choose each order and ordinary order. Check one legal admission/exact cost/worker occupancy/distinct first result with player free for other work.",
+      "Cancellation/lost consent/insufficient stock/busy site never creates output or priority bypass; frozen job policies intact, replay cannot farm memory or wage.",
+      "Later meet after mood expiry, see only attributed agreement/result; optional request uses retained account and paid alternative. Save/reload/import/publication failure and director checks remain deferred."
+    ]
+  },
+  "coverage": {
+    "method": "targeted semantic review of listed exact ranges; search/inventory/incidental out-of-scope reads do not count as whole-file semantic coverage",
+    "semantic_source_files": 31,
+    "semantic_lines": 3659,
+    "unread": [
+      "Whole-game behavior graph; other work families, broad needs/injury expenditure and reset/mask paths.",
+      "Most kinship propagation/animal/lover/fancy paths, firstpass and Lua mod framework. No romance conclusion.",
+      "Complete large sources beyond listed ranges; input/Settings/Behaviour/Human.xml is empty, not evidence of an active behavior policy.",
+      "ACS gameplay/UI/save/reload/offline/balance; YAIRPG gameplay/unit/browser/save-failure/regression/director checks."
+    ],
+    "uncertain": [
+      "K0 affinity initialization lifecycle",
+      "actual animation-extended cleaning time",
+      "story guard/rate means prose may be absent despite numeric effect",
+      "JobTalk fight presentation does not prove injury",
+      "moving dirty YAIRPG shared source can drift"
+    ],
+    "inventoried_source_files": 32
+  },
+  "checks": {
+    "installed_input_pin": "passed selected XML and both assemblies",
+    "selected_static_paths": "completed",
+    "raw_source_in_git": "none written",
+    "gameplay": "not run",
+    "yairpg_tests": "deferred; not run",
+    "save_reload": "not run",
+    "locator_self_review": "passed 90 trace reference spans and 32 private hashes; eight live YAIRPG source snapshots, two relevant-range drift rereads"
+  },
+  "checkpoint": {
+    "completed": "two finite actor chains and one original proposal",
+    "next": "root reviews/integrates completed family; worker releases both assigned files",
+    "children": "none",
+    "pending_processes": "none; exports completed per root",
+    "excluded": "no gameplay/canonical/game/save/library/build/config/install/commit/push/publication/automation mutation"
+  }
+}

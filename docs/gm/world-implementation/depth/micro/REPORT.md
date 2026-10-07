@@ -1,0 +1,48 @@
+# Micro depth-planning return
+
+Planning revision 1, 2026-10-04. The five worked cases now connect an actual acquired organ, finite harvest/refinement, a population-backed battlefield, contextual optional adult romance and a rights-backed base. They preserve bodies, material means, NPC agency, knowledge and different clocks rather than turning each into a new bonus bar.
+This is the return for [ASSIGNMENT](ASSIGNMENT.md), based on [plan revision 2](../../IMPLEMENTATION_PLAN.md), [RUN](../../RUN.json) and reconciled depth inputs. Runtime implementation remains held for Weibao's plan review. No new case, source policy, schema, native adapter, romance, reset or source-world enrollment is implemented or accepted by this report.
+
+## Report set and concrete outcome
+
+| Owned report | Result and review use |
+|---|---|
+| [WORKED_CASES](WORKED_CASES.md) | MC01-MC05: actual pre/post state, acquisition, ordered phases, costs/clock, evidence, interruption, stale/duplicate/failed publication, refusal, progression, return and native UI probes; one linked original River Clinic fixture |
+| [COMPONENT_AND_EFFECT_CONTRACTS](COMPONENT_AND_EFFECT_CONTRACTS.md) | C1-C7: proposed person/body/organ/source identities, conserved lots/custody, independent budgets, phase/continuation, population/targets, relationships/projects and endpoint/clock/publication invariants |
+| [ENGINE_REQUIREMENTS](ENGINE_REQUIREMENTS.md) | ME01-ME10: actual inspected support versus required additions, native consumers, delivery dependencies and future positive/adverse/retention backlog |
+| [SOURCE_GAPS](SOURCE_GAPS.md) | Qualified primary eye examples, precise Naruto penalty/exception questions and source/invention distinctions; supplemental index routed to the reviewed MoL dossier |
+| [CHECKPOINT](CHECKPOINT.md) | Frozen/reconciled inputs, exact writer reservations, child IDs/results, static evidence and final no-process/readiness state |
+
+The River Clinic is an original fan-setting authoring fixture, not a newly created Naruto destination or canonical cast. Adult ages, supplies, timetables, recipe effects, physical reach, threat bands, project amounts and scene lines are O/P. MC01 illustrates that one same eye can change host while donor history and recipient ancestry stay separate. MC02 feeds real wraps into preservation or a roof; choosing one changes the other. MC03 can interrupt the supplier and change project/meeting prerequisites. MC04 recognizes actual work without converting wages into reciprocity. MC05 creates useful production/care/trial access only after rights, materials, labor and practice.
+
+## Five precise amendments for the assigning master
+
+| Main-plan section | Proposed amendment | Required case/contract coverage |
+|---|---|---|
+| Bodies/sources/acquisition and item families | Add a conserved component/host binding, separate ancestry and learned information, donor/recipient outcomes, legal claim versus holder, staged irreversible extraction/fit and paired source requirements. Transplantation grants only supported functions, never the donor's whole identity or automatic clan membership | MC01; C1/C2; ME01/04/10; source gates SG01-SG03 |
+| Power/effect and timeline implementation | Track capacity, recovery, upkeep, startup/use, output and strain independently. Bind each to actual source/body/pool/clock, typed composition and deterministic interruption order; apply local/body/outside intervals only when authorized | MC01/MC03/MC05; C3/C4/C7; ME03/04/08; SG02/08 |
+| Resource/economy and zone families | Add finite node availability/reservations, exact lots/condition, qualified yield/refinement, preservation and real regrowth; distinguish renewable bulk, living sources and unique organs/artifacts. Populations/equipment promote stable actors once; fixed people stay fixed | MC02/MC03; C2/C5; ME02/05/08; SG05/06 |
+| Interaction/dialogue and optional relationship coverage | Make current-body adulthood, independent reciprocity, meaningful private history and availability explicit, separate from favors, payment, gifts, power or prior-life memories. Keep friendship/mentorship/rivalry and non-romantic work complete; require observer-qualified dialogue | MC04; C6; ME06/09/10; SG04/07 |
+| Bases/projects and campaign acceptance | Declare rights versus property, actual all-worker/tool/material reservations, structure/utilities/storage/damage, new production/training/care/defense function and local-clock/return/raid policy. Couple those functions to paid source/material/practice and retained consequences | MC02/MC05; C6/C7; ME07/08/10; SG05/08 |
+
+These amendments expand coverage/dependency contracts; the assigning master alone edits the canonical plan. They do not reserve Engine code paths or restart held implementation. A fixed authored first proof may approximate chosen functions, but it must state which dynamic component/geometry/physiology capability it does not yet implement.
+
+## Important actual support and limits
+
+Reusable current foundations include staged owner debits/transfers, sources/faculties, method fragments/mastery, scalar body changes, paid jobs/participants/sites, caused situations, attributed knowledge, directed memories, frozen seeds, three-person guard combat, detached world identity/visits/freeze and bounded activity leases. Native persistence writes before live publication.
+Concrete missing delivery: specimen/lot/socket identity and native projection; composed physiology and maintained effects; consequential completion-time revalidation; arbitrary battlefield roster/targets/position/population/escape; current-body adult/reciprocal decisions; full site rights/structures/storage/all-worker occupancy; generic source-world/local due-work bindings and selected new-record compatibility. Actual function/line pointers and their limits are retained in ME01-ME10 and the worker reports.
+Three pitfalls are now explicit: `compileSiteProject` does not forward phase participant lists; `completeJob` executes frozen effects without general physical/consent/source rechecks; current native party payload is the fixed player/Mara/Lio nonlethal contest. A scalar “installed”, “romance”, “population” or “base complete” flag cannot establish the richer cases.
+
+## Source qualification and review shape
+
+[Organ reviewer](workers/organ/REVIEW.md) inspected primary official manga-referencing material plus a bounded official adaptation locator. The gift/copy/backlash/late-war examples are findable; original panel-image requests failed and unviewed text was excluded. Exact foreign-host drain/recovery/capacity/activation and cover/deactivation rules remain U/P. These unknowns cannot be silently promoted by the prototype arithmetic.
+[Encounter reviewer](workers/encounter/REVIEW.md) inspected actual combat/seed/clock/ownership support and supplied a concrete risky-crossing variant. [Social/project reviewer](workers/social_projects/REVIEW.md) inspected actual adulthood/relationship/rights/occupancy/clock limits and provided original knowledge-guarded scenes. Their tables are analytical evidence, not executed native behavior.
+Integration review retained reusable invariants and identified independent numerical variants: the worker crossing uses actual stave/bow/arrows and six carried bundles; MC03's root probe uses a provision aggregate. They are separate original planning fixtures, not silently interchangeable inventories. The worker's pier/project quantities are likewise a variant; MC05's root ledger is the ten-log/three-wrap/seven-coin project. The encounter leaf re-read MC02/MC03 and returned two clarifications; root applied both to keep named spatial nodes, meter positions, provisions, ammunition and raw-material output distinct. Event ordering is a required policy choice, not an assertion that current code already uses the proposed tactical order.
+The supplemental [research explanation](../../../dispatch/RESEARCH_FINDINGS_EXPLAINED.md) was read after dispatch. It sharpens distinct magical/ordinary-fire counters, acquisition/control, shared-body/stock and blueprint/function questions; the actual reviewed dossiers remain authoritative. Plan/snapshot/RUN drift was reread and is recorded in CHECKPOINT. No duplicate book-reading assignment or raw source corpus was created.
+
+## Executed versus held gates
+
+Executed here: inspect/read back the six planning reports and all three actual worker reports; local Markdown targets/anchors/table/whitespace and JSON-descriptor syntax; prototype arithmetic and conservation consistency; actual declaration/export/class-method existence and source fingerprint/drift reconciliation. No gameplay claim follows those checks. Exact counts/digests belong to CHECKPOINT.
+Held: runtime/native/schema edits, game unit/browser/save-failure/regression work, new-world/organ/relationship/project registration and source-specific penalty policy. Later positive/counterexample/interruption/duplicate/stale/publication/return/body/reset probes remain the backlog in ENGINE_REQUIREMENTS. Current user test deferral and director review remain distinct gates.
+Writer tree: `/root` plus `/root/organ_review`, `/root/encounter_review`, `/root/social_projects_review`, all children completed with sole disjoint report writes and no descendants or owned process. Older catalogues/review, macro directory, frozen ASSIGNMENT, sources/library/private saves and shared runtime/global files remained read-only. No external message, visible chat, commit or publication was performed.
+Ready for assigning-master/director review of the concrete expanded plan. The bounded planning objective is complete only after CHECKPOINT's final readback/check receipt is saved; no continuation into held runtime work is implied.

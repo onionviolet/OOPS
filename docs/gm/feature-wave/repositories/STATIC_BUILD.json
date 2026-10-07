@@ -1,0 +1,115 @@
+{
+  "schema": 1,
+  "kind": "memory-only role entry build; not shared native admission",
+  "dateLocal": "2026-10-05",
+  "entries": [
+    "src/repository_absorption_content.js",
+    "src/repository_absorption_facts.js",
+    "src/repository_absorption_host.js",
+    "src/repository_absorption_workplan.js",
+    "src/repository_absorption_ui.js"
+  ],
+  "esbuildVersion": "0.25.10",
+  "inputHashes": {
+    "src/repository_absorption_content.js": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/rules.js": "3f20c44464efa945d35e5c42bdfccf27df7e2846acc2b314b07c22074a6e9c9a",
+    "src/acquisition.js": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+    "src/gameplay_transactions.js": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/pursuit.js": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+    "src/native_battle_contracts.js": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/techniques.js": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+    "src/feature_expansion_work_plan.js": "ac0064cb52a56d75fd57bed93d5efef5dbfc575283feae992de5b7fe99e0aadb",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/original_frontier_facts.js": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+    "src/feature_expansion_objects_host.js": "3f9432009aa11338afc4127cc91a7c31f8d79d713401745f2c6e80f4f0f6042a",
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/feature_expansion_powers.js": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+    "src/feature_expansion_destination.js": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/realm_boundary_rules.js": "d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2",
+    "src/realm_connections.js": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710",
+    "src/realm_cargo.js": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+    "src/realm_traveler_profiles.js": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+    "src/native_realm_traveler.js": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+    "src/feature_expansion_destination_host.js": "7f77f5f95134b51f66d6d6be24c176ce327c6afc3848368792316ca1faf138b9",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/pocket_realm_rules.js": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+    "src/pocket_realm_scenes.js": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/observation_channels.js": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+    "src/pocket_observation.js": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+    "src/realm_state.js": "e2c44b750682dafbb1ba64e01691a3efedd105e4aa52fc642dbb6a2e497707a0",
+    "src/capabilities.js": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+    "src/chronicle.js": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+    "src/world_rhythm.js": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+    "src/expansion_engine.js": "467627e9557ffdcf3c0f93dee7319cd6e2ca2a81be3af3a5f5fb66c41658c45a",
+    "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+    "src/feature_expansion_battle.js": "e98917bd207653a459bc9559ec3808183b7ff56f9ed42185d55df4eebfb62293",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/simulation_effects.js": "a036326a14e49ef71cc3e877602a6436c01e4792c601bba3d207add252099cca",
+    "src/simulation.js": "7e96a16a8bf161b483c3b34aa26001be4180adba141f0c7293f39cfee701546a",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/repository_absorption_facts.js": "44307c53039e9df19062a1eb2af60348fcb5bcd415bc273e2bd321267336c649",
+    "src/repository_absorption_workplan.js": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+    "src/repository_absorption_host.js": "640f918c08d97aa576c1075709dec9a9500e4778fd5e497c4a8c805880cbc36d",
+    "src/repository_absorption_ui.js": "7eaa522212738f92fee2e15de2a7e75546e18a4583777b982be413d630e27671"
+  },
+  "outputs": [
+    {
+      "name": "repository_absorption_content.js.map",
+      "bytes": 32155,
+      "sha256": "a89390fa624185c7b673031a1a028fc7eb03eea4ed2e4a8e14cd39e50f1f35ee"
+    },
+    {
+      "name": "repository_absorption_content.js",
+      "bytes": 21328,
+      "sha256": "9eae0f79c30fb67474b29a4e8af4c87b2467f4534e07c4cf24cb78128ff9e4cf"
+    },
+    {
+      "name": "repository_absorption_facts.js.map",
+      "bytes": 556935,
+      "sha256": "50d56a91a6fed4e1d0ead6bed3be4c6c3a5d3222763be6dd92412d7113eeccd6"
+    },
+    {
+      "name": "repository_absorption_facts.js",
+      "bytes": 173545,
+      "sha256": "f88c538b36a49c509340bacf0ea9cd3504e0d6f621eb3a314ef8ef97089edca9"
+    },
+    {
+      "name": "repository_absorption_host.js.map",
+      "bytes": 888031,
+      "sha256": "00be4bf39ffb3acac47ed8290a5c70deceb0f3125573381a2ddce91deb72dd1e"
+    },
+    {
+      "name": "repository_absorption_host.js",
+      "bytes": 336450,
+      "sha256": "4b049e4984aa614f2ff6135b26f10fdefcf94f7c0cfcbebfc182638a8891664f"
+    },
+    {
+      "name": "repository_absorption_workplan.js.map",
+      "bytes": 827939,
+      "sha256": "bb71d2511e4ae6f0d01cd0ee319548dea64c4847eaba72771e5f6d4a2443c901"
+    },
+    {
+      "name": "repository_absorption_workplan.js",
+      "bytes": 291855,
+      "sha256": "a58a4b6454d2ff34e4ae6a9dce658b68129f4d8cf4510b452ad64b7adce35f7b"
+    },
+    {
+      "name": "repository_absorption_ui.js.map",
+      "bytes": 895460,
+      "sha256": "ef1579302134f50b030453afa95bda140bfe8576bf116b9213cce3863ef6a747"
+    },
+    {
+      "name": "repository_absorption_ui.js",
+      "bytes": 331268,
+      "sha256": "ac6e67956c9d070e98db58db91aaeb78b07d9aad51421ec493f43a76da3a70d4"
+    }
+  ],
+  "sourcesContentMatched": 135,
+  "tests": "behavioral checks deferred"
+}

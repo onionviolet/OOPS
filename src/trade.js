@@ -119,6 +119,8 @@ function exit_trade() {
  * @returns {Number} change of trade value
  */
 function add_to_buying_list(selected_item) {
+    // Keep caller requests separate from grouped trade state (Zorakir c079925, MIT).
+    selected_item = {...selected_item};
     const item = getItemFromKey(selected_item.item_key);
     const {group_key, group_tier} = item.getMarketSaturationGroup();
     const present_item = to_buy.items.find(a => a.item_key === selected_item.item_key);
@@ -209,6 +211,7 @@ function is_in_trade() {
 }
 
 function add_to_selling_list(selected_item) {
+    selected_item = {...selected_item};
     const item = getItemFromKey(selected_item.item_key);
     const {group_key, group_tier} = item.getMarketSaturationGroup();
 

@@ -1,0 +1,19 @@
+{
+  "qualification": "Dispatch snapshot only. Live runtime/canonical writers remain active; receiver must refresh affected inputs.",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/gm/dispatch/acs-research-2026-10-06/ASSIGNMENT.md": "0d4826b2f8040175ddf82cb5a979e314ebbd8c084617b9e22f575b1f9aea8a3d",
+    "docs/research/idling-to-rule-the-gods/INTAKE.json": "ced29b7ac889d0c76686e956f9354a3e9344273ff31f9aadb1b36913a7e064d4"
+  },
+  "installed_assemblies": {
+    "/Users/weiwei/Library/Application Support/Steam/steamapps/common/AmazingCultivationSimulator/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll": {
+      "bytes": 7948800,
+      "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902"
+    },
+    "/Users/weiwei/Library/Application Support/Steam/steamapps/common/AmazingCultivationSimulator/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp-firstpass.dll": {
+      "bytes": 2471424,
+      "sha256": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad"
+    }
+  }
+}

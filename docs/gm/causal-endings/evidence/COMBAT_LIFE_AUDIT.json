@@ -1,0 +1,1063 @@
+{
+  "schema": 1,
+  "scope": "Read-only exact named NPC contact/combat/life/persistence chain; causal and ending synthesis root-owned",
+  "status": "complete",
+  "gameplay_status": "source-evidenced only; no behavior execution",
+  "captured_at": "2026-10-06T05:23:25.574803+00:00",
+  "writer_scope_released": true,
+  "first_snapshot_at": "2026-10-06T05:20:55.609190+00:00",
+  "supplementary_snapshot_at": "2026-10-06T05:22:02.052967+00:00",
+  "input_hashes": [
+    {
+      "file": "AGENTS.md",
+      "before": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "after": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "PROJECT.md",
+      "before": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "after": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "docs/gm/causal-endings/ASSIGNMENT.md",
+      "before": "d2ea0b3710ccd4bb0bed1d7ebcd245f86c8a377ec2701866e65fb76461c57d7f",
+      "after": "d2ea0b3710ccd4bb0bed1d7ebcd245f86c8a377ec2701866e65fb76461c57d7f",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/expansion_engine.js",
+      "before": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37",
+      "after": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/expedition_content.js",
+      "before": "485a2ddd73b787d9e3c2cae1e343d2ce05a251e79699fcc3b25a94935b6fa554",
+      "after": "485a2ddd73b787d9e3c2cae1e343d2ce05a251e79699fcc3b25a94935b6fa554",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/people_ui.js",
+      "before": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+      "after": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/native_battle.js",
+      "before": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "after": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/native_battle_host.js",
+      "before": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "after": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/native_battle_contracts.js",
+      "before": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8",
+      "after": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/party_battle.js",
+      "before": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "after": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "before": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "after": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/feature_expansion_battle_host.js",
+      "before": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+      "after": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/models/person.js",
+      "before": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+      "after": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/main.js",
+      "before": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "after": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "before": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "after": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/expansion_persistence.js",
+      "before": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "after": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "before": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+      "after": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+      "matched": true,
+      "snapshot_kind": "primary"
+    },
+    {
+      "file": "src/frontier_campaign.js",
+      "before": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "after": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/simulation.js",
+      "before": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "after": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/simulation_contracts.js",
+      "before": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+      "after": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/native_gameplay_adapter.js",
+      "before": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "after": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/models/npc.js",
+      "before": "e4ce2d034e5908f5018c7be3eb1fe11ed9c65dedc4a25f7207938846029eb4ed",
+      "after": "e4ce2d034e5908f5018c7be3eb1fe11ed9c65dedc4a25f7207938846029eb4ed",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/models/combat.js",
+      "before": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+      "after": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/display.js",
+      "before": "d909f40b2ebd552502293a473dc8f216bf31e7e4da9eb4c6484f008dc1749bf9",
+      "after": "d909f40b2ebd552502293a473dc8f216bf31e7e4da9eb4c6484f008dc1749bf9",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/data/npcs.js",
+      "before": "c429fb04db092bde0b5a007481d46df29416c13c0dc9f003ee0ddaacf8768c66",
+      "after": "c429fb04db092bde0b5a007481d46df29416c13c0dc9f003ee0ddaacf8768c66",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/components/availability_component.js",
+      "before": "97979f350ff843ef70e83cb5bae14cc7e76d52caa49807769b4ef4ce5122c0f1",
+      "after": "97979f350ff843ef70e83cb5bae14cc7e76d52caa49807769b4ef4ce5122c0f1",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/chronicle.js",
+      "before": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "after": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/helper_content.js",
+      "before": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d",
+      "after": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/people_knowledge.js",
+      "before": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496",
+      "after": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/party_content.js",
+      "before": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "after": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/feature_expansion_powers.js",
+      "before": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "after": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/feature_expansion_nested_native.js",
+      "before": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+      "after": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/feature_expansion_destination_native.js",
+      "before": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "after": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/book_world_paradise_content.js",
+      "before": "e15e1b9aefa6ca3e564e562b7de8076ff4b87e7aa7dea64f54be8e26f0d89331",
+      "after": "e15e1b9aefa6ca3e564e562b7de8076ff4b87e7aa7dea64f54be8e26f0d89331",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/book_world_paradise_native.js",
+      "before": "dd02d07497414579e2f5d8d36b3bffae6d6df42a92f29b844fba132394fa870f",
+      "after": "dd02d07497414579e2f5d8d36b3bffae6d6df42a92f29b844fba132394fa870f",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/book_world_paradise_ids.js",
+      "before": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+      "after": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "src/book_world_player_agency_contracts.js",
+      "before": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+      "after": "407e1cb2d809a3cc8fcf63b0b9be100c30fb8048b5a2307004039a8bc87ad91b",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "docs/gm/book-world-player-agency/INTERFACE.md",
+      "before": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+      "after": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "docs/gm/book-world-player-agency/HANDOFF.json",
+      "before": "3f9ff90e3799d89f92e6161a934427d888e9dedd02d49021124c2e7b3ca871bf",
+      "after": "3f9ff90e3799d89f92e6161a934427d888e9dedd02d49021124c2e7b3ca871bf",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    },
+    {
+      "file": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+      "before": "e545208ddfae3f84b723b52116272fd0685445a9629f7a989e292989995c2685",
+      "after": "e545208ddfae3f84b723b52116272fd0685445a9629f7a989e292989995c2685",
+      "matched": true,
+      "snapshot_kind": "supplemental after discovery"
+    }
+  ],
+  "moving_source": {
+    "book_world_owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "root_checkpoint": "active",
+    "source_fit_worker_completion_does_not_close_campaign": true,
+    "paradise_host_exists": false,
+    "paradise_actions_exists": false,
+    "claim_boundary": "Only listed frozen files; no prediction of future root edits or built bundle proof"
+  },
+  "findings": [
+    {
+      "id": "CL01",
+      "capability": "Arbitrary named NPC hostile targeting",
+      "status": "unsupported",
+      "conclusion": "No generic arbitrary target action producer/native resolver. Context targetId must meet an authored command; People UI is knowledge display.",
+      "references": [
+        {
+          "file": "src/simulation.js",
+          "symbol": "previewSimulationCommand",
+          "start": 51,
+          "end": 70
+        },
+        {
+          "file": "src/people_ui.js",
+          "symbol": "createPeopleOverview.render",
+          "start": 9,
+          "end": 29
+        },
+        {
+          "file": "src/native_battle.js",
+          "symbol": "commitNativeBattleStrike",
+          "start": 43,
+          "end": 45
+        },
+        {
+          "file": "src/party_battle.js",
+          "symbol": "commitPartyBattleAction",
+          "start": 67,
+          "end": 81
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "previewFeatureBattleAction",
+          "start": 215,
+          "end": 255
+        }
+      ]
+    },
+    {
+      "id": "CL02",
+      "capability": "Hostile Village elder attack",
+      "status": "present",
+      "conclusion": "Fixed assault resolves nonlethal posture. Saved grievance/trust/fear/witness reputation affect settlement and later social learning/succession.",
+      "references": [
+        {
+          "file": "src/chronicle.js",
+          "symbol": "commandChronicle",
+          "start": 159,
+          "end": 224
+        },
+        {
+          "file": "src/chronicle.js",
+          "symbol": "finishEncounter",
+          "start": 227,
+          "end": 235
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "chronicleContext/makeChroniclePlan",
+          "start": 648,
+          "end": 691
+        }
+      ]
+    },
+    {
+      "id": "CL03",
+      "capability": "Mara duel",
+      "status": "present",
+      "conclusion": "Fixed nonlethal duel stores actual HP/stamina, floors HP at1, sets won/lost/withdrawn and closes session/pursuit. No dead/unconscious state.",
+      "references": [
+        {
+          "file": "src/frontier_campaign.js",
+          "symbol": "campaignDefinitions",
+          "start": 18,
+          "end": 46
+        },
+        {
+          "file": "src/native_battle.js",
+          "symbol": "initializeNativeBattle/finish/commitNativeBattleStrike",
+          "start": 10,
+          "end": 67
+        },
+        {
+          "file": "src/native_battle_host.js",
+          "symbol": "createNativeBattleHost",
+          "start": 13,
+          "end": 58
+        }
+      ]
+    },
+    {
+      "id": "CL04",
+      "capability": "Mara/Lio party contest",
+      "status": "present",
+      "conclusion": "Living consenting supported Lio guards only. HP floors at1; yielded/exhausted/unsupported/released are session statuses, not persistent life.",
+      "references": [
+        {
+          "file": "src/party_battle.js",
+          "symbol": "supportReasons/partyHelperReasons/initializePartyBattle",
+          "start": 9,
+          "end": 40
+        },
+        {
+          "file": "src/party_battle.js",
+          "symbol": "finish/commitPartyBattleAction",
+          "start": 48,
+          "end": 97
+        },
+        {
+          "file": "src/native_battle_contracts.js",
+          "symbol": "validateNativeBattle",
+          "start": 5,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "id": "CL05",
+      "capability": "Nera/Oren sluice fight",
+      "status": "present",
+      "conclusion": "Fixed validated roster, paid functions/current native bindings, HP floor1 and yielded/lost/won/objective/escaped/withdrawn results. Actual wounds/materials/effort retained.",
+      "references": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "featureBattleDefinitions/featureBattleFacts",
+          "start": 28,
+          "end": 62
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "previewFeatureBattleAdmission/initializeFeatureBattle",
+          "start": 71,
+          "end": 94
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "previewFeatureBattleAction",
+          "start": 215,
+          "end": 267
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "removeFighter/finish/commitFeatureBattleAction",
+          "start": 269,
+          "end": 361
+        },
+        {
+          "file": "src/feature_expansion_battle_host.js",
+          "symbol": "createFeatureBattleHost.act/resume",
+          "start": 26,
+          "end": 74
+        }
+      ]
+    },
+    {
+      "id": "CL06",
+      "capability": "Ordinary player faint/recovery",
+      "status": "present",
+      "conclusion": "Ordinary zero HP calls kill_player; historical total_deaths counts loss of consciousness and return/recover. Named adapters stop at1 and bypass this.",
+      "references": [
+        {
+          "file": "src/models/person.js",
+          "symbol": "Person.takeDamage",
+          "start": 464,
+          "end": 493
+        },
+        {
+          "file": "src/models/combat.js",
+          "symbol": "Combat.doCombatAction",
+          "start": 250,
+          "end": 254
+        },
+        {
+          "file": "src/models/combat.js",
+          "symbol": "Combat.doCombatAction faint/loot",
+          "start": 424,
+          "end": 446
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "kill_player",
+          "start": 2859,
+          "end": 2873
+        }
+      ]
+    },
+    {
+      "id": "CL07",
+      "capability": "Mortal chronicle end",
+      "status": "present",
+      "conclusion": "Optional authored old-age endedAt policy is projected to native player.is_alive and stops play. This is separate from combat faint and generic simulation life.",
+      "references": [
+        {
+          "file": "src/chronicle.js",
+          "symbol": "createChronicle/advanceChronicle",
+          "start": 65,
+          "end": 104
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "persistExpansion ended-life projection",
+          "start": 477,
+          "end": 477
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "played-time ended-life guards",
+          "start": 6140,
+          "end": 6150
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "update ended-life guard",
+          "start": 6648,
+          "end": 6648
+        }
+      ]
+    },
+    {
+      "id": "CL08",
+      "capability": "Authored simulation death/incapacity/departure/revival",
+      "status": "partial",
+      "conclusion": "Life enum/guarded effects/save exist. Dead requires lethal:true; leaving dead requires resurrection:true. No automatic attack result, zero HP, witnesses, death loot, session/job cleanup or ending evaluation.",
+      "references": [
+        {
+          "file": "src/simulation_contracts.js",
+          "symbol": "validateSimulationEffect life",
+          "start": 62,
+          "end": 62
+        },
+        {
+          "file": "src/simulation_contracts.js",
+          "symbol": "validateSimulationState person life",
+          "start": 213,
+          "end": 216
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "applySimulationEffects life",
+          "start": 215,
+          "end": 219
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "answerEncounterInto lethal guards",
+          "start": 277,
+          "end": 283
+        }
+      ]
+    },
+    {
+      "id": "CL09",
+      "capability": "Life dependency invalidation",
+      "status": "partial",
+      "conclusion": "New commands/controllers/event checks stop for nonalive participants. Only explicit completionSupport jobs recheck life/contact and refund; ordinary jobs settle frozen effects. Old-age lifePolicy has separate limited cleanup.",
+      "references": [
+        {
+          "file": "src/simulation.js",
+          "symbol": "simulationOccupiesActor/previewSimulationCommand",
+          "start": 42,
+          "end": 70
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "completeJob",
+          "start": 184,
+          "end": 210
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "nextSimulationBoundary",
+          "start": 359,
+          "end": 364
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "advanceSimulationBoundary lifePolicy/event/controller",
+          "start": 382,
+          "end": 425
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "applySimulationEffects life",
+          "start": 215,
+          "end": 219
+        }
+      ]
+    },
+    {
+      "id": "CL10",
+      "capability": "General native NPC life/availability join",
+      "status": "partial",
+      "conclusion": "Nested campaign saves/publishes/restores life-based person availability. Base projector handles only HP/stamina; Tidemark people use enrollment availability. No universal native is_alive/dialogue/quest invalidator.",
+      "references": [
+        {
+          "file": "src/feature_expansion_nested_native.js",
+          "symbol": "applyAvailability/writeAvailability",
+          "start": 81,
+          "end": 85
+        },
+        {
+          "file": "src/feature_expansion_nested_native.js",
+          "symbol": "stage/snapshot/restore",
+          "start": 110,
+          "end": 119
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "projectNativePeopleBodies",
+          "start": 373,
+          "end": 378
+        },
+        {
+          "file": "src/main.js",
+          "symbol": "persistExpansion nativePublication",
+          "start": 453,
+          "end": 484
+        },
+        {
+          "file": "src/feature_expansion_destination_native.js",
+          "symbol": "applyAvailability",
+          "start": 80,
+          "end": 81
+        },
+        {
+          "file": "src/feature_expansion_destination_native.js",
+          "symbol": "stage.write",
+          "start": 118,
+          "end": 118
+        },
+        {
+          "file": "src/models/npc.js",
+          "symbol": "NPC availability",
+          "start": 45,
+          "end": 79
+        },
+        {
+          "file": "src/components/availability_component.js",
+          "symbol": "canBeDisplayed/canBeStarted/canSucceed",
+          "start": 54,
+          "end": 73
+        }
+      ]
+    },
+    {
+      "id": "CL11",
+      "capability": "Defeat inventory/power/identity inheritance",
+      "status": "unsupported",
+      "conclusion": "Conserved explicit item/claim/power/title/source/equipment operations exist, but no named combat finish invokes automatic inheritance. Actor capture is not item custody.",
+      "references": [
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "inventory/writeInventory",
+          "start": 25,
+          "end": 32
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "item/transfer/custody",
+          "start": 157,
+          "end": 178
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "claim",
+          "start": 194,
+          "end": 200
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "source/faculty",
+          "start": 220,
+          "end": 232
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "symbol": "power/title/equipment",
+          "start": 234,
+          "end": 271
+        },
+        {
+          "file": "src/chronicle.js",
+          "symbol": "commandChronicle inherit",
+          "start": 159,
+          "end": 166
+        }
+      ]
+    },
+    {
+      "id": "CL12",
+      "capability": "Playable named lethal/capture/resurrection route",
+      "status": "unsupported",
+      "conclusion": "No fixed named combat in inspected registered source produces real death/capture/revival. Reusable guarded life primitive is not a playable route. Helper departure is an actual separate authored life producer.",
+      "references": [
+        {
+          "file": "src/helper_content.js",
+          "symbol": "village.collect_helper",
+          "start": 25,
+          "end": 29
+        },
+        {
+          "file": "src/simulation_contracts.js",
+          "symbol": "validateSimulationEffect life enum",
+          "start": 62,
+          "end": 62
+        },
+        {
+          "file": "src/native_battle.js",
+          "symbol": "finish",
+          "start": 26,
+          "end": 36
+        },
+        {
+          "file": "src/party_battle.js",
+          "symbol": "finish",
+          "start": 48,
+          "end": 59
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "finish",
+          "start": 273,
+          "end": 286
+        }
+      ]
+    },
+    {
+      "id": "CL13",
+      "capability": "Paradise native life projection",
+      "status": "in-progress",
+      "conclusion": "Draft native adapter projects life availability, but frozen main/registry/expansion admission has no bookWorldCampaign wiring; host/actions files absent. Root checkpoint is active and explicitly excludes a generic arbitrary attack framework.",
+      "references": [
+        {
+          "file": "src/book_world_paradise_native.js",
+          "symbol": "applyAvailability/writeAvailability",
+          "start": 111,
+          "end": 115
+        },
+        {
+          "file": "src/expansion_engine.js",
+          "symbol": "schema constants/validateExpansionState",
+          "start": 25,
+          "end": 29
+        },
+        {
+          "file": "src/expansion_engine.js",
+          "symbol": "validateExpansionState admitted schemas",
+          "start": 102,
+          "end": 108
+        },
+        {
+          "file": "docs/gm/book-world-player-agency/INTERFACE.md",
+          "symbol": "State/native boundary",
+          "start": 9,
+          "end": 18
+        },
+        {
+          "file": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+          "symbol": "active root checkpoint",
+          "start": 1,
+          "end": 11
+        }
+      ]
+    }
+  ],
+  "chains": [
+    {
+      "id": "CLC01",
+      "name": "Mara",
+      "producer": {
+        "file": "src/frontier_campaign.js",
+        "symbol": "campaignDefinitions",
+        "start": 18,
+        "end": 32
+      },
+      "preview": {
+        "file": "src/simulation.js",
+        "symbol": "previewSimulationCommand",
+        "start": 51,
+        "end": 105
+      },
+      "admission": {
+        "file": "src/main.js",
+        "symbol": "actFrontierCampaign",
+        "start": 875,
+        "end": 884
+      },
+      "resolver": {
+        "file": "src/native_battle.js",
+        "symbol": "commitNativeBattleStrike",
+        "start": 38,
+        "end": 62
+      },
+      "host": {
+        "file": "src/native_battle_host.js",
+        "symbol": "resume.actionAdapter",
+        "start": 37,
+        "end": 50
+      },
+      "aftermath": [
+        {
+          "file": "src/native_battle.js",
+          "symbol": "finish",
+          "start": 26,
+          "end": 36
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "symbol": "rival.recover/rival.rematch",
+          "start": 41,
+          "end": 46
+        }
+      ]
+    },
+    {
+      "id": "CLC02",
+      "name": "Party",
+      "producer": {
+        "file": "src/party_battle.js",
+        "symbol": "initializePartyBattle",
+        "start": 28,
+        "end": 40
+      },
+      "preview": {
+        "file": "src/party_battle.js",
+        "symbol": "partyHelperReasons",
+        "start": 20,
+        "end": 26
+      },
+      "resolver": {
+        "file": "src/party_battle.js",
+        "symbol": "commitPartyBattleAction",
+        "start": 61,
+        "end": 97
+      },
+      "host": {
+        "file": "src/native_battle_host.js",
+        "symbol": "resume.actionAdapter",
+        "start": 37,
+        "end": 50
+      },
+      "aftermath": [
+        {
+          "file": "src/party_battle.js",
+          "symbol": "finish",
+          "start": 48,
+          "end": 59
+        }
+      ]
+    },
+    {
+      "id": "CLC03",
+      "name": "Sluice",
+      "producer": {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "featureBattleDefinitions",
+        "start": 28,
+        "end": 49
+      },
+      "preview": {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "previewFeatureBattleAdmission/previewFeatureBattleAction",
+        "start": 71,
+        "end": 77
+      },
+      "admission": {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "initializeFeatureBattle",
+        "start": 79,
+        "end": 94
+      },
+      "resolver": {
+        "file": "src/feature_expansion_battle.js",
+        "symbol": "commitFeatureBattleAction",
+        "start": 288,
+        "end": 361
+      },
+      "host": {
+        "file": "src/feature_expansion_battle_host.js",
+        "symbol": "act",
+        "start": 34,
+        "end": 38
+      },
+      "aftermath": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "finish",
+          "start": 273,
+          "end": 286
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "symbol": "retained parent action/result receipt",
+          "start": 350,
+          "end": 358
+        }
+      ]
+    },
+    {
+      "id": "CLC04",
+      "name": "Elder",
+      "producer": {
+        "file": "src/chronicle.js",
+        "symbol": "commandChronicle start assault",
+        "start": 180,
+        "end": 187
+      },
+      "preview": {
+        "file": "src/main.js",
+        "symbol": "chronicleContext",
+        "start": 648,
+        "end": 659
+      },
+      "resolver": {
+        "file": "src/chronicle.js",
+        "symbol": "commandChronicle respond/finishEncounter",
+        "start": 192,
+        "end": 235
+      },
+      "host": {
+        "file": "src/main.js",
+        "symbol": "makeChroniclePlan",
+        "start": 684,
+        "end": 691
+      },
+      "aftermath": [
+        {
+          "file": "src/chronicle.js",
+          "symbol": "pledge/inherit/debrief/lesson/settle",
+          "start": 159,
+          "end": 179
+        }
+      ]
+    },
+    {
+      "id": "CLC05",
+      "name": "Authored life",
+      "producer": {
+        "file": "src/helper_content.js",
+        "symbol": "village.collect_helper departure",
+        "start": 25,
+        "end": 29
+      },
+      "preview": {
+        "file": "src/simulation.js",
+        "symbol": "previewSimulationCommand",
+        "start": 51,
+        "end": 105
+      },
+      "resolver": {
+        "file": "src/simulation_effects.js",
+        "symbol": "applySimulationEffects life",
+        "start": 215,
+        "end": 219
+      },
+      "native_join": {
+        "file": "src/feature_expansion_nested_native.js",
+        "symbol": "stage.write/publish/restore availability",
+        "start": 110,
+        "end": 119
+      },
+      "aftermath": [
+        {
+          "file": "src/simulation.js",
+          "symbol": "previewSimulationCommand life eligibility",
+          "start": 62,
+          "end": 70
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "completionSupport",
+          "start": 184,
+          "end": 210
+        },
+        {
+          "file": "src/simulation.js",
+          "symbol": "controller/event eligibility",
+          "start": 401,
+          "end": 425
+        }
+      ]
+    }
+  ],
+  "shared_publication": {
+    "planner": {
+      "file": "src/main.js",
+      "symbol": "persistExpansion",
+      "start": 401,
+      "end": 456
+    },
+    "durable": {
+      "file": "src/expansion_persistence.js",
+      "symbol": "persistExpansionPlan envelope/write",
+      "start": 7,
+      "end": 50
+    },
+    "failure": {
+      "file": "src/main.js",
+      "symbol": "persistExpansion failure before publication",
+      "start": 455,
+      "end": 466
+    },
+    "native_publish": {
+      "file": "src/main.js",
+      "symbol": "persistExpansion publish/vitals/body/owned domains",
+      "start": 464,
+      "end": 484
+    },
+    "gameplay_publish": {
+      "file": "src/gameplay_publication.js",
+      "symbol": "prepareGameplayPublication.publish",
+      "start": 50,
+      "end": 59
+    },
+    "vital_publish": {
+      "file": "src/native_gameplay_adapter.js",
+      "symbol": "publishNativeVitals",
+      "start": 35,
+      "end": 42
+    },
+    "save": {
+      "file": "src/main.js",
+      "symbol": "create_save expansion/native snapshots",
+      "start": 4246,
+      "end": 4248
+    },
+    "load": {
+      "file": "src/main.js",
+      "symbol": "loadExpansionState/initializeExpedition",
+      "start": 4338,
+      "end": 4338
+    },
+    "body_reload": {
+      "file": "src/main.js",
+      "symbol": "projectNativePeopleBodies at load",
+      "start": 5954,
+      "end": 5958
+    }
+  },
+  "checks": {
+    "performed": [
+      "Read-only git status and current project instructions/source status",
+      "Scoped source producer, fixed-target, life-effect and native availability inspection",
+      "40 material source first/final SHA256 comparisons; all matched",
+      "Companion JSON structure and reference file/line-bounds checks"
+    ],
+    "deferred": [
+      "Gameplay execution",
+      "Unit/browser/regression suites",
+      "Save/reload/import/failure injection",
+      "Keyboard/director acceptance",
+      "Build/compiler/import execution"
+    ],
+    "mutation_boundary": "Only COMBAT_LIFE_AUDIT.md and COMBAT_LIFE_AUDIT.json written; no gameplay/source/library/private-save/build/test/dependency mutation"
+  },
+  "limitations": [
+    "Named combat session activity/yield is separate from persistent life.",
+    "Schema1 duel validator/host checks fixed binding and HP; it lacks the party/sluice nonalive roster recheck after admission. No active death producer was found for Mara in frozen named duel content; treat this as adapter gap for future lethal/invalidation work.",
+    "Direct life effect does not apply old-age policy cleanup or cancel all pending supported/unsupported jobs.",
+    "Native nested life availability is selected scope; general native body projection only updates vitals.",
+    "No generalized corpse/capture/resurrection/source-replacement/identity inheritance result or universal ending consumer is established by this audit."
+  ]
+}

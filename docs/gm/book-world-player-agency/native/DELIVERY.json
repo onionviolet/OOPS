@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "worker": "Paradise native binding",
+  "capturedAtUtc": "2026-10-06T05:21:11.894041+00:00",
+  "status": "implemented-unverified; ready for root writer transfer",
+  "exclusiveWrites": [
+    "src/book_world_paradise_native.js",
+    "docs/gm/book-world-player-agency/native/"
+  ],
+  "fingerprints": {
+    "src/book_world_paradise_native.js": "dd02d07497414579e2f5d8d36b3bffae6d6df42a92f29b844fba132394fa870f",
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+    "src/book_world_paradise_content.js": "e15e1b9aefa6ca3e564e562b7de8076ff4b87e7aa7dea64f54be8e26f0d89331",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/models/npc.js": "e4ce2d034e5908f5018c7be3eb1fe11ed9c65dedc4a25f7207938846029eb4ed",
+    "src/models/person.js": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+    "src/data/npcs.js": "c429fb04db092bde0b5a007481d46df29416c13c0dc9f003ee0ddaacf8768c66",
+    "src/quests.js": "98bcadf0d82ea51998a171077eb0aa0376f1ac30ac41d80aa450dee731605248",
+    "src/native_gameplay_adapter.js": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+    "docs/gm/book-world-player-agency/INTERFACE.md": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md": "8f185a3e3077c11721cbe0801191e1c78a220b8c1a4960a40eb0108a446ddd14"
+  },
+  "frozenContracts": {
+    "worlds": 2,
+    "nativePeople": 7,
+    "nativeLocations": 7,
+    "stockInventoryNamespace": "book_world_campaign",
+    "nativeDomain": "book_world_campaign_native",
+    "questMapping": "footprint.native.quest {title,firstFact,resolvedFacts}",
+    "residentBody": "native.person.${id}.body with ownerId/controllerId=id",
+    "activeVisitPlayerBody": "native.player.body human ownerId/controllerId=player; no outside-visit lock"
+  },
+  "checks": [
+    {
+      "kind": "syntax",
+      "command": "node --check src/book_world_paradise_native.js",
+      "result": "pass"
+    },
+    {
+      "kind": "bounded-source-link",
+      "result": "pass, zero warnings, write:false; host/actions kept external because root modules are still pending"
+    }
+  ],
+  "remainingRootGates": [
+    "full native import/link when host/actions modules land",
+    "shared registry and publisher integration",
+    "durable activation initializes actual person inventory/XP/resources/current vitals; constructor capacities only define locked placeholders",
+    "shared loader resets optional actual person owners before absent restore",
+    "future gameplay/browser/save/reload/failure/director acceptance remains deferred"
+  ],
+  "prohibitedActionsPerformed": false,
+  "privateSaves": "untouched"
+}

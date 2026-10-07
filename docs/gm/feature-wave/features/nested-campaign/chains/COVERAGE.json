@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "status": "source-delivered-implemented-unverified",
+  "sourceQualification": {
+    "edition": "completed supplied English MTL",
+    "footprint": "PR04 early employee/service district sid26/27; all new chain residents/plots/numbers original",
+    "baseline": "read-only"
+  },
+  "chains": [
+    {
+      "id": "nested.chain.roles",
+      "phases": [
+        "open",
+        "recognized",
+        "evidence",
+        "corrected",
+        "shared",
+        "refused",
+        "coerced",
+        "reported",
+        "accounted",
+        "closed"
+      ],
+      "branches": [
+        "corrected",
+        "shared",
+        "refused",
+        "coerced"
+      ],
+      "actors": [
+        "nested.archive.registrar",
+        "nested.archive.claimant",
+        "nested.archive.witness",
+        "nested.hub.issuer"
+      ],
+      "closure": "same_archive_followup",
+      "nativeOutputs": [
+        "finite claimant-to-witness restitution",
+        "owned rope into receipt folio",
+        "reusable player kit",
+        "actual native stamina"
+      ],
+      "jurisdiction": "archive office only"
+    },
+    {
+      "id": "nested.chain.welfare",
+      "phases": [
+        "open",
+        "informed",
+        "cooperated",
+        "issuer_first",
+        "partial",
+        "refused",
+        "seized",
+        "abstained",
+        "reported",
+        "accounted",
+        "closed"
+      ],
+      "branches": [
+        "cooperated",
+        "issuer_first",
+        "partial",
+        "refused",
+        "seized",
+        "abstained"
+      ],
+      "actors": [
+        "nested.saltworks.keeper",
+        "nested.saltworks.foreman",
+        "nested.hub.issuer"
+      ],
+      "closure": "same_saltworks_followup",
+      "nativeOutputs": [
+        "owned wood/rope into retained brace",
+        "actual resident operating credits/body",
+        "player injury on forcing",
+        "later repair with no repeated export award"
+      ],
+      "jurisdiction": "export settlement and water duty remain separate"
+    },
+    {
+      "id": "nested.chain.method",
+      "phases": [
+        "fragment",
+        "prepared",
+        "supported",
+        "used",
+        "countered",
+        "refined",
+        "retained",
+        "ordinary",
+        "appropriated",
+        "closed"
+      ],
+      "branches": [
+        "refined",
+        "retained",
+        "ordinary",
+        "appropriated"
+      ],
+      "actors": [
+        "nested.hub.trainer",
+        "nested.saltworks.foreman",
+        "nested.archive.witness"
+      ],
+      "closure": "archive_followup_evidence",
+      "nativeOutputs": [
+        "native Equilibrium XP",
+        "actual trained source and zero-copy transmission",
+        "owned clamp rope",
+        "paid refinement",
+        "later timber saving or ordinary timber support"
+      ],
+      "jurisdiction": "learned local operation without title or copied body"
+    }
+  ],
+  "counts": {
+    "commands": 62,
+    "publicCommands": 53,
+    "controllers": 6,
+    "situations": 3,
+    "mergedDefinitionCommands": 98
+  },
+  "checks": {
+    "performed": [
+      "node --check: both source modules",
+      "cold imports: both source modules",
+      "createSimulationRegistry: actual native and chain definition families merged once",
+      "all situation phase-effect links",
+      "seven source/document links"
+    ],
+    "deferred": [
+      "behavior",
+      "unit",
+      "browser",
+      "gameplay",
+      "save/reload",
+      "storage failure",
+      "keyboard",
+      "regression",
+      "director fiction/pacing",
+      "final shared bundle: Features integrator"
+    ]
+  },
+  "sourceHashes": {
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "12a50f38714101984213a4c277905145512338912e34ec066521bb9d52c121f3"
+  }
+}

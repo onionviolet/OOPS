@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "sealedAt": "2026-10-06T20:15:36.648066+00:00",
+  "syntax": [
+    {
+      "path": "src/feature_expansion_battle.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_powers_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_hooks.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_battle.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/native_battle.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_powers.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/combat_math.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/native_battle_contracts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "coldRegistry": {
+    "exitCode": 0,
+    "result": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "battleSchemas": [
+        3,
+        4,
+        5
+      ],
+      "battleCommandDefinitionsExact": true,
+      "fitDefinitionsExact": true,
+      "objectiveDefinitionsExact": true
+    },
+    "error": ""
+  },
+  "changedDuringFinalChecks": [],
+  "baselineSourceMap": [
+    {
+      "path": "src/feature_expansion_battle.js",
+      "source": "../src/feature_expansion_battle.js",
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "matchesFirstWaveBaseline": true
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "source": "../src/feature_expansion_battle_host.js",
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+      "matchesFirstWaveBaseline": true
+    },
+    {
+      "path": "src/feature_expansion_powers_host.js",
+      "source": "../src/feature_expansion_powers_host.js",
+      "sha256": "3cfdc58e451c8add4d38ed9a0f4db3b423b87de26d435ac8f43f24013c06d987",
+      "matchesFirstWaveBaseline": true
+    }
+  ],
+  "scope": "Source/syntax/import/definitions only. No build/unit/gameplay/browser/save/failure suite.",
+  "b3RepairSyntax": {
+    "path": "src/feature_expansion_battle.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  "finalColdRegistry": {
+    "exitCode": 0,
+    "result": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "battleCommandDefinitionsExact": true,
+      "fitDefinitionsExact": true,
+      "objectiveDefinitionsExact": true
+    },
+    "error": ""
+  },
+  "resealedAt": "2026-10-06T20:19:28.592139+00:00",
+  "changedDuringReseal": []
+}

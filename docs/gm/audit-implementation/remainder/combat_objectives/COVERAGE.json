@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "parent": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "worker": "/root/remainder_combat_objectives",
+  "status": "all four assigned rows source-authored; implemented-unverified; root shared bindings/build pending",
+  "profile": "combat_objectives.v1",
+  "compatibility": "Only explicitly enrolled expansion11/auditRemainder1 new schema5 sessions; no fields or changed guard/cadence/result semantics on earlier schema3/4 sessions",
+  "rows": [
+    {
+      "id": "tales-of-maj-eyal:P2",
+      "existing": ["feature_expansion_powers FEATURE_SPECIALIZATIONS Shared frame", "feature_expansion_battle one-blow guards/defense-earned opportunity and native host cadence"],
+      "new": ["Maintain one active acquired-source/body-supported mastery6 Shared frame guard", "2 activation stamina, then1 before each of two incoming attempts including miss", "Drop before mitigation if unsupported, expired or insufficient upkeep; strike/counter/release/helper departure/settlement clear without refund"],
+      "ownedConsumers": ["remainderMaintainedBraceSupported", "quoteRemainderCombatObjectivesBattleAction", "beforeRemainderCombatObjectivesBattleAction", "applyRemainderCombatObjectivesBattleAction", "prepareRemainderCombatObjectivesIncomingGuard"],
+      "requiredBinding": "Root existing actual incoming strike loop and guard mitigation/window consumer, preserving broader two-target shared guard"
+    },
+    {
+      "id": "rogue-legacy:P1",
+      "existing": ["Canonical native kit/log/rope ownership and acquisition executor", "feature_expansion_battle guard/escape actions and exact admission nonce"],
+      "new": ["Paid ordinary native kit brace pad and traversal lashing crafting", "One chosen physical guard vs traversal admission, finite charge and exact reserved rope identity", "Stronger paid self guard vs paid two-step escape, exclusive of maneuver/grip/opening stacking", "Same rope returned at every settlement; unused exact preparation returned, spent one never refunded"],
+      "ownedConsumers": ["remainderCombatObjectivesDefinitions", "remainderCombatObjectivesAdmissionReasons", "initializeRemainderCombatObjectivesBattle", "quoteRemainderCombatObjectivesBattleAction", "applyRemainderCombatObjectivesBattleAction", "settleRemainderCombatObjectivesBattle"],
+      "requiredBinding": "Root actual stock reservation/guard/escape/withdraw consumers and admission buttons; fit may read held same-key rope without another refund"
+    },
+    {
+      "id": "rogue-legacy:P4",
+      "existing": ["Optional finite passage attempt owner pattern", "Existing custody transfer, native stock/jobs/knowledge, one route XP settlement"],
+      "new": ["Separately heard once-only Eda offer identifies exactly one owned marked fitting", "At most3 pre-session accepted exact recovery-and-raised-gate objectives", "One1-stamina recovery action moves actual fitting into owner custody; exact gate3 completion records fitting cause", "Intact consenting handoff teaches one retained recipe once; paid log/resin/stamina/time creates usable learned brace wrap", "Finite consented supplied post-passage practice closes actual recipe-use gap using same tollkeepers and own original rations"],
+      "ownedConsumers": ["acceptRemainderCombatObjective", "fittingCarried", "applyRemainderCombatObjectivesBattleAction", "settleRemainderCombatObjectivesBattle", "advanceRemainderCombatObjectives", "validateRemainderCombatObjectivesNative"],
+      "requiredBinding": "Root schema5 recover UI, exact finish/handoff and real paid recipe/use; practice permission consumed at admission, no repeated route XP"
+    },
+    {
+      "id": "idling-to-rule-the-gods:P3",
+      "existing": ["frontier_campaign association field.supplies commission actual kit3/rope1 payment6", "field_workshop powered packing, skill timber packs, native ordinary craft/buy/frame alternatives", "Existing reference retained feats and one durable publisher"],
+      "new": ["Separately read finite published command terms then at most3 explicit optional supply attempts", "Actual post-acceptance committed player powered starts only violate; no preview/load/failed publication effect", "Actual3-kit delivery completes once or closes previously violated attempt while ordinary payment remains", "One ordinary_supply feat with exact attempt/commission receipt and zero new money; withdrawal/rope delivery/no deadline stay distinct"],
+      "ownedConsumers": ["REMAINDER_SUPPLY_FORBIDDEN_COMMANDS", "recordRemainderSupplyCommandCommit", "advanceRemainderCombatObjectives", "validateRemainderCombatObjectives", "remainderCombatObjectivesPresentation"],
+      "requiredBinding": "Root startCommand exact successful-start hook covers programs; publisher advance before final validators/save; existing feat ID whitelist"
+    }
+  ],
+  "deliberateNonClaims": ["No copied game code, prose or assets", "No behavior/save/browser/failure/regression/director checks", "No worker build", "No private save/source-library mutation", "No new inventory, clock, controller, world, prestige or publication owner", "No shared edits, commit, push, external message or automation"]
+}

@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-03",
+  "baseCommit": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "dirtyInputsPreserved": true,
+  "generatedSavesOnly": true,
+  "tests": {
+    "total": 191,
+    "passed": 191,
+    "failed": 0,
+    "log": "/tmp/yairpg-layered-final-tests.log"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:18603/",
+    "fingerprint": "http://127.0.0.1:18603/dist/bundle.js?version=v0.6-fcf7e38aa869",
+    "findings": [
+      "Native Shack travel, cancelled/refunded rack construction, saved upgrade, two kit batches, learned/crafted rope and one paid supply commission work through real controls.",
+      "Native Combat resolved won; partial reload preserves strikes, RNG and identity and waits for explicit resume. Recovery consumes one actual kit; a separately funded rematch can be settled with another kit.",
+      "Renewal cancellation changes no training. Confirmation/reload resets applied mastery and fuel once while retaining money, native inventories/quests, workshop and the earned legacy.",
+      "Native export/import through the actual loader preserves the rival and prestige without another reward.",
+      "An injected strike save failure stops combat and preserves exact old bytes, live HP, the saved draw stream and action count; reload recovers the original waiting duel."
+    ],
+    "errors": [],
+    "warnings": [],
+    "generatedSavesOnly": true
+  },
+  "nativeRegression": {
+    "url": "http://127.0.0.1:18603/",
+    "fingerprint": "http://127.0.0.1:18603/dist/bundle.js?version=v0.6-fa98c6d7b5d5",
+    "findings": [
+      "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+      "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+      "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+      "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+      "Attended briefing contributes usable preparation through the existing capability/read model.",
+      "Stronger generated native XP build wins against the same fixed elder.",
+      "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+      "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+      "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+    ],
+    "errors": [],
+    "generatedSavesOnly": true
+  },
+  "sha256": {
+    "src/native_gameplay_adapter.js": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+    "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+    "src/native_battle.js": "ddea1f34a72524d85f0817871b595a26c939b3d63637d07ffff5953fb6879ab9",
+    "src/native_battle_host.js": "9b57bcee3012f460b4e3f7874ff00598f54f98b81b4a400cad205f72e86c6b5f",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/frontier_campaign_ui.js": "9915b99b40a9ad8b2733523997f4fd8859e888c913db7712ca7ba32ffe65aa5f",
+    "src/main.js": "bb740615c5b25d4985079662753c7d7e4617cf57a2730e685eb3e758b7726034",
+    "src/models/combat.js": "6f24412cba92244e9ba663373928377192143131e634fa9c1511c6ecad5e440c",
+    "src/models/person.js": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+    "src/enemies.js": "34d48562a0cfcab036bb32c7f5af284673342ff6b3638e18a08328e63aa16334",
+    "src/misc.js": "fb68556cee90d303cf980d992b637d37c46bd14501d14436df35d990ba6ac510",
+    "src/simulation.js": "c824114398d941db6cf393cf6671c66519e695acff5855590cd406e054a4a056",
+    "src/simulation_contracts.js": "6dd71c3d5024d22767d8e26d19a22c614f0c71f2f3d1980196f5ed259d18b2af",
+    "src/simulation_content.js": "3cf26677f80e7471f239f9c13ac92c0bcb00e4edadfec40e0ca0adbf618a6809",
+    "src/expedition_content.js": "61e41fe3e6dcadfb0f0cbf6fcb3a185d44a7d4b6cf85e009059f815a5d823cee",
+    "src/adventure_notebook.js": "83ddd2bbe94fb8ee269d18484d87d3795a7eed22c4d3de14932506a7353a04ad",
+    "src/pursuit_ui.js": "917fc6a8be9865957902bcba50afb993bec24494d3d701c27a501d8b04e7e8c6",
+    "src/expansion_quest_ui.js": "c0e176cec3efd340d742aa8be2694d20457b31d54d472474e1a7e547767cf533",
+    "tests/frontier_campaign.test.js": "ada321d87f732822306493cce882b9edc4570a8c2d6879922fa47a534e4e615b",
+    "scripts/frontier_campaign_browser.cjs": "e6dede82d28512e68728374bbc9f69df9d029f453c2074ea611c05a89f61b201",
+    "dist/bundle.js": "fcf7e38aa86918fa1a8a6d99b3c85d9ad36c36b0d690006caa94a5e314283c97",
+    "index.html": "cff4086a94b6c6df7c4cf7e745c3c74403d5bd995d21515e6db4e4efb0adb3f9"
+  },
+  "limits": [
+    "Generated midcampaign fixture does not prove a full natural opening-to-workshop playthrough.",
+    "One nonlethal rival, one local training prestige; group combat, full-life rebirth and independent native worlds remain separate work.",
+    "Wording, prices, timing and menu density await human review."
+  ],
+  "review": {
+    "url": "http://127.0.0.1:18604/",
+    "generatedFixture": "/tmp/yairpg-frontier-campaign-proof/review-save.json",
+    "screenshot": "/tmp/yairpg-frontier-campaign-proof/playable-review.png",
+    "visible": true,
+    "pageErrors": [],
+    "fingerprint": "v0.6-fcf7e38aa869",
+    "renewalControlEnabled": true
+  },
+  "nativeRegressionScope": "Native regression passed on v0.6-fa98c6d7b5d5 before the final ownership-acquired panel repaint. Combat/math/native life implementations are unchanged; the final campaign browser proof uses v0.6-fcf7e38aa869."
+}

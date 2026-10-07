@@ -6,7 +6,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     panel.id = "expedition_panel";
     panel.className = "expedition_panel";
     const summary = document.createElement("summary");
-    summary.textContent = "Field journal · Village expedition";
+    summary.textContent = "Routes & supplies";
     panel.append(summary);
     const body = document.createElement("div");
     panel.append(body);
@@ -22,9 +22,10 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     status.setAttribute("role", "status");
     // Stable controls preserve keyboard focus while the game's timer updates.
     const cards = new Map();
-    body.append(element("p", "Survey by kit, reusable anchors or strength. Inventory supplies, practiced skills and earned traits change your options. Provisional content for review."));
+    body.append(element("p", "Survey with supplies, practiced anchors, strength or learned footwork. Choose a route that fits your preparation."));
     const stateText = element("p", "", "expedition_state"); body.append(stateText, status);
     const capabilityText = element("p", "", "expedition_preview"); body.append(capabilityText);
+    const preparation = element("details", "", "notebook_preparation"); preparation.append(element("summary", "Preparation details"), capabilityText); body.append(preparation);
     const cancelButton = element("button", "Cancel timed work · spent inputs are lost");
     cancelButton.type = "button";
     cancelButton.addEventListener("click", () => {
@@ -36,7 +37,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     });
     body.append(cancelButton);
     for(const action of registry.actions.values()) {
-        if(action.group === "technique") continue;
+        if(["technique", "chronicle", "village", "town"].includes(action.group)) continue;
         const card = element("div", "", "expedition_card");
         const button = element("button", action.label);
         button.type = "button";
@@ -66,9 +67,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
         const opportunities = Object.values(state.opportunities).map(o => o.status === "scheduled"
             ? `Next departure in ${o.due - state.clock} min` : o.status === "available"
                 ? `Departure available for ${o.expires - state.clock} min` : o.status === "expired" ? "Departure missed; survey rewards retained" : "Departure joined");
-        stateText.textContent = [`Inventory kits: ${context.facts.kits || 0}`, `Reusable ropes: ${context.facts.rope || 0}`,
-            `Climbing XP: ${context.gameplay?.player?.skills.Climbing?.xp || 0}`, `Perception XP: ${context.gameplay?.player?.skills.Perception?.xp || 0}`,
-            `Village reputation: ${context.gameplay?.player?.reputation.Village || 0}`,
+        stateText.textContent = [`Kits: ${context.facts.kits || 0}`, `Ropes: ${context.facts.rope || 0}`,
             state.campaign.facts.anchor ? "Anchor points known" : "Anchor points unknown",
             world.facts.crossing ? `Crossing: ${world.facts.crossing}` : "Crossing unsurveyed",
             world.facts["guide.condition"] ? `Guide: ${world.facts["guide.condition"]}` : "Guide waiting", ...jobs, ...opportunities].join(" · ");
@@ -81,7 +80,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
         cancelButton.hidden = !cancellable;
         cancelButton.disabled = !!error;
         for(const action of registry.actions.values()) {
-        if(action.group === "technique") continue;
+        if(["technique", "chronicle", "village", "town"].includes(action.group)) continue;
             const preview = evaluateAction(state, registry, action.id, context);
             const {card, button, previewText, requirements} = cards.get(action.id);
             card.hidden = !preview.visible;
@@ -89,11 +88,11 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
             previewText.textContent = `${preview.duration} min · ` + preview.outcomes.filter(o => o.chance > 0)
                 .map(o => `${o.label}: ${Math.round(o.chance * 100)}%`).join(" · ") +
                 (preview.contributors.length ? ` · ${preview.contributors.join("; ")}` : "") +
-                preview.rolls.map(roll => ` · ${roll.label}: ` + roll.outcomes.filter(o => o.chance > 0)
+                (action.id === "frontier.inspect" ? [] : preview.rolls).map(roll => ` · ${roll.label}: ` + roll.outcomes.filter(o => o.chance > 0)
                     .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join("");
             requirements.textContent = preview.reasons.join(" ");
         }
-        history.replaceChildren(...state.history.slice(-6).reverse().map(receipt => element("li",
+        history.replaceChildren(...state.history.filter(receipt => !["technique", "chronicle", "village", "town"].includes(registry.actions.get(receipt.actionId)?.group)).slice(-6).reverse().map(receipt => element("li",
             [receipt.label, ...(receipt.rolls || []).map(roll => roll.label)].join(" · "))));
     }
     render();

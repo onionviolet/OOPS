@@ -1,0 +1,956 @@
+{
+  "hosted_version": "v1.3.1",
+  "version_source": "account.js:2 plus page.html:10/488-492",
+  "script_pin": 12097,
+  "data_version": 528,
+  "data_version_source": "save.js:706",
+  "raw_root": "/Users/weiwei/.codex/research/melvor-idle/13311431",
+  "scripts": [
+    {
+      "file": "account.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/account.js?12097",
+      "sha256": "2e0cf72b9bb060cbfeba16314974243d2c6890ee8015aa67eb39ee327b4bc414",
+      "lines": 63,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "agility.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/agility.js?12097",
+      "sha256": "cd2a0b85c2599cb4e96668d6829b2e48c6ecee31e5f5c4cef059da5655e9838e",
+      "lines": 1645,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "ancientRelics.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/ancientRelics.js?12097",
+      "sha256": "2359639c6b00625d8f1b2d9b7bd368fd4a1eb1fc4b1b4f40ce16dc92ac201a34",
+      "lines": 220,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "archaeology.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/archaeology.js?12097",
+      "sha256": "cf32185d6619361b720bb83e99b700733730d35053d3af729fe91b5e6d88f92a",
+      "lines": 1352,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "artisanSkill.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/artisanSkill.js?12097",
+      "sha256": "cbbbefa1b7800648353d7cd2eca1f4401a4e0d292ecebf14436c262e249e0a3b",
+      "lines": 357,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "astrology.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/astrology.js?12097",
+      "sha256": "b56dd45ef70be42ae7c5a011590bedb6fae66c5c38c0adf834a7562349361e8d",
+      "lines": 1108,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "attackStyle.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/attackStyle.js?12097",
+      "sha256": "65788098781de1504a5623c8e3b56757cc4331d6cd8d0e939c9914ab23af2c37",
+      "lines": 39,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "attacks.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/attacks.js?12097",
+      "sha256": "eea79ff1d9e6b15a9df6d0c7eb7ead5881ce62d78d1250858625c72e978687f9",
+      "lines": 1185,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "attacks2.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/attacks2.js?12097",
+      "sha256": "d21cf56aa274953a1eba71b0629c0727e3ff376f82943b207c26ae1ac8772f0c",
+      "lines": 131,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "bank2.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/bank2.js?12097",
+      "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+      "lines": 1780,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "baseManager.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/baseManager.js?12097",
+      "sha256": "ba1db6605148a0eb1d7c20adafd43a322c24d17ace0104cb8489a1ba312745a8",
+      "lines": 748,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "cartography.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/cartography.js?12097",
+      "sha256": "48c24f12a53eb3d2839b054ce63152c8e3784ed310bf8d639f4e92f3efd16ff6",
+      "lines": 3131,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "character.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/character.js?12097",
+      "sha256": "6fbf32388217e80ac4a61f91f20f02bac453c14046318cc98516a00a85df3701",
+      "lines": 2233,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "cloudManager.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/cloudManager.js?12097",
+      "sha256": "81b6b25f24f71bb4ed6803f5e53f04cc240023c9b19ff313a3b281d2a500d281",
+      "lines": 4292,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "combat.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/combat.js?12097",
+      "sha256": "53ef7628f68e7d9a34cc1a212c8b7b1d66999f625887d1fb59d411392ac8466e",
+      "lines": 647,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "combatAreas.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/combatAreas.js?12097",
+      "sha256": "6a9e765446247578144a23e7fde6d6377bb8f81a9377c32815b78bd973fd9ae3",
+      "lines": 1983,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "combatEffects.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/combatEffects.js?12097",
+      "sha256": "2548f8f58372620dd9b693e1f1ade60421b2677d77994eef525a2b00a6a3832f",
+      "lines": 2068,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "combatManager.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/combatManager.js?12097",
+      "sha256": "0ab7c443acdfcb26141a60d3c60393b6ae708f42d5f449d6ae55494671a773a6",
+      "lines": 1911,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "combatSkills.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/combatSkills.js?12097",
+      "sha256": "6c8f9aaffea93bd1ae6ef83887a1dc9551afb171a46ed6f8343c6a96f1efc046",
+      "lines": 216,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "completionLog.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/completionLog.js?12097",
+      "sha256": "6c3597589c4a710611def391f4c85f2dbd4197afa53d09b4c2af5c731d7d9d96",
+      "lines": 1389,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "conditionalModifiers.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/conditionalModifiers.js?12097",
+      "sha256": "2059e6b333845374947c3d0e7d077f86f697e68931373f75405ee74638873605",
+      "lines": 722,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "constants.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/constants.js?12097",
+      "sha256": "dd6a2d7a23a03dc13ba8751783cbad1d70a8dae952473aabc3219c79a29066d0",
+      "lines": 681,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "cooking.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/cooking.js?12097",
+      "sha256": "2bc956a0f979aa1f75ca5345edfe599f49bed8b0da06446d2840ddcb53f6e4cc",
+      "lines": 957,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "corruption.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/corruption.js?12097",
+      "sha256": "a31154113a42aa40336c4e529e1e2c40632acb26db721673c08259f4ccd9e8c0",
+      "lines": 267,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "crafting.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/crafting.js?12097",
+      "sha256": "f161247390feceaf8048d61099e89fe58943891de68f6cb7a398fb3bc7d93da4",
+      "lines": 249,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "currency.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/currency.js?12097",
+      "sha256": "ed27fcd5ec535a709a294340b04dcee5b1c26cec33a8b54615556b45a08566dc",
+      "lines": 255,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "enums.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/enums.js?12097",
+      "sha256": "f1735a3b01c78a8defe356ed9e2fe1b910fbc614a4032e449d03e598a8a7679e",
+      "lines": 1002,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "equipment.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/equipment.js?12097",
+      "sha256": "727a15e6d8846fae363714c49138d6fbae6aa062be24597dc0a00cee802fda4c",
+      "lines": 1053,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "equippedFood.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/equippedFood.js?12097",
+      "sha256": "62541eea540ab6c3a5bd7a0bdf04378b22835560168a3209f7d1ceba15dbd232",
+      "lines": 264,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "farming2.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/farming2.js?12097",
+      "sha256": "abf369f781ea3f8351524330ac8d75516c1d1e1d5422839cca8c8c06e563d0c8",
+      "lines": 1283,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "firemakingTicks.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/firemakingTicks.js?12097",
+      "sha256": "856a45b91a55370165f50de7c9958dde32790a135708f88d1fd921e9308303e2",
+      "lines": 910,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "fishing.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/fishing.js?12097",
+      "sha256": "94fe29af6250e619b8d8552c9e0f57083c150ea312e59cfeea20ffae03bf5586",
+      "lines": 1081,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "fletching.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/fletching.js?12097",
+      "sha256": "1b29447402c46a28f38d77f9d1328acffc3d84ad7a09d473859e36ca625d7689",
+      "lines": 340,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "game.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097",
+      "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+      "lines": 3859,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "gameEvents.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/gameEvents.js?12097",
+      "sha256": "6aa52db3dd2bef3098f31d18b2b7ba6e55a94efaf23e0d151160e58b906e5ce5",
+      "lines": 1997,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "gamemode.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/gamemode.js?12097",
+      "sha256": "b4b766e4bd6054337016e798feb7d8a1b7f88be2b33996332d6e66550e83fd1f",
+      "lines": 736,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "harvesting.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/harvesting.js?12097",
+      "sha256": "b122e2c67e66b80063c873b30d4546087376848b0683aff3d1e7c6c3b6ac0854",
+      "lines": 556,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "herblore.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/herblore.js?12097",
+      "sha256": "fdef3647b1af5c7935cbdd0cd5c3b6dd7bd9fe438277d9d676f3da7901646080",
+      "lines": 262,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "hexMap.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/hexMap.js?12097",
+      "sha256": "28024e0f30f9889a4cf70c05f879c3ab5375f25d64ecbfb7e768e6bcdd7d1b08",
+      "lines": 1714,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "item.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/item.js?12097",
+      "sha256": "ee8261ea18f05a250e9919d9204dc7dfc614c2d08394c919fe8756d5ab34b8af",
+      "lines": 925,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "itemCharges.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/itemCharges.js?12097",
+      "sha256": "bae1c64be40b03171aa7458068072a03a6e939a46c7ea73d1a7cf830a7a75e1c",
+      "lines": 111,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "itemSynergies.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/itemSynergies.js?12097",
+      "sha256": "999c471bd2f5a6b28515e2512234a5ece7a9b7ea47c99bcf7b0da183d3d02256",
+      "lines": 55,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "main.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/main.js?12097",
+      "sha256": "da2b00d1dc192b51775e1c3eaa7b5d3431afe4d446f7da5d213b842807e9d2cb",
+      "lines": 996,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "mastery2.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/mastery2.js?12097",
+      "sha256": "a7aaeda895b5510a588e5e01432cd201279763d69f883dbee0ead08f5e59756a",
+      "lines": 31,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "mod.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097",
+      "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+      "lines": 6559,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "monsters.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/monsters.js?12097",
+      "sha256": "e344a4a4c24cf998bd6ca070c23e9cb16c182d10f413affe5c6d575a356cc83e",
+      "lines": 323,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "namespaceRegistry.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/namespaceRegistry.js?12097",
+      "sha256": "68bd4ccf86711372fb0b5593fb403d7878606156b706c7f61ea78c1044b1dc24",
+      "lines": 527,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "nativeManager.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/nativeManager.js?12097",
+      "sha256": "52a582703fb2ed4c6d6b9ca378d86919817c3c9906194b76b3bff14cd99ab8ad",
+      "lines": 1180,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "player.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097",
+      "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+      "lines": 3455,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "potionManager.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/potionManager.js?12097",
+      "sha256": "d52b9de5545ad64a283298fe4be903d97b08fe06f3731fde2056868798b7ed6f",
+      "lines": 290,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "prayer.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/prayer.js?12097",
+      "sha256": "be9b2c75c4cf592a440d2fbe2eb56e291d6ae77261d7f14c8a9b145e27643384",
+      "lines": 329,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "realms.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/realms.js?12097",
+      "sha256": "c281ad21a65c65d5c010732228a0f63ced170025f1236186dd01347dbf077115",
+      "lines": 497,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "requirements.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/requirements.js?12097",
+      "sha256": "65538d0e720cc1d6d83c9082696f7f425a2afb7ba123dbfcced40f6f7c50a1df",
+      "lines": 881,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "rockTicking.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/rockTicking.js?12097",
+      "sha256": "df0d282fb9faf07c661ba9380be3b6ba1926ed3fe0be57c2a25f4be7976b46f6",
+      "lines": 1065,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "runecrafting.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/runecrafting.js?12097",
+      "sha256": "fe77089dce74fee560696b7dc603626ac9b1dd732cae9f5817f4cc7bb0887a36",
+      "lines": 295,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "save.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/save.js?12097",
+      "sha256": "4c26717e93a038170023cea5ed05eb03d904a3bb8fb22b1b5a52820cbca53196",
+      "lines": 942,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "saveWriter.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/saveWriter.js?12097",
+      "sha256": "63cf90fd6c1c08c5e26b7cfe5e85a3a789a3e585ad178cf075a4abb887c9a119",
+      "lines": 779,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "settings.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/settings.js?12097",
+      "sha256": "45b9c767267d50deb97192effc72f350d233de3657428b8128e116a47be1a5d4",
+      "lines": 2459,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "shop.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097",
+      "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+      "lines": 751,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "skill.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097",
+      "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+      "lines": 3226,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "skillTree.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/skillTree.js?12097",
+      "sha256": "e972317dea63503bf45581bcf873123060914eae4cab22c2aab8bc312959868b",
+      "lines": 238,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "slayer.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/slayer.js?12097",
+      "sha256": "a96b2edf7c6a0732bb67e01ed9305f0f1e5f059a69de71533ecaa3b575262405",
+      "lines": 733,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "smithing.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/smithing.js?12097",
+      "sha256": "9b6dfdd549ff6b2c297f914b024aa37cd84ba70d385c6863f42f724e22ea6654",
+      "lines": 243,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "statProvider.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/statProvider.js?12097",
+      "sha256": "74ee2c45dfe55c7dec9ed08513e198adf0e34724f291f7e8b4033d8db87f5e19",
+      "lines": 239,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "statTracker.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/statTracker.js?12097",
+      "sha256": "b9a58e1032d602f2e106d526b93db71e8ee975c7f593fd996c7392fdf7e4cbd6",
+      "lines": 163,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "summoning.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/summoning.js?12097",
+      "sha256": "b4f23b5388142176324d63e4a4f104b0abb7cb2f5117a82d7af251a3e237a78d",
+      "lines": 871,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "township.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/township.js?12097",
+      "sha256": "bc242b53c1053dc0c7babc7a3b91e6389effb0641aac96c0be95153c10db8844",
+      "lines": 4348,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "townshipTasks.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/townshipTasks.js?12097",
+      "sha256": "ec313d4dbd90f6842ac86506830d5ca8e7faae7c29587a72bf25426370d65db7",
+      "lines": 1201,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "utils.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/utils.js?12097",
+      "sha256": "9ea66086de6a5a5228843252050917381991e35120cc8c91bd20e0650e6a7050",
+      "lines": 2123,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    },
+    {
+      "file": "woodcutting.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/woodcutting.js?12097",
+      "sha256": "922c166c7522cd396bb7c01a728d9715c40c065500834a211f46d07bf37916cd",
+      "lines": 558,
+      "semantic_review": "selective spans in FINDINGS/COVERAGE; acquired does not mean fully reviewed"
+    }
+  ],
+  "data_packages": [
+    {
+      "file": "melvorAprilFools2024.json",
+      "namespace": "melvorAprilFools2024",
+      "url": "https://steam.melvoridle.com/assets/data/melvorAprilFools2024.json?528",
+      "sha256": "a26405d1e47fe925f47ba0862c27caf70810c63b38929682d38ff41719a2cae3",
+      "bytes": 69223,
+      "keys": [
+        "gamemodes",
+        "items",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "dungeons",
+        "dungeonDisplayOrder"
+      ],
+      "record_counts": {
+        "gamemodes": 1,
+        "items": 21,
+        "shopCategories": 2,
+        "shopCategoryOrder": 1,
+        "shopPurchases": 22,
+        "shopDisplayOrder": 1,
+        "dungeons": 2,
+        "dungeonDisplayOrder": 1
+      },
+      "dependent_namespaces": [],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorBirthday2023.json",
+      "namespace": "melvorBirthday2023",
+      "url": "https://steam.melvoridle.com/assets/data/melvorBirthday2023.json?528",
+      "sha256": "16db00c2af0282766a0fa6eed540b709d5b99bebef0438492ed0df340f3075a3",
+      "bytes": 10848,
+      "keys": [
+        "gamemodes",
+        "pages",
+        "skillData"
+      ],
+      "record_counts": {
+        "gamemodes": 1,
+        "pages": 1,
+        "skillData": 14
+      },
+      "dependent_namespaces": [],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorDemo.json",
+      "namespace": "melvorD",
+      "url": "https://steam.melvoridle.com/assets/data/melvorDemo.json?528",
+      "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06",
+      "bytes": 1738799,
+      "keys": [
+        "pages",
+        "gamemodes",
+        "equipmentSlots",
+        "items",
+        "attackStyles",
+        "combatEffectGroups",
+        "combatEffectTemplates",
+        "combatEffects",
+        "attacks",
+        "combatPassives",
+        "monsters",
+        "combatAreas",
+        "dungeons",
+        "combatAreaCategories",
+        "combatAreaCategoryOrder",
+        "attackSpellbooks",
+        "attackSpells",
+        "pets",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "shopUpgradeChains",
+        "itemUpgrades",
+        "tutorialStages",
+        "tutorialStageOrder",
+        "randomGems",
+        "skillData",
+        "bankSortOrder",
+        "lore",
+        "golbinRaid",
+        "modifiers"
+      ],
+      "record_counts": {
+        "pages": 26,
+        "gamemodes": 1,
+        "equipmentSlots": 19,
+        "items": 671,
+        "attackStyles": 8,
+        "combatEffectGroups": 26,
+        "combatEffectTemplates": 53,
+        "combatEffects": 34,
+        "attacks": 41,
+        "combatPassives": 20,
+        "monsters": 66,
+        "combatAreas": 12,
+        "dungeons": 8,
+        "combatAreaCategories": 2,
+        "combatAreaCategoryOrder": 1,
+        "attackSpellbooks": 1,
+        "attackSpells": 20,
+        "pets": 26,
+        "shopCategories": 6,
+        "shopCategoryOrder": 1,
+        "shopPurchases": 82,
+        "shopDisplayOrder": 1,
+        "shopUpgradeChains": 3,
+        "itemUpgrades": 119,
+        "tutorialStages": 10,
+        "tutorialStageOrder": 1,
+        "randomGems": 5,
+        "skillData": 13,
+        "bankSortOrder": 1,
+        "lore": 1,
+        "modifiers": 570
+      },
+      "dependent_namespaces": [],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorExpansion2.json",
+      "namespace": "melvorAoD",
+      "url": "https://steam.melvoridle.com/assets/data/melvorExpansion2.json?528",
+      "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5",
+      "bytes": 2471662,
+      "keys": [
+        "skillLevelCapIncreases",
+        "gamemodes",
+        "pages",
+        "items",
+        "attacks",
+        "combatPassives",
+        "curseSpells",
+        "auroraSpells",
+        "attackSpells",
+        "monsters",
+        "combatAreas",
+        "slayerAreas",
+        "dungeons",
+        "prayers",
+        "pets",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "shopUpgradeChains",
+        "itemUpgrades",
+        "itemSynergies",
+        "bankSortOrder",
+        "skillData",
+        "ancientRelics",
+        "ancientRelicsDisplayOrder",
+        "combatEffects",
+        "modifiers"
+      ],
+      "record_counts": {
+        "skillLevelCapIncreases": 4,
+        "gamemodes": 3,
+        "pages": 2,
+        "items": 699,
+        "attacks": 101,
+        "combatPassives": 16,
+        "curseSpells": 2,
+        "auroraSpells": 2,
+        "attackSpells": 2,
+        "monsters": 46,
+        "combatAreas": 8,
+        "slayerAreas": 3,
+        "dungeons": 5,
+        "prayers": 17,
+        "pets": 9,
+        "shopCategories": 1,
+        "shopCategoryOrder": 1,
+        "shopPurchases": 88,
+        "shopDisplayOrder": 3,
+        "shopUpgradeChains": 4,
+        "itemUpgrades": 193,
+        "itemSynergies": 3,
+        "bankSortOrder": 158,
+        "skillData": 26,
+        "ancientRelics": 156,
+        "ancientRelicsDisplayOrder": 1,
+        "combatEffects": 70,
+        "modifiers": 3
+      },
+      "dependent_namespaces": [
+        "melvorTotH"
+      ],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorFull.json",
+      "namespace": "melvorF",
+      "url": "https://steam.melvoridle.com/assets/data/melvorFull.json?528",
+      "sha256": "aa3d0babaaa5ef1bde4f0c0d6b5c50ae5d5db88b042684762cc97f50f24263f8",
+      "bytes": 2527657,
+      "keys": [
+        "damageTypes",
+        "gamemodes",
+        "items",
+        "attacks",
+        "combatPassives",
+        "monsters",
+        "itmMonsters",
+        "slayerAreas",
+        "dungeons",
+        "combatEvents",
+        "slayerTaskCategories",
+        "prayers",
+        "attackSpellbooks",
+        "attackSpells",
+        "curseSpells",
+        "auroraSpells",
+        "pets",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "itemUpgrades",
+        "itemSynergies",
+        "strongholds",
+        "combatAreaCategories",
+        "combatAreaCategoryOrder",
+        "tutorialStages",
+        "tutorialStageOrder",
+        "steamAchievements",
+        "skillData",
+        "bankSortOrder",
+        "lore",
+        "golbinRaid",
+        "combatEffects",
+        "combatEffectTables"
+      ],
+      "record_counts": {
+        "damageTypes": 1,
+        "gamemodes": 6,
+        "items": 735,
+        "attacks": 116,
+        "combatPassives": 60,
+        "monsters": 106,
+        "itmMonsters": 50,
+        "slayerAreas": 13,
+        "dungeons": 9,
+        "combatEvents": 1,
+        "slayerTaskCategories": 5,
+        "prayers": 31,
+        "attackSpellbooks": 1,
+        "attackSpells": 9,
+        "curseSpells": 14,
+        "auroraSpells": 12,
+        "pets": 36,
+        "shopCategories": 2,
+        "shopCategoryOrder": 2,
+        "shopPurchases": 119,
+        "shopDisplayOrder": 16,
+        "itemUpgrades": 64,
+        "itemSynergies": 23,
+        "strongholds": 4,
+        "combatAreaCategories": 2,
+        "combatAreaCategoryOrder": 2,
+        "tutorialStages": 12,
+        "tutorialStageOrder": 1,
+        "steamAchievements": 92,
+        "skillData": 20,
+        "bankSortOrder": 78,
+        "lore": 4,
+        "combatEffects": 64,
+        "combatEffectTables": 4
+      },
+      "dependent_namespaces": [],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorItA.json",
+      "namespace": "melvorItA",
+      "url": "https://steam.melvoridle.com/assets/data/melvorItA.json?528",
+      "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78",
+      "bytes": 3470080,
+      "keys": [
+        "skillLevelCapIncreases",
+        "damageTypes",
+        "combatEffectGroups",
+        "combatEffectTemplates",
+        "combatEffects",
+        "attacks",
+        "realms",
+        "combatTriangleSets",
+        "pages",
+        "skillData",
+        "items",
+        "bankSortOrder",
+        "monsters",
+        "combatAreas",
+        "slayerAreas",
+        "dungeons",
+        "combatAreaCategories",
+        "combatAreaCategoryOrder",
+        "combatPassives",
+        "prayers",
+        "attackSpellbooks",
+        "attackSpells",
+        "randomAbyssalGems",
+        "randomFragments",
+        "randomFiremakingOils",
+        "itemUpgrades",
+        "itemSynergies",
+        "strongholds",
+        "abyssDepths",
+        "slayerTaskCategories",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopUpgradeChains",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "pets",
+        "ancientRelics",
+        "modifiers",
+        "skillTreesDisplayOrder"
+      ],
+      "record_counts": {
+        "skillLevelCapIncreases": 4,
+        "damageTypes": 2,
+        "combatEffectGroups": 9,
+        "combatEffectTemplates": 4,
+        "combatEffects": 157,
+        "attacks": 204,
+        "realms": 2,
+        "combatTriangleSets": 1,
+        "pages": 1,
+        "skillData": 26,
+        "items": 1041,
+        "bankSortOrder": 76,
+        "monsters": 101,
+        "combatAreas": 12,
+        "slayerAreas": 14,
+        "dungeons": 2,
+        "combatAreaCategories": 4,
+        "combatAreaCategoryOrder": 1,
+        "combatPassives": 54,
+        "prayers": 31,
+        "attackSpellbooks": 1,
+        "attackSpells": 28,
+        "randomAbyssalGems": 4,
+        "randomFragments": 5,
+        "randomFiremakingOils": 5,
+        "itemUpgrades": 201,
+        "itemSynergies": 2,
+        "strongholds": 4,
+        "abyssDepths": 9,
+        "slayerTaskCategories": 7,
+        "shopCategories": 2,
+        "shopCategoryOrder": 2,
+        "shopUpgradeChains": 4,
+        "shopPurchases": 78,
+        "shopDisplayOrder": 6,
+        "pets": 15,
+        "ancientRelics": 156,
+        "modifiers": 2,
+        "skillTreesDisplayOrder": 1
+      },
+      "dependent_namespaces": [
+        "melvorAoD"
+      ],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    },
+    {
+      "file": "melvorTotH.json",
+      "namespace": "melvorTotH",
+      "url": "https://steam.melvoridle.com/assets/data/melvorTotH.json?528",
+      "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f",
+      "bytes": 1677580,
+      "keys": [
+        "skillLevelCapIncreases",
+        "items",
+        "attacks",
+        "combatPassives",
+        "monsters",
+        "slayerAreas",
+        "dungeons",
+        "slayerTaskCategories",
+        "prayers",
+        "curseSpells",
+        "auroraSpells",
+        "attackSpellbooks",
+        "attackSpells",
+        "pets",
+        "shopCategories",
+        "shopCategoryOrder",
+        "shopPurchases",
+        "shopDisplayOrder",
+        "itemUpgrades",
+        "itemSynergies",
+        "bankSortOrder",
+        "randomSuperiorGems",
+        "spiderLairMonsters",
+        "lore",
+        "skillData",
+        "golbinRaid",
+        "combatEffects"
+      ],
+      "record_counts": {
+        "skillLevelCapIncreases": 4,
+        "items": 602,
+        "attacks": 159,
+        "combatPassives": 62,
+        "monsters": 58,
+        "slayerAreas": 8,
+        "dungeons": 7,
+        "slayerTaskCategories": 2,
+        "prayers": 8,
+        "curseSpells": 3,
+        "auroraSpells": 4,
+        "attackSpellbooks": 1,
+        "attackSpells": 10,
+        "pets": 15,
+        "shopCategories": 1,
+        "shopCategoryOrder": 1,
+        "shopPurchases": 67,
+        "shopDisplayOrder": 14,
+        "itemUpgrades": 108,
+        "itemSynergies": 8,
+        "bankSortOrder": 87,
+        "randomSuperiorGems": 4,
+        "spiderLairMonsters": 6,
+        "lore": 11,
+        "skillData": 21,
+        "combatEffects": 62
+      },
+      "dependent_namespaces": [],
+      "semantic_review": "specific JSON pointers and actual consumers only; remaining records unread"
+    }
+  ],
+  "private_other_recovered_sources": [
+    {
+      "file": "artisanMenu.js",
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/production/artisanMenu.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/artisanMenu.js?12097",
+      "sha256": "413e630026d653d9e47f7f2067bb66ee8d8bca483fa6cbd6b52926460f71c5c0",
+      "lines": 241,
+      "semantic_review": "acquired-unread"
+    },
+    {
+      "file": "summoningMenus.js",
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/production/summoningMenus.js",
+      "url": "https://steam.melvoridle.com/assets/js/built/summoningMenus.js?12097",
+      "sha256": "bee8e0f8ea930f9f7881639f412540e62256b8a31f6db05bac9dcee943baf2bd",
+      "lines": 466,
+      "semantic_review": "exact spans in readers/production.json"
+    }
+  ]
+}

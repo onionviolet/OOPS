@@ -1,0 +1,31 @@
+# Amazing Cultivation Simulator research GM
+
+Human request, 2026-10-06: Weibao has obtained Amazing Cultivation Simulator and explicitly requests a new GM chat to inspect/decompile it and learn mechanics useful for YAIRPG. This is a concrete research and adaptation task. Local inspection and decompilation are authorized; no further generic permission is needed.
+
+## Objective and evidence
+
+Trace five useful systems in the installed edition: cultivation methods/breakthrough preparation and environmental timing; artifact/material/medicine production; actor work selection and social memory; sect knowledge/institution/exploration; and discovery, automation and pacing. Refine these tracks when actual source reveals a better division. Produce at most five original, source-backed adaptation packets with real YAIRPG consumers and later playable acceptance criteria. Finish the finite research objective across checkpoints.
+
+Verified intake: Steam app955900, build17074448, manifest StateFlags4. Installed directory `/Users/weiwei/Library/Application Support/Steam/steamapps/common/AmazingCultivationSimulator`. `Amazing Cultivation Simulator_Data/Managed` contains86DLLs, including `Assembly-CSharp.dll` (7948800bytes) and `Assembly-CSharp-firstpass.dll` (2471424bytes). Top-level `Settings`, `Scripts` and `Mods` are present. Scripts include Magic, Skill, Modifier, Mutation, Fabao and RPG; Settings includes JobDef, NpcStories and Modifiers. These names establish accessible inputs, not semantic coverage or particular mechanics.
+
+Recheck the manifest, assembly hashes and actual inputs before export. Read accessible scripts/data/mod documentation first. Decompile the matching managed implementation where needed and actually trace selected call paths; do not stop at an assembly inventory. Existing tools are recorded in `docs/research/idling-to-rule-the-gods/INTAKE.json`: private osx-arm64 .NET runtime and ILSpy command line at `/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/`. Verify those live rather than installing a new tool stack speculatively. ILSpy, Lua and data inspection are target candidates; other tools are justified only by actual input format.
+
+## Ownership and preservation
+
+The new GM exclusively owns `docs/research/amazing-cultivation-simulator/`. Raw copied binaries, recovered C#, table exports and logs belong outside Git under `/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/`, with manifests and source pins. Installed source files remain read-only. Preserve personal saves/profiles, source libraries, unrelated dirty work, LICENSE and upstream attribution.
+
+Read `AGENTS.md`, live `PROJECT.md`, relevant runtime, `docs/GAME_MASTER_PROMPT.md#context-pressure-and-refresh`, `docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md` and `AUTONOMOUS_GOALS_AND_FULL_BOOKS.md`. Apply `/Users/weiwei/.codex/skills/evidence-gated-handoff/SKILL.md`; use session-handoff for meaningful checkpoint recovery and efficient-agent-routing if bounded internal delegation is useful. There is no assumed installed decompilation skill or MCP. Current host limits and exclusive leaf scopes apply.
+
+Current shared integrator is chat01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd (`Implement audited RPG features`); inspect its live remainder ownership before suggesting integration. Causal01a10fa6 owns causal_story modules. Separate generic discovery chat01a112b9 owns `docs/research/game-discovery-2026-10-06/`; its current candidates are BrogueCE, Shattered Pixel Dungeon and Sil-Q. Reuse its later output if relevant, and do not duplicate its writers. Existing ITRTG research is complete in `docs/research/idling-to-rule-the-gods/`. This packet does not authorize messaging other chats or modifying their owners, canonical project documents, runtime, saves or builds.
+
+## Delivery and acceptance
+
+Latest direct human steering: include DLC and expansions. Inventory the installed edition, available official DLC and any installed DLC payloads. Record supported evidence per DLC: actual inspected source, installed but unread, primary-documentation-only, or unavailable. Distinguish gameplay systems and new routes from artbooks, cosmetics and soundtracks. Trace DLC mechanics that materially extend the five research families, including interactions with base-game state; do not silently treat base-game findings as DLC coverage. No purchase or entitlement change is authorized.
+
+Own `INTAKE.json`, `REPORT.md`, `FINDINGS.json`, `COVERAGE.json`, `IMPLEMENTATION_PACKETS.md`, `PACKETS.json` and `CHECKPOINT.md` in the reserved directory. Freeze relevant installed inputs/tool versions/export commands; distinguish raw recovery, semantic source review, observed behavior and proposed adaptation.
+
+Each selected trace identifies prerequisite, player/NPC decision, actual input expenditure, state mutation, downstream consumer, time/automation policy, failure path and aftermath. Include exact source locators/hashes and unread/uncertain limits. File counts and recovered names do not prove whole-game reading. Separate code-established facts from source comments, marketing, inference and original design. Do not assume romance support from generic NPC relationships.
+
+Each original packet identifies a concrete player journey, reused current YAIRPG owner, exact missing consumer, costs/choices/retained consequences, compatibility needs and remaining acceptance gate. Prefer character-centered techniques, preparation, useful crafts, mentors/companions and institutions; extract rules from colony simulation only where they improve that journey. Preserve the original opening and first one-realm/one-prestige milestone; no replacement clock/inventory/save publisher or added prestige layer is selected.
+
+Research acceptance: reproducible copied-input/export record, five supported finite traces (or precise access limits with useful substitute traces), no unresolved factual contradictions in selected claims, parsed/linked artifacts and at most five decision-ready packets. A successful decompile does not establish behavior, balance or a playable YAIRPG implementation. Current gameplay/unit/browser/save-failure/regression/director suites remain deferred. No purchase, game installation, global configuration, commit/push/publication or automation is part of this task.

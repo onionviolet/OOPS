@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "projectionVersion": 2,
+  "status": "source-static-checked-native-ui-build-admission-pending",
+  "sourceHash": "5179168c245bae6c01a748eeef49b81015d384b3901bc01f1499d3ed4aeac9e4",
+  "exportsAdded": [
+    "projectEssentialRecovery",
+    "projectRecognitionLegibility",
+    "projectReplacementLegibility",
+    "projectSubtletyKnowledgeLegibility"
+  ],
+  "checks": {
+    "syntax": "node --check passed",
+    "coldImportExports": "dynamic import passed; 13 exports/version2; no DOM or action evaluation",
+    "relativeLinks": "pass",
+    "whitespaceFinalNewline": "pass",
+    "sourceReview": "explicit viewer recipients; separate observer judgment/test; same-observer correction with prior retained account; individually qualified carrier details; no privateTruth/current NPC/carrier scan; exact displayed command clone; observed cause matching"
+  },
+  "sharedBuild": "Current source2 differs from baseline48e8a7514ff2; actual new consumers and matched final build still required",
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "changedPaths": [
+    "src/action_legibility.js"
+  ],
+  "inputHashes": {
+    "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md": "b2b0264b7081121e0ed05e24c14a274228c06fd54741eb37238bfa9ae81277de",
+    "docs/gm/feature-wave/features/book-world-subtleties/INTERFACE.md": "51384c10d48855a1d43709f1ffdfd12c5bbe81d6b76d88e1271ae6ef805b61c1",
+    "docs/gm/feature-wave/legibility/RECOGNITION_INTERFACE.md": "77f0369fb98ffb6cb20691d885a10701d7e1247312a78ef2e356fe08dde43f38"
+  }
+}

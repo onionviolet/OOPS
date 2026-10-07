@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "observedUTC": "2026-10-05 13:48:44 UTC",
+  "assigningThreadId": "01a10a5f-186a-7420-b02f-7ef1c4880d68",
+  "packet": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+  "newChatsCreated": false,
+  "scope": "Wider/deeper USER_VISION planning, timeline styles and choice-to-ending graphs; recovery of the previous authorized skill/discovery implementation after network failures.",
+  "roles": [
+    {
+      "kind": "analysis",
+      "role": "timeline",
+      "threadId": "01a10998-5d20-7480-83c3-eba338d63d08",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c51-f1e8-7420-9890-ba80410a0c76",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208059,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "55b86ea7-1302-40ff-8c72-782ae77a8902:1",
+      "initialProgress": "I’ll compare timeline styles, then build two causal choice graphs with distinct endings, persistent aftermath and useful return paths in the new branching report directory."
+    },
+    {
+      "kind": "analysis",
+      "role": "society",
+      "threadId": "01a10998-3659-74d1-a1c7-732b2020c74c",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c51-fd97-7071-9830-fcb499becb5a",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208062,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "5e91172b-bc7e-442a-8ca0-15a3235921d3:1",
+      "initialProgress": "I’ll trace two social choices from an early meeting into different career or community outcomes, using the original USER_VISION wording and current code owners. I’ll reuse the completed audit and save this branching analysis in its own report folder."
+    },
+    {
+      "kind": "analysis",
+      "role": "granularity",
+      "threadId": "01a10488-0145-7171-802f-274b034b7fd7",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c52-111e-7aa2-a69c-5923ce985a7b",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208067,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "075e2754-a1e0-46b9-9f6b-5970c05a084f:1",
+      "initialProgress": "I’m using the agent-routing and evidence-gated handoff skills to split the analysis into disjoint reviews and keep each proposal tied to a concrete player action and existing owner."
+    },
+    {
+      "kind": "analysis",
+      "role": "frontier",
+      "threadId": "01a10945-010b-7a91-844a-d6d3024c6f35",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c52-165b-76f2-a9de-5d641c366054",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208068,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "022fcba0-145f-469a-bf22-6d45d46d306e:6",
+      "initialProgress": "The campaign and completion documents are saved; I’ll verify the partial writes before continuing. I’ll add cumulative choices and endings to the same plan, with supported clocks and useful post-arc lives, while keeping the source module held."
+    },
+    {
+      "kind": "analysis",
+      "role": "plan",
+      "threadId": "01a1074b-e2ed-7523-a0cd-56de915fbcd9",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c52-18fb-7e21-b391-5b681fad1730",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208069,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "51980a2d-7f32-4a08-986e-46b8afe6638a:3",
+      "initialProgress": "I’ll continue from the saved revision 6 plan and add the timeline/endings analysis when its returns arrive. The four-skill implementation keeps its current authorization; broader time, death and world mechanics remain planning work."
+    },
+    {
+      "kind": "recovery",
+      "role": "engine",
+      "threadId": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c52-1c20-7950-b530-dc89d0de7aa1",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208070,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "24c8c52e-2e4b-4413-84b0-22a32110e147:6",
+      "initialProgress": "I’m resuming the same skills-and-discovery objective after the transport failure. I’ll inspect the saved modules and any partial changes, then finish their native registration, action consumers, renderer bindings and rebuild."
+    },
+    {
+      "kind": "recovery",
+      "role": "ability",
+      "threadId": "01a104a2-fabf-7bf1-a95f-1e93353b9196",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10c52-1ea4-7c51-8291-ed03fefabdcd",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791208070,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "cursor": "4f143012-13c9-447e-a02a-eb65fa2bc56a:6",
+      "initialProgress": "I’m continuing the same four-skill assignment from the saved files. The source-review helper’s connection failed; its earlier consumer report is saved. I’ll finish the review here and check the Engine’s updated contract."
+    }
+  ],
+  "evidenceLimits": "Dispatch and initial progress only; no completed analysis or implemented timeline/ending gameplay is claimed. Existing skill implementation requires native integration/current build and deferred behavioral gates."
+}

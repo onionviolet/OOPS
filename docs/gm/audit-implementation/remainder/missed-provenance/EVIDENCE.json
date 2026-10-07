@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "scope": "MW-03 ALL19 immutable unactivated source contracts",
+  "worker": "/root/remainder_offers",
+  "parent": "/root",
+  "capturedAt": "2026-10-06T20:12:31.011172+00:00",
+  "inputHashes": {
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/gm/missed-work-audit/REPORT.md": "54ff46c6b806864abbb24122f18dbe2a20463e93e27bda4acf771e49179a7edf",
+    "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+    "docs/gm/book-world-player-agency/contracts/CHECKPOINT.md": "a33155d8be5784d1ba5e3d59cdde9a32ba658be8684facb056ba765a00157d04",
+    "src/main.js": "9e43e2083ec35fc9f213a84a3aa99e29cec0517e46b42b5b41f5f0409dbc9c8d"
+  },
+  "outputHashes": {
+    "src/book_world_player_agency_contracts.js": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+    "docs/gm/book-world-player-agency/contracts/CONTRACTS.json": "575753268afa4edafe13856d1c892b5af69533f1fb17c143a05602863141bed8",
+    "docs/gm/audit-implementation/remainder/missed-provenance/BEFORE.json": "eacdff9de4ee5e4f947c4310ac156c5b7bf801bdd18f48a5ddc242ae8d08946b",
+    "docs/gm/audit-implementation/remainder/missed-provenance/COVERAGE.json": "5da430ffc531f7e7c85f1cc8ce4b0937cbe943a20ed7f6c67e59247c08e9ec34",
+    "docs/gm/audit-implementation/remainder/missed-provenance/CHECKPOINT.md": "4a53dadb17c6267b290a550450ce7f27f2051cc263a99b53103abca5f6383712",
+    "docs/gm/audit-implementation/remainder/missed-provenance/RELEASE.md": "e6abf341f03a3958d64126a5c26b40e3ff0b9d87fb2dce4e143337505b913cad"
+  },
+  "priorContractBookSha256": "e96d85c7c2529f143e7b60dfc72d8f94576819a7ef344802f2993e36c849f66c",
+  "assembledSnapshotMatchesCaptured": true,
+  "dataChecks": {
+    "rows": 19,
+    "missingOriginalSourceFields": [],
+    "auxiliaryFieldsRetained": true,
+    "nonSourceContractContentUnchanged": true,
+    "allUnactivated": true,
+    "exactRowRetrievals": true
+  },
+  "sourceChecks": [
+    {
+      "kind": "syntax",
+      "command": "node --check src/book_world_player_agency_contracts.js",
+      "exitCode": 0
+    },
+    {
+      "kind": "esm-import-definition",
+      "result": {
+        "valid": true,
+        "count": 19,
+        "errors": []
+      },
+      "allAliasesResolve": true
+    },
+    {
+      "kind": "definition-only-omission",
+      "count": 69,
+      "rejected": 69,
+      "missed": [],
+      "cases": "empty editions/citations/reviewed source refs for all19 and removed supplied hashes for all12 novels; no game state or save execution"
+    },
+    {
+      "kind": "repository-reference-links",
+      "paths": 108,
+      "missing": []
+    }
+  ],
+  "sharedConsumerRequirement": "Root main currently discards validator result; check valid and fail closed on definition errors if startup rejection is required. Main remains root-owned.",
+  "unperformed": [
+    "build",
+    "gameplay/unit/browser",
+    "save/reload/import/failure/regression/director"
+  ],
+  "scopePreservation": [
+    "Only assigned two existing files plus new evidence directory",
+    "All story/activation fields unchanged",
+    "No books reread or source libraries modified",
+    "No private saves",
+    "No commit/push/publication/automation",
+    "No subagent"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "research": {
+    "title": "Caves of Qud NPC behavior and social service paths",
+    "game_version": "2.0.211.56",
+    "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+    "source": "Private completed ILSpy 9.1 export; observations below are paraphrased from copied source.",
+    "source_root": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+    "scope_limits": [
+      "Read-only source inspection only; no game launch, install, save access, or source mutation.",
+      "Items/Furniture/Creatures.xml contain numeric control-character references rejected by a standard XML 1.0 parser. Those files were not treated as successfully parsed runtime data, and no missing data behavior is inferred from them.",
+      "This is static decompilation evidence, not runtime confirmation. Dynamic event handlers and data-driven command lists can add behavior outside the inspected paths."
+    ]
+  },
+  "paths": [
+    {
+      "id": "combat_goal_action_selection",
+      "question": "How does a brain choose an action using present abilities, equipment and context, and what does it do when an option fails?",
+      "observed": [
+        "Brain's CommandTakeAction skips or consumes turns for invalid/nowhere actors, failed pre-action gates, calm state, hibernation, frozen state, and confusion; otherwise it handles party targeting, target acquisition, removes finished goals, installs Bored when needed, and invokes the top goal handler.",
+        "Kill validates combat status, target visibility/existence, party safety, hostility unless directed, current cells, intervening friendly/neutral combatants, target distance, and fire state before attack selection. It allows event hooks to veto or defer stages.",
+        "At melee distance, flight/phase mismatch switches to an opportunity target or pushes Flee. The actor's customMeleeOrder can select an order; otherwise the melee order list is shuffled. Its candidates include missile attacks, offensive abilities, defensive abilities/items and items. Ability/item command lists are queried for the current actor and target, and a failed/unavailable candidate lets the loop continue. If none succeeds, the fallback is a swoop attack when flying and available, otherwise a direct cell attack.",
+        "At range, the analogous custom/default missile order tries defensive abilities/items, offensive abilities, reloading/firing equipped missile weapons, thrown weapons and items. If none succeeds, an actor that can move pursues by pathfinding; after repeated failure it may stop pursuit and hibernate, while aquatic actors flee when pathfinding fails.",
+        "Missile selection requires same zone, combat-target validity, a body, an equipped missile weapon, permitted target/range, unobstructed line checks (including friendly fire), and AIWantUseWeaponEvent acceptance. Failure continues to another weapon or action candidate."
+      ],
+      "evidence": [
+        {
+          "file": "XRL.World.Parts/Brain.cs",
+          "symbol": "Brain.HandleEvent(CommandTakeActionEvent)",
+          "lines": "2337-2484",
+          "sha256": "21b30f39cd8eb8ebcedf170e718e1083e0da66335530824325154f91aeb97f91"
+        },
+        {
+          "file": "XRL.World.AI.GoalHandlers/Kill.cs",
+          "symbol": "Kill.TryAbilities; TryItems; TryMissileWeapon; TakeAction",
+          "lines": "223-380, 400-425, 468-640, 641-830",
+          "sha256": "3f51d0690241b1aee426cf3d92ead89f30102d79ca32ae46dbdd576fdad000f0"
+        }
+      ],
+      "limits": [
+        "The inspected Kill path delegates ability eligibility and execution to event-generated AI command lists; this report does not claim a complete catalogue of abilities or all ability-specific constraints.",
+        "Default order is shuffled, so when several candidate kinds are usable their priority is not a fixed universal ranking."
+      ]
+    },
+    {
+      "id": "water_ritual_skill_learning",
+      "question": "How does a reputation-priced NPC service connect actor availability and an enduring remembered/source consequence?",
+      "observed": [
+        "The common ritual part computes affordability from current reputation with the speaker's record faction and computed cost. On selection, UseReputation recomputes the adjusted cost and rechecks the current balance before modifying reputation, so a stale displayed quote alone cannot authorize purchase.",
+        "WaterRitualLearnSkill suppresses the service when the speaker has WaterRitualNoSellSkill or no resolvable configured skill. The configured skill can come from speaker property/tag or the faction's normal/alternate offering. It rejects invalid conversation elements, an already-held ordinary skill, or an unavailable/already-used initiatory lesson; the quote is adjusted by GetWaterRitualCostEvent.",
+        "On selection it spends faction reputation, resolves the initiatory skill if applicable, records the player's current level under a speaker-and-entry initiatory key, and calls AddSkill with the speaker as source and context WaterRitual,LearnSkill. This preserves an acquisition attribution to the actual teacher in the skill-add path.",
+        "The encompassing first ritual interaction marks the speaker WaterRitualed, adds a journal accomplishment naming the participant and shared liquid, and modifies faction reputation using speaker rep value (or the default love amount), performance, and event-adjusted awards. Repeat ritual entry does not repeat that first-ritual accomplishment/award path, though it emits the ritual-start event."
+      ],
+      "evidence": [
+        {
+          "file": "XRL.World.Conversations.Parts/IWaterRitualPart.cs",
+          "symbol": "IWaterRitualPart.Affordable; GetReputationCost; UseReputation",
+          "lines": "6-15, 56-75",
+          "sha256": "eac05471436ff64b963167d798333532147c82adaac7a73f8d4844279dfa137e"
+        },
+        {
+          "file": "XRL.World.Conversations.Parts/WaterRitualLearnSkill.cs",
+          "symbol": "WaterRitualLearnSkill.Awake; Unlock; HandleEvent(EnteredElementEvent)",
+          "lines": "43-99, 101-119, 140-151",
+          "sha256": "7e3dd0acc4bfc379f4913c655f6a89d9c6aa59952be4ba5140da8f93014a9d00"
+        },
+        {
+          "file": "XRL.World.Conversations.Parts/WaterRitual.cs",
+          "symbol": "WaterRitual.HandleEvent(EnteredElementEvent); PerformRitual; AddAccomplishment; ModifyReputation",
+          "lines": "99-121, 136-155",
+          "sha256": "09eddcd0c1469faa9398675f3878fa9812834e9b2e23860e677307cc4fec004f"
+        },
+        {
+          "file": "XRL.World/GameObject.cs",
+          "symbol": "GameObject.AddSkill(string, GameObject, string)",
+          "lines": "9709-9725",
+          "sha256": "b00d7a22f93adb47c05b39f170ae1c1ec23bd112210da69f77a074d6b4588133"
+        }
+      ],
+      "limits": [
+        "The skill addition passes speaker/context as provenance parameters; the inspected excerpt does not establish how every downstream skill part serializes or displays that provenance.",
+        "The journal accomplishment remembers the ritual encounter, while the learned skill is a durable capability. The code does not make the journal entry a prerequisite for the skill or imply a personal relationship-memory system."
+      ]
+    }
+  ],
+  "yair_adaptations": [
+    {
+      "proposal": "Add a contextual NPC combat decision profile that names candidate action kinds and ordered fallbacks, with each candidate checked against owned power, readiness, usable body/equipment, target, range, world rules and collateral risk before execution. Keep the current simple attack as the final fallback.",
+      "qualification": "YAIR already has simulation command previews checking actors, living/co-located participants, availability, busy state and power ownership/readiness/world support in src/simulation.js; src/power_models.js supplies model capacity/cost rules, and capability/equipment/native battle consumers already exist. This would join existing consumers for readable NPC behavior, not introduce a missing universal power framework."
+    },
+    {
+      "proposal": "Offer one bounded, attributed lesson in a real meeting: require the living available teacher and learner, the learned prerequisites and an affordable regional reputation price; on settlement grant only the specified new knowledge/capability, retain teacher attribution and a directed memory, and record the heard/result in the player's person knowledge.",
+      "qualification": "YAIR simulation already has participant occupancy and life/location gates, native reputation effects, knowledge and directed relationship memories (src/simulation.js, src/simulation_effects.js, src/simulation_contracts.js). Society content already models consent, funds, lessons and reported outcomes in src/feature_expansion_society.js; people_knowledge.js exposes reported memories. A lesson would be a content composition using these owners, with no new generic relationship or learning subsystem assumed."
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "status": "passed_finite_source_research_acceptance",
+  "validated_at_utc": "2026-10-06T05:52:50.471496+00:00",
+  "source_commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+  "checks": {
+    "json_parsing": "passed",
+    "five_paths_with_reviewed_callers_eligibility_mutations_consumers_failures": "passed",
+    "source_file_and_span_hashes": "passed",
+    "source_files_against_pinned_git_blobs": "passed",
+    "source_worktree_clean": "passed",
+    "source_license_config_provenance_and_tree_manifest_hash": "passed",
+    "current_yair_refreshed_file_span_hashes": "passed",
+    "semantic_read_range_bounds": "passed",
+    "pinned_github_links_against_git_paths_and_line_bounds": "passed",
+    "local_markdown_links": "passed",
+    "ranked_packets_with_player_actions_costs_owners_save_and_later_acceptance": "passed",
+    "final_artifact_readback": "passed"
+  },
+  "counts": {
+    "paths": 5,
+    "ranked_original_packets": 4,
+    "source_evidence_spans_checked": 122,
+    "distinct_evidence_source_files": 28,
+    "current_yair_evidence_spans_checked": 46,
+    "semantic_source_files": 29,
+    "semantic_source_lines": 4366,
+    "tracked_source_files": 939
+  },
+  "repairs_and_drift": [
+    {
+      "lane": "actor_material_paths",
+      "issue": "workshop_info and nested_life EOF bounds",
+      "disposition": "worker repaired all ranges; original stale YAIR hashes preserved"
+    },
+    {
+      "lane": "training_body_path",
+      "issue": "carried versus equipped ranged weapon and mixed hash extents",
+      "disposition": "worker repaired exact single-file source spans; root reviewed actual consumer"
+    },
+    {
+      "lane": "base_recruitment_path",
+      "issue": "incorrect source/ URL prefix, out-of-range evidence index, population and fallback qualification",
+      "disposition": "worker repaired; root further bounded site_projects after writer release"
+    },
+    {
+      "lane": "root_current_yair",
+      "issue": "other GMs changed simulation/simulation_effects/main during source review",
+      "disposition": "root reread relevant changed spans, refreshed current evidence and retained superseded observations; no runtime edits"
+    }
+  ],
+  "limits": {
+    "whole_keeperrl_source_review": false,
+    "commercial_build_parity": false,
+    "game_build_or_launch": false,
+    "yair_runtime_implemented": false,
+    "gameplay_balance_or_performance_verified": false,
+    "gameplay_unit_browser_save_failure_regression_suites_run": false,
+    "private_save_profile_access": false,
+    "commit_push_publication_automation": false,
+    "future_playable_gate_owner": "future runtime integrator and director, under current deferral policy"
+  },
+  "writer_scope": "new docs/research/keeperrl files only except dispatcher ASSIGNMENT",
+  "worker_status": "all completed and released; no pending process",
+  "artifacts": [
+    {
+      "file": "ACTOR_MATERIAL_NOTES.json",
+      "bytes": 19222,
+      "sha256": "af9ad5ec4dbeeae3e0e45295bc1ef6449ffda2c1f54d879d003539c592c5d22e"
+    },
+    {
+      "file": "BASE_RECRUITMENT_NOTES.json",
+      "bytes": 23006,
+      "sha256": "809e174d979ba5e435ea90bc5d8cd45f99232487bb39cc3708c897e45f8f7a95"
+    },
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 3022,
+      "sha256": "9544ae970c3afb59a552bc0fd7205bbc244a94caa2952977fba32d78b7df63fa"
+    },
+    {
+      "file": "COVERAGE.json",
+      "bytes": 53910,
+      "sha256": "ac288824c83768d3922f4c5e5861a369e565f7de3ab3236f07cbec80a97cc298"
+    },
+    {
+      "file": "FINDINGS.json",
+      "bytes": 122037,
+      "sha256": "32aa6ee6795f29c19700c7bfad1c2a5e4f0f9635f916a66a9c9d0dc77b3429ae"
+    },
+    {
+      "file": "IMPLEMENTATION_PACKETS.md",
+      "bytes": 14897,
+      "sha256": "f2811fc9ed00a044eb8a4edb106e776d10a660443d14d4105e71c1a3831b276c"
+    },
+    {
+      "file": "INTAKE.json",
+      "bytes": 5539,
+      "sha256": "f7a31ce4af30545f20c2e75cc204317fa156e4aa846d9c820e266963b6904463"
+    },
+    {
+      "file": "REPORT.md",
+      "bytes": 9306,
+      "sha256": "00e3b232af375474b7ee1f3ac9f909ef9bf378c8f02b62b05719ee6eb7eb7d67"
+    },
+    {
+      "file": "TRAINING_BODY_NOTES.json",
+      "bytes": 24959,
+      "sha256": "46609fd98d78ba4d536f7301c0aa8c9c5304b53a798c50c5488309e1818b1fa2"
+    },
+    {
+      "file": "WORLD_CONSEQUENCE_NOTES.json",
+      "bytes": 49496,
+      "sha256": "6a70047cb1a7c87faa728b9c05ab0f013f2583b8aac0dc1adb8ce652381b22eb"
+    }
+  ],
+  "links_checked": [
+    {
+      "file": "REPORT.md",
+      "target": "IMPLEMENTATION_PACKETS.md",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "INTAKE.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/LICENSE",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/COPYING-MEDIA.txt",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "FINDINGS.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "ACTOR_MATERIAL_NOTES.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "TRAINING_BODY_NOTES.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "BASE_RECRUITMENT_NOTES.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "WORLD_CONSEQUENCE_NOTES.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L64-L114",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/workshops.cpp#L47-L132",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1583-L1619",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/body.cpp#L781-L818",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/immigration.cpp#L487-L517",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/village_control.cpp#L346-L462",
+      "result": "pinned repository path checked"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "COVERAGE.json",
+      "result": "local target exists"
+    },
+    {
+      "file": "REPORT.md",
+      "target": "CHECKPOINT.md",
+      "result": "local target exists"
+    },
+    {
+      "file": "IMPLEMENTATION_PACKETS.md",
+      "target": "FINDINGS.json",
+      "result": "local target exists"
+    }
+  ],
+  "self_hash_policy": "VALIDATION.json intentionally excluded from its own artifact hashes; final readback checks this file separately."
+}

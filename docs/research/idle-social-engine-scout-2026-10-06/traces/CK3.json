@@ -1,0 +1,1156 @@
+{
+  "schema_version": 1,
+  "candidate_id": "CK3",
+  "name": "Crusader Kings III",
+  "observed_date": "2026-10-06",
+  "status": "finite_documentation_research_complete",
+  "recommended_disposition": "selective_adapt",
+  "engine_disposition": "park_whole_engine_transplant",
+  "incumbent": "YAIRPG JavaScript plus Ink, one durable publisher and shared actor/stock/clock owners",
+  "target_gap": "Issue-specific coalitions and institutional leverage have practical causes and consequences independent of personal favorability.",
+  "coverage": {
+    "game_source_files_reviewed": 0,
+    "installed_game_paths_inspected": 0,
+    "proprietary_algorithm": "inaccessible_in_this_research",
+    "installed_scripts": "uninspected",
+    "current_game_build": "not_inspected_or_pinned",
+    "source_trace_claim": false,
+    "public_documentation_only": true,
+    "runtime_or_gameplay_verified": false,
+    "whole_game_or_all_dlc_completion": false
+  },
+  "document_sources": [
+    {
+      "api_url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1158310&count=30&maxlength=0&enddate=1623283200&feeds=steam_community_announcements",
+      "title": "Dev Diary #63 - 1.4.0 “Azure” Patch Notes 🌞",
+      "gid": "4093189347060195840",
+      "publisher_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4093189347060195840",
+      "published_utc": "2021-06-08T07:02:30+00:00",
+      "content_sha256": "5fda22e5531b564d3c03889ed46fe6ee0646417f63cfca046d2beab02bf14bf8",
+      "content_lines": 382,
+      "locator_terms": [
+        "Overall faction dynamic",
+        "power threshold",
+        "faction modifiers"
+      ],
+      "source_kind": "publisher_documentation_not_game_source",
+      "retained_raw_contents": false
+    },
+    {
+      "api_url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1158310&count=30&maxlength=0&enddate=1662681600&feeds=steam_community_announcements",
+      "title": "Dev Diary #104: AI AI AI! 🤖",
+      "gid": "4584122114609880088",
+      "publisher_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4584122114609880088",
+      "published_utc": "2022-08-23T12:31:15+00:00",
+      "content_sha256": "2e1e749d34bbc40f964a7b133a99f36fc5cd2ccb4f9536d0182972f81bf967ce",
+      "content_lines": 178,
+      "locator_terms": [
+        "Realm Stability"
+      ],
+      "source_kind": "publisher_documentation_not_game_source",
+      "retained_raw_contents": false
+    },
+    {
+      "api_url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1158310&count=30&maxlength=0&enddate=1662681600&feeds=steam_community_announcements",
+      "title": "Dev Diary #105: 1.7 \"Bastion\" Update",
+      "gid": "4514316500020794681",
+      "publisher_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/4514316500020794681",
+      "published_utc": "2022-08-30T12:34:16+00:00",
+      "content_sha256": "f317629aba94947eb8060b6a1d77a545bed685c73c3deef0c4719058eac2f3c7",
+      "content_lines": 79,
+      "locator_terms": [
+        "Loyal and Disloyal"
+      ],
+      "source_kind": "publisher_documentation_not_game_source",
+      "retained_raw_contents": false
+    },
+    {
+      "api_url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1158310&count=30&maxlength=0&enddate=1718841600&feeds=steam_community_announcements",
+      "title": "Dev Diary #148 - Administrative Government Part I",
+      "gid": "5746109972566609657",
+      "publisher_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5746109972566609657",
+      "published_utc": "2024-06-11T10:00:37+00:00",
+      "content_sha256": "af4997be7047adff5ac59367da167dbaab31346211088faf4ec3b3a2451f432b",
+      "content_lines": 255,
+      "locator_terms": [
+        "Administrative",
+        "Influence",
+        "Force to Join Faction",
+        "Demand Council Position"
+      ],
+      "source_kind": "publisher_documentation_not_game_source",
+      "retained_raw_contents": false
+    }
+  ],
+  "web_sources": [
+    {
+      "id": "administrative_diary",
+      "url": "https://store.steampowered.com/news/posts/?appids=1158310&enddate=1718712086&feed=steam_community_announcements",
+      "title": "Dev Diary #148 - Administrative Government Part I",
+      "published": "2024-06-11",
+      "locators": [
+        "What is Administrative?",
+        "Spheres of Influence",
+        "Force to Join Faction",
+        "Demand Council Position"
+      ],
+      "scope": "selected_sections_prerelease_documentation"
+    },
+    {
+      "id": "ai_diary",
+      "url": "https://store.steampowered.com/news/posts/?appids=1158310&enddate=1662992785&feed=steam_community_announcements",
+      "title": "Dev Diary #104: AI AI AI!",
+      "published": "2022-08-23",
+      "locators": [
+        "Realm Stability"
+      ],
+      "scope": "selected_section_historical_documentation"
+    },
+    {
+      "id": "bastion_diary",
+      "url": "https://store.steampowered.com/news/posts/?appids=1158310&enddate=1662033633&feed=steam_community_announcements",
+      "title": "Dev Diary #105: 1.7 Bastion Update",
+      "published": "2022-08-30",
+      "locators": [
+        "Loyal and Disloyal Traits"
+      ],
+      "scope": "selected_section_historical_documentation"
+    },
+    {
+      "id": "catalog",
+      "url": "https://store.steampowered.com/dlc/1158310/Crusader_Kings_III/",
+      "scope": "live_catalog_partial_pagination_not_complete_api_inventory"
+    }
+  ],
+  "documented_mechanisms": [
+    {
+      "id": "CK3-D1",
+      "family": "faction_participation",
+      "evidence": "publisher_1.4.0_patch_notes_historical",
+      "source_gid": "4093189347060195840",
+      "content_lines": [
+        104,
+        134
+      ],
+      "prerequisite": "Vassal position, territorial alignment, personality/faith, opinion, neighbor membership and existing faction strength are documented inputs. Early-game formation restrictions are described.",
+      "decision": "Create or join a suitable independence/populist/claimant faction; participation is not described solely by affection.",
+      "cost_and_time": "Actual current action cost, update cadence and duration absent from inspected documentation.",
+      "mutation": "Faction membership or faction creation.",
+      "downstream_consumer": "Other factions alter power threshold; above-threshold strength changes fear deterrence; claimant suitability differs from independence goals.",
+      "failure_or_limit": "Historical fear and opinion gates exist. The documented 80+ opinion exclusion is not claimed current or universal.",
+      "uninspected": [
+        "present AI weights and trigger scripts",
+        "discontent formula",
+        "demand timing",
+        "ultimatum choices and civil-war settlement"
+      ]
+    },
+    {
+      "id": "CK3-D2",
+      "family": "institutional_faction_leverage",
+      "evidence": "publisher_prerelease_2024_diary_and_current_road_to_power_listing",
+      "source_gid": "5746109972566609657",
+      "prerequisite": "Administrative government context, other vassals and sufficient influence; exact eligibility not enumerated.",
+      "decision": "Spend influence to compel faction participation instead of relying solely on a hook.",
+      "cost_and_time": "Influence expenditure documented; exact amount, scaling, cooldown and duration uninspected.",
+      "mutation": "Target participates in faction; caller expends political capital.",
+      "downstream_consumer": "Extra support for pushing a claimant; admin governor restrictions exclude independence/dissolution factions.",
+      "failure_or_limit": "Not every influence interaction guarantees success: council seat requests can be refused. Current compelled membership resistance/exit and consequence algorithm are unknown.",
+      "uninspected": [
+        "actual interaction scripts and version",
+        "compulsion retention or expiry",
+        "coalition power evaluation",
+        "claimant demand and aftermath"
+      ]
+    },
+    {
+      "id": "CK3-D3",
+      "family": "political_ai_priorities",
+      "evidence": "publisher_historical_2022_diaries",
+      "source_gids": [
+        "4584122114609880088",
+        "4514316500020794681"
+      ],
+      "prerequisite": "Important angry vassal and actor personality/available scheme.",
+      "decision": "Documented stability strategy prioritizes social schemes; less scrupulous actors also seek secrets.",
+      "cost_and_time": "Not audited.",
+      "mutation": "Documented schemes/loyalty traits can affect relationships or faction likelihood.",
+      "downstream_consumer": "Faction participation propensity.",
+      "failure_or_limit": "No current utility scorer or legal-action selection algorithm traced."
+    }
+  ],
+  "inventory": {
+    "base_app": {
+      "app_id": 1158310,
+      "store_url": "https://store.steampowered.com/app/1158310/",
+      "regular_usd": 49.99,
+      "sale_usd": 14.99,
+      "platforms_documented": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "source_inspected": false
+    },
+    "base_dlc_id_count": 33,
+    "additional_current_collection_cosmetic_count": 1,
+    "union_count": 34,
+    "scope": "Live base DLC ids plus one additional cosmetic named in current Collection/Starter. Historical/delisted products, edition entitlements and all-game content not audited.",
+    "category_counts": {
+      "major_expansion": 5,
+      "core_expansion": 3,
+      "flavor_pack": 3,
+      "event_pack": 4,
+      "cosmetic_or_creator_pack": 15,
+      "music_pack": 1,
+      "comic_book": 1,
+      "expansion_pass_marker": 1,
+      "subscription_access": 1
+    },
+    "items": [
+      {
+        "app_id": 4232900,
+        "name": "Crusader Kings III: By God Alone",
+        "category": "core_expansion",
+        "store_url": "https://store.steampowered.com/app/4232900/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232900&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Sep 30, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_institution_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 19.99,
+        "sale_usd": 19.99,
+        "discount_percent": 0,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4232880,
+        "name": "Crusader Kings III: Chapter V",
+        "category": "expansion_pass_marker",
+        "store_url": "https://store.steampowered.com/app/4232880/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232880&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Apr 20, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_pass_contents_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4232910,
+        "name": "Crusader Kings III: Silk & Silver",
+        "category": "major_expansion",
+        "store_url": "https://store.steampowered.com/app/4232910/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232910&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": true,
+          "date": "Q4 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "planned_store_institution_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315590,
+        "name": "Crusader Kings III: Songs of the Realm",
+        "category": "music_pack",
+        "store_url": "https://store.steampowered.com/app/3315590/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315590&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Apr 20, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 4.99,
+        "sale_usd": 4.99,
+        "discount_percent": null,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4232890,
+        "name": "Crusader Kings III: Symbols of Authority",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/4232890/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232890&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Apr 20, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4232870,
+        "name": "Crusader Kings III Creator Pack: Celestial Court Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/4232870/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232870&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 11, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4232860,
+        "name": "Crusader Kings III Creator Pack: East Asian Wonders",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/4232860/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4232860&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 11, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315580,
+        "name": "Crusader Kings III Creator Pack: North Pacific Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315580/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315580&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 11, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315570,
+        "name": "Crusader Kings III Creator Pack: Holy Buildings",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315570/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315570&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Jan 27, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315560,
+        "name": "Crusader Kings III Creator Pack: High Medieval Warfare Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315560/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315560&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Jan 27, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315530,
+        "name": "Crusader Kings III: All Under Heaven",
+        "category": "major_expansion",
+        "store_url": "https://store.steampowered.com/app/3315530/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315530&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Oct 28, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_institution_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 29.99,
+        "sale_usd": 22.49,
+        "discount_percent": 25,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315520,
+        "name": "Crusader Kings III: Coronations",
+        "category": "event_pack",
+        "store_url": "https://store.steampowered.com/app/3315520/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315520&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Sep 9, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_oath_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 4.99,
+        "sale_usd": 3.24,
+        "discount_percent": 35,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315510,
+        "name": "Crusader Kings III: Khans of the Steppe",
+        "category": "core_expansion",
+        "store_url": "https://store.steampowered.com/app/3315510/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315510&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Apr 28, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 19.99,
+        "sale_usd": 12.99,
+        "discount_percent": 35,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315500,
+        "name": "Crusader Kings III: Crowns of the World",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315500/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315500&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 12, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315540,
+        "name": "Crusader Kings III Creator Pack: Medieval Monuments",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315540/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315540&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Feb 25, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3315550,
+        "name": "Crusader Kings III Creator Pack: Arctic Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3315550/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3315550&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Feb 25, 2025"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3275760,
+        "name": "Crusader Kings III Creator Pack: West Slavic Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/3275760/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3275760&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Nov 27, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2671080,
+        "name": "Crusader Kings III: Wandering Nobles",
+        "category": "event_pack",
+        "store_url": "https://store.steampowered.com/app/2671080/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2671080&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Nov 4, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 4.99,
+        "sale_usd": 2.99,
+        "discount_percent": 40,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2671070,
+        "name": "Crusader Kings III: Roads to Power",
+        "category": "major_expansion",
+        "store_url": "https://store.steampowered.com/app/2671070/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2671070&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Sep 24, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_description_and_selected_administrative_diary",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 29.99,
+        "sale_usd": 17.99,
+        "discount_percent": 40,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2671040,
+        "name": "Crusader Kings III: Couture of the Capets",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/2671040/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2671040&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Feb 6, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2671060,
+        "name": "Crusader Kings III: Legends of the Dead",
+        "category": "core_expansion",
+        "store_url": "https://store.steampowered.com/app/2671060/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2671060&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 4, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 19.99,
+        "sale_usd": 9.99,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 3077630,
+        "name": "Crusader Kings III: Many Roads to Power - Comic Book",
+        "category": "comic_book",
+        "store_url": "https://store.steampowered.com/app/3077630/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=3077630&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Aug 22, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "No standalone price observed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2671030,
+        "name": "Crusader Kings III Creator Pack: North African Attire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/2671030/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2671030&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Jan 23, 2024"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2313540,
+        "name": "Crusader Kings III: Legacy of Persia",
+        "category": "flavor_pack",
+        "store_url": "https://store.steampowered.com/app/2313540/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2313540&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Nov 9, 2023"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 12.99,
+        "sale_usd": 6.49,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2313541,
+        "name": "Crusader Kings III: Wards & Wardens",
+        "category": "event_pack",
+        "store_url": "https://store.steampowered.com/app/2313541/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2313541&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Aug 22, 2023"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "inventory_and_description_intake_not_hostage_mechanism",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 4.99,
+        "sale_usd": 2.49,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2311920,
+        "name": "Crusader Kings III: Tours & Tournaments",
+        "category": "major_expansion",
+        "store_url": "https://store.steampowered.com/app/2311920/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2311920&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "May 11, 2023"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_activity_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 29.99,
+        "sale_usd": 17.99,
+        "discount_percent": 40,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2114760,
+        "name": "Crusader Kings III: Friends & Foes",
+        "category": "event_pack",
+        "store_url": "https://store.steampowered.com/app/2114760/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2114760&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Sep 8, 2022"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_relationship_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 4.99,
+        "sale_usd": 2.49,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 2311930,
+        "name": "Crusader Kings III: Elegance of the Empire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/2311930/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=2311930&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Apr 4, 2023"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 1303184,
+        "name": "Crusader Kings III: Fate of Iberia",
+        "category": "flavor_pack",
+        "store_url": "https://store.steampowered.com/app/1303184/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=1303184&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "May 31, 2022"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 12.99,
+        "sale_usd": 6.49,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 1303182,
+        "name": "Crusader Kings III: Royal Court",
+        "category": "major_expansion",
+        "store_url": "https://store.steampowered.com/app/1303182/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=1303182&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Feb 8, 2022"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_institution_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 29.99,
+        "sale_usd": 14.99,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 1303183,
+        "name": "Crusader Kings III: Northern Lords",
+        "category": "flavor_pack",
+        "store_url": "https://store.steampowered.com/app/1303183/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=1303183&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Mar 16, 2021"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 12.99,
+        "sale_usd": 6.49,
+        "discount_percent": 50,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 1296730,
+        "name": "Crusader Kings III: Garments of the Holy Roman Empire",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/1296730/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=1296730&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Nov 21, 2023"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 4208220,
+        "name": "Crusader Kings III: Subscription",
+        "category": "subscription_access",
+        "store_url": "https://store.steampowered.com/app/4208220/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=4208220&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Jan 27, 2026"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "store_access_description_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": 9.99,
+        "sale_usd": 9.99,
+        "discount_percent": null,
+        "price_limit": "Dated US API price, not purchase recommendation",
+        "discovery": "steam_base_dlc_list"
+      },
+      {
+        "app_id": 1296731,
+        "name": "Crusader Kings III: Fashion of the Abbasid Court",
+        "category": "cosmetic_or_creator_pack",
+        "store_url": "https://store.steampowered.com/app/1296731/",
+        "api_url": "https://store.steampowered.com/api/appdetails?appids=1296731&cc=us&l=english",
+        "release_date_observed": {
+          "coming_soon": false,
+          "date": "Sep 1, 2020"
+        },
+        "evidence_status": "primary_documentation_only",
+        "semantic_scope": "catalog_category_and_date_only",
+        "game_source_inspected": false,
+        "installed_payload_inspected": false,
+        "regular_usd": null,
+        "sale_usd": null,
+        "discount_percent": null,
+        "price_limit": "Cosmetic edition/package price suppressed",
+        "discovery": "current_collection_and_starter_listings_not_base_dlc_list"
+      }
+    ],
+    "bundles": [
+      {
+        "name": "Chapter V",
+        "url": "https://store.steampowered.com/app/4232880/",
+        "kind": "expansion_pass_not_extra_gameplay",
+        "contents": [
+          4232900,
+          4232910,
+          3315590,
+          4232890
+        ],
+        "availability_limit": "Includes a planned Q4 2026 expansion; no standalone pass API price observed"
+      },
+      {
+        "name": "Starter Edition",
+        "url": "https://store.steampowered.com/app/2311920/",
+        "kind": "overlapping_edition_package",
+        "contents": [
+          1158310,
+          2311930,
+          1296731,
+          2114760,
+          1296730,
+          2311920
+        ],
+        "availability_limit": "Contents observed on linked current publisher listing; not entitlement inspection"
+      },
+      {
+        "name": "Collection",
+        "url": "https://store.steampowered.com/app/2671070/",
+        "kind": "overlapping_collection_bundle",
+        "observed_item_count": 28,
+        "availability_limit": "Not equivalent to current complete catalog; Chapter V contents are outside its displayed 28 items"
+      }
+    ],
+    "price_observation": {
+      "retrieved_utc": "2026-10-06T20:31:24.938524+00:00",
+      "region_parameter": "cc=us",
+      "currency": "USD",
+      "base_plus_roads_regular_usd": 79.98,
+      "base_plus_roads_sale_usd": 32.98,
+      "purchase_recommendation": false,
+      "subscription_api_usd": 9.99,
+      "subscription_limit": "Public page describes monthly access; US term/renewal options not separately inspected. Requires base game.",
+      "cosmetic_limit": "Edition prices sometimes appear in cosmetic appdetails. Not interpreted as standalone prices.",
+      "date_discrepancy": "Landing DLC page shows Apr20 for By God Alone, but individual page and US API agree Sep30,2026."
+    }
+  },
+  "access_gaps": [
+    {
+      "target": "Dev Diary #19 Factions and Civil Wars",
+      "url": "https://forum.paradoxplaza.com/forum/developer-diary/ck3-dev-diary-19-factions-and-civil-wars.1363951/",
+      "observed": "client_challenge",
+      "consequence": "Steam announcement only linked to it; no quoted thresholds or civil-war aftermath claimed."
+    },
+    {
+      "target": "alternate official forum/wiki",
+      "urls": [
+        "https://forum.paradoxplaza.com/forum/threads/ck3-dev-diary-19-factions-and-civil-wars.1363951/",
+        "https://ck3.paradoxwikis.com/Factions"
+      ],
+      "observed": "inaccessible_through_web_tool",
+      "consequence": "Changed route to official Steam publisher API; no source-trace claim."
+    },
+    {
+      "target": "proprietary_core_algorithm",
+      "observed": "inaccessible_in_this_docs_only_lane",
+      "consequence": "No reusable code, no current AI/faction source algorithm proof."
+    },
+    {
+      "target": "installed_scripts_and_private_game",
+      "observed": "uninspected_by_scope",
+      "consequence": "No install, entitlement, local scripts, private saves or current executable version touched."
+    },
+    {
+      "target": "Silk & Silver",
+      "observed": "planned_Q4_2026_unavailable_gameplay_at_observation",
+      "consequence": "Marketing scope only, not delivered feature behavior."
+    }
+  ],
+  "current_local_evidence": [
+    {
+      "path": "src/simulation_effects.js",
+      "sha256_at_read": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "selected_ranges": [
+        [
+          198,
+          213
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256_at_read": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "selected_ranges": [
+        [
+          25,
+          32
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256_at_read": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "selected_ranges": [
+        [
+          42,
+          47
+        ],
+        [
+          65,
+          67
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256_at_read": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "selected_ranges": [
+        [
+          60,
+          66
+        ],
+        [
+          126,
+          137
+        ],
+        [
+          252,
+          264
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256_at_read": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "selected_ranges": [
+        [
+          1,
+          13
+        ],
+        [
+          351,
+          401
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "sha256_at_read": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "selected_ranges": [
+        [
+          9,
+          17
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+      "sha256_at_read": "539fc4ccce03a88b053fe3481480e4473a333d851301ace769837f26a44272ce",
+      "selected_ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "scope": "selected_source_or_owner_read_no_runtime_check"
+    }
+  ],
+  "original_adaptation": {
+    "id": "CK3-P1",
+    "label": "A practical guild coalition",
+    "status": "proposal_unselected_unimplemented",
+    "prerequisites": "Actual independent actors, disclosed levy terms and a meaningful authority/right. Optional existing-world enrollment only.",
+    "player_and_npc_choices": "Join, contribute real means, provide bounded testimony under a witnessed obligation, oppose, negotiate or refuse independently.",
+    "real_cost_and_time": "Use actual coins, paid time, conserved tool rights and actor body readiness; numerical balance unselected.",
+    "state_mutation": "Issue-specific membership and contribution/obligation receipts, distinct from relationship axes.",
+    "downstream_consumer": "Authority changes access/work rule, negotiates exemption or refuses; actors choose paid alternatives using actual means.",
+    "failure_and_aftermath": "Unsupported or withdrawn contributions cannot count; refusal preserves affection and leaves real access consequences; permanent closure survives display pruning.",
+    "native_owner_fit": "Use existing identities, claims, inventory, knowledge, jobs, clock, native host and durable publisher. Ink observes and presents eligible choices.",
+    "missing_consumers": [
+      "typed demand/membership commitment",
+      "aggregate practical support projection",
+      "bounded obligation use",
+      "authority decision and aftermath",
+      "durable closure/readback"
+    ],
+    "compatibility": "Integrator must select any durable carrier/migration policy. Absent optional state inert; no new save schema or social currency selected.",
+    "later_gate": "Hold liking constant while changing burden, neighbor commitment or means; observe different legal participation/response plus conserved contribution, bounded obligation, refusal and fixture reload/return.",
+    "gate_run": false
+  },
+  "fit_and_cost": {
+    "development_speed": "Data/content adaptation likely faster than engine transplant; no benchmark measured.",
+    "game_save_reuse": "Current JS+Ink keeps actors and staged durable host plans; CK3 code reuse unavailable here.",
+    "social_narrative": "High-value conceptual separation of emotion, issue commitment, leverage and institution.",
+    "simulation": "Selective bounded case fits existing predicate/controllers; whole arbitrary realm simulation unproven.",
+    "spatial_presentation": "No demonstrated need for CK3 territory map to improve this case.",
+    "authoring_modularity": "Leaf definitions plus observed Ink scene; source scripts not inspected as reusable authoring tools.",
+    "maintenance": "Qualitative medium for a bounded case, high for whole-game transplant; legal participation/cost/aftermath must still be authored.",
+    "engine_switch_reason": "Park: no inspected source library or native adapter; ruler/dynasty/map state would create substantial migration with no demonstrated whole-task gain."
+  },
+  "external_metadata": [
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ck3/steam-us-inventory.json",
+      "sha256": "8d395891c0149daa7eb59323a40a256ee4de91c8fbadb9ca379308bb4b0ef1df"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ck3/steam-additional-cosmetic.json",
+      "sha256": "f83f248a79cd98937e6eec5fa79963939b7593cc71eb0ebf48446e5b00fb763e"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ck3/news-document-metadata.json",
+      "sha256": "1a0ddd86d9e0c7078cd0eb720b5a9dba00a65ed41d41e7da8fce4120cb8eccbc"
+    }
+  ],
+  "verification": {
+    "checks": "JSON parsing, catalog counts/categories, local relative links and selected source locators only",
+    "unit_browser_save_regression_director_checks": "deferred_unrun",
+    "runtime_build_save_changes": false,
+    "purchase_install_entitlement_changes": false,
+    "commit_push_publication": false
+  },
+  "memory_use": {
+    "registry": "/Users/weiwei/.codex/memories/MEMORY.md",
+    "lines": [
+      296,
+      299
+    ],
+    "purpose": "Memory used only as dated project pointer; all material project claims refreshed from live owners/source."
+  },
+  "broader_documented_map": {
+    "status": "documentation_only_not_capped_by_one_packet",
+    "retained_dependencies": [
+      "personal_ties_to_willingness",
+      "neighbor_membership_and_collective_strength_to_participation",
+      "government_and_office_to_permissible_demands",
+      "estate_council_alliances_to_political_means",
+      "ceremony_and_remembered_wrong_to_pressure_and_reveal"
+    ],
+    "actual_dlc_joins": [
+      {
+        "source": "https://store.steampowered.com/app/2671070/",
+        "join": "Roads to Power describes a Byzantine throne room for Royal Court sessions; presentation join kept distinct from administrative mechanics."
+      },
+      {
+        "source": "https://store.steampowered.com/app/4232900/",
+        "join": "By God Alone describes clerical geographical jurisdiction independent of secular land boundaries."
+      }
+    ],
+    "targeted_unresolved_queries": [
+      "compelled_member_expiry_or_release",
+      "government_change_and_demand_invalidation",
+      "oath_breach_or_feud_closure",
+      "competing_secular_and_clerical_authority",
+      "Wards_and_Wardens_hostage_perpetual_hooks"
+    ],
+    "depth_instruction_applied": "2026-10-06 ASSIGNMENT depth retention, bounded addendum only; no unchanged recovery restarted."
+  }
+}

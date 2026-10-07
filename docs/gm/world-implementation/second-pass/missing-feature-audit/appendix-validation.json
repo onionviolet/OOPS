@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "passed-final",
+  "checked_at_utc": "2026-10-05T18:41:58.541973+00:00",
+  "checks": {
+    "json_files": 11,
+    "families": 35,
+    "families_with_gap": 26,
+    "families_without_new_feature_gap": 9,
+    "request_index_entries": 106,
+    "original_U_messages": 14,
+    "ranked_priorities": 5,
+    "serious_gap_families": 10,
+    "distinct_evidence_locators": 150,
+    "Frontier_required_counts": [
+      33,
+      15,
+      7
+    ],
+    "path_hash_records_checked": 369,
+    "canonical_span_preserved_hash_drift": [],
+    "matched_current_native_fingerprints": 155,
+    "matched_bundled_native_sources": 153,
+    "matched_all_sourcemap_sources_including_english_locale": 154,
+    "bundle_sha256": "27acfe9c3c70293559bf1b75e3c01b529b278bbe0395bdcea7eee884688ccfc8",
+    "markdown_links_checked": 15,
+    "packet_anchors": 10,
+    "canonical_drift_after_capture": [],
+    "canonical_assignment_drift": [
+      "PROJECT.md",
+      "docs/USER_VISION.md",
+      "docs/gm/world-implementation/CHECKPOINT.md",
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "docs/gm/world-implementation/README.md",
+      "docs/gm/world-implementation/RUN.json"
+    ],
+    "protected_input_drift": [],
+    "semantic_readback": {
+      "existing_consumers_credited": true,
+      "source_build_execution_acceptance_separate": true,
+      "selected_optional_unknown_preserved": true,
+      "five_priorities_only": true,
+      "old_receipts_and_canonical_status_qualified": true,
+      "no_new_runtime_director_scope_private_save": true
+    },
+    "final_input_fingerprints": 219,
+    "writer_release": {
+      "root": "released after final readback",
+      "readers": [
+        "/root/qualify_prior_inventory",
+        "/root/progression_body_combat",
+        "/root/lives_work_society",
+        "/root/campaign_world_time"
+      ],
+      "all_readers": "observed completed",
+      "owned_processes_sessions_operations": "none"
+    }
+  },
+  "executed": "JSON/ID/trace/locator/hash/Markdown/anchor/current receipt/source-map/input drift/semantic readback only.",
+  "not_run": [
+    "build",
+    "unit tests",
+    "browser/gameplay",
+    "generated/private save reads",
+    "save/reload/failure/regression",
+    "performance",
+    "director acceptance"
+  ],
+  "limits": "Exact inspected source/native build correspondence only; no current behavior proof or exhaustive content. Six canonical owners may advance under incorporation; snapshots and unchanged cited span hashes preserve relevant evidence, receiver rechecks admission.",
+  "output_hash_policy": "Output manifest excludes this receipt and CHECKPOINT to avoid circular/self hashes.",
+  "finalized_at_utc": "2026-10-05T18:43:08.619711+00:00",
+  "output_hashes": {
+    "FEATURE_COVERAGE.json": "02320a8c983ac0b027147141abdaaa34116d2333eb3938c7bc6e79cfcbe159a3",
+    "FINDINGS.json": "b6eadbdc0c3987d675b9af46672535ccc203142fc66232f68f79835c0bdd23ca",
+    "PACKETS.md": "2360fc7e81180f33285db6a6402a9f4df61cd55106a0802b8fb3dd8b16e744fe",
+    "REPORT.md": "5b73183df3ebab53d6d3044f7cdf9626d8975c51037919431702f06f307f0742",
+    "appendix-campaign-world-time.json": "85bc4c49147c749cc7c33e6fd35fe1fdb2ef835d35513522968aff1513f782df",
+    "appendix-inputs.json": "04dfa7dd63e8d7bb8943c77a11f200359faae968d5307d7c6560a640d4b32ce4",
+    "appendix-lives-work-society.json": "961e4ed5970b2aed64c5ad4ff1fe01ff64e483a2a5b789aec9cddb2cf6f8dad8",
+    "appendix-prior-and-interface.json": "cfc0cfbf8b4280a92a55477b99a433d0e152373d3a8a195ae14b0f317bc6ced7",
+    "appendix-progression-body-combat.json": "01768f682a17f74b7a384da1638a372914e15a1b9b35083452cd140ce5703d58",
+    "appendix-root-boundaries.json": "9d93037a7c7a0cd025e720b1405b7c5a4e642c50de586a19c4f4cef22170da30"
+  }
+}

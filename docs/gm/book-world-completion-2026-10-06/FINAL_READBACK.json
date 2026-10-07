@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-07T04:29:27.422912+00:00",
+  "localTargets": 637,
+  "markdownAnchors": 155,
+  "missing": [],
+  "JSON": "valid",
+  "sourceMapDrift": [],
+  "bundleUnchanged": true,
+  "canonicalPlanRevision": 23,
+  "authoringRestore": "AUTHORING_RESTORE.json; exact both pre/post-home digests verified",
+  "noBehaviorTests": "all declared gameplay/save/constructor/failure/keyboard/director gates deferred"
+}

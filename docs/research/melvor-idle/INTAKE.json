@@ -1,0 +1,50 @@
+{
+  "status": "completed-research-source-pinned",
+  "scope": "Research only; exclusive output docs/research/melvor-idle/; raw source remains private outside Git.",
+  "pins": {
+    "hosted_version": "v1.3.1",
+    "script_query": "12097",
+    "data_version": 528,
+    "steam_launcher_build": "13311431",
+    "launcher_package_version": "1.2.2",
+    "checked_at": "2026-10-06T20:33:30.639507+00:00"
+  },
+  "raw_root": "/Users/weiwei/.codex/research/melvor-idle/13311431",
+  "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Melvor Idle",
+  "installed_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/installed-manifest.json",
+  "public_script_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/script-manifest.json",
+  "public_extra_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/extra-manifest.json",
+  "public_data_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/manifest.json",
+  "boundary": "Two app.nw payloads contain bridge/UI/media, not skill/combat data. index.html embeds https://steam.melvoridle.com; installed assets do not prove entitlement or current expansion mechanics. All7 loader-named JSON packages fetched without authentication.",
+  "private_saves_accessed": false,
+  "account_entitlements_inspected": false,
+  "installed_mutation": false,
+  "version_evidence": {
+    "file": "account.js",
+    "lines": [
+      1,
+      4
+    ],
+    "sha256": "2e0cf72b9bb060cbfeba16314974243d2c6890ee8015aa67eb39ee327b4bc414"
+  },
+  "public_supplement_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/supplement-manifest.json",
+  "official_types_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/authoring/manifest.json",
+  "official_news_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/published-docs/manifest.json",
+  "installed_payload_comparison": {
+    "equal_key_files": [
+      "index.html",
+      "main.js",
+      "package.json",
+      "steamInit.js"
+    ],
+    "differing_payload_files": [
+      "lib/osx/libsteam_api.dylib",
+      "lib/osx/greenworks-osx.node",
+      "lib/osx/libsdkencryptedappticket.dylib"
+    ],
+    "qualification": "same launcher mechanism and media; native architecture bridge differences exist"
+  },
+  "semantic_review_index": "COVERAGE.json",
+  "source_index": "SOURCE_INDEX.json",
+  "reproduction": "Read-only installed app.nw inventory; public URLs from page.html script tags and cloudManager506-534data loader,ordinary User-Agent Mozilla/5.0. Pin by SHA-256,not query/version labels alone. Initial default Python UA403; normal browser/script retrieval succeeded. No decompiler/tool-stack installation required."
+}

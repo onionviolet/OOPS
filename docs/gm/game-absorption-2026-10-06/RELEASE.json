@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "releasedAtUtc": "2026-10-07T05:31:15.900100+00:00",
+  "fromOwner": "01a112b9-ea83-7b71-8ab1-85ec49b6b530",
+  "toOwner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "status": "explicit completed leaf-source and existing packet/receipt ownership transfer; native integration/current build incomplete",
+  "sourceReservation": "released exclusively to receiving audit absorption GM; predecessor will not resume competing source or shared writes",
+  "sourceHashes": {
+    "src/game_absorption_assay_content.js": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+    "src/game_absorption_assay_facts.js": "9c61dcca7ed5ab6008a5ccb1dd0ef95fec982e4ea9749f7fcd63ba25191fd66b",
+    "src/game_absorption_assay_host.js": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea",
+    "src/game_absorption_assay_item_view.js": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101"
+  },
+  "receiptScope": "docs/gm/game-absorption-2026-10-06",
+  "receiptHashes": {
+    "docs/gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md": "976b55e896cbf30018e54365431cb9ba3f8fabff9cbafe29ce7c0f786b14df86",
+    "docs/gm/game-absorption-2026-10-06/BLOCKED_AUDIT.json": "8d271bf5e1bb2f4f9cd888d14dedf44b595e2d21e56230fbc750654f8d7c97ff",
+    "docs/gm/game-absorption-2026-10-06/BUILD.json": "8f7391e864ae548b1a2f333c864729b761550519682276da3471363c00aeb1e6",
+    "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md": "a22be006dbabfc11ec6ae4d50d74ee11fa3cba28ed69b1d07af81a40e715e4c8",
+    "docs/gm/game-absorption-2026-10-06/CONTRACT.md": "9c2edcf4b1115ea245e14ce07e17c9601956fc1c0d91f8e97b79bea40e09c71d",
+    "docs/gm/game-absorption-2026-10-06/DELIVERY.md": "65f548d910ae7088a799419f0203e2ee35f57b5c1522e52c0ac1a71a3deaad7d",
+    "docs/gm/game-absorption-2026-10-06/EVIDENCE.json": "05113004b632966fe0371559837697cd4a01d148741715b8ff08e5af36f7d74f",
+    "docs/gm/game-absorption-2026-10-06/HANDOFF.md": "dcf9024779dccf741e5286b9e561e4edc43f15b772f354aef32a1001039c1327",
+    "docs/gm/game-absorption-2026-10-06/INPUTS.json": "3c36cb2ac0c411bdb40880158f9ef36e2a948503b032f0959a2c4f9f8770970d",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION.md": "3e658b47f970bd3a9121c01e76c36a387179ebb8ad8c4a2be3750cacb3f5cd5a",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION.patch": "30b7d925f10dcf5021e5d002b0293a2acb7362ca1d28658c7d4141c4f2ebc2d4",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION_DRIFT.json": "3f41ad85571939c5784f4a9b39e09de914c074110539eb810e1bbb064281fc79",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION_INPUTS.json": "60acb0014184f3851ae95a60226f478791b60f80650d9a21583c6edc59880557",
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json": "ed139b624cca2d5c82717873f92953abac1c93811fa87dff1f32fd8d515e40d7",
+    "docs/gm/game-absorption-2026-10-06/SOURCE_EVIDENCE.json": "319b66346103252de4761abe5bfb500dbd44c13f2552edc0e41dd5f43604fded",
+    "docs/gm/game-absorption-2026-10-06/SOURCE_REVIEW.md": "c6d30c976e9ae3a8b86a7587ea099f67512fd6ecc4e80b5cbb8bdce19fba4f7e",
+    "docs/gm/game-absorption-2026-10-06/WAIT.json": "4bfc993962df43cad0e7c474e3f60717b3ef1ead7f97bfc94c34a1829181f7a2",
+    "docs/gm/game-absorption-2026-10-06/history/BEFORE_SOURCE_HANDOFF_2026_10_07.json": "daa58cb0985131d5a0ee8154b0ae0a9b0f4095eacb0b73c6f32b9010a974cfad",
+    "docs/gm/game-absorption-2026-10-06/prepare_integration.py": "343fa3f69ebc0921895dc7d6e4c85fa92e3320243cff00c7accb07f2cdd82a18"
+  },
+  "actualChildStatus": {
+    "tool": "collaboration.list_agents",
+    "liveAgents": [
+      "/root"
+    ],
+    "priorNativeBindingMap": "completed previously; absent from current authoritative live child inventory",
+    "sourceWriters": []
+  },
+  "processes": {
+    "ownedPendingSessions": [],
+    "ownedPendingBuilds": [],
+    "narrowProcessObservation": "Only inspection shell/rg matched; no assay/prepare_integration/node-check worker",
+    "unknownEffects": []
+  },
+  "unfinishedSourceDeltas": [],
+  "oldBlockerSupersededBy": "docs/gm/audit-implementation/remainder/RELEASE.json",
+  "currentSharedBuildLeaseOwner": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "sharedOwnershipAcquiredByThisPredecessor": false,
+  "sharedInputDrift": {
+    "src/simulation_content.js": {
+      "old": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+      "current": "a489e3d83d9a8fc525ae0ce881ea3af47f7d99c968cc0e7e7751c7ee3a2e0a55",
+      "matches": false
+    },
+    "src/simulation_effects.js": {
+      "old": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+      "current": "f74bb74149fc5c8d93f48e0862ea890818133d26512e4ab05532c8ac1c31cab9",
+      "matches": false
+    },
+    "src/simulation.js": {
+      "old": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "current": "f4694817b730dffbea6dd14eabe5a35df4641a318029502f90bcefd1040bed45",
+      "matches": false
+    },
+    "src/expansion_engine.js": {
+      "old": "dd52f305db21849739b3065113aa833119d2d5f71e4c1e92dbc52f951a678089",
+      "current": "20f54bfa3e5c6d39844670b1013a29a83754542b5c37623d4bdd3605b30de85e",
+      "matches": false
+    },
+    "src/data/expedition_items.js": {
+      "old": "5e11d17e3d7305c530d89105c41c35c7d4cba43f5aa08815767723f8cae8c1e8",
+      "current": "9745c16f1e12469481aae52ed676e745a890de73a435d3208317e8304137d5d3",
+      "matches": false
+    },
+    "src/feature_expansion_wave_host.js": {
+      "old": "17d6d69c9f296860e2f9f8546a02376cb26eea07a84ee39369724c95155798ae",
+      "current": "9464c422f1ee9ca9843c6b135e2e2518c1fd6f31d7fc9ab520c6cc118e0057e4",
+      "matches": false
+    },
+    "src/adventure_notebook.js": {
+      "old": "d483a7d5ebe4dda2f719c70dae8e092d95a1a54852bbca998933f3ca65fe86a8",
+      "current": "c7168c7ec7001b0a87f3289e665649e2bf116a8d2dc90cbe27098d94af36ea29",
+      "matches": false
+    },
+    "src/display.js": {
+      "old": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1",
+      "current": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5",
+      "matches": false
+    },
+    "src/main.js": {
+      "old": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8",
+      "current": "c5589d1464c07d6265138b932831cbc9e208a79135e264483819fe5931ad52ce",
+      "matches": false
+    }
+  },
+  "integrationPacket": "docs/gm/game-absorption-2026-10-06/INTEGRATION.md",
+  "nativeBindingPatch": "historical INTEGRATION.patch; refresh after current explicit shared handoff, never blindly apply",
+  "nativeRegistrationCurrentlyObserved": false,
+  "matchingBuildDelivered": false,
+  "goalCompletion": "Not claimed; close only after actual receiver integration/build receipt is inspected",
+  "deferred": "Five later gameplay/conservation/support/storage-failure/save-import/keyboard/privacy/director gate families in ACCEPTANCE_BACKLOG.md; no new suites",
+  "privateSaveLibraryMutation": false,
+  "sharedSourceMutation": false,
+  "outgoingChatMessage": false,
+  "newWorkersStarted": false
+}

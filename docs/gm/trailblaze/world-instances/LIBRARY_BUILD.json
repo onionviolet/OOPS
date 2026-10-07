@@ -1,0 +1,16 @@
+{
+  "check": "owned ESM library build in memory only",
+  "passed": true,
+  "outputs": [
+    {
+      "name": "world_instances.js",
+      "bytes": 26712
+    },
+    {
+      "name": "pocket_realm_content.js",
+      "bytes": 33560
+    }
+  ],
+  "filesWritten": 0,
+  "nativeGameBundleRebuilt": false
+}

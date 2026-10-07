@@ -1,0 +1,85 @@
+{
+  "capturedAtUtc": "2026-10-07T04:42:33.605Z",
+  "check": "cold source import; no gameplay execution",
+  "worlds": [
+    {
+      "id": "book.mol.cyoria",
+      "name": "Cyoria",
+      "continuity": "Original independent retained-body branch"
+    },
+    {
+      "id": "book.paradise.hub",
+      "name": "Paradise contractor district",
+      "continuity": "Supplied-MTL qualified alternate branch"
+    },
+    {
+      "id": "book.paradise.goa",
+      "name": "Goa · Gray Terminal",
+      "continuity": "First-Goa alternate branch"
+    },
+    {
+      "id": "nested.paradise_hub",
+      "name": "Paradise service district",
+      "continuity": "Original service-district branch"
+    },
+    {
+      "id": "nested.saltworks",
+      "name": "Saltworks",
+      "continuity": "Original linked destination"
+    },
+    {
+      "id": "nested.archive",
+      "name": "The Lamplit Archive",
+      "continuity": "Original linked destination"
+    },
+    {
+      "id": "feature.tidemark",
+      "name": "Tidemark",
+      "continuity": "Original counterweight harbor"
+    },
+    {
+      "id": "pocket.folded_glasshouse",
+      "name": "Folded Glasshouse",
+      "continuity": "Original contained workshop"
+    },
+    {
+      "id": "base.frontier",
+      "name": "Frontier",
+      "continuity": "YAIRPG · Branch dimension"
+    }
+  ],
+  "commands": 1153,
+  "formalTechniqueIds": [
+    "frontier.rat_step"
+  ],
+  "powerIds": [
+    "book.paradise.campaign.line_rigging",
+    "book.mol.formula_operator",
+    "book.paradise.load_bracing",
+    "book.paradise.su_knife_training",
+    "original_frontier.load_tally",
+    "original_frontier.stop_procedure",
+    "original_frontier.sample_check",
+    "frontier.brace_control",
+    "frontier.trail_reading",
+    "frontier.timber_judgment",
+    "frontier.shared_inquiry",
+    "glasshouse.main.glasshouse.observation.notice_power",
+    "observation.return_notice",
+    "frontier.measured_pack",
+    "field.load_step",
+    "remainder_home.kit_binding",
+    "feature_objects.grain_matching",
+    "feature_society.ordinary_join",
+    "tidemark.counterweight",
+    "reference_gameplay.cooling",
+    "causal.story.measured_release",
+    "causal.story.courier_guard",
+    "world.completion.learning.datum",
+    "backlog.registry.eda_press",
+    "backlog.registry.apprentice_press",
+    "repositories.wick_control",
+    "nested.pressure_pulse"
+  ],
+  "qualification": "Registration is not full-world coverage or behavior verification."
+}

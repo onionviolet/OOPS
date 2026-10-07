@@ -1,0 +1,46 @@
+{
+  "worker": "/root/remainder_consequences",
+  "parent": "/root",
+  "releasedAt": "2026-10-06T20:16:57.998859+00:00",
+  "writerReleased": true,
+  "leasedSourceFiles": [
+    "src/feature_expansion_content.js",
+    "src/data/expedition_items.js",
+    "src/simulation_ui.js",
+    "src/adventure_notebook.js",
+    "src/feature_expansion_wave_host.js"
+  ],
+  "evidenceDirectory": "docs/gm/audit-implementation/remainder/artifact-joins",
+  "outputHashes": {
+    "src/feature_expansion_content.js": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+    "src/data/expedition_items.js": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68",
+    "src/simulation_ui.js": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+    "src/adventure_notebook.js": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+    "src/feature_expansion_wave_host.js": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2",
+    "docs/gm/audit-implementation/remainder/artifact-joins/BEFORE.json": "9ac7d1062a09104fdab52f769e48a01c94119e1467d56d30e05c16c775917e16",
+    "docs/gm/audit-implementation/remainder/artifact-joins/CHECKPOINT.md": "2d557a28d0b1c7c3cb7780bab3ec0ad798562d8932f0bea15fa8e2fb3ac30f93",
+    "docs/gm/audit-implementation/remainder/artifact-joins/INTEGRATION.md": "82354de43b5abcb79dd295e33f58975a6adfdc4ffe0057510ac3438ee62855f6",
+    "docs/gm/audit-implementation/remainder/artifact-joins/VALIDATION.json": "0ce41b170bfc2195c9da7b846de4f35b47fd05d0f5aeab21e8721d73f94850b3"
+  },
+  "status": "All leased source joins ready; implemented-unverified; final native/runtime/build parent-owned",
+  "artifactRevision": 2,
+  "nativeItemsAdded": 6,
+  "remainderItemSpecificationsPreserved": 10,
+  "aggregateSourceSnapshot": {
+    "featureCommands": 328,
+    "featureSources": 8,
+    "fullCommands": 932,
+    "controllers": 41,
+    "worlds": 8,
+    "sources": 50
+  },
+  "checks": "VALIDATION.json",
+  "pendingProcesses": [],
+  "uncertainMutations": [],
+  "remainingOwnedSourceDefects": [],
+  "behaviorSuitesRun": false,
+  "buildRun": false,
+  "nativeCatalogRuntimeClaimed": false,
+  "rootRouteContextNeeds": "INTEGRATION.md Root joins retained",
+  "transfer": "All five leased files released to sole root integrator; worker stops competing writes."
+}

@@ -1,0 +1,695 @@
+{
+  "qualification": "Four ranked original candidates, not new selected implementation. Findings and dependencies are not capped by this packet count.",
+  "packets": [
+    {
+      "id": "YC-P1",
+      "rank": 1,
+      "title": "Late archive index",
+      "decision": "propose",
+      "claim_kind": "original provisional adaptation; source-current fit verified, Your Chronicle inspiration binding delegated to parent",
+      "player_journey": "Miss succession and hear actual aftermath. Keep the existing archive promise, train actual Literacy, then decipher route diagrams through paid late-index work to acquire still-unknown existing routeSignals; practical knowledge is useful without inheriting the missed archive.",
+      "exact_missing_consumer": "inheritance missed+heard and dutyKept/current native Literacy/unknown routeSignals -> new paid late-index job -> existing chronicle.routeSignals preparation consumer. Current duty has no such post-missed-inheritance route knowledge alternative.",
+      "provisional_costs": [
+        "Existing archive duty: 5 played minutes and 1 coin, source-defined.",
+        "New index proposal: 6 played minutes, 1 native coin, 1 actual kit; Literacy threshold selected by director."
+      ],
+      "reused_owners": [
+        {
+          "path": "src/chronicle.js",
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+          "reviewed_spans": [
+            [
+              64,
+              76
+            ],
+            [
+              95,
+              133
+            ],
+            [
+              135,
+              180
+            ],
+            [
+              227,
+              242
+            ]
+          ]
+        },
+        {
+          "path": "src/chronicle_ui.js",
+          "sha256": "7e1f50ea49c5525fa74caa975b2e0384206cfdf5444666b9dd758f8652984618",
+          "reviewed_spans": [
+            [
+              15,
+              36
+            ],
+            [
+              80,
+              99
+            ]
+          ]
+        },
+        {
+          "path": "src/main.js",
+          "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+          "reviewed_spans": [
+            [
+              402,
+              449
+            ],
+            [
+              482,
+              510
+            ],
+            [
+              525,
+              556
+            ],
+            [
+              759,
+              767
+            ],
+            [
+              968,
+              979
+            ],
+            [
+              1008,
+              1044
+            ],
+            [
+              1660,
+              1699
+            ],
+            [
+              2103,
+              2163
+            ],
+            [
+              6243,
+              6274
+            ],
+            [
+              4035,
+              4047
+            ],
+            [
+              6518,
+              6562
+            ]
+          ]
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+          "reviewed_spans": [
+            [
+              12,
+              21
+            ],
+            [
+              53,
+              76
+            ]
+          ]
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              55,
+              127
+            ],
+            [
+              201,
+              234
+            ],
+            [
+              262,
+              280
+            ],
+            [
+              450,
+              487
+            ],
+            [
+              490,
+              542
+            ]
+          ]
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "reviewed_spans": [
+            [
+              1,
+              50
+            ]
+          ]
+        },
+        {
+          "path": "src/skill_discovery.js",
+          "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+          "reviewed_spans": [
+            [
+              1,
+              143
+            ]
+          ]
+        }
+      ],
+      "compatibility_and_retention": [
+        "Keep original missed/resolved event and elder memories.",
+        "Absent new optional content inert; older schema1 Chronicle remains readable.",
+        "No inherited manual/succession rewrite, no historical level reconstruction. Physical loan is a later variant requiring real owner/custody, not necessary here.",
+        "Existing grievance/support and exact refund terms remain."
+      ],
+      "later_observable_gate": [
+        "Late work never turns missed succession into resolved inheritance.",
+        "Native Literacy training changes actual option; mere inspection does not.",
+        "Complete/cancel/reload/failure retains one cause and real paid stock; completed indexing adds one actual existing route-preparation contribution."
+      ],
+      "implementation_state": "not implemented by this research; gameplay checks deferred",
+      "source_basis": {
+        "principle": "Training->paid conversations->actual companion/route prerequisites; late alternatives can preserve failed branch aftermath.",
+        "trace_ids": [
+          "YC-T-TRAINING",
+          "YC-T-C7-TREATMENT"
+        ],
+        "qualification": "Original proposal, not a literal copy of Your Chronicle fiction/currencies or a selected runtime implementation."
+      },
+      "current_owner_status": "Live source-current fit verified against current dirty checkout; implemented-unverified existing gameplay. Research does not acquire shared integration scope.",
+      "narrative_aftermath": [
+        "Elder keeps remembered duty; missed successor and different holder remain. Existing routeSigns becomes one real preparation contribution, no manual duplication."
+      ],
+      "verification_now": "Source fit and absence of the exact proposed IDs; no gameplay/build/save verification of new content because none implemented.",
+      "observable_gate_status": "deferred, not run"
+    },
+    {
+      "id": "YC-P2",
+      "rank": 2,
+      "title": "One archive lifting job with Lio",
+      "decision": "propose",
+      "claim_kind": "original provisional adaptation; source-current fit verified, Your Chronicle inspiration binding delegated to parent",
+      "player_journey": "Choose trained self-carry, ordinary relay, or hire willing Lio for a single known local crate job. His funded packing and combat compete for his actual time, and his fitted gear changes the physical-work quote.",
+      "exact_missing_consumer": "Actual Lio frame identity, source/body/fatigue/consent and job occupation -> one new noncombat archive work quote/result. Existing harness profile consumers are specific sluice combat, not this suggested labour rule.",
+      "provisional_costs": [
+        "New provisional fit rules: rigid 3 minutes/4 helper stamina, flexible 5 minutes/2 helper stamina.",
+        "Self-carry: mastery2 or Strength12, 1 kit, 3 stamina.",
+        "Ordinary relay: 6 minutes/5 stamina.",
+        "Hire: 1 actual native coin transferred to Lio plus 1 real kit; conserved cargo and both participants reserved."
+      ],
+      "reused_owners": [
+        {
+          "path": "src/party_battle.js",
+          "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+          "reviewed_spans": [
+            [
+              9,
+              42
+            ],
+            [
+              48,
+              60
+            ],
+            [
+              61,
+              103
+            ]
+          ]
+        },
+        {
+          "path": "src/party_content.js",
+          "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+          "reviewed_spans": [
+            [
+              1,
+              22
+            ]
+          ]
+        },
+        {
+          "path": "src/audit_remainder_combat_fit_content.js",
+          "sha256": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+          "reviewed_spans": [
+            [
+              1,
+              80
+            ]
+          ]
+        },
+        {
+          "path": "src/audit_remainder_combat_fit_hooks.js",
+          "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+          "reviewed_spans": [
+            [
+              11,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "src/audit_remainder_livelihood_content.js",
+          "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+          "reviewed_spans": [
+            [
+              63,
+              81
+            ]
+          ]
+        },
+        {
+          "path": "src/feature_expansion_powers.js",
+          "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+          "reviewed_spans": [
+            [
+              60,
+              83
+            ]
+          ]
+        },
+        {
+          "path": "src/feature_expansion_battle.js",
+          "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+          "reviewed_spans": [
+            [
+              59,
+              80
+            ],
+            [
+              304,
+              314
+            ]
+          ]
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              55,
+              127
+            ],
+            [
+              201,
+              234
+            ],
+            [
+              262,
+              280
+            ],
+            [
+              450,
+              487
+            ],
+            [
+              490,
+              542
+            ]
+          ]
+        },
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+          "reviewed_spans": [
+            [
+              1,
+              58
+            ]
+          ]
+        }
+      ],
+      "compatibility_and_retention": [
+        "No new gear IDs, party roster or summon currency.",
+        "Keep old frozen battle sessions/fit meanings.",
+        "Work utility numbers are new authored physical rules, not inferred combat semantics.",
+        "Cargo owner and one finite demand must actually exist; no replenishment by visits.",
+        "Lost support refunds declared reservations; gear, wages, fatigue and result remain across current renewal."
+      ],
+      "later_observable_gate": [
+        "Busy Lio declines; current consent changes are rechecked at completion.",
+        "Actual equipped fit changes only declared work quote.",
+        "Missing/borrowed frame or cancelled work moves no crate; completion transfers it exactly once.",
+        "Later report is attributed/witnessed and differs by actual contribution."
+      ],
+      "implementation_state": "not implemented by this research; gameplay checks deferred",
+      "source_basis": {
+        "principle": "Party resource/slot/skill/gear and squad-vs-party opportunity cost; side benefit can have a real downside.",
+        "trace_ids": [
+          "YC-T-PARTY",
+          "YC-T-EQUIPMENT"
+        ],
+        "qualification": "Original proposal, not a literal copy of Your Chronicle fiction/currencies or a selected runtime implementation."
+      },
+      "current_owner_status": "Live source-current fit verified against current dirty checkout; implemented-unverified existing gameplay. Research does not acquire shared integration scope.",
+      "narrative_aftermath": [
+        "Actual worker/cargo contribution produces attributed keeper account; wages, fatigue and gear custody remain, failed/cancelled work moves no cargo."
+      ],
+      "verification_now": "Source fit and absence of the exact proposed IDs; no gameplay/build/save verification of new content because none implemented.",
+      "observable_gate_status": "deferred, not run"
+    },
+    {
+      "id": "YC-P3",
+      "rank": 3,
+      "title": "Renewed field review",
+      "decision": "propose",
+      "claim_kind": "original provisional adaptation; source-current fit verified, Your Chronicle inspiration binding delegated to parent",
+      "player_journey": "Confirm the existing disclosed field renewal, then re-earn reset Load-bearing Step mastery2 through paid application. Retained ordinary apprenticeship history plus current training opens one new practical heavy-load review with a stocked ordinary alternative.",
+      "exact_missing_consumer": "field.renewed + current mastery2 + retained workshop/commission/recipe history -> new optional work choice and attributed post-renewal practical account. Current legacy feeds preparation/UI and expires old grip preparation, but no selected named legacy-review journey exists.",
+      "provisional_costs": [
+        "New proposal: trained review 4 played minutes/2 stamina; stocked ordinary alternative 1 real kit/6 played minutes.",
+        "No second reset, reward multiplier or automatic fuel refill."
+      ],
+      "reused_owners": [
+        {
+          "path": "src/frontier_campaign.js",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+          "reviewed_spans": [
+            [
+              13,
+              17
+            ],
+            [
+              43,
+              67
+            ],
+            [
+              69,
+              76
+            ],
+            [
+              95,
+              108
+            ]
+          ]
+        },
+        {
+          "path": "src/feature_expansion_society.js",
+          "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+          "reviewed_spans": [
+            [
+              195,
+              235
+            ]
+          ]
+        },
+        {
+          "path": "src/original_frontier_career_content.js",
+          "sha256": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+          "reviewed_spans": [
+            [
+              285,
+              329
+            ]
+          ]
+        },
+        {
+          "path": "src/audit_remainder_combat_fit_hooks.js",
+          "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+          "reviewed_spans": [
+            [
+              11,
+              65
+            ]
+          ]
+        },
+        {
+          "path": "src/simulation.js",
+          "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+          "reviewed_spans": [
+            [
+              55,
+              127
+            ],
+            [
+              201,
+              234
+            ],
+            [
+              262,
+              280
+            ],
+            [
+              450,
+              487
+            ],
+            [
+              490,
+              542
+            ]
+          ]
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+          "reviewed_spans": [
+            [
+              12,
+              21
+            ],
+            [
+              53,
+              76
+            ]
+          ]
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "reviewed_spans": [
+            [
+              1,
+              50
+            ]
+          ]
+        },
+        {
+          "path": "src/field_workshop.js",
+          "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+          "reviewed_spans": [
+            [
+              58,
+              92
+            ]
+          ]
+        }
+      ],
+      "compatibility_and_retention": [
+        "One field renewal remains consumed.",
+        "Restored current mastery is actual executable training; do not reconstruct past causes from level.",
+        "Keep retained native XP, recipes, stocks, relationships and old result receipts.",
+        "Old preparation charge still expires at renewal.",
+        "Any downstream request needs finite actual funds/demand/stock; stop at account if no useful request is selected."
+      ],
+      "later_observable_gate": [
+        "mastery1 blocks trained alternative; true reopened paid practice opens it.",
+        "Both choices have declared actual costs and distinct report.",
+        "Review creates one account; no reset/reward replay/fuel or preparation restoration."
+      ],
+      "implementation_state": "not implemented by this research; gameplay checks deferred",
+      "source_basis": {
+        "principle": "Class routine/shallow-vs-deep differentiated retention and late medicine/research reuse.",
+        "trace_ids": [
+          "YC-T-RETENTION",
+          "YC-T-C7-TREATMENT",
+          "YC-T-A13-WORK"
+        ],
+        "qualification": "Original proposal, not a literal copy of Your Chronicle fiction/currencies or a selected runtime implementation."
+      },
+      "current_owner_status": "Live source-current fit verified against current dirty checkout; implemented-unverified existing gameplay. Research does not acquire shared integration scope.",
+      "narrative_aftermath": [
+        "Existing renewal stays consumed; distinct practical account remembers retained apprenticeship and current relearning separately. No automatic ready charge/fuel restored."
+      ],
+      "verification_now": "Source fit and absence of the exact proposed IDs; no gameplay/build/save verification of new content because none implemented.",
+      "observable_gate_status": "deferred, not run"
+    },
+    {
+      "id": "YC-P4",
+      "rank": 4,
+      "title": "Bounded native study/work plan",
+      "decision": "propose",
+      "claim_kind": "original provisional adaptation; source-current fit verified, Your Chronicle inspiration binding delegated to parent",
+      "player_journey": "Choose five played minutes reading a held unfinished native book over wages/training, then one already known paid kit command; manual travel stays manual. Real Literacy/book progress can earn the late archive alternative.",
+      "exact_missing_consumer": "Specific versioned native book/activity block receipt boundary for work plans. Current validator accepts command/travel/wait only; current native reading/training is direct mutation after ordinary ticking and busy pauses the cursor. Native progress/rewards need staged envelope adapter before a plan can safely own their boundary.",
+      "provisional_costs": [
+        "Existing native book/activity costs/rates/hours remain authoritative.",
+        "Proposed five-minute reading budget; stop early on real book completion.",
+        "Higher integration cost than a content-only command plan; rank lower but preserve dependency."
+      ],
+      "reused_owners": [
+        {
+          "path": "src/feature_expansion_work_plan.js",
+          "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+          "reviewed_spans": [
+            [
+              23,
+              94
+            ],
+            [
+              138,
+              177
+            ],
+            [
+              179,
+              261
+            ],
+            [
+              264,
+              349
+            ]
+          ]
+        },
+        {
+          "path": "src/main.js",
+          "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+          "reviewed_spans": [
+            [
+              402,
+              449
+            ],
+            [
+              482,
+              510
+            ],
+            [
+              525,
+              556
+            ],
+            [
+              759,
+              767
+            ],
+            [
+              968,
+              979
+            ],
+            [
+              1008,
+              1044
+            ],
+            [
+              1660,
+              1699
+            ],
+            [
+              2103,
+              2163
+            ],
+            [
+              6243,
+              6274
+            ],
+            [
+              4035,
+              4047
+            ],
+            [
+              6518,
+              6562
+            ]
+          ]
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+          "reviewed_spans": [
+            [
+              1,
+              62
+            ]
+          ]
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+          "reviewed_spans": [
+            [
+              1,
+              50
+            ]
+          ]
+        },
+        {
+          "path": "src/skill_discovery.js",
+          "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+          "reviewed_spans": [
+            [
+              1,
+              143
+            ]
+          ]
+        },
+        {
+          "path": "src/skill_discovery_native.js",
+          "sha256": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+          "reviewed_spans": [
+            [
+              1,
+              10
+            ]
+          ]
+        },
+        {
+          "path": "src/adventure_notebook.js",
+          "sha256": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+          "reviewed_spans": [
+            [
+              1,
+              42
+            ],
+            [
+              82,
+              107
+            ]
+          ]
+        }
+      ],
+      "compatibility_and_retention": [
+        "No copied inventory/XP/clock/book progress in cursor.",
+        "Preserve workPlans1/2 and frozen old jobs; exact new boundary/version only on deliberate start.",
+        "Do not replace native reading with arbitrary flat-XP job.",
+        "Completion/milestone unlocks and save settlement use real native owner and one publisher.",
+        "Wall-time general catch-up remains separate and unselected."
+      ],
+      "later_observable_gate": [
+        "Partial reading/book completion/reload/cancel has exact native progress and one reward.",
+        "Finished/missing book or unavailable work hours blocks honestly.",
+        "Busy/waiting story boundary pauses without parallel native work.",
+        "Failed save grants no duplicated progress/XP/unlocks."
+      ],
+      "implementation_state": "not implemented by this research; gameplay checks deferred",
+      "source_basis": {
+        "principle": "Earned historical completion->AHA list, live constraints and blocked story action automation.",
+        "trace_ids": [
+          "YC-T-AHA-DISCOVERY",
+          "YC-T-EARNED-AUTOMATION"
+        ],
+        "qualification": "Original proposal, not a literal copy of Your Chronicle fiction/currencies or a selected runtime implementation."
+      },
+      "current_owner_status": "Live source-current fit verified against current dirty checkout; implemented-unverified existing gameplay. Research does not acquire shared integration scope.",
+      "narrative_aftermath": [
+        "Plan progress is tied to actual native book/work receipts; missing book, unavailable hours or native busy pauses without invented completion."
+      ],
+      "verification_now": "Source fit and absence of the exact proposed IDs; no gameplay/build/save verification of new content because none implemented.",
+      "observable_gate_status": "deferred, not run"
+    }
+  ],
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "scope": "Four ranked original adaptations; broader findings retained separately in REPORT/FINDINGS/COVERAGE.",
+  "selection_state": "proposed and unselected",
+  "invariants": [
+    "Familiar opening and first one realm/one prestige milestone.",
+    "Existing actor/body/stock/custody/job/clock/native save and single durable publisher.",
+    "No runtime integration or private save/account mutation.",
+    "Current gameplay/unit/browser/save-failure/regression/director gates deferred."
+  ],
+  "owner_snapshot": {
+    "private_manifest": "/Users/weiwei/.codex/research/your-chronicle/25001959/yairpg-fit/OWNERS.json",
+    "sha256": "8bdcd1206d88f859e1363bc629f13a22470b2560b8d1a989e1ac258aa2089a4c"
+  },
+  "limits": "Numbers/names/thresholds/balance are reversible original proposals; a source hash identifies dirty input but does not verify packaged behavior."
+}

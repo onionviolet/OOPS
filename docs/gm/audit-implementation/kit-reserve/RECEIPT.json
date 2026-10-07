@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:42:37.557197+00:00",
+  "parent": "/root",
+  "worker": "/root/kit_reserve",
+  "status": "source ready; implemented-unverified",
+  "writeScope": [
+    "src/feature_expansion_work_plan.js",
+    "src/audited_kit_reserve_content.js",
+    "src/audited_kit_reserve_facts.js",
+    "src/audited_kit_reserve_host.js",
+    "docs/gm/audit-implementation/kit-reserve/"
+  ],
+  "scopeReleasedToParent": true,
+  "inputHashesAtDispatch": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/gm/audit-implementation/ASSIGNMENT.md": "272b26bd25f80825f955606d890904557cfd4a23e0b991b130b4f32d880a0240",
+    "docs/gm/audit-implementation/BASELINE.json": "d8eb79272bec094603472777637904d3c937f27d87d78bab6f521323751fe640",
+    "docs/research/rimworld/IMPLEMENTATION_PACKETS.md": "43d6c48e12dc7f26b56793ddadc0b0a2f1e377f34705cbc18558ccaba9e1f3c7",
+    "src/feature_expansion_work_plan.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+    "src/simulation.js": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+    "src/simulation_effects.js": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+    "src/expansion_engine.js": "a345ad0f45bf2d6243be219818ec0764469c8518494cb237f5bf8a5362fcb3d1",
+    "src/main.js": "627f5e41eead6cf1bebed22bf21290f72d8d8a08292ce229efb25a6ffe4d4eba",
+    "src/expedition_content.js": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a"
+  },
+  "inputHashesAtReturn": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/gm/audit-implementation/ASSIGNMENT.md": "272b26bd25f80825f955606d890904557cfd4a23e0b991b130b4f32d880a0240",
+    "docs/gm/audit-implementation/BASELINE.json": "d8eb79272bec094603472777637904d3c937f27d87d78bab6f521323751fe640",
+    "docs/research/rimworld/IMPLEMENTATION_PACKETS.md": "43d6c48e12dc7f26b56793ddadc0b0a2f1e377f34705cbc18558ccaba9e1f3c7",
+    "src/feature_expansion_work_plan.js": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+    "src/simulation.js": "c0ee920813e47c7808fd49ba12518991f8547bbe2dc8cd24760495833a9641c2",
+    "src/simulation_effects.js": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+    "src/expansion_engine.js": "3f74d04869d91fdc19ce2ec0c521025e67a56a199163fdf23d6943c32497d4bc",
+    "src/main.js": "f46d182571403f3ca5036aae5fd98253501a985063d5fd76fbf2f09a827fccce",
+    "src/expedition_content.js": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+  },
+  "outputHashes": {
+    "src/feature_expansion_work_plan.js": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+    "src/audited_kit_reserve_content.js": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+    "src/audited_kit_reserve_facts.js": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+    "src/audited_kit_reserve_host.js": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+    "docs/gm/audit-implementation/kit-reserve/ACCEPTANCE_BACKLOG.md": "10a496b5ca1009034a179b9e908d4974afed6edcdd65baaee052a762fb3df2b2",
+    "docs/gm/audit-implementation/kit-reserve/CHECKPOINT.md": "97517367a23b39d58364474fdd1b9ad3623cd0e30cfe2589917973b9fa487da8",
+    "docs/gm/audit-implementation/kit-reserve/INPUTS.json": "d48afe53346ccdf75192c2d15b720903c42c65f44f0e6235ee943bcae7d2a616",
+    "docs/gm/audit-implementation/kit-reserve/INTERFACE.md": "afa221ca68f9eb229996133ba592da78fcf9e9d19791dcb923a7e587f144f989",
+    "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_DIFF.patch": "83e01f930d675f93b49d66da6673eaaabbd6bce4c0da15090d9866d8ef252063",
+    "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924"
+  },
+  "checks": [
+    {
+      "kind": "source/syntax",
+      "command": "node --check src/feature_expansion_work_plan.js && node --check src/audited_kit_reserve_content.js && node --check src/audited_kit_reserve_facts.js && node --check src/audited_kit_reserve_host.js",
+      "exitCode": 0,
+      "result": "pass; no syntax diagnostics",
+      "inputHashes": {
+        "src/feature_expansion_work_plan.js": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+        "src/audited_kit_reserve_content.js": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+        "src/audited_kit_reserve_facts.js": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+        "src/audited_kit_reserve_host.js": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+        "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+      }
+    },
+    {
+      "kind": "import/registry",
+      "command": "node --input-type=module: import all four owned modules plus reference_gameplay_content; createWorkPlanRegistry(planDefinitions,{commands:Map(actual referenceGameplayDefinitions.commands)})",
+      "exitCode": 0,
+      "result": {
+        "imports": "pass",
+        "registry": "pass",
+        "planCount": 1,
+        "schemas": [
+          1,
+          2
+        ],
+        "hostExports": [
+          "auditedKitReserveContext",
+          "auditedKitReserveControl",
+          "auditedKitReservePresentation",
+          "auditedKitReserveStart",
+          "controlAuditedKitReserve",
+          "startAuditedKitReserve"
+        ],
+        "factExports": [
+          "auditedKitReserveFacts",
+          "availableOwnedNativeCount"
+        ]
+      },
+      "inputHashes": {
+        "src/feature_expansion_work_plan.js": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+        "src/audited_kit_reserve_content.js": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+        "src/audited_kit_reserve_facts.js": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+        "src/audited_kit_reserve_host.js": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+        "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+      }
+    },
+    {
+      "kind": "source/link/import-closure",
+      "command": "python3 static recursive relative-import closure from src/audited_kit_reserve_facts.js; require paths exist and no simulation.js or simulation_effects.js",
+      "exitCode": 0,
+      "result": {
+        "pureFactsImportClosure": "pass",
+        "paths": [
+          "src/audited_kit_reserve_content.js",
+          "src/audited_kit_reserve_facts.js",
+          "src/feature_expansion_objects.js",
+          "src/reference_gameplay_content.js"
+        ]
+      },
+      "inputHashes": {
+        "src/feature_expansion_work_plan.js": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2",
+        "src/audited_kit_reserve_content.js": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+        "src/audited_kit_reserve_facts.js": "ba6185b51d2b4c5734d03511e35be79bda844cdbac33cc68e05b9f5e23e0b947",
+        "src/audited_kit_reserve_host.js": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+        "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+      }
+    },
+    {
+      "kind": "source/diff-review",
+      "command": "diff -u docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js src/feature_expansion_work_plan.js",
+      "exitCode": 1,
+      "result": "expected differences; no diff error. Source review preserves legacy schema1 cursor fields, boundary and command/reservation flow; stock-only branches add policy behavior. No behavior proof.",
+      "evidence": "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_DIFF.patch"
+    }
+  ],
+  "behaviorSuites": "not run; deferred by live instructions",
+  "deferred": [
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload/import",
+    "failed durable publication",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "integration": "docs/gm/audit-implementation/kit-reserve/INTERFACE.md",
+  "pendingProcesses": [],
+  "children": [],
+  "privateSaveOrSourceLibraryChanges": false,
+  "buildOrPublishOrCommit": false
+}

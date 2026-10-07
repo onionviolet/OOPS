@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T05:51:29.046675+00:00",
+  "owner": "root source qualification readback",
+  "sourceSnapshot": "PD-MTL-67f15d112389-r1",
+  "sourceFit": "source-fit/OPENING_AND_GOA.json",
+  "sourceFitSha256": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70",
+  "parentExactPrimarySamples": [
+    {
+      "sid": 9,
+      "paragraphs": [
+        23,
+        24,
+        25
+      ],
+      "claims": "Hank bribe/one-weapon rule/returned guard-issued gun and chosen sword"
+    },
+    {
+      "sid": 11,
+      "paragraphs": [
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "claims": "guard-chief/World Source and Soul Eater cap notices"
+    },
+    {
+      "sid": 21,
+      "paragraphs": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "claims": "Hank thrown into fire and wallman offer"
+    }
+  ],
+  "sampleMemberHashes": "matched source manifest/EPUB bytes; XML local p tags counted directly",
+  "additionalReaderClarification": "sid5p7-11,p27-45 prior looted flintlock;sid6p69-70 stored;sid9p19-25 different returned guard gun;sid20 no current flintlock relisting",
+  "rootDisposition": "No current flintlock or tiger proof physical stock is seeded from uncertain custody; last-observed author facts remain. Current sword/two sourced necklace drops/tiger claw/small crystal retained with no player grant or future technique. Current mana and king yield unimplemented/unknown.",
+  "causalQualification": "Source palace attack required an opening after invasion. Current NPC target admission requires actual burned-fire and breached-gate causes; contained ignition/civil escape route or delivered palace warning removes that selected opening. Interrupted actor searches without restored plot or guaranteed extraction.",
+  "prototypes": "parallel entry/hub institution placement/numerical body/funds/time/source scene outcomes,90minute optional civilian-survey deadline and two-minute own extraction are original reviewable choices",
+  "verification": "source/lexical reasoning only, no actions/tests/browser/save"
+}

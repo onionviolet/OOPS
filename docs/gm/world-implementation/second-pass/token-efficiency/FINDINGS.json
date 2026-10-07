@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "role": "Token and workflow efficiency GM",
+  "thread_id": "01a10997-afcc-71f2-b437-060d0ef1308e",
+  "status": "planning-proposals; document verification recorded in CHECKPOINT.md",
+  "base": {"branch": "codex/gameplay-foundations", "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df", "dirty": true},
+  "boundaries": "Agent/source/authoring workflow only. No runtime optimization, global config/model changes, source/save writes, renewed reading goals, builds or gameplay suites.",
+  "measurement_boundary": "Byte/whitespace-word/record counts are directly inspected structural surrogates. No route comparison, full-audit usage or billed-cost measurement supports a savings claim. Partial host-goal telemetry, if exposed, is separately qualified in CHECKPOINT.md.",
+  "findings": [
+    {
+      "id": "TF01",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Retrieve a small qualified claim bundle from existing dossier formats",
+      "evidence": [
+        {"path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md", "claim": "Source roster paragraph and Character-context dialogue require targeted contemporary scenes; reusable retrieval contract is not specified."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json", "claim": "source_claims=1039; original_proposals=66; supplemental_profiles=24. Exact notes, lines, labels and chapter paragraph locators already exist; inspected size 881913 bytes."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/readers/scaling_036-050_NOTES.md", "line_start": 3, "line_end": 7, "claim": "MOL-PS036-01; W/C; ch36:p110-124,p130-143; related MOL-C036-08/09. Positive sensing/repair/response functions and qualified superiority survive the summary."},
+        {"path": "docs/research/novels/full-book/omniscient-reader/FINAL_RECEIPT.json", "claim": "Seven final indexes and 783 defined claims are recorded; no same-named CLAIM_INDEX.json was found at this sampled dossier root. This is format diversity, not absent evidence."}
+      ],
+      "current_player_behavior": "Current game has no selected MoL campaign. Future authors must traverse dossiers ad hoc to distinguish an operating psychic shell from a generic shield.",
+      "proposed_player_behavior": "A selected teacher encounter can preserve sensing probes, repairing while maintained and responding, with actual support and qualified limits rather than a stat-label substitute.",
+      "authoritative_owner": "Existing book source GM owns claims/review; world authoring owner consumes selected bundles. Master owns common workflow convention.",
+      "dependencies": ["Current source boundary and reader-note revisions", "Existing claim IDs and locators", "Selected mechanic/era question", "Authoring lane's package consumers"],
+      "world_examples": ["MoL shell drill at chapter36; supplied compilation profile, not a newly reread primary window."],
+      "acceptance_case": "For a shell-drill query, return only selected IDs, qualified analytical functions, source/member/paragraph locators, reviewed status, claim/note hashes, exceptions and unknowns. Every returned record resolves; an O proposal remains O and unreviewed material remains pending.",
+      "simplify_or_retain": "Retain distributed book owners and exact evidence. Add a thin routing descriptor only for formats actually consumed; do not centralize or duplicate all claims.",
+      "cheaper_alternative": "Use a local JSON filter or targeted rg plus note excerpts manually until repeated consumers justify an extraction helper.",
+      "source_status": "Verified index fields and sampled analytical notes; MoL local WebToEpub provenance/authenticity limits retained. Cross-dossier retrieval design is original proposal.",
+      "verification_limits": "No fresh EPUB semantic reading, index implementation, semantic search benchmark or working gameplay. Locators are dossier evidence, not universal source verification."
+    },
+    {
+      "id": "TF02",
+      "priority": "P1",
+      "kind": "missing",
+      "title": "Give context-card projections a scene identity and explicit invalidation dependencies",
+      "evidence": [
+        {"path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md", "claim": "Character-context dialogue supplies rich card fields, observer rules and authored-dialogue default; projection validity/invalidation contract is unspecified."},
+        {"path": "src/pocket_realm_scenes.js", "line_start": 115, "line_end": 131, "claim": "private_research belongs to caretaker; offer precedes hear_research; heard result stays an attributed report."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/PEOPLE.md", "line_start": 89, "line_end": 93, "claim": "C066-08/C072-03/C080-09 distinguish Neolu copy friendship and original lived interactions; exile remains rumor."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/REVELATIONS.md", "line_start": 79, "line_end": 84, "claim": "Later constructed experiences and retrospective testimony qualify earlier appearances; reveal-order facts cannot become earlier actor knowledge."}
+      ],
+      "current_player_behavior": "Joss source declarations distinguish private result, offer and heard report. Broad adapted-character cards are proposed; a person-only summary can conflate later revelations or copied relationships.",
+      "proposed_player_behavior": "Dialogue changes only for the actual speaker/observer's current era, branch/body, memories and available means. Joss can offer without revealing his result; hearing permits attributed follow-up.",
+      "authoritative_owner": "Society/dialogue and timeline owners define context; existing source GMs qualify contemporary evidence; Engine later binds settled state.",
+      "dependencies": ["TF01 selected evidence", "Actor/body/branch/era identities", "Observed/reported knowledge", "Relevant settlement events and source/voice revisions"],
+      "world_examples": ["Original Glasshouse Joss private/offer/heard states", "MoL copy/original Neolu relationship split"],
+      "acceptance_case": "Author three Joss projections before trial, after offer and after heard report. The player projection never contains the unreported result. A MoL copy/original card shares appropriate identity facts but not lived relationship memory; changing relevant branch/knowledge invalidates only affected projections.",
+      "simplify_or_retain": "Separate author-private facts from speaker/player projections. Retain goals, voice evidence, positive powers and unknowns; do not pass a full biography to every line writer.",
+      "cheaper_alternative": "Small authored cards with explicit validity conditions and dependency IDs before any cache service or live narration provider.",
+      "source_status": "Static original scene support verified; MoL scene distinctions rely on the reviewed supplied dossier. Projection contract is original proposal.",
+      "verification_limits": "No runtime projection/cache implemented or exercised. Static scene declarations do not prove native dialogue behavior."
+    },
+    {
+      "id": "TF03",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Use role-specific input selectors and bounded outputs before broad document loads",
+      "evidence": [
+        {"path": "PROJECT.md", "line_start": 5, "line_end": 27, "claim": "Current resume/intent is separated from historical and family-specific sections; expansion proposal at lines303-350 remains relevant."},
+        {"path": "docs/GAME_MASTER_PROMPT.md", "line_start": 189, "line_end": 193, "claim": "Refresh already requires checkpoint and only linked owners/source needed next."},
+        {"path": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json", "claim": "Frozen hashes bind files but provide no role-specific section/record selectors."},
+        {"path": "docs/research/novels/GM_RUN_QUEUE.md", "line_start": 1, "line_end": 39, "claim": "Current ownership/source routing precede explicitly Historical bounded-run state."}
+      ],
+      "current_player_behavior": "Workflow-only cost: authors repeatedly encounter large mixed-current/history inputs; no new gameplay deficiency follows their size.",
+      "proposed_player_behavior": "Selected Frontier and destination behavior reaches authoring/integration with fewer repeated retrieval steps while preserving current holds and accepted constraints.",
+      "authoritative_owner": "Master task/snapshot owner and each role's current checkpoint writer.",
+      "dependencies": ["Existing mandatory host/PROJECT instructions", "Dirty-input fingerprints", "Current-section anchors or record queries", "Explicit missing/truncated output status"],
+      "world_examples": ["Frontier author needs current hold, vanilla/milestone intent and selected Short Measure dependencies, not every historical cultivation increment."],
+      "acceptance_case": "A task manifest names relevant sections/records plus source hashes. Retrieval returns requested spans, locators and completeness status. A material hash change triggers affected-section reconciliation; a missing selector is reported and widened once. Required instruction reading is never omitted.",
+      "simplify_or_retain": "PROJECT=13879 whitespace words/119413 bytes; selected lines1-27 plus303-350=1874 words. Queue current lines1-37=790 of2854 words. Keep full owners/history; these counts are surrogates, not measured token savings.",
+      "cheaper_alternative": "Heading scan plus sed/JSON filters; no duplicate compact specification or repository-wide index needed.",
+      "source_status": "Direct current file counts and policy inspection; expected efficiency improvement is inference. This audit also encountered oversized/truncated reads.",
+      "verification_limits": "No measured latency/token reduction or exhaustive cross-chat load audit."
+    },
+    {
+      "id": "TF04",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Reuse criterion-specific evidence and repair only affected dependencies",
+      "evidence": [
+        {"path": "docs/research/novels/full-book/mother-of-learning/AUDIT.md", "line_start": 15, "line_end": 23, "claim": "Read declarations, interval arithmetic and labels are explicitly separate evidence classes."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/AUDIT.md", "line_start": 61, "line_end": 67, "claim": "Shifted locators were repaired while stable IDs persisted; mechanical audit does not reproduce semantic source reads."},
+        {"path": "docs/gm/world-implementation/depth/micro/REPORT.md", "claim": "Source/API repairs and distinct original crossing/project variants were reconciled; planning checks do not establish changed runtime."},
+        {"path": "docs/GAME_MASTER_PROMPT.md", "line_start": 124, "line_end": 125, "claim": "Review before integration and named-failure repair are already required."}
+      ],
+      "current_player_behavior": "Source reviews contain useful qualified corrections; source/adaptation variants and changed runtime can still require different future acceptance cases.",
+      "proposed_player_behavior": "A MoL scene uses the corrected claim and contemporary knowledge; unchanged unrelated scenes retain their reviewed evidence without silently inheriting gameplay proof.",
+      "authoritative_owner": "Current source GM or implementation writer; designated reviewer; master integrates only applicable evidence.",
+      "dependencies": ["TF01 exact claim/notes", "Criterion and input revisions", "Changed dependency set", "Semantic versus structural review and executed/deferred gates"],
+      "world_examples": ["MoL stable claim IDs after paragraph-locator repair; an early theory remains attributed despite a later revealed outcome."],
+      "acceptance_case": "After a locator or dependency repair, identify affected claim/scene criteria, inspect their new evidence and update that receipt. Do not restart unrelated completed ranges. Hash equality permits evidence reuse only within its original criterion and limits; structural checks grant no new semantic or gameplay status.",
+      "simplify_or_retain": "Keep real parent review and explicit repair history. Reuse relevant passed checks rather than ask another coordinator to repeat an entire dossier scan.",
+      "cheaper_alternative": "Add criterion/revision/limits fields to existing receipts instead of creating a universal review database.",
+      "source_status": "Existing review and repair boundaries verified; common delta-review contract is proposed.",
+      "verification_limits": "No whole-dossier semantic re-audit, current-code behavior check or demonstrated cost reduction."
+    },
+    {
+      "id": "TF05",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Qualify economical helpers on real exceptions and account for total work",
+      "evidence": [
+        {"path": "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md", "claim": "Reader model default and Large batches with smaller readers sections specify Luna medium initially, representative real chunk review and named escalation."},
+        {"path": "docs/research/novels/full-book/mother-of-learning/readers/001-005_TASK.md", "line_start": 3, "line_end": 9, "claim": "Self-contained 5-chapter task preserves viewpoint/theories, locators and parent review; it reports 34755 whitespace words rather than usage tokens."},
+        {"path": "docs/GAME_MASTER_PROMPT.md", "line_start": 121, "line_end": 125, "claim": "Bounded context, one writer, actual capacity and repaired acceptance remain live policy."}
+      ],
+      "current_player_behavior": "Workflow only: route qualification exists, but this sampled record set exposes coverage/check evidence rather than a comparable total-token or billed-cost result.",
+      "proposed_player_behavior": "Future MoL/Gu content retains correct source, causal and knowledge exceptions while bounded extraction tasks use the live qualified economical route where they actually add value.",
+      "authoritative_owner": "Assigning GM under live project reader policy and exposed host capabilities; existing top-level settings retained.",
+      "dependencies": ["Frozen source range and self-contained context", "Same acceptance gate across routes", "Parent semantic review", "Available per-run telemetry with scope and exclusions"],
+      "world_examples": ["MoL opening task must not substitute remembered later loop explanations for the narrator/actor evidence available in chapters1-5."],
+      "acceptance_case": "Qualify one actual chunk including a causal/knowledge exception, inspect cited evidence and record repairs. Widen only the passed pattern; named ambiguity triggers effort/model escalation. Any cost comparison includes parent plus all workers and distinguishes source words, host usage, time and pricing. Missing values are null.",
+      "simplify_or_retain": "No helper was necessary for this bounded audit. Keep existing policy; more chats or lower effort alone are not proof of lower total cost or equivalent quality.",
+      "cheaper_alternative": "Execute one settled task in the current context; use deterministic filters for mechanical lookup and a bounded reader only when semantic work or an independent gap requires it.",
+      "source_status": "Live project route policy and sampled task are verified; no claim about current OpenAI product pricing, model superiority or configuration is made.",
+      "verification_limits": "No route experiment, pricing check, global config change or full-audit usage measurement."
+    },
+    {
+      "id": "TF06",
+      "priority": "P2",
+      "kind": "already-covered",
+      "title": "Retain one current writer and one terminal return; keep checkpoints as indexes",
+      "evidence": [
+        {"path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md", "claim": "Book handoffs and retired predecessors section records nine historical Regressor chats, eight released predecessors, and stops duplicate scans/polls."},
+        {"path": "docs/research/novels/GM_RUN_QUEUE.md", "line_start": 27, "line_end": 37, "claim": "Current source routing references completion and retired predecessors without making historical chats active owners."},
+        {"path": "docs/GAME_MASTER_PROMPT.md", "line_start": 190, "line_end": 193, "claim": "Compact checkpoint indexes live owners/evidence; healthy work resumes without repetition."},
+        {"path": "docs/gm/world-implementation/second-pass/token-efficiency/ASSIGNMENT.md", "claim": "Four required report surfaces and checked completion are explicit; no extra visible chats/messages or duplicate completion watcher."}
+      ],
+      "current_player_behavior": "No new gameplay deficiency: duplicate completion-watch work is a documented historical workflow problem already addressed by current policy.",
+      "proposed_player_behavior": "Selected Regressor campaigns consume the sole current qualified dossier rather than competing predecessor summaries; held runtime remains held.",
+      "authoritative_owner": "Master RUN/queue owner; sole current role writer finalizes its receipt and releases scope.",
+      "dependencies": ["Actual predecessor/child/process status", "Exclusive writer transfer", "Existing task checkpoint and final receipt", "TF04 criterion-specific evidence reuse"],
+      "world_examples": ["Regressor supplied-snapshot final writer and eight retired predecessor histories remain distinguishable."],
+      "acceptance_case": "A final return references finding IDs, owned paths, actual gates, limits and released writer state once. A successor begins only after a concrete need and verified transfer. Retired contexts do not initiate another watch/audit absent a named gap; archive organization is a separate user action.",
+      "simplify_or_retain": "Integrate this matrix into the existing plan by IDs, not by copying all prose into every checkpoint. Preserve healthy-context reuse and authorized useful independent pools; do not add a new coordinator tier.",
+      "cheaper_alternative": "A compact saved final receipt plus targeted review in the existing owner; no successor merely because a packet ended.",
+      "source_status": "Dated project history and current rule verified; no fresh claim that retired predecessors are still running.",
+      "verification_limits": "No other-chat messaging/polling or sidebar changes. Own tree closeout is checked; external roles' live status is not independently re-polled."
+    }
+  ]
+}

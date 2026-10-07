@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "state": "current-main-source-native-ui-save-build-admitted-implemented-unverified",
+  "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "capturedAtUtc": "2026-10-06T06:25:18.012521+00:00",
+  "bundleFingerprint": "c2e01eb71d2a",
+  "build": "docs/gm/book-world-player-agency/BUILD.json",
+  "buildSha256": "418268b2261d77065fb0a9f80728708be9ddb298f77b9a76851dcd5267dce8a6",
+  "sourcePacket": "docs/gm/nethack/INTEGRATION.json",
+  "sourceRelease": "docs/gm/nethack/BOOK_WORLD_HANDOFF.json",
+  "sourceReleaseSha256": "baacbe4e42f636be1bec9cf7dd670576917becc8b87559278df0511cb3aa1381",
+  "sourceModuleHashes": [
+    {
+      "file": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "file": "src/nethack_fieldcraft_facts.js",
+      "sha256": "d3c8b9da5fefcbd1793af2580347253973714d07dc0fbefdf29d08cb1828976b"
+    },
+    {
+      "file": "src/nethack_fieldcraft_host.js",
+      "sha256": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03"
+    },
+    {
+      "file": "src/nethack_fieldcraft_feats.js",
+      "sha256": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392"
+    }
+  ],
+  "sourceProjection": "src/nethack_fieldcraft_item_view.js",
+  "sourceProjectionSha256": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015",
+  "nativeConsumers": [
+    "src/feature_expansion_content.js",
+    "src/data/expedition_items.js",
+    "src/simulation_effects.js",
+    "src/simulation.js",
+    "src/reference_gameplay_state.js",
+    "src/feature_expansion_wave_host.js",
+    "src/main.js",
+    "src/reference_gameplay_feats.js",
+    "src/display.js",
+    "src/adventure_notebook.js"
+  ],
+  "counts": {
+    "commands": 14,
+    "items": 4,
+    "localDog": 1,
+    "condition": 1,
+    "feats": 3
+  },
+  "strictOptional": "referenceGameplay1.fieldcraft1 admitted9/10; absent validator runs evenwithoutreference root; earlierunknownreaderrejects before native mutation",
+  "nativeIdentity": "Full/empty physicalidentity separatefrom understood own first-hand knowledge; current validatedstate reader only; retainedrows refresh; no globaltemplate/ID/quality/count/custody mutation",
+  "sourceConservation": "full\u2192emptyvial; bothpinroutes same2finitepins; dogcare/training/help actual funds/effort/consent/local body; timedpin completion/refund; threefeats at existing newlycommitted boundary",
+  "mainAdoption": "currentbuiltbytes; e1aaca74683b isolatedpreview historicalnotcurrent",
+  "broaderAudit": "Native ordinary meals and stave drying covered; other NetHack candidate packets unselected",
+  "behavior": "alltests/browser/save/reload/failure/keyboard/regression/director deferred",
+  "checks": "syntax/import/definition/source joins/link/build/maps/index/notices only",
+  "privateSaves": "untouched",
+  "publication": "none"
+}

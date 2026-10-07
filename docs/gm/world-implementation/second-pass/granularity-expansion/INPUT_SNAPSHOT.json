@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-05",
+  "kind": "planning-inputs",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "dirty": true,
+  "files": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "095ab060e6aca28b67e7a9594ef1ad1385b30f5622f730d12661975f4e0d8974",
+    "docs/USER_VISION.md": "1f1d7219436b3d259fcb5bc005c807df44e454dbd2f758f70f05cceeff58643d",
+    "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md": "0a4743f06fa2b1185786379d17fce052723a07d30078aac91629c5e1732625c2",
+    "docs/gm/world-implementation/depth/micro/CHECKPOINT.md": "d2fbf3cd9f2fb0e2330c70f81ed18e68723895e58645e73de4bcd841c6dd01cb",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "7b2461e16292c46e842300e07f8514e246663cebe08c1ff9109da32882071c1a",
+    "docs/gm/world-implementation/RUN.json": "cfa24f4d37dc4114298411347cec9728de5afba87d4f23db8d145ae72e0dd600",
+    "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "src/skill_expansion_content.js": "8fc576b300e93c0edc4a2bde04dbaef562ec98bc2fc50e2ce2c5dc65143b0c80",
+    "docs/gm/world-implementation/abilities/SKILL_REQUIREMENTS.md": "2e6c92421eda19eef52654e86325a73abc89447a7ecb3451db8d770a0038255f",
+    "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md": "8214d799eeb08cfd3f2b522caaf1517d11a94793306d8fd168ad315cf17abf6c"
+  },
+  "note": "Current skill/runtime and parent planning owners may change independently. Hashes identify read-time inputs, not frozen ownership.",
+  "reconciledFiles": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "ac3c253ea5bebc6ecb9be8df5e8396a1caa50405596294c9066e672af3fea7a0",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/GATHERING_AND_RESOURCE_USES.md": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af",
+    "docs/GRANULAR_SYSTEMS_AND_INTERACTIONS.md": "7cfc4c89c31de77ce4de6a5c5738c812a9ee904425564e8990a97937f05265fb",
+    "docs/RESEARCH_LITRPG_SYSTEMS.md": "4435be49fd6771aec223e54f608fb7384343caf48afb7b7550f099b454670825",
+    "docs/USER_VISION.md": "3f42db58f3eebc69cf8ec82d2536364fde2715549b2e4d52e65de4a9b800bcca",
+    "docs/WANDERING_ZONES_AND_INSIGHT.md": "4b3056a67f94884edb36a907454c7523e51dde68f578e6a64d6da100e9d26a0d",
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+    "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md": "0a4743f06fa2b1185786379d17fce052723a07d30078aac91629c5e1732625c2",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "f1ad8e1286b9c2ca50ab85172023244e8015492ee50ee376f0378ade9c88dcd2",
+    "docs/gm/world-implementation/INTERFACE.md": "0324a210418cebee872331f49a4b96e240ab3127fbb42743d2277022df2e9008",
+    "docs/gm/world-implementation/RUN.json": "3c7767c6ff5bac1083a7c699773fb6a203328edadd6fc1e44386077136f98e21",
+    "docs/gm/world-implementation/abilities/CHECKPOINT.md": "450075d539bba047c6fce482b969691dc19f3f09c4b0277bd19d4353aa480433",
+    "docs/gm/world-implementation/abilities/INTEGRATION_FEEDBACK.md": "3611d1fdaf7a58af51ead3aab0cdc89ce9540b3207870208a8b0127c2d89fc05",
+    "docs/gm/world-implementation/abilities/SKILL_REQUIREMENTS.md": "fd47859f6b3d3bd09a305b0a8293370a1309bbb14d1dfe639bba354aa4fe4cdd",
+    "docs/gm/world-implementation/depth/micro/CHECKPOINT.md": "d2fbf3cd9f2fb0e2330c70f81ed18e68723895e58645e73de4bcd841c6dd01cb",
+    "docs/gm/world-implementation/engine/CHECKPOINT.md": "0dba6fed373e48751c82788d861fffd1b5af3812c3c1b2f440d9dc8a18223e48",
+    "docs/gm/world-implementation/second-pass/bases/REPORT.md": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55",
+    "docs/gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md": "6060d16d9dd841450cc976d9fa8dc94910c503261e8d04c1027095756375d1df",
+    "docs/gm/world-implementation/second-pass/experience/REPORT.md": "a4856af2334c9c770e4b712e0cc468cc3ba4bd35d4a80d86ae9b4c58857643a3",
+    "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md": "8214d799eeb08cfd3f2b522caaf1517d11a94793306d8fd168ad315cf17abf6c",
+    "docs/gm/world-implementation/second-pass/items/ITEM_FAMILY_COVERAGE.md": "02cd3a449432187da78fe31d9f3db22023c0ab32ec258ca39da4686f9709a0de",
+    "docs/gm/world-implementation/second-pass/powers/REPORT.md": "db2468cc839d89ff9d926903019822f5606798474271dd674aa0baf0538e8452",
+    "docs/gm/world-implementation/second-pass/regions/REPORT.md": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+    "docs/worlds/ABILITY_AUTHORING.md": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687",
+    "docs/worlds/PROGRESSION_AND_ASSEMBLY.md": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+    "src/activities.js": "b12e0afde7f9af9d8e07d4dc12bdfa03d955328847f4148a37fecdb2d26b2204",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/data/skills.js": "11bd4bafd1591520cfe3a9892a3de28ed274bc278d8dfa19a5ed7d70b2024a96",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/expedition_content.js": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+    "src/expedition_ui.js": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+    "src/field_ui.js": "542d856d99c608f3901a0c4c809cd9c30d019c481579139640cfe8611281d9db",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/main.js": "4e26a58a645592480d1ed5496e99cebef4e9361fc6147c8ac3c700dea38143ba",
+    "src/observation_content.js": "30a1108998f88c6c85c1eea7cf26d990eeec6c685aad6b8330ee0b0fcc6c20e6",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_content.js": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/skill_expansion_host.js": "a969304752d11b41584d3326e99d10fc8e4909dbeddad14789d63791bccbc1ad",
+    "src/skill_expansion_ui.js": "68769426f06e4c641f74146fd55264b1cd68dc493143459dffaca90453f0e32e",
+    "src/technique_ui.js": "2bc15db544852080df4def4fdd9640f0c7777e97da7bccf6ffe8244e5273aea4"
+  },
+  "driftFromInitial": [
+    {
+      "path": "PROJECT.md",
+      "initial": "095ab060e6aca28b67e7a9594ef1ad1385b30f5622f730d12661975f4e0d8974",
+      "current": "ac3c253ea5bebc6ecb9be8df5e8396a1caa50405596294c9066e672af3fea7a0"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "initial": "1f1d7219436b3d259fcb5bc005c807df44e454dbd2f758f70f05cceeff58643d",
+      "current": "3f42db58f3eebc69cf8ec82d2536364fde2715549b2e4d52e65de4a9b800bcca"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "initial": "7b2461e16292c46e842300e07f8514e246663cebe08c1ff9109da32882071c1a",
+      "current": "f1ad8e1286b9c2ca50ab85172023244e8015492ee50ee376f0378ade9c88dcd2"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "initial": "cfa24f4d37dc4114298411347cec9728de5afba87d4f23db8d145ae72e0dd600",
+      "current": "3c7767c6ff5bac1083a7c699773fb6a203328edadd6fc1e44386077136f98e21"
+    },
+    {
+      "path": "src/skill_expansion_content.js",
+      "initial": "8fc576b300e93c0edc4a2bde04dbaef562ec98bc2fc50e2ce2c5dc65143b0c80",
+      "current": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/SKILL_REQUIREMENTS.md",
+      "initial": "2e6c92421eda19eef52654e86325a73abc89447a7ecb3451db8d770a0038255f",
+      "current": "fd47859f6b3d3bd09a305b0a8293370a1309bbb14d1dfe639bba354aa4fe4cdd"
+    }
+  ],
+  "qualification": "Scoped root/worker reads; historical owner evidence stays distinct from current source inspection. Hashes identify bytes, not runtime acceptance.",
+  "laterDrift": [
+    {
+      "path": "docs/USER_VISION.md",
+      "earlierRead": "e2bc2899f80ef94eaadfc190314a633851b18a46e022ed0b721bf07aaa304c92",
+      "closingRead": "3f42db58f3eebc69cf8ec82d2536364fde2715549b2e4d52e65de4a9b800bcca"
+    },
+    {
+      "path": "docs/gm/world-implementation/abilities/CHECKPOINT.md",
+      "earlierRead": "26c263cb4bfe070378f9810371bc36deee836a0f8c87fc78e2a97f925c22d18c",
+      "closingRead": "450075d539bba047c6fce482b969691dc19f3f09c4b0277bd19d4353aa480433"
+    }
+  ],
+  "reconciliation": "Parent planning advanced to revision 7 with Frontier/ending coordination; Ability requirements and source return advanced with the same four IDs and actual host metadata alias; registry/main/host/UI bindings observed. Final matching rebuild/behavior not checked. Worker hashes remain their dated inspection evidence. Owners remain read-only here.",
+  "postGateIndependentDrift": [
+    {
+      "path": "docs/gm/world-implementation/engine/CHECKPOINT.md",
+      "readSnapshot": "0dba6fed373e48751c82788d861fffd1b5af3812c3c1b2f440d9dc8a18223e48",
+      "laterObserved": "e56efcca493c3ae55b02dd3be75e68eadafad3bf09a67f6fcb56b44c6627c3d2"
+    },
+    {
+      "path": "src/skill_expansion_host.js",
+      "readSnapshot": "a969304752d11b41584d3326e99d10fc8e4909dbeddad14789d63791bccbc1ad",
+      "laterObserved": "4eb7961db8d8923a8c217f6e9c6f30bd918e8d6628bec7bbf97a3082088a558e"
+    },
+    {
+      "path": "src/skill_expansion_ui.js",
+      "readSnapshot": "68769426f06e4c641f74146fd55264b1cd68dc493143459dffaca90453f0e32e",
+      "laterObserved": "4f3ad801f8cfb036081c332276a32d16a21d66ce9d9e5b060b0fc146cecbc423"
+    },
+    {
+      "path": "src/technique_ui.js",
+      "readSnapshot": "2bc15db544852080df4def4fdd9640f0c7777e97da7bccf6ffe8244e5273aea4",
+      "laterObserved": "01d72e6a0c241ad7c20fd0b0e959697dd3d97296d85a329e0c410b836e6df61b"
+    }
+  ],
+  "postGateQualification": "Engine checkpoint revision 3 reports registered native consumers/panel and initial build, with final source repairs and matching rebuild pending. Independent host/UI writers continue under Engine ownership. This does not change these planning paths or grant this task source ownership; all source facts are read-time observations, behavior unverified."
+}

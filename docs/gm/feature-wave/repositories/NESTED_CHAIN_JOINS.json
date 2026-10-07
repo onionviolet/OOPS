@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "authority": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+  "state": "source-native-ui-save-current-build-admitted; implemented-unverified",
+  "scope": "Only directly relevant retained campaign/effect/staged-action mechanism over existing Miri owners. Features owns lived hub/two destination bindings and other chains. No generic branch/quest/clock/carrier engine or new namespace.",
+  "chainId": "repositories.incomplete_to_practiced",
+  "actualWorld": "base.frontier original, no Paradise/source-world adaptation claimed",
+  "qualifiedSourceBoundary": "RB-CAM-03 sampled Wesnoth linear scenario gives retained named actors/once-only effects, not generic branching-runtime evidence. Independent original continuation uses current situation/frozen job/source/native owners. Qualified audit retained, no repeated30-row review.",
+  "newCommands": [
+    "repositories.test_rough_seam",
+    "repositories.show_matched_method"
+  ],
+  "existingEdges": [
+    {
+      "from": "offered incomplete explanation",
+      "via": [
+        "repositories.ask_wick_sketch"
+      ],
+      "to": "interpreted rough notes; no method source"
+    },
+    {
+      "from": "interpreted rough notes",
+      "via": [
+        "repositories.test_rough_seam"
+      ],
+      "to": "actual kit/resin/stamina spent; soaked kit retained; no pump/method reward"
+    },
+    {
+      "from": "willing actual instructor",
+      "via": [
+        "repositories.lesson"
+      ],
+      "to": "understood method and trained source; paired actual fee"
+    },
+    {
+      "from": "earned source and real stock",
+      "via": [
+        "repositories.seal_kit",
+        "repositories.seal_pair",
+        "repositories.show_matched_method"
+      ],
+      "to": "native protected kits; mastery-three pair function; independent witness memory"
+    },
+    {
+      "from": "discovered pump offer",
+      "via": [
+        "repositories.exposed_work",
+        "repositories.protected_work",
+        "repositories.surface_bypass",
+        "repositories.resident_bypass"
+      ],
+      "to": "failed exposed route or restored local water or funded bypass; independent resident spending"
+    },
+    {
+      "from": "inspected substitute offer",
+      "via": [
+        "repositories.inspect_substitute",
+        "repositories.deliver_substitute"
+      ],
+      "to": "one finite kit/wage settlement, no transfer of methods/body/rights"
+    },
+    {
+      "from": "actual retained outcome",
+      "via": [
+        "repositories.hear_pump_restored",
+        "repositories.hear_pump_bypassed",
+        "repositories.hear_pump_resident_bypass",
+        "repositories.hear_substitution"
+      ],
+      "to": "same person/stock/claim and qualified later account; no repeated reward"
+    }
+  ],
+  "branchAlternatives": [
+    "qualified instruction instead of rough test",
+    "ordinary surface bypass without trained source",
+    "refusal/silence with finite independent resident action",
+    "protected pump welfare benefit versus parcel substitution wage",
+    "leave/revisit without erased actor or award replay"
+  ],
+  "nativeEffects": [
+    "real kit/pellet/stamina debit and typed soaked-kit transformation",
+    "actual paired protected-kit outputs",
+    "Miri stamina used to attend; no copied source/mastery/fuel",
+    "directed observed knowledge and local esteem from a real demonstration",
+    "existing pump world/situation branch, finite resident/water/wage/claim owners"
+  ],
+  "portability": "Carried actual native items/learned memory persist across existing journeys. Method execution remains declared Frontier-only; no local fuel/jurisdiction inferred in another destination. Borrowed/worn stock guards remain current owners. Unaccepted Miri windows freeze unsupported contact; paid jobs use existing explicit completion/refund support.",
+  "ui": "repositoryMethodChainView reads only knowledge.player, never private NPC phases/goals or source baseline future; existing dedicated panel renders its known rows.",
+  "requiredSharedJoin": "No new main/registry/save API: existing group repositories import/host/UI/one publisher already consumes new rows. Features must build final seven role sources and update source correspondence after native hub/chain scope integrates.",
+  "sourceHashes": {
+    "src/repository_absorption_chains.js": "25af4a48758c500fff68add9556e9543cf5182f5c5417685171d7a19a2888c91",
+    "src/repository_absorption_content.js": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+    "src/repository_absorption_host.js": "9d9560568244f3dc99a890723af74bb4f95f58c4ebd1f714185d386f09269c7a",
+    "src/repository_absorption_ui.js": "3c31d09b289939d4ff274926dcccc358b2805872647442c6490003825c3f1366",
+    "src/repository_absorption_facts.js": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86",
+    "src/repository_absorption_substitutions.js": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8"
+  },
+  "sourceWriterReleased": true,
+  "checksPerformed": [
+    "new module/content/host/UI syntax",
+    "actual cold native registry all28 commands",
+    "UI imports linked; no gameplay execution"
+  ],
+  "checksDeferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "chainIdentityBoundary": "repositories.incomplete_to_practiced is a stable player-known presentation/authoring chain ID, not a second saved graph/situation cursor. Actual progression is owned by existing lantern/pump situations, learned powers, command completion and received knowledge.",
+  "nativeItemNameRepair": "Actual OtherItem delegates Item.name with no id fallback; all3specs now explicitly name=id. IDs/counts/jobs/saved meaning unchanged; final coordinated build consumes corrected native display names.",
+  "displayedOfferRepair": "UI callback now sends displayedView exact request/target/job and displayedSequence. It no longer refreshes a next-step offer at click time, so stale single-kit versus paired-kit work rejects under existing host expectedSequence/identity checks.",
+  "currentBuild": {
+    "bundleFingerprint": "11aaa9cbfc69",
+    "receipt": "docs/gm/feature-wave/features/BUILD.json",
+    "localSourcesMatched": 221,
+    "roleModulesMatched": 7,
+    "sourceDrift": 0
+  }
+}

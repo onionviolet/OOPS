@@ -1,0 +1,11 @@
+{
+  "qualification": "Dispatch snapshot only; shared source is active and receivers must refresh affected inputs.",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": "e4aa57bac67c9be5cf2d23f5c1335bbb2084cd3975cc27fdbe91fdcf1b1c1bcd",
+    "docs/gm/dispatch/game-discovery-and-absorption-2026-10-06/ASSIGNMENT.md": "2ebce21fcb0f16b34adae55c3f036cfa001ab5efa484c0bd52821c49a4d54e4d"
+  }
+}

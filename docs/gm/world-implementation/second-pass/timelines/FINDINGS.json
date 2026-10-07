@@ -1,0 +1,705 @@
+{
+  "schema": 1,
+  "role": "Timelines progression and campaign GM",
+  "date": "2026-10-04",
+  "status": "planning-complete-pending-master-director-review",
+  "scope": "Temporal/campaign/progression causality and underexplored long paths; runtime implementation held.",
+  "input_snapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "priority_order": [
+    "TL01",
+    "TL02",
+    "TL03",
+    "TL04",
+    "TL05",
+    "TL06",
+    "TL07",
+    "TL08"
+  ],
+  "source_qualification": {
+    "mother_of_learning": "Exact supplied WebToEpub snapshot e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf; three bounded raw windows reread; broader cited claims are reviewed dossier evidence, not a new full-book audit or original authenticity certificate.",
+    "other_worlds": "Original/O or completed macro/micro source-qualified examples as marked; no new series or roster claim."
+  },
+  "measurements": {
+    "runtime": null,
+    "tokens": {
+      "value": 172907,
+      "unit": "tokens",
+      "provenance": "host goal.tokensUsed at first completed status snapshot",
+      "scope": "cumulative counter for this audit goal; no subagents; excludes subsequent final-delivery metadata edits",
+      "billing_or_savings_inference": false
+    },
+    "savings": null,
+    "note": "No runtime/token benchmark or savings comparison was performed. The host exposed this cumulative usage/elapsed counter only when the goal was marked complete; it does not establish API spend, allowance impact or optimization savings.",
+    "elapsed_seconds": 798
+  },
+  "findings": [
+    {
+      "id": "TL01",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Keep remembered histories while invalidating their future expectations",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 81,
+          "line_end": 81,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "src/causal_situations.js",
+          "line_start": 16,
+          "line_end": 56,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 168,
+          "line_end": 171,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 260,
+          "line_end": 280,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+          "line_start": 143,
+          "line_end": 143,
+          "qualification": "reviewed supplied-edition claim; raw window not reread here",
+          "claim": "MOL-C091-01; ch.91:p2-42"
+        }
+      ],
+      "current_player_behavior": "Situations already retain fixed context, phase causes and receipts; knowledge can attribute recollection/observation/inference. A same-key knowledge update has monotonic comprehension rank. The inspected records do not link an expected future to its still-valid actor/stock/witness prerequisites or preserve competing claim revisions. The plan states the desired invalidation but lacks a concrete required case.",
+      "proposed_player_behavior": "An intervention marks only dependent expectations unsupported or superseded in this branch. The prior-life recollection remains true as a recollection; a new observation updates present belief without making all actors know it. Order source reveal, occurrence and each observer learning separately, leaving uncertain dates unknown. Later scene eligibility checks actual means and witnesses.",
+      "authoritative_owner": {
+        "primary": "Causal interactions/plots and local campaign GM",
+        "runtime": "Shared Engine owns staged state/effects; society owns actor belief/knowledge; source GM owns cutoff and corrections",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "existing instance/continuity/era identity",
+        "TL07 consequential receipts",
+        "selected scene prerequisites and observer-qualified reports"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O proposal",
+          "case": "Warn the route crew, preventing a supplier injury. Remembered expectation of an understaffed escort becomes stale; the teacher can still offer a different lesson if current means permit."
+        },
+        {
+          "world": "Mother of Learning",
+          "status": "qualified supplied-edition source pattern plus O playable adaptation",
+          "case": "MOL-C091-01 says Silverlake departure invalidates the prior exit plan. Author a revised research route rather than force the missing collaborator into the original scene."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "Before intervention, a remembered lead names its branch/cutoff and uncertain prerequisites. Change one supplier/collaborator condition: the dependent scene is unavailable or different, an unrelated scene still works, the recollection is retained, and only a witness or later recipient learns why. A repeated preview creates no new occurrence."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Existing situation and attributed-knowledge primitives are real inspected support, not a general dependency engine.",
+        "source": "MoL dossier qualified to supplied snapshot, original authenticity unverified.",
+        "invention": "Player route, expectation linking and statuses are O proposals.",
+        "uncertainty": "No universal prophecy accuracy or exact absent dates inferred."
+      },
+      "simplification_or_alternative": "Use a small authored prerequisite/invalidates list for consequential expected events and partial ordering. Do not create a universal causal graph for every object/tick; do not erase memory to correct a forecast.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL02",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Qualify temporal operations separately from domain resets and prestige",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "line_start": 408,
+          "line_end": 458,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 271,
+          "line_end": 283,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 55,
+          "line_end": 67,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+          "line_start": 48,
+          "line_end": 59,
+          "qualification": "supplied edition, hash/member checked; injury observed, synchronization mechanism is character theory",
+          "claim": "MOL-C083-10/MOL-C084-01..08; raw ch.84:p2-18 reread"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md",
+          "line_start": 160,
+          "line_end": 160,
+          "qualification": "supplied edition, hash/member checked; recipient reports absent memory",
+          "claim": "MOL-EP-09; epilogue:p125-136 reread"
+        }
+      ],
+      "current_player_behavior": "Campaign transitions can preview reset/retain domains, clear selected actor/world domains, carry a party and apply a native patch. Claims/RNG/causes remain; historical reversal is explicitly delegated to isolated snapshots. World instances have continuity/era/parent identity but create from initial facts. These are useful foundations, not live rewind, complete clone/counterpart handling or full-book loop gameplay.",
+      "proposed_player_behavior": "Each selected operation declares trigger, anchor, restored domains/participants, retained carriers, actual target body/identity, outside commitments, irreversible exports/receipts and failed/interrupted arrival. Earlier independent start, source-specific regression, loop restart, dilation, rebirth and field renewal get distinct cases. Retained knowledge, damaged soul, ordinary renewed body, material notes and another person's memories follow different rules.",
+      "authoritative_owner": {
+        "primary": "Local campaign/temporal authoring GM",
+        "runtime": "Shared Engine owns snapshots/compatibility/transition publication; powers/bodies own retention carriers and identity",
+        "source": "selected book GM verifies exact mechanism",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "director selects required temporal mechanic ID",
+        "TL03 clock relation",
+        "native isolated owner bindings",
+        "conserved cargo/claims",
+        "source-qualified carrier/body policy"
+      ],
+      "world_examples": [
+        {
+          "world": "Mother of Learning",
+          "status": "qualified supplied-edition source",
+          "case": "A restart leaves Zorian unable to cast after soul injury (ch.84). Delivered research notes do not grant Kael the memories of producing them (epilogue). Preserve those distinct positives and losses."
+        },
+        {
+          "world": "Original Frontier",
+          "status": "existing narrow prototype plus O future option",
+          "case": "Field renewal remains its declared training operation. A separately selected prequel start creates a new history without advertising a rewind of the current player."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "For a selected bounded loop, compare before/after by carrier: renewed body state, retained soul injury, remembered method, nonremembering counterpart, physical notes and one exported unique object. Restoring local state cannot duplicate the exported identity, replay a settled external payout or silently reset outside work. Interruption follows declared rules. A separate earlier start passes a different case and does not satisfy the loop case."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Named resets/native patches and persistent claims exist; generic historical snapshot restoration/export reconciliation not established by them.",
+        "source": "Raw ch.84 and epilogue windows checked; no broader reset physics/authenticity certification.",
+        "invention": "Player eligibility, export rule and anchor recipe remain O/director choices.",
+        "uncertainty": "Unknown retention domains remain unselected rather than defaulted to full reset."
+      },
+      "simplification_or_alternative": "For first ordinary qualification defer unused live reversal; an authored earlier-era branch can support prequel play more cheaply but loses the remembered-live-loop function. If genuine looping is selected, implement one bounded anchor and explicit carrier recipe, not a universal rewind engine or a prestige alias.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL03",
+      "priority": "P1",
+      "kind": "missing",
+      "title": "Bind growth, recovery and chapter advances to declared temporal exposure",
+      "evidence": [
+        {
+          "path": "src/chronicle.js",
+          "line_start": 64,
+          "line_end": 105,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 108,
+          "line_end": 111,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 309,
+          "line_end": 344,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/realm_clock_leases.js",
+          "line_start": 179,
+          "line_end": 225,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 317,
+          "line_end": 349,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "line_start": 64,
+          "line_end": 92,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+          "line_start": 149,
+          "line_end": 149,
+          "qualification": "supplied edition, hash/member checked; actual built chamber",
+          "claim": "MOL-C091-07; ch.91:p219-223 reread"
+        }
+      ],
+      "current_player_behavior": "Current chronicle age/calendar and simulation due-work use joined played time. Instances count occupied intervals with freeze absence; activity leases add supported intervals once and stop at a known boundary. This deliberately narrow supported policy is coherent. Infant/chapter-advance and differing subjective/outside-time proposals have no operational mapping for mastery, body age, recovery, source upkeep or all outstanding commitments.",
+      "proposed_player_behavior": "A selected temporal episode states exposure for body/life, experienced practice, source/condition timers, local calendar and outside commitments. Dilation grants its genuine research advantage under its actual support. A reviewed life-stage advance projects declared bounded outcomes, settles/cancels/carries funded work explicitly, and states unrepresented days without awarding invented training or aging absent worlds.",
+      "authoritative_owner": {
+        "primary": "Timeline/local campaign GM specifies semantic policy",
+        "runtime": "foundations/Shared Engine owns clock mappings and ordering; bodies/society own ageing/life; powers own upkeep/recovery",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "one authoritative scheduler/publication path",
+        "selected mapping and ordering",
+        "actual body/source/participant ownership",
+        "bounded outcome projection for chapter jumps"
+      ],
+      "world_examples": [
+        {
+          "world": "Mother of Learning",
+          "status": "qualified supplied-edition source plus O adaptation",
+          "case": "MOL-C091-07 provides five months inside per one outside day. Participants can manufacture and practice for that interval; an outside collaborator receives one day, not five months."
+        },
+        {
+          "world": "Original family/Frontier branch",
+          "status": "O proposal",
+          "case": "A child who earned a usable signal advances to apprenticeship with a stated caregiver/stock/learning outcome. A pending delivery is not silently counted complete through the skipped years."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "A chamber case displays separate inside/outside deltas and binds research, supplies and recovery to selected exposure. Overlapping visits/support do not double-count local time. A chapter advance previews every consequential unresolved commitment and refuses or projects it under an explicit policy; no duplicate reward or retroactive absent production. Current default saves retain played-only ageing and freeze."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Played-time/freeze/lease union support exists; no current dilation, chapter-time or subjective-age implementation is asserted.",
+        "source": "Extreme chamber advantage witnessed in checked supplied window; conventional provisioning/isolation is qualified to reviewed MoL notes.",
+        "invention": "Timers/exposure policy for game mastery, specific childhood outcomes and numerical game mapping remain O.",
+        "uncertainty": "Do not derive universal biological ageing or clock conversion from subjective years."
+      },
+      "simplification_or_alternative": "Choose a fixed rational relation for one supported episode and a bounded chapter outcome table where appropriate. No independent browser timer, arbitrary-rate network or simulation of every childhood minute. A snapshot advance is a different function from live dilation.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL04",
+      "priority": "P2",
+      "kind": "simplify",
+      "title": "Let careers overlap and recover through existing functional prerequisites",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "line_start": 49,
+          "line_end": 87,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 207,
+          "line_end": 218,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 207,
+          "line_end": 241,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 11,
+          "line_end": 35,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 28,
+          "line_end": 36,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+          "line_start": 58,
+          "line_end": 60,
+          "qualification": "reviewed supplied-edition claim; raw reread here covers initial injury only",
+          "claim": "MOL-C084-07..09"
+        }
+      ],
+      "current_player_behavior": "The code already supports advancement parents, prerequisite facts, real costs, receipts and optional exclusive groups. It separately records acquired/awakened/active faculties and owned/fragments/mastery power state. Existing world designs have several careers, but seldom require a worked sideways move or temporary loss of support followed by restoration. No missing universal class system is demonstrated.",
+      "proposed_player_behavior": "A forager can become a producer/researcher/teacher while keeping learned methods and resolving genuine institutional conflicts. Equipment loss, illness, denied facility access or a dormant source changes executable choices without erasing unrelated learning. Ordinary repair/work/research can be a useful response to a setback; exceptional acquisition may genuinely replace weaker options without artificial equality.",
+      "authoritative_owner": {
+        "primary": "Progression/economy/projects and local campaign GM",
+        "runtime": "existing prerequisites/advancement/effect owners; powers owns execution and source support, society owns office/access",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "actual acquisition/control/mastery distinctions",
+        "specific prerequisites and reversible permissions",
+        "source-bound exclusivity only when real"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O proposal using inspected ordinary seams",
+          "case": "A route supplier learns inspection, later teaches helpers, and can still sell kits after refusing an exclusive association office."
+        },
+        {
+          "world": "Mother of Learning",
+          "status": "qualified supplied-edition source plus O game route",
+          "case": "During injury, alchemical work and soul study create useful progress while direct casting is impaired (MOL-C084-07..09); recovery does not require buying the same prior training again."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "Complete useful work, acquire one learned function, take a second compatible route, lose a required tool/access and regain it. Execution reflects support at each step; prior learning and independent route remain. A genuinely exclusive sourced choice excludes only its declared conflict. No mandatory rare jackpot or repeated acquisition toll funds basic advancement."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Current advancement, source/power lifecycle and execution gates are inspected real APIs.",
+        "source": "MoL injury/recovery route qualified to reviewed claims; exact game costs not inferred.",
+        "invention": "Career moves and institution terms are O; no fabricated source class tree.",
+        "uncertainty": "Full content/UI delivery for these careers remains absent/unverified."
+      },
+      "simplification_or_alternative": "Author career labels as views over existing prerequisites, actual receipts and functional state. Reserve exclusiveGroup for real permanent conflicts; distinguish temporary access from irreversible learned advancement. Avoid parallel XP bars and bespoke per-career state machines.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL05",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Require a concrete mature outcome and a useful life after the arc",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 15,
+          "line_end": 23,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 28,
+          "line_end": 36,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/chronicle.js",
+          "line_start": 95,
+          "line_end": 105,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/chronicle.js",
+          "line_start": 140,
+          "line_end": 144,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+          "line_start": 37,
+          "line_end": 39,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md",
+          "line_start": 153,
+          "line_end": 165,
+          "qualification": "reviewed supplied-edition aftermath; EP-09 raw window checked",
+          "claim": "MOL-EP-02/06/08/09/14"
+        }
+      ],
+      "current_player_behavior": "The plan explicitly requires mature campaigns, and the macro careers name mature workshops/clinics/routes. They do not yet specify a closed local-arc acceptance state with post-arc actions, handing work to others or voluntary staying/leaving. Current selected mortal chronicle ends once and retains a saved record; no automatic successor/full-life rebirth exists.",
+      "proposed_player_behavior": "Each selected mature campaign outcome names the resolved local conflict, changed function/rights, remaining independent needs and at least one useful stay or later-return action. A skilled player can teach, maintain, investigate, delegate or finish an arc instead of always unlocking another tier/mission. Ending a chapter, retiring an office, leaving a region and ending a life remain different outcomes. No guaranteed peaceful ending or mandatory rebirth reward.",
+      "authoritative_owner": {
+        "primary": "Local campaign GM owns closure/aftermath IDs",
+        "runtime": "society/bases own delegated work, rights and remaining needs; Engine owns optional life transitions",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "campaign coverage ID and actual function",
+        "independent people/institution outcomes",
+        "TL01 downstream changes",
+        "explicit failure/life terms when selected"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O proposal",
+          "case": "A route steward trains a consenting replacement and commissions a functioning supply arrangement, then keeps trade/teaching options or leaves with a genuine later-return consequence."
+        },
+        {
+          "world": "Mother of Learning",
+          "status": "qualified supplied-edition source pattern plus O mature route",
+          "case": "The invasion ending leads to disrupted school, a separate lab, research gifts and contested aranean civil status. Treat research/rebuilding/diplomacy as possible aftermath, not an invented sequel resolution."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "Resolve one arc through two distinct supported approaches; each produces its own aftermath and useful post-arc action. Delegation consumes real means and consent under the selected absence policy, while failure remains possible. Return reads the saved branch. Optional old-age ending does not silently create a descendant, resurrect a teacher or pay a prestige reward."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Current ending/retained record and mature design examples exist; dynamic successor/retirement/campaign-closure delivery not established.",
+        "source": "Supplied MoL ending leaves explicit continuing needs, not universal happy closure.",
+        "invention": "Playable offices, successor and post-arc choices are O.",
+        "uncertainty": "Unseen future story stays unknown; no forced sequel canon."
+      },
+      "simplification_or_alternative": "Use a small authored aftermath state with existing people/project/command owners. A complete arc does not require endless escalating content, dynasty simulation or automatic full-life prestige.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL06",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Work one cumulative multi-world career rather than only a travel loadout",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 59,
+          "line_end": 67,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 118,
+          "line_end": 122,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 150,
+          "line_end": 173,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 81,
+          "line_end": 87,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 415,
+          "line_end": 458,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 15,
+          "line_end": 21,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 13,
+          "line_end": 17,
+          "qualification": "live source/code inspection"
+        }
+      ],
+      "current_player_behavior": "Cargo/function retention and persistent return are already explicit. The original Glasshouse also connects local research/listener/device work to useful Shack packing, with latest pocket behavior built-unverified. General designs more often enumerate acquisitions than show a career whose tested methods, contacts, local credentials and projects grow through several visits; inspected power support checks remain world-specific.",
+      "proposed_player_behavior": "A player accumulates distinct learned method, held source/device, tested operating conditions, institutional recognition and local project history. A remembered technique may be usable immediately in a compatible host and genuinely superior; in an unsupported environment, retain the earned method and explain the actual missing means. Recognition/permits can be obtained through local evidence or reciprocal institutions rather than every visit restarting the whole career.",
+      "authoritative_owner": {
+        "primary": "Local campaign/progression GMs jointly author a bounded two-world career",
+        "runtime": "Engine owns traveler/cargo/native support; powers owns compatibility, bases/society own project rights and local recognition",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "actual persistent same-instance return",
+        "source/body/fuel/stock support",
+        "specific institution recognition rule",
+        "TL04 functional career state",
+        "chosen absence policy"
+      ],
+      "world_examples": [
+        {
+          "world": "Frontier and Folded Glasshouse",
+          "status": "existing original implementation pattern, latest build unverified",
+          "case": "Retain earned observation/research evidence, local Joss relationship and an owned paired device while different passage/view/work terms remain intact."
+        },
+        {
+          "world": "Frontier and Fallout branch",
+          "status": "O adaptation; Fallout material pattern bounded by macro ledger",
+          "case": "A repair researcher brings a learned inspection principle home, makes a compatible simple tool with actual Frontier stock, and later returns for local calibration/access. This does not create Power Armor, fuel or Commonwealth land rights."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "Two visits yield different useful functions and one genuine changed home action; revisit the same people/claims. Separate learned design from manufactured object and local license. With missing fuel/tool, execution is blocked for that real reason; restoring support restores earned use without relearning. Declining another assignment leaves local residence/work available only where authored."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Existing Glasshouse connected return is reported implemented in current PROJECT but browser/save-unverified; no new verification here.",
+        "source": "Fallout pattern retains macro base-game/2287 limits; proposed cross-world career is O, not canon crossover.",
+        "invention": "Local recognition, recipes and career stages require selected O rules.",
+        "uncertainty": "No automatic universal power export, nor arbitrary equalization or unsupported blanket import ban."
+      },
+      "simplification_or_alternative": "One worked two-world career can qualify the join. Reuse source/method/stock/rights owners and compact tested-context notes; do not add a global profession rank, per-visit copies or a compulsory lived hub.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL07",
+      "priority": "P2",
+      "kind": "risk",
+      "title": "Preserve consequential history independently of bounded display logs",
+      "evidence": [
+        {
+          "path": "src/chronicle.js",
+          "line_start": 45,
+          "line_end": 58,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 12,
+          "line_end": 12,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 270,
+          "line_end": 280,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 442,
+          "line_end": 458,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/causal_situations.js",
+          "line_start": 24,
+          "line_end": 49,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 175,
+          "line_end": 179,
+          "qualification": "live source/code inspection"
+        }
+      ],
+      "current_player_behavior": "The current chronicle/log/relationship/event/transition views have explicit bounded histories. Claims, relationship cause receipts, current facts and situation receipts already preserve specific important state. Pruning a display does not undo that state. However, a future long campaign cannot rely on the last 32 transitions/100 events as its only evidence of an old branch, handoff, source acquisition or an intervened cause chain.",
+      "proposed_player_behavior": "Select which consequential milestones need durable provenance and their compact causal summary; UI can keep a rolling feed. A return/era/retention decision retrieves the relevant historical context even after ordinary work is pruned. Pin facts necessary for continuing behavior, not every narrative line. If a summary or ancestry locator is absent, report unknown rather than fabricate past activity.",
+      "authoritative_owner": {
+        "primary": "Timeline/local campaign GM selects meaningful causal milestones",
+        "runtime": "foundations/Engine owns durable records and migration; society owns directed memories; authoring owns references",
+        "plan": "assigning master only"
+      },
+      "dependencies": [
+        "selected coverage/history consumers",
+        "TL01 expected-event context",
+        "storage compatibility choice",
+        "bounded summary with immutable provenance where needed"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O future long-campaign case",
+          "case": "A steward returns after many ordinary jobs; the original supplier warning, accepted succession terms and counterpart identity remain retrievable even though the event feed rolled over."
+        },
+        {
+          "world": "Mother of Learning-inspired original loop",
+          "status": "O; supplied patterns motivate carrier provenance only",
+          "case": "After many passes, a retained research packet identifies the pass/producer and still does not assign that producer's memories to the receiving counterpart."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "Generate enough ordinary history in a later permitted fixture to exceed current display limits. Old consequential milestone context still supports the same return/forecast/claim outcome; changing or repeating the display grants nothing. The fixture also shows a deliberately unrepresented period as unknown. This audit only inspected the numeric bounds; no such fixture executed."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Bounded pruning and permanent specific causes/claims are actual code.",
+        "source": "No new novel mechanism or exhaustive historical reconstruction asserted.",
+        "invention": "Selection/pinning/summary policy is O.",
+        "uncertainty": "No observed data-loss bug, size benchmark or measured performance cost reported."
+      },
+      "simplification_or_alternative": "Add only compact required milestones/projections over existing state and receipts. Full event sourcing of every command/tick, raw dialogue retention and complete world snapshots at every moment are unnecessary unless a selected mechanic needs them.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    },
+    {
+      "id": "TL08",
+      "priority": "P3",
+      "kind": "already-covered",
+      "title": "Retain durable local lives, genuine superiority and explicit opt-in boundaries",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 17,
+          "line_end": 23,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 55,
+          "line_end": 67,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 107,
+          "line_end": 109,
+          "qualification": "live plan reread after integration-strategy addition; initial snapshot preserved in checkpoint"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 94,
+          "line_end": 94,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 150,
+          "line_end": 173,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 145,
+          "line_end": 153,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "PROJECT.md",
+          "line_start": 245,
+          "line_end": 253,
+          "qualification": "live source/code inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 364,
+          "line_end": 405,
+          "qualification": "live source/code inspection"
+        }
+      ],
+      "current_player_behavior": "The plan already separates lived hub, mission/issuer/local welfare/arrival, bounded represented scope and persistent return. Ordinary routes do not require rare time powers. Unique claims cannot be replayed by the local instance patcher. Vanilla opening, no retroactive chronicle age and existing save policy stay protected. These are established design/support strengths, not newly discovered omissions.",
+      "proposed_player_behavior": "Keep those invariants when merging TL01..07. Do not reset a destination on mission completion, normalize superior sources, force every start into a hub or treat a completed dossier/first room as a complete campaign. Required mechanic IDs and selected world-specific policies govern later qualification.",
+      "authoritative_owner": {
+        "primary": "assigning master/campaign GMs retain accepted/proposed distinctions",
+        "runtime": "Shared Engine remains sole native/save integrator",
+        "source": "existing source GMs retain dossier ownership"
+      },
+      "dependencies": [
+        "current review hold",
+        "one-realm/one-prestige delivery baseline",
+        "source-bound source/function policies"
+      ],
+      "world_examples": [
+        {
+          "world": "Paradise-style hub",
+          "status": "qualified MTL source context; Exchange careers O",
+          "case": "Residence/service and a destination assignment coexist; issuer settlement, local welfare and actual return are different outcomes."
+        },
+        {
+          "world": "Original Frontier",
+          "status": "accepted branch/vanilla preservation; prototype details qualified",
+          "case": "New episodes preserve current player continuity; optional chronicle enrollment begins now and narrow field renewal does not turn all careers into compulsory resets."
+        }
+      ],
+      "acceptance_case": {
+        "status": "proposed-unexecuted",
+        "case": "When implementation is later authorized, required journeys separately cover ordinary progression, lawful exit/reentry and once-only claims. A source-specific temporal or failure rule is selected explicitly before a new state domain is enrolled. Current report completion changes none of those states."
+      },
+      "source_invention_uncertainty": {
+        "supported": "Positive support/design already covered in macro/micro/canonical owners.",
+        "source": "Paradise MTL remains U for original primary canon; no reread of its full book here.",
+        "invention": "No new hub or roster choice proposed.",
+        "uncertainty": "Historical tests/imports/catalogues are not proof of changed future gameplay."
+      },
+      "simplification_or_alternative": "Reference these owners rather than add duplicate global campaign/clock/knowledge ledgers. TL01..07 sharpen acceptance and dependencies, not a nineteen-world launch prerequisite.",
+      "verification_limits": "Static code and bounded document/source review only. No implementation, game suite, build, browser, save or benchmark execution; no runtime/token savings measured."
+    }
+  ],
+  "reconciled_plan_sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69"
+}

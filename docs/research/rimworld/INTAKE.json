@@ -1,0 +1,101 @@
+{
+  "status": "local_decompilation_complete_source_not_run",
+  "captured_at": "2026-10-06T05:09:11.121922+00:00",
+  "source_route": "supplied_local_dmg",
+  "download": {
+    "path": "/Users/weiwei/Downloads/rimworld_enUS_1_6_4871_rev588_.dmg",
+    "sha256": "c261ffc4d3c963c1d47157943deab6a9f4378aacbe24b4caac6aace38affd529",
+    "bytes": 540544833
+  },
+  "private_workspace": "/Users/weiwei/.codex/research/rimworld/1.6.4871",
+  "version_file": "1.6.4871 rev573",
+  "filename_version": "1.6.4871 rev588",
+  "version_qualification": "Payload Version.txt reports 1.6.4871 rev573; supplied DMG/package filename reports rev588. Keep both; no claim of agreement. Bundle short version 1.6 and .NET AssemblyVersion 1.6.9676.17433 use separate labeling schemes.",
+  "main_assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+  "tool": "ilspycmd 9.1.0.7988",
+  "runtime": "Microsoft.NETCore.App 8.0.31 osx-arm64",
+  "input_manifest": "/Users/weiwei/.codex/research/rimworld/1.6.4871/INPUT_MANIFEST.json",
+  "game_installed": false,
+  "game_run": false,
+  "private_saves_read": false,
+  "proprietary_source_in_git": false,
+  "public_reference_used": false,
+  "included_dlc_packages": "Anomaly, Biotech, Ideology, Odyssey, Royalty installers present; none expanded or activated. Base gameplay assembly only.",
+  "local_search": {
+    "applications_rimworld_paths": [],
+    "downloads_rimworld_packages": [
+      "/Users/weiwei/Downloads/rimworld_enUS_1_6_4871_rev588_.dmg"
+    ],
+    "declared_steam_libraries": [
+      "/Users/weiwei/Library/Application Support/Steam"
+    ],
+    "appmanifest_294100_exists": false
+  },
+  "official_permission_url": "https://store.steampowered.com/eula/294100_eula_1",
+  "permission_checked_at": "2026-10-06",
+  "permission_qualification": "EULA learning/modding inspection provision checked; raw resources remain private, not redistributed.",
+  "assembly_version": "1.6.9676.17433",
+  "exit_code": 0,
+  "stderr_bytes": 0,
+  "csharp_files": 9213,
+  "generated_files": 9214,
+  "inline_decompiler_diagnostics": [],
+  "decompilation_manifest": "/Users/weiwei/.codex/research/rimworld/1.6.4871/DECOMPILATION_MANIFEST.json",
+  "decompiled_directory": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled",
+  "definitions_directory": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs",
+  "managed_reference_dlls": 103,
+  "core_definition_xml_files": 550,
+  "input_files": 653,
+  "game_dmg_detached": true,
+  "export_built": false,
+  "export_run": false,
+  "decompiler_diagnostic_qualification": "No recognized decompiler diagnostic comments found; unrelated XML validation log strings were false positives of the initial broad scan. Not proof that recovered project builds or every method is valid.",
+  "decompile_command": [
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+    "--disable-updatecheck",
+    "-p",
+    "-o",
+    "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled",
+    "-r",
+    "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Managed",
+    "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Managed/Assembly-CSharp.dll"
+  ],
+  "preparation_commands": [
+    [
+      "hdiutil",
+      "attach",
+      "-readonly",
+      "-nobrowse",
+      "-mountpoint",
+      "/Users/weiwei/.codex/research/rimworld/1.6.4871/mount",
+      "/Users/weiwei/Downloads/rimworld_enUS_1_6_4871_rev588_.dmg"
+    ],
+    [
+      "pkgutil",
+      "--expand-full",
+      "/Users/weiwei/.codex/research/rimworld/1.6.4871/mount/rimworld_enUS_1_6_4871_rev588_.pkg",
+      "/Users/weiwei/.codex/research/rimworld/1.6.4871/expanded"
+    ]
+  ],
+  "tool_sha256": "58ef1a86bea09f2e5a114720b607dd0bdaaf91cfe498c6b7a3412bd960d0f57d",
+  "runtime_executable_sha256": "81925e68da4f4ebcd8edd72a952e2a7f3ca64e90d9df0ff0be5c697c41fec473",
+  "review_helpers": [
+    {
+      "agent": "/root/body_social_reader",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "scope": "BODY_SOCIAL_FINDINGS.json",
+      "state": "complete_released",
+      "review_repair": "Added ingest/opinion consumer spans; parent corrected one hash and feeder exception."
+    },
+    {
+      "agent": "/root/storyteller_reader",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "scope": "STORYTELLER_FINDINGS.json",
+      "state": "complete_released",
+      "review_repair": "Parent closes growth-property to plant growth mutation."
+    }
+  ]
+}

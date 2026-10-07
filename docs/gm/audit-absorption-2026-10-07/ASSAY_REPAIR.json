@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-07T05:33:44.698871+00:00",
+  "priorRelease": "docs/gm/game-absorption-2026-10-06/RELEASE.json",
+  "path": "src/game_absorption_assay_facts.js",
+  "sha256": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6",
+  "change": "New assay admission/completion composes existing statusCareSupportedBody actual player-owned/controller/native-alive physical body policy; avoids bag/vitals-only false eligibility while controlled clay body is current",
+  "evidence": [
+    "src/nethack_fieldcraft_facts.js:18-26",
+    "src/status_care_facts.js:24-29",
+    "src/factorio_retort_facts.js:24-26"
+  ],
+  "checks": [
+    "node --check facts passed",
+    "cold facts import passed",
+    "updated facts syntax passed"
+  ],
+  "status": "leaf implemented-unverified; shared integration/build not acquired",
+  "later": "wrong-body UI/admission/completion/refund plus exact supported native-body/cargo and failed publisher checks deferred",
+  "additionalChange": "Optional reader rejects imported namespace routines even when no opening/evidence is present; no assay command has automatable admission or registered plan",
+  "additionalEvidence": [
+    "src/game_absorption_assay_content.js:41-46",
+    "src/simulation.js:setSimulationProgram/advanceOne routine loop"
+  ]
+}

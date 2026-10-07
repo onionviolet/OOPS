@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-04",
+  "purpose": "Integration strategy initial snapshot; peer reports may be drafts and must be classified by actual delivery state.",
+  "files": {
+    "docs/gm/world-implementation/second-pass/integration/ASSIGNMENT.md": "cc073c364e3ee26c26d660f258831dd6df2721ae6e8b30c804cf713271cf52b7",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+    "docs/worlds/original-frontier/REPORT.md": "1f7a4fb09bb4c4e14104fef8c1efe734dd66c35a9bfaab110906f2ad1405fd72",
+    "docs/ENGINE_AUTHORING.md": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/site_projects.js": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479"
+  }
+}

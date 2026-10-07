@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T20:29:23.322441+00:00",
+  "permittedChecksOnly": true,
+  "syntax": {
+    "exitCode": 0,
+    "paths": [
+      "src/main.js",
+      "src/save_files.js",
+      "src/causal_story_native.js",
+      "src/causal_story_host.js",
+      "src/causal_story_core.js",
+      "src/causal_story_ui.js",
+      "src/artifact_collection.js",
+      "src/artifact_workshop_host.js",
+      "src/artifact_workshop_content.js"
+    ],
+    "result": "all nine passed"
+  },
+  "coldImports": {
+    "exitCode": 0,
+    "first": "src/causal_story_native.js",
+    "subsequent": [
+      "src/causal_story_host.js",
+      "src/causal_story_core.js",
+      "src/causal_story_ui.js",
+      "src/artifact_workshop_host.js",
+      "src/save_files.js"
+    ],
+    "result": "All named imports passed; the check invoked no UI/native-binding factory, command, clock, gameplay or save function."
+  },
+  "declarativeRegistry": {
+    "exitCode": 0,
+    "entry": "src/expedition_content.js",
+    "commands": 932,
+    "controllers": 41,
+    "causalCommands": 63,
+    "artifactCommands": 15,
+    "causalPeople": 5,
+    "causalPersonInventory": "native",
+    "causalPersonProvision": false
+  },
+  "notRun": [
+    "build",
+    "unit",
+    "gameplay",
+    "browser",
+    "synthetic state scenarios",
+    "save creation",
+    "save reload",
+    "save import",
+    "failed save",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "sealedAt": "2026-10-06T20:31:07.959731+00:00"
+}

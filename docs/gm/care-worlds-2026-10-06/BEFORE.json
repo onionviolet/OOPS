@@ -1,0 +1,112 @@
+{
+  "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "capturedAtUtc": "2026-10-07T01:15:50.108373+00:00",
+  "authority": "Direct implement accordingly, Book worlds, other stuff accordingly request follows five proposed families",
+  "before": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "sha256": "49fbe02dfb50f5c2ac3a4a36adc5fff2d5e4ef02ec13f3da62ddd3237d413468"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "9699473984245b908771bd704447af3dd4ae7324c1140043358414dfdd1549de"
+    },
+    {
+      "path": "src/models/hero.js",
+      "sha256": "ed5fc03f42906b14b901c34eab426a6824f539dd64d061c9985f8964f8cd6624"
+    },
+    {
+      "path": "src/display.js",
+      "sha256": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "ef9912716c05a7c4298a474504b15f597e5df21f5e91942e8905e3cd6050a26a"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "acd52c5601e7c8c700f16509a65e3a06a02f5ccf14d96e33a4def288c9f08c9e"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "61f892ae5a5dbdeb71a515d058a99145ead2d9a09749450ef431d716a5fc1877"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "f86ba6573074bcbdd284453c62db067f296da5722d8cdb65136440c87c641625"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "fd2d9f5da8a4dc7915cea0250d356a61cafa98a9f861c671f8e5f5f4888f0136"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "23b82917810d559993a2549849bc80ebad323190e10fa049d83cebe49108d99f"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d"
+    },
+    {
+      "path": "src/status_care_content.js",
+      "sha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93"
+    },
+    {
+      "path": "src/status_care_facts.js",
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49"
+    },
+    {
+      "path": "src/status_care_host.js",
+      "sha256": "0eb35a71fd5c6dc463a255b76d0009b481d9a403b0a4502193c9839954d85992"
+    },
+    {
+      "path": "src/active_effects.js",
+      "sha256": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "sha256": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526"
+    },
+    {
+      "path": "src/book_world_paradise_actions.js",
+      "sha256": "5e12ed459f22f9f54d38b07d9e6f1d7aa805114f531f8307b1c7fa7ac99b95de"
+    },
+    {
+      "path": "src/audit_remainder_runtime.js",
+      "sha256": "ad875c2fc89af1703b53e34f7897680d1878ebb0161375e395ba112e4c3c7154"
+    },
+    {
+      "path": "index.html",
+      "sha256": "44586594dd5ac4636b9f5d1097bb13c0a81aeae14ad845e9bbacf68927ef7d38"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "2410d9f0ff702fda9347a28aeb5f915f607dd0266edca2ba95a991839b4444b9"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "1dca2125ca26843467d8b4c7f075c5072639fd03d1fd25566b5046539935afc1"
+    }
+  ],
+  "liveOwnership": "Prior status-care root released; active scout/discovery chats are research-only and hold no native/source/UI/build writes. Root reacquires only this care-worlds shared integration.",
+  "exclusions": [
+    "private saves",
+    "source/library mutation",
+    "vanilla enemy/opening retcon",
+    "new prestige/world",
+    "tests/browser/save/failure suites per current pace",
+    "commit/push/publication/automation/external messages"
+  ]
+}

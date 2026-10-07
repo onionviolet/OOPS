@@ -1,0 +1,849 @@
+{
+  "status": "selected source review complete; final source/hash/link readback passed",
+  "source_root": "/Users/weiwei/.codex/research/tales-of-maj-eyal/source/t-engine4-src-1.7.6",
+  "source_archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871",
+  "reviewed_paths": [
+    "T1 talents/prerequisites/mastery",
+    "T2 effects/resources/cooldowns/eligibility",
+    "T3 contextual AI",
+    "T4 quests/rewards/achievements/unlocks",
+    "T5 equipment/material/ego consumers"
+  ],
+  "files": [
+    {
+      "path": "src/core_lua.c",
+      "sha256": "9006a07b9ba0581d916e5e2f2e2f2f287aa9964710e82137ddac0039497d8f04",
+      "lines": 4127,
+      "read_ranges": [
+        [
+          3727,
+          3739
+        ],
+        [
+          3903,
+          3910
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 21,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/Birther.lua",
+      "sha256": "61dc1f8968621a6b7c74c44bebb3b45c48a560c19312ba83f9801da6033bc8f8",
+      "lines": 446,
+      "read_ranges": [
+        [
+          408,
+          425
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 18,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/Quest.lua",
+      "sha256": "377f0a5babd9a4bacf21ccf42a3d84baf3b86788100fa3c28435293fcd570f8d",
+      "lines": 127,
+      "read_ranges": [
+        [
+          22,
+          118
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 97,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/Zone.lua",
+      "sha256": "6e0a596b91acd8a89bc01ecec0efc99d87612ac35702610d925cab8ed53e9faa",
+      "lines": 1234,
+      "read_ranges": [
+        [
+          652,
+          679
+        ],
+        [
+          713,
+          721
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 37,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/dialogs/ShowAchievements.lua",
+      "sha256": "ad12b1cb89bb2c287b706707e0ee66b871a4157d29494b4821b4ebdd728e5633",
+      "lines": 197,
+      "read_ranges": [
+        [
+          130,
+          150
+        ]
+      ],
+      "readers": [
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 21,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/ActorAI.lua",
+      "sha256": "d1960eceed805d42950d91b0f9ef2735f41be7cab3c8273f9e7ee8a3177c026f",
+      "lines": 511,
+      "read_ranges": [
+        [
+          135,
+          155
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 21,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/ActorQuest.lua",
+      "sha256": "b6642ccf629dcef435df41e65e66dc0d36bbcf5a0939d793340aea9346812344",
+      "lines": 100,
+      "read_ranges": [
+        [
+          55,
+          62
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 8,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/ActorTalents.lua",
+      "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b",
+      "lines": 1281,
+      "read_ranges": [
+        [
+          168,
+          202
+        ],
+        [
+          550,
+          558
+        ],
+        [
+          603,
+          629
+        ],
+        [
+          742,
+          805
+        ],
+        [
+          889,
+          968
+        ],
+        [
+          981,
+          1004
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 239,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/ActorTemporaryEffects.lua",
+      "sha256": "1bb85a5db95d6aa0edca537265f1b9eb8adef501763e3d22fc605a17f8c3ea7b",
+      "lines": 317,
+      "read_ranges": [
+        [
+          78,
+          110
+        ],
+        [
+          117,
+          178
+        ],
+        [
+          189,
+          231
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 138,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/te4-1.7.6/engine/interface/WorldAchievements.lua",
+      "sha256": "894d5e15bbfa82933e6ca512d6c7b6a7aa9225a90e409f29565b99029d8eccf2",
+      "lines": 191,
+      "read_ranges": [
+        [
+          121,
+          160
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 40,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/achievements/kills.lua",
+      "sha256": "b47b27a9eb7162028e5c1b1cf8651d7739f70c3912802f5ab13f2baeaa04b318",
+      "lines": 275,
+      "read_ranges": [
+        [
+          93,
+          127
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 35,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/birth/classes/warrior.lua",
+      "sha256": "f1206f33a02b0707c23c64febed3bfb940dcf1e7b26599fd054e125a185910d3",
+      "lines": 393,
+      "read_ranges": [
+        [
+          130,
+          150
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 21,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/birth/worlds.lua",
+      "sha256": "f5d1cfae60c777536e6cfa2eca4bf7cc05c302d9f7d449b015a27faf624db784",
+      "lines": 229,
+      "read_ranges": [
+        [
+          78,
+          101
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 24,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/chats/escort-quest.lua",
+      "sha256": "55cbe2fc47ec4ab405d230eac446502b6169190d24adda6481f89a029dc466ca",
+      "lines": 47,
+      "read_ranges": [
+        [
+          20,
+          45
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 26,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/chats/sorcerer-end.lua",
+      "sha256": "aedf48a16a5bb74fdecbe3768ccbc78cb4a10e825a625abcc74110ad5c20bfc6",
+      "lines": 248,
+      "read_ranges": [
+        [
+          210,
+          221
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 12,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/damage_types.lua",
+      "sha256": "67ecccac9c811dcd18607d573c6a1efd9762e13cea14db005ef1256109b7f479",
+      "lines": 4487,
+      "read_ranges": [
+        [
+          171,
+          179
+        ],
+        [
+          409,
+          415
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 16,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/general/npcs/elven-warrior.lua",
+      "sha256": "28a4a2cc0c50f66f1e2b74bba82895adb490a9a9f4880eb86b195b545a5ee3a1",
+      "lines": 117,
+      "read_ranges": [
+        [
+          35,
+          50
+        ],
+        [
+          97,
+          117
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 37,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/general/objects/egos/shield.lua",
+      "sha256": "085ea149c028eff5374fcd7c9f6c9e9a2a478cd12e1536fcb7d128c20ec4d197",
+      "lines": 741,
+      "read_ranges": [
+        [
+          392,
+          404
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 13,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/general/objects/shields.lua",
+      "sha256": "5fa91b3f8fbdd6b33a8f03b5233a7e3a264eb8c4daffd7175027bc7b8e482d5b",
+      "lines": 135,
+      "read_ranges": [
+        [
+          22,
+          135
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 114,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/quests/escort-duty.lua",
+      "sha256": "33c9c1c516b776537ab94a49e089c0aec409701ffe735c9a4cab28799ee61449",
+      "lines": 211,
+      "read_ranges": [
+        [
+          60,
+          89
+        ],
+        [
+          91,
+          116
+        ],
+        [
+          118,
+          210
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 149,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/misc/objects.lua",
+      "sha256": "7396731ef4718b932752a648d67726332b7b3a5b180321cbfe6ed4da2f59f7e2",
+      "lines": 740,
+      "read_ranges": [
+        [
+          250,
+          276
+        ],
+        [
+          318,
+          345
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 55,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/techniques/techniques.lua",
+      "sha256": "02cecfa4b919747aa8d1f4220a9a9280b2fbf0a537bc476e31f3d085a606c9ce",
+      "lines": 452,
+      "read_ranges": [
+        [
+          97,
+          114
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 18,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+      "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea",
+      "lines": 367,
+      "read_ranges": [
+        [
+          24,
+          71
+        ],
+        [
+          190,
+          237
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 96,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/talents/uber/wil.lua",
+      "sha256": "bde073032f50b20d456193dd79131b7e54e2dcdfc42ca92736e6f406e8c28931",
+      "lines": 412,
+      "read_ranges": [
+        [
+          298,
+          345
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 48,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/data/timed_effects/physical.lua",
+      "sha256": "8b2c9755cefe8dbe68553fc4454b0cf555662f9ec9822ef2606b69c41591c01e",
+      "lines": 4355,
+      "read_ranges": [
+        [
+          479,
+          509
+        ],
+        [
+          2314,
+          2376
+        ],
+        [
+          2378,
+          2385
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 102,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/ai/escort.lua",
+      "sha256": "bddfcbb01e6af1a8d6c48ba6b8bd496a555f8749d529e517bedcb3fea35f2797",
+      "lines": 84,
+      "read_ranges": [
+        [
+          20,
+          74
+        ]
+      ],
+      "readers": [
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 55,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/ai/improved_tactical.lua",
+      "sha256": "db5766f6d3b4da93ce8d275dae2dcbd5655d0626fb4329242c9abe754c9c9829",
+      "lines": 1183,
+      "read_ranges": [
+        [
+          352,
+          390
+        ],
+        [
+          517,
+          645
+        ],
+        [
+          950,
+          1023
+        ],
+        [
+          1071,
+          1113
+        ],
+        [
+          1115,
+          1180
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 351,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/ai/tactical.lua",
+      "sha256": "fd135bf7f762e396d31060b2a597d143e548e514e683ea355f7408590f6a8d47",
+      "lines": 506,
+      "read_ranges": [
+        [
+          23,
+          55
+        ],
+        [
+          57,
+          110
+        ],
+        [
+          134,
+          195
+        ],
+        [
+          430,
+          505
+        ]
+      ],
+      "readers": [
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 225,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/Actor.lua",
+      "sha256": "e839397f675ca77d46aa345b81ea49c341c7109b4d3064e6b3598639be5fa711",
+      "lines": 8427,
+      "read_ranges": [
+        [
+          640,
+          653
+        ],
+        [
+          4630,
+          4638
+        ],
+        [
+          4697,
+          4702
+        ],
+        [
+          4814,
+          4824
+        ],
+        [
+          5176,
+          5221
+        ],
+        [
+          5740,
+          5805
+        ],
+        [
+          5807,
+          5823
+        ],
+        [
+          5835,
+          5866
+        ],
+        [
+          5980,
+          6013
+        ],
+        [
+          6328,
+          6353
+        ],
+        [
+          6380,
+          6397
+        ],
+        [
+          6437,
+          6453
+        ],
+        [
+          6487,
+          6518
+        ],
+        [
+          6949,
+          6962
+        ],
+        [
+          7599,
+          7629
+        ],
+        [
+          7631,
+          7698
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 441,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/EscortRewards.lua",
+      "sha256": "e514ab5c4c2b76ace82286dd412290813bed26fc18c200eddf36e343fe9dd75e",
+      "lines": 587,
+      "read_ranges": [
+        [
+          264,
+          285
+        ],
+        [
+          294,
+          474
+        ],
+        [
+          476,
+          586
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 314,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/Game.lua",
+      "sha256": "dcd6dc85d9b2cf74741e82ac9156128b782193d23a459d53f7cda324b099092a",
+      "lines": 3074,
+      "read_ranges": [
+        [
+          2909,
+          2925
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 17,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/ActorAI.lua",
+      "sha256": "1e7f69685e49b5e356a1bb2c6516ec8544921a103a490b6e1ac53a83eb660e26",
+      "lines": 1825,
+      "read_ranges": [
+        [
+          34,
+          37
+        ],
+        [
+          43,
+          76
+        ],
+        [
+          419,
+          441
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_ai"
+      ],
+      "semantic_lines": 61,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/Combat.lua",
+      "sha256": "0cfaba3995f19a0ddb9e716b2ae8ab68e916c1e1784bb753f72b159bfd17af13",
+      "lines": 2844,
+      "read_ranges": [
+        [
+          1536,
+          1565
+        ],
+        [
+          1835,
+          1841
+        ],
+        [
+          2548,
+          2600
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 90,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/PlayerStats.lua",
+      "sha256": "6d77b5a993ceb7ddad0af5e52e78a13c659cecee267d87ab3cedf0c83e38e124",
+      "lines": 62,
+      "read_ranges": [
+        [
+          60,
+          62
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 3,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/class/interface/WorldAchievements.lua",
+      "sha256": "2289a871ae5df9e0175292a7b96c7a71f9ccca7d3f94669ac50aff5c24b500a6",
+      "lines": 175,
+      "read_ranges": [
+        [
+          138,
+          175
+        ]
+      ],
+      "readers": [
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 38,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/dialogs/LevelupDialog.lua",
+      "sha256": "0b2e95043ce0b67c92a113c5ef4743ab04666d1f739f23830488f704f495ec83",
+      "lines": 1092,
+      "read_ranges": [
+        [
+          171,
+          174
+        ],
+        [
+          378,
+          400
+        ],
+        [
+          433,
+          492
+        ]
+      ],
+      "readers": [
+        "primary",
+        "/root/tome_progression"
+      ],
+      "semantic_lines": 87,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    },
+    {
+      "path": "unpacked/tome-1.7.6/mod/resolvers.lua",
+      "sha256": "250b5bdfc365cde762fbce6cfcecded14a0d37b2e10bfb7db06d2ef32ea87431",
+      "lines": 1509,
+      "read_ranges": [
+        [
+          626,
+          649
+        ]
+      ],
+      "readers": [
+        "primary"
+      ],
+      "semantic_lines": 24,
+      "review_status": "integrated selected path; primary checked material anchors and corrected reader errors"
+    }
+  ],
+  "counts": {
+    "selected_source_files": 37,
+    "unique_semantically_read_lines": 3112,
+    "paths_traced": 5,
+    "original_ranked_packets": 3
+  },
+  "qualification": "Unique source line counts index selected semantic spans, including declarations/helpers/notes. They do not establish whole-file/full-module/gameplay coverage or every hook. Reader ranges are retained, reviewed material claims checked by primary, unneeded ideas not adopted.",
+  "reader_review": [
+    {
+      "id": "/root/tome_ai",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "repairs": 1,
+      "status": "completed, default redirect and concrete NPC anchor repaired"
+    },
+    {
+      "id": "/root/tome_progression",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "repairs": 1,
+      "status": "completed, method/category and actor/profile distinction repaired"
+    },
+    {
+      "id": "/root/tome_equipment",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "repairs": 2,
+      "status": "completed, Block consumer and sequential ego/code-comment distinctions repaired"
+    }
+  ],
+  "not_reviewed": [
+    "Paid DLC",
+    "Full base-game campaign/talent/ego inventory",
+    "All hook variants, serialization/network/profile durability",
+    "Tiles/sound/art",
+    "Numerical distributions/balance, gameplay behavior, exploit safety",
+    "RNG seed or replay lifecycle"
+  ]
+}

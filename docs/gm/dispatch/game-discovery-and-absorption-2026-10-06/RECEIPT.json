@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "observedAtUtc": "2026-10-06 19:39:43 UTC",
+  "authority": "Weibao requested one separate new-game research chat and one separate absorption/implementation chat on 2026-10-06.",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "assignment": "docs/gm/dispatch/game-discovery-and-absorption-2026-10-06/ASSIGNMENT.md",
+  "lanes": [
+    {
+      "role": "research",
+      "threadId": "01a112b9-410a-7da2-9182-392141662439",
+      "hostId": "local",
+      "outputDirectory": "docs/research/game-discovery-2026-10-06/",
+      "observedStatus": "active",
+      "observedTurnStatus": "inProgress",
+      "startupCommentary": "I’m using the evidence-gated-handoff skill to make the packets directly usable by the builder. The live assignment reserves the existing nineteen-packet backlog, so I’m checking for genuinely new mechanics before choosing the two source traces.",
+      "cursor": "cebd9f49-34a6-4618-9305-8ba35cf02594:1"
+    },
+    {
+      "role": "implementation",
+      "threadId": "01a112b9-ea83-7b71-8ab1-85ec49b6b530",
+      "hostId": "local",
+      "outputDirectory": "docs/gm/game-absorption-2026-10-06/",
+      "initialSourceReservation": "new otherwise-unreserved src/game_absorption_*.js",
+      "observedStatus": "active",
+      "observedTurnStatus": "inProgress",
+      "startupCommentary": "I’ll inspect the live ownership and game interfaces, then build a distinct feature module from the source-ready findings. I’ll keep native integration changes with the current owner and document the exact bindings they need.",
+      "cursor": "fbfbd94c-4f16-490e-8df0-323c9e5c97ae:1"
+    }
+  ],
+  "sharedIntegrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "qualification": "Both chats created locally and observed active. Startup is not completed research or implemented gameplay. Shared wiring/build/canonical scope stays with the active integrator until an explicit live release."
+}

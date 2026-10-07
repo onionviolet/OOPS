@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "implemented-unverified; owned source ready, parent integration required",
+  "worker": "/root/remainder_combat_fit",
+  "rows": [
+    {
+      "id": "tales-of-maj-eyal:P1",
+      "existing": ["feature_expansion_powers.js original counted harness craft/transfer/equip", "feature_expansion_battle_host.js original fixed block4", "feature_expansion_battle.js native guard/stamina/hook/damage executor"],
+      "new": ["two actual native material-paid rigid/flexible keys and recipes", "all three owned handoff/equipment comparisons", "admitted actual harness profile plus fresh custody/source/body check", "native block4/6/3 projection", "rigid guard+1 and flexible hook-extra-stamina-only consumer"],
+      "rootBindings": ["native item templates", "content/facts/state/UI", "schema5 admission/validator", "native fighter hasShield/block/defense", "guard cost/cadence", "actual redirected landed hook branch", "same action receipts"],
+      "status": "owned source implemented-unverified; root must consume all actual native bindings"
+    },
+    {
+      "id": "keeperrl:P3",
+      "existing": ["body_progression.js two actual grip drills and trained source acquisition", "existing twelve-minute sore_hands and paid-time/recovery", "ordinary native player self-guard cost2"],
+      "new": ["supported four-minute/two-stamina forfeit brace practice", "exact paid completion and active source receipt", "bounded ready/reserved(actual session)/spent/expired reader", "selected one-stamina ordinary self-guard only once", "timeout/world-leave/field-renewal/end expiry without source removal"],
+      "rootBindings": ["forfeit completionSupport only new schema11 remainder work", "exact successful practice completion sync before validation", "common staged clock/transition sync", "explicit new session reservation", "action quote/cost/spent receipt", "finish/withdrawal", "same state/native publisher/UI"],
+      "status": "owned source implemented-unverified; old-source acquisition is existing, new guard consumer needs parent binding"
+    },
+    {
+      "id": "rogue-legacy:P2",
+      "existing": ["body_progression.js Natural balance inherited source with separate awakening", "Conditioned grip trained source and hand-control grant", "native owned Survey rope and conserved physical reservation", "ordinary slower native retreat and drainage alternative"],
+      "new": ["active inherited balance escape2stamina/2progress", "earned trained grip rope escape1stamina/1progress with real reusable rope", "same-session paid reserved-rope reuse without second stock/refund", "recovered body/source/location/custody checks", "distinct innate/trained maneuver receipts, no opening/physical-charge stacking"],
+      "rootBindings": ["new schema5 native action choices/unique UI identities", "actual final quote/cost", "actual existing escape progress with exact selected gain", "normal action/provenance receipts", "combat-objectives reservation validator and settlement remain sole rope owner"],
+      "status": "owned source implemented-unverified; no new source/ancestry/trait engine introduced"
+    }
+  ],
+  "behavioralGateGroups": ["playable fit comparison", "earned grip and maneuver paid outcomes", "persistence and compatibility", "rejection/failed-publication/regression", "director and UI"],
+  "sharedSourceEdited": false,
+  "privateSavesRead": false,
+  "behaviorChecksRun": false
+}

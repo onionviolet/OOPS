@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "status": "closed-current-source-native-ui-save-build",
+  "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+  "build": "docs/gm/feature-wave/features/BUILD.json",
+  "bundle": "dbd0224cf6dd78dd380b954c61f74333c4b485f8e6b1b4a48dcc364cccda759c",
+  "changedSinceBuild": [],
+  "repositoryModulesStillMatchBuild": true,
+  "scope": "Source/build admission only, no gameplay tests",
+  "nextRequiredAction": "No implementation/build admission work remains in this role. Behavioral/director gates remain deferred under the selected wave policy.",
+  "newBundledInputsRequired": [],
+  "coordinationAuthority": "Assigning chat01a10db8 direct coordination clarification received after optional messaging question.",
+  "priorStatus": "named-Features-coordinated-current-build-refresh",
+  "currentBuild": "11aaa9cbfc69",
+  "currentBuildReceipt": "docs/gm/feature-wave/features/BUILD.json",
+  "historicalChangedSinceBuild": [
+    {
+      "path": "src/action_legibility.js",
+      "builtSha256": "a5d7a8cfaa37ab728f7694ce6baf451ab4a675ca36adab62945b73f8c6325e9a",
+      "currentSha256": "72534c35a963290324678dc64d3171e94db8eb50589492a009efcb075e59bbab"
+    },
+    {
+      "path": "src/repository_absorption_content.js",
+      "builtSha256": "86ac92b3a71ae6d44ef0864a8534de441c897566fc7e24477ffcda024c2cc5f7",
+      "currentSha256": "50a94d3912913e473bd9d072cec6b5aab4b0a3fb1c622655a8d2d65bcc8c3dbc"
+    }
+  ],
+  "roleModuleCount": 7
+}

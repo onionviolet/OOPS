@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T03:52:12.267920+00:00",
+  "human_update": "factorio done",
+  "manifest_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/appmanifest_427520.acf",
+  "manifest_sha256": "f059b74bf6f3914b428bf0e966f0db8d2995c6f7c5a13f050a8d10bb73ea61bb",
+  "installed_state": {
+    "appid": "427520",
+    "name": "Factorio",
+    "StateFlags": "4",
+    "installdir": "Factorio",
+    "buildid": "23347942",
+    "SizeOnDisk": "5392464225",
+    "BytesToDownload": "4379026224",
+    "BytesDownloaded": "4379026224",
+    "BytesToStage": "5392464225",
+    "BytesStaged": "5392464225",
+    "StagingSize": "0"
+  },
+  "ready": true,
+  "source_gm": "/root/factorio_gm",
+  "action": "existing active exclusive source GM notified to continue stable local snapshot and installed-version/DLC audit",
+  "analysis_complete": false,
+  "game_launched": false,
+  "source_gm_observation": {
+    "installed_version": "2.0.77",
+    "native_format": "universal x86_64+arm64 Mach-O; executable not disassembled",
+    "installed_modules": [
+      "core",
+      "base",
+      "space-age",
+      "quality",
+      "elevated-rails"
+    ],
+    "separate_recycler_module": false,
+    "retained_readable_files": 1877,
+    "retained_readable_size_approx_mib": 8.1,
+    "state": "stable private intake copied; installed semantic reconciliation underway"
+  }
+}

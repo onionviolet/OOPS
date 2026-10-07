@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "asOf": "2026-10-06",
+  "scope": "five additional ranked candidates total; supporting findings/dependencies broader",
+  "incumbent": "existing ES-module YAIRPG plus inkjs2.4.0",
+  "decisionStatus": "Research recommendations; no canonical adoption/runtime implementation",
+  "whole_engine_recommendation": "retain incumbent; no migration justified",
+  "candidates": [
+    {
+      "id": "ensemble",
+      "rank": 1,
+      "name": "Ensemble",
+      "type": "social_simulation_library_and_sample",
+      "disposition": "adapt",
+      "selected_packet": "ES-01",
+      "primary_url": "https://github.com/ensemble-engine/ensemble",
+      "source_pin": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "version": "source1.1.1; release1.1.0",
+      "mechanisms": [
+        "initiator and recipient intent",
+        "action grammar/acceptance branches",
+        "directed social history",
+        "trigger aftermath",
+        "turn history and event expiry"
+      ],
+      "player_benefit": "Specific independent bid/refusal/return behavior; distinct friendship, romance, rivalry and commitments.",
+      "incumbent_reuse": "Current directed axes/memories, actor-known evidence, paid commands/controllers, clock, Ink and publisher.",
+      "integration_effort": "medium original-content/observer/recipient/consumer joins; full dependency higher due duplicate social record/history",
+      "authoring_speed": "Named rule tables may simplify explanations and branch review; unmeasured.",
+      "maintenance": "Old pinned source and incomplete validator/API; original small adaptation avoids singleton/cache/history ownership.",
+      "compatibility_recovery": "Absent optional state inert; retain stable paid jobs, cause receipts and commitments independent of prunable display memories. No new save/clock selected.",
+      "evidence_status": "source-traced-not-executed",
+      "source_limit": "Exact selected rules/action/trigger/history/sample paths; no general autonomous planner or complete library/runtime claim.",
+      "access_cost": "Public source read at no purchase cost; no installation.",
+      "license": "UC-specific BSD-4-Clause; conceptual adaptation copies no source/domain data.",
+      "trace_markdown": "traces/ENSEMBLE.md",
+      "trace_json": "traces/ENSEMBLE.json",
+      "adopted_dependency": false,
+      "gameplay_delivered": false
+    },
+    {
+      "id": "unciv",
+      "rank": 2,
+      "name": "Unciv",
+      "type": "open_source_game_reference",
+      "disposition": "adapt",
+      "selected_packet": "ES-02",
+      "primary_url": "https://github.com/yairm210/Unciv",
+      "source_pin": "5bb7611a736f540486d6153d3f07b173d4ef91dd",
+      "version": "pinned master source; runtime unrun",
+      "mechanisms": [
+        "destination prerequisite queue",
+        "science/treasury interaction",
+        "technology reveal and resource/production gates",
+        "placement failure and retained progress",
+        "exclusive conditional policy effects"
+      ],
+      "player_benefit": "Known destination prerequisite/cost plan into useful existing equipment, with retained understanding separated from owned usable means.",
+      "incumbent_reuse": "Existing paid home research/jig/salvage, real resin-kit recipe, exclusive specialization and finite workPlans.",
+      "integration_effort": "low-to-medium destination projection/exact itinerary/native dispatch; Kotlin runtime port high and not selected",
+      "authoring_speed": "Explicit prerequisite/consumer data improves reviewable chains; user speed unmeasured.",
+      "maintenance": "Original finite plan/content keeps one owner, avoids Civ-wide generic DAG and separate science economy.",
+      "compatibility_recovery": "Register exact plan/command revisions; skip completed once steps, retain prior earned study/tool/costs, pause unreserved tail after support loss.",
+      "evidence_status": "source-traced-not-executed",
+      "source_limit": "Selected G&K research/policy paths only; broader AI/diplomacy/expansions unread.",
+      "access_cost": "Public Unciv source no paid DLC required; licensed Civilization V/DLC are separate paid products and not acquired.",
+      "license": "MPL-2.0 source; separate media licenses; no code/assets copied.",
+      "trace_markdown": "traces/UNCIV.md",
+      "trace_json": "traces/UNCIV.json",
+      "adopted_dependency": false,
+      "gameplay_delivered": false,
+      "dlc_scope_owner": "traces/UNCIV.json"
+    },
+    {
+      "id": "xstate",
+      "rank": 3,
+      "name": "XState",
+      "type": "statechart_middleware",
+      "disposition": "trial",
+      "selected_packet": null,
+      "primary_url": "https://github.com/statelyai/xstate",
+      "source_pin": "fbee62e7c1586315ed478c2fedf530d7e0ff5a3e",
+      "version": "5.33.2 stable; current top-level docs v6-alpha separately qualified",
+      "mechanisms": [
+        "inert transition/action tuple",
+        "goal state/history structure",
+        "persisted snapshot and children",
+        "live timer/restore boundaries"
+      ],
+      "player_benefit": "Potentially simpler long branching NPC-goal authoring if one bounded comparison beats current controller recipe.",
+      "incumbent_reuse": "Stable proposal command IDs, actor-local knowledge, existing completion/cancel receipts, one clock/save.",
+      "integration_effort": "medium adapter/cursor/version/recovery; live actor scheduler/invokes excluded",
+      "authoring_speed": "Statechart legibility plausible; editor/service and speed unmeasured.",
+      "maintenance": "Version pinned; allowed pure guards/actions; no live actor tree or opaque copied game context.",
+      "compatibility_recovery": "Host accepts action before cursor advances; retained machine version required; stale/rejected host proposal retains previous cursor.",
+      "evidence_status": "selected-source-demonstrated; proposed trial unexecuted",
+      "source_limit": [
+        "Full machine/guard/action semantics",
+        "Editor service/pricing",
+        "Authoring speed",
+        "Actor tree recovery",
+        "v6 upgrade",
+        "Performance"
+      ],
+      "access_cost": "MIT public source/runtime; no installed tool or editor subscription selected.",
+      "license": "MIT notice if bundled/copied.",
+      "trace_markdown": "traces/XSTATE.md",
+      "trace_json": "traces/XSTATE.json",
+      "adopted_dependency": false,
+      "gameplay_delivered": false
+    },
+    {
+      "id": "ck3",
+      "rank": 4,
+      "name": "Crusader Kings III",
+      "type": "commercial_game_documentation_reference",
+      "disposition": "adapt",
+      "disposition_scope": "Only documented distinctions into deliberately original finite rules; park source-dependent algorithm borrowing, skip engine transplant.",
+      "selected_packet": null,
+      "primary_url": "https://www.paradoxinteractive.com/games/crusader-kings-iii/about",
+      "source_pin": null,
+      "version": "No executable pin; dated publisher documents and current US store inventory",
+      "mechanisms": [
+        "person opinion vs coalition support",
+        "neighbor/territory/personality/fear contexts",
+        "administrative influence and office restrictions",
+        "DLC government/activity/ceremony/memory joins"
+      ],
+      "player_benefit": "A friendly actor can oppose a levy issue and a rival can support it for practical reasons; narrow leverage and institution limits have actual consequences.",
+      "incumbent_reuse": "Existing directed state, claims/rights, paid independent goals, reported motives, Ink and publisher.",
+      "integration_effort": "medium finite original case; high/unqualified universal coalitions/government/AI simulation",
+      "authoring_speed": "Requires authored reasons/authority response; no reusable inspected tool or speed claim.",
+      "maintenance": "No proprietary dependency/data copy; historical docs must not become current universal formulas.",
+      "compatibility_recovery": "Commitments/closures need durable facts/claims beyond display-memory pruning; unchanged optional old-save policy.",
+      "evidence_status": "primary-documentation-only; algorithms inaccessible and scripts uninspected",
+      "source_limit": [
+        {
+          "target": "Dev Diary #19 Factions and Civil Wars",
+          "url": "https://forum.paradoxplaza.com/forum/developer-diary/ck3-dev-diary-19-factions-and-civil-wars.1363951/",
+          "observed": "client_challenge",
+          "consequence": "Steam announcement only linked to it; no quoted thresholds or civil-war aftermath claimed."
+        },
+        {
+          "target": "alternate official forum/wiki",
+          "urls": [
+            "https://forum.paradoxplaza.com/forum/threads/ck3-dev-diary-19-factions-and-civil-wars.1363951/",
+            "https://ck3.paradoxwikis.com/Factions"
+          ],
+          "observed": "inaccessible_through_web_tool",
+          "consequence": "Changed route to official Steam publisher API; no source-trace claim."
+        },
+        {
+          "target": "proprietary_core_algorithm",
+          "observed": "inaccessible_in_this_docs_only_lane",
+          "consequence": "No reusable code, no current AI/faction source algorithm proof."
+        },
+        {
+          "target": "installed_scripts_and_private_game",
+          "observed": "uninspected_by_scope",
+          "consequence": "No install, entitlement, local scripts, private saves or current executable version touched."
+        },
+        {
+          "target": "Silk & Silver",
+          "observed": "planned_Q4_2026_unavailable_gameplay_at_observation",
+          "consequence": "Marketing scope only, not delivered feature behavior."
+        }
+      ],
+      "access_cost": "Regular US base49.99USD + Roads to Power29.99USD =79.98USD as observed2026-10-06; no purchase recommendation. Full DLC inventory/prices in trace.",
+      "license": "No reusable engine/source license inspected; no proprietary source/data/assets copied.",
+      "trace_markdown": "traces/CK3.md",
+      "trace_json": "traces/CK3.json",
+      "adopted_dependency": false,
+      "gameplay_delivered": false,
+      "dlc_scope_owner": "traces/CK3.json"
+    },
+    {
+      "id": "godot",
+      "rank": 5,
+      "name": "Godot",
+      "type": "whole_engine_and_presentation_alternative",
+      "disposition": "park",
+      "selected_packet": null,
+      "primary_url": "https://godotengine.org",
+      "source_pin": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "version": "4.7.2-stable",
+      "mechanisms": [
+        "browser JS proxy/callback bridge",
+        "scene/resource presentation (documented, internals unread)",
+        "thread export configuration",
+        "async IDBFS durability boundary"
+      ],
+      "player_benefit": "Conditional spatial scene when geometry changes supported contact/tactics; none demonstrated for current task.",
+      "incumbent_reuse": "JS shell bridge can keep domain owners; complete port loses direct native model/UI reuse and requires conversion.",
+      "integration_effort": "medium-high two-surface shell; high full domain/save/Ink/clock/content conversion",
+      "authoring_speed": "Spatial tooling plausibly useful; comparative authoring/accessibility/performance not measured.",
+      "maintenance": "Additional language/UI/build/platform bridge or full port; native export host differs browser.",
+      "compatibility_recovery": "Explicit durable acknowledgement, native envelope/opaque Ink conversion, interrupted work and old-reader policy; engine filesystem alone insufficient.",
+      "evidence_status": "selected-bridge/export-source-demonstrated; official web support documented; migration untested",
+      "source_limit": [
+        "Scene/editor/resource internals",
+        "Physics/navigation",
+        "Native/mobile packaging",
+        "Accessibility",
+        "Full web filesystem lifecycle",
+        "Custom templates",
+        "Performance"
+      ],
+      "access_cost": "MIT public engine source; no editor install/export or platform tool setup selected.",
+      "license": "MIT and relevant third-party notices for any later distribution.",
+      "trace_markdown": "traces/GODOT.md",
+      "trace_json": "traces/GODOT.json",
+      "adopted_dependency": false,
+      "gameplay_delivered": false
+    }
+  ],
+  "selected_packets": [
+    "ES-01",
+    "ES-02"
+  ],
+  "depth_map": "REPORT.md#retained-depth-and-cross-system-map",
+  "excluded_duplicate_whole_game_audits": [
+    "Melvor Idle",
+    "Orb of Creation",
+    "Your Chronicle",
+    "Crush Crush",
+    "ACS and existing game/reference/repository owners"
+  ],
+  "runtime_checks": "deferred/not-run",
+  "purchases_installations_publication": "none",
+  "discoveryEligibility": {
+    "principle": "Interesting transferable decisions, interactions and authored rules across any genre; similarity to YAIRPG, idle games or RPGs is not an eligibility filter.",
+    "evidenceBoundary": "Source accessibility affects proof and implementation options, not design eligibility.",
+    "futureQuestions": "Social, institutional, logistical, evidential, rule-manipulation, scheduling and authoring systems; retained examples and parked queues are subsets, not the full direction.",
+    "sourceOwner": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+    "verifiedHumanTurnByDispatcher": "01a112f4-826c-7172-a8dc-eb2a2934dd28",
+    "candidateCap": "Five ranked candidates; broader mechanisms/future questions retained separately."
+  }
+}

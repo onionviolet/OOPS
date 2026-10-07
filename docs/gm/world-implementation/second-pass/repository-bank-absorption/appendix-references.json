@@ -1,0 +1,312 @@
+{
+  "schema": "repository-bank-absorption-references-appendix-v1",
+  "reviewed_on": "2026-10-05",
+  "purpose": "Truthful source and design-comparator dispositions for the nine reference works listed in SOURCES.json. This appendix is not an engine audit, full playthrough, canon selection, or implementation authorization.",
+  "method": {
+    "source_access": "Public official product pages, creator-published documentation/sites, and explicitly linked public repositories were read in a browser or fetched as read-only text. No sign-in, install, game execution/playthrough, package setup, source mutation, or commercial book acquisition occurred.",
+    "date_and_route": "Official/product source routes below were opened on 2026-10-05 America/New_York. GitHub default-branch API metadata and raw TypeScript were read without cloning or executing; changing branches remain outside scope.",
+    "prior_evidence_reused": [
+      {
+        "file": "docs/NICHE_GAME_REFERENCES.md",
+        "qualification": "Cavernous II's previously verified interface observations and its route-puzzle cost remain qualified as published-interface evidence, not a playthrough or source audit."
+      },
+      {
+        "file": "docs/RESEARCH_IDLE_GAMES.md",
+        "qualification": "Proto23's pinned published HTML and earlier source findings are reused as the bounded source sample already recorded there; this lane verifies the source locator and repository availability, not the full codebase. Your Chronicle and Wildermyth remain design/source comparators."
+      }
+    ],
+    "coverage_limit": "Commercial/tabletop comparators are not treated as source repositories. Public repository access does not establish permission to copy content or code. Findings below are selective evidence and do not claim whole-game or whole-repository review."
+  },
+  "references": [
+    {
+      "id": "elin",
+      "title": "Elin",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/2135150/Elin/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The developer describes a roguelike sandbox combining crafting, survival, and base building/management.",
+        "The product page lists housing, fishing, music, farming, livestock breeding, childbirth, shops, tourism, companions, and pets among its play options.",
+        "The developer describes a mix of generated content and fixed content faithful to its setting."
+      ],
+      "inference_and_yair_connection": "Useful contrast for letting home, ordinary skills, and local services create more than one life route. Current YAIR owners include village/everyday-life activities, site projects, jobs, native stock, and world instances. The useful question is which one optional home service or profession creates a new capability or visit reason, not whether to add a settlement-management layer.",
+      "limits_and_rights": "Store-page feature claims only; no game session, mechanics tracing, save behavior, or content/assets were reviewed. Elin is a commercial game. Use this as a design comparison; do not copy its names, prose, art, code, or setting."
+    },
+    {
+      "id": "soulash-2",
+      "title": "Soulash 2",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/2399160/Soulash_2/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://steamcommunity.com/app/2399160/announcements/",
+          "kind": "developer-published Steam announcements, including v0.10 Living World and v0.10.3 Economy",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes simulated history, skill-based progression, customizable abilities, material-based crafting, building, and trading; it identifies the title as Early Access.",
+        "The developer's Living World announcement describes settlement events with lasting consequences, wilderness events and weather, NPC adventuring groups, and a new world-event data-file type for modders.",
+        "The developer's Economy announcement describes a skill whose use unlocks more ways to influence the city, move resources, and direct other workers."
+      ],
+      "inference_and_yair_connection": "A strong comparator for joining an ordinary skill to settlement influence, funded labor, and off-screen events. YAIR already owns skills, jobs, actors, causes, simulation effects, settlement/site facts, clocks, and publication. A small authored event can reuse these owners; Soulash's autonomous settlement scale is not a required first-milestone system.",
+      "limits_and_rights": "Official feature descriptions and announcements only, not code or a playthrough; no claim about the complete event or migration implementation. The work is commercial and Early Access. No code, wording, names, art, or world content is proposed for copying."
+    },
+    {
+      "id": "qud",
+      "title": "Caves of Qud",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/333640/Caves_of_Qud/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://cavesofqud.com/press-kit/",
+          "kind": "developer/publisher press kit",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes physical simulation, including digging, corrosive mutation, and melting terrain according to material melting points.",
+        "The official press kit describes actors with skills, equipment, faction allegiances, and body parts; it gives psionic domination of a spider as an example of inhabiting its body and using its capabilities.",
+        "The developer describes more than seventy factions and an authored story woven through physical, social, and historical simulation."
+      ],
+      "inference_and_yair_connection": "Compare one body/source-specific capability and one environmental interaction at a time. Current YAIR owners include body progression, capabilities and power models, native combat, people/knowledge, and world/situation facts. The connection is a useful counter or passage rule that changes because of the actual actor body or owned faculty, not importing Qud's tile simulation or faction count.",
+      "limits_and_rights": "Official descriptions only; no code, full simulation trace, or playthrough. Caves of Qud is commercial. Do not copy its lore, factions, mutation text, artwork, or code."
+    },
+    {
+      "id": "dwarf-fortress",
+      "title": "Dwarf Fortress",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/975370/Dwarf_Fortress/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The developer describes generated worlds with civilizations, personalities, creatures, cultures, and histories, and inhabitants with simulated personalities.",
+        "The Steam description lists cultures, taverns, libraries, temples, animal training, bookbinding, and material-specific crafting as parts of its simulation.",
+        "The product page distinguishes fortress management from an embodied Adventure mode in which a player can explore civilizations and recruit followers."
+      ],
+      "inference_and_yair_connection": "Useful contrast for giving independent lives a durable history and for connecting a local settlement to an embodied traveler. YAIR's people, attributed knowledge, situations, chronicle, native combat, and world-instance owners cover smaller authored examples; the comparator does not establish that YAIR needs procedural civilization generation.",
+      "limits_and_rights": "Official store description only; no DFHack or game source was reviewed, and the separate DFHack project is not evidence about Dwarf Fortress internals. No playthrough or gameplay verification. Commercial work; no copying of prose, assets, code, names, or generated content."
+    },
+    {
+      "id": "wildermyth",
+      "title": "Wildermyth",
+      "disposition": "design-comparator-and-authoring-source-reviewed",
+      "source_routes": [
+        {
+          "url": "https://wildermyth.com/wiki/Modding_Guide",
+          "kind": "officially linked modding guide",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://wildermyth.com/wiki/Story_Inputs_and_Outputs",
+          "kind": "officially linked story authoring reference",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://wildermyth.com/wiki/Legacy_tier",
+          "kind": "officially linked legacy reference",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The Modding Guide says most game data is JSON, user mods mirror the core game's directory layout, and the in-game Content and Comics Editor exposes events, abilities, aspects, campaigns, items, and monsters.",
+        "Story Inputs and Outputs documents checks over campaign/company state, legacy unlocks, present heroes, and other heroes; story roles can be chosen using traits, relationships, hooks, aspects, or stats.",
+        "The same guide enumerates supported outcomes including gear, body modifications, history lines, stat changes, hooks/aspects, map changes, relationships, unlocks, recruitment, and combat effects. It recommends clear risk/tradeoffs, permanent visible change for major moments, and mechanically simple supported outcomes.",
+        "The Legacy page describes a saved history of accomplishments and heroes, with recruitment in later campaigns preserving selected abilities subject to legacy tier."
+      ],
+      "inference_and_yair_connection": "The strongest lesson is an authoring contract: declare which campaign and character facts a story may inspect, select relevant roles, then connect a legible choice to a bounded set of supported effects and durable history. YAIR already has source-authored registries, situations, response predicates, validated effects, actors, relationships, attributed knowledge, and saved causes. The missing convenience is an editorial authoring workflow and reusable role/query layer, not another effects engine or a global hero legacy.",
+      "limits_and_rights": "Wiki authoring documentation and product design only, not Wildermyth code or complete player experience. No content, JSON files, icons, story text, characters, or assets are proposed for copying. Modding instructions themselves warn authors to contact an existing mod author before adapting and republishing their work."
+    },
+    {
+      "id": "gurps-infinite-worlds",
+      "title": "GURPS Infinite Worlds",
+      "disposition": "tabletop-design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://warehouse23.com/products/gurps-infinite-worlds",
+          "kind": "publisher's official product listing",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The publisher describes a setting about parallel-world travel, with campaign roles including accidental travelers or Infinity Patrol agents.",
+        "The listing says its guidance covers designing and playing cross-setting characters and building alternate worlds from setting, story, and rules perspectives."
+      ],
+      "inference_and_yair_connection": "Useful tabletop comparator for making each destination's rules, entry premise, and traveler role explicit. Current YAIR owners include world identity, world instances, realm connections, boundary rules, and traveler profiles; it does not provide software evidence or justify adding a multiverse to the first milestone.",
+      "limits_and_rights": "This is a commercial tabletop book, not a software repository. Only the publisher's listing was used; the book was not acquired or accessed. Do not copy its setting text, names, trade dress, rules prose, or illustrations. The comparison is about the general authoring problem of distinct worlds and entry premises."
+    },
+    {
+      "id": "cavernous-2",
+      "title": "Cavernous II",
+      "disposition": "published-interface-and-source-route-reviewed; bounded-source-inspection",
+      "source_routes": [
+        {
+          "url": "https://nucaranlaeg.github.io/incremental/CavernousII/",
+          "kind": "creator's published game and deployed script links",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://github.com/Nucaranlaeg/Nucaranlaeg.github.io/tree/master/incremental/CavernousII/src/script",
+          "kind": "public source directory in the creator-profile GitHub Pages repository",
+          "accessed": "2026-10-05",
+          "revision": "3836cc3a7443a33ec68ebb78cfb7c26a173ffc2f",
+          "branch": "master",
+          "observed_files": [
+            "queues.ts",
+            "clones.ts",
+            "routes.ts",
+            "zones.ts"
+          ]
+        },
+        {
+          "url": "https://github.com/Nucaranlaeg/Nucaranlaeg.github.io/blob/master/LICENSE.md",
+          "kind": "repository license",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The published interface documents per-clone action queues, synchronization and no-sync commands, repeat actions, zone routes, route estimates, and import/export for queues and saves.",
+        "The creator's GitHub profile identifies Sam Benner and links the public GitHub Pages repository. The live page loads named JavaScript modules; the repository additionally exposes the TypeScript source directory. Read-only source inspection confirmed concrete queue/action, clone, route, and zone modules. No scripts were executed.",
+        "The repository's LICENSE.md is a custom four-condition BSD-style license. It requires notices and disclaimer retention and says commercial use must first be authorized by Sam Benner or follow a good-faith attempt to obtain permission."
+      ],
+      "inference_and_yair_connection": "The useful design contrast is visible planned work across coordinated agents and routes. YAIR has jobs, common game clocks, clock leases, simulation commitments, and multi-world boundaries; it does not have clone-level synchronized queues or Cavernous route search. One readable authored preparation plan may be worth comparing, while reproducing queue management would add substantial interface and timing complexity.",
+      "limits_and_rights": "Interface evidence is published-page inspection plus the previously qualified entry in docs/NICHE_GAME_REFERENCES.md, not a game playthrough. Source coverage is limited to locating the project and inspecting selected TypeScript files; there was no repo-wide audit, build, execution, install, or gameplay test. Any direct code use needs an explicit license review and the listed commercial-use condition; page-hosted assets and other content were not separately licensed or audited."
+    },
+    {
+      "id": "proto23",
+      "title": "Proto23",
+      "disposition": "published-game-and-source-locator-verified; bounded-source-evidence-reused",
+      "source_routes": [
+        {
+          "url": "https://www.incrementaldb.com/game/proto23",
+          "kind": "third-party game index linking source code and published website",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://23html.github.io/",
+          "kind": "published browser game linked by the game index",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "https://github.com/23html/23html.github.io",
+          "kind": "public repository reached through the index's source-code link",
+          "accessed": "2026-10-05",
+          "revision": "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+          "branch": "main",
+          "observed_files": [
+            "index.html",
+            "changelog/",
+            "ctst.png",
+            "laugh6.wav"
+          ]
+        },
+        {
+          "url": "https://github.com/miktaew/yet-another-idle-rpg",
+          "kind": "YAIR original creator's own attribution that the project was inspired by Proto23",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The index labels Proto23 as a browser incremental RPG and links separate source-code and website destinations. Its source link resolves to the public 23html/23html.github.io repository, whose main-branch commit matches the already-pinned index.html source revision recorded in docs/RESEARCH_IDLE_GAMES.md.",
+        "The current YAIR original creator's public repository describes YAIR as inspired by Proto23. That verifies the attribution relationship, not that the linked source repository is controlled by the same creator or that it is licensed for reuse.",
+        "The public Proto23 repository page exposes index.html and related files but no LICENSE file; GitHub API repository metadata reports no recognized license. The deployed browser page is available, but this lane did not execute it or inspect it interactively."
+      ],
+      "inference_and_yair_connection": "Continue using the previously recorded bounded examples for use-based mastery, knowledge objects, furniture/home state, and save timing. These connect to YAIR's current native skills, discovery, items, sites, and persistence owners. A small translation is more useful than trying to mirror Proto23's densely coupled progression.",
+      "limits_and_rights": "This is source-locator/provenance verification plus reuse of the bounded source sample already in docs/RESEARCH_IDLE_GAMES.md, not a new full code audit or game test. The 23html GitHub owner and the published site are linked by a third-party index; direct creator confirmation was not found in this pass. Public availability is not a copying license. Do not copy code, words, graphics, or audio without clear rights."
+    },
+    {
+      "id": "your-chronicle",
+      "title": "Your Chronicle",
+      "disposition": "design-comparator-reviewed",
+      "source_routes": [
+        {
+          "url": "https://store.steampowered.com/app/1546320/Your_Chronicle/",
+          "kind": "official Steam product page",
+          "accessed": "2026-10-05"
+        },
+        {
+          "url": "docs/RESEARCH_IDLE_GAMES.md",
+          "kind": "existing primary-source comparison and bounded prior research owner",
+          "accessed": "2026-10-05"
+        }
+      ],
+      "observed_facts": [
+        "The product page describes a free text-based idle RPG with more than 3,000 story actions and unlockable features.",
+        "The existing YAIR research dossier records story unlocks, automation, summoned companions, endings, and a source-backed design translation; this appendix reuses it as prior comparator evidence rather than claiming a new mechanics trace."
+      ],
+      "inference_and_yair_connection": "Useful contrast for exposing how authored actions unlock a richer action vocabulary over time. YAIR already has discovery projections, registered abilities/commands, authored situations, controllers, and shared effects. The useful adaptation is a few discoverable functional options with legible prerequisites, not thousands of actions or an imported automation loop.",
+      "limits_and_rights": "Official product page and earlier dossier only; no complete action list, source, save trace, or playthrough was reviewed here. Commercial game. No code, text, names, or art is proposed for copying."
+    }
+  ],
+  "findings": [
+    {
+      "id": "RB-REF-01",
+      "title": "Wildermyth documents an explicit story-input to supported-outcome authoring contract",
+      "source_revision": "Officially linked Wildermyth Wiki pages, read 2026-10-05; no software revision is claimed.",
+      "scope_and_urls": [
+        "https://wildermyth.com/wiki/Modding_Guide",
+        "https://wildermyth.com/wiki/Story_Inputs_and_Outputs",
+        "https://wildermyth.com/wiki/Legacy_tier"
+      ],
+      "observed_mechanism": "The authoring docs distinguish what a story may inspect (campaign/company state, legacy records, present or absent heroes, and character traits/relationships/hooks/aspects/stats) from the outcomes it may commit (including gear, body/history/relationship changes, map state, unlocks, recruitment, and combat effects). They recommend fair, legible tradeoffs and major outcomes built from supported, mechanically simple effects. Most game data is described as JSON, organized in mod folders mirroring the core layout, with an in-game editor for content categories.",
+      "observed_vs_inference": "The input/output vocabulary, editor route, folder organization, and published authoring advice are documented facts. Applying the same contract to YAIR is a design inference; this review did not inspect Wildermyth's code or test its editor.",
+      "original_yair_example": "Proposed original scene: a village bridge survey becomes available after the player has recorded a route clue and an eligible local surveyor is present. The player can spend owned rope and game time to open the route, or leave with a private clue and a later return. The accepted choice writes an authored situation receipt, a public route fact, and an attributed player knowledge entry. This uses no Wildermyth story, character, prose, art, or data.",
+      "current_matching_owners": [
+        {
+          "owner": "src/scene_definitions.js",
+          "evidence": "compileSituation validates authored phase/effect definitions and compiles them into events and responses (lines 1-21)."
+        },
+        {
+          "owner": "src/simulation_contracts.js and src/simulation_effects.js",
+          "evidence": "Current effect and predicate validators plus shared effect execution own eligibility and supported consequences."
+        },
+        {
+          "owner": "docs/ENGINE_AUTHORING.md",
+          "evidence": "The current authoring guide documents the immutable JS content registry, supported requirements, preview, validated effects, and existing character/world state (sections 'Content registry' and 'Effect vocabulary')."
+        }
+      ],
+      "gap_and_overlap": "Most consequence primitives already exist in YAIR, and this is not a case for another effects engine. Current authored scenes are source-level JS definitions; this lane did not find a comparable end-user editor or a general reusable character-role query layer. A future bounded authoring improvement would make source predicates, participant roles, visibility, supported costs/outcomes, and persistence joins explicit and validated while compiling to current owners.",
+      "route_and_dependencies": {
+        "route": "Pattern adaptation to current registry/situation/effect owners; prototype with one original scene and source-level definitions before proposing an authoring UI.",
+        "required_dependencies": [],
+        "optional_dependencies": [],
+        "decision": "No Wildermyth runtime or dependency is required or selected."
+      },
+      "effort_and_confidence": {
+        "effort": "Low to medium for a data-contract improvement and one authored scene; high for a discoverable visual editor, generalized role matching, localization, validation diagnostics, and mod packaging.",
+        "confidence": "High for the published authoring guidance; medium for the YAIR tooling gap assessment because this was a bounded content-owner read, not a full authoring-workflow audit."
+      },
+      "state_rng_time_stock_publication_save": {
+        "state": "Use existing situation IDs, participant predicates, actor/world facts, and attributed knowledge. Unknown information must remain unknown rather than satisfy a negative condition.",
+        "rng": "The cited pattern needs no random draw for its basic scene. Any future randomized role/choice selection must use existing authored outcome/RNG rules and must not draw during an ineligible preview.",
+        "time": "Bind costs and deadlines to YAIR's current common game clock and scheduler; rendering or reopening the story cannot advance it.",
+        "stock": "Reserve actual owned native items/resources at commitment through existing cost owners; do not mirror player inventory.",
+        "publication": "Stage the phase receipt, costs, world/actor outcomes, knowledge, and event log through current effect/publication owners before presenting success.",
+        "save_compatibility": "No schema change is made or selected here. If a new authored state shape is introduced, define its additive migration or unsupported-reader boundary and verify generated save/reload before calling gameplay accepted."
+      },
+      "provenance_and_removal": {
+        "source_rights": "Only publicly accessible Wildermyth documentation was read; no book/game code, story text, JSON data, names, icons, or assets are proposed for reproduction. The modding guide advises authors to consult a mod author before adapting and republishing that author's mod.",
+        "yair_provenance": "The example and content would be original YAIR material implemented in current owners; no external dependency or copied content is needed.",
+        "maintenance_and_fallback": "Keep source-authored scene definitions for every retained job/event/power/controller/cursor reference, or provide explicit migration/version rejection before unregistration. Preserve accepted receipts and unrelated/dormant history. Unreferenced new content can be disabled without adding a new engine owner; fallback is the current direct situation/response authoring path."
+      },
+      "novelty_overlap": "High overlap in supported state/effect primitives. The distinctive useful idea is documenting and validating the author-facing input, role, and outcome contract so authored stories reliably join to existing systems."
+    }
+  ]
+}

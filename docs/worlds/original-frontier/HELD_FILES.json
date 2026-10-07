@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-04",
+  "state": "held-for-combined-plan-review",
+  "files_sha256": {
+    "docs/worlds/original-frontier/ASSIGNMENT.md": "7e5177be22f7c4f21b2be8ed545eb2d62815c48a2301636e35953c487b9d57d6",
+    "docs/worlds/original-frontier/CAMPAIGN.md": "b5d52cc1b0567995d77e9b5f43e9a74ee33a9cb99cb39ed3028064332f4b651f",
+    "docs/worlds/original-frontier/INPUTS.json": "531b0b162af9f7f84a4dc0f2f82d1e645e799f7fef65cecdf001ee3d4ae5e453",
+    "docs/worlds/original-frontier/REPORT.md": "1f7a4fb09bb4c4e14104fef8c1efe734dd66c35a9bfaab110906f2ad1405fd72",
+    "docs/worlds/original-frontier/CHECKPOINT.md": "74cafaa5f5cc75445b6767e19d8725c2a3590a187d0f1c66ff7a78d70592fa24",
+    "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md": "57d658bce894cd3ff9673f15c9c1e085f789f7b905e611542f1160cc7f0b8053",
+    "src/original_frontier_campaign_content.js": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+  },
+  "checks": {
+    "syntax": "passed-before-hold",
+    "directImport": "passed-before-hold",
+    "actualSimulationRegistryConstruction": "passed-before-hold",
+    "inMemoryBuild": "not-run",
+    "gameplayAndSaveChecks": "deferred"
+  },
+  "child": "/root/campaign_design",
+  "childStatus": "completed and reservation released",
+  "knownDraftGaps": [
+    "NPC authored route-minute mismatch with native geography",
+    "Paid lot jobs lack actual target-stock/custody guard"
+  ],
+  "historicalReportLocation": "docs/worlds/original-frontier/HELD_REPORT_2026_10_04.md",
+  "note": "October 4 frozen output hashes are historical; current planning evidence is PLAN_INPUTS/PLANNING_CHECKS."
+}

@@ -1,0 +1,79 @@
+{
+  "status": "complete",
+  "created_at": "2026-10-07T03:50:15.539707+00:00",
+  "artifacts": [
+    {
+      "file": "CHECKPOINT.md",
+      "bytes": 3471,
+      "sha256": "d3b1112f42aa457f280f1b82bc105f51dadd6fd0996fc8eb45eeba7bf66ea377"
+    },
+    {
+      "file": "COVERAGE.json",
+      "bytes": 58520,
+      "sha256": "42ab35c6fa5f828a0f80b869e8622c363a56b16bb2251b2995b6c80cc01daa99"
+    },
+    {
+      "file": "DLC_COVERAGE.json",
+      "bytes": 3994,
+      "sha256": "ff3c470bbbb1e066e9eeabe6532b38af1bcd696c6310beed31c73b41ec33c545"
+    },
+    {
+      "file": "FINDINGS.json",
+      "bytes": 78264,
+      "sha256": "9a6a2284872d133d0603b4b3358ab523276961e37f2c7589cfd25e9d8e15d27a"
+    },
+    {
+      "file": "IMPLEMENTATION_PACKETS.md",
+      "bytes": 7396,
+      "sha256": "b71aed00c096d99842576de602c985dc284b498d002d11376d6dcf6e269d9900"
+    },
+    {
+      "file": "INTAKE.json",
+      "bytes": 4904,
+      "sha256": "d1c32cd74239d7102d4b36213a4f497255532aa78543efdf1eacc0fd3c83eeba"
+    },
+    {
+      "file": "PACKETS.json",
+      "bytes": 13654,
+      "sha256": "c2d9964baa85639d01171930c8199cc2bef03974f4ae71246f483e1e0bb62763"
+    },
+    {
+      "file": "REPORT.md",
+      "bytes": 31485,
+      "sha256": "44a046ae3a77dc38f001f6c3483f6af73c310bf44d79e4ef087b36060b14c041"
+    },
+    {
+      "file": "VALIDATION.json",
+      "bytes": 601,
+      "sha256": "a71f7ccf938c48920d8b319ae347c21f2448c40611c8c707b6954fac5790d524"
+    }
+  ],
+  "private_input_receipts": [
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/FILE_MANIFEST.json",
+      "sha256": "375bb3e21d55fc1598d1a526aa3653d2fe6e1a772bc13858ecf848cd0b14bcaf",
+      "bytes": 649870
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/RETENTION_VERIFICATION.json",
+      "sha256": "eafc2cdd78c01c5f821cfee18bd657b972309024c8bbc871c3e33c644bc87527",
+      "bytes": 240
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/NATIVE_BOUNDARY.json",
+      "sha256": "00d88989f2f3c3a3e6030bae50e1eb2feed861aee89f4482bddd54500e87a55a",
+      "bytes": 576
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/MANIFEST_REDACTED.json",
+      "sha256": "e1a035c67118575b580bb62c9a5f6bfe141cfe5e2ffcb1b910df499422ad205b",
+      "bytes": 204
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/STABILITY_BEFORE.json",
+      "sha256": "24df1aedba8bb8e5c867fac324d67db68aa3d64e0bfe53319d04d1af55a79b75",
+      "bytes": 418336
+    }
+  ],
+  "self_excluded": true
+}

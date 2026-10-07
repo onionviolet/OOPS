@@ -1,0 +1,266 @@
+{
+  "schema": "repository-bank-absorption-progression-appendix-v1",
+  "qualification": {
+    "purpose": "Targeted progression and activity-planning lane; compares six pinned repositories and records only bounded absorption candidates.",
+    "source_cache": "~/.cache/yairpg-repository-bank/2026-10-05/",
+    "pin_matches_SOURCES_json": true,
+    "repository_checkout_modified": false,
+    "upstream_code_or_scripts_executed": false,
+    "retrieval": "Read pinned Git objects with git show, ls-tree, and blob IDs. No checkout, hooks, setup, packages, builds, or supplied scripts were run.",
+    "review_scope": [
+      "Purpose and top-level license/notice presence",
+      "Arcanum task completion and task/profession/master content lineage",
+      "Idle Loops action eligibility, sequence progression, and action-list state",
+      "Progress Knight Quest task/save/offline-time implementation",
+      "Evolve technology gates and profession/job output calculations",
+      "Current YAIR simulation job/program, discovery, world-time and effect owners"
+    ],
+    "coverage_limit": "This is a bounded subsystem review of six default pinned commits, not a repository-wide, all-branch, all-content, balance, asset-rights, or runtime review. No numerical savings or gameplay verification is claimed."
+  },
+  "repositories": [
+    {
+      "id": "arcanum-original",
+      "title": "Arcanum / Theory of Magic original",
+      "status": "mechanism-reviewed",
+      "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+      "branch": "master",
+      "url": "https://gitlab.com/mathiashjelm/arcanum",
+      "cache_key": "arcanum-original.git",
+      "observed": "Pinned task and runnable implementations expose continuous task progress, repeat flags, gated use, and completion notifications. This is source behavior, not a claim that the game was run.",
+      "lineage_note": "The pinned README and LICENSE blobs and the inspected src/items/task.js, src/composites/runnable.js, src/modules/hall.js, and data/professions.json blobs are byte-identical to the Arcanum Testing pin. The shared gameplay files are therefore not independent evidence or two distinct mechanics."
+    },
+    {
+      "id": "arcanum-testing",
+      "title": "Arcanum testing lineage",
+      "status": "mechanism-reviewed",
+      "revision": "2ebb89a9e943bc22461ef35e3d68e95f786c0059",
+      "branch": "master",
+      "url": "https://gitlab.com/arcanumtesting/arcanum",
+      "cache_key": "arcanum-testing.git",
+      "observed": "Shares the inspected core task/profession/hall blobs with arcanum-original at these pins, and also contains distinct later module content. data/modules/masterspecs.json ties mentor specialization eligibility to distinct source rate/capacity and home/job effects. This module is content evidence, not proof that the repository's whole module system was reviewed.",
+      "lineage_note": "Do not treat the separate GitLab roots as identical repositories because README and core blobs happen to match. The testing commit is a merge commit and its pinned module inventory includes additional content such as masterspecs, graveyard, mounts, and siege modules."
+    },
+    {
+      "id": "idle-loops-lloyd",
+      "title": "Idle Loops Lloyd fork",
+      "status": "mechanism-reviewed",
+      "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+      "branch": "main",
+      "url": "https://github.com/lloyd-delacroix/omsi-loops",
+      "cache_key": "idle-loops-lloyd.git",
+      "observed": "Pinned actions.js advances an ordered current action list, rechecks the next action's local-zone and canStart conditions, and displays a stop reason when costs or zone are no longer valid. actionList.js supplies action-specific training, limited-use, and multipart progress kinds.",
+      "lineage_note": "Its README blob matches the Omsi source-lineage pin, but actions.js/actionList.js are different blobs and the action inventory differs. This is a bounded family comparison, not evidence that either source is a byte-identical fork of the other."
+    },
+    {
+      "id": "idle-loops-omsi",
+      "title": "Idle Loops Omsi source lineage",
+      "status": "mechanism-reviewed",
+      "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+      "branch": "master",
+      "url": "https://github.com/omsi6/omsi6.github.io",
+      "cache_key": "idle-loops-omsi.git",
+      "observed": "The pinned source has its own action list and loop implementation. Its list includes ordered actions and the same broad typed distinctions (normal, progress, limited, multipart), but it does not share the inspected Lloyd action/list blobs. The review does not assume the forks have matching queue semantics solely because their README blob matches.",
+      "lineage_note": "Pinned source-lineage revision differs from Lloyd's merge commit; inspected actionList.js blob IDs differ. This is not an all-branch fork-history audit."
+    },
+    {
+      "id": "progress-knight-quest",
+      "title": "Progress Knight Quest",
+      "status": "mechanism-reviewed",
+      "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+      "branch": "main",
+      "url": "https://github.com/indomit/progress_knight_2",
+      "cache_key": "progress-knight-quest.git",
+      "observed": "README describes a continuation with five prestige layers. The inspected offline.js caps catch-up at one hour and replays simulation ticks in UI-yielding batches, stopping if the character is no longer alive. This is an explicit implementation of a different absence policy and several reset layers; neither is a YAIR policy recommendation."
+    },
+    {
+      "id": "evolve",
+      "title": "Evolve",
+      "status": "mechanism-reviewed",
+      "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4",
+      "branch": "master",
+      "url": "https://github.com/pmotschmann/Evolve",
+      "cache_key": "evolve.git",
+      "observed": "README identifies an incremental civilization game. Pinned tech definitions check prerequisites and resource costs before revealing later knowledge or granting era progress; profession output descriptions combine workers, species, biome, technology, buildings, and government. This source supports a civilization-management comparison, not a drop-in YAIR actor/job engine."
+    }
+  ],
+  "findings": [
+    {
+      "id": "RB-PRO-01",
+      "repository_ids": ["idle-loops-lloyd", "idle-loops-omsi"],
+      "title": "An authored mixed-activity itinerary is the queue pattern worth borrowing",
+      "recommendation_rank": 1,
+      "source_evidence": [
+        {
+          "repository_id": "idle-loops-lloyd",
+          "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+          "path": "actions.js",
+          "sha256": "907b51e0cc0f76d00d17ce5740489d3fbd41db39faea8cfd0aa05d690ca6fa34",
+          "symbols": ["Actions.tick", "Actions.getNextValidAction", "Actions.addAction"],
+          "lines": "13-103, 106-128, 214-244",
+          "url": "https://github.com/lloyd-delacroix/omsi-loops/blob/5008c4a1faca102af543b4f9369f6cef4b763823/actions.js"
+        },
+        {
+          "repository_id": "idle-loops-lloyd",
+          "revision": "5008c4a1faca102af543b4f9369f6cef4b763823",
+          "path": "actionList.js",
+          "sha256": "98d1e806a6489a1788628a901e77616072f48117c08f37b841328d9e5766080e",
+          "symbols": ["limitedActions", "trainingActions", "Action", "MultipartAction"],
+          "lines": "17-73, 110-151",
+          "url": "https://github.com/lloyd-delacroix/omsi-loops/blob/5008c4a1faca102af543b4f9369f6cef4b763823/actionList.js"
+        },
+        {
+          "repository_id": "idle-loops-omsi",
+          "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+          "path": "loops/actions.js",
+          "sha256": "664dc86c4fc0e648707ed50f6d6aaa9b693ed4a4117fe1106e1b7daf76f34671",
+          "symbols": ["Actions.tick", "Actions.getNextValidAction", "Actions.addAction"],
+          "lines": "13-103, 106-128, 214-244",
+          "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js"
+        },
+        {
+          "repository_id": "idle-loops-omsi",
+          "revision": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+          "path": "loops/actionList.js",
+          "sha256": "66a6e2848ded01a9b0be99e05a056427eb69fc3b81fc22cf6e19a22214e06764",
+          "symbols": ["limitedActions", "trainingActions", "Action", "MultipartAction"],
+          "lines": "17-71, 110-151",
+          "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js"
+        }
+      ],
+      "observed_upstream": [
+        "The Lloyd queue has ordered current and next lists. A committed list item runs for a bounded loop count; each tick advances its action, and completion moves the cursor onward (actions.js 13-103).",
+        "Before running the next item, the scheduler checks its allowed count, current zone and canStart condition; an ineligible item is skipped while its row receives an error reason (actions.js 106-137). Each action's cost/time is estimated from its declared stats, and queue totals are recomputed from remaining actions (actions.js 214-253).",
+        "The action definitions distinguish regular, progress, limited, and multipart actions, with unique per-action data and multi-segment completion behavior (actionList.js 17-73, 110-151).",
+        "The Omsi pin has separate action and action-list blobs despite the shared README blob. Its top-level action-list comments describe typed progress, limited-use, and multipart actions, but this review does not assert identical runtime behavior from matching labels alone."
+      ],
+      "inference": [
+        "The transferable pattern is a player-authored sequence with a per-step boundary: forecast known duration/costs, then re-evaluate legal access and actual means when each next command is about to begin. YAIR should stop and expose the blocked step instead of copying Idle Loops' skip-ahead behavior, because a later step may rely on work that never happened.",
+        "Idle Loops' town index and action-specific tick state are game-specific. Importing them would duplicate YAIR's command registry, job scheduler and current world/location owners."
+      ],
+      "original_yair_example": "Proposal only: prepare a field itinerary with 'observe the washed trail', 'ask the carpenter to pack one kit', then 'practice the brace'. Show the predicted work and known costs. Each later step rechecks current locality, discovery, participant availability and stock. If the logs are spent elsewhere before packing begins, stop with the exact blocked step; do not spend hidden resources or skip into a different world. It remains one ordinary realm and does not advance while the player is absent.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {"owner": "src/simulation.js", "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0", "evidence": "previewSimulationCommand checks location/world, target, busy actors, site capacity, cost and visibility before allowing a command (49-105); startCommand freezes revision, costs, effects, participants and completion time into one job (108-154)."},
+          {"owner": "src/simulation.js", "evidence": "setSimulationProgram stores one commandId and bounded remaining count, starts its first job, and later rechecks eligibility before reserving each next batch; a failed check pauses with a reason (189-216, 396-403)."},
+          {"owner": "src/simulation_contracts.js", "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052", "evidence": "Saved programs are validated as finite running/paused/complete records tied to a registered command (250-251); jobs retain a saved due time, sequence, frozen participant set and cancellation policy (227-237)."},
+          {"owner": "docs/ENGINE_AUTHORING.md", "sha256": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069", "evidence": "Authoring contract explicitly says programs reserve only the next batch, pause on changed inputs/access/capacity, and do not cancel an already frozen job (98-100)."}
+        ],
+        "missing_consumer": "There is no saved multi-command itinerary owner that previews an ordered list of distinct registered commands, their individually known costs/locations/participants and stop conditions, then advances one command at a time. Current simulation programs intentionally repeat one command. Do not describe an itinerary preview as a new scheduler, or as browser-closed progression.",
+        "novelty_overlap": "High overlap in eligibility, payment, jobs, actor reservations, ordering, cancellation, finite targets and UI; the novel seam is heterogeneous authored steps and a useful preview of where that plan will stop.",
+        "route": "Adapt the queue comprehension pattern into an optional, finite itinerary definition/preview bound to existing command IDs. Commit each step through previewSimulationCommand and commitSimulationCommand at its actual boundary. Keep today's same-command programs as-is unless a separate selected runtime packet explicitly replaces their contract.",
+        "dependencies": {"required": [], "optional": [], "decision": "No runtime or package dependency needed or selected."},
+        "effort": {"qualitative": "medium for static finite preview over current commands; high for a persistent editable heterogeneous program with step resume, exact cancellation and browser UI", "confidence": "high on pinned queue source and current owners; medium on proposed UI and persistence seam"},
+        "joins_and_gates": {
+          "state": "If only previewed, derive from existing definitions and current state. If saved, define stable itinerary/step IDs and per-step status without shadowing job commitments.",
+          "rng": "Preview draws no randomness. Outcomes remain frozen by each existing command at its own commitment; any list-level random branch would need a separate explicit saved receipt and is not proposed.",
+          "time": "Each accepted step uses existing played game time. No idle or arbitrary absent-world advancement is added; local worlds continue to obey their explicit absence policy.",
+          "stock": "Use existing actual inventory, resource, participant and site owners. Do not reserve future itinerary steps before they begin; preserve the current next-batch reservation contract.",
+          "publication": "Commit one step through existing staged simulation/native publisher. Preview display grants no work, discovery, stock, XP or claim.",
+          "save_compatibility": "No change made or selected. A displayed transient preview needs no save migration. Persisted heterogeneous plans require an explicit additive schema/version decision and save/reload verification before release."
+        },
+        "provenance": {
+          "source_license": "Neither Idle Loops cache root contains a top-level LICENSE file. Treat source-code reuse as unqualified until rights are verified; public availability and a README match do not grant copying permission.",
+          "yair_license": "YAIR root LICENSE remains MIT. This proposal copies no source code, text, icons, or assets.",
+          "file_content_assets": "Source review only. Do not use the Idle Loops action labels, location names, storyline, SVG icons, fonts, or other assets as YAIR content without separate provenance and rights review.",
+          "maintenance_and_removal": "Keep any itinerary adapter optional and fed by registered commands. If removed, remove its new definitions/UI and keep native individual commands and same-command bounded routines. A persistent plan schema needs an old-reader/migration decision first."
+        }
+      }
+    },
+    {
+      "id": "RB-PRO-02",
+      "repository_ids": ["arcanum-original", "arcanum-testing"],
+      "title": "Mentor specialization is useful as a consequence pattern, not a task engine to import",
+      "recommendation_rank": null,
+      "source_evidence": [
+        {"repository_id": "arcanum-original", "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197", "path": "src/items/task.js", "sha256": "0d3b2c0b1d2893d161a2c0ac5e0067794689e03b90dcc83af15a6cbfe9c68459", "symbols": ["Task.update", "Task.complete", "Task.canRun", "Task.changed"], "lines": "209-294", "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/task.js"},
+        {"repository_id": "arcanum-original", "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197", "path": "src/composites/runnable.js", "sha256": "a5ec86cc4957c83a147e9d474e947ebfe71f889e1ed68cd2bc5f4b02b291b98e", "symbols": ["Runnable.update", "Runnable.revive"], "lines": "65-70, 90-113", "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/composites/runnable.js"},
+        {"repository_id": "arcanum-testing", "revision": "2ebb89a9e943bc22461ef35e3d68e95f786c0059", "path": "data/modules/masterspecs.json", "sha256": "1b34a48aca08ffe7fe24f225defa990ea8889318fba58cf05260365c532a8cf4", "symbols": ["masterspec_default", "masterspec_light", "masterspec_shadow", "masterspec_puppet", "masterspec_earth", "masterspec_water", "masterspec_fire"], "lines": "1-120", "url": "https://gitlab.com/arcanumtesting/arcanum/-/blob/2ebb89a9e943bc22461ef35e3d68e95f786c0059/data/modules/masterspecs.json"}
+      ],
+      "observed_upstream": [
+        "Arcanum Task gates use by timer and general task eligibility; active tasks accrue rate-scaled elapsed progress and completion increments the task value before notifying listeners and resetting progress (task.js 209-262).",
+        "Runnable tasks serialize item, target and progress; completion applies the selected item-to-target interaction, emits a task-done event, and revival restores the target reference and resumes item use (runnable.js 11-16, 65-70, 90-113).",
+        "Arcanum Testing's distinct mentor module gates a one-time master specialization on authored progress facts and changes different power rate/capacity or home/job modifiers (masterspecs.json 5-19, 22-54, 57-89, 92-120)."
+      ],
+      "inference": [
+        "The useful design relation is a meaningful mentor choice whose eligibility reflects what the player actually did and whose effects touch a real source, home service, or ordinary task. It should not become a generic task-timer subsystem or copy Arcanum's text/IDs.",
+        "Most infrastructure is already covered by YAIR frozen paid jobs, power/faculty ownership, directed knowledge and native XP integration. The candidate gap is an authored content link from earned local discovery to a mentor's distinct functional lesson, not a new progression ledger."
+      ],
+      "original_yair_example": "Proposal only: a Village cartographer offers a trail-reading lesson after the player has actually observed two different trail signs. The player can instead ask the carpenter for a practical brace lesson, producing a different earned source and native route consumer. Each choice costs a real ordinary work resource, records the witnessed instruction, and affects a later trip; no source is granted from opening the panel.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {"owner": "src/skill_discovery.js", "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f", "evidence": "Discovery projection separates seen/unlocked/eligible states and returns blocked reasons without granting content (45-69, 94-99)."},
+          {"owner": "src/simulation.js and src/simulation_effects.js", "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0", "evidence": "Timed jobs freeze paid costs/effects, participants and cause at commitment (108-170); effects already own directed knowledge, powers, progress, sources/faculties and native XP/unlock staging (simulation_effects.js 171-244, 259-270)."},
+          {"owner": "src/simulation_content.js and docs/ENGINE_AUTHORING.md", "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4", "evidence": "Existing authored measured-packing lesson requires prior observed knowledge, spends a coin, records understanding, learns a functional power/source, and has a command consumer (simulation_content.js 64-70; ENGINE_AUTHORING.md 207-217)."}
+        ],
+        "missing_consumer": "No missing generic task/job or power-source consumer was found in this bounded trace. Any next useful work is original content authoring only when a concrete missing lesson or mentor consequence is chosen; no Arcanum mechanism or DSL needs to be imported.",
+        "novelty_overlap": "Low engine novelty and high content-pattern overlap with current earned skill discovery/acquisition/practice. The mentor specialization examples are source inspiration, not new executable semantics.",
+        "route": "Abstain from adding an engine owner. If desired later, author a small original lesson through current registered discovery, command, knowledge, power/source, XP and native-use seams, then require a real gameplay consumer. Arcanum data expressions, labels and code are not a dependency.",
+        "dependencies": {"required": [], "optional": [], "decision": "No dependency or import selected."},
+        "effort": {"qualitative": "low for one well-scoped original lesson within current authoring seams; medium if the proposed story requires new native skill or save owners", "confidence": "high that the pinned source paths behave as described; medium that no other content seam would be needed before a selected lesson is authored"},
+        "joins_and_gates": {
+          "state": "Use existing discovery facts, directed knowledge, learned power/faculty and native skill XP owners.",
+          "rng": "No draw is needed for the example. If an authored lesson later includes chance, use the existing frozen outcome receipt path.",
+          "time": "Use existing paid timed job and joined clock where required. Do not make a separate timer or offline rule.",
+          "stock": "Reserve only actual actor-owned lesson cost using existing inventory/resource owners.",
+          "publication": "Use current staged command/native publisher and one-time completion/claim guards. A panel label is not a functional lesson.",
+          "save_compatibility": "No new schema or migration selected; keep this content-only until a concrete new persistent datum proves necessary. Any future state field requires an explicit compatibility decision and save/reload verification."
+        },
+        "provenance": {
+          "source_license": "Both pins contain the same top-level LICENSE blob, copyright 2020 Justin Lacy, with an MIT-style permission and notice requirement. This lane proposes no code/data copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. Similar license family does not make borrowed story text/names/assets automatically suitable.",
+          "file_content_assets": "The Arcanum Testing module names, descriptions, flavor text and game-specific power IDs are comparison evidence only. No prose, characters, module records, graphics, fonts, or other assets are proposed for reuse.",
+          "maintenance_and_removal": "Content authored against stable existing IDs can be removed without a new engine layer; remove its registry definitions and UI exposure together. Preserve any already saved IDs with dormant-data handling if persistent content is later adopted."
+        }
+      }
+    },
+    {
+      "id": "RB-PRO-03",
+      "repository_ids": ["evolve", "progress-knight-quest"],
+      "title": "Keep civilization job economies and offline/reset rules as separate design boundaries",
+      "recommendation_rank": null,
+      "source_evidence": [
+        {"repository_id": "evolve", "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4", "path": "src/tech.js", "sha256": "3f7088cae7358ec7d6d79574d37bf93b0bcda3b644b7221f301c2f058e1de94e", "symbols": ["techs.club", "techs.bone_tools", "techs.sundial", "techPath", "techList"], "lines": "18-129, 15698-15715", "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/tech.js"},
+        {"repository_id": "evolve", "revision": "3436358dcd03d9f9e071d51ea071e0a78c0322e4", "path": "src/jobs.js", "sha256": "e331e1146b919194d7e19a06c97b4229358ac34aa7d2dea2c218f68c42d40e94", "symbols": ["defineJobs", "workerScale", "jobScale", "setJobName", "loadJob", "job_desc.professor", "job_desc.scientist"], "lines": "273-315, 368-445, 479-520", "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/jobs.js"},
+        {"repository_id": "progress-knight-quest", "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb", "path": "js/offline.js", "sha256": "5c8bb0c74d120f6d11db33fbe4e478fd8a827b44097bdb1874e2e60134b0e8a3", "symbols": ["OFFLINE_CONFIG", "calc_offline_progress", "updateOfflineBatch"], "lines": "7-12, 35-72, 79-102", "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/offline.js"},
+        {"repository_id": "progress-knight-quest", "revision": "d03f8b65adddab4a089a2f95e3a4749770aa03cb", "path": "README.md", "sha256": "c6ba9c009822daee1d7715bfbf3620e497b383d11102d2c1141b7adfd1af8a27", "symbols": [], "lines": "1-3", "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/README.md"}
+      ],
+      "observed_upstream": [
+        "Evolve tech entries declare prerequisites, sometimes a species condition, real resource costs, and effects such as displaying a resource or granting a technology era step; techList filters by authored path (tech.js 18-129, 15698-15715).",
+        "Evolve profession projections compute worker output using species traits, current technologies, biome/buildings, and government; professor/scientist descriptions are tied to these shared economy facts (jobs.js 273-315, 413-445). This is not evidence that each projection line directly mutates saved stock.",
+        "Progress Knight Quest's repository description names five prestige layers. Its inspected offline path caps elapsed catch-up to one hour, runs batches of 200 ticks with brief UI yields, and stops processing on death (offline.js 7-12, 35-72, 79-102)."
+      ],
+      "inference": [
+        "Evolve illustrates a materially distinct collective technological progression fantasy: population assignments produce resources, then research choices consume those resources to reveal new capabilities. Current YAIR simulation specializes in person-owned actors, commands, work reservations, sources and local world facts; a collectively assigned population/economy would need an actual new producer/consumer contract.",
+        "Progress Knight Quest's offline tick replay and five-layer reset structure are incompatible design decisions for current scope. Neither should be copied as a convenience under the current explicit played-time/world-absence policy or one-prestige milestone."
+      ],
+      "original_yair_example": "Proposal for a later distinct campaign concept only: a frontier settlement may assign two named local workers to a survey office; a separately committed research lesson then consumes actual shared material through an explicitly owned settlement stock adapter and grants an earned source to a consenting trainee. The current one-realm campaign does not yet have collective worker assignment or settlement stock, so this is not currently playable and should not be inserted as a hidden automation feature.",
+      "current_yair_mapping": {
+        "available_owners": [
+          {"owner": "src/world_instances.js", "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd", "evidence": "World instances hold typed facts, claims, sites and played-time clock intervals; absence policy is authored explicitly as freeze (101-127, 271-280, 308-344)."},
+          {"owner": "src/simulation.js and src/simulation_effects.js", "evidence": "Existing simulation jobs reserve actor-owned costs, sites and participants and settle frozen effects; simulation effects write real inventory, knowledge, powers, source/faculty and progress owners (108-170; simulation_effects.js 144-244)."},
+          {"owner": "src/simulation_contracts.js", "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052", "evidence": "Current costs are constrained to real typed resources/items/vitals/transfers/custody/energy; saved person jobs and world records are validated against actual owners (90-98, 191-237)."},
+          {"owner": "docs/ENGINE_AUTHORING.md", "evidence": "Current advancement uses the joined played clock, bounded boundary processing and explicit frozen local-world time during absence; browser-closed catch-up is not an implicit feature (118-124)."}
+        ],
+        "missing_consumer": "No collective population assignment or settlement-owned production/stock consumer was found in this trace. Evolve's role-based yield overlays do not map cleanly onto YAIR's independent actor controllers and actual inventory owners. Current authored power/progression/command seams can represent individual research work, but not civilization-wide production accounting.",
+        "novelty_overlap": "Low reusable engine-code fit and medium-to-high original world-design value if a future selected campaign needs collective technological progression. Job and tech vocabulary alone does not establish subsystem parity.",
+        "route": "Abstain from adopting the Evolve or Progress Knight runtime, economy, prestige, or offline scheduler. If the creative director later selects this fantasy, define one narrow settlement producer, its exact stock owner and a research command that consumes it through existing jobs/power/source/knowledge contracts; first decide whether this belongs in the existing home continuity.",
+        "dependencies": {"required": [], "optional": [], "decision": "No new framework/runtime is needed or selected. A collective production owner would be authored inside the current JS engine only after a specific world need is accepted."},
+        "effort": {"qualitative": "high for a correct collective economy owner with UI, save, clock and world joins; low for an individual existing-owner research command", "confidence": "high on inspected source behavior; medium on scope/effort until a collective-world design and stock boundary are selected"},
+        "joins_and_gates": {
+          "state": "A new collective economy would need a clear instance-owned population/assignment and stock schema, separate from person inventory and native player bag. No such schema is selected.",
+          "rng": "Keep production deterministic unless a specifically authored research outcome requires the current saved outcome stream and receipt. Do not add recurring random production as a side effect of UI or loading.",
+          "time": "Use only actual supported joined played time or a selected instance visit interval. Progress Knight's one-hour absent replay does not override YAIR's freeze-on-absence policies.",
+          "stock": "Define whether settlement stock is truly shared, reserved, stolen, or held by a person before any consumer is built. Current person-owned stock/custody cannot be silently pooled.",
+          "publication": "Stage production and research settlement through one shared simulation/native persistence plan. No UI projection may emit output or unlock research.",
+          "save_compatibility": "No persistence change selected. A new collective owner needs an explicit schema and migration/default decision, then generated save/reload and failure verification before release. Do not add any prestige reset or multi-layer retention model in this task."
+        },
+        "provenance": {
+          "source_license": "Evolve pins Mozilla Public License 2.0 at LICENSE; Progress Knight Quest pin has no top-level LICENSE file. Neither repository grants reuse by mention in this appendix. No code is proposed for copying.",
+          "yair_license": "YAIR root LICENSE remains MIT. No license compatibility decision is needed for independent design inspiration; code reuse from Evolve or Progress Knight is not recommended.",
+          "file_content_assets": "No setting names, prose, races, technology names, icons, audio, or assets are proposed for reuse. Inspect separate asset/content provenance if later requested.",
+          "maintenance_and_removal": "No code or data change proposed. If a future campaign packet adds a collective owner, keep it opt-in and remove its registry/UI adapters together; preserve its saved records as dormant data or provide migration before removing an owner that shipped."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "packetId": "GD-01-EVIDENCE-ASSAY",
+  "sourceReady": true,
+  "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+  "localSource": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE",
+  "sourceEvidence": [
+    {
+      "id": "BG-E1",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        5844,
+        5927
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5844-L5927",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "fe60cf58c9ef3359471a32a5ffe0000dfc6c01575de186ef2a2545a57c61f998",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E2",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        5929,
+        5976
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5929-L5976",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "2397c27752c0060b8bc498f1a96b003eec2b637a10d7c5f98aedd64c5340d7fe",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E3",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        6202,
+        6273
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6202-L6273",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "6fc50cdc8630fb718076538a34fc5d758a26782c8e655a15db73a6d1e069f19d",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E4",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        6337,
+        6392
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6337-L6392",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "0af31af6c37b79903cf9e217cf2d28f39531656afcb0b700512e411d989e942c",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E5",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        7231,
+        7284
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7231-L7284",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "cb28bb4bfe22838dab771096856005d05e62711a252e712441db65195c93654e",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E6",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        7341,
+        7387
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7341-L7387",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "3749f05e8849d779f8e601fdcd651b1e4787f545b1f5a61d3bd2a31880f715ab",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E7",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        7407,
+        7412
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7407-L7412",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "3f34c7b79d93d670b2f4ce7ac12f9956db9e687d40db8ed94d31ac1eefbc05bf",
+      "status": "hash matched incoming reviewed source locator"
+    },
+    {
+      "id": "BG-E8",
+      "path": "src/brogue/Items.c",
+      "lines": [
+        6803,
+        6852
+      ],
+      "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6803-L6852",
+      "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+      "spanSha256": "98aff083177c324c3fa990c0388c978f7ca5748a5ca3df4fad28cb09dbf6c4d8",
+      "status": "hash matched incoming reviewed source locator"
+    }
+  ],
+  "builderSemanticReads": [
+    "Items.c:5844-6012",
+    "Items.c:6210-6280",
+    "Items.c:6337-6392"
+  ],
+  "qualification": "Existing research reviewed all eight locators; builder reread the selected elimination/failed-impact/spend paths. No guest run/full-game/source-tree claim. Original mechanism reimplemented without guest source/data/assets."
+}

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "source-delivered-implemented-unverified",
+  "checkedAt": "2026-10-06T19:38:50.954Z",
+  "checks": [
+    "Node syntax checks",
+    "ES module import",
+    "Simulation definition registry",
+    "Typed seed/effect contracts",
+    "Native gameplay snapshot structure",
+    "Deep immutable exports",
+    "Exact original actor roster",
+    "Native constructor-vital correspondence",
+    "Source/item/person/situation/static links",
+    "Proof command groups and once policy",
+    "Timed support and refund declarations",
+    "Private NPC audiences",
+    "Host-only sever job descriptor placeholder",
+    "No content life/removal effects",
+    "Finite refusal and funded continued life"
+  ],
+  "counts": {
+    "people": 5,
+    "commands": 63,
+    "controllers": 5,
+    "sites": 6,
+    "situations": 3,
+    "sources": 4,
+    "seedEffects": 97
+  },
+  "hashes": {
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_content.js": "89dd7840aacbd7bb5851aaa3d77281ad2dcea96c38d474e35bf76282fe842606"
+  },
+  "deferred": [
+    "Gameplay",
+    "Unit",
+    "Browser",
+    "Save/reload/import/failure",
+    "Regression",
+    "Build/packaging",
+    "Director acceptance"
+  ],
+  "compatibilityNote": "Courier goal deadline does not end current-source study/teaching/consent/severance in an already-begun closed proof; historical closure is retained."
+}

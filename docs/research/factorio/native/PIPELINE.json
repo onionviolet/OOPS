@@ -1,0 +1,362 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-10-07T13:50:23.303038+00:00",
+  "exporter": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioExport.java",
+    "sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+    "status": "Fullx86runtimewritingallFMwithuniqueattempt/resourceevent/ownedbackendexitmetadata;debug/privatebackend/14tables compilepassed butnotrun."
+  },
+  "design": {
+    "function_set": "Ghidra FunctionManager.getFunctions(true), with nonexternal bodies attempted and externals/thunks classified",
+    "priority": "35 exact production-method symbol entries per architecture, without reducing complete function objective",
+    "records": [
+      "entry/name/recovered signature and source",
+      "ordered body byte hash/ranges",
+      "C-like code/hash",
+      "direct calls/callers plus explicit indirect-call limit",
+      "disassembly addresses/raw bytes/flows",
+      "attempt budgets/elapsed/error/success/timeout/cancel/failed-to-start",
+      "thunk target",
+      "architecture/program identity",
+      "entry symbol aliases and noreturn flag",
+      "ordered raw body byte pieces",
+      "all currently discovered incoming/outgoing body references including data/vtable refs"
+    ],
+    "retention": "gzip NDJSON chunks; atomic closed chunk and manifest hashes; retained chunks re-read/hash/count verified before resume",
+    "failure_policy": "Explicit failed attempts, useful reset/retry, and stop repeated failed-to-start infrastructure rather than mass false attempts",
+    "resume": "Skip retained completed initial attempts; retry mode selects failed records; refresh discovered-function inventory each run",
+    "capacity": "One architecture/process; current qualified512Mheap/maxCPU1/readOnly/noanalysis,512MiBfloor plus measured pre-row write reserve.",
+    "known_gap": "Saved partial ARM analysis complete durable; whole ARM function attempts live; x86 and meaningful failure/ABI repairs remain."
+  },
+  "official_api_sources": [
+    "https://ghidra.re/ghidra_docs/api/ghidra/app/decompiler/DecompInterface.html",
+    "https://ghidra.re/ghidra_docs/api/ghidra/app/decompiler/DecompileResults.html",
+    "https://ghidra.re/ghidra_docs/api/ghidra/program/model/listing/FunctionManager.html",
+    "https://ghidra.re/ghidra_docs/api/ghidra/program/model/listing/Function.html"
+  ],
+  "first_invocation": {
+    "session": 36272,
+    "status": "completed exit1 before import",
+    "cause": "Ghidra project URL forbids a hidden .codex path component.",
+    "repair": "Private project storage stays in reservation; /private/tmp/yair-factorio-native-23347942 is a symlink alias for its nonhidden URL path.",
+    "native_attempts": 0
+  },
+  "tooling_owner": "/root",
+  "global_game_settings_changed": false,
+  "native_tool_receipt": {
+    "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/TOOL_RECEIPT.json",
+    "sha256": "2bd567061282e1e455dd5e54d6fad0e7f42e7adff02da147f4241f4534fb24e9"
+  },
+  "active_run": {
+    "session_id": 41973,
+    "pid": 46960,
+    "headless_parent_pid": 46916,
+    "architecture": "x86_64",
+    "mode": "full",
+    "heap": "512M",
+    "max_cpu": 1,
+    "status": "actuallyrunningfullALLFMexport",
+    "writer": "/root/factorio_native_finish3",
+    "guard": "/Users/weiwei/.codex/research/factorio/native-23347942/native_guard.py",
+    "guard_native_rss_cap_kib": 1310720,
+    "guard_native_disk_floor_bytes": 1073741824
+  },
+  "initial_qualification": {
+    "successful_nonempty_c_like_records": 38,
+    "priority_original_methods": 35,
+    "additional_production_helpers": 3,
+    "whole_native_complete": false,
+    "full_initial_discovery": "4322 before priority additions, almost entirely import thunks",
+    "known_semantic_repairs": "No-return assertion fallthrough and spilled initial boundaries excluded; seeding/analysis followed by reattempts required."
+  },
+  "seeder": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioSeed.java",
+    "sha256": "aff3c08f951236f8e86e79067ff673efc18588388e04fd0b9efee537bee06246",
+    "interface_compile": "passed"
+  },
+  "active_reader": {
+    "task": "/root/factorio_gm/native_production_trace",
+    "scope": "readers/production-early/",
+    "status": "completed and released"
+  },
+  "prior_interrupted_run": {
+    "session_id": 2894,
+    "status": "authoritatively stopped; no Java/decompiler live",
+    "saved_database_inspection": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/arm64-saved-inspection.json",
+    "saved_function_count": 4360,
+    "saved_text_matches": 39,
+    "lost_seed_text_entries": 178769,
+    "journal_or_recovery_files_found": false
+  },
+  "entry_candidates": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/ENTRY_CANDIDATES.json",
+    "arm64_lc_starts": 178879,
+    "arm64_anonymous_lc_starts_missing_nm": 71,
+    "x86_64_lc_starts": 178145,
+    "header_classification": "Both nm inventories include __mh_execute_header address100000000; defined noncode header, excluded from callable count."
+  },
+  "private_index": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/recovery_index.py",
+    "sha256": "a85f8a78f47a0bd965e2855c37f07c032a638be45684e2867540f1d69cc4aab5",
+    "sqlite": "/Users/weiwei/.codex/research/factorio/native-23347942/native-index.sqlite",
+    "commands": [
+      "update",
+      "summary",
+      "find",
+      "extract",
+      "reconcile"
+    ],
+    "initial_runtime": "3closedgzipchunks hash/read/count/C-hash verified;38records/4555instructions; prior qualifier only"
+  },
+  "full_export_priority": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-semantic-priority-addresses.txt",
+    "sha256": "4aa4a21d6b450f0f6a074fde602b300769a4b83d329c2c127b126997306594dd",
+    "normalized_distinct_addresses": 504,
+    "first38": "Prior35core and3exactProductionHelperaddresses",
+    "then": "115consequentialQuality/spoilage/logistics/heat/energy methods then broaderdirectfamilies; allfunctioniteration follows"
+  },
+  "pressure_cancellation": {
+    "pid": 59653,
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/arm64-analysis-pressure-cancel.json",
+    "cancelled_monitors": 1,
+    "observed_at": "2026-10-07T05:32:12.775450Z",
+    "actual_free_disk_floor_observed_gib": 3.7,
+    "official_source": "Ghidra/Features/Base/lib/Base-src.zip",
+    "source_mechanism": "HeadlessAnalyzer.java1041\u20131095 commits Analysis transaction in finally then continues postscript on cancelled timer monitor. SharedReturnAnalyzer.java75\u201380 calls cmd.applyTo(program) without suppliedmonitor, so activephase uses dummy monitor.",
+    "analyzed_save_confirmed": true,
+    "whole_analysis_complete": false,
+    "no_kill_or_second_instance": true,
+    "save_observed_at": "2026-10-07T05:41:49Z",
+    "source_reported_budget_label_seconds": 3600,
+    "actual_analyzer_total_seconds": 1340,
+    "shared_return_analyzer_seconds": 1108.192
+  },
+  "live_decode_inspection": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/arm64-live-analysis-inspect.json",
+    "observed_at": "2026-10-07T05:36:38.288299Z",
+    "function_manager_count_including_external": 187520,
+    "decoded_instructions": 9232817,
+    "durable_save_or_export": false,
+    "qualification": "Read-only count diagnostic of same pinned activeprogram; initialListingDBreflectionaccesserror repaired using publicListinginterface."
+  },
+  "saved_partial_analysis": {
+    "function_entries_nonexternal": 183199,
+    "thunks": 4484,
+    "noreturn": 185,
+    "callable_candidate_matches": 178879,
+    "decoded_instructions": 9232817,
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/arm64-analyzed-inspection.json",
+    "saved_database": "factorio-arm64.rep/idata/00/~00000000.db/db.6.gbf",
+    "database_bytes_approx": 915000000,
+    "whole_analysis_complete": false
+  },
+  "current_generated_export": {
+    "fresh_unique_entries": 183199,
+    "success": 183186,
+    "last_closed_chunk": 1850,
+    "first_250_qualification": "SCHEMA2_QUALIFICATION.json",
+    "private_progress": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/progress.json",
+    "private_sqlite": "/Users/weiwei/.codex/research/factorio/native-23347942/native-index.sqlite",
+    "bulk5000_script_seconds": 19.153,
+    "bulk5000_functions_per_second": 261.05570928836215,
+    "both_slices_complete": false,
+    "timeout_records": 6,
+    "this_run_status_counts": {
+      "decompiler-failure": 4,
+      "success": 160594,
+      "timeout": 2
+    },
+    "failure_records": 13,
+    "remaining_discovered_functions": 0,
+    "remaining_callable_candidates": 0,
+    "full_initial_function_attempt_coverage": true
+  },
+  "readers": [
+    {
+      "task": "/root/factorio_native_successor/native_quality_dlc_reader",
+      "write_scope": "readers/quality-spoilage/",
+      "status": "completed/released"
+    },
+    {
+      "task": "/root/factorio_native_successor/native_logistics_heat_reader",
+      "write_scope": "readers/logistics-heat/",
+      "status": "completed/released"
+    }
+  ],
+  "current_boundary_correction": {
+    "wrapper_entry": "100741a98",
+    "actual_helper_entry": "100741abc",
+    "helper_C_sha256": "7e4553857c040144671b5493d4d4fea482c8fb340a4d857d04e4b29fdf27a753",
+    "status": "FreshSOURCE_BINDINGschema2/TRACE supersedeoldmergedwrapperlocators; oldhistoricalcopies retained."
+  },
+  "packed_preservation": {
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/packed/ROUNDTRIP.json",
+    "packed_bytes": 257845372,
+    "source_db_bytes": 914980864,
+    "exact_raw_DB_roundtrip": true,
+    "original_DB_unchanged": true,
+    "semantic_reopen_or_fullprojectarchive_verified": true,
+    "no_project_removal": false,
+    "root_authorized_order": "Afterallhandlesterminal: exactlyverifiedfullprojectarchive+allmemberhashes, removeonlyownedredundantuncompressedproject, thenactualpackedsemanticreopen; restoreoriginalfromexactarchiveiffailure.",
+    "original_project_exact_archive": "/Users/weiwei/.codex/research/factorio/native-23347942/project-archives/ARM_PROJECT_ARCHIVE.json",
+    "semantic_reopen": "/Users/weiwei/.codex/research/factorio/native-23347942/packed/SEMANTIC_REOPEN.json",
+    "semantic_equality_limit": "All old function inventory identities/name/length/flags, candidate/instruction counts and memory block identities match; exact DB bytes prove preservation of types. New detailed projection hashes retained; prior detailed normal-loader projections absent."
+  },
+  "writer": "/root/factorio_native_finish3",
+  "lowering_repair": {
+    "receipt": "LOWERING_REPAIR.json",
+    "private_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/scalar-alias/REPAIR.json",
+    "finite_cases_before_failed": 27,
+    "finite_cases_after_passed": 216,
+    "affected_retained_methods": 1089,
+    "fullcontext_refresh_complete": true,
+    "fullcontext_refreshed_methods": 1089,
+    "fullcontext_C_changed": 211,
+    "new_remaining_affected_scan_pending": false,
+    "latest_all_affected_methods": 1105,
+    "latest_all_affected_instructions": 1951,
+    "latest_second_source_alias_cases": 234,
+    "all_latest_affected_rows_use_repaired_SLA": true
+  },
+  "idle_aux_archives": {
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/aux-archives/ROUNDTRIP.json",
+    "exact_roundtrip_verified": true,
+    "net_freed_bytes": 337721862,
+    "restore_helper": "/Users/weiwei/.codex/research/factorio/native-23347942/restore_native_aux.py",
+    "raw_index_and_tsv_x86_slice_currently_archived": true
+  },
+  "remaining_selection": {
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/REMAINING_SELECTION.json",
+    "selected_small_remaining": 6094,
+    "large_remaining_entry": "102677828",
+    "large_gate_still_required": true,
+    "new_unwritten_attempt_diagnostics_compile_exit": 0,
+    "actual_runtime_verified": true,
+    "selected_small_remaining_completed": 6094,
+    "actual_large_GLAD_failed_body_record_retained": true
+  },
+  "capacity_condition": {
+    "observed_at": "2026-10-07T12:30:17.667264+00:00",
+    "free_bytes": 8531505152,
+    "next_execution_permitted_only_after_live_capacity_change": false
+  },
+  "prior_active_run": {
+    "session_id": 99541,
+    "pid": 16590,
+    "architecture": "arm64",
+    "mode": "packed256M-streamingresume-repairedvariant-fullremaining",
+    "heap": "256M",
+    "max_cpu": 1,
+    "disk_floor_bytes": 536870912,
+    "status": "Terminalguardbeforefirstremainingrow;0newrecords, nohandleslive",
+    "native_child_last_observed_pid": 16610,
+    "initial_free_after_packed_bytes": 600440832,
+    "tool_variant": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/scalar-alias/TOOL_VARIANT.json",
+    "terminal_at": "2026-10-07T07:44:49.059707Z",
+    "headless_exit": 0,
+    "script_success": false,
+    "terminal_free_bytes": 329437184,
+    "native_backend_peak_observed_RSS_bytes": 2469478400
+  },
+  "x86_seeded_saved": {
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/x86-seeded-inspection.json",
+    "callable_matches": 178145,
+    "callable_missing": 0,
+    "nonexternal_functions": 182396,
+    "instructions": 0,
+    "headless_save_succeeded": true
+  },
+  "x86_prior_analysis_failure": {
+    "session_id": 15490,
+    "terminal_at": "2026-10-07T12:46:40.997239+00:00",
+    "headless_exit": 0,
+    "analysis_saved": false,
+    "error": "X86ConstantReferenceAnalyzer512MheapOOM thencheckpointlockedbuffer",
+    "reopen_session": 49014,
+    "reopen_nonexternal": 182396,
+    "reopen_candidate_matched": 178145,
+    "reopen_decoded_instructions": 0,
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/X86_ANALYSIS_FAILURE.json",
+    "seed_archive": "/Users/weiwei/.codex/research/factorio/native-23347942/project-archives/X86_SEED_ARCHIVE.json"
+  },
+  "x86_saved_partial_analysis": {
+    "analysis_session": 94653,
+    "monitor_cancelled_at": "2026-10-07T13:04:46.982872Z",
+    "active_analyzer_at_cancel": "FidAnalyzer/FidProgramSeeker/MessageDigestFidHasher",
+    "actual_analyzer_seconds": 803,
+    "configured_budget_label": 900,
+    "saved_at": "2026-10-07T13:04:52Z",
+    "readOnly_reopen_session": 54899,
+    "readOnly_reopen_at": "2026-10-07T13:06:50.336613Z",
+    "functions_nonexternal": 182398,
+    "global_instructions": 9869783,
+    "candidate_matches": 178145,
+    "candidate_missing": 0,
+    "thunks": 4250,
+    "noreturn": 180,
+    "whole_analysis_complete": false,
+    "exact_reopen_projection_match": true
+  },
+  "x86_current_export": {
+    "schema": 1,
+    "architecture": "x86_64",
+    "mode": "full",
+    "disk_floor_bytes": 536870912,
+    "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+    "state": "running",
+    "started_at": "2026-10-07T13:09:07.333989Z",
+    "updated_at": "2026-10-07T13:49:37.841658Z",
+    "pid": 46960,
+    "planned_nonexternal": 182398,
+    "retained_unique_entries": 72800,
+    "this_run_written": 72800,
+    "this_run_success": 72775,
+    "this_run_failed": 25,
+    "last_closed_chunk": 728,
+    "free_bytes": 70501888000,
+    "this_run_status_counts": {
+      "decompiler-failure": 17,
+      "resource-limit": 1,
+      "success": 72775,
+      "timeout": 7
+    }
+  },
+  "instrumented_backend_build": {
+    "session_id": 99410,
+    "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/backend-dynamic-hash/BUILD.json",
+    "exit_code": 0,
+    "ended_at": "2026-10-07T13:43:46.900021+00:00",
+    "binary": {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/backend-dynamic-hash/decompile-instrumented",
+      "bytes": 3746440,
+      "sha256": "b382b2d2cf6b03196a9e967a76bff5ad699cd9cb87fbc2268e0a0c0574416de1",
+      "executed": false
+    },
+    "production_unchanged": true,
+    "source_checks_237": true,
+    "executed": false,
+    "runtime_qualification_pending": true
+  },
+  "large_method_retry_authority": {
+    "source": "Directroot2026-10-07changedcapacityauthorization",
+    "prerequisites": [
+      "wholex86streamexited",
+      "faithfulABI/flow/instrumentdiagnosis"
+    ],
+    "one_method_per_new_job": true,
+    "native_rss_cap_up_to_kib": 4194304,
+    "disk_floor_at_least_bytes": 8589934592,
+    "finite_budget_range_seconds": [
+      120,
+      360
+    ],
+    "Java_heap_initial": "512M",
+    "monitor_peaks": [
+      "nativeRSS",
+      "hostswapused",
+      "diskfree"
+    ],
+    "current_live_profile_unchanged": true
+  },
+  "dependency_retention": "DEPENDENCY_RETENTION.json"
+}

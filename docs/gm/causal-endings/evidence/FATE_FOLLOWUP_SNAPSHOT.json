@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-10-06T06:42:29.953959+00:00",
+  "scope": "fate/temporal/trope followup; analysis only",
+  "materialInputs": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "lines": 23
+    },
+    "PROJECT.md": {
+      "sha256": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52",
+      "bytes": 138312,
+      "lines": 508
+    },
+    "docs/research/novels/full-book/omniscient-reader/BRIEF.md": {
+      "sha256": "1169c02fe8a6c9f2803c64ebabe96af46dde0517f1298461c9478e8efc6da127",
+      "bytes": 2750,
+      "lines": 13
+    },
+    "docs/research/novels/full-book/omniscient-reader/MANIFEST.json": {
+      "sha256": "db04cc20f7ac0ffdb1d4a4ab75762954d75208df2bd693dfa8ade68d1e810625",
+      "bytes": 170913,
+      "lines": 4979
+    },
+    "docs/research/novels/full-book/omniscient-reader/SOURCE_BOUNDARIES.md": {
+      "sha256": "a877a3da7bce855c28f8bc976c23f4fb27b04a652b89a44e47da86c4c7a1061f",
+      "bytes": 3717,
+      "lines": 15
+    },
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_471_490.md": {
+      "sha256": "5c6f1c89b2d8bfe584bd282da447c93f2e2da15ff74d60547df631068e53bcfa",
+      "bytes": 18912,
+      "lines": 96
+    },
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_511_530.md": {
+      "sha256": "3f8f4472ba03a713f5297428ae426be61fdf4e0525bce60196b560067d8d6163",
+      "bytes": 20205,
+      "lines": 98
+    },
+    "docs/research/novels/full-book/omniscient-reader/workers/NOTES_531_551.md": {
+      "sha256": "7724c793cf2bc886738634f69ff8ac13424dd905c55b7650855283d4bc135425",
+      "bytes": 19882,
+      "lines": 107
+    },
+    "docs/research/novels/full-book/reverend-insanity/BRIEF.md": {
+      "sha256": "49bbce6fbcb4bd042eaab7f0b2392f9b015409c8065551b5cbd4bc0e9dcd76a1",
+      "bytes": 2687,
+      "lines": 13
+    },
+    "docs/research/novels/full-book/reverend-insanity/INDEXES.md": {
+      "sha256": "81a00810dda7d304b1dcdb45a2b6c36872512e1b187e113de8f63033d4be6368",
+      "bytes": 2835665,
+      "lines": 6074
+    },
+    "docs/research/novels/full-book/reverend-insanity/manifest.json": {
+      "sha256": "8c2c9889acdf8546419072852cd46244b89700662f13aeb4a9562ccb2faccb0e",
+      "bytes": 774279,
+      "lines": 23618
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R1676-1690-CLAIMS.json": {
+      "sha256": "5749222d085910db83512214e825cb6761d183fb943f8a928dc5aa9a30e9b21c",
+      "bytes": 39015,
+      "lines": 1120
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R1676-1690-NOTES.md": {
+      "sha256": "cf94a747ffd85da8a1dbadeafeaf98000734440dfb44781201996897df27b648",
+      "bytes": 17080,
+      "lines": 93
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R1946-1960-NOTES.md": {
+      "sha256": "f13597eb2cf0bc392fbf340e6ca18b785700721fd5b386271abed5583fd247ba",
+      "bytes": 10983,
+      "lines": 36
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R1961-1975-CLAIMS.json": {
+      "sha256": "8b8ce2625de80cb45adbd5dddffbf1d8348e879bb13d579e52c936c0d33cbf9b",
+      "bytes": 46145,
+      "lines": 1207
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R1961-1975-NOTES.md": {
+      "sha256": "95d521b102608bdd445200cb335cd8bb6c46c77b87cd9e34f6404cd201208e5c",
+      "bytes": 10785,
+      "lines": 49
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R2076-2090-CLAIMS.json": {
+      "sha256": "7aa791fbd7cb57764da48358b17c2965f86689ece149eaff5f89e98054959ec2",
+      "bytes": 39875,
+      "lines": 1102
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R2076-2090-NOTES.md": {
+      "sha256": "779f162959e0fb79c6c7e502157847e471732ddee0ff60078f3a325d51263802",
+      "bytes": 9659,
+      "lines": 45
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R2206-2220-CLAIMS.json": {
+      "sha256": "99dff462f9db379260c37a97e0268a1b39550cd883109ffbb9a0cf018ad7d090",
+      "bytes": 46999,
+      "lines": 1260
+    },
+    "docs/research/novels/full-book/reverend-insanity/readers/R2206-2220-NOTES.md": {
+      "sha256": "beb53e3d988ee3be6ea7b3af095a802a29d61f32df1970873715b61c3f6237e1",
+      "bytes": 10151,
+      "lines": 45
+    },
+    "docs/research/novels/full-book/shadow-slave/EDITION.md": {
+      "sha256": "7fddf4847112be3ed5e941562402b37216d4bfb5fa3a3d7a92e852d099e0bd0d",
+      "bytes": 4453,
+      "lines": 26
+    },
+    "docs/research/novels/full-book/shadow-slave/reviews/REUSE_1576_1792.md": {
+      "sha256": "07dc47088bd35b6023e7fd3c74e1f838d91e350fc7146f3af79d1cdc826228a3",
+      "bytes": 2732,
+      "lines": 11
+    },
+    "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md": {
+      "sha256": "45b9e4458cf900bc3111c25eda177bb7f4617ff7f25a6b0a186cb0ed29bc0932",
+      "bytes": 21121,
+      "lines": 93
+    },
+    "src/expansion_engine.js": {
+      "sha256": "3f74d04869d91fdc19ce2ec0c521025e67a56a199163fdf23d6943c32497d4bc",
+      "bytes": 43369,
+      "lines": 616
+    },
+    "src/simulation_effects.js": {
+      "sha256": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+      "bytes": 26857,
+      "lines": 297
+    }
+  },
+  "workerInputsMatched": 18,
+  "publicSources": [
+    {
+      "id": "luck-opportunities",
+      "url": "https://www.reddit.com/r/ProgressionFantasy/comments/1599hwt/whos_the_luckiest_pf_protagonist/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "luck-as-faculty",
+      "url": "https://www.reddit.com/r/ProgressionFantasy/comments/1uobjgd/a_protagonist_with_luck/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "why-protagonist",
+      "url": "https://www.reddit.com/r/ProgressionFantasy/comments/183kelz/what_are_some_of_the_best_narrative_setups_as_to/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "fate-free-will",
+      "url": "https://www.reddit.com/r/worldbuilding/comments/q8l1i0/is_fatedestiny_in_your_world_predetermined_or/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "cosmic-conflict",
+      "url": "https://www.reddit.com/r/ProgressionFantasy/comments/15i3yft/very_high_scaling_fight/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "cross-setting-definitions",
+      "url": "https://www.reddit.com/r/JumpChain/comments/t0432n/luck_plot_armor_fate_and_destiny/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "past-observation",
+      "url": "https://www.reddit.com/r/worldbuilding/comments/1brryix/time_travel_check/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "future-antagonist",
+      "url": "https://www.reddit.com/r/fantasywriters/comments/1io52ik/time_travel_stories_about_the_main_character/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "belief-bootstrap",
+      "url": "https://www.reddit.com/r/worldbuilding/comments/1vx0u6i/creation_myths_in_a_world_where_gods_are_powered/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "fate-genre-leads",
+      "url": "https://www.reddit.com/r/ProgressionFantasy/comments/1m79jrt/calamitykarmaluckfate_influencing_main_character/",
+      "classification": "C community speculation/preferences, not book canon",
+      "access": "web search/open current turn; analytical paraphrase only"
+    },
+    {
+      "id": "author-guidance",
+      "url": "https://www.brandonsanderson.com/blogs/blog/sandersons-second-law",
+      "classification": "P author design advice",
+      "access": "web search/open current turn; analytical paraphrase only"
+    }
+  ],
+  "localSourceQualification": "Supplied edition claims/selected reviewed notes, with exact locators and authenticity/completeness limits. Shadow Slave reuses bounded reviewed fragments, not full-series coverage.",
+  "sourceIsMoving": true,
+  "runtimeAuthority": "Existing integrator; no source mutation or runtime evidence",
+  "implemented": false
+}

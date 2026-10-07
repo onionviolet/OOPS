@@ -1,0 +1,93 @@
+{
+  "checked_at": "2026-10-06T05:22:21.323124+00:00",
+  "status": "passed",
+  "errors": [],
+  "checks": {
+    "json_files": 7,
+    "fingerprints": 74,
+    "spans": 127,
+    "anchors": 52,
+    "local_links": 21,
+    "pinned_source_links": 52
+  },
+  "source_commit": "6713f0656491f73f79068454dc3cd938b3a74c10",
+  "source_worktree": "clean",
+  "semantic_coverage": {
+    "source_files_with_semantic_spans": 49,
+    "cs_files_with_semantic_spans": 47,
+    "unique_source_lines": 6428,
+    "yair_files_with_semantic_spans": 25,
+    "unique_yair_lines": 3197
+  },
+  "artifacts": {
+    "ASSIGNMENT.md": {
+      "sha256": "b2876304d859b18e5fd9a7edbc2c12539c6041519838769945a4bd518b0c1d64",
+      "bytes": 3599
+    },
+    "CHECKPOINT.md": {
+      "sha256": "5624b49e0cbcba636778025428e36f7896d3964c7b3e0e423a84a4ba80b694b1",
+      "bytes": 3362
+    },
+    "COVERAGE.json": {
+      "sha256": "1ad5971ac1471cbe7db4701289fdab97e1fb0eedd364ff590d4808bd69632ac4",
+      "bytes": 34209
+    },
+    "FINDINGS.json": {
+      "sha256": "ccef350cccdacffde8317f7d789624cadfc159984f65234c05a0870eb9b529ba",
+      "bytes": 34206
+    },
+    "IMPLEMENTATION_PACKETS.md": {
+      "sha256": "86ccddb2f23ee45e595308f02825b3782a87d7c3a99f4d77e24751020043f0d6",
+      "bytes": 9409
+    },
+    "INTAKE.json": {
+      "sha256": "9720273a133a672bb60ae1633d05b4629d903f5be72ef2d77f31d5fe140d8819",
+      "bytes": 5134
+    },
+    "REPORT.md": {
+      "sha256": "eb0520ad82014a2eac6bd151dcddaadb11f9a2dbcbf857a393514a6ab1d9e56e",
+      "bytes": 9819
+    },
+    "ROOT_REVIEW.json": {
+      "sha256": "a5aad2ff9ea8759842d0adc6438bcf132c2b4647b17a69dc967f4745183d77b8",
+      "bytes": 21778
+    },
+    "readers/CRAFT.json": {
+      "sha256": "c9f3e64f35537afde7f46eaaa731c6faf0ffb769ea70fd98c2c634f4d5272d37",
+      "bytes": 14393
+    },
+    "readers/CRAFT.md": {
+      "sha256": "8ad5c1ba8b054f04233da24b91ebb165731325e220c232106cfc3f5a8bd15bbc",
+      "bytes": 4703
+    },
+    "readers/PROGRESSION.json": {
+      "sha256": "6eb59a65dd2768aada47afbac0b5ee88ec2aac94a2e4a52bd6fd399785c636c2",
+      "bytes": 12657
+    },
+    "readers/PROGRESSION.md": {
+      "sha256": "8b3c73c05085b6e5f288d9b0dcda5f79b5946c4bd152e9f55aac22186b15f82a",
+      "bytes": 3507
+    },
+    "readers/RESIDENT.json": {
+      "sha256": "2f0eb4e75d55a04b6ec80586f98bb5bbca23a4b2c550524968637217609fa913",
+      "bytes": 8086
+    },
+    "readers/RESIDENT.md": {
+      "sha256": "9ff110dbe334273f6de00051a40dbc48bdf4b39d2368e8020d4b85f29da4c61f",
+      "bytes": 6939
+    },
+    "validate_research.py": {
+      "sha256": "22c4986f52b30e8d355327aa942977caec998b0cb23f8f20e53eca59a2a89771",
+      "bytes": 4981
+    }
+  },
+  "scope": "JSON, input/source fingerprints, semantic spans, covered pinned anchors, local Markdown links, unchanged dispatcher assignment and clean pinned source checkout",
+  "not_run": [
+    "game/build/browser/test suites",
+    "save/reload/failure play",
+    "installed-game/DLL/version match",
+    "external sheet/assets validation",
+    "director acceptance"
+  ],
+  "delivery_state": "source research complete; original gameplay packets proposed only"
+}

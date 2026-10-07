@@ -1,0 +1,604 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-06",
+  "status": "complete_released",
+  "scope": "Three saved supporting unranked initial-primary-documentation references",
+  "active_ranked_candidate_count_added": 0,
+  "dispatches_added": 0,
+  "whole_game_audits_claimed": 0,
+  "runtime_implementation_selected": false,
+  "source_access_rule": "Accessibility determines proof/integration options,not design eligibility. Closed or uninspected algorithms not promoted from docs.",
+  "references": [
+    {
+      "id": "FOLLOWUP_ONI",
+      "name": "Oxygen Not Included",
+      "disposition": "saved_supporting_unranked_follow_up",
+      "sources": [
+        {
+          "id": "ONI-KLEI",
+          "url": "https://www.klei.com/games/oxygen-not-included",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "High-level base and five gameplay DLC themes",
+          "locators": [
+            "About",
+            "Spaced Out!",
+            "The Frosty Planet",
+            "The Bionic Booster Pack",
+            "Prehistoric Planet Pack",
+            "The Aquatic Planet Pack"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "ONI-STEAM",
+          "url": "https://store.steampowered.com/app/457140/Oxygen_Not_Included/",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "Selected base system descriptions and DLC inventory",
+          "locators": [
+            "Thermodynamics",
+            "Gas and Liquid Simulations",
+            "Power Grid Simulations",
+            "Oxygen Overlay",
+            "Extreme Recycling",
+            "Stress Simulations"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        }
+      ],
+      "documented_interest": "Developer describes environmental heat/gas/liquid,power,oxygen/waste and differing colonist stress reactions. Algorithms and exact conservation not inspected.",
+      "dependency_hypothesis": [
+        "production_inputs",
+        "useful_output_and_environmental_burden",
+        "inhabited_place_and_worker_support",
+        "competing_service_allocation",
+        "changed_work_options"
+      ],
+      "larger_original_yair_direction": "Facilities can link cooling,breathable medium,fluids,electricity,labor and byproducts to practical research/care; keep carriers and useful consumers distinct. This is original planning,not an adopted simulation architecture.",
+      "overlap_and_gap": {
+        "already_owned": [
+          "traces/MINDUSTRY.md power/work source path",
+          "traces/FACTORIO.md selected material/logistics patterns",
+          "Existing Qud liquid/material finite deeper trace completed by root",
+          "PROJECT.md current native weather/exposure/care implemented-unverified"
+        ],
+        "remaining_lens": "Couple multiple actual utilities/environmental carriers to persistent inhabited sites and people rather than duplicate a cooling drive or personal status effect."
+      },
+      "deeper_questions": [
+        "For one gas/liquid/heat-producing process,what actual inputs,conserved outputs/byproducts,transport and worker/environment predicates determine progress,interruption and useful recovery;what persists during unloading/absence?",
+        "Across one base/DLC join,do bionic portable power or inter-planetoid transport change who can work and which real stock/environment supports them;what rejects unsupported work and survives interrupted transfer?"
+      ],
+      "edition_and_dlc": {
+        "base_metadata": {
+          "app_id": 457140,
+          "source_url": "https://store.steampowered.com/api/appdetails?appids=457140&cc=us&l=english",
+          "name": "Oxygen Not Included",
+          "type": "game",
+          "dlc_ids": [
+            4310080,
+            1452490,
+            2952300,
+            3302470,
+            3655420,
+            4157740,
+            1244160
+          ],
+          "release_date": {
+            "coming_soon": false,
+            "date": "Jul 30, 2019"
+          },
+          "fullgame": null,
+          "website": "https://www.kleientertainment.com/games/oxygen-not-included",
+          "platforms": {
+            "windows": true,
+            "mac": true,
+            "linux": true
+          }
+        },
+        "gameplay": [
+          {
+            "app_id": 1452490,
+            "name": "Oxygen Not Included - Spaced Out!",
+            "category": "gameplay_expansion",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=1452490&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/1452490/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Dec 16, 2021"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Theme only:planetoids/resource transport",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 2952300,
+            "name": "Oxygen Not Included: The Frosty Planet Pack",
+            "category": "gameplay_pack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=2952300&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/2952300/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Jul 18, 2024"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Theme only:cold planet/thermoregulation",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 3302470,
+            "name": "Oxygen Not Included: The Bionic Booster Pack",
+            "category": "gameplay_pack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=3302470&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/3302470/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Dec 12, 2024"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Theme only:bionic Duplicants/portable power/remote work",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 3655420,
+            "name": "Oxygen Not Included: The Prehistoric Planet Pack",
+            "category": "gameplay_pack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=3655420&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/3655420/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Jun 12, 2025"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Theme only:prehistoric planet/plants/critters",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 4310080,
+            "name": "Oxygen Not Included: The Aquatic Planet Pack",
+            "category": "gameplay_pack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=4310080&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/4310080/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Jun 11, 2026"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Theme only:aquatic planet/marine biomes/ranching",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          }
+        ],
+        "nongameplay": [
+          {
+            "app_id": 4157740,
+            "name": "Oxygen Not Included: Neutronium Cosmetics Pack",
+            "category": "cosmetic_pack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=4157740&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/4157740/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Nov 20, 2025"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Metadata only,not mechanic reading",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 1244160,
+            "name": "Oxygen Not Included Soundtrack",
+            "category": "soundtrack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=1244160&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/1244160/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Feb 11, 2020"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Metadata only,not gameplay",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          }
+        ],
+        "bundles": "Product groupings,not extra reviewed mechanics",
+        "unknowns": [
+          "Current executable build",
+          "Original code/mod access",
+          "Actual DLC/base joins and exceptions",
+          "Owned/installed/enabled content",
+          "Platform compatibility",
+          "Inter-planetoid absence/transfer semantics"
+        ]
+      }
+    },
+    {
+      "id": "FOLLOWUP_DF",
+      "name": "Dwarf Fortress",
+      "disposition": "saved_supporting_unranked_follow_up",
+      "sources": [
+        {
+          "id": "DF-BAY12",
+          "url": "https://www.bay12games.com/dwarves/",
+          "as_of": "2026-10-06",
+          "document_date": "53.16 released2026-08-05",
+          "scope": "Selected current53.16 and2026 preceding release/development notes",
+          "locators": [
+            "2026-08-05 personality drinking/social interruption/family-contact limitation",
+            "2026-05-13 messenger diplomacy and trade",
+            "2026-04-14 guild/temple petitions and resident/citizen display",
+            "2026-03-31 future magic/lab development",
+            "2026-03-04 remembered relationships"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "DF-STEAM-META",
+          "url": "https://store.steampowered.com/api/appdetails?appids=975370&cc=us&l=english",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "Edition and two soundtrack DLC IDs only",
+          "locators": [],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        }
+      ],
+      "documented_interest": "Release notes report personality-dependent restraint,need/activity interruption,contact-route limits,petitions/status display and messenger/trade consequences. No underlying need/rights/planner algorithm traced.",
+      "dependency_hypothesis": [
+        "individual_need_and_personality",
+        "activity_or_contact_support",
+        "institution_petition_and_usable_facility",
+        "recognized_belonging_or_office",
+        "diplomatic_work_and_later_access"
+      ],
+      "larger_original_yair_direction": "Schools,guilds,temples,households and settlements can link actual member needs,teaching,facility petitions,contact routes and external supply negotiations without becoming a compulsory fortress-management loop.",
+      "overlap_and_gap": {
+        "already_owned": [
+          "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+          "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "traces/CK3.md historical comparison"
+        ],
+        "remaining_lens": "How supported personal needs,institution activities,accepted petitions and actual contact/diplomatic work affect one another; reuse existing rights/funding/knowledge/clock owners."
+      },
+      "deeper_questions": [
+        "What actual need/personality and occupancy/support conditions choose or interrupt a guild demonstration,social activity or family-contact attempt;how do durable relationships differ from temporary satisfaction?",
+        "What changes between requested facility,accepted petition,built location,assigned operator and resident/citizen/member;which action/stock-use rights consume the distinctions?",
+        "How does an appointed messenger journey,mutually exclusive mission,negotiation result and retained history change later trade access;which rules are released versus announced future magic/diplomacy work?"
+      ],
+      "edition_and_dlc": {
+        "classic_release_documented": "53.16",
+        "classic_release_date": "2026-08-05",
+        "classic_source_or_executable_inspected": false,
+        "graphical_edition_metadata": {
+          "app_id": 975370,
+          "source_url": "https://store.steampowered.com/api/appdetails?appids=975370&cc=us&l=english",
+          "name": "Dwarf Fortress",
+          "type": "game",
+          "dlc_ids": [
+            2232370,
+            2937200
+          ],
+          "release_date": {
+            "coming_soon": false,
+            "date": "Dec 6, 2022"
+          },
+          "fullgame": null,
+          "website": null,
+          "platforms": {
+            "windows": true,
+            "mac": false,
+            "linux": true
+          }
+        },
+        "current_steam_dlc": [
+          {
+            "app_id": 2232370,
+            "name": "Dwarf Fortress Soundtrack (Fortress)",
+            "category": "soundtrack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=2232370&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/2232370/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Dec 6, 2022"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Fortress soundtrack metadata only",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          },
+          {
+            "app_id": 2937200,
+            "name": "Dwarf Fortress Soundtrack 2 (Adventure)",
+            "category": "soundtrack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=2937200&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/2937200/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Apr 18, 2024"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Adventure soundtrack metadata only",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          }
+        ],
+        "gameplay_dlc_observed": "No gameplay DLC in these two Steam DLC IDs;historical/all-storefront absence not proved",
+        "edition_equivalence": "Not inspected",
+        "magic_boundary": "March31 lab/procedural-force notes concern development alongside a later release,not proof of53.16 availability. Already released supernatural content has separate scope.",
+        "unknowns": [
+          "Graphical current binary/version equivalence",
+          "Released raw/Lua and DFHack access/meaning",
+          "Executable source availability",
+          "Ownership/installation",
+          "Adventure-mode content",
+          "Save compatibility",
+          "Platform behavior"
+        ]
+      }
+    },
+    {
+      "id": "FOLLOWUP_BOH",
+      "name": "Book of Hours",
+      "disposition": "saved_supporting_unranked_follow_up",
+      "sources": [
+        {
+          "id": "BOH-WF",
+          "url": "https://weatherfactory.biz/book-of-hours/",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "Selected acquire/restore/catalogue/study/library/visitor description",
+          "locators": [
+            "Master invisible arts",
+            "Write Histories"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "BOH-STEAM",
+          "url": "https://store.steampowered.com/app/1028310/",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "Selected crafting/study/visitor and edition description",
+          "locators": [
+            "About This Game",
+            "Anthology Edition"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "BOH-LIGHT",
+          "url": "https://store.steampowered.com/app/2834350/BOOK_OF_HOURS_HOUSE_OF_LIGHT/",
+          "as_of": "2026-10-06",
+          "document_date": "Released2024-09-26",
+          "scope": "Selected expansion scope:events,catering,visitors,institute",
+          "locators": [
+            "Social Events",
+            "Cooking",
+            "Advanced Visitor Stories",
+            "The Lighthouse Institute"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "BOH-LOCMOD",
+          "url": "https://weatherfactory.biz/book-of-hours-locmod-creation-reference/",
+          "as_of": "2026-10-06",
+          "document_date": "2023-04-28",
+          "scope": "Official localization framework description;not full mechanics API",
+          "locators": [
+            "Creating a locmod",
+            "Loc folder text"
+          ],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        },
+        {
+          "id": "BOH-LOCREF",
+          "url": "https://docs.google.com/document/d/1epX9-lye6ST1TJLePwEEEdV19kvYMltfrVf4_4c5lg4/edit?tab=t.0",
+          "as_of": "2026-10-06",
+          "document_date": null,
+          "scope": "Linked professional localization reference;only JS-required shell returned,body unread",
+          "locators": [],
+          "evidence": "initial_primary_documentation_screen_not_source_or_gameplay_audit"
+        }
+      ],
+      "documented_interest": "Developer descriptions connect books,study,crafted means,restored rooms and visitor help. House of Light expands event/visitor/institute choices. Exact recipes,participant policy,consumption and aftermath unread.",
+      "dependency_hypothesis": [
+        "acquired_physical_text",
+        "understood_interpretation_and_skill",
+        "useful_scholarly_material_or_tool",
+        "particular_visitor_or_event",
+        "retained_library_and_institution_history"
+      ],
+      "larger_original_yair_direction": "Substantial noncombat scholarship and visitor campaigns can join learned interpretations,physical books,crafting,room functions and chosen collaborators. Teaching,borrowing,understanding and making useful output should remain distinct.",
+      "overlap_and_gap": {
+        "already_owned": [
+          "docs/RESEARCH_IDLE_GAMES.md broader inspiration Book of Hours row",
+          "docs/NICHE_GAME_REFERENCES.md prior proposed reference",
+          "traces/PAPERS_PLEASE.md current-rule/evidence lens",
+          "traces/ENSEMBLE.md offered bid/recipient stance",
+          "Current knowledge/skill/source/material and Ink owners"
+        ],
+        "remaining_lens": "Larger study-to-crafting-to-visitor/institution dependency,not another testimony scene or dialogue engine."
+      },
+      "deeper_questions": [
+        "For one study-to-useful-service path,what retained understanding,skill,physical text/tool,consumed resource and visitor request permit action;what persists/expires and how do interruption/failure and later visit differ?",
+        "For one House of Light event/founder choice,how do invitations,particular guests,facilities,timing and actual food/drink support independent decisions and retained institutional consequence;which accessible authoring fields define this beyond locmods?"
+      ],
+      "edition_and_dlc": {
+        "base_metadata": {
+          "app_id": 1028310,
+          "source_url": "https://store.steampowered.com/api/appdetails?appids=1028310&cc=us&l=english",
+          "name": "BOOK OF HOURS",
+          "type": "game",
+          "dlc_ids": [
+            2834350,
+            2340780
+          ],
+          "release_date": {
+            "coming_soon": false,
+            "date": "Aug 17, 2023"
+          },
+          "fullgame": null,
+          "website": "https://weatherfactory.biz/",
+          "platforms": {
+            "windows": true,
+            "mac": true,
+            "linux": true
+          }
+        },
+        "gameplay": [
+          {
+            "app_id": 2834350,
+            "name": "BOOK OF HOURS: HOUSE OF LIGHT",
+            "category": "story_expansion",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=2834350&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/2834350/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Sep 26, 2024"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Initial developer description only;requires base;actual rules/consumers unread",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          }
+        ],
+        "nongameplay": [
+          {
+            "app_id": 2340780,
+            "name": "BOOK OF HOURS: Original Soundtrack",
+            "category": "soundtrack",
+            "source_url": "https://store.steampowered.com/api/appdetails?appids=2340780&cc=us&l=english",
+            "store_url": "https://store.steampowered.com/app/2340780/",
+            "release_date_observed": {
+              "coming_soon": false,
+              "date": "Dec 15, 2023"
+            },
+            "evidence": "official_metadata_or_initial_documentation_screen",
+            "semantic_scope": "Metadata only,not gameplay",
+            "source_payload_inspected": false,
+            "gameplay_verified": false,
+            "ownership_or_enabled_state": "uninspected"
+          }
+        ],
+        "anthology": "Base plus House of Light plus soundtrack;not additional mechanics",
+        "official_modding_boundary": "Checked April2023 document supports locmods/metadata/text/image replacement and distinguishes full official mechanics support;no general simulation API reviewed. Linked professional document body inaccessible through this web route.",
+        "unknowns": [
+          "Current game build",
+          "Ownership/installed edition",
+          "Actual expansion/base interactions",
+          "Source/data access",
+          "Recipe/memory/ending semantics",
+          "Mod compatibility",
+          "Professional localization document body"
+        ]
+      }
+    }
+  ],
+  "reuse_pointers": [
+    {
+      "name": "Factorio",
+      "path": "traces/FACTORIO.md",
+      "status": "existing_source_trace_reuse_only",
+      "duplicate_reference_row": false
+    },
+    {
+      "name": "Caves of Qud",
+      "existing_dossier": "../caves-of-qud/REPORT.md",
+      "current_owner": "CHECKPOINT.md",
+      "status_at_handoff": "Root deeper re-audit pending;separate liquid/material and anatomy/equipment source readers. No Qud source audit done by this lane.",
+      "current_reaudit_owner": "QUD_REAUDIT.json",
+      "current_reaudit_status": "Completed two bounded source traces; original five-path review preserved. No whole-game claim."
+    }
+  ],
+  "local_owner_readback": [
+    {
+      "path": "PROJECT.md",
+      "sha256_at_read": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/research/idle-social-engine-scout-2026-10-06/REPORT.md",
+      "sha256_at_read": "a9026fa31ae25406d93afa508f33621cc7ee648d06e7048f83bdbcd13cd21208",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+      "sha256_at_read": "58f3fbc89f5fcfd33fb801e651b4df57a5e1dec150e0c20e4827db76824db6c0",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/research/caves-of-qud/REPORT.md",
+      "sha256_at_read": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "sha256_at_read": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+      "sha256_at_read": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/RESEARCH_IDLE_GAMES.md",
+      "sha256_at_read": "2bd63f3aad5f77f2e735ad2fce93a636cf0cae068dd2919890347308646259c6",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    },
+    {
+      "path": "docs/NICHE_GAME_REFERENCES.md",
+      "sha256_at_read": "113ee5c9de664240136f19c0cea2092977efa64b675035fc19cc13a973ae3e9b",
+      "scope": "Selected current-state/overlap reading;not new runtime proof"
+    }
+  ],
+  "receipt": {
+    "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/followups/steam-edition-metadata.json",
+    "sha256": "f6f71c9bd52d9c1385a4c8188736303eda6749fdef382d079bbb35214199cb2b",
+    "scope": "Public official Steam title,edition and DLC metadata only. No prices retained,payload acquisition,ownership or installation inspection. Initial supporting documentation screen,not source/gameplay audit.",
+    "retrieved_utc": "2026-10-07T01:12:00.769159+00:00"
+  },
+  "coverage": {
+    "evidence": "initial_primary_documentation_screen_not_source_gameplay_audited",
+    "game_sources_inspected": 0,
+    "game_payload_acquired": false,
+    "installed_apps_inspected": false,
+    "private_accounts_saves_libraries_inspected": false,
+    "game_execution": false,
+    "prices_retained": false
+  },
+  "unassigned_deeper_question_count": 7,
+  "verification": {
+    "json_local_links_primary_claim_boundaries": "passed_json_local_links_metadata_counts_dates_and_manual_primary_claim_review",
+    "tests_build_runtime_commit_push_publication": "not_run_not_authorized",
+    "prior_trace_mutation": false
+  },
+  "writer_release": {
+    "outputs": [
+      "FOLLOW_UP_REFERENCES.md",
+      "FOLLOW_UP_REFERENCES.json"
+    ],
+    "status": "released_on_completion",
+    "parent_retains": [
+      "ranking",
+      "aggregation",
+      "Qud_reaudit",
+      "any_future_source_or_implementation_selection"
+    ]
+  }
+}

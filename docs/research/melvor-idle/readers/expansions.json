@@ -1,0 +1,1747 @@
+{
+  "schema": 1,
+  "reader": "expansion_reader",
+  "completed_at": "2026-10-06T20:47:28.462027+00:00",
+  "scope": "Bounded discovery and expansion gameplay reader. Exclusive repository output: readers/expansions.json. No runtime writes, install/account/save interaction, game tests, builds or publication.",
+  "source_pin": {
+    "installed_steam_build": "13311431",
+    "installed_wrapper_version": "1.2.2 (parent verified)",
+    "public_hosted_game": "1.3.1",
+    "script_query": "12097",
+    "data_query": 528,
+    "acquisition_owners": [
+      "hosted/script-manifest.json",
+      "hosted/extra-manifest.json",
+      "hosted/data/manifest.json",
+      "hosted/supplement-manifest.json"
+    ],
+    "note": "Public readable scripts/data establish the selected mechanics independently of account entitlement. Entitlement branches are inspected predicates only. The initial default-UA auxiliary request returned 403; the parent obtained the same public loader assets using an ordinary browser User-Agent. No authentication or access bypass."
+  },
+  "project_pin": {
+    "project_current_delivery": "Full 19 audited remainder, implemented-unverified, current bundle bc1929dcab7f.",
+    "project_sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+    "constraint": "Existing native adventure opening, optional enrollment, one realm/one prestige milestone, current inventory/clock/jobs/knowledge/publisher owners; no proposal selected or implemented here."
+  },
+  "semantic_coverage": {
+    "method": "Targeted exact semantic spans read and connected to selected data definitions, actual callers and downstream consumers. File acquisition/fullJSONparse are not full semantic coverage.",
+    "coherent_paths": 8,
+    "runtime_observation": "none; source-inspected-unverified",
+    "paths": [
+      {
+        "id": "EXP01",
+        "family": "AoD survey -> travel -> archaeology -> artifact consumer",
+        "disposition": "source-inspected representative connected path; runtime-unverified",
+        "prerequisite": "Cartography surveyable adjacent hex with actual requirements; reach Old Village lead; Archaeology UI requires discovered site and sufficient level.",
+        "choice": "Queue or auto-survey, pay a selected travel path, select a map and tool sizes. A Shovel selects the large table that can yield Torn Map.",
+        "cost_time": "Survey actions occupy skill timer. Travel consumes actual route item/currency costs. Excavation uses real selected-map charge, with preservation exceptions. Blank replacement map costs100Paper at OldVillage; upgrade actions spend tier-specific inputs/time.",
+        "state_mutation": "Fully surveyed POI becomes a lead; arrival sets isDiscovered and creates free starter map. Excavation grants real bank artifact or failed-search XP/possible bones, then consumes charge. Found Torn Map sets historical item-find count.",
+        "downstream_consumer": "Ancient Market hidden requirement reads historical Torn Map find, not a virtual flag or current possession; travel/requisite changes can discover it and create its own dig-site map. Alternatively donate an actual artifact, consume one bank unit, retain distinct donatedItems and award museum thresholds once; award stats feed current skill/combat computation.",
+        "failure_aftermath": "No travel budget means no movement. Survey eligibility/queue adjacency matters. Map exhausted or no tool stops digging. Artifact size selected by tool and chance means no guaranteed Torn Map. Failed excavation still consumes time/charge unless preserved. Museum duplicates or missing physical item give no reward.",
+        "evidence": [
+          "C_SURVEY",
+          "C_TRAVEL",
+          "C_DISCOVER",
+          "C_MAPS",
+          "A_VIS",
+          "A_SITE",
+          "A_REWARDS",
+          "A_TOOLS",
+          "AO_DROP_MAP",
+          "AO_HIDDEN",
+          "AO_TOOLS",
+          "R_ITEM_FOUND",
+          "A_MUSEUM",
+          "A_STATS"
+        ],
+        "semantic_limit": "Representative OldVillage/AncientMarket and museum path; not all map hexes, hidden puzzles, artifacts, tool upgrade chains or museum rewards.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP02",
+        "family": "AoD Ancient Relics dungeon -> constrained skill-cap allocation",
+        "disposition": "source-inspected mode and connected event path; runtime-unverified",
+        "prerequisite": "Explicit Ancient Relics mode sets initial skill caps to 10, disables XP overflow, preservation and doubling, and withholds Fishing/Cooking until base Impending Darkness completion.",
+        "choice": "Prepare and finish a qualifying dungeon, then choose one skill from two randomly presented eligible candidates for each pending noncombat cap reward.",
+        "cost_time": "Dungeon fighting spends ordinary combat preparation, consumables and time. Each first qualifying Pre99 completion set awards five pending noncombat increases; these choices have no additional currency cost.",
+        "state_mutation": "The actual dungeon counter/event calls increaseSkillLevelCaps: fixed combat caps rise by 5, at most 99; five pending noncombat caps can rise by 15, at most 99. The given receipt removes the requirement listeners. Selection advances one chosen cap and decrements pending choices.",
+        "downstream_consumer": "Skill.addXP uses currentLevelCap and mode overflow policy. Newly admitted level unlocks existing recipes/skill content. Mode-enabled skill actions can find relics; relic and completed-set modifiers enter actual provided stats. Cap selection sets preventAutoRestart so ordinary automation stops for the earned decision.",
+        "failure_aftermath": "Repeat completion cannot re-award the same given requirement set. Capped skills are excluded/rerolled. Missing prerequisite completion gives no cap. Relic rolls skip found/ineligible relics and allow at most one random relic per action.",
+        "evidence": [
+          "AO_MODE",
+          "AO_CAP",
+          "MODE_CAP",
+          "D_COMPLETE",
+          "R_DUNGEON",
+          "G_CAP_LISTEN",
+          "G_CAP_REWARD",
+          "MODE_SELECTION",
+          "G_CAP_CHOICE",
+          "S_CAP_APPLY",
+          "S_XP",
+          "S_RELIC",
+          "S_RELIC_SETTLE",
+          "S_STATS"
+        ],
+        "cross_expansion": "AoD dependent data for TotH adds post-99 dungeon and Herald cap rewards. ItA dependent data for AoD adds Abyss depth and final-depth cap rewards. These extend the same Ancient Relics owner and are not universal rules for every mode.",
+        "cross_evidence": [
+          "AO_DEP_TOTH",
+          "TOTH_CAP",
+          "ITA_CAP",
+          "ITA_DEP_AOD",
+          "D_DEPTH"
+        ],
+        "semantic_limit": "Representative normal AncientRelics; expired speedrun-mode variants not semantically reviewed or treated as currently active.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP03",
+        "family": "TotH standard120 production -> real equipment -> dungeon-access purchase",
+        "disposition": "source-inspected representative advanced production and entry gates; runtime-unverified",
+        "prerequisite": "The enabled TotH predicate allows a standard maximum of 120. Advanced production and equipment gates remain independent: Meteorite needs Mining 112 and a purchased Augite pickaxe; ore stock also needs Astrology-discovered vein HP.",
+        "choice": "Study an eligible constellation, mine its found Meteorite, smelt two ore per Meteorite Bar at Smithing 110, forge three bars into a Meteorite 2H Sword at Smithing 115, then equip after Attack 108 and Impending Darkness completion.",
+        "cost_time": "Actions use their existing timers. Mining spends finite ore HP; smelting and forging consume actual inputs unless preservation applies. The sword occupies both Weapon and Shield slots.",
+        "state_mutation": "A successful Astrology post-action roll adds 5–24 Meteorite HP. Mining grants ore and spends HP. The artisan cycle grants actual bars or sword and stops when next inputs are unavailable. Equipping conserves bank and displaced equipment counts.",
+        "downstream_consumer": "Actual equipped stats feed combat. Ancient Sanctuary also needs a durable Labyrinth Solution purchase, paid with five real labyrinth clue items, plus base Impending Darkness unlock. The shop consumes clues and saves the purchase count used by the dungeon requirement. Final Throne access similarly consumes a physical Golden Key into saved access.",
+        "failure_aftermath": "No discovered meteoriteHP or wrong pickaxe/level blocks resource gathering. Missing inputs stops crafting. Equip requirements/conflicts/bank-capacity can refuse transition. Wrong damage type or absent access purchase blocks dungeon. Larger level cap alone grants none of these objects or access.",
+        "evidence": [
+          "S_CAP",
+          "ASTRO",
+          "ASTRO_CALL",
+          "ASTRO_ROLL",
+          "MINE_METEOR",
+          "MINE_GATE",
+          "MINE_CHOICE",
+          "MINE_PRODUCT",
+          "MINE_HP",
+          "TOTH_METEORITE",
+          "TOTH_BAR",
+          "TOTH_SWORD_RECIPE",
+          "CRAFT_COST",
+          "CRAFT_RECIPE",
+          "S_CRAFT",
+          "CRAFT_RESULT",
+          "TOTH_SWORD",
+          "E_EQUIP",
+          "TOTH_SOLUTION",
+          "SHOP_BUY",
+          "TOTH_SANCTUARY",
+          "D_GATE",
+          "D_SELECT",
+          "TOTH_KEY",
+          "MINE_FINITE"
+        ],
+        "semantic_limit": "Representative Meteorite production and Sanctuary/final-key access. Complete clue drop sources, final boss phases, every level-100–120 recipe and lived balance were not reviewed. This is the ordinary timed route; Instant Actions modes were not exercised.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP04",
+        "family": "ItA base Bane gate -> earned damage means -> separate realm and XP",
+        "disposition": "source-inspected representative entry and realm/XP consumers; official narrative Bane identity also verified",
+        "prerequisite": "The official product page names base Bane defeat as the opening. Data uses base Impending Darkness completion to unlock The Abyssal Approach; the full Bane event identity/fight belongs to the combat reader.",
+        "choice": "Finish The Abyssal Approach with Normal damage to earn Strange Sword. Equip that actual Abyssal weapon, meet Attack 99 and finish Into the Abyss. Then select the unlocked Abyssal realm and its actions.",
+        "cost_time": "Ordinary combat spends real time/preparation. Sword is an actual dungeon reward and bank/equipment transfer, not a free realm-stat upgrade. Abyssal skill actions use their own physical inputs/time.",
+        "state_mutation": "Into the Abyss completion satisfies Realm.isUnlocked and triggers skill/realm visibility. Skill.addAbyssalXP changes separate Abyssal XP and levels without replacing standard XP.",
+        "downstream_consumer": "Realm IDs scope actions and mastery. Abyssal-level requirements use the separate level; monster immunity rejects Normal damage, and area allowedDamageType enforces actual weapon means. Abyssal Pieces and Abyssal Slayer Coins fund real upgrades. Abyssal combat level combines standard and Abyssal competence.",
+        "failure_aftermath": "Base completion alone bypasses none of the sword, Attack 99, damage or entry-dungeon gates. Wrong damage prompts the specific Strange Sword hint. Access does not grant level 60 or item stock.",
+        "evidence": [
+          "ITA_APPROACH",
+          "ITA_ENTRY",
+          "ITA_SWORD",
+          "ITA_REALM",
+          "ITA_DAMAGE",
+          "D_GATE",
+          "D_HINT",
+          "D_SELECT",
+          "D_COMPLETE",
+          "E_EQUIP",
+          "REALM",
+          "REALM_SELECT",
+          "S_CAP",
+          "S_XP",
+          "G_COMBAT_LEVELS",
+          "CHAR_IMMUNE"
+        ],
+        "documentation_source": "https://store.steampowered.com/app/2860590/Melvor_Idle_Into_the_Abyss/",
+        "semantic_limit": "Base Bane fight details and full realm content outside this bounded reader. Entitlement predicate read in code only; no owned-account state inspected.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP05",
+        "family": "ItA Harvesting sustained focus -> threshold drops -> crafting/equipment/tool consumers",
+        "disposition": "source-inspected first-vein and representative late-tool chain; runtime-unverified",
+        "prerequisite": "Into the Abyss completion unlocks Harvesting; the first Abyssal Vein needs Abyssal level 1. Other veins may require purchased upgrades. Charged equipped gloves and earned tree nodes affect the same action pipeline.",
+        "choice": "Remain at one vein to build intensity or switch and accept decay. Pay for 500 glove charges when useful; pursue a later permanent Harvester through its actual upgrade and material requirements.",
+        "cost_time": "Base actions take three seconds and resolve yield before increasing intensity. Base maximum intensity is 28,800. The actual inactive-site decay timer is 20 seconds, despite a stale ten-second comment. Glove charges cost 100,000 AP per 500 before the existing merchant-permit discount. Each Harvesting action consumes one equipped glove charge. Netherite Harvester requires 25,000 Netherite Bars, 250 million AP, Harvesting Abyssal level 50 and the previous upgrade.",
+        "state_mutation": "A weighted product draw fails when current intensity is below its threshold; a successful draw grants actual product and XP/AXP. Every action then raises intensity. Base quantity rises from 1 to 2/3/4 at 40/80/100 percent. Full intensity also permits a base 0.1 percent chance for a real Harvesting Chest.",
+        "downstream_consumer": "Four harvested Abyssal Stone plus four Abyssium Ore make Abyssium Bar. Five harvested Bark plus ten Azurian Fragments make Azurian Bar. Two Quartz plus two Azurian Bars and two Nightopal make a ring with real melee stats and one Abyssal resistance. Chest opening conserves stock and grants seeds or physical rake parts. Charged gloves provide intensity, interval and AXP modifiers only while equipped with charges; matched action events reduce charges and conditional modifiers listen for depletion. Purchased Harvester adds one flat primary product after quantity multipliers.",
+        "failure_aftermath": "A below-threshold draw gives no primary product or XP in that branch, but spends action time, raises intensity and consumes the equipped matched glove charge. Switching decays warmup. A full bank retains the next chest drop and consumes only completed openings. Upgrades grant modifiers, not another free gathering job.",
+        "evidence": [
+          "ITA_VEIN",
+          "H_ELIGIBLE",
+          "H_GATE",
+          "H_ACTION",
+          "H_DECAY",
+          "H_TIERS",
+          "ITA_STONE_USE",
+          "ITA_BARK_USE",
+          "ITA_QUARTZ_USE",
+          "ITA_RING",
+          "CRAFT_RECIPE",
+          "S_CRAFT",
+          "CRAFT_RESULT",
+          "E_EQUIP",
+          "ITA_CHEST",
+          "BANK_OPEN",
+          "ITA_HARVEST_GLOVES",
+          "ITA_HARVEST_BUY",
+          "SHOP_BUY",
+          "SHOP_GLOVE_COST",
+          "E_LISTEN",
+          "E_CHARGE",
+          "CHARGES",
+          "CHARGE_CONDITION",
+          "ITA_HARVESTER",
+          "SHOP_STATS",
+          "S_PRODUCT"
+        ],
+        "semantic_limit": "Quartz is a harvested material, not evidence of random combat Gem-slot drops in Harvesting. Random Abyssal Gem drawing was observed in Mining. Other veins, rake assembly/farming, upgrades and synergy tables remain partial.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP06",
+        "family": "ItA Corruption exposure -> kill-qualified discovery -> optional paid spawn corruption",
+        "disposition": "source-inspected counter/effect discovery/AXP/toggle chain; runtime-unverified",
+        "prerequisite": "Corruption unlocks after Into the Abyss. Start-of-fight counter applicators require positive Corruption levels for both sides; the player-side applicator also needs the actual skill unlock.",
+        "choice": "Fight for ordinary hit-built corruption, or enable the saved permanent-corruption setting and pay for each eligible spawned monster with actual Soul Points.",
+        "cost_time": "Hits increase the counter using Corruption level and rate. Incoming hits reduce the incomplete counter. The optional permanent cost is floor(monster Corruption level × (1 + cost modifier/100)); the spawn spends actual Soul Points.",
+        "state_mutation": "A full counter calls ApplyCorruption. The table chooses unique unlocked effects, with a 0.2 percent chance per requested slot to select an eligible unknown row at that enemy combat level. The live effect is tracked. Effect removal unlocks the selected row only when the enemy is actually Dead.",
+        "downstream_consumer": "Applicators operate on the combat character. Representative Corruption0 supplies 25 percent accuracy, consumed by Character.modifyAccuracy. A corrupted enemy kill grants Corruption AXP. The paid PermanentCorruption passive supplies 100 percent instant-corruption chance, filling the counter at application. Tree modifiers affect actual counter rates or permanent cost.",
+        "failure_aftermath": "Exposure alone does not unlock a new effect. Missing enemy level eligibility prevents discovery. Insufficient Soul Points preserves the ordinary path and reports the failure online. The toggle defaults false. Eternal-damage kills explicitly receive no Corruption AXP.",
+        "evidence": [
+          "ITA_CORR_UNLOCK",
+          "ITA_CORR_COUNTER",
+          "CORR_TABLE",
+          "CORR_STATS",
+          "CORR_APPLY",
+          "ITA_CORR_EFFECT",
+          "CHAR_ACCURACY",
+          "CORR_TOGGLE",
+          "D_AUTOCORRUPT",
+          "ITA_CORR_PERMA",
+          "D_CORRUPTION_XP"
+        ],
+        "semantic_limit": "Representative counter, discovery and one effect. Complete effect combinations, soul acquisition and every effect interaction remain unread.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP07",
+        "family": "ItA earned skill points -> parent-gated node choice -> permanent production benefit",
+        "disposition": "source-inspected Harvesting tree representative; runtime-unverified",
+        "prerequisite": "An actual Abyssal level increase awards its level delta as skill-tree points. Harvesting branches have real point costs and require every listed parent. Nodes can also require items, currencies or other predicates.",
+        "choice": "Spend early points on the AXP branch A or mastery branch B. NodeAB3 needs both A2 and B2.",
+        "cost_time": "A1/B1 each cost one point, A2/B2 each cost two, and AB3 costs three. Seeing a node grants nothing. Other authored node costs are consumed through the same Costs owner.",
+        "state_mutation": "UnlockNode rechecks parents, ownership and points, deducts costs, marks the node unlocked, retains it and recomputes skill-provided stats.",
+        "downstream_consumer": "The A/B nodes improve AXP/mastery. AB3 grants one flat additional Harvesting primary product. The quantity function adds this after multipliers; action rewards deliver the resulting actual stock. Existing skill serialization records node booleans and remaining points.",
+        "failure_aftermath": "Missing parents, points or costs give no mutation. Nodes do not create gear, body or source ownership. No general respec behavior is claimed.",
+        "evidence": [
+          "S_TREE_POINTS",
+          "ITA_TREE_NODES",
+          "TREE",
+          "TREE_BUY",
+          "S_STATS",
+          "S_PRODUCT",
+          "H_ACTION",
+          "TREE_SAVE"
+        ],
+        "semantic_limit": "One representative tree and serialization-code inspection. Full trees for the 26 skill-data entries and runtime save/reload remain unreviewed.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      {
+        "id": "EXP08",
+        "family": "ItA Township resource economy -> manual Abyssal wave -> XP/currency and continuing maintenance",
+        "disposition": "source-inspected current1.3.1 representative gateway/wave/upkeep/storage; runtime-unverified",
+        "prerequisite": "Build the actual Abyssal Gateway after Into the Abyss. Its data costs 25,000 each Food, Wood, Stone and Planks, plus 10,000 each Bar, Clothing and Potions. It provides 50,000 Soul storage and baseline production of 250 Armour & Weaponry plus local materials. Wave access needs the enabled predicate, Abyssal skill support and built gateway.",
+        "choice": "Build with actual town resources, maintain health and armor production, then click Fight Wave Now when health-scaled armor stock covers Abyssal level × 10,000. Repair current degraded buildings to sustain generation.",
+        "cost_time": "Construction spends existing resources. The wave waits two seconds, then spends its full wave-size Armor & Weaponry. Repair spends AP, GP or local resources. Ordinary passive town upkeep uses its separate tick.",
+        "state_mutation": "A processed wave adds wave-size × 100 AXP with fortification modification, adds AP/ASC with actual currency modifiers, removes armor stock and refreshes town state. Ordinary ticks separately add resources/XP and can reduce building efficiency and health.",
+        "downstream_consumer": "Township AXP advances levels and points. AP/ASC fund real shops or repairs. Armor & Weaponry uses Soul storage, distinct from Normal storage. Capacity and resource caps bound production. Efficiency modifies generation; paid repair restores 100 percent efficiency.",
+        "failure_aftermath": "The button refuses insufficient stock/health and simultaneous wave processing. The current processor has no loss/damage branch and no second readiness check after the two-second timer. Ordinary building degradation remains active. Storage limits accumulation.",
+        "evidence": [
+          "ITA_GATEWAY",
+          "T_BUILD",
+          "T_GATE",
+          "T_ARMOR",
+          "T_WAVE",
+          "T_WAVE_CURRENCIES",
+          "S_TREE_POINTS",
+          "T_TICK",
+          "T_EFF",
+          "T_DECAY",
+          "T_PRODUCE",
+          "T_REPAIR_COST",
+          "SHOP_BUY"
+        ],
+        "version_correction": "reduceAllAbyssalBuildingEfficiency and getAbyssalXPOnLoss exist, but no current wave invocation was observed. No wave-caused building damage is claimed; historical behavior needs separately versioned source.",
+        "semantic_limit": "Representative Gateway, manual wave, upkeep and storage. All biomes, building chains, trader conversions, casual tasks and dynamic mod overrides were not reviewed.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      }
+    ]
+  },
+  "expansion_dispositions": [
+    {
+      "steam_app": "2055140",
+      "name": "Throne of the Herald",
+      "disposition": "Public source-inspected representative subset; runtime unverified.",
+      "reviewed": [
+        "standard level-120 cap",
+        "Astrology -> finite Meteorite HP -> Mining -> Smithing -> actual equipment",
+        "physical clues -> access purchase -> Sanctuary entry",
+        "physical Golden Key -> durable final access",
+        "Ancient Relics post-99 integration"
+      ],
+      "documentation_only": [
+        "Full advertised level-100–120 content and feature totals are product claims, not semantic coverage."
+      ],
+      "source_url": "https://store.steampowered.com/app/2055140/Melvor_Idle_Throne_of_the_Herald/"
+    },
+    {
+      "steam_app": "2492940",
+      "name": "Atlas of Discovery",
+      "disposition": "Public source-inspected representative subset; runtime unverified.",
+      "reviewed": [
+        "Cartography queue, survey, paid travel and discovery",
+        "dig-site maps, upgrades and charge use",
+        "Old Village Torn Map -> hidden Ancient Market",
+        "physical museum donation -> actual stat modifiers",
+        "Ancient Relics dungeon-cap mode"
+      ],
+      "other_lane": [
+        "Barrier, Unholy Prayer and Gem-slot combat belong to the combat reader."
+      ],
+      "source_url": "https://store.steampowered.com/app/2492940/Melvor_Idle_Atlas_of_Discovery/"
+    },
+    {
+      "steam_app": "2860590",
+      "name": "Into the Abyss",
+      "disposition": "Public source-inspected representative subset; runtime unverified.",
+      "reviewed": [
+        "base gate, earned Strange Sword and realm access",
+        "separate AXP, currency and damage",
+        "Harvesting intensity, charged gloves, permanent upgrade and craft consumers",
+        "Corruption exposure, kill discovery and paid toggle",
+        "skill points, parent-gated choice and persistent quantity benefit",
+        "Township manual waves, upkeep and storage",
+        "Ancient Relics depth-cap integration"
+      ],
+      "documentation_only": [
+        "Bane story framing and full feature totals. Exact base Bane fight identity is delegated to the combat reader."
+      ],
+      "source_url": "https://store.steampowered.com/app/2860590/Melvor_Idle_Into_the_Abyss/"
+    }
+  ],
+  "inter_system_joins": [
+    {
+      "join": "A surveyed lead is distinct from a discovered destination. Paid arrival connects a POI and free initial map to Archaeology.",
+      "paths": [
+        "EXP01"
+      ]
+    },
+    {
+      "join": "An artifact can unlock later travel from historical find evidence, become a physical museum donation, or remain owned stock. Finding and possession are separate predicates.",
+      "paths": [
+        "EXP01"
+      ]
+    },
+    {
+      "join": "Actual dungeon/depth completion events feed earned cap allocation, one-time receipts, XP admission and automation interruption.",
+      "paths": [
+        "EXP02",
+        "EXP04"
+      ]
+    },
+    {
+      "join": "Higher caps grant no physical equipment or access. Crafting inputs, equip prerequisites, slot tradeoffs and purchased entry all remain distinct.",
+      "paths": [
+        "EXP03"
+      ]
+    },
+    {
+      "join": "AXP earns points; chosen nodes and upgrades alter actual quantity, AXP/mastery efficiency, corruption rate/cost or Township currency rewards.",
+      "paths": [
+        "EXP05",
+        "EXP06",
+        "EXP07",
+        "EXP08"
+      ]
+    },
+    {
+      "join": "Sustained site work and charged boosts improve production. Switching and depleted charges retain costs; actual outputs then feed crafting and combat.",
+      "paths": [
+        "EXP05"
+      ]
+    },
+    {
+      "join": "Town armor and Soul storage are different owners from bank equipment, combat Soul Points and global AP/ASC. Resource identity matters.",
+      "paths": [
+        "EXP06",
+        "EXP08"
+      ]
+    },
+    {
+      "join": "AoD dependent TotH and ItA dependent AoD data explicitly extend Ancient Relics instead of replacing base mode progression.",
+      "paths": [
+        "EXP02"
+      ]
+    }
+  ],
+  "exceptions_and_qualifications": [
+    {
+      "fact": "Ancient Relics disables preservation and doubling. Generic Archaeology/artisan preservation branches do not prove those bonuses remain effective in this mode.",
+      "evidence": [
+        "AO_MODE",
+        "A_REWARDS",
+        "S_CRAFT"
+      ]
+    },
+    {
+      "fact": "Discovery modifiers can expire by moves. Active POI stats depend on current position. Discovery, mastery and museum awards retain separate records.",
+      "evidence": [
+        "C_TRAVEL",
+        "C_DISCOVER",
+        "C_STATS",
+        "A_MUSEUM"
+      ]
+    },
+    {
+      "fact": "Fully surveying the map opens mastery; mastery thresholds award actual persistent bonuses. One surveyed hex is not full-map completion.",
+      "evidence": [
+        "C_MASTERY",
+        "C_BONUSES"
+      ]
+    },
+    {
+      "fact": "The Eternal realm stays hidden while locked and is ignored by completion. It requires historical Eternity Mitt acquisition. Eternal damage is immune to Normal/Abyssal and excluded from the Corruption AXP kill consumer. Full Eternal content remains unread.",
+      "evidence": [
+        "ITA_REALM",
+        "ITA_DAMAGE",
+        "D_CORRUPTION_XP",
+        "R_ITEM_FOUND"
+      ]
+    },
+    {
+      "fact": "The product page describes a single final boss; current Throne data uses three Herald monster phases. Full phase mechanics were not reviewed here.",
+      "qualified_data_locator": "data/melvorTotH.json:34308, /data/dungeons[id=Throne_of_the_Herald]"
+    },
+    {
+      "fact": "The Harvesting decay comment says ten seconds; the actual passiveRegenInterval is 20,000 ms. Executable timing takes precedence.",
+      "evidence": [
+        "H_ELIGIBLE",
+        "H_DECAY"
+      ]
+    },
+    {
+      "fact": "The wave button checks readiness once. The processor does not recheck readiness after its two-second timer. This is source observation, not a demonstrated exploit or authorized fix.",
+      "evidence": [
+        "T_WAVE"
+      ]
+    },
+    {
+      "fact": "Township ticks and manual waves are separate. No current wave-caused building damage call was found. Dormant helper/loss names do not establish live aftermath.",
+      "evidence": [
+        "T_TICK",
+        "T_DECAY",
+        "T_WAVE"
+      ]
+    }
+  ],
+  "original_adaptations": [
+    {
+      "id": "MELVOR_DISCOVERY_ROUTE_CONSUMER",
+      "status": "Original proposal, unselected and unimplemented",
+      "decision": "adapt narrowly",
+      "inspiration": [
+        "EXP01",
+        "EXP03"
+      ],
+      "problem": "Current remainder_home.survey_ordinary/loaded commands record firsthand knowledge while holding an actual log and kit. Repository search found no consumer of those specific survey receipts after completion. Presentation alone does not connect the survey to a later meaningful choice.",
+      "bounded_slice": "At the earned Shack workshop approach, reveal one authored finite recovery lead through a completed owned load-survey receipt. A later local choice uses known route evidence for a precise paid search, while ordinary inspection remains. Reuse current assay pin, offcut, kit or salvage consumers.",
+      "prerequisite_choice_cost_mutation_consumer": "Actual completed survey -> one attributed lead -> deliberate supported field search using current body, held kit, played time and finite world stock -> committed report and conserved material -> existing physical assay/fieldcraft or measured salvage use. Fiction, stock, costs, timing and outcomes remain reversible original proposals; no copied Melvor lore or assets.",
+      "kept_consequences": "Unknown leads stay absent from search, badges and tooltips. Survey knowledge creates no stock. Unsuccessful search retains its declared effort and evidence; no refund is invented. Finite physical stock prevents repeated loot. Knowledge remains after stock is exhausted. Ordinary routes and the current loaded specialization stay useful.",
+      "current_owners": [
+        "Y_HOME",
+        "Y_DISCOVERY",
+        "Y_WORLD",
+        "Y_PURSUIT",
+        "Y_FIELD",
+        "Y_PROJECT",
+        "Y_FIELD_CONSUMER",
+        "Y_ARTIFACT",
+        "Y_ASSAY",
+        "Y_LIVELIHOOD",
+        "Y_FIT_HOST"
+      ],
+      "exact_missing_consumer": "One leaf native approach/search adapter joins the committed remainder_home.survey_ordinary/loaded knowledge to a local action predicate and finite physical result. Current commands only record knowledge at Y_HOME lines 143–148. No global native travel or omniscient pursuit rewrite.",
+      "compatibility": "Optional additive leaf data after explicit current expansion admission. Absent old saves remain inert, with no invented survey history; frozen jobs keep their meaning. Reuse the durable publisher, inventory/custody, clock and player knowledge. Personal saves remain untouched.",
+      "later_player_gate": "After selected implementation: perform an ordinary survey; see a known lead without a spoiler; pay for a search; consume its conserved material in an existing use; retain the known route after exhaustion. Old-save, reload/import/failure and director acceptance remain deferred."
+    },
+    {
+      "id": "MELVOR_SITE_CONTINUITY_OPTION",
+      "status": "Original design option, parked, unselected and unimplemented",
+      "decision": "park until current gameplay acceptance resolves need",
+      "inspiration": [
+        "EXP05",
+        "EXP07"
+      ],
+      "problem": "YAIRPG already has paid site jobs, earned physical preparation and actual toolkit allocation. No reviewed generic site-continuity consumer changes later bounded output when a worker stays or switches. A general warmup meter could overlap those jobs and add unwanted maintenance.",
+      "bounded_option": "If sustained work remains useful after play, author one optional finite bench batch with retained alignment stages and a useful later cut. Leaving/cancelling has declared consequences; the ordinary independent job stays valid. Reuse actual site capacity, stock and jobs.",
+      "current_owners": [
+        "Y_PROJECT",
+        "Y_LIVELIHOOD",
+        "Y_LIVELIHOOD_HOST",
+        "Y_HOME",
+        "Y_FIT",
+        "Y_ARTIFACT"
+      ],
+      "exact_missing_consumer": "A leaf batch-stage-to-next-output predicate requiring the same actual batch, site, tool and supported worker. No global timer, scheduler, universal decay or copied Harvesting system is selected.",
+      "compatibility": "Explicit future leaf revision. Old jobs receive no changed semantics or retroactive progress. Preserve the native opening and one-prestige milestone.",
+      "kept_consequences": "Actual worker occupancy and conserved held tools; physical inputs are still required. Interruption/conditions can end support according to declared policy. Records grant no output.",
+      "later_player_gate": "Only if selected: show fresh batch, supported continuation, declared interruption aftermath and ordinary fallback, then deferred compatibility/save checks."
+    }
+  ],
+  "larger_implications_retained": [
+    "Learning, earned access, physical ownership and current execution means need separate consumers. AoD discovery and ItA weapon damage gates fit current YAIRPG knowledge/body/stock contracts.",
+    "Deepening usually needs one task result to feed another actual choice. Current salvage, harness fitting, assays and resident allocation already implement many such joins; reuse them before adding bars.",
+    "Progression can alter activity order and earned choices without a reset. Ancient Relics is an explicit mode; its universal caps should not be imposed on the familiar YAIRPG opening.",
+    "Distinct realms can reuse character, inventory and save owners while explicitly scoping local XP, fuel, damage and mastery. Current cultivation profiles remain author-only evaluators with no native consumer; rule support alone does not activate a world.",
+    "Permanent passives still need actual cost and consumer. A node label without a quantity, accuracy or generation consequence is insufficient.",
+    "Retain failures and late exceptions beyond packet selection: finite ore HP, depleted charges, kill-qualified discoveries, bank-full pending drops, versioned waves and cross-DLC mode patches."
+  ],
+  "unread_and_open_questions": [
+    "The public expansion payloads are obtained, but this is representative semantic coverage, not every item, monster, recipe, dungeon, hex, puzzle, tool, museum reward, tree, effect or biome.",
+    "No Melvor runtime behavior, private account entitlement, player progress or saves were inspected. Code baseline timing and costs are not lived pacing.",
+    "Which original local choice should consume a known survey receipt without duplicating current assay/salvage? The narrow consumer is proposed; concrete fiction and numbers remain unselected.",
+    "Would sustained site work improve actual play? Existing finite projects and paid preparation may already meet the goal. The parked option does not establish a missing shared platform.",
+    "Full Bane combat, AoD Barrier/Unholy Prayer/Gem combat, offline/automation, mods and update/event catalog belong to the parent and other readers.",
+    "Full Eternal content, Adventure Abyssal cap purchases, complete Herald phases, Strongholds and late rake/farming paths remain unread beyond selected locators.",
+    "Serialization source was reviewed, but no Melvor reload/export/import was exercised. All deferred YAIRPG player, save, failure, regression and director checks remain unrun."
+  ],
+  "primary_documentation": [
+    {
+      "url": "https://store.steampowered.com/app/2055140/Melvor_Idle_Throne_of_the_Herald/",
+      "verified": "Official product describes standard content for levels 100–120. Full feature totals remain documentation-only.",
+      "retrieved_date": "2026-10-06"
+    },
+    {
+      "url": "https://store.steampowered.com/app/2492940/Melvor_Idle_Atlas_of_Discovery/",
+      "verified": "Official product identifies Cartography, Archaeology, Ancient Relics and combat additions. The full listing does not count as semantic review.",
+      "retrieved_date": "2026-10-06"
+    },
+    {
+      "url": "https://store.steampowered.com/app/2860590/Melvor_Idle_Into_the_Abyss/",
+      "verified": "Official product states base Bane opening, 60 Abyssal levels, Corruption, Harvesting, trees and Township waves. Selected code shows the finer entry stages.",
+      "retrieved_date": "2026-10-06"
+    }
+  ],
+  "sources": {
+    "hosted/cartography.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/cartography.js",
+      "sha256": "48c24f12a53eb3d2839b054ce63152c8e3784ed310bf8d639f4e92f3efd16ff6",
+      "line_count": 3131
+    },
+    "hosted/archaeology.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/archaeology.js",
+      "sha256": "cf32185d6619361b720bb83e99b700733730d35053d3af729fe91b5e6d88f92a",
+      "line_count": 1352
+    },
+    "hosted/requirements.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/requirements.js",
+      "sha256": "65538d0e720cc1d6d83c9082696f7f425a2afb7ba123dbfcced40f6f7c50a1df",
+      "line_count": 881
+    },
+    "hosted/game.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/game.js",
+      "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+      "line_count": 3859
+    },
+    "hosted/gameMode.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/gameMode.js",
+      "sha256": "b4b766e4bd6054337016e798feb7d8a1b7f88be2b33996332d6e66550e83fd1f",
+      "line_count": 736
+    },
+    "hosted/skill.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/skill.js",
+      "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+      "line_count": 3226
+    },
+    "hosted/combatManager.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatManager.js",
+      "sha256": "0ab7c443acdfcb26141a60d3c60393b6ae708f42d5f449d6ae55494671a773a6",
+      "line_count": 1911
+    },
+    "hosted/realms.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/realms.js",
+      "sha256": "c281ad21a65c65d5c010732228a0f63ced170025f1236186dd01347dbf077115",
+      "line_count": 497
+    },
+    "hosted/harvesting.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/harvesting.js",
+      "sha256": "b122e2c67e66b80063c873b30d4546087376848b0683aff3d1e7c6c3b6ac0854",
+      "line_count": 556
+    },
+    "hosted/artisanSkill.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/artisanSkill.js",
+      "sha256": "cbbbefa1b7800648353d7cd2eca1f4401a4e0d292ecebf14436c262e249e0a3b",
+      "line_count": 357
+    },
+    "hosted/smithing.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/smithing.js",
+      "sha256": "9b6dfdd549ff6b2c297f914b024aa37cd84ba70d385c6863f42f724e22ea6654",
+      "line_count": 243
+    },
+    "hosted/shop.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/shop.js",
+      "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+      "line_count": 751
+    },
+    "hosted/player.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/player.js",
+      "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+      "line_count": 3455
+    },
+    "hosted/itemCharges.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/itemCharges.js",
+      "sha256": "bae1c64be40b03171aa7458068072a03a6e939a46c7ea73d1a7cf830a7a75e1c",
+      "line_count": 111
+    },
+    "hosted/conditionalModifiers.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/conditionalModifiers.js",
+      "sha256": "2059e6b333845374947c3d0e7d077f86f697e68931373f75405ee74638873605",
+      "line_count": 722
+    },
+    "hosted/skillTree.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/skillTree.js",
+      "sha256": "e972317dea63503bf45581bcf873123060914eae4cab22c2aab8bc312959868b",
+      "line_count": 238
+    },
+    "hosted/corruption.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/corruption.js",
+      "sha256": "a31154113a42aa40336c4e529e1e2c40632acb26db721673c08259f4ccd9e8c0",
+      "line_count": 267
+    },
+    "hosted/combatEffects.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatEffects.js",
+      "sha256": "2548f8f58372620dd9b693e1f1ade60421b2677d77994eef525a2b00a6a3832f",
+      "line_count": 2068
+    },
+    "hosted/settings.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/settings.js",
+      "sha256": "45b9c767267d50deb97192effc72f350d233de3657428b8128e116a47be1a5d4",
+      "line_count": 2459
+    },
+    "hosted/character.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/character.js",
+      "sha256": "6fbf32388217e80ac4a61f91f20f02bac453c14046318cc98516a00a85df3701",
+      "line_count": 2233
+    },
+    "hosted/rockTicking.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/rockTicking.js",
+      "sha256": "df0d282fb9faf07c661ba9380be3b6ba1926ed3fe0be57c2a25f4be7976b46f6",
+      "line_count": 1065
+    },
+    "hosted/astrology.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/astrology.js",
+      "sha256": "b56dd45ef70be42ae7c5a011590bedb6fae66c5c38c0adf834a7562349361e8d",
+      "line_count": 1108
+    },
+    "hosted/bank2.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/bank2.js",
+      "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+      "line_count": 1780
+    },
+    "hosted/township.js": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/township.js",
+      "sha256": "bc242b53c1053dc0c7babc7a3b91e6389effb0641aac96c0be95153c10db8844",
+      "line_count": 4348
+    },
+    "hosted/data/melvorExpansion2.json": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorExpansion2.json",
+      "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5",
+      "line_count": 85817
+    },
+    "hosted/data/melvorTotH.json": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorTotH.json",
+      "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f",
+      "line_count": 59230
+    },
+    "hosted/data/melvorItA.json": {
+      "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorItA.json",
+      "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78",
+      "line_count": 120307
+    },
+    "repo/src/skill_discovery.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/skill_discovery.js",
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "line_count": 143
+    },
+    "repo/src/world_knowledge.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/world_knowledge.js",
+      "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+      "line_count": 14
+    },
+    "repo/src/pursuit.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/pursuit.js",
+      "sha256": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+      "line_count": 199
+    },
+    "repo/src/field_workshop.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "line_count": 122
+    },
+    "repo/src/site_projects.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "line_count": 32
+    },
+    "repo/src/artifact_collection.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "line_count": 149
+    },
+    "repo/src/audit_remainder_combat_fit_content.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_fit_content.js",
+      "sha256": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+      "line_count": 91
+    },
+    "repo/src/audit_remainder_combat_fit_host.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_fit_host.js",
+      "sha256": "0883c135c06c956afcbc924ea470fad7eede0fdd993a82f763d47543db8c2f87",
+      "line_count": 78
+    },
+    "repo/src/audit_remainder_livelihood_content.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "line_count": 169
+    },
+    "repo/src/audit_remainder_livelihood_host.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_host.js",
+      "sha256": "785b6a7f50f5ce5a293e1b37de28690dc6dff3d68c637a2c639a5706ec6c0063",
+      "line_count": 79
+    },
+    "repo/src/audit_remainder_home_content.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "line_count": 194
+    },
+    "repo/src/game_absorption_assay_content.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+      "line_count": 113
+    },
+    "repo/src/feature_expansion_book_cultivation.js": {
+      "path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_book_cultivation.js",
+      "sha256": "540e99414192ec73cfbe26feb11e5dc6783a3286dd7765649830bd4fed79286c",
+      "line_count": 890
+    }
+  },
+  "evidence": [
+    {
+      "id": "C_SURVEY",
+      "source": "hosted/cartography.js",
+      "start_line": 1118,
+      "end_line": 1237,
+      "semantic_review": "Autosurvey eligibility, timed survey settlement, surveyed hex versus undiscovered POI lead."
+    },
+    {
+      "id": "C_TRAVEL",
+      "source": "hosted/cartography.js",
+      "start_line": 750,
+      "end_line": 861,
+      "semantic_review": "Path currency/item costs, hidden worn-item and requirement checks, move, discovery, transient modifiers and stopping surveying."
+    },
+    {
+      "id": "C_DISCOVER",
+      "source": "hosted/cartography.js",
+      "start_line": 1393,
+      "end_line": 1447,
+      "semantic_review": "Retained discovery, modifier recomputation, rewards and free initial DigSiteMap; Archaeology renders and requirement event."
+    },
+    {
+      "id": "C_MAPS",
+      "source": "hosted/cartography.js",
+      "start_line": 1708,
+      "end_line": 1899,
+      "semantic_review": "Paid timed map upgrade, finite upgrade tiers, blank-map creation and charge decrement."
+    },
+    {
+      "id": "C_MASTERY",
+      "source": "hosted/cartography.js",
+      "start_line": 1238,
+      "end_line": 1268,
+      "semantic_review": "Map mastery bonuses unlock on real mastered-hex thresholds."
+    },
+    {
+      "id": "C_BONUSES",
+      "source": "hosted/cartography.js",
+      "start_line": 1329,
+      "end_line": 1340,
+      "semantic_review": "One awarded marker plus currency/item/pet consumer for map mastery."
+    },
+    {
+      "id": "C_STATS",
+      "source": "hosted/cartography.js",
+      "start_line": 2602,
+      "end_line": 2629,
+      "semantic_review": "Current discovery modifiers, map mastery and current-position POI stats feed Cartography provided stats."
+    },
+    {
+      "id": "A_SITE",
+      "source": "hosted/archaeology.js",
+      "start_line": 118,
+      "end_line": 176,
+      "semantic_review": "Discovered POI owner, selected map and saved site/map/tool binding."
+    },
+    {
+      "id": "A_VIS",
+      "source": "hosted/archaeology.js",
+      "start_line": 411,
+      "end_line": 429,
+      "semantic_review": "Only discovered sites at sufficient Archaeology level become dig-site UI."
+    },
+    {
+      "id": "A_REWARDS",
+      "source": "hosted/archaeology.js",
+      "start_line": 589,
+      "end_line": 798,
+      "semantic_review": "Map and selected-tool eligibility, timed excavation, size-specific reward table, failed result, charge preservation/consumption, finite stop."
+    },
+    {
+      "id": "A_TOOLS",
+      "source": "hosted/archaeology.js",
+      "start_line": 825,
+      "end_line": 843,
+      "semantic_review": "Tool selection changes artifact-size mix; no tools stops active excavation."
+    },
+    {
+      "id": "A_MUSEUM",
+      "source": "hosted/archaeology.js",
+      "start_line": 1097,
+      "end_line": 1162,
+      "semantic_review": "One owned artifact consumed into distinct-donation set, threshold reward once and stat recomputation."
+    },
+    {
+      "id": "A_STATS",
+      "source": "hosted/archaeology.js",
+      "start_line": 577,
+      "end_line": 587,
+      "semantic_review": "Awarded museum stats and active-map refinements become actual provided stats."
+    },
+    {
+      "id": "R_ITEM_FOUND",
+      "source": "hosted/requirements.js",
+      "start_line": 544,
+      "end_line": 572,
+      "semantic_review": "ItemFound means historical item-find count, not present possession; bank event triggers reevaluation."
+    },
+    {
+      "id": "R_DUNGEON",
+      "source": "hosted/requirements.js",
+      "start_line": 291,
+      "end_line": 327,
+      "semantic_review": "Dungeon requirement reads actual completion count and subscribes to completion event."
+    },
+    {
+      "id": "R_POI",
+      "source": "hosted/requirements.js",
+      "start_line": 747,
+      "end_line": 785,
+      "semantic_review": "Cartography requirement consumes actual discovered POI records and events."
+    },
+    {
+      "id": "G_CAP_LISTEN",
+      "source": "hosted/game.js",
+      "start_line": 1685,
+      "end_line": 1758,
+      "semantic_review": "Mode initializes skill caps and binds requirement handlers for dungeon/depth/stronghold earned cap rewards."
+    },
+    {
+      "id": "G_CAP_REWARD",
+      "source": "hosted/game.js",
+      "start_line": 2895,
+      "end_line": 2929,
+      "semantic_review": "Fixed and selected cap rewards, one given receipt, pending choices and auto-restart interruption."
+    },
+    {
+      "id": "G_CAP_CHOICE",
+      "source": "hosted/game.js",
+      "start_line": 2986,
+      "end_line": 3008,
+      "semantic_review": "Chosen skill cap advances, pending count decrements and next choice appears."
+    },
+    {
+      "id": "MODE_CAP",
+      "source": "hosted/gameMode.js",
+      "start_line": 265,
+      "end_line": 290,
+      "semantic_review": "Cap reward definition, default two presented choices and data-supplied reward count."
+    },
+    {
+      "id": "MODE_SELECTION",
+      "source": "hosted/gameMode.js",
+      "start_line": 374,
+      "end_line": 404,
+      "semantic_review": "Capped skills excluded from random candidate selection; invalid choices rerolled."
+    },
+    {
+      "id": "S_CAP",
+      "source": "hosted/skill.js",
+      "start_line": 201,
+      "end_line": 227,
+      "semantic_review": "Standard max 99/120 and separate Abyssal max 1/60 depend on enabled-entitlement predicate; no account inspection performed."
+    },
+    {
+      "id": "S_XP",
+      "source": "hosted/skill.js",
+      "start_line": 677,
+      "end_line": 725,
+      "semantic_review": "Separate standard and Abyssal XP mutation, caps, events and level-up consumers."
+    },
+    {
+      "id": "S_CAP_APPLY",
+      "source": "hosted/skill.js",
+      "start_line": 776,
+      "end_line": 797,
+      "semantic_review": "Cap application may admit already held XP up to new current cap."
+    },
+    {
+      "id": "S_RELIC",
+      "source": "hosted/skill.js",
+      "start_line": 1393,
+      "end_line": 1452,
+      "semantic_review": "Mode-gated eligible relic drops and level-up threshold unlocks; at most one random relic per action."
+    },
+    {
+      "id": "S_RELIC_SETTLE",
+      "source": "hosted/skill.js",
+      "start_line": 1711,
+      "end_line": 1728,
+      "semantic_review": "Located relic state feeds provided stats and completed-set bonus; recompute combat stats."
+    },
+    {
+      "id": "S_STATS",
+      "source": "hosted/skill.js",
+      "start_line": 369,
+      "end_line": 388,
+      "semantic_review": "Found relics, completed relic set and unlocked skill-tree nodes contribute stats."
+    },
+    {
+      "id": "S_TREE_POINTS",
+      "source": "hosted/skill.js",
+      "start_line": 1298,
+      "end_line": 1318,
+      "semantic_review": "Actual Abyssal level increase awards the level delta to skill trees."
+    },
+    {
+      "id": "S_PRODUCT",
+      "source": "hosted/skill.js",
+      "start_line": 1094,
+      "end_line": 1136,
+      "semantic_review": "Flat additional primary product quantity is added after multipliers, then reward minimum."
+    },
+    {
+      "id": "S_CRAFT",
+      "source": "hosted/skill.js",
+      "start_line": 2786,
+      "end_line": 2815,
+      "semantic_review": "Artisan cycle checks costs, consumes or preserves actual stock, grants product and stops when next input unavailable."
+    },
+    {
+      "id": "D_COMPLETE",
+      "source": "hosted/combatManager.js",
+      "start_line": 866,
+      "end_line": 918,
+      "semantic_review": "Dungeon final-monster completion increments counter, awards loot, emits event and respects cap-selection stop."
+    },
+    {
+      "id": "D_DEPTH",
+      "source": "hosted/combatManager.js",
+      "start_line": 920,
+      "end_line": 968,
+      "semantic_review": "Depth counter/rewards/event and auto-restart stop reuse cap reward handlers."
+    },
+    {
+      "id": "D_GATE",
+      "source": "hosted/combatManager.js",
+      "start_line": 1190,
+      "end_line": 1216,
+      "semantic_review": "Entry requirements and real equipped damage-type compatibility."
+    },
+    {
+      "id": "D_SELECT",
+      "source": "hosted/combatManager.js",
+      "start_line": 1293,
+      "end_line": 1308,
+      "semantic_review": "SelectDungeon consumes actual entry and damage checks before combat area setup."
+    },
+    {
+      "id": "D_HINT",
+      "source": "hosted/combatManager.js",
+      "start_line": 1240,
+      "end_line": 1248,
+      "semantic_review": "Into the Abyss entry UI specifically suggests the earned Strange Sword when damage type is wrong."
+    },
+    {
+      "id": "D_CORRUPTION_XP",
+      "source": "hosted/combatManager.js",
+      "start_line": 623,
+      "end_line": 631,
+      "semantic_review": "Corrupted kill gives Corruption AXP; Eternal damage excludes this reward."
+    },
+    {
+      "id": "D_AUTOCORRUPT",
+      "source": "hosted/combatManager.js",
+      "start_line": 1492,
+      "end_line": 1517,
+      "semantic_review": "Saved optional toggle, positive monster corruption and actual soul-point cost enable saved permanent-corruption passive at spawn."
+    },
+    {
+      "id": "REALM",
+      "source": "hosted/realms.js",
+      "start_line": 28,
+      "end_line": 95,
+      "semantic_review": "Realm unlock predicates and listeners reveal eligible realm/skill UI only after actual requirements."
+    },
+    {
+      "id": "REALM_SELECT",
+      "source": "hosted/realms.js",
+      "start_line": 348,
+      "end_line": 375,
+      "semantic_review": "Realm selection callback runs only for unlocked realm."
+    },
+    {
+      "id": "G_COMBAT_LEVELS",
+      "source": "hosted/game.js",
+      "start_line": 494,
+      "end_line": 521,
+      "semantic_review": "Abyssal combat level uses standard plus Abyssal skill levels; separate progression is not a reset."
+    },
+    {
+      "id": "H_ELIGIBLE",
+      "source": "hosted/harvesting.js",
+      "start_line": 79,
+      "end_line": 103,
+      "semantic_review": "Three-second base interval, initial intensity capacity28800,20-second decay timer and0.1-percent unique chance."
+    },
+    {
+      "id": "H_GATE",
+      "source": "hosted/harvesting.js",
+      "start_line": 146,
+      "end_line": 153,
+      "semantic_review": "Skill levels and optional purchased tool gate harvest target; passive timer owns decay."
+    },
+    {
+      "id": "H_ACTION",
+      "source": "hosted/harvesting.js",
+      "start_line": 371,
+      "end_line": 448,
+      "semantic_review": "Weighted product draw checked against existing intensity; successful product/XP then intensity growth; full-intensity unique drop."
+    },
+    {
+      "id": "H_DECAY",
+      "source": "hosted/harvesting.js",
+      "start_line": 452,
+      "end_line": 485,
+      "semantic_review": "Inactive sites lose intensity on timer subject to minimum/no-decay modifiers; max capacity clamps actual intensity."
+    },
+    {
+      "id": "H_TIERS",
+      "source": "hosted/harvesting.js",
+      "start_line": 511,
+      "end_line": 518,
+      "semantic_review": "0/40/80/100-percent intensity yields base quantity1/2/3/4."
+    },
+    {
+      "id": "CRAFT_COST",
+      "source": "hosted/artisanSkill.js",
+      "start_line": 28,
+      "end_line": 40,
+      "semantic_review": "Create button requires actual current recipe inputs before starting."
+    },
+    {
+      "id": "CRAFT_RECIPE",
+      "source": "hosted/artisanSkill.js",
+      "start_line": 147,
+      "end_line": 164,
+      "semantic_review": "Recipe item/currency inputs become authoritative Costs."
+    },
+    {
+      "id": "CRAFT_RESULT",
+      "source": "hosted/smithing.js",
+      "start_line": 148,
+      "end_line": 172,
+      "semantic_review": "Smithing recipe product reaches bank Rewards and standard/AXP consumers."
+    },
+    {
+      "id": "SHOP_BUY",
+      "source": "hosted/shop.js",
+      "start_line": 445,
+      "end_line": 551,
+      "semantic_review": "Purchase costs and requirements, bank capacity, cost consumption, upgrade count/charge grant and downstream refresh."
+    },
+    {
+      "id": "SHOP_STATS",
+      "source": "hosted/shop.js",
+      "start_line": 579,
+      "end_line": 595,
+      "semantic_review": "Bought upgrade stats become actual provided modifiers."
+    },
+    {
+      "id": "SHOP_GLOVE_COST",
+      "source": "hosted/shop.js",
+      "start_line": 597,
+      "end_line": 620,
+      "semantic_review": "Glove cost scales with chosen quantity and existing merchant permit; Fixed uses stated per-purchase cost."
+    },
+    {
+      "id": "E_EQUIP",
+      "source": "hosted/player.js",
+      "start_line": 1456,
+      "end_line": 1534,
+      "semantic_review": "Owned stock, equip requirements, conflicts/bank space and conserved equip transition."
+    },
+    {
+      "id": "E_CHARGE",
+      "source": "hosted/player.js",
+      "start_line": 1017,
+      "end_line": 1022,
+      "semantic_review": "Matched action decrements real item charge."
+    },
+    {
+      "id": "E_LISTEN",
+      "source": "hosted/player.js",
+      "start_line": 1630,
+      "end_line": 1649,
+      "semantic_review": "Only stat-providing equipped items bind consumesChargesOn matchers."
+    },
+    {
+      "id": "CHARGES",
+      "source": "hosted/itemCharges.js",
+      "start_line": 39,
+      "end_line": 76,
+      "semantic_review": "Charge additions/removal and changed event; depletion deletes balance and reports it."
+    },
+    {
+      "id": "CHARGE_CONDITION",
+      "source": "hosted/conditionalModifiers.js",
+      "start_line": 122,
+      "end_line": 148,
+      "semantic_review": "ItemCharge conditional modifiers subscribe to actual charge changes and read current charge balance."
+    },
+    {
+      "id": "TREE",
+      "source": "hosted/skillTree.js",
+      "start_line": 62,
+      "end_line": 75,
+      "semantic_review": "All parents unlocked plus node-specific requirements permit node."
+    },
+    {
+      "id": "TREE_BUY",
+      "source": "hosted/skillTree.js",
+      "start_line": 162,
+      "end_line": 218,
+      "semantic_review": "Player chooses node, real points/item/currency checked and consumed, unlocked node retained, skill stats recomputed."
+    },
+    {
+      "id": "TREE_SAVE",
+      "source": "hosted/skillTree.js",
+      "start_line": 140,
+      "end_line": 160,
+      "semantic_review": "Node booleans and points are encoded and decoded; runtime reload not exercised."
+    },
+    {
+      "id": "CORR_TABLE",
+      "source": "hosted/corruption.js",
+      "start_line": 20,
+      "end_line": 68,
+      "semantic_review": "Unknown effect sampling uses enemy level,0.2-percent chance per requested slot, live pending effect tracking and dead-enemy removal unlock."
+    },
+    {
+      "id": "CORR_STATS",
+      "source": "hosted/corruption.js",
+      "start_line": 155,
+      "end_line": 175,
+      "semantic_review": "Corruption skill provides enemy/player applicators; player side depends on actual skill unlock."
+    },
+    {
+      "id": "CORR_APPLY",
+      "source": "hosted/combatEffects.js",
+      "start_line": 791,
+      "end_line": 812,
+      "semantic_review": "Corruption behaviour samples applicators and runs them on actual combat character."
+    },
+    {
+      "id": "CORR_TOGGLE",
+      "source": "hosted/settings.js",
+      "start_line": 747,
+      "end_line": 754,
+      "semantic_review": "Permanent-corruption toggle defaultsfalse and saves on change."
+    },
+    {
+      "id": "CHAR_ACCURACY",
+      "source": "hosted/character.js",
+      "start_line": 398,
+      "end_line": 426,
+      "semantic_review": "Accuracy modifier alters actual computed accuracy."
+    },
+    {
+      "id": "CHAR_IMMUNE",
+      "source": "hosted/character.js",
+      "start_line": 766,
+      "end_line": 773,
+      "semantic_review": "Damage-type immunity affects actual attacks/effects."
+    },
+    {
+      "id": "MINE_GATE",
+      "source": "hosted/rockTicking.js",
+      "start_line": 214,
+      "end_line": 218,
+      "semantic_review": "Mining level/mastery/tool purchase predicates."
+    },
+    {
+      "id": "MINE_CHOICE",
+      "source": "hosted/rockTicking.js",
+      "start_line": 415,
+      "end_line": 435,
+      "semantic_review": "Empty rock refuses mining; selected supported rock starts real action."
+    },
+    {
+      "id": "MINE_PRODUCT",
+      "source": "hosted/rockTicking.js",
+      "start_line": 595,
+      "end_line": 638,
+      "semantic_review": "Mining emits item Rewards, XP/AXP and optional gems from real rock definition."
+    },
+    {
+      "id": "MINE_HP",
+      "source": "hosted/rockTicking.js",
+      "start_line": 670,
+      "end_line": 695,
+      "semantic_review": "Mining action spends rock HP unless preservation; depletion updates respawn state."
+    },
+    {
+      "id": "MINE_METEOR",
+      "source": "hosted/rockTicking.js",
+      "start_line": 778,
+      "end_line": 786,
+      "semantic_review": "Astrology consumer adds 5–24 Meteorite HP to the finite vein."
+    },
+    {
+      "id": "ASTRO",
+      "source": "hosted/astrology.js",
+      "start_line": 241,
+      "end_line": 247,
+      "semantic_review": "Meteorite discovery chance depends on studied constellation and modifier."
+    },
+    {
+      "id": "ASTRO_CALL",
+      "source": "hosted/astrology.js",
+      "start_line": 409,
+      "end_line": 414,
+      "semantic_review": "Actual Astrology postAction rolls meteorite and starfall."
+    },
+    {
+      "id": "ASTRO_ROLL",
+      "source": "hosted/astrology.js",
+      "start_line": 1028,
+      "end_line": 1031,
+      "semantic_review": "Meteorite roll calls native Mining vein mutation."
+    },
+    {
+      "id": "BANK_OPEN",
+      "source": "hosted/bank2.js",
+      "start_line": 1261,
+      "end_line": 1359,
+      "semantic_review": "Chest opening consumes only completed openings, retains pending random drop on full bank and grants real item stock."
+    },
+    {
+      "id": "T_GATE",
+      "source": "hosted/township.js",
+      "start_line": 630,
+      "end_line": 662,
+      "semantic_review": "Actual gateway, enabled predicate, armor stock/health threshold and wave size."
+    },
+    {
+      "id": "T_ARMOR",
+      "source": "hosted/township.js",
+      "start_line": 710,
+      "end_line": 719,
+      "semantic_review": "Read actual ArmourWeaponry amount and health-scaled readiness."
+    },
+    {
+      "id": "T_WAVE",
+      "source": "hosted/township.js",
+      "start_line": 1775,
+      "end_line": 1831,
+      "semantic_review": "Player button2-second timer -> AXP/currency reward and actual armor consumption; no damage path here."
+    },
+    {
+      "id": "T_WAVE_CURRENCIES",
+      "source": "hosted/township.js",
+      "start_line": 2449,
+      "end_line": 2461,
+      "semantic_review": "Wave AP and ASC gains use modifiers/currency multipliers."
+    },
+    {
+      "id": "T_BUILD",
+      "source": "hosted/township.js",
+      "start_line": 2277,
+      "end_line": 2328,
+      "semantic_review": "Paid native build and repair; efficiency restored through actual costs."
+    },
+    {
+      "id": "T_TICK",
+      "source": "hosted/township.js",
+      "start_line": 1697,
+      "end_line": 1727,
+      "semantic_review": "Town tick adds resources/XP then randomly degrades eligible buildings and health."
+    },
+    {
+      "id": "T_EFF",
+      "source": "hosted/township.js",
+      "start_line": 76,
+      "end_line": 85,
+      "semantic_review": "Building efficiency floors at20 plus modifier; repair writes100."
+    },
+    {
+      "id": "T_DECAY",
+      "source": "hosted/township.js",
+      "start_line": 786,
+      "end_line": 804,
+      "semantic_review": "Generic degradation is called by tick; separate Abyssal-only helper exists but no invocation from wave."
+    },
+    {
+      "id": "T_PRODUCE",
+      "source": "hosted/township.js",
+      "start_line": 2490,
+      "end_line": 2527,
+      "semantic_review": "Building resource generation uses efficiency and distinct Normal/Soul storage capacity."
+    },
+    {
+      "id": "T_REPAIR_COST",
+      "source": "hosted/township.js",
+      "start_line": 2154,
+      "end_line": 2190,
+      "semantic_review": "AP,GP or local resources pay repair costs."
+    },
+    {
+      "id": "AO_MODE",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 780,
+      "end_line": 921,
+      "semantic_review": "Ancient Relics initial caps10, no XP overflow/doubling/preservation, Fishing/Cooking gated by Impending Darkness.",
+      "json_pointer": "/data/gamemodes/0"
+    },
+    {
+      "id": "AO_CAP",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 7,
+      "end_line": 346,
+      "semantic_review": "Pre99 dungeon predicates, automatic combat caps+5 to99, other skills+15 and five earned choices.",
+      "json_pointer": "/data/skillLevelCapIncreases/0"
+    },
+    {
+      "id": "AO_DROP_MAP",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 50514,
+      "end_line": 50661,
+      "semantic_review": "OldVillage artifact size tables include Torn_Map and100Paper blank-map cost.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "AO_HIDDEN",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 53398,
+      "end_line": 53429,
+      "semantic_review": "AncientMarket hidden ItemFound Torn_Map; OldVillage ordinary dig-site POI.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "AO_TOOLS",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 53124,
+      "end_line": 53164,
+      "semantic_review": "Sieve/Trowel/Brush/Shovel target tiny/small/medium/large artifact tables.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "AO_DEP_TOTH",
+      "source": "hosted/data/melvorExpansion2.json",
+      "start_line": 85782,
+      "end_line": 85803,
+      "semantic_review": "When TotH dependency present, AncientRelics receives Post99Dungeons and Herald cap rewards.",
+      "json_pointer": "/dependentData/0/modifications/gamemodes"
+    },
+    {
+      "id": "TOTH_CAP",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 7,
+      "end_line": 240,
+      "semantic_review": "Post99 dungeon cap rewards and Herald set120 extend Ancient Relic mode.",
+      "json_pointer": "/data/skillLevelCapIncreases"
+    },
+    {
+      "id": "TOTH_METEORITE",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 42824,
+      "end_line": 42838,
+      "semantic_review": "Mining112 and Augite pickaxe for nonregenerating Meteorite ore.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "TOTH_BAR",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 42969,
+      "end_line": 42983,
+      "semantic_review": "Smithing110 consumes2MeteoriteOre per bar.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "TOTH_SWORD_RECIPE",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 43459,
+      "end_line": 43473,
+      "semantic_review": "Smithing115 consumes3bars per Meteorite2HSword.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "TOTH_SWORD",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 2265,
+      "end_line": 2327,
+      "semantic_review": "Meteorite sword equip gateAttack108 plus ImpendingDarkness; weapon also occupiesShield slot.",
+      "json_pointer": "/data/items"
+    },
+    {
+      "id": "TOTH_SOLUTION",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 36662,
+      "end_line": 36703,
+      "semantic_review": "Five actual labyrinth clue objects pay for one durable access purchase.",
+      "json_pointer": "/data/shopPurchases"
+    },
+    {
+      "id": "TOTH_SANCTUARY",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 34011,
+      "end_line": 34068,
+      "semantic_review": "Ancient Sanctuary access purchase, base completion unlock and Normal damage gate.",
+      "json_pointer": "/data/dungeons/0"
+    },
+    {
+      "id": "TOTH_KEY",
+      "source": "hosted/data/melvorTotH.json",
+      "start_line": 36779,
+      "end_line": 36803,
+      "semantic_review": "Final throne access purchase consumes actual GoldenKey item.",
+      "json_pointer": "/data/shopPurchases"
+    },
+    {
+      "id": "ITA_DAMAGE",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 518,
+      "end_line": 541,
+      "semantic_review": "Abyssal and Eternal damage immunities and resistance caps.",
+      "json_pointer": "/data/damageTypes"
+    },
+    {
+      "id": "ITA_REALM",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 11058,
+      "end_line": 11085,
+      "semantic_review": "Abyssal opens after IntoTheAbyss; Eternal hidden until historical EternityMitt find and ignored completion.",
+      "json_pointer": "/data/realms"
+    },
+    {
+      "id": "ITA_APPROACH",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 105596,
+      "end_line": 105653,
+      "semantic_review": "Base ImpendingDarkness completion unlocks Approach, normal damage allowed, StrangeSword reward.",
+      "json_pointer": "/data/dungeons"
+    },
+    {
+      "id": "ITA_ENTRY",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 105654,
+      "end_line": 105703,
+      "semantic_review": "Into the Abyss requires Attack 99 and Abyssal damage; Approach completion unlocks entry.",
+      "json_pointer": "/data/dungeons"
+    },
+    {
+      "id": "ITA_SWORD",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 47429,
+      "end_line": 47481,
+      "semantic_review": "Strange Sword earned weapon has Abyssal damage.",
+      "json_pointer": "/data/items"
+    },
+    {
+      "id": "ITA_VEIN",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 23638,
+      "end_line": 23679,
+      "semantic_review": "Harvesting realm gate; first vein stones0%,bark40%,quartz80%,seed100%,HarvestingChest unique.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_STONE_USE",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 11760,
+      "end_line": 11782,
+      "semantic_review": "AbyssiumBar requiresSmithing99/AXPlevel1,4ore plus4harvested stone.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_BARK_USE",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 12938,
+      "end_line": 12958,
+      "semantic_review": "AzurianBar uses10fragments plus5harvested bark atAXPlevel12.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_QUARTZ_USE",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 15012,
+      "end_line": 15037,
+      "semantic_review": "Crafting ring uses2AzurianBar,2Nightopal and2harvested quartz atAXPlevel1.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_RING",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 58576,
+      "end_line": 58616,
+      "semantic_review": "Crafted ring real melee stats and1Abyssal resistance.",
+      "json_pointer": "/data/items"
+    },
+    {
+      "id": "ITA_HARVEST_GLOVES",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 91689,
+      "end_line": 91738,
+      "semantic_review": "Equipped charged gloves change intensity/AXP/interval and consume charge each HarvestingAction.",
+      "json_pointer": "/data/items"
+    },
+    {
+      "id": "ITA_HARVEST_BUY",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 115033,
+      "end_line": 115066,
+      "semantic_review": "Buy500HarvestingGlove charges for100000AP base Glove cost.",
+      "json_pointer": "/data/shopPurchases"
+    },
+    {
+      "id": "ITA_HARVESTER",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 115882,
+      "end_line": 115936,
+      "semantic_review": "Late permanent Harvester costs25000NetheriteBars+250mAP and level50 plus previous upgrade.",
+      "json_pointer": "/data/shopPurchases"
+    },
+    {
+      "id": "ITA_CHEST",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 92738,
+      "end_line": 92809,
+      "semantic_review": "Full-intensity uniqueHarvestingChest has seed/physical rake-piece drop table.",
+      "json_pointer": "/data/items"
+    },
+    {
+      "id": "ITA_TREE_NODES",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 23149,
+      "end_line": 23240,
+      "semantic_review": "Harvesting AXP and mastery branches converge to+1flat product node after both parents.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_CORR_COUNTER",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 1311,
+      "end_line": 1397,
+      "semantic_review": "Combat hits build counter, incoming attacks reduce incomplete counter and full counter applies corruption.",
+      "json_pointer": "/data/combatEffects"
+    },
+    {
+      "id": "ITA_CORR_UNLOCK",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 24239,
+      "end_line": 24320,
+      "semantic_review": "Realm dungeon unlock, mutual-start counter applicators and unlockable effect-level table.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_CORR_EFFECT",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 1760,
+      "end_line": 1782,
+      "semantic_review": "Representative Corruption0 supplies+25accuracy in combat effect stat group.",
+      "json_pointer": "/data/combatEffects"
+    },
+    {
+      "id": "ITA_CORR_PERMA",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 105937,
+      "end_line": 105943,
+      "semantic_review": "Paid permanent corruption passive supplies100instantCorruptionChance.",
+      "json_pointer": "/data/combatPassives"
+    },
+    {
+      "id": "ITA_GATEWAY",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 31568,
+      "end_line": 31645,
+      "semantic_review": "Gateway paid resources, actual realm completion requirement, production and 50,000 Soul storage.",
+      "json_pointer": "/data/skillData"
+    },
+    {
+      "id": "ITA_DEPTH",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 113420,
+      "end_line": 113503,
+      "semantic_review": "First AbyssDepth uses real gate/combat/passives/rewards, not a character reset.",
+      "json_pointer": "/data/abyssDepths/0"
+    },
+    {
+      "id": "ITA_CAP",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 7,
+      "end_line": 217,
+      "semantic_review": "Depth-driven fixed/random Abyssal caps up to60 in AncientRelic integration.",
+      "json_pointer": "/data/skillLevelCapIncreases/0"
+    },
+    {
+      "id": "ITA_DEP_AOD",
+      "source": "hosted/data/melvorItA.json",
+      "start_line": 120275,
+      "end_line": 120300,
+      "semantic_review": "AncientRelics receives TheAbyss and final-depth60 reward only in AoD dependency block.",
+      "json_pointer": "/dependentData/0/modifications/gamemodes"
+    },
+    {
+      "id": "Y_DISCOVERY",
+      "source": "repo/src/skill_discovery.js",
+      "start_line": 44,
+      "end_line": 143,
+      "semantic_review": "Read-only disclosure/unlock/eligibility/accepted-work projections, unknown names filtered before search."
+    },
+    {
+      "id": "Y_WORLD",
+      "source": "repo/src/world_knowledge.js",
+      "start_line": 1,
+      "end_line": 14,
+      "semantic_review": "Per-actor known-world identity; absent old facts reveal nothing."
+    },
+    {
+      "id": "Y_PURSUIT",
+      "source": "repo/src/pursuit.js",
+      "start_line": 65,
+      "end_line": 183,
+      "semantic_review": "Evidence-backed paid leads and report disclosure; no omniscient next-destination selection."
+    },
+    {
+      "id": "Y_FIELD",
+      "source": "repo/src/field_workshop.js",
+      "start_line": 20,
+      "end_line": 31,
+      "semantic_review": "Existing shared-site actor project plus road aftermath and native method source."
+    },
+    {
+      "id": "Y_PROJECT",
+      "source": "repo/src/site_projects.js",
+      "start_line": 4,
+      "end_line": 31,
+      "semantic_review": "Phases compile into current command/site/claim/world-fact owners and known completion projection."
+    },
+    {
+      "id": "Y_FIELD_CONSUMER",
+      "source": "repo/src/field_workshop.js",
+      "start_line": 78,
+      "end_line": 89,
+      "semantic_review": "Actual transferred input commissioning, later observed reports, useful kit output and road repair."
+    },
+    {
+      "id": "Y_ARTIFACT",
+      "source": "repo/src/artifact_collection.js",
+      "start_line": 80,
+      "end_line": 112,
+      "semantic_review": "Actual physical artifact assembly/disassembly/held carrier uses through existing paid executor."
+    },
+    {
+      "id": "Y_FIT",
+      "source": "repo/src/audit_remainder_combat_fit_content.js",
+      "start_line": 20,
+      "end_line": 91,
+      "semantic_review": "Current real fit differences, native owned-stock handoff and paid single conditioned preparation."
+    },
+    {
+      "id": "Y_FIT_HOST",
+      "source": "repo/src/audit_remainder_combat_fit_host.js",
+      "start_line": 12,
+      "end_line": 45,
+      "semantic_review": "Shared executor and real battle admission consumes supported fitting/preparation."
+    },
+    {
+      "id": "Y_LIVELIHOOD",
+      "source": "repo/src/audit_remainder_livelihood_content.js",
+      "start_line": 47,
+      "end_line": 96,
+      "semantic_review": "Funded finite worker shifts/tool allocation/bench drying, actual tools and earned wages."
+    },
+    {
+      "id": "Y_LIVELIHOOD_HOST",
+      "source": "repo/src/audit_remainder_livelihood_host.js",
+      "start_line": 12,
+      "end_line": 78,
+      "semantic_review": "Current native bridge cancellation/withdrawal and actual report projection."
+    },
+    {
+      "id": "Y_HOME",
+      "source": "repo/src/audit_remainder_home_content.js",
+      "start_line": 71,
+      "end_line": 148,
+      "semantic_review": "Already delivered paid branch specialization, measured salvage and two actual loaded survey commands."
+    },
+    {
+      "id": "Y_ASSAY",
+      "source": "repo/src/game_absorption_assay_content.js",
+      "start_line": 86,
+      "end_line": 95,
+      "semantic_review": "Existing paid physical unknown-charge experiment and recovered-pin downstream uses; avoid duplicate identification system."
+    },
+    {
+      "id": "Y_CULTIVATION",
+      "source": "repo/src/feature_expansion_book_cultivation.js",
+      "start_line": 785,
+      "end_line": 849,
+      "semantic_review": "Profile evaluator remains author-only unactivated/nativeConsumernull, requires exact actual body/source/observer snapshot."
+    },
+    {
+      "id": "MINE_FINITE",
+      "source": "hosted/rockTicking.js",
+      "start_line": 700,
+      "end_line": 777,
+      "semantic_review": "Timed Mining requires positive HP. No passive regeneration or respawn for hasPassiveRegen=false; new fixed-HP veins initialize at zero."
+    }
+  ],
+  "checks": {
+    "json": "parsed, required evidence IDs resolved, source bounds/hashes recorded",
+    "game_tests": "not run; excluded",
+    "build": "not run; excluded",
+    "runtime_integration": "none",
+    "ownership": "Only docs/research/melvor-idle/readers/expansions.json is written in the repository. Helpers/provenance are confined to the reserved raw expansions directory. Parent owns canonical integration.",
+    "reader_self_review": "Read back critical Meteorite numerical and finite-HP spans, actual survey-only consumer gap, damage entry stages and current manual wave; corrected the draft Meteorite range to 5–24 everywhere."
+  },
+  "completion": "The bounded eight-path expansion/discovery reader is complete. Exclusive writer reservation is released on delivery; unread content remains explicitly scoped."
+}

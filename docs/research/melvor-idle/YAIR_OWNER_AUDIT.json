@@ -1,0 +1,146 @@
+{
+  "status": "read-source-fit-only-not-runtime-or-current-build-proof",
+  "qualification": "Selected current dirty leaf hashes; live concurrent writers can drift. Historical build receipt never proves changed code. Source read anchors are in packets and reader returns.",
+  "owners": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "lines": 528
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "lines": 23
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "lines": 356
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "lines": 566
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "lines": 629
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "lines": 51
+    },
+    {
+      "path": "src/native_storage_transaction.js",
+      "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+      "lines": 33
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "lines": 62
+    },
+    {
+      "path": "src/skill_discovery.js",
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "lines": 143
+    },
+    {
+      "path": "src/skill_discovery_native.js",
+      "sha256": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+      "lines": 10
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "lines": 122
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f",
+      "lines": 79
+    },
+    {
+      "path": "src/world_knowledge.js",
+      "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+      "lines": 14
+    },
+    {
+      "path": "src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "lines": 68
+    },
+    {
+      "path": "src/native_battle_host.js",
+      "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "lines": 60
+    },
+    {
+      "path": "src/audited_kit_reserve_content.js",
+      "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+      "lines": 23
+    },
+    {
+      "path": "src/audited_kit_reserve_host.js",
+      "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+      "lines": 77
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_host.js",
+      "sha256": "0883c135c06c956afcbc924ea470fad7eede0fdd993a82f763d47543db8c2f87",
+      "lines": 78
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_facts.js",
+      "sha256": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+      "lines": 215
+    },
+    {
+      "path": "src/techniques.js",
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+      "lines": 179
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "lines": 194
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+      "lines": 65
+    },
+    {
+      "path": "src/observation_channels.js",
+      "sha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "lines": 319
+    },
+    {
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "lines": 149
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "lines": 124
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "lines": 72
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "lines": 227
+    },
+    {
+      "path": "src/world_instances.js",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "lines": 429
+    }
+  ]
+}

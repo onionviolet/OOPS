@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-07T06:17:09.995617+00:00",
+  "repairs": [
+    "Cooling accepted work cancellation group allowlist",
+    "Deduplicated duty controls and applied old duplicate-booking admission to actual household actions",
+    "Received attributed duty records merged into existing People rows",
+    "Actual lesson payment marks player lessonFunded so later original report stays reachable without fake completion",
+    "IR-01: exact dedicated Proto23 route source replaces its feature-wave copy, retaining duplicate-conflict protection and destination recognition"
+  ],
+  "files": [
+    {
+      "path": "src/main.js",
+      "before": "1d05142ad9e62ee28067ba1bc5c272f7411d3acfdfc12469f6c1e7af85f89ef7",
+      "after": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "before": "4cbcf34419e34a95032a2d2267f3bbd8540e2b994cf913b3d7f1974a0f41253d",
+      "after": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "before": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982",
+      "after": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/agreed_duty_content.js",
+      "before": "d3dfb920a82b4462d183e213c023662648e387337f505fe9df627858c3ff4512",
+      "after": "2364e9abf895cf36001dcf542a0213ca3c7fc0c4143d6b65906aab6fa1bbf91f"
+    },
+    {
+      "path": "src/known_routes_host.js",
+      "before": "51594e3efd498309b442218577cac79d5cfba8adfff80945c1f77a500482592f",
+      "after": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f"
+    }
+  ],
+  "checks": "All five source repairs syntax checked. First four independently reread, IR-01 follow-up confirmed single Proto23 route source/current recognition/duplicate protection. Matching current build/map/served bytes qualified; gameplay deferred."
+}

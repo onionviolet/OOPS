@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "status": "source-released",
+  "writer": "/root/backlog",
+  "exclusiveScope": [
+    "src/backlog_expansion_*",
+    "docs/gm/feature-wave/backlog/"
+  ],
+  "releasedTo": "/root",
+  "sourceHashes": {
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/backlog_expansion_content.js": "b57f6273c32f1272d5515003064346763cc83e5b6b754816694115d58fcecaa6",
+    "src/backlog_expansion_core.js": "03c0d0da5deda2bc0d204d8ff1109e9563cfb0fd7d3f1d1caa38028aef05e8ea",
+    "src/backlog_expansion_host.js": "3db936f5f3967bc9a1c127a293c2145d0546967d6f1857d04736874961ec96ca",
+    "src/backlog_expansion_opportunities.js": "e3dcdf6c02938241aa4bbaa8dfa7770f72560557ab9cc4770f49318ceb5933ac",
+    "src/backlog_expansion_time.js": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+    "src/backlog_expansion_ui.js": "ca2f835b857d4859b0ae21441e0f4e357376b70d53cc7b0e00b43018643ac4d7"
+  },
+  "checks": [
+    "node syntax seven modules",
+    "cold full expedition registry + UI imports",
+    "scoped whitespace"
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "sourceChangeStatus": "implemented-unverified"
+}

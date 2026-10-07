@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-05",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "scope": "planning-only; held module read-only",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+    "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md": "69bd02bbda1646d04ad682b560c457c320e9bdeeb68a1a3d791c27b5b71e7bbf",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+    "docs/gm/world-implementation/abilities/NATIVE_CONSUMER_REVIEW.md": "257af158c0d2f7133cc3f5c6f60028cb9bcf3628ace9b5011648bdb0d92facd5",
+    "docs/gm/world-implementation/second-pass/experience/REPORT.md": "a4856af2334c9c770e4b712e0cc468cc3ba4bd35d4a80d86ae9b4c58857643a3",
+    "src/original_frontier_campaign_content.js": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+    "src/data/skills.js": "11bd4bafd1591520cfe3a9892a3de28ed274bc278d8dfa19a5ed7d70b2024a96",
+    "src/pathfinding.js": "61f6f6cae577a301c0fe51e2282886d5dd0bf8f0faaa234c949587833cf90f44",
+    "src/models/skill.js": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8",
+    "src/technique_content.js": "db47b9484edb0c92522b926d1c30a7c4cd2af6ecf83d39e69d44539cf01cd822",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+    "src/pursuit.js": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/adventure_notebook.js": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+    "src/people_knowledge.js": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3"
+  },
+  "sharedInterface": "absent at initial planning refresh",
+  "subsequentReadback": {
+    "date": "2026-10-05",
+    "sha256": {
+      "docs/USER_VISION.md": "e2bc2899f80ef94eaadfc190314a633851b18a46e022ed0b721bf07aaa304c92",
+      "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md": "0a4743f06fa2b1185786379d17fce052723a07d30078aac91629c5e1732625c2",
+      "docs/gm/world-implementation/INTERFACE.md": "0324a210418cebee872331f49a4b96e240ab3127fbb42743d2277022df2e9008",
+      "src/skill_expansion_content.js": "ccd1a1d5238061fbbce4ab8199341ea9e0016b41a830037f905ea53eba056c73",
+      "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+    },
+    "qualification": "Actual S2 and source exports read; no native integration/build/behavior claim."
+  }
+}

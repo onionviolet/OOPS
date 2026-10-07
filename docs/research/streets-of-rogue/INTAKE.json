@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "game": "Streets of Rogue 1",
+  "steam_app_id": 512900,
+  "observed_utc": "2026-10-06T05:29:32.134210+00:00",
+  "review_status": "completed available-source fallback; original game-source criterion unmet",
+  "sources": [
+    {
+      "id": "RogueLibs",
+      "url": "https://github.com/Chasmical/RogueLibs",
+      "commit": "d76523acb484168f4d2d1d7bc0fce0d2c5d263f1",
+      "private_checkout": "/Users/weiwei/.codex/research/streets-of-rogue/RogueLibs",
+      "tracked_files": 450,
+      "csharp_files": 217,
+      "archived": true,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "classification": "third-party framework and compatibility interaction reimplementation",
+      "original_gameplay_source": false,
+      "committed_decompiled_files": 0,
+      "committed_main_assemblies": 0
+    },
+    {
+      "id": "streets-of-rogue-multiplayer",
+      "url": "https://github.com/redaphid/streets-of-rogue-multiplayer",
+      "commit": "01f205c57f65ab98276c6989da6d98eddeb89c65",
+      "private_checkout": "/Users/weiwei/.codex/research/streets-of-rogue/streets-of-rogue-multiplayer",
+      "tracked_files": 104,
+      "csharp_files": 45,
+      "archived": false,
+      "license": null,
+      "classification": "third-party multiplayer and Wizard gameplay mod; not original game source",
+      "original_gameplay_source": false,
+      "committed_decompiled_files": 0,
+      "committed_main_assemblies": 0
+    }
+  ],
+  "local_intake": {
+    "declared_steam_libraries": [
+      "/Users/weiwei/Library/Application Support/Steam"
+    ],
+    "library_apps": [
+      466170,
+      1325860,
+      2854290
+    ],
+    "app512900_present": false,
+    "targeted_download_root": "/Users/weiwei/Downloads/Games",
+    "game_name_or_main_assembly_found": false,
+    "scope_limit": "Filename/path inventory of declared Steam steamapps and targeted game downloads; not a whole-machine or account search."
+  },
+  "public_gameplay_candidate": {
+    "repo": "redaphid/streets-of-rogue-multiplayer",
+    "readme_claim": "README.md:76 lists decompiled/",
+    "contradicting_evidence": ".gitignore:1-3 ignores /decompiled/; pinned main has zero such tracked files",
+    "all_visible_branch_tips_checked": [
+      {
+        "name": "docs-overhaul",
+        "sha": "2998a79d3a9f229edbdc4cb99a9da3022614f239",
+        "tree_truncated": false,
+        "paths": 121,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "ecs",
+        "sha": "81a2af3bb1ee61e30e94e0ff7fde2b32d8d74d0f",
+        "tree_truncated": false,
+        "paths": 88,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "ecs-control-plane",
+        "sha": "297a8d290de168ab61e00ecc6da2f2de232f0d10",
+        "tree_truncated": false,
+        "paths": 64,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "ecs-durable-objects",
+        "sha": "f9d6f0fc6e73ba0012c39a25c19991deb3f1eb72",
+        "tree_truncated": false,
+        "paths": 62,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "feat/gm-reflection",
+        "sha": "9e2240709cf46fe94da2e343ffd8686e2c829f47",
+        "tree_truncated": false,
+        "paths": 96,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "feat/small-additions",
+        "sha": "2ec9fcbd6f7852790a1ab604d5a78f37ae973966",
+        "tree_truncated": false,
+        "paths": 107,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "feat/story-quests",
+        "sha": "949f18fdd662f93df82a70e7d0b2d6c2afd7ed08",
+        "tree_truncated": false,
+        "paths": 105,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "fix/gm-clone-character-creator",
+        "sha": "4b8d8d408ce2f8cf492de7eaf336cd289d0de735",
+        "tree_truncated": false,
+        "paths": 123,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "gm-chatter-events-2026-07-14",
+        "sha": "044aaa127ee4d51d6163fc9639f6068c1801f4e9",
+        "tree_truncated": false,
+        "paths": 123,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "main",
+        "sha": "01f205c57f65ab98276c6989da6d98eddeb89c65",
+        "tree_truncated": false,
+        "paths": 123,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      },
+      {
+        "name": "wizard",
+        "sha": "78f28542903f9055b4b56f0ee28c5d54de997ad5",
+        "tree_truncated": false,
+        "paths": 39,
+        "decompiled_paths": [],
+        "main_assemblies": []
+      }
+    ],
+    "scope_limit": "All11 visible branch tips checked via nontruncated recursive GitHub trees; historical commits/tags/releases and all possible public repos not exhaustively searched."
+  },
+  "additional_discovery": {
+    "queries": [
+      "\"Streets of Rogue\" \"Assembly-CSharp\" \"decompiled\" github",
+      "\"Streets of Rogue\" source code decompiled Agent.cs"
+    ],
+    "result": "No additional concrete original-gameplay source candidate qualified. Search results were mod/framework/depot/reference instructions. Not proof none exists."
+  },
+  "required_input": {
+    "minimum": "Accessible Streets of Rogue1 Assembly-CSharp.dll with sibling Managed dependency assemblies from a supplied or authorized local build, or an inspectable pinned public original-gameplay source reference.",
+    "windows_linux_location": "StreetsOfRogue_Data/Managed or StreetsOfRogueLinux_Data/Managed",
+    "mac_location": "An actual supplied app managed-assembly directory; no Mac layout was inferred as installed.",
+    "record_on_arrival": [
+      "Steam/build or supplied version provenance",
+      "main assembly full SHA256/AssemblyVersion",
+      "dependency manifest",
+      "ILSpy command/version/diagnostics/export hashes"
+    ],
+    "pending_classes": [
+      "Agent",
+      "AgentInteractions",
+      "Relationships",
+      "Quests",
+      "StatusEffects",
+      "ItemFunctions",
+      "PlayfieldObject",
+      "Door",
+      "Computer",
+      "LoadLevel"
+    ]
+  },
+  "decompilation": {
+    "performed": false,
+    "reason": "No game main assembly available",
+    "available_tool_reference": "../caves-of-qud/INTAKE.json",
+    "tool": "ilspycmd9.1.0.7988 on .NET8.0.31 osx-arm64 from existing private Qud tools; not invoked in this lane"
+  },
+  "boundaries": {
+    "game_installed_by_agent": false,
+    "game_launched": false,
+    "game_purchased": false,
+    "private_saves_profiles_read": false,
+    "runtime_changed": false,
+    "raw_source_in_git": false,
+    "gameplay_tests_or_builds_run": false,
+    "commit_push_publication_automation": false
+  },
+  "yair_initial_baseline": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty_rows": 248,
+    "private_snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/YAIR_INITIAL_BASELINE.json"
+  },
+  "attribution": "Matt Dabrowski/tinyBuild are the game reference; RogueLibs contributors and redaphid remain third-party source authors. No source/assets copied into YAIR runtime; upstream YAIR attribution/LICENSE untouched.",
+  "reading_coverage": "COVERAGE.json",
+  "private_intake_artifacts": [
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/RogueLibs_TREE.txt",
+      "sha256": "7625ed9b2f024e6a6bed4d1bcbfe063ded5ffa092d6bd759bccb8d23c4634e73"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/streets-of-rogue-multiplayer_TREE.txt",
+      "sha256": "37073678f9af1a92dd16109907f4e3e0a32eb2b2cff8fe76b1e205083679f2a4"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/RogueLibs_METADATA.json",
+      "sha256": "9d0d8cdbaa0c101d937a538c12c6c39c84adab11a90c1a0d9854610f1d82d3c0"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/streets-of-rogue-multiplayer_METADATA.json",
+      "sha256": "ae4c21c39f69917b7343197488ae359e2ff9ddd564791d9dd16c1c0811e2c37a"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/PUBLIC_CANDIDATE_BRANCHES.json",
+      "sha256": "2d608f86a1cb78b211a863537a787d5d27a238d942c3a26bf22aaeee8f74be7c"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/PINNED_REMOTE_READBACK.json",
+      "sha256": "1e020cc5bbf908a4e23e623ad3a730c325fe21206c65388adf45032e318b5dd6"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/YAIR_INITIAL_BASELINE.json",
+      "sha256": "636bead3624db913caf396e23f22c4fdbc73c3dc46e6037354cb2fb06c274592"
+    }
+  ]
+}

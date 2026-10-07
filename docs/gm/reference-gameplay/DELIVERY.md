@@ -1,0 +1,25 @@
+# Reference gameplay delivery
+
+The finite five-family assignment is implemented through the existing native/simulation/UI/save owners, **implemented-unverified**. Rebuilt bundle `2f04d677a4db` matches all226local source-map inputs (37qualified vendor maps). Syntax/import/registry/Ink-compiler/build checks pass. Current build/source evidence is in [BUILD.json](BUILD.json); each selected family is mapped in [COVERAGE.json](COVERAGE.json). [Acceptance backlog](ACCEPTANCE_BACKLOG.md) owns the unrun gameplay/save/failure/keyboard/director gates. Names, prices, fiction and action-profile details are reversible original prototypes.
+
+## Playable entry route
+
+In Village, greet the elder and follow the existing Field journal/local services. Open Notebook's **Tools, practice & local lives**, then **Earned feats** to enroll an empty character record. This does not recognize older progress automatically. A separate reconciliation control can recognize only authoritative named basic work, with provenance.
+
+Meet Eda through **Fitting tools & materials**, inspect the swollen joint, then ask about measured cooling. Her two sleeves cost two coins each; her eight salt packets cost one coin each. Ordinary sleeve use sets sap into real repair resin and returns the empty sleeve. Resin and two sound staves produce two native survey kits. Empty sleeves can be recharged with a salt packet and effort. These functions use the real carried native items and her finite owned stock.
+
+Eda's lesson costs one coin. With the actual charged sleeve and current teacher/source/body/contact, three paid salt trials earn measured cooling's hook-control function. **Follow Eda's finite plan to hook control** stops at that mastery before another reservation, with a hard maximum of three trials and no fabricated product. All costs, cancellation and current reasons remain in the actual quotes.
+
+Inspect the existing sluice claim. The no-strike attempt explicitly forbids player/recruited-team strikes from enrollment through passage, including misses. It selects automatic self guards, leaving material/gate work to actual player choices; the drainage route remains valid. Completion, violation, withdrawal and the ordinary passage result have separate receipts. After Eda's offer and Lio's real introduction, the prepared-team goal asks for trained cooling, a real charged-sleeve application and actual willing equipped supplied Lio at admission, then a successful won/objective passage. Both goals permit at most three attempts and once-only recognition.
+
+New enrolled sluice encounters use schema4. Nera and Oren select among their fixed owned frame/pole, body, current targets and paid stamina; cooling disables the actual pole pull and leaves brace/jab alternatives. A real paid guarded block/mitigation earns one retained next-choice retreat or counter. Automatic player attacks wait for that choice while native opponents continue. The next other player action, attacker departure or encounter end expires it. Native cadence/RNG/guards/nonce tokens and actual wounds/stock remain authoritative.
+
+## Compatibility and source boundary
+
+Explicit feat enrollment admits optional expansion9/referenceGameplay1. Missing state is inert; old expansion5/6/7/8 and earlier jobs/sessions remain supported. Existing schema3 sluice sessions stay frozen on their original path; only new enrolled sessions use4. New state, workshop receipt, challenge admission/settlement, feat provenance and optional work-plan goal have validators. Earlier readers reject expansion9 before loading mutates native state. No global account profile, second prestige, new reward publisher or automatic history reconciliation was introduced. Character feats retain through the existing one field renewal.
+
+The only mutation seam for recognition is the current `persistExpansion` staged-result boundary, before durable save. Failed/stale planners produce no staged outcome; storage failure prevents native/expansion publication. Played-clock settlements on opted-in characters receive a fresh command sequence before recognition. Rendering, loading and importing call validation/projection only. Persistence roundtrip and failure behavior remain later acceptance gates, not passed results.
+
+The original ideas reuse the five selected Qud source paths and seven DCSS/DDA traces in their research owners. No proprietary source/prose/assets were copied, no wider source reread was claimed, and upstream attribution/LICENSE remain intact. Personal saves and source libraries were not accessed or changed. No commit, push, publication, acquisition or recurring automation ran.
+
+Root integrated three disjoint workers: feats (GPT-6 Luna high, focused receipt/privacy repair), workshop and battle (GPT-6.1 Sol medium). Their file reservations are released after source delivery; the final matched rebuild and receipt are sealed, and this finite role releases shared source ownership. [Checkpoint](CHECKPOINT.md) records actual status and writer ownership.

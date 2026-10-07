@@ -1,0 +1,1324 @@
+{
+  "schema": 1,
+  "candidate": "Factorio / Space Age",
+  "date": "2026-10-06",
+  "disposition": "trial_original_lot_contract_adapt_patterns",
+  "dependency_selected": false,
+  "status": "bounded_accessible_declarative_traces_complete; closed_engine_consumer_gap_retained",
+  "source_pins": {
+    "stable": {
+      "version": "2.0.77",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/stable-2.0.77",
+      "method": "Only selected public files exported with git show tag; Lua not evaluated."
+    },
+    "experimental": {
+      "version": "2.1.21",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/source",
+      "method": "Shallow sparse public source; selected exception windows only."
+    },
+    "api_versions": [
+      "2.0.77",
+      "2.1.21"
+    ],
+    "raw_manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/SOURCE_MANIFEST.json"
+  },
+  "evidence": [
+    {
+      "id": "F01",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "README.md",
+      "ranges": [
+        [
+          1,
+          23
+        ]
+      ],
+      "sha256": "3ec290962b5a59fdb5eb312031cade1f3810c35b059a9a78ddc17f05b8d2b353",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/README.md#L1-L23",
+      "claim": "Official automatically generated public Lua prototype definitions for mod authors and reference use; this is not full C++ engine source."
+    },
+    {
+      "id": "F02",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "base/info.json",
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "sha256": "fe566a0b08b331d7cfbd13a5857d7f6f2414591efa26723a6f8dbd3781ac4786",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/info.json#L1-L9",
+      "claim": "Stable base module metadata."
+    },
+    {
+      "id": "F03",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/info.json",
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "sha256": "2c2578fd84cc2e920c944c90047eaa5a1f6984a1ce07c246fc1906d90c5505ad",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/info.json#L1-L11",
+      "claim": "Stable Quality module and feature requirement."
+    },
+    {
+      "id": "F04",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/info.json",
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "sha256": "f8957fc975949bb647b64ca246a4de7f981232c4ab47c4db4f60ccea6aef5e1a",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/info.json#L1-L16",
+      "claim": "Stable Space Age requires Quality/Elevated Rails and expansion features."
+    },
+    {
+      "id": "F05",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "elevated-rails/info.json",
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "sha256": "310a4c06d65f08199a76780388ba93c333bb752b1258415ea4d5211d9a681089",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/info.json#L1-L11",
+      "claim": "Rails metadata only; rail gameplay unread."
+    },
+    {
+      "id": "F06",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/prototypes/entity/enemies.lua",
+      "ranges": [
+        [
+          3971,
+          3975
+        ],
+        [
+          4010,
+          4020
+        ]
+      ],
+      "sha256": "987fe7071f4f9078d8197a58ad86a604f907ce40c20bb9f3cf5c52e1de7ea9a7",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/enemies.lua#L3971-L3975",
+      "claim": "Stomper shell mining costs 2 base mining time; egg yield ranges zero to one and is 50 percent spoiled."
+    },
+    {
+      "id": "F07",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/prototypes/item.lua",
+      "ranges": [
+        [
+          1148,
+          1213
+        ],
+        [
+          68,
+          88
+        ]
+      ],
+      "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/item.lua#L1148-L1213",
+      "claim": "Egg expires after 15 base minutes into an enemy trigger with placement exceptions; agricultural science expires after an hour into spoilage."
+    },
+    {
+      "id": "F08",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/prototypes/recipe.lua",
+      "ranges": [
+        [
+          379,
+          408
+        ],
+        [
+          784,
+          805
+        ]
+      ],
+      "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L379-L408",
+      "claim": "Pressure-qualified egg reproduction and terminal agricultural science recipe costs, output and freshness reset."
+    },
+    {
+      "id": "F09",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/prototypes/entity/entities.lua",
+      "ranges": [
+        [
+          90,
+          95
+        ],
+        [
+          108,
+          121
+        ]
+      ],
+      "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L90-L95",
+      "claim": "Organic Biochamber speed 2, 500 kW separate nutrient burner, four module slots and base productivity."
+    },
+    {
+      "id": "F10",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/prototypes/technology.lua",
+      "ranges": [
+        [
+          928,
+          958
+        ],
+        [
+          1091,
+          1139
+        ]
+      ],
+      "sha256": "64ff6fc1a01270b646e4a61d2470c2c52c6b78a378d3ddaa0059bd3418cc4ea5",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/technology.lua#L928-L958",
+      "claim": "Separate recipe acquisition prerequisites/triggers; agricultural science reaches tree-seeding research and wood-processing unlock."
+    },
+    {
+      "id": "F11",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "space-age/base-data-updates.lua",
+      "ranges": [
+        [
+          275,
+          278
+        ],
+        [
+          911,
+          931
+        ]
+      ],
+      "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/base-data-updates.lua#L275-L278",
+      "claim": "Lab accepts agricultural science; Space Age changes recycler acquisition and manufacturing surface requirement."
+    },
+    {
+      "id": "F12",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/quality.lua",
+      "ranges": [
+        [
+          1,
+          58
+        ]
+      ],
+      "sha256": "5db9b95306d12f796e384eb44f6d2e4584aff57cde579f8b763ad62a012fa75d",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/quality.lua#L1-L58",
+      "claim": "Stable named quality levels 1,2,3,5 and version-specific next probability."
+    },
+    {
+      "id": "F13",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/item.lua",
+      "ranges": [
+        [
+          5,
+          20
+        ]
+      ],
+      "sha256": "05b20aee997abdd8b5a89099ab8b7562db779e63d11f5ddabdb2c3365351b5b4",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/item.lua#L5-L20",
+      "claim": "Stable quality module 1 effect 0.1 and speed -0.05."
+    },
+    {
+      "id": "F14",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/recipe.lua",
+      "ranges": [
+        [
+          4,
+          13
+        ]
+      ],
+      "sha256": "f84be1ffae4358b015f9e4025a3a16931f30d1d1ddf5d2e1151b8bebd5767015",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/recipe.lua#L4-L13",
+      "claim": "Quality module costs five electronic and five advanced circuits, 15 base recipe time."
+    },
+    {
+      "id": "F15",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/technology.lua",
+      "ranges": [
+        [
+          3,
+          34
+        ],
+        [
+          146,
+          169
+        ]
+      ],
+      "sha256": "e9bee4ea6c81befabc5642a27f3b88b79838951dff7020df63b1b75939c231ec",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/technology.lua#L3-L34",
+      "claim": "Quality research unlocks uncommon/rare; recycling has separate prerequisites before Space Age overrides."
+    },
+    {
+      "id": "F16",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/recycling.lua",
+      "ranges": [
+        [
+          75,
+          120
+        ],
+        [
+          122,
+          155
+        ],
+        [
+          158,
+          184
+        ],
+        [
+          187,
+          218
+        ],
+        [
+          221,
+          240
+        ]
+      ],
+      "sha256": "a92f7a295ded72830711854cec5b0ea3896a728fb4fef59d51f62f02b17e829f",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/recycling.lua#L75-L120",
+      "claim": "Actual Lua generation consumes one item and emits quarter solid-ingredient/fractional-return reverse recipes; fluid loss, category exceptions and 25 percent self-return fallback remain distinct."
+    },
+    {
+      "id": "F17",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/data-updates.lua",
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "sha256": "a7d5da6315cfc70a5e62f996a7d08c0a598764cfd14d9ab02d4349a117f776f7",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/data-updates.lua#L1-L27",
+      "claim": "Prototype stage actually calls reverse generator, then creates eligible self-recycling fallbacks."
+    },
+    {
+      "id": "F18",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "quality/prototypes/entity/entity.lua",
+      "ranges": [
+        [
+          47,
+          65
+        ]
+      ],
+      "sha256": "3d50574843fc2a931b4c799b81e43a64a5b195ab6a0aa54749d223cc3c298282",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/entity/entity.lua#L47-L65",
+      "claim": "Recycler uses 180 kW electric power, speed 0.5 and four modules; allowed effects omit productivity."
+    },
+    {
+      "id": "F19",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "base/prototypes/recipe.lua",
+      "ranges": [
+        [
+          1870,
+          1883
+        ]
+      ],
+      "sha256": "70fbd990a9d62935afc07c647d943ab7d60c3a941ea1d91c12f23fe057bf290a",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/recipe.lua#L1870-L1883",
+      "claim": "MK 2 armor costs 25 efficiency-module 2,25 speed-module 2,60 processors,40 electric engines,30 low-density structures and 25 base recipe time."
+    },
+    {
+      "id": "F20",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "base/prototypes/item.lua",
+      "ranges": [
+        [
+          3705,
+          3709
+        ],
+        [
+          3731,
+          3743
+        ]
+      ],
+      "sha256": "e992959c0b306dade7b40156212890ce82f3a2a8b941667fcf3a0384a82f9b15",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/item.lua#L3705-L3709",
+      "claim": "MK 2 armor is one useful physical item with large equipment grid and inventory bonus."
+    },
+    {
+      "id": "F21",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "base/prototypes/equipment-grid.lua",
+      "ranges": [
+        [
+          17,
+          23
+        ]
+      ],
+      "sha256": "0da4dcebfb2291b42d906ab77a2821293b50c736ee589fd567e003ffd9601e53",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/equipment-grid.lua#L17-L23",
+      "claim": "Large armor grid is 10 x 10 and admits armor equipment categories."
+    },
+    {
+      "id": "F22",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "base/prototypes/technology.lua",
+      "ranges": [
+        [
+          3439,
+          3465
+        ]
+      ],
+      "sha256": "19e827c2b7d02a72eaca5be284dd67bf76e0d4ecdd86722232d8f98805d4fe6f",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/technology.lua#L3439-L3465",
+      "claim": "MK 2 armor has research prerequisites and 400 research units before construction permission."
+    },
+    {
+      "id": "F23",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.0.77-stable",
+      "commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+      "path": "core/lualib/util.lua",
+      "ranges": [
+        [
+          883,
+          885
+        ]
+      ],
+      "sha256": "2abc4d4ec3e8cd47cee197231ce45b7bc34cf7a1aaa841cdfe3b776d67094a1f",
+      "url": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/core/lualib/util.lua#L883-L885",
+      "claim": "Prototype time units are 60 ticks per second,60 seconds per minute,60 minutes per hour; execution is engine-owned."
+    },
+    {
+      "id": "X01",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "base/info.json",
+      "ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "sha256": "c1b8f8b74948524801b64109b4a8a4a2701cb2a6a868a3674ee20b2c27e0684c",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/base/info.json#L1-L9",
+      "claim": "Experimental base version 2.1.21."
+    },
+    {
+      "id": "X02",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "space-age/info.json",
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "sha256": "d0f338f39a22e1bc574be08c07a3466ea6b5af906d79cffdfe1fdb2ebf30b5d5",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/info.json#L1-L16",
+      "claim": "Separate Recycler dependency and +Quality recommendation; expansion feature flags."
+    },
+    {
+      "id": "X03",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "quality/info.json",
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "sha256": "401fd5f624d09eff68e8a3ea141b201cf16d574761e3882a553e16d43026f4b2",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/info.json#L1-L12",
+      "claim": "Experimental Quality requires base/recycler and expansion quality feature."
+    },
+    {
+      "id": "X04",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "recycler/info.json",
+      "ranges": [
+        [
+          1,
+          11
+        ]
+      ],
+      "sha256": "ab94595c08764e419caf49a0856f371111671d0695f77baccb5868dea45a5800",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/info.json#L1-L11",
+      "claim": "Separate expansion-gated Recycler module."
+    },
+    {
+      "id": "X05",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "recycler/recycling.lua",
+      "ranges": [
+        [
+          98,
+          123
+        ],
+        [
+          245,
+          265
+        ]
+      ],
+      "sha256": "b3673ea8330e5ce7d47a74b715b3675d240d986f5eba56e797e6f47a2fa01066",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/recycling.lua#L98-L123",
+      "claim": "Experimental recycling time scales by result count with minimum; explicit floor/fraction and independent self-return probability differ from stable."
+    },
+    {
+      "id": "X06",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "space-age/prototypes/recipe.lua",
+      "ranges": [
+        [
+          1041,
+          1048
+        ],
+        [
+          1062,
+          1069
+        ],
+        [
+          1083,
+          1090
+        ]
+      ],
+      "sha256": "392bd1b35d108e084827224d7768033f18c1588d496593764560c1371651b509",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/recipe.lua#L1041-L1048",
+      "claim": "Experimental asteroid reprocessing recipes disallow quality."
+    },
+    {
+      "id": "X07",
+      "classification": "source_inspected_definition_or_Lua_generator_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "quality/prototypes/item.lua",
+      "ranges": [
+        [
+          5,
+          20
+        ]
+      ],
+      "sha256": "665020622092107589de3199afe647a038df0e4969424015abea668bb5eedb4b",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/item.lua#L5-L20",
+      "claim": "Experimental quality-module 1 effect 0.01 uses revised quality roll interpretation, not stable 0.1."
+    },
+    {
+      "id": "X08",
+      "classification": "source_inspected_exploratory_exception_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "space-age/prototypes/item.lua",
+      "ranges": [
+        [
+          1090,
+          1156
+        ]
+      ],
+      "sha256": "49ae9c217352322d8afb0a810131b5113c9b0a694714ba4f36ba78ab6ce20680",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/item.lua#L1090-L1156",
+      "claim": "Exploratory source read, not a third selected trace: biter eggs use items_per_trigger25 and hostile spawn; grouping/rounding remains an engine gap, not a universal one-entity-per-item rule."
+    },
+    {
+      "id": "X09",
+      "classification": "source_inspected_exploratory_exception_not_executed",
+      "version": "2.1.21-experimental",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "path": "space-age/prototypes/recipe.lua",
+      "ranges": [
+        [
+          382,
+          410
+        ],
+        [
+          798,
+          819
+        ]
+      ],
+      "sha256": "392bd1b35d108e084827224d7768033f18c1588d496593764560c1371651b509",
+      "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/recipe.lua#L382-L410",
+      "claim": "Exploratory version comparison: experimental reproduction puts freshness reset on output product rather than the stable recipe-level field; do not transplant prototype field scope across versions."
+    }
+  ],
+  "api_documentation": [
+    {
+      "id": "A01",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/prototypes/RecipePrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selector": "RecipePrototype.reset_freshness_on_craft,result_is_always_fresh,energy_required,surface_conditions",
+      "claim": "Freshness reset requires successful non-spoiled completion; nominal time and environment constraints are engine contracts."
+    },
+    {
+      "id": "A02",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/classes/LuaItemStack.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/runtime-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-runtime-api.json",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+      "selector": "LuaItemStack.spoil_tick,spoil_percent,quality",
+      "claim": "Stack retains its own spoil deadline, percentage and quality; setting deadline to a past tick spoils immediately."
+    },
+    {
+      "id": "A03",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/prototypes/ItemPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selector": "ItemPrototype.spoil_ticks,spoil_to_trigger_result,spoil_result",
+      "claim": "Expansion-gated expiry/result/trigger fields; exact scheduling and delivery remains C++."
+    },
+    {
+      "id": "A04",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/prototypes/LabPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selector": "LabPrototype.inputs",
+      "claim": "Lab accepts declared science names; otherwise a technology cannot be researched there."
+    },
+    {
+      "id": "A05",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/prototypes/QualityPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selector": "QualityPrototype.default_multiplier,equipment_grid_width_bonus,equipment_grid_height_bonus,level",
+      "claim": "Width/height bonuses default to level: documented rare MK 2 target 12 x 12 from base 10 x 10 and rare level 2."
+    },
+    {
+      "id": "A06",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/classes/LuaEquipmentGrid.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/runtime-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-runtime-api.json",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+      "selector": "LuaEquipmentGrid.put,width,height",
+      "claim": "Engine insertion returns equipment or nil when it cannot be added; source for fit and equipment operation is not in public Lua."
+    },
+    {
+      "id": "A07",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.0.77",
+      "url": "https://lua-api.factorio.com/2.0.77/types/ItemProductPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.0.77/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/2.0.77-prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "selector": "ItemProductPrototype.extra_count_fraction",
+      "claim": "Fractional extra count is probability, not a guaranteed quarter refund on one sacrifice."
+    },
+    {
+      "id": "A08",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.1.21",
+      "url": "https://lua-api.factorio.com/2.1.21/prototypes/ItemPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.1.21/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/prototype-api.json",
+      "sha256": "5abe17bc8797770ab6c7ceb0cbe4348ab3b716efef59c7ee3e539596337132e6",
+      "selector": "ItemPrototype.quality_affects_spoil_ticks,spoil_quality_change,lab_ignores_spoil_percent",
+      "claim": "Experimental material quality/spoilage/lab qualifiers must not be assigned to stable 2.0 or native YAIRPG items."
+    },
+    {
+      "id": "A09",
+      "classification": "official_documentation_closed_engine_not_source",
+      "version": "2.1.21",
+      "url": "https://lua-api.factorio.com/2.1.21/prototypes/QualityPrototype.html",
+      "json_url": "https://lua-api.factorio.com/2.1.21/prototype-api.json",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/prototype-api.json",
+      "sha256": "5abe17bc8797770ab6c7ceb0cbe4348ab3b716efef59c7ee3e539596337132e6",
+      "selector": "QualityPrototype.spoil_ticks_multiplier,next_probability,chain_probability",
+      "claim": "Experimental quality lifetime and revised roll meanings require matching versioned item flags."
+    }
+  ],
+  "primary_documents": [
+    {
+      "id": "D01",
+      "url": "https://factorio.com/download",
+      "claim": "Stable 2.0.77 and experimental 2.1.21 listed. A public headless binary exists, but no binary was downloaded or executed.",
+      "classification": "primary_official_documentation_only",
+      "checked_date": "2026-10-06"
+    },
+    {
+      "id": "D02",
+      "url": "https://factorio.com/space-age/buy",
+      "claim": "Space Age requires base ownership; no user ownership/install/entitlement inspected.",
+      "classification": "primary_official_documentation_only",
+      "checked_date": "2026-10-06"
+    },
+    {
+      "id": "D03",
+      "url": "https://factorio.com/blog/post/fff-442",
+      "claim": "Official 2.1 note explains recommended Quality, separate Recycler and removed asteroid quality loop; source pins qualify current definitions.",
+      "classification": "primary_official_documentation_only",
+      "checked_date": "2026-10-06"
+    },
+    {
+      "id": "D04",
+      "url": "https://factorio.com/blog/post/fff-375",
+      "claim": "Historical design documents lossy expected 25 percent recycling, chance and bigger armor grids; not current runtime proof.",
+      "classification": "primary_official_documentation_only",
+      "checked_date": "2026-10-06"
+    },
+    {
+      "id": "D05",
+      "url": "https://factorio.com/blog/post/fff-414",
+      "claim": "Historical agriculture design documents freshness inheritance and separate nutrient fuel; exact current engine averaging/interruption remains inaccessible.",
+      "classification": "primary_official_documentation_only",
+      "checked_date": "2026-10-06"
+    }
+  ],
+  "price_and_access": [
+    {
+      "id": "P01",
+      "classification": "current_primary_store_snapshot_only",
+      "url": "https://store.steampowered.com/api/appdetails?appids=427520&cc=us&l=english",
+      "page_url": "https://store.steampowered.com/app/427520/",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/steam-base-us.json",
+      "sha256": "300d1cc4bd306324c502ec92d4fee6b7e137c8282f8ecf4f3aba80dc8f52ba54",
+      "checked_date": "2026-10-06",
+      "name": "Factorio",
+      "currency": "USD",
+      "price_cents": 3500,
+      "formatted": "$35.00",
+      "fullgame": null
+    },
+    {
+      "id": "P02",
+      "classification": "current_primary_store_snapshot_only",
+      "url": "https://store.steampowered.com/api/appdetails?appids=645390&cc=us&l=english",
+      "page_url": "https://store.steampowered.com/app/645390/",
+      "raw_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/factorio/docs/steam-space-age-us.json",
+      "sha256": "4ce691c6c5f2b3a0b83c0ee915bde3b07ff8a759d4b22288ade9447c57ed902f",
+      "checked_date": "2026-10-06",
+      "name": "Factorio: Space Age",
+      "currency": "USD",
+      "price_cents": 3500,
+      "formatted": "$35.00",
+      "fullgame": {
+        "appid": "427520",
+        "name": "Factorio"
+      }
+    }
+  ],
+  "incumbent": [
+    {
+      "path": "PROJECT.md",
+      "ranges": [
+        [
+          3,
+          13
+        ]
+      ],
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Current implemented-unverified delivery and retained shared owners."
+    },
+    {
+      "path": "src/items.js",
+      "ranges": [
+        [
+          224,
+          245
+        ],
+        [
+          307,
+          319
+        ],
+        [
+          886,
+          904
+        ],
+        [
+          1209,
+          1223
+        ]
+      ],
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Native keys/reconstruction retain ID/components/quality; gear quality already affects stats; no per-lot deadline/identity consumer here."
+    },
+    {
+      "path": "src/gameplay_transactions.js",
+      "ranges": [
+        [
+          27,
+          33
+        ]
+      ],
+      "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Key validator checks ID/components/numeric quality, not an admitted lot metadata contract."
+    },
+    {
+      "path": "src/energy_resources.js",
+      "ranges": [
+        [
+          1,
+          44
+        ],
+        [
+          46,
+          59
+        ]
+      ],
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Existing actor energy reserve/strain/charge/recovery/refund; not a perishable material stock owner."
+    },
+    {
+      "path": "src/simulation.js",
+      "ranges": [
+        [
+          129,
+          154
+        ],
+        [
+          176,
+          178
+        ],
+        [
+          207,
+          229
+        ],
+        [
+          390,
+          410
+        ]
+      ],
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Real paid commands freeze jobs; completion/refunds and common boundaries cover jobs/conditions/events, not material lot expiry."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "ranges": [
+        [
+          34,
+          41
+        ],
+        [
+          163,
+          197
+        ],
+        [
+          216,
+          225
+        ]
+      ],
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Actual inventory/resource/custody and knowledge/actor-condition owners remain distinct."
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "ranges": [
+        [
+          542,
+          568
+        ]
+      ],
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Single common played clock and authored boundary aggregation."
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "ranges": [
+        [
+          5,
+          17
+        ],
+        [
+          30,
+          50
+        ]
+      ],
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "One staged durable envelope preserves native domains."
+    },
+    {
+      "path": "src/main.js",
+      "ranges": [
+        [
+          528,
+          540
+        ]
+      ],
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Persistence precedes publication."
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "ranges": [
+        [
+          113,
+          122
+        ],
+        [
+          130,
+          135
+        ]
+      ],
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Paid research, physical jig and useful salvage already exist."
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "ranges": [
+        [
+          61,
+          68
+        ]
+      ],
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Existing sleeve/sap/resin/kit functions already supply material variant and consumption chains."
+    },
+    {
+      "path": "src/body_progression.js",
+      "ranges": [
+        [
+          65,
+          69
+        ]
+      ],
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Tender hands expire per actor; not two independent item lots."
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "ranges": [
+        [
+          28,
+          34
+        ],
+        [
+          39,
+          66
+        ]
+      ],
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Existing real optical pieces/assemblies, disassembly and useful held-device functions."
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "ranges": [
+        [
+          20,
+          25
+        ]
+      ],
+      "sha256": "cb47f3b9a4f2ec73c67cea70d671b55209e0820f23dfbae62d089a3d751e5163",
+      "classification": "live_source_inspected_runtime_unverified",
+      "claim": "Existing offer projection exposes actual costs and support."
+    }
+  ],
+  "engine_source_boundary": "Public Lua defines prototypes and generates recipes, not C++ crafting/spoil/quality/research/grid implementation. API contracts qualify those consumers as documented; no game run or binary inspection.",
+  "traces": [
+    {
+      "id": "FACT-T1",
+      "name": "Living seed: renew supply, consume for research or expire into world aftermath",
+      "version": "stable2.0.77",
+      "proof": "Lua data/generator source inspected; C++ execution documented and untested",
+      "stages": [
+        {
+          "stage": "acquisition/prerequisite",
+          "claim": "Once an appropriate shell exists, its 2 base-time mining may yield zero or one egg at 50 percent spoilage. Plant prerequisites/nutrient craft trigger open egg work; science needs its own prior research and 100 bioflux trigger. Wrong pressure 2000 blocks biological recipes. Initial fight/shell generation not traced.",
+          "evidence": [
+            "F06",
+            "F08",
+            "F10"
+          ]
+        },
+        {
+          "stage": "decision/cost",
+          "claim": "Spend the actual egg on reproduction or consume it with bioflux for science; holding risks expiry. Reproduction defines 1 egg+30 nutrients+60 water/15 base seconds; science 1 egg+1 bioflux/4 base seconds. Chamber separately needs nutrient fuel 500 kW at speed 2. Recipe ingredient nutrients are not all fuel costs.",
+          "evidence": [
+            "F07",
+            "F08",
+            "F09",
+            "F23"
+          ]
+        },
+        {
+          "stage": "mutation",
+          "claim": "Non-spoiled completed reproduction defines 2 fresh eggs; one returned seed is ignored by productivity. Freshness reset is conditional. Actual sampling, fuel and crafting execution is closed C++ specified by API, not demonstrated by running Lua.",
+          "evidence": [
+            "F08",
+            "F09",
+            "A01"
+          ]
+        },
+        {
+          "stage": "consumer",
+          "claim": "Agricultural science enters actual base lab inputs, funds tree-seeding alongside four other science categories for 50 units and unlocks wood-processing. The pack itself expires after 1 hour into spoilage. Engine research/freshness use not source-inspected.",
+          "evidence": [
+            "F07",
+            "F10",
+            "F11",
+            "A04"
+          ]
+        },
+        {
+          "stage": "failure/aftermath",
+          "claim": "Egg base expiry 15 minutes; a half-spoiled normal egg has only 7.5 base minutes remaining. Each expired egg defines a hostile premature big-wriggler trigger with collision fallback and abort-over-space exceptions. Wrong surface, missing seed/fuel or late input prevent usable supply. Exact mid-craft loss/refund/tick and stack merging stay unknown.",
+          "evidence": [
+            "F06",
+            "F07",
+            "F08",
+            "F09",
+            "A02",
+            "A03"
+          ]
+        }
+      ],
+      "limits": "No complete ecology/combat acquisition audit. Freshness averaging, lab value, spawn delivery and interruption are engine-owned; no runtime proof."
+    },
+    {
+      "id": "FACT-T2",
+      "name": "Sacrifice usable armor for lossy parts; quality changes legal equipment space",
+      "version": "stable2.0.77",
+      "proof": "Source reverse-recipe generator/definitions; actual engine quality/grid consumer documented and untested",
+      "stages": [
+        {
+          "stage": "prerequisite/choice",
+          "claim": "Own actual MK 2 armor, unlocked recycler and electricity. Separate quality research admits uncommon/rare. Keep/wear usable armor or irreversibly sacrifice it for parts; optional quality modules consume scarce circuits and compete with speed. Space Age moves recycler acquisition to Fulgora-vault mining/manufacture magnetic-field 99.",
+          "evidence": [
+            "F11",
+            "F13",
+            "F14",
+            "F15",
+            "F18",
+            "F20",
+            "F22"
+          ]
+        },
+        {
+          "stage": "cost",
+          "claim": "Armor costs 25 efficiency-module 2+25 speed-module 2+60 processors+40 electric engines+30 low-density structures/25 base recipe time. Reverse generator consumes 1 armor and constructs quarter solid ingredient quantities with fractional extra product; fluids are not returned. Recycler adds 180 kW electricity/speed 0.5, permits quality but not productivity.",
+          "evidence": [
+            "F16",
+            "F18",
+            "F19",
+            "A07"
+          ]
+        },
+        {
+          "stage": "mutation",
+          "claim": "Actual data-updates invokes the generator and supplies hidden reverse recipes. Quarter-return arithmetic is source-visible; runtime item consumption, integer parsing and probabilistic output/quality preservation are C++/documented. A single sacrifice is not a guaranteed 25 percent refund.",
+          "evidence": [
+            "F16",
+            "F17",
+            "A07",
+            "D04"
+          ]
+        },
+        {
+          "stage": "functional consumer",
+          "claim": "MK 2 armor binds 10 x 10 base grid. Rare level 2 plus documented width/height bonuses yields 12 x 12 capacity target, enabling different simultaneous owned equipment means. Engine grid insertion returns equipment or nil if it cannot be added; actual layout/power/body execution was not inspected. This differs from native YAIRPG attack/defense quality multiplier.",
+          "evidence": [
+            "F12",
+            "F20",
+            "F21",
+            "A05",
+            "A06"
+          ]
+        },
+        {
+          "stage": "failure/exception",
+          "claim": "No universal dismantle refund: fluid loss, multi-output/category/auto_recycle exclusions, self-return fallback 25 percent chance and missing productivity are separate. Engine fit can fail; unlimited profitable or guaranteed Legendary rerolls are not inferred. Equipped-armor recycling protection/inventory shrink behavior unreviewed.",
+          "evidence": [
+            "F16",
+            "F18",
+            "A06",
+            "A07"
+          ]
+        }
+      ],
+      "limits": "No stochastic runtime, full matching ingredient-quality rules, equipment power operation, live equipped item removal or layouts tested."
+    }
+  ],
+  "broader_mechanic_map": [
+    {
+      "join": "acquisition -> existing age -> delivery urgency",
+      "finding": "An obtained egg can be half-aged. Two same-ID lots have independent deadlines; one actor condition/item counter cannot represent both.",
+      "evidence": [
+        "F06",
+        "A02"
+      ],
+      "original_implication": "A request can require the actual timely sample without retroactively aging ordinary old stock."
+    },
+    {
+      "join": "seed -> feed/water/fuel -> retain supply or terminal consumer",
+      "finding": "The living input can be kept renewable or spent on science. Ingredient nutrients and separate burner fuel are distinct costs.",
+      "evidence": [
+        "F08",
+        "F09",
+        "F10"
+      ],
+      "original_implication": "Maintenance of a local culture competes with useful terminal work and needs actual holder/site/means."
+    },
+    {
+      "join": "expiry -> actual aftermath entity -> placement exceptions",
+      "finding": "Expired goods can cause a new world entity rather than vanish. Collision/space exceptions qualify delivery.",
+      "evidence": [
+        "F07",
+        "A03"
+      ],
+      "original_implication": "A bounded original spill/specimen aftermath belongs at actual holder/site, not a global debuff or automatic forced combat."
+    },
+    {
+      "join": "knowledge -> local environment -> transported physical means",
+      "finding": "Pressure/magnetic-field gates separate permission, production and physical compatibility.",
+      "evidence": [
+        "F08",
+        "F10",
+        "F11"
+      ],
+      "original_implication": "Methods can travel as memory while materials, apparatus and site decide execution; no extra world needed for initial proof."
+    },
+    {
+      "join": "lossy salvage -> quality investment -> combinable equipment",
+      "finding": "A useful object is sacrificed; documented quality grid capacity changes what can fit together.",
+      "evidence": [
+        "F16",
+        "F19",
+        "F20",
+        "F21",
+        "A05",
+        "A06"
+      ],
+      "original_implication": "Larger housing could support a new tool combination with body/power/custody costs, beyond existing gear stats/fixed optical assembly. This larger design is unselected."
+    },
+    {
+      "join": "noninvertible processing -> scarce recoverable components",
+      "finding": "Fluid loss, recipe exclusions and 25 percent self-return are distinct from reversible optical disassembly.",
+      "evidence": [
+        "F16",
+        "F17",
+        "F18"
+      ],
+      "original_implication": "Disclose exact salvage classes; no universal recovery/upcycling economy."
+    },
+    {
+      "join": "stable2.0 -> experimental2.1 -> expansion modules",
+      "finding": "2.0 requiresQuality;2.1 splitsRecycler/recommendsQuality, revises generation and quality/spoil qualifiers, and disables asteroid quality reprocessing.",
+      "evidence": [
+        "F03",
+        "F04",
+        "X02",
+        "X03",
+        "X04",
+        "X05",
+        "X06",
+        "X07",
+        "A08",
+        "A09",
+        "D03"
+      ],
+      "original_implication": "Keep optional content/version contracts explicit; experimental lifetime effects do not prove stable 2.0 or native behavior."
+    },
+    {
+      "join": "species trigger grouping and freshness-field scope",
+      "finding": "Experimental biter eggs define 25 items per trigger while the selected pentapod path defines one. Experimental output-level freshness reset differs from stable recipe-level scope.",
+      "evidence": [
+        "F07",
+        "F08",
+        "X08",
+        "X09"
+      ],
+      "original_implication": "Author each material conversion/grouping and version explicitly; no universal hazard count, rejuvenation or copy-and-paste prototype contract."
+    }
+  ],
+  "coverage": {
+    "stable": "Selected F01-F23 source windows and A01-A07 API members only; full files/API downloads are not whole-source semantic coverage.",
+    "experimental": "X01-X07/A08-A09 exceptions only; neither installed nor stable runtime certified. X08-X09 are retained exploratory/version exceptions, not extra selected paths. Other initial searches/views were locators only, not a complete family audit.",
+    "documented": "Purchase/API/official design; historical blogs qualified by matching revision.",
+    "engine_gap": "Public Lua defines prototypes and generates recipes, not C++ crafting/spoil/quality/research/grid implementation. API contracts qualify those consumers as documented; no game run or binary inspection.",
+    "unread": "Initial combat/shell acquisition; complete ecology/planets/platforms/rail systems; engine spoil-stack transfer/merge/averaging/midcraft/tie/refund handling; quality rolls and matching, equipped armor removal/inventory shrinking, active equipment power, all other recipes/mods and source windows.",
+    "unselected_queries": [
+      "Exact stack split/transfer/merge and multiple-ingredient freshness, including already reserved jobs.",
+      "Physical equipment fit/removal/power/body consequences with an actual two-layout comparison.",
+      "Per-lot aging through holder/custody and absent destination clocks.",
+      "Targeted2.1 quality/spoil-change and science consumer exceptions without extrapolating onto2.0."
+    ]
+  },
+  "DLC_access": [
+    {
+      "edition": "Factorio base2.0.77",
+      "coverage": "Selected armor/recipe/grid/research definitions only.",
+      "access": "US$35 snapshot; no user ownership/installation claim."
+    },
+    {
+      "edition": "Space Age2.0.77",
+      "coverage": "Selected biology/expiry/science/pressure and recycler/Fulgora joins.",
+      "access": "US$35 expansion requires base; US$70 total before tax if neither owned. Public data/API reading free, no purchase/install."
+    },
+    {
+      "edition": "Quality/Elevated Rails2.0.77",
+      "coverage": "Quality selected; rails metadata only.",
+      "access": "Expansion engine feature-gated. Modules can be independently selected by entitled users; full stable Space Age has hard module dependencies."
+    },
+    {
+      "edition": "Space Age/Quality/Recycler/Elevated Rails2.1.21",
+      "coverage": "Selected experimental metadata/exception windows.",
+      "access": "Separate Recycler and recommended Quality are 2.1 differences; no stable/installed-runtime claim."
+    },
+    {
+      "edition": "Soundtracks and third-party mods",
+      "coverage": "Store inventory only/unread.",
+      "access": "Not gameplay reading; no purchases or installs."
+    }
+  ],
+  "licensing": {
+    "public_data": "Official README establishes reference/mod-author purposes and linking. No LICENSE/COPYING file found in repository tree; this is not selected as a permissively licensed code library.",
+    "engine_assets": "C++ game/expansion and assets separate from inspectable Lua/API; no engine source/art/audio copied.",
+    "adaptation": "Original behavior/wording/reversible numbers only; preserve YAIRPG LICENSE/upstream attribution."
+  },
+  "original_packet": {
+    "id": "FACT-P1",
+    "title": "Two independently aging assay cultures with useful terminal use",
+    "status": "original_proposal_unimplemented",
+    "source_readiness": "conditional: explicit lot identity, native adapters and compatibility policy required before implementation",
+    "scope": "Same living player/Eda and existing permitted Village bench; first one-realm/one-prestige milestone. Original names/numbers remain proposals. Quality housing stays a broader unselected design.",
+    "prepare": "After actual existing home terms/research, a 2 minute job spends one owned Tree sap, one newly authored Empty assay vial and 1 stamina to produce one Live staining vial lot at completion. At most two active lots, made at different played-clock times. New vial item definitions/bindings are required future content, not assumed existing items. Old Tree sap remains stable.",
+    "property": "Each physical lot has distinct ID, actual owner/holder, bornAt and a 6 played-minute live deadline from actual completion. Knowledge/transfer/job pause cannot refresh it.",
+    "choice_and_consumer": "Spend one live lot on a three-minute bench assay with Eda's actual present consent, usable body and existing supported Grain matching method. Pay her one native coin and spend one stamina from each participant. The assay reveals a current defect on one held repair piece and records firsthand understanding that qualifies one corrective fitting action. The assay changes the used live vial to one spent vial for later cleaning, conserving its glass. No tool, repair stock or numeric quality is granted. The corrective fitting target needs one explicitly bound repair-object identity; a shared fact on two fungible same-key pieces is insufficient. A separate two-minute stabilization spends one sap and one player stamina, irrevocably changing the live vial into an inert calibration film plus the returned empty glass vial. The film supplies one ordinary jig-calibration use on a known repair layout, but can no longer perform the living assay. Or retain the live sample for another piece and accept its own deadline.",
+    "expiry_aftermath": "At its own deadline, live lot becomes one Spent staining vial at actual holder/site, once only. Glass remains; observed failed-sample/spill record, no forced NPC damage/combat. A 1 minute/1 stamina cleanup returns one Empty assay vial without knowledge/material reward.",
+    "existing_owners": [
+      "Native/simulation inventory, custody and actual resource/payment owners",
+      "Existing command/jobs, actor body/participant/site/support",
+      "Knowledge/receipts and single common played clock",
+      "Native item key/reconstruction and numeric quality",
+      "Existing expansion envelope and durable publisher"
+    ],
+    "missing_consumers": [
+      {
+        "owner": "src/items.js:231,1209",
+        "gap": "Lot identity/deadline absent from current key/reconstruction; arbitrary extra JSON fields can be ignored. Select validated binding/migration, not second inventory. The original assay also needs one supported repair-object identity for its result; select an existing persistent local object or explicitly bind it before content authoring."
+      },
+      {
+        "owner": "src/simulation.js:176,390",
+        "gap": "Frozen costs/effects and boundaries lack material-lot expiry/reservations; retain original deadline and qualify terminal result at common-clock boundary."
+      },
+      {
+        "owner": "src/simulation_effects.js:170 / src/gameplay_transactions.js:27",
+        "gap": "Full-key/count spends/returns and numeric quality checks need explicit conserved lot binding through custody/transfer/refund."
+      },
+      {
+        "owner": "src/expansion_persistence.js:7 / src/main.js:528",
+        "gap": "Validators and native reconstruction must roundtrip lot/reservation/age in existing envelope; failure cannot publish partial or refreshed goods."
+      }
+    ],
+    "compatibility": "Integrator must select optional additive lot schema/default absence and exact native binding before code work. No legacy aging/enrollment/reward, no copied timers/offline policy, no global gear-quality rewrite. Reservation/cancellation/refund retains original lot age rather than recreating fresh input.",
+    "boundary_rule_proposal": "At clock==expiry the live assay is invalid even if job due also equals expiry. Check expiry before result or require expiresAt>clock at completion. Current jobs settle before actor conditions, so a generic expiring actor condition is insufficient. Once-per-lot causes prevent duplicate conversion; proof stays local until absent-world policy is chosen.",
+    "acceptance_later": [
+      {
+        "id": "A1",
+        "pass": "Prepare two actual lots at different clock instants in generated state; verify physical vial/sap/stamina costs, distinct ID/deadline and no unknown/legacy/knowledge-only grant. Existing sap/gear quality unchanged."
+      },
+      {
+        "id": "A2",
+        "pass": "Use the older live lot in the paid assay while the younger remains owned. Observe one coin entering Eda's purse, each participant's one stamina payment and piece-bound defect knowledge, with no free stock/gear. A used live lot cannot be reused."
+      },
+      {
+        "id": "A3",
+        "pass": "Reach exact expiry while owned/transferred/reserved, including completion tie; once-only spent-vial conversion and failed assay at true holder/site, no refreshed refund or actor-global aging. Younger lot remains valid."
+      },
+      {
+        "id": "A4",
+        "pass": "Compare live assay, stabilized calibration and expired cleanup consumers. Stabilization forfeits live assay; cleanup returns one glass vial only. Contact/body/site failure respects disclosed job policy while original age persists."
+      },
+      {
+        "id": "A5",
+        "pass": "After selected implementation/rebuild, generated reload/export/import preserve lot ID/deadline/custody/reservation; failed save publishes no partial inventory/age/clock mutation. All these checks currently not run."
+      }
+    ],
+    "gate_status": "Source research only. Implementation/build/browser/unit/gameplay/save/failure/director gates deferred and unrun."
+  },
+  "comparative_cost": "Trial a bounded material-lot contract in the incumbent, then selected original content. Native/save/job adapters are moderate shared-contract work, greater than an extra recipe. No engine/library switch has demonstrated whole-task benefit. Full spatial grids/upcycling/logistical simulation remain larger unselected designs.",
+  "checks": {
+    "source_pin": "pass: stable tag and experimental HEAD match versioned API JSON",
+    "documentation_self_review": "pass: 32 source reference ranges/hashes, 9 matching-version API selectors, 14 live owner fingerprints, JSON/evidence/local links. Remote HTML behavior and gameplay not inferred.",
+    "runtime": "not_run",
+    "scope": "Only reserved FACTORIO.md/.json repository writes; raw sources/docs outside Git. No runtime/save/source edits, tests/builds, dependency/game installs, account/purchase, commits/pushes/publication or cross-chat messages."
+  }
+}

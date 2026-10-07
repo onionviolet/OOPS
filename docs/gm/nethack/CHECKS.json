@@ -1,0 +1,10 @@
+{
+  "staticPreviewHtmlAndBundle": "served; hashes matched",
+  "ownerLinks": "valid",
+  "combinedRegistryCommands": 675,
+  "newCommands": 14,
+  "moduleSyntaxImport": "passed",
+  "patchApplicability": "passed at frozen baseline",
+  "newGameplay": "implemented-unverified",
+  "browserGameplaySaveReloadFailureRegressionDirector": "deferred-unrun"
+}

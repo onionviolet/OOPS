@@ -1,0 +1,40 @@
+{
+  "observed_utc": "2026-10-07T14:01:38.598390+00:00",
+  "scope": "Read-only root acceptance acquisition of the separate compiled official-Ghidra diagnostic backend; no execution or compile.",
+  "build_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/backend-dynamic-hash/BUILD.json",
+  "build_receipt_sha256": "83a5434234b74bc9b9906482eb1ead572e47aa9e44965ce64589a82701889a9c",
+  "build_exit_code": 0,
+  "build_ended_utc": "2026-10-07T13:43:46.900021+00:00",
+  "compiled_binary": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/backend-dynamic-hash/decompile-instrumented",
+    "bytes": 3746440,
+    "sha256": "b382b2d2cf6b03196a9e967a76bff5ad699cd9cb87fbc2268e0a0c0574416de1",
+    "executed": false
+  },
+  "compiled_binary_hash_and_bytes_match": true,
+  "build_log_sha256": "3d256a3035635ccf342874fda45712cd27e118c5d26d3bf6616602a05fb5249b",
+  "build_command": [
+    "make",
+    "-j1",
+    "ghidra_opt",
+    "OSDIR=mac_arm_64",
+    "ARCH_TYPE=-arch arm64",
+    "ADDITIONAL_FLAGS=-mmacosx-version-min=11.0 -w -g",
+    "CXX=clang++ -std=c++11"
+  ],
+  "compiler_version": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "native_reported_build_peak_RSS_KiB": 368512,
+  "native_reported_minimum_free_bytes": 70576816128,
+  "original_source_files_independently_matched": 237,
+  "instrumented_changed_source_files_matched": 4,
+  "production_binary_sha256": "7434284fc5a6b46b3cb27ef2e8d3c4ea7f801ac1f0cca30e95eb27732c0c62f0",
+  "source_copy_receipt_sha256": "6663bc4dda46cbc62506d85c0186db18178880d7f1cf60117f79c10867cacc43",
+  "instrumentation_receipt_sha256": "af6982efb8f42272b3a6042cbf02ad89d636c426f76ef4163089baf8f035e632",
+  "qualification": "Compiled artifact and provenance acquired. Actual zero-hash, collision-member, required-merge and signal mechanisms have not yet been executed or qualified. Successful instrumentation build is not a faithful Factorio C repair.",
+  "final_audit_script": {
+    "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/audit_native_corpus.py",
+    "sha256": "bf0946d0235e832ec256d505facdea1929078bdfecfa83ab4ebfbeeaca844944",
+    "syntax": "AST parse passed",
+    "new_extended_mode": "Prepared but not yet run. Final closed corpus required; no repeat of prior passed partial or ARM snapshot."
+  }
+}

@@ -1,0 +1,131 @@
+{
+  "schema": 1,
+  "capturedAtLocal": "2026-10-07 America/New_York",
+  "purpose": "Bounded integration-GM ownership and dependency handoff from live app snapshots plus repository checkpoints. Statuses are observations, not leases; recheck before shared writes.",
+  "rules": {
+    "scope": "Coordinator manages the listed chats and chooses disjoint useful work without waiting for all research. One writer per shared file/state; inactivity alone never transfers ownership.",
+    "verification": "Source/build/import/link checks are allowed. Current implementation wave defers unit, browser, gameplay, save/reload/import-behavior, failure, regression, keyboard and director acceptance. Keep new gameplay implemented-unverified.",
+    "preservation": "No private saves or source libraries; preserve upstream attribution, LICENSE, vanilla opening, one-prestige milestone and unrelated dirty work.",
+    "refresh": "Follow docs/GAME_MASTER_PROMPT.md#context-pressure-and-refresh and docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md. Bounded wait_threads snapshots are for a state change or required completion, not repeated unchanged polling."
+  },
+  "threads": [
+    {
+      "id": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+      "title": "Review decompiled Steam games",
+      "observed": "active; latest turn in progress; live app snapshot 2026-10-07",
+      "goal": "Continue full Factorio native recovery for both architectures, repair/qualify exported native functions, review consequential recovered source, and deliver the original Factorio retort behavior with a matching integrated build. Factorio finite installed Lua/API intake is already complete.",
+      "checkpoint": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "progress_and_evidence": [
+        "Ghidra 12.1.4 and private Temurin 25.0.4.1+1 installed under /Users/weiwei/.codex/research/tools/native-recovery-2026-10-07; actual logs/processes remain authoritative.",
+        "Latest checkpoint reports initial arm64 qualification and source refinement, with whole analysis/seeding/export and second architecture outstanding.",
+        "Factorio source-reading root has two active internal workers: /root/factorio_native_successor and /root/retort_review; actual status must be refreshed before dispatch or replacing either.",
+        "Retort content/facts/host leaf writer is /root/book_of_hours_gm; child thread ID is not verified in this handoff. Native-envelope validator writer is /root/oxygen_gm; child thread ID is not verified in this handoff. Both separate interfaces are in the Steam checkpoint and await root integration/review."
+      ],
+      "exclusive_and_shared_scope": {
+        "steam_root": "docs/gm/dispatch/steam-wave-2026-10-06/ and its assigned private native recovery files/processes. By docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACQUISITION.json, this root acquired shared aggregation/context/readers/item registration/main/UI/build/canonical integration after the book-world release. The top-level Steam checkpoint's old statement that book-world owns shared runtime is superseded.",
+        "leaf_interfaces": [
+          "src/factorio_retort_content.js, src/factorio_retort_facts.js, src/factorio_retort_host.js are released leaf outputs from /root/book_of_hours_gm; interface: docs/gm/dispatch/steam-wave-2026-10-06/native-usage/RETORT_INTERFACE.md.",
+          "src/factorio_retort_native.js is owned by /root/oxygen_gm; interface: docs/gm/dispatch/steam-wave-2026-10-06/native-usage/NATIVE_VALIDATOR_INTERFACE.md."
+        ],
+        "excluded": "src/game_absorption_assay_* leaves remain reserved to their own task and are explicitly excluded by the Steam checkpoint."
+      },
+      "acquisition_receipt": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACQUISITION.json",
+      "shared_lane_conflict": "The active Steam root's acquisition receipt claims the shared aggregation/context/readers/item-registration/main/UI/build/canonical lane. The active world root's current home-social-base checkpoint separately says it exclusively owns shared registry/context/reader/main/native/persistence/UI/canonical/build integration. Their exact shared-file intersection and current writer transfer have not been reconciled. Preserve both active tasks and distinct released/leaf work; no coordinator or assay shared write/build until the two roots' live checkpoints/receipts resolve exclusive ownership and serialize the build window.",
+      "dependencies_and_next": [
+        "Continue native recovery without blocking on unrelated world/source research.",
+        "Refresh leaf fingerprints and inspect both interfaces; integrate only after the leaf writers' completion/release is confirmed.",
+        "Preserve site provision:false, one publisher, existing stock/custody and native envelope conservation. Then run the permitted checks and matching rebuild; record all deferred behavior/save gates."
+      ],
+      "release": "Steam task remains active. No release or write-transfer is implied. Earlier Factorio cleanup/uninstall is complete and must not be repeated."
+    },
+    {
+      "id": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+      "title": "Audit worlds and cross-world paths",
+      "observed": "active; latest turn in progress; compact live snapshot returned a current implementation update on 2026-10-07",
+      "goal": "Continue the same implementation wave selected after the multiple-world audit: compatible visit-history compaction; useful home furnishings/material consumers; a bounded social outing/recap/time comparison; and a source-qualified Proto23 visitor branch. Integrate and rebuild, then preserve the later acceptance backlog.",
+      "checkpoint": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "prior_audit": "docs/gm/multi-world-paths-2026-10-07/AUDIT.md; complete and released. The new implementation wave is broader than that audit and is not audit-only.",
+      "observed_current_work": [
+        "Visit-history leaf completed/released; parent has acquired its exact six source files. It synchronizes clocks before pruning and retains active/first-two/latest-ended/reference/current-contract records before the bounded transit snapshot.",
+        "Home furnishings leaf is recorded running: actual drying/drafting construction and green-offcut/Cyoria-notebook consumers using existing owners.",
+        "Social leaf is recorded running: selected CC-P01/P02/P03/P05; CC-P04 is explicitly outside this selection.",
+        "Proto23 depth/source packet completed and released. /root/proto23_native owns the six new proto23_world_* implementation leaves plus its local packet/brief; parent owns shared joins.",
+        "Latest live commentary says the cap repair is complete at source level, home furnishings/material work is in progress, and Proto23 is getting a small separate visitor branch. Gameplay/save checks remain deferred."
+      ],
+      "exclusive_leaf_scopes": [
+        "Released visit leaf: src/book_world_mol_{host,state}.js, src/book_world_paradise_{host,state}.js, src/feature_expansion_nested_host.js, src/world_visit_history.js and docs/gm/home-social-base-2026-10-07/visits/.",
+        "Home furnishing writer: new src/home_furnishing_{content,facts,host}.js and docs/gm/home-social-base-2026-10-07/base/.",
+        "Social writer: src/crush_social_{content,host,views}.js, src/promise_ui.js and docs/gm/home-social-base-2026-10-07/social/.",
+        "Proto23 writer: new src/proto23_world_{ids,content,state,host,native,actions}.js, docs/gm/home-social-base-2026-10-07/proto23-native/ and implementation-status updates in docs/worlds/proto23/."
+      ],
+      "parent_shared_scope": "Root owns shared registry/definitions, simulation context/facts, validators/readers, main/native dispatch, persistence, UI integration, canonical docs and build. Source integration currently overlaps the released visit-history paths because parent acquired them; check current root task and hashes before any additional write.",
+      "dependencies_and_next": [
+        "Refresh running child/process status from the parent chat before replacement or assuming any release.",
+        "Accept and integrate each ready leaf independently after its explicit release; do not wait for the Proto23 implementation if base/social are ready, and do not hold complete pieces hostage to unrelated source work.",
+        "Freeze Proto23's existing packet contract, preserve its independently controlled visitor/body and optional expansion reader, then join only through root-owned shared interfaces.",
+        "Use one matching rebuild after useful integration; keep its five later behavioral/save/UI/director families unrun."
+      ],
+      "release": "Active wave. No coordinator acquisition of its files."
+    },
+    {
+      "id": "01a11473-1a58-7721-90fc-2367865b6ecf",
+      "title": "GM: complete book-world campaigns",
+      "observed": "idle; latest turn completed; bounded live wait snapshot 2026-10-07",
+      "goal": "Finite Goa/Paradise and distinct Cyoria campaign implementation is complete: 94 actions integrated, source/native/UI/compatible-state/current-build delivered as implemented-unverified.",
+      "checkpoint": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md, revision 7",
+      "release": "Explicitly released finite source/shared/canonical scope; no worker/process/unknown writer remains per checkpoint. This is a completed goal, not an available standing writer. If new work is selected later, create a concrete follow-up scope and reacquire affected files with fresh input fingerprints.",
+      "deferred": "Native constructor/model, gameplay, unit/browser, save/reload/import/failure/regression/keyboard/director acceptance remains explicitly unrun."
+    },
+    {
+      "id": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "title": "Implement audited RPG features",
+      "observed": "notLoaded; latest turn completed; bounded live wait snapshot 2026-10-07",
+      "goal": "All 19 remaining audit candidates plus returned artifact/Causal work and MW01-04 source/native/UI/compatible-state/current-build delivery completed, implemented-unverified.",
+      "checkpoint": "docs/gm/audit-implementation/remainder/CHECKPOINT.md, revision 6",
+      "release": "Explicitly released its shared source/canonical/build reservation. Checkpoint says no source/build process or unknown write is pending; RELEASE.json confirms finite completion. This is not permission to rewrite shared files without a fresh scope.",
+      "relevant_scope": "Owns the completed audit implementation baseline, docs/gm/audit-implementation/QUEUE.json, and historical source integration. Its queue says the 22 candidates are delivered; later behavior acceptance stays deferred.",
+      "deferred": "Native catalog DOM execution and all unit/browser/gameplay/save/reload/import/failure/regression/keyboard/director checks remain unrun."
+    },
+    {
+      "id": "01a112b9-ea83-7b71-8ab1-85ec49b6b530",
+      "title": "Implement new game systems in YAIRPG",
+      "observed": "notLoaded; latest turn completed with blocked status in its final message; bounded live wait snapshot 2026-10-07",
+      "goal": "Finish the selected GD-01-EVIDENCE-ASSAY feature by joining its source leaf modules to actual native state/inventory/publisher/UI/save readers and producing a matching build; source-only implementation is not the completion gate.",
+      "checkpoint": "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md; packet and dependencies in docs/gm/game-absorption-2026-10-06/INTEGRATION.md, INTEGRATION.patch, INTEGRATION_INPUTS.json, BUILD.json and QUEUE.json.",
+      "current_leaf_state": "Four disjoint source modules and ten actions/two item specs; cold imports/definition/link checks passed. Exact nine-file integration patch is unapplied. Its own checkpoint says not to edit/build while the audited-feature root holds shared files.",
+      "stale_blocker_resolution": "The blocker cited 01a10fe7 as holding shared files. That owner later completed and explicitly released shared source/canonical/build scope in docs/gm/audit-implementation/remainder/CHECKPOINT.md and RELEASE.json. The assay thread does not inherit that lease automatically. The Steam root has since acquired the same shared integration/build lane for its active retort after the book-world release, and explicitly excludes game_absorption_assay_* leaves. Thus the stale original blocker is resolved, but the shared file/build lane is currently owned by Steam. Coordinate an explicit exclusive lease/handoff with that active owner before any assay shared integration; never infer one from inactivity.",
+      "disjoint_scope": "src/game_absorption_assay_{content,facts,host,item_view}.js and docs/gm/game-absorption-2026-10-06/ are the assay's own leaf/output area; Steam explicitly excludes these leaves. Its shared integration patch touches simulation definitions/plans/items/effects, expansion state/save preflight, main publication/dispatch and UI projection, so it conflicts with the Steam retort integration's current shared lease.",
+      "deferred": "Gameplay, durable failure, save/reload/import, rebuilt keyboard/privacy UI and director acceptance remain in the five-family backlog."
+    }
+  ],
+  "shared_interfaces": [
+    {
+      "interface": "One simulation registry, shared definition aggregation, actual state/context readers and staged durable publisher",
+      "owners_to_consult": ["01a1146c-7d19-7440-92a6-8f5ab5198db9", "01a114a8-b32c-78b1-9d2f-9b140bb8300c", "01a112b9-ea83-7b71-8ab1-85ec49b6b530"],
+      "rule": "Each leaf returns declarative contracts and pure projections/validators. Root integrates into existing owners and one publisher; no parallel inventory, clock, save domain, registry or reward route. Refresh exact imports and source hashes at acquisition."
+    },
+    {
+      "interface": "Expansion schemas and optional saved readers",
+      "owners_to_consult": ["01a114a8-b32c-78b1-9d2f-9b140bb8300c", "01a112b9-ea83-7b71-8ab1-85ec49b6b530"],
+      "rule": "Keep older optional fields/domains absent and inert; migration/compatibility decisions and save/reload proof are needed for verified persistence, with checks deferred in this wave. Never inspect private saves."
+    },
+    {
+      "interface": "Native item stock, custody, inventory conservation and receiver/tray accounting",
+      "owners_to_consult": ["01a1146c-7d19-7440-92a6-8f5ab5198db9", "01a112b9-ea83-7b71-8ab1-85ec49b6b530"],
+      "rule": "Factorio retort and Brogue-inspired evidence assay are distinct optional feature groups with separate leaf IDs. Both need exact canonical native keys, actual owners, custody and completion/return rules. Coordinate any shared native validator or item reader before touching it."
+    },
+    {
+      "interface": "World identity, visit record, local native projection, passage and return",
+      "owners_to_consult": ["01a114a8-b32c-78b1-9d2f-9b140bb8300c"],
+      "rule": "A native destination/visitor needs the actual bounded world-instance and passage contracts, retained body/cargo/clock/knowledge boundaries and an ordinary return. Metadata/read-only packet alone is not gameplay."
+    }
+  ],
+  "recommended_order": [
+    "Keep the world root's active home/social/Proto23 scopes intact. Refresh child release/status once before any replacement.",
+    "Resolve the competing shared-integration/build claims between active Steam and active home/social roots against exact files and live receipts. Serialize shared writes/build; do not infer which root has the current lease from either claim alone.",
+    "Treat the assay's blocker on the completed audited-feature GM as stale, then obtain an explicit handoff of overlapping shared files/build from the reconciled owner before applying its patch. Keep assay leaves preserved and review its interface independently meanwhile.",
+    "For the world wave, integrate independently released visit/base/social pieces as they arrive; do not require Proto23 source work or all research packets to complete first.",
+    "Let the Steam root continue private native recovery concurrently; only coordinate at the explicit retort leaf interface/shared integration checkpoint.",
+    "After a bounded set of shared changes, run syntax/import/definition/link checks and one matching rebuild; defer behavioral suites under the current project instruction."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "status": "verified-official-original-source-acquired",
+  "acquired_at": "2026-10-06T05:13:42.702660+00:00",
+  "provenance": {
+    "official_page": "https://te4.org/download",
+    "official_source_link": "https://te4.org/dl/t-engine/t-engine4-src-1.7.6-nomusic.tar.bz2",
+    "route": "official 1.7.6 Source/no-music link, direct HTTPS curl (exit0)",
+    "version": "1.7.6",
+    "commit": null,
+    "pin_kind": "sha256 archive and package hashes",
+    "archive_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/acquisition/t-engine4-src-1.7.6-nomusic.tar.bz2",
+    "archive_bytes": 355293835,
+    "archive_sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871"
+  },
+  "raw_root": "/Users/weiwei/.codex/research/tales-of-maj-eyal/source/t-engine4-src-1.7.6",
+  "source_packages": [
+    {
+      "path": "game/engines/te4-1.7.6.teae",
+      "sha256": "3fb9b94b78ea48915c9dbbea985ca0bde1fa97aef303cb60b47bb8c5f352a454",
+      "bytes": 88959152,
+      "text_members": 228
+    },
+    {
+      "path": "game/modules/tome-1.7.6.team",
+      "sha256": "5f63966b02bb98676570e375aaf51c825425d3a8b2c1b580c63a8e9a74f6862d",
+      "bytes": 35042860,
+      "text_members": 1812
+    },
+    {
+      "path": "game/modules/boot-te4-1.7.6-nomusic.team",
+      "sha256": "8948a7d1ef79d5d5f3e553aab00ef12281eeedc2acac83410e2352206b95cb75",
+      "bytes": 2662213,
+      "text_members": 117
+    }
+  ],
+  "extraction": "Selectively extracted Lua/C/header/text/notices plus module packages from tar, unpacked textual package members only. No graphics zip unpacking or installation. Source byte copies unmodified. Derived manifests outside Git.",
+  "licenses": {
+    "code": "GPL-3.0-or-later in reviewed ToME/T-Engine code headers; root COPYING GPLv3. Component licenses vary and are not exhaustively audited.",
+    "media": "COPYING-MEDIA restricts data/gfx media to use with Tales of Maj Eyal only. No assets copied into YAIR.",
+    "evidence": [
+      {
+        "path": "COPYING",
+        "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+      },
+      {
+        "path": "COPYING-MEDIA",
+        "sha256": "20d84cdd3b782192898553d04a2ff7178bfa1259cdad3f8d1cd860a38db52fb3"
+      },
+      {
+        "path": "unpacked/tome-1.7.6/data/talents/techniques/weaponshield.lua",
+        "sha256": "c94f6f329cdb05e2a557ccae1b2db741775f490676108d87f1221cc142deedea"
+      }
+    ]
+  },
+  "coverage_limits": [
+    "Base game and T-Engine selected source paths only; no paid DLC acquired/reviewed.",
+    "Original source package provenance verified, not reproducible game build or runtime verification.",
+    "No whole-repository semantic review. Extraction/index counts are not reading coverage.",
+    "No local installed source/assembly used; no decompilation required."
+  ],
+  "skills": [
+    "evidence-gated-handoff",
+    "efficient-agent-routing"
+  ],
+  "workers": [
+    {
+      "id": "/root/tome_ai",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "scope": "AI_READER.json",
+      "status": "completed; evidence reviewed and integrated"
+    },
+    {
+      "id": "/root/tome_progression",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "scope": "PROGRESSION_READER.json",
+      "status": "completed; evidence reviewed and integrated"
+    },
+    {
+      "id": "/root/tome_equipment",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "scope": "EQUIPMENT_READER.json",
+      "status": "completed; evidence reviewed and integrated"
+    }
+  ],
+  "validation_owner": "VALIDATION.json"
+}

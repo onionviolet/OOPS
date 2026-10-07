@@ -1,0 +1,21 @@
+{
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "inputs": {
+    "AGENTS.md": "3524712083267d0cddbad38ccc10c9eee2181ba64904490a9e367cd7d7973aaa",
+    "PROJECT.md": "c610d68d04bdf7520443d3dc3bc4dcb9853ccbce0bcf3cd72ea353ff9d67d0d2",
+    "docs/gm/dispatch/TRAILBLAZE_PARALLEL.md": "e7b80fb7becd1a4c106174dc7dfb678dc690dbfaeb5c430bfa652d618d618402",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md": "088195632c84503cbd44ac887cd91f2c6eb7d7f897a7af4e43fb6c346a3e035d",
+    "docs/GAME_MASTER_PROMPT.md": "9d38b0784850d72aec19034151ad0b40b2971adf05906f76db09b25317e8f479",
+    "docs/gm/WORLD_EXPANSION_GM_PROMPT.md": "f36733e10d8611159e29b3d57e22b5f3955f5e169ab75c945112a1bf5643fffb",
+    "docs/gm/WORLD_IMPLEMENTATION_DEPTH.md": "1eef4f54750010dc0ed816bccf7f4828ce506b2de262badd696b759b92aec690",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "25ffa3a8003eb450273b3afe6f2fb67671d136d30143fdc4e992fe33ff17a4a1",
+    "docs/worlds/ABILITY_AUTHORING.md": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/exchange_content.js": "7bef23a86877a384c438f15b26de22acf79d84d9012dccdfd17f0eb4aca08bef",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/expansion_engine.js": "3fc85b2b973b9c377d9d3c32bc1580cc0322b721cec0af3a8d6a4b501e4e92d1",
+    "src/world_knowledge.js": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442"
+  }
+}

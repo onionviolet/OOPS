@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "status": "five selected original proposals; no implementation authorized by this dossier",
+  "integrator": "/root",
+  "packet_count": 5,
+  "preservation": [
+    "vanilla opening",
+    "existing one-prestige milestone",
+    "private saves",
+    "upstream attribution/LICENSE",
+    "single inventory/body/clock/durable publisher",
+    "unrelated dirty work"
+  ],
+  "packets": [
+    {
+      "id": "FAC-P01",
+      "title": "A finite retort with two real outputs and a visible stall",
+      "finding_ids": [
+        "FAC-03",
+        "FAC-04",
+        "FAC-07",
+        "FAC-10"
+      ],
+      "player_behavior": "At an opt-in Village work site, choose a small resin-distillation batch. It produces useful sealing resin plus spent residue in separate owned trays. Collect, safely repurpose or dispose of residue before further batches; a full tray pauses future starts.",
+      "state_owner": "Existing command/job/site/inventory/publication owners; a new narrow site-capacity adapter must be explicit.",
+      "costs": "One actual input lot, declared fuel or actor effort and one site reservation. Exact fiction/rates remain proposals.",
+      "prerequisites": "Reconcile current resin/material owners; bind exact item keys and actual site rights. Reuse existing finite work plan; do not create another timer.",
+      "mutations": "At acceptance reserve this batch only and reserve both output destinations. At supported settlement publish both realized outputs and capacity use once. Collection clears the matching tray only.",
+      "downstream_consumer": "Sealing resin prepares an existing surveying/storage application; residue has a separate authored safe sink with its own costs.",
+      "time_policy": "Existing supported played clock. Accepted jobs retain pinned definitions and suspension policy; future starts re-quote actual support.",
+      "failure_and_cancellation": "Missing fuel/input/site/receiver capacity denies the next batch without spending. Accepted cancellation terms are explicit; output failure cannot silently delete/refund processed material or spill into someone else’s stock.",
+      "observable_gate": [
+        "A normal batch spends its actual input and yields two distinct owned outputs.",
+        "Ignoring the residue tray stalls future starts with the cause shown.",
+        "Collecting/disposing the exact residue re-enables a supported next batch.",
+        "Cancel/save/reload cannot double input returns, output or site capacity."
+      ],
+      "engine_gap": "Current deterministic stock-band projection is single-output. Receiver capacity and coproduct settlement need a qualified original adapter.",
+      "save_compatibility": "Optional new records absent in older saves mean unenrolled. Schema/validation decision and generated-save later gate are required; no private save reads.",
+      "proposed_write_scope": "New isolated content/host/definition modules; root owns any registry/native/state/save/UI joins.",
+      "verification_state": "proposal-only; not implemented; later gameplay/save/failure acceptance deferred"
+    },
+    {
+      "id": "FAC-P02",
+      "title": "Measure one better tool, then prove its useful function",
+      "finding_ids": [
+        "FAC-06",
+        "FAC-07",
+        "FAC-13"
+      ],
+      "player_behavior": "Use a known stamped brace or lens sample to choose a precise finishing method, ordinary serviceable use, or lossy salvage. A successful finish improves one measurable load/measurement function used in a later task; quality is not just a sale-price badge.",
+      "state_owner": "Existing native full item keys and unique maker history; current sample/material/fit owner must be reused.",
+      "costs": "Actual selected object, finishing materials, willing craftsperson time/site and optional premium method.",
+      "prerequisites": "Pin current measured material and equipment functions; preserve continuous native quality and ordinary option.",
+      "mutations": "Consume/replace the selected owned key once; retain provenance and declared property. Salvage yields explicitly fewer useful inputs plus waste, without returning already consumed fluid/fuel.",
+      "downstream_consumer": "A later load-bearing job or measurement quote checks the exact object function, not a global fact named quality.",
+      "time_policy": "One finite job on supported played time; a chance outcome if selected is pinned with its accepted cause.",
+      "failure_and_cancellation": "Failed work consumes only declared forfeit inputs and retains an honest remaining object/byproduct; wrong custody/tool fit denies use. A returned object and worn-out object differ.",
+      "observable_gate": [
+        "Two serviceable objects with different useful functions produce different actual later quotes/outcomes.",
+        "Ordinary serviceable object remains useful.",
+        "Salvage demonstrably loses material and conserves ownership.",
+        "Transfer/trade/storage/save/reload retains the exact functional object key and provenance."
+      ],
+      "engine_gap": "Existing item quality fields alone do not establish every proposed new tool function. Reconcile current material/fit adapters before adding one.",
+      "save_compatibility": "No global rarity-tier migration. Optional authored object/function ID only, with existing saved item validators preserved.",
+      "proposed_write_scope": "New narrow craft application content; root/current material owner integrates exact native consumer.",
+      "verification_state": "proposal-only; not implemented; source inspiration is selected"
+    },
+    {
+      "id": "FAC-P03",
+      "title": "One volatile ingredient lot with a useful spent form",
+      "finding_ids": [
+        "FAC-08",
+        "FAC-09",
+        "FAC-12"
+      ],
+      "player_behavior": "Gather an original volatile herb lot, choose careful immediate treatment, quick stabilization for travel, or convert older stock to a weaker safe preparation. Unused material becomes an owned spent residue with a useful compost/craft function.",
+      "state_owner": "New opt-in lot deadline record joined to existing native inventory, custody, job and clock publication. Existing crop warnings remain their owner.",
+      "costs": "Actual lot, stabilization materials and work time; preservation is a paid method, not a universal freezer buff.",
+      "prerequisites": "Choose a single new original item family and declare supported-world/body and absence policy before enrollment.",
+      "mutations": "A lot ID carries quantity, provenance and deadline across bag/chest/escrow/job input. Successful processing declares inherited/reset freshness. Expiry settles once from that exact lot into its safe spent output.",
+      "downstream_consumer": "Treatment potency or remaining safe handling window and later compost/material use.",
+      "time_policy": "Supported played time only initially, with explicit freeze under unsupported body/realm and no real-time ageing while closed. Compare current crop-clock joins before integration.",
+      "failure_and_cancellation": "No fresh refund after paid elapsed spoil time; accepted input ownership and actual deadline survive cancellation according to declared terms. No hostile egg analogue or old-food decay is selected.",
+      "observable_gate": [
+        "A lot expires once with the same deadline after custody/storage movement.",
+        "Processing has a documented freshness rule and actual useful consumer.",
+        "Unsupported clock/body preserves the selected lot coherently.",
+        "Save/reload/import or a failed publication cannot duplicate residue or refresh the lot."
+      ],
+      "engine_gap": "Inventory snapshots currently primarily own counts by item key. General lot merging/splitting and expiry require an explicit versioned adapter, not facts detached from stock.",
+      "save_compatibility": "New-family enrollment only; older saves/items have no lot decay. Migration and generated-save acceptance required before any persistence change ships.",
+      "proposed_write_scope": "Isolated lot model/content/host prototype; root owns shared clock/state/native/save joins.",
+      "verification_state": "proposal-only; not implemented; exact rates/fiction provisional"
+    },
+    {
+      "id": "FAC-P04",
+      "title": "A supplier route with capacity, fuel and an honest interrupted delivery",
+      "finding_ids": [
+        "FAC-05",
+        "FAC-12",
+        "FAC-14"
+      ],
+      "player_behavior": "Commission a willing existing supplier to take a finite kit order between two established places. Choose a normal delivery route, fund a rest/refuel stop, or build a small permanent cargo crossing. The receiver obtains goods only on actual delivery.",
+      "state_owner": "Existing independent actor/body/stock/custody/work/site/travel owners; actual route planner and receiver support must be named.",
+      "costs": "Fee, actual supplier-carried goods, their stamina/fuel and route construction stock if selected.",
+      "prerequisites": "Willing actor, supported independent movement, real custody contract and receiving-site room. One-route prototype only.",
+      "mutations": "Acceptance transfers/reserves specified cargo and own finite means; travel, unload and return are separate observable states. Shared named interrupt policy can propose rest/refuel when support fails, without altering accepted commitments.",
+      "downstream_consumer": "Receiver’s real kit use/project; permanent crossing affects future route cost/access rather than granting stock.",
+      "time_policy": "Existing supported independent clock; no unobserved movement claim beyond admitted adapter. Stop/pause versus reroute is explicit.",
+      "failure_and_cancellation": "Full receiver waits or takes a selected alternate destination; no path/absent actor/insufficient means preserves actual cargo custody. Interrupted journey and bodily loss are separate, no universal cargo-loss policy.",
+      "observable_gate": [
+        "Order acceptance alone does not increase receiver stock.",
+        "Delivered exact cargo decreases supplier stock and increases receiver stock once.",
+        "Full/unavailable destination produces visible waiting/reroute without conjured delivery.",
+        "Changed return/revisit, save/reload and cancellation preserve route/cargo obligations."
+      ],
+      "engine_gap": "A generic transfer effect is not physical courier movement. Reuse current independent transit bindings or report unsupported segments before accepting work.",
+      "save_compatibility": "Optional explicit order/route records; old jobs remain frozen and old world absence policies retained.",
+      "proposed_write_scope": "New one-route content/host only; root owns actor movement/stock/custody integration.",
+      "verification_state": "proposal-only; not implemented; no source-game rail/grid clone selected"
+    },
+    {
+      "id": "FAC-P05",
+      "title": "A working sample teaches a context-dependent process",
+      "finding_ids": [
+        "FAC-01",
+        "FAC-02",
+        "FAC-10",
+        "FAC-11"
+      ],
+      "player_behavior": "Make and demonstrate one working heat-supported process at an established workshop, then record a portable method that can be attempted elsewhere only with compatible material, environment and means. Teaching another willing worker transfers knowledge, not their equipment or fuel.",
+      "state_owner": "Existing source/power/mastery/knowledge/discovery/native recipe/job owners with one explicit contextual execution rule.",
+      "costs": "Real sample inputs, an actually supported heated site, own effort or willing instructor time and a consumed test piece.",
+      "prerequisites": "Actual production/examination receipt, supported sample function and selected local environmental facts. Existing skill XP remains independent.",
+      "mutations": "Successful sample yields a method discovery and useful output. A later contextual quote checks environment/source/fuel/body/site; teaching stores observed/understood knowledge without copying physical resources.",
+      "downstream_consumer": "A later cold-region repair or material conversion and an ordinary local alternative.",
+      "time_policy": "Finite paid work under supported heat/body/site clock. Loss of continuing support suspends or fails according to pinned terms.",
+      "failure_and_cancellation": "Knowing the recipe with an incompatible environment returns a specific missing condition. Failed demonstration cannot grant mastery or fake a crafted sample.",
+      "observable_gate": [
+        "The actual sample receipt unlocks a useful process.",
+        "The same learned method is usable in one supported context and explicitly blocked in another.",
+        "Bringing suitable heat/material means makes it usable without resetting the character.",
+        "Teaching, transfer, save/reload and failed commitment preserve acquisition versus execution."
+      ],
+      "engine_gap": "Existing predicates can gate selected context, but continuous environment/heat support must be read from a real owner. A global learned flag cannot substitute for that owner.",
+      "save_compatibility": "Additive opt-in knowledge/method records; absent fields disclose/enroll nothing. No new realm/prestige or blanket engine port.",
+      "proposed_write_scope": "New narrow original process/sample content; root integrates current heat/site/knowledge consumer.",
+      "verification_state": "proposal-only; not implemented; original experiment pending director selection"
+    }
+  ],
+  "source_basis": "Installed2.0.77selected-source/API chains, with experimental-only differences labeled in FINDINGS.json/INSTALLED_REVIEW.json"
+}

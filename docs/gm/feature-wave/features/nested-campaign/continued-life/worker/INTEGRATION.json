@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "worker": "/root/nested_chains",
+  "lane": "continued-life",
+  "status": "source-delivered-implemented-unverified",
+  "released": true,
+  "exclusiveFiles": [
+    "src/feature_expansion_nested_life.js",
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/worker/*"
+  ],
+  "sharedIntegrator": "/root Features",
+  "exports": [
+    "NESTED_LIFE_IDS",
+    "NESTED_LIFE_ITEMS",
+    "commitNestedLifeCommand",
+    "nestedLifeContext",
+    "nestedLifeDefinitions",
+    "nestedLifeFacts",
+    "nestedLifePresentation",
+    "previewNestedLifeCommand",
+    "validateNestedLife"
+  ],
+  "group": "nested_life",
+  "commandCount": 17,
+  "commands": [
+    {
+      "id": "nested.life.lin.open",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.hub.employee",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.lin.work",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.hub.employee",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "duration": 4,
+      "siteId": "nested.hub.bench",
+      "claim": "nested.life.lin.work",
+      "cancellation": "refund"
+    },
+    {
+      "id": "nested.life.lin.refuse",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.hub.employee",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.lin.texture",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.hub.employee",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.lin.account",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.hub.employee",
+      "worldId": "nested.paradise_hub",
+      "location": "Paradise service street",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.brin.open",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.brin.work",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 3,
+      "siteId": "nested.saltworks.pump",
+      "claim": "nested.life.brin.work",
+      "cancellation": "refund"
+    },
+    {
+      "id": "nested.life.brin.refuse",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.brin.texture",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.brin.account",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.ivo.open",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.ivo.work",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 4,
+      "siteId": "nested.archive.records",
+      "claim": "nested.life.ivo.work",
+      "cancellation": "refund"
+    },
+    {
+      "id": "nested.life.ivo.refuse",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.ivo.texture",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.ivo.account",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.brin.buy_spare",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.saltworks.foreman",
+      "worldId": "nested.saltworks",
+      "location": "Saltworks enginehouse",
+      "duration": 0,
+      "siteId": null,
+      "claim": null,
+      "cancellation": "none"
+    },
+    {
+      "id": "nested.life.ivo.shelf_exchange",
+      "revision": 1,
+      "actorId": "player",
+      "targetId": "nested.archive.witness",
+      "worldId": "nested.archive",
+      "location": "Archive records room",
+      "duration": 2,
+      "siteId": "nested.archive.records",
+      "claim": "nested.life.ivo.shelf_exchange",
+      "cancellation": "refund"
+    }
+  ],
+  "protocol": {
+    "ordinary": {
+      "type": "nested_life",
+      "id": "exact registered command ID",
+      "sequence": "current render sequence"
+    },
+    "cancel": {
+      "type": "nested_life",
+      "id": "nested.life.cancel",
+      "jobId": "actual accepted player job ID",
+      "sequence": "current render sequence"
+    },
+    "entry": "three explicit local opening commands only seed one new NPC demand and offer claim; texture also explicitly uses new schema8 semantics"
+  },
+  "activation": {
+    "missingState": "inert",
+    "newFunds": 0,
+    "newItems": 0,
+    "newXP": 0,
+    "newNPCs": 0,
+    "newWorlds": 0,
+    "newSources": 0,
+    "newPrestige": 0,
+    "newStockRequests": [],
+    "store": "existing actor facts/resources, world facts, simulation knowledge/claims/jobs and native inventories only"
+  },
+  "version": {
+    "expansion": 8,
+    "definitionRevision": 1,
+    "simulation": "existing schema4 refund/completion support",
+    "nativeCampaign": "existing nestedCampaign owner; no worker top-level payload",
+    "preparation": "planner clones state, sets schema8 before new typed command, preserves current sequence",
+    "oldReaders": "root must recoverably reject new8 semantics; old5/6/7 remain unchanged when absent",
+    "activationMarker": "actor.nested.life.version=1, stamped by every explicit command including texture/account; required whenever any life meaning exists"
+  },
+  "paidJobs": [
+    {
+      "id": "nested.life.lin.work",
+      "wage": 3,
+      "payer": "nested.hub.employee",
+      "duration": 4,
+      "output": "actual Lin-owned Prepared survey kit",
+      "consumer": "existing nested.staff_supply approval and owned native stock"
+    },
+    {
+      "id": "nested.life.brin.work",
+      "wage": 2,
+      "payer": "nested.saltworks.foreman",
+      "duration": 3,
+      "output": "actual Brin-owned Prepared survey kit",
+      "consumer": "own source use and new paid nested.life.brin.buy_spare transfer"
+    },
+    {
+      "id": "nested.life.ivo.work",
+      "wage": 1,
+      "payer": "nested.archive.witness",
+      "duration": 4,
+      "output": "world.nested.life.ivo.shelfBuilt from actual wood/rope",
+      "consumer": "new shelf-gated native reciprocal nested.life.ivo.shelf_exchange"
+    }
+  ],
+  "retention": "Local-life namespace neither resets earlier completed rewards nor changes pump/water/export/claim/evidence/mission/chain outcomes. NPC funds and native bags remain conserved. Each explicit demand/offer/work has a unique once-only ID.",
+  "requiredJoins": [
+    {
+      "file": "src/feature_expansion_content.js / src/simulation_content.js",
+      "join": "Import nestedLifeDefinitions and concatenate its 17 commands once into the actual registry; all native people/sites/items remain existing owners.",
+      "status": "parent work; worker merged definition compiler passed"
+    },
+    {
+      "file": "src/simulation_effects.js simulationFacts",
+      "join": "Spread nestedLifeFacts(state,context) for all player/NPC/preview/effect/completion callers, using actual grouped native snapshots and nestedNative revision.",
+      "status": "parent work"
+    },
+    {
+      "file": "src/main.js native simulation contexts / feature contexts",
+      "join": "Compose nestedLifeContext for actual player/local contexts after existing nested/chain context joins. No new scheduler or presence clock; root personal passages supply actual active visit. Preserve actual nativeAlive, nestedNative.body, grouped vitals and inventory binding for start and completion.",
+      "status": "parent work"
+    },
+    {
+      "file": "src/main.js router",
+      "join": "For command.type===nested_life call commitNestedLifeCommand(state,registry,command,context,command.sequence); preserve direct id/jobId protocol, then use only existing persistExpansion.",
+      "status": "parent work"
+    },
+    {
+      "file": "src/simulation.js startCommand/refunds",
+      "join": "Add nested_life to the existing reservationReturns schema4 group list. Existing refundCosts handles demand/credit/vital/material and reciprocal transfers; no custom refund publisher.",
+      "status": "parent work"
+    },
+    {
+      "file": "src/expansion_engine.js save admission / native envelope / main schema selection",
+      "join": "Admit optional expansion8 and call validateNestedLife. Preserve8 whenever new local-life or parent personal semantics were explicitly used; do not force7 in persistExpansion. Old5/6/7 missing markers are inert.",
+      "status": "parent work"
+    },
+    {
+      "file": "src/feature_expansion_wave_host.js / Notebook / native UI",
+      "join": "Append nestedLifePresentation.sections with exact actions.command payload, read-only player records and accepted-job attention. Reuse current legal legibility, current sequence token and parent native UI.",
+      "status": "parent work"
+    },
+    {
+      "file": "personal native passages and clock root scope",
+      "join": "Root owns ordinary earned personal return controls after actual settled visits, activeVisit/native move/cargo/absence/save semantics. Destination opening eligibility reads the actual settled same-world NESTED_MISSIONS history, without issuing or paying another mission.",
+      "status": "parent work"
+    },
+    {
+      "file": "native publication and build root scope",
+      "join": "Use existing actual Lin/Brin/Ivo native snapshots and site registries; returned plan contains existing state/external/gameplay/vitals/equipment/acquisitions/unlocks only. Root matches final combined build hashes.",
+      "status": "parent work"
+    }
+  ],
+  "checks": {
+    "performed": [
+      "node --check new module",
+      "cold import new module",
+      "actual merged native/local-life createSimulationRegistry definition compilation",
+      "local document links and source/document hashes"
+    ],
+    "deferred": [
+      "planner/action/predicate/story evaluation",
+      "unit",
+      "gameplay/browser",
+      "save/reload/import/failure",
+      "keyboard/regression/director",
+      "final shared source/native/UI/save/build admission: root"
+    ]
+  },
+  "sourceHashes": {
+    "src/feature_expansion_nested_life.js": "fd5161393c65a3a9a70a99a0d7a39a82e57af41207e3c85141251719c6a9949f"
+  },
+  "sourceDefinitionCheck": {
+    "commands": 17,
+    "registered": true,
+    "immutable": true
+  },
+  "bodySupport": "Actual context.nativeAlive===true; nestedNative body native.player.body/human; native controlled simulation person inventory and matching supported form/hands/mobile/grouped health; native resident support; missing actual fields inert and ineligible",
+  "reportedKnowledge": "Player records preserve stage/cause/basis; private NPC funds/remote builds are not projected"
+}

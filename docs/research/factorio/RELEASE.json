@@ -1,0 +1,32 @@
+{
+  "observed_at_utc": "2026-10-07T03:59:06.842808+00:00",
+  "role": "/root/factorio_gm",
+  "status": "complete-and-released",
+  "scope": [
+    "docs/research/factorio/",
+    "/Users/weiwei/.codex/research/factorio/"
+  ],
+  "installed_version": "2.0.77",
+  "steam_buildid": "23347942",
+  "reviewed_paths": 14,
+  "selected_original_packets": 5,
+  "source_runtime_claims": false,
+  "pending_sessions": [],
+  "children": [],
+  "remaining_installed_gate": null,
+  "root_action": "Pause existing ready-gate watcher and reconcile root dispatch/canonical status.",
+  "artifact_hashes": {
+    "INSTALLED_INTAKE.json": "c1ef72bcf6b689321e8f7607f97d3af143a909b2f3de8796d08655dc6c3521b8",
+    "REPORT.md": "2408480851bcbc55ab3acf9534aff0143648415004e4a7fe5afd80717e90cfbb",
+    "IMPLEMENTATION_PACKETS.md": "25444163bdeebf843eb9256222789f5f12fbfb8ccd35f1e35ba4dae6035b75b7",
+    "INSTALLED_VALIDATION.json": "399a060ce6581582a71f9ccc3c331c9c4131f97f7ba04250051b144d8df9ac5e",
+    "INSTALLED_REVIEW.json": "5359f929dada62d74034071220a7405d261207e155c0d14c251b9be97ff37901",
+    "CHECKPOINT.md": "ca8844bd0a9ffad9aeba78b2cece9ae06d5ec50954d546c3123770cbec9a1110",
+    "FINDINGS.json": "60d199d68716906f0671fd0f91fa9b55158674c343f271e72a7a511fbade7841",
+    "INTAKE.json": "25f50bbd39c1f14e9d55f7f25cc3244e257f0906ebd3884f4749511f78f87e42",
+    "DLC_COVERAGE.json": "ffdb7ad3591a7c70710947eacacb349e8a99266a25517a852d15dadf39d1bb6d",
+    "VALIDATION.json": "5501006bf18cd88de324222a7242f7c2932b38871eedafdc1f8a8e0a01b5b540",
+    "COVERAGE.json": "ebcfc31e4de9e79eb9d2a843126ddf26d59c2e24ff3d242b99a40e3d40ac17f9",
+    "PACKETS.json": "b5ee07bcf294e17ad7f4f6072679361789bde98bd67f30c1d702563bbfdf53f8"
+  }
+}

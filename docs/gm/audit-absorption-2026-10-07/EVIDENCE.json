@@ -1,0 +1,155 @@
+{
+  "at": "2026-10-07T06:23:48.766651+00:00",
+  "sourceFiles": [
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "c1dc672110b42e1e41dbd9a2900a403aae00ca387cbd03abb7b8576100333386"
+    },
+    {
+      "path": "src/agreed_duty_content.js",
+      "sha256": "2364e9abf895cf36001dcf542a0213ca3c7fc0c4143d6b65906aab6fa1bbf91f"
+    },
+    {
+      "path": "src/agreed_duty_facts.js",
+      "sha256": "365e97051d4dda64e670152f2aca1b8de4edffd64f55819f0b9de3c5ba844354"
+    },
+    {
+      "path": "src/agreed_duty_host.js",
+      "sha256": "d9a685655a57e84641580c094c9a88f075ad4eb710de0f4afd65864a7665d9f0"
+    },
+    {
+      "path": "src/contextual_balm_content.js",
+      "sha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e"
+    },
+    {
+      "path": "src/contextual_balm_facts.js",
+      "sha256": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f"
+    },
+    {
+      "path": "src/contextual_balm_host.js",
+      "sha256": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e"
+    },
+    {
+      "path": "src/contextual_balm_native.js",
+      "sha256": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476"
+    },
+    {
+      "path": "src/cooling_refinement_content.js",
+      "sha256": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4"
+    },
+    {
+      "path": "src/cooling_refinement_facts.js",
+      "sha256": "507d964a364900881e271cd4f68b7370d81979537afcc10a69c5f52e64d1e521"
+    },
+    {
+      "path": "src/cooling_refinement_host.js",
+      "sha256": "11b379c4ee6bca0072a226e11e50e1321795281c2aa9e9ba5758134aaa8cc3fa"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "8211ea775c51d067e7db9c565d72105740307f0a9f15b0acbb756797240d9570"
+    },
+    {
+      "path": "src/display.js",
+      "sha256": "b2ace3fe933a30f680948fa2408275fdf53909a87c4bbee31f67616d47ef8558"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "7df709c4729e6c38b5195929c0e970d7bc44c77568b61285d84e9a2b58ff3caf"
+    },
+    {
+      "path": "src/feature_expansion_society_host.js",
+      "sha256": "7e313f7dc2ce6ac2f2f7e7a08a49c207e43949ea71de08c4e85f6809cff610be"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66"
+    },
+    {
+      "path": "src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7"
+    },
+    {
+      "path": "src/game_absorption_assay_facts.js",
+      "sha256": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6"
+    },
+    {
+      "path": "src/game_absorption_assay_host.js",
+      "sha256": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea"
+    },
+    {
+      "path": "src/game_absorption_assay_item_view.js",
+      "sha256": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101"
+    },
+    {
+      "path": "src/known_routes.js",
+      "sha256": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd"
+    },
+    {
+      "path": "src/known_routes_host.js",
+      "sha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f"
+    },
+    {
+      "path": "src/known_routes_ui.js",
+      "sha256": "5952627e2eb0ab5fd5418db44343978b2c590152b31dabc99d17a485b7c69896"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150"
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "e8414aa1d5ac4184b0b9bdd701f094adb8a20615eff74e1151afe6847dce168b"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "27fcf48dca5b1219efd2572f397993996517aff7db90959caa36764ebe18599c"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "60a72e9d1ea7408790b2661dd6b6cd72b0316e58b84586a8037cd286ea7485c3"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "f1c086d2dc01eb2c40049c766e2862cc8af2b6eec5092c41c7029b319c618c6c"
+    }
+  ],
+  "sourceReview": "integration-review/REVIEW.json",
+  "sourceReviewStatus": "No open decisive source blocker established in bounded reviewed seams; IR-01 repaired and reread. Root subsequently qualified matching build; all behavioral acceptance deferred.",
+  "checks": {
+    "parseOnly": "Independent48source parse checks and root new native/changed leaves at recorded hashes; IR01 follow-up parse passed",
+    "coldImports": "Current expedition registry imports; new leaf/native imports at recorded prior hashes",
+    "definitions": "21selected commands registered, current1227commands/52controllers/23conditions/sevenplans/10destinations; original Orr2/1priorities retained",
+    "localLinks": {
+      "checked": 264,
+      "missing": []
+    },
+    "jsonReadback": 9,
+    "compilerBuild": "npm run build exit0, Ink2.4.0 diagnostics0",
+    "mapReadback": {
+      "localSources": 370,
+      "vendors": 37,
+      "mismatches": []
+    },
+    "servedBytes": "Index/bundle/map exact current hashes; BUILD.json",
+    "browserPanel": "queued preview18197 only, no control exercise"
+  },
+  "repairs": "ASSAY_REPAIR.json, balm/ROOT_REVIEW.json, INTEGRATION_REPAIRS.json and review follow-up",
+  "nonSourceHarnessRepairs": [
+    "Definition inventory initially used nonexistent controller.priorities; changed to actual actions property before recording receipt",
+    "Delivery finalizer initially expected row.id rather than actual row.family; prior writes preserved, resumed only unexecuted coverage/canonical suffix"
+  ],
+  "allLaterAcceptance": "Gameplay/model/native constructors/fixtures/unit/browser/save/reload/import/failure/regression/keyboard/director deferred and unrun",
+  "privateSavesLibraries": "untouched",
+  "attributionVanillaPrestige": "preserved",
+  "currentCanonicalReadback": {
+    "PROJECT.md": "Current audit absorption and matching delivery",
+    "docs/IDEA_INDEX.md": "Current audit delivery link",
+    "matchedBundle": "e77080593d4b"
+  },
+  "coordination": "COORDINATION.json"
+}

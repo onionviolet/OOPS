@@ -1,0 +1,42 @@
+{
+  "from": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+  "to": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "scope": "one finite combined source-ready home/social/Proto23/visit/retort integration and current build",
+  "receipt": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACQUISITION.json",
+  "preservedPeerChanges": [
+    "optional site provision:false validation",
+    "enrollment skips provision:false site"
+  ],
+  "beforeHashes": {
+    "src/simulation_content.js": "a489e3d83d9a8fc525ae0ce881ea3af47f7d99c968cc0e7e7751c7ee3a2e0a55",
+    "src/expedition_content.js": "4dd285b186a9077bad0abc87370c699871c3c5fb1bb11bd99c99a47c00c3c86a",
+    "src/simulation_effects.js": "f74bb74149fc5c8d93f48e0862ea890818133d26512e4ab05532c8ac1c31cab9",
+    "src/simulation.js": "f4694817b730dffbea6dd14eabe5a35df4641a318029502f90bcefd1040bed45",
+    "src/expansion_engine.js": "20f54bfa3e5c6d39844670b1013a29a83754542b5c37623d4bdd3605b30de85e",
+    "src/main.js": "4800dbc2bde7ee9a25cdae15675f8b2b5262e3d06ff7aec29864d7295f9de8f0",
+    "src/feature_expansion_wave_host.js": "9464c422f1ee9ca9843c6b135e2e2518c1fd6f31d7fc9ab520c6cc118e0057e4",
+    "src/feature_expansion_refinements_host.js": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+    "src/data/expedition_items.js": "9745c16f1e12469481aae52ed676e745a890de73a435d3208317e8304137d5d3",
+    "src/save_files.js": "9ecd4feeb21ab31b6065ffa262ccd033a5d07304907f4aadd2c3ad3bb87e01e6",
+    "src/feature_expansion_destination_host.js": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d",
+    "src/realm_state.js": "8277dee8c60f052b8554077244f3cc57f490a018f2cc26d065157dd166030956",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/book_world_paradise_host.js": "8b59589d68248a12f60385b4aa632730547a8cda2cb6b6406a94baa1ef316d5e",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/feature_expansion_nested_host.js": "9d814bfe228ef9533d62cb3cebf0c0c7c16c194d982347a63d226b3584fe899e",
+    "src/world_visit_history.js": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+    "PROJECT.md": "c423406d32dca87b4f2c5931f5a2237f9cecfc600b69a3e9efd27836783f9f1e",
+    "docs/IDEA_INDEX.md": "b56d3e0bdf421e4272303ead46df1c1a95ffd8ff06960d29f458c15ade5c545d",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "9aa762d38202ac80d7d2aff97765d2e9fe000fb926887ac9e20c84d473bbbc9f",
+    "dist/bundle.js": "ebf951d628619e9ff75f148352044932c17b7d453e404ede63e2375278a65809",
+    "dist/bundle.js.map": "4a9c58e81dc85a279be052f6e8ce6bd1ec4ef54cd7827b1187827133952c03bb",
+    "index.html": "a62b490644a99cf13d7bafa936b8a2322350a6f372f2e6eb664cdaf9df20dec2",
+    "src/components/trader_component.js": "5eadf84bf69fdfbd953a2eeb1adc0f40943e2cc218d6f43344ff909ba22a1385",
+    "src/adventure_notebook.js": "12932680c7dd05b8dca359dc9305aea51c24162ad5132f2ffc4f75d3974a8d68",
+    "src/reference_gameplay_state.js": "fe883ef6b25900283988a71f06b40c104bd2c90ae2632f83d92bc2c7ab689572"
+  },
+  "sourceDecompilationGate": "independent; no wait for whole Factorio recovery",
+  "publication": "local rebuilt preview only"
+}

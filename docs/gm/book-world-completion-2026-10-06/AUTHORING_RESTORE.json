@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "originalCorruptSha256": "af6e9d52a7cd1c4ba504f265d6bd7e30639d87c4dca03d3fdac3e4d883139cd6",
+  "restoredPriorSha256": "7dd0cfb6dc68544aeffe57d72b9f3c72aa648b256be611d34fb4ae9094938ef0",
+  "restoredPriorBytes": 68278,
+  "newSection": "Selected book-world campaign native consumers, 2026-10-07",
+  "currentSha256": "37201c35f58ed43acb2acd2d3a2bf6e556e307c6ef159dd25d057dc02d176951",
+  "guidePath": "docs/ENGINE_AUTHORING.md",
+  "runtimeBuildUnchanged": true
+}

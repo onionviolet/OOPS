@@ -1,0 +1,95 @@
+{
+  "candidate": "XSTATE",
+  "version": "5.33.2",
+  "sourcePin": "fbee62e7c1586315ed478c2fedf530d7e0ff5a3e",
+  "repository": "https://github.com/statelyai/xstate",
+  "disposition": "trial",
+  "decisionStatus": "research recommendation, not adopted",
+  "sourceManifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/xstate/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/INPUT_MANIFEST.json",
+  "evidence": [
+    {
+      "id": "xstate-1",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/transition.ts",
+      "lines": [
+        20,
+        69
+      ],
+      "sha256": "08f1566f9cc293fd7839a985626cf3a8f7d03dc21447481b0cbfbf73eb385a0e",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/transition.ts#L20",
+      "claim": "Returns next snapshot and executable actions through inert scope."
+    },
+    {
+      "id": "xstate-2",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/createActor.ts",
+      "lines": [
+        61,
+        69
+      ],
+      "sha256": "0f6672017899c1b84cee863819269ea503a1b9efc93581ae08b2d169faccbad5",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/createActor.ts#L61",
+      "claim": "Live default clock is host setTimeout."
+    },
+    {
+      "id": "xstate-3",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/system.ts",
+      "lines": [
+        108,
+        135
+      ],
+      "sha256": "482399f026af7afce34031a5cceb8b366929017a923b6ce3266ba3ab2912c2ea",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/system.ts#L108",
+      "claim": "Scheduler uses Date.now and default random event IDs."
+    },
+    {
+      "id": "xstate-4",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/State.ts",
+      "lines": [
+        420,
+        483
+      ],
+      "sha256": "3684ae5eca893e67cf2831e17db9d8d0768d5550b0682a54ce894fee628fc73e",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/State.ts#L420",
+      "claim": "Persisted projection includes child snapshots and history."
+    },
+    {
+      "id": "xstate-5",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/StateMachine.ts",
+      "lines": [
+        493,
+        511
+      ],
+      "sha256": "854d1761355e6add70deefaceda3a2f6162dd094026e60d02faec5a36741834e",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/StateMachine.ts#L493",
+      "claim": "Starts active child actors."
+    },
+    {
+      "id": "xstate-6",
+      "status": "source-demonstrated",
+      "path": "packages/core/src/StateMachine.ts",
+      "lines": [
+        566,
+        626
+      ],
+      "sha256": "854d1761355e6add70deefaceda3a2f6162dd094026e60d02faec5a36741834e",
+      "url": "https://github.com/statelyai/xstate/blob/fbee62e7c1586315ed478c2fedf530d7e0ff5a3e/packages/core/src/StateMachine.ts#L566",
+      "claim": "Restores referenced child logic, skips unresolved child logic."
+    }
+  ],
+  "runtimeExecution": "not-run",
+  "integration": "unimplemented original trial / parked alternative",
+  "unread": [
+    "Full machine/guard/action semantics",
+    "Editor service/pricing",
+    "Authoring speed",
+    "Actor tree recovery",
+    "v6 upgrade",
+    "Performance"
+  ],
+  "license": "MIT",
+  "sourceAccessErrors": []
+}

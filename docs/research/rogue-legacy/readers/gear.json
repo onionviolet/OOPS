@@ -1,0 +1,101 @@
+{
+  "path_id": "equipment-runes-spells",
+  "title": "Catalog discovery, shop purchase/equip, rune consumers, spell casting, and durable state",
+  "claims": [
+    {
+      "id": "gear.chest.discovery",
+      "observation": "A chest constructs candidates only from NotFound blueprints whose equipment level requirement and chest colour requirement are met. It randomly selects one, writes FoundButNotSeen, and opens the GetItem screen with its category/index. When all blueprint entries are already found, the chest falls back to gold or a stat drop.",
+      "evidence": [
+        {"file":"RogueCastle/src/Game Objects/ChestObj.cs","start":311,"end":340,"symbol":"ChestObj blueprint reward selection","sha256":"65cd1965311149ae5a5c2f6873ae52319a22a817c43218f323b38e7e50dd8312"}
+      ],
+      "kind":"source_observed",
+      "limits":"Source inspection establishes candidate filtering and state assignment, not chest probabilities or live presentation behavior."
+    },
+    {
+      "id": "gear.equipment.purchase-and-weight-gate",
+      "observation": "Blacksmith confirmation can purchase a found-but-not-purchased item if Gold covers EquipmentData.Cost; it deducts gold and marks the blueprint Purchased. The same confirmation can equip a purchased item if resulting CurrentWeight is at most MaxWeight, accounting for the currently equipped item's weight. Too-heavy equipment remains purchased but is not equipped. Existing equipped item can be unequipped.",
+      "evidence": [
+        {"file":"RogueCastle/src/Screens/BlacksmithScreen.cs","start":633,"end":714,"symbol":"BlacksmithScreen.EquipmentSelectionInput","sha256":"b7783cdd66130bfa35fd182106fb7a4755be71b853dc6f18d844226faf8abf17"}
+      ],
+      "kind":"source_observed",
+      "limits":"Equipment stat aggregation is outside this note; screen code demonstrates equip-state mutation and the weight gate."
+    },
+    {
+      "id": "gear.rune.purchase-price-and-slot",
+      "observation": "Enchantress confirmation purchases a found rune when Gold >= GetAbilityCost, subtracts that cost, marks it Purchased, and immediately equips it in that equipment category. The cost is integer(base ability cost + TotalRunesPurchased * 175); InitializeAbilityCosts assigns a base of 175 for the normal category/ability combinations. Later purchased runes can replace the rune in a category, or an equipped rune can be unequipped with -1. Thus the per-category equipped array limits the player to one rune of a given category at a time.",
+      "evidence": [
+        {"file":"RogueCastle/src/Screens/EnchantressScreen.cs","start":548,"end":595,"symbol":"EnchantressScreen.EquipmentSelectionInput","sha256":"69e07bece42757a4dd5831b74812fe35ec053b30c185e40098cffa4eb06bfd64"},
+        {"file":"RogueCastle/src/EquipmentSystem.cs","start":14,"end":15,"symbol":"EquipmentSystem rune cost modifiers","sha256":"5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e"},
+        {"file":"RogueCastle/src/EquipmentSystem.cs","start":38,"end":109,"symbol":"EquipmentSystem.InitializeAbilityCosts","sha256":"5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e"},
+        {"file":"RogueCastle/src/EquipmentSystem.cs","start":213,"end":216,"symbol":"EquipmentSystem.GetAbilityCost","sha256":"5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerStats.cs","start":322,"end":336,"symbol":"PlayerStats.TotalRunesPurchased","sha256":"8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f"}
+      ],
+      "kind":"source_observed",
+      "limits":"The flat 175 base applies to the initialized listed combinations; the array initializes unsupported combinations to 9999."
+    },
+    {
+      "id": "gear.rune.double-jump-consumer",
+      "observation": "TotalDoubleJumps equals the count of equipped DoubleJump runes plus any equipment secondary DoubleJump attribute. During airborne jump input, PlayerObj accepts another jump only while m_doubleJumpCount < TotalDoubleJumps and the drop-through timer is nonpositive; it applies upward acceleration, increments the count, and plays the jump effect/sound. This connects a purchased/equipped rune to a concrete movement action rather than a display-only bonus.",
+      "evidence": [
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":4035,"end":4038,"symbol":"PlayerObj.TotalDoubleJumps","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":881,"end":893,"symbol":"PlayerObj.HandleInput airborne jump branch","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerStats.cs","start":383,"end":394,"symbol":"PlayerStats.GetNumberOfEquippedRunes","sha256":"8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f"}
+      ],
+      "kind":"source_observed",
+      "limits":"This does not establish how the timing/feel behaves in a live run."
+    },
+    {
+      "id": "gear.spell-cast-resource-and-trait",
+      "observation": "The PLAYER_SPELL1 input calls CastSpell(false) after the spell delay; SpellSword2 can call CastSpell(false, true) from the block input. CastSpell captures the selected spell, builds ProjectileData, sets damage to integer(TotalMagicDamage * spell damage multiplier), and calculates base mana as integer(base spell cost * (1 - Mana_Cost_Down modifier)). For Dagger the declared base cost is 10 and damage multiplier is 1. Before mega-cost scaling and before the final projectile gate, base-cost-sufficient mana allows Savant to change the next selected spell for non-Dragon/non-Traitor classes outside two carnival rooms; it chooses from the class spell list while excluding Translocator, TimeStop, and DamageShield. The current cast continues using the captured spellType. SpellSword mega-cast then multiplies cost, projectile scale, and damage by their respective modifiers. The projectile branch checks mana again and subtracts mana only after firing. Ambilevous inverts projectile SourceAnchor.X except for Bounce and DamageShield.",
+      "evidence": [
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":2621,"end":2665,"symbol":"PlayerObj.CastSpell setup, mana gate, Savant interaction","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":2667,"end":2671,"symbol":"PlayerObj.CastSpell Ambilevous SourceAnchor inversion","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":2670,"end":2757,"symbol":"PlayerObj.CastSpell Dagger projectile branch and mana deduction","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":992,"end":1008,"symbol":"PlayerObj.HandleInput PLAYER_SPELL1 spell caller","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","start":1011,"end":1018,"symbol":"PlayerObj.HandleInput SpellSword2 mega-cast caller","sha256":"b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa"},
+        {"file":"RogueCastle/src/EVs/SpellEV.cs","start":11,"end":26,"symbol":"SpellEV spell cost and damage constants","sha256":"7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483"},
+        {"file":"RogueCastle/src/EVs/SpellEV.cs","start":234,"end":273,"symbol":"SpellEV.GetManaCost","sha256":"7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483"},
+        {"file":"RogueCastle/src/EVs/SpellEV.cs","start":316,"end":345,"symbol":"SpellEV.GetDamageMultiplier","sha256":"7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483"}
+      ],
+      "kind":"source_observed",
+      "limits":"No behavior was launched or tested. The common projectile branch covers multiple spell types; later switch branches provide distinct implementations. Base-cost sufficiency is only an early Savant reroll gate, not proof that the later mega-cost-adjusted spell fires."
+    },
+    {
+      "id": "gear.durable-catalog-and-equipment-state",
+      "observation": "SaveGameManager writes blueprint states, rune states, equipped item indices, and equipped rune indices as ordered byte/sbyte sequences, and the load path restores the same arrays in matching category loops. The arrays are initialized by category in PlayerStats. PlayerStats also counts equipped copies by scanning one rune index per category. This means catalog unlocks and loadout survive reload according to this binary layout; this is source evidence, not a save/reload test.",
+      "evidence": [
+        {"file":"RogueCastle/src/Managers/SaveGameManager.cs","start":796,"end":848,"symbol":"SaveGameManager.Save upgrade equipment state","sha256":"eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"},
+        {"file":"RogueCastle/src/Managers/SaveGameManager.cs","start":1620,"end":1665,"symbol":"SaveGameManager.Load upgrade equipment state","sha256":"eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed"},
+        {"file":"RogueCastle/src/Screens/BlacksmithScreen.cs","start":475,"end":495,"symbol":"BlacksmithScreen.OnExit saves player and upgrade data","sha256":"b7783cdd66130bfa35fd182106fb7a4755be71b853dc6f18d844226faf8abf17"},
+        {"file":"RogueCastle/src/Screens/EnchantressScreen.cs","start":389,"end":408,"symbol":"EnchantressScreen.OnExit saves player and upgrade data","sha256":"69e07bece42757a4dd5831b74812fe35ec053b30c185e40098cffa4eb06bfd64"},
+        {"file":"RogueCastle/src/Game Objects/Player/PlayerStats.cs","start":180,"end":195,"symbol":"PlayerStats equipment/rune array initialization","sha256":"8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f"}
+      ],
+      "kind":"source_observed",
+      "limits":"The cited save excerpts show serialization layout, not save-file revision compatibility or error recovery. Spell is stored in player data separately; this note does not trace every save revision."
+    }
+  ],
+  "trace": {
+    "caller": "ChestObj selects eligible undiscovered blueprint entries and opens GetItemScreen. The BlacksmithScreen and EnchantressScreen act on PlayerStats catalog/equipment arrays. PlayerObj.HandleInput calls CastSpell from PLAYER_SPELL1 and SpellSword2 block inputs; PlayerObj consumes equipped runes and executes active spells.",
+    "gates": ["Blueprint discovery checks NotFound, item LevelRequirement <= chest Level, and chest type >= ChestColourRequirement.", "Blacksmith purchase requires a discovered state and enough Gold; equip requires Purchased and resulting weight <= MaxWeight.", "Rune purchase requires a found state and enough Gold; one rune index is equipped per category.", "Spell cast requires CurrentMana >= computed cost; ability execution has spell-specific activateSecondary and state checks."],
+    "costs": ["Equipment purchase uses EquipmentData.Cost.", "Rune cost = int(baseCost + TotalRunesPurchased * 175); initialized base listed here is 175, unsupported cells default 9999.", "Spell mana cost = int(baseCost * (1 - Mana_Cost_Down modifier)); mega cast further scales cost."],
+    "mutations": ["Chest changes blueprint NotFound to FoundButNotSeen.", "Shop subtracts Gold, marks Purchased, and writes equipped index; equip can replace or clear an index.", "CastSpell may spend mana and spawns spell-specific projectile/effect; Savant can mutate next selected spell after sufficient-mana check."],
+    "consumers": ["PlayerObj.TotalDoubleJumps and airborne jump input read equipped DoubleJump rune count.", "ManaGain and ManaHPGain rune counts enter mana gain; other rune consumers include dash, flight, gold gain, vampirism, movement speed and damage return.", "SpellEV supplies mana and damage constants/projectile data; PlayerObj.CastSpell dispatches execution."],
+    "failure_boundaries": ["No eligible blueprint candidate routes chest reward to fallback gold/stat drop.", "Insufficient gold leaves item/rune unpurchased; too-heavy equipment remains purchased but unequipped.", "Insufficient base mana skips Savant's reroll gate, while mana sufficient for the base spell cost but insufficient after mega-cast scaling can still mutate the next selected spell even though the final spell branch fails and spends no mana.", "Savant reroll excludes three spells and is suppressed for Dragon/Traitor classes and two carnival rooms."],
+    "persistence": "BlacksmithScreen.OnExit and EnchantressScreen.OnExit call SaveFiles(PlayerData, UpgradeData). Equipment/rune discovery, purchase, and equipped indices are written to and restored from upgrade data in matching ordered arrays. Spell selection is serialized in player data (SaveGameManager line 529 and load line 1351). Source review only; no save mutation or reload verification performed."
+  },
+  "coverage": [
+    {"file":"RogueCastle/src/Game Objects/ChestObj.cs","ranges_read":[[300,345]],"purpose":"Blueprint candidate gates, discovery mutation, and fallback."},
+    {"file":"RogueCastle/src/Screens/BlacksmithScreen.cs","ranges_read":[[633,714]],"purpose":"Equipment payment, equip weight rule, unequip."},
+    {"file":"RogueCastle/src/Screens/EnchantressScreen.cs","ranges_read":[[548,595]],"purpose":"Rune purchase, escalating cost use, equip/unequip."},
+    {"file":"RogueCastle/src/EquipmentSystem.cs","ranges_read":[[38,109],[208,242]],"purpose":"Rune base costs, price formula, state propagation."},
+    {"file":"RogueCastle/src/Game Objects/Player/PlayerStats.cs","ranges_read":[[180,218],[322,336],[373,394]],"purpose":"Catalog/equipped state layout, rune purchase counter, and rune count consumer."},
+    {"file":"RogueCastle/src/Game Objects/Player/PlayerObj.cs","ranges_read":[[650,720],[870,900],[992,1032],[2621,2757],[3925,3938],[4030,4043]],"purpose":"Pickup callers, spell input callers, jump effect, spell logic, rune consumers."},
+    {"file":"RogueCastle/src/EVs/SpellEV.cs","ranges_read":[[9,34],[230,280],[316,345]],"purpose":"Spell definitions, mana cost, damage multipliers, projectile setup."},
+    {"file":"RogueCastle/src/Managers/SaveGameManager.cs","ranges_read":[[520,535],[790,850],[1345,1355],[1616,1685]],"purpose":"Spell selection and equipment/rune state save/load layout."},
+    {"file":"RogueCastle/src/Screens/BlacksmithScreen.cs","ranges_read":[[475,495]],"purpose":"Shop exit commits equipment screen changes to player and upgrade save files."},
+    {"file":"RogueCastle/src/Screens/EnchantressScreen.cs","ranges_read":[[389,408]],"purpose":"Shop exit commits rune screen changes to player and upgrade save files."},
+    {"file":"RogueCastle/src/Screens/GetItemScreen.cs","ranges_read":[[151,169]],"purpose":"Blueprint/rune pickup presentation mapping."}
+  ],
+  "unread": ["Spell-specific projectile cases beyond the selected Dagger evidence span.", "FairyChestObj rune candidate eligibility details.", "Full SaveGameManager revision checks and failure recovery.", "Live game behavior and save/reload behavior."],
+  "notes": ["No YAIR source inspected, per assignment.", "No game launch, build, tests, assets, or user saves accessed.", "Pinned RogueLegacy1 source HEAD confirmed unchanged at b41c17888a91100bbf8f1febecaa636a1b421f5b.", "Reader is source analysis only; no claim about runtime behavior or implementation compatibility."]
+}

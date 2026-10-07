@@ -1,0 +1,74 @@
+// Import-free, observer-safe composition for route rows already disclosed by
+// their native owners. This module never searches destinations or makes quotes.
+const isRecord = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+const knownText = value => value?.known === true && typeof value.text === 'string' ? value.text : '';
+
+/**
+ * Compose the current represented destination and already-known route receipts.
+ * `routes` must come from current native host presentations, not registries.
+ * The caller supplies an exact fingerprint for the host's frozen quote inputs.
+ */
+export function projectKnownRoutes({ current, routes = [] } = {}) {
+    if (!isRecord(current) || current.known !== true || current.recipientId !== 'player' ||
+        typeof current.destinationId !== 'string' || !current.destinationId ||
+        typeof current.destinationLabel !== 'string' || !current.destinationLabel) {
+        return { visible: false, section: null };
+    }
+
+    const counts = new Map();
+    for (const route of routes) if (isRecord(route) && typeof route.id === 'string') {
+        counts.set(route.id, (counts.get(route.id) || 0) + 1);
+    }
+    const shown = [];
+    for (const route of routes) {
+        if (!isRecord(route) || route.known !== true || route.recipientId !== 'player' ||
+            route.currentDestinationId !== current.destinationId ||
+            !['onward', 'return'].includes(route.direction) ||
+            typeof route.id !== 'string' || !route.id || counts.get(route.id) !== 1 ||
+            typeof route.destinationLabel !== 'string' || !route.destinationLabel ||
+            typeof route.label !== 'string' || !route.label ||
+            typeof route.inputFingerprint !== 'string' || !route.inputFingerprint ||
+            !isRecord(route.action) || !isRecord(route.action.command)) continue;
+
+        // Keep the host's own availability, quote, costs, blockers and command.
+        // Text is already disclosed by the host and is never inferred here.
+        shown.push({
+            id: route.id,
+            direction: route.direction,
+            destinationLabel: route.destinationLabel,
+            label: route.label,
+            description: knownText(route.description),
+            costText: knownText(route.costText),
+            blockerText: knownText(route.blockerText),
+            commitmentText: knownText(route.commitmentText),
+            eligible: route.action.eligible === true,
+            reasons: Array.isArray(route.action.reasons) ? route.action.reasons.slice() : [],
+            command: structuredClone(route.action.command),
+            inputFingerprint: route.inputFingerprint
+        });
+    }
+
+    const commitments = (Array.isArray(current.commitments) ? current.commitments : [])
+        .filter(row => isRecord(row) && row.known === true && row.recipientId === 'player')
+        .map(row => ({ id: row.id, text: knownText(row.text) }))
+        .filter(row => typeof row.id === 'string' && row.text);
+
+    return {
+        visible: true,
+        section: {
+            id: 'known-routes',
+            label: 'Known routes',
+            current: current.destinationLabel,
+            commitments,
+            routes: shown
+        }
+    };
+}
+
+// Stable enough for a same-render stale check. The host fingerprint remains
+// authoritative for connection revision, body/cargo, direction and exceptions.
+export function sameKnownRouteQuote(left, right) {
+    return !!left && !!right && left.id === right.id &&
+        left.inputFingerprint === right.inputFingerprint &&
+        JSON.stringify(left.command) === JSON.stringify(right.command);
+}

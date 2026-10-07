@@ -1,0 +1,26 @@
+{
+  "checked_paths": [
+    "docs/research/repository-bank/README.md",
+    "docs/research/repository-bank/SOURCES.json",
+    "docs/research/repository-bank/collect_sources.py",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/ASSIGNMENT.md",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/INPUT_SNAPSHOT.json"
+  ],
+  "checks": [
+    "30 unique repository rows, all pinned to 40-character commits; nine separate reference works",
+    "Local Markdown links resolve",
+    "Collector syntax checked; collection exited zero; no upstream code executed",
+    "All 30 cache HEADs match inventory pins",
+    "Native create_thread succeeded; wait_threads observed active/inProgress with initial GM commentary"
+  ],
+  "sha256": {
+    "docs/research/repository-bank/README.md": "0408b837119653bd428d386f59ad50a51a7bd805685cf27231dc06a123a575d4",
+    "docs/research/repository-bank/SOURCES.json": "d92b2ddb511c09f4720682f1304a5f69c8164e978fbf52c29d51215dbdac43b2",
+    "docs/research/repository-bank/collect_sources.py": "ada73b587b5fd36e835d77ec47b1e96e4dd4f4842b02434eae49fcd40db2b400",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/ASSIGNMENT.md": "4586325b0530aedc35acf22ee24ae7f3aa48f7d5b3e99027e81355109b70ed86",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/INPUT_SNAPSHOT.json": "feb5555f4b4ef14e5d615fa8050e716ec4d708fdc63a592d9003fc93aff5dc26",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/DISPATCH_RECEIPT.json": "5c6d0973a2ae387063cecaeebd54303712c1be6fda2a9b8bde76ebf338258e76"
+  },
+  "state": "Collection complete; dedicated YAIR Repository GM created and observed active/inProgress. Semantic review remains in that chat.",
+  "dispatch_receipt": "docs/gm/world-implementation/second-pass/repository-bank-absorption/DISPATCH_RECEIPT.json"
+}

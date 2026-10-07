@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "status": "source-qualified hypothetical; not implemented or playable evidence",
+  "caseId": "CE-PARADISE-SID20",
+  "source": {
+    "snapshot": "PD-MTL-67f15d112389-r1",
+    "claimStatus": "U for primary canon and translation fidelity",
+    "epubSha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+    "scene": {
+      "sid": 20,
+      "member": "EPUB/Chapter 19 Before the Event (Inside information about new chapters)_19.xhtml",
+      "sha256": "23661c691ddd65388b93e88aa39d174ecaab06b20ccd3db1209726c185e3045d",
+      "paragraphs": "9-36,58-65",
+      "supports": ["negotiated next-day 18:00 fire proposal", "Krieg/Gin gear and bomb/fuel/noble-status bargain", "Su Xiao's independent king plan", "midnight mission failure boundary"],
+      "sourceFit": "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md"
+    },
+    "laterConsequenceAnchor": {
+      "sid": 21,
+      "member": "EPUB/Chapter 20 Deception!_20.xhtml",
+      "sha256": "c5722c45640bbf5ff3cf324cf9f8d2c4b9ea46724f4e488dc31da8d9a9d74610",
+      "paragraphs": "3-19,22-29,39-56,64-84",
+      "claim": "source-fit card records fire, fleeing residents, shut gate, Hank thrown into fire, unknown wallman explosives offer/breach, then Su Xiao's palace route",
+      "qualification": "supplied-MTL chronology and identity limits; no exact synchronized common clock"
+    }
+  },
+  "independentActorSnapshot": {
+    "suXiao": {
+      "identity": "own body; alive; displayed level/rank 1; world difficulty 6",
+      "means": ["damaged 35/40 Ryouma-origin guardhouse sword with fear/shock", "prior flintlock held in inventory and not removable from Van Pease", "two early +1 Strength necklaces", "tiger teeth, Tiger Claw, small Soul Crystal"],
+      "fuel": "Soul Eater awakened; prior notices raised mana maximum to 91; current spendable amount unknown; no mana technique demonstrated by sid20",
+      "authority": "bounded guard-chief appointment; hundreds staged outside meeting; can send them back; Hank is wary",
+      "privatePlan": "kill Philip Herbert tonight regardless of fire plan; negotiated Krieg fire for next-day 18:00; task fails at midnight; Hank has unspecified task",
+      "knowledge": "mission and fire clocks distinct; private plans are not player knowledge"
+    },
+    "parallelPlayer": {
+      "status": "original proposal, not a sourced second entrant",
+      "role": "independent civilian/contractor with disclosed body, ordinary means, own stock/clock/knowledge/exit terms",
+      "notInherited": ["Hunter status", "Soul Eater or fuel", "Su Xiao's weapon, inventory, office, allies, plan, source knowledge, reward or return trigger"]
+    }
+  },
+  "causalBaseline": [
+    "Krieg ignition depends on accepted bargain and possessed gear/fuel",
+    "occupied homes burning depends on ignition and source-period timing",
+    "resident flight to gate depends on fire reach and route choice",
+    "gate remains shut in source consequence window",
+    "Hank thrown into fire is source consequence, not a universal death state",
+    "wallman's offer and explosive breach are contingent actor intervention",
+    "Su Xiao's palace/king plan is independent of the player's local ending unless changed by credible contact/cause"
+  ],
+  "traces": [
+    {"id":"CE-PAR-01","choice":"abstain; pursue paid local life","materialEffects":["player gains authored stock/procedure/contact", "source actors keep their means/plans absent contact", "local fire/gate consequences remain contingent baseline"],"endingOwners":["player","Su Xiao","residents/institutions","issuer"],"unsupported":"exact resident casualty count and guaranteed player exit"},
+    {"id":"CE-PAR-02","choice":"build limited resident cache and recruit willing carriers before warning","materialEffects":["spend player-owned resources/time", "only reachable cohort uses known route", "witnesses, stock custody, trust and later account change"],"endingOwners":["player","participating residents","Su Xiao if independently unchanged"],"unsupported":"mass rescue, fire service, total population/capacity"},
+    {"id":"CE-PAR-03","choice":"earn limited warning, deliver evidence, bargain for diversion or gate response","materialEffects":["knowledge must have a recorded credible channel", "NPC refusal/payment and actual command response are separate", "pre-ignition diversion invalidates the downstream fire/gate/Hank/barrel causes", "failed/late warning preserves viable fire branch and may consume trust/stock"],"endingOwners":["player","residents/institutions","Su Xiao only if contact changes his cause","issuer if contract exists"],"unsupported":"guaranteed cooperation or invented fallback plan"},
+    {"id":"CE-PAR-04","choice":"seek contact or attack Su Xiao","materialEffects":["current lead/reach is unsupported", "credible but unarmed attack failing against trained armed actor is plausible but unmodeled", "source supplies no defense/counter/escape result for this player encounter", "success, injury, defeat/recovery, yield, capture, death and eligibility remain unknown absent a real adapter/result"],"endingOwners":["each actor and local witnesses only after actual result"],"unsupported":"automatic protagonist immunity, guaranteed attack success, revival, replacement victim, loot/identity/power transfer, player return/reward"}
+  ],
+  "endingDistinctions": {
+    "player": ["goal/account", "stock/procedure", "witnesses/trust", "rescue contribution", "separately authored residence/departure"],
+    "suXiao": ["king mission", "life/custody/death if resolved", "own extraction"],
+    "residentsAndInstitutions": ["bounded movement/loss", "cache/route custody", "fire/gate/guard/pirate state", "known evidence and trust"],
+    "issuer": ["only actual contract settlement with cause and authority"]
+  },
+  "implementationStatusAtSnapshot": {
+    "observedAtUtc": "2026-10-06T05:23:34Z",
+    "content": "src/book_world_paradise_content.js contains authored definitions and immutable expected baseline; no demonstrated scheduler/ending consumer",
+    "native": "src/book_world_paradise_native.js contains native-owner validation/registration draft",
+    "partialStateAndCarriers": ["src/book_world_paradise_state.js has optional campaign/visit/clock validation and connection definitions", "src/book_world_paradise_carriers.js has existing carrier/clock snapshot adapters"],
+    "missingAtSnapshot": ["src/book_world_paradise_actions.js", "src/book_world_paradise_host.js", "Paradise registration in src/main.js", "Paradise registration in src/expansion_engine.js", "a dedicated Paradise story file"],
+    "storyInventory": ["stories/feature_wave.ink", "stories/feature_wave.json"],
+    "classification": "content/native draft in active integration; branch logic and executable endings not evidenced; gameplay/save/reload/browser/failure/director acceptance deferred"
+  },
+  "hashesAtStart": {
+    "PROJECT.md": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "docs/gm/causal-endings/ASSIGNMENT.md": "d2ea0b3710ccd4bb0bed1d7ebcd245f86c8a377ec2701866e65fb76461c57d7f",
+    "docs/gm/book-world-player-agency/INTERFACE.md": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+    "docs/gm/book-world-player-agency/HANDOFF.json": "3f9ff90e3799d89f92e6161a934427d888e9dedd02d49021124c2e7b3ca871bf",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md": "8f185a3e3077c11721cbe0801191e1c78a220b8c1a4960a40eb0108a446ddd14",
+    "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70",
+    "src/book_world_paradise_content.js": "e15e1b9aefa6ca3e564e562b7de8076ff4b87e7aa7dea64f54be8e26f0d89331",
+    "src/book_world_paradise_native.js": "dd02d07497414579e2f5d8d36b3bffae6d6df42a92f29b844fba132394fa870f",
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3"
+  },
+  "verification": {
+    "scope": "documentation and source observation only",
+    "noGameplayOrTests": true,
+    "hashesAtEnd": {
+      "PROJECT.md": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "docs/gm/causal-endings/ASSIGNMENT.md": "d2ea0b3710ccd4bb0bed1d7ebcd245f86c8a377ec2701866e65fb76461c57d7f",
+      "docs/gm/book-world-player-agency/INTERFACE.md": "83fc64d9524f46f8ba6ce28287d3650d912633617f9477c97d1cef5b8d7fee66",
+      "docs/gm/book-world-player-agency/HANDOFF.json": "3f9ff90e3799d89f92e6161a934427d888e9dedd02d49021124c2e7b3ca871bf",
+      "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.md": "8f185a3e3077c11721cbe0801191e1c78a220b8c1a4960a40eb0108a446ddd14",
+      "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70",
+      "src/book_world_paradise_content.js": "e15e1b9aefa6ca3e564e562b7de8076ff4b87e7aa7dea64f54be8e26f0d89331",
+      "src/book_world_paradise_native.js": "dd02d07497414579e2f5d8d36b3bffae6d6df42a92f29b844fba132394fa870f",
+      "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+      "src/book_world_paradise_state.js": "0d029aca789ca316b12d6ac4144e77fac54414e7b8ce7d2d4c700cf2403b49c2",
+      "src/book_world_paradise_carriers.js": "f6badd94934fd71128e995ad05567c0cb49e57c2ffbc8348753798244333a25b",
+      "src/main.js": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "src/expansion_engine.js": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37",
+      "stories/feature_wave.ink": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+      "stories/feature_wave.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed"
+    },
+    "remaining": ["upstream case integration", "recheck current host/actions/registration/status", "later playable action/result/ending acceptance"]
+  }
+}

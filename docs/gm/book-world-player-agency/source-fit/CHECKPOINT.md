@@ -1,0 +1,7 @@
+# Released opening/Goa source qualifier checkpoint
+
+Source reader /root/paradise_source, GPT-6 Luna medium,2026-10-06. Narrow source-fit lane COMPLETE/RELEASED; root campaign remains active at ../CHECKPOINT.md. Completed source dossier reused; targeted exact opening/Goa/service and sid20 state passages only. [OPENING_AND_GOA.json](OPENING_AND_GOA.json) and [notes](OPENING_AND_GOA.md) own20member/hash/paragraph evidence rows and sid20 Su Xiao source state. Supplied MTL PD-MTL-67f15d112389-r1, primary-canon U/translation/franchise limits preserved.
+
+Source card holds own damaged Ryouma-origin sword/two early necklaces/tiger items and last-observed, unconfirmed current flintlock, awakened Soul Eater/max91 with unknown current mana, guard-chief office/private king plan and distinct mission-midnight/fire-nextday18:00 notices. No player copy, future Sword Mage/settlement reward or synchronized source clock is granted. Two capacity/warning interventions and independent-life route are authored proposals. Source/library/private saves untouched, no gameplay/browser/save/action/test/build proof.
+
+Root corrected the narrow reader checkpoint that had been written at the parent path: this source-fit surface preserves its evidence and release, while parent CHECKPOINT.md again owns actual root objective/children/writer status. Current root BUILD hashes, not the reader's earlier path digest, will own integration bytes. Next only root representative source review and integration; no further source-reader writer reservation.

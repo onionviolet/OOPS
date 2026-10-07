@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-04",
+  "purpose": "World-bank synthesis initial read-only inputs. Peer files require delivered-state qualification; active reports are drafts.",
+  "files": {
+    "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md": "aff6e34881685cd25b4e3f29fc251ba12bc6c06a7bd743423a1a26fffbccaf43",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+    "docs/gm/world-implementation/second-pass/foundations/REPORT.md": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+    "docs/gm/world-implementation/second-pass/authoring/REPORT.md": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+    "docs/gm/world-implementation/second-pass/society/REPORT.md": "2b1ced084e8d3a80294d7a14b44419678f2995c85a5986ee7ab338ac41a3c44d",
+    "docs/gm/world-implementation/second-pass/timelines/REPORT.md": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+    "docs/gm/world-implementation/second-pass/integration/REPORT.md": "e9354ecf922b8bd0aa0bb159365842ee6b69ab559469330561a1b16ad35c10f0",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/people_knowledge.js": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+  }
+}

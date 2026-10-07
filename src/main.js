@@ -1,12 +1,129 @@
+import {contextualBalmContext,commitContextualBalmCommand,stageContextualBalmEffectRequest} from './contextual_balm_host.js';
+import {prepareContextualBalmNative} from './contextual_balm_native.js';
+import {coolingRefinementContext,commitCoolingRefinementCommand} from './cooling_refinement_host.js';
+import {commitAgreedDutyAction} from './agreed_duty_host.js';
+import {createKnownRoutesPanel} from './known_routes_ui.js';
+import {knownRoutesPresentation} from './known_routes_host.js';
+import {pocketRealmView,pocketRealmActions,previewPocketRealmAction} from './pocket_realm_host.js';
+import {proto23Presentation} from './proto23_world_host.js';
+import {gameAbsorptionAssayContext,commitGameAbsorptionAssayCommand,cancelGameAbsorptionAssayJob} from './game_absorption_assay_host.js';
+import {validateGameAbsorptionAssay} from './game_absorption_assay_facts.js';
+import {commitParadiseCampaignDepthCommand} from './book_world_paradise_campaign_host.js';
+import {reconcileParadiseCampaignDepthRuntime} from './book_world_paradise_campaign_runtime.js';
+import {projectParadiseCampaignEffects,paradiseCampaignContext} from './book_world_paradise_campaign_facts.js';
+import {worldCompletionContext} from './world_completion_facts.js';
+import {commitWorldCompletionCommand} from './world_completion_host.js';
+import {worldCompletionSimulationContexts,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
+import {commitLorePracticeCommand} from './lore_practice_host.js';
+import {reconcileLorePractice,lorePracticeSimulationContexts} from './lore_practice_runtime.js';
+import {commitBookCareCommand} from './book_care_host.js';
+import {projectBookCareEffects} from './book_care_facts.js';
+import {reconcileBookCareRuntime} from './book_care_runtime.js';
+import {commitFieldCareCommand,reconcileFieldCareNative} from './field_care_host.js';
+import {projectFieldCareEffects} from './field_care_facts.js';
+import {commitStatusCareCommand,reconcileStatusCareNative} from './status_care_host.js';
+import {projectStatusCareEffects,statusCareRainMultiplier} from './status_care_facts.js';
+import {createCausalStoryNativeBindings} from './causal_story_native.js';
+import {causalStoryContext,causalStorySimulationContexts,commitCausalStoryCommand,reconcileCausalStoryPlan,causalStoryTravelReasons} from './causal_story_host.js';
+import {createCausalStoryUI} from './causal_story_ui.js';
+import {CAUSAL_STORY_PROOFS,causalStoryPersonIds,causalStoryId} from './causal_story_ids.js';
+import {readNativeFighter} from './native_battle.js';
+import {commitArtifactWorkshopCommand} from './artifact_workshop_host.js';
+import {advanceAuditRemainder,auditRemainderSimulationContexts} from './audit_remainder_runtime.js';
+import {validateAuditRemainderNative} from './audit_remainder_facts.js';
+import {auditRemainderContext,commitAuditRemainderCommand} from './audit_remainder_host.js';
+// Initialize the existing cyclic core before optional host adapters.
+import './expansion_engine.js';
+import {setFieldcraftKnowledgeReader} from './display.js';
+import {nethackFieldcraftContext,commitNethackFieldcraftCommand} from './nethack_fieldcraft_host.js';
+import {auditedWorkshopContext,commitAuditedWorkshopCommand} from './audited_workshop_host.js';
+import {startAuditedKitReserve,controlAuditedKitReserve} from './audited_kit_reserve_host.js';
+import {createParadiseNativeBindings} from './book_world_paradise_native.js';
+import {createMolNativeBindings} from './book_world_mol_native.js';
+import {MOL_LOCATIONS,MOL_FOOTPRINTS} from './book_world_mol_content.js';
+import {activeMolVisit,molContext,molSimulationContexts,commitMolCommand} from './book_world_mol_host.js';
+import {syncMolClock} from './book_world_mol_state.js';
+import {createProto23NativeBindings} from './proto23_world_native.js';
+import {PROTO23_LOCATIONS,PROTO23_FOOTPRINTS} from './proto23_world_content.js';
+import {activeProto23Visit,proto23Context,proto23SimulationContexts,commitProto23Command} from './proto23_world_host.js';
+import {syncProto23Clock} from './proto23_world_state.js';
+import {factorioRetortContext,commitFactorioRetortCommand,cancelFactorioRetortJob,startFactorioRetortPlan,controlFactorioRetortPlan} from './factorio_retort_host.js';
+import {projectBookWorldEffects} from './book_world_effects.js';
+import {commitHomeFurnishingCommand} from './home_furnishing_host.js';
+import {commitCrushSocialAction} from './crush_social_host.js';
+import {createCrushSocialPanel} from './crush_social_views.js';
+import {PARADISE_IDS,PARADISE_LOCATIONS,PARADISE_FOOTPRINTS} from './book_world_paradise_content.js';
+import {BOOK_WORLD_AGENCY_CONTRACTS,validateBookWorldAgencyContracts} from './book_world_player_agency_contracts.js';
+import {activeParadiseVisit,paradiseContext,paradiseSimulationContexts,syncParadiseClock,commitParadiseCommand} from './book_world_paradise_host.js';
+import {stageParadiseCarrierClock,retainParadiseCarrierReceipt} from './book_world_paradise_carriers.js';
+
+import {commitNestedLifeCommand,nestedLifeContext} from './feature_expansion_nested_life.js';
+import {createNestedInkPanels} from './feature_expansion_nested_ink_ui.js';
+import {previewNestedCommand} from './feature_expansion_nested_host.js';
+import {createQualifiedBacklogAdapter,bookNativeContext,assertQualifiedOfficePlan} from './feature_expansion_book_host.js';
+import {replacementView,replacementCarrierView,validateReplacementRecord} from './backlog_expansion_replacement.js';
+import {createRelayHost,relayContext,validateRelayState} from './feature_expansion_subtlety_host.js';
+import {createReferenceDeskHost,referenceDeskContext} from './feature_expansion_reference_desk.js';
+import {createNestedNativeBindings} from './feature_expansion_nested_native.js';
+import {NESTED_IDS,NESTED_LOCATIONS} from './feature_expansion_nested_content.js';
+import {nestedContext,nestedSimulationContexts,activeNestedVisit,syncNestedCampaignClock,commitNestedCommand} from './feature_expansion_nested_host.js';
+import {nestedChainContext,nestedChainSimulationContexts,commitNestedChainCommand} from './feature_expansion_nested_chains_host.js';
+import {stageNestedCarrierClock,retainNestedCarrierReceipt} from './feature_expansion_nested_carriers.js';
+import {refinementPresentation} from './feature_expansion_refinements_host.js';
+import {registerBookSubtletyCatalogue} from './feature_expansion_book_catalogue.js';
+import {createReplacementRecognitionPanel} from './feature_expansion_recognition_host.js';
+import {createTidemarkNativeBindings} from './feature_expansion_destination_native.js';
+import {activeTidemarkVisit,tidemarkContext,tidemarkSimulationContexts,syncTidemarkClock,commitTidemarkAction,beginTidemark} from './feature_expansion_destination_host.js';
+import {TIDEMARK_LOCATIONS,TIDEMARK_IDS} from './feature_expansion_destination.js';
+import {featurePowerContext,planFeaturePowerCommand} from './feature_expansion_powers_host.js';
+import {createFeatureBattleHost} from './feature_expansion_battle_host.js';
+import {featureBattleToken} from './feature_expansion_battle.js';
+import {advanceReferenceGameplay,commitReferenceControl} from './reference_gameplay_state.js';
+import {referenceGameplayContext,commitReferenceGameplayCommand} from './reference_gameplay_host.js';
+import {startWorkPlan,controlWorkPlan} from './feature_expansion_work_plan.js';
+import {backlogNativeContext,commitBacklogAction,assertBacklogPublication,backlogNativeClockPaused,backlogNativeActionReasons,backlogActions,previewBacklogAction} from './backlog_expansion_host.js';
+import {createBacklogExpansionPanel} from './backlog_expansion_ui.js';
+import {repositoryAbsorptionContext,beginRepositoryAbsorption,commitRepositoryAbsorption,cancelRepositoryAbsorption,commitRepositoryProjection} from './repository_absorption_host.js';
+import {createRepositoryAbsorptionPanel} from './repository_absorption_ui.js';
+import {commitInkNarrativeAction,inkNarrativeView} from './ink_narrative.js';
+import {createTidemarkInkHost,createRelayInkHost} from './ink_scene_content.js';
+import {createInkNarrativeUI} from './ink_narrative_ui.js';
+import {beginFeatureObjects,commitFeatureObjectCommand,validateFeatureObjectState,featureObjectContext} from './feature_expansion_objects_host.js';
+import {beginSociety,commitSocietyAction,societyContext} from './feature_expansion_society_host.js';
+import {createFeatureExpansionPanel} from './feature_expansion_ui.js';
+import {featureWavePresentation} from './feature_expansion_wave_host.js';
+import NPC from './models/npc.js';
+import {SafeLocation} from './models/location.js';
+import {TraderComponent} from './components/trader_component.js';
+import {commitPocketRealmAction,pocketContext} from './pocket_realm_host.js';
+import {skillExpansionContext} from './skill_expansion_host.js';
+import {createSkillExpansionPanel} from './skill_expansion_ui.js';
+import {createOriginalFrontierPanel} from './original_frontier_campaign_ui.js';
+import {beginOriginalFrontier,commitOriginalFrontier,originalFrontierContext,recordOriginalFrontierEncounter} from './original_frontier_campaign_host.js';
+import {createPocketRealmPanel} from './pocket_realm_ui.js';
+import {registerPocketLocation,POCKET_LOCATION} from './data/pocket_location.js';
+import {activeRealmVisit,realmSimulationContexts,syncRealmClock} from './realm_state.js';
+import {beginObservation,commitObservationCommand} from "./observation_content.js";
+import {createObservationPanel} from "./observation_ui.js";
+import {beginExchange,commitExchangeCommand} from './exchange.js';
+import {createExchangePanel} from './exchange_ui.js';
+import {beginPromiseVisitor} from "./promise_content.js";
+import {createPromisePanel} from "./promise_ui.js";
+import {createFrontierCampaignPanel} from "./frontier_campaign_ui.js";
+import {createNativeBattleHost} from "./native_battle_host.js";
+import {initializeNativeBattle} from "./native_battle.js";
+import {initializePartyBattle,partyHelperReasons} from "./party_battle.js";
+import {createPartyPanel} from "./party_ui.js";
+import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_campaign.js";
 "use strict";
 
-import { current_game_time, is_night } from "./game_time.js";
+import { current_game_time, is_night, Game_Time } from "./game_time.js";
 import { item_templates, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
 import { which_skills_affect_skill } from "./models/skill.js";
-import { enemy_killcount, enemy_templates, tags_for_droprate_modifier_skills } from "./enemies.js";
+import { Enemy, enemy_killcount, enemy_templates, tags_for_droprate_modifier_skills } from "./enemies.js";
 import { is_in_trade, start_trade, cancel_trade, accept_trade, exit_trade,
          add_to_buying_list, remove_from_buying_list, add_to_selling_list, remove_from_selling_list} from "./trade.js";
 import { character, 
@@ -60,7 +177,7 @@ import { end_activity_animation,
          skill_list,
          update_booklist_entry,
          update_displayed_temperature,
-         update_displayed_quest,
+         update_displayed_quest, add_quest_to_display,
          start_rain_animation,
          start_snow_animation,
          stop_background_animation,
@@ -97,16 +214,16 @@ import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
 import { game_version, get_game_version } from "./game_version.js";
 import { ActiveEffect, effect_templates } from "./active_effects.js";
-import { open_storage, close_storage, move_item_to_storage, remove_item_from_storage, player_storage, is_storage_open } from "./data/storage.js";
+import { open_storage, close_storage, move_item_to_storage, remove_item_from_storage, player_storage, is_storage_open, bind_storage_transfer } from "./data/storage.js";
 import { Verify_Game_Objects } from "./verifier.js";
-import { quests, questManager, active_quests } from "./quests.js";
+import { quests, questManager, active_quests, Quest, QuestTask } from "./quests.js";
 import { get_current_temperature_smoothed, is_raining } from "./weather.js";
 import { Pathfinder, speed_modifiers_from_skills } from "./pathfinding.js";
 import { translationManager } from "./translation.js";
 import { characterCreator } from "./character_creation.js";
 import { config } from "./config.js";
 import NPCRegistry from "./data/npcs.js";
-import { inventories } from "./components/inventory_component.js";
+import InventoryComponent, { inventories } from "./components/inventory_component.js";
 import { levels, availabilities } from "./data/component_references.js";
 import { dialogues } from "./data/dialogues.js";
 import { flag_to_status, status_to_flag } from "./components/availability_component.js";
@@ -126,26 +243,55 @@ import {preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
 import {createExpansionState, loadExpansionState, commitAction, advanceSimulation, cancelAction, validateExpansionState} from "./expansion_engine.js";
+import {beginFieldWorkshop} from "./field_workshop.js";
+import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
 import "./data/expedition_items.js";
 import {createExpeditionPanel} from "./expedition_ui.js";
 import {persistExpansionPlan} from "./expansion_persistence.js";
-import {prepareGameplayPublication, readGameplayActor} from "./gameplay_publication.js";
+import {prepareGameplayPublication} from "./gameplay_publication.js";
 
 import {readInventoryOwner, prepareOwnershipPublication, recordAcquisitions} from "./acquisition.js";
+import {createNativeGameplayAdapter, publishNativeVitals, nativeActionReasons, assertNativeItemDisposition} from "./native_gameplay_adapter.js";
 import {stageNativeTrade} from "./native_trade_transaction.js";
 
 import {activePractice, answerTechniquePractice, cancelTechniquePractice, observeNativeTechnique} from "./techniques.js";
 import {createTechniquePanel} from "./technique_ui.js";
 import {applyGameplayEffect} from "./gameplay_transactions.js";
+import {commandChronicle, chronicleFacts, automaticResponse} from "./chronicle.js";
+import {createChroniclePanel} from "./chronicle_ui.js";
+import {techniqueFacts} from "./techniques.js";
+import {RAT_STEP} from "./technique_content.js";
+import {calendarMinutes} from "./world_rhythm.js";
+import {ROUTE_NOTES, NOTES_KEY, usesVillageClock} from "./village_content.js";
+import {createVillagePanel} from "./village_ui.js";
+import {everydayFacts, recordRouteReading} from "./everyday_life.js";
+import {townUnlocks, usesTownClock} from "./town_content.js";
+import {createTownPanel} from "./town_ui.js";
+import {createExpansionQuests} from "./expansion_quest_ui.js";
+import {worldIdentityView} from "./world_knowledge.js";
+import {createAdventureNotebook} from "./adventure_notebook.js";
+import {createCharacterBio} from "./character_bio_ui.js";
+import {bodyFacts, beginBodyRecord} from "./body_progression.js";
+import {createBodyPanel} from "./body_ui.js";
+import {createSimulationPanel} from "./simulation_ui.js";
+import {createEventFeed} from "./event_feed_ui.js";
+import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimulationProgram, pauseSimulationProgram, resumeSimulationProgram, answerSimulationEncounter, withdrawSimulationEncounter,
+    respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
+import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
+import {readNativeEquipment, prepareNativeEquipment} from "./native_equipment_transaction.js";
+import {stageNativeStorageTransfer} from "./native_storage_transaction.js";
+import {recordPursuitDeparture,pursuitView} from "./pursuit.js";
+import {createPursuitPanel} from "./pursuit_ui.js";
 
-const gameplayBindings = {player: {category: "person", id: "main_character"}};
+const gameplayBindings = {player: {category: "person", id: "main_character"}, oldCraftsman: {category: "person", id: "oldCraftsman"}};
 
 let retiredContent = {schema: 1, entries: []};
 let foundationSaveBlocked = false;
 const importProbeToken = new URL(window.location.href).searchParams.get("import_probe");
 let importInProgress = false;
 let loadingReputationTotals = null;
+let restoringNativeSave = false;
 
 import {prepareV06Save} from "./save_migration.js";
 
@@ -154,10 +300,145 @@ const dev_save_key = "dev save data";
 const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
 
+registerBookSubtletyCatalogue(expeditionRegistry);
+const agencyIntegrity=validateBookWorldAgencyContracts();if(!agencyIntegrity.valid)throw new Error(`Invalid book-world source contracts: ${agencyIntegrity.errors.join('; ')}`);
+expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativeBindings:new Map([['reincarnation-paradise',{revision:1,worldIds:PARADISE_FOOTPRINTS.map(f=>f.worldId),scope:'first-Goa supplied-MTL alternate branch',status:'implemented-unverified'}],['mother-of-learning',{revision:1,worldIds:MOL_FOOTPRINTS.map(f=>f.worldId),scope:'Cyoria academy independent visitor branch',status:'implemented-unverified'}]])};
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
+setFieldcraftKnowledgeReader(()=>expansionState);
+character.setSimulationEffectReader(()=>{const context={nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true};return {...projectStatusCareEffects(expansionState,expeditionRegistry,context),...projectFieldCareEffects(expansionState,expeditionRegistry,context),...projectBookCareEffects(expansionState,expeditionRegistry,context),...projectBookWorldEffects(expansionState,expeditionRegistry,context),...projectParadiseCampaignEffects(expansionState,expeditionRegistry,context)};});
+let publishedStatusCareSignature = "";
 let expansionError = "";
 let expeditionPanel;
 let techniquePanel;
+let chroniclePanel;
+let villagePanel;
+let simulationPanel;
+let pursuitPanel;
+let townPanel;
+let adventureNotebook;
+let knownRoutesPanel;
+let expansionQuests;
+let characterBio;
+let bodyPanel;
+let fieldPanel;
+let promisePanel;
+let crushSocialPanel;
+let worldEventFeed;
+let frontierCampaignPanel;
+let nativeBattleHost;
+let partyPanel;
+let exchangePanel;
+let observationPanel;
+let pocketRealmPanel;
+let skillExpansionPanel;
+let originalFrontierPanel;
+let featureExpansionPanel;
+let causalStoryPanel;
+let featureBattleHost;
+let backlogPanel;
+let replacementRecognitionPanel;
+let backlogOpeningPanel;
+let repositoryPanel;
+let inkPanel;
+let nestedInkPanels;
+const qualifiedBacklog=createQualifiedBacklogAdapter({
+    commit:(state,registry,command,context,sequence)=>commitBacklogAction(state,registry,command,context,sequence,{advancePlan:(plan,minutes)=>advanceChroniclePlan(plan,minutes,true)}),
+    preview:previewBacklogAction,actions:backlogActions,validate:state=>validateReplacementRecord(state.backlog,state),view:replacementView,carrierView:replacementCarrierView
+});
+const relayHost=createRelayHost(qualifiedBacklog),referenceDeskHost=createReferenceDeskHost();
+const tidemarkInkHost=createTidemarkInkHost();
+const relayInkHost=createRelayInkHost({previewReplacement:qualifiedBacklog.preview,commitReplacement:qualifiedBacklog.commit});
+function currentInkHost(){
+    const wrapper=expansionState.inkNarrative,saved=wrapper?.schema===2?wrapper.legacy:wrapper;
+    if(saved&&saved.status!=='complete')return saved.sceneId==='relay.office'?relayInkHost:tidemarkInkHost;
+    return current_location?.id==='Village'?relayInkHost:tidemarkInkHost;
+}
+
+let hasLoadedNativeSave=false;
+registerPocketLocation();
+const tidemarkNative=createTidemarkNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:()=>{
+    const body=expansionState.backlog?.body?expansionState.simulation?.people.player?.body:null;
+    return {id:body?.id||'native.player.body',form:body?.form||character.getRace()};
+}});
+tidemarkNative.register();
+const nestedNative=createNestedNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:()=>{
+    const body=expansionState.backlog?.body?expansionState.simulation?.people.player?.body:null;
+    return {id:body?.id||'native.player.body',form:body?.form||character.getRace()};
+}});
+nestedNative.register();
+const paradiseNative=createParadiseNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:()=>{
+    const body=expansionState.backlog?.body?expansionState.simulation?.people.player?.body:null;
+    return {id:body?.id||'native.player.body',form:body?.form||character.getRace(),ownerId:body?.ownerId||'player',controllerId:body?.controllerId||'player'};
+}});
+paradiseNative.register();
+const molNative=createMolNativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
+molNative.register();
+const proto23Native=createProto23NativeBindings({NPC,NPCRegistry,SafeLocation,locations,availabilities,InventoryComponent,inventories,TraderComponent,Quest,QuestTask,quests,activeQuests:active_quests,Game_Time,getItemFromKey,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeBody:currentNativeBody});
+proto23Native.register();
+function nativeCareFrame() {
+    return {clock:expansionState.clock,calendarMinute:calendarMinutes(current_game_time),underRoof:current_location?.is_under_roof===true,
+        battleRunning:!!current_combat,effects:Object.fromEntries(Object.entries(active_effects).map(([id,e])=>[id,{duration:e.duration}]))};
+}
+function refreshStatusCareStats(force=false) {
+    const signature=JSON.stringify(Object.entries(character.getSimulationEffects()).map(([id,e])=>[id,e.effects.stats]));
+    if(force || signature!==publishedStatusCareSignature) {
+        character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();
+        publishedStatusCareSignature=signature;update_displayed_effects();
+    }
+}
+function currentNativeBody(){
+    const body=expansionState.simulation?.people.player?.body;
+    return {id:body?.id||'native.player.body',form:body?.form||character.getRace(),ownerId:body?.ownerId||'player',controllerId:body?.controllerId||'player',hands:body?.hands??2,mobile:body?.mobile??true};
+}
+const causalNative=createCausalStoryNativeBindings({NPC,NPCRegistry,Quest,QuestTask,quests,activeQuests:active_quests,availabilities,locations,getItemFromKey,
+    getNativeBody:currentNativeBody,getNativeContext:get_context,getCurrentLocation:()=>current_location?.id||null,getNativeFighters:()=>({player:readNativeFighter(character)})});
+causalNative.register();
+for(const id of causalStoryPersonIds)gameplayBindings[id]={category:"person",id};
+function refreshCausalQuests(){
+    if(!expansionState.causalStories)return;
+    for(const proof of CAUSAL_STORY_PROOFS){const id=causalStoryId(proof,'quest');if(active_quests[id]||quests[id].isFinished()){
+        if(!document.querySelector(`[data-quest_id="${id}"]`))add_quest_to_display(id);else update_displayed_quest(id);
+    }}
+}
+
+function refreshMolQuests(){
+    if(!expansionState.motherOfLearning)return;
+    for(const f of MOL_FOOTPRINTS){const id=f.native.questId;if(active_quests[id]||quests[id].isFinished()){
+        if(!document.querySelector(`[data-quest_id="${id}"]`))add_quest_to_display(id);else update_displayed_quest(id);
+    }}
+}
+
+function refreshParadiseQuests(){
+    if(!expansionState.bookWorldCampaign)return;
+    for(const f of PARADISE_FOOTPRINTS){const id=f.native.questId;if(active_quests[id]||quests[id].isFinished()){
+        if(!document.querySelector(`[data-quest_id="${id}"]`))add_quest_to_display(id);else update_displayed_quest(id);
+    }}
+}
+
+function refreshNestedQuests(){
+    if(!expansionState.nestedCampaign)return;
+    for(const id of [NESTED_IDS.hubQuest,NESTED_IDS.saltQuest,NESTED_IDS.archiveQuest])if(active_quests[id]||quests[id].isFinished()){
+        if(!document.querySelector(`[data-quest_id="${id}"]`))add_quest_to_display(id);else update_displayed_quest(id);
+    }
+}
+
+function refreshTidemarkQuest(){
+    if(!expansionState.featureDestination||(!active_quests[TIDEMARK_IDS.quest]&&!quests[TIDEMARK_IDS.quest].isFinished()))return;
+    if(!document.querySelector(`[data-quest_id="${TIDEMARK_IDS.quest}"]`))add_quest_to_display(TIDEMARK_IDS.quest);
+    else update_displayed_quest(TIDEMARK_IDS.quest);
+}
+
+let nativeBattlePauseReason="";
+let chroniclePauseReason = "";
+
+function renderWorldIdentity() {
+    const note = document.getElementById("world_identity_note");
+    if(!note) return;
+    const known = worldIdentityView(expansionState, expeditionRegistry);
+    note.hidden = !known.label;
+    if(note.textContent !== known.label) note.textContent = known.label;
+    if(note.title !== known.description) note.title = known.description;
+}
 // One writer owns the entire envelope, including legacy autosave. Import probes
 // never acquire a lock or write. A second tab remains a read-only preview.
 let ownsSave = !!importProbeToken;
@@ -169,9 +450,8 @@ async function acquireSaveOwnership() {return importProbeToken ? true : new Prom
     }).catch(() => resolve(false));
 });}
 
-function gameplaySnapshot() {
-    return {player: readGameplayActor(character, skills, get_context())};
-}
+const nativeGameplay = createNativeGameplayAdapter({player:character,getPerson:id=>NPCRegistry.get(id),skills,getContext:get_context,bindings:gameplayBindings});
+function gameplaySnapshot() {return nativeGameplay.snapshot(expansionState);}
 
 function validateNativeGameplayReferences(definitions) {
     for(const definition of definitions) for(const effect of definition) {
@@ -182,49 +462,181 @@ function validateNativeGameplayReferences(definitions) {
     }
 }
 
+function simulationNativeContexts() {
+    const contexts=tidemarkSimulationContexts(expansionState,realmSimulationContexts(expansionState,nativeGameplay.contexts(expansionState,!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()))));
+    const evidence=frontierNativeEvidence(),causalFrame=causalNative.read(expansionState);
+    for(const id of Object.keys(expansionState.simulation?.people || {player:true})) contexts[id]={...contexts[id],nativeSkillLevels:evidence.nativeSkillLevels,nativeZoneCounts:evidence.nativeZoneCounts,destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalFrame,...nativeCampaignLocationOwners(),
+        facts:{...contexts[id]?.facts,...evidence.facts,...(id==='player'?{location:current_location?.id,strength:character.getFullStats().strength,agility:character.getFullStats().agility}: {})}};
+    for(const [id,ctx] of Object.entries(contexts))ctx.facts=featurePowerContext(expansionState,{...ctx,actorId:id,vitals:{[id]:ctx.vitals},equipment:{[id]:ctx.equipment}}).facts;
+    Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
+    const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
+    for(const [id,c] of Object.entries(contexts))Object.assign(c,{actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,"weather.raining":!!is_raining(),...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+    const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
+    for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
+    return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
+}
+
+function frontierNativeEvidence(){
+    const nativeSkillLevels=Object.fromEntries(Object.keys(skills).map(id=>[id,character.getLevelableComponent().skill_progress[id]?.current_level || 0]));
+    const nativeZoneCounts=Object.fromEntries(Object.entries(locations).filter(([,l])=>l.tags.combat_zone).map(([id,l])=>[id,l.enemy_groups_killed || 0]));
+    const facts={'originalFrontier.townAccessible':!!locations['Town square'].canBeStarted(get_context())};
+    for(const id of ['Forest road','Nearby cave','Cave room','Forest','Infested field','Shack','Town outskirts']) facts[`native.zone.${id}.accessible`]=!!locations[id]?.canBeStarted(get_context());
+    return {nativeSkillLevels,nativeZoneCounts,facts};
+}
+
+function projectNativePeopleBodies() {
+    for(const [id,p] of Object.entries(expansionState.simulation?.people || {})) if(id !== "player" && p.inventory === "native" && p.vitals) {
+        const stats = NPCRegistry.get(id).getFullStats();
+        stats.health = Math.max(0, Math.min(stats.max_health, p.vitals.health));
+        stats.stamina = Math.max(0, Math.min(stats.max_stamina, p.vitals.stamina));
+    }
+}
 function expeditionContext() {
     const gameplay = gameplaySnapshot();
-    return {actorId: "player", worldId: "base.frontier", external: {money: character.money}, gameplay,
-        facts: {location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
+    const evidence=frontierNativeEvidence();
+    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
+        facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
+            ...everydayFacts(expansionState, {hour: current_game_time.hour}),
+            ...bodyFacts(expansionState),
+            "day.hour": current_game_time.hour,
+            "weather.raining": !!is_raining(), "weather.damp": rain_counter > 0,
+            "village.circleOpen": current_game_time.hour >= 8 && current_game_time.hour < 10,
+            "village.briefingActive": (expansionState.actors.player.sources["village.morning_signs"]?.expiresAt ?? 0) > expansionState.clock,
+            calendarMinute: calendarMinutes(current_game_time), perception: character.getTotalSkillLevel("Perception"),
+            "village.elderMet": metVillageElder(),
+            "village.craftsmanMet": (() => {const status = dialogues["old craftsman"].textlines.hello.getAvailabilityComponent().getStatus(); return !!(status.is_locked || status.is_finished);})(),
+            "village.shackUnlocked": !!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,
+            "village.notesRead": item_templates[ROUTE_NOTES].isFinished(),
+            "village.notesHeld": !!gameplay.player.inventory[NOTES_KEY],
             climbing: skills.Climbing ? character.getTotalSkillLevel("Climbing") : 0,
-            kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}};
+            kits: gameplay.player.inventory[SURVEY_KIT_KEY] || 0, rope: gameplay.player.inventory[SURVEY_ROPE_KEY] || 0}}));
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    // Played-time settlements may retain their original job sequence. Opted-in
+    // characters give this committed boundary a fresh nonce before recognition.
+    if(plan.state.referenceGameplay && expansionState.referenceGameplay && plan.state.sequence===expansionState.sequence && plan.state.clock>expansionState.clock)plan.state.sequence++;
+    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.proto23Village)plan.state.schema=11;
+    else if(plan.state.bookWorldCampaign)plan.state.schema=10;
+    else if(plan.state.referenceGameplay)plan.state.schema=9;
+    if(plan.state.causalStories){const current=gameplaySnapshot();plan.gameplay={...current,...plan.gameplay};}
+    if(plan.state.causalStories&&plan.nativeLocation)plan.state.simulation.people.player.location=plan.nativeLocation;
+    const causalContexts=simulationNativeContexts();
+    if(plan.state.causalStories){
+        const currentVitals=Object.fromEntries(Object.entries(causalContexts).filter(([,c])=>c.vitals).map(([id,c])=>[id,c.vitals]));
+        plan.vitals={...currentVitals,...plan.vitals};
+        plan.equipment={...Object.fromEntries(Object.entries(causalContexts).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),...plan.equipment};
+        if(plan.native)for(const [key,offset] of [['health','hpToFull'],['stamina','staminaToFull']])if(plan.native[offset]!=null)plan.vitals.player[key]=Math.max(0,plan.vitals.player[`max_${key}`]-plan.native[offset]);
+        for(const [id,c] of Object.entries(causalContexts)){c.vitals=plan.vitals[id]||c.vitals;c.vitalsByActor=plan.vitals;c.equipment=plan.equipment[id]||c.equipment;}
+    }
+
+    if(plan.nativeLocation)causalContexts.player.facts={...causalContexts.player.facts,location:plan.nativeLocation};
+    reconcileCausalStoryPlan(expansionState,plan,expeditionRegistry,causalContexts);
+    advanceReferenceGameplay(expansionState,plan,expeditionRegistry,featureWaveContext());
+    advanceAuditRemainder(expansionState,plan,expeditionRegistry,featureWaveContext());
+    reconcileBookCareRuntime(expansionState,plan,expeditionRegistry);
+    reconcileParadiseCampaignDepthRuntime(expansionState,plan,expeditionRegistry);
+    reconcileLorePractice(expansionState,plan,expeditionRegistry,causalContexts);
+    validateAuditRemainderNative(plan.state,plan.gameplay || gameplaySnapshot());
+    validateGameAbsorptionAssay(plan.state,expeditionRegistry,{...plan,gameplay:plan.gameplay || gameplaySnapshot()});
+    retainNestedCarrierReceipt(plan);
+    retainParadiseCarrierReceipt(plan);
+    assertBacklogPublication(expansionState,plan);
+    assertQualifiedOfficePlan(expansionState,plan,{id:plan.backlogCommand},backlogContext());
+    if(plan.state.auditRemainder||plan.state.causalStories||plan.state.motherOfLearning||plan.state.proto23Village)plan.state.schema=11;
+    else if(plan.state.bookWorldCampaign)plan.state.schema=10;
+    else if(plan.state.referenceGameplay)plan.state.schema=9;
+    else if(plan.state.nestedCampaign)plan.state.schema=plan.state.actors.player.facts['nested.personal.version']===1||plan.state.actors.player.facts['nested.life.version']===1?8:7;
+    else if(plan.state.featureDestination || plan.state.backlog || plan.state.inkNarrative || plan.state.simulation?.workPlans)plan.state.schema=6;
+    plan = {...plan, state: recordRouteReading(plan.state, item_templates[ROUTE_NOTES].isFinished())};
+    syncRealmClock(plan.state);
+    syncTidemarkClock(plan.state);
+    syncNestedCampaignClock(plan.state);
+    syncParadiseClock(plan.state);
+    syncMolClock(plan.state);
+    syncProto23Clock(plan.state);
+    validateRelayState(plan.state,expeditionRegistry,plan);
+    validateFeatureObjectState(plan.state,expeditionRegistry,plan);
+    reconcileStatusCareNative(expansionState,plan,expeditionContext());
+    reconcileFieldCareNative(expansionState,plan,expeditionContext());
+    stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
+    reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
+    const previousNight = is_night(current_game_time);
     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
     for(const actor of Object.values(plan.state.actors)) {
         const active = activePractice(actor);
         if(active && !Object.hasOwn(skills, active[1].practice.xpSkill)) throw new Error("Unsupported saved practice skill.");
     }
-    const publication = prepareGameplayPublication(plan.gameplay, {actors: {player: character}, skills, getItemFromKey});
+    const actorBindings = {player: character};
+    for(const id of Object.keys(plan.gameplay || {})) if(id !== "player") actorBindings[id] = NPCRegistry.get(id);
+    const unlockAdapter = unlocks => [
+        ...(unlocks.skills || []).map(id => ({kind: "skill", id})),
+        ...(unlocks.recipes || []).map(r => ({kind: "recipe", id: recipes[r.category]?.[r.subcategory]?.[r.recipe_id]?.id})),
+        ...(unlocks.quests || []).map(id => ({kind: "quest", id}))];
+    const publication = prepareGameplayPublication(plan.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+    const townAccess = townUnlocks(expansionState, plan.state);
+    const unlockPublication = prepareNativeUnlocks([...(plan.unlocks || []), ...publication.unlocks, ...townAccess], {availabilities, flags: global_flags, quests, questManager});
+    const equipmentPublication = prepareNativeEquipment(plan.equipment, {actors: actorBindings, getItem: getItemFromKey});
     const ownershipPublication = plan.ownership && prepareOwnershipPublication(plan.ownership, {itemsByOwner, getItem: getItemFromKey});
     plan.itemLog ??= recordAcquisitions(item_log.items, (plan.acquisitions || []).filter(e => e.owner === "player"), getItemFromKey);
     // Check pending native rewards before accepting reserved costs, not only at
     // completion. Unsupported milestone unlocks reject this command safely.
     if(plan.commitment) {
+        const nativeContexts = simulationNativeContexts();
+        nativeContexts.player.facts = expeditionContext().facts;
+        for(const [id,c] of Object.entries(nativeContexts)){c.vitals=plan.vitals?.[id]||c.vitals;}
+        const stagedVitals=Object.fromEntries(Object.entries(nativeContexts).filter(([,c])=>c.vitals).map(([id,c])=>[id,c.vitals]));
+        for(const c of Object.values(nativeContexts))c.vitalsByActor=stagedVitals;
         const future = advanceSimulation(plan.state, expeditionRegistry, Math.max(0, plan.commitment.due - plan.state.clock),
-            plan.external, plan.gameplay);
-        prepareGameplayPublication(future.gameplay, {actors: {player: character}, skills, getItemFromKey});
+            plan.external, plan.gameplay, nativeContexts);
+        prepareGameplayPublication(future.gameplay, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     }
     const practice = activePractice(plan.state.actors.player);
     if(practice) {
         const future = structuredClone(plan.gameplay), p = practice[1].practice;
         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
-        prepareGameplayPublication(future, {actors: {player: character}, skills, getItemFromKey});
+        prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
     }
-    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings,
+    const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
+    const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
         expansionError = "Progress paused because saving failed. Free storage and reload before continuing.";
         foundationSaveBlocked = true;
+        if(current_combat) end_combat();
         throw error;
     }
+    if(plan.reloadRequired) {foundationSaveBlocked = true; window.location.reload(); return;}
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
     character.money = plan.external.money;
+    if(plan.calendar) current_game_time.loadTime(plan.calendar);
+
+    if(plan.effectDurations) {
+        let expired = false;
+        for(const [id, duration] of Object.entries(plan.effectDurations)) {
+            if(duration === 0) {delete active_effects[id]; expired = true;} else active_effects[id].duration = duration;
+        }
+        if(expired) {character.addActiveEffectBonus(active_effects); character.updateStatsAndDisplay();}
+    }
+    if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
     publication.publish();
+    unlockPublication.publish();
+    equipmentPublication.publish();
+    publishNativeVitals(plan.native,character);
+    projectNativePeopleBodies();
     ownershipPublication?.publish();
+    nativePublication.publish();
+    if(plan.statusCareNative?.resetRain)rain_counter=0;
+    refreshStatusCareStats();
+    refreshTidemarkQuest();
+    refreshNestedQuests();
+    refreshParadiseQuests();
+    refreshMolQuests();
+    refreshCausalQuests();
+    if(plan.nativeLocation)change_location({location_id:plan.nativeLocation,skip_travel_time:true,do_quest_events:plan.nativeEnterQuest===true,realm_move:true});
     if(plan.market) set_loot_sold_count(plan.market);
     item_log.items = plan.itemLog;
     for(const {id, target} of publication.dependencies) {
@@ -233,7 +645,13 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     }
     try {
         update_displayed_money();
+        if(plan.calendar) update_displayed_time();
+        if(plan.native) {update_displayed_stamina(); update_displayed_health();}
         update_displayed_character_inventory();
+        if(is_storage_open()) {
+            update_displayed_storage_inventory();
+            stampStorageRequests();
+        }
         update_displayed_item_log();
         for(const id of publication.changes) {
             if(skills[id].visibility_treshold <= skills[id].getTotalXP()) {
@@ -242,11 +660,27 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
             }
         }
         if(publication.changes.length) character.updateStatsAndDisplay();
+        if(plan.calendar && previousNight !== is_night(current_game_time)) character.updateStatsAndDisplay();
+        if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
+        renderWorldIdentity();
+        expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+        pursuitPanel?.render();
+        bodyPanel?.render();
+        fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render();
+        frontierCampaignPanel?.render();
+        partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
+        backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();
+        expansionQuests?.render();
+        characterBio?.render();
+        worldEventFeed?.render();
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
 }
 
 function commitNativeTrade(quote, currentQuote) {
+    if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) throw new Error("Finish your living-world work or decision before trading.");
     if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) throw new Error("Finish your expedition or technique drill before trading.");
+    for(const item of quote.sell) assertNativeItemDisposition(expansionState,item.item_key);
     const vendor = NPCRegistry.get(quote.vendorId).getTraderInventory();
     // Preserve the native uncapped Haggling award and its current XP bonuses.
     const skill = skills.Haggling;
@@ -258,8 +692,32 @@ function commitNativeTrade(quote, currentQuote) {
     persistExpansion(plan, {vendor: {category: "trader", id: quote.vendorId}}, {vendor});
 }
 
+function stampStorageRequests() {
+    for(const [target, items] of [["character", character.getItems()], ["storage", player_storage.getItems()]]) {
+        for(const node of document.querySelectorAll(`[data-${target}_item]`)) {
+            node.setAttribute("data-storage-sequence", expansionState.sequence);
+            node.setAttribute("data-item_count", items[node.getAttribute(`data-${target}_item`)]?.count || 0);
+        }
+    }
+}
+
+function commitNativeStorage(request) {
+    try {
+        if(!is_storage_open() || !current_location?.housing?.isUnlocked()) throw new Error("Open an accessible chest first.");
+        const plan = stageNativeStorageTransfer({state: expansionState, gameplay: gameplaySnapshot(), money: character.money,
+            owners: {player: readInventoryOwner(character.getItems()), chest: readInventoryOwner(player_storage.getItems())},
+            equipment: readNativeEquipment({player: character}), request});
+        persistExpansion(plan, {chest: {category: "storage", id: "player"}}, {chest: player_storage.getItems()});
+        return true;
+    } catch(error) {
+        log_message(expansionError || error.message, "notification");
+        return false;
+    }
+}
+bind_storage_transfer(commitNativeStorage);
+
 function startExpedition(actionId, sequence) {
-    if(current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
+    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null || current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
         throw new Error("Finish your current activity, combat, trade or rest before beginning an expedition.");
     }
     persistExpansion(commitAction(expansionState, expeditionRegistry, actionId, expeditionContext(), sequence));
@@ -284,25 +742,419 @@ function answerPractice(practiceId, response, sequence) {
     return {correct: result.correct};
 }
 
+function usesJoinedClock() {return !!expansionState.chronicle || !!expansionState.simulation || usesVillageClock(expansionState) || usesTownClock(expansionState);}
+
+function nativeOccupationReason() {
+    const backlogReasons=backlogNativeActionReasons(expansionState);
+    if(backlogReasons.length)return backlogReasons.join(' ');
+    if(expansionState.actors.player.facts['original_frontier.travel.remaining']>0)return 'Finish or cancel your remaining native journey in local notes first.';
+    if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) return "Finish your living-world work or decision first.";
+    if(usesJoinedClock() && ((!ownsSave && !restoringNativeSave) || foundationSaveBlocked || expansionError)) return "Progress is paused until saving is restored. Reload before continuing.";
+    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) {
+        return "Finish or withdraw from the elder encounter; an ended mortal life cannot begin a new activity.";
+    }
+    if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) {
+        return "Finish or cancel your current expedition or technique drill before starting another activity.";
+    }
+    return "";
+}
+
 function expeditionOccupiesPlayer() {
-    if(!expansionState.pending.some(job => job.context.actorId === "player") && !activePractice(expansionState.actors.player)) return false;
-    log_message("Finish or cancel your current expedition or technique drill before starting another activity.", "notification");
-    return true;
+    const reason = nativeOccupationReason();
+    if(reason) log_message(reason, "notification");
+    return !!reason;
 }
 
 function advanceExpeditions(minutes) {
     if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error) return;
     // Idle clocks need no write. Timers request simulation work; committed jobs
     // and opportunities, including crossed travel deadlines, decide the result.
-    const active = expansionState.pending.length || Object.values(expansionState.opportunities)
+    const active = !!activeProto23Visit(expansionState) || !!activeMolVisit(expansionState) || !!activeParadiseVisit(expansionState) || expansionState.pending.length || Object.values(expansionState.opportunities)
         .some(o => o.status === "scheduled" || o.status === "available") || Object.values(expansionState.actors)
         .some(actor => Object.values(actor.sources || {}).some(source => source.expiresAt > expansionState.clock));
     if(active) {
-        try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}, gameplaySnapshot()));}
+        try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}, gameplaySnapshot(),simulationNativeContexts()));}
         catch(error) {expansionError ||= error.message;}
     }
     expeditionPanel?.render();
     techniquePanel?.render();
+    chroniclePanel?.render();
+    villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+    pursuitPanel?.render();
+    bodyPanel?.render();
+    fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render();
+    knownRoutesPanel?.render();adventureNotebook?.render();
+    expansionQuests?.render();
+    characterBio?.render();
+    worldEventFeed?.render();
+    renderWorldIdentity();
+}
+
+function calendarSnapshot() {
+    return Object.fromEntries(["year", "month", "day", "hour", "minute", "day_count"].map(k => [k, current_game_time[k] ?? 1]));
+}
+function metVillageElder() {
+    const status = dialogues["village elder"].textlines.hello.getAvailabilityComponent().getStatus();
+    return status.is_locked || status.is_finished;
+}
+function chronicleContext() {
+    const stats = character.getFullStats(), stance = current_stance.getStats();
+    const elder = NPCRegistry.get("villageElder");
+    return {location: current_location?.id, calendar: calendarSnapshot(), money: character.money, stamina: stats.stamina, heroName: character.name,
+        manualKey: item_templates["Old combat manual"].getInventoryKey(), ratStepId: RAT_STEP,
+        ratStep: !!techniqueFacts(expansionState.actors.player, expeditionRegistry, expeditionContext())[`technique.${RAT_STEP}.executable`],
+        witness: !!current_location?.npcs?.includes("villageGuard") && NPCRegistry.get("villageGuard").getAvailabilityComponent().getStatus().is_unlocked,
+        elderId: elder.id,
+        hero: {strength: stats.strength, agility: stats.agility, defense: stats.defense * (stance.defense || 1),
+            attackPower: character.getAttackPower() * (stance.attack_power || 1), maxStamina: stats.max_stamina,
+            blockStrength: character.hasShield() ? character.getBlockStrength() * (stance.block_strength || 1) : 0,
+            staminaMultiplier: 1 / stats.stamina_efficiency, strikeMultiplier: current_stance.stamina_cost}};
+}
+function advanceChroniclePlan(plan, minutes, travel = false) {
+    const nativeContexts = simulationNativeContexts(); nativeContexts.player.facts = expeditionContext().facts;
+    let advanced = advanceSimulation(plan.state, expeditionRegistry, minutes, plan.external, plan.gameplay, nativeContexts);
+    // A scheduler work budget never pays the rest of a journey. Drain its
+    // remainder with the same owners, stopping at an actual waiting choice.
+    while(advanced.budgetExhausted && advanced.remaining > 0 && !advanced.stoppedAtChoice) {
+        const before=advanced, contexts=structuredClone(nativeContexts);
+        if(before.native) {
+            const v=contexts.player.vitals;
+            if(before.native.hpToFull!=null)v.health=v.max_health-before.native.hpToFull;
+            if(before.native.staminaToFull!=null)v.stamina=v.max_stamina-before.native.staminaToFull;
+        }
+        for(const id of Object.keys(contexts)) if(id!=='player'&&before.state.simulation?.people[id]?.vitals)contexts[id].vitals=before.state.simulation.people[id].vitals;
+        advanced=advanceSimulation(before.state,expeditionRegistry,before.remaining,before.external,before.gameplay,contexts);
+        advanced.acquisitions=[...before.acquisitions,...advanced.acquisitions];
+        advanced.unlocks=[...before.unlocks,...advanced.unlocks];
+        advanced.native=advanced.native || before.native;
+    }
+    const consumed = advanced.state.clock - plan.state.clock;
+    const calendar = new Game_Time(calendarSnapshot()); calendar.goUp(consumed);
+    return {...advanced, native: advanced.native || plan.native, effectDurations: Object.fromEntries(Object.entries(active_effects).map(([id,e]) => [id, Math.max(0,e.duration-(travel && !e.affected_by_travel ? 0 : consumed))])), calendar: Object.fromEntries(["year", "month", "day", "hour", "minute", "day_count"].map(k => [k, calendar[k]])),
+        acquisitions: [...(plan.acquisitions || []), ...advanced.acquisitions]};
+}
+function makeChroniclePlan(command) {
+    const context = chronicleContext(), result = commandChronicle(expansionState, command, context);
+    const gameplay = gameplaySnapshot();
+    for(const effect of result.effects) applyGameplayEffect(gameplay, effect, "player");
+    const plan = {state: result.state, external: {money: character.money + result.moneyDelta}, gameplay,
+        acquisitions: result.effects.filter(e => e.type === "item").map(e => ({owner: "player", key: e.key, count: e.amount})),
+        native: result.staminaSpent ? {staminaToFull: context.hero.maxStamina - context.stamina + result.staminaSpent} : undefined};
+    return result.minutes ? advanceChroniclePlan(plan, result.minutes) : plan;
+}
+function actSimulation(command) {
+    const hostedId=id=>['game_absorption_assay','contextual_balm','cooling_refinement'].includes(expeditionRegistry.simulation.commands.get(id)?.group)||id?.startsWith('feature_society.duty.');
+    if(command.id&&hostedId(command.id))throw new Error('Choose this action in its current Here project controls.');
+    if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&hostedId(j.commandId)))throw new Error('Cancel this exact job through its Here project controls.');
+    if(['program','pause','resume'].includes(command.type)&&hostedId(expansionState.simulation?.programs.player?.commandId))throw new Error('No automatic program is registered for these project choices.');
+    const equippedActors = {player: character};
+    for(const [id,p] of Object.entries(expansionState.simulation?.people || {})) if(id !== "player" && p.inventory === "native") equippedActors[id] = NPCRegistry.get(id);
+    const context = {...expeditionContext(), equipment: readNativeEquipment(equippedActors), targetId: command.targetId || null,
+        busy: !!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
+        vitals: Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c]) => [id,c.vitals]))};
+    if(command.type === "enroll" && !metVillageElder()) throw new Error("Speak to the Village elder first.");
+    if(command.id&&expeditionRegistry.simulation.commands.get(command.id)?.group?.startsWith('world_completion_'))throw new Error('Use the current home-world controls for this action.');
+    if(command.id && ['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(expeditionRegistry.simulation.commands.get(command.id)?.group))throw new Error('Use the current care controls for this preparation.');
+    if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&j.commandId.startsWith('world.completion.')))throw new Error('Cancel the actual home-world job from its connected controls.');
+    if(command.type==='cancel' && expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(expeditionRegistry.simulation.commands.get(j.commandId)?.group)))throw new Error('Cancel the actual care job from its care controls.');
+    let plan;
+    if(command.type === "promise_begin") plan = beginPromiseVisitor(expansionState, expeditionRegistry, context, command.sequence ?? expansionState.sequence);
+    else if(command.type === "body_begin") plan = beginBodyRecord(expansionState, expeditionRegistry, context);
+    else if(command.type === "field_begin") plan = beginFieldWorkshop(expansionState, expeditionRegistry, context);
+    else if(command.type === "enroll") plan = enrollSimulation(expansionState, expeditionRegistry, context);
+    else if(command.type === "command"&&['home_furnishings','proto23','factorio_retort','causal_story','artifact_collection','audit_remainder','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(expeditionRegistry.simulation.commands.get(command.id)?.group))throw new Error('Choose this action in its current Here project controls.');
+    else if(command.type === "command") plan = commitSimulationCommand(expansionState, expeditionRegistry, command, context, command.sequence ?? expansionState.sequence);
+    else if(command.type === "program") plan = setSimulationProgram(expansionState, expeditionRegistry, command.id, command.count, context);
+    else if(command.type === "pause") plan = pauseSimulationProgram(expansionState, context);
+    else if(command.type === "resume") plan = resumeSimulationProgram(expansionState, expeditionRegistry, context);
+    else if(command.type === "response") plan = answerSimulationEncounter(expansionState, expeditionRegistry, command.responseId, context);
+    else if(command.type === "withdraw") plan = withdrawSimulationEncounter(expansionState, context);
+    else if(command.type === "cancel") plan = cancelSimulationJob(expansionState, expeditionRegistry, expansionState.simulation.jobs.find(j => j.actorId === "player")?.id, context);
+    else if(command.type === "event") plan = respondSimulationEvent(expansionState, expeditionRegistry, command.eventId, command.responseId, context);
+    else throw new Error("Unsupported local interaction.");
+    persistExpansion(plan); simulationPanel?.render(); pursuitPanel?.render();skillExpansionPanel?.render();
+}
+function actSkillExpansion(command){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+    if(command.type==='command'&&expeditionRegistry.simulation.commands.get(command.id)?.group!=='skills'&&command.id!=='party.rest')throw new Error('Unsupported method action.');
+    if(['response','withdraw'].includes(command.type)&&expeditionRegistry.simulation.commands.get(expansionState.simulation?.sessions.player?.commandId)?.group!=='skills')throw new Error('No accepted method exercise.');
+    if(command.type==='cancel'&&!expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&(expeditionRegistry.simulation.commands.get(j.commandId)?.group==='skills'||j.commandId==='party.rest')))throw new Error('No accepted method work.');
+    actSimulation(command);
+}
+function actOriginalFrontier(command){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+    const definition=expeditionRegistry.simulation.commands.get(command.id);
+    const context={...campaignContext(),targetId:command.targetId || definition?.targetId || null,
+        equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment]))};
+    const sequence=command.sequence ?? expansionState.sequence;
+    let plan;
+    if(command.type==='begin')plan=beginOriginalFrontier(expansionState,expeditionRegistry,context,sequence);
+    else if(command.type==='command')plan=commitOriginalFrontier(expansionState,expeditionRegistry,{...command,targetId:context.targetId},context,sequence);
+    else if(command.type==='program'){
+        if(definition?.group!=='original_frontier'||!Number.isInteger(command.count)||command.count<1||command.count>20)throw new Error('Choose a known finite Frontier routine.');
+        plan=setSimulationProgram(expansionState,expeditionRegistry,command.id,command.count,originalFrontierContext(expansionState,expeditionRegistry,context),sequence);
+    }else if(['pause','resume'].includes(command.type)){
+        if(expeditionRegistry.simulation.commands.get(expansionState.simulation?.programs.player?.commandId)?.group!=='original_frontier')throw new Error('No saved Frontier routine.');
+        plan=command.type==='pause'?pauseSimulationProgram(expansionState,context,sequence):resumeSimulationProgram(expansionState,expeditionRegistry,originalFrontierContext(expansionState,expeditionRegistry,context),sequence);
+    }else if(command.type==='cancel'){
+        if(command.id==='native-journey'){
+            if(expansionState.sequence!==sequence||!(expansionState.actors.player.facts['original_frontier.travel.remaining']>0))throw new Error('No current native journey.');
+            plan={state:structuredClone(expansionState),external:context.external,gameplay:context.gameplay};plan.state.sequence++;
+            plan.state.actors.player.facts['original_frontier.travel.remaining']=0;persistExpansion(plan);return;
+        }
+        const job=expansionState.simulation?.jobs.find(j=>j.id===command.id&&j.actorId==='player');
+        if(expeditionRegistry.simulation.commands.get(job?.commandId)?.group!=='original_frontier')throw new Error('No accepted Frontier work.');
+        plan=cancelSimulationJob(expansionState,expeditionRegistry,job.id,context,sequence);
+    }else if(['response','withdraw'].includes(command.type)){
+        if(expeditionRegistry.simulation.commands.get(expansionState.simulation?.sessions.player?.commandId)?.group!=='original_frontier')throw new Error('No accepted Frontier exercise.');
+        plan=command.type==='response'?answerSimulationEncounter(expansionState,expeditionRegistry,command.responseId,context,sequence):withdrawSimulationEncounter(expansionState,context,sequence);
+    }else throw new Error('Unsupported Frontier action.');
+    persistExpansion(plan);
+}
+function featureWaveContext(){
+    const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext()))))))))));
+    const current=paradiseCampaignContext(expansionState,molContext(expansionState,bookCurrent));
+    return coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
+}
+function actFeatureExpansion(command){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+    const context=featureWaveContext(),sequence=command.sequence??expansionState.sequence;let plan;
+    if(command.type==='feature_battle_action')return featureBattleHost.act({...command,type:command.actionType});
+    if(command.type==='feature_battle_resume'){
+        const token=featureBattleToken(expansionState);
+        if(!token||['sessionId','sequence','action','seed'].some(key=>command[key]!==token[key]))throw new Error('This saved battle changed. Review it again.');
+        if(context.busy)throw new Error('Finish the current native activity first.');
+        featureBattleHost.resume(command);return;
+    }
+    if(command.type==='contextual_balm')plan=commitContextualBalmCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='cooling_refinement')plan=commitCoolingRefinementCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='agreed_duty')plan=commitAgreedDutyAction(expansionState,expeditionRegistry,context,command.id,sequence);
+    else if(command.type==='world_completion')plan=commitWorldCompletionCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='lore_practice')plan=commitLorePracticeCommand(expansionState,expeditionRegistry,command.operation?{...command,type:command.operation}:command,context,sequence);
+    else if(command.type==='book_care')plan=commitBookCareCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='field_care')plan=commitFieldCareCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='status_care')plan=commitStatusCareCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='book_paradise_campaign')plan=commitParadiseCampaignDepthCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='book_paradise')plan=planParadiseAction(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='book_mol')plan=commitMolCommand(expansionState,expeditionRegistry,command,{...context,nativeAlive:character.is_alive===true},sequence);
+    else if(command.type==='home_furnishings')plan=commitHomeFurnishingCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='proto23')plan=commitProto23Command(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='factorio_retort')plan=commitFactorioRetortCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='factorio_retort_cancel')plan=cancelFactorioRetortJob(expansionState,expeditionRegistry,command.id,context,sequence);
+    else if(command.type==='factorio_retort_plan_start')plan=startFactorioRetortPlan(expansionState,expeditionRegistry,context,sequence);
+    else if(command.type==='factorio_retort_plan_control')plan=controlFactorioRetortPlan(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='game_absorption_assay')plan=commitGameAbsorptionAssayCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='nethack_fieldcraft')plan=commitNethackFieldcraftCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='artifact_collection'){if(!expansionState.auditRemainder)throw new Error('Open the optional local projects first.');plan=commitArtifactWorkshopCommand(expansionState,expeditionRegistry,command,context,sequence);}
+    else if(command.type==='audit_remainder')plan=commitAuditRemainderCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='audit_workshop')plan=commitAuditedWorkshopCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='audited_kit_reserve_start')plan=startAuditedKitReserve(expansionState,expeditionRegistry,context,sequence);
+    else if(command.type==='audited_kit_reserve_control')plan=controlAuditedKitReserve(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='reference_control')plan=commitReferenceControl(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='reference_workshop')plan=commitReferenceGameplayCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='reference_plan_start') {
+        if(command.id!=='reference_gameplay.cooling_plan')throw new Error('Unknown cooling practice plan.');
+        plan=startWorkPlan(expansionState,expeditionRegistry,expeditionRegistry.workPlans,command.id,context,sequence);
+    }else if(command.type==='reference_plan_control') {
+        if(expansionState.simulation?.workPlans?.cursors.player?.definitionId!=='reference_gameplay.cooling_plan')throw new Error('This cooling plan changed.');
+        plan=controlWorkPlan(expansionState,expeditionRegistry,command,context,sequence);
+    }else if(['feature_enroll','feature_command','feature_cancel'].includes(command.type))plan=planFeaturePowerCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='objects_begin')plan=beginFeatureObjects(expansionState,expeditionRegistry,context,sequence);
+    else if(command.type==='society')plan=commitSocietyAction(expansionState,expeditionRegistry,command.action,context,sequence);
+    else if(command.type==='tidemark')plan=command.id==='tidemark.chart'&&!expansionState.simulation?beginTidemark(expansionState,expeditionRegistry,context,sequence):commitTidemarkAction(expansionState,expeditionRegistry,command.id,context,sequence);
+    else if(command.type==='backlog')return actBacklog(command);
+    else if(command.type==='relay')plan=relayHost.commit(expansionState,expeditionRegistry,{...command,type:command.action},backlogContext(),sequence);
+    else if(command.type==='reference')plan=referenceDeskHost.commit(expansionState,expeditionRegistry,command,backlogContext(),sequence);
+    else if(command.type==='nested_campaign')plan=planNestedAction(expansionState,expeditionRegistry,command.id,context,sequence);
+    else if(command.type==='nested_life')plan=commitNestedLifeCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='nested_chain')plan=commitNestedChainCommand(expansionState,expeditionRegistry,command.action,nestedChainContext(expansionState,context),sequence);
+    else if(command.type==='command'){
+        const d=expeditionRegistry.simulation.commands.get(command.id);
+        if(d?.group==='feature_objects')plan=commitFeatureObjectCommand(expansionState,expeditionRegistry,command,context,sequence);
+        else if(d?.group==='feature_society')plan=commitSocietyAction(expansionState,expeditionRegistry,command,context,sequence);
+        else throw new Error('Unsupported feature action.');
+    }else if(command.type==='cancel'){
+        const job=expansionState.simulation?.jobs.find(j=>j.id===command.id&&j.actorId==='player');
+        if(job&&expeditionRegistry.simulation.commands.get(job.commandId)?.group==='game_absorption_assay'){
+            persistExpansion(cancelGameAbsorptionAssayJob(expansionState,expeditionRegistry,job.id,context,sequence));return;
+        }
+        if(!job||!['feature_objects','feature_society','feature_powers','tidemark','reference_gameplay','cooling_refinement','nethack_fieldcraft','audit_fixture','audit_lesson','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(expeditionRegistry.simulation.commands.get(job.commandId)?.group))throw new Error('This accepted work changed.');
+        plan=cancelSimulationJob(expansionState,expeditionRegistry,job.id,context,sequence);
+    }else throw new Error('Unsupported feature control.');
+    persistExpansion(plan);
+    if(command.id==='feature_battle.start')featureBattleHost.resume(featureBattleToken(expansionState));
+}
+function currentCausalContext(){return causalStoryContext(expansionState,campaignContext());}
+function actCausalStory(command){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError||is_loading_error)throw new Error('Saving must be available before this story choice.');
+    const plan=commitCausalStoryCommand(expansionState,expeditionRegistry,command,currentCausalContext(),command.sequence??expansionState.sequence);
+    persistExpansion(plan);causalStoryPanel?.render();
+}
+function backlogContext(){
+    const nativeOtherInventories=[];
+    for(const [category,owners] of Object.entries(inventories))for(const [id,inventory] of Object.entries(owners))if(category!=='person'||id!=='main_character')
+        nativeOtherInventories.push(Object.fromEntries(Object.entries(inventory.getItems()).map(([key,row])=>[key,row.count])));
+    return bookNativeContext(expansionState,backlogNativeContext(expansionState,{...featureWaveContext(),wallNowMs:Date.now(),nativeOtherInventories},
+        {character,locationId:current_location?.id,heroCreated:global_flags.is_hero_created,creationPanelOpen:config.do_hero_creation&&!global_flags.is_hero_created,freshNativeGame:!hasLoadedNativeSave&&!importProbeToken,gameStats:game_stats}),{character,locationId:current_location?.id});
+}
+function assertFeatureWriter(){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError||is_loading_error)throw new Error('Saving must be available before this action.');
+}
+function replacementRecoverySnapshot(){
+    const context=backlogContext(),known=expansionState.simulation?.knowledge.player||{},r=expansionState.backlog?.replacement;
+    const allowed=new Set(['backlog.replacement.honest_entry','backlog.replacement.return_template','backlog.replacement.return_office','backlog.replacement.revisit']);
+    const recovery=r?backlogActions().filter(a=>allowed.has(a.id)).map(a=>({known:true,id:a.id,label:a.label,description:a.description,
+        observerId:'player',preview:qualifiedBacklog.preview(expansionState,expeditionRegistry,a.id,context),
+        disclosure:{completion:[{known:true,text:a.description}]},command:{id:a.id,sequence:expansionState.sequence}})):[];
+    return {state:expansionState,recovery,error:expansionError,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken};
+}
+function actBacklog(command){
+    assertFeatureWriter();
+    persistExpansion(qualifiedBacklog.commit(expansionState,expeditionRegistry,command,backlogContext(),command.sequence??expansionState.sequence));
+}
+function actRepository(command){
+    assertFeatureWriter();const context=featureWaveContext(),sequence=command.sequence??expansionState.sequence;
+    const plan=command.type==='begin'?beginRepositoryAbsorption(expansionState,expeditionRegistry,context,sequence):
+        command.type==='cancel'?cancelRepositoryAbsorption(expansionState,expeditionRegistry,command.id,context,sequence):
+        command.type==='projection'?commitRepositoryProjection(expansionState,expeditionRegistry,command,context,sequence):
+        commitRepositoryAbsorption(expansionState,expeditionRegistry,command,context,sequence);
+    persistExpansion(plan);
+}
+function actInk(id,token){
+    assertFeatureWriter();
+    persistExpansion(commitInkNarrativeAction(expansionState,expeditionRegistry,{...token,id},currentInkHost()===relayInkHost?backlogContext():featureWaveContext(),currentInkHost()));
+}
+function nativeCampaignLocationOwners(){
+    const snapshot=id=>{const l=locations[id],status=l.getAvailabilityComponent().getStatus();return {id,enemy_groups_killed:l.enemy_groups_killed||0,availability:{is_unlocked:!!status.is_unlocked,is_finished:!!status.is_finished,is_locked:!!status.is_locked}};};
+    return {frontierLocationOwner:snapshot('Village'),proto23LocationOwners:Object.fromEntries(PROTO23_FOOTPRINTS.flatMap(f=>f.native.locations.map(id=>[`native.location.${id.replaceAll(' ','_')}`,{...snapshot(id),worldId:f.worldId}]))),molLocationOwners:Object.fromEntries(MOL_FOOTPRINTS.flatMap(f=>f.native.locations.map(id=>[`native.location.${id.replaceAll(' ','_')}`,{...snapshot(id),worldId:f.worldId}]))),paradiseLocationOwners:Object.fromEntries(PARADISE_FOOTPRINTS.flatMap(f=>f.native.locations.map(id=>[`native.location.${id.replaceAll(' ','_')}`,{...snapshot(id),worldId:f.worldId}]))),nestedLocationOwners:Object.fromEntries(Object.entries(NESTED_LOCATIONS).map(([key,id])=>[`native.location.${id.replaceAll(' ','_')}`,{...snapshot(id),worldId:['hub','workroom'].includes(key)?NESTED_IDS.hub:['salt','enginehouse'].includes(key)?NESTED_IDS.salt:NESTED_IDS.archive}]))};
+}
+function planNestedAction(state,registry,id,context,sequence){
+    const plan=commitNestedCommand(state,registry,id,{...context,nativeAlive:character.is_alive===true},sequence);
+    if(!plan.nestedAdvanceBy)return plan;
+    if(id!=='nested.extraction.wait'||plan.nestedAdvanceReason!=='extraction')throw new Error('Unsupported campaign clock commitment.');
+    return stageNestedCarrierClock(plan,{...context,nativeAlive:character.is_alive===true},plan.nestedAdvanceBy,
+        (draft,minutes)=>advanceChroniclePlan(draft,minutes,true),syncNestedCampaignClock);
+}
+function planParadiseAction(state,registry,command,context,sequence){
+    const plan=commitParadiseCommand(state,registry,command,{...context,nativeAlive:character.is_alive===true},sequence);
+    if(!plan.paradiseAdvanceBy)return plan;
+    if(command.id!=='book.paradise.extraction.wait'||plan.paradiseAdvanceReason!=='extraction')throw new Error('Unsupported source-world clock commitment.');
+    return stageParadiseCarrierClock(plan,{...context,nativeAlive:character.is_alive===true},plan.paradiseAdvanceBy,
+        (draft,minutes)=>advanceChroniclePlan(draft,minutes,true),syncParadiseClock);
+}
+function campaignContext() {
+    return {...expeditionContext(),destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalNative.read(expansionState),...nativeCampaignLocationOwners(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),nativeAlive:character.is_alive===true,busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
+        vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))};
+}
+function advanceFrontierJourney(plan,minutes){
+    const f=plan.state.actors.player.facts,remaining=f['original_frontier.travel.remaining'];
+    const next=advanceChroniclePlan(plan,Math.min(minutes,remaining),true),nf=next.state.actors.player.facts;
+    nf['original_frontier.travel.remaining']=remaining-(next.state.clock-plan.state.clock);
+    if(nf['original_frontier.travel.remaining']===0&&locations[nf['original_frontier.travel.to']]?.canBeStarted(get_context())){
+        next.nativeLocation=nf['original_frontier.travel.to'];next.nativeEnterQuest=true;
+        next.nativePatch={...(next.nativePatch||{}),'current location':next.nativeLocation};
+    }
+    return next;
+}
+function beginFrontierJourney(to){
+    pathfinder = new Pathfinder();pathfinder.fill_connections(locations);
+    const minutes=pathfinder.find_shortest_paths(current_location.id)[to];
+    if(!Number.isSafeInteger(minutes)||minutes<0)throw new Error('No currently accessible native route.');
+    const state=structuredClone(expansionState),f=state.actors.player.facts;state.sequence++;
+    state.simulation.schema=Math.max(state.simulation.schema,4);
+    Object.assign(f,{'original_frontier.travel.from':current_location.id,'original_frontier.travel.to':to,
+        'original_frontier.travel.remaining':minutes,'original_frontier.travel.startedAt':state.clock});
+    const plan=minutes?advanceFrontierJourney({state,external:{money:character.money},gameplay:gameplaySnapshot()},minutes):
+        {state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:to,nativeEnterQuest:true,nativePatch:{'current location':to}};
+    persistExpansion(plan);
+    if(plan.state.actors.player.facts['original_frontier.travel.remaining']>0)log_message('The journey stopped for a waiting choice. Its remaining time is saved in local notes.','notification');
+}
+function actFrontierCampaign(command) {
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || expansionError) throw new Error("Saving must be available before this action.");
+    if(command.type === "battle_resume") {if(campaignContext().busy)throw new Error("Finish your current native activity first.");nativeBattlePauseReason="";nativeBattleHost.resume();return;}
+    if(command.type === "battle_withdraw") {nativeBattleHost.withdraw(command.sequence);return;}
+    const context={...campaignContext(),targetId:command.targetId || null};
+    let plan;
+    if(command.type === "renewal") plan=commitFieldRenewal(expansionState,expeditionRegistry,context,command.sequence);
+    else if(command.type === "rematch") plan=prepareRivalRematch(expansionState,expeditionRegistry,context);
+    else {
+        if(command.id === "rival.confront" && (context.vitals.player.health <= 1 || expansionState.simulation.people.roadRival.vitals.health <= 1)) throw new Error("Both participants need recovery before a duel.");
+        plan=commitSimulationCommand(expansionState,expeditionRegistry,command,context);
+        if(command.id === "rival.confront") initializeNativeBattle(plan);
+    }
+    persistExpansion(plan);
+    if(command.id === "rival.confront") nativeBattleHost.resume();
+    frontierCampaignPanel?.render();
+}
+
+function actPocketRealm(command){
+    if(command.id==='pocket.observation.replay'){pocketRealmPanel?.render();return;}
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || expansionError)throw new Error('Saving must be available before this action.');
+    const contexts=simulationNativeContexts(),context=pocketContext(expansionState,{...campaignContext(),equipment:Object.fromEntries(Object.entries(contexts).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment]))});
+    persistExpansion(commitPocketRealmAction(expansionState,expeditionRegistry,command.id,context,command.sequence));
+    pocketRealmPanel?.render();
+}
+
+function actObservation(command) {
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || expansionError)throw new Error("Saving must be available before this action.");
+    const context={...campaignContext(),targetId:command.targetId||null};
+    context.facts={...context.facts,"observation.handsUsable":(expansionState.simulation?.people.player?.body?.hands??2)>=2&&!bodyFacts(expansionState)["body.handsTender"]};
+    const plan=command.type === "open"?beginObservation(expansionState,expeditionRegistry,context,command.sequence):commitObservationCommand(expansionState,expeditionRegistry,{id:command.id},context,command.sequence);
+    persistExpansion(plan);observationPanel?.render();
+}
+
+function actExchange(command) {
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || expansionError)throw new Error("Saving must be available before this action.");
+    const context={...campaignContext(),targetId:command.targetId||null};let plan;
+    if(command.type === "cancel") {const job=expansionState.simulation?.jobs.find(j=>j.id===command.jobId&&j.actorId==="player"&&j.commandId.startsWith("exchange."));if(!job)throw new Error("This parcel work is no longer pending.");plan=cancelSimulationJob(expansionState,expeditionRegistry,job.id,context,command.sequence);}
+    else if(command.id === "exchange.begin")plan=beginExchange(expansionState,expeditionRegistry,context,command.sequence);
+    else plan=commitExchangeCommand(expansionState,expeditionRegistry,{id:command.id},context,command.sequence);
+    persistExpansion(plan);exchangePanel?.render(); observationPanel?.render();
+}
+
+function actCrushSocial(command) {
+    assertFeatureWriter();
+    if(command.type==='party_command'||command.type==='party_start')return actParty(command);
+    if(command.type==='audit_remainder')return actFeatureExpansion(command);
+    persistExpansion(commitCrushSocialAction(expansionState,expeditionRegistry,command,featureWaveContext(),command.sequence??expansionState.sequence));
+    crushSocialPanel?.render();
+}
+
+function actParty(command) {
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || expansionError)throw new Error("Saving must be available before this action.");
+    const context=campaignContext();
+    if(command.type === "party_cancel") {const job=expansionState.simulation.jobs.find(j=>j.id===command.jobId&&j.actorId==="player"&&j.commandId.startsWith("party."));if(!job)throw new Error("This party work is no longer pending.");persistExpansion(cancelSimulationJob(expansionState,expeditionRegistry,job.id,context,command.sequence));return;}
+    if(command.type === "party_release") {nativeBattleHost.release(command.sequence,command.action,command.sessionId);return;}
+    if(command.type === "party_ask" || command.type === "party_decline") {
+        if(command.sequence !== expansionState.sequence || context.busy || nativeActionReasons(expansionState).length)throw new Error("This invitation is stale or someone is occupied.");
+        if(!expansionState.actors.player.facts["party.met"] || context.facts.location !== "Village")throw new Error("Meet Lio first in the Village.");
+        const reasons=partyHelperReasons(expansionState,context);
+        const state=structuredClone(expansionState);state.sequence++;
+        state.actors.player.facts["party.invited"]=command.type === "party_ask" && !reasons.length;
+        state.actors.player.facts["party.declined"]=command.type === "party_decline";
+        state.actors.player.facts["party.answer"]=command.type === "party_decline" ? "You declined assistance; no commitment was made."
+            : reasons.length ? `Lio declined: ${reasons.join(" ")}` : "Lio agreed to the proposed guard role; acceptance still rechecks his availability and means.";
+        persistExpansion({state,external:context.external,gameplay:context.gameplay});
+        if(command.type === "party_ask" && reasons.length)throw new Error(reasons.join(" "));
+    } else if(command.type === "party_start") {
+        if(!expansionState.actors.player.facts["party.invited"])throw new Error("Ask for Lio's current consent first.");
+        const plan=initializePartyBattle(expansionState,expeditionRegistry,{requestId:pursuitView(expansionState,RIVAL_PURSUIT)?.requestId},context,command.sequence);
+        plan.state.actors.player.facts["party.invited"]=false;persistExpansion(plan);nativeBattlePauseReason="";nativeBattleHost.resume();
+    } else {
+        const id=command.type === "party_settle" ? "rival.settle" : command.id;
+        const plan=commitSimulationCommand(expansionState,expeditionRegistry,{id},{...context,targetId:command.type === "party_settle" ? "roadRival" : command.targetId || null},command.sequence);
+        if(command.type === "party_settle") {plan.state.actors.player.facts["party.lastResult"]="settled";plan.state.actors.player.facts["party.guardsTaken"]=0;plan.state.actors.player.facts["party.helperStatus"]="not involved";}
+        persistExpansion(plan);
+    }
+    partyPanel?.render();
+}
+
+function actChronicle(command) {
+    if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) throw new Error("Finish your living-world work first.");
+    if(current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() ||
+        expansionState.pending.some(j => j.context.actorId === "player") || activePractice(expansionState.actors.player)) throw new Error("Finish your current activity before this interaction.");
+    if(command.type === "enroll" && !metVillageElder()) throw new Error("Speak to the Village elder first.");
+    persistExpansion(makeChroniclePlan(command)); chroniclePauseReason = ""; chroniclePanel?.render(true);
 }
 
 const global_flags = {
@@ -800,7 +1652,16 @@ function change_current_location(location_key) {
  * @param {Event} params.event
  * @param {Boolean} params.skip_combat used to not call start_combat function, used in loading as it's only called after 'PLAY' button is clicked
  */
-function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false}) {
+function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false,realm_move=false}) {
+    if(!restoringNativeSave&&location_id!==current_location?.id){const reasons=causalStoryTravelReasons(expansionState,'player');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id){const reasons=backlogNativeActionReasons(expansionState,'travel');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeProto23Visit(expansionState)||Object.values(PROTO23_LOCATIONS).includes(location_id))){log_message('Use your Proto23 visitor controls in Notebook to move or return.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeMolVisit(expansionState)||Object.values(MOL_LOCATIONS).includes(location_id))){log_message('Use your Cyoria passage in Notebook to move or return.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeParadiseVisit(expansionState)||Object.values(PARADISE_LOCATIONS).includes(location_id))){log_message('Use your independent-world passage in Notebook to move or return.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeNestedVisit(expansionState)||Object.values(NESTED_LOCATIONS).includes(location_id))){log_message('Use the service-district passage in Notebook to walk or return.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeTidemarkVisit(expansionState)||Object.values(TIDEMARK_LOCATIONS).includes(location_id))){log_message('Use the harbor passage in Notebook to walk or return.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&Object.values(expansionState.realmPrototype?.observation?.state.leases||{}).some(l=>l.status==='active')){log_message('Close the viewing slit in your Notebook before traveling.','notification');return;}
+    if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(current_location?.id===POCKET_LOCATION||location_id===POCKET_LOCATION&&!activeRealmVisit(expansionState))){log_message('Use the folded doorway in your Notebook to enter or return.','notification');return;}
     if(!skip_travel_time && expeditionOccupiesPlayer()) return;
     if(event?.target.classList.contains("fast_travel_removal_button")) {
         return;
@@ -814,6 +1675,12 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         return;
     }
 
+    if(!skip_travel_time&&current_location&&location.id!==current_location.id&&expansionState.actors.player.facts['original_frontier.freight.introduced']){
+        if(current_combat)end_combat();
+        try{beginFrontierJourney(location.id);}catch(error){log_message(error.message,'notification');}
+        return;
+    }
+
     if(current_combat) {
         end_combat();
     }
@@ -822,6 +1689,11 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         throw `No such location as "${location_id}"`;
     }
 
+    if((expansionState.causalStories||expansionState.proto23Village)&&!realm_move&&!restoringNativeSave&&location.id!==current_location?.id){
+        const state=structuredClone(expansionState);state.sequence++;state.simulation.people.player.location=location.id;
+        persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativeLocation:location.id,nativeEnterQuest:do_quest_events,nativePatch:{'current location':location.id}});
+        return;
+    }
     if(do_quest_events) {
         do_quest_event({
             quest_event_type: "enter_location",
@@ -841,6 +1713,13 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
 
     clear_loot_information();
     
+    if(previous_location && !skip_travel_time && expansionState.simulation?.pursuits) {
+        const witnessed=recordPursuitDeparture(expansionState,previous_location.id,location.id);
+        if(witnessed.changed) {
+            try {persistExpansion({state:witnessed.state,external:{money:character.money},gameplay:gameplaySnapshot()});}
+            catch(error) {log_message(error.message,"notification");return;}
+        }
+    }
     current_location = location;
 
     if(!pathfinder) {
@@ -1325,12 +2204,14 @@ function start_sleeping() {
     if(expeditionOccupiesPlayer()) return;
     start_sleeping_display();
     is_sleeping = true;
+    pursuitPanel?.render();
 
     last_location_with_bed = current_location.id;
 }
 
 function end_sleeping() {
     is_sleeping = false;
+    pursuitPanel?.render();
     change_location({location_id: current_location.id, skip_travel_time: true});
     end_activity_animation();
 }
@@ -1386,7 +2267,7 @@ function do_reading() {
     const book = book_stats[is_reading];
     add_xp_to_skill({skill: skills["Literacy"], xp_to_add: book.literacy_xp_rate});
 
-    if(book.isFinished()) {
+    if(item_templates[is_reading].isFinished()) {
         log_message(`Finished the book "${is_reading}"`);
         update_booklist_entry(is_reading, true);
         end_reading();
@@ -1965,6 +2846,7 @@ function reload_normal_location() {
  * @param {String} textline_key 
  */
 function start_textline(textline_key){
+    if(!restoringNativeSave&&expeditionOccupiesPlayer())return;
     const dialogue = NPCRegistry.get(current_dialogue).getDialogueComponent();
     const textline = dialogue.textlines[textline_key];
 
@@ -2011,6 +2893,17 @@ function get_textline_answer(textline) {
  * 
  * @returns context for condition processing
  */
+// Read-only eligibility shared by native crafting and its optional UI filter.
+export function canConsumeNativeCraftingItem(key) {
+    if(nativeOccupationReason()) return false;
+    try {
+        assertNativeItemDisposition(expansionState, key);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
 function get_context() {
     return {
         character,
@@ -2038,6 +2931,8 @@ function unlock_combat_stance(stance_id) {
 }
 
 function change_stance({stance_id, is_temporary = false}) {
+    if(!restoringNativeSave){const reasons=backlogNativeActionReasons(expansionState,'combat');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
+    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) return;
     if(is_temporary) {
         if(!stances[stance_id]) {
             throw new Error(`No such stance as "${stance_id}"`);
@@ -2098,11 +2993,18 @@ function set_new_combat({enemies} = {}) {
 
 function start_combat() {
     if(current_combat == null) {
+        if(expeditionOccupiesPlayer())return;
         set_new_combat();
+        pursuitPanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();
     }
 }
 
 function finish_combat_round(was_special_combat) {
+    if(!was_special_combat){
+        const contribution=recordOriginalFrontierEncounter(expansionState,campaignContext(),current_location.id,current_location.enemy_groups_killed+1);
+        if(contribution)persistExpansion(contribution);
+    }
     current_location.enemy_groups_killed += 1;
     if(current_location.enemy_groups_killed > 0 && current_location.enemy_groups_killed % current_location.enemy_count == 0) {
         get_location_rewards(current_location);
@@ -2568,6 +3470,7 @@ function end_combat() {
 }
 
 function use_recipe(target, ammount_wanted_to_craft = 1) {
+    if(expeditionOccupiesPlayer()) return;
 
     const category = target.parentNode.parentNode.dataset.crafting_category;
     const subcategory = target.parentNode.parentNode.dataset.crafting_subcategory;
@@ -2583,6 +3486,15 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
     } else {
         const selected_recipe = recipes[category][subcategory][recipe_id];
         const recipe_div = document.querySelector(`[data-crafting_category="${category}"][data-crafting_subcategory="${subcategory}"] [data-recipe_id="${recipe_id}"]`);
+        try {
+            if(subcategory === "items") {
+                const {materials} = selected_recipe.get_availability();
+                for(const group of materials) for(const entry of group.items) assertNativeItemDisposition(expansionState,entry.item.inventory_key);
+            } else {
+                for(const choice of recipe_div.querySelectorAll(".selected_component, .selected_material")) if(choice.dataset.item_key) assertNativeItemDisposition(expansionState,choice.dataset.item_key);
+            }
+        } catch(e) {log_message(e.message,"notification");return;}
+
         let leveled = false;
         let xp_to_add;
         if(subcategory === "items") {
@@ -2728,7 +3640,11 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
             } else {
                 const material_1_key = material_div.dataset.item_key;
                 const {id} = JSON.parse(material_1_key);
-                const recipe_material = selected_recipe.materials.filter(x=> x.material_id===id)[0];
+                const recipe_material = selected_recipe.materials.find(x => x.material_id === id);
+                if(!recipe_material || !character.getItems()[material_1_key]) {
+                    log_message("This material is no longer available for the selected recipe. Choose it again.", "notification");
+                    return;
+                }
 
                 if(recipe_material.count <= character.getItems()[material_1_key]?.count) {
 
@@ -3009,6 +3925,8 @@ function switch_action_box_content() {
 }
 
 function character_equip_item(item_key) {
+    const reasons = nativeActionReasons(expansionState);
+    if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     character.equipItemFromInventory(item_key);
     if(current_combat) {
         current_combat.resetCombatLoops(true);
@@ -3025,6 +3943,8 @@ function character_equip_item(item_key) {
 }
 
 function character_unequip_item(item_slot) {
+    const reasons = nativeActionReasons(expansionState);
+    if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     character.unequipItem(item_slot);
     if(current_combat) {
         current_combat.resetCombatLoops(true);
@@ -3033,6 +3953,9 @@ function character_unequip_item(item_slot) {
 }
 
 function use_item(item_key) { 
+    const reasons = nativeActionReasons(expansionState);
+    if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
+    try {assertNativeItemDisposition(expansionState,item_key);} catch(e) {log_message(e.message,"notification");return;}
     const {id} = JSON.parse(item_key);
     const item_effects = item_templates[id].effects;
     let used = false;
@@ -3414,6 +4337,7 @@ function create_save() {
         });
 
 
+        save_data["npc_equipment"] = readNativeEquipment(NPCRegistry.getAll());
         save_data["npcs"] = {};
         const npcs = NPCRegistry.getAll();
         Object.keys(npcs).forEach(npc_key => {
@@ -3539,7 +4463,13 @@ function create_save() {
         }
 
         save_data.fork_schema = 1;
-        save_data.expansion = expansionState;
+        save_data.expansion = recordRouteReading(expansionState, item_templates[ROUTE_NOTES].isFinished());
+        tidemarkNative.snapshot(save_data,expansionState);
+        nestedNative.snapshot(save_data,expansionState);
+        paradiseNative.snapshot(save_data,expansionState);
+        molNative.snapshot(save_data,expansionState);
+        proto23Native.snapshot(save_data,expansionState);
+        causalNative.snapshot(save_data,expansionState);
         return JSON.stringify(retainRetiredContent(save_data, retiredContent));
     } catch(error) {
         console.error("Something went wrong on saving the game!");
@@ -3619,6 +4549,10 @@ function save_progress() {
 
 //core function for loading
 function load(save_data) {
+    hasLoadedNativeSave=true;
+    // Restore validated native reading/sleep/activity before the new document
+    // acquires its writer lock. Occupied/ended-life checks still apply.
+    restoringNativeSave = true;
     try{
         try {
             save_data = validateSaveEnvelope(save_data, game_version);
@@ -3626,6 +4560,7 @@ function load(save_data) {
             save_data = prepareV06Save(prepared.save);
             retiredContent = prepared.retired;
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+            validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
             for(const actor of Object.values(expansionState.actors)) {
                 const active = activePractice(actor);
@@ -3839,7 +4774,7 @@ function load(save_data) {
                         }
                     }
 
-                    update_booklist_entry(book_id, save_data.books[book_id].is_finished);
+                    update_booklist_entry(book_id, item_templates[book_id].isFinished());
                 });
                 if(total_book_xp > literacy_xp) {
                     add_xp_to_skill({skill: skills["Literacy"], should_info: false, xp_to_add: total_book_xp, use_bonus: false, cap_gained_xp: false, is_from_loading: true});
@@ -3899,6 +4834,9 @@ function load(save_data) {
                     }
 
                     Object.keys(save_data.levels[category][xp_target].skill_xp).forEach(skill_id => {
+                        // Player Literacy was reconstructed with the title-owned
+                        // book progress above. Restore it once, as in legacy saves.
+                        if(category === "person" && xp_target === "main_character" && skill_id === "Literacy" && save_data.books) return;
                         if(!skills[skill_id]) {
                             console.warn(`Skill "${skill_id}" couldn't be found!`);
                             return;
@@ -3915,7 +4853,7 @@ function load(save_data) {
                                 is_from_loading: true,
                             });
                         } else {
-                            levels[category][xp_target].addXPToSkill({
+                            (category === "person" && NPCRegistry.getAll()[xp_target] ? NPCRegistry.get(xp_target) : levels[category][xp_target]).addXPToSkill({
                                 skill: skills[skill_id], 
                                 xp_to_add: save_data.levels[category][xp_target].skill_xp[skill_id],
                                 should_info: false,
@@ -5061,6 +5999,7 @@ function load(save_data) {
 
         if(save_data["quests"]) {
             Object.keys(save_data["quests"]).forEach(quest => {
+                if(quest===TIDEMARK_IDS.quest)return; // The destination bridge restores its exact tasks without rewards.
 
                 if(save_data["quests"][quest].is_finished) {
                     //finished => all tasks are also finished, don't care about their specifics
@@ -5237,6 +6176,11 @@ function load(save_data) {
             });
         }
 
+        if(save_data.npc_equipment) {
+            const actors = NPCRegistry.getAll();
+            prepareNativeEquipment(save_data.npc_equipment, {actors, getItem: getItemFromKey}).publish();
+        }
+        projectNativePeopleBodies();
         set_loading_screen_progress("Doing some finishing pats");
 
         if(save_data.favourite_locations) {
@@ -5262,6 +6206,16 @@ function load(save_data) {
             })
         }
 
+        tidemarkNative.restore(save_data);
+        nestedNative.restore(save_data);
+        paradiseNative.restore(save_data);
+        molNative.restore(save_data);
+        proto23Native.restore(save_data);
+        causalNative.restore(save_data);
+        validateAuditRemainderNative(expansionState,gameplaySnapshot());
+        refreshCausalQuests();
+        refreshTidemarkQuest();
+    refreshNestedQuests();
         character.updateStatsAndDisplay();
         update_displayed_character_inventory();
 
@@ -5272,6 +6226,7 @@ function load(save_data) {
         
         create_displayed_crafting_recipes();
         change_location({location_id: save_data["current location"], skip_travel_time: true, do_quest_events: false, skip_combat: true});
+        refreshStatusCareStats(true);
 
         //temperature and background are location dependent so display settings are loaded after location is set
         game_options.use_uncivilised_temperature_scale = save_data.options?.use_uncivilised_temperature_scale;
@@ -5327,6 +6282,7 @@ function load(save_data) {
         throw error;
     } finally {
         loadingReputationTotals = null;
+        restoringNativeSave = false;
     }
 } 
 
@@ -5407,9 +6363,33 @@ function hard_reset() {
 }
 
 //update game time
-function update_timer(time_in_minutes) {
+function update_timer(time_in_minutes, source = null) {
+    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
     const was_night = is_night(current_game_time);
-    const minutes = time_in_minutes || (is_sleeping ? config.time_speedup_when_sleeping : 1);
+    const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
+    if(minutes === 0) return 0;
+    if(usesJoinedClock()) {
+        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
+        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
+        if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
+        try {
+            const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
+            const pendingJourney=expansionState.actors.player.facts['original_frontier.travel.remaining']>0;
+            const plan = response ? makeChroniclePlan({type: "respond", action: response}) : pendingJourney ? advanceFrontierJourney({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes) : advanceChroniclePlan({state: expansionState, external: {money: character.money}, gameplay: gameplaySnapshot()}, minutes, source === "travel");
+            const consumed = plan.state.clock - expansionState.clock;
+            persistExpansion(plan);
+            if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
+            if(expansionState.chronicle?.life.endedAt != null) {if(current_combat) end_combat(); character.is_alive = false;}
+            expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
+            return consumed;
+        } catch(error) {
+            if(expansionState.chronicle?.session && !foundationSaveBlocked) {
+                persistExpansion(makeChroniclePlan({type: "policy", policy: "manual"}));
+                chroniclePauseReason = `Prepared plan stopped: ${error.message} Withdraw or choose a supported response.`;
+            } else expansionError ||= error.message;
+            chroniclePanel?.render(true); return 0;
+        }
+    }
     current_game_time.goUp(minutes);
     advanceExpeditions(minutes);
 
@@ -5420,12 +6400,12 @@ function update_timer(time_in_minutes) {
     }
     
     update_displayed_time();
+    return minutes;
 }
 
 function progress_time({value = 0, source}) {
-    update_timer(value);
-
-    update_effect_durations({time_in_minutes: value, is_sleep: is_sleeping, is_travel: source==="travel"});
+    const consumed = update_timer(value, source);
+    if(consumed && !usesJoinedClock()) update_effect_durations({time_in_minutes: consumed, is_sleep: is_sleeping, is_travel: source==="travel"});
 }
 
 /**
@@ -5473,8 +6453,9 @@ function update() {
         */
 
         let were_stats_updated = false;
-        const prev_day = current_game_time.day;
-        update_timer();
+        const prev_day = current_game_time.day_count;
+        const advancedMinutes = update_timer();
+        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
             document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
@@ -5484,7 +6465,7 @@ function update() {
 
         update_export_button_tooltip(start_date - last_rewarded_export, config.time_between_export_rewards);
 
-        const curr_day = current_game_time.day;
+        const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
             recover_item_prices(config.trade_price_recovery_flat, config.trade_price_recovery_ratio);
             trickle_market_saturations(config.market_saturation_trickle_rate);
@@ -5496,7 +6477,7 @@ function update() {
         }
 
         //update effect durations and displays;
-        were_stats_updated = were_stats_updated || update_effect_durations({time_in_minutes: 1});
+        were_stats_updated = were_stats_updated || (!usesJoinedClock() && update_effect_durations({time_in_minutes: 1}));
         update_displayed_effect_durations();
         update_displayed_effects();
 
@@ -5513,9 +6494,9 @@ function update() {
 
                     if(new_temperature < 0)
                         //snowing, doesn't soak the player as much the rain
-                        rain_counter += 0.25
+                        rain_counter += 0.25 * statusCareRainMultiplier(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true})
                     else 
-                        rain_counter++;
+                        rain_counter += statusCareRainMultiplier(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true});
                 }
 
                 if(!was_raining && game_options.do_background_animations) {
@@ -5804,10 +6785,10 @@ function update() {
         update_health({ammount_to_restore: health_to_add, ammount_to_loose: health_to_subtract});
 
         //stamina regen
-        if(full_stats.stamina_regeneration_flat) {
+        if(!expansionState.chronicle?.session && full_stats.stamina_regeneration_flat) {
             full_stats.stamina += full_stats.stamina_regeneration_flat;
         }
-        if(full_stats.stamina_regeneration_percent) {
+        if(!expansionState.chronicle?.session && full_stats.stamina_regeneration_percent) {
             full_stats.stamina += full_stats.max_stamina * full_stats.stamina_regeneration_percent/100;
         }
         //mana regen
@@ -5896,6 +6877,7 @@ function update() {
 
 function run() {
     if(importProbeToken) return;
+    if(expansionState.chronicle?.life.endedAt != null) {character.is_alive = false; chroniclePanel?.render(true); return;}
     if(typeof current_location === "undefined") {
         change_location({location_id: "Village", skip_travel_time: true});
     } 
@@ -5961,7 +6943,7 @@ window.accept_trade = () => {
 window.is_in_trade = is_in_trade;
 window.update_displayed_total_price = update_displayed_total_price;
 
-window.open_storage = open_storage;
+window.open_storage = (...args) => {open_storage(...args); update_displayed_character_inventory(); stampStorageRequests();};
 window.exit_storage = close_storage;
 window.move_item_to_storage = move_item_to_storage;
 window.remove_item_from_storage = remove_item_from_storage;
@@ -6034,6 +7016,11 @@ acquireSaveOwnership().then(owned => {
     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
     expeditionPanel?.render(true);
     techniquePanel?.render(true);
+    chroniclePanel?.render(true);
+    villagePanel?.render(true);
+    simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); bodyPanel?.render(); townPanel?.render();
+    frontierCampaignPanel?.render();
+    knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
 });
 
 //Verify_Game_Objects();
@@ -6322,15 +7309,110 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    renderWorldIdentity();
     validateNativeGameplayReferences([...expeditionRegistry.actions.values()].flatMap(action =>
         [action.costs, action.effects || [], ...action.outcomes.map(outcome => outcome.effects || [])])
         .concat([...expeditionRegistry.rollTables.values()].flatMap(table => table.outcomes.map(outcome => outcome.effects || []))));
-    const readProgression = () => ({state: expansionState, context: expeditionContext(), error: expansionError,
+    const readProgression = () => ({state: expansionState, context: {...expeditionContext(),busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade())}, error: expansionError,
         enabled: ownsSave && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade()});
     expeditionPanel = createExpeditionPanel({registry: expeditionRegistry, read: readProgression,
         command: startExpedition, cancel: cancelExpedition});
     techniquePanel = createTechniquePanel({registry: expeditionRegistry, read: readProgression,
         command: startExpedition, cancel: cancelExpedition, answer: answerPractice});
+    villagePanel = createVillagePanel({registry: expeditionRegistry,
+        read: () => ({...readProgression(), inDialogue: !!current_dialogue}),
+        command: startExpedition, cancel: cancelExpedition, readBook: start_reading});
+    townPanel = createTownPanel({registry: expeditionRegistry,
+        read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: startExpedition, cancel: cancelExpedition});
+    simulationPanel = createSimulationPanel({registry: expeditionRegistry,
+        read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: actSimulation});
+    pursuitPanel=createPursuitPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,
+        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
+    nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,
+        getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
+        refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
+        render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+    featureBattleHost=createFeatureBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:featureWaveContext,persist:persistExpansion,
+        getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
+        attackersSlot:()=>document.getElementById('feature_battle_attackers'),defendersSlot:()=>document.getElementById('feature_battle_defenders'),
+        refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
+        render:()=>{featureExpansionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+    frontierCampaignPanel=createFrontierCampaignPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),
+        error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,inCombat:!!current_combat,battleRunning:!!current_combat?.actionAdapter,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actFrontierCampaign});
+    partyPanel=createPartyPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actParty});
+    exchangePanel=createExchangePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actExchange});
+    observationPanel=createObservationPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actObservation});
+    skillExpansionPanel=createSkillExpansionPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actSkillExpansion});
+    featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext})});
+    crushSocialPanel=createCrushSocialPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCrushSocial});
+    document.getElementById('location_actions_div')?.append(crushSocialPanel.element);
+    causalStoryPanel=createCausalStoryUI({registry:expeditionRegistry,read:()=>({...readProgression(),context:currentCausalContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCausalStory});
+    const readBacklog=()=>({...readProgression(),context:backlogContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken});
+    backlogPanel=createBacklogExpansionPanel({registry:expeditionRegistry,read:readBacklog,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('location_actions_div')});
+    backlogOpeningPanel=createBacklogExpansionPanel({registry:expeditionRegistry,read:readBacklog,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('hero_creation_panel'),opening:true});
+    replacementRecognitionPanel=createReplacementRecognitionPanel({read:replacementRecoverySnapshot,command:actBacklog,preview:qualifiedBacklog.preview,parent:document.getElementById('location_actions_div')});
+    repositoryPanel=createRepositoryAbsorptionPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actRepository});
+    inkPanel=createInkNarrativeUI({read:()=>{
+        const view=inkNarrativeView(expansionState,expeditionRegistry,currentInkHost()===relayInkHost?backlogContext():featureWaveContext(),currentInkHost()),canWrite=ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!expansionError;
+        return {...view,choices:view.choices?.map(choice=>({...choice,eligible:canWrite&&choice.eligible})),actions:view.actions?.map(action=>({...action,eligible:canWrite&&action.eligible}))};
+    },act:actInk,choose:actInk});
+    document.getElementById('location_actions_div')?.append(inkPanel.element);
+    nestedInkPanels=createNestedInkPanels({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),previewNative:previewNestedCommand,commitNative:planNestedAction,command:(id,token,host)=>{assertFeatureWriter();persistExpansion(commitInkNarrativeAction(expansionState,expeditionRegistry,{...token,id},featureWaveContext(),host));}});
+    originalFrontierPanel=createOriginalFrontierPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actOriginalFrontier});
+    pocketRealmPanel=createPocketRealmPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:pocketContext(expansionState,{...campaignContext(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment]))}),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actPocketRealm});
+    bodyPanel = createBodyPanel({registry: expeditionRegistry,
+        read: () => {const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
+            context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};}, command: actSimulation});
+    fieldPanel = createFieldPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
+        context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
+    promisePanel=createPromisePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actSimulation});
+    chroniclePanel = createChroniclePanel({read: () => ({state: expansionState, context: chronicleContext(),
+        canWrite: ownsSave && !importProbeToken && !foundationSaveBlocked,
+        enabled: ownsSave && current_location?.id === "Village" && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !activePractice(expansionState.actors.player) && metVillageElder(),
+        occupied: expansionState.pending.some(j => j.context.actorId === "player"),
+        dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError, pauseReason: chroniclePauseReason}),
+        command: actChronicle, duty: () => startExpedition("chronicle.archive_duty", expansionState.sequence),
+        cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
+        exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset});
+    knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
+        read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
+        present:snapshot=>{
+            if(snapshot.inDialogue||snapshot.inCombat)return {visible:false,section:null};
+            const pocketView=pocketRealmView(snapshot.state),pocketCurrent=pocketContext(snapshot.state,snapshot.context);
+            const pocketActions=pocketView.discovered?['pocket.open','pocket.enter','pocket.exit'].flatMap(id=>{
+                const action=pocketRealmActions.find(a=>a.id===id),quote=previewPocketRealmAction(snapshot.state,expeditionRegistry,id,pocketCurrent);
+                return quote.visible?[{...action,...quote,command:{id,sequence:snapshot.state.sequence}}]:[];
+            }):[];
+            return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
+        },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+    adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
+        read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
+    worldEventFeed = createEventFeed({registry: expeditionRegistry,
+        read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat}),
+        open: event => {
+            adventureNotebook.open(event.view);
+            const panel = document.getElementById(event.panel);
+            if(!panel || panel.hidden) return;
+            panel.open = true;
+            const attribute = ({chronicle_panel:"chronicle",simulation_panel:"simulation",expedition_panel:"expedition-action",field_panel:"field-command",promise_panel:"promise-command",pursuit_panel:"pursuit"})[event.panel];
+            const control = event.control && panel.querySelector(`[data-${attribute}="${CSS.escape(event.control)}"]`);
+            if(control)for(let ancestor=control.parentElement;ancestor && ancestor !== panel;ancestor=ancestor.parentElement)if(ancestor.tagName === "DETAILS")ancestor.open=true;
+            const target = control && !control.hidden && !control.disabled ? control : panel.querySelector("summary");
+            target?.focus(); target?.scrollIntoView({block:"nearest"});
+        }});
+    expansionQuests = createExpansionQuests({read: readProgression});
+    const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
+    characterBio = createCharacterBio({registry: expeditionRegistry, read: readProgression,
+        readTraining: () => Object.values(skills).filter(skill => skill.isUnlocked() && skill.getTotalXP() >= skill.visibility_treshold && skill.getCurrentLvl() > 0)
+            .map(skill => ({id:skill.skill_id, label:skill.getName(), level:skill.getCurrentLvl(), effectiveLevel:character.getTotalSkillLevel(skill.skill_id), visible:true,
+                stats:skill.get_bonus_stats({skillXP:{current_level:0},level:skill.getCurrentLvl(),track_dependencies:false}).stats,
+                bodyEffect:bodySkills.has(skill.skill_id) ? skill.get_effect_description() : ""})),
+        practice: () => adventureNotebook.open("practice"),
+        showSkill: id => {
+            document.getElementById("show_skills")?.click();
+            const bar = document.querySelector(`#skill_list_div [data-skill="${CSS.escape(id)}"]`);
+            if(bar) {bar.closest("[data-skill_category]").classList.add("skill_category_expanded"); bar.tabIndex=-1; bar.focus(); bar.scrollIntoView({block:"nearest"});}
+        }});
 }
 
 if(game_options.skip_play_button && !importProbeToken) {

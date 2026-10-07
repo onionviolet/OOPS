@@ -592,4 +592,4 @@ Object.keys(quests).forEach(quest => {
 
 availability_havers.push(Quest, QuestTask);
 
-export { quests, active_quests, questManager};
+export { quests, active_quests, questManager, Quest, QuestTask};

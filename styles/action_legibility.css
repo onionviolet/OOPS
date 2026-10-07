@@ -1,0 +1,126 @@
+.action-legibility {
+    --al-border: color-mix(in srgb, currentColor 22%, transparent);
+    --al-muted: color-mix(in srgb, currentColor 72%, transparent);
+    display: grid;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.action-legibility [hidden] {
+    display: none !important;
+}
+
+.action-legibility__notice {
+    margin: 0;
+    padding: 0.55rem 0.7rem;
+    border-inline-start: 0.2rem solid currentColor;
+}
+
+.action-legibility__group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 0.65rem;
+    min-width: 0;
+}
+
+.action-legibility__card {
+    min-width: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--al-border);
+    border-radius: 0.45rem;
+    overflow-wrap: anywhere;
+}
+
+.action-legibility__card h3,
+.action-legibility__card h4,
+.action-legibility__card p {
+    margin-block: 0.25rem 0.55rem;
+}
+
+.action-legibility__status,
+.action-legibility__qualifiers,
+.action-legibility__alternative-description {
+    color: var(--al-muted);
+}
+
+.action-legibility__status[data-status="blocked"] {
+    font-weight: 700;
+}
+
+.action-legibility__section {
+    margin-block-start: 0.55rem;
+}
+
+.action-legibility__items {
+    margin: 0.2rem 0 0;
+    padding-inline-start: 1.3rem;
+}
+
+.action-legibility__controls,
+.action-legibility__alternatives,
+.action-legibility__alternative-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 0.45rem;
+}
+
+.action-legibility__controls {
+    margin-block-start: 0.7rem;
+}
+
+.action-legibility__alternative-row {
+    display: grid;
+    flex: 1 1 12rem;
+}
+
+.action-legibility__button {
+    max-width: 100%;
+    min-height: 2.4rem;
+    padding: 0.35rem 0.7rem;
+    color: inherit;
+    font: inherit;
+    border: 1px solid var(--al-border);
+    border-radius: 0.35rem;
+    background: transparent;
+    cursor: pointer;
+    text-align: start;
+}
+
+.action-legibility__button[aria-disabled="true"] {
+    opacity: 0.72;
+    cursor: not-allowed;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.16em;
+}
+
+.action-legibility__button:focus-visible,
+.action-legibility-panel > summary:focus-visible {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.15rem;
+}
+
+.action-legibility:focus {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.15rem;
+}
+
+.action-legibility-panel > .action-legibility {
+    margin-block-start: 0.75rem;
+}
+
+@media (max-width: 32rem) {
+    .action-legibility__group {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .action-legibility__controls,
+    .action-legibility__alternatives {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .action-legibility__button {
+        width: 100%;
+    }
+}

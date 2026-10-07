@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "artifacts": [
+    {
+      "schemaVersion": 1,
+      "artifact": "docs/gm/feature-wave/ink/content/feature_wave_v1.json",
+      "sha256": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+      "metadata": {
+        "schemaVersion": 1,
+        "storyId": "feature-wave-negotiation",
+        "storyRevision": 1,
+        "compilerPackage": "inkjs",
+        "compilerVersion": "2.4.0",
+        "sourceSha256": "4d4a7be449589255ca9620833fc469da73f095b5dcad14716bad3915c8ef9a6f",
+        "compiledSha256": "d37584206c4b341ca749f162ed179096fc78e9e7e4163d61f7deace7e78bc3a2",
+        "contentHash": "sha256:ae0be8ab54ef5d062fb651cd7cd070b122ecaf9f79fc9f9ac00cf730a72a6a1f"
+      },
+      "policy": "Immutable registered content for active cursor1 saves; never route them into a new scene or replay paid host effects. Current new content receives a separate revision/hash.",
+      "storyProvenance": "Original authored Tidemark scene, no book prose"
+    },
+    {
+      "artifact": "docs/gm/feature-wave/ink/content/feature_wave_v2.json",
+      "sha256": "12ac8ccdca19c8e4c6b63fe79210efc4e267e4b1953b2c4c3b18a038e4876486",
+      "metadata": {
+        "schemaVersion": 1,
+        "storyId": "feature-wave-negotiation",
+        "storyRevision": 2,
+        "sceneIds": [
+          "tidemark.negotiation",
+          "relay.office"
+        ],
+        "compilerPackage": "inkjs",
+        "compilerVersion": "2.4.0",
+        "sourceSha256": "f637f25d70e25c1ee850703a11470a74154e8ed662deef43ccf53c649b809aac",
+        "compiledSha256": "943d922a566f3a69f3636558dffa71a77dea1829d1fc8dc7abbae130badb3cab",
+        "contentHash": "sha256:2eceb76c13cc1c3e856203f84d6349d98e9e5a963e0f7c7e6afa2555eeb76a65"
+      }
+    }
+  ],
+  "policy": "Immutable original compiled1/2 registered by exact content hash; active old cursors resume only their retained scene with no paid-effect replay. No source-world novel prose copied."
+}

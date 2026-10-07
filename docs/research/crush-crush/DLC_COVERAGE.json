@@ -1,0 +1,1812 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "steam_build": "25589052",
+  "catalog_source": {
+    "url": "https://store.steampowered.com/api/appdetails?appids=459820&l=english",
+    "public_snapshot": "/Users/weiwei/.codex/research/crush-crush/25589052/public/steam_appdetails_459820.json",
+    "dlc_ids": [
+      4166260,
+      948680,
+      3630990,
+      3950240,
+      4820740
+    ]
+  },
+  "qualification": "Inventory is public official Steam appdetails on this date plus installed in-app product code/config. Installed payload presence does not establish ownership, active remote data or completed runtime behavior. Source-inspected means only declared selected ranges; art/audio/other scenes may remain unread.",
+  "rows": [
+    {
+      "id": "459820",
+      "name": "Base game",
+      "kind": "base",
+      "disposition": "source-inspected",
+      "reviewed": "Selected stage/dialogue/ending/phone,job,hobby,gift,date,reset,offline,LTE/PES callers and configured examples.88characters inventoried, no whole roster dialogue reading.",
+      "unread_or_unavailable": "Unselected character stages/prose/art/audio/scenes, future/live remote tables.",
+      "official_url": "https://store.steampowered.com/app/459820/",
+      "installed_evidence": [
+        {
+          "assembly_sha256": "7205b130274facea0c4af1605c0116a4890c39fdb04852542d292ec777845ddd"
+        }
+      ]
+    },
+    {
+      "id": "3630990",
+      "name": "Kaiju Bundle",
+      "kind": "Steam gameplay/character DLC",
+      "disposition": "source-inspected",
+      "reviewed": "Mortha/Sephia/Liz nine-level tables712-740; Store entitlement dispatch; Sephia requires Mortha4, Liz requires Sephia4; Mecha Pilot acquisition/payout and repeated stage consumers.",
+      "unread_or_unavailable": "Full character prose/audio/art, live receipt/ownership, scene/runtime behavior.",
+      "official_url": "https://store.steampowered.com/app/3630990/",
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": -3048942004004774990,
+          "asset": "Girls",
+          "output": "textassets/gamedata/Girls.txt",
+          "bytes": 91242,
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": 4429197932509508690,
+          "asset": "Liz",
+          "output": "textassets/gamedata/Liz.txt",
+          "bytes": 24457,
+          "sha256": "b5ebc744bc370dc90f059813d10938b64ea2d314cf6df612068cde04f39076ef"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": 5543866756867603627,
+          "asset": "Jobs",
+          "output": "textassets/gamedata/Jobs.txt",
+          "bytes": 8439,
+          "sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": 8495799033886692434,
+          "asset": "Mortha",
+          "output": "textassets/gamedata/Mortha.txt",
+          "bytes": 28366,
+          "sha256": "cfc066fed2589fefb81b999db6e7c0979ad57cfd99376ad38b3121c2088d7209"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": 9120334264753562870,
+          "asset": "Sephia",
+          "output": "textassets/gamedata/Sephia.txt",
+          "bytes": 27340,
+          "sha256": "751a7fe0da782431ecbdc53004ae653c22926bc4800ba5f15947694b8d30b70c"
+        }
+      ]
+    },
+    {
+      "id": "3950240",
+      "name": "Fuzzy Festival Event Bundle",
+      "kind": "Steam replay gameplay DLC",
+      "disposition": "source-inspected",
+      "reviewed": "Replay start/reset namespace,14-day local window,24sequential goals/selected required roles,base outfit rewards and final GingerWasabi grant; source/config checks separate from official replay wording.",
+      "unread_or_unavailable": "Server active overrides, reward regrant/idempotency, full event dialogue/art/voice and actual replay.",
+      "official_url": "https://store.steampowered.com/app/3950240/",
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -7880892738824262210,
+          "asset": "Hobbies",
+          "output": "textassets/fuzzy_gingerwasabi/Hobbies.txt",
+          "bytes": 675,
+          "sha256": "ad412d684a228eb04400dad3ebcaf0f2963069f7df7d6c03486d98d220783c9c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -7455746909692007342,
+          "asset": "Tutorial",
+          "output": "textassets/fuzzy_gingerwasabi/Tutorial.txt",
+          "bytes": 2091,
+          "sha256": "7ffcc49810dd04802b5593a004a7baeda638a1f54a4c126615aad3bbba0ee681"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -6150028930708311940,
+          "asset": "Stats",
+          "output": "textassets/fuzzy_gingerwasabi/Stats.txt",
+          "bytes": 1103,
+          "sha256": "3ef3ec41a83494f6a3c54a6d0fb2230107ddbe546c00b0e3e8c7a909bb2a65bc"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -5497486201013068606,
+          "asset": "Girls",
+          "output": "textassets/fuzzy_gingerwasabi/Girls.txt",
+          "bytes": 12170,
+          "sha256": "5f17ba724b91539d2a770363bae38f6c26657b3bff98c7ad84457b26f7116d98"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -5363462096811839670,
+          "asset": "Quill",
+          "output": "textassets/fuzzy_gingerwasabi/Quill.txt",
+          "bytes": 11666,
+          "sha256": "3e66404bf6cd2bde950209ae0d0af096b2362b452581eddefaf44fc57ca67e4a"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -4994140779614310036,
+          "asset": "Brie",
+          "output": "textassets/fuzzy_gingerwasabi/Brie.txt",
+          "bytes": 15041,
+          "sha256": "d405536f97185eb53a213e93df285021d6fcdae9f6a5b76097b02fcc3c63eb8a"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -4792343736694467338,
+          "asset": "Jobs",
+          "output": "textassets/fuzzy_gingerwasabi/Jobs.txt",
+          "bytes": 6967,
+          "sha256": "6967e011b0214306a5c9d832aaf1e84c562ca146ed0948570c4c8af1f0b8fb07"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -3432189565987495239,
+          "asset": "Resources",
+          "output": "textassets/fuzzy_gingerwasabi/Resources.txt",
+          "bytes": 925,
+          "sha256": "2472b1c93f1b5776656510e5421e1acc16b052dbac5d3ce3a16a33e73daa68e3"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -2278270836277562307,
+          "asset": "Tessa",
+          "output": "textassets/fuzzy_gingerwasabi/Tessa.txt",
+          "bytes": 16059,
+          "sha256": "5ee021f0b9fa225cce3f82fd33f95784b6f228ff268a1da703fe18ad011e517c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -1078322861200910232,
+          "asset": "Gifts",
+          "output": "textassets/fuzzy_gingerwasabi/Gifts.txt",
+          "bytes": 2177,
+          "sha256": "433fdc05277c1adcc3f20f165ef548ade21c7e345197756b95e5fead0e17fc49"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": -218699723315420907,
+          "asset": "Suzu",
+          "output": "textassets/fuzzy_gingerwasabi/Suzu.txt",
+          "bytes": 17715,
+          "sha256": "7c14297d4528c24a5d169a28f1076c23f534168897d4db60bdadd2fb7a9348ba"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 3953105243980206806,
+          "asset": "Dates",
+          "output": "textassets/fuzzy_gingerwasabi/Dates.txt",
+          "bytes": 458,
+          "sha256": "f3b7ce726a66a38a374d1f1d1b67ea7564c404b94a66bc13fe318650fda0415c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 5042252195994290068,
+          "asset": "PesData",
+          "output": "textassets/fuzzy_gingerwasabi/PesData.txt",
+          "bytes": 2672,
+          "sha256": "51243097f6775d101e168d7123e57f38d9dafa93a87a46e824ced614a4cc22e1"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 5466479466394698940,
+          "asset": "GingerWasabi",
+          "output": "textassets/fuzzy_gingerwasabi/GingerWasabi.txt",
+          "bytes": 21578,
+          "sha256": "a0a88696a4afd36df592ae40df46ccbbb3edf7d9fb7b8aa3470f2a0a9541b9ed"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 6828154485139533574,
+          "asset": "Goals",
+          "output": "textassets/fuzzy_gingerwasabi/Goals.txt",
+          "bytes": 1513,
+          "sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 7444152522206436751,
+          "asset": "AssetbundleLocalizations",
+          "output": "textassets/fuzzy_gingerwasabi/AssetbundleLocalizations.txt",
+          "bytes": 2427,
+          "sha256": "a4dd469f37cf095c94026295d923f99103a0f04c3348f2e174b70a2b212b8433"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 8546873418864721236,
+          "asset": "Catara",
+          "output": "textassets/fuzzy_gingerwasabi/Catara.txt",
+          "bytes": 13220,
+          "sha256": "5715d739a36f9866785eb35abf140c55a5cd06af2c9d1a7f95aaa9b8dff57840"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "path_id": 8548927095314877449,
+          "asset": "Amelia",
+          "output": "textassets/fuzzy_gingerwasabi/Amelia.txt",
+          "bytes": 17024,
+          "sha256": "72ef35132e31ad0501cfd2358999c7f37a552e6a4df307aab0fb5756c91b1be0"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -8923792884927258431,
+          "asset": "Suzu",
+          "output": "textassets/2025_fuzzy/Suzu.txt",
+          "bytes": 17719,
+          "sha256": "7b780452a2e218cdb507bea2652e1c7135ae74315ba878e138157687c93743df"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -7260674602349037213,
+          "asset": "Stats",
+          "output": "textassets/2025_fuzzy/Stats.txt",
+          "bytes": 1103,
+          "sha256": "3ef3ec41a83494f6a3c54a6d0fb2230107ddbe546c00b0e3e8c7a909bb2a65bc"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -7096767543875863842,
+          "asset": "Girls",
+          "output": "textassets/2025_fuzzy/Girls.txt",
+          "bytes": 12170,
+          "sha256": "5f17ba724b91539d2a770363bae38f6c26657b3bff98c7ad84457b26f7116d98"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -6946425082390462749,
+          "asset": "Jobs",
+          "output": "textassets/2025_fuzzy/Jobs.txt",
+          "bytes": 6967,
+          "sha256": "6967e011b0214306a5c9d832aaf1e84c562ca146ed0948570c4c8af1f0b8fb07"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -6375080946964850956,
+          "asset": "Amelia",
+          "output": "textassets/2025_fuzzy/Amelia.txt",
+          "bytes": 17024,
+          "sha256": "72ef35132e31ad0501cfd2358999c7f37a552e6a4df307aab0fb5756c91b1be0"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -6181159136831688915,
+          "asset": "Tessa",
+          "output": "textassets/2025_fuzzy/Tessa.txt",
+          "bytes": 16059,
+          "sha256": "5ee021f0b9fa225cce3f82fd33f95784b6f228ff268a1da703fe18ad011e517c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -5984902139314376428,
+          "asset": "Resources",
+          "output": "textassets/2025_fuzzy/Resources.txt",
+          "bytes": 925,
+          "sha256": "2472b1c93f1b5776656510e5421e1acc16b052dbac5d3ce3a16a33e73daa68e3"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -4367267766683836196,
+          "asset": "Dates",
+          "output": "textassets/2025_fuzzy/Dates.txt",
+          "bytes": 458,
+          "sha256": "f3b7ce726a66a38a374d1f1d1b67ea7564c404b94a66bc13fe318650fda0415c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -3130897146939371812,
+          "asset": "Catara",
+          "output": "textassets/2025_fuzzy/Catara.txt",
+          "bytes": 13220,
+          "sha256": "5715d739a36f9866785eb35abf140c55a5cd06af2c9d1a7f95aaa9b8dff57840"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": -2440022015763778548,
+          "asset": "Hobbies",
+          "output": "textassets/2025_fuzzy/Hobbies.txt",
+          "bytes": 675,
+          "sha256": "ad412d684a228eb04400dad3ebcaf0f2963069f7df7d6c03486d98d220783c9c"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 1525463722215848876,
+          "asset": "GingerWasabi",
+          "output": "textassets/2025_fuzzy/GingerWasabi.txt",
+          "bytes": 21578,
+          "sha256": "a0a88696a4afd36df592ae40df46ccbbb3edf7d9fb7b8aa3470f2a0a9541b9ed"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 2383715709203989558,
+          "asset": "PesData",
+          "output": "textassets/2025_fuzzy/PesData.txt",
+          "bytes": 2072,
+          "sha256": "cb4628d48bb151b1ae4ba9f265daffd2ab1eb848208d99c0c2f429f8b34f51f0"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 5316696358132553111,
+          "asset": "Brie",
+          "output": "textassets/2025_fuzzy/Brie.txt",
+          "bytes": 15041,
+          "sha256": "d405536f97185eb53a213e93df285021d6fcdae9f6a5b76097b02fcc3c63eb8a"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 5968292485305078074,
+          "asset": "Quill",
+          "output": "textassets/2025_fuzzy/Quill.txt",
+          "bytes": 11666,
+          "sha256": "3e66404bf6cd2bde950209ae0d0af096b2362b452581eddefaf44fc57ca67e4a"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 7582437160048992179,
+          "asset": "Tutorial",
+          "output": "textassets/2025_fuzzy/Tutorial.txt",
+          "bytes": 2091,
+          "sha256": "7ffcc49810dd04802b5593a004a7baeda638a1f54a4c126615aad3bbba0ee681"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 8922884895131268643,
+          "asset": "Gifts",
+          "output": "textassets/2025_fuzzy/Gifts.txt",
+          "bytes": 2177,
+          "sha256": "433fdc05277c1adcc3f20f165ef548ade21c7e345197756b95e5fead0e17fc49"
+        },
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "path_id": 8939016726253268587,
+          "asset": "Goals",
+          "output": "textassets/2025_fuzzy/Goals.txt",
+          "bytes": 1513,
+          "sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f"
+        }
+      ]
+    },
+    {
+      "id": "4820740",
+      "name": "Lumi Bundle",
+      "kind": "Steam gameplay/character DLC",
+      "disposition": "source-inspected",
+      "reviewed": "Nine-level table842-850,subscription grant/outfit consumers and ordinary requirements; gift sprite emission is presentation.",
+      "unread_or_unavailable": "Full prose/voice/art,actual entitlement/current catalog/runtime.",
+      "official_url": "https://store.steampowered.com/app/4820740/",
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/gamedata_394c51a3727878f446e80252799f797b",
+          "bundle_sha256": "88f785dc85da42e5eb9ada52fedd26a1aa1f231611f3463a847f73fdda8b1735",
+          "path_id": -1154018639484601165,
+          "asset": "Lumi",
+          "output": "textassets/gamedata/Lumi.txt",
+          "bytes": 22066,
+          "sha256": "9b2a9586b58497262c1935abb58d011202f80bbc645355d35976682947cd6617"
+        }
+      ]
+    },
+    {
+      "id": "948680",
+      "name": "18+ Naughty DLC",
+      "kind": "Steam presentation and scene variant DLC",
+      "disposition": "source-inspected",
+      "reviewed": "GameState1228-1241 entitlement flag/outfits; GirlModel35-43,862-869 text-type substitutions; supported SFW/NSFW finale routing and Peanut selected template metadata.",
+      "unread_or_unavailable": "Artwork/audio/raw adult scenes and complete variant prose remain unread; no separate numerical economy inferred.",
+      "official_url": "https://store.steampowered.com/app/948680/",
+      "installed_evidence": [
+        {
+          "installed_depot": "948681",
+          "manifest": "2486528350966661384"
+        },
+        {
+          "selected_assembly_consumer": "GameState.cs:1234-1241"
+        }
+      ]
+    },
+    {
+      "id": "4166260",
+      "name": "10th Anniversary Artbook",
+      "kind": "Steam artbook; no gameplay",
+      "disposition": "installed-unread",
+      "reviewed": "Official description and seven PDF filenames/sizes/hashes inventoried only.",
+      "unread_or_unavailable": "PDF pages/images/prose unread; excluded from gameplay semantic coverage.",
+      "official_url": "https://store.steampowered.com/app/4166260/",
+      "installed_evidence": [
+        {
+          "name": "CC_Artbook_1.pdf",
+          "bytes": 91956127,
+          "sha256": "db339e6a20ab6ce716393141e2cd060cc4cb39d0b62375e3d488dc8294f703b8",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_2.pdf",
+          "bytes": 90645313,
+          "sha256": "8e6e6e1703e00b9f8c04f63645ced067be8cda34dcd99ad6b36042d87724af2f",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_3.pdf",
+          "bytes": 86564308,
+          "sha256": "49812114b9c0f7cc60adfe0d092b629276199f00f4af8ee9dcbf0b23b951fde8",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_4.pdf",
+          "bytes": 88475437,
+          "sha256": "cc9ff19c8377e4b0ed5e199cb44eac1bf44514629b9d344592cdd339088dcccd",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_5.pdf",
+          "bytes": 82750149,
+          "sha256": "a9caf4e8cf84ff28b4220e5b752d006b46adb14b267408571796435b094faba9",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_6.pdf",
+          "bytes": 84456482,
+          "sha256": "2d12e46bed5bff8f96bc60391d78da474115559dd849ee2f37e4c7e446d593b9",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        },
+        {
+          "name": "CC_Artbook_7.pdf",
+          "bytes": 82657119,
+          "sha256": "3f2629810b143c1b2434dd55321005204fd161df8dafd26a778fa2321d58ad1c",
+          "disposition": "installed-unread",
+          "kind": "artbook; excluded from gameplay coverage"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Darya",
+      "name": "Darya character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "50initial diamonds+5blocks;540once-earned category diamonds; all-hobby/gild spending gates; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            192,
+            200
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Charlotte",
+      "name": "Charlotte character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "Digger ownership+level requirements; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            242,
+            250
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Catara",
+      "name": "Catara character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "explicit missing gift/date bulk completion; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            282,
+            290
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Suzu",
+      "name": "Suzu character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "Planter ownership+35block initial capacity+level requirements; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            392,
+            400
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Explora",
+      "name": "Explora character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "StoreLTE; specific negative gifts and minimum wall-time date exception; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            422,
+            430
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Mallory",
+      "name": "Mallory character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "Store and external HushHush subscription award path; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            452,
+            460
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Brie",
+      "name": "Brie character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "StorePhoneFling; phone35completed required; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            472,
+            480
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Ranma",
+      "name": "Ranma character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "Normal numeric readiness; full animation payload unread; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            482,
+            490
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Lotus",
+      "name": "Lotus character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "StorePhoneFling; phone4completed required; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            492,
+            500
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:Lydia",
+      "name": "Lydia character bundle",
+      "kind": "installed in-app/associated-game content",
+      "disposition": "source-inspected",
+      "reviewed": "Store and external CabinFactory subscription award path; existing giftID24rename/heart behavior; all9 numeric readiness/unlock rows reviewed.",
+      "unread_or_unavailable": "Full character/prose/art/audio, current live catalog price/extra items/receipt and entitlement unknown.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            822,
+            830
+          ],
+          "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ]
+    },
+    {
+      "id": "inapp:JelleQuillzone",
+      "name": "JelleQuillzone monster pair",
+      "kind": "in-app character bundle/LTE alternative",
+      "disposition": "source-inspected",
+      "reviewed": "Store2payment1700-1711 -> item+UnlockGirls -> Girls486-501distinct character unlock; alternatively original character Monster outfit or selected LTE bit unlock; four9-stage numeric sheets202-240 reviewed.",
+      "unread_or_unavailable": "Full dialogue/art/animation and livecatalog/entitlements. No separate social agency inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            202,
+            210
+          ]
+        },
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            212,
+            220
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inapp:BonchovySpectrum",
+      "name": "BonchovySpectrum monster pair",
+      "kind": "in-app character bundle/LTE alternative",
+      "disposition": "source-inspected",
+      "reviewed": "Store2payment1700-1711 -> item+UnlockGirls -> Girls486-501distinct character unlock; alternatively original character Monster outfit or selected LTE bit unlock; four9-stage numeric sheets202-240 reviewed.",
+      "unread_or_unavailable": "Full dialogue/art/animation and livecatalog/entitlements. No separate social agency inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            222,
+            230
+          ]
+        },
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            232,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inapp:PeanutDate",
+      "name": "Peanut Deluxe Date",
+      "kind": "in-app branching scene DLC",
+      "disposition": "source-inspected",
+      "reviewed": "Only peanutdlc accepted by DateDlcDisplay; purchased item+Love9 gating; selected SFW response/template paths through local mood/variables/terminal scene/achievement consumer.",
+      "unread_or_unavailable": "Serialized scene MaxMood/achievement path/DateUid fields lack recovered MonoBehaviour type trees; actual affection init/value remains conditional; full NSFW/prose/art/audio unread.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "installed_input": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/CrushCrush/CrushCrush.app/Contents/Resources/Data/sharedassets3.assets",
+          "input_sha256": "c8093b73f5e2cabcbe2fff291a169f482d93656a47e072e76c065f23e563b7f7",
+          "path_id": 36,
+          "asset": "English",
+          "output": "textassets/embedded/sharedassets3.assets/English.txt",
+          "bytes": 42776,
+          "sha256": "0c4deb96e4ade68fd39bdddeb7a0e55f7816fbafe9490ed440704a3e7662785a"
+        }
+      ]
+    },
+    {
+      "id": "inapp:boosts",
+      "name": "Main/event capacity, gilding and boost bundles",
+      "kind": "premium pacing mechanics",
+      "disposition": "source-inspected",
+      "reviewed": "Selected currency confirmation,price defaults vs dynamiccatalog, purchased multiplier caps8192base/64PES,paidSkipReset,job/hobby gilding,TimeLord8x+15blocks and eventstarter/finish consumers.",
+      "unread_or_unavailable": "Remote prices/extraitems,platformdelivery,promotions,currentownership; no economy copied into YAIRPG.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "file": "Store2.cs",
+          "lines": [
+            1668,
+            1716
+          ]
+        },
+        {
+          "file": "Store2.cs",
+          "lines": [
+            2140,
+            2188
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inapp:cosmetics",
+      "name": "Other seasonal outfits, voice and animated presentation bundles",
+      "kind": "cosmetic/voice",
+      "disposition": "installed-unread",
+      "reviewed": "Product identifiers inventoried in BlayFapInventory enum; selected outfit bit consumers inspected via base/event grants.",
+      "unread_or_unavailable": "FullVoices and unselected outfit/art/audio payloads unread; identifiers do not establish semantic coverage.",
+      "official_url": null,
+      "installed_evidence": []
+    },
+    {
+      "id": "event:2022_halloween",
+      "name": "2022_halloween",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2022_halloween_394c51a3727878f446e80252799f797b",
+          "sha256": "dda705cf6a5710c36a7d72b8647175ad3a1f0016f0b56ab67e4232276fdd3e0a",
+          "textasset_count": 0
+        }
+      ]
+    },
+    {
+      "id": "event:2023_halloween",
+      "name": "2023_halloween",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2023_halloween_394c51a3727878f446e80252799f797b",
+          "sha256": "6b5ec86ae5eb53b911a7edf2bc7fcefac259209b20785eb59d45d05cb0dd5e9f",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2023_holiday",
+      "name": "2023_holiday",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2023_holiday_394c51a3727878f446e80252799f797b",
+          "sha256": "5ac2ad06687edcfe5eb86b98731e054e2b446334724fc1db00fe25f79e6a0eb9",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2023_summer",
+      "name": "2023_summer",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2023_summer_394c51a3727878f446e80252799f797b",
+          "sha256": "4f5deb6617fe899adbeafdbb67a1ad7d62f31279abbe3218fb253a533c1859d4",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2024_easter",
+      "name": "2024_easter",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2024_easter_394c51a3727878f446e80252799f797b",
+          "sha256": "832253c24ba30baf4e5cf6ad920062f25fd4496d48bdbacfd8eca51623446279",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2024_holiday_v5",
+      "name": "2024_holiday_v5",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2024_holiday_v5_394c51a3727878f446e80252799f797b",
+          "sha256": "aa8bbbbca03a4da4e200c8c39a856db566a6f029e586c3c8853ba5e7f61ed730",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_easter_v1",
+      "name": "2025_easter_v1",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_easter_v1_394c51a3727878f446e80252799f797b",
+          "sha256": "d2a640381b4647ce728f8575990c43efe466c4f5bc89ec752334614b1b82800a",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_fuzzy",
+      "name": "2025_fuzzy",
+      "kind": "installed event data/update",
+      "disposition": "source-inspected",
+      "reviewed": "Selected declared numeric goals/config/call-chain spans in COVERAGE.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_fuzzy_394c51a3727878f446e80252799f797b",
+          "sha256": "2138226d8f2fc662ee4f9f71fef44ff27067162f99db253b6acaf11bf301cac0",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_halloween_v2",
+      "name": "2025_halloween_v2",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_halloween_v2_394c51a3727878f446e80252799f797b",
+          "sha256": "64eca6e308e40bf075a78a0ff3157d04d30e16a7ba4d38040f636200deea8225",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2025_halloween_v6",
+      "name": "2025_halloween_v6",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_halloween_v6_394c51a3727878f446e80252799f797b",
+          "sha256": "165e1f2b8790d36377cc4b2583c7b0a9da96ccc333c00cb8d7de743d1dd9e4df",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2025_halloween_v7",
+      "name": "2025_halloween_v7",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_halloween_v7_394c51a3727878f446e80252799f797b",
+          "sha256": "9e8e8989b11f2810d239d5c3c43dbd5cf6e40d13f59d8adcb7c74fb696b0817f",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2025_holiday_v2",
+      "name": "2025_holiday_v2",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_holiday_v2_394c51a3727878f446e80252799f797b",
+          "sha256": "3d5fe6a086141de2f1ae02f0f0256fa647d3d7f4ea3e5e8ec5abd255e7bed40c",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:2025_school_v2",
+      "name": "2025_school_v2",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_school_v2_394c51a3727878f446e80252799f797b",
+          "sha256": "a36ad471871b8b2a4dcfb6db204c232fbe33f6702ba5bbb3f0908ff918c3d80f",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_scifi_v2",
+      "name": "2025_scifi_v2",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_scifi_v2_394c51a3727878f446e80252799f797b",
+          "sha256": "6be44f0d27462a7985d3032ddd4bcffc5c4a3c909428407175805733ea25386e",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_summer_v2",
+      "name": "2025_summer_v2",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_summer_v2_394c51a3727878f446e80252799f797b",
+          "sha256": "905f3ff9a9db4d1e8f99913c7c54467e18275a8c5f38bdaa30ab63c78db8891a",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:2025_valentines_v4",
+      "name": "2025_valentines_v4",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_valentines_v4_394c51a3727878f446e80252799f797b",
+          "sha256": "01f34d0b5f277318d868572ce15a911c0954c85a2bace1cb1e00955f79fa962f",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:2025_valentines_v5",
+      "name": "2025_valentines_v5",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/2025_valentines_v5_394c51a3727878f446e80252799f797b",
+          "sha256": "382a3f644fda79c54db0d1c19bc349c8e6a09a5fdbd34dd5fb3449b32a9a1ec2",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:beachbash_kira",
+      "name": "beachbash_kira",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/beachbash_kira_394c51a3727878f446e80252799f797b",
+          "sha256": "9c5543d77705607b9132ae57f1740c6b522aef14ef35dc19c1c7226337d74bd7",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:beachbash_shelly",
+      "name": "beachbash_shelly",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/beachbash_shelly_394c51a3727878f446e80252799f797b",
+          "sha256": "33c1ded0834634c4c0658c4b5b0bda02fa033a0c696b855dc2641eb2f68e28c6",
+          "textasset_count": 19
+        }
+      ]
+    },
+    {
+      "id": "event:debug",
+      "name": "debug",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/debug_394c51a3727878f446e80252799f797b",
+          "sha256": "2058c5f6cbe3d0cb0b4841ad3021800896869dfad9369a0521cae2851ff45750",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:easter_pepper",
+      "name": "easter_pepper",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/easter_pepper_394c51a3727878f446e80252799f797b",
+          "sha256": "f661de84aaa73a328c3bc5cfe5434027733640b5c709d8d0f591b413e8936dfb",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:frosty_aurora",
+      "name": "frosty_aurora",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/frosty_aurora_394c51a3727878f446e80252799f797b",
+          "sha256": "00ee3c48c28b41a495d71523482cd13824b1e0bfa261d8fd8735f515e19e3bd1",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:frosty_grace",
+      "name": "frosty_grace",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/frosty_grace_394c51a3727878f446e80252799f797b",
+          "sha256": "d71b6200add0eb0cf5198579d33a898b5ff428ba12d5288ebb70b5a8b35cd42a",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:frosty_gwen",
+      "name": "frosty_gwen",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/frosty_gwen_394c51a3727878f446e80252799f797b",
+          "sha256": "6c712f1231784ae1cc225d30d48e86c5f5f5869c1329df9a2791628b61ff7318",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:frosty_yuki",
+      "name": "frosty_yuki",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/frosty_yuki_394c51a3727878f446e80252799f797b",
+          "sha256": "dea25da66bce562f64d3f95ebea1033fef31a72a1571627341278eb61583d43b",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:fuzzy_gingerwasabi",
+      "name": "fuzzy_gingerwasabi",
+      "kind": "installed event data/update",
+      "disposition": "source-inspected",
+      "reviewed": "Selected declared numeric goals/config/call-chain spans in COVERAGE.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/fuzzy_gingerwasabi_394c51a3727878f446e80252799f797b",
+          "sha256": "1803836f7cb2691db0b77769bef2e0984b618552ea7d40e0917ae76d9fd0cb52",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:halloween_cassia",
+      "name": "halloween_cassia",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/halloween_cassia_394c51a3727878f446e80252799f797b",
+          "sha256": "eaaa648af6ecb41139f53741a43e9431208afed5cd797cab8bf93897ebe74022",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:halloween_myro",
+      "name": "halloween_myro",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/halloween_myro_394c51a3727878f446e80252799f797b",
+          "sha256": "54d16e072bd7d2202ad789d5364878d3230dca1bb28b669687dbeccd87136f94",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:halloween_nightingale",
+      "name": "halloween_nightingale",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/halloween_nightingale_394c51a3727878f446e80252799f797b",
+          "sha256": "4b293bafe7e2eeb716e4e78c882ed365c1a9f2af375de65d1e377a0bc62bff6c",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:highfantasy_moonbeam",
+      "name": "highfantasy_moonbeam",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/highfantasy_moonbeam_394c51a3727878f446e80252799f797b",
+          "sha256": "4c9bda48b49e6ad8a7fb9b8ccc0ef55d0d1abb09acb2ea9e4f2ad47ad209fd58",
+          "textasset_count": 22
+        }
+      ]
+    },
+    {
+      "id": "event:holiday_aurora",
+      "name": "holiday_aurora",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/holiday_aurora_394c51a3727878f446e80252799f797b",
+          "sha256": "73c0c94dd6f2df750474ff93511a1edb3d60f8b4e07c3b88024c65a656428511",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:holiday_grace",
+      "name": "holiday_grace",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/holiday_grace_394c51a3727878f446e80252799f797b",
+          "sha256": "de361f9ad29b9e3ca696cccf47d27269f53b61c38245b7491d2b57247de30155",
+          "textasset_count": 31
+        }
+      ]
+    },
+    {
+      "id": "event:holiday_gwen",
+      "name": "holiday_gwen",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/holiday_gwen_394c51a3727878f446e80252799f797b",
+          "sha256": "c3055730483a20a9cb3746441284536a343d5755ab972dcf77b2da5f9fbc637a",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:holiday_yuki",
+      "name": "holiday_yuki",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/holiday_yuki_394c51a3727878f446e80252799f797b",
+          "sha256": "a4ec7543f97af975fdc130bde0d3299bc8a4d44c0eb870dddd9de67a778c1655",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:school_karyn",
+      "name": "school_karyn",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/school_karyn_394c51a3727878f446e80252799f797b",
+          "sha256": "5d0b7244f3432f31b5a01e8e99a73eb6bbb2d2353cfd5830148087a4b289fd69",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:school_kyoko",
+      "name": "school_kyoko",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/school_kyoko_394c51a3727878f446e80252799f797b",
+          "sha256": "7944a34dc13ff93f6dc7f8cba7d2b474f79325aa7d5af9b554a26143aef5860a",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:school_lingling",
+      "name": "school_lingling",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/school_lingling_394c51a3727878f446e80252799f797b",
+          "sha256": "9deb17211f7538602beb4e137e52f173ab0dae1d1fa762582b364999ab5c8524",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:school_v3",
+      "name": "school_v3",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/school_v3_394c51a3727878f446e80252799f797b",
+          "sha256": "6b0fefe28b7036bc9edd10dd7edd5f4d31f5111a6731f542831492ffecac91b3",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:scifi_loola",
+      "name": "scifi_loola",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/scifi_loola_394c51a3727878f446e80252799f797b",
+          "sha256": "98d00c94a01ab34ca6997b2a2367f443ae6a4aaa3e58fb96eee966eedc2fae90",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:spooky_cassia",
+      "name": "spooky_cassia",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/spooky_cassia_394c51a3727878f446e80252799f797b",
+          "sha256": "2437f96930ed0a845aa0c5e02d94f16840927cd624222e3109c1925356540628",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:spooky_myro",
+      "name": "spooky_myro",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/spooky_myro_394c51a3727878f446e80252799f797b",
+          "sha256": "00f6cdb2e4183c8e6e2ed99b89217f302b1e794d5e58923e4db12bdd424a50b3",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:spooky_nightingale",
+      "name": "spooky_nightingale",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/spooky_nightingale_394c51a3727878f446e80252799f797b",
+          "sha256": "e278764e6c0b8eb3eefcad7f15f88dd1c471584e99084f44eb8ccdf56d858e75",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:spooky_pamulzebub",
+      "name": "spooky_pamulzebub",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/spooky_pamulzebub_394c51a3727878f446e80252799f797b",
+          "sha256": "8a002a4e0ca08bf8749a09fa74d2a56f9884ade280a358fa4c60d25e820c20fd",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:springfling_abby",
+      "name": "springfling_abby",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/springfling_abby_394c51a3727878f446e80252799f797b",
+          "sha256": "bbfd5459e6636eba5f4954589b7f736909ce81dab1a1b6a3126efc50e51a2fcc",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:springfling_penny",
+      "name": "springfling_penny",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/springfling_penny_394c51a3727878f446e80252799f797b",
+          "sha256": "30dc34500c071b959577f45956c14f9ded116c5f2c480895325748bd3867cdaa",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:springfling_pepper",
+      "name": "springfling_pepper",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/springfling_pepper_394c51a3727878f446e80252799f797b",
+          "sha256": "755518a6e75d9f21c416eb9262e0a0f3ab6cb02a00c117488b38342080c267cb",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:summer_kira",
+      "name": "summer_kira",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/summer_kira_394c51a3727878f446e80252799f797b",
+          "sha256": "028d0279e872fc69a203d48773674a1c5c7f83ed8d008c199c9d0bd16759fc0b",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:summer_nixie",
+      "name": "summer_nixie",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/summer_nixie_394c51a3727878f446e80252799f797b",
+          "sha256": "b0e0a912f5a18facab6689233a1f176a80713e9ab8f9883800cbce7cf9c19f81",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:summer_shelly",
+      "name": "summer_shelly",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/summer_shelly_394c51a3727878f446e80252799f797b",
+          "sha256": "8d4069eead6e5fcc54a8e9de48d847ca4bfe9f2f4bfbff0c0a72591ec53a19d5",
+          "textasset_count": 20
+        }
+      ]
+    },
+    {
+      "id": "event:timewarp_polly",
+      "name": "timewarp_polly",
+      "kind": "installed event data/update",
+      "disposition": "source-inspected",
+      "reviewed": "Selected declared numeric goals/config/call-chain spans in COVERAGE.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/timewarp_polly_394c51a3727878f446e80252799f797b",
+          "sha256": "3dafd5da5cf57ad92598a6d5df20d3f2e422a295e7f6c92e141fa15b48f56ab0",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:timewarp_v1",
+      "name": "timewarp_v1",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/timewarp_v1_394c51a3727878f446e80252799f797b",
+          "sha256": "e341e6cd257db8215a906c66c742492294af91be58c86702ec97912051804103",
+          "textasset_count": 15
+        }
+      ]
+    },
+    {
+      "id": "event:valentine_v1",
+      "name": "valentine_v1",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/valentine_v1_394c51a3727878f446e80252799f797b",
+          "sha256": "202a870867cc9b8f9fb660722004ec7eacf81382ffb4054834d85aef12684312",
+          "textasset_count": 16
+        }
+      ]
+    },
+    {
+      "id": "event:valentine_v3",
+      "name": "valentine_v3",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/valentine_v3_394c51a3727878f446e80252799f797b",
+          "sha256": "8f003b01cabbb147175cc0e6d8549eebf731ae5926b099be2ec3b70c6db8e328",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:valentines_desdemona",
+      "name": "valentines_desdemona",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/valentines_desdemona_394c51a3727878f446e80252799f797b",
+          "sha256": "70872a4b85ca58e10e810086605d7d7d5039bb010637036041bd4773e290e1ba",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:valentines_marybelle",
+      "name": "valentines_marybelle",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/valentines_marybelle_394c51a3727878f446e80252799f797b",
+          "sha256": "ce4da72dbd446cac446c8d48eeb6cd274251b9a8c00827378c291a4a63941804",
+          "textasset_count": 17
+        }
+      ]
+    },
+    {
+      "id": "event:valentines_sugar",
+      "name": "valentines_sugar",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/valentines_sugar_394c51a3727878f446e80252799f797b",
+          "sha256": "9d15b1209801e28e849716c0524228da663c171b9503bd91f4cc9a7c5f04b75d",
+          "textasset_count": 18
+        }
+      ]
+    },
+    {
+      "id": "event:wildwest_dakota",
+      "name": "wildwest_dakota",
+      "kind": "installed event data/update",
+      "disposition": "installed-unread",
+      "reviewed": "Payload/TextAsset names and hashes recovered only.",
+      "unread_or_unavailable": "Unselected dialogues,scene/art/audio,currentremoteevent/substitution; no active schedule inferred.",
+      "official_url": null,
+      "installed_evidence": [
+        {
+          "bundle": "input/StreamingAssets/OSX/universe/pes/wildwest_dakota_394c51a3727878f446e80252799f797b",
+          "sha256": "8f36e9aba86e6e347d423a744047602ab520ca8b3bfa1697eebc84b58ccb3410",
+          "textasset_count": 16
+        }
+      ]
+    }
+  ],
+  "primary_documented_updates": [
+    {
+      "title": "Fall for savings (and girls!)",
+      "date_utc": "2026-10-01T22:18:12+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1845383656384224",
+      "gid": "1845383656384224",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Stock Up",
+      "date_utc": "2026-09-24T20:05:34+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1844751498222580",
+      "gid": "1844751498222580",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Break Boards, Not Hearts",
+      "date_utc": "2026-09-10T18:00:49+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1843481262693088",
+      "gid": "1843481262693088",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Gold Stars and Blue Diamonds",
+      "date_utc": "2026-09-09T18:45:24+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1843481262690151",
+      "gid": "1843481262690151",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "New Sports Club?",
+      "date_utc": "2026-09-04T21:56:09+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842846814447916",
+      "gid": "1842846814447916",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Sit, Stay",
+      "date_utc": "2026-09-02T00:00:37+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1842846814438872",
+      "gid": "1842846814438872",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "A Sale\u2019s Calling!",
+      "date_utc": "2026-08-19T17:35:23+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1841579228663380",
+      "gid": "1841579228663380",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Let\u2019s Do the Time Warp Again",
+      "date_utc": "2026-08-13T18:06:07+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840944183777580",
+      "gid": "1840944183777580",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Time After Time",
+      "date_utc": "2026-08-07T23:55:32+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840310314346500",
+      "gid": "1840310314346500",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "Or both? Both is good!",
+      "date_utc": "2026-08-04T20:20:56+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839676055898373",
+      "gid": "1839676055898373",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "And the winner is\u2026 DAKOTA!",
+      "date_utc": "2026-08-01T05:04:02+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839676055890020",
+      "gid": "1839676055890020",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    },
+    {
+      "title": "She Loves to Listen",
+      "date_utc": "2026-07-29T00:00:49+00:00",
+      "official_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1839676055881189",
+      "gid": "1839676055881189",
+      "semantic_status": "primary-announcement-read; runtime/payload-version-match unverified"
+    }
+  ],
+  "current_catalog_limits": [
+    "Official appdetails lists5DLC; in-app offers are not all SteamDLC appIDs.",
+    "No live signed-in title data/catalog/entitlement inventory queried; current offer/extra-item maps are unavailable.",
+    "Lydia/Mallory/Lotus other-game ownership checks inspected only; those games themselves not audited.",
+    "Other57recoveredbundle content is not implied read by Fuzzy/Timewarp selected review."
+  ]
+}

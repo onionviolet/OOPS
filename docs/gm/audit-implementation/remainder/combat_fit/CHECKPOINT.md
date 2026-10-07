@@ -1,0 +1,11 @@
+# Combat-fit checkpoint
+
+2026-10-06. Worker `/root/remainder_combat_fit`, parent `/root`. Scope: all tales-of-maj-eyal:P1, keeperrl:P3 and rogue-legacy:P2, exclusively new `src/audit_remainder_combat_fit_*.js` and this directory. Shared native/battle/registry/main/save/build remain the parent's scope. No child agents or pending process/tool session. Source libraries/private saves/first-wave evidence are untouched.
+
+Completed owned source: ten actual conserved content commands and two native variant specifications; pure current source/body/location/custody/stock facts and strict job/module reader; schema5 admission/profile/native-stats/guard-cost/grip-charge/rope-maneuver/hook-fatigue/receipt/settlement/validation helpers; existing executor bridge and read-only action/work/admission presentation. Three packet rows have complete source consumer APIs, with actual existing implementation distinguished in COVERAGE.json. These are implemented-unverified until parent binds every native/UI/completion hook in PATCH_MAP.md and rebuilds.
+
+Current record policy: explicit root auditRemainder1/expansion11 only; old3/4 sessions and frozen jobs untouched. Lane records live only under modules.combat_fit after actual completed grip practice. Completion needs the parent's selected forfeit support, already reported. Root owns exact completion sync before validation and all staged later clock/world/renewal sync. Original/rigid/flexible stats use actual equipped admitted profiles and current support. Stock/reservations/guard execution/escape progress/vitals/RNG/action counter/publisher remain original owners; no second combat executor or clock.
+
+Allowed checks are syntax, imports and definition validation only, recorded in CHECKS.json with exact hashes in INPUTS.json/OUTPUTS.json. All five behavior/save/director groups in PATCH_MAP.md are deferred. No build, unit/browser/gameplay/save check, install, commit/push/publication or user-visible chat ran. Memory was used only as a pointer to inspect live repository owners, without relying on older gameplay claims.
+
+Next action: parent consumes PATCH_MAP.md, validates shared source integration, builds once and retains the deferred acceptance backlog. Parent may send a concrete source defect for this exclusive lane to repair; no broad redispatch or duplicate worker is needed.

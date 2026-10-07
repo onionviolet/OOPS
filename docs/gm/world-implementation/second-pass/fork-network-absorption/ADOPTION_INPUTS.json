@@ -1,0 +1,18 @@
+{
+  "time": "2026-10-05T16:34:46.017704+00:00",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "files": {
+    "src/display.js": "1c8ca2da8da306c0aa0ae9cd637f35b49536e2090b448107e0412b9b0ca6bfb7",
+    "src/main.js": "4e26a58a645592480d1ed5496e99cebef4e9361fc6147c8ac3c700dea38143ba",
+    "src/trade.js": "f6962b459659bcb201d9952e7261d5fa331a2d7c05d98ae5c9930efb775774b2",
+    "src/crafting_recipes.js": "649a1b0b8cd04536f493fa51e213923f37a744c952241c5cc476bd68a4daa3ba",
+    "index.html": "e6fc595703b1fe9b763c513357db7808bc84d476e49adb52e6642fd1cb558d72",
+    "style.css": "da3cf9ff226241ecab475771529ae26780b8fc44d10c9590bb87d9eae476b05d",
+    "build.js": "ce9100c89e34b861fe3500c678d5d145aa7153ec79a91c6c532ac1b8cd968ae3",
+    "LICENSE": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+    "PROJECT.md": "85910d75bd6d479f4cb8bbf3e708de30d12ad840a67853e53b7eb5bc1ec40fa2",
+    "docs/USER_VISION.md": "d9c2958c13d580ef65947408f80deeb30b29833a1142a2b0307b91d4afc231b9",
+    "docs/gm/world-implementation/engine/CHECKPOINT.md": "e2631a1fd55ed24f099b9e35c07dfad4d0f50996f885ee7c8d3ef51379dbdeb9"
+  },
+  "temp": "/var/folders/zg/7y5nnphj6bd6bcxgm4tmgv280000gn/T/yairpg-absorb-f2xj6yte"
+}

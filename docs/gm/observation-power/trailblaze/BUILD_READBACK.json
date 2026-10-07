@@ -1,0 +1,140 @@
+{
+  "status": "current_sources_bundled",
+  "checkedAt": "2026-10-04T20:26:01.408303+00:00",
+  "sources": [
+    {
+      "source": "../src/realm_boundary_rules.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2",
+      "bundledSha256": "d219f58f725609a6d3c661065daa7a5112108170209532e50f23dc836413abe2"
+    },
+    {
+      "source": "../src/realm_connections.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710",
+      "bundledSha256": "e33ef4f41f0530d529a855d4b58b602c55deb678836516b361ce55b145281710"
+    },
+    {
+      "source": "../src/world_instances.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "bundledSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+    },
+    {
+      "source": "../src/pocket_realm_content.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+      "bundledSha256": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325"
+    },
+    {
+      "source": "../src/pocket_realm_rules.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862",
+      "bundledSha256": "97f0c8caa828294c8d1b4139503c48a1b6ef44f87c2b660b52df2cebf3a4d862"
+    },
+    {
+      "source": "../src/pocket_realm_scenes.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "bundledSha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1"
+    },
+    {
+      "source": "../src/realm_clock_leases.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "bundledSha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e"
+    },
+    {
+      "source": "../src/observation_channels.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "bundledSha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314"
+    },
+    {
+      "source": "../src/pocket_observation.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+      "bundledSha256": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095"
+    },
+    {
+      "source": "../src/realm_state.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "bundledSha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+    },
+    {
+      "source": "../src/realm_traveler_profiles.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+      "bundledSha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+    },
+    {
+      "source": "../src/realm_cargo.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+      "bundledSha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa"
+    },
+    {
+      "source": "../src/native_realm_traveler.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+      "bundledSha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51"
+    },
+    {
+      "source": "../src/expansion_engine.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+      "bundledSha256": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f"
+    },
+    {
+      "source": "../src/pocket_realm_host.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "bundledSha256": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf"
+    },
+    {
+      "source": "../src/pocket_realm_ui.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175",
+      "bundledSha256": "0dd4aa5d88ab43bd918c2aa037ddf93c782d717d5932b0446e60ab04949ac175"
+    },
+    {
+      "source": "../src/observation_content.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "30a1108998f88c6c85c1eea7cf26d990eeec6c685aad6b8330ee0b0fcc6c20e6",
+      "bundledSha256": "30a1108998f88c6c85c1eea7cf26d990eeec6c685aad6b8330ee0b0fcc6c20e6"
+    },
+    {
+      "source": "../src/expansion_persistence.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+      "bundledSha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+    },
+    {
+      "source": "../src/main.js",
+      "currentMatchesBundled": true,
+      "currentSha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "bundledSha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203"
+    }
+  ],
+  "missing": [],
+  "bundleSha256": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+  "sourceMapSha256": "cb13c6c75d83801904e7905b3806d42aa0a035b5c02094e0c087326ca0e769b8",
+  "gameplayExecution": false,
+  "testsExecuted": false,
+  "artifactReadback": {
+    "mappedSourcesMatched": 148,
+    "missing": [],
+    "outdated": [],
+    "bundleSha256": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+    "indexBundleVersion": "v0.6-b265cccda4c0",
+    "indexFingerprintMatches": true,
+    "bundleHTTPStatus": 200,
+    "servedBundleMatches": true,
+    "indexHTTPStatus": 200,
+    "servedIndexMatches": true,
+    "gameplayExecution": false,
+    "testsExecuted": false
+  },
+  "bundleSyntax": "passed"
+}

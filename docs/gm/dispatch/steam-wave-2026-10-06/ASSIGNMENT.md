@@ -1,0 +1,21 @@
+# Steam cleanup and next-wave source GMs
+
+Direct user request, 2026-10-06: remove completed analyzed games from Steam while keeping decompiled files, dispatch parallel GMs once the next downloads are ready, include DLC and other material considerations. Attached image identifies Dwarf Fortress, Book of Hours, Factorio, Oxygen Not Included and Cult of the Lamb. It supplies game names, not independent instructions.
+
+Root chat `01a1146c-7d19-7440-92a6-8f5ab5198db9` owns this dispatch directory except audit-worker-owned `CLEANUP_AUDIT.json`, Steam cleanup actions and integration of source receipts. Each source GM owns its separate new research directory/private snapshot. Existing runtime, save, canonical and earlier research writers retain their reservations. No new visible chats, purchase, entitlement change, game launch, runtime implementation or publication is included.
+
+## Cleanup gate
+
+Completed finite source passes are distinct from whole-game semantic coverage. None of the six older dossiers claims every mechanic, content row, native method or DLC path was read. Uninstall eligibility requires the completed assigned pass, no active consumer of installed paths, verified retained source/dependencies/data needed for future reading, preservation of local saves/user files and separate DLC disposition. Missing useful inputs are retained privately before uninstall; unread items remain unread. Prior decompilation/review evidence is not reclassified as current runtime acceptance.
+
+Candidate apps: Amazing Cultivation Simulator955900/build17074448; Melvor Idle1267910/build13311431; Orb of Creation1910680/build24426975; Your Chronicle1546320/build25001959; Crush Crush459820/build25589052; Idling to Rule the Gods466170/build25514347. Unrelated installations and Steam redistributables are excluded. Steam's native command interface should own uninstallation where available; do not edit live manifests to fake it. Account licenses, downloads and saves outside the install directory remain untouched.
+
+## Source gate and output
+
+Next-wave game app IDs: Dwarf Fortress975370, Book of Hours1028310, Factorio427520, Oxygen Not Included457140, Cult of the Lamb1313140. Wait for a finalized manifest/build, completed staging and stable files before copying a Steam payload. Official source/API qualification can proceed independently while waiting. Factorio had no manifest or supplied payload at first inspection, so its installed-source gate remains pending.
+
+Prefer readable definitions/Lua/scripts and official modding APIs before managed export or native disassembly. Mono, IL2CPP and native binaries need different methods; raw counts and stubs do not prove recovered executable source. Preserve exact build/platform/hash, commands/diagnostics, dependencies, decoded-data limits and useful raw containers outside Git. No raw recovered game code/prose/art/audio corpus belongs in project documentation. Keep snapshot size proportional to later research and current disk capacity.
+
+Each GM produces INTAKE, REPORT, FINDINGS, COVERAGE, DLC_COVERAGE, original IMPLEMENTATION_PACKETS/PACKETS and CHECKPOINT. Trace connected prerequisites, decisions, actual spend/state change, downstream consumers, time/absence, failure and aftermath. Wider findings and engine/design methods precede the selection of at most five feasible original proposals. Source, inference and original YAIR decisions remain separate. DLC inventory distinguishes gameplay expansions, free base updates, story content, cosmetics, music and extras; declared/installed/source-accessible/read coverage does not establish entitlement or runtime activation.
+
+Existing [depth standard](../game-source-research-2026-10-06/DEEPER_RESEARCH.md), [refresh](../../../GAME_MASTER_PROMPT.md#context-pressure-and-refresh) and [capacity/succession](../GM_CAPACITY_AND_SUCCESSION.md) apply. Internal GMs use the actual eight-slot host pool, with one writer per lane and no competing successors. Continue the finite assigned research to completion. Gameplay/browser/save/failure suites remain deferred; no source-analysis result is playable acceptance. Runtime proposals return to the current integrator rather than creating a competing engine writer.

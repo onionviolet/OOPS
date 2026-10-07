@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-03",
+  "scope": "Discovery-aware People records and menu disclosure; supported contacts only.",
+  "tests": {
+    "command": "npm test",
+    "pass": 154,
+    "fail": 0,
+    "skipped": 0
+  },
+  "build": {
+    "bundle": "dist/bundle.js?version=v0.6-1b5434172541",
+    "css": "style.css?version=v0.6-3f59f1de4c47"
+  },
+  "compiledSourceHashes": {
+    "src/people_knowledge.js": "4e74ebad28a603fa7a0e678b1f3667e2555850a8f3b29ff49f7b05dc0666fb37",
+    "src/people_ui.js": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+    "src/adventure_notebook.js": "eadfe77fefff62f175380518cb6572c5544339da8f56511d02700f7ebfa20d05",
+    "src/simulation_ui.js": "a79c1a96cc585ddeb6aac8eb18f824f78bfee38a1640bfee1fa0ebada9a6704c",
+    "src/chronicle_ui.js": "7e1f50ea49c5525fa74caa975b2e0384206cfdf5444666b9dd758f8652984618",
+    "src/technique_ui.js": "1ddf51acffc6c50d9504f8c19c6e70d34cc240dbb8e92545852f361fa1349fe2"
+  },
+  "currentSourceHashes": {
+    "src/people_knowledge.js": "4e74ebad28a603fa7a0e678b1f3667e2555850a8f3b29ff49f7b05dc0666fb37",
+    "src/people_ui.js": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+    "src/adventure_notebook.js": "eadfe77fefff62f175380518cb6572c5544339da8f56511d02700f7ebfa20d05",
+    "src/simulation_ui.js": "a79c1a96cc585ddeb6aac8eb18f824f78bfee38a1640bfee1fa0ebada9a6704c",
+    "src/chronicle_ui.js": "7e1f50ea49c5525fa74caa975b2e0384206cfdf5444666b9dd758f8652984618",
+    "src/technique_ui.js": "1ddf51acffc6c50d9504f8c19c6e70d34cc240dbb8e92545852f361fa1349fe2"
+  },
+  "scopeDrift": [],
+  "browser": {
+    "people": {
+      "url": "http://127.0.0.1:18567/game/",
+      "fingerprint": "http://127.0.0.1:18567/game/dist/bundle.js?version=v0.6-1b5434172541",
+      "findings": [
+        "A fresh opening has no record or Notebook. The actual greeting introduces only the elder. Records are readable during dialogue while actions/empty tabs stay hidden; expansion and focus survive ticks.",
+        "Native travel retains the selected People view and learned record away from Village. Reload retains its native greeting marker without granting rewards, moving NPCs or enrolling life/work. Travel access is generated for this bounded proof.",
+        "Generated native craftsman access reveals only his name/place. Enrollment adds no preferences. Actual questions and a real paid/material commission add their own evidence, survive reload, and leave the hidden relationship axis intact.",
+        "The optional permit does not introduce the clerk. The actual office briefing does, revealing the agreed work without settlement or later-ledger spoilers."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "notebook": {
+      "url": "http://127.0.0.1:18567/game/",
+      "fingerprint": "http://127.0.0.1:18567/game/dist/bundle.js?version=v0.6-1b5434172541",
+      "findings": [
+        "Notebook has its own native Journal tab and no DOM under the location menu. Fresh opening hides the new tab; local clues remain vague. Keyboard focus/user selection survive ticks; saved practice opens its Journal view and cancels there.",
+        "An old generated town save derives one contract in native Quests, retaining money/inventory/native quest state through reload. Local notes do not reveal the answer or later ledger. The separate list avoids the native quest sorter; no quest is copied into Notebook.",
+        "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+      ],
+      "errors": [],
+      "warnings": [
+        "Failed to load resource: net::ERR_CONNECTION_RESET",
+        "Failed to load resource: net::ERR_CONNECTION_RESET",
+        "Failed to load resource: net::ERR_CONNECTION_RESET"
+      ],
+      "generatedSavesOnly": true
+    },
+    "simulation": {
+      "url": "http://127.0.0.1:18567/game/",
+      "fingerprint": "http://127.0.0.1:18567/game/dist/bundle.js?version=v0.6-1b5434172541",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "chronicle": {
+      "url": "http://127.0.0.1:18567/game/",
+      "fingerprint": "http://127.0.0.1:18567/game/dist/bundle.js?version=v0.6-1b5434172541",
+      "findings": [
+        "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+        "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+        "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+        "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+        "Attended briefing contributes usable preparation through the existing capability/read model.",
+        "Stronger generated native XP build wins against the same fixed elder.",
+        "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+        "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+        "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "preview": {
+    "url": "http://127.0.0.1:18567/game/index.html",
+    "screenshot": "/Users/weiwei/.codex/visualizations/2026/10/03/01a102a6-05ab-7df0-be26-993f2ffcde9f/people-review/people-preview.jpg",
+    "generatedSaveOnly": true,
+    "copiedRuntimeToFreezeConcurrentEdits": true
+  },
+  "limits": [
+    "Supported elder/craftsman/clerk/pathfinder bindings, not a complete NPC census or general observation ledger.",
+    "No new save schema, rumor system, faction catalogue or world travel.",
+    "Other work was updating the shared checkout; compiled-source hashes identify the reviewed runtime.",
+    "Wording/menu density and broader authoring remain human/content gates."
+  ]
+}

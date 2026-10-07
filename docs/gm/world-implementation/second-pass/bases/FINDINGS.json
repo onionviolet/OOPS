@@ -1,0 +1,905 @@
+{
+  "schema_version": 1,
+  "role": "bases",
+  "date": "2026-10-04",
+  "state": "planning-complete",
+  "chat_id": "01a10998-50d9-7710-9eae-d6ac283b0a23",
+  "assigning_chat_id": "01a10933-feaf-7503-878e-49a6d5ad113f",
+  "git_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256_at_recorded_read": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "wave_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256_at_recorded_read": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "wave_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256_at_recorded_read": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "wave_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/ASSIGNMENT.md",
+      "sha256_at_recorded_read": "c00f4c5db406e61bc540caf7a734a254803657077eac450663d2ba5ee9ecda79",
+      "wave_sha256": "c00f4c5db406e61bc540caf7a734a254803657077eac450663d2ba5ee9ecda79",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "c00f4c5db406e61bc540caf7a734a254803657077eac450663d2ba5ee9ecda79",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "sha256_at_recorded_read": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+      "drift_since_recorded_read": true
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "sha256_at_recorded_read": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/receipts/bases.json",
+      "sha256_at_recorded_read": "113e21047ce996b8d35e72e1e9978b95b0390d48fb458ff9b9a7f03dfe895ef6",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "113e21047ce996b8d35e72e1e9978b95b0390d48fb458ff9b9a7f03dfe895ef6",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256_at_recorded_read": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "wave_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+      "drift_since_recorded_read": true
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256_at_recorded_read": "c503822d403e99aaa7a2af48e0bf24b92bf7d760c587fd03012096b9f84a477f",
+      "wave_sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+      "wave_comparison": "drift",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4",
+      "drift_since_recorded_read": true
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256_at_recorded_read": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "wave_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "sha256_at_recorded_read": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "wave_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "sha256_at_recorded_read": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+      "wave_sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "sha256_at_recorded_read": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+      "wave_sha256": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256_at_recorded_read": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+      "wave_sha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256_at_recorded_read": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "wave_sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/frontier_campaign.js",
+      "sha256_at_recorded_read": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "wave_sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/everyday_life.js",
+      "sha256_at_recorded_read": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "wave_sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/world_rhythm.js",
+      "sha256_at_recorded_read": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+      "wave_sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256_at_recorded_read": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "wave_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256_at_recorded_read": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "wave_sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256_at_recorded_read": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "wave_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256_at_recorded_read": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "wave_sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/acquisition.js",
+      "sha256_at_recorded_read": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "wave_sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/trade.js",
+      "sha256_at_recorded_read": "f6962b459659bcb201d9952e7261d5fa331a2d7c05d98ae5c9930efb775774b2",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "f6962b459659bcb201d9952e7261d5fa331a2d7c05d98ae5c9930efb775774b2",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/main.js",
+      "sha256_at_recorded_read": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "src/native_trade_transaction.js",
+      "sha256_at_recorded_read": "25d9cac12e75c99633c33420b5f7118e1213f0d61e83446916c43f25d6fa27e4",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "25d9cac12e75c99633c33420b5f7118e1213f0d61e83446916c43f25d6fa27e4",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+      "sha256_at_recorded_read": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+      "wave_sha256": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+      "sha256_at_recorded_read": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "wave_sha256": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "wave_comparison": "matches",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md",
+      "sha256_at_recorded_read": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "sha256_at_recorded_read": "d78e28c30170f48bb153ba96d8234085ac15fe63abae8853921dc9d3349a4d6f",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "d78e28c30170f48bb153ba96d8234085ac15fe63abae8853921dc9d3349a4d6f",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md",
+      "sha256_at_recorded_read": "84515f4c063397a437cde179891f3deb06f9d478a9b303affef4f2982f7b5e8b",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "132a6d32c595c1db393e049afdf028cc1f023c10813b1767d75056962f8d0298",
+      "drift_since_recorded_read": true
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+      "sha256_at_recorded_read": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "targeted relevant excerpts or declarations; not whole-repository/full-source reread",
+      "sha256_at_final_reconciliation": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+      "drift_since_recorded_read": false
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+      "sha256_at_recorded_read": "b6189133633fbf1fe057747c405ea1985b03482ea994b554a0b05c4ea335fa1d",
+      "wave_sha256": null,
+      "wave_comparison": "not_in_wave_snapshot",
+      "inspection": "chapter 102/103/109 claim and source-snapshot excerpts, not EPUB reread",
+      "sha256_at_final_reconciliation": "b6189133633fbf1fe057747c405ea1985b03482ea994b554a0b05c4ea335fa1d",
+      "drift_since_recorded_read": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "BAS01",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Scoped operating agreements and collective authority",
+      "decision": "Separate title/possession/use rights and add the smallest local operating agreement before broad construction.",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 113,
+          "line_end": 116,
+          "claim": "Site opening checks owner equality and sets the actor as owner; this is not a tenancy or delegated spending policy.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 52,
+          "line_end": 73,
+          "claim": "Commands can use authored prerequisites; general site-specific preview checks existence/capacity, not effective rights or jurisdiction.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 78,
+          "line_end": 85,
+          "claim": "Commission sets world field.workshop.owner to player and routes materials to named workers; report and assembly use separate facts.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 77,
+          "line_end": 79,
+          "claim": "Rights/residents and personal relationships are covered broadly; local collective decision and exit terms are not worked through.",
+          "status": "canonical proposal"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+          "line_start": 25,
+          "line_end": 30,
+          "claim": "Supplied scene index distinguishes inheritance procedure, production requisition, rank authority and contested succession.",
+          "status": "reviewed supplied-edition analytical index"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+          "line_start": 43,
+          "line_end": 43,
+          "claim": "RI-c0103-01 records tavern account inspection/wage raise under vulnerable workers and Gu Master pressure; it does not establish free bargaining.",
+          "status": "reviewed supplied-edition witness claim"
+        }
+      ],
+      "current_player_behavior": "Player may earn Shack access and build the authored workshop, with membership/actor facts granting its authored work. These flags provide a fixed useful slice; they do not establish general tenancy, shared budget authority or a faction/household governance model.",
+      "proposed_player_behavior": "Rent or share a worksite under named principals, scoped grants and a local steward/decision rule. Book work without owning the building; decline a proposed output allocation or hazardous relocation under the actors actual rules; exit with personally owned tools while shared property/accepted obligations remain with their proper owners.",
+      "authoritative_owner": {
+        "integration": "Assigning master approves scope and merges canonical plan/RUN.",
+        "runtime": "Shared Engine/foundations owns validated rights/collective identity/native publication.",
+        "local": "World campaign and progression/economy GM owns jurisdiction, authority/tenancy/governance content.",
+        "boundary": "Society owns directed individual responses; Bases owns effective collective mandate and site consequences."
+      },
+      "dependencies": [
+        "ME07 site rights/structure",
+        "ME09 observer-qualified decisions",
+        "ME10 compatibility/publication",
+        "exact instance/site/person and revision owner",
+        "BAS02 for spending/output authority"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O original proposal",
+          "case": "A guild principal keeps bench title; player rents production slots; the actual craftsman is steward for bookings, with only a capped spending mandate. Nonrenewal closes future booking while player keeps carried tools and paid finished goods."
+        },
+        {
+          "world": "Reverend Insanity",
+          "status": "reviewed supplied source patterns; player branch O",
+          "case": "Model clan medicine requisition and title-based leverage as local authority/physical pressure rather than universal democratic votes or an ownership-is-consent shortcut. Exact selected scenario/era requires source retrieval."
+        }
+      ],
+      "acceptance_cases": [
+        "Permitted tenant can book work and use their stock but cannot convey landlord title or spend outside the mandate.",
+        "Rights/booking revision changed after preview rejects before new debit. Revoked permission blocks only future uses specified by terms; prior finished output survives.",
+        "A collective decision reaches its actual local threshold/authority, records the acting principal and chosen allocation; membership alone neither commands every resident nor duplicates their stock.",
+        "Departure/steward succession changes effective mandates without transferring worker identities or erasing personally held property."
+      ],
+      "retain": [
+        "Existing earned access and local command predicates.",
+        "Source-specific class inequality, authority and actual disputed possession; physical enforcement is distinct from legal claim."
+      ],
+      "lower_cost_alternative": "One fixed authored lease/operating offer with named steward, permitted actions and revisioned terms; defer a general parliament, inheritance solver and all-faction governance.",
+      "source_invention_uncertainty": {
+        "verified": "Specific current owner/fact/preview code paths inspected.",
+        "source": "Gu claim patterns are bounded reviewed supplied evidence; no universal rules imported.",
+        "original": "Operating agreement and Frontier guild fixture are proposals, not approved schema/lore.",
+        "unknown": "Exact first jurisdiction, membership/succession rule, chosen institution account owner and terms remain director/Engine decisions."
+      },
+      "verification_limits": [
+        "Planning/static source inspection only; no game/build/browser/save/benchmark execution.",
+        "Proposed acceptance cases remain held until review and later authorized implementation/verification.",
+        "No exact runtime or token cost is measured."
+      ]
+    },
+    {
+      "id": "BAS02",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Funded pay, output allocation and currency carriers",
+      "decision": "Make payer/payee/budget/output settlement explicit for independently simulated work; preserve authored fees/rewards as disclosed sources/sinks.",
+      "evidence": [
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 78,
+          "line_end": 82,
+          "claim": "Four native coins are debited and logs transferred, but this command contains no monetary credits to workers. Its description alone does not establish their income.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "line_start": 56,
+          "line_end": 60,
+          "claim": "One-time commission consumes delivered kits/rope, grants six native coins and marks completion; no buyer treasury debit or recipient stock transfer occurs.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 137,
+          "line_end": 159,
+          "claim": "Resource effects modify one actor resource or player external money; item acquisition distinguishes consumes/grants from actual two-owner transfers. Paired resource effects can be staged, but recipient/currency policy must be authored.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/native_trade_transaction.js",
+          "line_start": 9,
+          "line_end": 18,
+          "claim": "Native trade revalidates its quote, computes player money and transfers actual vendor/player goods. It does not track a finite vendor monetary treasury here.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+          "line_start": 10,
+          "line_end": 10,
+          "claim": "Primeval stones serve currency and cultivation fuel in the reviewed supplied setting.",
+          "status": "reviewed supplied-edition analytical index"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 120,
+          "line_end": 125,
+          "claim": "MC05 already proposes actual paid labor and independent staff; it does not supply an executed reusable economic settlement owner.",
+          "status": "original prior planning fixture"
+        }
+      ],
+      "current_player_behavior": "Player pays authored fees and receives one-time rewards; player/NPC item transfers and resources are staged. Independent worker income, a finite institutional buyer budget and shared product ownership are not established by these named commission paths. Native merchants need not be retroactively made finite.",
+      "proposed_player_behavior": "Choose owner-funded contract work, profit/output sharing or a paid service with exact payer/payee/currency, milestone and product recipient. Accepted funds cover committed wages; work cannot start with phantom employer money. A medicine allocation competes with sale from the same actual output stock. Item-backed money and its fuel use draw from one physical carrier; issuer-scoped abstract accounts stay distinct where the local system supports them.",
+      "authoritative_owner": {
+        "integration": "Assigning master decides whether selected economic scope is funded or explicitly authored source/sink.",
+        "runtime": "Engine owns atomic native/actor account and output publication and compatibility. Items owns item-backed currency carriers.",
+        "local": "Progression/economy GM and world GM own wages, budget, issuer, exchange and distribution terms.",
+        "boundary": "Do not replace native trade or introduce a second bag/account projection; Society consumes actual work outcomes."
+      },
+      "dependencies": [
+        "BAS01 principal/spending authority",
+        "existing owned transfer/staged resource service",
+        "ME02 finite stock and ME10 migration",
+        "actual account/currency carrier definition",
+        "declared milestone/refund receipt"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O original extension of current six-coin commission",
+          "case": "Prefund association buyer with six coin units. On accepted delivery, three kits transfer to its actual depot binding and six coins transfer to player once. Buyer then chooses real route use or reserve. Existing old six-coin reward receipts remain unchanged."
+        },
+        {
+          "world": "Reverend Insanity",
+          "status": "reviewed supplied currency function; implementation O",
+          "case": "One owned primeval-stone stock supports either payment/feed supply or cultivation expenditure. Spending it as money removes the same means; a separately displayed reserve cannot spend it again."
+        }
+      ],
+      "acceptance_cases": [
+        "With buyer balance six and player carrying three kits, delivery ends at buyer zero plus three kits, player six more coins plus three fewer kits; duplicate acceptance adds nothing.",
+        "Insufficient employer budget rejects before reserving a new worker. Cancellation returns only unspent agreed payment/material, preserving completed milestone wages and outputs.",
+        "Allocating a produced lot to care removes that lot from sale availability; staff output share follows accepted terms, not automatic player ownership.",
+        "Change currency issuer/quote/custody after preview and reject stale settlement. Using an item-backed coin as fuel cannot leave it available for later payment.",
+        "Old-save commission flags create no new worker back-pay, treasury or goods on import."
+      ],
+      "retain": [
+        "Legitimate fees, quest grants and deliberately abstract/offstage economy boundaries.",
+        "Native trade quote guards and conservation of vendor/player goods."
+      ],
+      "lower_cost_alternative": "For a fixed first proof, use named existing actors with paired staged debits/credits and a declared treasurer binding plus a one-order budget. No banking, credit, dynamic exchange-rate or global economy engine is required.",
+      "source_invention_uncertainty": {
+        "verified": "Explicit named command effects and resource/native trade paths inspected.",
+        "source": "Physical primeval-stone dual use is reviewed supplied evidence, not a generic rule for every world.",
+        "original": "Finite association order and wage/escrow/output terms are proposed.",
+        "unknown": "Exact wages, credits, monetary precision, principal/account ownership, exchange and historical compatibility require selection. Existing fees are not asserted to be bugs."
+      },
+      "verification_limits": [
+        "Planning/static source inspection only; no game/build/browser/save/benchmark execution.",
+        "Proposed acceptance cases remain held until review and later authorized implementation/verification.",
+        "No exact runtime or token cost is measured."
+      ]
+    },
+    {
+      "id": "BAS03",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Demand-backed logistics and recipient consequences",
+      "decision": "Qualify one demand-funded custody route before building a market simulator.",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 153,
+          "line_end": 159,
+          "claim": "Actual transfer checks worlds/equipment/custody and stages owners, but this branch does not check physical co-location or freight transit. A same-world transfer primitive is not a whole logistics journey.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/acquisition.js",
+          "line_start": 39,
+          "line_end": 64,
+          "claim": "Acquisition checks cumulative actual debits and credits receivers once; retain this stock conservation backbone.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "line_start": 56,
+          "line_end": 60,
+          "claim": "Current commission settles an authored delivery reward without storing goods at an institutional recipient; no continuing demand/use is established by this path.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+          "line_start": 9,
+          "line_end": 36,
+          "claim": "Existing macro Frontier graph already requires real travel, finite help, delayed supplier alternatives and retained later routes.",
+          "status": "completed prior planning/static geography evidence"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+          "line_start": 10,
+          "line_end": 11,
+          "claim": "Finite stock, seasonal caravan demand and actual transport link settlement economies in the reviewed source.",
+          "status": "reviewed supplied-edition analytical index"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 373,
+          "line_end": 394,
+          "claim": "Deterministic actor controllers select eligible declared commands/choices; they can host bounded funded supplier plans rather than a second autonomous economy loop.",
+          "status": "static code inspection"
+        }
+      ],
+      "current_player_behavior": "Player can carry actual kit/rope and settle the named Village supply commission; NPC controllers have eligible paid plans. The inspected generic transfer and commission paths do not establish depot demand, loading, actual carrier travel, delivery condition or consumption by a route crew.",
+      "proposed_player_behavior": "Reserve a finite order, pick up owned cargo, transport under actual route/carry/access rules, deliver to a named receiver, then allocate/use it. Supplier/carrier/buyer can pursue an alternative funded plan when late or unwilling. Failed or diverted delivery changes actual crew preparation and later offer; it does not wipe the seller bag or reward the original buyer for unseen goods.",
+      "authoritative_owner": {
+        "integration": "Assigning master chooses one route/order scope.",
+        "runtime": "Engine owns cargo/custody/travel/local-time publication; regions owns route/environment; items owns lot/condition semantics.",
+        "local": "Bases/economy world content owns depots, demand, orders, buyer budgets, acceptance and allocation.",
+        "boundary": "Combat resolves interception; Society owns directed response to witnessed success/failure."
+      },
+      "dependencies": [
+        "BAS01/02 funded rights and buyer",
+        "ME02 actual lots/stock",
+        "ME08 local elapsed/native binding",
+        "authoritative route and carrier",
+        "known acceptance/delivery condition"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O branch, existing native route constraints retained",
+          "case": "A route crew orders kits, but another employer offers better pay. Player keeps/diverts undelivered goods under disclosed contract terms; original crew reserves another supplier with real funds and departure time. Player journey uses native legs, not the held Short Measure NPC errand."
+        },
+        {
+          "world": "Fallout Water Line",
+          "status": "O earlier planning fixture, not Fallout canon",
+          "case": "A repaired water service needs an actual delivered replacement part. Diverting that finite part to armor repair leaves the service waiting; the settlement allocates stored water until a real funded delivery arrives."
+        }
+      ],
+      "acceptance_cases": [
+        "Pickup changes holder/cargo reservations once; it is neither recipient acceptance nor consumption.",
+        "Delay/diversion leaves original receiver stock unchanged and changes its funded alternative plan only under authorized elapsed.",
+        "Delivery transfers actual quantity/condition; later crew use consumes the recipient stock once. Stock committed to a part/utility cannot also be exported or sold.",
+        "Preview/render/reload creates no freight, stock, demand fulfillment or new random encounter.",
+        "Physically remote transfers require an actual supported route/service; declared abstract offstage transfers remain explicitly bounded instead of faking travel."
+      ],
+      "retain": [
+        "Current cumulative debit, custody and stale-quote invariants.",
+        "Macro delayed/refused delivery and source-specific caravan functions."
+      ],
+      "lower_cost_alternative": "One authored depot, funded buyer and route with pickup/transit/delivery boundaries and one alternative plan. Aggregate unrepresented background explicitly; defer global supply curves, auctions and route optimization until a selected player case needs them.",
+      "source_invention_uncertainty": {
+        "verified": "Inspected generic transfer/control paths and prior native geography pointers.",
+        "source": "Gu caravan/stock patterns are bounded reviewed supplied evidence; no universal transit balance imported.",
+        "original": "Frontier order and Water Line part diversion are prototype cases.",
+        "unknown": "Exact route hazard, carry limits, freight service/offstage boundary and breach/payment policy remain open."
+      },
+      "verification_limits": [
+        "Planning/static source inspection only; no game/build/browser/save/benchmark execution.",
+        "Proposed acceptance cases remain held until review and later authorized implementation/verification.",
+        "No exact runtime or token cost is measured."
+      ]
+    },
+    {
+      "id": "BAS04",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Operational continuity, emergency allocation and damage",
+      "decision": "Give continued base functions explicit support/booking/stop policies; do not equate phase completion with perpetual operation.",
+      "evidence": [
+        {
+          "path": "src/site_projects.js",
+          "line_start": 13,
+          "line_end": 23,
+          "claim": "Compiler emits phase actor/site/timing/cost/effect/dependency but does not forward phase participants. Already identified by Micro.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 64,
+          "line_end": 73,
+          "claim": "Existing command participant availability and site-capacity guards are valuable; they are not a general multi-site/tool/utility reservation model.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 140,
+          "line_end": 169,
+          "claim": "Jobs retain frozen participants/costs/effects and one site; completeJob applies frozen effects without general live physical/source/rights revalidation.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 324,
+          "line_end": 346,
+          "claim": "Jobs settle before condition/life changes at the shared boundary; life cleanup here examines job.actorId, not a full institutional continuation policy.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/everyday_life.js",
+          "line_start": 49,
+          "line_end": 56,
+          "claim": "Busy craftsman projection recognizes participants in jobs; retain the actual actor occupancy foundation.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 124,
+          "line_end": 129,
+          "claim": "MC05 already distinguishes useful functions, real staff, caused damage, freeze, failed/stale phase and return.",
+          "status": "original prior planning fixture"
+        }
+      ],
+      "current_player_behavior": "Paid project phases and authored production run through jobs/site reservations. Useful dry rack/workshop flags persist. This supports the selected prepaid slice, not automatically a staffed clinic, continually fueled ward, utility network, emergency priority plan or territorial sovereignty.",
+      "proposed_player_behavior": "Select funded operating modes and reserve all workers/tools/capacity actually used. Staff can spend limited means on care, production or defense; the steward allocates shared resources within mandate. A live utility losing fuel/support stops future output under declared continuation policy; prepaid completed work remains. Damage changes surviving structure and exposed stock, repairs restore only actual support, and withdrawal/occupation/title remain separate.",
+      "authoritative_owner": {
+        "integration": "Master/director approves selected operating and absence policies.",
+        "runtime": "Engine owns continuation/boundary order/all-participant/site-tool reservations/clock and publication.",
+        "local": "Bases/world GM owns staffing, maintenance/emergency allocation, damage/functions and delegated supervision.",
+        "boundary": "Powers/items owns supplied function; combat owns actual attack/breach; regions owns physical environmental cause; timelines owns clock/reset retention."
+      },
+      "dependencies": [
+        "ME07 all-worker/tool/structure reservations",
+        "ME08 exact authorized intervals",
+        "ME03/04 continuation and boundary order",
+        "ME10 receipts/import",
+        "BAS01/02 mandate and real funding",
+        "actual selected support/damage function"
+      ],
+      "world_examples": [
+        {
+          "world": "River Clinic annex",
+          "status": "O prior Naruto fan-setting fixture; added operating choice O",
+          "case": "Mira books paid roof repair while Ito uses a care slot. Reserve emergency wraps or sell them for research funds. If a caused raid damages the roof, only exposed lots change; care relocates or waits on supported shelter. This does not enroll Naruto or resolve its source-era policy."
+        },
+        {
+          "world": "Original Frontier",
+          "status": "O extension; existing freeze protected",
+          "case": "Appoint a funded steward for one supported local shift or close the site before leaving. Unselected absence freezes local activity; merely opening the old project report does not run workers, wages or maintenance."
+        }
+      ],
+      "acceptance_cases": [
+        "Shared worker/tool cannot be booked twice across care/production/defense even if site capacity allows two jobs.",
+        "Rights, support or facility condition changes stop future live-dependent effects according to a declared boundary order; finished paid ordinary phases are retained.",
+        "An actually supported defense prevents the appropriate breach; a stronger supported attacker can damage actual roof/utility. Seizure changes holder/control only as resolved, with legal claim/history separately retained.",
+        "Cancellation/damage returns only untouched escrow; spent lumber, used medicine, completed wages and observed history survive.",
+        "Two observers/leases never double local advancement. Unselected absent/browser-closed time creates neither new production nor degradation. Return shows the real retained state and witnessed report."
+      ],
+      "retain": [
+        "Current deterministic jobs/actor reservations and explicitly prepaid frozen work.",
+        "MC05 freeze, cause-based damage, real protection and support-specific repair."
+      ],
+      "lower_cost_alternative": "One or two authored facility modes with bounded funded shifts and explicit stop reasons, using existing scheduler/jobs. Full utility graphs, autonomous township AI and flexible siege tactics wait for selected requirements.",
+      "source_invention_uncertainty": {
+        "verified": "Static participant/site/completion/order paths inspected; prior Micro deficits acknowledged.",
+        "source": "No new source-specific siege/medicine/maintenance law asserted.",
+        "original": "Emergency priority and operating shift scenarios are proposals; MC05 remains an original fixture.",
+        "unknown": "Whether selected work is prepaid or live-dependent, exact interruption/raid/absence/supervision rules and numerical costs require review."
+      },
+      "verification_limits": [
+        "Planning/static source inspection only; no game/build/browser/save/benchmark execution.",
+        "Proposed acceptance cases remain held until review and later authorized implementation/verification.",
+        "No exact runtime or token cost is measured."
+      ]
+    },
+    {
+      "id": "BAS05",
+      "priority": "P2",
+      "kind": "simplify",
+      "title": "Rental/service-first function profiles and safe batching",
+      "decision": "Qualify meaningful facility functions through existing owners/jobs before nested construction or mandatory daily management.",
+      "evidence": [
+        {
+          "path": "src/site_projects.js",
+          "line_start": 1,
+          "line_end": 23,
+          "claim": "Existing dependent phases compile to the same job/claim/world-fact contracts; no separate construction progress queue is needed.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "line_start": 47,
+          "line_end": 55,
+          "claim": "Rope knowledge/fabrication and dry rack expose actual new production. Rack batch produces two kits from logs/coins without an energy effect; preserve that advantage.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/field_workshop.js",
+          "line_start": 63,
+          "line_end": 67,
+          "claim": "Recovery and actual paid craftsman teaching expose supported time/input choices; attention is bound by participants.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 373,
+          "line_end": 403,
+          "claim": "Deterministic controllers and bounded routines reuse eligible commands; routines pause when inputs/capacity/access fail.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "src/world_rhythm.js",
+          "line_start": 1,
+          "line_end": 31,
+          "claim": "Recurring availability derives from saved calendar; rendering creates no occurrence or missed reward. Retain one time owner.",
+          "status": "static code inspection"
+        },
+        {
+          "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+          "line_start": 107,
+          "line_end": 125,
+          "claim": "Authoring already allows useful phases, safe batching and fixed first variants, while nested component/native delivery remains missing.",
+          "status": "existing authoring proposal"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+          "line_start": 39,
+          "line_end": 39,
+          "claim": "RI-c0102-02: productive healing leaves replenish with essence and have a one-hour repeat-target restriction; easy feeding and local value stay scene-specific.",
+          "status": "reviewed supplied-edition narrator claim"
+        },
+        {
+          "path": "docs/research/novels/full-book/reverend-insanity/readers/R0101-0115-NOTES.md",
+          "line_start": 83,
+          "line_end": 83,
+          "claim": "RI-c0109-03: plant-Gu treehouse grows rooms/counters and operator-controlled doors/intruder defense; no theft test or universal autonomous agency is proved.",
+          "status": "reviewed supplied-edition narrator claim"
+        }
+      ],
+      "current_player_behavior": "Player has several real authored facility functions, dependable batching and routines. Full nested structure/storage/utility/assembly operation is not delivered merely by project flags. Ordinary service access and source-specific facilities have design support but are not general native implementations.",
+      "proposed_player_behavior": "Choose rental/paid specialist service, own workshop or supported collective operation. Facility upgrades change storage/training/care/research/defense actions or operating envelope, not only multipliers. Known repeatable work batches with finite stock/budget/capacity and visible stop reasons; novel research exposes a paid test and retained evidence. Source-supported living buildings/productive sources keep their actual functions and superiority.",
+      "authoritative_owner": {
+        "integration": "Master selects a small qualification and preserves broader campaign depth.",
+        "runtime": "Engine integrates one authoritative job/stock/clock/native consumer.",
+        "local": "Bases/progression GM supplies facility modes/service paths; authoring validates package/profile semantics; world/source GM owns each source rule.",
+        "boundary": "Items owns recipes/parts; powers owns execution; experience owns discoverable known action/stop/output summaries."
+      },
+      "dependencies": [
+        "Selected BAS01-04 subset",
+        "authoritative stock/job/function/clock owner",
+        "paid method/research evidence",
+        "source qualifier for exceptional facility",
+        "later native consumer/migration gate"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "O rental pilot plus inspected current rack behavior",
+          "case": "Rent a bench or buy specialist preparation while saving for a personally staffed workshop. Dry rack continues to pack two kits without energy; no extra hidden daily upkeep is added to equalize it. Batch stops when actual logs/budget/access run out."
+        },
+        {
+          "world": "Reverend Insanity",
+          "status": "reviewed supplied positive source functions; player acquisition/implementation O",
+          "case": "A legally/otherwise actually acquired controlled productive grass can support medicine sales; an operator-controlled plant-Gu building can grow shop structure and supply security. Neither is replaced by +10% crafting or invented universal building agency/maintenance penalties."
+        }
+      ],
+      "acceptance_cases": [
+        "Rental/ordinary paid service offers useful preparation without owning a base or acquiring a rare source.",
+        "One meaningful upgrade opens a real production/storage/training/care function; knowing its recipe or completing a label alone grants no stock/source.",
+        "Safe batch uses one actual stock/budget/job owner, stops at selected limits, and never duplicates a part while personal sale/another queue consumes it.",
+        "Research trial pays declared inputs and yields actual evidence/function under the frozen case; reload/preview cannot reroll or fabricate success.",
+        "Source-supported superior facilities keep their specified positive function; unknown Gu diets/costs/security outcomes remain qualified rather than filled with equalizing restrictions."
+      ],
+      "retain": [
+        "Current dry rack and ordinary technique/service usefulness.",
+        "Existing deterministic scheduler, phase receipts, custody, calendar-derived availability and bounded routine pause.",
+        "Broader nested/collective base depth when a selected later case needs it; one prototype is not complete base gameplay."
+      ],
+      "lower_cost_alternative": "A few authored functional site profiles with dependency predicates and existing jobs, a rental/service route and bounded batch program. Defer a general structural graph, universal labor optimizer, parallel base inventory, second construction queue and compulsory attendance meters.",
+      "source_invention_uncertainty": {
+        "verified": "Inspected source functions/current batching/control/calendar behavior as code, not newly played behavior.",
+        "source": "Gu leaf/treehouse examples are qualified supplied narrator claims, with exact notes locators and evidence limits.",
+        "original": "Facility profile/rental/research pilot and implementation order are proposals.",
+        "unknown": "Exact first functions, source acquisition, rates, batch limits, migration and human game feel remain unresolved. No measured token/runtime saving is asserted."
+      },
+      "verification_limits": [
+        "Planning/static source inspection only; no game/build/browser/save/benchmark execution.",
+        "Proposed acceptance cases remain held until review and later authorized implementation/verification.",
+        "No exact runtime or token cost is measured."
+      ]
+    }
+  ],
+  "verification_status": "Self-reviewed static evidence and report checks; final checked receipt in CHECKPOINT.md. No new gameplay implementation or acceptance.",
+  "cost_measurements": {
+    "runtime": null,
+    "tokens": null,
+    "money": null,
+    "reason": "No relevant usage/performance/cost measurement is exposed for this audit; complexity alternatives are design inferences, not measured savings."
+  },
+  "source_policy": {
+    "frontier": "Current native source plus original proposed worksite/order scenarios; no accepted new names/balance.",
+    "river_clinic_and_water_line": "Original fixtures in earlier micro/macro planning, not canon/new enrollment.",
+    "gu": "Relevant reviewed supplied-edition institution index and R0101-0115 notes inspected; EPUB not reopened. Source snapshot reported by notes: 981c313a5f122272c0f6656df0071bfb43d37715e6ca20c10813a6341833e562. Claims retain narrator/witness/theory and scene bounds; no primary-publication authentication.",
+    "mother_of_learning": "Completed supplied WebToEpub dossier summary inspected for positive-exception preservation only; no new temporal/source operation proposed as implemented."
+  },
+  "baseline_already_covered": [
+    {
+      "evidence": {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "line_start": 77,
+        "line_end": 77,
+        "claim": "Rights, materials/labor, utilities/storage/workstations, residents, useful production/training/care, defense/trade and absence policy are already proposed.",
+        "status": "existing canonical proposal"
+      },
+      "retain": "Extend operating terms and consequences; do not present this entire base family as newly missing."
+    },
+    {
+      "evidence": {
+        "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+        "line_start": 68,
+        "line_end": 69,
+        "claim": "Micro already identifies omitted project phase participants and missing general structure/warehouse/raid delivery.",
+        "status": "completed prior static audit"
+      },
+      "retain": "Reuse ME07/all-worker and ME08/clock dependencies; no duplicate implementation owner."
+    },
+    {
+      "evidence": {
+        "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+        "line_start": 119,
+        "line_end": 129,
+        "claim": "MC05 already links rights, materials, payment, actual floor/roof/bench functions, staff autonomy, damage, freeze and return.",
+        "status": "original prior planning fixture"
+      },
+      "retain": "Use a bounded institutional extension, not another version of the whole construction case."
+    }
+  ],
+  "drift_reconciliation": [
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "result": "Master recorded actual twelve role IDs/progress plus directly requested thirteenth integration-strategy role. Bases receipt/thread match this audit; approval remains awaiting human plan review, runtime held."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/README.md",
+      "result": "Master added an integration/implementation-strategy scope consuming the twelve audits. Scope/sole report writers and runtime hold unchanged."
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "result": "Master added integration-strategy coordination text; base/relationship sections moved by two lines. Effective evidence ranges reread and corrected to 77/79; no base/economy decision accepted or runtime scope granted."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md",
+      "result": "Independent source GM advanced its live synthesis. Reread opening production/institution summary: leaf production, custody and institutional distinctions remain unchanged; the report uses stable chapter 102/103/109 note locators and institute excerpts, not new later claims. Later reader progress is not imported into this audit."
+    }
+  ],
+  "document_checks": {
+    "json_and_required_fields": "pass",
+    "unique_prioritized_findings": 5,
+    "evidence_ranges_checked": 35,
+    "named_source_fragments_checked": 14,
+    "local_links_and_anchors_checked": 15,
+    "whitespace_newline_and_no_em_dash": "pass",
+    "input_fingerprints": 33,
+    "semantic_self_review": "pass; preserved positive functions, authored economy boundaries and original/source qualifiers",
+    "gameplay_or_cost_measurements": "not run/not available",
+    "master_owned_RUN_is_live": "Final read verified matching Bases thread and unchanged runtime hold; later progress-only role updates are expected and do not seal the master ledger."
+  }
+}

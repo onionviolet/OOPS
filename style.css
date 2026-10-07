@@ -1450,6 +1450,17 @@ input[type=checkbox], input[type=radio] {
 	height: 400px;
 }
 
+.crafting_filter {
+    display: block;
+    margin: 8px 4px;
+    cursor: pointer;
+}
+
+#crafting_filter_empty {
+    margin: 8px 4px;
+    color: silver;
+}
+
 	#crafting_mainpage_buttons {
 		font-size: 20px;
 		top: 0px;
@@ -2072,7 +2083,9 @@ i {
 	margin: auto;
 	width: 350px;
 	position: relative;
-	top: 10px;
+	top: 0;
+    height: 180px;
+    overflow-y: auto;
     display: none;
 }
 
@@ -2081,6 +2094,18 @@ i {
     border: 2px solid gray;
     padding: 4px;
 }
+#character_bio_profile { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .3rem; padding: .3rem; }
+#character_bio_profile .character_bio_entry { margin: 0; border-width: 1px; font-size: 13px; }
+.bio_history { margin: 10px; font-size: 14px; line-height: 1.4; }
+.bio_history > p { color: #c4cde4; }
+.bio_history details { border-top: 1px solid #8b96b35c; padding: .45rem 0; }
+.bio_history summary { cursor: pointer; font-weight: bold; }
+.bio_history ul { padding-left: 1.25rem; }
+.bio_history li { margin: .4rem 0; }
+.bio_history button { color: #c5dafe; background: transparent; border: 0; padding: 0; font: inherit; text-decoration: underline; cursor: pointer; }
+.bio_history button:focus-visible { outline: 2px solid #a3caff; }
+.bio_cause { display: block; color: #bac4dd; font-size: .85em; }
+.skill_div:focus { outline: 2px solid #a3caff; outline-offset: -2px; }
     #character_race_div:hover .character_race_tooltip {
         display: block;
     }
@@ -2506,6 +2531,12 @@ i {
 		.journal_control_button:hover{
 			background-color: var(--active_button_color);
 		}
+        button.journal_control_button { border: 0; border-radius: 0; background: transparent; color: inherit; font-family: inherit; }
+        button.journal_control_button:hover, button.journal_control_button.active_selection_button { background-color: var(--active_button_color); }
+        button.journal_control_button:focus-visible { outline: 2px solid #a3caff; outline-offset: -2px; }
+        #journal_show_notebook[hidden] { display: none; }
+        #notebook_box_div { width: 100%; height: 263px; overflow-y: auto; }
+        #notebook_empty { margin: .7rem; color: #bac4dd; font-size: .9rem; }
 			#story_box_div {
 				width:100%;
 				height: 255px;
@@ -2701,6 +2732,15 @@ i {
 		border-bottom: 1px solid white;
 		font-size: 18px;
 	}
+	#world_identity_note {
+		display: block;
+		font-size: 12px;
+		line-height: 1.4;
+		color: rgb(190, 199, 222);
+	}
+	#world_identity_note[hidden] {
+		display: none;
+	}
 	#location_icon_span i:not(.location_bed_icon):hover {
 		background-color: var(--active_button_color);
 	}
@@ -2878,6 +2918,28 @@ i {
 	.message_events {
 		display: var(--message_events_display);
 	}
+	#world_event_feed {
+		display: var(--message_events_display);
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		box-sizing: border-box;
+		width: 100%;
+		max-height: 260px;
+		overflow-y: auto;
+		padding: 8px;
+		background-image: var(--background_gradient);
+		border-bottom: 1px solid #777;
+		font-size: 14px;
+	}
+	#world_event_feed[hidden] { display: none; }
+	#world_event_feed summary { cursor: pointer; }
+	#world_event_feed section { padding: 8px 0; border-bottom: 1px solid #555; }
+	#world_event_feed p { margin: 4px 0; }
+	#world_event_feed button { font: inherit; cursor: pointer; }
+	#world_event_feed button:disabled { cursor: default; }
+	#world_event_feed ol { margin: 6px 0; padding-left: 20px; }
+	#world_event_feed li { margin-bottom: 6px; }
 	.message_background {
 		display: var(--message_background_display);
 	}
@@ -2992,6 +3054,36 @@ i {
 }
 
 .expedition_panel { margin: 0.7rem; padding: 0.7rem; border: 1px solid #7778; border-radius: 6px; text-align: left; }
+.adventure_notebook { margin: .5rem 0; text-align: left; border-top: 1px solid #8b96b35c; }
+.notebook_heading { padding: .55rem .65rem .3rem; font-size: .85rem; font-weight: bold; color: #c4cde4; }
+.notebook_tabs { display: flex; gap: .2rem; padding: .25rem .55rem .5rem; border-bottom: 1px solid #8b96b33b; }
+.notebook_tabs button { flex: 1; min-width: 0; padding: .4rem .2rem; border: 1px solid transparent; border-radius: 4px; background: transparent; color: #bac4dd; font: inherit; font-size: .85rem; cursor: pointer; }
+.notebook_tabs button[aria-selected="true"] { background: #455b83; border-color: #8295b9; color: white; }
+.notebook_tabs button:disabled { opacity: .35; cursor: default; }
+.notebook_tabs button:focus-visible { outline: 2px solid #a3caff; outline-offset: 2px; }
+.notebook_status { margin: .4rem .65rem; padding: .45rem .55rem; border-left: 3px solid #94afd3; background: #8aa8d312; font-size: .9rem; line-height: 1.4; }
+.notebook_view[hidden], .adventure_notebook[hidden] { display: none; }
+.notebook_tabs button[hidden] { display: none; }
+.known_people_panel h3 { margin: .65rem 0 .25rem; font-size: .95rem; }
+.known_people_panel > div > details { border-top: 1px solid #8b96b33b; }
+.known_people_panel ul { padding-left: 1.3rem; font-size: .88rem; line-height: 1.45; }
+.known_people_panel li + li { margin-top: .35rem; }
+.known_people_panel[hidden] { display: none; }
+.expansion_quest_name { display: block; width: 100%; border: 0; border-radius: 0; margin: 0; padding: 2px; background: transparent; color: inherit; text-align: left; font: inherit; font-weight: bold; cursor: pointer; }
+.expansion_quest_name:focus-visible { outline: 2px solid #a3caff; outline-offset: -2px; }
+#expansion_quest_list[hidden] { display: none; }
+.adventure_notebook .expedition_panel { margin: 0; padding: .2rem .65rem; border: 0; border-bottom: 1px solid #8b96b33b; border-radius: 0; }
+.adventure_notebook .expedition_panel summary { padding: .65rem 0; font-size: .95rem; }
+.adventure_notebook .expedition_panel p { font-size: .88rem; }
+.adventure_notebook .expedition_card { padding: .55rem 0; }
+.adventure_notebook .expedition_card button { display: block; width: 100%; text-align: left; border-radius: 4px; box-sizing: border-box; white-space: normal; }
+.adventure_notebook .expedition_card p { color: #c2c9d8; }
+.adventure_notebook .notebook_preparation summary { font-size: .8rem; color: #bac4dd; padding: .35rem 0; }
+.adventure_notebook #simulation_panel button { padding: .45rem .6rem; margin: .2rem 0; font: inherit; max-width: 100%; white-space: normal; }
+.adventure_notebook .expedition_card .expedition_requirements { color: #dfab72; }
+.adventure_notebook #field_panel [data-field-event] button,
+.adventure_notebook #field_panel > div > section button { display:block; width:100%; text-align:left; padding:.4rem .5rem; margin:.2rem 0; box-sizing:border-box; white-space:normal; }
+.adventure_notebook .expedition_history { margin: .4rem .65rem .7rem; line-height: 1.45; font-size: .88rem; }
 .expedition_panel summary { cursor: pointer; font-weight: bold; padding: 0.3rem; }
 .expedition_panel p { margin: 0.4rem 0; line-height: 1.4; }
 .expedition_card { padding: 0.6rem 0; border-top: 1px solid #7776; }
@@ -3001,7 +3093,21 @@ i {
 .expedition_requirements { color: #dfab72; }
 .expedition_preview, .expedition_state { font-size: 0.9em; }
 .expedition_notice { min-height: 1.4em; }
+.village_panel > div > button { padding: .45rem .6rem; margin: .2rem; font: inherit; cursor: pointer; }
+.village_panel > div > button:disabled { opacity: .55; cursor: default; }
+.village_panel > div > button:focus-visible { outline: 2px solid #80bde9; outline-offset: 3px; }
 .expedition_history { padding-left: 1.5rem; }
 
 .technique_cue { font-weight: bold; padding: 0.5rem; background: #80bde91a; border-left: 3px solid #80bde9; }
 .technique_responses { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0; }
+
+.chronicle_panel button { padding: .45rem .6rem; margin: .2rem; font: inherit; cursor: pointer; max-width: 100%; white-space: normal; }
+.chronicle_panel button:disabled { opacity: .5; cursor: default; }
+.chronicle_panel button:focus-visible { outline: 2px solid #80bde9; outline-offset: 2px; }
+.chronicle_panel ol { padding-left: 1.4rem; }
+#chronicle_life_end { position: fixed; top: 18%; left: 50%; transform: translateX(-50%); width: min(720px, calc(100vw - 4rem)); max-height: 70vh; z-index: 10000; background: #171c30; color: #eef0f5; border: 2px solid #80bde9; border-radius: .7rem; padding: 1.5rem; overflow: auto; box-shadow: 0 0 0 100vmax #000b; text-align: left; box-sizing: border-box; }
+#chronicle_life_end[hidden] { display: none; }
+#chronicle_life_end button { padding: .8rem; margin: .4rem; font: inherit; }
+@media (max-width: 640px) { #chronicle_life_end { top: 8%; padding: 1rem; } }
+
+#original_frontier_panel[hidden], #original_frontier_panel [hidden] { display: none !important; }

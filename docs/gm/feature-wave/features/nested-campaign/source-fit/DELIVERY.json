@@ -1,0 +1,51 @@
+{
+  "revision": 1,
+  "date": "2026-10-05",
+  "owner": "/root/situated_subtleties",
+  "status": "complete finite source-fit audit; released",
+  "files": [
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/source-fit/SOURCE_FIT.json",
+      "sha256": "c14d6bf967aff8db459f9a23355b13af59f405389a3c76e9f8770b7a5448007d",
+      "bytes": 63182
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/source-fit/CHECKPOINT.md",
+      "sha256": "0b06b78743f594ea146da3536b7b88cedced04c092f6cb9c24e361b87dc14c50",
+      "bytes": 2068
+    }
+  ],
+  "scope": "PR01\u201308 exact selected source/source-code/native fit only",
+  "checks": "raw supplied source and selected member hashes, inspected source/actual code correspondence, JSON structure/declared local file links; no behavior execution",
+  "sourceModuleHashes": [
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "sha256": "965ba92ac821c4284c7a7ad98bb2bd31dd39924b7927fb2fdd0a7de3c7dbddaa"
+    },
+    {
+      "path": "src/feature_expansion_nested_chains.js",
+      "sha256": "0fdfff9a448eb7074e0b1c9d41f3ca88706c51057d8ed38363a134abc2eb18c9"
+    },
+    {
+      "path": "src/feature_expansion_nested_chains_host.js",
+      "sha256": "ae477a196a0b2940317ac9a425b13f8d738d812b4f084557dd474fa98fcf8d44"
+    },
+    {
+      "path": "src/feature_expansion_nested_native.js",
+      "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640"
+    },
+    {
+      "path": "src/feature_expansion_nested_content.js",
+      "sha256": "d14f61e593f6ff4c0d407f4ab252e02309a55684c4093d1f96e95393dea9c71d"
+    }
+  ],
+  "native/shared registration": "separate root-owned gate; no live/full-world or build claim",
+  "deferred": [
+    "behavioral/browser",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "authorized_on": "2026-10-05",
+  "user_request": "We can send a GM to check out DCSS and DDA and then I can source the others part by part?",
+  "execution": "internal research GM in current chat",
+  "agent_task": "/root/dcss_dda_gm",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "assignment": "ASSIGNMENT.md",
+  "state": "complete-source-review-root-verified",
+  "scope": "Deeper source-backed DCSS/DDA accomplishment, mastery and interaction research; no runtime changes or commercial acquisition.",
+  "writer_scope": [
+    "REPORT.md",
+    "FINDINGS.json",
+    "CHECKPOINT.md",
+    "small evidence files below this research directory"
+  ],
+  "prior_bank_read_required": true,
+  "acceptance": "Three source traces per game, delta from existing bank audit, at most five original transfers qualified against live YAIR source.",
+  "commercial_games": "User will source independently, part by part.",
+  "platform_check": {
+    "date": "2026-10-05",
+    "meaning": "Publisher/release-listed availability; not installed or tested on this Mac.",
+    "games": [
+      {
+        "name": "Caves of Qud",
+        "native_mac": true,
+        "source": "https://freeholdgames.itch.io/cavesofqud"
+      },
+      {
+        "name": "Your Chronicle",
+        "native_mac": true,
+        "source": "https://store.steampowered.com/app/1546320/Your_Chronicle/"
+      },
+      {
+        "name": "Idling to Rule the Gods",
+        "native_mac": true,
+        "source": "https://store.steampowered.com/app/466170/Idling_to_Rule_the_Gods/"
+      },
+      {
+        "name": "NGU IDLE",
+        "native_mac": false,
+        "qualification": "Current Steam desktop listing specifies Windows only; browser routes not qualified.",
+        "source": "https://store.steampowered.com/app/1147690/NGU_IDLE/"
+      },
+      {
+        "name": "Amazing Cultivation Simulator",
+        "native_mac": false,
+        "qualification": "Current Steam desktop listing specifies Windows only.",
+        "source": "https://store.steampowered.com/app/955900/Amazing_Cultivation_Simulator/"
+      },
+      {
+        "name": "Siralim Ultimate",
+        "native_mac": true,
+        "source": "https://store.steampowered.com/app/1289810/Siralim_Ultimate/"
+      },
+      {
+        "name": "Dungeon Crawl Stone Soup",
+        "native_mac": true,
+        "source": "https://crawl.develz.org/download.htm"
+      },
+      {
+        "name": "Cataclysm: Dark Days Ahead",
+        "native_mac": true,
+        "qualification": "Official latest release API lists graphics/terminal universal macOS DMGs.",
+        "release": "0.I-1",
+        "source": "https://github.com/CleverRaven/Cataclysm-DDA/releases/tag/0.I-1"
+      }
+    ]
+  },
+  "observed_progress": {
+    "crawl_revision": "b005dc6fb05073307685cbb4d3ccec29962e6c2c",
+    "dda_revision": "a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25",
+    "source_paths_selected": 6,
+    "source_paths": "DCSS rune/win scoring, entanglement, targeted XP; DDA achievement/conduct events, conditional martial buff, practice recipe progression.",
+    "qualification": "GM progress message; final artifacts not yet reviewed."
+  },
+  "writer_state": "research GM completed and released",
+  "result": {
+    "source_paths": 7,
+    "upstream_evidence_records": 28,
+    "current_yair_consumer_snapshots": 21,
+    "ranked_proposals": 4,
+    "report": "REPORT.md",
+    "findings": "FINDINGS.json",
+    "validation": "VALIDATION.json",
+    "research_only": true,
+    "output_sha256": {
+      "REPORT.md": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+      "FINDINGS.json": "68b075061dec8f87e806aac1b5287c51b56c969761d6c41a597afab41b2f9930",
+      "CHECKPOINT.md": "bd3291fecdef141bfdc95608833ee2891b8dc0b5bae1d410fe168b2333a67646",
+      "VALIDATION.json": "8efdb924746874083686fa7645b6f35bdedcfefc17412d852cad4823d598f9a0"
+    }
+  },
+  "root_checks": {
+    "source_revisions_and_clean_checkouts": "passed",
+    "upstream_hashes_revisions_and_line_bounds": "28 passed",
+    "current_yair_snapshot_hashes": "21 matched",
+    "json_parsing": "passed",
+    "local_markdown_references": "13 passed before final checkpoint update; GM final validation also passed",
+    "report_findings_final_hashes": "matched reported final outputs"
+  }
+}

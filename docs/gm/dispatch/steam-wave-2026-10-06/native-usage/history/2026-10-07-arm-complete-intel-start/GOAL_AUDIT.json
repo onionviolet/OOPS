@@ -1,0 +1,84 @@
+{
+  "observed_utc": "2026-10-07T07:04:37.012562+00:00",
+  "status": "NOT COMPLETE",
+  "original_objective_preserved": true,
+  "requirements": [
+    {
+      "requirement": "Pin actual installed version/platform/native input and retain original Lua/API/DLC/dependencies privately",
+      "state": "proved for retained input snapshot",
+      "evidence": [
+        "docs/research/factorio/INTAKE.json",
+        "docs/research/factorio/native/INTAKE.json",
+        "FACTORIO_COMPLETION.json"
+      ],
+      "limit": "Latest full native byte/hash readback will be repeated at final corpus audit; no enabled-mod/entitlement claim."
+    },
+    {
+      "requirement": "Recover both architecture full function pseudocode/disassembly sets with exact provenance/coverage/failures",
+      "state": "incomplete",
+      "evidence": [
+        "private exports/arm64/progress.json",
+        "private native-index.sqlite",
+        "docs/research/factorio/native/PIPELINE.json"
+      ],
+      "limit": "ARM terminal177104retained atfloor;8failedthisrunrequirechangedrepair. Full183199nonexternalsetnotfinished; x86stillabsent."
+    },
+    {
+      "requirement": "Make meaningful changed repairs for failed functions and qualify native ABI/field limits",
+      "state": "incomplete",
+      "evidence": [
+        "private immutable failure records",
+        "NATIVE_PROGRESS.json",
+        "native readers/logistics-heat/REPORT.md"
+      ],
+      "limit": "Timeout/backend deaths/unique-hash/forced-merge failures identified. Targeted retries/ABI refresh and final reconciled remaining failures pending."
+    },
+    {
+      "requirement": "Review consequential native production/inventory/quality/spoilage/logistics/heat/DLC joins against actual shipped Lua/API",
+      "state": "bounded native/DLC review and fresh production binding proved; final full-corpus/repair consolidation pending",
+      "evidence": [
+        "docs/research/factorio/native/readers/quality-spoilage/REPORT.md",
+        "docs/research/factorio/native/readers/logistics-heat/REPORT.md",
+        "docs/research/factorio/native/SOURCE_BINDING.json",
+        "SOURCE_BINDING_ACQUISITION.json"
+      ],
+      "limit": "13freshproduction/helper/getterbindings independentlyhash/readchecked; correctedwrappers/hiddenX8/freshnessflags. Bounded54bodyQuality/logisticsreview retained; originaltypes/ABI/loweringlimits remain."
+    },
+    {
+      "requirement": "Use recovered methods in one concrete original YAIR behavior through existing inventory/body/clock/publisher/engine/UI",
+      "state": "proved source/build delivery; implemented-unverified",
+      "evidence": [
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md",
+        "RETORT_INTERFACE.md",
+        "NATIVE_VALIDATOR_INTERFACE.md",
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md"
+      ],
+      "limit": "ConcreteRetort4exactleaves/typednativeUI/readers retained370-sourcebuild; latestfreshbinding13records acquired. Gameplay/saveacceptedphase remainsdeferred."
+    },
+    {
+      "requirement": "Appropriate build/import/definition/link checks and matching source/current preview; explicitly deferred playable acceptance",
+      "state": "proved within authorized phase",
+      "evidence": [
+        "docs/gm/home-social-base-2026-10-07/FINAL_CHECKS.json",
+        "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md"
+      ],
+      "limit": "370local source-map contents and current bundle/map/index hashes matched. No game/browser/save/failure/regression/director suite is claimed."
+    },
+    {
+      "requirement": "Preserve saves/attribution/unrelated dirty work/exclusive writers; retain raw code privately and avoid publication/install mutation",
+      "state": "proved actions within current scope; final recheck pending",
+      "evidence": [
+        "ACQUISITION.json",
+        "INTEGRATION_PACKET.md",
+        "private tool receipts",
+        "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+        "ARM_ARCHIVE_ACQUISITION.json"
+      ],
+      "limit": "Exactfull15-memberanalyzedprojectarchive+livebytes/modes/hashes independentlychecked; only redundantownednormalproject removal allowed afterterminalhandles. Packed semanticreopen/loweringrepairstillpending. Privateusercode/saves/install untouched."
+    }
+  ],
+  "decision": "Keep full unbudgeted goal active. No completion/blocked threshold passed: live stream makes concrete progress; both architectures and final repairs/bindings remain."
+}

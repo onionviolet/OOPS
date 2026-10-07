@@ -1,0 +1,126 @@
+{
+  "world": "Mother of Learning",
+  "status": "single-row qualification; no runtime activation",
+  "source_basis": {
+    "edition_and_extent": "Completed supplied WebToEpub snapshot; dossier reports semantic reading of 106 numbered chapters and Epilogue (107 story items). This qualification reuses dossier evidence and claims no new full-book semantic reading.",
+    "notes": [
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+        "sha256": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+        "sections": [
+          "Reconciled source rules",
+          "Five original authoring implications",
+          "Honest remaining boundaries"
+        ],
+        "locators": [
+          "C001-04/05/12",
+          "C002-01/04/13",
+          "C003-07",
+          "C003-01/04/08",
+          "C001-07/10/12/13",
+          "C005-07"
+        ]
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/WORLD.md",
+        "sha256": "77f6027e60afc3df982b3a5b179ec549c903839a23e88db89fbfab4f17f4c008",
+        "sections": [
+          "Institutions, geography and ordinary means",
+          "Reviewed chapters 6–20 ordinary-life and institutional links",
+          "Reviewed chapters 21–35 world detail"
+        ],
+        "locators": [
+          "C001-04/05/12; C002-01/04/13; C003-07",
+          "C001-07/10/12/13; C005-07",
+          "C003-01/04/08",
+          "C006-03; C007-09; C015-02/03",
+          "C024-04; C025-05/07/09; C028-01/04; C031-01"
+        ]
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/PEOPLE.md",
+        "sha256": "586b019b67ebe35ea8f82a55b364e9db30d0f5506bca2c96bf0adf1846ba3b52",
+        "sections": [
+          "People, aliases and knowledge",
+          "Reviewed chapters 6–20 continuity",
+          "Ending and epilogue: identities and independent lives"
+        ],
+        "locators": [
+          "C001-04/05/12",
+          "C011-03/04; C014-02/03",
+          "EP01–16"
+        ]
+      },
+      {
+        "path": "docs/research/novels/full-book/mother-of-learning/TIMELINE.md",
+        "sha256": "5a441deab922cf3737ebf0a6f4d0eaa60707f7dcf8d6e17436586e7c4896a97d",
+        "sections": [
+          "Causal timeline and narrative order",
+          "Reviewed chapters 6–20 causal bridge",
+          "Ending chronology and staged perspectives"
+        ],
+        "locators": [
+          "T01 / ch.1–3",
+          "ch.6–8 causal bridge",
+          "Epilogue"
+        ]
+      }
+    ]
+  },
+  "source_era_boundary": {
+    "usable_frame": "A Cyoria/Royal Academy frame around Zorian's third-year departure and the recurring festival-eve invasion, with source knowledge bounded by the supplied narrative stage. The dossier also documents the ending and an epilogue one month after the battle; later world state is not assumed unless that ending frame is explicitly selected.",
+    "time_limits": "No exact calendar year or audited total of loop, subjective, and outside elapsed time is established. Keep ordinary local schedules distinct from repeated-pass and special-room time.",
+    "branch_rule": "This dossier is a source baseline, not an activated game branch. Any altered outcomes, resident cast, or entry profile must be explicitly authored as a game branch."
+  },
+  "analytical_texture_cues": [
+    {
+      "cue": "Academy access is procedural and tiered: certification, secure third-year housing, mentor quotas, electives, library or guild access, and student jobs or points coexist. Credentials, tuition, facilities, and actual expertise are separate facts.",
+      "why_it_recognizes_the_world": "A lesson or favor can turn on institutional status and allocated time rather than a generic adventurer's rank.",
+      "evidence": [
+        "SYNTHESIS.md: Reconciled source rules, C001-04/05/12; C002-01/04/13; C003-07",
+        "WORLD.md: Institutions, geography and ordinary means, opening domain table"
+      ]
+    },
+    {
+      "cue": "Cyoria's movement has mundane friction: a mana-crystal train, a walk of roughly one to two hours between station and academy, station workers and public services, and expensive city apartments. Fast or magical travel does not erase schedule, fuel, money, or local information.",
+      "why_it_recognizes_the_world": "Let a missed connection, station conversation, or costly errand ground a scene without turning every detail into a quest reward.",
+      "evidence": [
+        "WORLD.md: Institutions, geography and ordinary means, opening domain table",
+        "WORLD.md: Reviewed chapters 6–20 ordinary-life and institutional links",
+        "TIMELINE.md: T01 / ch.1–3"
+      ]
+    },
+    {
+      "cue": "Student craft work is materially ordinary as well as magical: workshop use calls for the student's own reagents and cleanup; alchemy has preparation hazards, while apprenticeship, catalog work, and low-paid student jobs trade labor and time for conditional access or instruction.",
+      "why_it_recognizes_the_world": "Show competence through preparation, cleanup, and knowing what access a job actually grants, not through unexplained mastery.",
+      "evidence": [
+        "SYNTHESIS.md: Reconciled source rules, C003-01/04/08",
+        "WORLD.md: Institutions, geography and ordinary means, opening domain table",
+        "WORLD.md: Reviewed chapters 6–20 ordinary-life and institutional links, academy/library and everyday craft"
+      ]
+    }
+  ],
+  "original_dialogue_proposals": [
+    {
+      "text": "The library wants its ledger before my mentor hour. A borrowed pass does not finish either job.",
+      "speaker_frame": "An original academy student balancing library work with scheduled instruction.",
+      "basis": "Dossier-derived academy access, student jobs, mentor quotas, and distinct credentials; wording and utterance are newly authored, not source text."
+    },
+    {
+      "text": "Use your own powder, please. The wash basin is for the residue, and the next group gets the bench at noon.",
+      "speaker_frame": "An original workshop assistant or student enforcing shared-workspace practice.",
+      "basis": "Dossier-derived student-supplied reagents, cleanup, and bounded workshop use; wording and utterance are newly authored, not source text."
+    }
+  ],
+  "unknowns_and_limits": [
+    "The cited dossier does not establish an exhaustive Cyoria price list or universal exchange rate; do not turn one shop or household budget into a general economy.",
+    "No exact calendar year, complete world map, or reconciled total of repeated-loop and outside elapsed time is supplied.",
+    "The source distinguishes accounts and knowledge states; this cue set does not grant any speaker omniscience or imply a canonical speaker for the original sample lines.",
+    "No runtime scene, native command, source-native binding, save state, or playable world activation is created by this qualification."
+  ],
+  "activation": {
+    "enabled": false,
+    "reason": "Analytical voice/detail qualification only. No source-native runtime binding was added or demonstrated.",
+    "disposition": "Await parent review before qualifying another roster row."
+  }
+}

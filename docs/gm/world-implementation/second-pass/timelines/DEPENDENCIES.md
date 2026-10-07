@@ -1,0 +1,37 @@
+# Timelines dependency and scope handoff
+
+Planning proposals only, 2026-10-04. The assigning master reconciles [FINDINGS](FINDINGS.json) into the canonical plan after review. The newly recorded integration-strategy lane may consume this handoff without changing these sole runtime owners. No runtime writer reservation or new policy follows this handoff. The existing one-realm/one-prestige baseline and independent book goals continue under their current owners.
+
+## Proposed amendments and sole owners
+
+| Order / findings | Concrete handoff | Authoritative owner / dependency | Later acceptance |
+|---|---|---|---|
+| A: TL01/TL07 | Add one changed-prerequisite career scene and a durable consequential milestone. Preserve past recollection separately from present forecast validity; attribute reveal to each observer. Define which history must survive rolling display pruning. | Local campaign/causal plot GM specifies dependencies; society owns personal knowledge; foundations/Shared Engine owns durable record/publication. Source GM supplies contemporary scene cutoff. No second knowledge or event ledger. | Saved supplier changes later lesson/escort; unrelated scene survives; memory remains, unaware actors remain unaware; old milestone still works after feed rollover. |
+| B: TL03 | For the selected temporal episode, list which interval applies to practice, body/life, source/condition recovery/upkeep, local events and outside promises. Name boundary/ordering and skipped-work outcomes before any chapter advance. | Timelines authors semantics; foundations/Shared Engine implements clock mechanics and compatibility; bodies/powers/society retain their state domains. Depends on actual participant/instance binding. | Inside/outside deltas differ as declared, supplies/support remain actual, overlap counts once; no unnoticed commitment completion through an era jump. |
+| C: TL04/TL05/TL06 | Add one sideways career move, one mature local outcome and one cumulative two-world career to campaign coverage. Each names paid means, changed function, remaining local needs and useful later return. | Local campaign integrator plus progression/projects specialists. Existing prerequisite/receipt/source/support APIs first; bases/society own offices, care, consent and rights. Pure content can be planned without loop implementation. | Lose/recover tool or access without forgetting learned methods; compatible routes remain; mature aftermath has useful actions; second world changes a real home action and later return. |
+| D: TL02 | Only when a genuine temporal mechanic is selected, freeze its operation recipe and carrier comparison. Include trigger/anchor, participants/counterparts, restored domains, retained injury/method/stock/notes, outside work, export conservation, interruption and arrival. | Director/master selects required ID; source GM qualifies mechanism; bodies/powers own carrier semantics; Shared Engine alone integrates isolated snapshots/native ownership/migration. Depends on A/B and actual cargo/claim owners. | Renewed body does not erase retained soul injury; material research does not give counterpart memories; exported unique identity and external reward cannot be recreated by reset. A prequel start is tested separately. |
+| Retain: TL08 | Keep bounded campaign scope, lived hub, independent destination welfare/settlement/return, reliable ordinary advancement, genuine superior functions and opt-in save/vanilla boundaries. | Existing master/campaign/source/Engine owners. Reference existing macro/micro cases rather than duplicate their ledgers. | Required journey IDs qualify exactly their selected function; ordinary paths need no rare rewind or mandatory hub. |
+
+A-D are dependency packets for the master's review, not dispatch instructions. C can deepen ordinary content without D. B is required before actual dilation/chapter projection, not before every ordinary quest. A/TL07 scale only to consequential authored expectations/history, not a full global world chronicle. D must not block non-temporal campaigns. No nineteen-world launch barrier is introduced.
+
+## Temporal operation distinctions to preserve
+
+| Operation | Minimum semantic difference | Cheaper option and lost function |
+|---|---|---|
+| Earlier-era branch | New actual history/actors/stock at a frozen cutoff, no overwrite of current instance | An authored historical start can suffice for a prequel; it grants no live-save rewind or player-earned prior-loop continuity unless separately initialized. |
+| Recurring/source-specific reset | One selected anchor/trigger and actual retained carriers/counterparts; cross-boundary causes settle once | Restrict represented reset scope to one qualified region/episode. It still must enforce the requested source function, retained damage and exports. |
+| Dilation/enclosure | More experienced local work per outside interval, actual support and isolation where sourced; no reset implied | Fixed relation for one episode. A chapter snapshot offers different abstraction, not arbitrary active-time simulation. |
+| Life-stage advance | Bounded declared outcome projection of meaningful choices and unresolved work | Authored transitions avoid minute-by-minute childhood; no automatic skill, paid work, family wealth or distant-world ageing. |
+| Rebirth/field renewal | Exact life/body/training loss and retention; no universal timeline reversal | Keep current narrow renewal unless wider life operation is selected. Preserved records do not automatically instantiate a descendant. |
+
+These are semantics, not a proposed save schema. Actor belief, body source, physical stock, local project rights and clock mechanics retain their existing specialist owners. Copy/counterpart identity and restored historical state require a selected native integration contract; display names or parentInstanceId alone cannot supply it.
+
+## Source and review boundaries
+
+Mother of Learning locators: raw readback ch.84:p2-18 (observed retained injury; synchronization remains character theory), ch.91:p219-223 (constructed five-month/one-day chamber) and epilogue:p125-136 (reported notes without remembered research). The checked supplied EPUB/member hashes and broader reviewed claim pointers are in [CHECKPOINT](CHECKPOINT.md) and FINDINGS. Conventional chamber supply/isolation and later aftermath use qualified reviewed notes, not additional raw reread. Actual source authenticity and unsupplied history remain unresolved. Frontier/cross-world player paths, time mapping, costs, retirement and institutional recognition are O proposals.
+
+No numerical balance, new world/body enrollment, death/reset policy, universal import restriction, runtime schema or model/config change is selected. No behavior test has run here. Once review permits implementation, the responsible Engine/campaign owners retain the relevant generated-save/browser/failure/retention cases as their later backlog; this audit does not mark them passed.
+
+## Delivery ownership
+
+Sole report writer: Timelines chat 01a10998-5d20-7480-83c3-eba338d63d08. Master integrator: 01a10933-feaf-7503-878e-49a6d5ad113f. No internal helper was useful enough to justify delegated work for this bounded pass; no child writer/process or pending mutation. Other aspect/source folders, ASSIGNMENT, canonical plan and RUN remain read-only. Return files are REPORT.md, FINDINGS.json, DEPENDENCIES.md and CHECKPOINT.md. Completion releases this report-writing reservation; it does not release the runtime hold.

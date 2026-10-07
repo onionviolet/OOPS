@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "authority": "current trusted packet + original USER_VISION request blocks",
+  "coverage_semantics": "selected timeline/choice/ending aspects only; other assigned society/granularity/Frontier roles deepen their own requirements",
+  "rows": [
+    {
+      "id": "VC01",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U01",
+        "read_time_line": 139,
+        "reconciled_line": 139
+      },
+      "intent": "Story and choices; going up/down history",
+      "existing_owner_status": "old Timeline TL01/TL02 and source/branch owners are completed planning; no live rewind delivery",
+      "genuinely_missing_decision_or_consumer": "Choose timeline profile and local ending domains; BG01 distinguishes actual divergence from recollection",
+      "connected_player_example": "Frontier offers keep cumulative earlier receipts; Stillwater retains eligible research",
+      "engine_dependency": [
+        "BG01",
+        "04",
+        "05"
+      ],
+      "scope_status": "required-for-selected-world; genuine reset only required if that profile selected",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC02",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U05",
+        "read_time_line": 171,
+        "reconciled_line": 171
+      },
+      "intent": "Scripted/time events, journey endings and grind",
+      "existing_owner_status": "chronicle/current event/routine primitives exist; future numeric pacing unselected",
+      "genuinely_missing_decision_or_consumer": "Bounded meaningful work and disclosed closure/reopen paths; do not equate ending with repeat reward",
+      "connected_player_example": "Charter can close while native work/adventure remain; a successor receives one paid request",
+      "engine_dependency": [
+        "BG02",
+        "03",
+        "04"
+      ],
+      "scope_status": "required-for-selected-world with funded opportunities",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC03",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U06",
+        "read_time_line": 179,
+        "reconciled_line": 179
+      },
+      "intent": "Stats/skills/knowledge change outcomes, such as saving a peer",
+      "existing_owner_status": "OF.EXPLORE/CONTROL/MASTERY current moving planning; skill/Engine wave separately authorized",
+      "genuinely_missing_decision_or_consumer": "Actual application/observer/encounter receipt and preparation must gate outcome, with ordinary and trained alternatives",
+      "connected_player_example": "Actual loaded-frame test differs from own-body footwork; current proof can win archive access",
+      "engine_dependency": [
+        "BG01",
+        "02"
+      ],
+      "scope_status": "required for selected Frontier paths; new lethal/saving policy not inferred",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC04",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U07",
+        "read_time_line": 187,
+        "reconciled_line": 187
+      },
+      "intent": "Chance in meaningful outcomes",
+      "existing_owner_status": "deterministic committed outcome streams exist; exact graph chances unselected",
+      "genuinely_missing_decision_or_consumer": "Use chance only for legal funded variants; risk/refusal/abort preserve their own result and known cost",
+      "connected_player_example": "Failed controlled research can retain a useful limitation; no preview reroll or mandatory jackpot",
+      "engine_dependency": [
+        "BG01",
+        "03",
+        "05"
+      ],
+      "scope_status": "optional where a chosen source/local rule needs chance",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC05",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U08",
+        "read_time_line": 195,
+        "reconciled_line": 195
+      },
+      "intent": "Rare advantages can change a run completely",
+      "existing_owner_status": "starting advantage/source acquisition catalogue remains broader planning",
+      "genuinely_missing_decision_or_consumer": "An acquired temporal source needs real eligibility, retention/export/failure semantics; its genuinely powerful function stays useful",
+      "connected_player_example": "One retained pass opens otherwise impossible Stillwater preparation; ordinary Frontier needs no seal",
+      "engine_dependency": [
+        "BG05"
+      ],
+      "scope_status": "optional catalogue; required if temporal start/source is selected",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC06",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "### U14",
+        "read_time_line": 243,
+        "reconciled_line": 243
+      },
+      "intent": "Rivals, identities and independent enemy/protagonist development",
+      "existing_owner_status": "persistent rival/current pursuit exists; general global NPC simulation unselected",
+      "genuinely_missing_decision_or_consumer": "NPC agenda/stock/source and private knowledge cause their actual response, not player morality score",
+      "connected_player_example": "Halden may lawfully buy a funded lot; Neris may retain archive key despite help",
+      "engine_dependency": [
+        "BG01",
+        "03"
+      ],
+      "scope_status": "required agency for represented actors; other archetypes optional",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC07",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "## Long world campaigns and parallel systems, 2026-10-03",
+        "read_time_line": 115,
+        "reconciled_line": 115
+      },
+      "intent": "Days of local gameplay and in-between energy/place/base/event/pacing systems",
+      "existing_owner_status": "current local economy/work/control and campaign strands exist as inspected implemented/planned distinctions",
+      "genuinely_missing_decision_or_consumer": "Connect early choice, preparations and mature institution/adventure outcome without endless repeated labor",
+      "connected_player_example": "Trade, field competence and resident-funded service meet shared pressure but retain different costs/history",
+      "engine_dependency": [
+        "BG01",
+        "02",
+        "04"
+      ],
+      "scope_status": "required connected depth in selected world, optional future regions/worlds",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC08",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "## Origins, childhood, nonhuman lives and overarching timelines, 2026-10-03",
+        "read_time_line": 961,
+        "reconciled_line": 961
+      },
+      "intent": "Fresh/baby/tree starts, real bodies, families and broader timelines",
+      "existing_owner_status": "origin/phase contracts are design; chooseSimulationOrigin is not native initializer",
+      "genuinely_missing_decision_or_consumer": "Limited-body phase choices and chapter projections need actual care/stock/control/knowledge/age terms",
+      "connected_player_example": "An infant remembered signal may change future apprenticeship, without being a mastered adult skill",
+      "engine_dependency": [
+        "BG04",
+        "05"
+      ],
+      "scope_status": "optional until such origin selected; no current save age enrollment",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC09",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "## Paradise as a lived campaign and journey hub, 2026-10-03",
+        "read_time_line": 969,
+        "reconciled_line": 969
+      },
+      "intent": "Branching destination worlds and ordinary hub life",
+      "existing_owner_status": "lived hub/missions/persistent destination coverage already planned; supplied MTL qualifies comparison",
+      "genuinely_missing_decision_or_consumer": "Mission outcome, local welfare, residence, departure and later return need independent IDs",
+      "connected_player_example": "Retired Frontier office is not a life ending; a destination can remain home after contract settlement",
+      "engine_dependency": [
+        "BG02",
+        "03",
+        "04"
+      ],
+      "scope_status": "required when mission/hub chosen, not compulsory entry for every world",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC10",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "## Simple skills with extraordinary long-term growth, 2026-10-02",
+        "read_time_line": 489,
+        "reconciled_line": 489
+      },
+      "intent": "Ordinary skills can become genuinely powerful",
+      "existing_owner_status": "current exact technique thresholds exist; broad level-only/insight/personal growth remains catalogue; new four IDs not final cap",
+      "genuinely_missing_decision_or_consumer": "Earlier preparation/mastery must change actual function/time/capacity and ending possibilities; avoid mirrored XP or arbitrary anti-power gate",
+      "connected_player_example": "Load-bearing Step supports actual 3-output frame; simple learned procedure supports ordinary successor work",
+      "engine_dependency": [
+        "BG01",
+        "02"
+      ],
+      "scope_status": "required functional growth for selected Frontier; future powerful grades optional/versioned scope",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC11",
+      "request": {
+        "path": "docs/USER_VISION.md",
+        "section": "## Complete scoped worlds, useful skills and discovery UI, 2026-10-05",
+        "read_time_line": 15,
+        "reconciled_line": 15
+      },
+      "intent": "World completion and hidden-until-known UI",
+      "existing_owner_status": "revision6 finite local coverage and independently authorized skill/discovery wave; reported registration/build must be checked by Engine",
+      "genuinely_missing_decision_or_consumer": "Player completion differs from delivering all required alternative content; hints/previews/recaps must use known state",
+      "connected_player_example": "Closed arc preserves learned/recovery controls; unknown exclusive sale not leaked in charter UI until report",
+      "engine_dependency": [
+        "BG01",
+        "02",
+        "03"
+      ],
+      "scope_status": "required complete-world criteria; unchanged caller/UI sole owners",
+      "proposal_status": "planning-only new graph; current implemented content not generically reopened"
+    },
+    {
+      "id": "VC12",
+      "request": {
+        "path": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+        "section": "Authority and outcome / Timeline and ending requirements",
+        "additional_live_owner": {
+          "path": "docs/USER_VISION.md",
+          "section": "## Timeline styles, different endings and wider functional depth, 2026-10-05",
+          "reconciled_line": 3
+        }
+      },
+      "intent": "Latest explicit timeline styles, different endings and deeper USER_VISION analysis",
+      "existing_owner_status": "New scope exclusive here; coordinator alone integrates; old TL audit read-only",
+      "genuinely_missing_decision_or_consumer": "Per-world style profiles, cumulative causal endings, exact reconvergence and later-return signatures",
+      "connected_player_example": "5 Frontier endings and 4 original temporal endings have distinct rights/stock/people/learning/return signatures",
+      "engine_dependency": [
+        "BG01",
+        "BG02",
+        "BG03",
+        "BG04",
+        "BG05"
+      ],
+      "scope_status": "required for this planning deliverable; no runtime enrollment/policy grant",
+      "proposal_status": "new bounded analysis"
+    }
+  ]
+}

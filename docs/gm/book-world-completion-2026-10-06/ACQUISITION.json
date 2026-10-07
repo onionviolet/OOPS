@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "root": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "capturedAtUtc": "2026-10-07T03:42:44.641110+00:00",
+  "priorRelease": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md revision3",
+  "livePriorState": "idle; final implementation/source/shared/canonical release confirmed",
+  "otherActiveScope": "Steam/private docs/research and private intake; no native writer assigned",
+  "exclusive": "Existing shared source/native/UI/save/registry/build and current canonical integration, except four reserved game_absorption_assay_* leaves; new leaf files remain sole assigned writers",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "before": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "actual": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "matches": true
+    },
+    {
+      "path": "PROJECT.md",
+      "before": "fb5143d048e972a4ec51e21963cc60977eb2e793879e629d49e5279e5195793f",
+      "actual": "fb5143d048e972a4ec51e21963cc60977eb2e793879e629d49e5279e5195793f",
+      "matches": true
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "before": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+      "actual": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "before": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "actual": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md",
+      "before": "b8cb47acdf95d2b1d036a3a819b728e6b204d25a5ba66fb5993bfb8099ec8e78",
+      "actual": "b8cb47acdf95d2b1d036a3a819b728e6b204d25a5ba66fb5993bfb8099ec8e78",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md",
+      "before": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469",
+      "actual": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/BUILD.json",
+      "before": "90260d144620efd6a0daff67ad54748aceddc0471921ff27cc292d866d5aa526",
+      "actual": "90260d144620efd6a0daff67ad54748aceddc0471921ff27cc292d866d5aa526",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/WORLD_DEFINITION_OF_DONE.md",
+      "before": "9ec0ccfbbdb27476541c131e60acb02f9449ef1ccf2c6db5b7a34f77bca661f0",
+      "actual": "9ec0ccfbbdb27476541c131e60acb02f9449ef1ccf2c6db5b7a34f77bca661f0",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/EVIDENCE.json",
+      "before": "fca95ed8af6672e8321034261415aed50a0a55f593df2ddb6f1737e6c1258ce8",
+      "actual": "fca95ed8af6672e8321034261415aed50a0a55f593df2ddb6f1737e6c1258ce8",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/PLAYER_CONTRACT.md",
+      "before": "e83818b7195b73e31f540f8712e85ba4b9ae1a8cefce6e8bb3f6719c45699769",
+      "actual": "e83818b7195b73e31f540f8712e85ba4b9ae1a8cefce6e8bb3f6719c45699769",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/contracts/CONTRACTS.json",
+      "before": "575753268afa4edafe13856d1c892b5af69533f1fb17c143a05602863141bed8",
+      "actual": "575753268afa4edafe13856d1c892b5af69533f1fb17c143a05602863141bed8",
+      "matches": true
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "before": "92293a1157ad347d47e3bede4aceb627db37ee70856f1e313f4d1ef8b91f44bb",
+      "actual": "92293a1157ad347d47e3bede4aceb627db37ee70856f1e313f4d1ef8b91f44bb",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+      "before": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb",
+      "actual": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb",
+      "matches": true
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "before": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1",
+      "actual": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1",
+      "matches": true
+    },
+    {
+      "path": "src/main.js",
+      "before": "6c90dae707dc1083e675f2e9908285c73fd50e93e62821353fb7832af4cc85cf",
+      "actual": "6c90dae707dc1083e675f2e9908285c73fd50e93e62821353fb7832af4cc85cf",
+      "matches": true
+    },
+    {
+      "path": "src/simulation.js",
+      "before": "a9f862372c0d66f74732d24dbd7873e2451dd3262f26640bc683cac259580785",
+      "actual": "a9f862372c0d66f74732d24dbd7873e2451dd3262f26640bc683cac259580785",
+      "matches": true
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "before": "e178b4de84ac7dd6bd73d510eebb7c44f9b25de142c54f370a84a635b35d20ff",
+      "actual": "e178b4de84ac7dd6bd73d510eebb7c44f9b25de142c54f370a84a635b35d20ff",
+      "matches": true
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "before": "9c7708f180e00ab79a56d91154058baf3e3050b2ec83290c6812acb620490997",
+      "actual": "9c7708f180e00ab79a56d91154058baf3e3050b2ec83290c6812acb620490997",
+      "matches": true
+    },
+    {
+      "path": "src/book_world_player_agency_contracts.js",
+      "before": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+      "actual": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+      "matches": true
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "before": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526",
+      "actual": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526",
+      "matches": true
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "before": "41fd21f99ca2431abb79b948316f54fcc4c013fca1c96353b1d95e70b1397698",
+      "actual": "41fd21f99ca2431abb79b948316f54fcc4c013fca1c96353b1d95e70b1397698",
+      "matches": true
+    },
+    {
+      "path": "dist/bundle.js",
+      "before": "d405e2c1a0e39771841cdeb3e628d2ccc057e817026a2f8dd6796ba1ea35e302",
+      "actual": "d405e2c1a0e39771841cdeb3e628d2ccc057e817026a2f8dd6796ba1ea35e302",
+      "matches": true
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "before": "f2b715695a8c0c9e5c58e6d3902a3ffbd9f2ea1d8dc5d298dea049d0e7ceb095",
+      "actual": "f2b715695a8c0c9e5c58e6d3902a3ffbd9f2ea1d8dc5d298dea049d0e7ceb095",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "before": "2f4a0ca26ea4f982c05cc1924ffaf67aa8dd91c2b4bdd7e6b753d272f91d8f0e",
+      "actual": "2f4a0ca26ea4f982c05cc1924ffaf67aa8dd91c2b4bdd7e6b753d272f91d8f0e",
+      "matches": true
+    }
+  ],
+  "privateSaves": "untouched",
+  "sourceDossiers": "read-only",
+  "sharedAcquired": true
+}

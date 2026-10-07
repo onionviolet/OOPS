@@ -1,0 +1,11 @@
+# Logistics and heat reader checkpoint
+
+Completed and released at 2026-10-07T06:00:07.723789+00:00. Role `/root/factorio_native_successor/native_logistics_heat_reader`. Exclusive writes were limited to this directory and `/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/logistics-heat`; parent may acquire them after reading this receipt. No active child, analyzer, exporter or game process was launched by this leaf.
+
+[Report](REPORT.md) and [findings](FINDINGS.json) deliver43 complete generated C body reads,11 native claims,12 installed snapshot hashes/API selections, exact native entry/C/body hashes, C-line/instruction/ref/chunk-line evidence and original YAIR implications. All250 schema2 records in qualified chunks4–6 were privately reread/hash/count/raw-body/C verified; arm64 source hash matched. SQLite was opened using `file:...?mode=ro`; shared index/exporter/docs were untouched.
+
+Private `EXTRACTION.json`,43 entry directories with exact recovered.c/record.json, and `write_review.py` preserve reproducible private inputs. No raw recovered code or source corpus in Git. Significant lowering/type limits: electric partial extraction C omits the actual clamp; HeatBuffer long casts are floating loads/stores; HeatEnergySource conditional extraction void signature misses boolean w0. Instruction evidence takes precedence.
+
+No full export, whole semantic reading, complete callee network, original type/comment or buildable C++ claim. No x86_64 read, game launch, native execution, install/library/save/profile/entitlement mutation, gameplay/canonical edit, commit/push/publication/visible chat. Source hash/JSON/link checks are the gate; gameplay/browser/unit/save/failure/regression acceptance stays deferred and parent-owned. Further native body work should receive a fresh exact entry/chunk/hash packet. Do not dispatch a replacement for this completed packet.
+
+Final self-check passed:43 unique successful nonexternal/nonthunk schema2 entries, frozen C/body fingerprints, every claim's C-line bounds,12 installed hashes, JSON parsing and local Markdown links. A direct trailing-whitespace scan also passed for these three new files; `git diff --check` alone does not inspect their untracked contents. Private VALIDATION.json retains their final artifact hashes.

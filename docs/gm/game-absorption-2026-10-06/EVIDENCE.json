@@ -1,0 +1,123 @@
+{
+  "capturedAt": "2026-10-06T20:03:18.379700+00:00",
+  "packet": "GD-01-EVIDENCE-ASSAY",
+  "sourceHashes": {
+    "src/game_absorption_assay_content.js": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+    "src/game_absorption_assay_facts.js": "9c61dcca7ed5ab6008a5ccb1dd0ef95fec982e4ea9749f7fcd63ba25191fd66b",
+    "src/game_absorption_assay_host.js": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea",
+    "src/game_absorption_assay_item_view.js": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101"
+  },
+  "checks": [
+    {
+      "kind": "source syntax",
+      "path": "src/game_absorption_assay_content.js",
+      "status": "passed"
+    },
+    {
+      "kind": "source syntax",
+      "path": "src/game_absorption_assay_facts.js",
+      "status": "passed"
+    },
+    {
+      "kind": "source syntax",
+      "path": "src/game_absorption_assay_host.js",
+      "status": "passed"
+    },
+    {
+      "kind": "source syntax",
+      "path": "src/game_absorption_assay_item_view.js",
+      "status": "passed"
+    },
+    {
+      "kind": "cold imports and merged definition/link inspection",
+      "status": "passed",
+      "result": {
+        "newCommands": 10,
+        "currentHasFeature": false,
+        "mergedRegistryCommands": 863,
+        "actualPinKitConsumer": "nethack_fieldcraft.pin_kit",
+        "exports": {
+          "facts": [
+            "exactGameAbsorptionAssayJob",
+            "freezeGameAbsorptionAssayEffects",
+            "gameAbsorptionAssayCandidates",
+            "gameAbsorptionAssayFacts",
+            "gameAbsorptionAssayIdentified",
+            "sameAssayData",
+            "validateGameAbsorptionAssay"
+          ],
+          "host": [
+            "cancelGameAbsorptionAssayJob",
+            "commitGameAbsorptionAssayCommand",
+            "gameAbsorptionAssayContext",
+            "gameAbsorptionAssayPresentation"
+          ],
+          "view": [
+            "GAME_ABSORPTION_ASSAY_ITEM_VIEW_ID",
+            "projectGameAbsorptionAssayItemView"
+          ]
+        },
+        "qualification": "Cold imports and declarative link checks only. No state/command/job/projection execution, tests or runtime play."
+      }
+    },
+    {
+      "path": "src/simulation_content.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/simulation.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/display.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/main.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    }
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save",
+    "reload",
+    "import behavior",
+    "storage failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "integration": "Not applied; actual source/native/registry/UI/save consumers and current matching build await live shared-owner release.",
+  "sourceReview": "One bounded read-only internal review; conserved-container accounting repaired. Subsequent local source self-review tightened owned evidence and native charge budgets."
+}

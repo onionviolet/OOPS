@@ -1,0 +1,507 @@
+{
+  "schema": "repository-bank-absorption-interactions-appendix-v1",
+  "qualification": {
+    "purpose": "Representative actual-source return to qualify further repository-bank reading; not a complete NetHack or bank review.",
+    "source_cache": "~/.cache/yairpg-repository-bank/2026-10-05/nethack.git",
+    "source_revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+    "source_branch": "NetHack-5.0",
+    "pin_matches_SOURCES_json": true,
+    "repository_checkout_modified": false,
+    "upstream_code_or_scripts_executed": false,
+    "retrieval": "Read pinned Git objects with git show/grep; no repository checkout, setup, hooks, builds, or scripts. Source seed blobs were available locally.",
+    "review_scope": [
+      "README/purpose",
+      "dat/license",
+      "monster inventory-use eligibility, selection, and consumers",
+      "object discovery and use-observation paths"
+    ],
+    "coverage_limit": "One representative interaction subsystem only. This does not qualify repository-wide coverage, all item systems, versions, branches, assets, or runtime behavior."
+  },
+  "repositories": [
+    {
+      "id": "nethack",
+      "title": "NetHack",
+      "status": "representative-mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/NetHack/NetHack",
+        "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+        "branch": "NetHack-5.0",
+        "cache_key": "nethack.git",
+        "cache_limit": "Pinned shallow default-head objects and selected blobs; not an all-branch or complete offline review.",
+        "files": [
+          {
+            "path": "README",
+            "sha256": "0985a95859404393f322d866c320b05e094d890873fe69f9c676cd37794ee613",
+            "lines": "3-5, 20-35"
+          },
+          {
+            "path": "dat/license",
+            "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747",
+            "lines": "1-10, 24-47, 64-90"
+          },
+          {
+            "path": "src/muse.c",
+            "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd",
+            "symbols": [
+              "find_defensive",
+              "precheck",
+              "use_defensive",
+              "find_offensive",
+              "find_misc",
+              "use_misc",
+              "searches_for_item",
+              "mzapwand",
+              "mreadmsg",
+              "mquaffmsg"
+            ],
+            "lines": "11-15, 58-80, 441-749, 796-915, 1417-1593, 1821-2037, 2094-2245, 2382-2518, 2705-2789"
+          },
+          {
+            "path": "src/o_init.c",
+            "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+            "symbols": [
+              "savenames",
+              "restnames",
+              "discover_object"
+            ],
+            "lines": "375-435, 453-494"
+          },
+          {
+            "path": "src/potion.c",
+            "sha256": "0c2995f4bef0ea1c000d7c1b7bf6b057573fe86421eeb018888e9832943e7263",
+            "symbols": [
+              "dopotion"
+            ],
+            "lines": "618-641"
+          },
+          {
+            "path": "src/invent.c",
+            "sha256": "db83ffd18fa9e09e3404dccd2759a4cb3141f178461d0cb9eb554770121eb239",
+            "symbols": [
+              "fully_identify_obj",
+              "identify"
+            ],
+            "lines": "2630-2651"
+          },
+          {
+            "path": "src/trap.c",
+            "sha256": "9a5238a908189835fc990957a351ef1bcb892818fd02fe153574597be8b795ad",
+            "symbols": [
+              "water_damage",
+              "water_damage_chain"
+            ],
+            "lines": "4715-4855, 4857-4891",
+            "purpose_in_comparison": "Base NetHack pinned source has water-damage behavior, but the sampled file contains no doortrapped or WATER_BUCKET integration."
+          }
+        ]
+      },
+      "observed_behavior": [
+        "README identifies NetHack 5.0 as an enhancement to the dungeon exploration game and explicitly says this pinned 5.0.1 work-in-progress is not a release (README 3-14).",
+        "Monster item use is a turn-time subsystem with intentionally stated approximations: scroll users need sight, monsters know empty-wand charges, and monsters do not generally recognize curses (muse.c 11-15).",
+        "Eligibility is body- and context-gated. Defensive use rejects no-handed monsters, prefers immediate escape and checks traps, charges, dangerous level/terrain rules, role restrictions, player teleport knowledge and healing need (muse.c 635-749). Offensive use rejects peaceful, animal, mindless, no-handed or unaligned actors; then checks remembered resistances, target position, nearby allies, chokepoints, scary terrain, and item properties (muse.c 1417-1593). Miscellaneous use is restricted by intelligence, proximity and hands, then checks current conditions and item viability (muse.c 2094-2245).",
+        "The selectors retain a concrete inventory object and action code for downstream consumers. use_defensive/use_misc then apply the effect, spend/consume the item or wand charge, move actors, and update observed knowledge as applicable (muse.c 800-915, 2382-2518). Eligibility is not equivalent to sophisticated planning: comments say selection is not prioritized and generally takes the last viable inventory item (muse.c 1446-1448, 2153-2156).",
+        "Identification is conditional on evidence, not just use. Visible wand/scroll/potion outcomes call makeknown in specific branches; ambiguous outcomes can call trycall. Player discovery state records known versus encountered and updates the inventory view (muse.c 909-912, 923-995, 1025-1034, 2432-2518; o_init.c 453-494). The player's own potion path distinguishes an unambiguous effect from an unknown/ambiguous one before makeknown or trycall (potion.c 618-641)."
+      ],
+      "inference": [
+        "The reusable design idea is a narrow means-and-opportunity evaluator: actor capability, actual inventory, effect-specific preconditions, target/state facts, knowledge, and cost are checked before the effect consumer commits. The upstream implementation is not a general planning library and has hand-authored branches and deliberate approximations.",
+        "The observation path suggests YAIR can grant item-function knowledge only when the player's actual observation supports it, while keeping NPC beliefs private. NetHack's object-type catalog/discovery state is not itself a per-NPC belief model."
+      ],
+      "current_yair_mapping": {
+        "available_owners": [
+          {
+            "owner": "src/simulation_contracts.js",
+            "evidence": "Simulation item/transfer/custody/knowledge effects and actor inventory bindings are validated (37-57, 191-219)."
+          },
+          {
+            "owner": "src/simulation_effects.js",
+            "evidence": "Inventory reads native or simulation-owned stock; item consumption/transfers enforce ownership/custody; knowledge stores actor-specific stage, value, clock, cause, and optional basis (12-38, 144-171)."
+          },
+          {
+            "owner": "src/skill_discovery.js",
+            "evidence": "Pure discovery projection separates discovered/unlocked/eligible and filters hidden labels/text; technique knowledge can project observed vs understood states (45-69, 94-99)."
+          },
+          {
+            "owner": "src/capabilities.js",
+            "evidence": "Capability queries combine provider conditions and active earned sources without spending or RNG (40-64)."
+          },
+          {
+            "owner": "src/native_equipment_transaction.js and src/gameplay_publication.js",
+            "evidence": "Existing native equipment and inventory snapshots have staged publication owners; item reconstruction is checked before assignment (native_equipment_transaction.js 1-21; gameplay_publication.js 13-52)."
+          }
+        ],
+        "missing_consumer": "YAIR already has registered commands with preview/commit and controllers that evaluate authored candidate actions, preview them, and start an eligible command (src/simulation.js:49-105, 108-153, 156-162, 373-394). The missing reusable binding is a general item-affordance definition that maps an item function and object/item state to actor/target/situation eligibility, then applies an observation-qualified knowledge update. Current generic item effects address item-key counts and custody, not wetness, material damage, protection, or function-specific item knowledge; a one-off action may already fit existing command/effect owners if its entire rule is representable.",
+        "original_yair_example": "Original proposal, not existing gameplay: a torn-wing courier named Miri has one resin pellet in her own stock and is being chased in heavy rain. A narrow courier self-help action is legal only when her local body condition, rain-soaked lantern, chase phase and pellet stock all match; it consumes the pellet, mends the wick, changes what the pursuer can see, and records a cause. The player learns the pellet's lantern use only after directly seeing the flare, as `seen`; a later lesson can advance their knowledge to `understood`. Miri's unrelated private stock and beliefs remain hidden. The item is an illustrative new YAIR item, with no NetHack names, prose, code, or assets reused.",
+        "joins_and_gates": {
+          "state": "Existing actor/body, condition, target/situation, world and item facts can express predicates; new NPC decision semantics and any actor-specific item-function knowledge schema/owner need a bounded adapter.",
+          "rng": "The cited NetHack selectors mix deterministic gates with explicit randomized choices. YAIR should use no draw for failed/ineligible previews; if a choice among eligible responses is authored, derive and save its stream/receipt under the existing event/controller rules. This source review does not select a new RNG policy.",
+          "time": "NetHack use runs on the actor turn. YAIR would need to bind one accepted item-use command to the current supported world/scheduler boundary and avoid background advancement beyond the existing time owner.",
+          "stock": "Use the real owner inventory and reserve the actual count/charge. Respect native-vs-simulation inventory ownership, custody, equipment exclusion, and any already-held job reservation; do not create a mirror copy.",
+          "publication": "Stage item cost, actor condition/effect, knowledge receipt, event log and native projection together through current shared effect/native publication. Rendering alone must not trigger discovery or consume stock.",
+          "save_compatibility": "No change made or selected. A new content consumer should use an explicit optional-version or no-new-state route compatible with current expansion5/simulation schemas; if per-NPC learned item functions become saved state, define migration/unsupported-version behavior and then perform save/reload verification before calling it done."
+        },
+        "novelty_overlap": "Strong overlap with existing validated item costs, custody, actor knowledge, conditions, causes, controllers, discovery projection and staged native publication. New value is the connecting NPC means/opportunity/observation consumer, not another item, power, inventory, scheduler or discovery framework.",
+        "route": "Pattern adaptation into current JS owners with one authored courier action and an explicit observable outcome. Do not copy NetHack C code or require its runtime. Keep the pattern independent of the optional world roster and first one-realm/one-prestige milestone.",
+        "dependencies": {
+          "required": [],
+          "optional": [],
+          "decision": "No dependency adoption needed or selected."
+        },
+        "effort": {
+          "qualitative": "medium for one fixed actor/action across existing owners; high for reusable NPC item planning, per-agent knowledge, arbitrary item affordances and complete transactional UI/save behavior",
+          "confidence": "high for the pinned source trace; medium for the cross-owner estimate because the current checkout is dirty and this is source mapping rather than a full implementation audit"
+        },
+        "provenance": {
+          "source_license": "NetHack General Public License in dat/license: source redistribution preserves notices and license; modifications require prominent change/date notices; distributed derivatives must be offered to third parties on identical terms and must remain freely available under the stated conditions (dat/license 24-47, 64-90).",
+          "yair_license": "Root LICENSE is MIT. That mismatch makes direct code reuse a material license compatibility decision; this recommendation uses no copied implementation.",
+          "file_content_assets": "Reviewed source and license facts only. No upstream implementation, prose corpus, names, graphics, audio or other assets are proposed for copying. Do not infer asset/content licensing from the source license; assess separately if any such material is later requested.",
+          "attribution_and_removal": "An independently authored adapter adds no save data unless selected state is persisted. However, registered action/power definitions may be referenced from existing saves even when their implementation adds no new state; keep compatible definitions/tombstones for saved references or migrate them explicitly before removal. Persistent item knowledge/state additionally requires an explicit old-reader and migration decision."
+        },
+        "compatibility_save": "No change made or selected. Unreferenced content can be omitted without schema changes, but definitions referenced by saved jobs/powers/events/controllers must remain available or be handled through explicit migration/version behavior. Any per-NPC item-function knowledge or per-item condition state requires an explicit compatibility choice and save/reload verification."
+      },
+      "disposition_summary": "Pattern adaptation only is the plausible route for this sampled subsystem. Do not reuse or port NetHack implementation code under the current MIT project license; no dependency is justified. Review remains limited to the item-use/identification trace, not every NetHack subsystem.",
+      "saved_reference_removal_policy": "No silent unregister of any definition referenced by saved jobs, power records, events or controllers. Retain compatible definitions/tombstones or migrate/version existing saves."
+    },
+    {
+      "id": "xnethack",
+      "title": "xNetHack",
+      "status": "mechanism-reviewed-subsystem-only",
+      "source": {
+        "url": "https://github.com/copperwater/xNetHack",
+        "revision": "6eef39403f16f65e13f5d57242ee8d036307687a",
+        "branch": "master",
+        "cache_key": "xnethack.git",
+        "cache_limit": "Shallow pinned default-head objects and selected blobs; not all branches or repository-wide review.",
+        "relationship_to_nethack_review": "The xNetHack README describes a NetHack descendant; its 10.0 changelog says this line is based on xNetHack 9.1 and forked from NetHack 5.0.0 plus subsequent bugfix development. The pinned NetHack 5.0.1-work-in-progress and xNetHack source are distinct revisions. Their sampled src/trap.c paths differ: the NetHack pin has water_damage_chain but no doortrapped/WATER_BUCKET symbols; xNetHack has action-specific trapped-door handling that feeds its water-damage routine. This is a sampled subsystem comparison, not evidence of identical source or all-subsystem deltas.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "b330b0a67e81cbe306712cfaea61cb850782ad867b612f3f64ee6004ce7d6f61",
+            "symbols": [
+              "project purpose and design goals"
+            ],
+            "lines": "3-18, 20-31"
+          },
+          {
+            "path": "dat/license",
+            "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747",
+            "symbols": [
+              "NetHack General Public License"
+            ],
+            "lines": "1-10, 24-47, 64-90"
+          },
+          {
+            "path": "src/trap.c",
+            "sha256": "c48ea794fdf295554aefd8421299ac28ee746618334347b68950df5400d66e8a",
+            "symbols": [
+              "getdoortrap",
+              "doortrapped",
+              "water_damage",
+              "water_damage_chain"
+            ],
+            "lines": "7024-7059, 7061-7092, 7230-7253, 4899-5049"
+          },
+          {
+            "path": "doc/xnh-changelog-10.0.md",
+            "sha256": "8d13c2ee7a65b3b11373f3f5536f9262dd5fe37a1d53b45d1a10890ebb60da92",
+            "symbols": [
+              "xNetHack 10.0 base and upstream lineage"
+            ],
+            "lines": "1-20"
+          }
+        ]
+      },
+      "purpose_and_notices": {
+        "purpose_observed": "README says xNetHack aims to fix balance, reduce tedious/frustrating play, deepen less interesting parts, and experiment with community ideas; it describes conservative changes that deepen rather than broaden (README.md:3-18). The pinned 10.0 changelog says this release is based on xNetHack 9.1 and forked from vanilla NetHack 5.0.0 plus later bugfix work; it identifies c22b21e as the most recent incorporated upstream commit (doc/xnh-changelog-10.0.md:1-20).",
+        "license_observed": "The pinned dat/license has the NetHack General Public License, with the same SHA-256 as the reviewed NetHack license. It requires preserving source notices/license, distributing the license, prominent changed-file notices and date, and identical terms/free availability for distributed derivatives (dat/license:24-47, 64-90). src/trap.c retains NetHack copyright notices at lines 1-4.",
+        "coverage_limit": "Reviewed project purpose, license, release-lineage note, and one trap/item-affordance subsystem. No installation, build, execution, asset review, or full fork audit."
+      },
+      "disposition_summary": "Useful fork-specific interaction/content reference for action-triggered local hazards that affect actual carried objects. Adapt only a bounded original scene and state affordance if selected; no code/dependency adoption. xNetHack and NetHack remain separately pinned and not interchangeable.",
+      "saved_reference_removal_policy": "No silent unregister of any definition referenced by saved jobs, power records, events or controllers. Retain compatible definitions/tombstones or migrate/version existing saves; new per-item condition state also needs explicit migration."
+    }
+  ],
+  "findings": [
+    {
+      "id": "RB-INT-01",
+      "repository_id": "nethack",
+      "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+      "title": "Monster item affordances join means, state, target, and observed effect",
+      "evidence_files": [
+        "src/muse.c",
+        "src/o_init.c",
+        "src/potion.c",
+        "src/trap.c"
+      ],
+      "primary_symbols": [
+        "find_offensive",
+        "find_misc",
+        "find_defensive",
+        "use_defensive",
+        "use_misc",
+        "searches_for_item",
+        "discover_object",
+        "dopotion"
+      ],
+      "observed_upstream_behavior": "Eligibility searches actual held objects against actor/body and local context, selects a typed use, and downstream use consumes/spends stock and applies the effect. Player-facing item identity updates only through explicit observation/use outcomes or ambiguous-use naming paths.",
+      "observed_vs_inference": "Observed from pinned source as listed above. The proposed YAIR evaluator/adapter is an inference and design recommendation, not an existing feature or tested adaptation.",
+      "original_yair_example": "Miri the courier's resin pellet repairs a rain-soaked lantern only while she has a torn wing, is actively pursued, and owns the pellet; a player who sees the flare can record seen knowledge, with understanding gated behind a separate lesson.",
+      "current_matching_owner_and_missing_consumer": "Available owners: src/simulation.js previewSimulationCommand/commitSimulationCommand and the controller loop already choose, preview, and commit authored actions; src/simulation_effects.js/src/simulation_contracts.js own item counts, knowledge stages, custody, causes, actor/world/body facts; src/skill_discovery.js projects qualified discovered content. Missing reusable layer: definitions that bind arbitrary item functions and per-item state/knowledge to authored eligibility and evidence-qualified outcome updates. A bounded fixed action may require content only where existing facts/effects can represent every rule.",
+      "state_rng_time_stock_publication_save": "Existing controller selection iterates registered actions by authored priority and first eligible choice, with preview before start. Use actual inventory and reject custody misuse; apply no effect or knowledge on failed preview. If a fixed authored command uses weighted outcomes, its existing saved seed/causal command path owns the draw; do not add an item-specific RNG stream. Bind effects to the current clock and existing transaction/publication boundary. The current generic item state is a key/count; any persistent wet/damaged/protection state or per-item-function memory needs an explicit schema/version compatibility decision and save/reload verification. Definition removal is also a compatibility concern independent of new item-state fields: saved jobs/powers/events/controllers validate their definition IDs, so preserve references or migrate them explicitly.",
+      "route_and_dependency": "Use registered command/controller and existing item/knowledge effects for content when enough; add a small item-affordance and condition owner only if the selected interaction needs reusable item state. No dependency, code import or new engine is selected.",
+      "qualitative_effort_and_confidence": "Medium for one fixed action; high for a generic actor/item affordance and decision framework. Source trace high confidence; current integration estimate medium confidence.",
+      "license_content_assets": "NetHack General Public License requires preserving source notices/license and imposes same-terms/free-availability conditions on distributed derivatives; YAIR root LICENSE is MIT. Use original implementation, wording, labels and art. Assets and content rights were not established by this code review.",
+      "maintenance_removal_fallback": "Unreferenced future content can be withdrawn without adding save state. A registered command or power definition cannot simply be unregistered while saves reference it: active jobs retain commandId and are validated against registry.commands, saved power records are validated against registry.powers, and saved events/controllers also retain definitions (src/simulation_contracts.js:224, 228-240, 250-251). Keep the definition or a compatible tombstone until references are terminal/cleared, or perform an explicit migration/version boundary that handles existing saves and older readers. Never silently drop saved references or item-condition state.",
+      "novelty_overlap": "High overlap with existing data owners. New value is item-function/condition/observation binding only; not a new action executor, inventory, custody, or discovery framework.",
+      "missing_consumer": "No generalized item-function/condition/observation binding currently turns arbitrary item semantics into a hidden or visible affordance with evidence-qualified discovery. Existing authored controllers already preview/commit registered commands, so command execution is available. The specific gap is reusable item-state and observation mapping, or bounded content where existing effects suffice.",
+      "dependencies": {
+        "required": [],
+        "optional": [],
+        "decision": "No dependency adoption needed or selected."
+      },
+      "required_dependencies": [],
+      "optional_dependencies": [],
+      "effort": {
+        "qualitative": "low for fixed content representable by existing commands/effects; medium for one bounded item-state and observation adapter; high for a universal item-affordance system",
+        "confidence": "high for source trace, high for existing controller path, medium for generalized gap sizing"
+      },
+      "confidence": "High for the source trace and command/controller presence; medium for generalized gap sizing because this is not a complete implementation audit.",
+      "license_file_asset_provenance": "NetHack General Public License in dat/license requires preserving source notices/license and imposes same-terms/free-availability conditions on distributed derivatives; YAIR root LICENSE is MIT. Recommend an original JS implementation. No source code, source prose, labels, graphics, audio or other assets are copied or proposed. Their rights were not established by this review.",
+      "base_comparison": "In pinned NetHack src/trap.c, water_damage and water_damage_chain are at lines 4715-4891; symbol search finds neither doortrapped nor WATER_BUCKET in that revision. This establishes only the sampled fork feature boundary.",
+      "source_evidence": [
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/muse.c#L441-L749",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/muse.c",
+          "symbols": [
+            "find_defensive"
+          ],
+          "lines": "441-749",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/muse.c#L796-L915",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/muse.c",
+          "symbols": [
+            "use_defensive"
+          ],
+          "lines": "796-915",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/muse.c#L1417-L1593",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/muse.c",
+          "symbols": [
+            "find_offensive"
+          ],
+          "lines": "1417-1593",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/muse.c#L2094-L2245",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/muse.c",
+          "symbols": [
+            "find_misc"
+          ],
+          "lines": "2094-2245",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/muse.c#L2705-L2789",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/muse.c",
+          "symbols": [
+            "searches_for_item"
+          ],
+          "lines": "2705-2789",
+          "sha256": "6a103a6c01fb2e756894b1572915cb02616a79313b3e9ac646e80f852843aedd"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/o_init.c#L453-L494",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/o_init.c",
+          "symbols": [
+            "savenames",
+            "discover_object",
+            "restnames"
+          ],
+          "lines": "375-435, 453-494",
+          "sha256": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/potion.c#L618-L641",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/potion.c",
+          "symbols": [
+            "dopotion"
+          ],
+          "lines": "618-641",
+          "sha256": "0c2995f4bef0ea1c000d7c1b7bf6b057573fe86421eeb018888e9832943e7263"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/invent.c#L2630-L2651",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/invent.c",
+          "symbols": [
+            "fully_identify_obj",
+            "identify"
+          ],
+          "lines": "2630-2651",
+          "sha256": "db83ffd18fa9e09e3404dccd2759a4cb3141f178461d0cb9eb554770121eb239"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/dat/license#L24-L47",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "dat/license",
+          "symbols": [
+            "copying policies"
+          ],
+          "lines": "24-47, 64-90",
+          "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747"
+        },
+        {
+          "repository": "NetHack",
+          "url": "https://github.com/NetHack/NetHack/blob/a9f93bb008ea974716fb7b275ebbb249dfea67f2/src/trap.c#L4715-L4891",
+          "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+          "path": "src/trap.c",
+          "symbols": [
+            "water_damage",
+            "water_damage_chain"
+          ],
+          "lines": "4715-4891",
+          "sha256": "9a5238a908189835fc990957a351ef1bcb892818fd02fe153574597be8b795ad"
+        }
+      ],
+      "current_yair_evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "symbols": [
+            "validateSimulationState saved power/job/event references"
+          ],
+          "lines": "224, 228-240, 251"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand",
+            "commitSimulationCommand",
+            "controller loop"
+          ],
+          "lines": "49-105, 108-153, 156-162, 373-394"
+        }
+      ],
+      "persistence_trace": "Pinned o_init.c savenames/restnames375-435 write/read discovery array, per-type name-known state and user-given names; discover_object453-494 updates that same per-player type-discovery state. This is direct serialization evidence, not executed save/reload and not per-NPC belief persistence."
+    },
+    {
+      "id": "RB-INT-02",
+      "repository_id": "xnethack",
+      "revision": "6eef39403f16f65e13f5d57242ee8d036307687a",
+      "title": "Action-specific door traps feed water into material-aware inventory consequences",
+      "source_url": "https://github.com/copperwater/xNetHack",
+      "evidence_files": [
+        {
+          "path": "src/trap.c",
+          "symbols": [
+            "getdoortrap",
+            "doortrapped",
+            "water_damage",
+            "water_damage_chain"
+          ],
+          "lines": "7024-7059, 7061-7092, 7230-7253, 4899-5049",
+          "sha256": "c48ea794fdf295554aefd8421299ac28ee746618334347b68950df5400d66e8a"
+        },
+        {
+          "path": "doc/xnh-changelog-10.0.md",
+          "symbols": [
+            "release lineage"
+          ],
+          "lines": "1-20",
+          "sha256": "8d13c2ee7a65b3b11373f3f5536f9262dd5fe37a1d53b45d1a10890ebb60da92"
+        },
+        {
+          "path": "README.md",
+          "symbols": [
+            "purpose/design direction"
+          ],
+          "lines": "3-18",
+          "sha256": "b330b0a67e81cbe306712cfaea61cb850782ad867b612f3f64ee6004ce7d6f61"
+        },
+        {
+          "path": "dat/license",
+          "symbols": [
+            "copying/derivative conditions"
+          ],
+          "lines": "24-47, 64-90",
+          "sha256": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747"
+        }
+      ],
+      "observed_upstream_behavior": "xNetHack getdoortrap chooses a door hazard from level-eligible traps deterministically using door coordinates, level ledger and birthday (trap.c:7024-7059). doortrapped receives actor, touched body part/object, action and pre/post timing (7061-7092); for a WATER_BUCKET post-trigger on opening, breaking or untrapping, it announces a splash and passes the touching player or monster inventory to water_damage_chain (7230-7253). water_damage applies item-specific rules for grease, towels, nested/waterproof containers, scroll/book damage, potion dilution/transformation, and rust erosion, with luck/RNG exceptions and observable messages (4899-5049). The reviewed NetHack pin has water-damage helpers but no doortrapped/WATER_BUCKET symbols in src/trap.c: xNetHack adds a sampled action-specific trigger layer around related base-game water item behavior. This does not imply identical source.",
+      "observed_vs_inference": "Observed from the pinned xNetHack files and compared by symbol search/read against the pinned NetHack src/trap.c. Inference: transferable design is an action/body-part-specific environmental hazard that reaches carried stock through item function/material rules and provides evidence through visible item outcomes. No code was executed and no YAIR implementation is claimed.",
+      "original_yair_example": "Original proposal: a wind-up cistern at the Glasshouse archive sprays mineral mist when someone forces its pressure handle. A player carrying an exposed paper route loses its readable edge, while a wax-sealed map stays legible; a nearby apprentice can infer the mechanism only after observing a consequence. Author it as a fixed command with explicit inputs and known evidence when existing YAIR effects suffice; persistent damage state is needed only if the content requires it.",
+      "current_matching_owner_and_missing_consumer": "YAIR already has registered commands that preview/commit costs and effects and controllers that evaluate, preview and start authored eligible commands (src/simulation.js:49-105, 108-153, 156-162, 373-394). simulationFacts exposes actual item-key counts and actor/body/world/knowledge facts (src/simulation_effects.js:21-40); effects own inventory, custody and knowledge stages/causes (12-20, 144-171). Current generic item state is count/key, with no generic wetness/material-damage/protection record or item-function/observation registry. Missing is an item-condition or affordance binding only when selected content cannot be represented by fixed existing facts/effects; there is no absent generic command executor.",
+      "novelty_overlap": "High overlap with existing world/site facts, authored command eligibility, controller selection, inventory counts, custody, knowledge and transaction publication. Distinct value is content-authored physical item state/interference and observation mapping, not another simulation framework. Base NetHack already has generic water damage; the sampled xNetHack addition is action-specific door trigger integration.",
+      "route": "Prefer one bounded original scene authored as an existing command/event, with real item costs and knowledge and no new persistent item condition where possible. Add a small typed item-condition effect/owner only if durable state is essential; no xNetHack code or runtime dependency.",
+      "required_dependencies": [],
+      "optional_dependencies": [],
+      "effort": {
+        "qualitative": "low for fixed content using existing command/effect owners; medium for one material-condition state and observation projection; high for generic physical affordances across all items/worlds",
+        "confidence": "high for pinned source behavior and current command/controller path; medium for scope of a reusable item-condition layer"
+      },
+      "confidence": "High for source trace and current command/controller path; medium for scope of a reusable item-condition layer.",
+      "state_rng_time_stock_publication_save": {
+        "state": "Door action/body/phase and affected item state are explicit inputs; consequences must use the owner\u2019s actual held stock and properties.",
+        "rng": "xNetHack trap identity is deterministic per location/level plus birthday; water damage includes explicit luck and grease random gates. A YAIR fixed authored event needs no RNG unless its authored distribution calls for one; then use existing saved command/event RNG and causal receipts.",
+        "time": "xNetHack resolves at the interaction turn. YAIR must commit at the existing supported command/event boundary and preserve current clock ownership.",
+        "stock": "Apply consequences to the actual native or simulation inventory owner; preserve custody semantics and do not duplicate a carried inventory into world simulation.",
+        "publication": "Stage world/door transition, item state/loss, player-qualifying message/knowledge, and cause/log receipt together; rendering must not trigger damage or knowledge.",
+        "save": "Content-only definition changes may leave schema unchanged, but existing saved jobs/power records/events/controllers validate referenced command/power/event definitions (src/simulation_contracts.js:224, 228-240, 250-251). Retain compatible definitions/tombstones or use an explicit migration/version boundary. New individual item condition state also requires migration/old-reader handling and save/reload verification."
+      },
+      "license_file_asset_provenance": "xNetHack dat/license is the NetHack General Public License with same-terms/free-availability conditions on distributed derivative works; retain source notices. YAIR root LICENSE is MIT, making source-code reuse a material license compatibility issue. Recommend original implementation and prose. No source code/assets copied; art/audio/other asset rights were not examined and cannot be inferred from dat/license.",
+      "maintenance_removal_fallback": "Unreferenced future content can be withdrawn without adding save state. A registered command or power definition cannot simply be unregistered while saves reference it: active jobs retain commandId and are validated against registry.commands, saved power records are validated against registry.powers, and saved events/controllers also retain definitions (src/simulation_contracts.js:224, 228-240, 250-251). Keep the definition or a compatible tombstone until references are terminal/cleared, or perform an explicit migration/version boundary that handles existing saves and older readers. Never silently drop saved references or item-condition state.",
+      "qualitative_effort_and_confidence": "Low for content-only; medium for one typed item-condition/observation adapter; high for universal material simulation. Source trace confidence high; generalized implementation sizing medium.",
+      "novelty_overlap_note": "Fork-specific contextual hazard joins a material-aware water-damage mechanism. YAIR already supplies action selection and commit, leaving item-state/observation semantics only where content cannot be represented directly.",
+      "base_comparison_evidence": {
+        "repository_id": "nethack",
+        "revision": "a9f93bb008ea974716fb7b275ebbb249dfea67f2",
+        "path": "src/trap.c",
+        "sha256": "9a5238a908189835fc990957a351ef1bcb892818fd02fe153574597be8b795ad",
+        "symbols": [
+          "water_damage",
+          "water_damage_chain"
+        ],
+        "lines": "4715-4891",
+        "result": "Base water-damage mechanism is present; doortrapped and WATER_BUCKET symbols are absent from this pinned src/trap.c."
+      },
+      "current_yair_evidence": [
+        {
+          "path": "src/simulation_contracts.js",
+          "symbols": [
+            "validateSimulationState saved power/job/event references"
+          ],
+          "lines": "224, 228-240, 251"
+        },
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "startCommand",
+            "commitSimulationCommand",
+            "controller loop"
+          ],
+          "lines": "49-105, 108-153, 156-162, 373-394"
+        }
+      ]
+    }
+  ]
+}

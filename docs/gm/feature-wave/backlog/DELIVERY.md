@@ -1,0 +1,26 @@
+# Backlog source delivery
+
+Current amendment: [replacement delivery](REPLACEMENT_DELIVERY.md), [retained transit contract](TRANSIT_RETURN.md) and [amendment coverage](AMENDMENT_COVERAGE.json) own the new source/native admission and deferred acceptance. The eight-family receipt below is historical; current amendment source/native/clock/save/UI/build admission is confirmed by [AMENDMENT_BUILD_ADMISSION.json](AMENDMENT_BUILD_ADMISSION.json), bundle `11aaa9cbfc69`. Behavior/director acceptance remains deferred.
+
+2026-10-05. All eight optional original proofs are implemented-unverified and released to the shared root integrator. This successor edited only its reserved source modules and role documents. INTEGRATION.json owns exact exports, source hashes and required consumer joins.
+
+| Family | Concrete implemented consequence |
+| --- | --- |
+| Nonhuman origin | Fresh native initializer evidence gates living reedling body/source; two sap units weave two actual native ropes. |
+| Installed organ/device | One serialized BL-01 specimen transfers from brasswright, leaves native stock when installed, requires compatible intake, funded teaching and log fuel, produces fitted seals, suppresses/reactivates and returns the same specimen on removal. |
+| Possession | Consent moves Tern's actual stationary body and physical reserve under player control; native body/vitals park, host stock/private reserve remain separate; pressing spends clay stamina; explicit return restores each controller. |
+| Family inheritance | Living donor/recipient consent transfers named actual logs/template and same workbench claim; finite funded teaching permits two kits; unused property/right can return with learning retained. |
+| Live loop | The same introduced keeper, actual local bodies/vitals/focus/facts/site and single sealed log restore; common calendar, identities, knowledge and claim remain; at most three attempts/two rewinds and no exported trial stock. |
+| Fate appropriation | One donor-held packing entitlement changes owner with consent, creates exact actual rope custody and changes exclusive bench redemption; one actual donor kit is transferred once or unused claim/rope return. |
+| Ecology | Three actual root divisions renew two standing shoots per round after ten played minutes; harvest transfers two native herbs, finite supplied orders debit the keeper's six-coin purse. |
+| Offline catch-up | Deliberate three-log/three-coin escrow, exact actual wall-time review, six common minutes maximum; explicit pause/report/resume/cancel, discarded unsupported time and one durable supported settlement. |
+
+Final static fixes: actual live native vitals are mandatory at every proof boundary; possession stores actual context vitals instead of a potentially stale simulation projection; saved parked offsets and clay health/reserve/control validate; active loop save/publication seals recheck actual bag, money, equipment and same counterpart; native equipped and other inventory specimen carriers join uniqueness validation.
+
+Static verification passed: seven source syntax checks, cold full expedition registry/UI imports, scoped whitespace check. Registration consumer inspection confirms simulation definitions/sources, capabilities and actual expansion/save validator calls, plus native adapter guards and main command/context/publication binding. Root has now admitted normal and fresh-opening panels, BL-01 OtherItem registration and update_timer pause. Root completed the native pre-mutation/passive regeneration source audit; the backlog’s current native/save/UI/build admission is confirmed in [BUILD_ADMISSION.json](BUILD_ADMISSION.json). Source consumer admission does not prove behavior.
+
+Gameplay, browser, unit, save/reload, failure, keyboard, regression and creative-director acceptance remain deferred. No private save or generated gameplay fixture was used. Import checks do not prove any of those behaviors.
+
+Final static integration repair: eager host command arrays caused a cold expedition-registry import cycle. `backlogActions()` now lazily returns frozen command rows; UI updated, cold registry import passes. Backlog controls now consume `projectActionLegibility` using real preview eligibility/reasons and verbatim authored known cost/operation terms, with unique aria-describedby references and original command callbacks. No typed costs or hidden outcomes are inferred.
+
+Final root audit confirms actual native occupation/explicit dialogue, stance and travel guards, existing guarded equip/use/craft, update_timer pause and update early return before passive regeneration. Actual Backlog context now reads native `character.is_alive`; every proof requires this true plus actual positive health and non-ended simulation/chronicle life. No death/rebirth route is selected: family succession is living/willing, possession rejects a corpse and the loop cannot restore an ended outside life. Source/native/persistence/UI/registry/item admission is now confirmed; backlog modules and actual native consumers match bundle `dbd0224cf6dd`; [BUILD_ADMISSION.json](BUILD_ADMISSION.json) owns the scoped current readback. Separate active Ink follow-up has three newer source files and still needs the shared integrator’s final rebuild. All later behavior gates remain deferred.

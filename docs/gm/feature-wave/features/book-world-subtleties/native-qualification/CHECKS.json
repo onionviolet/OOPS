@@ -1,0 +1,39 @@
+{
+  "atUtc": "2026-10-05T22:50:13.240968+00:00",
+  "syntax": "pass",
+  "canonicalEngineFirstImport": "pass",
+  "staticDefinitionRegistration": {
+    "result": "pass",
+    "commands": 7,
+    "situations": 1
+  },
+  "standaloneAlternateImport": {
+    "result": "existing shared entry-point limitation",
+    "error": "src/ink_scene_content.js:117 relayIds before initialization"
+  },
+  "hostEvaluatorGameplaySaveInvoked": false,
+  "deferred": [
+    "behavior",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "director"
+  ],
+  "inputSnapshots": {
+    "src/feature_expansion_book_roster.js": "880bd66b18d3d8dfc451370ecb9cc8fb8b1028619e3dfbf1f6a33dfbc43d254c",
+    "src/feature_expansion_book_recognition.js": "ed4b6534175dd1ff83cf842825cf5414de3b6489aa8c4d8f64473ff3d861afcd",
+    "src/backlog_expansion_replacement.js": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+    "src/backlog_expansion_host.js": "738a38e102ad3e30bb783e004e8dfb2856c40e3cfd587719ec7e324e50f0e8b8",
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/backlog_expansion_core.js": "0ac7c83cdd85b94c7f31637dffa75421f216eb7379634e57dea63dadca89d727",
+    "src/simulation.js": "df359e84eaa43f23c37c085a9f18c4c36304124c70753c0453d8cb8fc74a8f9b",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/feature_expansion_subtlety_host.js": "edf27f5e13829b72e75252135037e065e5f1d63b18491eb23118defaf09552a1",
+    "src/ink_scene_content.js": "b0b40924e80b0901a4593416da88973ac1d61bb58b3b1c5f6a07b2c98c3f257f",
+    "src/ink_narrative.js": "6d93e3e2349edd023c34fc2e47131b5f416c7e6633e42c937870d92d22045e0c"
+  },
+  "outputWhitespace": "pass"
+}

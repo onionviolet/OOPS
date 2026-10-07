@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-05",
+  "worker": "/root/roster_texture",
+  "released": true,
+  "status": "implemented-unverified",
+  "changedPaths": [
+    "src/feature_expansion_book_host.js",
+    "src/feature_expansion_reference_desk.js",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/INTEGRATION.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKPOINT.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKS.json",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/DELIVERY.md",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/DELIVERY.json"
+  ],
+  "hostExports": [
+    "readBookNativeInputs",
+    "bookNativeContext",
+    "qualifiedOfficeBody",
+    "qualifiedOfficeSnapshot",
+    "assertQualifiedOfficePlan",
+    "createQualifiedBacklogAdapter"
+  ],
+  "deskExports": [
+    "REFERENCE_DESK_IDS",
+    "referenceDeskDefinitions",
+    "referenceDeskFacts",
+    "referenceDeskContext",
+    "referenceRegistryComparison",
+    "validateReferenceDeskState",
+    "createReferenceDeskHost"
+  ],
+  "commandIds": [
+    "subtlety.reference_begin",
+    "subtlety.reference_registry",
+    "subtlety.reference_registry_returned",
+    "subtlety.reference_personal",
+    "subtlety.reference_texture",
+    "subtlety.reference_refuse",
+    "subtlety.reference_return"
+  ],
+  "situationId": "subtlety.reference_desk",
+  "actualConsumers": "Features parent is admitting qualified Backlog/relay/Ink callbacks, native body context, final office publication guard and reference desk definitions/facts/presentation. Global registration/current build receipt remain parent-owned.",
+  "checks": "CHECKS.json",
+  "gameplaySaveFailureKeyboardDirector": "deferred",
+  "sha256": {
+    "src/feature_expansion_book_host.js": "ae0543aa6b88d286e90a115c51a40bcfb655ff848184d1709027d32e61450d69",
+    "src/feature_expansion_reference_desk.js": "4cde767957a2533bc44cda8c271304a66ba4a79eb57bb459b8f629286873d0c8",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/INTEGRATION.md": "afe64119cbb8846bf78778903f8a3b6ea37987b39a232ec0df8c2997ad50b468",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKPOINT.md": "a529d3a7b72b3afea4bbd48971fdf40dc42559377c0d44088e67d742e47371b6",
+    "docs/gm/feature-wave/features/book-world-subtleties/native-qualification/CHECKS.json": "9ea1593b5ef2b42ce8ffdb9868e233320afd5b3132988c77a0ac2efeb9e1698a"
+  }
+}

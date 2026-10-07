@@ -1,0 +1,15 @@
+# Oxygen Not Included source GM checkpoint
+
+Revision2, 2026-10-06. `/root/oxygen_gm`, parent `/root`; finite representative source objective complete, writer released after this receipt. Sole scope was this folder and private `/Users/weiwei/.codex/research/oxygen-not-included/`. No children or active source/export processes remain.
+
+Delivered [intake](INTAKE.json), [report](REPORT.md), [39 findings/62 evidence locators](FINDINGS.json), [23 path semantic ledger](COVERAGE.json), [all declared DLC axes](DLC_COVERAGE.json), [five original proposals](IMPLEMENTATION_PACKETS.md)/[packet contracts](PACKETS.json) and [validation](VALIDATION.json). Wider original implications precede the selected packets; all remain proposals, not accepted design or gameplay. The latest PROJECT/AGENTS direction and shared refresh/iteration/depth standard were read.
+
+Input pin: Steam 457140 build 24423041 on macOS Unity. Settled StateFlags 4, matching nonzero build/target, staging 0, complete byte counts, two observations and unchanged managed stat snapshot during copy. Private INPUT_HASHES pins 1,498 files/214,127,896 bytes, including 134 managed files and 1,358 selected rules/DLC bundles plus native/metadata. No redundant banks/music/video/main Unity assets, personal saves/profile or Steam account identifier retained.
+
+Recovery: complete Assembly-CSharp 4,337 C# files and firstpass 2,447 C# files, both exit 0/empty logs. Initial partial attempt 143 was superseded by those full exports. 73 main targeted requests included two absent guessed types, repaired with actual names; DlcManager was separately exported from firstpass. All commands/diagnostics stay private. Input hashes 1,498 and export hashes 6,934 revalidated; logical snapshot 247,049,648 bytes, disk 264,788 KiB (about 259 MiB). Native SimDLL is retained with managed interface coverage only; no native solver semantic claim. Full source export is not full source reading.
+
+Checks passed: JSON/evidence IDs, 62 exact source markers+hashes, five packet owner paths, input/export retention hashes and local document links. Live runtime, canonical/other-owner files, private saves, source library, builds and attribution/LICENSE untouched. No purchase/enablement/launch, commits, publication, uninstall, automation or new chats. Gameplay/unit/browser/save/reload/failure/regression suites remain deferred and unrun.
+
+Scope bounds: 23 representative dependency chains, not whole game/whole DLC. COVERAGE unread frontiers and every DLC row preserve larger accessible-unread systems, module/solver/ecology/social/late-game branches and ownership versus enablement. Finite pass/recovery is ready for root to reconcile the user's cleanup condition with those limits. This leaf performs no cleanup. Reuse private pinned source to pursue a named remaining question without re-exporting unchanged binaries.
+
+Next for parent: integrate only dossier/status/evidence in its own owner, decide original packet selection and separately reconcile installation cleanup. No required work remains in this leaf's finite assigned objective.

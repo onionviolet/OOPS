@@ -1,0 +1,381 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T00:14:30.789758+00:00",
+  "writer": "recognition_subtleties",
+  "scope": "read-only current native integration audit",
+  "status": "complete-released; no unresolved blocker identified in inspected current source",
+  "sharedWriter": "Features root",
+  "sourceSha256": {
+    "src/main.js": "21ed98b0f88f1a5f8c42285fe293b5b7bf8e9ee034ba9801dd849e37185b3f4a",
+    "src/expansion_engine.js": "28fc0a8babdcf0d412faa9632fb47659e10719ec06f4bd79c480fc1d15542e62",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/save_files.js": "195323b7194e41171a9d6ef04f368747e9ae5b69ff8a981dfce13377e260bd1f",
+    "src/feature_expansion_nested_carriers.js": "d835d655e236892a01cdf4f72eb96d2a1a47bf35b39aa161a1fee8bd1b7bf89c",
+    "src/feature_expansion_nested_host.js": "f6425bb9bfa8655348eb8c3e088bd3a7f4c378f522a87ac2d64b07393196b3ad",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/backlog_expansion_transit.js": "767e483e63f31964d058f066b7492e0cfaf827e31cf3efd0a1fbb8e4a6783906"
+  },
+  "findings": [
+    {
+      "id": "NR-01",
+      "priority": 2,
+      "severity": "medium",
+      "status": "resolved-in-current-source",
+      "confidence": "high source-level producer/consumer mismatch; no behavior executed",
+      "title": "Native stage revision invalidated the timed completion preflight",
+      "originalFinding": "The earlier persistExpansion ordering staged nestedNative before constructing simulationNativeContexts for a duration-job completion preflight. Stage writes plan.state.nestedCampaign.nativeRevision, while the context is read from the previous live expansionState/metadata. nested.nativeBound then becomes false for a nested.shift completionRequires predicate and the preflight follows the refund path rather than exercising the intended completion effects. This does not prove an actual later completion failed; it made the prospective validation inconsistent.",
+      "resolution": "Root moved native stage construction to main439\u2013440, after duration commitment preflight425\u2013431 and practice preflight433\u2013437. Current ordering was read back. No evaluator or plan was executed.",
+      "currentEvidence": [
+        {
+          "path": "src/main.js",
+          "start": 425,
+          "end": 440,
+          "purpose": "Completion/practice preflight precedes native staging"
+        },
+        {
+          "path": "src/main.js",
+          "start": 345,
+          "end": 354,
+          "purpose": "Native context reads the current live expansionState"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "start": 94,
+          "end": 109,
+          "purpose": "Native stage checks current metadata then mutates only staged nativeRevision"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 104,
+          "end": 112,
+          "purpose": "nativeBound requires matching context and state revisions"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "start": 81,
+          "end": 83,
+          "purpose": "nested.shift completionRequires includes nativeBound"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 186,
+          "end": 206,
+          "purpose": "Unsupported completion refunds; supported completion applies effects"
+        }
+      ]
+    }
+  ],
+  "parentReportedRepairsReadBack": [
+    {
+      "id": "NR-PARENT-01",
+      "status": "source-resolution-read-back",
+      "title": "Legal route recollection kind",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_carriers.js",
+          "start": 40,
+          "end": 46,
+          "purpose": "Evidence uses allowed basis kinds or recollection fallback"
+        }
+      ],
+      "origin": "Parent reported its Backlog review repair; this reviewer read current source only."
+    },
+    {
+      "id": "NR-PARENT-02",
+      "status": "source-resolution-read-back",
+      "title": "Mission binding covers only its active directed edge",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_carriers.js",
+          "start": 29,
+          "end": 30,
+          "purpose": "Only accepted/arrived/outcome/extracting mission with matching connection destination is selected"
+        },
+        {
+          "path": "src/feature_expansion_nested_carriers.js",
+          "start": 47,
+          "end": 52,
+          "purpose": "Context and request share the selected applicable mission"
+        },
+        {
+          "path": "src/backlog_expansion_transit.js",
+          "start": 296,
+          "end": 298,
+          "purpose": "Generic transit checks bound mission identity/status/destination coverage"
+        }
+      ],
+      "origin": "Parent reported its Backlog review repair; this reviewer read current source only."
+    }
+  ],
+  "inspectedSourceRelationships": [
+    {
+      "area": "passage and actual one-body arrival",
+      "status": "no unresolved source mismatch identified",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 128,
+          "end": 138,
+          "purpose": "Cargo/body/source-route/traveler joins"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 187,
+          "end": 192,
+          "purpose": "Host changes active visit, player world/location and native location patch"
+        },
+        {
+          "path": "src/feature_expansion_nested_carriers.js",
+          "start": 53,
+          "end": 57,
+          "purpose": "Stage delegates actual move and rereads resulting existing owners"
+        },
+        {
+          "path": "src/backlog_expansion_transit.js",
+          "start": 384,
+          "end": 409,
+          "purpose": "Transit preserves body, cargo, retained owners and visit histories"
+        },
+        {
+          "path": "src/main.js",
+          "start": 473,
+          "end": 473,
+          "purpose": "Live native location changes after durable/native publication"
+        },
+        {
+          "path": "src/main.js",
+          "start": 1421,
+          "end": 1426,
+          "purpose": "Ordinary native travel cannot bypass nested passage owner"
+        }
+      ]
+    },
+    {
+      "area": "explicit extraction played-time wait",
+      "status": "no unresolved source mismatch identified; early-choice rejection is an explicit guard",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 81,
+          "end": 96,
+          "purpose": "Existing joined time updates present local clock and extraction/deadline phases"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 168,
+          "end": 176,
+          "purpose": "Quoted wait uses actual remaining extraction interval"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 231,
+          "end": 237,
+          "purpose": "Initiation and rope-funded recovery remain distinct staged mutations"
+        },
+        {
+          "path": "src/main.js",
+          "start": 812,
+          "end": 817,
+          "purpose": "Wait delegates to conserved carrier-clock stage with shared advance hook"
+        },
+        {
+          "path": "src/feature_expansion_nested_carriers.js",
+          "start": 59,
+          "end": 65,
+          "purpose": "Wait clips to exact active extraction/return boundary and rereads native conditions"
+        },
+        {
+          "path": "src/backlog_expansion_transit.js",
+          "start": 412,
+          "end": 444,
+          "purpose": "Shared advancement seals funded work, requires exact time, and does not independently settle rewards"
+        },
+        {
+          "path": "src/main.js",
+          "start": 647,
+          "end": 668,
+          "purpose": "Existing scheduler drains budget remainder and stops at actual choice"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "start": 531,
+          "end": 559,
+          "purpose": "Joined boundaries sync nested clocks and finish causal simulation work"
+        }
+      ]
+    },
+    {
+      "area": "native envelope stage, durable storage and restore",
+      "status": "no unresolved source mismatch identified",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "start": 439,
+          "end": 470,
+          "purpose": "Native stage/write and durable publication precede live native mutation"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "start": 7,
+          "end": 18,
+          "purpose": "Detached existing envelope receives staged expansion/resource/calendar owners"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "start": 43,
+          "end": 49,
+          "purpose": "Native write precedes envelope validation and storage set"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "start": 30,
+          "end": 38,
+          "purpose": "Envelope validates body/current location and each independent NPC/stock/shop/location/quest owner"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "start": 94,
+          "end": 119,
+          "purpose": "Staged native metadata and counted stock write/publish/snapshot/restore"
+        },
+        {
+          "path": "src/save_files.js",
+          "start": 31,
+          "end": 37,
+          "purpose": "Structural import validates optional nested envelope"
+        },
+        {
+          "path": "src/main.js",
+          "start": 4223,
+          "end": 4225,
+          "purpose": "Ordinary save includes the actual native metadata snapshot"
+        },
+        {
+          "path": "src/main.js",
+          "start": 4311,
+          "end": 4319,
+          "purpose": "Loader validates envelope/engine before live restoration"
+        },
+        {
+          "path": "src/main.js",
+          "start": 5931,
+          "end": 5974,
+          "purpose": "Native equipment/body projection and nested restore precede current-location restoration"
+        }
+      ]
+    },
+    {
+      "area": "actor/NPC completion and native binding",
+      "status": "no additional unresolved source mismatch identified",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 121,
+          "end": 123,
+          "purpose": "NPC action contexts become busy while their world lacks actual player presence"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 173,
+          "end": 175,
+          "purpose": "Departure protects locally reserved resident jobs and retained visit capacity"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 181,
+          "end": 185,
+          "purpose": "Enrollment attaches independent native residents/controllers"
+        },
+        {
+          "path": "src/main.js",
+          "start": 345,
+          "end": 354,
+          "purpose": "Live native actors/equipment/vitals/locations feed scheduler contexts"
+        },
+        {
+          "path": "src/main.js",
+          "start": 365,
+          "end": 370,
+          "purpose": "Native NPC bodies project from their actual simulation vital owners"
+        },
+        {
+          "path": "src/main.js",
+          "start": 411,
+          "end": 417,
+          "purpose": "Native gameplay publication binds every staged NPC to its native registry actor"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "start": 546,
+          "end": 558,
+          "purpose": "Due work resolves at the existing common boundary and returns funded effects"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 186,
+          "end": 210,
+          "purpose": "Completion checks participant/world/location/support before reward"
+        },
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "start": 9,
+          "end": 30,
+          "purpose": "Native NPC inventories/XP/vitals bind to existing actors"
+        },
+        {
+          "path": "src/data/npcs.js",
+          "start": 23,
+          "end": 45,
+          "purpose": "NPC registration provides actual inventory/equipment/level/availability owners"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "syntax": {
+      "kind": "node --check",
+      "paths": [
+        "src/main.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js",
+        "src/feature_expansion_nested_carriers.js",
+        "src/feature_expansion_nested_host.js",
+        "src/feature_expansion_nested_native.js",
+        "src/backlog_expansion_transit.js"
+      ],
+      "result": "passed for all eight"
+    },
+    "esmImports": {
+      "kind": "namespace import only; no exported evaluator/action function called",
+      "paths": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js",
+        "src/feature_expansion_nested_carriers.js",
+        "src/feature_expansion_nested_host.js",
+        "src/feature_expansion_nested_native.js",
+        "src/backlog_expansion_transit.js"
+      ],
+      "result": "passed for seven non-main modules; export counts 15/1/4/6/12/5/10"
+    },
+    "mainImport": "not performed; would bootstrap app"
+  },
+  "writes": [
+    "docs/gm/feature-wave/features/nested-campaign/native-review/CHECKPOINT.md",
+    "docs/gm/feature-wave/features/nested-campaign/native-review/REVIEW.json"
+  ],
+  "prohibitedChecksPerformed": [],
+  "privateSavesOpened": false,
+  "sharedSourceEdited": false,
+  "gameplayStatus": "implemented-unverified",
+  "deferred": [
+    "actual physical passage/return/revisit and cargo conservation",
+    "extraction interrupted/recovered/choice/partial time behavior",
+    "actual funded NPC completion/material conservation",
+    "native save/reload and failed publication",
+    "keyboard/regression",
+    "director acceptance"
+  ],
+  "limits": "Bounded source-only reasoning on the captured current code. No claim of passing behavior, complete coverage, matched current bundle or private-save compatibility."
+}

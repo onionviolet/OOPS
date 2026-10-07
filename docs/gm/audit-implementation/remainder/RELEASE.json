@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T20:35:20.504487+00:00",
+  "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "status": "selected full source/native/UI/compatible-state/current-build delivery complete; implemented-unverified",
+  "scope": "ALL19remaining audited candidates + returned artifact/CausalP1-P5 + admitted MW01-04",
+  "rootSourceReservation": "released after final exact source/output/readback checks; no pending implementation row in this selected phase",
+  "childStatusObserved": "All seven actual host child agents completed; six source lanes and named follow-up source/review leases released",
+  "children": [
+    {
+      "agent": "/root/integration_review",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_livelihood",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_home",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_offers",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_consequences",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_combat_fit",
+      "state": "completed/released"
+    },
+    {
+      "agent": "/root/remainder_combat_objectives",
+      "state": "completed/released"
+    }
+  ],
+  "externalSourceReleases": "EXTERNAL_ADOPTION.json preserves exact hash-checked Causal and artifact returns before root repairs",
+  "bundleFingerprint": "c12c1524b341",
+  "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+  "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json",
+  "delivery": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+  "canonicalPlanRevision": 21,
+  "reviews": [
+    "docs/gm/audit-implementation/remainder/review-core/REVIEW.md",
+    "docs/gm/audit-implementation/remainder/review-battle/REVIEW.md",
+    "docs/gm/audit-implementation/remainder/review-native/REVIEW.md"
+  ],
+  "uiOnlyPostReviewAmendment": "docs/gm/audit-implementation/remainder/UI_COPY_CHECK.json",
+  "openActionableReviewedSourceFindings": 0,
+  "pendingSourceWriters": [],
+  "pendingProcesses": [],
+  "uncertainMutations": [],
+  "deferred": "All five gameplay/unit/browser/save-reload-import/failure/regression/keyboard/director acceptance families",
+  "sourceLibrariesTouched": false,
+  "privateSavesTouched": false,
+  "dependenciesChanged": false,
+  "commitsPushPublicationAutomation": false,
+  "broaderResearchNote": "ACS deeper cross-game/DLC owner indexed as subsequent research/proposals, no runtime expansion",
+  "documentHashes": {
+    "docs/gm/audit-implementation/remainder/DELIVERY.md": "a401f71e33d3fa61956c26c0c2dbd67e5d0ca8891bcfb4639c752397cc5dd9da",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+    "docs/gm/audit-implementation/remainder/SOURCE_REPAIRS.md": "6621613c66cd2be0251b4f661043507992f3e97cbf3cf8672c3b48ab65fa1dea",
+    "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+    "PROJECT.md": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "ae62a7f18abe2164923879f6a7ac41b241976421089d311e5030a554e7347259",
+    "docs/gm/world-implementation/README.md": "6223324b78267c2a1846aeb6c6b2c8e37a0d97e99326fe9a31b743c779aed56d",
+    "docs/gm/world-implementation/CHECKPOINT.md": "926047da4adbbbc13a77292bf7ab261480fdf3716bc031391e64158022f7b038",
+    "docs/worlds/paradise-hub/WORLD_BRIEF.md": "92293a1157ad347d47e3bede4aceb627db37ee70856f1e313f4d1ef8b91f44bb",
+    "docs/gm/audit-implementation/remainder/review-core/REVIEW.md": "78e3e27f8da7aff0908d67603ada4024f3aea53a3bad89d5f6ffa7c38469a130",
+    "docs/gm/audit-implementation/remainder/review-battle/REVIEW.md": "0cf03e5cfb6e5b2bdd3e60451de552afdf86ae9710c27e187451cb7704885345",
+    "docs/gm/audit-implementation/remainder/review-native/REVIEW.md": "5539a8707e60cf3f3ceb8e765c12e64032ec7802809532173fcec027de7e100d",
+    "docs/gm/audit-implementation/remainder/BUILD.json": "157d564eaa18252ebc9e9d26ddf3a3b959dad72291d2a5bb84764b2ffaa4408d",
+    "docs/gm/audit-implementation/remainder/COVERAGE.json": "91f61711769e8756fd3fefc2f3cadaf9e8619dd8da1d7e9b5754c6f9f9402c2c",
+    "docs/gm/audit-implementation/remainder/UI_COPY_CHECK.json": "54359c55f790053d8666b92454bc45a88197a372ac6379915ce0343b4db54273"
+  }
+}

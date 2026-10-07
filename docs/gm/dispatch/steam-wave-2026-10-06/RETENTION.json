@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T03:42:20.781968+00:00",
+  "eligible_cleanup_apps": [
+    955900,
+    1267910,
+    1910680,
+    459820,
+    466170
+  ],
+  "retained_install_apps": [
+    1546320
+  ],
+  "qualification": "Whole-game semantic coverage is not claimed. Your Chronicle native recovery remains partial and its Steam install is preserved. New copies do not add reviewed coverage.",
+  "games": [
+    {
+      "appid": 955900,
+      "slug": "amazing-cultivation-simulator",
+      "buildid": "17074448",
+      "action": "eligible-after-retention",
+      "copied_files": 100,
+      "copied_bytes": 551142981,
+      "all_new_copy_hashes_match": true,
+      "private_receipt": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/RETENTION_2026_10_06.json",
+      "protected_save_named_paths": 44,
+      "DLC_status_owner": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json"
+    },
+    {
+      "appid": 1267910,
+      "slug": "melvor-idle",
+      "buildid": "13311431",
+      "action": "eligible-after-retention",
+      "copied_files": 56,
+      "copied_bytes": 46845450,
+      "all_new_copy_hashes_match": true,
+      "private_receipt": "/Users/weiwei/.codex/research/melvor-idle/13311431/RETENTION_2026_10_06.json",
+      "protected_save_named_paths": 0,
+      "DLC_status_owner": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/melvor-idle/DLC_COVERAGE.json"
+    },
+    {
+      "appid": 1910680,
+      "slug": "orb-of-creation",
+      "buildid": "24426975",
+      "action": "eligible-after-retention",
+      "copied_files": 15,
+      "copied_bytes": 18898852,
+      "all_new_copy_hashes_match": true,
+      "private_receipt": "/Users/weiwei/.codex/research/orb-of-creation/24426975/RETENTION_2026_10_06.json",
+      "protected_save_named_paths": 0,
+      "DLC_status_owner": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/orb-of-creation/DLC_COVERAGE.json"
+    },
+    {
+      "appid": 1546320,
+      "slug": "your-chronicle",
+      "action": "keep-installed",
+      "reason": "Native IL2CPP recovery remains lossy/stub-only for CIL; does not meet completed managed-export gate."
+    },
+    {
+      "appid": 459820,
+      "slug": "crush-crush",
+      "buildid": "25589052",
+      "action": "eligible-after-retention",
+      "copied_files": 24,
+      "copied_bytes": 614042132,
+      "all_new_copy_hashes_match": true,
+      "private_receipt": "/Users/weiwei/.codex/research/crush-crush/25589052/RETENTION_2026_10_06.json",
+      "protected_save_named_paths": 0,
+      "DLC_status_owner": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/crush-crush/DLC_COVERAGE.json"
+    },
+    {
+      "appid": 466170,
+      "slug": "idling-to-rule-the-gods",
+      "buildid": "25514347",
+      "action": "eligible-after-retention",
+      "copied_files": 8,
+      "copied_bytes": 193583489,
+      "all_new_copy_hashes_match": true,
+      "private_receipt": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/RETENTION_2026_10_06.json",
+      "protected_save_named_paths": 0,
+      "DLC_status_owner": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/game-source-research-2026-10-06/DLC_COVERAGE.json"
+    }
+  ]
+}

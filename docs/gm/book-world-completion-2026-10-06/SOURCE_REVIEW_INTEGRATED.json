@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "role": "/root/integration_map",
+  "scope": "Bounded read-only final integrated source review; only SOURCE_REVIEW_INTEGRATED.md/json written",
+  "status": "completed_released",
+  "verdict": "No remaining actionable finding after targeted source repairs in the reviewed joins; implementation remains unverified by behavior suites",
+  "registry": {
+    "worlds": 9,
+    "sources": 56,
+    "commands": 1153,
+    "controllers": 52,
+    "conditions": 23,
+    "encounters": 13
+  },
+  "sourceHashes": {
+    "src/book_world_mol_ids.js": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195",
+    "src/book_world_mol_content.js": "6033a10b6845e0529e9109be1e351f75846b6655b091f142fd0a424b04360280",
+    "src/book_world_mol_actions.js": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d",
+    "src/book_world_mol_state.js": "75543dab270539f5c57045c8481a1a89351e0a16b9045fb603a7ad8387d4ddc8",
+    "src/book_world_mol_host.js": "bff62276ab5177013c83c515e24693f119f8b6066c8970c05598f3bea7ced657",
+    "src/book_world_mol_native.js": "afa9e225d96af65729048f756e9413190b1347aaf6a3297208f797ed8a69ebe5",
+    "src/book_world_paradise_campaign_content.js": "59d2262e96fd9836dc0a3ad8281de122920d77d43dd901bbe53c9ca9dc8ebbb8",
+    "src/book_world_paradise_campaign_facts.js": "9a95999bda36cdf4854c1a0a0b625d3f81513601f30b911b44fc098e84b563e2",
+    "src/book_world_paradise_campaign_runtime.js": "2bb2692c043253f8422d5c257d9b77f265a8ce49dfaad6235056cab4f61e0787",
+    "src/book_world_paradise_campaign_host.js": "4f76fcd0a1e52acbd6add2d89179b721329673d4972d280c09a45fd0218af905",
+    "src/main.js": "99f4ece298c84ddb02c0ea3d21db3c8a54845d011f9b82ac3a4613bda08dc32b",
+    "src/simulation.js": "bb2f1800a9c8940c28cc20c45b33384dddd52ff8da6aa9060a16342996305465",
+    "src/simulation_effects.js": "4b27b6f5141bbfb4687c5b2d97f20f483df8e9f2065ab9d4510d4b7cbb9eb9a6",
+    "src/expansion_engine.js": "ebcfe158a68f1356e04cb9b8e034a27f0c184efef6b94cf1ae39dc232b122fd2",
+    "src/book_world_effects.js": "18d1598256fd12d6269126384d32f758bd802041e9f811a9f02e6b1ba9455bd1"
+  },
+  "findings": [
+    {
+      "id": "INT01",
+      "priority": 1,
+      "title": "MOL single-owner cardinality mismatch",
+      "file": "src/book_world_mol_native.js",
+      "line": 12,
+      "status": "source_repaired_readback",
+      "repair": "All footprint/world/instance cardinalities are1; actual register not executed"
+    },
+    {
+      "id": "INT02",
+      "priority": 1,
+      "title": "Double first-admission Paradise appointments",
+      "file": "src/book_world_paradise_campaign_runtime.js",
+      "line": 32,
+      "status": "source_repaired_readback",
+      "repair": "Matching exact already-staged appointment admitted idempotently; changed appointment rejected"
+    },
+    {
+      "id": "INT03",
+      "priority": 2,
+      "title": "Permanent claims on repeated MOL jobs",
+      "file": "src/book_world_mol_actions.js",
+      "line": 21,
+      "status": "source_repaired_readback",
+      "repair": "Automatic claim excludes once:false; static recurring-claim list empty"
+    },
+    {
+      "id": "INT04",
+      "priority": 2,
+      "title": "Own-tool custody counts",
+      "file": "src/book_world_mol_actions.js",
+      "line": 123,
+      "status": "source_repaired_readback",
+      "repair": "Subtract only actual borrowed-held units; outgoing native transfer not subtracted twice"
+    },
+    {
+      "id": "INT05",
+      "priority": 2,
+      "title": "First-turn MOL encounter retreat",
+      "file": "src/book_world_mol_host.js",
+      "line": 56,
+      "status": "source_repaired_readback",
+      "repair": "Host zero-new-cost retreat available at either turn and rendered in panel"
+    }
+  ],
+  "priorFindings": {
+    "paper": "source repaired;8pre-sponsorship and2Ibery-sponsored papers after delivered research",
+    "reservedLamp": "exact accepted-job lamp support bound through completeJob",
+    "physicalRope": "actual held/returned player rope at retrieval",
+    "publicFutureKnowledge": "player temporal/closure receipts narrowed",
+    "matureConsequences": "hazard/forecast return gate and mastery3reading consumer",
+    "finiteMana": "paid attention-limited deliberate Nora recovery allows supported later calibration"
+  },
+  "checked": [
+    "Cold registry/MOL/PD/save/People/Events imports and definition construction",
+    "Named main/simulation/effects/engine/native/body/custody/clock/publisher/UI joins read directly",
+    "Repeated-command permanent-claim list empty",
+    "Counted paper/calibration/branch arithmetic",
+    "Review JSON/source links/pointers"
+  ],
+  "notExecuted": [
+    "State creation",
+    "Command execution",
+    "Native constructor registration",
+    "Build",
+    "Browser",
+    "Gameplay journey",
+    "Save/reload/import behavior",
+    "Failure",
+    "Regression",
+    "Keyboard",
+    "Director"
+  ],
+  "deferredAcceptance": "Root owns rebuilt-game/source-map/served-byte proof and five saved behavior journeys; no deferred suite relabelled passed",
+  "reservationsReleased": [
+    "docs/gm/book-world-completion-2026-10-06/SOURCE_REVIEW_INTEGRATED.md",
+    "docs/gm/book-world-completion-2026-10-06/SOURCE_REVIEW_INTEGRATED.json"
+  ]
+}

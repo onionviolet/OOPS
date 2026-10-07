@@ -1,0 +1,612 @@
+{
+  "schema_version": 1,
+  "status": "finite_research_complete",
+  "edition": "Steam955900/build17074448",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "findings": [
+    {
+      "id": "cultivation:C01",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Cultivation law content is declarative but read by a shared state machine: law loading sorts bottleneck locations, current law selects stages, and positive practice stops at the next fractional threshold until its distinct bottleneck is cleared. Aptitude mismatch changes efficiency rather than proving a universal hard admission gate.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C01",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C02",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Ordinary seated practice spends the Practice need per dt, gains stage value and tree experience, and restores Rest. Location element/ling, mental and emotional state, mentor effect, building effectiveness, season and event-driver modifiers alter the rate. The practice job prefers an assigned practice building, then room, then map; it can reconsider higher-priority work every five world-time units.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C02",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C03",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "A normal Chance attempt obtains the configured required item, then consumes all configured ResourceCost entries and one item per ItemCost entry on toil entry, drains current Ling, waits CostTime, and attempts the current live chance on leave. The selected law Stage2 furnace bottleneck costs 10 maximum-age units and one Item_Dan_JingYuan2, not merely a possession check.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C03",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C04",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Chance probability combines configured base plus retry experience, then luck, mind and active medicine/property multipliers, additive sect fengshui/light/weather/season/location factors, retained core-grade modifier, and current consciousness; it clamps to 0..1. Parameters are read when TryBrokenNeck runs, not copied from the earlier preview. Water/metal light bonuses favor lower light; fire/wood favor higher light; earth favors intermediate light.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C04",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C05",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Failure is a stateful outcome: retry count increments, configured body damage is rolled, failure mood/modifier may persist, a configured non-Chance timestamp resets, and depleted stage value can move the actor back below the gate. The reviewed normal leave/failure path contains no refund for the entry-consumed items or maximum age. Success clears TouchNeck/retry count, applies rewards and can advance stage; stage advance reactivates equipment and informs difficulty.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C05",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C06",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Golden-core formation is a finite conversion, not the normal Chance roll: it drains 30 Ling per dt, accumulates GoldEffectSpeed per dt using live preparation/environment factors, and ends when Ling is empty. Normal Gold leave forces m_bDid true, calls MakeGold, records quality/grade and adds 0.015 times accumulated quality to energy capacity before clearing the bottleneck. This also banks current accumulated quality on interrupted leave in the reviewed code; exact zero-duration/cancellation ordering is unobserved.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C06",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C07",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Retained core quality affects more than its display. MakeGold alters NpcLingMaxValue; GlodDanEffectBroken selects a grade-dependent multiplier for later breakthroughs with a separate post-stage-9 table column. GoldLevel ranking runs 1 through 9 with grade 1 at the highest configured quality threshold, so higher quality must not be described as a larger grade number.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C07",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C08",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "The selected law also contains a timed threat: Stage3 at 20 percent has a Thunder bottleneck with 4900 countdown units and 10000 configured ThunderValue. Outside RPG mode, expiry can automatically start the owned JobBrokenNeck; action incapacity/selected suppression states adjust or defer the countdown. Thunder/God jobs cannot be interrupted, while Chance/Gold normal jobs are not marked noninterruptible here.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C08",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C09",
+      "family": "cultivation",
+      "qualification": "code-established",
+      "claim": "Environment has implementation-backed meaning: light uses a biome/time curve and LightAddP; the seasonal phase is year-day minus ten wrapped over eight annual segments; weather applies/unapplies map-property values. Active XML samples set Overcast ShuiBroken +0.02, LightRain ShuiBroken +0.02 / HuoBroken -0.04, HeavyRain ShuiBroken +0.03 / HuoBroken -0.06. These are modifiers, not full success probabilities.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C09",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "cultivation:C10",
+      "family": "cultivation",
+      "qualification": "code-established-ui",
+      "claim": "The ordinary Chance/Gold/FuPractice UI requires at least 99 percent of maximum Ling, enough configured resources/items, CanDoMagic and no already-running bottleneck. It exposes modifier breakdown and target-location factors; RealMode replaces the chance display with unknown. This is the verified UI path, not proof that every alternate command caller repeats all gates.",
+      "evidence_owner": "traces/cultivation.json",
+      "local_id": "C10",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "production:ACS-PROD-ARTIFACT",
+      "family": "production",
+      "qualification": "Selected recovered code/configuration trace; runtime unobserved",
+      "claim": "Already-stocked material -> ordinary sword -> source-sensitive combat artifact",
+      "trace_chain": {
+        "id": "ACS-PROD-ARTIFACT",
+        "title": "Already-stocked material -> ordinary sword -> source-sensitive combat artifact",
+        "evidence_status": "semantically_traced_configuration_and_managed_code; runtime_not_observed",
+        "prerequisites": [
+          "A Smithing station with a workspace, fuel and reachable resources; sword recipe admits MetalBlock, RockBlock or WoodBlock as main material.",
+          "Ordinary refining UI requires a player Dao disciple able to do magic/disciple handwork, not rented/visitor/attacker or job banned; reachable Refining station and free selected object.",
+          "UI selection rejects current FightFabao/TreasureFabao/Esoterica inputs, requires free count and Ling >= item.Rate^2 * 500. BehaviourRefiningFabao separately requires normal health."
+        ],
+        "decisions": [
+          "Choose sword as the station product and its actual main material. This traces already-stocked ingots, not mining or smelting.",
+          "Choose ordinary object refining, pick the owned/free sword, and choose the character doing it. Keeping the sword ordinary is a viable alternative; secret recipe and Helian branches are distinct.",
+          "Choose preparation through current character Manual skill, mind-state/property bonuses and building quality before committing; the source ties those values to actual outcomes."
+        ],
+        "expenditures": [
+          "Sword data declares main material volume5, one Item_RoughWoodBlock and100 Item_Water, nominal600work. Actual main-material count uses ceil(CostStuffCount*CostStuffScale) then ceil(material multiplier*that count); fixed items use their separate rcount=ceil(count*countscale) unless noscale. Iron declares multiplier1, but live difficulty scaling is not frozen.",
+          "BuildingProduce locks actual ingredients, debits them only on the first nonzero work addition, accumulates their Ling/material provenance, and then advances paid work. Station Drive adds a separate fuel requirement; exact fuel cadence was not traced.",
+          "Ordinary refining type0 debits item.Rate^2*500 Ling when its toil enters. One input object is debited on completed success or completed random failure; an interrupted ordinary refining toil also consumes one input."
+        ],
+        "state_changes": [
+          "Smithing completes into one sword with actual StuffDef, quality/element and input provenance; no mere recipe flag supplies it.",
+          "Ordinary refine success constructs a new FightFaBao, retains source material/element and object provenance, computes artifact rank from source rank and inherited Ling, then sets name, author and need-click; source object loses one count.",
+          "Success adds school Fabao count, rank-squared TreeExp, stories/events; random failure gives30TreeExp, failure story/message and failure event with no output. Interruption alters obsession mind value and reports failure."
+        ],
+        "downstream_consumers": [
+          "ItemThing.InitFabao -> FabaoData.Init parses both main-material and source-object physical labels plus element into PS values. Sharp data adds AttackPower/FlySpeed/RotSpeed; Hard2 trades power against Ling recovery/capacity/rotation and knockback.",
+          "XiaWorld.Fight.FabaoBase.Init binds FromItem; GetPower reads that actual item Fabao AttackPower, owner modifiers and current powerup; GetAtkPower uses GetPower. FightBody.FB_BeHit calls GetAtkPower and passes the value, owner and artifact element to BindThing.ReduceDamage. The manufactured object therefore has a real damage consumer."
+        ],
+        "time_policy": [
+          "Ordinary artifact toil target: min((80*input.Rate + input.LingV/100)/(1 + 0.02*Manual + speed bonus),300) world-time units; QuickWork overrides40. Progress follows unit.keeptime. These are simulation-time values, not measured wall-clock durations.",
+          "Smithing advances work by dt*work efficiency*SmithingSpeed*building FengShui efficiency; generic manufacturing can yield to a higher priority job after48time units, checked on5-unit world-time cadence.",
+          "This object-refining command is a finite actor job; formula-based production uses a separate queue."
+        ],
+        "failure_and_aftermath": [
+          "Selection has explicit no-energy/no-free-object rejection without a source mutation; unavailable path/workspace prevents discovery.",
+          "Toil random success uses 0.6 -0.4*input.Rate +0.1*Manual +mind-state map +success property, with special success/failure overrides. UI displays clamped probability except RealMode conceals it. No measured success rate claimed.",
+          "Random failure consumes the valuable chosen object and energy but preserves a smaller TreeExp trace. Cancellation/interruption type0 also destroys one object once toil is entered. Pre-toil cancellation cleanup unlocks it; exact every JobEngine interruption boundary not audited.",
+          "Smithing may injure the actor on leave according to SmithingInjuredChance. Exact injury content not traced."
+        ]
+      },
+      "evidence_owner": "traces/production.json",
+      "local_id": "ACS-PROD-ARTIFACT",
+      "source_spans_hashes": "Exact evidence and semantic coverage in named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "production:ACS-PROD-MEDICINE",
+      "family": "production",
+      "qualification": "Selected recovered code/configuration trace; runtime unobserved",
+      "claim": "NoHunger1 batch -> consumed medicine -> less food/rest interruption; JingYuan contrast",
+      "trace_chain": {
+        "id": "ACS-PROD-MEDICINE",
+        "title": "NoHunger1 batch -> consumed medicine -> less food/rest interruption; JingYuan contrast",
+        "evidence_status": "semantically_traced_configuration_and_managed_code; runtime_not_observed",
+        "prerequisites": [
+          "Dao disciple eligible for magic/treatment work; RefiningDan station and empty usable queue; formula either Normal>0 or actually learned.",
+          "NoHunger1 is Normal1, Medicine level5, base success addition0.8, base Count9; item Rate6 causes entry energy debit200. Its XML declares3Fruit+9Ginkgo+9Healroot and200nominalwork; actual fixed-item request/debit uses rcount with its current countscale.",
+          "Actual ingredients must reach the building bag; reachable workspace and fuel required. CommandMakeItem only allows the exact Maker selected in the recipe queue."
+        ],
+        "decisions": [
+          "Choose NoHunger1 rather than JingYuan or another medicine, select current maker and station.",
+          "Station element relation and FengShui, maker Medicine-derived properties, yield/speed bonuses and runtime difficulty modifiers change actual batch success/count/time.",
+          "Consume the output before extended work, retain/sell it, or use ordinary food/rest. JingYuan instead buys faster practice-resource conversion with increased nutrition use."
+        ],
+        "expenditures": [
+          "UILogicMode queues exact Maker/Param/output/base Count. BuildingProduce waits for all actual stock and locks it; first Making call consumes reserved ingredients.",
+          "ToilMakeItem.OnEnter deducts200*max(1,output.Rate-5)^3 Ling; NoHunger1 Rate6 gives200 independent of batch success.",
+          "ToilEatItem spends a timed consumption action, locks one actual pill and SubCount(1) only after completed EatItem returns true."
+        ],
+        "state_changes": [
+          "Work completion removes current queue task before rolling, may enqueue next loop, and returns success1 or failure-1. Success yields max(1,floor(9*adjustedYield)) actual authored output count, copied manufacture provenance, school Danyao count, TreeExp, elixir gas callback for player production and actual item events.",
+          "Completed failure spends already-debited ingredients/energy, creates one randomly selected failed-pill type with World.RandomRange(1,6) count, gives50TreeExp, obsession/failure story/message/event. The exact upper bound of random count is not asserted without RandomRange implementation.",
+          "Normal eligible EatItem applies Dan_NoHunger1 modifier. It declares MaxStack1, Duration1200 and NutritionConsumeConstant/FatigueConsumeConstant AddP-0.5, as well as Food Nutrition50.",
+          "JingYuan declares modifier Duration4200, NutritionConsumeConstant AddP1 and NutritionToJingYuanK AddV0.005; its formula level0/base0.9/count1 and25MagicHerb+9LingStone/200work differ from NoHunger1."
+        ],
+        "downstream_consumers": [
+          "Npc.NormalEatItem adds declared nutrition to FoodNeed. FoodNeed.GetSubValue multiplies hunger loss by NutritionConsumeConstant; RestNeed.GetSubValue multiplies awake fatigue loss by FatigueConsumeConstant.",
+          "FoodNeed extreme hunger and RestNeed severe fatigue can interrupt ordinary jobs, so these pill modifiers affect continued useful labor.",
+          "FoodNeed.OnValueChange converts lost food increments into Practice need using NutritionToJingYuanK for disciples; JingYuan trades more food use for that actual conversion consumer."
+        ],
+        "time_policy": [
+          "Work advances with dt, current work efficiency, DanMake speed and building FengShui; nominal200 is work, not200real seconds.",
+          "Born station relation adds0.2success and multiplies yield1.5; Contrary subtracts0.2 and halves yield; Same adds0.1 and multiplies1.2. Runtime RefineDanFailRate caps success and RefineDanProduceScale adjusts yield.",
+          "Current task value/progress live with the building and are serialized with queue; higher-priority work may interrupt the actor without removing accumulated task value. Entry energy is paid again whenever a new ToilMakeItem enters; exact resumed/reload cost behavior remains a live acceptance query.",
+          "Loop=-1 or Loop>1 enqueues a replacement on completion before success/failure; each loop requires new ingredients and a maker. No free output from defining a loop.",
+          "ModifierBase checks TolSecond-AddTimes against Duration; same-scale reapplication refreshes time through NpcPropertyMgr. Duration1200 is two days in source description; inspected code establishes1200world-time units, not a measured user session."
+        ],
+        "failure_and_aftermath": [
+          "Missing ingredient/path/fuel/workspace/maker has a waiting/rejection path before actual craft; it is not a failed paid batch.",
+          "Post-start random failure creates failed pills, exp/obsession and events rather than resetting stock. Failed-pill uses/effects were not traced.",
+          "Body-cultivation or lingering eligibility can prevent the shared elixir modifier branch; normal food still has its own route. No universal potion effect across body types claimed.",
+          "Generic per-item ElixirFesistance is updated in EatItem. ElixirData default multiplier1 means these selected pills do not establish diminishing efficacy; other medicines may explicitly set it."
+        ]
+      },
+      "evidence_owner": "traces/production.json",
+      "local_id": "ACS-PROD-MEDICINE",
+      "source_spans_hashes": "Exact evidence and semantic coverage in named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "actors:ACS-ACTOR-WORK",
+      "family": "actors",
+      "qualification": "Selected recovered code/configuration trace; runtime unobserved",
+      "claim": "Allowed worker completes cleaning",
+      "trace_chain": {
+        "id": "ACS-ACTOR-WORK",
+        "title": "Allowed worker completes cleaning",
+        "status": "static source-backed; unobserved",
+        "prerequisites": {
+          "finding": "Ordinary worker registers Clean priority3 and job bans. Idle dispatch excludes locked/RPG/dead/corpse/off-map actors. NeedClean is a single CommandClean. Cleaning needs fewer than two lost hands, activity scope, valid/unlocked owner, key-stay permission and reachable path.",
+          "source_spans": [
+            "npc:4777-4805",
+            "npc:6326-6358",
+            "clean_command_def:150-153",
+            "clean_admission:10-23",
+            "clean_command:46-60",
+            "command:517-604"
+          ]
+        },
+        "decision": {
+          "finding": "Work UI selects enable/VIP policy; Carry includes Clean. VIP changes main priority3 to2 while preserving disabled sign. NPC sorts ascending kind*100000+main*10000+workkind*100+insertion child; first enabled/unbanned/currently legal Check yielding job wins. Work-hour/health/body/magic filters remain. Command search scores squared distance minus owner/command priority, then applies eligibility/activity scope.",
+          "source_spans": [
+            "work_ui:48-64",
+            "work_ui:180-198",
+            "work_engine:161-206",
+            "behaviour:42-49",
+            "work_engine:592-661",
+            "command_search:390-503"
+          ]
+        },
+        "expenditure": {
+          "finding": "No direct item/purse debit in this selected path. Actor occupancy, movement and nominal Lerp(10,1,CleanSpeed/1.7) simulation-second toil are spent. Idle may extend to a nonloop animation length; exact visible time and wider needs expenditure are unobserved.",
+          "source_spans": [
+            "clean_job:19-24",
+            "idle:44-64",
+            "idle:83-108"
+          ]
+        },
+        "mutation": {
+          "finding": "Register/CurJob/start event, work-on and command lock precede stepping. Last successful toil sets Did. Successful clean leave finishes command, restoring10 beauty/removing dust and flagging room recalc; creation had applied minus10/dust.",
+          "source_spans": [
+            "work_engine:416-425",
+            "job:462-475",
+            "job:490-552",
+            "clean_job:27-32",
+            "command:401-448",
+            "clean_command:8-15",
+            "clean_command:27-34"
+          ]
+        },
+        "consumer": {
+          "finding": "Tile beauty feeds room average, Map.GetBeauty and NpcFeeling BeautyExpect mood bands. This is atmosphere feedback; GetCleanEvaluate returns1 and is not evidence of a functional cleanliness stat.",
+          "source_spans": [
+            "map:519-530",
+            "room:253-256",
+            "room:407-411",
+            "room:500-515",
+            "map:2280-2304",
+            "feeling:714-749",
+            "room:332-339"
+          ]
+        },
+        "time_policy": {
+          "finding": "Supplied dt drives JobEngine.Step. Cached WorkHour accumulates on CurJob changes for previous behavior category3 and positive stored day/hour; admission compares it with RuntimeVar limit. Free job probes higher-priority eligible work every5 TolSecond units, but individual jobs/toils control preemption probes. No universal per-tick preemption or daily accounting claim.",
+          "source_spans": [
+            "work_engine:73-105",
+            "work_engine:503-569",
+            "work_engine:623-639",
+            "free_retry:115-129"
+          ]
+        },
+        "failure": {
+          "finding": "No eligible reachable command yields no job. Loss of worker/owner/required command or interrupted toil sets Did false; normal interrupted clean does not finish/remove dust. BeginJob replaces only interruptible current work; job or parent can reject interruption. Rain can remove outdoor cleaning commands independently and cleanup restores beauty regardless of OnFinished did.",
+          "source_spans": [
+            "job:243-258",
+            "job:389-412",
+            "job:490-534",
+            "clean_job:27-32",
+            "work_engine:388-463",
+            "clean_command:18-34"
+          ]
+        },
+        "aftermath": {
+          "finding": "Leave removes work-on and unlocks command for later eligible pickup. No retained partial cleaning progress established. Child jobs attach parent; successful child restores parent, interrupted child attempts parent interruption. General command ownership is distinct from simple cancel-and-restart.",
+          "source_spans": [
+            "job:595-689",
+            "work_engine:388-463"
+          ]
+        }
+      },
+      "evidence_owner": "traces/actors.json",
+      "local_id": "ACS-ACTOR-WORK",
+      "source_spans_hashes": "Exact evidence and semantic coverage in named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "actors:ACS-ACTOR-SOCIAL",
+      "family": "actors",
+      "qualification": "Selected recovered code/configuration trace; runtime unobserved",
+      "claim": "Conversation separates prose memory, mood and retained relation drift",
+      "trace_chain": {
+        "id": "ACS-ACTOR-SOCIAL",
+        "title": "Conversation separates prose memory, mood and retained relation drift",
+        "status": "static source-backed; unobserved",
+        "prerequisites": {
+          "finding": "Capable wisdom actor looks around outside fight mode with shared room, vision/line of sight, same camp/compatible race, squared distance<256, awake/actionable/non-god-practicing partner and no no-communication flags. One neighbor attempted per pass. Pair cooldown and first-contact random0-100 TolSecond warmup can return before effects. Selected warm pair has no Fancy/Lover/Spouse special path.",
+          "source_spans": [
+            "feeling:169-239",
+            "feeling:760-771",
+            "relation:922-939",
+            "relation:1056-1129",
+            "relation:1336-1354"
+          ]
+        },
+        "decision": {
+          "finding": "Directed Value maps to a social level; level modifier clamps[-3,3]. NPC samples SayHello/Talk/DeepTalk/Neglect/Quarrel/Insult. Level0 weights50/35/3/10/2/0; level-2 weights40/5/1/40/10/4. Partner applies same kind reciprocally. This is autonomous stochastic selection, not guaranteed player outcome.",
+          "source_spans": [
+            "relation:909-919",
+            "relation:1076-1116",
+            "social_weights:1748-1778",
+            "interactive_kinds:1-20"
+          ]
+        },
+        "expenditure": {
+          "finding": "Warm Talk has no direct item/currency/stamina debit here and grants property-valued SocialContact XP. If both are free/jobless at different keys, paired JobTalk occupies each for nominal3-second toil. Relation/mood may apply without that presentation job when busy.",
+          "source_spans": [
+            "relation:1115-1129",
+            "relation:1360-1364",
+            "relation:1406-1422",
+            "social_job:50-69"
+          ]
+        },
+        "mutation": {
+          "finding": "Warm Talk sets nexttime=(0.02+0.1667*(1-K))*random(0.5,1.5)*600+TolSecond, triggers Social_Talk, adds AfterTalk favor and mood and SocialContact XP. Favor value4/max6/duration0.5; AddFavour stores NPC/definition/explanation/KeepTime0, rejects self/mutex/full stack, optionally reverse-indexes, emits ModifierFavour. It does not immediately assign BaseValue/AddValue. Story-rate0.2/actor guards can skip prose while numeric effects occur. Successful parsed story appends dated partner-linked NpcMemery, outside RPG, dropping oldest at100.",
+          "source_spans": [
+            "relation:1336-1386",
+            "relation:1406-1422",
+            "favour_def:366-373",
+            "relation:1441-1479",
+            "social_stories:26-45",
+            "npc_story:1710-1785",
+            "npc:2437-2469"
+          ]
+        },
+        "consumer": {
+          "finding": "For IsPlayerThing actors, Relation.Step expires labels at Duration*600, sums permanent values into AddValue and timed values into CurValue, integrates timed values into BaseValue at0.0012*FavourChangeSpeedRate*dt clamped[-100,100]. Value=clamp(BaseValue+AddValue); future level/weighted interactions reread it. Expiring AfterTalk may leave baseline drift; it is not permanent immediate+4 friendship. Separate mood value4/max3/stack0.8/duration0.5 changes mood sum, later un-applies and affects moving RealMoodValue. Separate NpcInfo renders newest prose/time/tooltip; no prose-to-job AI parser established.",
+          "source_spans": [
+            "relation:25-40",
+            "relation:754-827",
+            "relation:909-919",
+            "relation:1076-1116",
+            "mood_def:567-575",
+            "mood:189-285",
+            "mood:430-439",
+            "mood:442-491",
+            "mood:498-529",
+            "memory_ui:200-212",
+            "memory_ui:306-343"
+          ]
+        },
+        "time_policy": {
+          "finding": "Simulation dt/TolSecond, not proven offline policy. IsPlayerThing relation updates staggered at least1 second. Duration0.5 means300 simulation units for both chosen favor/mood. K lazy builder can use inclinations/shared interests/features/oppositions, but normal path creates default cache before GetRelationK; cached K0 may bypass lazy affinity initialization. Actual initialization lifecycle and exact accumulated drift are uncertain.",
+          "source_spans": [
+            "relation:456-508",
+            "relation:754-816",
+            "relation:1064-1074",
+            "relation:1336-1354",
+            "property_step:1294-1299"
+          ]
+        },
+        "failure": {
+          "finding": "No neighbor/cooldown/first warmup yields no favor. Full favor stack rejects new label while mood can reset oldest timer. Story failure does not undo numeric interaction. Negative choices add distinct negative favor/mood; probabilistic escalation adds Fight labels/mood and possibly fight presentation. JobTalk movement/animation alone proves no injury. No romance claim.",
+          "source_spans": [
+            "relation:1441-1479",
+            "mood:224-242",
+            "npc_story:1710-1785",
+            "relation:1360-1386",
+            "favour_def:382-454",
+            "mood_def:585-611",
+            "relation:1117-1129",
+            "relation:1298-1333",
+            "social_job:64-69"
+          ]
+        },
+        "aftermath": {
+          "finding": "Timed labels/moods expire separately, existing BaseValue drift remains. Surviving relations/interactive clocks and JSON-marked prose list are serialized; Relation.Step removes absent NPCs. Runtime save/reload unobserved.",
+          "source_spans": [
+            "relation:754-827",
+            "relation:92-131",
+            "relation:257-301",
+            "npc:518-525"
+          ]
+        }
+      },
+      "evidence_owner": "traces/actors.json",
+      "local_id": "ACS-ACTOR-SOCIAL",
+      "source_spans_hashes": "Exact evidence and semantic coverage in named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I01",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "School-wide method availability is distinct from actor learning. UnLockGong inserts a shared method name and enables Practice for the first method; it does not call actor LearnEsotericaEx.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I01",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I02",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "Teacher command needs a valid reachable learner with interruptible work and sufficient learner TreeExp. Learning checks method eligibility, disciple work, hidden teaching restriction, rank, incompatibilities and prerequisites. Teaching has a 20-second idle toil after movement; learner comprehension multiplier is0.75, or0.5 for that actor's current MasterID. Completion rechecks gates/stock and then actually subtracts TreeExp through LearnEsotericaEx, adds DaoHang and records learned method.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I02",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I03",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "Completed learning changes actual actor combat skills, recipes, magic/modifiers and selected world access, depending on the definition. DanFang_1's non-commented definition declares eight medicine recipes; EsotericaFinish iterates Dans into LearnDanFormulas. No automatic granted items or mastered craft are shown by this unlock.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I03",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I04",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "Working grounded shelves add100 institutional memory capacity each. Inserting a new method consumes difficulty units of capacity, rejects duplicates/insufficient space and gives the contributing actor comprehension. Deposit toil costs min(difficulty*100/(intelligence*logicStage),600) simulation seconds for a selected manual; it records institutional access without deleting the manual in the inspected deposit path. Interruption publishes failure and removes its item command, while JobCangJingGe puts down the carried item.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I04",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I05",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "Archive self-study has20 simulation seconds, rank/eligibility gates and learner comprehension debit at0.75 of derived cost. Insufficient comprehension at settlement publishes failure with no LearnEsotericaEx. Archive scale also lowers GetTreeExpNeed by min(floor(usedMemory/1000)*0.01,0.2). UI eligibility flag itself can remain true when comprehension is insufficient; command and settlement stock gates establish actual rejection.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I05",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I06",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "World travel launches an occupied hidden actor, with outbound/visit/return stages. Base journey duration is distance*3 divided by flight-speed and event modifiers. GetLingCost is literally0 for departure; normal visit waits120 simulation seconds and dispatches actual story options. Arrival count drives child-location discovery through sys_openplace then Lua helper and PlacesMgr unlock, while the first linked visit can expose linked locations.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I06",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "institution:ACS-I07",
+      "family": "institution",
+      "qualification": "code_established",
+      "claim": "Stay mode generates repeated stories and returns after16800 simulation seconds in the inspected path. Callback during outward travel maps elapsed outward progress into return-stage progress; no refund of elapsed time is shown. Non-God CheckWaitDie return preparation drains10\u201330percent of MaxLing; return releases exploration/equipment flags and actual carried awards. Punishment and fight-map waits delay progression; shortage/no selected story never implies a guaranteed reward.",
+      "evidence_owner": "traces/institution.json",
+      "local_id": "ACS-I07",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P01",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "The current collection catalogue has global definition data and a separate lit-state ledger. Registered material definitions are categorized; produced found items call FoundMe, become actionable/enter warehouse when needed, and mark the catalogue without a second resource charge. A collection mark grants neither method mastery nor actor execution rights.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P01",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P02",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "The collection window displays catalogue names and totals, greys unlit entries, disables their button and shows category/kind unlock text. Lit entries enable detailed tips. Therefore this is a collection metaprogression surface, not evidence of actor-scoped knowledge or spoiler-free discovery.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P02",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P03",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "Collection data loads from a shared /saves/IllHandData.info path and writes its lit/data dictionaries there. Change sets needsave; selected Step flushes after timer>300 dt or fight-map mode, and SaveData supports explicit flush. Personal data was not opened.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P03",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P04",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "A production loop is10,50,-1infinite or0cancel. The queue owns the current batch, asks for real materials, locks them, and removes their counts on first actual Making progress. MaterialWorkPlace turns one Item_Wood into a nominal3Item_RoughWoodBlock per30work, subject to actual worker efficiency; this is30work, not30wall seconds.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P04",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P05",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "At completion, the batch is removed and a remaining finite/infinite batch is queued before the success roll. Thus retry count follows completed attempts, not guaranteed successes. Shortage leaves head work waiting without a MakeItem command, while partial gathered locks are released; removing an unstarted task unlocks gathered items, but removing progressed work does not restore already consumed material in this path.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P05",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P06",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "Current NewNpcUIEvent table WorldSpeed controls current MessageMgr alerts:1calls player Pause;2/3/4requests1/2/3speed. Enemy message6 is warning+WorldSpeed2; Map actual enemy spawn emits it, reducing speed to1. Warning insertion in enabled selected15x mode also pauses. Alerts change attention/time policy, not enemy existence or spent work.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P06",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P07",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "Pause records playerpause or increments nested syspause, sets Runing false, and leaves Unity timeScale1. Step continues only managers with PauseUpdate while not running. System Play decrements its hold and refuses resume while another hold or playerpause remains. Playing scales dt and changes fixedDeltaTime above1x.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P07",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P08",
+      "family": "pacing",
+      "qualification": "code_established",
+      "claim": "Readable timed scripts schedule by World day/second and GameMain.GetNow, execute only after strictgreater-than deadlines, remove waits before callback, and mark file scripts alreadyRun before callback. AlreadyRun/waits are saved through mod callbacks. Lib.Call catches callback errors; no rollback/retry of the removed/marked entry is present in the inspected runner.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P08",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P09",
+      "family": "pacing",
+      "qualification": "source_definition_vs_code_reconciled",
+      "claim": "English help says fast2is3x. Current handler calls configured MaxSpeed+3, default5x when MaxSpeed2 and ReplaceSpeed3 is not positive; a gated optional top control calls15x. Stored user settings were not inspected, so actual selected runtime speed remains unknown.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P09",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    },
+    {
+      "id": "pacing:ACS-P10",
+      "family": "pacing",
+      "qualification": "bounded_negative",
+      "claim": "Inspected code establishes running live dt calendar advancement. Focus handler adjusts audio/mouse only. This is insufficient to establish closed-game/offline catch-up, background scheduling, or any full ACS offline policy; no such policy is imported into YAIRPG.",
+      "evidence_owner": "traces/pacing.json",
+      "local_id": "ACS-P10",
+      "source_spans_hashes": "Exact evidence and semantic coverage in the named trace sources; private root pinned by INTAKE.json."
+    }
+  ],
+  "family_owners": [
+    {
+      "id": "cultivation",
+      "title": "Cultivation methods, preparation and environmental timing",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/cultivation.json",
+      "trace_sha256": "ddb539a38e3f80211ae7bb8e051ef4f33c9e3940d0df36cf56ba67d5c0cfc3d3",
+      "prose": "traces/cultivation.md"
+    },
+    {
+      "id": "production",
+      "title": "Material, artifact and medicine production",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/production.json",
+      "trace_sha256": "458bc6931b89e0f1865b57fc075a57529111cf51a7487643950325dfc9e2a44f",
+      "prose": "traces/production.md"
+    },
+    {
+      "id": "actors",
+      "title": "Actor work selection and social memory",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/actors.json",
+      "trace_sha256": "158007274739f991163e9e760d205a294a8d36007d54d82f959339e15f96825f",
+      "prose": "traces/actors.md"
+    },
+    {
+      "id": "institution",
+      "title": "Sect knowledge, institutional archive and world exploration",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/institution.json",
+      "trace_sha256": "6f06cb3c9973301184a716c4e90732ff8cb14fe2f7a57abbeeeda4e99bc86b88",
+      "prose": "traces/institution.md"
+    },
+    {
+      "id": "pacing",
+      "title": "Discovery, automation and pacing",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/pacing.json",
+      "trace_sha256": "b30aecd4f774f407722b576c8575972ddced528ff929a17d21ff056e6424d860",
+      "prose": "traces/pacing.md"
+    }
+  ],
+  "proposed_packets": "PACKETS.json",
+  "selected_packets": [
+    "ACS-P01",
+    "ACS-P02",
+    "ACS-P03"
+  ],
+  "research_vs_implementation": "Code/configuration established findings; no observed play or gameplay implementation. Original packet fiction/numbers/policies are proposals. Worker manual-review alternative remains unselected.",
+  "coverage": "COVERAGE.json",
+  "intake": "INTAKE.json",
+  "scope_clarification": {
+    "date": "2026-10-06",
+    "owner": "DEEPER_RESEARCH.md",
+    "small_packets_are_not_full_findings": true,
+    "whole_game_depth_review": "open; five explicit source priorities",
+    "dlc_coverage": "DLC_COVERAGE.json",
+    "supplemental_dlc_traces": "traces/dlc.json",
+    "original_findings_count": 31,
+    "supplemental_traces": 2
+  }
+}

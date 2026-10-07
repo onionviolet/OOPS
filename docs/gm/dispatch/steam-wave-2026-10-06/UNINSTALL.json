@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "method": "running Steam native console command forwarded by steam_osx +app_uninstall, default non-complete behavior",
+  "retention_receipt": "RETENTION.json",
+  "games": [
+    {
+      "appid": 466170,
+      "slug": "idling-to-rule-the-gods",
+      "buildid": "25514347",
+      "status": "uninstalled",
+      "native_exit_code": 0,
+      "native_log": "[2026-10-06 23:42:39] AppID 466170 finished uninstall (No Error)",
+      "manifest_removed": true,
+      "install_removed": true,
+      "remaining_untracked_file_count": 0,
+      "remaining_untracked_paths": [],
+      "retained_copy_hashes_match": true
+    },
+    {
+      "appid": 955900,
+      "slug": "amazing-cultivation-simulator",
+      "buildid": "17074448",
+      "status": "uninstalled",
+      "native_exit_code": 0,
+      "native_log": "[2026-10-06 23:43:18] AppID 955900 finished uninstall (No Error)",
+      "manifest_removed": true,
+      "install_removed": true,
+      "remaining_untracked_file_count": 0,
+      "remaining_untracked_paths": [],
+      "retained_copy_hashes_match": true
+    },
+    {
+      "appid": 1267910,
+      "slug": "melvor-idle",
+      "buildid": "13311431",
+      "status": "uninstalled",
+      "native_exit_code": 0,
+      "native_log": "[2026-10-06 23:44:12] AppID 1267910 finished uninstall (No Error)",
+      "manifest_removed": true,
+      "install_removed": true,
+      "remaining_untracked_file_count": 0,
+      "remaining_untracked_paths": [],
+      "retained_copy_hashes_match": true
+    },
+    {
+      "appid": 1910680,
+      "slug": "orb-of-creation",
+      "buildid": "24426975",
+      "status": "uninstalled",
+      "native_exit_code": 0,
+      "native_log": "[2026-10-06 23:44:15] AppID 1910680 finished uninstall (No Error)",
+      "manifest_removed": true,
+      "install_removed": true,
+      "remaining_untracked_file_count": 0,
+      "remaining_untracked_paths": [],
+      "retained_copy_hashes_match": true
+    },
+    {
+      "appid": 459820,
+      "slug": "crush-crush",
+      "buildid": "25589052",
+      "status": "uninstalled",
+      "native_exit_code": 0,
+      "native_log": "[2026-10-06 23:44:17] AppID 459820 finished uninstall (No Error)",
+      "manifest_removed": true,
+      "install_removed": true,
+      "remaining_untracked_file_count": 0,
+      "remaining_untracked_paths": [],
+      "retained_copy_hashes_match": true
+    }
+  ],
+  "kept_installed": [
+    {
+      "appid": 1546320,
+      "reason": "Partial native IL2CPP recovery, not a complete recovered-method export"
+    }
+  ],
+  "checked_utc": "2026-10-07T03:44:18.160825+00:00",
+  "total_former_install_bytes": 6549741553,
+  "retained_gap_bytes": 1424512904,
+  "estimated_net_bytes": 5125228649
+}

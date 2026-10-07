@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "author": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "capturedAtUtc": "2026-10-07T03:40:24.360161+00:00",
+  "humanRequest": "Do into completion accordingly with new gm accordingly? Im surprised there is so little file changes with each iteration",
+  "scope": "User-authorized new substantial book-world campaign completion GM; no runtime writes by dispatcher",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "fb5143d048e972a4ec51e21963cc60977eb2e793879e629d49e5279e5195793f"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70"
+    },
+    {
+      "path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11"
+    },
+    {
+      "path": "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md",
+      "sha256": "b8cb47acdf95d2b1d036a3a819b728e6b204d25a5ba66fb5993bfb8099ec8e78"
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/CHECKPOINT.md",
+      "sha256": "bf317937cba826b9e5429833558b6f6125035b5b05f8382bc53e256e1d99f469"
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/BUILD.json",
+      "sha256": "90260d144620efd6a0daff67ad54748aceddc0471921ff27cc292d866d5aa526"
+    },
+    {
+      "path": "docs/gm/world-completion-2026-10-06/WORLD_DEFINITION_OF_DONE.md",
+      "sha256": "9ec0ccfbbdb27476541c131e60acb02f9449ef1ccf2c6db5b7a34f77bca661f0"
+    },
+    {
+      "path": "docs/gm/care-worlds-2026-10-06/EVIDENCE.json",
+      "sha256": "fca95ed8af6672e8321034261415aed50a0a55f593df2ddb6f1737e6c1258ce8"
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/PLAYER_CONTRACT.md",
+      "sha256": "e83818b7195b73e31f540f8712e85ba4b9ae1a8cefce6e8bb3f6719c45699769"
+    },
+    {
+      "path": "docs/gm/book-world-player-agency/contracts/CONTRACTS.json",
+      "sha256": "575753268afa4edafe13856d1c892b5af69533f1fb17c143a05602863141bed8"
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "sha256": "92293a1157ad347d47e3bede4aceb627db37ee70856f1e313f4d1ef8b91f44bb"
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+      "sha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb"
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "sha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "6c90dae707dc1083e675f2e9908285c73fd50e93e62821353fb7832af4cc85cf"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "a9f862372c0d66f74732d24dbd7873e2451dd3262f26640bc683cac259580785"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "e178b4de84ac7dd6bd73d510eebb7c44f9b25de142c54f370a84a635b35d20ff"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "9c7708f180e00ab79a56d91154058baf3e3050b2ec83290c6812acb620490997"
+    },
+    {
+      "path": "src/book_world_player_agency_contracts.js",
+      "sha256": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "sha256": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526"
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "sha256": "41fd21f99ca2431abb79b948316f54fcc4c013fca1c96353b1d95e70b1397698"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "d405e2c1a0e39771841cdeb3e628d2ccc057e817026a2f8dd6796ba1ea35e302"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "f2b715695a8c0c9e5c58e6d3902a3ffbd9f2ea1d8dc5d298dea049d0e7ceb095"
+    },
+    {
+      "path": "index.html",
+      "sha256": "2f4a0ca26ea4f982c05cc1924ffaf67aa8dd91c2b4bdd7e6b753d272f91d8f0e"
+    }
+  ],
+  "currentBuild": {
+    "fingerprint": "d405e2c1a0e3",
+    "localMatchingMapContents": 324,
+    "vendorEntries": 37,
+    "verifiedLiveDrift": []
+  },
+  "ownership": {
+    "latestIntegrator": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+    "latestIntegratorLiveState": "idle, latest turn completed and source/canonical/build released",
+    "staticPreview": "http://127.0.0.1:18194/ retained by prior home-world GM, do not terminate blindly",
+    "otherActiveChat": "01a1146c-7d19-7440-92a6-8f5ab5198db9 Review decompiled Steam games; Steam/private research/newwave orchestration, no current native/source/UI integration observed",
+    "assay": "four game_absorption_assay_* files remain excluded; never acquired here"
+  },
+  "changeMeasurement": {
+    "careWaveNewModules": 12,
+    "careWaveSharedSourceJoins": 12,
+    "careWaveNewActions": 73,
+    "currentCareModuleLines": 1360,
+    "qualification": "Current module line count and historical scope; newer home-world fixes exist. Screenshot +25238/-7783 is not a per-wave authored-source measure. Git diff vs HEAD misses untracked source files and contains cumulative work/generated outputs."
+  }
+}

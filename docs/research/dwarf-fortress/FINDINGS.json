@@ -1,0 +1,1494 @@
+{
+  "status": "finite-selected-source-data-pass-complete",
+  "scope": "17 connected paths across five depth lenses; selected source/data declarations, not whole game/native runtime semantic coverage.",
+  "pins": {
+    "steam_app": 975370,
+    "buildid": "24557528",
+    "procedural_mod_version": "53.16",
+    "exe_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+    "file_manifest_sha256": "375bb3e21d55fc1598d1a526aa3653d2fe6e1a772bc13858ecf848cd0b14bcaf"
+  },
+  "findings": [
+    {
+      "id": "DF-G01",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Generation has explicit phases and historical source provenance, rather than one undifferentiated random-content call.",
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            248,
+            301
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Native supplies random_object_parameters and world tables.",
+        "decision": "pre_gen_randoms/main_world_randoms choose early/prehistory hooks.",
+        "cost_time": "No measured worldgen duration; hooks can run on multiple generate calls.",
+        "mutation": "Materials, items, languages, creatures, interactions and entities register in order; GENERATED and source HF/entity IDs accompany generated definitions.",
+        "downstream": "Later raw references connect the output objects to their origin.",
+        "failure_aftermath": "The file warns that repeated generate calls are not predictable; a mod must not assume one invocation."
+      },
+      "qualification": "Generator implementation inspected; native callers, serialization and historical consumers unrecovered."
+    },
+    {
+      "id": "DF-G02",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Candidate generation sorts keys for RNG stability, discards nil results, then weights the remaining candidates.",
+      "source_refs": [
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            1,
+            66
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            258,
+            283
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            172,
+            195
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "A registered generator table and native trandom.",
+        "decision": "Each candidate returns an eligible weighted result or nil.",
+        "cost_time": "All registered generators are evaluated before selection; RNG is consumed during evaluation as well as selection.",
+        "mutation": "Selection subtracts weights from a roll; final fallback is first result or nil.",
+        "downstream": "Selected tables become registered definitions in generate_random_* consumers.",
+        "failure_aftermath": "Empty candidate sets/fallbacks differ from guaranteed content; missing weights are diagnosed but final v.weight use remains an assumption."
+      },
+      "qualification": "Stable key ordering is source-verified; deterministic full worlds and RNG persistence are untested."
+    },
+    {
+      "id": "DF-G03",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Generated creatures are filtered by habitat, humanoid suitability, good-alignment compatibility and beast constraints before profile selection.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "lines": [
+            173,
+            236
+          ],
+          "sha256": "b05a05ff18714e69ae363372377ef1283843dd174bd0b3eae7575ac10f20988d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            154,
+            191
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            6994,
+            6998
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Source options supply water/humanoid/good/beast constraints.",
+        "decision": "Profile candidates are filtered and weighted, with GENERAL_BLOB fallback.",
+        "cost_time": "No native performance or combat cost measured.",
+        "mutation": "Selected profile contributes body construction, description and graphics through separate builders.",
+        "downstream": "Body, visible warning and graphical depiction share one selected profile.",
+        "failure_aftermath": "Unavailable candidates fall back to a blob; a name alone does not establish a functional body."
+      },
+      "qualification": "Selected filter/entry/builder joins inspected; the large profile/body/graphics tables remain mostly unread."
+    },
+    {
+      "id": "DF-G04",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Guardian equipment uses a separate entity-driven generation path even though generate_random_items is a TODO.",
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            410,
+            415
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+          "lines": [
+            1314,
+            1387
+          ],
+          "sha256": "9557ec18b6e2d5a2f84c07d51d64618b27bea2521ad12abbc734a974faeaf518",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            796,
+            826
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Guardian generation parameters and angel item generators.",
+        "decision": "Generate item definitions first, then attach their tokens to the guardian entity.",
+        "cost_time": "No material production cost is specified in this worldgen path.",
+        "mutation": "raws.register_items precedes entity token insertion and divine material equipment flags.",
+        "downstream": "Guardian society equipment refers to generated item IDs, not only flavor names.",
+        "failure_aftermath": "Mythical guardians choose only non-generated existing item definitions; native equipment issuance is not inspected."
+      },
+      "qualification": "Registration/selection source inspected; no claim that the TODO means all item generation is absent."
+    },
+    {
+      "id": "DF-M01",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Material sale value, allowable item uses, density, thermal limits and mechanical responses are distinct properties.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+          "lines": [
+            8,
+            127
+          ],
+          "sha256": "2f5dd0a0c2d342e2a4fd27406970c5ed34712a9bdd916b603e6415c42ed2bf48",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "lines": [
+            16,
+            59
+          ],
+          "sha256": "72e874e59ea0634f60c30c3514cbe0d08fa34943376ab8de3c3aac7764d6735c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Material definition plus item definition.",
+        "decision": "Iron is permitted for weapon/armor uses; higher-value gold has different mechanical properties and use tags.",
+        "cost_time": "Weapon size/material-size and required body size are declared separately.",
+        "mutation": "Weapon modes specify contact, penetration, velocity and recovery, while materials supply yield/fracture/strain.",
+        "downstream": "Crafting eligibility and combat inputs can differ from appraisal value.",
+        "failure_aftermath": "Native crafting and collision equations remain unrecovered; no best-weapon balance claim."
+      },
+      "qualification": "Definition inputs and joined consumers inspected; actual material combat formulas unavailable."
+    },
+    {
+      "id": "DF-M02",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Steel production separates intermediate pig iron, flux, coal reagent and the general fuel requirement.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "lines": [
+            5,
+            55
+          ],
+          "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "lines": [
+            139,
+            158
+          ],
+          "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            274,
+            290
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Civilization permits reactions, smelter exists, matching reagents are available.",
+        "decision": "Use ore or bars for alloy routes, or build the pig-iron-to-steel chain.",
+        "cost_time": "Pig iron declares iron+flux+coal and FUEL; steel declares iron+pig iron+flux+coal and FUEL.",
+        "mutation": "Products are real bars with quantity/dimension, not an abstract metallurgy level.",
+        "downstream": "Material outputs feed permitted equipment/material consumers.",
+        "failure_aftermath": "FUEL is not interchangeable with the listed coal reagent; native magma exceptions and work-order reservations are not inspected."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-M03",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Reaction inputs distinguish consumed material from preserved containers and tools that do not scale product amounts.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            26,
+            82
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            316
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Matching material, suitable empty/containing container, correct workshop.",
+        "decision": "Choose tallow/oil soap or a drink recipe with real container support.",
+        "cost_time": "Raw amounts and PRODUCT_DIMENSION are separate; PRESERVE_REAGENT containers are retained.",
+        "mutation": "Output is routed into the actual container where declared.",
+        "downstream": "Durable carriers can support another batch while material stock decreases.",
+        "failure_aftermath": "Full, wrong or rotten inputs fail declaration filters; cancellation/refund transaction timing is native/unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-M04",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Species/material reaction products preserve provenance through tanning, fat rendering, drink brewing and paper processing.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            5,
+            24
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            280
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            5,
+            52
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            65,
+            102
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Reagent has the required reaction-product mapping and is unrotten where required.",
+        "decision": "Pick a usable material route instead of treating every plant/body component alike.",
+        "cost_time": "Recipe amount and facility/skill apply.",
+        "mutation": "GET_MATERIAL_FROM_REAGENT selects the source-specific material or mapped result.",
+        "downstream": "Output can retain species-specific drink/thread/paper identity.",
+        "failure_aftermath": "A named reagent without the required material mapping does not qualify; native stack allocation not recovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-M05",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Glazing improves the existing empty, unimproved object while preserving that reagent.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            138,
+            169
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Glaze material mapping, CAN_GLAZE object, empty and NOT_IMPROVED.",
+        "decision": "Use a surface treatment on an actual jug/statue.",
+        "cost_time": "Glaze input and FUEL; object has PRESERVE_REAGENT.",
+        "mutation": "IMPROVEMENT adds material-specific glaze to the retained object.",
+        "downstream": "Object identity and original work survive the new treatment.",
+        "failure_aftermath": "Existing improvements/contents affect eligibility; not a duplicate-object reward."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-M06",
+      "family": "materials-and-production",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Workshops couple construction inputs, labor, work position and recipe role; appearance does not establish universal facility support.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "lines": [
+            5,
+            56
+          ],
+          "sha256": "21f6f4f24c6ae669f40c16b9bf5b391d6f0594b7f4c30d7b3a5fddbd1e8be342",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            26,
+            57
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            400,
+            420
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Build labor/materials and facility access.",
+        "decision": "Construct soap workshop or screw press according to the required function.",
+        "cost_time": "Soap workshop consumes bucket/build material; screw press requires two trap parts.",
+        "mutation": "Definitions set work tile and build labor; recipes name compatible buildings.",
+        "downstream": "A press processes liquids/paper only through appropriate upstream preparation and containers.",
+        "failure_aftermath": "Native pathing/occupancy/worker scheduling remain unavailable; facility ownership is not inferred."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-K01",
+      "family": "knowledge-and-progression",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Knowledge acquisition can be researched, taught or recorded while executable powers still require an eligible living learner and explicit targets.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            104,
+            160
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            239,
+            270
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            422,
+            437
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Secret permits mundane research/teaching/recording; learner is mortal, CAN_LEARN and CAN_SPEAK.",
+        "decision": "Acquire knowledge and then invoke a particular granted interaction.",
+        "cost_time": "Declared range and WAIT_PERIOD apply to use; research/book-learning costs are native/unrecovered.",
+        "mutation": "Secret grants syndrome/tags/interactions; book production carries writing separately.",
+        "downstream": "Eligible corpse targets for resurrection have their own fitness and exclusion rules.",
+        "failure_aftermath": "A copyable secret is not unrestricted execution; research, teaching and reading engines are not recovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-K02",
+      "family": "knowledge-and-progression",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Secret progression can change needs, aging, attribute growth/rust and personality together, making a new capability a life change.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            127,
+            159
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Eligible learner acquires the secret.",
+        "decision": "Choose acquisition rather than receiving a generic passive XP multiplier.",
+        "cost_time": "No ordinary eating/drinking/sleep requirement after the declared tags; no invented fuel cost.",
+        "mutation": "NO_AGING/NOEXERT and no physical gain/rust accompany anxiety/trust shifts and corpse animation.",
+        "downstream": "Future physiology, work, learning and relations can consume different facets.",
+        "failure_aftermath": "These are generated declarations; runtime social/needs interactions and AI priorities are unavailable."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-K03",
+      "family": "knowledge-and-progression",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Necromancer secondary paths are gated by world settings and available creature categories; ghost code is explicitly disabled.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            108,
+            124
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            174,
+            231
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            235,
+            351
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Native world allow_necromancer_* settings and bogeyman/nightmare availability.",
+        "decision": "Generated secret may expose lieutenant, experiment, summon or ghoul branches.",
+        "cost_time": "Summon interactions declare different wait periods and bounded summoned-unit time ranges.",
+        "mutation": "Raised lieutenant powers and experimental/attack infection have different generated records.",
+        "downstream": "Later targets exclude incompatible syndrome classes; history strings retain different transmission causes.",
+        "failure_aftermath": "Ghost uses if false and ghost; readable dormant source is not a playable feature."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-K04",
+      "family": "knowledge-and-progression",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Physical knowledge media has a production chain, and binding a written quire transfers its writing and artifact status to book pages.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            333,
+            437
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            248,
+            254
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            65,
+            102
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Plant/hide material, intermediate processing, written quire, binding, non-web thread and required facilities.",
+        "decision": "Use plant paper or parchment, then scroll/quire/book routes.",
+        "cost_time": "Quicklime needs fuel; plant mash/press needs facilities; binding requires 15000 thread units.",
+        "mutation": "Sheets become media; book pages inherit quire material/writing, with TRANSFER_ARTIFACT_STATUS.",
+        "downstream": "A book remains useful to knowledge consumers rather than awarding knowledge solely on crafting.",
+        "failure_aftermath": "Raw production does not establish native writing/reading/copying duration or information accuracy."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-A01",
+      "family": "people-and-institutions",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Institutional roles have different appointment, election, heir succession, population and facility rules.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            425,
+            462
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            595,
+            698
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Civilization/site and appointment prerequisites.",
+        "decision": "Monarch succeeds by heir; mayor is elected at declared population; manager/medical/broker/bookkeeper are appointed.",
+        "cost_time": "Some roles require offices and duty-bound work; royal roles declare material demands.",
+        "mutation": "Responsibilities distinguish law, diplomacy, production, health, trade and accounting.",
+        "downstream": "Access to services and institutions can change when the office holder changes.",
+        "failure_aftermath": "Raw succession is inspected; live election/heir resolution and assignment AI are native/unavailable."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-A02",
+      "family": "people-and-institutions",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Civilization permissions are independent from an individual worker skill, available stock and workshop.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            205,
+            296
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1052,
+            1109
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            26,
+            57
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Cultural PERMITTED_JOB/BUILDING/REACTION and local matching means.",
+        "decision": "Dwarf and forest cultures expose different job/resource/recipe sets.",
+        "cost_time": "Recipes still need their actual facility/reagents/skill.",
+        "mutation": "Permission definitions admit actions without creating a worker or resources.",
+        "downstream": "Work-capability design needs culture, skill, right, means and willingness as separate gates.",
+        "failure_aftermath": "Individual job dispatch, wages, stock reservations and willingness are not recovered from these raws."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-A03",
+      "family": "people-and-institutions",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Accounting precision, appraisal visibility and health visibility are distinct worker services with different declared responsibilities.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            636,
+            689
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Appointed manager/medical officer/broker/bookkeeper; office where declared.",
+        "decision": "Staff a role to gain its specialized service.",
+        "cost_time": "Bookkeeper office work improves count precision; manager office work validates work orders at population-dependent scale.",
+        "mutation": "Role descriptions distinguish counts, item value, negotiation and health oversight.",
+        "downstream": "UI can show a qualified report instead of exposing all private world state.",
+        "failure_aftermath": "Native precision formulas, report staleness and effort accounting are undocumented in the inspected source."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-A04",
+      "family": "people-and-institutions",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Culture stores policy judgments and value axes separately, so no one universal reputation number expresses institutional response.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            369,
+            423
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1110,
+            1135
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "An act and a relevant civilization/social context.",
+        "decision": "Each culture declares handling for theft, oath-breaking, plant killing and other acts.",
+        "cost_time": "No native punishment timing or enforcement cost recovered.",
+        "mutation": "ETHIC disposition and VALUE preferences occupy separate declarations.",
+        "downstream": "Trade/diplomacy and local judgments can depend on the relevant institution rather than global morality.",
+        "failure_aftermath": "Raw policy does not expose individual beliefs, witnesses, legal process, guilt or consent."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-A05",
+      "family": "people-and-institutions",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Resource relations and commerce can affect wider access instead of only a local faction meter.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1052,
+            1096
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            53,
+            77
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Forest culture/tree diplomacy or appointed messenger and known civilization.",
+        "decision": "Negotiate access/peace/trade or choose exploitation with consequences.",
+        "cost_time": "Declared progress triggers differ; release notes document trade tapering when profit/negotiation are absent.",
+        "mutation": "Contacts/alliance/trade policy are distinct documented outcomes.",
+        "downstream": "Future caravans and relationships consume prior trade decisions.",
+        "failure_aftermath": "Diplomacy and trade AI source unavailable; release-note behavior is documented-only, not inspected execution."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-B01",
+      "family": "bodies-and-combat",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Body topology, tissue layers, arteries, blood, nerves and infection susceptibility are explicit inputs to combat and care.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            22,
+            84
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "lines": [
+            5,
+            58
+          ],
+          "sha256": "911ee0676078fa3811397e84e323c0e968524408a1a900b0ac04dd38860f6ea8",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Actor species/body/tissue/material declarations.",
+        "decision": "Damage and care can refer to the actual body function.",
+        "cost_time": "Tendon/ligament healing rates and tissue-specific healing rates differ.",
+        "mutation": "Blood/artery/nerve/infection markers contribute distinct conditions.",
+        "downstream": "Hand/stance/grasp ability and wound recovery can have different downstream work effects.",
+        "failure_aftermath": "Native injury propagation and health formulas unavailable; no general YAIR anatomy engine is claimed."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-B02",
+      "family": "bodies-and-combat",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Natural and weapon attacks select body support, attack skill, contact/penetration, preparation/recovery and modes separately.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            215,
+            258
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "lines": [
+            5,
+            81
+          ],
+          "sha256": "72e874e59ea0634f60c30c3514cbe0d08fa34943376ab8de3c3aac7764d6735c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Required GRASP/STANCE/mouth/teeth or body size/weapon support.",
+        "decision": "Choose punch/kick/bite or slash/stab/flat/pommel modes.",
+        "cost_time": "Attack modes have distinct declared prepare/recover and contact/penetration/velocity inputs.",
+        "mutation": "Attack type and supported body parts enter the native combat resolver.",
+        "downstream": "A lost/unsupported faculty can invalidate a maneuver without erasing learned skill.",
+        "failure_aftermath": "Actual hit chance, armor penetration and action economy are native/unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-B03",
+      "family": "bodies-and-combat",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Venom generation ties material state and exposure routes to one syndrome and explicitly protects its originating creature.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            5052,
+            5103
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            5234,
+            5281
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+          "lines": [
+            69,
+            87
+          ],
+          "sha256": "02d4dca148423d57723087a26f5b8310c4ad87610a8ac3833c23910d0f31a481",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/init.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Eligible surface/mouth/blood and generated creature token.",
+        "decision": "Generate secretion, poisoned blood or bite route.",
+        "cost_time": "Effects declare start/peak/end, severity and optional resistance/body-size delay/dilution.",
+        "mutation": "SYN_IMMUNE_CREATURE excludes origin; contact/inhaled/ingested/injected routes are declared.",
+        "downstream": "Contaminated materials and specific exposure differ from a generic damage-over-time flag.",
+        "failure_aftermath": "Native spread, dosage, removal and protection effectiveness unavailable; symptoms are not assumed from an unknown exposure."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-B04",
+      "family": "bodies-and-combat",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Healing definitions name different repairs, including wounds, tissues, nerves, bleeding and infection, rather than only restoring a number.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+          "lines": [
+            210,
+            273
+          ],
+          "sha256": "f9f6cf88a9cf8cc740264ff954414de4bf89dc05b6cbd4463a1dbbdc904e427c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "lines": [
+            101,
+            129
+          ],
+          "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "lines": [
+            5,
+            58
+          ],
+          "sha256": "911ee0676078fa3811397e84e323c0e968524408a1a900b0ac04dd38860f6ea8",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Ingested mythical substance or granted healing interaction and susceptible body.",
+        "decision": "Treat an actual physiological deficit.",
+        "cost_time": "Declared immediate start with bounded END12; no invented resource/casting cost.",
+        "mutation": "Separate creature-effect declarations address repair and symptom types.",
+        "downstream": "Recovered tissue/function can matter differently to combat and labor.",
+        "failure_aftermath": "allow_mythical_healing is native parameter-gated; current availability and interpreters remain unobserved."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-B05",
+      "family": "bodies-and-combat",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Temporary luck/beast effects and permanent vampire transformation have different duration, eligibility and identity visibility.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "lines": [
+            1,
+            96
+          ],
+          "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "lines": [
+            1,
+            19
+          ],
+          "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Curse/blessing source and eligible target.",
+        "decision": "Temporary skill-roll adjustment/body transformation or permanent vampire curse.",
+        "cost_time": "Week END8400 on temporary effects; blood-drinking counter and no ordinary needs on vampire declarations.",
+        "mutation": "Transformation includes phenotype, material multipliers, tags and potentially hidden name/tile.",
+        "downstream": "Observation can reveal only what is visible; body and capability changes remain distinct.",
+        "failure_aftermath": "Deity selection/transgression triggers and native hidden-identity discovery are unavailable."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-E01",
+      "family": "ecology-and-encounters",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Habitat and season govern material opportunities, while plants expose several useful production channels.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            5,
+            110
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            280
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            400,
+            420
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Subterranean-water biome/depth; selected seasons and growth time.",
+        "decision": "Choose the same crop for drink, thread or paper according to need.",
+        "cost_time": "GROWDUR and recipe stock/facility costs are declared.",
+        "mutation": "Growth material mapping produces different useful outputs and seeds.",
+        "downstream": "Returned seeds can support future planting, media support research, drink supports bodies.",
+        "failure_aftermath": "Actual farming yield, population regeneration, grazing and offscreen ecology are native/unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-E02",
+      "family": "ecology-and-encounters",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Generated threats connect habitat/body/material traits to population and wealth triggers rather than only player level.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            154,
+            242
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            516,
+            538
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            33,
+            47
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "lines": [
+            173,
+            236
+          ],
+          "sha256": "b05a05ff18714e69ae363372377ef1283843dd174bd0b3eae7575ac10f20988d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Region layer/type/alignment, world population/exported/created wealth settings.",
+        "decision": "A titan or night creature follows the relevant declared threat trigger.",
+        "cost_time": "Size can add grass trampling, trap avoidance and building destruction flags.",
+        "mutation": "Trait, body profile and habitat qualifiers are carried into the generated creature.",
+        "downstream": "Development/extraction/wealth may expose different settlement consequences.",
+        "failure_aftermath": "Trigger evaluation, siege targeting and environmental destruction execution remain native/unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-E03",
+      "family": "ecology-and-encounters",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Environmental clouds/rain are real generated materials with state-specific emission and syndrome exposure declarations.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "lines": [
+            43,
+            109
+          ],
+          "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "lines": [
+            144,
+            186
+          ],
+          "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            358,
+            379
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            591,
+            652
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Evil regional rule, generated material IDs and cloud state.",
+        "decision": "Regional event emits gas/vapor/dust/rain or animates eligible corpses.",
+        "cost_time": "Weekly intermittent material-emission declarations; source effect timing varies by poison/rain.",
+        "mutation": "Registered inorganic material is referenced by later regional interaction, not recreated by flavor text.",
+        "downstream": "Hazard responses can depend on route/shelter/material/body support.",
+        "failure_aftermath": "Weather simulation, boundary catchup and actual exposure volume are native/unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-E04",
+      "family": "ecology-and-encounters",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Disturbance retaliation is targeted at the actual disturber and can leave a transformed actor with further capabilities.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+          "lines": [
+            28,
+            135
+          ],
+          "sha256": "c228021b8e7fe6107268ca5f58555c2cc925098c41aeacd415a3200e4c646722",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            239,
+            270
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "A fit, learn/speak-capable corpse without excluded syndrome classes; disturbance source.",
+        "decision": "Disturb a site/corpse or leave it undisturbed.",
+        "cost_time": "Retaliation declares line-of-sight/range and wait periods; material raid costs unavailable.",
+        "mutation": "Resurrection adds identity/personality/undead state plus curse/animation/raised-lieutenant powers.",
+        "downstream": "Curse target uses DISTURBER_ONLY, retaining actor-specific causal aftermath.",
+        "failure_aftermath": "Global hostility is not implied; native culpability lookup and retaliation dispatch are unrecovered."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-T01",
+      "family": "time-and-persistence",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Immediate interactions, weekly region effects, effect duration and creature aging/gaits are separate time domains.",
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            591,
+            624
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            170,
+            201
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "lines": [
+            15,
+            48
+          ],
+          "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            213,
+            295
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/examples and notes/gaits.txt",
+          "lines": [
+            1,
+            14
+          ],
+          "sha256": "40c251d344487fed35c2e3e6a1caf0a14f7ee39c00bb337c55a08c3e598d1154",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/examples and notes/gaits.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Consumer-specific declaration and native time interpreter.",
+        "decision": "Use a power, remain in region, change body or travel.",
+        "cost_time": "WAIT_PERIOD, IE_INTERMITTENT, END, age and gait data have different meanings.",
+        "mutation": "Each changes its own consumer; raw END values are not browser milliseconds.",
+        "downstream": "Scheduler integration must preserve distinct supported policies.",
+        "failure_aftermath": "No offline settlement/cap, inactive-region policy or atomic scheduler code recovered; gait notes are approximate."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-P01",
+      "family": "time-and-persistence",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "World/save compatibility depends on stable object definitions and compatible mod revisions, not only copying one save file.",
+      "source_refs": [
+        {
+          "file": "readme.txt",
+          "lines": [
+            18,
+            33
+          ],
+          "sha256": "ea59b8cd197014c42fd2f7b69f0122fc09769226d9590e9e05b19a9e30c85171",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/readme.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/info.txt",
+          "lines": [
+            1,
+            8
+          ],
+          "sha256": "21323121fd778e39882b46327f517c08e4ec5c28113d46b59617d08daed38f8b",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/info.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/info.txt",
+          "lines": [
+            1,
+            8
+          ],
+          "sha256": "b6de84cad5d4ca66cf7cbf01c4c404b9042f01f60145be2dadb6c8c223e4731c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/info.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Save world references selected raw objects and installed mod IDs/versions.",
+        "decision": "Retain definitions or create a new world for additions.",
+        "cost_time": "No migration elapsed time measured.",
+        "mutation": "Readme warns about removed object entries/body topology changes; mod info declares earliest-compatible revisions.",
+        "downstream": "Loader depends on external selected mods according to official guide.",
+        "failure_aftermath": "Bundled readme may lag newer loader policy; no save accessed or load/save transaction source inspected."
+      },
+      "qualification": "Shipped documentation and info metadata inspected; official mod guide separately corroborates external mod dependency."
+    },
+    {
+      "id": "DF-P02",
+      "family": "time-and-persistence",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Backup/recovery and exception handling are documented, while transactional save guarantees remain unknown.",
+      "source_refs": [
+        {
+          "file": "release notes.txt",
+          "lines": [
+            6,
+            23
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            67,
+            77
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "World directory and versioned release.",
+        "decision": "Back up/restore into a fresh target rather than overwrite residual files.",
+        "cost_time": "No save files read/copied; operational document only.",
+        "mutation": "Release notes document old-save compatibility, possible corruption and instrument/map load repair.",
+        "downstream": "A failed save/load should surface a recoverable diagnostic rather than claim all-or-nothing rollback.",
+        "failure_aftermath": "No native serializer, journal, atomic rename, rollback, checksum or corruption fixture has been inspected."
+      },
+      "qualification": "Documentation-inspected, runtime-unverified; no user save access."
+    },
+    {
+      "id": "DF-L01",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Readable shipped code includes gated, commented and incomplete paths; source availability must not be promoted to reachable gameplay.",
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            380,
+            407
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            751,
+            788
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+          "lines": [
+            1,
+            107
+          ],
+          "sha256": "281774a9f1f1ab19e073a85d3e34ba36537d3796439fbbff83e385c9e8d399e6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            218,
+            230
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Native generation flags/control counts must admit the path.",
+        "decision": "Read active emitted tokens separately from comments and disabled branches.",
+        "cost_time": "Item powers expose ranges/wait periods; required-grasp lines are comments.",
+        "mutation": "Only emitted definitions create constraints; mythical branches depend on caller parameters.",
+        "downstream": "Authoring can preserve explicit applicability without inventing unsupported grasp/energy requirements.",
+        "failure_aftermath": "Mythical current-play reachability is unverified; ghost branch is disabled; no source syntax or native game launch pass."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    },
+    {
+      "id": "DF-L02",
+      "family": "simulation-and-authoring",
+      "status": "source-inspected-runtime-unverified",
+      "claim": "Physical body, description and graphics are separated in the generator entry, so presentation can change without becoming another simulation owner.",
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            6994,
+            6998
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "lines": [
+            5,
+            56
+          ],
+          "sha256": "21f6f4f24c6ae669f40c16b9bf5b391d6f0594b7f4c30d7b3a5fddbd1e8be342",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            39,
+            43
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ],
+      "chain": {
+        "prerequisites": "Chosen profile and existing rule/state definitions.",
+        "decision": "Render the same rule-backed body or workshop through a different presentation.",
+        "cost_time": "Art-production cost and engine port work are not measured.",
+        "mutation": "Body construction precedes description and graphics.",
+        "downstream": "A YAIR visual slice should show existing custody, facility and consequence rules.",
+        "failure_aftermath": "Readable graphics schemas and compatibility notes do not prove a renderer or whole engine can be transplanted."
+      },
+      "qualification": "Native interpreter/execution not observed; no gameplay launch."
+    }
+  ],
+  "larger_original_implications": [
+    {
+      "theme": "Capabilities need a physical basis",
+      "analysis": "A faculty, tissue/material, reach, timing, learned method and current source support can all change execution. Keep the learned knowledge when a body is unsuitable. Finite functional injuries fit YAIR before a full anatomy simulation.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Production is a graph of competing uses",
+      "analysis": "One plant or material may have several outputs and an identity-preserving treatment. Use actual native items, preserved tools, source-specific conversions and useful byproducts. Existing finite reserves should choose a recipe before committing stock.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Information is paid work with provenance",
+      "analysis": "Physical records, qualified observers and offices can improve knowledge precision without omniscience. A current stock report should be a sampled estimate or actual counted receipt, not a second inventory. Teaching can change capability only after an eligible learner performs the work.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Institutions are actors and rights",
+      "analysis": "Culture permissions, appointment, succession, policy, personal belief and worker willingness differ. A school or guild can change what its own officer offers with actual facility/funding and a meaningful refusal; membership is not mind control.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Development can change danger",
+      "analysis": "Production, extraction and wealth can alter which inhabitants notice a site. Tie finite threats to visible world changes and actual informed actors, with practical responses and retained aftermath, rather than secretly scaling every opponent to the player.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Causality survives transformation",
+      "analysis": "A curse, interrupted visit or changed body should retain origin and target identity, distinguish treatment from complete removal, and change only its supported clocks. Specific culpability/observer records prevent generic retaliation at everyone.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Content pins are part of persistence",
+      "analysis": "A save depends on body/action/material definitions and compatible revisions. YAIR already validates exact frozen jobs; new content should keep old meanings and migrations. Snapshotting inputs is retention, not proof that new gameplay saves work.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Graphics uses rules rather than replacing them",
+      "analysis": "Keep body/state, discoverable description and rendering distinct. A later visual workshop should present the same work tile, rights, custody, interrupted work and produced identity. This report selects no replacement engine and copies no art.",
+      "status": "original-design-analysis"
+    }
+  ],
+  "runtime_qualifier": "Every gameplay effect is source-inspected/generated/declarative or documented, runtime-unverified. No whole-game source recovery claim.",
+  "unresolved_questions_and_unread": {
+    "native": "Core actor AI/labor scheduling/combat/collision/economy/pathfinding/world history/save transaction implementation unrecovered.",
+    "lua": "Most ~7000-line shared_info, ~3000-line rcp, deity materials, mythical powers, complete generated entities/items and all combinations remain unread; selected entry joins only.",
+    "raws": "Most creature/plant/civilization/material/item/reaction catalogs, languages, text/art and graphics unread.",
+    "assets": "Retained only; no visual/music/media inspection.",
+    "runtime": "No game launch, world generation, mod activation, private save access, gameplay or save/reload verification."
+  }
+}

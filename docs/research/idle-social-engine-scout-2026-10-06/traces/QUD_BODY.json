@@ -1,0 +1,865 @@
+{
+  "schema": 1,
+  "candidate": "Caves of Qud",
+  "lane": "deeper anatomy / actual equipment support",
+  "date": "2026-10-06",
+  "status": "bounded_connected_decompiled_trace_complete; no_runtime_or_packet_selection",
+  "active_rank_selected": false,
+  "implementation_selected": false,
+  "dependency_selected": false,
+  "source_pin": {
+    "assembly_version": "2.0.211.56",
+    "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+    "source_root": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+    "export_manifest": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/DECOMPILATION_MANIFEST.json",
+    "export_manifest_sha256": "760cc1b3e17fcc08ba1ac1a0ba9c8cf6b4b332157e05361f0e75f2e41a5f58e1",
+    "method": "Reused existing human-authorized main-assembly export read-only; selected source windows inspected and full-file hashes matched the existing export manifest. No re-export, install, compile or execution.",
+    "latest_release_claim": false,
+    "intake_entitlement_claim": "Supplied downloaded artifact from prior intake; no installed/owned entitlement inference."
+  },
+  "evidence": [
+    {
+      "id": "QB01",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/Mutations.cs",
+      "line_spans": [
+        [
+          459,
+          530
+        ],
+        [
+          655,
+          671
+        ]
+      ],
+      "symbols": [
+        "Mutations.AddMutation(BaseMutation,int,bool)",
+        "Mutations.RemoveMutation"
+      ],
+      "sha256": "1a9eccb050f60d8a2bfe5d04b1bb920e5d10e79115d10f33a736d51b265680bb",
+      "manifest_sha256": "1a9eccb050f60d8a2bfe5d04b1bb920e5d10e79115d10f33a736d51b265680bb",
+      "manifest_match": true,
+      "line_count": 1014,
+      "claim": "AddMutation assigns ParentObject, invokes Mutate, then registers the mutation. Ranked duplicates adjust rank. Ordinary RemoveMutation invokes Unmutate before removing the part/list entry; existing mutation modifiers use a distinct BaseLevel-zero/sync branch."
+    },
+    {
+      "id": "QB02",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts.Mutation/MultipleArms.cs",
+      "line_spans": [
+        [
+          8,
+          20
+        ],
+        [
+          33,
+          55
+        ],
+        [
+          58,
+          158
+        ],
+        [
+          179,
+          185
+        ]
+      ],
+      "symbols": [
+        "MultipleArms.AddMoreArms",
+        "MultipleArms.Mutate",
+        "MultipleArms.Unmutate",
+        "MultipleArms.HandleEvent(GetMeleeAttackChanceEvent)",
+        "MultipleArms.AdjustRank"
+      ],
+      "sha256": "a14ed0c58ebab02a92d6579adf75541038b97efbcd7f5986b549a3598c258e5b",
+      "manifest_sha256": "a14ed0c58ebab02a92d6579adf75541038b97efbcd7f5986b549a3598c258e5b",
+      "manifest_match": true,
+      "line_count": 187,
+      "claim": "Creates manager-owned arm/hand/paired-hands nodes and separately marks safely changed original laterality. Unmutate removes its managed additions including dismembered entries and conditionally restores original laterality. Chance adjustment requires intrinsic nonprimary attack and the exact additions manager."
+    },
+    {
+      "id": "QB03",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Anatomy/BodyPart.cs",
+      "line_spans": [
+        [
+          3795,
+          3837
+        ],
+        [
+          3907,
+          3910
+        ],
+        [
+          3937,
+          3940
+        ]
+      ],
+      "symbols": [
+        "BodyPart.AddPart",
+        "BodyPart.AddPartAt"
+      ],
+      "sha256": "c6a81ec4d930fa364c1c58ef40735f75b9ba2a5f12094ef942fcecea4b6c49e3",
+      "manifest_sha256": "c6a81ec4d930fa364c1c58ef40735f75b9ba2a5f12094ef942fcecea4b6c49e3",
+      "manifest_match": true,
+      "line_count": 7150,
+      "claim": "Nodes are inserted in the actual Parts list, assigned ParentPart and ParentBody, and trigger body update/type-armor recalculation. String type overload forwards dependency and manager parameters to the part constructor; constructor/type-data loading itself is outside this trace."
+    },
+    {
+      "id": "QB04",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World/QuerySlotListEvent.cs",
+      "line_spans": [
+        [
+          31,
+          55
+        ]
+      ],
+      "symbols": [
+        "QuerySlotListEvent.GetFor"
+      ],
+      "sha256": "8fab8d7f324cdb3881a464cb135fe49030b376f6685644dbd316dda75e1b0413",
+      "manifest_sha256": "8fab8d7f324cdb3881a464cb135fe49030b376f6685644dbd316dda75e1b0413",
+      "manifest_match": true,
+      "line_count": 63,
+      "claim": "Collects actual BodyPart slots through legacy and typed actor query events; handlers may alter eligibility or failure messages."
+    },
+    {
+      "id": "QB05",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/Body.cs",
+      "line_spans": [
+        [
+          312,
+          325
+        ],
+        [
+          708,
+          734
+        ],
+        [
+          1682,
+          1717
+        ],
+        [
+          2134,
+          2156
+        ],
+        [
+          2268,
+          2305
+        ],
+        [
+          2353,
+          2402
+        ],
+        [
+          3220,
+          3227
+        ]
+      ],
+      "symbols": [
+        "Body.GetMainWeapon",
+        "Body.RemovePartsByManager",
+        "Body.RemovePart",
+        "Body.FindRecoverableParts",
+        "Body.CheckUnsupportedPartLoss",
+        "Body.CheckPartRecovery",
+        "Body.UpdateBodyParts",
+        "Body.CutAndQueueForRegeneration",
+        "Body.HandleEvent(QuerySlotListEvent)"
+      ],
+      "sha256": "e02945ea24e9d0d0468bec2f232a2f4d17d44e77292abe713d9b24596952085f",
+      "manifest_sha256": "e02945ea24e9d0d0468bec2f232a2f4d17d44e77292abe713d9b24596952085f",
+      "manifest_match": true,
+      "line_count": 3858,
+      "claim": "Body delegates recursive slot/weapon scans. Managed removal updates topology/armor; direct dismembered-record removal is distinct from attached-item cleanup. Built-body update regenerates defaults/recalculates firsts and evaluates unsupported/recoverable dependencies. These support checks are bounded adjacent source, not a full dismember/regrowth execution audit."
+    },
+    {
+      "id": "QB06",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Anatomy/BodyPart.cs",
+      "line_spans": [
+        [
+          1718,
+          1774
+        ],
+        [
+          1870,
+          1887
+        ],
+        [
+          1911,
+          2106
+        ],
+        [
+          2163,
+          2172
+        ],
+        [
+          2214,
+          2239
+        ],
+        [
+          2603,
+          2663
+        ],
+        [
+          2874,
+          2895
+        ],
+        [
+          3567,
+          3633
+        ],
+        [
+          3659,
+          3688
+        ],
+        [
+          5809,
+          5864
+        ],
+        [
+          5892,
+          5942
+        ],
+        [
+          6591,
+          6622
+        ]
+      ],
+      "symbols": [
+        "BodyPart.ProcessQuerySlotList",
+        "BodyPart.DoEquip",
+        "BodyPart.Unequip",
+        "BodyPart.ClearEquipped",
+        "BodyPart.ScanForWeapon",
+        "BodyPart.GetFirstValidWeapon",
+        "BodyPart.UnequipPartAndChildren",
+        "BodyPart.RemovePart",
+        "BodyPart.IsUnsupported",
+        "BodyPart.IsRecoverable",
+        "BodyPart.FindUnsupportedParts"
+      ],
+      "sha256": "c6a81ec4d930fa364c1c58ef40735f75b9ba2a5f12094ef942fcecea4b6c49e3",
+      "manifest_sha256": "c6a81ec4d930fa364c1c58ef40735f75b9ba2a5f12094ef942fcecea4b6c49e3",
+      "manifest_match": true,
+      "line_count": 7150,
+      "claim": "Recursive live topology feeds slot/weapon consumers. Ordinary slot-count fitting reserves distinct free same-type nodes and can unequip blockers; one object may occupy multiple nodes. Unequip clears all matching references. Removing attached nodes recursively attempts real non-natural equipment transfer to actor inventory/drop inventory with forced event/NoTake; failures are caught or vetoable, not universally atomic or lossless. Concrete and abstract dependency tests distinguish absent support from lack of count."
+    },
+    {
+      "id": "QB07",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/MeleeWeapon.cs",
+      "line_spans": [
+        [
+          29,
+          37
+        ],
+        [
+          191,
+          226
+        ],
+        [
+          250,
+          269
+        ]
+      ],
+      "symbols": [
+        "MeleeWeapon.Slot",
+        "MeleeWeapon.HandleEvent(QueryEquippableListEvent)",
+        "MeleeWeapon.AttackFromPart"
+      ],
+      "sha256": "e5b027abcfa47966963510a405b1bfc5eb9d094a9fef4e5ba5fc85ce49d2bd23",
+      "manifest_sha256": "e5b027abcfa47966963510a405b1bfc5eb9d094a9fef4e5ba5fc85ce49d2bd23",
+      "manifest_match": true,
+      "line_count": 467,
+      "claim": "Default slot is Hand. Typed query checks matching slot and possibility/size/required-count; attack validity uses preferred primary or matching type/variant. Specific blueprint and full slot-requirement handlers are not audited."
+    },
+    {
+      "id": "QB08",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World/QueryEquippableListEvent.cs",
+      "line_spans": [
+        [
+          73,
+          81
+        ]
+      ],
+      "symbols": [
+        "QueryEquippableListEvent.FromPool(GameObject,GameObject,string,bool,bool)"
+      ],
+      "sha256": "ff36bcf4d5c9d438be53e4b4179f0d82ae3563052cc07966cc0dd2890a3d934b",
+      "manifest_sha256": "ff36bcf4d5c9d438be53e4b4179f0d82ae3563052cc07966cc0dd2890a3d934b",
+      "manifest_match": true,
+      "line_count": 83,
+      "claim": "The equipment query carries the actor, same item, slot type and RequirePossible flag used by BodyPart and MeleeWeapon."
+    },
+    {
+      "id": "QB09",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/Inventory.cs",
+      "line_spans": [
+        [
+          250,
+          307
+        ],
+        [
+          1250,
+          1263
+        ],
+        [
+          1379,
+          1445
+        ],
+        [
+          1481,
+          1509
+        ],
+        [
+          1617,
+          1779
+        ],
+        [
+          1781,
+          1806
+        ],
+        [
+          1839,
+          2004
+        ],
+        [
+          2005,
+          2184
+        ],
+        [
+          2435,
+          2441
+        ],
+        [
+          2471,
+          2511
+        ]
+      ],
+      "symbols": [
+        "Inventory.AddObjectToInventory",
+        "Inventory.AddObject",
+        "Inventory.Register",
+        "Inventory.FireEvent(CommandEquipObject)",
+        "Inventory.FireEvent(PerformEquip)",
+        "Inventory.FireEvent(CommandForceUnequipObject)",
+        "Inventory.FireEvent(PerformUnequip)",
+        "Inventory.HandleEvent(InventoryActionEvent:CommandDropObject)"
+      ],
+      "sha256": "4dd217f7e3459dd0f049f8cf3f4b930fcd9dde24b3c585cb549385e41feba8d1",
+      "manifest_sha256": "4dd217f7e3459dd0f049f8cf3f4b930fcd9dde24b3c585cb549385e41feba8d1",
+      "manifest_match": true,
+      "line_count": 2743,
+      "claim": "Ordinary equip validates takeability/current context/eligible selected slot, delegates actual DoEquip and pays success energy (default 1000, explicit/Thrown Weapon/no-cell exceptions). Equip failure attempts context restoration but may already unequip blockers. Forced cleanup bypasses normal stuck/frozen checks yet still has begin/perform vetoes. NoTake defers transfer to the remover. Drop dispatch adds the same item to an explicit inventory target; Inventory.AddObject sets InInventory and sends encumbrance changes."
+    },
+    {
+      "id": "QB10",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/Physics.cs",
+      "line_spans": [
+        [
+          2781,
+          2793
+        ]
+      ],
+      "symbols": [
+        "Physics.HandleEvent(EquippedEvent)",
+        "Physics.HandleEvent(UnequippedEvent)"
+      ],
+      "sha256": "e609f6d1a31c136decfc6a86ed2f3e4f52887185538de47536caa4f4f7f82f2b",
+      "manifest_sha256": "e609f6d1a31c136decfc6a86ed2f3e4f52887185538de47536caa4f4f7f82f2b",
+      "manifest_match": true,
+      "line_count": 4303,
+      "claim": "Typed equip records the actual equipping actor; typed unequip clears matching actor ownership. Inventory also clears the physics equipment owner in its successful unequip path."
+    },
+    {
+      "id": "QB11",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World.Parts/Combat.cs",
+      "line_spans": [
+        [
+          689,
+          761
+        ],
+        [
+          795,
+          806
+        ],
+        [
+          1635,
+          1652
+        ]
+      ],
+      "symbols": [
+        "Combat.PerformMeleeAttack",
+        "Combat.MeleeAttackWithWeapon"
+      ],
+      "sha256": "1a3bc3e4779f45644eb1ed21dd39837dbf98c597ebd0d2677afbe86979a54861",
+      "manifest_sha256": "1a3bc3e4779f45644eb1ed21dd39837dbf98c597ebd0d2677afbe86979a54861",
+      "manifest_match": true,
+      "line_count": 1760,
+      "claim": "Melee builds eligible weapons from current body parts, deduplicates a shared multi-slot object and consults chance for each actual part. Successful chance attempts call the real weapon attack. Default melee energy is 1000; ShortBlades_Expertise can reduce it. Per-weapon attack rejects an item no longer equipped to attacker unless it remains default behavior. Full damage/armor computation is unreviewed."
+    },
+    {
+      "id": "QB12",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World/GetMeleeAttackChanceEvent.cs",
+      "line_spans": [
+        [
+          63,
+          93
+        ],
+        [
+          108,
+          110
+        ]
+      ],
+      "symbols": [
+        "GetMeleeAttackChanceEvent.HandleFor",
+        "GetMeleeAttackChanceEvent.GetFinalizedChance"
+      ],
+      "sha256": "f0de3b6a957eee8b8c24bc32ae893a381f9a69e68b93743fe81546f109a67c56",
+      "manifest_sha256": "f0de3b6a957eee8b8c24bc32ae893a381f9a69e68b93743fe81546f109a67c56",
+      "manifest_match": true,
+      "line_count": 121,
+      "claim": "Uses primary 100 or actor secondary chance, passes actual part and intrinsic flag to actor handlers, and finalizes with multiplier. Inherited primary-part substitution is a specific exception to part identity."
+    },
+    {
+      "id": "QB13",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.Rules/RuleSettings.cs",
+      "line_spans": [
+        [
+          41,
+          41
+        ]
+      ],
+      "symbols": [
+        "RuleSettings.BASE_SECONDARY_ATTACK_CHANCE"
+      ],
+      "sha256": "352c18a05ea167459c1f8ffbf7d04686dbd5d39cbd290baafc63cad2dbfd0a8e",
+      "manifest_sha256": "352c18a05ea167459c1f8ffbf7d04686dbd5d39cbd290baafc63cad2dbfd0a8e",
+      "manifest_match": true,
+      "line_count": 44,
+      "claim": "Pinned base secondary chance is 15."
+    },
+    {
+      "id": "QB14",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.Rules/Stats.cs",
+      "line_spans": [
+        [
+          55,
+          58
+        ]
+      ],
+      "symbols": [
+        "Stats.GetSecondaryAttackChance"
+      ],
+      "sha256": "5d51a001a4ea729ecac27380b76cfd04ab15fc08b3da90e7d7934db706e11d67",
+      "manifest_sha256": "5d51a001a4ea729ecac27380b76cfd04ab15fc08b3da90e7d7934db706e11d67",
+      "manifest_match": true,
+      "line_count": 59,
+      "claim": "Actor SecondaryAttackChance property can override the base chance, so mutation adjustment is not an unconditional absolute probability."
+    },
+    {
+      "id": "QB15",
+      "classification": "source_demonstrated_in_pinned_decompiled_control_flow_not_executed",
+      "file": "XRL.World/GameObject.cs",
+      "line_spans": [
+        [
+          11327,
+          11339
+        ],
+        [
+          17196,
+          17204
+        ],
+        [
+          19245,
+          19251
+        ]
+      ],
+      "symbols": [
+        "GameObject.RemoveBodyPartsByManager",
+        "GameObject.GetBodyPartsByManager",
+        "GameObject.GetSlotsRequiredFor",
+        "GameObject.WantToReequip"
+      ],
+      "sha256": "b00d7a22f93adb47c05b39f170ae1c1ec23bd112210da69f77a074d6b4588133",
+      "manifest_sha256": "b00d7a22f93adb47c05b39f170ae1c1ec23bd112210da69f77a074d6b4588133",
+      "manifest_match": true,
+      "line_count": 19304,
+      "claim": "Manager operations delegate to Body. Slot requirements use a typed item/actor query. WantToReequip only requests Brain work for nonplayers; player items are not guaranteed to auto-refit."
+    }
+  ],
+  "current_yair_inputs": [
+    {
+      "file": "PROJECT.md",
+      "line_spans": [
+        [
+          1,
+          23
+        ]
+      ],
+      "sha256": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9",
+      "claim": "Current care and audited delivery scope is implemented-unverified; one realm/one prestige and later gameplay gates remain.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/native_equipment_transaction.js",
+      "line_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+      "claim": "Actual native item keys use existing item.equip_slot; prepare/write/publish recomputes native containers without another equipment owner.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/models/person.js",
+      "line_spans": [
+        [
+          496,
+          533
+        ]
+      ],
+      "sha256": "cfac4c3ac00b86ead04aa3ee28303e6867ed49259e5237e9e9f864c580371c6c",
+      "claim": "Native equip uses the item slot, replaces that slot and returns prior item to inventory; no named limb-tree fit is present in this inspected path.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/models/hero.js",
+      "line_spans": [
+        [
+          289,
+          314
+        ]
+      ],
+      "sha256": "ed5fc03f42906b14b901c34eab426a6824f539dd64d061c9985f8964f8cd6624",
+      "claim": "Hero moves actual items between native inventory and fixed equipment slots and recalculates stats.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/body_progression.js",
+      "line_spans": [
+        [
+          15,
+          24
+        ],
+        [
+          32,
+          69
+        ]
+      ],
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "claim": "Inherited balance, trained grip, temporary soreness/scrapes and retained palm marks already exist.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/backlog_expansion_body.js",
+      "line_spans": [
+        [
+          29,
+          61
+        ],
+        [
+          64,
+          79
+        ],
+        [
+          89,
+          98
+        ]
+      ],
+      "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+      "claim": "Existing human/consenting clay body identity and scalar hands, removable serialized brass device and controlled-body sealing are incumbent; definitions/native input were inspected, not revalidated end to end.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/audit_remainder_combat_fit_facts.js",
+      "line_spans": [
+        [
+          28,
+          83
+        ]
+      ],
+      "sha256": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+      "claim": "Actual owned harness, living/recovered hands, trained source and consenting support determine fitting.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/audit_remainder_combat_fit_hooks.js",
+      "line_spans": [
+        [
+          104,
+          171
+        ]
+      ],
+      "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+      "claim": "Paid guard and actual inherited/trained body escape use retained harness/grip/source receipts; no new generic body-buff gap.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/status_care_facts.js",
+      "line_spans": [
+        [
+          8,
+          69
+        ]
+      ],
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+      "claim": "Live hand care checks controlled human hands>=2 and projects existing timed conditions into native stats/weather.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/status_care_content.js",
+      "line_spans": [
+        [
+          54,
+          108
+        ]
+      ],
+      "sha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93",
+      "claim": "Care uses paid shared jobs with completion support/refund and actual materials/played time.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "line_spans": [
+        [
+          145,
+          159
+        ]
+      ],
+      "sha256": "5cfb00139129c54be6ba6ad12e29d22e2ae2069321a2045648ae61d0225da2a9",
+      "claim": "Existing body effect assigns a declared body property and native vitals use the actual actor adapter.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "line_spans": [
+        [
+          3,
+          15
+        ],
+        [
+          50,
+          61
+        ]
+      ],
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "claim": "Existing staged actual inventory/XP/reputation publisher remains incumbent.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    },
+    {
+      "file": "src/reference_gameplay_feats.js",
+      "line_spans": [
+        [
+          15,
+          33
+        ],
+        [
+          150,
+          166
+        ],
+        [
+          293,
+          299
+        ]
+      ],
+      "sha256": "77b3e5265b19c0f7085f5ac068de789cf293039e585d7a37438548c24945325a",
+      "claim": "Distinct committed approaches and trained-method IDs already feed durable feat receipts; old missing-catalogue recommendation is stale.",
+      "classification": "current_dirty_source_inspected_not_runtime_verified"
+    }
+  ],
+  "trace": [
+    {
+      "stage": "mutation and support topology",
+      "evidence": [
+        "QB01",
+        "QB02",
+        "QB03"
+      ],
+      "observed": "Ordinary AddMutation calls MultipleArms.Mutate; the normal eligible first-pair branch adds managed arm/hand nodes and a separately dependent paired-hands node. Manager IDs distinguish newly granted anatomy from original laterality changes. Positive ranked additions can repeat the operation."
+    },
+    {
+      "stage": "real selected fit",
+      "evidence": [
+        "QB04",
+        "QB05",
+        "QB06",
+        "QB07",
+        "QB08",
+        "QB09",
+        "QB10"
+      ],
+      "observed": "Recursive current body queries offer actual eligible nodes. An ordinary valid takeable Hand melee item can be selected on one of the added hand nodes; PerformEquip invokes DoEquip and sends equip events. Required multiple same-type slots bind the same item to multiple nodes; insufficient free support may unequip blockers then fail."
+    },
+    {
+      "stage": "real cost and action consumer",
+      "evidence": [
+        "QB02",
+        "QB05",
+        "QB06",
+        "QB11",
+        "QB12",
+        "QB13",
+        "QB14"
+      ],
+      "observed": "Successful ordinary in-cell equip defaults to 1000 energy. PerformMeleeAttack reads current eligible distinct weapons and actual parts, consults intrinsic attack chance, calls weapon attacks and pays default 1000 melee energy. The mutation adds 7+3*Level minus base15 only for its own nonprimary intrinsic part. With baseline secondary15 and no other modifiers, Level1 yields10, not an extra10 guaranteed attack; actor overrides and event handlers remain meaningful."
+    },
+    {
+      "stage": "support loss through ordinary unmutation",
+      "evidence": [
+        "QB01",
+        "QB02",
+        "QB05",
+        "QB06",
+        "QB09",
+        "QB15"
+      ],
+      "observed": "Without remaining mutation modifiers, RemoveMutation invokes Unmutate. Added manager-owned attached nodes are removed with recursive equipment cleanup; dismembered manager records are deleted separately. Built body recomputes topology/defaults/armor and dependency support. Original laterality restores only when flagged and consistent."
+    },
+    {
+      "stage": "retained object and lost function aftermath",
+      "evidence": [
+        "QB06",
+        "QB09",
+        "QB10",
+        "QB11",
+        "QB15"
+      ],
+      "observed": "For ordinary valid real non-natural items and successful event handlers, cleanup force-unequips with NoTake, selects actor Inventory or drop fallback, and dispatches forced drop to that target. Same object is added, not cloned. Unequip clears every slot reference to a shared object; later combat rejects a loose unequipped object. Re-equipping is conditional on surviving support; WantToReequip is only an NPC Brain request."
+    }
+  ],
+  "dependency_exception_map": [
+    {
+      "join": "manager identity and original parts",
+      "evidence": [
+        "QB02"
+      ],
+      "exception": "Normal special laterality branch requires existing unmanaged limbs/hands/group, safe laterality and matching dependency relationships. Fallback insertion is separate. Negative AdjustRank changes Rank but has no removal loop here; no universal inverse claim."
+    },
+    {
+      "join": "query eligibility versus actual fit",
+      "evidence": [
+        "QB04",
+        "QB06",
+        "QB07",
+        "QB09",
+        "QB15"
+      ],
+      "exception": "Typed/legacy query handlers, default-behavior veto, gigantic/natural item rules, same-type free slots and event-driven GetSlotsRequiredFor matter. Most UsesSlots validation window1775-1869 in BodyPart and all GetSlotsRequiredEvent handlers are unread; not all armor/cybernetic fit cases are audited."
+    },
+    {
+      "join": "secondary attacks",
+      "evidence": [
+        "QB02",
+        "QB06",
+        "QB11",
+        "QB12",
+        "QB14"
+      ],
+      "exception": "Only eligible actual weapons enter the current list. Shared multi-slot weapons are deduplicated. Managed primary attacks and non-intrinsic extra attacks do not receive this mutation adjustment. Actor chance overrides, multipliers, inherited primary substitution, phase/flight/extremity checks and target validity alter results."
+    },
+    {
+      "join": "fit failure and cost",
+      "evidence": [
+        "QB06",
+        "QB09",
+        "QB11"
+      ],
+      "exception": "Equip energy is paid after success, with explicit/no-cell/Thrown Weapon exceptions. Prior blockers may already have been unequipped, and context restoration is attempted rather than a blanket rollback. Melee cost has ShortBlades_Expertise exception. No mutation acquisition price or refund rule audited."
+    },
+    {
+      "join": "loss and recovery",
+      "evidence": [
+        "QB05",
+        "QB06",
+        "QB15"
+      ],
+      "exception": "Attached real non-natural gear uses the transfer path; natural/non-real gear is handled differently. Unequip begin/perform handlers can fail, remover catches exceptions, inventory can be absent and fallback may be absent. No unconditional conservation, mutation-free failure or guaranteed auto-refit claim. Dismembered-manager-record deletion is not equivalent to attached cleanup."
+    },
+    {
+      "join": "dependency and regrowth boundary",
+      "evidence": [
+        "QB05",
+        "QB06"
+      ],
+      "exception": "Concrete DependsOn/SupportsDependent and abstract RequiresType/RequiresLaterality are distinct; built update cuts unsupported nodes and reattaches recoverable dependent entries. Full Dismember, actual limb regrowth method/trigger/cost/limits, reattachment implementation, catastrophic death, cybernetics and body-data definitions remain unread."
+    },
+    {
+      "join": "incumbent YAIR support",
+      "evidence": [],
+      "exception": "Scalar hands/body identity, serialized removable brass device, consenting clay-body work, source suppression/training, earned grip/balance, maintained guard/harness and temporary care effects already exist. New missing claim is confined to managed named limb topology with multi-node equipment assignment and support-loss consumer in inspected current paths."
+    }
+  ],
+  "original_consumer_question": {
+    "classification": "inferred_original_unselected_design_question_not_implementation_or_packet",
+    "one_realm_one_prestige": true,
+    "question": "If a later original body source grants a third gripper, can one real tool mount to that exact gripper/parent support while the ordinary hands retain existing equipment, enabling one distinct simultaneous hold-and-work method? Loss of that named support must clear only its actual mount/function and route the same tool into existing owned stock or an explicit drop outcome; reacquisition does not create another tool or automatic fit.",
+    "incumbent_reuse": "Keep actual item keys and inventory, current source/faculty acquisition and training, current body/controller identity, paid work/played clock and sole staged publisher. Ordinary BL-01 installed pressure, clay sealing, numeric hand-control buffs and existing harness/rope maneuvers do not need another service.",
+    "missing_consumer": "Inspected native equipment accepts fixed item.equip_slot. Inspected body operations store scalar properties. No named limb-node manager/parent support graph, multi-node mount codec or topology-driven automatic detachment consumer was found in these selected paths. This is bounded source absence, not an exhaustive repository proof.",
+    "future_boundary": "Requires explicit body/equipment saved-state compatibility and actual support-loss, retained-object, action and save/reload acceptance under a later assigned implementation. No packet or gate selected here."
+  },
+  "coverage": {
+    "semantic": "One connected MultipleArms -> live slot fit -> secondary melee -> ordinary unmutation -> retained-item/function aftermath path plus bounded support/fit exceptions. Main assembly export availability is not whole-source reading.",
+    "selected_evidence_files": 14,
+    "selected_evidence_records": 15,
+    "exploratory_unselected": [
+      {
+        "file": "XRL.World.Parts.Mutation/Carapace.cs",
+        "line_spans": [
+          [
+            1,
+            328
+          ]
+        ],
+        "qualification": "Class was read as an alternative; supporting cleanup/armor consumer chain was not selected or completed. No Carapace gameplay parity claim."
+      }
+    ],
+    "unread": [
+      "Selected BodyPart/Body/Inventory/GameObject/Combat files outside recorded source windows, except extra locator/context windows do not count as semantic proof.",
+      "BodyPart constructor/type-definition resolution and actual anatomy XML, default natural weapon construction, all GetSlotsRequiredEvent handlers and most explicit UsesSlots validation1775-1869.",
+      "Full melee damage/armor/shield/skills/RNG internals, inventory capacity policy outside the transfer checks, save/load/equipment serialization, all mutation acquisition/upgrades/modifier-lifecycle branches.",
+      "Full dismemberment/regeneration/re-attachment implementations and costs; death/corpses/obliteration/cybernetics/Pets Pack; third-party assemblies and native/Unity services.",
+      "All DLC/add-on gameplay and editions/versions later than supplied2.0.211.56. Included Pets Pack installer remains unused and unextracted; no installation or current entitlement claim."
+    ]
+  },
+  "licensing": {
+    "kind": "proprietary supplied game artifact; no open-source reuse grant inferred",
+    "treatment": "Raw code/assets/prose remain outside Git; these outputs are paraphrase, symbol/range/hash receipts and original unselected design questions. Preserve YAIRPG upstream attribution and LICENSE. No copied Qud code or content proposed."
+  },
+  "validation": {
+    "source_hash_manifest_matches": 15,
+    "range_bounds": true,
+    "json_checked": true,
+    "current_source_drift_rechecked": true,
+    "runtime": "not_run",
+    "game_build": "not_run",
+    "unit_browser_save_regression": "not_run",
+    "source_mutation": "none",
+    "selected_packet": "none",
+    "input_drift_reconciled": [
+      {
+        "file": "src/simulation_effects.js",
+        "before_sha256": "acd52c5601e7c8c700f16509a65e3a06a02f5ccf14d96e33a4def288c9f08c9e",
+        "current_sha256": "5cfb00139129c54be6ba6ad12e29d22e2ae2069321a2045648ae61d0225da2a9",
+        "qualification": "Final-check drift detected. Reread current body/vital window145-159; body property assignment remains semantically unchanged at line151. Snapshot/citation refreshed, no native edit by this lane."
+      }
+    ],
+    "markdown_local_links": 18,
+    "markdown_links_pass": true,
+    "files_saved": true
+  },
+  "raw_receipt": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/body/BODY_SOURCE_RECEIPT.json"
+}

@@ -1,0 +1,15 @@
+# Shared engine held checkpoint
+
+Revision1, 2026-10-04. Owner engine chat01a1056b-d82c-7ef2-babb-d8316c45f396; assigning master01a10933-feaf-7503-878e-49a6d5ad113f. **Held for Weibao's plan review.** Latest direct instruction supersedes the expanded implementation dispatch: combine ideas into a concrete plan first, then begin parallel work after review. The assigning master owns RUN/README/CHECKPOINT in the parent directory and is preparing that plan. This checkpoint and HOLD_RECEIPT.json are engine-owned.
+
+Actual work: read the assignment, RUN, applicable AGENTS/PROJECT and existing source/export contracts. No new expanded-run worker, shared runtime edit, catalogue integration or world interface was started. INTERFACE.md is absent, and no unsupported caller API was promised. The interrupted Glasshouse follow-on has only its initial seven-input fingerprint receipt and a paused host goal; no settling_rack source exists. Preserve those inputs and the unfinished scope rather than claiming delivery.
+
+Existing baseline: codex/gameplay-foundations HEAD97c28ef with preserved extensive dirty work. Current bundleb265cccda4c0 matches its previous build receipt; all23 recorded source/asset inputs have zero drift. Native Glasshouse/cargo/view/clock and twelve ordinary plus nine selected observation commands remain built-unverified. Earlier source/test evidence retains its dated scope; no new behavioral tests or save/import checks ran.
+
+Root actual internal agents cargo_engine_gm, observation_engine_gm and realm_clock_engine_gm are all completed/released. No active root child writer, in-flight tool/exec session, pending mutation or unsaved delta. The existing review server18628/PID12567 is alive and retained. Book/source reading is independent and was not interrupted.
+
+Other-role observation: src/original_frontier_campaign_content.js now exists under Original Frontier GM01a10945-010b-7a91-844a-d6d3024c6f35's exclusive scope. Root has neither edited nor integrated it; its live writer/checkpoint status belongs to the assigning master and that role. src/world_ability_runtime.js was absent at this readback. Do not replace, cancel or take over another role from file presence alone.
+
+Reservations: root retains shared existing native/save/registry/UI/build/global integration plus INTERFACE.md and engine evidence. Ability GM owns world_ability_runtime/abilities; local GMs own their assigned folders/new modules. Master-owned RUN/README/CHECKPOINT were untouched. Preserve private saves, source libraries, attribution and unrelated changes.
+
+Resume only after the human reviews the complete plan and authorizes execution. Re-read that accepted plan and live role assignments/checkpoints; inspect changed hashes and actual workers/processes. Then freeze supported interfaces before integration, reconcile the paused Glasshouse scope with accepted Original Frontier work, and execute the selected catalogue/adapters. Current user deferral keeps gameplay/unit/browser/save-failure/regression proof as a later gate. Do not mark the incomplete Glasshouse goal complete or treat the new plan as approved.

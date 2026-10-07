@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "date": "2026-10-05",
+  "worker": "/root/relay_scene",
+  "parent": "/root",
+  "status": "complete finite local source; shared registration/build pending; implemented-unverified",
+  "scope": [
+    "src/feature_expansion_subtlety_scene.js",
+    "src/feature_expansion_subtlety_host.js",
+    "docs/gm/feature-wave/features/book-world-subtleties/relay/"
+  ],
+  "sceneId": "subtlety.relay_office",
+  "provenance": {
+    "kind": "original",
+    "edition": null,
+    "sourceClaimIds": [],
+    "baseline": "Backlog original living seal-steward proof; explicit added relay offer",
+    "cause": "Deliberate office meeting, then separate relay opt-in"
+  },
+  "supersededDraft": {
+    "prospectivePeople": [
+      "subtlety.rightful_keeper",
+      "subtlety.registry_clerk",
+      "subtlety.local_witness"
+    ],
+    "disposition": "Not registered or saved; parent corrected to reuse actual Backlog participants"
+  },
+  "actualPeople": [
+    "backlog.registry.eda",
+    "backlog.registry.orrin",
+    "backlog.registry.bera"
+  ],
+  "existingCarrierIds": {
+    "office": "backlog.registry.seal_steward",
+    "duty": "backlog.registry.two_seals",
+    "templateLoan": "backlog.registry.template_loan"
+  },
+  "newIds": {
+    "scene": "subtlety.relay_office",
+    "group": "subtlety_relay",
+    "site": "subtlety.relay_counter",
+    "badgeLoan": "subtlety.relay_badge_loan",
+    "creditInvitation": "subtlety.relay_fitting_invitation",
+    "begin": "subtlety.relay_begin"
+  },
+  "exports": {
+    "src/feature_expansion_subtlety_scene.js": [
+      "RELAY_IDS",
+      "RELAY_KEYS",
+      "RELAY_ITEMS",
+      "relayDefinitions",
+      "registerRelayItems",
+      "RELAY_CARRIER_JOINS"
+    ],
+    "src/feature_expansion_subtlety_host.js": [
+      "createRelayHost",
+      "relayFacts",
+      "relayContext",
+      "validateRelayState",
+      "relayKnowledgePresentation",
+      "relayPeopleView",
+      "RELAY_CARRIER_JOINS"
+    ]
+  },
+  "callbacks": {
+    "createRelayHost": {
+      "commit": "commitBacklogAction(state,registry,command,context,expectedSequence); bind root advancePlan if required",
+      "preview": "previewBacklogAction(state,registry,id,context)",
+      "actions": "backlogActions()",
+      "validate": "state => validateReplacementRecord(state.backlog,state)",
+      "view": "replacementView(state), only actual knowledge.player accounts",
+      "carrierView": "replacementCarrierView(state), admission validation only, never rendered",
+      "context": "Optional (state,context)=> actual already-bound native context; relayContext then adds relay facts",
+      "stage": "stageReplacementCommand is consumed by commitBacklogAction lane.stage; no direct out-of-sequence use by relay"
+    },
+    "methods": [
+      "commit(state,registry,command,context,expectedSequence)",
+      "preview(state,registry,id,context)",
+      "presentation(state,registry,context)",
+      "validate(state,registry,nativeContext)",
+      "context(state,context)"
+    ]
+  },
+  "parentJoins": [
+    {
+      "path": "src/simulation_content.js",
+      "join": "Merge relayDefinitions situations/sites/commands with actual Backlog person/power definitions. No new people or duplicate office claims."
+    },
+    {
+      "path": "src/items.js",
+      "join": "registerRelayItems({itemTemplates:item_templates,OtherItem}) once; four OtherItem templates retain existing native key codec."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "join": "Merge relayFacts(state,context) into simulationFacts for fresh player and completion support legality. Private facts must not be rendered as knowledge."
+    },
+    {
+      "path": "src/simulation.js",
+      "join": "Include subtlety_relay in job.reservationReturns=1 group list so refund acquisition receipts preserve reserved inputs."
+    },
+    {
+      "path": "src/expansion_persistence.js and existing envelope validators",
+      "join": "Call validateRelayState(state,registry,nativeContext), plus existing validateBacklogState/validateReplacementRecord. Native context required to check exact held badge count. New scene absent stays inert."
+    },
+    {
+      "path": "src/main.js / src/feature_expansion_wave_host.js",
+      "join": "Instantiate createRelayHost with the frozen callbacks. presentation officeActions retain {type:backlog,id}; relay actions emit {type:relay,action:begin|command|cancel_job,id,targetId}. Existing durable publisher alone saves and publishes returned plans. Route relay action by replacing type with action before host.commit. Add people/reports/recognition to current Notebook surfaces."
+    },
+    {
+      "path": "Existing joined calendar/scheduler",
+      "join": "All 2/3/4/5-minute relay jobs use normal simulation jobs, site/participant reservations, completion support and root clock. No new timer or offline enrollment."
+    }
+  ],
+  "nativeItems": [
+    "Village relay badge",
+    "Loose Village relay badge",
+    "Relay badge fastening",
+    "Packed Village relay parcel"
+  ],
+  "nativeConsumers": {
+    "physicalBadge": "Actual one-badge custody loan; use returns/transforms/reloans the same owner item; compatible fastening consumes real log/sap; exact variant return closes its loan.",
+    "officeRight": "Current Backlog office held by player AND active issued credential permits pack_dispatch and deliver_dispatch. Badge/alias alone fails. Original two-seal duty remains unchanged under Backlog consumer.",
+    "parcel": "One actual owned Prepared survey kit transforms into native parcel; delivery transforms it into Bera kit; unpack recovery returns same kit after office return.",
+    "finiteCredit": "Unique invitation is allocated from Orrin to player or Bera; supported new work settles it once, consuming finite materials and funded wage. Unused correction returns same claim; spent correction exposes known two-coin compensation with native payment and retained relationship history.",
+    "usefulOutputs": "Prepared survey kit is existing native item used by preparation/work/trade; Bera actual earned/delivered kit has a reachable native purchase consumer.",
+    "funding": "Distinct subtlety.relay.coins resources avoid all exact Backlog personal purse invariants. Orrin starts with 8 relay coins; ordinary/invitation/dispatch wages reserve 1/2/3 from that purse. Native user coins pay compensation and kit purchases."
+  },
+  "save": {
+    "expansion": "existing6, no independent engine schema",
+    "backlog": "existing optional2 replacement1; relay does not rewrite generic carrier records",
+    "simulation": "existing situation/job schema3/4 used by ordinary APIs",
+    "relay": "actor fact subtlety.relay.version=1, situation revision1, commands/items revision1; absent inert",
+    "oldJobs": "No existing ID or meaning changed; new IDs only",
+    "oldReader": "Reader without scene/items/command definitions must reject unsupported active relay data recoverably rather than deleting it",
+    "privateSaves": "Never read or modified"
+  },
+  "counts": {
+    "relayCommands": 24,
+    "relayItems": 4,
+    "existingReplacementControls": 17
+  },
+  "checks": {
+    "passed": [
+      "node --check both new modules",
+      "cold ES imports",
+      "createSimulationRegistry on relay definitions and actual Backlog people/powers/sites",
+      "exact person/office ID correspondence",
+      "duplicate command ID exclusion",
+      "createRelayHost actual callback admission without action invocation"
+    ],
+    "deferred": [
+      "shared registry/native/UI registration",
+      "whole-wave matched build",
+      "unit/browser/gameplay/save/reload/failure/keyboard/regression/director acceptance"
+    ]
+  },
+  "hashes": {
+    "src/feature_expansion_subtlety_scene.js": "2da0e17e45d495a43872330377e9c42bfe15694b4277dd3627e1eb6fbf984671",
+    "src/feature_expansion_subtlety_host.js": "edf27f5e13829b72e75252135037e065e5f1d63b18491eb23118defaf09552a1"
+  }
+}

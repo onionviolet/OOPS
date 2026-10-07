@@ -1,0 +1,21 @@
+{
+  "root": "01a114d2",
+  "status": "leaf/native adapter acquired and reviewed; shared joins pending",
+  "repairs": [
+    "boolean count availability and no unnecessary schema stamps returned by worker",
+    "exact simulation job cause equals sequence, not sequence+1",
+    "pure saved-state validator uses frozen local definition with optional registry matching, since persistExpansionPlan calls validateExpansionState without registry",
+    "native effect90 begins at actual receipt.at; existing Weak duration max preserved and other meds untouched"
+  ],
+  "checks": [
+    "facts syntax",
+    "host/native adapter cold imports"
+  ],
+  "sourceHashes": {
+    "src/contextual_balm_content.js": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+    "src/contextual_balm_facts.js": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f",
+    "src/contextual_balm_host.js": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e",
+    "src/contextual_balm_native.js": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476"
+  },
+  "deferred": "all gameplay/unit/browser/native constructor/save/failure/regression/keyboard/director suites unrun"
+}

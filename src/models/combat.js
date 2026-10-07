@@ -1,5 +1,6 @@
 "use strict";
 
+import {rollBaseCombatDamage,nextAttackTiming} from "../combat_math.js";
 import { config } from "../config.js";
 import { character } from "../data/character.js";
 import { skills } from "../data/skills.js";
@@ -38,6 +39,7 @@ class Combat {
         defenders_ui_slot, //this is expected to have no pre-existing children, otherwise they might get deleted
         is_special_combat, //true -> skips loot, rewards, location progress, etc (esp since it might not even involve player)
         show_stance_controls, //generally just ignore it let it be auto set
+        actionAdapter,
     }) {
         this.attackers = attackers;
         this.defenders = defenders;
@@ -46,6 +48,7 @@ class Combat {
         this.is_special_combat = is_special_combat ?? false;
         this.show_stance_controls = show_stance_controls ?? !this.is_special_combat;
         this.is_ended = false;
+        this.actionAdapter = actionAdapter;
     }
 
     #setupDisplay() {
@@ -56,12 +59,8 @@ class Combat {
         this.clearAllAttackLoops();
         this.clearUI();
 
-        for(let i = 0; i < this.attackers.length; i++) {
-            this.attackers[i].is_alive = true;
-        }
-        for(let i = 0; i < this.defenders.length; i++) {
-            this.defenders[i].is_alive = true;
-        }
+        // Cleanup preserves persistent life; it never revives fighters.
+
     }
 
     end() {
@@ -133,6 +132,8 @@ class Combat {
 
         const fighter = is_attacker ? this.attackers[fighter_index] : this.defenders[fighter_index];
 
+        if(!fighter?.is_alive) return;
+
         //tries to switch stance back to the one that was actually selected if there's enough stamina, otherwise tries to switch stance to "normal" if not enough stamina
         if(fighter.tags?.main_character && !this.is_special_combat) {
             if(fighter.getFullStats().stamina >= (selected_stance.stamina_cost / fighter.getFullStats().stamina_efficiency)){ 
@@ -193,14 +194,13 @@ class Combat {
         this.clearAttackLoop({fighter_index, is_attacker});
         fighter_data.attack_loops[fighter_index] = setTimeout(() => {
             if(this.is_ended) { return; }
-            fighter_data.timers[fighter_index] = [];
-            fighter_data.timers[fighter_index][0] = Date.now();
-            fighter_data.time_variance_acumulators[fighter_index] = Date.now();
-
-            fighter_data.time_variance_acumulators[fighter_index] += 
-                ((fighter_data.timers[fighter_index][0] - fighter_data.timers[fighter_index][1]) - actual_cooldown*1000/(60*tickrate))
-
-            fighter_data.timers[fighter_index][1] = Date.now();
+            const now=Date.now();
+            const timing=nextAttackTiming(fighter_data.timers[fighter_index][1],now,actual_cooldown*1000/(60*tickrate),
+                fighter_data.time_variance_acumulators[fighter_index],maximum_time_correction/tickrate);
+            fighter_data.timers[fighter_index][0]=now;
+            fighter_data.timers[fighter_index][1]=now;
+            fighter_data.time_variance_acumulators[fighter_index]=timing.variance;
+            fighter_data.timer_adjustments[fighter_index]=timing.adjustment;
 
             update_attack_bar({fighter_index, is_attacker, progress: count/60});
             count++;
@@ -209,10 +209,11 @@ class Combat {
                 let leveled = false;
 
                 for(let i = 0; i < targets.length; i++) {
-                    this.doCombatAction({fighter_index: i, is_attacker, target: targets[i], attack_power, target_count: targets.length});
+                    this.doCombatAction({fighter_index, is_attacker, target: targets[i], attack_power, target_count: targets.length});
+                    if(this.is_ended) return;
                 }
 
-                if(fighter.tags?.main_character && current_stance.related_skill) {
+                if(!this.is_special_combat && fighter.tags?.main_character && current_stance.related_skill) {
                     leveled = add_xp_to_skill({skill: skills[current_stance.related_skill], xp_to_add: targets.reduce((sum,enemy)=>sum+enemy.xp_value,0)/targets.length});
                     
                     if(leveled) {
@@ -234,18 +235,6 @@ class Combat {
                 this.doAttackLoop({fighter_index, is_attacker, base_cooldown, actual_cooldown, attack_power, targets, target_count, count, is_new: false});
             }
 
-            if(Math.abs(fighter_data.time_variance_acumulators[fighter_index] <= maximum_time_correction/tickrate)) {
-                fighter_data.timer_adjustments[fighter_index] = fighter_data.time_variance_acumulators[fighter_index];
-            } else {
-                //limits the maximum correction, just to be safe
-                if(fighter_data.time_variance_acumulators[fighter_index] > maximum_time_correction/tickrate) {
-                    fighter_data.timer_adjustments[fighter_index] = maximum_time_correction/tickrate;
-                } else {
-                    if(fighter_data.time_variance_acumulators[fighter_index] < -maximum_time_correction/tickrate) {
-                        fighter_data.timer_adjustments[fighter_index] = -maximum_time_correction/tickrate;
-                    }
-                }
-            }
         }, actual_cooldown*1000/(60*tickrate) - fighter_data.timer_adjustments[fighter_index]);
     }
 
@@ -259,6 +248,10 @@ class Combat {
      * @param {Number} data.target_count only used for xp calculations (if applicable)
      */
     doCombatAction({fighter_index, is_attacker, target, attack_power, target_count}) {
+        if(this.actionAdapter) {
+            this.actionAdapter({fighter:(is_attacker ? this.attackers : this.defenders)[fighter_index],target,is_attacker,attack_power});
+            return;
+        }
 
         const fighters = is_attacker ? this.attackers : this.defenders;
         const fighter = fighters[fighter_index];
@@ -320,11 +313,7 @@ class Combat {
 
         let partially_blocked = false; //only used for combat info in message log
 
-        for(let i = 0; i < fighter.getFullStats().attack_count; i++) {
-            damages_dealt.push(Math.round(10 * damage_modifier * base_damage * (1.2 - Math.random() * 0.4))/10); //basic 20% deviation for damage
-        }
-
-        damages_dealt = damages_dealt.sort((a,b)=>b-a);
+        damages_dealt = rollBaseCombatDamage(base_damage,fighter.getFullStats().attack_count,damage_modifier);
 
 
         if(target.hasShield()) {
@@ -468,10 +457,10 @@ class Combat {
     }
 
     clearAllAttackLoops() {
-        for(let i = 0; i < this.attackers; i++) {
+        for(let i = 0; i < this.attackers.length; i++) {
             this.clearAttackLoop({fighter_index: i, is_attacker: true});
         }
-        for(let i = 0; i < this.defenders; i++) {
+        for(let i = 0; i < this.defenders.length; i++) {
             this.clearAttackLoop({fighter_index: i});
         }
     }

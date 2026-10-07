@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "assigningThreadId": "01a10db8-e981-76f3-aa4c-600e99310cda",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "authority": "Direct human request to implement features 2, 3, 4 and 5 and assign separate GMs for backlog, legibility, Ink and all 30 repository mechanisms.",
+  "packet": "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md",
+  "inputs": "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05_INPUTS.json",
+  "dispatchState": "five-created-and-observed-active",
+  "previousIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+  "sharedWriterRelease": false,
+  "canonicalWriterRelease": false,
+  "releaseRule": "Features observes Frontier completed turn plus final checkpoint/actual files/processes and exclusive release; no overlapping shared edits. Specialists own only new reserved paths.",
+  "roles": {
+    "features": {
+      "assignment": "docs/gm/feature-wave/features/ASSIGNMENT.md",
+      "threadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+      "hostId": "local",
+      "creationState": "created"
+    },
+    "backlog": {
+      "assignment": "docs/gm/feature-wave/backlog/ASSIGNMENT.md",
+      "threadId": "01a10dc6-296b-7ca3-9efc-fb53590301da",
+      "hostId": "local",
+      "creationState": "created"
+    },
+    "legibility": {
+      "assignment": "docs/gm/feature-wave/legibility/ASSIGNMENT.md",
+      "threadId": "01a10dc6-46de-7ec2-afe1-8d6bd2155c58",
+      "hostId": "local",
+      "creationState": "created"
+    },
+    "ink": {
+      "assignment": "docs/gm/feature-wave/ink/ASSIGNMENT.md",
+      "threadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+      "hostId": "local",
+      "creationState": "created"
+    },
+    "repositories": {
+      "assignment": "docs/gm/feature-wave/repositories/ASSIGNMENT.md",
+      "threadId": "01a10dc6-adcd-7372-a0ce-6b85dd811f6d",
+      "hostId": "local",
+      "creationState": "created"
+    }
+  },
+  "settings": "Configured new-chat defaults retained; no model/thinking override.",
+  "checks": "Source/syntax/import/link/dependency/compiler/build permitted; gameplay/save/failure/keyboard/regression/director deferred.",
+  "noGameplayDeliveryClaim": true,
+  "observedAtUtc": "2026-10-05 20:36:32 UTC",
+  "observations": [
+    {
+      "threadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "849ef653-f12b-4673-87bf-976f90c6d049:2",
+      "latestProgress": "The wave authorizes four implementation lanes plus specialist integration, with gameplay and save checks deferred. I’m using the evidence-gated-handoff and efficient-agent-routing skills to keep file ownership, native consumers, and delivery evidence clear."
+    },
+    {
+      "threadId": "01a10dc6-296b-7ca3-9efc-fb53590301da",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "cf4fcd56-7b41-4ef4-be34-f63c9ac47738:2",
+      "latestProgress": "I’m splitting the work into two disjoint rule modules, using the efficient-agent-routing skill to keep file ownership clear. I’ll handle the command, persistence and UI adapter. Every proof will require deliberate opt-in and use the existing publication path."
+    },
+    {
+      "threadId": "01a10dc6-46de-7ec2-afe1-8d6bd2155c58",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "8edcd512-1fc9-4cb0-9ed5-ffe77bc62e3e:4",
+      "latestProgress": "The current Frontier preview does collapse several failures into one generic message. I’ll use its evaluator records to show real costs and blockers while keeping hidden facts out of the view. I’m applying the agent-routing and evidence-handoff skills for one disjoint UI worker; I’ll own the projection and integration contract."
+    },
+    {
+      "threadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "1dc0b049-4e92-4347-828f-6a20d1837913:6",
+      "latestProgress": "Ink will control conversation flow, while the existing host will own costs and consequences. I’m using the efficient-agent-routing skill for a disjoint scene/UI lane; compiler and runtime compatibility work will stay in this lane."
+    },
+    {
+      "threadId": "01a10dc6-adcd-7372-a0ce-6b85dd811f6d",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "6eb78170-2176-4411-a977-fad9d30dc64b:4",
+      "latestProgress": "The wave keeps Features as the sole shared-file integrator. I’m using the agent-routing and evidence-handoff skills to split source tracing into disjoint work while keeping the implementation and admission records in this role’s queue."
+    },
+    {
+      "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "active",
+      "turnStatus": "inProgress",
+      "cursor": "4f5ec92d-46bc-49da-aba3-5db4f01aea73:7",
+      "latestProgress": "Final source review caught a settlement bug: starting protected work marked its encounter contribution spent before the completion guard could use it. I’m freezing that contribution in the accepted job so settlement can recognize the reservation, while cancellation can restore it."
+    }
+  ],
+  "checksResult": {
+    "assignments": 5,
+    "createdRoles": 5,
+    "localLinksMissing": 0,
+    "jsonReadback": "passed",
+    "sourceEditsByDispatcher": false
+  },
+  "frontierAtCloseout": {
+    "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "status": "active",
+    "turnStatus": "inProgress",
+    "reservation": "retained; finishing a concrete settlement repair",
+    "cursor": "4f5ec92d-46bc-49da-aba3-5db4f01aea73:7"
+  },
+  "liveHandoffOwner": "Features must record actual Frontier completion/release in docs/gm/feature-wave/features/CHECKPOINT.md or HANDOFF.json before taking shared/canonical writes. This receipt is the dispatch-time snapshot."
+}

@@ -1,0 +1,2885 @@
+{
+  "schema_version": 1,
+  "status": "complete-finite-assigned-source-review",
+  "scope": "All assigned mechanic families through selected semantically reviewed paths; not whole-game/entireDLC corpus.",
+  "family_results": [
+    {
+      "family": "character-specific stages and dialogue",
+      "finding_ids": [
+        "CC-R01",
+        "CC-R02",
+        "CC-R03",
+        "CC-R04",
+        "CC-R05",
+        "CC-R06",
+        "CC-R07",
+        "CC-R08",
+        "CC-R09",
+        "CC-R10",
+        "CC-R11",
+        "CC-R12",
+        "CC-R13",
+        "CC-R14"
+      ],
+      "gate": "Exact common stage/greeting/ending/phone/selected Peanut choices/config spans joined; missing scene fields explicit.",
+      "status": "complete-selected-static"
+    },
+    {
+      "family": "jobs/hobbies/competing allocation",
+      "finding_ids": [
+        "CC-E01",
+        "CC-E02",
+        "CC-E03",
+        "CC-E04"
+      ],
+      "status": "complete-selected-static"
+    },
+    {
+      "family": "money/gifts/dates/requirements",
+      "finding_ids": [
+        "CC-E05",
+        "CC-E06",
+        "CC-E07",
+        "CC-E08",
+        "CC-E10"
+      ],
+      "status": "complete-selected-static"
+    },
+    {
+      "family": "reset multipliers/offline/events",
+      "finding_ids": [
+        "CC-E09",
+        "CC-S01",
+        "CC-S02",
+        "CC-S03",
+        "CC-S04",
+        "CC-S05",
+        "CC-S06"
+      ],
+      "status": "complete-selected-static"
+    },
+    {
+      "family": "DLC/premium character mechanics/pacing",
+      "finding_ids": [
+        "CC-S07",
+        "CC-S08",
+        "CC-R13",
+        "CC-R14",
+        "CC-X02",
+        "CC-X03",
+        "CC-X04"
+      ],
+      "status": "complete-selected-static"
+    }
+  ],
+  "reviewed_source_spans": [
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/JobModel.cs",
+      "start": 1,
+      "end": 98,
+      "sha256": "c2f4b68eba1d12e0668fee67eee9579d2dded2b971848a675447a2fd1a85ae71",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/HobbyModel.cs",
+      "start": 1,
+      "end": 47,
+      "sha256": "2d3a28b9e0e66af3df56845d5b93df1f2836020f9fa8da3b4f843e7e1ce97068",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs",
+      "start": 1,
+      "end": 433,
+      "sha256": "9fd7289f433facbc5222785bc2476bb531e4d967b51bafa34595974c297a76c3",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs",
+      "start": 1,
+      "end": 295,
+      "sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs",
+      "start": 350,
+      "end": 595,
+      "sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs",
+      "start": 650,
+      "end": 916,
+      "sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs",
+      "start": 1,
+      "end": 539,
+      "sha256": "56f63f8fa81c48b7e81262f3dd324f20f614609dc24da7af75253049b4ab42ac",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/HobbyGild.cs",
+      "start": 1,
+      "end": 104,
+      "sha256": "d24725da911c311548cd99a1f8c8e3cf93ab5127b85a2c1761287fbd16083357",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs",
+      "start": 1,
+      "end": 248,
+      "sha256": "f458e9d5f83746e131078b120b6cc01f60f926bcc5ca0ff6f86442fd8410ff2d",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs",
+      "start": 1,
+      "end": 343,
+      "sha256": "7322adcc55d0df41e7ca3a3d45bbc11e8027714fa2dc2593c102bbc8bba9af1b",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Gift.cs",
+      "start": 1,
+      "end": 205,
+      "sha256": "b9219431f34c4b95f6370dd5d3dbbfc48f901b3004371db89fadf312dc6ae1fe",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Gifting.cs",
+      "start": 1,
+      "end": 139,
+      "sha256": "1ee4a9dc4742d254fe1106077402f84f21b2f3e64a22c14d023374c867db297c",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DateModel.cs",
+      "start": 1,
+      "end": 55,
+      "sha256": "a732bf1b0ef860264c7bf694e334c55a425862c2414bdfb08524ff823f17e4da",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs",
+      "start": 1,
+      "end": 278,
+      "sha256": "c8c07bab2d4ffe229f150042bcc366384b8587de1dd52cc24b1829844769b619",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/OfflineProgress.cs",
+      "start": 1,
+      "end": 112,
+      "sha256": "26863129373ab8872a82c35dac0153da791d1a94e8ce88060905eb4ba6142e5a",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs",
+      "start": 190,
+      "end": 430,
+      "sha256": "06a37b25c7f85f2decef48b47e08e1427b94b10866506b789949b610ea991813",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs",
+      "start": 443,
+      "end": 708,
+      "sha256": "06a37b25c7f85f2decef48b47e08e1427b94b10866506b789949b610ea991813",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 145,
+      "end": 439,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 302,
+      "end": 418,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1054,
+      "end": 1253,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1375,
+      "end": 1422,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1937,
+      "end": 2115,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 2239,
+      "end": 2348,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 239,
+      "end": 255,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 732,
+      "end": 750,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 783,
+      "end": 923,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1007,
+      "end": 1155,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1372,
+      "end": 1472,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1602,
+      "end": 1668,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1689,
+      "end": 1724,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1742,
+      "end": 1775,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 53,
+      "end": 63,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 231,
+      "end": 241,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 339,
+      "end": 379,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1152,
+      "end": 1205,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1392,
+      "end": 1422,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1460,
+      "end": 1550,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1718,
+      "end": 1735,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1880,
+      "end": 2156,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 291,
+      "end": 293,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 371,
+      "end": 373,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 470,
+      "end": 490,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1674,
+      "end": 1730,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Utilities.cs",
+      "start": 1230,
+      "end": 1328,
+      "sha256": "7c3f89ea7b9e97e2b45aa6cc9378654a137698b917c3efc29a05d728386113d5",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 582,
+      "end": 630,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Balance.cs",
+      "start": 107,
+      "end": 275,
+      "sha256": "c56088ce8a14893d83275ddbd537806869f1b4285b358098b3f53f3510e6582b",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/InteractionBox.cs",
+      "start": 128,
+      "end": 214,
+      "sha256": "624f1d161873e5962f4028d758a4d9a7d3ba36a6b55b6c1e3f0f7bfc7c4fdb15",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs",
+      "start": 1,
+      "end": 243,
+      "sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs",
+      "start": 556,
+      "end": 620,
+      "sha256": "79f24c9ab66c22b3011a0f0cbe811bf409d27a75572be6b6a50b60a26a0451a7",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs",
+      "start": 1096,
+      "end": 1138,
+      "sha256": "79f24c9ab66c22b3011a0f0cbe811bf409d27a75572be6b6a50b60a26a0451a7",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs",
+      "start": 1376,
+      "end": 1408,
+      "sha256": "79f24c9ab66c22b3011a0f0cbe811bf409d27a75572be6b6a50b60a26a0451a7",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 153,
+      "end": 168,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 213,
+      "end": 235,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 349,
+      "end": 378,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 469,
+      "end": 558,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Skills.cs",
+      "start": 1,
+      "end": 75,
+      "sha256": "04ac4e4a54cd9ff02e6d243bc85b89ff7b6d61d0798889bcf1a4ce5403d3753f",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt",
+      "start": 1,
+      "end": 221,
+      "sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Hobbies.txt",
+      "start": 1,
+      "end": 13,
+      "sha256": "ecdc53b15f8b994d814f776b86d4c8e9d9e93b10dac264c0e3c62888d830c063",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt",
+      "start": 1,
+      "end": 32,
+      "sha256": "7e826af99b653aeb1bae2a86d5517b0a7fc4dffd03a0360068595e8da22b6a96",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Dates.txt",
+      "start": 1,
+      "end": 5,
+      "sha256": "d89e6a3965e2cbfe14e2ea0ffa4ac971a7fa026fc874894fe9e2e7dcd66d6330",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Resources.txt",
+      "start": 1,
+      "end": 36,
+      "sha256": "7e22878b2ec3e1cdff3d773596d29221c19f22e207e3fdc9d712ab298416bf93",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 1,
+      "end": 50,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 98,
+      "end": 106,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 171,
+      "end": 200,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 282,
+      "end": 291,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 741,
+      "end": 750,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "economy_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 1,
+      "end": 8,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "extent": "economy family spans, not blanket whole-file/whole-assembly semantic coverage"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 302,
+      "end": 323,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "symbol_or_subject": "Love.set"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/StatsModel.cs",
+      "start": 44,
+      "end": 110,
+      "sha256": "2f1fc7debdd4e29df2fe5e9b5a0ca4ed1a57cb8d6d716a741b662b163ae8274b",
+      "symbol_or_subject": "StatsModel CSV constructor"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 523,
+      "end": 586,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "ForceAchievement/TriggerAchievement"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/ResetPage.cs",
+      "start": 12,
+      "end": 60,
+      "sha256": "8dde901d42a2789f1eaf9b1aeee4d94c8d5eba54588cc51bfb2147abb551cd67",
+      "symbol_or_subject": "Start/UpdateSpeedBoost"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 339,
+      "end": 379,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "Prestige"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 2218,
+      "end": 2253,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "PrepareReset"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1010,
+      "end": 1033,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "symbol_or_subject": "ClearState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs",
+      "start": 890,
+      "end": 902,
+      "sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f",
+      "symbol_or_subject": "ClearState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs",
+      "start": 516,
+      "end": 524,
+      "sha256": "56f63f8fa81c48b7e81262f3dd324f20f614609dc24da7af75253049b4ab42ac",
+      "symbol_or_subject": "ClearState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1168,
+      "end": 1199,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "Init load cap"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1674,
+      "end": 1699,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "OnConfirmDiamond"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1845,
+      "end": 1853,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "PurchaseItem"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Utilities.cs",
+      "start": 1230,
+      "end": 1319,
+      "sha256": "7c3f89ea7b9e97e2b45aa6cc9378654a137698b917c3efc29a05d728386113d5",
+      "symbol_or_subject": "ConfirmPurchase overloads"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 462,
+      "end": 474,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "SetBlayFapPricingOverrides"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 381,
+      "end": 418,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "ResetAll"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerPrefs.cs",
+      "start": 248,
+      "end": 319,
+      "sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed",
+      "symbol_or_subject": "DeleteAll/Save"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 1224,
+      "end": 1227,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "HandleReset"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1790,
+      "end": 1825,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "StoreState time fields"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1935,
+      "end": 2010,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "CalculateOfflineProgress/SafeCalculateOfflineProgress/GetBoosts"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 2078,
+      "end": 2155,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "UpdateProgress/UpdateOfflineProgress"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Utilities.cs",
+      "start": 308,
+      "end": 332,
+      "sha256": "7c3f89ea7b9e97e2b45aa6cc9378654a137698b917c3efc29a05d728386113d5",
+      "symbol_or_subject": "ServerTime/TimeOffset"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Utilities.cs",
+      "start": 370,
+      "end": 459,
+      "sha256": "7c3f89ea7b9e97e2b45aa6cc9378654a137698b917c3efc29a05d728386113d5",
+      "symbol_or_subject": "CheckCachedServerTime/UpdateServerTime"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/OfflineProgress.cs",
+      "start": 48,
+      "end": 103,
+      "sha256": "26863129373ab8872a82c35dac0153da791d1a94e8ce88060905eb4ba6142e5a",
+      "symbol_or_subject": "Init/report/OnClose"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/EventData.cs",
+      "start": 71,
+      "end": 184,
+      "sha256": "9e67ee91d0d0909c9bbe495e15f442339412c878ef9b969dee495e57389e3a9c",
+      "symbol_or_subject": "EventData constructor/Validate/LoadAssociatedItems"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 275,
+      "end": 335,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "CheckEvent/GetGlobalEventID/CheckEventCallback"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 675,
+      "end": 735,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "UpdateDayIcons"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 886,
+      "end": 915,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "UpdateTask"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 1006,
+      "end": 1131,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "PurchaseTask/EnableTask/CompleteTask/ClaimTask/ClaimTaskUI"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 1389,
+      "end": 1535,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "Claim event/Claim task"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 1554,
+      "end": 1611,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "UpdateTimeBlockRequirement/StoreEventDiscount/StoreState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 1674,
+      "end": 1714,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "Prestige/LoadState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TaskManager.cs",
+      "start": 1832,
+      "end": 1847,
+      "sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946",
+      "symbol_or_subject": "LoadCompletedEvents/SetCompletedEvents"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Task.cs",
+      "start": 16,
+      "end": 28,
+      "sha256": "b7a72a8cd3229f6e973fb478930db242f6007235c060030c96b9bb015fc7b38d",
+      "symbol_or_subject": "StoreState/LoadState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 770,
+      "end": 814,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "MarkLTEComplete"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 908,
+      "end": 1000,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "EnablePES/SwitchToPes/DisablePES/ResetActivePES"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerPrefs.cs",
+      "start": 335,
+      "end": 386,
+      "sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed",
+      "symbol_or_subject": "GetPesPrefix/CleanUpActivePes"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerPrefs.cs",
+      "start": 388,
+      "end": 435,
+      "sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed",
+      "symbol_or_subject": "GetFloat/SetFloat"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerPrefs.cs",
+      "start": 619,
+      "end": 656,
+      "sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed",
+      "symbol_or_subject": "DeleteKey/HasKey/GetPesKeys"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 173,
+      "end": 209,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "symbol_or_subject": "InitPes"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 238,
+      "end": 265,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "symbol_or_subject": "LoadPesData"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 574,
+      "end": 586,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "symbol_or_subject": "LoadGoals"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Pes/PesManager.cs",
+      "start": 399,
+      "end": 425,
+      "sha256": "a42c148f59344d41a458365eca5355d3601765b59e211bb8d36899d8d333661e",
+      "symbol_or_subject": "GoalsVersion/GoalsInfoText"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Pes/PesManager.cs",
+      "start": 594,
+      "end": 699,
+      "sha256": "a42c148f59344d41a458365eca5355d3601765b59e211bb8d36899d8d333661e",
+      "symbol_or_subject": "LoadPes overloads"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PESData.cs",
+      "start": 1,
+      "end": 29,
+      "sha256": "5c2cf1c7e41736f49940af09c39c851f06d67d3c58acebccfdaed40f300fce68",
+      "symbol_or_subject": "runtime event instance schema"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Pes/PesData.cs",
+      "start": 1,
+      "end": 98,
+      "sha256": "bd354d28c140733a5333e733dc62e2c5778144ca943bfd541239a406a1b3b0ca",
+      "symbol_or_subject": "local event theme/config schema"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Goals.cs",
+      "start": 131,
+      "end": 196,
+      "sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770",
+      "symbol_or_subject": "LoadBlayFapGoals/GetNextGoal/HasGoal"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Goals.cs",
+      "start": 220,
+      "end": 329,
+      "sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770",
+      "symbol_or_subject": "CheckGoals/UpdateClaim"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Goals.cs",
+      "start": 331,
+      "end": 524,
+      "sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770",
+      "symbol_or_subject": "StoreToBlayfap/RewardRequiresServerGrant/Claim/ProcessClaim"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GoalModel.cs",
+      "start": 39,
+      "end": 112,
+      "sha256": "e2b88dc8fa3289266bdc768db31596f866fd2bdc1b4c97e88d8f62e94e9fa40f",
+      "symbol_or_subject": "constructor/RefreshReward/LockReward/UnlockReward/InitGoal"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapInventory.cs",
+      "start": 249,
+      "end": 265,
+      "sha256": "1a2636d93736488d4ef381acb6ef340417c4b4397904958760b08d5d1a91a360",
+      "symbol_or_subject": "AwardItem"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapInventory.cs",
+      "start": 418,
+      "end": 480,
+      "sha256": "1a2636d93736488d4ef381acb6ef340417c4b4397904958760b08d5d1a91a360",
+      "symbol_or_subject": "LoadAwardedItems/SetAwardedItems"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 1452,
+      "end": 1546,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "AddToInventoryCache/ConsumeBlayFapItem prefix paths"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PesEventCenterManager.cs",
+      "start": 228,
+      "end": 245,
+      "sha256": "758209b1a261b7c4d7f25e1af025bec44d9cbc99c3c2c8011e43a051b0c9f94a",
+      "symbol_or_subject": "SetupEventCenterButton expiration"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PesStoreBundleUi.cs",
+      "start": 52,
+      "end": 129,
+      "sha256": "075fb97ed3bb06c886ae80cf63e50fc0daf423eac14acb983ea14dfb5d10befa",
+      "symbol_or_subject": "Init/SetCurrentState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PesStoreBundleUi.cs",
+      "start": 161,
+      "end": 215,
+      "sha256": "075fb97ed3bb06c886ae80cf63e50fc0daf423eac14acb983ea14dfb5d10befa",
+      "symbol_or_subject": "countdown/state/purchase consumers"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 474,
+      "end": 544,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "StartPurchasedPesEvent/EnterPurchasedPesEvent/MaybeAddFuzzyPES"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 156,
+      "end": 176,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "PES reset preference list"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 2255,
+      "end": 2293,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "GetPrefKeysByPesId/ResetPesById/ResetPesGirls"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 816,
+      "end": 903,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Steam DLC entitlement consumer paths"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 2170,
+      "end": 2179,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "pes27_storebundle inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 2189,
+      "end": 2197,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "OnReceiptVerificationComplete fuzzy branch"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs",
+      "start": 15,
+      "end": 73,
+      "sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9",
+      "symbol_or_subject": "crystal costs/multipliers/Start"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs",
+      "start": 90,
+      "end": 161,
+      "sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9",
+      "symbol_or_subject": "SwitchTimeline/UpdateUI"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs",
+      "start": 200,
+      "end": 231,
+      "sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9",
+      "symbol_or_subject": "SetTimeLineState UI affordability"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 2239,
+      "end": 2334,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "symbol_or_subject": "AdvanceRelationship/AwardDiamonds high mark"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 218,
+      "end": 241,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "PurchasedMultiplier/PurchasedAdMultiplier"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store/BundleBuilder.cs",
+      "start": 45,
+      "end": 93,
+      "sha256": "68709d35891d839f4e986b11b3d557dafe2fcc70be5ebee0c2ccdbd0ac0de73a",
+      "symbol_or_subject": "purchase wiring/SteamDlcPurchase"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store/BundleBuilder.cs",
+      "start": 172,
+      "end": 176,
+      "sha256": "68709d35891d839f4e986b11b3d557dafe2fcc70be5ebee0c2ccdbd0ac0de73a",
+      "symbol_or_subject": "OnPurchaseWithMoney"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1867,
+      "end": 1919,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "PurchaseDiamonds"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store/SteamEcommerceBackend.cs",
+      "start": 13,
+      "end": 102,
+      "sha256": "a8dc9afddc8754cd653fcb569a8cac74c83c940d94159ed5710e1b7a18d70d90",
+      "symbol_or_subject": "Purchase/OnMtxAuth"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 2097,
+      "end": 2118,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "OnReceiptVerificationComplete entry"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 2138,
+      "end": 2188,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "PES starter/finish grant branches"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 2208,
+      "end": 2371,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "Kaiju/generic girl/store grant branches"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 103,
+      "end": 138,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "symbol_or_subject": "StoreInfo CSV schema"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/AchievementModel.cs",
+      "start": 45,
+      "end": 96,
+      "sha256": "c1330a50ed6e00ee382e12814dc446c0a025052485feb201d790ae9f36dfdf93",
+      "symbol_or_subject": "Achievement CSV parser"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 132,
+      "end": 154,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "Achievement reward->Diamonds"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 291,
+      "end": 297,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "CreateLoveAchievement"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 362,
+      "end": 370,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "GirlLevel category binding"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 1194,
+      "end": 1197,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "TriggerLoveAchievement"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs",
+      "start": 234,
+      "end": 271,
+      "sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f",
+      "symbol_or_subject": "Digger/Planter/Mech entitlement guards"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 237,
+      "end": 255,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "symbol_or_subject": "speed requirement UI callback"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1007,
+      "end": 1118,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "symbol_or_subject": "UpdateSpeedRequirements/CompleteSpeedRequirement"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 1680,
+      "end": 1698,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Charlotte inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 1732,
+      "end": 1742,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Catara inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 1842,
+      "end": 1855,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Suzu inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 557,
+      "end": 688,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "symbol_or_subject": "IsUnlocked/GirlIsOwnedOnBlayfap/HasJobLevel"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 2134,
+      "end": 2165,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Kaiju inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 2244,
+      "end": 2254,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Lumi inventory consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/StrongFinish.cs",
+      "start": 49,
+      "end": 93,
+      "sha256": "2403428e0b6ffc461110d3454b6677843eaa665b17632755e08859c0ce8b202d",
+      "symbol_or_subject": "UpdateState/UseSkip"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 834,
+      "end": 840,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "PendingPrestige Changed listener"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1306,
+      "end": 1308,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "PendingPrestige/TimeMultiplier Changed listener bindings"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1576,
+      "end": 1580,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "symbol_or_subject": "UpdateSkipResetText"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1879,
+      "end": 1883,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "symbol_or_subject": "LoadState pending boost"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 165,
+      "end": 176,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "Achievement.Complete"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 244,
+      "end": 276,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "symbol_or_subject": "AddAchievement/StoreState"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/JobModel.cs",
+      "start": 18,
+      "end": 97,
+      "sha256": "c2f4b68eba1d12e0668fee67eee9579d2dded2b971848a675447a2fd1a85ae71",
+      "symbol_or_subject": "JobState/JobModel CSV schema"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 579,
+      "end": 593,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "symbol_or_subject": "StorePhoneFling and LTEStorePhoneFling unlock branches"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 296,
+      "end": 347,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "symbol_or_subject": "IsPhoneFlingCompleted"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PhoneModel.cs",
+      "start": 170,
+      "end": 181,
+      "sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a",
+      "symbol_or_subject": "PhonePathPref.GetString"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PhoneModel.cs",
+      "start": 270,
+      "end": 284,
+      "sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a",
+      "symbol_or_subject": "PhoneMessage.Time Lotus owner cap"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 546,
+      "end": 567,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "IsUnlocked"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 600,
+      "end": 608,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "MeetsRequirements Lotus contact"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 827,
+      "end": 828,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "MeetsRequirements Brie contact"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 933,
+      "end": 948,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "HasConversation entry"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 977,
+      "end": 1009,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "HasConversation Lotus blocks"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2562,
+      "end": 2594,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "symbol_or_subject": "YieldReply timer consumer"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/BlayFapIntegration.cs",
+      "start": 1951,
+      "end": 1972,
+      "sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603",
+      "symbol_or_subject": "Brie/Lotus inventory consumers"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 1,
+      "end": 27,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "symbol_or_subject": "base reset factors including Cassie .01 to Darya 2.5"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 27,
+      "end": 31,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "symbol_or_subject": "Charlotte .27 and Catara .45 reset factors"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 42,
+      "end": 42,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "symbol_or_subject": "Suzu .27 reset factor"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 74,
+      "end": 76,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "symbol_or_subject": "Kaiju each .05 reset factor"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt",
+      "start": 87,
+      "end": 87,
+      "sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53",
+      "symbol_or_subject": "Lumi .12 reset factor"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/LTE_Tasks.txt",
+      "start": 1,
+      "end": 23,
+      "sha256": "acc8fe42a824602db6abaed6c345dab3fa7c3dd3e6eb90b348ac5515a52130d3",
+      "symbol_or_subject": "installed daily task costs and timed rewards"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/LTE_Events.txt",
+      "start": 314,
+      "end": 319,
+      "sha256": "aa168a9f89dc743eafaaae975a3f12ba092b5640d48b2d1894e86c00be0f91aa",
+      "symbol_or_subject": "selected Sep-Nov2026 installed LTE schedule rows"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/fuzzy_gingerwasabi/PesData.txt",
+      "start": 1,
+      "end": 30,
+      "sha256": "51243097f6775d101e168d7123e57f38d9dafa93a87a46e824ced614a4cc22e1",
+      "symbol_or_subject": "runtime replay root theme and data bundle"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/fuzzy_gingerwasabi/Goals.txt",
+      "start": 1,
+      "end": 25,
+      "sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f",
+      "symbol_or_subject": "complete24goals"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/2025_fuzzy/PesData.txt",
+      "start": 1,
+      "end": 60,
+      "sha256": "cb4628d48bb151b1ae4ba9f265daffd2ab1eb848208d99c0c2f429f8b34f51f0",
+      "symbol_or_subject": "installed event theme and assets"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/2025_fuzzy/Goals.txt",
+      "start": 1,
+      "end": 25,
+      "sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f",
+      "symbol_or_subject": "complete24goals same bytes as replay root"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/2025_fuzzy/Stats.txt",
+      "start": 1,
+      "end": 8,
+      "sha256": "3ef3ec41a83494f6a3c54a6d0fb2230107ddbe546c00b0e3e8c7a909bb2a65bc",
+      "symbol_or_subject": "event character reset factor0.01"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/2025_fuzzy/Girls.txt",
+      "start": 1,
+      "end": 13,
+      "sha256": "5f17ba724b91539d2a770363bae38f6c26657b3bff98c7ad84457b26f7116d98",
+      "symbol_or_subject": "selected opening and Quill unlock"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/timewarp_polly/PesData.txt",
+      "start": 1,
+      "end": 35,
+      "sha256": "7cd4031bca8b40a68ffd1ab2689759d2417b6327372d8feb1bb728f2f0cab904",
+      "symbol_or_subject": "timewarp theme and hourglass currency"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/timewarp_polly/Goals.txt",
+      "start": 1,
+      "end": 25,
+      "sha256": "edc61cdfff2f44d514ff4ff9492b8a4b90e818aa26e37c966d99875c68d8b148",
+      "symbol_or_subject": "complete24goal requirements/rewards"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/timewarp_polly/Girls.txt",
+      "start": 21,
+      "end": 44,
+      "sha256": "65e5e48ab2a974e2b318fc7fcaf916709f7ce0a18fd3fe2ae2bfab187f1150a5",
+      "symbol_or_subject": "Vellatrix/Shibuki/Honey timeline unlock metadata"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 192,
+      "end": 200,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Darya requirements and StoreData50diamonds5blocks"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Achievements.txt",
+      "start": 173,
+      "end": 181,
+      "sha256": "0adea1d23fec944a9f5fcf33c9a87854c1fc0aad3f17d159a3f043d41b910e90",
+      "symbol_or_subject": "Darya Love1to9rewards20to100"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 242,
+      "end": 247,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Charlotte StoreDataDigger flag"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 282,
+      "end": 288,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Catara StoreData no direct currency/job/time grant"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 392,
+      "end": 400,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Suzu StoreDataPlanter flag"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt",
+      "start": 178,
+      "end": 199,
+      "sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519",
+      "symbol_or_subject": "Digger/Planter full10states"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt",
+      "start": 211,
+      "end": 221,
+      "sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519",
+      "symbol_or_subject": "Mecha Pilot full10states"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 712,
+      "end": 740,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Kaiju three9level requirement tables and cross unlocks"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 842,
+      "end": 850,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Lumi9levels"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 472,
+      "end": 480,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Brie StorePhoneFling35"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 492,
+      "end": 500,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "symbol_or_subject": "Lotus StorePhoneFling4"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Cellphone.txt",
+      "start": 1,
+      "end": 5,
+      "sha256": "c1f4cb269b079511d2aa969c901af08c5a114ca194103bc0f9913ea9cfb6ad2a",
+      "symbol_or_subject": "Lotus metadata contact4"
+    },
+    {
+      "reviewer": "reset_event_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Cellphone.txt",
+      "start": 36,
+      "end": 36,
+      "sha256": "c1f4cb269b079511d2aa969c901af08c5a114ca194103bc0f9913ea9cfb6ad2a",
+      "symbol_or_subject": "Brie metadata contact35"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 13,
+      "end": 25,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 244,
+      "end": 399,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 429,
+      "end": 449,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 795,
+      "end": 840,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 841,
+      "end": 1034,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1054,
+      "end": 1248,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1337,
+      "end": 1423,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1865,
+      "end": 2094,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 2150,
+      "end": 2352,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 354,
+      "end": 421,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 462,
+      "end": 581,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 783,
+      "end": 955,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1007,
+      "end": 1278,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1408,
+      "end": 1509,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1602,
+      "end": 1669,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 9,
+      "end": 441,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 557,
+      "end": 725,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 726,
+      "end": 901,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 925,
+      "end": 1233,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs",
+      "start": 139,
+      "end": 211,
+      "sha256": "06a37b25c7f85f2decef48b47e08e1427b94b10866506b789949b610ea991813",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs",
+      "start": 233,
+      "end": 682,
+      "sha256": "06a37b25c7f85f2decef48b47e08e1427b94b10866506b789949b610ea991813",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs",
+      "start": 1,
+      "end": 166,
+      "sha256": "7322adcc55d0df41e7ca3a3d45bbc11e8027714fa2dc2593c102bbc8bba9af1b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs",
+      "start": 185,
+      "end": 217,
+      "sha256": "7322adcc55d0df41e7ca3a3d45bbc11e8027714fa2dc2593c102bbc8bba9af1b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs",
+      "start": 224,
+      "end": 298,
+      "sha256": "7322adcc55d0df41e7ca3a3d45bbc11e8027714fa2dc2593c102bbc8bba9af1b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Gift.cs",
+      "start": 117,
+      "end": 190,
+      "sha256": "b9219431f34c4b95f6370dd5d3dbbfc48f901b3004371db89fadf312dc6ae1fe",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs",
+      "start": 1,
+      "end": 230,
+      "sha256": "f458e9d5f83746e131078b120b6cc01f60f926bcc5ca0ff6f86442fd8410ff2d",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs",
+      "start": 1,
+      "end": 278,
+      "sha256": "c8c07bab2d4ffe229f150042bcc366384b8587de1dd52cc24b1829844769b619",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DateModel.cs",
+      "start": 1,
+      "end": 55,
+      "sha256": "a732bf1b0ef860264c7bf694e334c55a425862c2414bdfb08524ff823f17e4da",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/InteractionBox.cs",
+      "start": 128,
+      "end": 245,
+      "sha256": "624f1d161873e5962f4028d758a4d9a7d3ba36a6b55b6c1e3f0f7bfc7c4fdb15",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/IntroProvider.cs",
+      "start": 100,
+      "end": 225,
+      "sha256": "d65fcc18fc369859b59974ebfcae8c1cda016f8cb7931b8e820e8a9618d9fa8b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/IntroProvider.cs",
+      "start": 305,
+      "end": 434,
+      "sha256": "d65fcc18fc369859b59974ebfcae8c1cda016f8cb7931b8e820e8a9618d9fa8b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GenericIntroduction.cs",
+      "start": 1,
+      "end": 223,
+      "sha256": "86277e37096798e3ef06b42c2cae0f3e34e118b0372ad8839b64924adc4a728e",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/EndingCutScene.cs",
+      "start": 1,
+      "end": 245,
+      "sha256": "f894fe671d695baf8e901590a3413b872f8257f6b1063f9e59f566bdd20c408c",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/QPiddyModel.cs",
+      "start": 1,
+      "end": 43,
+      "sha256": "f739509c6776ef11e18110553c04e88ecc4b7364a3beaac96b07df9056cd7542",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/CreditsMobile.cs",
+      "start": 1,
+      "end": 247,
+      "sha256": "0091f403a33da61781272594084fc04a92ece1a4de41fb879d9bb95f388ecc6b",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FinalInteraction.cs",
+      "start": 1,
+      "end": 108,
+      "sha256": "a2196f12d1ab82a679a1c737f985ddb9cd9cc75a02be071dc00f032c4899cb0f",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PhoneModel.cs",
+      "start": 1,
+      "end": 339,
+      "sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PhoneModel.cs",
+      "start": 411,
+      "end": 559,
+      "sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PhoneModel.cs",
+      "start": 578,
+      "end": 754,
+      "sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 222,
+      "end": 1277,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1283,
+      "end": 1392,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1393,
+      "end": 1425,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1546,
+      "end": 1585,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1615,
+      "end": 1660,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1720,
+      "end": 1753,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 1836,
+      "end": 1981,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2196,
+      "end": 2254,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2305,
+      "end": 2364,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2426,
+      "end": 2621,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2682,
+      "end": 2712,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Cellphone.cs",
+      "start": 2786,
+      "end": 2903,
+      "sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 296,
+      "end": 344,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 339,
+      "end": 405,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1441,
+      "end": 1458,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 2078,
+      "end": 2103,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 446,
+      "end": 465,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 511,
+      "end": 625,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 1194,
+      "end": 1247,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs",
+      "start": 1,
+      "end": 165,
+      "sha256": "9fd7289f433facbc5222785bc2476bb531e4d967b51bafa34595974c297a76c3",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs",
+      "start": 340,
+      "end": 389,
+      "sha256": "9fd7289f433facbc5222785bc2476bb531e4d967b51bafa34595974c297a76c3",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlCustomBehaviours.cs",
+      "start": 1,
+      "end": 225,
+      "sha256": "82841afaabac9ba9ea38df6433122dad5732e2609ab3242695178737bdf31d29",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueManager.cs",
+      "start": 1,
+      "end": 322,
+      "sha256": "e04135280c07492b7ce03d85efee92638316d6d5e255387a988f9cd8a2d3254d",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueManager.cs",
+      "start": 324,
+      "end": 578,
+      "sha256": "e04135280c07492b7ce03d85efee92638316d6d5e255387a988f9cd8a2d3254d",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueParser.cs",
+      "start": 1,
+      "end": 300,
+      "sha256": "6a4fb1389453411d13f9586bbe52b261bc47d2a86326b79ffe70ce5907389842",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/PostDateAffectionAward.cs",
+      "start": 1,
+      "end": 49,
+      "sha256": "ebf64e7e14687dc77aa4ed7971b4d614d6f72886a2db8c95aacd464cc30d4a8a",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/AchievementStatTracker.cs",
+      "start": 1,
+      "end": 165,
+      "sha256": "d24ef10caae8a965fa1c776079573e97e3e4f87aee982fad1bd9e310d03aae47",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DateEndPopup.cs",
+      "start": 1,
+      "end": 59,
+      "sha256": "c24cbb6ade9c8bef1feab12c9faa085281a637bc9567a486f4be9e593b4eb876",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/SpineAnimationInitializer.cs",
+      "start": 1,
+      "end": 48,
+      "sha256": "bdaed6c49907782960e7d63c25675f1c0b9f883c74ed3a7a3d3ca438dfedb064",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueVariable.cs",
+      "start": 1,
+      "end": 75,
+      "sha256": "bf0ba023b578bb5112898bc0f8ea49b39a46d8c0a48cecb109aa89b5c6d8d364",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DateDlcDisplay.cs",
+      "start": 1,
+      "end": 150,
+      "sha256": "3b7e755918ac22cd021e067bba37c2887c4ad9426dc394b2a0556277579fbbea",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "relationship_trace",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DeluxeDateButton.cs",
+      "start": 1,
+      "end": 45,
+      "sha256": "c4764ee8bebe38e463ca198a83b9af539601d9b5243a8b3e7d917abefb15c0a7",
+      "extent": "method bodies and selected consumers relevant to family; excludes unlisted code"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 192,
+      "end": 200,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Darya all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 242,
+      "end": 250,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Charlotte all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 282,
+      "end": 290,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Catara all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 392,
+      "end": 400,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Suzu all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 422,
+      "end": 430,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Explora all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 452,
+      "end": 460,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Mallory all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 472,
+      "end": 480,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Brie all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 482,
+      "end": 490,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Ranma all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 492,
+      "end": 500,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Lotus all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 822,
+      "end": 830,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Lydia all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 712,
+      "end": 720,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Mortha all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 722,
+      "end": 730,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Sephia all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 732,
+      "end": 740,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Liz all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 842,
+      "end": 850,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Lumi all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 682,
+      "end": 690,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "GingerWasabi all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 202,
+      "end": 210,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Jelle all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 212,
+      "end": 220,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Quillzone all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 222,
+      "end": 230,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Bonchovy all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt",
+      "start": 232,
+      "end": 240,
+      "sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963",
+      "subject": "Spectrum all9 numeric metadata rows; prose/art/audio unread"
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 173,
+      "end": 265,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs",
+      "start": 973,
+      "end": 993,
+      "sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/AssetBundles/AssetBundleManager.cs",
+      "start": 210,
+      "end": 271,
+      "sha256": "da53196712a68cf3e41005dbe406a256a8815415b123fdc2bb1ed67714a5c450",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1408,
+      "end": 1508,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 1007,
+      "end": 1118,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs",
+      "start": 484,
+      "end": 501,
+      "sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 1054,
+      "end": 1148,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs",
+      "start": 2239,
+      "end": 2334,
+      "sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs",
+      "start": 511,
+      "end": 545,
+      "sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 339,
+      "end": 379,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs",
+      "start": 1228,
+      "end": 1258,
+      "sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 1674,
+      "end": 1716,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs",
+      "start": 2320,
+      "end": 2371,
+      "sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs",
+      "start": 90,
+      "end": 130,
+      "sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 557,
+      "end": 725,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs",
+      "start": 1010,
+      "end": 1149,
+      "sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DateDlcDisplay.cs",
+      "start": 1,
+      "end": 150,
+      "sha256": "3b7e755918ac22cd021e067bba37c2887c4ad9426dc394b2a0556277579fbbea",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DeluxeDateButton.cs",
+      "start": 1,
+      "end": 45,
+      "sha256": "c4764ee8bebe38e463ca198a83b9af539601d9b5243a8b3e7d917abefb15c0a7",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueManager.cs",
+      "start": 249,
+      "end": 320,
+      "sha256": "e04135280c07492b7ce03d85efee92638316d6d5e255387a988f9cd8a2d3254d",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/DialogueManager.cs",
+      "start": 361,
+      "end": 548,
+      "sha256": "e04135280c07492b7ce03d85efee92638316d6d5e255387a988f9cd8a2d3254d",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    },
+    {
+      "reviewer": "root",
+      "path": "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DialogueSystem/PostDateAffectionAward.cs",
+      "start": 1,
+      "end": 49,
+      "sha256": "ebf64e7e14687dc77aa4ed7971b4d614d6f72886a2db8c95aacd464cc30d4a8a",
+      "extent": "Coordinator actual consequential-span reread; end bounds validated separately."
+    }
+  ],
+  "current_yairpg_source_catalog": {
+    "AGENTS.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "line_count": 23
+    },
+    "PROJECT.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/PROJECT.md",
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "bytes": 144593,
+      "line_count": 528
+    },
+    "src/promise_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "bytes": 11954,
+      "line_count": 80
+    },
+    "src/promise_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_ui.js",
+      "sha256": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+      "bytes": 4964,
+      "line_count": 53
+    },
+    "src/party_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "bytes": 2866,
+      "line_count": 22
+    },
+    "src/party_battle.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "bytes": 10714,
+      "line_count": 103
+    },
+    "src/party_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_ui.js",
+      "sha256": "75669280c54cf77275c7789c41c83f74b4694ba60d607d87c681b26cbf272f19",
+      "bytes": 5293,
+      "line_count": 43
+    },
+    "src/simulation.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "bytes": 51840,
+      "line_count": 566
+    },
+    "src/simulation_effects.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation_effects.js",
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "bytes": 27572,
+      "line_count": 303
+    },
+    "src/everyday_life.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/everyday_life.js",
+      "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "bytes": 7642,
+      "line_count": 96
+    },
+    "src/feature_expansion_work_plan.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "bytes": 28771,
+      "line_count": 356
+    },
+    "src/feature_expansion_society.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667,
+      "line_count": 246
+    },
+    "src/feature_expansion_society_host.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society_host.js",
+      "sha256": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824",
+      "bytes": 13634,
+      "line_count": 157
+    },
+    "src/audit_remainder_livelihood_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "bytes": 20506,
+      "line_count": 169
+    },
+    "src/audit_remainder_livelihood_facts.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "bytes": 24899,
+      "line_count": 276
+    },
+    "src/reference_gameplay_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705,
+      "line_count": 105
+    },
+    "src/ink_narrative.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "bytes": 26405,
+      "line_count": 354
+    },
+    "src/ink_scene_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "bytes": 41500,
+      "line_count": 386
+    },
+    "src/ink_narrative_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative_ui.js",
+      "sha256": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+      "bytes": 7403,
+      "line_count": 141
+    },
+    "stories/feature_wave.ink": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.ink",
+      "sha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+      "bytes": 29309,
+      "line_count": 599
+    },
+    "stories/feature_wave.json": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.json",
+      "sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+      "bytes": 124528,
+      "line_count": 5853
+    },
+    "src/chronicle.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "bytes": 22410,
+      "line_count": 242
+    },
+    "src/action_legibility.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+      "bytes": 38737,
+      "line_count": 520
+    },
+    "src/action_legibility_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility_ui.js",
+      "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+      "bytes": 20496,
+      "line_count": 378
+    },
+    "src/people_knowledge.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_knowledge.js",
+      "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+      "bytes": 9482,
+      "line_count": 97
+    },
+    "src/people_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_ui.js",
+      "sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+      "bytes": 1852,
+      "line_count": 30
+    },
+    "src/pocket_realm_scenes.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/pocket_realm_scenes.js",
+      "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "bytes": 35693,
+      "line_count": 365
+    },
+    "src/feature_expansion_nested_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_content.js",
+      "sha256": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+      "bytes": 26965,
+      "line_count": 118
+    },
+    "src/feature_expansion_nested_native.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_native.js",
+      "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+      "bytes": 19930,
+      "line_count": 123
+    },
+    "src/feature_expansion_destination_native.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_destination_native.js",
+      "sha256": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "bytes": 17253,
+      "line_count": 135
+    },
+    "src/feature_expansion_nested_ink_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_ink_ui.js",
+      "sha256": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+      "bytes": 2965,
+      "line_count": 40
+    },
+    "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "sha256": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+      "bytes": 5632,
+      "line_count": 13
+    },
+    "src/main.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/main.js",
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "bytes": 387376,
+      "line_count": 7386
+    }
+  },
+  "current_yairpg_evidence": [
+    {
+      "file": "PROJECT.md",
+      "lines": [
+        3,
+        14
+      ],
+      "symbol": "Current full audited remainder delivery",
+      "claim": "Latest native/state/UI delivery is implemented-unverified; all later gameplay/save/player gates remain deferred."
+    },
+    {
+      "file": "PROJECT.md",
+      "lines": [
+        199,
+        215
+      ],
+      "symbol": "Agreed direction",
+      "claim": "Familiar inherited opening, optional additions and one-realm/one-prestige first milestone are authoritative."
+    },
+    {
+      "file": "PROJECT.md",
+      "lines": [
+        371,
+        415
+      ],
+      "symbol": "Expansion design proposal",
+      "claim": "Observable choices, practical useful combinations and explicit reset/retention costs guide fit."
+    },
+    {
+      "file": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "lines": [
+        1,
+        13
+      ],
+      "symbol": "Deferred playable acceptance",
+      "claim": "Current source/static delivery does not certify player behavior; later generated-save and privacy gates remain."
+    }
+  ],
+  "children": [
+    {
+      "task": "/root/economy_trace",
+      "output": "/Users/weiwei/.codex/research/crush-crush/25589052/notes/economy.json",
+      "status": "completed/released"
+    },
+    {
+      "task": "/root/reset_event_trace",
+      "output": "/Users/weiwei/.codex/research/crush-crush/25589052/notes/reset_events.json",
+      "status": "completed/released"
+    },
+    {
+      "task": "/root/relationship_trace",
+      "output": "/Users/weiwei/.codex/research/crush-crush/25589052/notes/relationships.json",
+      "status": "completed/released"
+    },
+    {
+      "task": "/root/yairpg_fit",
+      "output": "/Users/weiwei/.codex/research/crush-crush/25589052/notes/yairpg_fit.json",
+      "status": "completed/released"
+    }
+  ],
+  "coordinator_review": "Read all returned chain/fact/cost/aftermath notes, checked consequential ending/purchase/stage/Timewarp/memory/current-owner spans and configured premium numeric blocks; parent did not independently reread every child span.",
+  "recovery_only": {
+    "assembly_csharp_files": 540,
+    "textassets": 1139,
+    "universe_bundles": 57,
+    "embedded_textassets": 17,
+    "main_character_numeric_blocks_inventoried": 88
+  },
+  "unread": [
+    "All other recovered event universe bundles are unread beyond file inventory/search pointers;57bundle extraction is recovery coverage, not gameplay audit.",
+    "Selected2025_fuzzy/replay Goals24 and TimewarpPolly Goals24 plus bounded initial/timeline unlocks have semantic coverage. Event dialogue prose, full gift/hobby/job tables and every event character9levels remain unreviewed by this worker.",
+    "WildWest custom behaviour was inspected as presentation-only tumbleweed event wiring, without gameplay extraction or a full WildWest event audit.",
+    "Other premium girl9level tables are handled by root; this worker traces only Darya/Charlotte/Suzu/Catara/Kaiju/Lumi plus Brie/Lotus crossgates.",
+    "Remote active schedules, catalog/prices, award mapping/idempotency, entitlements, actual private save contents, UI/play/save/failure results are unknown and were not read/exercised.",
+    "No live game, timer, purchase, save/reload, reset, or ending exercise. Evidence is static source and recovered configuration.",
+    "Other characters complete stage configs and full dialogue corpus remain unread. Selected hardcoded gift reactions and Desdemona decoy mechanics are not complete character dossiers.",
+    "Whole phone corpus and galleries remain unread. Selected Mio/Pamu/Peanut/Dark One/QPernikiss rows plus full gate and linear-consumer methods were reviewed.",
+    "PES all timelines and DLC entitlement/installed media coverage were not exhaustively audited. Explicit source branches are qualified.",
+    "Peanut scene fields MaxMood, AchievementPaths, DateUid and AchievementUnlocks could not be recovered by the root type-tree probe. MaxAffection initialization was not found; no positive numeric award is assumed.",
+    "Peanut selected common prefix, two paths, secret topic, late endings and mode-specific variable/award spans were read. This is not whole-scene coverage of the 972-line SFW script. Other movie/documentary branches at 384-526, topic branches at 671-763 and NSFW full paths remain partial/unread.",
+    "All findings belong to the pinned assembly/config input. The Pamu prose/spend discrepancy may differ in other builds.",
+    "Economy producer acquisition, Catara acquisition, asset-download retry behavior and hard-reset/cloud restoration remain outside the assigned family.",
+    "Unselected base and other event numeric/dialogue payloads remain unread even after recovery.",
+    "SevenPDF artbooks/art/audio/cosmetic scenes remain unread.",
+    "Raw corpus not exported into Git."
+  ],
+  "unavailable": [
+    "Active remote catalog AdditionalItems/entitlements/server replay policy/current event overrides.",
+    "Peanut serialized user-MonoBehaviour MaxMood/AchievementPaths/DateUid/AchievementUnlocks; exact MaxAffection initialization not established."
+  ],
+  "runtime": "No game launch/entitlement/private save/runtime observation. All YAIRPG gameplay/browser/save/unit/failure/regression/director gates deferred.",
+  "depth_steering": "Five ranked packets are selection only; broad joins/exceptions/failure/late pressure and unresolved questions retained.",
+  "coordinator_repairs": [
+    "Clipped4coordinator EOF locators to actual file ends.",
+    "Relationship reader corrected Achievements1194-1248to1194-1247; no semantic claim changed."
+  ]
+}

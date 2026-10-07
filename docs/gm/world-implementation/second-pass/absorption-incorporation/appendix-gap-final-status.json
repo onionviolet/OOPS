@@ -1,0 +1,47 @@
+{
+  "timedOut": false,
+  "wake": {
+    "reason": "turnCompleted",
+    "turnId": "01a10d44-0d76-7d41-9483-1d095c9f9bf1",
+    "threadId": "01a10d44-0649-7932-9869-32f293ed898a",
+    "hostId": "local"
+  },
+  "polls": [
+    {
+      "schemaVersion": 1,
+      "cursor": "bd8b94f7-3eb5-44a7-ab70-4e833ee724ea:24",
+      "revision": 24,
+      "changed": true,
+      "thread": {
+        "id": "01a10d44-0649-7932-9869-32f293ed898a",
+        "hostId": "local",
+        "status": {
+          "type": "idle"
+        }
+      },
+      "latestTurn": {
+        "id": "01a10d44-0d76-7d41-9483-1d095c9f9bf1",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1791223926,
+        "completedAt": 1791225860,
+        "durationMs": 1934737
+      },
+      "latestAssistantMessageId": "msg_016b60e04acaf558016ac3f000580887d28c8d1c76a305830f",
+      "latestAssistantMessage": {
+        "id": "msg_016b60e04acaf558016ac3f000580887d28c8d1c76a305830f",
+        "turnId": "01a10d44-0d76-7d41-9483-1d095c9f9bf1",
+        "phase": "final_answer",
+        "text": "Completed the audit report: 35 families, 26 with proposed gap work, 9 without a new feature gap. Delivered 10 Engine packets, with five priorities: Frontier campaign closure, conserved object functions, funded work and succession, mature methods/counters, and retained destination returns. JSON, links, locators, hashes and static build correspondence passed. Game source and saves were untouched; gameplay and director acceptance remain deferred. Final files are ready for incorporation."
+      },
+      "latestToolMarkerId": "exec-193afe94-79fe-41db-9716-ffde576a7523",
+      "latestToolMarker": {
+        "id": "exec-193afe94-79fe-41db-9716-ffde576a7523",
+        "turnId": "01a10d44-0d76-7d41-9483-1d095c9f9bf1",
+        "type": "commandExecution",
+        "name": "commandExecution",
+        "status": "completed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "capturedAt": "2026-10-07T06:02:33.994589+00:00",
+  "qualification": "Read-only relevant shared dirty inputs. Patch generated and syntax checked in memory, not applied; no runtime/import/build check of these hypothetical shared changes.",
+  "sha256": {
+    "src/simulation_content.js": "94bad60508d05370bb7fdff7a809ffa271c15749d509b4e24fa21236aab41da4",
+    "src/simulation_effects.js": "08c00949db06dd1327cee3740aa22176f65b625180b756d8d167217ae4ad67b8",
+    "src/simulation.js": "bcdd2e8ef7efba11b04c3bd164d8eccda1038566021dcbbed4dba93ee8d4d329",
+    "src/expansion_engine.js": "b2417ca21dbcf08c12e1e8c250d329c96bef8377f54449f33f5d327ad27e911c",
+    "src/data/expedition_items.js": "ed222db3624744db43835ca4d16586a768b0e6d885d465d9103733bf83fa849a",
+    "src/feature_expansion_wave_host.js": "693ddfa9331df9d28e8611b0e7ddbaa3398128cbbd91b88120587a7c2e71c6b6",
+    "src/adventure_notebook.js": "eb4a290a530f462ddf1ae57509b0edadf9a6da2b7f07159a07793dd306b6a225",
+    "src/display.js": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5",
+    "src/main.js": "d158aeaa4ce4d6a66e95d3aeae5089eb0b48b5758985f095126442da44fe6c2e"
+  },
+  "checks": [
+    {
+      "path": "src/simulation_content.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/simulation.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/display.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    },
+    {
+      "path": "src/main.js",
+      "check": "unapplied patched source syntax",
+      "status": "passed"
+    }
+  ]
+}

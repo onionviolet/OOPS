@@ -1,0 +1,2468 @@
+{
+  "schema": 1,
+  "status": "complete finite installed-source/API reconciliation",
+  "version": "2.0.77",
+  "steam_buildid": "23347942",
+  "source_receipt": "INSTALLED_INTAKE.json",
+  "reviewed_path_count": 14,
+  "preserved_text_file_count": 1877,
+  "selected_source_files_with_reviewed_bounds": 25,
+  "coverage_limit": "Selected gameplay definitions/properties and their downstream chains only; preserving1877source files does not mean reading them all. Native C++ remains closed and was not disassembled.",
+  "paths": [
+    {
+      "id": "FAC-01",
+      "title": "Prototype definitions, runtime state and migration are separate",
+      "evidence": [
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaBootstrap",
+          "properties": [
+            "on_init",
+            "on_load",
+            "on_event",
+            "on_nth_tick"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaBootstrap.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaGameScript",
+          "properties": [
+            "tick",
+            "ticks_played",
+            "speed",
+            "tick_paused"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaGameScript.html"
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/data.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            11
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "a369957d6f6a58b23cb8f59c5acd120fa69fa18f40c971ecc98683cb46ba801e",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/data.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/data.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/data.lua#L1-L11",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/data-updates.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            27
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "a7d5da6315cfc70a5e62f996a7d08c0a598764cfd14d9ab02d4349a117f776f7",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/data-updates.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/data-updates.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/data-updates.lua#L1-L27",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed2.0.77 API confirms the same tick/on_load/event boundaries; API link namespaces differ. Only selected lifecycle contracts were reviewed.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-02",
+      "title": "Research consumes production and can require actual work",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/recipe.lua",
+          "symbol": "iron-plate",
+          "lines": [
+            1428,
+            1436
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "70fbd990a9d62935afc07c647d943ab7d60c3a941ea1d91c12f23fe057bf290a",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/recipe.lua#L1428-L1436",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/recipe.lua",
+          "symbol": "iron-gear-wheel",
+          "lines": [
+            744,
+            749
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "70fbd990a9d62935afc07c647d943ab7d60c3a941ea1d91c12f23fe057bf290a",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/recipe.lua#L744-L749",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/recipe.lua",
+          "symbol": "automation-science-pack",
+          "lines": [
+            980,
+            996
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "70fbd990a9d62935afc07c647d943ab7d60c3a941ea1d91c12f23fe057bf290a",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/recipe.lua#L980-L996",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/technology.lua",
+          "symbol": "automation-science-pack",
+          "lines": [
+            87,
+            105
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "19e827c2b7d02a72eaca5be284dd67bf76e0d4ecdd86722232d8f98805d4fe6f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/technology.lua#L87-L105",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/technology.lua",
+          "symbol": "electric-mining-drill",
+          "lines": [
+            107,
+            125
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "19e827c2b7d02a72eaca5be284dd67bf76e0d4ecdd86722232d8f98805d4fe6f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/technology.lua#L107-L125",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/technology.lua",
+          "symbol": "automation",
+          "lines": [
+            1912,
+            1935
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "19e827c2b7d02a72eaca5be284dd67bf76e0d4ecdd86722232d8f98805d4fe6f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/technology.lua#L1912-L1935",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "lab",
+          "lines": [
+            3817,
+            3944
+          ],
+          "reviewed_fields": [
+            "inputs",
+            "energy_usage",
+            "researching_speed",
+            "module_slots"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L3817-L3944",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LabPrototype",
+          "properties": [
+            "inputs",
+            "uses_quality_drain_modifier"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/LabPrototype.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable plate/gear/science quantities, science lab-craft trigger and automation/miner research costs match the selected experimental lesson; recipe category is singular in stable.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-03",
+      "title": "A fast recipe can still stall on physical transfer or output capacity",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/transport-belts.lua",
+          "symbol": "transport-belt",
+          "lines": [
+            149,
+            183
+          ],
+          "reviewed_fields": [
+            "speed"
+          ],
+          "sha256": "46cec8476aa185d82f4a40de4e8ff5852538447a4f4b8115ba6e97533b51bf6f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/transport-belts.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/transport-belts.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/transport-belts.lua#L149-L183",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/mining-drill.lua",
+          "symbol": "electric-mining-drill",
+          "lines": [
+            257,
+            1566
+          ],
+          "reviewed_fields": [
+            "mining_speed",
+            "energy_usage",
+            "emissions_per_minute"
+          ],
+          "sha256": "13efc72d3ca60026b3d44de2ea2e534715e9ce7c4271df16a246d93c6a21af8f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/mining-drill.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/mining-drill.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/mining-drill.lua#L257-L1566",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "assembling-machine-2",
+          "lines": [
+            3208,
+            3304
+          ],
+          "reviewed_fields": [
+            "crafting_speed",
+            "energy_source",
+            "energy_usage",
+            "allowed_effects"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L3208-L3304",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaEntity",
+          "properties": [
+            "status",
+            "is_crafting",
+            "crafting_progress",
+            "products_finished"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaEntity.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaTransportLine",
+          "properties": [
+            "can_insert_at_back",
+            "get_contents"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaTransportLine.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable selected belt/miner/assembler work/power fields match. Stable status/transport contracts confirm distinct process/progress/output states.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-04",
+      "title": "Power has reserve, flow, conversion and environmental cost",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "boiler",
+          "lines": [
+            1221,
+            1528
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "energy_source",
+            "buffer_capacity",
+            "input_flow_limit",
+            "output_flow_limit",
+            "fluid_usage_per_tick",
+            "temperature",
+            "emissions_per_minute",
+            "neighbour_bonus"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L1221-L1528",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "steam-engine",
+          "lines": [
+            1756,
+            1898
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "energy_source",
+            "buffer_capacity",
+            "input_flow_limit",
+            "output_flow_limit",
+            "fluid_usage_per_tick",
+            "temperature",
+            "emissions_per_minute",
+            "neighbour_bonus"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L1756-L1898",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "accumulator",
+          "lines": [
+            5279,
+            5353
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "energy_source",
+            "buffer_capacity",
+            "input_flow_limit",
+            "output_flow_limit",
+            "fluid_usage_per_tick",
+            "temperature",
+            "emissions_per_minute",
+            "neighbour_bonus"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L5279-L5353",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/entities.lua",
+          "symbol": "nuclear-reactor",
+          "lines": [
+            8568,
+            8794
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "energy_source",
+            "buffer_capacity",
+            "input_flow_limit",
+            "output_flow_limit",
+            "fluid_usage_per_tick",
+            "temperature",
+            "emissions_per_minute",
+            "neighbour_bonus"
+          ],
+          "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/entities.lua#L8568-L8794",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "base/prototypes/entity/enemies.lua",
+          "symbol": null,
+          "lines": [
+            64,
+            134
+          ],
+          "reviewed_fields": [
+            "absorptions_to_join_attack",
+            "absorptions_per_second"
+          ],
+          "sha256": "598c561d9fbb3cb87b25100eb0192eb0d22c7466a07706864c11c8078236ca40",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/enemies.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/enemies.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/prototypes/entity/enemies.lua#L64-L134",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaEntity",
+          "properties": [
+            "energy",
+            "temperature",
+            "electric_buffer_size"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaEntity.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable power/fuel/storage/emission fields match selected lesson. Installed temperature API wording is narrower than experimental heat-buffer clarification, so no extra heat-buffer read behavior is claimed.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-05",
+      "title": "Logistics requests and schedule interrupts do not create stock",
+      "evidence": [
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaLogisticNetwork",
+          "properties": [
+            "get_item_count",
+            "available_logistic_robots",
+            "can_satisfy_request",
+            "select_pickup_point",
+            "select_drop_point"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaLogisticNetwork.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaLogisticPoint",
+          "properties": [
+            "owner",
+            "targeted_items_deliver",
+            "targeted_items_pickup"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaLogisticPoint.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaTrain",
+          "properties": [
+            "state",
+            "station",
+            "has_path",
+            "path_end_stop",
+            "schedule",
+            "get_schedule"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaTrain.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaSchedule",
+          "properties": [
+            "add_interrupt",
+            "get_interrupt"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaSchedule.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable API already has full LuaSchedule interrupts and logistic target counts. Simplified schedules still omit groups/interrupts; native dispatch/path solvers remain closed.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-06",
+      "title": "Quality changes selected functions and logistics identity",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/quality.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            58
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "5db9b95306d12f796e384eb44f6d2e4584aff57cde579f8b763ad62a012fa75d",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/quality.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/quality.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/quality.lua#L1-L58",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/base-data-updates.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            9
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "fa08ec48b2d517a265cc1e7ab164e38cb9dd53450322c1289ae837f1584a3640",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/base-data-updates.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/base-data-updates.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/base-data-updates.lua#L1-L9",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/item.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            56
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "05b20aee997abdd8b5a89099ab8b7562db779e63d11f5ddabdb2c3365351b5b4",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/item.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/item.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/item.lua#L1-L56",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/base-data-updates.lua",
+          "symbol": null,
+          "lines": [
+            831,
+            900
+          ],
+          "reviewed_fields": [
+            "conditional Quality technology patch"
+          ],
+          "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/base-data-updates.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/base-data-updates.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/base-data-updates.lua#L831-L900",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "QualityPrototype",
+          "properties": [
+            "next_probability",
+            "science_pack_drain_multiplier"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/QualityPrototype.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LabPrototype",
+          "properties": [
+            "uses_quality_drain_modifier"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/LabPrototype.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed Quality lives independently but is a hard Space Age dependency. Stable tiers use next_probability0.1 and lack experimental train inventory/power/speed multipliers and chain_probability field. Selected beacon/drill/science-drain functions and explicit oil/fluid quality exceptions remain. Do not import experimental rolling-stock quality benefits.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-07",
+      "title": "Recycling is a lossy authored reverse process with exceptions",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/recycling.lua",
+          "symbol": null,
+          "lines": [
+            75,
+            250
+          ],
+          "reviewed_fields": [
+            "add_recipe_values",
+            "default_can_recycle",
+            "generate_recycling_recipe",
+            "generate_self_recycling_recipe"
+          ],
+          "sha256": "a92f7a295ded72830711854cec5b0ea3896a728fb4fef59d51f62f02b17e829f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/recycling.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/recycling.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/recycling.lua#L75-L250",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/data-updates.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            27
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "a7d5da6315cfc70a5e62f996a7d08c0a598764cfd14d9ab02d4349a117f776f7",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/data-updates.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/data-updates.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/data-updates.lua#L1-L27",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/entity/entity.lua",
+          "symbol": null,
+          "lines": [
+            45,
+            65
+          ],
+          "reviewed_fields": [
+            "result_inventory_size",
+            "energy_usage",
+            "crafting_speed",
+            "source_inventory_size",
+            "allowed_effects"
+          ],
+          "sha256": "3d50574843fc2a931b4c799b81e43a64a5b195ab6a0aa54749d223cc3c298282",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/entity/entity.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/entity/entity.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/entity/entity.lua#L45-L65",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "RecipePrototype",
+          "properties": [
+            "maximum_productivity",
+            "allow_productivity"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/RecipePrototype.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed recycler code belongs to quality/prototypes. Its default reverse pass explicitly excludes smelting, chemistry, crushing, organic, many metallurgy/cryogenic recipes, science, tungsten-carbide, superconductor and biolab, with named exceptions. Stable work is original energy_required/16 without the experimental result-count divisor/floor. The source visibly computes amount plus extra_count_fraction; native fractional handling is not reconstructed.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-08",
+      "title": "Perishable custody, ingredient freshness and failure are connected",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/item.lua",
+          "symbol": null,
+          "lines": [
+            791,
+            856
+          ],
+          "reviewed_fields": [
+            "nutrients/mash/jelly/bioflux spoil deadline/results"
+          ],
+          "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/item.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/item.lua#L791-L856",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/item.lua",
+          "symbol": null,
+          "lines": [
+            1148,
+            1215
+          ],
+          "reviewed_fields": [
+            "pentapod egg deadline and trigger spatial/failure exceptions"
+          ],
+          "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/item.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/item.lua#L1148-L1215",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "pentapod-egg",
+          "lines": [
+            378,
+            414
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L378-L414",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "ItemPrototype",
+          "properties": [
+            "spoil_ticks",
+            "spoil_result",
+            "spoil_to_trigger_result",
+            "spoil_level"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/ItemPrototype.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaItemStack",
+          "properties": [
+            "spoil_tick",
+            "spoil_percent"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaItemStack.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "RecipePrototype",
+          "properties": [
+            "result_is_always_fresh",
+            "reset_freshness_on_craft"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/RecipePrototype.html"
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "InserterPrototype",
+          "properties": [
+            "enter_drop_mode_if_held_stack_spoiled"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/InserterPrototype.html"
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/item.lua",
+          "symbol": "agricultural-science-pack",
+          "lines": [
+            69,
+            89
+          ],
+          "reviewed_fields": [
+            "spoil_ticks",
+            "spoil_result",
+            "weight",
+            "durability"
+          ],
+          "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/item.lua#L69-L89"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed freshness reset/always-fresh rules belong to RecipePrototype, not per-item-product fields. Stable has no spoil_weight or quality_affects_spoil_ticks contract field. Actual egg expiry/spatial exceptions and item deadlines remain. Exact inherited freshness/native stack merge is still unread.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-09",
+      "title": "Gleba needs a recovery route for a self-feeding biological process",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "nutrients-from-spoilage",
+          "lines": [
+            323,
+            339
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L323-L339",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "nutrients-from-yumako-mash",
+          "lines": [
+            341,
+            357
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L341-L357",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "nutrients-from-bioflux",
+          "lines": [
+            359,
+            376
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L359-L376",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "agricultural-science-pack",
+          "lines": [
+            783,
+            810
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L783-L810",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "biochamber",
+          "lines": [
+            76,
+            210
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "energy_usage",
+            "crafting_speed",
+            "effect_receiver"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L76-L210",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "agricultural-tower",
+          "lines": [
+            1247,
+            1447
+          ],
+          "reviewed_fields": [
+            "energy_usage",
+            "surface_conditions",
+            "spores"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L1247-L1447",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/plants.lua",
+          "symbol": null,
+          "lines": [
+            5,
+            10
+          ],
+          "reviewed_fields": [
+            "plant_harvest_emissions"
+          ],
+          "sha256": "555fbab275c594fb3cd262a1c296a2301e63445d64a94aaadc01ffb9ef7328a3",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/plants.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/plants.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/plants.lua#L5-L10",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/technology.lua",
+          "symbol": "agricultural-science-pack",
+          "lines": [
+            1091,
+            1112
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "64ff6fc1a01270b646e4a61d2470c2c52c6b78a378d3ddaa0059bd3418cc4ea5",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/technology.lua#L1091-L1112",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed nutrient bootstrap category is organic-or-assembling, distinct from the experimental categories list. Its weak half-spoiled nutrient output, richer feed routes, nutrient burner and agriculture/spores/science trigger remain.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-10",
+      "title": "Regional production can reverse the normal resource order",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "molten-iron-from-lava",
+          "lines": [
+            1388,
+            1408
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L1388-L1408",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "molten-copper-from-lava",
+          "lines": [
+            1410,
+            1430
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L1410-L1430",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "casting-iron",
+          "lines": [
+            1486,
+            1501
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L1486-L1501",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "scrap-recycling",
+          "lines": [
+            2093,
+            2129
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L2093-L2129",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "holmium-solution",
+          "lines": [
+            2153,
+            2180
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L2153-L2180",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "foundry",
+          "lines": [
+            1128,
+            1245
+          ],
+          "reviewed_fields": [
+            "crafting_speed",
+            "productivity",
+            "energy_usage"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L1128-L1245",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "lightning-rod",
+          "lines": [
+            1780,
+            1860
+          ],
+          "reviewed_fields": [
+            "efficiency",
+            "range_elongation",
+            "buffer_capacity"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L1780-L1860",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "lightning-collector",
+          "lines": [
+            1862,
+            1945
+          ],
+          "reviewed_fields": [
+            "efficiency",
+            "range_elongation",
+            "buffer_capacity"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L1862-L1945",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable molten-metal/byproduct, foundry and lightning fields support the larger regional lesson. Stable scrap result probabilities differ in representation/execution contract; FAC-13 owns that exception.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-11",
+      "title": "Cold operations require heat support, imported parts and a closed conversion loop",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/planet/planet.lua",
+          "symbol": "aquilo",
+          "lines": [
+            599,
+            692
+          ],
+          "reviewed_fields": [
+            "surface_properties",
+            "entities_require_heating"
+          ],
+          "sha256": "e4714d8e3f18cd629b31d5925d2bd69745e509b673c432a39b27ff31ea8a5bba",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/planet/planet.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/planet/planet.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/planet/planet.lua#L599-L692",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/base-data-updates.lua",
+          "symbol": null,
+          "lines": [
+            85,
+            130
+          ],
+          "reviewed_fields": [
+            "base heating_energy assignments"
+          ],
+          "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/base-data-updates.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/base-data-updates.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/base-data-updates.lua#L85-L130",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "lithium",
+          "lines": [
+            2356,
+            2379
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L2356-L2379",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "heating-tower",
+          "lines": [
+            2066,
+            2270
+          ],
+          "reviewed_fields": [
+            "fuel_categories",
+            "effectivity",
+            "consumption",
+            "surface_conditions"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L2066-L2270",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "fusion-reactor",
+          "lines": [
+            2415,
+            2520
+          ],
+          "reviewed_fields": [
+            "power_input",
+            "fuel_categories",
+            "input_fluid_box",
+            "output_fluid_box"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L2415-L2520",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "fusion-generator",
+          "lines": [
+            2330,
+            2413
+          ],
+          "reviewed_fields": [
+            "output_flow_limit",
+            "input_fluid_box",
+            "output_fluid_box"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L2330-L2413",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "EntityPrototype",
+          "properties": [
+            "heating_energy"
+          ],
+          "json_group": "prototypes",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/prototypes/EntityPrototype.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable Aquilo flag/heat costs and fusion cold-fluoroketone -> plasma -> hot-fluoroketone ports match the selected environmental dependency lesson. No exact native freeze threshold or full coolant recovery chain is claimed.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-12",
+      "title": "Travel infrastructure and late research keep earlier production useful",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/surface.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            17
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "1437ed4b81524d7db13dd9e3cfaf1f92bba2fb117204ed23e821cad8accefd2a",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/surface.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/surface.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/surface.lua#L1-L17",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "space-platform-hub",
+          "lines": [
+            212,
+            440
+          ],
+          "reviewed_fields": [
+            "inventory_size",
+            "surface_conditions"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L212-L440",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/entity/entities.lua",
+          "symbol": "thruster",
+          "lines": [
+            795,
+            1126
+          ],
+          "reviewed_fields": [
+            "min_performance",
+            "max_performance",
+            "fuel_fluid_box",
+            "oxidizer_fluid_box"
+          ],
+          "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/entity/entities.lua#L795-L1126",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "core/prototypes/utility-constants.lua",
+          "symbol": null,
+          "lines": [
+            524,
+            534
+          ],
+          "reviewed_fields": [
+            "space_platform_acceleration_expression",
+            "default_item_weight"
+          ],
+          "sha256": "9aebeb9457c87164c8340ab5658d58e410f4e6581519874764c319bd053f7862",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/core/prototypes/utility-constants.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/core/prototypes/utility-constants.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/core/prototypes/utility-constants.lua#L524-L534",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "promethium-science-pack",
+          "lines": [
+            2737,
+            2765
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L2737-L2765",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/technology.lua",
+          "symbol": "planet-discovery-aquilo",
+          "lines": [
+            423,
+            470
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "64ff6fc1a01270b646e4a61d2470c2c52c6b78a378d3ddaa0059bd3418cc4ea5",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/technology.lua#L423-L470",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/technology.lua",
+          "symbol": "research-productivity",
+          "lines": [
+            2068,
+            2102
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "64ff6fc1a01270b646e4a61d2470c2c52c6b78a378d3ddaa0059bd3418cc4ea5",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/technology.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/technology.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/technology.lua#L2068-L2102",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "LuaSpacePlatform",
+          "properties": [
+            "hub",
+            "paused",
+            "schedule",
+            "get_schedule",
+            "space_location"
+          ],
+          "json_group": "classes",
+          "snapshot_sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/classes/LuaSpacePlatform.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable late science/heat/import progression and platform requirements remain. Stable LuaSpacePlatform says hub destruction removes platform at tick end; it does not expose the experimental die-versus-destroy exception. Stable platform drag expression uses width, unlike the experimental weight-based expression. No experimental default_rocket_lift_weight field is attributed to the stable core source.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-13",
+      "title": "Probability shape is part of a recipe contract",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "space-age/prototypes/recipe.lua",
+          "symbol": "scrap-recycling",
+          "lines": [
+            2093,
+            2129
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/prototypes/recipe.lua#L2093-L2129",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "quality/prototypes/recycling.lua",
+          "symbol": null,
+          "lines": [
+            104,
+            124
+          ],
+          "reviewed_fields": [
+            "fractional reverse output"
+          ],
+          "sha256": "a92f7a295ded72830711854cec5b0ea3896a728fb4fef59d51f62f02b17e829f",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/recycling.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/recycling.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/prototypes/recycling.lua#L104-L124",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-api-contract",
+          "version": "2.0.77",
+          "class_or_type": "ItemProductPrototype",
+          "properties": [
+            "probability",
+            "extra_count_fraction"
+          ],
+          "json_group": "types",
+          "snapshot_sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+          "url": "https://lua-api.factorio.com/2.0.77/types/ItemProductPrototype.html"
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Installed scrap uses per-product probability fields. The exposed stable probability contract describes zero-or-count results and expected-value tooltips; it does not supply experimental shared intervals. Do not treat the source current shared-roll0.40 no-match outcome as installed behavior or infer native correlations from metadata alone.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    },
+    {
+      "id": "FAC-14",
+      "title": "Elevated routes are physical infrastructure with material and unlock costs",
+      "evidence": [
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "elevated-rails/prototypes/recipe/elevated-rails.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            27
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "c48705081c53660fd10226bc71bab2b094bdf0799a16eff69b31986bb17ad086",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/elevated-rails/prototypes/recipe/elevated-rails.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/elevated-rails/prototypes/recipe/elevated-rails.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/prototypes/recipe/elevated-rails.lua#L1-L27",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "elevated-rails/prototypes/technology/elevated-rails.lua",
+          "symbol": null,
+          "lines": [
+            1,
+            38
+          ],
+          "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded",
+          "sha256": "57cec87964079e7afa3e595b9e9d69ecadd5eb0b2961283b5624af62b16eb135",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/elevated-rails/prototypes/technology/elevated-rails.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/elevated-rails/prototypes/technology/elevated-rails.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/prototypes/technology/elevated-rails.lua#L1-L38",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "elevated-rails/prototypes/entity/elevated-rails.lua",
+          "symbol": "rail-ramp",
+          "lines": [
+            38,
+            112
+          ],
+          "reviewed_fields": [
+            "support_range"
+          ],
+          "sha256": "e23b78439900645bb7d69a38d59528ac48d1772558a50ae77c29c4664645bc6b",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/elevated-rails/prototypes/entity/elevated-rails.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/elevated-rails/prototypes/entity/elevated-rails.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/prototypes/entity/elevated-rails.lua#L38-L112",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        },
+        {
+          "kind": "installed-readable-lua",
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "path": "elevated-rails/prototypes/entity/elevated-rails.lua",
+          "symbol": "rail-support",
+          "lines": [
+            287,
+            391
+          ],
+          "reviewed_fields": [
+            "support_range"
+          ],
+          "sha256": "e23b78439900645bb7d69a38d59528ac48d1772558a50ae77c29c4664645bc6b",
+          "private_path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/elevated-rails/prototypes/entity/elevated-rails.lua",
+          "original_source_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/elevated-rails/prototypes/entity/elevated-rails.lua",
+          "official_same_release_locator": "https://github.com/wube/factorio-data/blob/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/prototypes/entity/elevated-rails.lua#L287-L391",
+          "locator_qualification": "Source receipt hashes actual installed bytes. GitHub is a same-release locator; native engine is not included."
+        }
+      ],
+      "reconciliation": {
+        "status": "selected source/API bounds semantically reviewed and integrated",
+        "version": "2.0.77",
+        "buildid": "23347942",
+        "finding": "Actual stable ramp/support source uses support_range9/11 and material/research/planner costs. The native placement/path/signal algorithm remains unread.",
+        "runtime_observed": false,
+        "native_implementation_reviewed": false
+      }
+    }
+  ],
+  "reviewed_source_bounds": {
+    "quality/data.lua": [
+      {
+        "finding_id": "FAC-01",
+        "lines": [
+          1,
+          11
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "quality/data-updates.lua": [
+      {
+        "finding_id": "FAC-01",
+        "lines": [
+          1,
+          27
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-07",
+        "lines": [
+          1,
+          27
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "base/prototypes/recipe.lua": [
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          1428,
+          1436
+        ],
+        "symbol": "iron-plate",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          744,
+          749
+        ],
+        "symbol": "iron-gear-wheel",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          980,
+          996
+        ],
+        "symbol": "automation-science-pack",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "base/prototypes/technology.lua": [
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          87,
+          105
+        ],
+        "symbol": "automation-science-pack",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          107,
+          125
+        ],
+        "symbol": "electric-mining-drill",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          1912,
+          1935
+        ],
+        "symbol": "automation",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "base/prototypes/entity/entities.lua": [
+      {
+        "finding_id": "FAC-02",
+        "lines": [
+          3817,
+          3944
+        ],
+        "symbol": "lab",
+        "reviewed_fields": [
+          "inputs",
+          "energy_usage",
+          "researching_speed",
+          "module_slots"
+        ]
+      },
+      {
+        "finding_id": "FAC-03",
+        "lines": [
+          3208,
+          3304
+        ],
+        "symbol": "assembling-machine-2",
+        "reviewed_fields": [
+          "crafting_speed",
+          "energy_source",
+          "energy_usage",
+          "allowed_effects"
+        ]
+      },
+      {
+        "finding_id": "FAC-04",
+        "lines": [
+          1221,
+          1528
+        ],
+        "symbol": "boiler",
+        "reviewed_fields": [
+          "fuel_categories",
+          "energy_source",
+          "buffer_capacity",
+          "input_flow_limit",
+          "output_flow_limit",
+          "fluid_usage_per_tick",
+          "temperature",
+          "emissions_per_minute",
+          "neighbour_bonus"
+        ]
+      },
+      {
+        "finding_id": "FAC-04",
+        "lines": [
+          1756,
+          1898
+        ],
+        "symbol": "steam-engine",
+        "reviewed_fields": [
+          "fuel_categories",
+          "energy_source",
+          "buffer_capacity",
+          "input_flow_limit",
+          "output_flow_limit",
+          "fluid_usage_per_tick",
+          "temperature",
+          "emissions_per_minute",
+          "neighbour_bonus"
+        ]
+      },
+      {
+        "finding_id": "FAC-04",
+        "lines": [
+          5279,
+          5353
+        ],
+        "symbol": "accumulator",
+        "reviewed_fields": [
+          "fuel_categories",
+          "energy_source",
+          "buffer_capacity",
+          "input_flow_limit",
+          "output_flow_limit",
+          "fluid_usage_per_tick",
+          "temperature",
+          "emissions_per_minute",
+          "neighbour_bonus"
+        ]
+      },
+      {
+        "finding_id": "FAC-04",
+        "lines": [
+          8568,
+          8794
+        ],
+        "symbol": "nuclear-reactor",
+        "reviewed_fields": [
+          "fuel_categories",
+          "energy_source",
+          "buffer_capacity",
+          "input_flow_limit",
+          "output_flow_limit",
+          "fluid_usage_per_tick",
+          "temperature",
+          "emissions_per_minute",
+          "neighbour_bonus"
+        ]
+      }
+    ],
+    "base/prototypes/entity/transport-belts.lua": [
+      {
+        "finding_id": "FAC-03",
+        "lines": [
+          149,
+          183
+        ],
+        "symbol": "transport-belt",
+        "reviewed_fields": [
+          "speed"
+        ]
+      }
+    ],
+    "base/prototypes/entity/mining-drill.lua": [
+      {
+        "finding_id": "FAC-03",
+        "lines": [
+          257,
+          1566
+        ],
+        "symbol": "electric-mining-drill",
+        "reviewed_fields": [
+          "mining_speed",
+          "energy_usage",
+          "emissions_per_minute"
+        ]
+      }
+    ],
+    "base/prototypes/entity/enemies.lua": [
+      {
+        "finding_id": "FAC-04",
+        "lines": [
+          64,
+          134
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "absorptions_to_join_attack",
+          "absorptions_per_second"
+        ]
+      }
+    ],
+    "quality/prototypes/quality.lua": [
+      {
+        "finding_id": "FAC-06",
+        "lines": [
+          1,
+          58
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "quality/prototypes/base-data-updates.lua": [
+      {
+        "finding_id": "FAC-06",
+        "lines": [
+          1,
+          9
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "quality/prototypes/item.lua": [
+      {
+        "finding_id": "FAC-06",
+        "lines": [
+          1,
+          56
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "space-age/base-data-updates.lua": [
+      {
+        "finding_id": "FAC-06",
+        "lines": [
+          831,
+          900
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "conditional Quality technology patch"
+        ]
+      },
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          85,
+          130
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "base heating_energy assignments"
+        ]
+      }
+    ],
+    "quality/prototypes/recycling.lua": [
+      {
+        "finding_id": "FAC-07",
+        "lines": [
+          75,
+          250
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "add_recipe_values",
+          "default_can_recycle",
+          "generate_recycling_recipe",
+          "generate_self_recycling_recipe"
+        ]
+      },
+      {
+        "finding_id": "FAC-13",
+        "lines": [
+          104,
+          124
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "fractional reverse output"
+        ]
+      }
+    ],
+    "quality/prototypes/entity/entity.lua": [
+      {
+        "finding_id": "FAC-07",
+        "lines": [
+          45,
+          65
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "result_inventory_size",
+          "energy_usage",
+          "crafting_speed",
+          "source_inventory_size",
+          "allowed_effects"
+        ]
+      }
+    ],
+    "space-age/prototypes/item.lua": [
+      {
+        "finding_id": "FAC-08",
+        "lines": [
+          791,
+          856
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "nutrients/mash/jelly/bioflux spoil deadline/results"
+        ]
+      },
+      {
+        "finding_id": "FAC-08",
+        "lines": [
+          1148,
+          1215
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "pentapod egg deadline and trigger spatial/failure exceptions"
+        ]
+      },
+      {
+        "finding_id": "FAC-08",
+        "lines": [
+          69,
+          89
+        ],
+        "symbol": "agricultural-science-pack",
+        "reviewed_fields": [
+          "spoil_ticks",
+          "spoil_result",
+          "weight",
+          "durability"
+        ]
+      }
+    ],
+    "space-age/prototypes/recipe.lua": [
+      {
+        "finding_id": "FAC-08",
+        "lines": [
+          378,
+          414
+        ],
+        "symbol": "pentapod-egg",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          323,
+          339
+        ],
+        "symbol": "nutrients-from-spoilage",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          341,
+          357
+        ],
+        "symbol": "nutrients-from-yumako-mash",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          359,
+          376
+        ],
+        "symbol": "nutrients-from-bioflux",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          783,
+          810
+        ],
+        "symbol": "agricultural-science-pack",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1388,
+          1408
+        ],
+        "symbol": "molten-iron-from-lava",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1410,
+          1430
+        ],
+        "symbol": "molten-copper-from-lava",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1486,
+          1501
+        ],
+        "symbol": "casting-iron",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          2093,
+          2129
+        ],
+        "symbol": "scrap-recycling",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          2153,
+          2180
+        ],
+        "symbol": "holmium-solution",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          2356,
+          2379
+        ],
+        "symbol": "lithium",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          2737,
+          2765
+        ],
+        "symbol": "promethium-science-pack",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-13",
+        "lines": [
+          2093,
+          2129
+        ],
+        "symbol": "scrap-recycling",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "space-age/prototypes/entity/entities.lua": [
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          76,
+          210
+        ],
+        "symbol": "biochamber",
+        "reviewed_fields": [
+          "fuel_categories",
+          "energy_usage",
+          "crafting_speed",
+          "effect_receiver"
+        ]
+      },
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          1247,
+          1447
+        ],
+        "symbol": "agricultural-tower",
+        "reviewed_fields": [
+          "energy_usage",
+          "surface_conditions",
+          "spores"
+        ]
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1128,
+          1245
+        ],
+        "symbol": "foundry",
+        "reviewed_fields": [
+          "crafting_speed",
+          "productivity",
+          "energy_usage"
+        ]
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1780,
+          1860
+        ],
+        "symbol": "lightning-rod",
+        "reviewed_fields": [
+          "efficiency",
+          "range_elongation",
+          "buffer_capacity"
+        ]
+      },
+      {
+        "finding_id": "FAC-10",
+        "lines": [
+          1862,
+          1945
+        ],
+        "symbol": "lightning-collector",
+        "reviewed_fields": [
+          "efficiency",
+          "range_elongation",
+          "buffer_capacity"
+        ]
+      },
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          2066,
+          2270
+        ],
+        "symbol": "heating-tower",
+        "reviewed_fields": [
+          "fuel_categories",
+          "effectivity",
+          "consumption",
+          "surface_conditions"
+        ]
+      },
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          2415,
+          2520
+        ],
+        "symbol": "fusion-reactor",
+        "reviewed_fields": [
+          "power_input",
+          "fuel_categories",
+          "input_fluid_box",
+          "output_fluid_box"
+        ]
+      },
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          2330,
+          2413
+        ],
+        "symbol": "fusion-generator",
+        "reviewed_fields": [
+          "output_flow_limit",
+          "input_fluid_box",
+          "output_fluid_box"
+        ]
+      },
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          212,
+          440
+        ],
+        "symbol": "space-platform-hub",
+        "reviewed_fields": [
+          "inventory_size",
+          "surface_conditions"
+        ]
+      },
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          795,
+          1126
+        ],
+        "symbol": "thruster",
+        "reviewed_fields": [
+          "min_performance",
+          "max_performance",
+          "fuel_fluid_box",
+          "oxidizer_fluid_box"
+        ]
+      }
+    ],
+    "space-age/prototypes/entity/plants.lua": [
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          5,
+          10
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "plant_harvest_emissions"
+        ]
+      }
+    ],
+    "space-age/prototypes/technology.lua": [
+      {
+        "finding_id": "FAC-09",
+        "lines": [
+          1091,
+          1112
+        ],
+        "symbol": "agricultural-science-pack",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          423,
+          470
+        ],
+        "symbol": "planet-discovery-aquilo",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      },
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          2068,
+          2102
+        ],
+        "symbol": "research-productivity",
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "space-age/prototypes/planet/planet.lua": [
+      {
+        "finding_id": "FAC-11",
+        "lines": [
+          599,
+          692
+        ],
+        "symbol": "aquilo",
+        "reviewed_fields": [
+          "surface_properties",
+          "entities_require_heating"
+        ]
+      }
+    ],
+    "space-age/prototypes/surface.lua": [
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          1,
+          17
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "core/prototypes/utility-constants.lua": [
+      {
+        "finding_id": "FAC-12",
+        "lines": [
+          524,
+          534
+        ],
+        "symbol": null,
+        "reviewed_fields": [
+          "space_platform_acceleration_expression",
+          "default_item_weight"
+        ]
+      }
+    ],
+    "elevated-rails/prototypes/recipe/elevated-rails.lua": [
+      {
+        "finding_id": "FAC-14",
+        "lines": [
+          1,
+          27
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "elevated-rails/prototypes/technology/elevated-rails.lua": [
+      {
+        "finding_id": "FAC-14",
+        "lines": [
+          1,
+          38
+        ],
+        "symbol": null,
+        "reviewed_fields": "listed definition gameplay fields only; unrelated definitions/visual helpers excluded"
+      }
+    ],
+    "elevated-rails/prototypes/entity/elevated-rails.lua": [
+      {
+        "finding_id": "FAC-14",
+        "lines": [
+          38,
+          112
+        ],
+        "symbol": "rail-ramp",
+        "reviewed_fields": [
+          "support_range"
+        ]
+      },
+      {
+        "finding_id": "FAC-14",
+        "lines": [
+          287,
+          391
+        ],
+        "symbol": "rail-support",
+        "reviewed_fields": [
+          "support_range"
+        ]
+      }
+    ]
+  },
+  "api_review": {
+    "versions_confirmed": [
+      "runtime2.0.77",
+      "prototype2.0.77"
+    ],
+    "comparison": "69selected experimental API member names compared;54description/default pairs byte-equal; changed/absent contracts reviewed and qualified, with stable Recipe freshness/Product probability replacements."
+  },
+  "larger_unread_scope": [
+    "Publicly accessible unrelated Lua definitions and helper dependencies; preserved files are not whole-file semantic completion.",
+    "Native C++ engine: power/heat/fluid solvers, trains/robots/pathfinding, quality/freshness execution, enemy AI, save implementation.",
+    "Complete recipes/technology/progression tree, terrain generation, all combat/ecology, complete asteroid/cargo/route and entity quality behavior."
+  ],
+  "runtime_not_run": true,
+  "all_dlc_not_claimed": true
+}

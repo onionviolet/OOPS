@@ -1,0 +1,347 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T13:21:00.367385+00:00",
+  "status": "Activefullbotharchitectureexport/meaningfulrepair goal; no finalcompletionclaim",
+  "source_version": "Factorio2.0.77/Steam23347942",
+  "generated_export_and_semantic_reading_separate": true,
+  "reviewed_claim_refs": [
+    {
+      "id": "QS-01",
+      "title": "One quality draw traverses an unlocked linked chain",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/0",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-02",
+      "title": "Quality setup has structural checks beyond the roll",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/1",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-03",
+      "title": "Effective spoil lifetime is distinct from an absolute deadline",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/2",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-04",
+      "title": "Input freshness comes from the material amounts actually taken",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/3",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-05",
+      "title": "Item output admission checks resulting identity and bounded capacity",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/4",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-06",
+      "title": "Product creation applies spoil offset and a conditional refresh",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/5",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-07",
+      "title": "Admission and creation do not use identical spoil offsets",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/6",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-08",
+      "title": "Setting a deadline can convert immediately or enqueue future spoilage",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/7",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-09",
+      "title": "Stack spoilage can trigger a consequence, replace material or remove it",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/8",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-10",
+      "title": "Spoil priority compares class level before deadline",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/9",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "QS-11",
+      "title": "The spoil-percent setter has an exact terminal branch",
+      "source": "readers/quality-spoilage/FINDINGS.json",
+      "json_pointer": "/claims/10",
+      "source_sha256": "91e27c8801af978ef8f36e866ae0c0544de20ff4a2d571b58a690eee3b970249",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-01",
+      "title": "Inventory admission includes stack identity, quality, metadata and owner rules",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/0",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-02",
+      "title": "Inventory pickup separates receiver eligibility, selection, hand limits and transfer",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/1",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-03",
+      "title": "Spoil priority is explicit selection policy with invalid-input exceptions",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/2",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-04",
+      "title": "Blocked delivery preserves held material and registers a wake dependency",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/3",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-05",
+      "title": "Transport insertion is spatial admission before item construction",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/4",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-06",
+      "title": "Conveyor scheduling and spoil notifications react to concrete state",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/5",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-07",
+      "title": "Wake registrations are rebuilt when belt dependencies change; spoiled hand has its own notification",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/6",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-08",
+      "title": "Temperature is derived from a stored double, not integer energy",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/7",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-09",
+      "title": "Usable heat has a reserve and a per-call extraction cap; full requests fail atomically",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/8",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-10",
+      "title": "Heat transfer is constrained equalization with separate consumer reserves",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/9",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    },
+    {
+      "id": "NLH-11",
+      "title": "Heat scheduling guards recursion and keeps smoothed display separate from usable energy",
+      "source": "readers/logistics-heat/FINDINGS.json",
+      "json_pointer": "/claims/10",
+      "source_sha256": "e8cc323b976d6c70bc20c11dd033c51ffc2becda75ef1ea89d089de7842de59f",
+      "status": "bounded native/source semantic review in retained reader epoch; not a whole-binary reading claim",
+      "latest_recovery_limit": "Original reader records/claims remain historical evidence; changed C/SLA/physical signatures/known CFG body gaps must retain separate current receipts."
+    }
+  ],
+  "fresh_production_source_binding": "SOURCE_BINDING.json",
+  "production_bindings": 13,
+  "native_production_trace": "NATIVE_PRODUCTION_TRACE.md",
+  "root_current_body_instruction_audit": "../../../gm/dispatch/steam-wave-2026-10-06/native-usage/ARM_CORPUS_ACQUISITION.json",
+  "root_flow_warning_qualification": "../../../gm/dispatch/steam-wave-2026-10-06/native-usage/ARM_FLOW_READBACK.json",
+  "known_corpus_limits": [
+    {
+      "id": "CFG-SPLITTER-14",
+      "status": "meaningfulchangedrepairprepared-unverified",
+      "scope": "All8closeUnused/6drawBase unsigned byte tableguards/targets inretainedfullProgram; oldonly1eachcompletecaseprepfalse. DedicatedJumpTableoverride notjustnormalflowreference.",
+      "evidence": "../../../gm/dispatch/steam-wave-2026-10-06/native-usage/backend-review/EVIDENCE.json"
+    },
+    {
+      "id": "CFG-INSERTER-6",
+      "status": "exactknownbody/Listinggap, Cclaimunchanged",
+      "entry": "1007f70c4",
+      "branch": "1007f72ac",
+      "table": "10296cf39",
+      "base": "1007f725c",
+      "bytes": [
+        0,
+        21,
+        24,
+        27,
+        30,
+        33
+      ],
+      "guard": "CMPw3#5 at1007f7298;BHI1007f729c",
+      "targets": [
+        "1007f725c",
+        "1007f72b0",
+        "1007f72bc",
+        "1007f72c8",
+        "1007f72d4",
+        "1007f72e0"
+      ],
+      "case_bytes_absent_from_old_body": 64,
+      "next": "ExactfullProgramtable/guard/target/decode/override+canonicalrow refresh, retainingoldrecords.",
+      "evidence": "Rootnative-usage readerrefresh proof; no runtimequalification bynativewriter yet."
+    },
+    {
+      "id": "IR-CFG",
+      "status": "undecoded/indirect unknowns classifiedseparatelyfromCsuccess",
+      "arm_unresolved_computed_jumps": 14588,
+      "arm_affected_functions": 13765,
+      "arm_undecoded_candidate_bytes": 3149564,
+      "scope": "Indirect tail/virtualdispatch, literal/padding and intra-function tables needactualclassification; no automaticdefectcount."
+    },
+    {
+      "id": "SLA-SCALAR",
+      "status": "finitequalification/fullcontext latestaffectedcorpusverified",
+      "latest_affected_methods": 1105,
+      "latest_scalar_instructions": 1951,
+      "alias_cases": 234,
+      "finite_cases": 216,
+      "failed_before": 27,
+      "passed_after": 216,
+      "evidence": "LOWERING_REPAIR.json",
+      "limits": "NaN/FPCR/signaling/signedzero/source-type and allsemanticreading notqualified."
+    },
+    {
+      "id": "RESOURCE-X86-FMAIN",
+      "status": "actualguardedfailure/fullrawbody-ASMretained",
+      "entry": "1002f2a30",
+      "chunk": 132,
+      "line": 12,
+      "body_bytes": 60739,
+      "decoded_instructions": 11519,
+      "witness": {
+        "observed_at": "2026-10-07T13:13:31.402031+00:00",
+        "native_child_pid": 47537,
+        "parent_pid": 46916,
+        "signal": "SIGTERM",
+        "reason": "native RSS exceeded configured1.25GiBcap",
+        "rss_kib": 1377712,
+        "free_bytes": 4050804736,
+        "active_attempt": {
+          "pid": 46960,
+          "architecture": "x86_64",
+          "entry": "1002f2a30",
+          "name": "fmain",
+          "attempt_id": "46960-117425526387666",
+          "attempt": 1,
+          "timeout_seconds": 20,
+          "body_addresses": 60739,
+          "started_at": "2026-10-07T13:13:19.763230Z",
+          "state": "decompiling",
+          "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff"
+        },
+        "limit": "Actual resource failure; no C success inferred. Preserve returned full body/asm row."
+      },
+      "C_success": false
+    }
+  ],
+  "x86_progress_snapshot": {
+    "schema": 1,
+    "architecture": "x86_64",
+    "mode": "full",
+    "disk_floor_bytes": 536870912,
+    "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+    "state": "running",
+    "started_at": "2026-10-07T13:09:07.333989Z",
+    "updated_at": "2026-10-07T13:20:57.526558Z",
+    "pid": 46960,
+    "planned_nonexternal": 182398,
+    "retained_unique_entries": 26000,
+    "this_run_written": 26000,
+    "this_run_success": 25992,
+    "this_run_failed": 8,
+    "last_closed_chunk": 260,
+    "free_bytes": 13366312960,
+    "this_run_status_counts": {
+      "decompiler-failure": 6,
+      "resource-limit": 1,
+      "success": 25992,
+      "timeout": 1
+    }
+  },
+  "usage": {
+    "owner": "../../../gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+    "status": "source/native/UI/currentbuilddelivered implemented-unverified",
+    "bundle": "e77080593d4b",
+    "matching_local_sources": 370,
+    "original_choices": "Two resin/residue trays, sap/fuel/stamina prices/timing, refundablefuel/preadmissionreservation are authoredYAIR policies. Nativecustody/admission/progress/delivery are evidence; no copiednativecode/runtimegame execution.",
+    "deferred": "Gameplay/browser/save/reload/import/failure/regression/director acceptance separate."
+  },
+  "DLC": {
+    "installed_source_pin": "../DLC_COVERAGE.json",
+    "version": "2.0.77",
+    "presence": "Core/Base/SpaceAge/Quality/ElevatedRails installedsourcepresence only",
+    "activation_or_entitlement_inspected": false,
+    "full_DLC_semantic_coverage": false,
+    "experimental_rules": "Public2.1.21 comparisons remainseparate fromactual2.0.77 native/sourceclaims."
+  },
+  "remaining": [
+    "Fullx86allFunctionManager/callable export/failure/byte/CFG/profile/alias/section/external reconciliation.",
+    "MeaningfulARMfailure/allknown14+6table/body/pcode/physicalABI/backendidentity-preserving repairs.",
+    "ExactARMglobalinstructionaddress/functionownership comparison; rootusage/recoveryfinalacquisition.",
+    "Finalcurrent REPORT/FINDINGS/COVERAGE/DLC/readers/provenance reconciliation withno fabricatedC/source/type/semanticcompletion."
+  ]
+}

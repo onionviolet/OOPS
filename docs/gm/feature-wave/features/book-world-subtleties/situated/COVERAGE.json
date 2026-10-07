@@ -1,0 +1,1820 @@
+{
+  "revision": 1,
+  "date": "2026-10-05",
+  "scope": "finite4worlds/5scenes/2separateLabyrintheditions",
+  "sourceModule": "src/feature_expansion_book_situated.js",
+  "rosterAuthority": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md#book-world-authoring-with-timeline-and-extended-progression",
+  "rows": [
+    {
+      "worldId": "book.omniscient_reader",
+      "title": "Omniscient Reader's Viewpoint",
+      "sourceEditions": [
+        {
+          "lane": "omniscient-reader",
+          "edition": "Supplied English Illustrated Edition, singNsong compilation",
+          "sha256": "24cf71786db0c6e91a5ec12a1047a993a25c6bf4d5a72deb0ee2c417436655bf",
+          "reviewedExtent": "All551 supplied chapters read/reviewed/integrated;1263956 body words; final hospital continuation uncertain",
+          "limits": "Compilation/translation authenticity, illustration pixels and complete publication coverage unverified"
+        }
+      ],
+      "reviewedExtentAuthority": [
+        "docs/research/novels/full-book/omniscient-reader/COVERAGE.json"
+      ],
+      "sourceRuleClassification": "source-qualified analysis; generic admissions are explicit original conservative policies",
+      "replacement": {
+        "appearance": "Alias, uniform or claimed landlord changes a claim. Personal recognition, local tenancy and source faculty remain separate.",
+        "credential": "A tenancy record or authorized contract may establish its exact local right; appearance alone cannot do so.",
+        "recognizedRole": "Replacing Pildu or a scenario protagonist is a divergent branch requiring actual incumbent fate, source and scenario binding. No canonical-role replacement is activated here.",
+        "credit": "Broadcast attention, claimed rescue and actual rescue may reach different audiences. Coin rewards require the actual scenario recipient.",
+        "opportunity": "Sponsorship offers, gifts, story succession and command contracts have separate counterparties and acceptance. No universal fate theft.",
+        "equipment": "Horn gear needs actual horns/manual making. Possessing an item or tenancy does not supply Armed Zone, body stats or source control.",
+        "bodyController": "Kaizenix host occupation/identity erosion is later specific evidence, not ordinary Chungmuro disguise. Host Yuri has her own history/voice.",
+        "soulReincarnation": "Bookmark is a temporary conditioned loan, not permanent person replacement. Kaizenix, Underworld rebirth and regression require distinct bindings; no universal inheritance."
+      },
+      "sourceExceptions": [
+        {
+          "id": "orv.bookmark",
+          "era": "ch10 and later evolution",
+          "rule": "Understanding/body/fuel/duration bound loan; no transfer of identity or permanent mastery",
+          "evidence": [
+            {
+              "lane": "omniscient-reader",
+              "claimId": "ORV-010-02",
+              "locator": "ch10 chap_00010 b53–83",
+              "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_001_010.md"
+            }
+          ]
+        },
+        {
+          "id": "orv.kaizenix_hosts",
+          "era": "ch377–378",
+          "rule": "Lived host years and memory erosion; Yuri remains a distinct host history; ordinary entrant cannot claim this route",
+          "evidence": [
+            {
+              "lane": "omniscient-reader",
+              "claimId": "ORV-377-01",
+              "locator": "chap_00377.xhtml b27–66",
+              "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_371_390.md"
+            },
+            {
+              "lane": "omniscient-reader",
+              "claimId": "ORV-378-01",
+              "locator": "chap_00378.xhtml b69–108,127–160,167–186",
+              "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_371_390.md"
+            }
+          ]
+        },
+        {
+          "id": "orv.pildu_contract",
+          "era": "ch36",
+          "rule": "Defense Master is counterparty, Pildu recipient; survival/growth duty, ten daily commands/five years/no automatic renewal are this contract alone",
+          "evidence": [
+            {
+              "lane": "omniscient-reader",
+              "claimId": "ORV-036-01",
+              "locator": "ch36 b23–49,63–74,108–123",
+              "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_031_050.md"
+            }
+          ]
+        }
+      ],
+      "scenes": [
+        {
+          "id": "situated.orv.chungmuro_roster",
+          "worldId": "book.omniscient_reader",
+          "eraId": "orv.ch28_36",
+          "place": "Chungmuro rooms/utilities",
+          "entry": "Ordinary survivor; optional claim to keep a room roster",
+          "branch": "Original local roster duty inserted before departure; Pildu and existing residents retain identities/holdings. No canonical role replacement or forced fight.",
+          "people": [
+            "source.orv.pildu",
+            "situated.orv.room_witness",
+            "situated.orv.water_runner"
+          ],
+          "items": [
+            "situated.orv.roster",
+            "situated.orv.owned_horn_piece"
+          ],
+          "opportunities": [
+            "situated.orv.voluntary_roster_duty"
+          ],
+          "knownEntryText": "A room has a capacity. The queue has people in it, even when the channel is looking elsewhere.",
+          "voice": [
+            {
+              "speaker": "situated.orv.water_runner",
+              "text": "Tell me which room first. I cannot carry water to a title.",
+              "basis": [
+                {
+                  "lane": "omniscient-reader",
+                  "claimId": "ORV-028-01",
+                  "locator": "ch28 b4–21,53–90",
+                  "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md"
+                }
+              ],
+              "classification": "original incidental worker; analytical cue is finite water/room access"
+            }
+          ],
+          "texture": [
+            {
+              "text": "Food and water change hands under the station lights. A pencilled roster is our proposed local prop.",
+              "basis": [
+                {
+                  "lane": "omniscient-reader",
+                  "claimId": "ORV-028-01",
+                  "locator": "ch28 b4–21,53–90",
+                  "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md"
+                }
+              ],
+              "classification": "source cue plus explicitly original prop"
+            }
+          ],
+          "laterEncounter": "Same water runner checks the actual duty and witnessed delivery; false badge/title alone neither delivers water nor erases tenancy.",
+          "status": "proposed local scene; coded rules implemented-unverified; native binding required"
+        }
+      ],
+      "tropeChain": {
+        "source": "Chungmuro room scarcity → coercive landlord → leverage/zone destruction → emergency defense → negotiated scoped command. Source events are baseline, not required player actions.",
+        "subversions": [
+          "Pay or seek actual available room",
+          "Cooperate with residents and known defenders",
+          "Withdraw from a costly zone",
+          "Negotiate an exact duty without inheriting a protagonist power"
+        ],
+        "boundary": "Averted conflict does not summon a substitute landlord or boss."
+      },
+      "deeperChain": {
+        "id": "situated.chain.orv.roster_accountability",
+        "worldId": "book.omniscient_reader",
+        "sceneIds": [
+          "situated.orv.chungmuro_roster"
+        ],
+        "classification": "original branchable local insertion, source-qualified room/contract cues",
+        "nativeStatus": "unactivated; no registered commands/effects",
+        "independentGoals": "Pildu retains his source-era authority/defense interests; residents want water and actual room capacity; proposed runner wants completed deliveries, not protagonist recognition.",
+        "phases": [
+          {
+            "id": "claim",
+            "actors": [
+              "player",
+              "situated.orv.water_runner"
+            ],
+            "requiredMeans": [
+              "appearanceObservable"
+            ],
+            "branches": [
+              "honest guest",
+              "optional attributed keeper claim",
+              "refuse duty"
+            ],
+            "retained": [
+              "actual claimant/observer/evidence"
+            ],
+            "prerequisiteEventKinds": []
+          },
+          {
+            "id": "check",
+            "actors": [
+              "situated.orv.room_witness",
+              "situated.orv.water_runner"
+            ],
+            "requiredMeans": [
+              "roomRecordAvailable"
+            ],
+            "branches": [
+              "witness confirms limited delivery",
+              "mismatched title remains disputed",
+              "seek incumbent account"
+            ],
+            "retained": [
+              "different observer beliefs"
+            ],
+            "prerequisiteEventKinds": [
+              "claim_recorded"
+            ]
+          },
+          {
+            "id": "duty",
+            "actors": [
+              "player",
+              "source.orv.pildu"
+            ],
+            "requiredMeans": [
+              "localPermission",
+              "dutyAccepted"
+            ],
+            "branches": [
+              "willing scoped paid duty",
+              "ordinary own-room work",
+              "partial supply",
+              "decline"
+            ],
+            "retained": [
+              "specific right/duty or refusal; no source transfer"
+            ],
+            "prerequisiteEventKinds": [
+              "claim_checked"
+            ]
+          },
+          {
+            "id": "response",
+            "actors": [
+              "source.orv.pildu",
+              "situated.orv.water_runner"
+            ],
+            "requiredMeans": [
+              "actualDeliveryEvidence"
+            ],
+            "branches": [
+              "legitimate performance",
+              "compensate short delivery",
+              "expose forged claim",
+              "hostile obstruction only after actual actor choice"
+            ],
+            "retained": [
+              "spent stock; claimant liability; resident access"
+            ],
+            "prerequisiteEventKinds": [
+              "duty_decided"
+            ]
+          },
+          {
+            "id": "closure",
+            "actors": [
+              "player",
+              "situated.orv.room_witness"
+            ],
+            "requiredMeans": [
+              "correctionChannelAvailable"
+            ],
+            "branches": [
+              "restitution",
+              "authorized one-right handover",
+              "keep ordinary tenancy",
+              "withdraw"
+            ],
+            "retained": [
+              "original performer survives; known corrections differ"
+            ],
+            "prerequisiteEventKinds": [
+              "response_committed"
+            ]
+          },
+          {
+            "id": "later_queue",
+            "actors": [
+              "situated.orv.water_runner",
+              "situated.orv.room_witness"
+            ],
+            "requiredMeans": [
+              "samePeopleReachable"
+            ],
+            "branches": [
+              "honor real delivery",
+              "request unpaid duty",
+              "withhold unearned access",
+              "accept refusal without new boss"
+            ],
+            "retained": [
+              "same roster/witness/event IDs, finite stock, duties and distinct beliefs"
+            ],
+            "prerequisiteEventKinds": [
+              "closure_committed"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "lane": "omniscient-reader",
+            "claimId": "ORV-028-01",
+            "locator": "ch28 b4–21,53–90",
+            "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md"
+          },
+          {
+            "lane": "omniscient-reader",
+            "claimId": "ORV-029-01",
+            "locator": "ch29 b5–19,28–50",
+            "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md"
+          },
+          {
+            "lane": "omniscient-reader",
+            "claimId": "ORV-036-01",
+            "locator": "ch36 b23–49,63–74,108–123",
+            "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_031_050.md"
+          }
+        ],
+        "gap": "Native room/water/coins/rights and observer-history joins; root chain runtime owns actual committed phases."
+      },
+      "topology": {
+        "worldId": "book.omniscient_reader",
+        "status": "source-qualified authoring disposition; no native topology registered",
+        "continuity": "Star Stream setting contains Earth, other lived realms and distinct world-lines; a source scenario is not the identity of its destination.",
+        "hubInstitution": "Dokkaebi Bureau/channel jurisdiction and later Context of the Constellations transit city are distinct institutions/places. Neither is installed in the Chungmuro opening.",
+        "physical": [
+          "Seoul station is a region of Earth",
+          "Peace Land has real inhabitants and its own relative clock",
+          "Underworld/Demon Realm have their own permissions and resources"
+        ],
+        "scenarioInstance": "Theatre Dungeon projects movie spaces with local rewards; this does not prove every imagined fiction is physically accessible or every mission produces a fresh world.",
+        "branch": "Changed1863 line and returned Earth with three outside years are separate source histories. A return is not automatic reset.",
+        "mental": "Fourth Wall/library/viewpoint functions need their own observed channel/body conditions; no ordinary workshop physical entry is inferred from a mental function.",
+        "sceneWindow": "orv.ch28_36 remains Earth/Chungmuro; later topology is author-facing future evidence, not known player travel.",
+        "clocks": "Local scenario timers, Earth absence and relative world clocks remain distinct; no universal conversion. Proposed native absent time stays frozen until a declared binding.",
+        "edgeCarriers": "No passage edge selected. Future edge must bind actual body/controller, Story/source/fuel, item fit, cargo custody and contract jurisdiction; observation transfers none.",
+        "evidence": [
+          {
+            "lane": "omniscient-reader",
+            "claimIds": [
+              "ORV-037-01",
+              "ORV-120-01",
+              "ORV-295-01",
+              "ORV-299-01",
+              "ORV-314-01"
+            ],
+            "file": "docs/research/novels/full-book/omniscient-reader/WORLD_AND_DAILY_LIFE.md"
+          }
+        ],
+        "gap": "Needs actual persistent instance and endpoint/mission/clock bindings for each selected realm; no ORV hub/destination/return command exists here."
+      },
+      "smallInteractions": [
+        "Actual room capacity and water/food stock",
+        "Permission distinct from rare attribute/stigma",
+        "Repair/reinstall defenses takes actual work",
+        "Cooking and hand-made gear remain useful"
+      ],
+      "stablePeopleItemsOpportunities": "Scene IDs are prospective stable authoring identities; no native record is provisioned.",
+      "actualCurrentConsumers": [],
+      "requiredNativeJoins": [
+        {
+          "family": "world/entry",
+          "path": "src/world_instances.js",
+          "exports": [
+            "validateWorldBindings",
+            "validateWorldVisit",
+            "worldInstanceFacts"
+          ],
+          "status": "existing generic owner; no book-specific instance/people/stock binding"
+        },
+        {
+          "family": "body/controller/cargo",
+          "path": "src/realm_traveler_profiles.js",
+          "exports": [
+            "validateRealmTraveler",
+            "previewRealmTraveler"
+          ],
+          "status": "existing generic owner; source-era body/controller/source policy still required"
+        },
+        {
+          "family": "equipment/custody",
+          "path": "src/native_equipment_transaction.js",
+          "exports": [
+            "prepareNativeEquipment"
+          ],
+          "status": "existing native owner; source-specific item/fit/charge binding still required"
+        },
+        {
+          "family": "storage conservation",
+          "path": "src/native_storage_transaction.js",
+          "exports": [
+            "stageNativeStorageTransfer"
+          ],
+          "status": "existing native owner; actual local stock and custody still required"
+        },
+        {
+          "family": "source/fuel/control",
+          "path": "src/power_models.js",
+          "exports": [
+            "previewPowerModel"
+          ],
+          "status": "existing generic owner; named source rule/native target effect still required"
+        },
+        {
+          "family": "observer knowledge",
+          "path": "src/people_knowledge.js",
+          "exports": [
+            "knownPeopleView"
+          ],
+          "status": "existing projection owner; actual claim/evidence/history and observer-safe receipt consumer required"
+        },
+        {
+          "family": "durable settlement",
+          "path": "src/gameplay_publication.js",
+          "exports": [
+            "prepareGameplayPublication"
+          ],
+          "status": "single existing publisher; no mutation from this module"
+        },
+        {
+          "family": "replacement carriers",
+          "path": "Backlog reserved replacement module",
+          "exports": [],
+          "status": "external owner integration queue must freeze exact exports; not guessed or edited here"
+        },
+        {
+          "family": "dialogue continuation",
+          "path": "Ink reserved continuation",
+          "exports": [],
+          "status": "external owner supplies original scene continuation/native continuation binding; no story compiler or Ink state in this module"
+        }
+      ],
+      "nativeBindingGap": "No ORV native instance, Chungmuro occupants/rooms/coin stock, scenario reward owner, Pildu contract or source faculty registered. Profiles/rule receipts are implemented-unverified authoring support.",
+      "sourceUnknowns": [
+        "Exact ordinary room handover/registry procedure is original proposed policy",
+        "No general soul-signature identity test established for this opening",
+        "Detailed contract enforcement outside the named case unknown"
+      ],
+      "status": {
+        "sourceRules": "implemented-unverified immutable profiles/pure callable helpers",
+        "scene": "proposed local insertion; no native/Ink registration",
+        "gameplay": "unactivated; no playable-world claim",
+        "topology": "source disposition only; unactivated",
+        "deeperChain": "phased authoring disposition only; root runtime required",
+        "checks": "syntax/import/source-link/hash only",
+        "deferred": [
+          "behavioral",
+          "browser",
+          "save/reload",
+          "failure",
+          "keyboard",
+          "regression",
+          "director acceptance"
+        ]
+      }
+    },
+    {
+      "worldId": "book.worm",
+      "title": "Worm",
+      "sourceEditions": [
+        {
+          "lane": "worm",
+          "edition": "Supplied EPUB attributed to John McCrae",
+          "sha256": "5eb58f982c240739ac639de456c858e394c3ea787b21a901e63b0c95eaad2936",
+          "reviewedExtent": "All304 supplied story/interlude/Teneral entries integrated;1682635 normalized words; ends Interlude: End",
+          "limits": "Paragraph authenticity unverified; Purity/Lisa bonus interludes have relocated supplied reading order; sequel teasers excluded"
+        }
+      ],
+      "reviewedExtentAuthority": [
+        "docs/research/novels/full-book/worm/COVERAGE.json"
+      ],
+      "sourceRuleClassification": "source-qualified analysis; generic admissions are explicit original conservative policies",
+      "replacement": {
+        "appearance": "Mask, cape name and unmasked acquaintance are distinct evidence channels; group introductions initially remain testimony.",
+        "credential": "Cape costume grants no PRT/Wards office, clearance or team consent.",
+        "recognizedRole": "Taking a cape name cannot replace Taylor/Grue or their relationships. A real role handover needs named willing people and authority; canonical replacement branch remains absent.",
+        "credit": "Media attribution and the actual rescuer differ. A witness can revise a claim without moving equipment or becoming an automatic friend.",
+        "opportunity": "Recruitment, favors and employment need recipient acceptance. No generic chosen-role/luck/fate transfer is evidenced.",
+        "equipment": "Taylor made and tested particular silk/exoskeleton armor. Replacement cloth must meet actual fit/construction; her hoped bullet resistance is untested, not a copied property.",
+        "bodyController": "Regent later controls an occupied conscious body with attention/familiarity/distance limits and muscle-memory access. He does not directly read thoughts; target still exists.",
+        "soulReincarnation": "Regent control, clones, inherited fragments and backups are distinct source processes. None follows from a borrowed face; arbitrary soul or shard inheritance unknown."
+      },
+      "sourceExceptions": [
+        {
+          "id": "worm.regent_control",
+          "era": "W100 late post-Leviathan",
+          "rule": "Controller and conscious target remain separate; sleep ends control; no thought reading; muscle memory may be usable in this case",
+          "evidence": [
+            {
+              "lane": "worm",
+              "claimId": "W100-C01",
+              "locator": "W100:p002-p021,p034-p040,p114-p123",
+              "file": "docs/research/novels/full-book/worm/readers/094-100/NOTES.json"
+            }
+          ]
+        }
+      ],
+      "scenes": [
+        {
+          "id": "situated.worm.costume_work",
+          "worldId": "book.worm",
+          "eraId": "worm.W001_017",
+          "place": "Early Brockton Bay, before Leviathan; proposed ordinary repair counter",
+          "entry": "Civilian/customer with own clothing; cape alias opt-in",
+          "branch": "Original incidental repair stop; Taylor and Undersiders retain their own bodies, sources and introductions. No recruitment/death triggered.",
+          "people": [
+            "source.worm.taylor",
+            "situated.worm.repair_worker",
+            "situated.worm.return_customer"
+          ],
+          "items": [
+            "situated.worm.owned_garment",
+            "situated.worm.thread"
+          ],
+          "opportunities": [
+            "situated.worm.paid_repair"
+          ],
+          "knownEntryText": "The repair counter checks the damaged seam and who owns the garment. A mask is a separate conversation.",
+          "voice": [
+            {
+              "speaker": "situated.worm.repair_worker",
+              "text": "I can mend the seam. I am not putting bulletproof on the receipt.",
+              "basis": [
+                {
+                  "lane": "worm",
+                  "claimId": "W002-C04",
+                  "locator": "W002:p018-p027",
+                  "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json"
+                }
+              ],
+              "classification": "original incidental craft worker; no canonical voice imitation"
+            }
+          ],
+          "texture": [
+            {
+              "text": "Loose street clothes can hide armor imperfectly. At home, toast and jam can say someone returned before anyone hears their story.",
+              "basis": [
+                {
+                  "lane": "worm",
+                  "claimId": "W007-C06",
+                  "locator": "W007:p028-p041",
+                  "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json"
+                },
+                {
+                  "lane": "worm",
+                  "claimId": "W013-C02",
+                  "locator": "W013:p002-p026,p045-p053",
+                  "file": "docs/research/novels/full-book/worm/readers/008-017/NOTES.json"
+                }
+              ],
+              "classification": "original phrasing from distinct local cues; not a free household encounter"
+            }
+          ],
+          "laterEncounter": "Same repair worker remembers paid work, garment owner and actual claimed test. Unmasked friend knowledge remains separately known.",
+          "status": "proposed local scene; coded rules implemented-unverified; native binding required"
+        }
+      ],
+      "tropeChain": {
+        "source": "Solitary intended hero meets villains after Lung → masked introductions/mistaken alignment → cautious unmasked recruitment. No compulsory enemy/protagonist chain.",
+        "subversions": [
+          "Keep civilian work/identity",
+          "Ask for demonstrated means",
+          "Decline recruitment",
+          "Repair ordinary gear without joining a cape team"
+        ],
+        "boundary": "Later coercion/Endbringer crisis is not auto-triggered by a workshop refusal."
+      },
+      "deeperChain": {
+        "id": "situated.chain.worm.repair_reputation",
+        "worldId": "book.worm",
+        "sceneIds": [
+          "situated.worm.costume_work"
+        ],
+        "classification": "original local chain; no forced Undersider recruitment",
+        "nativeStatus": "unactivated; no registered commands/effects",
+        "independentGoals": "Worker wants funded safe repair; customer wants actual garment back; Taylor/Undersiders retain their own cautious introductions and choices.",
+        "phases": [
+          {
+            "id": "order",
+            "actors": [
+              "player",
+              "situated.worm.repair_worker"
+            ],
+            "requiredMeans": [
+              "willingAccess"
+            ],
+            "branches": [
+              "civilian order",
+              "attributed cape alias",
+              "decline"
+            ],
+            "retained": [
+              "garment owner and payer"
+            ],
+            "prerequisiteEventKinds": []
+          },
+          {
+            "id": "material",
+            "actors": [
+              "player",
+              "situated.worm.repair_worker"
+            ],
+            "requiredMeans": [
+              "materialCompatible",
+              "ordinaryCompetence"
+            ],
+            "branches": [
+              "ordinary seam repair",
+              "seek actual compatible stock",
+              "partial repair",
+              "refuse untested protection promise"
+            ],
+            "retained": [
+              "actual tested seam; bulletproof remains unknown"
+            ],
+            "prerequisiteEventKinds": [
+              "order_decided"
+            ]
+          },
+          {
+            "id": "recognition",
+            "actors": [
+              "situated.worm.return_customer",
+              "situated.worm.repair_worker"
+            ],
+            "requiredMeans": [
+              "creditEvidenceAvailable"
+            ],
+            "branches": [
+              "witness paid work",
+              "challenge borrowed name",
+              "keep civilian privacy"
+            ],
+            "retained": [
+              "appearance/personal memory differ"
+            ],
+            "prerequisiteEventKinds": [
+              "material_checked"
+            ]
+          },
+          {
+            "id": "settlement",
+            "actors": [
+              "player",
+              "situated.worm.repair_worker"
+            ],
+            "requiredMeans": [
+              "actualDeliveryEvidence"
+            ],
+            "branches": [
+              "pay/return actual garment",
+              "refund unused owned stock",
+              "correct stolen credit",
+              "hostile withholding creates exact unpaid dispute"
+            ],
+            "retained": [
+              "finite stock, bill, custody and actual performer"
+            ],
+            "prerequisiteEventKinds": [
+              "recognition_recorded"
+            ]
+          },
+          {
+            "id": "later_counter",
+            "actors": [
+              "situated.worm.return_customer",
+              "situated.worm.repair_worker"
+            ],
+            "requiredMeans": [
+              "samePeopleReachable"
+            ],
+            "branches": [
+              "repeat paid work",
+              "request restitution",
+              "retain unknown alias",
+              "peaceful refusal"
+            ],
+            "retained": [
+              "specific trust/custody history; no copied shard, automatic affection or spawned villain"
+            ],
+            "prerequisiteEventKinds": [
+              "settlement_committed"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "lane": "worm",
+            "claimId": "W002-C04",
+            "locator": "W002:p018-p027",
+            "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json"
+          },
+          {
+            "lane": "worm",
+            "claimId": "W005-C04",
+            "locator": "W005:p025-p043",
+            "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json"
+          },
+          {
+            "lane": "worm",
+            "claimId": "W013-C02",
+            "locator": "W013:p002-p026,p045-p053",
+            "file": "docs/research/novels/full-book/worm/readers/008-017/NOTES.json"
+          }
+        ],
+        "gap": "Native local item/craft/payment/custody and distinct knowledge consumers; no canon cape role/recruitment replaced."
+      },
+      "topology": {
+        "worldId": "book.worm",
+        "status": "source-qualified authoring disposition; no native topology registered",
+        "continuity": "Earth Bet and parallel Earths are distinct lived worlds; Brockton Bay is a region, not a mission dimension.",
+        "hubInstitution": "PRT/Wards, Cauldron and refugee settlements have different jurisdictions; no universal issuing hub is evidenced.",
+        "physical": [
+          "Portals reach different Earths",
+          "Vehicle size and fuel constrain actual passage",
+          "Final Annette counterpart is a distinct person on unnamed sealed Earth"
+        ],
+        "scenarioInstance": "No Paradise-style fresh mission instance is selected or evidenced by the early repair scene.",
+        "branch": "Counterpart histories remain independent. Projected/predicted alternatives do not establish reset, interchangeable people or a new surviving branch on command.",
+        "mental": "Thinker inference and projected/altered memory are information processes, not ordinary physically accessible worlds; W291 projected future is not its eventual occurrence.",
+        "sceneWindow": "worm.W001_017 remains early Brockton Bay; late portal/epilogue evidence is author-facing only.",
+        "clocks": "Portal access does not establish a global rate conversion; each event/reveal and final sealed Earth chronology remain separate.",
+        "edgeCarriers": "No passage selected. Later vehicle carries its finite fuel/size; original/counterpart people and borrowed sources do not merge on arrival.",
+        "evidence": [
+          {
+            "lane": "worm",
+            "claimIds": [
+              "W291-C02"
+            ],
+            "file": "docs/research/novels/full-book/worm/SYSTEMS.md"
+          },
+          {
+            "lane": "worm",
+            "claimIds": [
+              "W277-C04"
+            ],
+            "file": "docs/research/novels/full-book/worm/indexes/EVERYDAY.md"
+          },
+          {
+            "lane": "worm",
+            "claimIds": [
+              "W304-C06"
+            ],
+            "file": "docs/research/novels/full-book/worm/PEOPLE.md"
+          }
+        ],
+        "gap": "Needs actual Earth/portal instances, cargo geometry/fuel, native actor locations and separate counterpart histories; early costume work activates none."
+      },
+      "smallInteractions": [
+        "Self-made armor fit and unfinished dye/paint",
+        "Actual fabric/insect-shell supply",
+        "Ordinary tools and paid work",
+        "Sleep, family routines and school costs remain real"
+      ],
+      "stablePeopleItemsOpportunities": "Scene IDs are prospective stable authoring identities; no native record is provisioned.",
+      "actualCurrentConsumers": [],
+      "requiredNativeJoins": [
+        {
+          "family": "world/entry",
+          "path": "src/world_instances.js",
+          "exports": [
+            "validateWorldBindings",
+            "validateWorldVisit",
+            "worldInstanceFacts"
+          ],
+          "status": "existing generic owner; no book-specific instance/people/stock binding"
+        },
+        {
+          "family": "body/controller/cargo",
+          "path": "src/realm_traveler_profiles.js",
+          "exports": [
+            "validateRealmTraveler",
+            "previewRealmTraveler"
+          ],
+          "status": "existing generic owner; source-era body/controller/source policy still required"
+        },
+        {
+          "family": "equipment/custody",
+          "path": "src/native_equipment_transaction.js",
+          "exports": [
+            "prepareNativeEquipment"
+          ],
+          "status": "existing native owner; source-specific item/fit/charge binding still required"
+        },
+        {
+          "family": "storage conservation",
+          "path": "src/native_storage_transaction.js",
+          "exports": [
+            "stageNativeStorageTransfer"
+          ],
+          "status": "existing native owner; actual local stock and custody still required"
+        },
+        {
+          "family": "source/fuel/control",
+          "path": "src/power_models.js",
+          "exports": [
+            "previewPowerModel"
+          ],
+          "status": "existing generic owner; named source rule/native target effect still required"
+        },
+        {
+          "family": "observer knowledge",
+          "path": "src/people_knowledge.js",
+          "exports": [
+            "knownPeopleView"
+          ],
+          "status": "existing projection owner; actual claim/evidence/history and observer-safe receipt consumer required"
+        },
+        {
+          "family": "durable settlement",
+          "path": "src/gameplay_publication.js",
+          "exports": [
+            "prepareGameplayPublication"
+          ],
+          "status": "single existing publisher; no mutation from this module"
+        },
+        {
+          "family": "replacement carriers",
+          "path": "Backlog reserved replacement module",
+          "exports": [],
+          "status": "external owner integration queue must freeze exact exports; not guessed or edited here"
+        },
+        {
+          "family": "dialogue continuation",
+          "path": "Ink reserved continuation",
+          "exports": [],
+          "status": "external owner supplies original scene continuation/native continuation binding; no story compiler or Ink state in this module"
+        }
+      ],
+      "nativeBindingGap": "No Worm native Brockton Bay, Taylor/Undersider actor and shard owners, institutional registry, costume stock or source-specific control effect registered.",
+      "sourceUnknowns": [
+        "Proposed repair counter is original, not a canonical named shop",
+        "Tinker-device replacement needs named operator/design compatibility; costume precedent proves no general replication",
+        "Soul signature or automatic replacement relationship rule unknown"
+      ],
+      "status": {
+        "sourceRules": "implemented-unverified immutable profiles/pure callable helpers",
+        "scene": "proposed local insertion; no native/Ink registration",
+        "gameplay": "unactivated; no playable-world claim",
+        "topology": "source disposition only; unactivated",
+        "deeperChain": "phased authoring disposition only; root runtime required",
+        "checks": "syntax/import/source-link/hash only",
+        "deferred": [
+          "behavioral",
+          "browser",
+          "save/reload",
+          "failure",
+          "keyboard",
+          "regression",
+          "director acceptance"
+        ]
+      }
+    },
+    {
+      "worldId": "book.legendary_mechanic",
+      "title": "The Legendary Mechanic",
+      "sourceEditions": [
+        {
+          "lane": "legendary-mechanic",
+          "edition": "Supplied English EPUB creator field Chocolion; novelist Qi Peijia; translation/compilation qualified",
+          "sha256": "fcf19109551a4cc5cc355cb30a93b4947278473737fc2004935c540dd5e1991e",
+          "reviewedExtent": "All1463 supplied NCX story entries read/reviewed/integrated;3274716 p words plus3438 x words; story ends c1463:p81, translator afterword p82",
+          "limits": "Bare478 and8111 label seams, numbers/unit ambiguity and relative timestamp metadata retained; no missing prose/authenticity claim"
+        }
+      ],
+      "reviewedExtentAuthority": [
+        "docs/research/novels/full-book/legendary-mechanic/COVERAGE.json"
+      ],
+      "sourceRuleClassification": "source-qualified analysis; generic admissions are explicit original conservative policies",
+      "replacement": {
+        "appearance": "Face simulator succeeds only with actual uniform, covered skin/body, voice/callsign/radio context. One captain accepts a sore-throat explanation; this is not universal recognition success.",
+        "credential": "A stolen access card supplies a specific gate channel; it grants neither employee expertise nor blanket institutional authority.",
+        "recognizedRole": "Division13 employment, Zero/Black Phantom alias and a recognized mission contribution differ. Replacing the exact agent needs real access and history, not an NPC label.",
+        "credit": "Officials may credit the wrong institution while Bennett knows more. Records, interface contribution and public stories stay separate.",
+        "opportunity": "Remembered game future enables anticipation; changed missions/people are not guaranteed destiny. Actual recipient/eligibility still required.",
+        "equipment": "Blueprints, parts, tools, energy, signal reach and construction differ. Rover battery/control constraints and incomplete magnetism armor are named devices, not a universal recipe.",
+        "bodyController": "Han acts in the existing Xiao Han body; Germinal body-origin testimony and restored-memory theory do not establish transmigration cause or inherited allegiance.",
+        "soulReincarnation": "Black Spider copies/consciousness transfer and later possession are particular exceptions, not the ordinary NPC interface. No general player respawn or source-body replacement."
+      },
+      "sourceExceptions": [
+        {
+          "id": "mechanic.xiao_han_origin",
+          "era": "c0001–12",
+          "rule": "NPC-labelled operation works for Han; researchers theory of enhanced/restored memory remains theory. Prior body history need not determine allegiance.",
+          "evidence": [
+            {
+              "lane": "legendary-mechanic",
+              "claimId": "LM-c0012-03",
+              "locator": "c0012:p27–48",
+              "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md"
+            },
+            {
+              "lane": "legendary-mechanic",
+              "claimId": "LM-c0012-04",
+              "locator": "c0012:p50–59",
+              "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md"
+            }
+          ]
+        },
+        {
+          "id": "mechanic.infiltration",
+          "era": "c0077–78",
+          "rule": "Local disguise and stolen credential rely on separate channels; source guard is killed, which must remain true in source baseline. Proposed workshop entrant kills/replaces nobody.",
+          "evidence": [
+            {
+              "lane": "legendary-mechanic",
+              "claimId": "LM-c0077-02",
+              "locator": "c0077:p19–43",
+              "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+            },
+            {
+              "lane": "legendary-mechanic",
+              "claimId": "LM-c0078-02",
+              "locator": "c0078:p19–45",
+              "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+            }
+          ]
+        },
+        {
+          "id": "mechanic.black_spider",
+          "era": "c0041",
+          "rule": "Faceless copies and transferred active consciousness have local radius and incomplete census; capturing the last encounter body does not destroy all reported copies.",
+          "evidence": [
+            {
+              "lane": "legendary-mechanic",
+              "claimId": "LM-c0041-01",
+              "locator": "c0041:p1–21,30–46",
+              "file": "docs/research/novels/full-book/legendary-mechanic/readers/0026-0045/NOTES.md"
+            }
+          ]
+        }
+      ],
+      "scenes": [
+        {
+          "id": "situated.mechanic.workshop_dispatch",
+          "worldId": "book.legendary_mechanic",
+          "eraId": "mechanic.c0066_0085",
+          "place": "Western Capital workshop/Division13 dispatch, before joint reconnaissance",
+          "entry": "Ordinary paid repair customer; optional borrowed delivery identity",
+          "branch": "Original component/delivery check; Han and actual team/technicians survive unchanged. Source infiltration killing is not replayed or assumed.",
+          "people": [
+            "source.mechanic.han",
+            "source.mechanic.lu_qian",
+            "situated.mechanic.dispatch_clerk"
+          ],
+          "items": [
+            "situated.mechanic.actual_component",
+            "situated.mechanic.delivery_slip"
+          ],
+          "opportunities": [
+            "situated.mechanic.funded_repair_order"
+          ],
+          "knownEntryText": "The bench has a part, a deadline and someone waiting for a working device. Knowing its drawing has not paid the order.",
+          "voice": [
+            {
+              "speaker": "situated.mechanic.dispatch_clerk",
+              "text": "The face matches the slip. Show me the part before I stamp delivered.",
+              "basis": [
+                {
+                  "lane": "legendary-mechanic",
+                  "claimId": "LM-c0069-03",
+                  "locator": "c0069:p51–77",
+                  "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+                },
+                {
+                  "lane": "legendary-mechanic",
+                  "claimId": "LM-c0077-02",
+                  "locator": "c0077:p19–43",
+                  "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+                }
+              ],
+              "classification": "original clerk; qualified separate appearance/function checks"
+            }
+          ],
+          "texture": [
+            {
+              "text": "A borrowed garage solves a space problem; a better blueprint does not make the truck narrower. Breakfast and overdue orders still compete with three-day work.",
+              "basis": [
+                {
+                  "lane": "legendary-mechanic",
+                  "claimId": "LM-c0067-02",
+                  "locator": "c0067:p15–52",
+                  "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+                },
+                {
+                  "lane": "legendary-mechanic",
+                  "claimId": "LM-c0068-02",
+                  "locator": "c0068:p14–35",
+                  "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+                }
+              ],
+              "classification": "original phrasing from garage/breakfast/order cues"
+            }
+          ],
+          "laterEncounter": "Same clerk checks actual component test, paid donor stock and delivery record; duty or unpaid order survives an alias change.",
+          "status": "proposed local scene; coded rules implemented-unverified; native binding required"
+        }
+      ],
+      "tropeChain": {
+        "source": "Specialist craft → costly/late orders → mission logistics → mixed true/false intelligence → conditional infiltration → independent evidence. Foreknowledge is partial/private.",
+        "subversions": [
+          "Deliver honest paid repair",
+          "Disclose uncertainty and request verification",
+          "Decline impersonation",
+          "Leave an unsuited upgrade incomplete instead of inventing mastery"
+        ],
+        "boundary": "Missing design knowledge is not fixed by extra metal, title or copied appearance."
+      },
+      "deeperChain": {
+        "id": "situated.chain.mechanic.prototype_authority",
+        "worldId": "book.legendary_mechanic",
+        "sceneIds": [
+          "situated.mechanic.workshop_dispatch"
+        ],
+        "classification": "original prototype/delivery chain from source craft/infiltration contrasts",
+        "nativeStatus": "unactivated; no registered commands/effects",
+        "independentGoals": "Customer needs working output on a funded deadline; clerk needs correct delivery; Han retains private expertise/blueprints and actual mission priorities.",
+        "phases": [
+          {
+            "id": "drawing",
+            "actors": [
+              "player",
+              "situated.mechanic.dispatch_clerk"
+            ],
+            "requiredMeans": [
+              "instructionsKnown"
+            ],
+            "branches": [
+              "attribute fragment to teacher",
+              "request complete design",
+              "ordinary spare-part replacement",
+              "decline"
+            ],
+            "retained": [
+              "information provenance; no blueprint mastery grant"
+            ],
+            "prerequisiteEventKinds": []
+          },
+          {
+            "id": "bench",
+            "actors": [
+              "player",
+              "source.mechanic.lu_qian"
+            ],
+            "requiredMeans": [
+              "toolAvailable",
+              "materialCompatible",
+              "ordinaryCompetence"
+            ],
+            "branches": [
+              "funded test",
+              "partial safe repair",
+              "stop for missing knowledge"
+            ],
+            "retained": [
+              "actual consumed parts/test; retained unused stock"
+            ],
+            "prerequisiteEventKinds": [
+              "drawing_checked"
+            ]
+          },
+          {
+            "id": "function",
+            "actors": [
+              "player",
+              "source.mechanic.han"
+            ],
+            "requiredMeans": [
+              "deviceEnergyAvailable",
+              "signalAvailable",
+              "operatorControlReady"
+            ],
+            "branches": [
+              "demonstrate actual function",
+              "report range/energy limit",
+              "ask willing specialist",
+              "withdraw"
+            ],
+            "retained": [
+              "bounded test evidence; source/control remains with owner"
+            ],
+            "prerequisiteEventKinds": [
+              "bench_work_committed"
+            ]
+          },
+          {
+            "id": "dispatch",
+            "actors": [
+              "situated.mechanic.dispatch_clerk",
+              "player"
+            ],
+            "requiredMeans": [
+              "credentialAccepted",
+              "actualDeliveryEvidence"
+            ],
+            "branches": [
+              "honest delivery",
+              "legitimate borrowed courier permission",
+              "audit false cover",
+              "hostile forged completion"
+            ],
+            "retained": [
+              "separate face/slip/function tests; exact liability"
+            ],
+            "prerequisiteEventKinds": [
+              "function_checked"
+            ]
+          },
+          {
+            "id": "later_service",
+            "actors": [
+              "situated.mechanic.dispatch_clerk",
+              "source.mechanic.lu_qian"
+            ],
+            "requiredMeans": [
+              "samePeopleReachable"
+            ],
+            "branches": [
+              "pay maintenance",
+              "correct earlier wrong credit",
+              "fund refinement",
+              "decline new order"
+            ],
+            "retained": [
+              "unfinished design stays unfinished; retained prototype/stock/order history"
+            ],
+            "prerequisiteEventKinds": [
+              "dispatch_committed"
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "lane": "legendary-mechanic",
+            "claimId": "LM-c0006-02",
+            "locator": "c0006:p12–32",
+            "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md"
+          },
+          {
+            "lane": "legendary-mechanic",
+            "claimId": "LM-c0027-03",
+            "locator": "c0027:p20–47,48–64",
+            "file": "docs/research/novels/full-book/legendary-mechanic/readers/0026-0045/NOTES.md"
+          },
+          {
+            "lane": "legendary-mechanic",
+            "claimId": "LM-c0069-03",
+            "locator": "c0069:p51–77",
+            "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+          },
+          {
+            "lane": "legendary-mechanic",
+            "claimId": "LM-c0077-02",
+            "locator": "c0077:p19–43",
+            "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+          },
+          {
+            "lane": "legendary-mechanic",
+            "claimId": "LM-c0078-02",
+            "locator": "c0078:p19–45",
+            "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md"
+          }
+        ],
+        "gap": "Native funded orders, workshop/device effects, source/knowledge/credit and repeated actual service consumers required."
+      },
+      "topology": {
+        "worldId": "book.legendary_mechanic",
+        "status": "source-qualified authoring disposition; no native topology registered",
+        "continuity": "Planet Aquamarine/Western Capital are actual local planet/region. Galactic travel, secondary dimensions and replay instances are different categories.",
+        "hubInstitution": "Division13, workshops, later mercenary/Army institutions can issue scoped work. No one mission label defines every visited planet.",
+        "physical": [
+          "Planet/space travel has actual paid transport and finite device means",
+          "Secondary-dimension accounts require case evidence; Six Sanctums initially remain guarded testimony"
+        ],
+        "scenarioInstance": "Instance crystals/replay mirrors reproduce past baseline scenes with possible local changes. Han fears non-player entry and does not test it in the cited early crystal passage; original history is not thereby rewritten.",
+        "branch": "Old player memories are forecasts in changed native history; an update/version interval is neither a guaranteed reset nor an erased institution.",
+        "mental": "Soul-signature projection into Han mind does not disclose physical coordinates; network information contact differs from bodily travel.",
+        "sceneWindow": "mechanic.c0066_0085 remains Western Capital/joint mission; late Sanctum/network facts do not authorize this entrant.",
+        "clocks": "Later normal6:1 is distinguished from update disconnection/variable interval; not applied as universal native offline growth.",
+        "edgeCarriers": "No passage selected. Future edges require paid vehicle/cargo, actual knowledge/source/device fuel, credential jurisdiction and local NPC/player status separately.",
+        "evidence": [
+          {
+            "lane": "legendary-mechanic",
+            "claimIds": [
+              "LM-c0152-02",
+              "LM-c0153-01",
+              "LM-c0161-03",
+              "LM-c0286-03",
+              "LM-c0289-01",
+              "c1124:p77–97",
+              "c1125:p1–52",
+              "LM-c0437-03"
+            ],
+            "file": "docs/research/novels/full-book/legendary-mechanic/KNOWLEDGE_AND_IDENTITY.md"
+          }
+        ],
+        "gap": "Needs native planet/ship/dimension/instance and actual replay eligibility/history boundaries. Workshop dispatch activates no replay or travel."
+      },
+      "smallInteractions": [
+        "Battery stock/output and50m Rover control are separate",
+        "Heavy gear fits workshop/vehicle space",
+        "Overdue orders and borrowed garage access",
+        "A repaired suit at2% derivation is not mastered blueprint"
+      ],
+      "stablePeopleItemsOpportunities": "Scene IDs are prospective stable authoring identities; no native record is provisioned.",
+      "actualCurrentConsumers": [],
+      "requiredNativeJoins": [
+        {
+          "family": "world/entry",
+          "path": "src/world_instances.js",
+          "exports": [
+            "validateWorldBindings",
+            "validateWorldVisit",
+            "worldInstanceFacts"
+          ],
+          "status": "existing generic owner; no book-specific instance/people/stock binding"
+        },
+        {
+          "family": "body/controller/cargo",
+          "path": "src/realm_traveler_profiles.js",
+          "exports": [
+            "validateRealmTraveler",
+            "previewRealmTraveler"
+          ],
+          "status": "existing generic owner; source-era body/controller/source policy still required"
+        },
+        {
+          "family": "equipment/custody",
+          "path": "src/native_equipment_transaction.js",
+          "exports": [
+            "prepareNativeEquipment"
+          ],
+          "status": "existing native owner; source-specific item/fit/charge binding still required"
+        },
+        {
+          "family": "storage conservation",
+          "path": "src/native_storage_transaction.js",
+          "exports": [
+            "stageNativeStorageTransfer"
+          ],
+          "status": "existing native owner; actual local stock and custody still required"
+        },
+        {
+          "family": "source/fuel/control",
+          "path": "src/power_models.js",
+          "exports": [
+            "previewPowerModel"
+          ],
+          "status": "existing generic owner; named source rule/native target effect still required"
+        },
+        {
+          "family": "observer knowledge",
+          "path": "src/people_knowledge.js",
+          "exports": [
+            "knownPeopleView"
+          ],
+          "status": "existing projection owner; actual claim/evidence/history and observer-safe receipt consumer required"
+        },
+        {
+          "family": "durable settlement",
+          "path": "src/gameplay_publication.js",
+          "exports": [
+            "prepareGameplayPublication"
+          ],
+          "status": "single existing publisher; no mutation from this module"
+        },
+        {
+          "family": "replacement carriers",
+          "path": "Backlog reserved replacement module",
+          "exports": [],
+          "status": "external owner integration queue must freeze exact exports; not guessed or edited here"
+        },
+        {
+          "family": "dialogue continuation",
+          "path": "Ink reserved continuation",
+          "exports": [],
+          "status": "external owner supplies original scene continuation/native continuation binding; no story compiler or Ink state in this module"
+        }
+      ],
+      "nativeBindingGap": "No Legendary Mechanic native Western Capital/Division13 people, workshop orders/money, robot signal/energy or disguise/credential tests registered.",
+      "sourceUnknowns": [
+        "Exact local replacement component needs actual device/build specification",
+        "No universal NPC learning/respawn entitlement",
+        "Body transmigration cause and inherited memories unresolved"
+      ],
+      "status": {
+        "sourceRules": "implemented-unverified immutable profiles/pure callable helpers",
+        "scene": "proposed local insertion; no native/Ink registration",
+        "gameplay": "unactivated; no playable-world claim",
+        "topology": "source disposition only; unactivated",
+        "deeperChain": "phased authoring disposition only; root runtime required",
+        "checks": "syntax/import/source-link/hash only",
+        "deferred": [
+          "behavioral",
+          "browser",
+          "save/reload",
+          "failure",
+          "keyboard",
+          "regression",
+          "director acceptance"
+        ]
+      }
+    },
+    {
+      "worldId": "book.labyrinth_mad_god",
+      "title": "Labyrinth of the Mad God",
+      "sourceEditions": [
+        {
+          "lane": "labyrinth-mad-god-1",
+          "edition": "Supplied Magnus Grey/AETHON English volume1, metadata2026-04-14",
+          "sha256": "c3caa8d82829d1fea853dd58dc15245d1cc00e5428885c7269370ac83b06faa6",
+          "reviewedExtent": "All119 numbered narrative chapters read/reviewed/integrated;216003 narrative words including headings; ch119 narrative ends b35",
+          "limits": "Class change is unaccepted, reward distribution interrupted, Earth/family/Bandit destination unresolved; later promo is outside story"
+        },
+        {
+          "lane": "labyrinth-mad-god-2",
+          "edition": "Supplied Magnus Grey/AETHON English volume2, metadata2026-07-15",
+          "sha256": "cce77f8ec3b292c4895115a05d435841d67d86f897f112deabdd3cb7131a2b6e",
+          "reviewedExtent": "All121 story chapters plus included Book1 recap read/reviewed/integrated;4843 blocks/224146 words; Nick crosses tower threshold ch121 b47",
+          "limits": "Recap is not independent volume1 reading. Companion arrivals/healing/tower floors/guardian/Earth restoration and Bandit reunion unshown; Book3 excluded"
+        }
+      ],
+      "reviewedExtentAuthority": [
+        "docs/research/novels/full-book/labyrinth-mad-god-1/COVERAGE.json",
+        "docs/research/novels/full-book/labyrinth-mad-god-2/COVERAGE.json"
+      ],
+      "sourceRuleClassification": "source-qualified analysis; generic admissions are explicit original conservative policies",
+      "replacement": {
+        "appearance": "Nickname, bow and guest acceptance do not grant Elder leadership or translated mind access.",
+        "credential": "System contestant/citizen status and sponsor jurisdiction need exact source authority; a badge/name does not install geneline, class or bloodline.",
+        "recognizedRole": "Taking a helper or mentor title does not replace Nick, Elder or Taltos. Handover needs actual accepted local duty; no god/contestant canonical replacement binding.",
+        "credit": "Shared cooking and witnessed assistance can be remembered without compulsory friendship/rewards; a copied journal retains its actual authors and reports.",
+        "opportunity": "Arena awards, class offers, active stones and constrained choices have their own recipients; volume1 unfinished offer cannot be treated as accepted.",
+        "equipment": "Bag of Molding rearranges/separates, cannot mix/refine inside. Julie staff is owner-command keyed; soulbound flask gives others half benefit without transferring ownership.",
+        "bodyController": "Parasite core and altered host are separate actors. Nick restoration/expulsion differs from Trell freedom followed by host death; cure does not revive every donor.",
+        "soulReincarnation": "Ordinary Sophia matrix preserves instincts/muscle processing, not deceased mind/self; her exceptional living contract summon has different costs/ontology. No generic resurrection."
+      },
+      "sourceExceptions": [
+        {
+          "id": "labyrinth.parasite",
+          "era": "v1ch43–44",
+          "rule": "Nick restored/expelled core destroyed; Trell freed but dies. Separate host/controller/life outcomes.",
+          "evidence": [
+            {
+              "lane": "labyrinth-mad-god-1",
+              "claimId": "B03-C04",
+              "locator": "ch43 OEBPS/c2KT.xhtml b22–35; ch44 OEBPS/c2N7.xhtml b11–18",
+              "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+            },
+            {
+              "lane": "labyrinth-mad-god-1",
+              "claimId": "B03-C05",
+              "locator": "ch44 OEBPS/c2N7.xhtml b3–7,19,32–34",
+              "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+            }
+          ]
+        },
+        {
+          "id": "labyrinth.soulbound_flask",
+          "era": "v2ch30 and later",
+          "rule": "Named owner remains Nick; other drinker half benefit; actual elixir/wait/return/death conditions remain source-specific.",
+          "evidence": [
+            {
+              "lane": "labyrinth-mad-god-2",
+              "claimId": "R03-C13",
+              "locator": "ch30 b19–27",
+              "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R03_NOTES.md"
+            },
+            {
+              "lane": "labyrinth-mad-god-2",
+              "claimId": "R03-C14",
+              "locator": "ch30 b25–28",
+              "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R03_NOTES.md"
+            }
+          ]
+        },
+        {
+          "id": "labyrinth.matrix",
+          "era": "v2ch95",
+          "rule": "Sophia reports ordinary matrix lacks mind/self; living contract exception must not reuse matrix semantics.",
+          "evidence": [
+            {
+              "lane": "labyrinth-mad-god-2",
+              "claimId": "R06-C18",
+              "locator": "ch95 OEBPS/c4UD.xhtml b19–26",
+              "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R06_NOTES.md"
+            }
+          ]
+        }
+      ],
+      "scenes": [
+        {
+          "id": "situated.labyrinth.guest_meal",
+          "worldId": "book.labyrinth_mad_god",
+          "eraId": "labyrinth.v1.ch51_56",
+          "place": "Island lemur guest camp after parasite cure",
+          "entry": "Ordinary guest offering owned food or willing cooking/watch labor",
+          "branch": "Original bounded guest meal; Elder/Bandit remain independent. Trell remains dead in source baseline; no hidden resurrected foreman.",
+          "people": [
+            "source.labyrinth.elder",
+            "source.labyrinth.bandit",
+            "situated.labyrinth.guest"
+          ],
+          "items": [
+            "situated.labyrinth.owned_crab",
+            "situated.labyrinth.cooking_tool"
+          ],
+          "opportunities": [
+            "situated.labyrinth.guest_watch_offer"
+          ],
+          "knownEntryText": "A sentry waits for the Elder’s response. Sharing a meal can earn a place beside the fire; it does not make the camp yours.",
+          "voice": [
+            {
+              "speaker": "situated.labyrinth.guest",
+              "text": "I will cook what I brought. We can ask for watch without pretending we hired them.",
+              "basis": [
+                {
+                  "lane": "labyrinth-mad-god-1",
+                  "claimId": "B03-C22",
+                  "locator": "ch51 OEBPS/c30T.xhtml b17–24; ch52 OEBPS/c31T.xhtml b3–7",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+                },
+                {
+                  "lane": "labyrinth-mad-god-1",
+                  "claimId": "B03-C23",
+                  "locator": "ch55 OEBPS/c353.xhtml b21–27; ch56 OEBPS/c366.xhtml b4–23",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+                }
+              ],
+              "classification": "original human guest; lemur speech remains untranslated"
+            }
+          ],
+          "texture": [
+            {
+              "text": "Roots, nuts and grubs pass through busy hands. The Elder distributes food while the guards keep working.",
+              "basis": [
+                {
+                  "lane": "labyrinth-mad-god-1",
+                  "claimId": "B03-C22",
+                  "locator": "ch51 OEBPS/c30T.xhtml b17–24; ch52 OEBPS/c31T.xhtml b3–7",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+                },
+                {
+                  "lane": "labyrinth-mad-god-1",
+                  "claimId": "B03-C23",
+                  "locator": "ch55 OEBPS/c353.xhtml b21–27; ch56 OEBPS/c366.xhtml b4–23",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+                }
+              ],
+              "classification": "original description from observed work; no mandatory reward"
+            }
+          ],
+          "laterEncounter": "Same Elder/guest and actual shared food/witnessed watch are consulted; goodwill is not unlimited supplies or control.",
+          "status": "proposed local scene; coded rules implemented-unverified; native binding required"
+        },
+        {
+          "id": "situated.labyrinth.bog_field_guide",
+          "worldId": "book.labyrinth_mad_god",
+          "eraId": "labyrinth.v2.ch80_96",
+          "place": "Bog shelter, research/party interval before later evacuation",
+          "entry": "Ordinary copyist/traveler with own pen/paper; no assumed class/core",
+          "branch": "Original attributed guide/component check. Named companions retain their own private methods and bounded stock; tower outcomes stay unshown.",
+          "people": [
+            "source.labyrinth.nick",
+            "source.labyrinth.sophia",
+            "situated.labyrinth.copyist"
+          ],
+          "items": [
+            "situated.labyrinth.paper",
+            "situated.labyrinth.pen",
+            "situated.labyrinth.actual_loan_device"
+          ],
+          "opportunities": [
+            "situated.labyrinth.guide_copy"
+          ],
+          "knownEntryText": "The notebook names who saw a thing and who explained it. A neat copy still cannot install a mana pathway.",
+          "voice": [
+            {
+              "speaker": "situated.labyrinth.copyist",
+              "text": "Leave room beside that warning. Someone may come back with a correction.",
+              "basis": [
+                {
+                  "lane": "labyrinth-mad-god-2",
+                  "claimId": "R05-C32",
+                  "locator": "ch81 b21–38",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R05_NOTES.md"
+                }
+              ],
+              "classification": "original copyist; attribution/revision is proposed policy"
+            }
+          ],
+          "texture": [
+            {
+              "text": "Shared research leaves gaps for another person’s knowledge. A copied definition is useful at the table without becoming a new spell.",
+              "basis": [
+                {
+                  "lane": "labyrinth-mad-god-2",
+                  "claimId": "R05-C32",
+                  "locator": "ch81 b21–38",
+                  "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R05_NOTES.md"
+                }
+              ],
+              "classification": "original nonmechanical wording from research cue"
+            }
+          ],
+          "laterEncounter": "Same copyist preserves earlier attributed report and adds witnessed correction; used paper and donor device do not refresh.",
+          "status": "proposed local scene; coded rules implemented-unverified; native binding required"
+        }
+      ],
+      "tropeChain": {
+        "source": "V1 guest food/independent watch contrasts imposed mentorship; v2 team skill diversity/private secrets → field research/copying → conditional aid under danger. Rival aid need not absolve old hostility.",
+        "subversions": [
+          "Offer ordinary cooking/watch work",
+          "Keep or share a known field observation",
+          "Respect private methods",
+          "Withdraw from an unsafe cast",
+          "Choose finite cooperation without claiming a companion"
+        ],
+        "boundary": "Source cliffhangers remain open; neither local scene invents tower interior or family reunion."
+      },
+      "deeperChain": {
+        "id": "situated.chain.labyrinth.guest_and_guide",
+        "worldId": "book.labyrinth_mad_god",
+        "sceneIds": [
+          "situated.labyrinth.guest_meal",
+          "situated.labyrinth.bog_field_guide"
+        ],
+        "classification": "original reusable local cooperation/research pattern in two separate source-era windows; no forced link/skip between them",
+        "nativeStatus": "unactivated; no registered commands/effects",
+        "independentGoals": "V1 Elder distributes actual food/guards; Bandit acts independently. V2 Sophia retains private methods/costs; copyist wants useful attributed guide, not ownership of Nick source.",
+        "phases": [
+          {
+            "id": "offer",
+            "actors": [
+              "player",
+              "local_recipient"
+            ],
+            "requiredMeans": [
+              "recipientWilling",
+              "recipientReachable"
+            ],
+            "branches": [
+              "owned food or writing stock",
+              "ordinary labor",
+              "keep private",
+              "refuse"
+            ],
+            "retained": [
+              "actual local recipient/stock; no automatic contract"
+            ],
+            "prerequisiteEventKinds": []
+          },
+          {
+            "id": "observe",
+            "actors": [
+              "player",
+              "local_witness"
+            ],
+            "requiredMeans": [
+              "ordinaryCompetence",
+              "toolAvailable"
+            ],
+            "branches": [
+              "cook/watch or copy known observation",
+              "record report as report",
+              "partial preparation"
+            ],
+            "retained": [
+              "witnessed work distinct from inferred goodwill/method"
+            ],
+            "prerequisiteEventKinds": [
+              "offer_decided"
+            ]
+          },
+          {
+            "id": "method",
+            "actors": [
+              "player",
+              "local_specialist"
+            ],
+            "requiredMeans": [
+              "instructionsKnown"
+            ],
+            "branches": [
+              "ask willing help",
+              "ordinary tool route",
+              "decline private/source-incompatible method"
+            ],
+            "retained": [
+              "instruction distinct from installed core/controller; no compelled revelation"
+            ],
+            "prerequisiteEventKinds": [
+              "observation_recorded"
+            ]
+          },
+          {
+            "id": "cooperate",
+            "actors": [
+              "local_recipient",
+              "local_specialist",
+              "player"
+            ],
+            "requiredMeans": [
+              "willingAccess",
+              "actualDeliveryEvidence"
+            ],
+            "branches": [
+              "finite agreed watch/copy",
+              "respect refusal",
+              "correct overstated credit",
+              "hostile stock taking creates exact custody dispute"
+            ],
+            "retained": [
+              "aid and trust/obligation separate; independent local choices"
+            ],
+            "prerequisiteEventKinds": [
+              "method_decided"
+            ]
+          },
+          {
+            "id": "later_return",
+            "actors": [
+              "local_recipient",
+              "local_witness"
+            ],
+            "requiredMeans": [
+              "samePeopleReachable"
+            ],
+            "branches": [
+              "recognize actual meal/guide",
+              "add attributed correction",
+              "seek restitution",
+              "continue ordinary guest life"
+            ],
+            "retained": [
+              "same local IDs/history and used stock; no Trell revival, Bandit ownership or tower ending invention"
+            ],
+            "prerequisiteEventKinds": [
+              "cooperation_committed"
+            ]
+          }
+        ],
+        "actorAliases": {
+          "situated.labyrinth.guest_meal": {
+            "local_recipient": "source.labyrinth.elder",
+            "local_witness": "situated.labyrinth.guest",
+            "local_specialist": "source.labyrinth.bandit"
+          },
+          "situated.labyrinth.bog_field_guide": {
+            "local_recipient": "situated.labyrinth.copyist",
+            "local_witness": "source.labyrinth.nick",
+            "local_specialist": "source.labyrinth.sophia"
+          }
+        },
+        "evidence": [
+          {
+            "lane": "labyrinth-mad-god-1",
+            "claimId": "B03-C22",
+            "locator": "ch51 OEBPS/c30T.xhtml b17–24; ch52 OEBPS/c31T.xhtml b3–7",
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+          },
+          {
+            "lane": "labyrinth-mad-god-1",
+            "claimId": "B03-C23",
+            "locator": "ch55 OEBPS/c353.xhtml b21–27; ch56 OEBPS/c366.xhtml b4–23",
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md"
+          },
+          {
+            "lane": "labyrinth-mad-god-2",
+            "claimId": "R05-C32",
+            "locator": "ch81 b21–38",
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R05_NOTES.md"
+          },
+          {
+            "lane": "labyrinth-mad-god-2",
+            "claimId": "R06-C18",
+            "locator": "ch95 OEBPS/c4UD.xhtml b19–26",
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R06_NOTES.md"
+          }
+        ],
+        "gap": "Per-window actual recipient stock, nonverbal consent, attributed guide/native knowledge and retained observer histories; cross-era passage separately required."
+      },
+      "topology": {
+        "worldId": "book.labyrinth_mad_god",
+        "status": "two supplied volumes, one setting; no native topology registered",
+        "continuity": "Searing Isle and Sewers of Kastilla are local regions; transported furnished room, arena, bog and Bandit jungle strand retain separate location/history.",
+        "hubInstitution": "System sponsors and paid arena authorization are contested jurisdiction. A furnished arrival/saferoom does not prove a permanent lived central hub.",
+        "physical": [
+          "V1 island exit occurs after terrain changed",
+          "V2 cosmic portal travel dissolves/reassembles Nick; protection and cargo custody are explicit",
+          "Bandit jungle develops independently; exact parallel clock sync unknown"
+        ],
+        "scenarioInstance": "Tutorial/arena/challenge contracts apply to actual places and loans. Tower quest advertises partitioned pocket-dimension floors; included story does not visit them.",
+        "branch": "Separate host/core lives and changed island are persistent outcomes, not generic reset. No branch clone or tower-instance replay supplied.",
+        "mental": "Visualization/map/journal knowledge is mental information, not an accessible physical inner world; memory map does not update moving actors.",
+        "sceneWindow": "V1 guest meal51–56 and v2 bog guide80–96 are separate era windows; no automatic travel/canonical skip connects them.",
+        "clocks": "Quest/extraction/rest announcements differ from parallel jungle time; no exact universal ratio or browser-closed disaster selected.",
+        "edgeCarriers": "Future edges bind actual reconstructed body, same controller, owned cargo versus arena loans, soulbound owner/charges, local faculty and independent companion routing. Bandit arrival must not be assumed.",
+        "evidence": [
+          {
+            "lane": "labyrinth-mad-god-1",
+            "claimIds": [
+              "B03-C14",
+              "B07-C24",
+              "B07-C28",
+              "B07-C30"
+            ],
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-1/POWERS.md"
+          },
+          {
+            "lane": "labyrinth-mad-god-2",
+            "claimIds": [
+              "R01-C17",
+              "R01-C18",
+              "R04-C02",
+              "R03-C23",
+              "R03-C24",
+              "R03-C25",
+              "R07-C37"
+            ],
+            "file": "docs/research/novels/full-book/labyrinth-mad-god-2/WORLD.md"
+          }
+        ],
+        "gap": "Needs actual island/arena/bog endpoints and custody/portal rules; tower interior remains source-unknown and must be labelled original if later authored."
+      },
+      "smallInteractions": [
+        "Cooking needs gathered food/tools; Survivor still needs supplies",
+        "Guest status grants no command ownership",
+        "Staff key/charges differ from learned control",
+        "Guide copying does not grant core/source/fuel",
+        "Force Acceleration acquisition does not teach stopping/control"
+      ],
+      "stablePeopleItemsOpportunities": "Scene IDs are prospective stable authoring identities; no native record is provisioned.",
+      "actualCurrentConsumers": [],
+      "requiredNativeJoins": [
+        {
+          "family": "world/entry",
+          "path": "src/world_instances.js",
+          "exports": [
+            "validateWorldBindings",
+            "validateWorldVisit",
+            "worldInstanceFacts"
+          ],
+          "status": "existing generic owner; no book-specific instance/people/stock binding"
+        },
+        {
+          "family": "body/controller/cargo",
+          "path": "src/realm_traveler_profiles.js",
+          "exports": [
+            "validateRealmTraveler",
+            "previewRealmTraveler"
+          ],
+          "status": "existing generic owner; source-era body/controller/source policy still required"
+        },
+        {
+          "family": "equipment/custody",
+          "path": "src/native_equipment_transaction.js",
+          "exports": [
+            "prepareNativeEquipment"
+          ],
+          "status": "existing native owner; source-specific item/fit/charge binding still required"
+        },
+        {
+          "family": "storage conservation",
+          "path": "src/native_storage_transaction.js",
+          "exports": [
+            "stageNativeStorageTransfer"
+          ],
+          "status": "existing native owner; actual local stock and custody still required"
+        },
+        {
+          "family": "source/fuel/control",
+          "path": "src/power_models.js",
+          "exports": [
+            "previewPowerModel"
+          ],
+          "status": "existing generic owner; named source rule/native target effect still required"
+        },
+        {
+          "family": "observer knowledge",
+          "path": "src/people_knowledge.js",
+          "exports": [
+            "knownPeopleView"
+          ],
+          "status": "existing projection owner; actual claim/evidence/history and observer-safe receipt consumer required"
+        },
+        {
+          "family": "durable settlement",
+          "path": "src/gameplay_publication.js",
+          "exports": [
+            "prepareGameplayPublication"
+          ],
+          "status": "single existing publisher; no mutation from this module"
+        },
+        {
+          "family": "replacement carriers",
+          "path": "Backlog reserved replacement module",
+          "exports": [],
+          "status": "external owner integration queue must freeze exact exports; not guessed or edited here"
+        },
+        {
+          "family": "dialogue continuation",
+          "path": "Ink reserved continuation",
+          "exports": [],
+          "status": "external owner supplies original scene continuation/native continuation binding; no story compiler or Ink state in this module"
+        }
+      ],
+      "nativeBindingGap": "No Labyrinth native island/bog, System sponsor/class/core, lemur consent/food stock, party staff/flask/matrix or tower threshold bindings registered. Two volumes share one setting with separate source/ending boundaries.",
+      "sourceUnknowns": [
+        "Lemur vocalizations remain untranslated; guest interpretation is Nick account",
+        "Wand recharge mechanism/repeatability unresolved despite later about-one/day report",
+        "Bloodline theft is described, not a witnessed repeatable transfer",
+        "Tower interior and post-entry healing cannot be authored as source facts"
+      ],
+      "status": {
+        "sourceRules": "implemented-unverified immutable profiles/pure callable helpers",
+        "scene": "proposed local insertion; no native/Ink registration",
+        "gameplay": "unactivated; no playable-world claim",
+        "topology": "source disposition only; unactivated",
+        "deeperChain": "phased authoring disposition only; root runtime required",
+        "checks": "syntax/import/source-link/hash only",
+        "deferred": [
+          "behavioral",
+          "browser",
+          "save/reload",
+          "failure",
+          "keyboard",
+          "regression",
+          "director acceptance"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1760 @@
+{
+  "edition": "Rogue Legacy 1 published original C# FNA source",
+  "repository": "https://github.com/flibitijibibo/RogueLegacy1",
+  "commit": "b41c17888a91100bbf8f1febecaa636a1b421f5b",
+  "commit_metadata": "2026-07-15T09:34:32-04:00 Update to latest Steamworks, mostly for AArch64",
+  "source_root": "/Users/weiwei/.codex/research/rogue-legacy/RogueLegacy1",
+  "retrieved_on": "2026-10-06 America/New_York",
+  "acquisition": "git clone --depth 1; no FNA or asset acquisition",
+  "source_qualification": "Original published source per pinned README, not decompile or asset-complete runnable recovery",
+  "tracked_file_count": 344,
+  "csharp_file_count": 290,
+  "license": {
+    "name": "Rogue Legacy Source Code License v1.0",
+    "date": "2024-10-08",
+    "owner": "Cellar Door Games 2013-2024",
+    "boundaries": [
+      "noncommercial restriction",
+      "origin acknowledgement if source used in a product",
+      "altered versions marked",
+      "notice preserved",
+      "excluded game materials require written approval"
+    ],
+    "exceptions": "pinned EXCEPTIONS.md has no project exception rows",
+    "route_for_YAIR": "Original gameplay proposals only; no Rogue Legacy code/text/art/music imported"
+  },
+  "files": [
+    {
+      "file": ".github/pull_request_template.md",
+      "sha256": "b3aad583f1854f074211165884890a9e7b16cc92f12d17baa5a2050ba15d019c",
+      "lines": 37
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "sha256": "3a35a6d7d1c2d535f23e987f0e1ab94de01e02d55e8e605d2690b0245a19f2ff",
+      "lines": 63
+    },
+    {
+      "file": ".gitignore",
+      "sha256": "0de153364591cae6b10ffb73c1774aa7a14431aef6bd63720d319474898bc589",
+      "lines": 8
+    },
+    {
+      "file": ".vscode/launch.json",
+      "sha256": "23441a0f2b1d34f4c9723a8569225c999b1e1e8581f0a164d38972b1427040c8",
+      "lines": 32
+    },
+    {
+      "file": "DS2DEngine/DS2DEngine.csproj",
+      "sha256": "925ffb5ec66b556e60990426cf168521bc3da3446396cc4d1ee88a90ce90ee76",
+      "lines": 26
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/ChangePropertyLogicAction.cs",
+      "sha256": "0e094c6190d8c2d5321e3960bf697fb4bf80fa665d09979eb889b64525f2495b",
+      "lines": 47
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/ChangeSpriteLogicAction.cs",
+      "sha256": "6fb91421f0559c8ca4afb65901db0c88c765e897669bbb106cda690bc4a47e72",
+      "lines": 119
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/ChangeStateLogicAction.cs",
+      "sha256": "c32e9af561c09777db05ecf177aff278493c43918a1fdd48880ee16662287489",
+      "lines": 38
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/ChangeWeightLogicAction.cs",
+      "sha256": "3c939272cb90b97128eaaf91793fbdc416341a055c2dc75b95f99e63b7fffd04",
+      "lines": 33
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/ChaseLogicAction.cs",
+      "sha256": "a55cdb23ad65b74776ca943134c4cede28d5118cf8d7a5dcae7a98ea54403ef5",
+      "lines": 160
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/DebugTraceLogicAction.cs",
+      "sha256": "b10c3b42f25348604ec4472de49c2b96c68419d29d3ef86a9c74eca5c0ceccc5",
+      "lines": 37
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/DelayLogicAction.cs",
+      "sha256": "0a7a21c6d42711505e13fa360e79d68afa6c08cd07f007c36b1418e8482f5de4",
+      "lines": 128
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/MoveDirectionLogicAction.cs",
+      "sha256": "f0da57d0d81c9023542a86f9c190725484dc331fddaa3a7b4b789dee8f3aeb17",
+      "lines": 90
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/MoveLogicAction.cs",
+      "sha256": "e0cfe62438fb20494d2b7dacd619ccc8d5ebc1fd0e3b248159fd8780e67eeee1",
+      "lines": 99
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/Play3DSoundLogicAction.cs",
+      "sha256": "04e889c6c4750871fc3fcd63564b416c0458ca2882099069aee1a6606a5951be",
+      "lines": 45
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/PlayAnimationLogicAction.cs",
+      "sha256": "e719b4c93b421d375c91bf01230aad70175e0daa42213eb5d2f7a679e3d1b29f",
+      "lines": 157
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/PlaySoundLogicAction.cs",
+      "sha256": "6e07b47a9b24e1099c19a6fb86baa72f77bb2a7723eb6041da7d0317993aa382",
+      "lines": 31
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/RunFunctionLogicAction.cs",
+      "sha256": "59061c928ecc47dcf8accae639b24c5b7bd4708537c0f3cc3c2fd08c6235911f",
+      "lines": 87
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/StopAnimationLogicAction.cs",
+      "sha256": "9b3639ea21ae0c7131b2557a759dd0760cef3b8c3152c372389d885ad7d54d82",
+      "lines": 39
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Actions/TeleportLogicAction.cs",
+      "sha256": "6527b3fd5b36823d4eec8d501d16fca665abe9bfba00f76623024e6651f61340",
+      "lines": 61
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Base Objects/LogicAction.cs",
+      "sha256": "fc8064f6b028eaef0764bd58d04146a1a4edd5c09bd60497e92e9429e970b6f9",
+      "lines": 64
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Base Objects/LogicBlock.cs",
+      "sha256": "b37b144867a55e9a070547ad55713c584f4b8c3995c26fb67b4be45eb6bcdbaf",
+      "lines": 148
+    },
+    {
+      "file": "DS2DEngine/src/AI Logic/Base Objects/LogicSet.cs",
+      "sha256": "0fc868db85a1374b5387a50fa17bad4138854fde100d7d5e272dc307573c1e96",
+      "lines": 129
+    },
+    {
+      "file": "DS2DEngine/src/CDGMath.cs",
+      "sha256": "3a6483a1b75799598e4fb5a96f3f4a1179576af3adce8e555884ea886f9a1ee8",
+      "lines": 259
+    },
+    {
+      "file": "DS2DEngine/src/Camera2D.cs",
+      "sha256": "45a88887fde077c4fe8a0dc8ffd5ece9ca633e683e754a2653521e00329d1d80",
+      "lines": 141
+    },
+    {
+      "file": "DS2DEngine/src/Circle.cs",
+      "sha256": "8f6fa3c94d50e467ff79424c83edae241c5b471f7228f514d3238cc097ee5a3a",
+      "lines": 55
+    },
+    {
+      "file": "DS2DEngine/src/CollisionMath.cs",
+      "sha256": "f2a3c37f82ad143cb12f33c39a09a8be2ca48574ca9812454af822f9dc9a5b70",
+      "lines": 615
+    },
+    {
+      "file": "DS2DEngine/src/Consts.cs",
+      "sha256": "62334a6d1db9f01cb29a353e6f36886ab9d6b2d2da6f80dc332f6c7e36d6ae18",
+      "lines": 25
+    },
+    {
+      "file": "DS2DEngine/src/DS2DPool.cs",
+      "sha256": "f890b10834a3a8b57242d27cb784c4e864fb1d6ecd28b800a28c02d1fa0e8e59",
+      "lines": 132
+    },
+    {
+      "file": "DS2DEngine/src/DebugHelper.cs",
+      "sha256": "e65ab872134fb2b4dd56907ed2d0266de53252552a4a0b4c53cedf5804a54ead",
+      "lines": 39
+    },
+    {
+      "file": "DS2DEngine/src/EngineEV.cs",
+      "sha256": "7684cd350687fe986349ef28332b4d8b9ee3987b9a21cf3c712baff54ffaa7cb",
+      "lines": 22
+    },
+    {
+      "file": "DS2DEngine/src/FrameSoundObj.cs",
+      "sha256": "c50b711673fb92541d3127a1ba778a23773381d30c06ea2279730ad1d093af58",
+      "lines": 65
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/BackgroundObj.cs",
+      "sha256": "c7d8f596833080c9891f147057e36d645df202a2229f0d1b15116c01884a0e2e",
+      "lines": 162
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/BlankObj.cs",
+      "sha256": "5adf141d185f083a543faae00a447d459e6d8d6ed119faa99297736277879293",
+      "lines": 224
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/CollisionBox.cs",
+      "sha256": "de7f0ea8491b97742b6fa6cafdefd84e539a81cf004d74024784aa5f28cb352f",
+      "lines": 255
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/GameObj.cs",
+      "sha256": "287fcf410c410a5d68d77415b2f0f89b86eb383e25c39aa9f87a88896dc2c5b4",
+      "lines": 838
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IAnimateableObj.cs",
+      "sha256": "8af488e8dcafdf2a3b61f16c9dc61093f3913a642124a9fbbc5a53fdf8ebf284",
+      "lines": 30
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IClickableObj.cs",
+      "sha256": "3f4763a445716d74a543d1aa88c2a393c9319e223bec70302bd87d48da8259c7",
+      "lines": 34
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IDisposableObj.cs",
+      "sha256": "ff8317caae2a2d39394f29517fa9b6900d781f99a60cc9d6928cbe2660b4b2c5",
+      "lines": 13
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IDrawableObj.cs",
+      "sha256": "9b83df08a0d00b9d601c849b5881135d502ae89b821b73a9ba3373780ebd73e1",
+      "lines": 18
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IKillableObj.cs",
+      "sha256": "24f801726249aad80d4e114d6f3c158416294c9248675492568ded60825e5b53",
+      "lines": 12
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IPoolableObj.cs",
+      "sha256": "3873140fec500525a27e939a8432bb428cdb9a742b95151ca3daec0d22ef3f35",
+      "lines": 13
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/IStateObj.cs",
+      "sha256": "2104704d5d7a31293111fd45b965372872e7a0a2b9e9cc9149a18e6884d73cf8",
+      "lines": 12
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/Interfaces/ITriggerableObj.cs",
+      "sha256": "b1a753f9a02450250532aa21a2297799f8545364b09c9538959dc981bb52c55c",
+      "lines": 12
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/ObjContainer.cs",
+      "sha256": "73fb1659b78694994fabefbe9e3384b98f083ae58a2cf1a2e15420f8ac396ddd",
+      "lines": 589
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/PhysicsObj.cs",
+      "sha256": "69a0f6eab13723e9d412325d1543b89947792005cb97f6cf00f61e130502b667",
+      "lines": 411
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/PhysicsObjContainer.cs",
+      "sha256": "7943a70156da7a6639abdb00f7f75342c5d399c5b86c48c9f222a96773332502",
+      "lines": 481
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/SpriteObj.cs",
+      "sha256": "16d971057a07804e3a9f89d63c8e9b6124f6deafc3a54498254e6530973fbbf5",
+      "lines": 604
+    },
+    {
+      "file": "DS2DEngine/src/GameObjs/TextObj.cs",
+      "sha256": "14257dd200fff95d37bbc4b451f2a9f95eee2d1a4cb51a7e068cfe8dcd227f06",
+      "lines": 436
+    },
+    {
+      "file": "DS2DEngine/src/MoveToLogicAction.cs",
+      "sha256": "e716fb685f6e4fffc9a5bb2b7d056082b25a8e2d00e3139bc6ef5c259b188380",
+      "lines": 62
+    },
+    {
+      "file": "DS2DEngine/src/ParticleObj.cs",
+      "sha256": "2215a63a81773e8d10ea51d84c599b7068fcea0bcc88d3dbb456bd8534c26c03",
+      "lines": 132
+    },
+    {
+      "file": "DS2DEngine/src/ParticleSystem.cs",
+      "sha256": "adbc52c1648d007b2b70e8d4afe346e7f388569fc4eb43ca4ec9c153eac42c83",
+      "lines": 355
+    },
+    {
+      "file": "DS2DEngine/src/Physics/IPhysicsObj.cs",
+      "sha256": "725b46d37e62a3002d134aa395f9859dd3f92a2c18d5d4244c3e3f23cfd81dd5",
+      "lines": 53
+    },
+    {
+      "file": "DS2DEngine/src/Physics/PhysicsManager.cs",
+      "sha256": "7ab1158d36411eda07ede76ba655ce8d2ab510079ee4162814c7debfcb223fac",
+      "lines": 280
+    },
+    {
+      "file": "DS2DEngine/src/RectangleTree.cs",
+      "sha256": "54d9aa9efc0b5ab7b200af25d21966d0fa251c30b389fecf73e521591992751c",
+      "lines": 343
+    },
+    {
+      "file": "DS2DEngine/src/SafeArea.cs",
+      "sha256": "c42c26d01c17657fade37d8a2d318f205b8a096d1c0ffec4c9ce695bfb24fd03",
+      "lines": 84
+    },
+    {
+      "file": "DS2DEngine/src/Screens/Screen.cs",
+      "sha256": "a41dfbb60069d2d59274151f6da85f309253abda61e97dfeb21b4776f82e6bf0",
+      "lines": 123
+    },
+    {
+      "file": "DS2DEngine/src/Screens/ScreenManager.cs",
+      "sha256": "28a2dd315f4b0817edd08ae0cc72bc38e5d2094ba4ca7744461ee93e7ceb1f14",
+      "lines": 161
+    },
+    {
+      "file": "DS2DEngine/src/SoundManager.cs",
+      "sha256": "28573ce80845e4c46f1adee6aa59e408b3f8386f31ec5d618229d146c729f3d2",
+      "lines": 556
+    },
+    {
+      "file": "DS2DEngine/src/SpriteFontArray.cs",
+      "sha256": "ed62c57eacdf1bc85addd24e49dcb2d4e47c9b44a21239ccb9bea880df47ac76",
+      "lines": 13
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Actions/ChangeSpriteTriggerAction.cs",
+      "sha256": "1e5d7ce895f7a11ab940c52aa6f00b9e63efce3b2cf604e5d4053fbbd72e385d",
+      "lines": 43
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Actions/DelayTriggerAction.cs",
+      "sha256": "6ae88b640cece7a627198047406cb3d27d0ad12def2569ff0d23223261c958fb",
+      "lines": 56
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Actions/MoveObjTriggerAction.cs",
+      "sha256": "85013adabe387734345105773e404fe1b10213e87b1697e11284c9f69d611aec",
+      "lines": 66
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Actions/RunFunctionTriggerAction.cs",
+      "sha256": "a70bb82cf595ee3de01b11f079aa0e25e72ace94321c7a975c0389b09e9935f4",
+      "lines": 62
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Base Objects/TriggerAction.cs",
+      "sha256": "aa2fda5c33a0e3752fd1aebf9182ba84f6a1ceda56e7f4f4da42db1ff2ef3800",
+      "lines": 44
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Base Objects/TriggerSet.cs",
+      "sha256": "e468ddf83978a731dee8413863c84c9c26afed8a3df0106267ff273fd7332554",
+      "lines": 169
+    },
+    {
+      "file": "DS2DEngine/src/Triggers/Base Objects/TriggerSystem.cs",
+      "sha256": "7467cc0ad037dc098e634a5a9bf15b3f362bb2bdf6d3b68e99dc76ccae71546b",
+      "lines": 44
+    },
+    {
+      "file": "DS2DEngine/src/TxtToBinConverter.cs",
+      "sha256": "72f1a91f3b6bab7158b4455bd6cee3cf46d79231274f43456c0dfc1174451a8f",
+      "lines": 33
+    },
+    {
+      "file": "DS2DEngine/src/Types.cs",
+      "sha256": "f6268654ce5307664c73e43633861de87b4fe05051922df8cf7c20b8e7975b2a",
+      "lines": 24
+    },
+    {
+      "file": "DS2DEngine/src/XMLCompiler.cs",
+      "sha256": "ebc7c2498742ea91352033a41b595e200181a5598f1abdfab5d3878fdab11e86",
+      "lines": 94
+    },
+    {
+      "file": "EXCEPTIONS.md",
+      "sha256": "4106d0e9596d40741ab8d4cf74e70ed31ed1c5097a0989d172877dbd38d4ff0e",
+      "lines": 10
+    },
+    {
+      "file": "InputSystem/InputManager.cs",
+      "sha256": "c46658f422d1beae2af585dfd7c6c3ad9eb18031f6d84373368fdc71f03e5071",
+      "lines": 616
+    },
+    {
+      "file": "InputSystem/InputMap.cs",
+      "sha256": "48a6d4404a60e2d3c3fc1192cef3284bc78227d2a7ea45683aa9e0fea5af610c",
+      "lines": 227
+    },
+    {
+      "file": "InputSystem/InputReader.cs",
+      "sha256": "59bfcc480030aa013c3f32f110aa55adc9a4eaf750b4654820b9561b1558b72e",
+      "lines": 124
+    },
+    {
+      "file": "InputSystem/InputSystem.csproj",
+      "sha256": "00bdd2e0925d292ab8fc39ba6ae53968a36512adf5a7b4bff6e55ee950ba825b",
+      "lines": 14
+    },
+    {
+      "file": "InputSystem/TouchGamepad.cs",
+      "sha256": "edb9a628bc42c42b64204cec3ba5746288d054eda0e9d1f08bd4dbca60b5c991",
+      "lines": 165
+    },
+    {
+      "file": "LICENSE.md",
+      "sha256": "a5b91b945e5a44e02f73ef774966fbf556fe490cc46c23d65080eaadb84105a5",
+      "lines": 21
+    },
+    {
+      "file": "README.md",
+      "sha256": "d79d047a2a609d00f81e1974b446c68db2100cb1450743401eaef39712a2a58f",
+      "lines": 45
+    },
+    {
+      "file": "RogueCastle/LocaleBuilder.cs",
+      "sha256": "5ce9929e8df77576179ca8aaca877080a84f97df770e07e8c23a096a7ff6964d",
+      "lines": 388
+    },
+    {
+      "file": "RogueCastle/Properties/AssemblyInfo.cs",
+      "sha256": "55bc09d75a4b38a164e7a34ebdb5f8124832cdb27068238a1680cf55e68f8e60",
+      "lines": 34
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.Designer.cs",
+      "sha256": "919fb8209ac5252983399161da95951b3fe4819f55411abf1b60ae9c629acab3",
+      "lines": 14634
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.de.resx",
+      "sha256": "ea94ffb0d79ce0da4257c24e38a1a7505414bee405f4c00eadea0731f603572e",
+      "lines": 8349
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.es.resx",
+      "sha256": "254786ab5ff7468e7af3cd8e6f9df80b605c8707eabde8472eb6f42f0fe8bc15",
+      "lines": 8357
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.fr.resx",
+      "sha256": "60c05400261d12ea0c13d093701c8b0f9ce961c2d86abbcdac1769a1df8399a1",
+      "lines": 8366
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.pl.resx",
+      "sha256": "e5085459b70ec4a2553656714f1d5034aa019e86eb46b6fd61bd25ae97a0f96d",
+      "lines": 8349
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.pt.resx",
+      "sha256": "08e0c10278bb1d38648e730fa79f599cb4faae0fb560d7ceffb5f7887b27ef6d",
+      "lines": 8353
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.resx",
+      "sha256": "1238b7c2f7978457698fa15777b409f624fcb909d3c9b3446235e80ebc770288",
+      "lines": 4978
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.ru.resx",
+      "sha256": "52c4c20eddbd111a5ea75d799d1d3864d7430bd74ff2161dca0f7b02f4690f2d",
+      "lines": 8351
+    },
+    {
+      "file": "RogueCastle/Resources/LocStrings.zh.resx",
+      "sha256": "64d26a227c9acffb777b03091098206b5bb14673e19a3d1ccf03a5bdfdb7a588",
+      "lines": 4453
+    },
+    {
+      "file": "RogueCastle/RogueCastle.csproj",
+      "sha256": "f3f93ba814967f4bac19be9d60eb87078e4ceacc79ee52f3210f6c5948a33733",
+      "lines": 35
+    },
+    {
+      "file": "RogueCastle/Shaders/2xMultiBlend.fx",
+      "sha256": "e9775b7a11c127b7181f2f5a905eef8b477009b34c41f9704c121bdbda736f70",
+      "lines": 21
+    },
+    {
+      "file": "RogueCastle/Shaders/AlphaMaskShader.fx",
+      "sha256": "2b7502177f4370b66db8a8589f0367043b38fd12acb1db86f381dae0a5f7f691",
+      "lines": 29
+    },
+    {
+      "file": "RogueCastle/Shaders/AmbientNormalMapFX.fx",
+      "sha256": "aa4bb422fa08e7e5519775c22281db8603e956ea51bc9a1d1851557fc31dfa26",
+      "lines": 73
+    },
+    {
+      "file": "RogueCastle/Shaders/BWMaskShader.fx",
+      "sha256": "ef6cfe3d8c191fa33fc32889da77a3b61ce6271e018c0ddb082c1a214eba6518",
+      "lines": 23
+    },
+    {
+      "file": "RogueCastle/Shaders/BlurShader.fx",
+      "sha256": "2f2d5423a07bf65c89502584fa3d0e051a2df66d6935706eb18860657afe6637",
+      "lines": 29
+    },
+    {
+      "file": "RogueCastle/Shaders/BrightPass.fx",
+      "sha256": "872b7c1fb914d5a12cea4b77e5954d29ce727b3d9bd6480f7b25594c9a11c1a9",
+      "lines": 18
+    },
+    {
+      "file": "RogueCastle/Shaders/ColourSwapShader.fx",
+      "sha256": "06bcc9bbb17d02c09ba9564d92d86a377fcb5414ebb1517ef06817c2905adf93",
+      "lines": 34
+    },
+    {
+      "file": "RogueCastle/Shaders/CrepuscularShader.fx",
+      "sha256": "d1618b01f9a558c0a5282bbb9de38b080a7cf78bc998ca8a697631fe9ce98a75",
+      "lines": 99
+    },
+    {
+      "file": "RogueCastle/Shaders/GaussianBlur.fx",
+      "sha256": "152fab8d0ab24c1b0575fc92a7166bfdbf1d32ce695ec5d546d1960e18e57b3d",
+      "lines": 41
+    },
+    {
+      "file": "RogueCastle/Shaders/GaussianBlurMask.fx",
+      "sha256": "a5f9b010de6e64f1030b09129c7e94e24c875403e1229e5fa5809eaad3c7e199",
+      "lines": 47
+    },
+    {
+      "file": "RogueCastle/Shaders/HSVShader.fx",
+      "sha256": "0086b32def0d43b7957d35345bd7a4ef62e00f303fbc08cf9cb1abd8cfcbce07",
+      "lines": 56
+    },
+    {
+      "file": "RogueCastle/Shaders/InvertShader.fx",
+      "sha256": "2dc8a201e115f1ede528c58fd974e43e6aa857383d742af74b061bd734fbbe06",
+      "lines": 21
+    },
+    {
+      "file": "RogueCastle/Shaders/LightRays.fx",
+      "sha256": "1fef45128b71979bad70ec6416511d630d85740e3d2155ce69f73937f0a92164",
+      "lines": 59
+    },
+    {
+      "file": "RogueCastle/Shaders/LightSourceMask.fx",
+      "sha256": "9313c9df222afff087de7ea0a144ad266344922cdb2f69f7b1dfa753d3635e37",
+      "lines": 55
+    },
+    {
+      "file": "RogueCastle/Shaders/MaskFX_Shader2.fx",
+      "sha256": "421a7c77a2e8d6d0470f2efb6382617ee23e9ca48eb5d13a370a0d5f324862f2",
+      "lines": 51
+    },
+    {
+      "file": "RogueCastle/Shaders/NormalMapFX.fx",
+      "sha256": "0e37bceeb1cd92708a03d6ff5091b14ef0532b6ea9944a19b43c4764df389247",
+      "lines": 44
+    },
+    {
+      "file": "RogueCastle/Shaders/OutlineShader.fx",
+      "sha256": "8af46910dbc6da1d1f92cfef86419e244aa1512bd350832fe040794a9c4cc6ba",
+      "lines": 198
+    },
+    {
+      "file": "RogueCastle/Shaders/PPVertexShader.fxh",
+      "sha256": "866def4a8797b808773b67ceb3524759b9e481826a6063d3c07904aa5322234a",
+      "lines": 20
+    },
+    {
+      "file": "RogueCastle/Shaders/ParallaxFX.fx",
+      "sha256": "14e4f6cac9f3fa1b2f285c984ad18728b94ce40349a489077e906580f10bdb95",
+      "lines": 29
+    },
+    {
+      "file": "RogueCastle/Shaders/README.md",
+      "sha256": "4b74b1a2853f8be75ec513f9b0752fd0173c1dac43d55b19ab88254fdb623a07",
+      "lines": 13
+    },
+    {
+      "file": "RogueCastle/Shaders/RippleFX.fx",
+      "sha256": "1764c469d860ad335394253a8c9f4c1930c959db098ce569bb6fafa9261f954e",
+      "lines": 38
+    },
+    {
+      "file": "RogueCastle/Shaders/SceneBlend.fx",
+      "sha256": "7667046235de3f08bec71b1fbf0f520e493dd503e98f085fac76ecbbe0454fac",
+      "lines": 38
+    },
+    {
+      "file": "RogueCastle/Shaders/ShadowFX.fx",
+      "sha256": "0dcdc225492679c36a3864aea383a8078329dc74fa34bc49299d8356a07e9a39",
+      "lines": 23
+    },
+    {
+      "file": "RogueCastle/Shaders/Shockwave.fx",
+      "sha256": "2e66834e8cce90f7651242447c8a7e9131536c4e41596376c135e83bb3c5ab6c",
+      "lines": 49
+    },
+    {
+      "file": "RogueCastle/Shaders/ShockwaveTest.fx",
+      "sha256": "b3fc64cfaeabc56c949db9a6ee6bcb65dea679b2f6e01629879a1ec15286d9f3",
+      "lines": 34
+    },
+    {
+      "file": "RogueCastle/Shaders/StrokeShader.fx",
+      "sha256": "dd42e25931462e7a6a01a73ac68a580c500c9b6fa419a130677aecabf64e693a",
+      "lines": 193
+    },
+    {
+      "file": "RogueCastle/Shaders/TintRemovalShader.fx",
+      "sha256": "2126ee605a54529b3e45041c5a0400f8f26f3b9774035505c13150d5dbe1a52b",
+      "lines": 29
+    },
+    {
+      "file": "RogueCastle/Shaders/buildEffects.bat",
+      "sha256": "0d4a4d5325eea7a5807d2e7944edc10d39e9b3057be39722bf7b08a63600059b",
+      "lines": 3
+    },
+    {
+      "file": "RogueCastle/Shaders/buildEffects.sh",
+      "sha256": "ef0e7a805269397cc48d55d987d376a1f00d99ba54b71c46072a0e2bdc2e39d9",
+      "lines": 11
+    },
+    {
+      "file": "RogueCastle/Shaders/reductionEffect.fx",
+      "sha256": "cbe5f12e6bbdd35c3695bbd4249757eef002df221e9ffe91b861d647fb33830b",
+      "lines": 67
+    },
+    {
+      "file": "RogueCastle/Shaders/resolveShadowsEffect.fx",
+      "sha256": "98cae5f50bc3e707e34bed176b693a2369d854fa4db394a01b69d7fe0ea3847e",
+      "lines": 234
+    },
+    {
+      "file": "RogueCastle/src/ChestConditionChecker.cs",
+      "sha256": "719652b97023a967ce92a954c6593f02dd5bae6ef625f13edd3ba5289207cb63",
+      "lines": 81
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/BasePostProcess.cs",
+      "sha256": "a69527089c3c0c51517380680ed14c0ece65f1d7aba2785bfd39956604828fff",
+      "lines": 54
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/BasePostProcessingEffect.cs",
+      "sha256": "fe53b5aac3386d27cbc7fb566e39fbb5de66f8212fca521a6b53e856809ab4f9",
+      "lines": 78
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/CrepuscularRays.cs",
+      "sha256": "3526b2efd34ac1d84e559cdd4ab1c571270dd227bc12a11ac696e58dc3442d73",
+      "lines": 99
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/LightRay.cs",
+      "sha256": "1f3c563cd67214f985b25fc9ab4bf1b89a0e6ac9ec20bc71eb9e4a68463187b0",
+      "lines": 53
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/LightSourceMask.cs",
+      "sha256": "758c5b8d1527d7a7e9655b628e94a04783c75f7d9f0aa636e798a1d145ebef32",
+      "lines": 51
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/PostProcessingManager.cs",
+      "sha256": "b7fb9361d6fb04f204cfa0bb3f749a4f86b70fb2d42db81c39f6da0eff77de52",
+      "lines": 73
+    },
+    {
+      "file": "RogueCastle/src/Crepuscular Rays/ScreenQuad.cs",
+      "sha256": "0058c380346ea556e7552142bba1e57dac969f202ccb0b28680adf0cdb4db13a",
+      "lines": 63
+    },
+    {
+      "file": "RogueCastle/src/EVs/EnemyEV.cs",
+      "sha256": "5b788295153330e6e171b87c8be57083f1d0fa28fe2385aee1ec6982a1860117",
+      "lines": 238
+    },
+    {
+      "file": "RogueCastle/src/EVs/GameEV.cs",
+      "sha256": "35f1c4f0efa521d5218cebb310f182b1f0667a0254da27a9abf842605fc5364d",
+      "lines": 205
+    },
+    {
+      "file": "RogueCastle/src/EVs/GlobalEV.cs",
+      "sha256": "eae7dbd03820bd6d8bb8c432650eed058508f291a87615990094f0e3a80b1877",
+      "lines": 19
+    },
+    {
+      "file": "RogueCastle/src/EVs/LevelEV.cs",
+      "sha256": "bf6b190c6c0596877a48700fe04c229e4a61798c1dbb39db0f9ae1a1e52e9c87",
+      "lines": 127
+    },
+    {
+      "file": "RogueCastle/src/EVs/PlayerEV.cs",
+      "sha256": "49e83ed9e7183d0a05c1b74a46f3663d26a0a70d70fb223739151fd3448817cb",
+      "lines": 58
+    },
+    {
+      "file": "RogueCastle/src/EVs/SpellEV.cs",
+      "sha256": "7c734ea148b0666f0863361607c518e2c36a7e8fb46d902e0f1afde7aa159483",
+      "lines": 435
+    },
+    {
+      "file": "RogueCastle/src/EnemyBuilder.cs",
+      "sha256": "823638f5dd4964510dd3d8795317a8b985a9cc3e7f6a83e8978ed562c8fbb62d",
+      "lines": 123
+    },
+    {
+      "file": "RogueCastle/src/EquipmentSystem.cs",
+      "sha256": "5db8d274379958e76e7d313dfa0fee8290c3f5c2d40a2f1d2b762b1853dafc0e",
+      "lines": 244
+    },
+    {
+      "file": "RogueCastle/src/FrameRateCounter.cs",
+      "sha256": "bbb881bc8e1945a4ccaea3dae5d25fc33d7e82ada47a841f82bbbe858fec8064",
+      "lines": 69
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/BlacksmithObj.cs",
+      "sha256": "64ba26b60ea3433c4de0c4c3285fc0ccba4420247a7f044b5e4bc8db507cb49a",
+      "lines": 53
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/BorderObj.cs",
+      "sha256": "b7f0d5c1771ae55f3f8558ffe60c38b2d71d2b14e3bb30b5524065c29e837c88",
+      "lines": 302
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/BreakableObj.cs",
+      "sha256": "25af66672dfad4a79550b8708fac1579e70199721d477963b78fc916dfe128e6",
+      "lines": 217
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/CharacterObj.cs",
+      "sha256": "f38d821058bca41da286fa80e6461d065cbe4d66c67dc9a9b7a31e780148e3b2",
+      "lines": 140
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/ChestObj.cs",
+      "sha256": "65cd1965311149ae5a5c2f6873ae52319a22a817c43218f323b38e7e50dd8312",
+      "lines": 442
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/DialogueObj.cs",
+      "sha256": "8561e81be0da333dda892471486f02df1731d892b039156d6a14be04298ae940",
+      "lines": 41
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/DoorObj.cs",
+      "sha256": "3657e6b0208009d6c2da6c09f5c10b0a57296f9e12b8ccf274e56f56d45c4e51",
+      "lines": 96
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyHUDObj.cs",
+      "sha256": "9bbb45c4dfa2917d3d4b973782af374a6a843d1fad757459af34424c1c737cb7",
+      "lines": 136
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj.cs",
+      "sha256": "cf2a11d98ffe4eb1a26d33bba7d1849f282c7b917494cfce25e33727592a43c3",
+      "lines": 1272
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_BallAndChain.cs",
+      "sha256": "0bb029609f046d6dd6f64419241955e1292a3862af19af2cc8ec7a70dcd84bd7",
+      "lines": 538
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Blob.cs",
+      "sha256": "376d1cfd6a296dbe8821c4ff9ac0d20283e8c774c9eed19d584e3dedf1257f03",
+      "lines": 960
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_BouncySpike.cs",
+      "sha256": "4dc28cd91faf06e1738920b3ef0d5b22018a97f0d6337b8200a8402a1dfd6300",
+      "lines": 363
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Chicken.cs",
+      "sha256": "0a4dd475941b5668b091ed3fb4fb2bbac0349e86f2c7fe23c38f04235148e84b",
+      "lines": 284
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Dummy.cs",
+      "sha256": "19baf71d6591c218b7f6abcb7e919c688fbfcee24215190db91fe24b7105bb87",
+      "lines": 115
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Eagle.cs",
+      "sha256": "949291e3f3d0d9707b2d0448e9303f76395e577b627ffb82007556240a3efdc5",
+      "lines": 147
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_EarthWizard.cs",
+      "sha256": "aefd37a105d655d1fdde0b18ae984f681851b4ab3638cfde3cad24caa7bb1b4a",
+      "lines": 872
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Energon.cs",
+      "sha256": "8b9957665729ad47f092d86388a38b8fb5c960ec13d6f3ea3640dba4f971c857",
+      "lines": 470
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Eyeball.cs",
+      "sha256": "2b1152e7d0193c5fe1c7eae5472a4169e9caa961d5f025b36c3ba75e875790e1",
+      "lines": 913
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Fairy.cs",
+      "sha256": "fdaa5394e106bc296d7a5e7f831fa513adbf539200a825c8a1609550e9563e38",
+      "lines": 894
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_FireWizard.cs",
+      "sha256": "2c0b89d44dc45e605af8968b98e7bd71f943073bc693d1a3ecded85e05697c33",
+      "lines": 535
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Fireball.cs",
+      "sha256": "df8bfdcaede7380cd7e7894387fd5cec1f5a253d2fc7e4aba1b8c2e241ef2606",
+      "lines": 707
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_HomingTurret.cs",
+      "sha256": "3c75f3fb6b5b17ba629ad570c0b36fbec6a38a34b98032702b4cda5a55081be0",
+      "lines": 358
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Horse.cs",
+      "sha256": "df735919ebb95a30d2de1f56e751c8de7ca8328d9a01670fabe2cedde7cca068",
+      "lines": 611
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_IceWizard.cs",
+      "sha256": "80328217ecaac7620cb21dd9825d5aa67e4aed7a8f6d389f750c1400c36b82c1",
+      "lines": 562
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Knight.cs",
+      "sha256": "54d5eb4a0eebf20a5f2d3bac28f5583563d471403a95908f1758da79167f9d36",
+      "lines": 659
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_LastBoss.cs",
+      "sha256": "eda956b552dedd286fab75b7384e677ca62a9f538e2a2dd90b15ace81f3df31b",
+      "lines": 1904
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Mimic.cs",
+      "sha256": "f0c71767a572f3cb68af443d359e491b1c4e859cc6b5755a62dca002d54aeefb",
+      "lines": 336
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Ninja.cs",
+      "sha256": "f2f0e62e9ef2919594f1cdd37218dc0cd936de53c24ddeeb819b2251cc54bb18",
+      "lines": 569
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Plant.cs",
+      "sha256": "1ef7c952a787d02108f7b2b632e89e3add56679160255ff46c2607604af93ada",
+      "lines": 400
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Platform.cs",
+      "sha256": "fff96a166b548b0ab8013b5af84dfa450386d11a1a901994774bcae502f447f2",
+      "lines": 164
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Portrait.cs",
+      "sha256": "a7713b7fe8f8d8f46356577cd06bd16f73b1c61e815428f72aa6f1d9802ede58",
+      "lines": 510
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_ShieldKnight.cs",
+      "sha256": "ee50874b63c7fbb39ddd51a03a4fcd6f33909e6188f365c68db34bf53baf8a4b",
+      "lines": 454
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Skeleton.cs",
+      "sha256": "35af03fca71d013ad7cdb1f49a53f1498161ff9e9e6926f43ba270b336a60145",
+      "lines": 500
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_SkeletonArcher.cs",
+      "sha256": "33c578df84a1ab3177b741ca4dd88ecbefc9dbec37e813a4767d7efd1349bb45",
+      "lines": 524
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Spark.cs",
+      "sha256": "3a2e52a592b9fb0814c309a9bf898d2ad2280849b9824a9465d15843fdcc740c",
+      "lines": 456
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_SpikeTrap.cs",
+      "sha256": "35ec1b023e615c8e8d09bff48ef4acb2b8c90bddef855549dbe8cc93608f5da8",
+      "lines": 189
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Starburst.cs",
+      "sha256": "d5a9eaf08af4e500db48883508236be817cd2cecdfe45482c534d59f844acfad",
+      "lines": 392
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_SwordKnight.cs",
+      "sha256": "daa46a2b9e2ac9d0675a8fd7c864bae5465cbddb054b737e3102eb49d3f90639",
+      "lines": 460
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Turret.cs",
+      "sha256": "bfeede6074a5bce18b3d6f18484e291f8a26fd653e6f0f70c6d173ae1b6e77cb",
+      "lines": 166
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Wall.cs",
+      "sha256": "8d37fb613b86674fc7f2c29e5d050e0809a35adb87ac142c0215f0affd4b6d89",
+      "lines": 176
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Wolf.cs",
+      "sha256": "6419eebb0906da44247258c25db9c57137b8169643f5a9078514381df3b5bd29",
+      "lines": 394
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyObj_Zombie.cs",
+      "sha256": "ad63110135c502418306a9fcc4550f1a5d5637fe62acef817eeb37c89fc7f426",
+      "lines": 401
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyObjs/EnemyTemplate.cs",
+      "sha256": "76b4965c75da66634734af2f31db9d0ee39c6b420aef11c0b951fa543a3486de",
+      "lines": 87
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyOrbObj.cs",
+      "sha256": "6a2f830388d92e567b425ed4c9c3ef968579385891b185f2b832439f710d8a89",
+      "lines": 27
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnemyTagObj.cs",
+      "sha256": "7e2d47ac7414c1392040feab6fe4839dc5e7ce7d7439f6552aa33db220571e7e",
+      "lines": 26
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/EnergonProjectileObj.cs",
+      "sha256": "47904de0d94cdcf23db80f40751fdd36be4915bcc2f85dd95af3b12c5eb3389b",
+      "lines": 94
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/FairyChestObj.cs",
+      "sha256": "33887ec8bcc294c2562085ee776f36251858adeb9a17c07c4e8b3fe843674040",
+      "lines": 264
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/HazardObj.cs",
+      "sha256": "e689506323150e2d10611fdf1a173016802173d9116e4833c6349d96a4238f3c",
+      "lines": 144
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/HoverObj.cs",
+      "sha256": "5f5c389154422f8eccd21f8698ae065272b39542a1318971d9af6293da243a7d",
+      "lines": 47
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/IDealsDamageObj.cs",
+      "sha256": "4d2fda68de77f245ea4f55b4bda8b2a107871a9fc744c6a80ad6468a5a6d8478",
+      "lines": 12
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/ItemDropObj.cs",
+      "sha256": "2f093a05ed1f7b2143f84855de6d551fa67615ce4c211820812f0a176fa936a6",
+      "lines": 178
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/KeyIconObj.cs",
+      "sha256": "21b4f1296178c3a66dea49dd403e9047dd08ca6f0801105b3f7868847afa1c26",
+      "lines": 219
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/KeyIconTextObj.cs",
+      "sha256": "b7028bb5c1b2db7e80732bf5583a2902a43e4c07ddefb93d746b1cd92096545a",
+      "lines": 250
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/KingObj.cs",
+      "sha256": "dc3af74638e500a2d79ec156944db49fe36c0f7af216d2194d68c675bd4a6800",
+      "lines": 52
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/LightSourceObj.cs",
+      "sha256": "b8aae37c16609fb951375e08f8ade6c6195ddb8e63bbd8c45cff1c26b0940cba",
+      "lines": 74
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/LineageObj.cs",
+      "sha256": "7b9a5cc087a1100ea9331ccb62a9374d41712e47d9606d1f18e9eb5cc779f9e7",
+      "lines": 787
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/MapObj.cs",
+      "sha256": "2191765237ce3da177c7f2743b75d7564974da2f1675a56a2838e80bd6f6158f",
+      "lines": 578
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/NpcObj.cs",
+      "sha256": "d3f19dd0a4f69adb8a7b91b8f1053276f84c3d28504d79c18625aadf54e0b139",
+      "lines": 124
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/BackToMenuOptionsObj.cs",
+      "sha256": "a8ad244523192c335194ef11d242e6009018f7912887e2052f6cb92a8d5e3bf1",
+      "lines": 89
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/ChangeControlsOptionsObj.cs",
+      "sha256": "c11bad9d9f220ada1533ed944d479b6ddf158de1d0a9e39e0a822ac669d436e9",
+      "lines": 545
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/DeadZoneOptionsObj.cs",
+      "sha256": "a4cea12968e782904853f1db1f4b2ea2ba1f345c56c572aa90260168c14b1820",
+      "lines": 95
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/DeleteSaveOptionsObj.cs",
+      "sha256": "5e2db4c58c26331ff23e3db30fd34137bc828a6674ba9f90a2c6541f437f51f5",
+      "lines": 65
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/ExitProgramOptionsObj.cs",
+      "sha256": "a087ab8fdb845c90f01c8b792ded50866a9656d904265a3898286c3653f1e529",
+      "lines": 46
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/FullScreenOptionsObj.cs",
+      "sha256": "7cc69f465a688b3dfa4bfd7e2863d209a977d5352c39c4af3511d5cb022401e4",
+      "lines": 104
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/LanguageOptionsObj.cs",
+      "sha256": "e38ca11c9f7fb6e7b7705c3603afca8099f70137ea862de00ce5ac767a8b6224",
+      "lines": 167
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/MusicVolOptionsObj.cs",
+      "sha256": "fb0c2b83d1204376b8641b36e2d34f43e624a49856c0378fe022bc89f307ed0e",
+      "lines": 88
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/OptionsObj.cs",
+      "sha256": "781c3a8d80cf37f240e3bb6bdb8c81da472fb71e991268cf6bdc6ebbec9f4e1e",
+      "lines": 84
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/QuickDropOptionsObj.cs",
+      "sha256": "a8e4f4d5de7fef0b15f83fad11239ce7ed4093a0b5b67ba6de5de6e3cef41959",
+      "lines": 89
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/ReduceQualityOptionsObj.cs",
+      "sha256": "21c455ad0a1a431ab2bb814bb220c8317cd878002bff7e12a4a4fb6d888062a7",
+      "lines": 106
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/ResolutionOptionsObj.cs",
+      "sha256": "a7895f67495e705538e5f805b6a008eefd71fe22847da2c05d9e942eb60cd9ad",
+      "lines": 181
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/SFXVolOptionsObj.cs",
+      "sha256": "5afd3c1e4c5d44d967d3a7e43b332d2453dff32b26940725afc46f0cf1ff22a9",
+      "lines": 88
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/SteamCloudOptionsObj.cs",
+      "sha256": "ca323e846ebbd83b97131df205be35bc1ed02aec7e9b1b78708341245c5781fc",
+      "lines": 89
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/OptionsObjs/UnlockTraitorOptionsObj.cs",
+      "sha256": "c87bc62e90830a18f28c095b9b4e23a79d1fc71bc35ea9ea9cf91e94888e44f1",
+      "lines": 107
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerHUDObj.cs",
+      "sha256": "9fd968c16fe40d05d6da1943b9f092bd753285b08667a3ecf100234380528da5",
+      "lines": 389
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerObj.cs",
+      "sha256": "b8ca0fd16640f794aff40d88521368df83dc08c71bd4218cb69e186e2bbf36fa",
+      "lines": 4304
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/Player/PlayerStats.cs",
+      "sha256": "8454a67b4b39ea5b33062f96867d6242bdb0cae3602fd2bb6cb80cc56fdd3f6f",
+      "lines": 396
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/PlayerStartObj.cs",
+      "sha256": "0a6fd0c4ce3e773f66fdf443be9ec5d1616a5af6a1d89d9129e3669673f44617",
+      "lines": 21
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/ProjectileIconObj.cs",
+      "sha256": "ceaf99795c4d5b762056fb27cd63de708d6972cda5d8a6086282b41d380e28d7",
+      "lines": 105
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/ProjectileObj.cs",
+      "sha256": "0fcd9746af01571a1e4c487607ec074b877b502410992ae0cf25d570f867773d",
+      "lines": 660
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RaindropObj.cs",
+      "sha256": "ea5160fb302469c86a5da7d1934fb5b79bd11b1d2f4c9b4dab5f273bb7b4a818",
+      "lines": 166
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/ArenaBonusRoomObj.cs",
+      "sha256": "c8bdf50cb1559898d30ec1f87e54868a487db495aaaf2ef3bde7ef9992f644ce",
+      "lines": 191
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/BonusRoomObj.cs",
+      "sha256": "536091c84ccd4ab7297f40a893857dd62f22094d83a5d4e3ace3133958223792",
+      "lines": 23
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/CarnivalShoot1BonusRoom.cs",
+      "sha256": "fcdfb75f24d4caa64eb8b162ea62fb717d3e5e09d81bd2c91168a5004d86132f",
+      "lines": 505
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/CarnivalShoot2BonusRoom.cs",
+      "sha256": "39effe19c2a28bdf12f1d4b07ac0a556331ded34b3f0238150ae7e6d2591efc1",
+      "lines": 593
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/ChestBonusRoomObj.cs",
+      "sha256": "b04f07543c357f66054294fc5293d92b86e75b71ee99b26bffaae8c87b606e66",
+      "lines": 274
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/DiaryRoomObj.cs",
+      "sha256": "5354719e7ab9a63eaec4d50d33730d9874cd7244c6bbb85cf638d933a2174899",
+      "lines": 112
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/JukeboxBonusRoom.cs",
+      "sha256": "740d1c13061cf2d3a5e1b2f699ec833f278509956c2545e1531b84e7ab9b04aa",
+      "lines": 204
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/PortraitRoomObj.cs",
+      "sha256": "b08552293923c936ebfa17d9615b623b463072907418437e48da59ba8c679890",
+      "lines": 81
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/RandomTeleportRoomObj.cs",
+      "sha256": "771a267c1af773b7755b5fadfb9bb127b922aff801add0d5f97e5ef1e33bf623",
+      "lines": 110
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/SpecialItemRoomObj.cs",
+      "sha256": "8ebfbcc36aa5fff8cdc18f906ef158972d2fcdb09bf6390dbc39c3367ef42cb4",
+      "lines": 233
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/SpellSwapRoomObj.cs",
+      "sha256": "1f3e19ee8a1ae7bed6fa8d853b5b789ffb368d7c9f312f902e5479b4ff2ffe25",
+      "lines": 179
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Bonus Rooms/VitaChamberRoomObj.cs",
+      "sha256": "adddd332245b5779be22dc7a609db666d5b7c3c7eafccaaed0ff4d08f39e16ca",
+      "lines": 96
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/BlobBossRoom.cs",
+      "sha256": "44bc5c182b493c865d567c37f283a125475ab2bbca80c9cc07450f6a76667a14",
+      "lines": 203
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/BossRoomObj.cs",
+      "sha256": "a9ba72672bc51b63429e6cfde6216e042a324a562799d9cdebe29d39b5bf46af",
+      "lines": 267
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/EyeballBossRoom.cs",
+      "sha256": "e1f1884b7ad480df8d2d41ee95c009660fed54ea43a8b093f90162562b2ebf5a",
+      "lines": 114
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/FairyBossRoom.cs",
+      "sha256": "24f6d9e12bd5f012f6be92c9e74dd48741a0a973a8ecbb7a35ea2c37e73cb1c6",
+      "lines": 135
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/FireballBossRoom.cs",
+      "sha256": "2d323794f323b5c33fd40dfccd82624cb8c922b87e14e64e5b728d8f9575dda1",
+      "lines": 188
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Boss Rooms/LastBossRoom.cs",
+      "sha256": "74503a8e9e1fcf1b06a7600f53cfde676dab83afe55070b06575b26490e55d27",
+      "lines": 361
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/CastleEntranceRoomObj.cs",
+      "sha256": "8cdeb505fa9796bc4d42e0901ddadc79587bdaa6897f137f469b673ed75a7db5",
+      "lines": 393
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/BlobChallengeRoom.cs",
+      "sha256": "32bbe7685cdace284bad8cb30692170272c601b2da42d5d322f32db5878cc944",
+      "lines": 418
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/ChallengeBossRoomObj.cs",
+      "sha256": "34221fdc00865e46b600fd0903fc3ad747d506b1980ff8b033d729114a960d15",
+      "lines": 534
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/EyeballChallengeRoom.cs",
+      "sha256": "aee6551979547b68199362e6ab3d5e7f88d837ad1b13eb976cb87fd024e10681",
+      "lines": 187
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/FairyChallengeRoom.cs",
+      "sha256": "2f16bf48d0ee867f063b7dc565fffc1dfaf30df44f0d0bfd6b788f8836e2bdac",
+      "lines": 231
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/FireballChallengeRoom.cs",
+      "sha256": "5164d029b73020833459c8d101cd68f21f2a2118d624f0bdee6d6bdc2bd2518f",
+      "lines": 189
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/Challenge Boss Rooms/LastBossChallengeRoom.cs",
+      "sha256": "d6c82175789dbe85ee86c02d05c0237b99f49b34d5d4f4734c8d7d74e239ef08",
+      "lines": 237
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/CompassRoomObj.cs",
+      "sha256": "671ea8ca26a8bb729d27f9284aeb1cb73c77f8512b6c244ad802188dc29bfaef",
+      "lines": 60
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/EndingRoomObj.cs",
+      "sha256": "c57a42cc7552b98c4d5471fd3706c318e18f84427269d51e08025011102584b2",
+      "lines": 475
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/IntroRoomObj.cs",
+      "sha256": "698920681d4d11e41e1036872616111734fd74868cef5d083e3efa2aafc7e07e",
+      "lines": 316
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/RoomObj.cs",
+      "sha256": "7fa82514f93587703e937c364c6c18ec67007c9c3145ac583bbcd49b648bc5df",
+      "lines": 1048
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/StartingRoomObj.cs",
+      "sha256": "7495c6f80ecf84e4d339b456fe0f99e057d36be51b241470ea43c7e5eef845c0",
+      "lines": 1010
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/ThroneRoomObj.cs",
+      "sha256": "5d2e201155287d52295576d4882cd4f4280f7cf9cb07ed877cca1970281806fb",
+      "lines": 157
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/RoomObjs/TutorialRoomObj.cs",
+      "sha256": "5767067ce0f5219340bc392b564ba055a65e8575017bbbc617c877d6ac30ee36",
+      "lines": 445
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/SkillObj.cs",
+      "sha256": "404f6778a44ee724f62819be549eb758fe7e55fff05948418e64722c8c8edb71",
+      "lines": 161
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/SkyObj.cs",
+      "sha256": "08ed6d8a97a9c13bc33ff2a65d15cb9061b6a4e9b59808ecec09935095ba5260",
+      "lines": 240
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/TeleporterObj.cs",
+      "sha256": "31e768f6885dca70ef7258b74ef26eeb4b1b311b0deeb4019f76b51dba722e81",
+      "lines": 82
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/TerrainObj.cs",
+      "sha256": "417e211b520271aba2bb2128a85d17446f89cca29dd88737c4123cea45a232a0",
+      "lines": 81
+    },
+    {
+      "file": "RogueCastle/src/Game Objects/WaypointObj.cs",
+      "sha256": "2bfefea642ba3539ee1718cdc8c057d4e4542a2a5529112b0928e08d58bdb94e",
+      "lines": 26
+    },
+    {
+      "file": "RogueCastle/src/Game.cs",
+      "sha256": "1d258a3bb3bff4a59b34b8b84b45224ca03d331e2bdcac9b93d7f6741df037da",
+      "lines": 1612
+    },
+    {
+      "file": "RogueCastle/src/GameUtil.cs",
+      "sha256": "80246d325275400827e81583b0644dbb1798d77c5b7c5ee35bdd29437b6e1b83",
+      "lines": 18
+    },
+    {
+      "file": "RogueCastle/src/GaussianBlur.cs",
+      "sha256": "9a87a87575916fc3b2afc8606beadddb9843a255692edd3fff627a762a1424f7",
+      "lines": 310
+    },
+    {
+      "file": "RogueCastle/src/ImpactEffectPool.cs",
+      "sha256": "33514d17fed031be5e17973db5aa79c33bc4ff9df69fea83d3d6f30601924b3e",
+      "lines": 1138
+    },
+    {
+      "file": "RogueCastle/src/LevelBuilder2.cs",
+      "sha256": "82281a7520d41df22cc09f15ae1323fb2f730c8ef5ded41a47b8869c85f329a5",
+      "lines": 2476
+    },
+    {
+      "file": "RogueCastle/src/LevelParser.cs",
+      "sha256": "f20c003309d68634286ede70877468f276d7e3f198b8f3bcebab099130ba95aa",
+      "lines": 414
+    },
+    {
+      "file": "RogueCastle/src/Lighting Effect/LightArea.cs",
+      "sha256": "f4af76e5b01149ae6eba9acf228e7882dede1cae1dd1a8ff75ab08d8eae45eb4",
+      "lines": 42
+    },
+    {
+      "file": "RogueCastle/src/Lighting Effect/QuadRenderComponent.cs",
+      "sha256": "e68a18087dc87242a4dbc5defb01ceb8a5bb099a9b7508e8fdeac5bd2ec19157",
+      "lines": 69
+    },
+    {
+      "file": "RogueCastle/src/Lighting Effect/ShadowmapResolver.cs",
+      "sha256": "ed2e8d9c7c5d59d584e5104b7fd91d62576d95990fc5b265a497b42884d862b7",
+      "lines": 166
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/CheckWallLogicAction.cs",
+      "sha256": "48eeac7cf95b1b0f2a28cc2c63739beb4a625480bff313ee1c837531c2d9de39",
+      "lines": 48
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/DelayObjLogicAction.cs",
+      "sha256": "674a1731405f03feffa5053166ce6c5450d8458474836507bf01c95eef5886b2",
+      "lines": 121
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/FireProjectileLogicAction.cs",
+      "sha256": "e381e5e530a71e2052ff4963f710d2221b4bba9dcbd2e915210a5778790305f0",
+      "lines": 48
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/GroundCheckLogicAction.cs",
+      "sha256": "c8bc98c0ba5c334ad0db3bf210dcf8083510ba709b3fea6f6cab11c5149358a0",
+      "lines": 50
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/JumpLogicAction.cs",
+      "sha256": "3b75ee57d42469bede0c8614f22bcc1ad9fa764984ce70b698e098cd5001806a",
+      "lines": 41
+    },
+    {
+      "file": "RogueCastle/src/LogicActions/LockFaceDirectionLogicAction.cs",
+      "sha256": "4b4abc121bbc031d48f20dcc5491c95f559674a44f0c36c55386e638e8ad60ec",
+      "lines": 43
+    },
+    {
+      "file": "RogueCastle/src/Managers/DialogueManager.cs",
+      "sha256": "32de2525459c15b950b8823e3657e378b69e7fcd1e969014e7324ee96d6fa38a",
+      "lines": 820
+    },
+    {
+      "file": "RogueCastle/src/Managers/ItemDropManager.cs",
+      "sha256": "08277222f192aa29770f5230a9dc933451d6ca66614e9c74affa7e9f192193a5",
+      "lines": 152
+    },
+    {
+      "file": "RogueCastle/src/Managers/ProjectileManager.cs",
+      "sha256": "9cd2df2f65acd4aaa5c0c941b02a840ffaaa5e34ef284fc4b3d44e399ad1098e",
+      "lines": 476
+    },
+    {
+      "file": "RogueCastle/src/Managers/SaveGameManager.cs",
+      "sha256": "eea8436eb6b77a823bc1c6f2a4dcb5e894b89f6973b5a9354a3203c9de6b95ed",
+      "lines": 2276
+    },
+    {
+      "file": "RogueCastle/src/Managers/TextManager.cs",
+      "sha256": "775585a118047dff23cfe8dc50abac23ee97f9321857f7c0a96a7897b34b1eeb",
+      "lines": 201
+    },
+    {
+      "file": "RogueCastle/src/Program.cs",
+      "sha256": "323b77a1903eeabfaa79e055e296755f664d2dbeb7db917ee5f2c8b2d0caffe1",
+      "lines": 189
+    },
+    {
+      "file": "RogueCastle/src/ProjectileIconPool.cs",
+      "sha256": "c7f29a16c334eaa535d4a54d24744bad7fba1497aca1505edc1828f330922db3",
+      "lines": 164
+    },
+    {
+      "file": "RogueCastle/src/SWManager.cs",
+      "sha256": "c367745d7afa11b46e8501146b8c0349c002a2a0c98f9e49e6ae1d5510ddff4f",
+      "lines": 136
+    },
+    {
+      "file": "RogueCastle/src/Screens/Base Objects/RCScreenManager.cs",
+      "sha256": "1b5e8ef2f36d52e7bdc7811fa659e255a189e0e87344623cb602c18587417e32",
+      "lines": 599
+    },
+    {
+      "file": "RogueCastle/src/Screens/BlacksmithScreen.cs",
+      "sha256": "b7783cdd66130bfa35fd182106fb7a4755be71b853dc6f18d844226faf8abf17",
+      "lines": 1094
+    },
+    {
+      "file": "RogueCastle/src/Screens/BlitWorksSplashScreen.cs",
+      "sha256": "cb7a4d74d420735d31d85fdfbc927a0390778431f40fdb1c972de07e18ff7b42",
+      "lines": 119
+    },
+    {
+      "file": "RogueCastle/src/Screens/CDGSplashScreen.cs",
+      "sha256": "1db7cca59b96e28ef7440a5260e8e44fce1e8e2fbe5a4fc5d416c7923c7d2856",
+      "lines": 159
+    },
+    {
+      "file": "RogueCastle/src/Screens/CreditsScreen.cs",
+      "sha256": "b53ebee7a7b78fad46f7ba8b7f15ca3f1950682d58cf09df54484260835b39f1",
+      "lines": 1437
+    },
+    {
+      "file": "RogueCastle/src/Screens/DeathDefiedScreen.cs",
+      "sha256": "6e6d8dd832cd180d0bb01735364ec31cdecf6e657c03f8a1417fc5195a598a64",
+      "lines": 156
+    },
+    {
+      "file": "RogueCastle/src/Screens/DemoEndScreen.cs",
+      "sha256": "1064006870a3ce37a8430fcf917b92d575b64c3fcf239223aaf06118a71f5cf7",
+      "lines": 78
+    },
+    {
+      "file": "RogueCastle/src/Screens/DemoStartScreen.cs",
+      "sha256": "3fd04214d8fbbb45f205e6cbf496d15e9eab7710e7fb0792b79acd001a1a93ea",
+      "lines": 68
+    },
+    {
+      "file": "RogueCastle/src/Screens/DialogueScreen.cs",
+      "sha256": "28919e1cde71e9f1cf855cc13bb6ea4bce867e3eaccd3a174510aaff9d79baec",
+      "lines": 507
+    },
+    {
+      "file": "RogueCastle/src/Screens/DiaryEntryScreen.cs",
+      "sha256": "7f2b980dd6304f364048344ae550ca3a6ae95ebe47da21e10e507a8ba30c8816",
+      "lines": 319
+    },
+    {
+      "file": "RogueCastle/src/Screens/DiaryFlashbackScreen.cs",
+      "sha256": "34df693f2b2ebbf6f1a3164d80906c9859107bfc194dd4a2b6cdcc9d9af2baa5",
+      "lines": 296
+    },
+    {
+      "file": "RogueCastle/src/Screens/EnchantressScreen.cs",
+      "sha256": "69e07bece42757a4dd5831b74812fe35ec053b30c185e40098cffa4eb06bfd64",
+      "lines": 857
+    },
+    {
+      "file": "RogueCastle/src/Screens/GameOverBossScreen.cs",
+      "sha256": "28d5d7f1d4a6f071a4b8fcc2b28a6cab3a38c1d4a3d04a8da6864277e5bc1ff9",
+      "lines": 345
+    },
+    {
+      "file": "RogueCastle/src/Screens/GameOverScreen.cs",
+      "sha256": "6a5eefa199270705f86e28ee3144fa8980d0e5af45a82452bd130311384c8d0d",
+      "lines": 677
+    },
+    {
+      "file": "RogueCastle/src/Screens/GetItemScreen.cs",
+      "sha256": "7c3882ea49c7148470545e9ec3382f413e30849627a9dd5529e000b3e8c7470f",
+      "lines": 705
+    },
+    {
+      "file": "RogueCastle/src/Screens/LineageScreen.cs",
+      "sha256": "cc53f95fe90a5f082deeb270199e82a3c6ebb4b7942f2b43c6defd446addbf16",
+      "lines": 1076
+    },
+    {
+      "file": "RogueCastle/src/Screens/LoadingScreen.cs",
+      "sha256": "fc8dd872fd321cca2cd98f76225918c0c671c497431e3690ba339748faa7b3ed",
+      "lines": 479
+    },
+    {
+      "file": "RogueCastle/src/Screens/MapScreen.cs",
+      "sha256": "3276d9caca143eed25c8a0c7e5cbff55d55c94cf38aa4fca2725c169ba551e10",
+      "lines": 470
+    },
+    {
+      "file": "RogueCastle/src/Screens/OptionsScreen.cs",
+      "sha256": "e4b438d482021d3efeb68cda30a17853515b025f793cd658bdc042adefba525a",
+      "lines": 469
+    },
+    {
+      "file": "RogueCastle/src/Screens/PauseScreen.cs",
+      "sha256": "468e999cb2e81388841f26d7838b5a896b890b9fb5f990a60fd45ba4229078b7",
+      "lines": 518
+    },
+    {
+      "file": "RogueCastle/src/Screens/ProceduralLevelScreen.cs",
+      "sha256": "7dc0080ec94e57afb3dee89c2d49321bb4b2168c1202c69a88a7ba847097c2c4",
+      "lines": 3362
+    },
+    {
+      "file": "RogueCastle/src/Screens/ProfileCardScreen.cs",
+      "sha256": "4272de66cc943c563161e4dc3d1d6c189e29cca787fd6ebdf72de83ff53a8bbc",
+      "lines": 1031
+    },
+    {
+      "file": "RogueCastle/src/Screens/ProfileSelectScreen.cs",
+      "sha256": "ebd1e18312cfa333a4653024321e17435955129707364a25bbf0923815c5c01e",
+      "lines": 522
+    },
+    {
+      "file": "RogueCastle/src/Screens/SkillScreen.cs",
+      "sha256": "143098503b54a339ff2553f49d9d09af82bb26402fa75aa6265f2bc146e984ef",
+      "lines": 1284
+    },
+    {
+      "file": "RogueCastle/src/Screens/SkillUnlockScreen.cs",
+      "sha256": "f27281b10af71d65f2ab78cac41dfb17590003b7a76cd8710566e758701dd0b0",
+      "lines": 306
+    },
+    {
+      "file": "RogueCastle/src/Screens/TextScreen.cs",
+      "sha256": "95da82f7ebbe36ab3f37c41835db8ee4d620cfb915f6b98e74f0de9b388e8bf9",
+      "lines": 174
+    },
+    {
+      "file": "RogueCastle/src/Screens/TitleScreen.cs",
+      "sha256": "4690b50451e45b60d3d66d5c6f7ff0c045858021e4eb22188147dddff774cee3",
+      "lines": 763
+    },
+    {
+      "file": "RogueCastle/src/SkillBuilder.cs",
+      "sha256": "6c84e85fd2489753c9ffa3d67cfa82d9004ea7c4397772717a8beb97633c12f7",
+      "lines": 1398
+    },
+    {
+      "file": "RogueCastle/src/SkillSystem.cs",
+      "sha256": "062096c7e775f2024ac7295bd7c69382a74d5092538ecf4f9cd27bc08bd59ffe",
+      "lines": 326
+    },
+    {
+      "file": "RogueCastle/src/SleepUtil.cs",
+      "sha256": "40f27aaee4c2b44d6cc97a66f7447232f2c7d35f7ce2f3bfc810292785cb0025",
+      "lines": 50
+    },
+    {
+      "file": "RogueCastle/src/Types/BonusRoomTypes.cs",
+      "sha256": "cfb2442ef21b0ecf85404aa538a009a60083337dc2bcc7f9aafa01849e8d1f35",
+      "lines": 23
+    },
+    {
+      "file": "RogueCastle/src/Types/BossRoomTypes.cs",
+      "sha256": "b65e26d2ac81539f582fe40ee502c39d969ba9ff226031b87c43ef9e805ebf8b",
+      "lines": 19
+    },
+    {
+      "file": "RogueCastle/src/Types/ChestConditionType.cs",
+      "sha256": "49bfce65598d9c6a4599af47ef504b04c579eec3edb8968febcefa72f310ce8f",
+      "lines": 22
+    },
+    {
+      "file": "RogueCastle/src/Types/ChestType.cs",
+      "sha256": "1ab8f22aab471ee483a33214ef24a603c2e0c7f25ffd2f0ab37b6f29b2ee3a1a",
+      "lines": 17
+    },
+    {
+      "file": "RogueCastle/src/Types/ClassType.cs",
+      "sha256": "1c3a7107b44996779b31906ce010aa070bae6e975e53afe7e1d0f109ba930604",
+      "lines": 281
+    },
+    {
+      "file": "RogueCastle/src/Types/EnemyType.cs",
+      "sha256": "d0529dddd8d1e80b823ededcac05ff93c1ba39486c5bf429bde2a58b85d874f9",
+      "lines": 47
+    },
+    {
+      "file": "RogueCastle/src/Types/EquipmentType.cs",
+      "sha256": "9c3a9799f28ec08d7a1a294ad5c146ded83ec74a56caab02ed2a6213d0c98a43",
+      "lines": 487
+    },
+    {
+      "file": "RogueCastle/src/Types/FamilyTreeNode.cs",
+      "sha256": "e815be9e01b63deeebc294f45286560ff9ce61ad737d80817a3e83d1f12079d9",
+      "lines": 34
+    },
+    {
+      "file": "RogueCastle/src/Types/GameTypes.cs",
+      "sha256": "a5c7568f7672d64ec9c242edc982fe9ed45fc197bc7d5366fc542ce20dfd6937",
+      "lines": 95
+    },
+    {
+      "file": "RogueCastle/src/Types/GetItemType.cs",
+      "sha256": "8b7950eca1596a2539fadadc5b0f4a06f99152f750c27a0f652162f4584fe548",
+      "lines": 19
+    },
+    {
+      "file": "RogueCastle/src/Types/InputMapType.cs",
+      "sha256": "6efe9b407602a24911c1c3d5183d711a8edad654a8ebeb4124216ea67af4b530",
+      "lines": 47
+    },
+    {
+      "file": "RogueCastle/src/Types/ItemDropType.cs",
+      "sha256": "026d32d94850e36c855eff0e6967dc30de2e5d463754a92b0d88cf62e465cada",
+      "lines": 38
+    },
+    {
+      "file": "RogueCastle/src/Types/LanguageType.cs",
+      "sha256": "4c1e2fb208da999253d30165ebe77f78193ab4265b5c221000c3af6d6e95b8fe",
+      "lines": 20
+    },
+    {
+      "file": "RogueCastle/src/Types/LineageTypes.cs",
+      "sha256": "ead24e10ebd607d8894fd776f37feea3ed629e93053a640f9e0f333bf3734e46",
+      "lines": 36
+    },
+    {
+      "file": "RogueCastle/src/Types/OrbType.cs",
+      "sha256": "0014577792a19ac589d61d5225d06ae4547d451771fd9513efbd718ad5c54de3",
+      "lines": 15
+    },
+    {
+      "file": "RogueCastle/src/Types/PlayerPart.cs",
+      "sha256": "b4afdb8d97e80d7ffdf384a520e30afd087d5fb67dc6ffd57a50424c0959a734",
+      "lines": 55
+    },
+    {
+      "file": "RogueCastle/src/Types/RoomType.cs",
+      "sha256": "770e7c78dc562a95c4ee332567ce5af1e6c9633c9eedbbbe3d7940724b12cf5c",
+      "lines": 22
+    },
+    {
+      "file": "RogueCastle/src/Types/ScreenType.cs",
+      "sha256": "433a99b0a74768b7804f4c87e1a99797976ff0311fa44a3d1a5a5aa64d93b9de",
+      "lines": 49
+    },
+    {
+      "file": "RogueCastle/src/Types/SkillType.cs",
+      "sha256": "37fcda7c43daa08550cd56814ba384802ee17f708f949c4ff3f52e10171a3364",
+      "lines": 167
+    },
+    {
+      "file": "RogueCastle/src/Types/SkillUnlockType.cs",
+      "sha256": "40679ea4c16d13377c0ea69bf3688d42a0a20c00b447b994d35c8680483797f5",
+      "lines": 75
+    },
+    {
+      "file": "RogueCastle/src/Types/SpecialItemType.cs",
+      "sha256": "856614ee36f356f81cfd77e77634ec82a1fe58d6c14a9461e64cf8f077199640",
+      "lines": 92
+    },
+    {
+      "file": "RogueCastle/src/Types/SpellType.cs",
+      "sha256": "d68c0ca3c9492bc0d8c4a32bea9d3d46f223008959f9e83fce051fb8b0f8cb6c",
+      "lines": 171
+    },
+    {
+      "file": "RogueCastle/src/Types/TraitType.cs",
+      "sha256": "054f6659c9d426a6fcc9cb8d6ea09006b8c49aa169d421f9afedfdc65a53562a",
+      "lines": 499
+    },
+    {
+      "file": "RogueCastle/src/VirtualScreen.cs",
+      "sha256": "222a4aae83a7d79cc249a5298c284484ca2caa125468c5546ad7f98098e6ad1e",
+      "lines": 140
+    },
+    {
+      "file": "RogueCastle/src/WordBuilder.cs",
+      "sha256": "45a9b8bd43daf08f260a0a50812bdde07048e79386a60a7bfaa796020472aa37",
+      "lines": 40
+    },
+    {
+      "file": "RogueCastle/src/XMLCompiler.cs",
+      "sha256": "b4b2b30c0a60a61582acc9b91af2994afab361e268fae38a3b2c656b01246611",
+      "lines": 78
+    },
+    {
+      "file": "RogueLegacy.Core.csproj",
+      "sha256": "7b1ea5852c0d3678a4bdc036ca343454a3054491562a4684e38cdeff035b3296",
+      "lines": 88
+    },
+    {
+      "file": "RogueLegacy.sln",
+      "sha256": "54395e4dc19b467c23c27fa5ce4988380915ab1dc07ffb4f21e1a1d268f54690",
+      "lines": 47
+    },
+    {
+      "file": "SpriteSystem/SpriteLibrary.cs",
+      "sha256": "89738677262ef25551e440c066bebe36a51a04412676dfea41352e4f697a6687",
+      "lines": 515
+    },
+    {
+      "file": "SpriteSystem/SpriteSystem.csproj",
+      "sha256": "00bdd2e0925d292ab8fc39ba6ae53968a36512adf5a7b4bff6e55ee950ba825b",
+      "lines": 14
+    },
+    {
+      "file": "SpriteSystem/SpritesheetObj.cs",
+      "sha256": "4a652dcd1349ecd3d6468815209a9f1d9a3af0bd84f770a6b827f793740a5f05",
+      "lines": 183
+    },
+    {
+      "file": "Tweener/Ease.cs",
+      "sha256": "9f0a6450346f777b645b7f9e0f5314e14f985f79de2b2403a67409f7c8877bb4",
+      "lines": 265
+    },
+    {
+      "file": "Tweener/Tween.cs",
+      "sha256": "bfd0a23d8688bec03a184fd386fbcc3e2486f803fcef9cee78c486593eef3ec6",
+      "lines": 305
+    },
+    {
+      "file": "Tweener/TweenObject.cs",
+      "sha256": "617173b46381d1246d6ecd4dfb2622ebc5c003040cc9ed0761394f698a981e0c",
+      "lines": 296
+    },
+    {
+      "file": "Tweener/Tweener.csproj",
+      "sha256": "00bdd2e0925d292ab8fc39ba6ae53968a36512adf5a7b4bff6e55ee950ba825b",
+      "lines": 14
+    },
+    {
+      "file": "rd.xml",
+      "sha256": "c6a6de9ed5bad5f3f5083ea005efd47f8dfeaf03a8d6659f9e78fe60fbdcac5a",
+      "lines": 7
+    }
+  ],
+  "not_performed": [
+    "game installation/purchase/launch",
+    "asset acquisition",
+    "build/gameplay/testing",
+    "personal saves/profile access"
+  ],
+  "source_declared_assembly_version": {
+    "file": "RogueCastle/Properties/AssemblyInfo.cs",
+    "line": 34,
+    "value": "1.2.0.0",
+    "qualification": "Source declaration only; no installed retail build matched. Pinned commit identifies the actual reviewed edition."
+  }
+}

@@ -1,0 +1,514 @@
+{
+  "capturedAtUtc": "2026-10-07T05:08:07.621Z",
+  "mode": "cold source import and text read; no gameplay execution",
+  "qualifications": [
+    "Counts are definitions, not simultaneously visible controls, playtested reachability or hours.",
+    "Commands include mutually exclusive approaches, refusals, paid services, care, purchases and return accounts.",
+    "Player counts select exact actorId player. Dynamic NPC jobs and autonomous controls remain other.",
+    "Place counts derive explicit command location strings, not entire source settings. Base has separate native declarations.",
+    "Native location declarations include locked content and challenge/battle places; not all are initially accessible.",
+    "Five world-agnostic field-care player commands are outside per-world counts.",
+    "Travel/enroll/cancel/encounter response/UI-only host actions are not counted here.",
+    "Source may change during parallel root integration; hashes qualify this exact audit."
+  ],
+  "worlds": [
+    {
+      "worldId": "book.mol.cyoria",
+      "publicName": "Cyoria",
+      "continuity": "Original independent retained-body branch",
+      "simulationCommands": 58,
+      "explicitPlayerCommands": 56,
+      "otherCommands": 2,
+      "commandLocations": [
+        "Cyoria visitor arrival",
+        "Cyoria Imaya household",
+        "Cyoria academy guest desk",
+        "Cyoria academy guest library",
+        "Cyoria formula workshop",
+        "Cyoria supervised practice court",
+        "Cyoria sewer service hatch"
+      ],
+      "playerCommandsByGroup": {
+        "book_mol": 56
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "book.paradise.hub",
+      "publicName": "Paradise contractor district",
+      "continuity": "Supplied-MTL qualified alternate branch",
+      "simulationCommands": 31,
+      "explicitPlayerCommands": 29,
+      "otherCommands": 2,
+      "commandLocations": [
+        "Paradise independent-contractor desk",
+        "Paradise paid training booth"
+      ],
+      "playerCommandsByGroup": {
+        "book_paradise_campaign": 12,
+        "book_paradise": 7,
+        "book_care": 10
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "book.paradise.goa",
+      "publicName": "Goa · Gray Terminal",
+      "continuity": "First-Goa alternate branch",
+      "simulationCommands": 80,
+      "explicitPlayerCommands": 61,
+      "otherCommands": 19,
+      "commandLocations": [
+        "Goa Gray Terminal",
+        "Goa provision pier",
+        "Goa city gate",
+        "Goa guardhouse",
+        "Goa palace approach"
+      ],
+      "playerCommandsByGroup": {
+        "book_paradise_campaign": 20,
+        "book_paradise": 31,
+        "book_care": 10
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "nested.paradise_hub",
+      "publicName": "Paradise service district",
+      "continuity": "Original service-district branch",
+      "simulationCommands": 47,
+      "explicitPlayerCommands": 45,
+      "otherCommands": 2,
+      "commandLocations": [
+        "Paradise service street",
+        "Paradise workroom"
+      ],
+      "playerCommandsByGroup": {
+        "ink": 12,
+        "nested_campaign": 15,
+        "nested_chains": 13,
+        "nested_life": 5
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "nested.saltworks",
+      "publicName": "Saltworks",
+      "continuity": "Original linked destination",
+      "simulationCommands": 57,
+      "explicitPlayerCommands": 49,
+      "otherCommands": 8,
+      "commandLocations": [
+        "Saltworks enginehouse",
+        "Saltworks landing"
+      ],
+      "playerCommandsByGroup": {
+        "remainder_consequences": 3,
+        "ink": 6,
+        "nested_campaign": 11,
+        "nested_chains": 23,
+        "nested_life": 6
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "nested.archive",
+      "publicName": "The Lamplit Archive",
+      "continuity": "Original linked destination",
+      "simulationCommands": 40,
+      "explicitPlayerCommands": 37,
+      "otherCommands": 3,
+      "commandLocations": [
+        "Archive reception",
+        "Archive records room"
+      ],
+      "playerCommandsByGroup": {
+        "ink": 6,
+        "nested_campaign": 8,
+        "nested_chains": 17,
+        "nested_life": 6
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "feature.tidemark",
+      "publicName": "Tidemark",
+      "continuity": "Original counterweight harbor",
+      "simulationCommands": 18,
+      "explicitPlayerCommands": 18,
+      "otherCommands": 0,
+      "commandLocations": [
+        "Tidemark landing",
+        "Tidemark terraces"
+      ],
+      "playerCommandsByGroup": {
+        "tidemark": 15,
+        "ink": 3
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "pocket.folded_glasshouse",
+      "publicName": "Folded Glasshouse",
+      "continuity": "Original contained workshop",
+      "simulationCommands": 32,
+      "explicitPlayerCommands": 27,
+      "otherCommands": 5,
+      "commandLocations": [
+        "Folded Glasshouse"
+      ],
+      "playerCommandsByGroup": {
+        "glasshouse": 27
+      },
+      "expansionActions": 0
+    },
+    {
+      "worldId": "base.frontier",
+      "publicName": "Frontier",
+      "continuity": "YAIRPG · Branch dimension",
+      "simulationCommands": 785,
+      "explicitPlayerCommands": 684,
+      "otherCommands": 101,
+      "commandLocations": [
+        "Village",
+        "Shack",
+        "Forest road",
+        "Town outskirts",
+        "Town square",
+        "Nearby cave",
+        "Village road"
+      ],
+      "playerCommandsByGroup": {
+        "book_mol": 1,
+        "field_care": 2,
+        "status_care": 11,
+        "book_paradise": 1,
+        "original_frontier": 139,
+        "skills": 19,
+        "glasshouse": 9,
+        "observation": 8,
+        "exchange": 18,
+        "party": 3,
+        "promise": 11,
+        "rival": 8,
+        "field": 25,
+        "pursuit": 23,
+        "village.hire_helper": 1,
+        "village.collect_helper": 1,
+        "social": 9,
+        "body": 6,
+        "village.commission": 1,
+        "village.collect": 1,
+        "village.measured_pack": 1,
+        "village.study_method": 1,
+        "audit_remainder": 1,
+        "remainder_livelihood": 22,
+        "remainder_home": 23,
+        "remainder_offers": 17,
+        "remainder_consequences": 11,
+        "remainder_combat_fit": 10,
+        "remainder_combat_objectives": 10,
+        "feature_objects": 36,
+        "feature_powers": 17,
+        "feature_battle": 4,
+        "feature_society": 20,
+        "tidemark": 3,
+        "reference_gameplay": 9,
+        "nethack_fieldcraft": 14,
+        "audit_fixture": 3,
+        "audit_lesson": 5,
+        "artifact_collection": 15,
+        "causal_story": 39,
+        "world_completion_life": 6,
+        "world_completion_lens": 14,
+        "world_completion_learning": 12,
+        "world_completion_materials": 5,
+        "lore_work": 11,
+        "lore_warning": 15,
+        "repositories": 26,
+        "ink": 4,
+        "subtlety_relay": 24,
+        "subtlety_reference": 7,
+        "nested_campaign": 2
+      },
+      "expansionActions": 30
+    }
+  ],
+  "totalSimulationCommands": 1153,
+  "worldAgnosticPlayerCommands": [
+    "field.care.begin",
+    "field.care.study",
+    "field.care.wipe",
+    "field.care.venom",
+    "field.care.dress"
+  ],
+  "baseNativeLocationDeclarations": [
+    {
+      "name": "Village",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Shack",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Eastern mill",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Eastern storehouse",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Infested field",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Infested woods",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Nearby cave",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Cave room",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Cave depths",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Hidden tunnel",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Pitch black tunnel",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Mysterious gate",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Writhing tunnel",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Mysterious depths",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Forest road",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Forest",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Deep forest",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Forest clearing",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Carya Canyon",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Precarious tree bridge",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Forest den",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Bears' den",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Forest lake",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Frogs",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Forest ant nest",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Town outskirts",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Slums",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Town farms",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Red ant nest 1",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Red ant nest 2",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Red ant nest 3",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Gang hideout",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Town square",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Cat cafe",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Nekomimi cafe",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Antique store",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Adventurer's guild",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Mages guild",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Mountain path",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Small flat area in mountains",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Mountain camp",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Gentle mountain slope",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Downstream from the village",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Riverbank",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Riverbank shore",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Further downstream",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Lake beach",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Waterfall basin",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Crab spawning grounds",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Swampland fields",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "The swamplands",
+      "type": "CombatZone"
+    },
+    {
+      "name": "Swampland tribe",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Longhouse",
+      "type": "SafeLocation"
+    },
+    {
+      "name": "Sparring with the village guard (heavy)",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Sparring with the village guard (quick)",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Suspicious wall",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Fight off the assailant",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Fight the angry mountain goat",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Fight the giant crab",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Fight the giant crab again",
+      "type": "ChallengeZone"
+    },
+    {
+      "name": "Forest den traversal",
+      "type": "ChallengeZone"
+    }
+  ],
+  "baseNativeLocationsByType": {
+    "SafeLocation": 28,
+    "CombatZone": 24,
+    "ChallengeZone": 9
+  },
+  "inputHashes": {
+    "src/simulation_content.js": "fedb961f3003abd4eb907f94c17579e1e2959a8632709cac217a915c69d05bf2",
+    "src/expedition_content.js": "aa6c57853a8f1813bda1b1a1f5c3fe282c441359942a09a6fa113738c1e40c6f",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+    "src/book_world_mol_content.js": "6033a10b6845e0529e9109be1e351f75846b6655b091f142fd0a424b04360280",
+    "src/book_world_mol_ids.js": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195",
+    "src/book_world_mol_actions.js": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d",
+    "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+    "src/book_world_paradise_campaign_content.js": "59d2262e96fd9836dc0a3ad8281de122920d77d43dd901bbe53c9ca9dc8ebbb8",
+    "src/book_world_paradise_ids.js": "6c6cba9be97553829f657d312fbfeb3e7da39fc30c23bf1b469da1bfd1046de3",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_life.js": "84c44d1583227bd05d250eed2c31dcf1c994b4adf5e778ec5531c93d6865b886",
+    "src/feature_expansion_destination.js": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/original_frontier_campaign_content.js": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866"
+  }
+}

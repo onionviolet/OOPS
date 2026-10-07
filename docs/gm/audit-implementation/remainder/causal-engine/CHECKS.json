@@ -1,0 +1,51 @@
+{
+  "capturedAt": "2026-10-06T20:16:55.812Z",
+  "status": "source/syntax/import/definition checks passed; implemented-unverified",
+  "checks": [
+    {
+      "kind": "syntax",
+      "commands": [
+        "node --check src/simulation.js",
+        "node --check src/simulation_effects.js",
+        "node --check src/simulation_contracts.js",
+        "node --check src/expansion_engine.js",
+        "node --check src/audit_remainder_state.js"
+      ],
+      "result": "passed"
+    },
+    {
+      "kind": "cold-import",
+      "modules": [
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/simulation_contracts.js",
+        "src/expansion_engine.js",
+        "src/audit_remainder_state.js",
+        "src/expedition_content.js"
+      ],
+      "result": "passed"
+    },
+    {
+      "kind": "current-definition-joins",
+      "result": "passed",
+      "commands": 932,
+      "controllers": 41,
+      "causalCommands": 63,
+      "causalControllers": 5,
+      "artifactCommands": 15,
+      "artifactMarker1": 15
+    }
+  ],
+  "notRun": [
+    "unit/gameplay",
+    "browser",
+    "save/reload/import",
+    "failure/regression",
+    "keyboard/director",
+    "build"
+  ],
+  "rootSourceRepairsConfirmed": [
+    "causal_story_host clock0 completion receipt natural guard",
+    "main all-staged-actor preflight/publication maps"
+  ]
+}

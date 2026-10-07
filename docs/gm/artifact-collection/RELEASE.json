@@ -1,0 +1,314 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T19:28:02.833Z",
+  "owner": "01a10faa-2aec-7771-9c0d-c15475d394fc",
+  "sharedIntegrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "dispatcher": "01a112a0-3a0c-72c3-8976-492b2d043a4e",
+  "authority": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+  "status": "source_scope_ready_released",
+  "sourceReservation": "released to named shared integrator; no remaining artifact source writer/child/process",
+  "pendingOperations": [],
+  "pendingChildren": [],
+  "modules": [
+    {
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "exports": [
+        {
+          "name": "artifactCollectionView",
+          "kind": "function",
+          "sha256": "a5a517b5e64c681c53af06b76750a342be685e04de6de071861c3ba761cc9fc4"
+        },
+        {
+          "name": "artifactEquipmentReasons",
+          "kind": "function",
+          "sha256": "4266263bc86cafbdd84d9022805ab3ffd982f87105e530ac196849c7d4775259"
+        },
+        {
+          "name": "compileArtifactCollection",
+          "kind": "function",
+          "sha256": "4b73f749c81b4622b98053315a425ebc952a21604da95d9ede38c48fa1d903dc"
+        },
+        {
+          "name": "compileItemEncounter",
+          "kind": "function",
+          "sha256": "d52bdb5a8b05a2bfe38e3933a671e1cda284aed666588e73c7f2b183b1fb27b3"
+        },
+        {
+          "name": "itemPossessionRule",
+          "kind": "function",
+          "sha256": "09ed60b1ae6a4d9a5bb9f7140e2eeaa9f5c8a4792036a8445a632e1c7b4ec8e8"
+        }
+      ]
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "exports": [
+        {
+          "name": "ARTIFACT_WORKSHOP_IDS",
+          "kind": "object",
+          "sha256": "4bed1e095a11a2378e28938f357edcac518daf9b6848939460f828457511593a"
+        },
+        {
+          "name": "ARTIFACT_WORKSHOP_KEYS",
+          "kind": "object",
+          "sha256": "462422aa908f37d782a44d5af4b915fe0c2bf06995d6e208fe9c5158f11cc93c"
+        },
+        {
+          "name": "artifactWorkshopCollection",
+          "kind": "object",
+          "sha256": "bfdf590bc8672c9749deaf92ced9ca05123a14f56b62bab9d4ed799d6f9ed5b4"
+        },
+        {
+          "name": "artifactWorkshopDefinitions",
+          "kind": "object",
+          "sha256": "15b9d4aad4ac70f5beb4a541a681169243c2eaea56ae25ae9a48d290020d77a6"
+        },
+        {
+          "name": "artifactWorkshopItemSpecifications",
+          "kind": "object",
+          "sha256": "a0d80e58386716b533cc463ce7bc5e435774ba4956c5e795bb986c7aac5b07cc"
+        },
+        {
+          "name": "registerArtifactWorkshopItems",
+          "kind": "function",
+          "sha256": "63ccc9a4ecb8bb803376475b9bd62e05cf91960e79c43282504010532e3e722b"
+        }
+      ]
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "exports": [
+        {
+          "name": "artifactWorkshopPresentation",
+          "kind": "function",
+          "sha256": "ec8310d69db2fdbd090c779e15a0d6bd2bfd65b436640359e1c9206e865132b7"
+        },
+        {
+          "name": "commitArtifactWorkshopCommand",
+          "kind": "function",
+          "sha256": "f1256643db23c66fc488502609a237df535ad322bfe5fef0cfbedcf2c5f9fe4f"
+        }
+      ]
+    }
+  ],
+  "ids": {
+    "world": "base.frontier",
+    "group": "artifact_collection",
+    "maker": "artifact_collection.mara",
+    "open": "artifact_collection.open",
+    "situation": "artifact_collection.workshop",
+    "scene": "artifact_collection.tray",
+    "enter": "artifact_collection.inspect_projection"
+  },
+  "keys": {
+    "frame": "{\"id\":\"Empty resonance frame\"}",
+    "amber": "{\"id\":\"Amber measuring prism\"}",
+    "blue": "{\"id\":\"Blue aligning prism\"}",
+    "single": "{\"id\":\"Single-prism resonance frame\"}",
+    "paired": "{\"id\":\"Paired resonance frame\"}",
+    "pin": "{\"id\":\"Fine alignment pin\"}",
+    "log": "{\"id\":\"Rough wood log\"}",
+    "kit": "{\"id\":\"Prepared survey kit\"}"
+  },
+  "maker": {
+    "id": "artifact_collection.mara",
+    "label": "Vela, Village instrument maker",
+    "identityPolicy": "retained unexposed artifact_collection.mara ID; Vela displayed; no native rival substitution"
+  },
+  "nativeItems": [
+    {
+      "id": "Empty resonance frame",
+      "key": "{\"id\":\"Empty resonance frame\"}",
+      "sha256": "1f3237b5d59bf7bf680507d6b3d801fd6be9eb1d6911f16b3bd961607e684410"
+    },
+    {
+      "id": "Amber measuring prism",
+      "key": "{\"id\":\"Amber measuring prism\"}",
+      "sha256": "e0dff7a9e5a98387aa4b770f5b59eef07b0d36f2a501fd37fc91a529567ce80d"
+    },
+    {
+      "id": "Blue aligning prism",
+      "key": "{\"id\":\"Blue aligning prism\"}",
+      "sha256": "70b308f4fbdac0bf8f25d304300b387ce7700ede3387f7e1c91bcb4c68700226"
+    },
+    {
+      "id": "Single-prism resonance frame",
+      "key": "{\"id\":\"Single-prism resonance frame\"}",
+      "sha256": "d21a378cd35838db5ab94cad43a0ac6cdb37f112483432e89283294fad02a3ea"
+    },
+    {
+      "id": "Paired resonance frame",
+      "key": "{\"id\":\"Paired resonance frame\"}",
+      "sha256": "0fbc1ef3da637bc16bb8693c953313fca5b48595df4fe0527ab0ce8a860ee1c8"
+    },
+    {
+      "id": "Fine alignment pin",
+      "key": "{\"id\":\"Fine alignment pin\"}",
+      "sha256": "bbdbd75b1cf61d37d03b3155a2bfbdbb04fa6b86bbdc6d7f41011d6b7dcfba25"
+    }
+  ],
+  "nativeItemSpecificationsSha256": "a0d80e58386716b533cc463ce7bc5e435774ba4956c5e795bb986c7aac5b07cc",
+  "compiledDefinitionsSha256": "15b9d4aad4ac70f5beb4a541a681169243c2eaea56ae25ae9a48d290020d77a6",
+  "compiledCollectionSha256": "bfdf590bc8672c9749deaf92ced9ca05123a14f56b62bab9d4ed799d6f9ed5b4",
+  "definitionIds": {
+    "situations": [
+      {
+        "id": "artifact_collection.workshop",
+        "revision": 1,
+        "sha256": "726f44d4681c17c6216a0221b6926808ddc7fd52ce6485df87e60e665ece7434"
+      }
+    ],
+    "people": [
+      {
+        "id": "artifact_collection.mara",
+        "revision": 1,
+        "sha256": "c77da7254e0554e85cb3647e94353e9b9e819732ef1f8ad56b5abd0566d1eae4"
+      }
+    ],
+    "encounters": [
+      {
+        "id": "artifact_collection.tray",
+        "revision": 1,
+        "sha256": "fbe72f52555c417e385c58e50ebcd5ae2049cefe3994d13447434920ed7b3d1e"
+      }
+    ],
+    "commands": [
+      {
+        "id": "artifact_collection.open",
+        "revision": 1,
+        "sha256": "03b984dd66bddce3b87c06842b0d57101690736fd4165ee2acf3fe5ff8bb2831"
+      },
+      {
+        "id": "artifact_collection.buy_frame",
+        "revision": 1,
+        "sha256": "db5eaece5085990025c7c319c1520b0969b4e48d9761519007b57e4943150d51"
+      },
+      {
+        "id": "artifact_collection.buy_amber",
+        "revision": 1,
+        "sha256": "bbe98361419d46c87767534b2e8aaad3253c1281738325e529e6d2f72bcd51e7"
+      },
+      {
+        "id": "artifact_collection.earn_blue",
+        "revision": 1,
+        "sha256": "f74a92e9edf9392d7599a83f9ffc541a20643fe3b9ebc572a3cb5bd2d6708b86"
+      },
+      {
+        "id": "artifact_collection.manual_pin",
+        "revision": 1,
+        "sha256": "b26c28a5b80649af738e7a92ca881b9b255dffe0c645735019438e6630348319"
+      },
+      {
+        "id": "artifact_collection.assemble.single",
+        "revision": 1,
+        "sha256": "1ee364f2dcc64a7090471abb01c8faa0965ac02141a077c1fe9ffafa6bc7c7b6"
+      },
+      {
+        "id": "artifact_collection.disassemble.single",
+        "revision": 1,
+        "sha256": "e8572a3eeacd3d59a098c200df82ac0b5c0af33972243c8af037d70b1c5b479c"
+      },
+      {
+        "id": "artifact_collection.assemble.paired",
+        "revision": 1,
+        "sha256": "9298cbb282d0d7e0cb4d52063aa3889875a154c8bbccd21616c93ea818132e13"
+      },
+      {
+        "id": "artifact_collection.disassemble.paired",
+        "revision": 1,
+        "sha256": "f54512259a784b15f9f636ebf8cd8efd7a1630098920ca9f6f3790329ab6a328"
+      },
+      {
+        "id": "artifact_collection.use.measure",
+        "revision": 1,
+        "sha256": "df4a3615a271a786214acec1da29d5e4c89ef3b9e27e9249bbb4cf2625736fb7"
+      },
+      {
+        "id": "artifact_collection.use.blue_kit",
+        "revision": 1,
+        "sha256": "874b7bfe2146275c1bbf205efa3d238bd90078bd4d06bf7a93719cf735a119eb"
+      },
+      {
+        "id": "artifact_collection.use.single_kit",
+        "revision": 1,
+        "sha256": "bc4583997f4af758155c5472ef59eb28537faba4a75ca78b08e915c5c03ace9e"
+      },
+      {
+        "id": "artifact_collection.use.paired_kit",
+        "revision": 1,
+        "sha256": "19105138c2cd01f60a32c4ac97598efd0f1f80b01d40ab64712f32e2e02a37b3"
+      },
+      {
+        "id": "artifact_collection.use.pin_kit",
+        "revision": 1,
+        "sha256": "6f094d09dcc7db40499c316aa4fc28524b74b82ac45d94314f00c4f87d7b9d35"
+      },
+      {
+        "id": "artifact_collection.inspect_projection",
+        "revision": 1,
+        "sha256": "c3fc2a26e96e71bb76c7f93d332ddbe54a7229473d4617c1f91f62a5b9698067"
+      }
+    ]
+  },
+  "sharedJoins": "exact consumers in INTEGRATION.md revision2",
+  "integrationFiles": [
+    "src/feature_expansion_content.js",
+    "src/data/expedition_items.js",
+    "src/main.js",
+    "src/feature_expansion_wave_host.js",
+    "src/simulation_contracts.js",
+    "src/simulation.js",
+    "src/simulation_ui.js",
+    "src/adventure_notebook.js"
+  ],
+  "checks": "docs/gm/artifact-collection/CHECKS.json",
+  "repairs": [
+    {
+      "id": "maker_display_identity",
+      "finding": "Mara overlapped existing road rival and family NPC labels",
+      "repair": "all current artifact display uses Vela; stable artifact_collection.mara remains unexposed/preserved"
+    },
+    {
+      "id": "ordinary_pin_utility",
+      "finding": "pin use required prism-only measured fact even after ordinary recovery",
+      "repair": "actual pin recoveries record firsthand template cut at settlement; no cancel/retroactive grant"
+    },
+    {
+      "id": "native_input_equipment",
+      "finding": "generic item/transfer executor checks simulation slots while native slots use host snapshot",
+      "repair": "artifactEquipmentReasons binds fresh native/simulation slots to host quote/commit/scene payment; unavailable native snapshot rejects; legibility controls updated"
+    }
+  ],
+  "compatibility": "no artifact persistent namespace; existing facts/stock/jobs and stable IDs; root owns combined-wave reader/enrollment; old frozen payloads untouched",
+  "mainGameIntegration": "pending current shared integrator; not claimed by source release",
+  "gameplay": "implemented-unverified; behavioral/save/director checks deferred",
+  "evidenceFiles": [
+    {
+      "path": "docs/gm/artifact-collection/INTEGRATION.md",
+      "sha256": "0c5b6732419b3d9ace9c071d938083303ad1f73fe9d9b706c4ff2aaa5e323792"
+    },
+    {
+      "path": "docs/gm/artifact-collection/AUTHORING.md",
+      "sha256": "ef4d454036084363939191b85b215a71cf9b16400f2710ab8da06b85bca30a6f"
+    },
+    {
+      "path": "docs/gm/artifact-collection/ACCEPTANCE_BACKLOG.md",
+      "sha256": "fc0482e96a960e5e833408bcaa92e799fdb596df3a3adbd1788dd05f69f7f37d"
+    },
+    {
+      "path": "docs/gm/artifact-collection/CHECKPOINT.md",
+      "sha256": "3720aa3948c790726cacdbe93c111f9852c7c366c2b247a3d073b5b987244eb4"
+    },
+    {
+      "path": "docs/gm/artifact-collection/CHECKS.json",
+      "sha256": "c6f1815f5b2fe2d125c603b2e11dcdfd3a0f44acb1b8ff100fd084c59caac2f7"
+    },
+    {
+      "path": "docs/gm/artifact-collection/RECONCILIATION.json",
+      "sha256": "37fb0f89a28eb0da4e2e9a766eaaa5202062989272bf5e33c80c713c41d018b6"
+    }
+  ]
+}

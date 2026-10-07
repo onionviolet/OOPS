@@ -1,0 +1,90 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T07:42:10.898682+00:00",
+  "status": "Private correction compiled and finite-pcode/native-mini-C qualified; allfullcontextrefreshpending.",
+  "private_root": "/Users/weiwei/.codex/research/factorio/native-23347942",
+  "repair_receipt": "tool-repairs/scalar-alias/REPAIR.json",
+  "tool_variant": "tool-repairs/scalar-alias/TOOL_VARIANT.json",
+  "source_before_sha256": "9bedaa46f0b312debd7a48d43942a7f77d4f14122e9a22e8d63c1fbc9ed693ef",
+  "source_after_sha256": "65a9f4273d6407fe2d06ed5e0fe82a99fa2c8a509c7bf33f75279c940531ce8a",
+  "SLA_before_sha256": "353e723e1705f565f6e6ad9e0d4eea6f4f1899f37dbfdc99074e8358c40a90cb",
+  "SLA_after_sha256": "541a9b1f35da6e7ebdbff962fae7bb221698695861647bbee8ec4a59533dcfe6",
+  "constructors": [
+    {
+      "opcode": "fmax",
+      "width": 64
+    },
+    {
+      "opcode": "fmax",
+      "width": 32
+    },
+    {
+      "opcode": "fmax",
+      "width": 16
+    },
+    {
+      "opcode": "fmaxnm",
+      "width": 64
+    },
+    {
+      "opcode": "fmaxnm",
+      "width": 32
+    },
+    {
+      "opcode": "fmaxnm",
+      "width": 16
+    },
+    {
+      "opcode": "fmin",
+      "width": 64
+    },
+    {
+      "opcode": "fmin",
+      "width": 32
+    },
+    {
+      "opcode": "fmin",
+      "width": 16
+    }
+  ],
+  "synthetic_instruction_samples": 48,
+  "finite_cases": 216,
+  "finite_failures_before": 27,
+  "finite_failures_after": 0,
+  "actual_native_mini_C_pairs": [
+    {
+      "entry": "1005df250",
+      "status_before": "success",
+      "status_after": "success",
+      "body_sha256": "921d6e40743f3ef4461ec504a0577f05604a27ced9fd67eb2a24cd8682fa3911",
+      "C_before_sha256": "d8c5c7c0eac6c84707bb95ee9287098693d08a194a7721db58b6ddb8c2e4a6c1",
+      "C_after_sha256": "5797f6d7a718f4b9ffcacb6083c63b88c7f7b538fb2d2af03c066eeba2a05dbe",
+      "C_changed": true
+    },
+    {
+      "entry": "1005df238",
+      "status_before": "success",
+      "status_after": "success",
+      "body_sha256": "88a91c152db719d52d039d7534e82cbb7e3fa982d3b4611f2d7f86a371cfea4c",
+      "C_before_sha256": "60289ed70d1efcbe4f283e1d60d977e115095b0d8a3eb0d08c801fe17bfb9bd6",
+      "C_after_sha256": "60289ed70d1efcbe4f283e1d60d977e115095b0d8a3eb0d08c801fe17bfb9bd6",
+      "C_changed": false
+    },
+    {
+      "entry": "1005df248",
+      "status_before": "success",
+      "status_after": "success",
+      "body_sha256": "9d54a8b63ac50b67107873512460014ffb5892382e225fdf811accb249a4f2c3",
+      "C_before_sha256": "97c217c26bc70b865f4ce4c443ee5c502c67bea609e877e9cff6b51a93d45071",
+      "C_after_sha256": "97c217c26bc70b865f4ce4c443ee5c502c67bea609e877e9cff6b51a93d45071",
+      "C_changed": false
+    }
+  ],
+  "retained_affected_methods": 1089,
+  "retained_affected_instructions": 1912,
+  "lost_second_operand_instructions": 233,
+  "refresh_complete": false,
+  "semantics_limit": "Existing NaN/signaling/FPCR/signedzero semantics remain unqualified. Shared .sinc is changed, only AppleSilicon SLA is intentionally rebuilt; other language SLAs stay original.",
+  "execution_limit": "Pseudo-disassembly and emittedpcode interpretation of owned syntheticinstructions; actualnativebytes only decompiled, neverexecuted.",
+  "original_DLC_installed_source_unchanged": true
+}

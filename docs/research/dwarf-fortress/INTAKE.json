@@ -1,0 +1,114 @@
+{
+  "status": "stable-retained-source-data-export-complete-native-engine-unrecovered",
+  "scope": "17 connected paths across five depth lenses; selected source/data declarations, not whole game/native runtime semantic coverage.",
+  "created_at": "2026-10-07T03:49:37.295415+00:00",
+  "steam_app": 975370,
+  "buildid": "24557528",
+  "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Dwarf Fortress",
+  "retained_root": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained",
+  "private_inputs": {
+    "manifest": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/FILE_MANIFEST.json",
+    "sha256": "375bb3e21d55fc1598d1a526aa3653d2fe6e1a772bc13858ecf848cd0b14bcaf",
+    "verification": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/RETENTION_VERIFICATION.json",
+    "verification_sha256": "eafc2cdd78c01c5f821cfee18bd657b972309024c8bbc871c3e33c644bc87527",
+    "native_boundary": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/NATIVE_BOUNDARY.json",
+    "native_boundary_sha256": "00d88989f2f3c3a3e6030bae50e1eb2feed861aee89f4482bddd54500e87a55a",
+    "file_count": 2749,
+    "bytes": 1139421922
+  },
+  "install_gate": {
+    "StateFlags": "4",
+    "buildid": "24557528",
+    "staging": "0",
+    "download_stage_complete": true,
+    "stability_before": "2026-10-07T03:38:04.696402+00:00",
+    "snapshot_completed": "2026-10-07T03:39:46.478401+00:00",
+    "matching_file_metadata_before_copy": true,
+    "retained_all_hashes_reverified": true,
+    "partial_payload_inspected": false
+  },
+  "source_export": {
+    "lua_files": 19,
+    "txt_files": 374,
+    "method": "Identity-preserving copy of readable shipped Lua/raw/documents within private retained payload; no source reconstruction needed for those files.",
+    "native": "PE32+x86-64, no CLR or export directory, no native engine decompilation/disassembly performed; preserved for a later bounded native question.",
+    "exe_sha256": "205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7",
+    "claims": "Selected declaration/generator chains only; code recovered is supplied Lua, not recovered C++ engine."
+  },
+  "pins": {
+    "vanilla_procedural": "53.16 earliest-compatible51.01",
+    "vanilla_entities": "53.01 earliest-compatible50.01",
+    "shipping_release_notes": "latest heading53.15; do not treat stale bundled notes as sole current-version authority"
+  },
+  "official_metadata": [
+    {
+      "steam_app": 975370,
+      "name": "Dwarf Fortress",
+      "type": "game",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=975370&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-975370.json",
+      "sha256": "1cc277fc93f20361c4d84e515a5ab260d5336ce0ea3d203ef3d2227e8274c588"
+    },
+    {
+      "steam_app": 2232370,
+      "name": "Dwarf Fortress Soundtrack (Fortress)",
+      "type": "music",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=2232370&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-2232370.json",
+      "sha256": "0a92cb5b69a5aca92933f6c8932dcbaead1fe70708cce6da696cee3685ccb130"
+    },
+    {
+      "steam_app": 2937200,
+      "name": "Dwarf Fortress Soundtrack 2 (Adventure)",
+      "type": "music",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=2937200&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-2937200.json",
+      "sha256": "6da3a4ce73da3504662b218b1541999e68df8edcd6f72c6134e712ee00ecbbbe"
+    }
+  ],
+  "official_mod_guide": {
+    "url": "https://bay12games.com/dwarves/modding_guide.html",
+    "path": "/Users/weiwei/.codex/research/dwarf-fortress/official/modding_guide.html",
+    "sha256": "f25cf2cfae541c43823bccdeec96bfceffc48244d025d00baf7595b69db1d22a"
+  },
+  "review_index": {
+    "file": "COVERAGE.json",
+    "files_with_spans": 29
+  },
+  "private_saves_accessed": false,
+  "account_entitlements_inspected": false,
+  "installed_mutation": false,
+  "launch": false,
+  "uninstall": false,
+  "publication": false,
+  "runtime_or_canonical_edits": false,
+  "excluded": [
+    ".DS_Store",
+    "crashlog.txt",
+    "errorlog.txt",
+    "gamelog.txt",
+    "logs",
+    "prefs",
+    "save",
+    "savebackups",
+    "saves",
+    "stderr.txt",
+    "stdout.txt"
+  ],
+  "license_boundary": "Bundled readme retains Tarn Adams copyright and describes permitted modified data/raw text distribution; this task distributes no source/assets and preserves all proprietary inputs privately. YAIR proposals are original."
+}

@@ -1,0 +1,705 @@
+{
+  "schema_version": 1,
+  "source_revision": {
+    "steam_build_id": "25514347",
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+  },
+  "export": {
+    "managed_dll_inputs": 149,
+    "decompiled_target_assemblies": 1,
+    "generated_csharp_files": 387,
+    "generated_files": 388,
+    "metadata_only_or_reference_inputs": "148 additional copied DLLs were resolver references, not separately decompiled or semantically reviewed."
+  },
+  "semantic_status": "Five selected paths completed, reviewed and integrated. No percentage or whole-game/whole-file semantic completion claim.",
+  "paths": [
+    {
+      "id": "ITR-01",
+      "name": "Clone allocation -> competing physical/skill/combat work -> target handoff or real fight result",
+      "assigned": true,
+      "read": "selected methods/excerpts",
+      "reviewed": true,
+      "integrated": true,
+      "path_gate": "Actual callers, eligibility/cost, committed mutation, result/consumer and one failure or exception are source-traced; nested/variant limits remain explicit in finding.",
+      "owner": "FINDINGS.json"
+    },
+    {
+      "id": "ITR-02",
+      "name": "Creation stock -> base monument construction -> separate paid upgrade -> derived physical effect",
+      "assigned": true,
+      "read": "selected methods/excerpts",
+      "reviewed": true,
+      "integrated": true,
+      "path_gate": "Actual callers, eligibility/cost, committed mutation, result/consumer and one failure or exception are source-traced; nested/variant limits remain explicit in finding.",
+      "owner": "FINDINGS.json"
+    },
+    {
+      "id": "ITR-03",
+      "name": "Rebirth control -> eligibility and confirmation -> prospective multipliers and new run -> selected retention -> ordinary NTC enrollment, restriction, completion and reward",
+      "assigned": true,
+      "read": "selected methods/excerpts",
+      "reviewed": true,
+      "integrated": true,
+      "path_gate": "Actual callers, eligibility/cost, committed mutation, result/consumer and one failure or exception are source-traced; nested/variant limits remain explicit in finding.",
+      "owner": "FINDINGS.json"
+    },
+    {
+      "id": "ITR-04",
+      "name": "Available pets -> bounded Growth campaign -> elapsed progress -> actual result claim -> retained pet growth and released assignment",
+      "assigned": true,
+      "read": "selected methods/excerpts",
+      "reviewed": true,
+      "integrated": true,
+      "path_gate": "Actual callers, eligibility/cost, committed mutation, result/consumer and one failure or exception are source-traced; nested/variant limits remain explicit in finding.",
+      "owner": "FINDINGS.json"
+    },
+    {
+      "id": "ITR-05",
+      "name": "Clock/elapsed eligibility -> offline batch progress -> capped targets/summary -> platform milestone",
+      "assigned": true,
+      "read": "selected methods/excerpts",
+      "reviewed": true,
+      "integrated": true,
+      "path_gate": "Actual callers, eligibility/cost, committed mutation, result/consumer and one failure or exception are source-traced; nested/variant limits remain explicit in finding.",
+      "owner": "FINDINGS.json"
+    }
+  ],
+  "source_files_with_selected_spans": [
+    {
+      "path": "Assets.Scripts.Gui/Gui.cs",
+      "sha256": "efad0fc9fef4675623cadbad900f2812f89cc1fb23a5f5142e8e7917d7e022bb",
+      "semantic_selected_spans": [
+        [
+          360,
+          450
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "JENBACKJIFC.cs",
+      "sha256": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+      "semantic_selected_spans": [
+        [
+          3945,
+          4070
+        ],
+        [
+          4502,
+          4517
+        ],
+        [
+          7553,
+          7590
+        ],
+        [
+          7818,
+          7838
+        ],
+        [
+          8117,
+          8135
+        ],
+        [
+          9383,
+          9423
+        ],
+        [
+          9438,
+          9457
+        ],
+        [
+          9526,
+          9580
+        ],
+        [
+          9588,
+          9614
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "CGHIMMOIAEG.cs",
+      "sha256": "02ef330d18154d918a2463f7b90253d5b9c9878dcdec45f62cfa9b36fbb486c2",
+      "semantic_selected_spans": [
+        [
+          960,
+          999
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "JPEAGOOGACM.cs",
+      "sha256": "1aa44b48318946ee675421637db90ef2d9c730fdcbab4273579aee04f449aad6",
+      "semantic_selected_spans": [
+        [
+          88,
+          194
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "GJCHKFMAMOI.cs",
+      "sha256": "fdff89126cdbe5f311a4d6aed2d7108a885e300a39cb7ccf0de41e0439158132",
+      "semantic_selected_spans": [
+        [
+          48,
+          67
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "PAEGJEDFFEH.cs",
+      "sha256": "5fb94e77a4f4d67a87531893c5b6d592ebf0e577ab9afdab64769d579c3f9e5a",
+      "semantic_selected_spans": [
+        [
+          138,
+          146
+        ],
+        [
+          299,
+          318
+        ],
+        [
+          477,
+          486
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "PFBFLAJEGBI.cs",
+      "sha256": "5d28327b96ef81d81cd632e10a23e3135142b7b98dc082eadffc2889ef494206",
+      "semantic_selected_spans": [
+        [
+          96,
+          103
+        ],
+        [
+          608,
+          612
+        ],
+        [
+          630,
+          660
+        ],
+        [
+          755,
+          766
+        ],
+        [
+          786,
+          799
+        ],
+        [
+          1637,
+          1685
+        ],
+        [
+          1770,
+          1836
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "NLHFJIOHPDO.cs",
+      "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+      "semantic_selected_spans": [
+        [
+          158,
+          175
+        ],
+        [
+          229,
+          367
+        ],
+        [
+          446,
+          460
+        ],
+        [
+          766,
+          853
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "Assets.Scripts/UpdateStats.cs",
+      "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+      "semantic_selected_spans": [
+        [
+          2035,
+          2047
+        ],
+        [
+          3999,
+          4087
+        ],
+        [
+          4140,
+          4182
+        ],
+        [
+          4400,
+          4403
+        ],
+        [
+          4720,
+          4731
+        ],
+        [
+          4885,
+          4952
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "MAACACACGCC.cs",
+      "sha256": "35e2cb9813f2edb40d8eb07fe5887b67301926297a3b84e16ba6a588abec4373",
+      "semantic_selected_spans": [
+        [
+          5004,
+          5072
+        ],
+        [
+          5209,
+          5254
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "EANFJBBJCEN.cs",
+      "sha256": "b3bdb464a5aa2e8f4bc4c89b250c0facba02117b00a008e4fa2d367ed9f436bf",
+      "semantic_selected_spans": [
+        [
+          95,
+          95
+        ],
+        [
+          164,
+          167
+        ],
+        [
+          363,
+          366
+        ],
+        [
+          704,
+          716
+        ],
+        [
+          753,
+          766
+        ],
+        [
+          885,
+          895
+        ],
+        [
+          945,
+          957
+        ],
+        [
+          998,
+          1013
+        ],
+        [
+          1037,
+          1040
+        ],
+        [
+          1083,
+          1095
+        ],
+        [
+          1132,
+          1135
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "FJHLJJDAFGG.cs",
+      "sha256": "b8cbeaa5602561f0c3d4ebe93d8d859dd6067019f041866fa0c7890eb59b6d13",
+      "semantic_selected_spans": [
+        [
+          7089,
+          7131
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "FFMIPKGAHPK.cs",
+      "sha256": "fb51251ea566b093f919684026ce92d6ec0c3353614cfa9aa71e31d71c62952a",
+      "semantic_selected_spans": [
+        [
+          2108,
+          2152
+        ],
+        [
+          3190,
+          3265
+        ],
+        [
+          3372,
+          3450
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "GKGFKNJACIH.cs",
+      "sha256": "75eb0f2c986a93fbb24938a10cdfd782bbd6a164ef602500ae10d1816dbb793d",
+      "semantic_selected_spans": [
+        [
+          258,
+          307
+        ],
+        [
+          732,
+          747
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "HDNKMPEHPIO.cs",
+      "sha256": "3e54a64ae802dfb291acd4653960a1ebef1bddaa0714ada8b445909885d19b58",
+      "semantic_selected_spans": [
+        [
+          1673,
+          1708
+        ],
+        [
+          2693,
+          2727
+        ],
+        [
+          3314,
+          3350
+        ],
+        [
+          3897,
+          3913
+        ],
+        [
+          3939,
+          4021
+        ],
+        [
+          4065,
+          4114
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "AOGKGBPPCIL.cs",
+      "sha256": "a37cce01341085846da48b20780f5006c62b9e3b1ec7225d7f9eb4a73a5a2974",
+      "semantic_selected_spans": [
+        [
+          56,
+          67
+        ],
+        [
+          167,
+          196
+        ],
+        [
+          717,
+          819
+        ],
+        [
+          868,
+          874
+        ],
+        [
+          886,
+          914
+        ],
+        [
+          1029,
+          1032
+        ],
+        [
+          1040,
+          1050
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "EIEEGDPHEPO.cs",
+      "sha256": "eaca1c0ad0318cdc3a572ccfe0ce7276c1587b65d4996c7400910e6d1e74c245",
+      "semantic_selected_spans": [
+        [
+          4546,
+          4810
+        ],
+        [
+          4880,
+          4950
+        ],
+        [
+          5100,
+          5148
+        ],
+        [
+          5270,
+          5316
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "OHCPKHJMFOO.cs",
+      "sha256": "5709e1e65127395a29cd0eef9ac0a4c2b818bae28217730503670d9bbf924dee",
+      "semantic_selected_spans": [
+        [
+          760,
+          771
+        ],
+        [
+          2740,
+          2753
+        ],
+        [
+          2828,
+          2852
+        ],
+        [
+          2918,
+          2938
+        ],
+        [
+          2972,
+          2998
+        ],
+        [
+          3198,
+          3216
+        ],
+        [
+          4411,
+          4415
+        ],
+        [
+          5704,
+          5712
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "HJDMNBANOMG.cs",
+      "sha256": "6f7a6680a2befad3e6f40047a98516bccf295b6750616ab201060e5ba9997452",
+      "semantic_selected_spans": [
+        [
+          241,
+          285
+        ],
+        [
+          384,
+          448
+        ],
+        [
+          1113,
+          1128
+        ],
+        [
+          1438,
+          1454
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "PABFNHJDKAD.cs",
+      "sha256": "c1327c93c3b9e9fb9c642f379e315697b006cff719d652a8183afc7e0443501a",
+      "semantic_selected_spans": [
+        [
+          4871,
+          4877
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "MLNFJDJIDDA.cs",
+      "sha256": "c9b92f244234516e02cd92b7bc65fcafcb456a9079b9fb8d13be687d7b9e810c",
+      "semantic_selected_spans": [
+        [
+          1323,
+          1337
+        ],
+        [
+          1597,
+          1627
+        ],
+        [
+          1850,
+          1853
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "OHKFICBLBFN.cs",
+      "sha256": "90cb5abcc998a388ed6b95ff163205899f2a5b573c4b7fffa635e9766eaa28ae",
+      "semantic_selected_spans": [
+        [
+          1850,
+          1887
+        ],
+        [
+          1924,
+          1945
+        ],
+        [
+          2010,
+          2040
+        ],
+        [
+          4279,
+          4343
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "KHGFPLLPDFD.cs",
+      "sha256": "3a86c54d1887a5a9aa1850cd4816a62347d1bc49b7664735058b8ac00015d793",
+      "semantic_selected_spans": [
+        [
+          263,
+          319
+        ],
+        [
+          1018,
+          1029
+        ],
+        [
+          1260,
+          1312
+        ],
+        [
+          1539,
+          1558
+        ],
+        [
+          2272,
+          2310
+        ],
+        [
+          2563,
+          2574
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "OHPMBFGGLLM.cs",
+      "sha256": "a933cc1d9dfd8568370ab19d38f531bcae67647be172edff1dcbd0f2f4831bea",
+      "semantic_selected_spans": [
+        [
+          2632,
+          2740
+        ],
+        [
+          4010,
+          4028
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "Assets.Scripts.Helper/OfflineCalc.cs",
+      "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+      "semantic_selected_spans": [
+        [
+          856,
+          977
+        ],
+        [
+          1318,
+          1377
+        ],
+        [
+          14759,
+          14814
+        ],
+        [
+          17214,
+          17253
+        ],
+        [
+          23453,
+          23672
+        ]
+      ],
+      "whole_file_read": false
+    },
+    {
+      "path": "Assets.Scripts.Helper/SteamHelper.cs",
+      "sha256": "d5a01759b156c7646250ab25ebef8efdb1c0f9f9e1f84f7750bace72b3f006c0",
+      "semantic_selected_spans": [
+        [
+          1434,
+          1503
+        ],
+        [
+          1948,
+          1956
+        ]
+      ],
+      "whole_file_read": false
+    }
+  ],
+  "reader_review": [
+    {
+      "agent": "/root/creation_reader",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "state": "completed/released",
+      "note": "CREATION_FINDINGS.json",
+      "review": "First partial trace and allocation/cost confusion repaired. Parent then distinguished base construction from upgrade and replaced duplicate initializer evidence; final ITR-02 governs."
+    },
+    {
+      "agent": "/root/rebirth_reader",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "state": "completed/released",
+      "note": "REBIRTH_FINDINGS.json",
+      "review": "One focused repair added NTC evidence. Root completed actual UI, eligibility, symbolic four-base multiplier, committed completion and reward consumer in ITR-03. Partial extraction is not the final coverage claim."
+    },
+    {
+      "agent": "/root/pet_reader",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium",
+      "state": "completed/released",
+      "note": "PET_FINDINGS.json",
+      "review": "Focused repair added actual mutation/cleanup. Parent replaced wrong duplicate completion renderer with KCMHIOFHCED and distinguished default completed claim from qualified early-finish flag."
+    }
+  ],
+  "qualification": "Luna was useful for bounded extraction with review, not accepted as an unchecked full-chain verifier. Root retained configured settings and integrated verified original caller paths. Search-only decoy hits were excluded from final claims.",
+  "unread_or_unperformed": [
+    "Whole exported assembly semantic review, all late-game creation/monument/automation paths and complete achievement catalogue.",
+    "Full challenge catalogue, Hard/Root variants, nested multiplier/statistics factors and exhaustive account carryover.",
+    "Dungeon combat, equipment crafting/evolution, non-Growth campaigns and all pet-special-case modifiers.",
+    "Steam/server content, network time acquisition/result reliability, managed dependency implementations and serialized Unity assets.",
+    "Recovered C# compilation, game launch, playthrough, balance/performance/exploit acceptance and save-failure atomicity.",
+    "YAIR gameplay, build, unit/browser/save/reload/failure/keyboard/regression/director gates."
+  ],
+  "privacy_and_writer_limits": "No player profiles/saves, game launch, raw exports in Git, runtime/canonical/other-lane edits, commits, publication or automation.",
+  "yair_input_snapshot": "YAIR_AUDIT.json",
+  "later_playable_gates": "IMPLEMENTATION_PACKETS.md"
+}

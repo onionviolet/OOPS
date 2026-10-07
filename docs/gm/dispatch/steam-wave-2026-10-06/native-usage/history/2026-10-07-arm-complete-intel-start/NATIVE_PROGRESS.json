@@ -1,0 +1,42 @@
+{
+  "observed_utc": "2026-10-07T06:50:20.929469+00:00",
+  "scope": "Root read-only acceptance/progress snapshot; native writer owns live corpus/checkpoint",
+  "active_goal": "full both architecture export+repair, consequential native/DLC review and concrete original use",
+  "previous_goal_turn": "progress: streamed8952\u219247052, exactpackedDB preservation and latest370-source retort build acquisition",
+  "live_process_last_verified": {
+    "pid": 11884,
+    "elapsed": "11:39",
+    "state": "liveJava; not restarted"
+  },
+  "private_progress": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/progress.json",
+  "observed_export_progress": {
+    "schema": 1,
+    "architecture": "arm64",
+    "mode": "full",
+    "disk_floor_bytes": 536870912,
+    "pipeline_script_sha256": "27c4b74bda0ce96583afc6e4fb32eb1707e51f75b09dbe7fdd2cdff5e49e65c6",
+    "state": "running",
+    "started_at": "2026-10-07T06:35:37.102846Z",
+    "updated_at": "2026-10-07T06:50:20.847765Z",
+    "pid": 11884,
+    "planned_nonexternal": 183199,
+    "retained_unique_entries": 87252,
+    "this_run_written": 78300,
+    "this_run_success": 78295,
+    "this_run_failed": 5,
+    "last_closed_chunk": 877,
+    "free_bytes": 1991520256,
+    "this_run_status_counts": {
+      "decompiler-failure": 4,
+      "success": 78295,
+      "timeout": 1
+    }
+  },
+  "root_failed_record_audit": "Five latest immutablechunk records read:1largefmaintimeout,2tinySplitterbackenddeaths,1Bitmapuniquevarnodehash,1Debugforcedmerge. Errors/instructions/bytes/bothattempts preserved; meaningfulchangedrepairpending.",
+  "primary_backend_error_sources": [
+    "Ghidra12.1.4 merge.cc315 forcedvarnodemergeintersection",
+    "Ghidra12.1.4 funcdata_varnode.cc1328 dynamicuniquesymbolhashzero"
+  ],
+  "native_stage": "healthywholeARMstream14719; do notduplicate. Archives/packedsemanticreopen/ABI/failedretry thenx86remain.",
+  "usage": "e77080593d4b/370-source build acquired; exactretort retained, implemented-unverified; gameplay/save/browser acceptance deferred"
+}

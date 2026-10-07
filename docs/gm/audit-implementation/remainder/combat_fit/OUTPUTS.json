@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T19:46:53.096881+00:00",
+  "hashAlgorithm": "sha256",
+  "hashes": {
+    "src/audit_remainder_combat_fit_content.js": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+    "src/audit_remainder_combat_fit_facts.js": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+    "src/audit_remainder_combat_fit_hooks.js": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+    "src/audit_remainder_combat_fit_host.js": "f308e3303b991bfe972aa6adc04173cf7e5a3d1ab17df9e5a5589937ebb2e462",
+    "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md": "e77b72d9c79058f721b49dfed3bc1220ccdf926c0983d3d6b86ad6e6af2babee",
+    "docs/gm/audit-implementation/remainder/combat_fit/CHECKPOINT.md": "74e3dd5f78b6bde9be9333a592bae5e03b34dcd9a7aeb0df32e8551d949eae61",
+    "docs/gm/audit-implementation/remainder/combat_fit/COVERAGE.json": "2f7940fb1fa64370ff8f97c7d6f4d31c1fecd3f9bcc152a4726da9b81f35d67e",
+    "docs/gm/audit-implementation/remainder/combat_fit/INPUTS.json": "c0d9de24e1a0ea856cb68b6b5dc1d3d09b9380d28b218fe2dbda1107a35d922a",
+    "docs/gm/audit-implementation/remainder/combat_fit/CHECKS.json": "2871e9922adbd243553ed0adebd78557f5e44897ef94f735bbabaf9309e96ba1"
+  },
+  "excludedSelfReferentialRecords": [
+    "OUTPUTS.json",
+    "RELEASE.json"
+  ]
+}

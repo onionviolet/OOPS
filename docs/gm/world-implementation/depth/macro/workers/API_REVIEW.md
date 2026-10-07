@@ -1,0 +1,22 @@
+# Parent macro report API and contract review
+
+Read-only review of `SYSTEM_GRAPH.md`, `WORLD_LOOP_MATRIX.md`, `ENGINE_REQUIREMENTS.md` and `REPORT.md` against the live exported APIs inspected for `API_SUPPORT.md`, as of 2026-10-04. This checks claims, ownership, timing/reset distinctions, assignment coverage and local links. It does not verify gameplay or source canon beyond the cited source limits.
+
+## Findings
+
+| Result | Finding |
+|---|---|
+| Correct after local repair | `createSimulationState` belongs to `simulation_contracts.js`; `createSimulationRegistry` is re-exported by `simulation.js`. `validateSimulationEffect` is exported by `simulation_contracts.js`, imported privately by `simulation_effects.js`, and is **not** exported by `simulation_effects.js`. The API support note now cites the defining/exporting module. |
+| Correct | Native `reputation` is a typed effect and routes through the existing gameplay effect owner. The reports acknowledge regional reputation while keeping faction affiliation, institutions and legal rights separate. No second generic reputation owner is justified. |
+| Correct | Energy exposes explicit `learn`, `recover`, `use` and `refund`; `energyCharge` calculates use cost but is not an effect operation. The note now says recovery is explicit and passive recovery is absent. No organ-host coupling follows from energy records. |
+| Correct | Generic campaign transitions validate and preview authored `reset`/`retain` lists at a guarded safe boundary, then apply named reset categories. The reports correctly treat this as useful support, not whole-world historical restoration, distinct clock domains, complete retained-carrier policy or branch reseeding. |
+| Correct | World instance schema 1 binds region/layer/site IDs and scalar facts, records authorized visits, and advances elapsed played time over occupied visit intervals with freeze during absence. It does not provide geography/route topology, resources, passage permission or generic offline time. Realm clock leases add their own specialized support. |
+| Correct | Simulation commands, actor/item/resource/relationship/source/faculty/power/situation effects, jobs, pursuits, events and deterministic weighted outcomes support authored slices. The graph and requirements identify harvesting, ecology, tactical reach/fronts, institutions, organ-host behavior and loop restore as proposed adapters rather than current APIs. |
+| Covered after parent update | The five required cases exist (Frontier, Naruto, Gu/cultivation, Fallout/production, MoL/time-loop), with three routes each, refusal/delay and later consequences. Frontier now names the existing earned Frame listener and paid paired-device view as its exceptional observation function, explicitly noting browser/save evidence is unverified. The separate Paradise hub is additive. |
+| Pending final document capture | `SYSTEM_GRAPH.md` and `REPORT.md` link to `macro/EVIDENCE.json`, which was absent during this review. Other local Markdown file targets resolved. Create the referenced evidence file before treating the parent report set as link-complete, or remove those links and claims if evidence will not be captured. |
+
+## Static checks and scope
+
+Checked source definitions/imports/re-exports for every named API in `API_SUPPORT.md`, including the `simulation_contracts.js` ownership correction. Checked relative file targets in the four parent reports; `EVIDENCE.json` was the only missing target. No stale `:line` suffixes or incorrect six-level source-link depths were found in the repaired support note. The plan's required regions/zone families, resource-to-use/base loops, social and optional romance boundary, organs/host limits, local/outside/loop timelines, encounter population/cause/range concepts, source/world qualification, nineteen-world roster routing and refusal/aftermath cases are represented. Full campaign completion and source reading remain explicitly separate.
+
+No other concrete API owner, clock, reset/retain, invent-an-export or assignment-gate mismatch was found in this bounded pass. Relative-anchor resolution was not needed to assess the API contracts. No code, source, save, global document or parent report was edited; no tests, imports, build or gameplay checks were run. The only additional write was this review note; the separate API support note received the narrow export-owner correction requested during review.

@@ -1,0 +1,29 @@
+# Game findings: bounded semantic qualification
+
+Date: 2026-10-07. This qualifies GD-01, its distinct GD-02 follow-on, and the finite five-row discovery queue plus the linked ACS deeper-game owner. It does not reopen game reading or select every game for implementation. Machine-readable evidence and locators are in [game-findings.json](game-findings.json).
+
+## GD-01: actual shared integration, matching audit build e77080593d4b delivered
+
+Brogue CE pin `104a20fedbe7d9360d2dfc8ff665571694212ad8` supports the narrow mechanism: unique-kind elimination with qualifying evidence (BRC-E05, `Items.c:5844-5927`), shared kind-table identification (BRC-E06, `5931-5994`), a harmless splash with an evidence-qualified hallucination exception (BRC-E09, `6202-6273`), and target/refusal then spend ordering (BRC-E07, `6294-6357`; BRC-E08, `6368-6392`). The original YAIR addition is a durable negative test plus independently acquired reed-oil control that supports a later deduction. The Eda consignment, prices, items, kit loop and durable later comparison are original proposals, not Brogue parity.
+
+Four source leaves provide ten commands and two item specifications. Root acquired the explicit current shared release, refreshed all nine moving patch inputs and applied actual registration/facts/scheduler/body/validator/publisher/native-inventory/item-display/Notebook/cancellation bindings. Independent static review found no remaining decisive assay join defect. Matching audit rebuild e77080593d4b is delivered, implemented-unverified; gameplay and generated-save acceptance remain deferred. Exact acquired and repaired inputs are in [ACQUISITION](../ACQUISITION.json), [repair receipt](../ASSAY_REPAIR.json) and [registry readback](../REGISTRY_READBACK.json). Earlier unapplied/hash-drift observations are preserved in role history rather than current blockers.
+
+I found no confirmed code defect in the bounded read-only review. The old patch needs reconciliation because its inputs drift, but that is a stale-patch/ownership condition, not evidence of a bug. Actual command completion, native inventory projection and load validation remain unexecuted acceptance. The previous source review did find and repair fresh-acquisition accounting for returned Empty bench vials via `reservationReturn:true`.
+
+The exact later gate is the five groups in [the owner backlog](../../game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md): evidence orders and choices; real finite stock and kit aftermath; cancellation/lost support/durable publication; generated save/reload/import continuity; and rebuilt privacy/keyboard UI plus director review. All remain deferred and unrun.
+
+## Separate source-ready follow-on
+
+GD-02 is Shattered Pixel Dungeon 4.0.1 at pin `e9defd0444c96d2fce3de5ec297c3398be8b7c55`. Its finite trace ties seed-to-potion and conversion (SPD-E03, `Potion.java:468-565`; SPD-E04, `ExoticPotion.java:125-154`), rain's retained ground/trap mutation (SPD-E08, `Level.java:1116-1149`), temporary cloud expiry (SPD-E07, `StormCloud.java:31-59`) and wet-target lightning reach/self-risk (SPD-E09, `WandOfLightning.java:62-103,143-198`). The proposed culvert, native focus trade, retained water/trap, charge interaction and finite cache kit are original adaptations. No leaf/native/UI/state/build delivery exists. The precise missing consumer is persistent substrate/hazard state connected to crossing, charged action, actual risk and actual cache custody. This source-ready packet remains intentionally unselected: its distinct persistent substrate/hazard/custody feature needs a separately chosen typed state and consumer scope. Delivering GD-01 does not select it automatically.
+
+## Finite deeper queue
+
+The discovery checkpoint retains five distinct source questions, all parked/unassigned and `sourceReady:false`: Brogue origin-qualified key/machine custody and access (GD-D01); Brogue status/body/terrain ordering and late protections (GD-D02); Shattered toolkit energy/recycling and competing alchemy outputs (GD-D03); Shattered blacksmith admission and committed equipment changes (GD-D04); and Sil-Q learned/maintained song wards through resistance, removal and passage (GD-D05). Their queue rows name pins and coverage owners, but the exact new spans remain unread. Those are named source dependencies, not implementation blockers for GD-01, and no packet/reader was dispatched here.
+
+The linked ACS deeper owner separately retains five research paths (ascension routes; formations/fengshui; tribulation/artifact use; alchemy/ecology/material chains; institutions/people/exploration), plus narrow Wudang progression and Bamboo fishing DLC traces. It explicitly distinguishes those source-backed examples from open paths and from its small selected implementation subset. Keep that owner linked; no duplicate ACS ledger or claim of full-game/DLC coverage is made here.
+
+The audit intake's 2,374-path manifest remains metadata for most entries. This review used its selective game-discovery entries and opened the listed semantic owner files above. It did not promote family names, path counts or pins into coverage.
+
+## Files actually read
+
+The exact path list is preserved in `game-findings.json`. Key inputs were project instructions and current direction; audit assignment/checkpoint/intake plus selected manifest entries; GD-01 checkpoint, contract, queue, delivery, integration patch/interface, input hashes, source evidence, build and acceptance backlog; all four GD-01 leaf modules; discovery checkpoint, source-ready packets, both pinned source traces and deeper queue; and the linked ACS deeper research/checkpoint. I also checked current `src/simulation.js` reservation/completion code and compared all nine shared input hashes read-only. No tests, gameplay, browser, save, build, shared-file edits or owner messages were performed.

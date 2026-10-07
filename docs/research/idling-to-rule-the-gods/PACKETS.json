@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "ranked_packets": [
+    {
+      "id": "ITR-P1",
+      "rank": 1,
+      "title": "Let Lio choose one funded work shift or a contest",
+      "status": "original proposal, not selected or implemented",
+      "source_findings": [
+        "ITR-01",
+        "ITR-04"
+      ],
+      "player_action": "After meeting Lio, offer one bounded Village packing shift, or keep him free for the existing party contest. He can decline; the player can use ordinary personal packing instead.",
+      "outcome": "Lio independently turns two supplied logs into two real survey kits, receives the offered wage, and keeps his own spent stamina. While his job is active, existing party admission refuses him.",
+      "choices_and_competing_uses": [
+        "Spend two logs and two coins on the shift, or retain them for personal crafting/facility work.",
+        "Let Lio work while the player trains, or invite his current guarding function to a contest. No parallel work and combat by the same actor."
+      ],
+      "provisional_prerequisites_costs": "Current field membership, live willing Lio in Village, owned unencumbered harness/kit, usable body and sufficient stamina. Proposal: player transfers two logs and offers two coins; Lio reserves two logs, four played minutes and two of his own stamina. His reusable harness is retained. These numbers and names are reversible.",
+      "current_owner_reuse": [
+        {
+          "path": "src/party_content.js",
+          "symbols": [
+            "partyDefinitions"
+          ],
+          "use": "Existing person, own stock, health, stamina and consent."
+        },
+        {
+          "path": "src/party_battle.js",
+          "symbols": [
+            "partyHelperReasons"
+          ],
+          "use": "Already refuses admission when Lio is committed to other work."
+        },
+        {
+          "path": "src/feature_expansion_society.js",
+          "symbols": [
+            "societyDefinitions.controllers"
+          ],
+          "use": "Existing finite funded independent resident-controller pattern."
+        },
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "completeJob",
+            "cancelSimulationJob"
+          ],
+          "use": "Paid job, occupation, support recheck and reservation refund."
+        },
+        {
+          "path": "src/main.js",
+          "symbols": [
+            "persistExpansion"
+          ],
+          "use": "Sole durable publisher."
+        }
+      ],
+      "actual_missing_consumer": "One authored offer/own decision and independent Lio packing job/controller plus a visible status. Generic workforce counters, another queue and multi-actor player work-plan schema are unnecessary. Instant offer is distinct from the later independent worker job, so it does not occupy the player for the entire shift.",
+      "aftermath": "Actual kits enter the agreed owner inventory once, wage enters Lio purse at successful settlement, and job ends occupation. On lost support/cancellation return reserved materials under disclosed terms; no phantom pay/output. Recovery stays the existing paid rest route.",
+      "save_retention": "New opt-in command/actor fact IDs and optional controller state require an explicit supported-version decision. Old absent state stays inert. Existing frozen jobs keep their revision. Work facts, wages and output stay with their owners through the existing field renewal unless its owner explicitly specifies otherwise. No second prestige.",
+      "cost": "Low to medium: content, one independent controller and existing party consumer join. No new scheduler.",
+      "later_playable_gate": [
+        "Offer and accept the shift; player starts personal practice while Lio actually works.",
+        "During the job, party admission explains his real occupation; refusal/pause does not award kits or pay.",
+        "Complete once, inspect owned kits and wage, then generate-save/reload without replay; cancel or lose support and inspect exact refunds.",
+        "Build changed source and later verify visible controls, keyboard use and director acceptance under the current deferred-check policy."
+      ]
+    },
+    {
+      "id": "ITR-P2",
+      "rank": 2,
+      "title": "Build a clamping frame that opens an ordinary resin route",
+      "status": "original proposal, not selected or implemented",
+      "source_findings": [
+        "ITR-02"
+      ],
+      "player_action": "At the earned field workshop, spend actual wood, a rope and coins to construct a clamping frame, then bind kits through a slower ordinary route. Keep the existing cooling sleeve route as the faster portable alternative.",
+      "outcome": "The fixture enables a concrete sap-setting and kit recipe without consuming a sleeve charge. It changes production eligibility and material use instead of adding a global stat multiplier.",
+      "choices_and_competing_uses": [
+        "Use scarce logs/rope for the fixture or deliver them through existing supply/ordinary projects.",
+        "Invest in a stationary slower recipe, or keep using sleeve, salt and portable measured cooling. No automatic free stock replenishment."
+      ],
+      "provisional_prerequisites_costs": "Earned workshop, known ordinary joining and usable hands at Shack. Proposal: two logs, one actual survey rope, three coins and five played minutes build one frame. Its repeatable ordinary job consumes one sap, two sound staves, two stamina and six played minutes to produce two existing survey kits. Validate access to sap/staves against live material owners before choosing these exact IDs; replace with obtainable native equivalents if needed.",
+      "current_owner_reuse": [
+        {
+          "path": "src/site_projects.js",
+          "symbols": [
+            "compileSiteProject"
+          ],
+          "use": "Funded finite fixture phase and one completion fact."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "symbols": [
+            "fieldProject",
+            "fieldDefinitions"
+          ],
+          "use": "Earned site and workshop access, real project phases."
+        },
+        {
+          "path": "src/reference_gameplay_content.js",
+          "symbols": [
+            "referenceGameplayDefinitions"
+          ],
+          "use": "Current sap/staves/resin/native-kit loop and competing conserved sleeve/charge route."
+        },
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "completeJob"
+          ],
+          "use": "Actual inventory reservation and supported outcome settlement."
+        },
+        {
+          "path": "src/main.js",
+          "symbols": [
+            "persistExpansion"
+          ],
+          "use": "Same durable state/item publication."
+        }
+      ],
+      "actual_missing_consumer": "One optional fixture fact used by an actual alternate kit-production command. Facility infrastructure and material transformations already exist; no generic monument tree or global production multiplier is missing.",
+      "aftermath": "Built frame remains in the earned workshop. New job spends agreed raw stock and produces existing useful kits; recipes and stock are not duplicated. Cancellation refunds paid unfinished work under the existing job contract. Neither inspecting nor revisiting builds the frame or replenishes supplies.",
+      "save_retention": "Add inert optional fixture state/content revision only on explicit start; declare minimum supported reader and preserve earlier jobs. Frame, known recipe and real stock survive field renewal by the same existing retained-workshop rule. No forced reset, realm or prestige change.",
+      "cost": "Low to medium: two content jobs and one actual eligibility consumer; costs/access need director review.",
+      "later_playable_gate": [
+        "Build once using obtainable inputs and verify the new command appears only after actual completion.",
+        "Use ordinary fixture route and cooling route, compare real materials/time, and use the resulting native kits in the existing supply or field consumer.",
+        "Generated-save/reload while construction/production is pending and after completion; shortage, cancellation and failed durable save must grant no duplicate frame/output.",
+        "Rebuild and later verify UI choices and director acceptance; those checks are currently deferred."
+      ]
+    },
+    {
+      "id": "ITR-P3",
+      "rank": 3,
+      "title": "Offer one ordinary-craft supply attempt",
+      "status": "original proposal, not selected or implemented",
+      "source_findings": [
+        "ITR-03",
+        "ITR-05"
+      ],
+      "player_action": "Explicitly enroll before a single association supply attempt and deliver three actual kits without executing the declared powered packing commands during that attempt. Ordinary personal crafting, buying and the proposed fixture remain legal.",
+      "outcome": "One retained recognition receipt for an actual completed supply commission, with completed/violated/withdrawn statuses. Native adventure and previously learned powers remain intact.",
+      "choices_and_competing_uses": [
+        "Choose slower ordinary material work or legal purchase to satisfy the local terms.",
+        "Decline/withdraw and use existing powered packing for the ordinary commission; no penalty to native progression and no repeated payment."
+      ],
+      "provisional_prerequisites_costs": "Known still-uncompleted field supply commission. Explicit bounded attempt after hearing terms; normal kit costs, stamina, money and job times apply. Proposal allows at most three attempts and one recognition, with no extra currency reward. Terms prohibit only a published finite set of relevant powered packing command IDs committed after enrollment; no retroactive judgment or hidden global pacifism.",
+      "current_owner_reuse": [
+        {
+          "path": "src/reference_gameplay_state.js",
+          "symbols": [
+            "advanceReferenceGameplay",
+            "referenceControlPresentation"
+          ],
+          "use": "Existing pre-enrolled finite conduct/prepared attempts and actual-result advancement."
+        },
+        {
+          "path": "src/reference_gameplay_feats.js",
+          "symbols": [
+            "advanceReferenceFeats"
+          ],
+          "use": "Qualified committed recognition, distinct from previews."
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "symbols": [
+            "campaignDefinitions",
+            "previewFieldRenewal",
+            "commitFieldRenewal"
+          ],
+          "use": "Existing one-off supply commission and retained-field renewal scope."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "symbols": [
+            "fieldDefinitions"
+          ],
+          "use": "Concrete legal and forbidden packing consumers."
+        },
+        {
+          "path": "src/main.js",
+          "symbols": [
+            "persistExpansion"
+          ],
+          "use": "Single commit attribution and save publication."
+        }
+      ],
+      "actual_missing_consumer": "A scoped supply attempt and violation hook over a finite command set, not another general challenge/achievement engine. Existing attempt schema is hardcoded for passage kinds, so extending it requires a versioned optional record and exact new-kind validator, not silent reuse of incompatible fields.",
+      "aftermath": "Only actual supply delivery after valid enrollment records completion once. A forbidden committed command violates; a preview, unavailable command or failed save does not. Withdrawal and ordinary paid commission results remain separate. Recognition survives the existing renewal, with no new multiplier economy.",
+      "save_retention": "New optional attempt record/version stays absent for old characters and requires explicit enrollment. Existing conduct/prepared histories stay readable. No reconstruction of old powered actions, no reset of skills or items, no additional prestige.",
+      "cost": "Medium: new local attempt scope, finite attribution set, version compatibility and clear terms. Rank lower until P1/P2 supply meaningful additional routes.",
+      "later_playable_gate": [
+        "Read terms and enroll; preview forbidden work without violation, then commit it and observe violation.",
+        "On a fresh generated attempt, deliver legal actual kits and see one recognition alongside the existing ordinary payment.",
+        "Withdraw/reload/retry and verify no replayed award; preserve older passage-attempt records and field-renewal retention.",
+        "Later failure/keyboard/browser/director checks remain deferred; source/build checks cannot establish conduct correctness."
+      ]
+    }
+  ],
+  "selection": "Three original candidate packets only. This research does not authorize implementation or rank them as accepted design.",
+  "global_constraints": [
+    "Refresh YAIR_AUDIT.json affected moving inputs before code edits.",
+    "Preserve vanilla, current one realm/one prestige milestone, private saves and upstream attribution.",
+    "Use common clock/paid job/item owners and sole durable publisher.",
+    "Gameplay/save/browser/failure/regression/director gates remain deferred and unrun."
+  ],
+  "discarded_or_covered": [
+    "Generic achievements and local conduct already exist from reviewed DCSS/DDA/Qud delivery.",
+    "Function-target automation and finite itineraries already exist.",
+    "Known news/report and field-renewal previews already exist.",
+    "Global offline catch-up is not selected; current world absence freezes.",
+    "No ITRTG fiction, raw code, assets, multiplicative scales, monetization or repeated prestige imported."
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "capturedAtUTC": "2026-10-06T19:58:13.756354+00:00",
+  "owner": "01a112b9-410a-7da2-9182-392141662439",
+  "qualification": "Dirty moving source snapshot, no matching built release/gameplay proof. Recheck affected files and actual shared writer before implementation.",
+  "nativeFiles": {
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/simulation_contracts.js": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836",
+    "src/simulation_effects.js": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+    "src/simulation.js": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/main.js": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8",
+    "src/nethack_fieldcraft_content.js": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+    "src/nethack_fieldcraft_host.js": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03",
+    "src/nethack_fieldcraft_item_view.js": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015",
+    "src/repository_absorption_content.js": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+    "src/feature_expansion_battle.js": "4db65ddc9b94f0938f4e8295c1ae0b8d735f937382d9f062e27f87223adfe98b",
+    "src/feature_expansion_battle_host.js": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+    "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+    "src/audit_remainder_livelihood_content.js": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+    "src/adventure_notebook.js": "d483a7d5ebe4dda2f719c70dae8e092d95a1a54852bbca998933f3ca65fe86a8"
+  },
+  "authorityFiles": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "b8cb47acdf95d2b1d036a3a819b728e6b204d25a5ba66fb5993bfb8099ec8e78",
+    "docs/gm/dispatch/game-discovery-and-absorption-2026-10-06/ASSIGNMENT.md": "2ebce21fcb0f16b34adae55c3f036cfa001ab5efa484c0bd52821c49a4d54e4d",
+    "docs/gm/dispatch/game-discovery-and-absorption-2026-10-06/INPUTS.json": "cd019a6051bcd7dffba133f9733ff70a8926bd2d5bb88bf18dc0d27894e921bc",
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": "e4aa57bac67c9be5cf2d23f5c1335bbb2084cd3975cc27fdbe91fdcf1b1c1bcd"
+  },
+  "reusedResearch": {
+    "docs/NICHE_GAME_REFERENCES.md": "113ee5c9de664240136f19c0cea2092977efa64b675035fc19cc13a973ae3e9b",
+    "docs/RESEARCH_IDLE_GAMES.md": "2bd63f3aad5f77f2e735ad2fce93a636cf0cae068dd2919890347308646259c6",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/COVERAGE.json": "80b470c1af4ba18491bcbae70593efee5625fcdee921606a618c48dd15f06e5c",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md": "03646681cd6820619cd03b958ca58a3f77b89ce41af53f3a09e7831a4b5ccef4",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/ABSORPTION_PACKETS.md": "27b0cd55cede2982571bdc4102d8f6454513929269bf7d86d92e57e179ce40f6",
+    "docs/research/caves-of-qud/REPORT.md": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+    "docs/research/rimworld/REPORT.md": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+    "docs/research/idling-to-rule-the-gods/REPORT.md": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+    "docs/research/tales-of-maj-eyal/REPORT.md": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+    "docs/research/elin/REPORT.md": "eb0520ad82014a2eac6bd151dcddaadb11f9a2dbcbf857a393514a6ab1d9e56e",
+    "docs/research/rogue-legacy/REPORT.md": "5308717b7cbcd66310665e7a263c5e1d4d1ecbb9273dba2c36ed478ceb17ba7f",
+    "docs/research/keeperrl/REPORT.md": "00e3b232af375474b7ee1f3ac9f909ef9bf378c8f02b62b05719ee6eb7eb7d67",
+    "docs/research/dcss-dda-depth/REPORT.md": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+    "docs/research/nethack/REPORT.md": "512a27df406ff0237f98462f698dc182b62954047c2f9c058137a5cb559e5742"
+  },
+  "sharedIntegrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd; observed reserved via current assignment/checkpoint, no release assumed",
+  "researchWriterScopes": {
+    "root": "this directory",
+    "brogue": "source-traces/BROGUE.md +BROGUE.json; completed/released",
+    "shattered": "source-traces/SHATTERED.md +SHATTERED.json; completed/released"
+  },
+  "remotes": {
+    "origin": "https://github.com/onionviolet/yet-another-idle-rpg.git",
+    "upstream": "https://github.com/miktaew/yet-another-idle-rpg.git"
+  },
+  "leafCaptureDrift": [
+    {
+      "leaf": "BROGUE",
+      "path": "src/simulation.js",
+      "recorded": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373",
+      "current": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "BROGUE",
+      "path": "src/simulation.js",
+      "recorded": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373",
+      "current": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "BROGUE",
+      "path": "src/main.js",
+      "recorded": "3e6b716ba16abb4442e99223ad92fecbaa68dd18e7a1a6f4ece8611038b0bc84",
+      "current": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "SHATTERED",
+      "path": "src/feature_expansion_battle.js",
+      "recorded": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "current": "4db65ddc9b94f0938f4e8295c1ae0b8d735f937382d9f062e27f87223adfe98b",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    }
+  ],
+  "integratorLiveStatus": {
+    "observedAtUTC": "2026-10-06T20:00:35.604917+00:00",
+    "tool": "wait_threads immediate read-only snapshot",
+    "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "status": "active",
+    "latestTurnStatus": "inProgress",
+    "cursor": "6fcf131b-0ff9-4279-a401-e08c1ba43667:5",
+    "qualification": "Active implementation/source writer confirmed; no shared ownership release observed. No external prompt sent."
+  }
+}

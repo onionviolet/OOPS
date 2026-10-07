@@ -1,0 +1,1456 @@
+{
+  "candidate_id": "ensemble",
+  "name": "Ensemble",
+  "as_of": "2026-10-06",
+  "decision": "adapt",
+  "decision_status": "research-recommendation-not-accepted",
+  "reason": "Take the authored intent/response split and explainable influence-rule idea. Existing YAIRPG handles directed state, legal actions, funding, clock and durable publication. A dependency would duplicate these owners while still requiring private knowledge, consent, seed and atomicity adapters.",
+  "strongest_gap": "An authored social bid, independent recipient stance and knowledge-visible outcome consumer, using the already implemented directed axes/causes/controllers/Ink.",
+  "source_pin": {
+    "remote": "https://github.com/ensemble-engine/ensemble.git",
+    "sha": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+    "head_date": "2019-12-17T14:05:29-08:00",
+    "default_branch": "master",
+    "archived": false,
+    "pushed_at": "2022-11-10T16:59:51Z",
+    "package_version": "1.1.1"
+  },
+  "wiki_pin": {
+    "remote": "https://github.com/ensemble-engine/ensemble.wiki.git",
+    "sha": "c22855c3374064afdb7866481634d497337ea748"
+  },
+  "latest_official_release": {
+    "tag_name": "v1.1.0",
+    "published_at": "2019-12-01T00:39:49Z",
+    "html_url": "https://github.com/ensemble-engine/ensemble/releases/tag/v1.1.0",
+    "target_commitish": "master"
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "status": "source-demonstrated",
+      "claim": "Directed scalar closeness/attraction default to0, clamp0–100; temporary moods last3 turns and event labels last only the current turn.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/data/schema.json",
+      "lines": [
+        4,
+        56
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/data/schema.json#L4-L56",
+      "input_sha256": "a8e0d5e7486676b993326cb09b58fc7845e43ac17c7cf62ae760fad17e29a335"
+    },
+    {
+      "id": "E02",
+      "status": "source-demonstrated",
+      "claim": "Rule bindings are enumerated against a shared social record; matched intent weights accumulate and retain rule explanations.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/RuleLibrary.js",
+      "lines": [
+        625,
+        710
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/RuleLibrary.js#L625-L710",
+      "input_sha256": "27ad972d1efe09244f0788cb02b2e9b16dd3eaee79ace46edf8645e6dd21024b"
+    },
+    {
+      "id": "E03",
+      "status": "source-demonstrated",
+      "claim": "Acceptance reads the reverse actor pair for the same category/type/intent, rejects negative weight, and accepts by default if no reverse match exists.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/Volition.js",
+      "lines": [
+        111,
+        139
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/Volition.js#L111-L139",
+      "input_sha256": "a831a825352ec441b6a0d281b3c7638a155ab76292bb6daf8703992a526b46df"
+    },
+    {
+      "id": "E04",
+      "status": "source-demonstrated",
+      "claim": "Action traversal checks condition bindings and accept/reject polarity, computes influence, and excludes negative-scoring terminals.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ActionLibrary.js",
+      "lines": [
+        322,
+        377
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ActionLibrary.js#L322-L377",
+      "input_sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838"
+    },
+    {
+      "id": "E05",
+      "status": "source-demonstrated",
+      "claim": "getActions takes intent scores and computed reverse acceptance, then sorts and binds terminals.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ActionLibrary.js",
+      "lines": [
+        956,
+        1014
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ActionLibrary.js#L956-L1014",
+      "input_sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838"
+    },
+    {
+      "id": "E06",
+      "status": "source-demonstrated",
+      "claim": "doAction directly applies the returned bound effects; this function does not recheck prerequisites, stale state, cost budgets, or perform durable publication.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ActionLibrary.js",
+      "lines": [
+        42,
+        51
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ActionLibrary.js#L42-L51",
+      "input_sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838"
+    },
+    {
+      "id": "E07",
+      "status": "source-demonstrated",
+      "claim": "Accepted notes add10 closeness each direction; rejected notes add10 only to the initiator and emit a directed romantic-failure event. No money, item or effort cost is specified.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/data/actions.json",
+      "lines": [
+        230,
+        271
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/data/actions.json#L230-L271",
+      "input_sha256": "ffee5331f4960214d89778b6175cd5235e6dfc30ca49daf6d60b1903584ce8b8"
+    },
+    {
+      "id": "E08",
+      "status": "source-demonstrated",
+      "claim": "A romantic-failure trigger adds10 from the recipient toward another distinct character without a witnessing/knowledge prerequisite.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/data/triggerRules.json",
+      "lines": [
+        61,
+        90
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/data/triggerRules.json#L61-L90",
+      "input_sha256": "6e5e842517fc405f682e42b59504f18506fdda00b72ac40cfba622bbd351f4c2"
+    },
+    {
+      "id": "E09",
+      "status": "source-demonstrated",
+      "claim": "Triggers set effects into current shared socialRecord and intentionally retain offstage characters for perfect information, excluding eliminated characters.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/RuleLibrary.js",
+      "lines": [
+        481,
+        525
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/RuleLibrary.js#L481-L525",
+      "input_sha256": "27ad972d1efe09244f0788cb02b2e9b16dd3eaee79ace46edf8645e6dd21024b"
+    },
+    {
+      "id": "E10",
+      "status": "source-demonstrated",
+      "claim": "Schema-defined numeric effects apply arithmetic/clamping; only reciprocal categories automatically mirror the reverse relation.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/socialRecord.js",
+      "lines": [
+        504,
+        602
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/socialRecord.js#L504-L602",
+      "input_sha256": "910d966f7b80e251bc55048b5b24858984d25b50d36b49a5e0a207513170c5fd"
+    },
+    {
+      "id": "E11",
+      "status": "source-demonstrated",
+      "claim": "Timestep advancement copies nonzero-duration facts, drops duration0 events, and decrements booleans, expiring them to false.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/socialRecord.js",
+      "lines": [
+        168,
+        232
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/socialRecord.js#L168-L232",
+      "input_sha256": "910d966f7b80e251bc55048b5b24858984d25b50d36b49a5e0a207513170c5fd"
+    },
+    {
+      "id": "E12",
+      "status": "source-demonstrated",
+      "claim": "The example renders hero choices, commits a clicked action, runs triggers, shows accept/refusal text, rereads relationships, and dispatches the next turn.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/loversAndRivals.js",
+      "lines": [
+        113,
+        200
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/loversAndRivals.js#L113-L200",
+      "input_sha256": "07ec7386ee47707170b4559125ac26c5ee81d41dd3c20b8a161c736a26b4524e"
+    },
+    {
+      "id": "E13",
+      "status": "source-demonstrated",
+      "claim": "The example checks relationship-based endings, advances one timestep, and recalculates choices. It does not autonomously commit NPC actions in this loop.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/loversAndRivals.js",
+      "lines": [
+        390,
+        411
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/loversAndRivals.js#L390-L411",
+      "input_sha256": "07ec7386ee47707170b4559125ac26c5ee81d41dd3c20b8a161c736a26b4524e"
+    },
+    {
+      "id": "E14",
+      "status": "source-demonstrated",
+      "claim": "Best role bindings are selected with Underscore random, with no passed seeded RNG.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ActionLibrary.js",
+      "lines": [
+        1104,
+        1132
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ActionLibrary.js#L1104-L1132",
+      "input_sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838"
+    },
+    {
+      "id": "E15",
+      "status": "source-demonstrated",
+      "claim": "The intended package is a singleton bundled with Underscore and internal state modules.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "build-library.js",
+      "lines": [
+        10,
+        48
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/build-library.js#L10-L48",
+      "input_sha256": "6cb5bea51725baadbb602b7853e5e88725ef1c9f567de356c7c1418232bb7d3d"
+    },
+    {
+      "id": "E16",
+      "status": "source-demonstrated",
+      "claim": "Action parsing calls validate.action, but that validator is a TODO stub returning its input.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/Validate.js",
+      "lines": [
+        133,
+        144
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/Validate.js#L133-L144",
+      "input_sha256": "97c335a662e59ab207be5b757c8e1fabccef8939ecc617a170008938d7a7f814"
+    },
+    {
+      "id": "E17",
+      "status": "source-demonstrated",
+      "claim": "BSD-4-Clause UC-specific license requires source/binary notices and an acknowledgement in advertising mentioning features/use; no university endorsement.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "LICENSE.md",
+      "lines": [
+        1,
+        12
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/LICENSE.md#L1-L12",
+      "input_sha256": "b175fcb34794b239cd34a5ed23206e8e96a22624972801fdf2d03e8245182c88"
+    },
+    {
+      "id": "E18",
+      "status": "source-demonstrated",
+      "claim": "Initial history specifies actor-role traits and hero strength0/intelligence5, with closeness left at the schema default.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/data/history.json",
+      "lines": [
+        1,
+        47
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/data/history.json#L1-L47",
+      "input_sha256": "1864ccaa1d0fe9a76d17b365ca136e333d582bfced2f5be42845dda5b820d95b"
+    },
+    {
+      "id": "E19",
+      "status": "source-demonstrated",
+      "claim": "Hero toward love has a20 base increase-closeness intent; love toward hero gets-10; positive existing closeness contributes5.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "examples/loversAndRivals/data/volitionRules.json",
+      "lines": [
+        5,
+        88
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/examples/loversAndRivals/data/volitionRules.json#L5-L88",
+      "input_sha256": "be235331b0f7fb0dd580c6543b3f1ead659ff7cac2b9e87758a23df87cbf8d38"
+    },
+    {
+      "id": "E20",
+      "status": "source-demonstrated",
+      "claim": "Condition evaluation supports time windows/order and queries global socialRecord; no observer/knowledge holder is an API parameter here.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/RuleLibrary.js",
+      "lines": [
+        278,
+        358
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/RuleLibrary.js#L278-L358",
+      "input_sha256": "27ad972d1efe09244f0788cb02b2e9b16dd3eaee79ace46edf8645e6dd21024b"
+    },
+    {
+      "id": "E21",
+      "status": "source-demonstrated",
+      "claim": "Public copy/history APIs can move social record data but do not provide the YAIRPG envelope/atomic publisher.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ensemble.js",
+      "lines": [
+        995,
+        1034
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ensemble.js#L995-L1034",
+      "input_sha256": "6b33036e567a8ea9e0639869bb38dde0d3443f7710b67d77603e3ff6ff4a044c"
+    },
+    {
+      "id": "E22",
+      "status": "source-demonstrated",
+      "claim": "Rule matching recursively binds distinct cast members, so work scales with rule arity and cast size. No performance measurement is claimed.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/RuleLibrary.js",
+      "lines": [
+        81,
+        159
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/RuleLibrary.js#L81-L159",
+      "input_sha256": "27ad972d1efe09244f0788cb02b2e9b16dd3eaee79ace46edf8645e6dd21024b"
+    },
+    {
+      "id": "E23",
+      "status": "source-demonstrated",
+      "claim": "getAction stops on the first intent with an available action, then selects its best terminal. This is narrower than globally maximizing action scores across all intents.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/ActionLibrary.js",
+      "lines": [
+        919,
+        936
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/ActionLibrary.js#L919-L936",
+      "input_sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838"
+    },
+    {
+      "id": "E24",
+      "status": "source-demonstrated",
+      "claim": "Directed/reciprocal/undirected schema terminology describes separate single-person, asymmetric pair and automatically symmetric pair state.",
+      "repository": "ensemble-engine/ensemble",
+      "revision": "8b74bdec4ba2ef4e14795b7591df3b5d73f283e3",
+      "path": "ensemble/socialRecord.js",
+      "lines": [
+        116,
+        147
+      ],
+      "url": "https://github.com/ensemble-engine/ensemble/blob/8b74bdec4ba2ef4e14795b7591df3b5d73f283e3/ensemble/socialRecord.js#L116-L147",
+      "input_sha256": "910d966f7b80e251bc55048b5b24858984d25b50d36b49a5e0a207513170c5fd"
+    }
+  ],
+  "incumbent": [
+    {
+      "id": "Y01",
+      "label": "Legal proposals",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        552,
+        565
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y02",
+      "label": "Paid/stale commands",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        67,
+        126
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y03",
+      "label": "Commit recheck",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        199,
+        205
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y04",
+      "label": "Actor observation projection",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation_effects.js",
+      "lines": [
+        45,
+        84
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation_effects.js"
+    },
+    {
+      "id": "Y05",
+      "label": "Directed memory receipts",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation_effects.js",
+      "lines": [
+        194,
+        205
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation_effects.js"
+    },
+    {
+      "id": "Y06",
+      "label": "Independent controller choice",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        451,
+        471
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y07",
+      "label": "Common clock boundary",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/expansion_engine.js",
+      "lines": [
+        542,
+        577
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/expansion_engine.js"
+    },
+    {
+      "id": "Y08",
+      "label": "Envelope before publication",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/expansion_persistence.js",
+      "lines": [
+        7,
+        49
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/expansion_persistence.js"
+    },
+    {
+      "id": "Y09",
+      "label": "Native publication after durable save",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/main.js",
+      "lines": [
+        496,
+        557
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/main.js"
+    },
+    {
+      "id": "Y10",
+      "label": "Completion support/refund",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        207,
+        235
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y11",
+      "label": "Current intent and milestone",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "PROJECT.md",
+      "lines": [
+        137,
+        213
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "b76cadf78c37f253d4545d53eb49281e00b83188e7d1467b66d3ba5fff2bd512",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/PROJECT.md"
+    },
+    {
+      "id": "Y12",
+      "label": "Current delivery and deferred gates",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "PROJECT.md",
+      "lines": [
+        3,
+        11
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "b76cadf78c37f253d4545d53eb49281e00b83188e7d1467b66d3ba5fff2bd512",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/PROJECT.md"
+    },
+    {
+      "id": "Y13",
+      "label": "Relationship schema",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation_contracts.js",
+      "lines": [
+        232,
+        233
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation_contracts.js"
+    }
+  ],
+  "trace": {
+    "id": "rejected-note-third-party-aftermath",
+    "status": "source-traced-not-executed",
+    "prerequisite": "Schema and cast/history/rules/actions loaded. Authored traits make hero want increasing closeness to love while the reverse increase intent is negative. No item/money/time budget condition exists in this action path.",
+    "decision": "getActions traverses RAISECLOSENESS -> WRITELOVENOTE -> terminal picked by reverse-intent acceptance. Player chooses the already-bound rejection action shown as Write Love Note <REJECT>. Engine does not make a second interactive responder decision on click.",
+    "cost": "No material, currency, stamina or paid duration; opportunity cost is one player turn. This is absence of cost in this example path, not a claim that Ensemble cannot represent resources as custom predicates.",
+    "mutations": "Rejected note increments only initiator->responder closeness by10 and sets romantic-failure initiator->responder true. Shared record clamps numerical range.",
+    "consumer": "Immediate trigger binds would-be lover/recipient/other distinct actor, checks absence of other->recipient failure, increments recipient->other closeness10. The UI reads directed closeness and attraction, and closeness drives placement and >=90 ending checks.",
+    "aftermath": "Next turn copies closeness, omits duration0 failure event, and recalculates social volitions. Numeric initial20/-10 and rejection-driven love->rival10 are static derivations only; no run/benchmark/browser proof.",
+    "evidence_ids": [
+      "E01",
+      "E03",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E18",
+      "E19"
+    ]
+  },
+  "fit": {
+    "directed_friendship": "Good representational fit via directed numeric/boolean predicates; terms and relationship dynamics are author-defined, not built-in friendship progression.",
+    "romance": "Can represent asymmetric attraction and accepted/rejected terminals; example’s general closeness threshold/default acceptance is insufficient for action-specific mutual willingness and enduring agreements.",
+    "rivalry": "Can represent asymmetric friction/competition and third-party outcomes, but the sample’s global rival boost is not knowledge-bounded.",
+    "independent_goals": "Rules score per pair and self-directed attribute desires. Runtime scheduling and multi-step persistent goal pursuit belong to the host; bundled example performs hero actions only.",
+    "knowledge": "Shared socialRecord evaluation and perfect-information triggers provide no demonstrated per-actor epistemic enforcement in inspected path. YAIRPG must explicitly allowlist own knowledge plus public facts; filtering cast alone is insufficient."
+  },
+  "integration": {
+    "proposed": "An authored bounded rule scorer consumes only the acting person’s knowledge/basis, own directed memories/axes, and declared personal goal evidence, then returns a registered command ID, target ID and expected sequence. Do not pass the full simulationFacts object: it includes engine truth for legal validation, not an omniscience-safe motive context. Current authoritative command previews/commit rechecks alone inspect actual funding, stock, custody, bodies, locations, consent/support and costs/effects. A recipient independently reads its own stance; only its explicitly delivered answer becomes initiator knowledge. Existing Ink can present the result.",
+    "must_keep": [
+      "inspectActorChoices/acceptActorProposal contract; never send Ensemble effects as authoritative proposal",
+      "Current directed knowledge/relationship records with cause receipts",
+      "One common-clock scheduler and current native durable publication",
+      "Optional additive definitions and explicit old-save compatibility; no automatic enrollment/history"
+    ],
+    "missing_consumers": [
+      "One authored invitation/cooperation/competition bid over already implemented legal command candidates",
+      "An independent authored recipient stance that can accept, refuse or defer without trust forcing romance",
+      "An observed reply/aftermath scene that changes only declared directed axes/memories and knowledge recipients"
+    ]
+  },
+  "risks": [
+    {
+      "kind": "save",
+      "level": "high-for-dependency-low-for-scoped-adaptation",
+      "detail": "Singleton socialRecord and cached main volitions can mutate outside the cloned YAIRPG plan. History import/export does not synchronize actor axes, causes, native inventory, seed or envelope transaction. Do not persist an independent authoritative social graph."
+    },
+    {
+      "kind": "knowledge/consent",
+      "level": "high",
+      "detail": "Reverse-intent no-match default is accept; trigger engine explicitly retains perfect information. Add explicit willingness and actor-observed prerequisites rather than copying defaults."
+    },
+    {
+      "kind": "determinism/clock",
+      "level": "medium",
+      "detail": "Underscore random selects ties and every setupNextTimeStep clones state; chronological turns are not YAIRPG played minutes. Avoid calling it per minute or letting recalculation alter durable choices."
+    },
+    {
+      "kind": "maintenance/authoring",
+      "level": "medium",
+      "detail": "Current default HEAD is2019, latest release2019 despite repository pushed_at2022 and archived false. JSON domain needs schema/cast/history/rules/action grammar; validator action is a TODO stub. Wiki global-best getAction description is broader than its inspected first-nonempty-intent implementation. No current community-maintenance or package-security assurance."
+    },
+    {
+      "kind": "performance",
+      "level": "unknown",
+      "detail": "Pair matrix, distinct-role binding recursion and history copying suggest growth costs; no timings/cast-scale benchmark performed."
+    },
+    {
+      "kind": "license",
+      "level": "copy-dependent",
+      "detail": "UC-specific BSD4 includes advertising acknowledgement and notice retention, unlike common BSD3; vendored Underscore1.8.2 has an MIT header. Conceptual original adaptation copies no code/assets/domain text. Any later source adoption must preserve applicable notices and review advertising requirement."
+    }
+  ],
+  "trial": {
+    "id": "ensemble-after-work-invitation",
+    "status": "original-proposal-not-implemented",
+    "title": "A route invitation with an independent work priority",
+    "scope": "One opt-in home-world scene using two explicitly adult original actor templates, one existing finite work site, one invitation situation, and existing registered commands. Names, identities, numbers and dialogue remain director-review proposals.",
+    "prerequisites": [
+      "Actors have met through actual observation, are alive/in the same supported world and location, and the invitation is known to the initiator.",
+      "Responder has an authored own goal: complete a funded route-report shift before a social meeting. A private, explicitly authored willingness flag controls whether romance is an available offer."
+    ],
+    "player_choices": [
+      "Invite for a friendly three-minute route walk; separately express romantic interest only through an authored, available respectful offer.",
+      "Offer cooperation on the actual funded shift or compete openly for its finite work claim; decline or defer the scene."
+    ],
+    "decision_rule": "Score motives using only actor-known evidence/basis, the actor’s own directed memories/axes and its declared personal goal. Select only legal command IDs from inspectActorChoices; do not use eligibility reasons or full simulationFacts as motives, because they can encode hidden engine truth. Evaluate the responder independently in its private stance context. Authoritative previews/commits separately enforce true funding, location/life/contact, participant capacity and support. Being free or earning trust does not imply romantic consent. Missing willingness means no romance offer. Only a delivered answer reveals that answer; private scores never become player-facing diagnostics.",
+    "costs": {
+      "invitation": "Three played minutes of the initiator’s scheduled time; no money or material cost and no acceptance purchase. If no meeting occurs, only the disclosed invitation effort is spent.",
+      "accepted_meeting": "Reserve both participants for the same three-minute job; use the one common clock.",
+      "work": "Use a real funded site and exact native/simulation stock and budget, with published costs/refund policy rather than score-based fabricated supply."
+    },
+    "mutations": "One cause-scoped directed memory records accepted/declined/deferred. Friendship reliability can change in only the authored direction. Attraction and rivalry are distinct axes; romantic agreement is an explicit two-person situation/commitment. A refusal does not impose automatic reputation or attraction punishment. Unknown observers gain no knowledge.",
+    "downstream": "A later local meeting uses the saved accepted plan or respectful refusal memory; the NPC first continues its funded work at its controller boundary. A heard report reveals only the result delivered, not the other actor’s private goal score.",
+    "failure": "Stale proposal, missing funds/stock/contact/life or busy participants reject at existing gates. A lost completion prerequisite uses explicit completionSupport and the declared refund/forfeit policy. No accepted partnership, intimacy, XP or items are granted by a failed invitation.",
+    "acceptance_criteria": [
+      {
+        "id": "A1",
+        "check": "Generate two actor-local projections with an unobserved report known only to one.",
+        "pass": "The other actor cannot choose based on it; an actual delivered report changes only its legal informed choice. Public UI exposes no hidden score.",
+        "status": "not-run"
+      },
+      {
+        "id": "A2",
+        "check": "Compare friendship, romantic and work/rival options with asymmetric state and explicit consent false/true.",
+        "pass": "High trust alone cannot create romance; refusal is distinct, respected and remembered; reverse axes remain independently authored.",
+        "status": "not-run"
+      },
+      {
+        "id": "A3",
+        "check": "Schedule NPC funded work while player chooses another activity, then invite while busy and after completion.",
+        "pass": "NPC acts at one existing clock boundary, pays actual costs, completes once and can defer social contact. No browser-closed time is invented.",
+        "status": "not-run"
+      },
+      {
+        "id": "A4",
+        "check": "Change sequence, remove stock or contact, and replay a cause.",
+        "pass": "Existing proposal gates reject stale/illegal commitments; causes cannot farm relationship effects; no duplicate items/work/rewards or second scheduler appear.",
+        "status": "not-run"
+      },
+      {
+        "id": "A5",
+        "check": "Later, under an authorized gameplay/save gate, use generated opt-in and old unenrolled saves on an isolated origin, including failed write/reload.",
+        "pass": "Current envelope/native publication preserves invitation, separate memories and job exactly once; failed persistence publishes nothing; old saves gain no enrollment or history.",
+        "status": "deferred-not-run"
+      }
+    ],
+    "implementation_boundary": "Builder/integrator-owned future work only. No runtime implementation, new state publisher, engine switch, tests or dependency adoption is selected by this research."
+  },
+  "coverage": {
+    "fully_read": "All six Lovers and Rivals JSON definitions; selected complete control-flow functions, not complete library coverage. Schema wiki was read fully; API wiki selected ranges. Exact source/range hashes are in inputs.",
+    "inputs": [
+      {
+        "kind": "public-source",
+        "path": "README.md",
+        "sha256": "799c48c5f6d3a35ecc12141c93d6d06a0cdd2000f994a89bd77151cc70e55868",
+        "bytes": 1965,
+        "line_count": 31,
+        "semantic_read_ranges": [
+          [
+            1,
+            31
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "LICENSE.md",
+        "sha256": "b175fcb34794b239cd34a5ed23206e8e96a22624972801fdf2d03e8245182c88",
+        "bytes": 1764,
+        "line_count": 12,
+        "semantic_read_ranges": [
+          [
+            1,
+            12
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "package.json",
+        "sha256": "c7b0e8d3fcdd851d23c92071556d5e86cd530af9101485fad03ea44b9c7f66a1",
+        "bytes": 342,
+        "line_count": 14,
+        "semantic_read_ranges": [
+          [
+            1,
+            14
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "build-library.js",
+        "sha256": "6cb5bea51725baadbb602b7853e5e88725ef1c9f567de356c7c1418232bb7d3d",
+        "bytes": 1983,
+        "line_count": 49,
+        "semantic_read_ranges": [
+          [
+            1,
+            49
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/ensemble.js",
+        "sha256": "6b33036e567a8ea9e0639869bb38dde0d3443f7710b67d77603e3ff6ff4a044c",
+        "bytes": 39821,
+        "line_count": 1056,
+        "semantic_read_ranges": [
+          [
+            788,
+            834
+          ],
+          [
+            920,
+            934
+          ],
+          [
+            960,
+            974
+          ],
+          [
+            988,
+            1038
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/ActionLibrary.js",
+        "sha256": "e8112091865701257db40464e46e7a855fd598def6e50fe13ae63e4cb5e46838",
+        "bytes": 55954,
+        "line_count": 1168,
+        "semantic_read_ranges": [
+          [
+            42,
+            52
+          ],
+          [
+            103,
+            143
+          ],
+          [
+            247,
+            267
+          ],
+          [
+            283,
+            315
+          ],
+          [
+            322,
+            379
+          ],
+          [
+            433,
+            450
+          ],
+          [
+            525,
+            533
+          ],
+          [
+            569,
+            591
+          ],
+          [
+            605,
+            635
+          ],
+          [
+            672,
+            705
+          ],
+          [
+            715,
+            799
+          ],
+          [
+            836,
+            867
+          ],
+          [
+            869,
+            911
+          ],
+          [
+            919,
+            937
+          ],
+          [
+            956,
+            1015
+          ],
+          [
+            1104,
+            1133
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/RuleLibrary.js",
+        "sha256": "27ad972d1efe09244f0788cb02b2e9b16dd3eaee79ace46edf8645e6dd21024b",
+        "bytes": 50369,
+        "line_count": 1286,
+        "semantic_read_ranges": [
+          [
+            23,
+            69
+          ],
+          [
+            81,
+            159
+          ],
+          [
+            278,
+            406
+          ],
+          [
+            481,
+            546
+          ],
+          [
+            565,
+            711
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/Volition.js",
+        "sha256": "a831a825352ec441b6a0d281b3c7638a155ab76292bb6daf8703992a526b46df",
+        "bytes": 9654,
+        "line_count": 271,
+        "semantic_read_ranges": [
+          [
+            30,
+            140
+          ],
+          [
+            148,
+            210
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/socialRecord.js",
+        "sha256": "910d966f7b80e251bc55048b5b24858984d25b50d36b49a5e0a207513170c5fd",
+        "bytes": 31732,
+        "line_count": 895,
+        "semantic_read_ranges": [
+          [
+            69,
+            154
+          ],
+          [
+            158,
+            233
+          ],
+          [
+            314,
+            474
+          ],
+          [
+            504,
+            607
+          ],
+          [
+            792,
+            895
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/Validate.js",
+        "sha256": "97c335a662e59ab207be5b757c8e1fabccef8939ecc617a170008938d7a7f814",
+        "bytes": 17227,
+        "line_count": 402,
+        "semantic_read_ranges": [
+          [
+            133,
+            153
+          ],
+          [
+            383,
+            402
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/jslib/underscore.js",
+        "sha256": "b84a7a5ac0e8afc4f176b95606590bfc56044eeae9286097bdee013a6909fde5",
+        "bytes": 52374,
+        "line_count": 1536,
+        "semantic_read_ranges": [
+          [
+            1,
+            12
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-source",
+        "path": "ensemble/jslib/util.js",
+        "sha256": "06d8ac34b2acec846a19ced4b4107eb6f2695baac77df3489e2756ad631f3d96",
+        "bytes": 19125,
+        "line_count": 754,
+        "semantic_read_ranges": [
+          [
+            1,
+            33
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/schema.json",
+        "sha256": "a8e0d5e7486676b993326cb09b58fc7845e43ac17c7cf62ae760fad17e29a335",
+        "bytes": 1313,
+        "line_count": 60,
+        "semantic_read_ranges": [
+          [
+            1,
+            60
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/actions.json",
+        "sha256": "ffee5331f4960214d89778b6175cd5235e6dfc30ca49daf6d60b1903584ce8b8",
+        "bytes": 7005,
+        "line_count": 274,
+        "semantic_read_ranges": [
+          [
+            1,
+            274
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/volitionRules.json",
+        "sha256": "be235331b0f7fb0dd580c6543b3f1ead659ff7cac2b9e87758a23df87cbf8d38",
+        "bytes": 4665,
+        "line_count": 252,
+        "semantic_read_ranges": [
+          [
+            1,
+            252
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/triggerRules.json",
+        "sha256": "6e5e842517fc405f682e42b59504f18506fdda00b72ac40cfba622bbd351f4c2",
+        "bytes": 1813,
+        "line_count": 93,
+        "semantic_read_ranges": [
+          [
+            1,
+            93
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/history.json",
+        "sha256": "1864ccaa1d0fe9a76d17b365ca136e333d582bfced2f5be42845dda5b820d95b",
+        "bytes": 824,
+        "line_count": 47,
+        "semantic_read_ranges": [
+          [
+            1,
+            47
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-example-definition",
+        "path": "examples/loversAndRivals/data/cast.json",
+        "sha256": "ff022e810853163a9f1248e3c139c1c500d81a983cd24e309783569d05076fa5",
+        "bytes": 122,
+        "line_count": 13,
+        "semantic_read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "public-source",
+        "path": "examples/loversAndRivals/loversAndRivals.js",
+        "sha256": "07ec7386ee47707170b4559125ac26c5ee81d41dd3c20b8a161c736a26b4524e",
+        "bytes": 14599,
+        "line_count": 419,
+        "semantic_read_ranges": [
+          [
+            1,
+            260
+          ],
+          [
+            320,
+            419
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "official-wiki",
+        "path": "Home.md",
+        "sha256": "7e87e3e60034258b2cc9dad48bacb2f6f9a3b8d24a5e7e6f96720ed4861b9570",
+        "bytes": 1605,
+        "line_count": 24,
+        "semantic_read_ranges": [
+          [
+            1,
+            24
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "official-wiki",
+        "path": "Schema.md",
+        "sha256": "a8191464254d2105b5aefb0c097131c512f8d855d42442ea62e5b6e93dc4f08b",
+        "bytes": 9376,
+        "line_count": 83,
+        "semantic_read_ranges": [
+          [
+            1,
+            83
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "official-wiki",
+        "path": "Ensemble-API.md",
+        "sha256": "3e28658158eafdcf84194a4ab8a79d157675c9f63c80fe8f09eca80b7232ccc7",
+        "bytes": 16115,
+        "line_count": 235,
+        "semantic_read_ranges": [
+          [
+            1,
+            18
+          ],
+          [
+            91,
+            231
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170,
+        "line_count": 23,
+        "semantic_read_ranges": [],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/AGENTS.md"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "PROJECT.md",
+        "sha256": "b76cadf78c37f253d4545d53eb49281e00b83188e7d1467b66d3ba5fff2bd512",
+        "bytes": 144193,
+        "line_count": 526,
+        "semantic_read_ranges": [
+          [
+            3,
+            11
+          ],
+          [
+            137,
+            213
+          ],
+          [
+            369,
+            416
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/PROJECT.md"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md",
+        "sha256": "7813a922f73b5192220d73ef874fcfb5cdc478b379e7d16d12078c9843b687c5",
+        "bytes": 11113,
+        "line_count": 57,
+        "semantic_read_ranges": [
+          [
+            1,
+            57
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md",
+        "previous_sha256": "caf2df0f0c65766e8cda341a9e89862ae26fc8acaedb8e5bdfc142210e5f44d2"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/simulation.js",
+        "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "bytes": 51840,
+        "line_count": 566,
+        "semantic_read_ranges": [
+          [
+            57,
+            127
+          ],
+          [
+            129,
+            174
+          ],
+          [
+            198,
+            236
+          ],
+          [
+            397,
+            405
+          ],
+          [
+            451,
+            474
+          ],
+          [
+            552,
+            566
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/simulation_effects.js",
+        "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "bytes": 27572,
+        "line_count": 303,
+        "semantic_read_ranges": [
+          [
+            45,
+            90
+          ],
+          [
+            190,
+            207
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation_effects.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/simulation_contracts.js",
+        "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+        "bytes": 33510,
+        "line_count": 305,
+        "semantic_read_ranges": [
+          [
+            64,
+            65
+          ],
+          [
+            205,
+            218
+          ],
+          [
+            232,
+            233
+          ],
+          [
+            293,
+            293
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/simulation_contracts.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/expansion_engine.js",
+        "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+        "bytes": 45034,
+        "line_count": 629,
+        "semantic_read_ranges": [
+          [
+            542,
+            582
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/expansion_engine.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/expansion_persistence.js",
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "bytes": 3191,
+        "line_count": 51,
+        "semantic_read_ranges": [
+          [
+            1,
+            51
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/expansion_persistence.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/gameplay_publication.js",
+        "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+        "bytes": 3711,
+        "line_count": 62,
+        "semantic_read_ranges": [
+          [
+            1,
+            62
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/gameplay_publication.js"
+      },
+      {
+        "kind": "dirty-incumbent-source",
+        "path": "src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "bytes": 387376,
+        "line_count": 7386,
+        "semantic_read_ranges": [
+          [
+            483,
+            557
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/yairpg-inputs/src/main.js"
+      },
+      {
+        "kind": "public-api-metadata",
+        "path": "latest-release.json",
+        "sha256": "2216f580a127e74fb80636230d991058be5d6399e907c30f404dc3fe24cbf4da",
+        "bytes": 13022,
+        "line_count": 259,
+        "semantic_read_ranges": [],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "public-api-metadata",
+        "path": "repository-metadata.json",
+        "sha256": "2b5672b7a2351c8d29069dafa68b444188359dd606d17987a8fe328d3a26f273",
+        "bytes": 6018,
+        "line_count": 114,
+        "semantic_read_ranges": [],
+        "coverage": "bounded"
+      }
+    ],
+    "manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/ensemble/INPUTS.json",
+    "manifest_sha256": "79986087beef3f13f9679ada25578acf1e84a4f2e384160a8800cbbca522ec88",
+    "unread": [
+      "Remaining ensemble/ensemble.js loading/editing/serialization internals",
+      "Remaining RuleLibrary sorting/validation/editing helpers and unexercised history-order edge cases",
+      "Remaining ActionLibrary grammar/editing paths",
+      "Most Validate predicate validation internals and util implementation",
+      "Most Underscore1.8.2 beyond license/header; minified bundle and source-map implementation",
+      "Entire tests directory, Electron authoring tool, release binaries, paper, external slide deck, other projects and forks",
+      "Example draw/query region261–319 beyond the inspected state consumers; animation is not gameplay evidence"
+    ],
+    "checks": {
+      "source_review": "complete-for-bounded-question",
+      "json_and_locator_readback": "passed: JSON parse, all reviewed ranges within EOF, exact source SHA/path/line anchors and SHA256 snapshots verified",
+      "unit_tests": "not-run",
+      "browser": "not-run",
+      "benchmark": "not-run",
+      "build": "not-run",
+      "save_reload": "deferred-not-run",
+      "human_acceptance": "not-requested",
+      "live_input_drift": [
+        "PROJECT.md"
+      ]
+    },
+    "live_document_note": "PROJECT.md changed after captured snapshot; all inspected runtime-owner inputs still matched. Root owns latest canonical reconciliation."
+  },
+  "scope_limits": [
+    "Only Ensemble candidate; no additional ranking or candidate expansion",
+    "Only ENSEMBLE.md and ENSEMBLE.json repository writes",
+    "Public checkout/wiki/API metadata and task-specific incumbent snapshots stay outside Git",
+    "No install/runtime edit/test/build/private save/account/commit/message-to-other-chat/publication/automation"
+  ],
+  "memory_use": {
+    "path": "MEMORY.md",
+    "lines": [
+      533,
+      539
+    ],
+    "purpose": "Dated pointer to shared-state and live-owner conventions; all reported owner claims refreshed from current files. No prior rollout fact is asserted current."
+  },
+  "depth_map": [
+    {
+      "id": "D1",
+      "source_fact": "Directed scalar axes can diverge from temporary booleans and duration0 event labels; reciprocal mirroring is a schema operation, not a negotiated agreement.",
+      "source_refs": [
+        "E01",
+        "E10",
+        "E11"
+      ],
+      "incumbent_implication": "Keep attraction, reliability, grievance, promises, current mood and actor-observed event knowledge in their distinct existing owners. Do not normalize YAIRPG arbitrary finite axes to the sample0–100 range.",
+      "status": "source-demonstrated plus original implication"
+    },
+    {
+      "id": "D2",
+      "source_fact": "Offstage and eliminated actors are excluded from volition effects, while offstage actors remain eligible for trigger effects. Both evaluators query the shared record.",
+      "locators": [
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            481,
+            525
+          ]
+        },
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            565,
+            615
+          ]
+        }
+      ],
+      "incumbent_implication": "Offscreen social aftermath, institutions and rumors need actual observation/report/access channels. Cast filtering alone cannot prevent use of global private truth. Known obligations can affect motives without exposing hidden compliance.",
+      "status": "source-demonstrated plus original implication"
+    },
+    {
+      "id": "D3",
+      "source_fact": "runRules iterates stored rules/bindings and trigger process sets effects immediately. Later conditions can see earlier writes. This is a sequential pass, not a demonstrated fixed-point solver, and no cause-based repeat receipt is checked in the trigger path.",
+      "locators": [
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            27,
+            41
+          ]
+        },
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            130,
+            159
+          ]
+        },
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            501,
+            523
+          ]
+        }
+      ],
+      "incumbent_implication": "A social event -> rumor -> faction stance -> access consequence chain requires authored ordering and existing cause receipts. Repeated trigger evaluation cannot be treated as a free idempotent query.",
+      "status": "source-demonstrated plus original implication"
+    },
+    {
+      "id": "D4",
+      "source_fact": "Current duration0 labels vanish on advancement while previous history remains queryable through relative windows. Ordered conditions update a last-match time; source comments identify unresolved multi-match behavior. Boolean expiry writes false, not an arbitrary schema default. Calling an earlier timestep clears later social history only.",
+      "locators": [
+        {
+          "path": "ensemble/socialRecord.js",
+          "lines": [
+            168,
+            232
+          ]
+        },
+        {
+          "path": "ensemble/socialRecord.js",
+          "lines": [
+            348,
+            394
+          ]
+        },
+        {
+          "path": "ensemble/RuleLibrary.js",
+          "lines": [
+            278,
+            403
+          ]
+        }
+      ],
+      "incumbent_implication": "A mood expiring is not forgiveness or deletion of memory; a previously heard betrayal can have later consequences. Existing YAIRPG played clock/retained evidence/branch owners govern timing. Raw socialRecord rewind is not body/stock/job/native-save reversal. Ordered-history semantics need a later targeted check before adopting code.",
+      "status": "source-demonstrated; exception behavior unexecuted; original implication"
+    },
+    {
+      "id": "D5",
+      "source_fact": "Self-directed desires and action-influence weights support learning/work motives, but the example loops only player hero commits; position and ending are explicit consumers of the same social axes.",
+      "source_refs": [
+        "E02",
+        "E04",
+        "E12",
+        "E13"
+      ],
+      "incumbent_implication": "NPC work, social meetings and competition can share real sites/funds/participant time and still produce different scenes, access or campaign endings. The existing scheduler and Ink present those authored downstream choices. No planner, complete persistent-goal system or universal social score is established by the example.",
+      "status": "source-demonstrated plus original implication"
+    }
+  ]
+}

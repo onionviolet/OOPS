@@ -1,0 +1,336 @@
+{
+  "captured_at": "2026-10-06T05:28:26.019148+00:00",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "branch": "codex/gameplay-foundations",
+  "input_role": "actually inspected YAIR source spans and authority documents, live research snapshot",
+  "inputs": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/AGENTS.md"
+    },
+    "PROJECT.md": {
+      "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "bytes": 135044,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/PROJECT.md"
+    },
+    "docs/GAME_MASTER_PROMPT.md": {
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "bytes": 37026,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/GAME_MASTER_PROMPT.md"
+    },
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": {
+      "sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "bytes": 14280,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md"
+    },
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": {
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "bytes": 10439,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md"
+    },
+    "docs/gm/dispatch/game-source-research-2026-10-06/README.md": {
+      "sha256": "6ec009e5b71ff9a8dcf4c3be796bfb13dc749bf0cb0c97e69733064cab9c72b4",
+      "bytes": 4246,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/gm/dispatch/game-source-research-2026-10-06/README.md"
+    },
+    "docs/gm/reference-gameplay/DELIVERY.md": {
+      "sha256": "f871c352f153abaf593d680ebcb8e83b6df6a056cdb0012a4eaa4783be3dc466",
+      "bytes": 5006,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/gm/reference-gameplay/DELIVERY.md"
+    },
+    "docs/research/dcss-dda-depth/REPORT.md": {
+      "sha256": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+      "bytes": 15340,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/research/dcss-dda-depth/REPORT.md"
+    },
+    "docs/research/tales-of-maj-eyal/ASSIGNMENT.md": {
+      "sha256": "24a160545a6ccca3c8d01456b9b261fb1706ae46b565d216ec024290834aaaed",
+      "bytes": 3395,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/docs/research/tales-of-maj-eyal/ASSIGNMENT.md"
+    },
+    "src/combat_stances.js": {
+      "sha256": "642df72156c03305606c9b6aac536b8183018bc082cd02d987ff7ee20d5d2265",
+      "bytes": 4947,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/combat_stances.js"
+    },
+    "src/expansion_persistence.js": {
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "bytes": 3191,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/expansion_persistence.js"
+    },
+    "src/feature_expansion_battle.js": {
+      "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "bytes": 50569,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/feature_expansion_battle.js"
+    },
+    "src/feature_expansion_battle_host.js": {
+      "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+      "bytes": 7306,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/feature_expansion_battle_host.js"
+    },
+    "src/feature_expansion_objects.js": {
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "bytes": 27136,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/feature_expansion_objects.js"
+    },
+    "src/feature_expansion_powers.js": {
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "bytes": 10418,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/feature_expansion_powers.js"
+    },
+    "src/items.js": {
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "bytes": 164071,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/items.js"
+    },
+    "src/power_models.js": {
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "bytes": 4477,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/power_models.js"
+    },
+    "src/reference_gameplay_content.js": {
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_content.js"
+    },
+    "src/reference_gameplay_feats.js": {
+      "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+      "bytes": 26503,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_feats.js"
+    },
+    "src/reference_gameplay_host.js": {
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "bytes": 9008,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_host.js"
+    },
+    "src/reference_gameplay_state.js": {
+      "sha256": "c3d22b6ea093e3c9afaf40eebc12e5cdad1eae82dbce3b49dbcbaebc79acd3ae",
+      "bytes": 16651,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_state.js"
+    },
+    "src/simulation.js": {
+      "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+      "bytes": 47664,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation.js"
+    },
+    "src/simulation_effects.js": {
+      "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+      "bytes": 26528,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation_effects.js"
+    },
+    "src/skill_discovery.js": {
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "bytes": 7369,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/skill_discovery.js"
+    },
+    "src/techniques.js": {
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+      "bytes": 12827,
+      "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/techniques.js"
+    }
+  },
+  "intake_candidates": {
+    "captured_at": "2026-10-06T05:08:18.903394+00:00",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "inputs": {
+      "AGENTS.md": {
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170
+      },
+      "PROJECT.md": {
+        "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+        "bytes": 135044
+      },
+      "docs/GAME_MASTER_PROMPT.md": {
+        "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "bytes": 37026
+      },
+      "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": {
+        "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+        "bytes": 10439
+      },
+      "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": {
+        "sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+        "bytes": 14280
+      },
+      "docs/gm/dispatch/game-source-research-2026-10-06/README.md": {
+        "sha256": "6a8c441ddc4274394de4085516c513012ebfde4b438b69eabbe2fc1dadd54891",
+        "bytes": 2632
+      },
+      "docs/research/tales-of-maj-eyal/ASSIGNMENT.md": {
+        "sha256": "24a160545a6ccca3c8d01456b9b261fb1706ae46b565d216ec024290834aaaed",
+        "bytes": 3395
+      },
+      "docs/research/dcss-dda-depth/REPORT.md": {
+        "sha256": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+        "bytes": 15340
+      },
+      "docs/gm/reference-gameplay/DELIVERY.md": {
+        "sha256": "f871c352f153abaf593d680ebcb8e83b6df6a056cdb0012a4eaa4783be3dc466",
+        "bytes": 5006
+      },
+      "src/skills.js": {
+        "missing": true
+      },
+      "src/techniques.js": {
+        "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735",
+        "bytes": 12827
+      },
+      "src/skill_discovery.js": {
+        "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+        "bytes": 7369
+      },
+      "src/skill_discovery_native.js": {
+        "sha256": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+        "bytes": 753
+      },
+      "src/power_models.js": {
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "bytes": 4477
+      },
+      "src/feature_expansion_powers.js": {
+        "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+        "bytes": 10418
+      },
+      "src/feature_expansion_battle.js": {
+        "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "bytes": 50569
+      },
+      "src/feature_expansion_battle_host.js": {
+        "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+        "bytes": 7306
+      },
+      "src/reference_gameplay_feats.js": {
+        "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+        "bytes": 26503
+      },
+      "src/reference_gameplay_content.js": {
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "bytes": 13705
+      },
+      "src/reference_gameplay_state.js": {
+        "sha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808",
+        "bytes": 16611
+      },
+      "src/reference_gameplay_host.js": {
+        "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+        "bytes": 9008
+      },
+      "src/feature_expansion_work_plan.js": {
+        "sha256": "669f684cb5f0b8d5becd3e17db7a4aee4c206ae7ce0e1426e2d659a1d028dfc2",
+        "bytes": 20468
+      },
+      "src/effects.js": {
+        "missing": true
+      },
+      "src/quests.js": {
+        "sha256": "98bcadf0d82ea51998a171077eb0aa0376f1ac30ac41d80aa450dee731605248",
+        "bytes": 28333
+      },
+      "src/items.js": {
+        "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+        "bytes": 164071
+      },
+      "src/crafting_recipes.js": {
+        "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+        "bytes": 84012
+      },
+      "src/simulation.js": {
+        "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+        "bytes": 47628
+      },
+      "src/simulation_effects.js": {
+        "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+        "bytes": 25743
+      },
+      "src/simulation_resolution.js": {
+        "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "bytes": 2314
+      },
+      "src/expansion_persistence.js": {
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "bytes": 3191
+      },
+      "src/gameplay_publication.js": {
+        "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+        "bytes": 3711
+      },
+      "src/native_battle.js": {
+        "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "bytes": 5961
+      },
+      "src/native_battle_host.js": {
+        "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+        "bytes": 4830
+      },
+      "src/frontier_campaign.js": {
+        "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+        "bytes": 13006
+      },
+      "src/feature_expansion_objects.js": {
+        "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+        "bytes": 27136
+      }
+    }
+  },
+  "observed_drift": [
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/README.md",
+      "initial": {
+        "sha256": "6a8c441ddc4274394de4085516c513012ebfde4b438b69eabbe2fc1dadd54891",
+        "bytes": 2632
+      },
+      "final": {
+        "sha256": "6ec009e5b71ff9a8dcf4c3be796bfb13dc749bf0cb0c97e69733064cab9c72b4",
+        "bytes": 4246
+      },
+      "intermediate": {
+        "sha256": "c7675a3fa87dba1aa4a007d420872e685c8deabe23f41de9f8dc7a790c5e212c",
+        "bytes": 3351
+      },
+      "reconciliation": "Read back live dispatcher additions for other named games. ToME exclusive output/source boundaries and finite goal unchanged."
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "initial": {
+        "sha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808",
+        "bytes": 16611
+      },
+      "final": {
+        "sha256": "c3d22b6ea093e3c9afaf40eebc12e5cdad1eae82dbce3b49dbcbaebc79acd3ae",
+        "bytes": 16651,
+        "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/reference_gameplay_state.js"
+      },
+      "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+    },
+    {
+      "path": "src/simulation.js",
+      "initial": {
+        "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+        "bytes": 47628
+      },
+      "final": {
+        "sha256": "739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc",
+        "bytes": 47664,
+        "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation.js"
+      },
+      "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "initial": {
+        "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+        "bytes": 25743
+      },
+      "final": {
+        "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+        "bytes": 26528,
+        "snapshot_path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z/src/simulation_effects.js"
+      },
+      "reconciliation": "Reread cited APIs: existing readiness, conditions, power learning and Reference enrollment persist. Concurrent book-world hooks add schema10 acceptance and shift simulation effect spans. No new gameplay/build claim."
+    }
+  ],
+  "snapshot_root": "/Users/weiwei/.codex/research/tales-of-maj-eyal/yair-input-snapshots/20261006T052825Z"
+}

@@ -1,0 +1,26 @@
+{
+  "command": "npm run build",
+  "exitCode": 0,
+  "inkCompiler": "inkjs2.4.0 check passed,0diagnostics",
+  "bundleFingerprint": "69844afdf7bf",
+  "bundleSha256": "69844afdf7bf80a0638440d1d895a4b5c746f2d14e88e319d4539907bc86c39f",
+  "mapSha256": "89a619191d4a82b1f6824febe34c2c030478f2ce51cba1cfa10c66d0378bc3e6",
+  "localSourceContentsMatched": 297,
+  "vendorSourceEntries": 37,
+  "mismatches": [],
+  "indexFingerprintMatches": true,
+  "newMappedModules": [
+    "src/field_care_content.js",
+    "src/field_care_facts.js",
+    "src/lore_practice_content.js",
+    "src/lore_practice_facts.js",
+    "src/book_care_content.js",
+    "src/book_care_runtime.js",
+    "src/book_care_facts.js",
+    "src/lore_practice_runtime.js",
+    "src/field_care_battle.js",
+    "src/lore_practice_host.js",
+    "src/book_care_host.js",
+    "src/field_care_host.js"
+  ]
+}

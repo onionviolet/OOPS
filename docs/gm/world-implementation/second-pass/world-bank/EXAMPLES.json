@@ -1,0 +1,915 @@
+{
+  "schema": "proposed-authoring-fixtures-1",
+  "date": "2026-10-04",
+  "status": "proposed-unexecuted",
+  "scope": "Original design fixtures and one qualified source-character baseline. No runtime API, activated actor, saved stock, new world, selected balance or executed retrieval is implied.",
+  "labels": {
+    "O": "Original proposal",
+    "S": "Qualified reviewed supplied-edition claim",
+    "U": "Unknown; never randomly filled"
+  },
+  "cases": [
+    {
+      "id": "O01",
+      "title": "Two harbor joiners, one offer, different lawful choices",
+      "classification": "O",
+      "context": {
+        "worldId": "fixture.reedharbor",
+        "instanceId": "reedharbor.branch1",
+        "eraId": "before_storm",
+        "regionId": "quay",
+        "layerId": "physical",
+        "localMinute": 20,
+        "clockRelation": "Fixture local equals fixture joined played time; no offline advancement",
+        "task": "Offer a six-minute sealbox repair"
+      },
+      "optionalPriors": [
+        "harbor_maintenance_culture",
+        "quay_cooperative",
+        "joiner",
+        "adult_worker",
+        "measured_joint_method"
+      ],
+      "creation": {
+        "generatorRevision": 1,
+        "priorRevision": 1,
+        "sampledOnce": true,
+        "seed": 4172,
+        "historySource": "Explicit O initial episodes plus future committed fixture events",
+        "noRerollOn": [
+          "preview",
+          "menu",
+          "reload",
+          "rewording"
+        ]
+      },
+      "offer": {
+        "registeredCommandProposal": "fixture.sealbox_repair",
+        "costs": {
+          "workerSurveyKits": 1,
+          "playerCoins": 1
+        },
+        "durationMinutes": 6,
+        "requires": [
+          "alive",
+          "usable_hands",
+          "learned_repair_method",
+          "same_bound_instance_and_quay",
+          "free_worker_and_rack",
+          "actual_kit_available_above_reserve",
+          "explicit_paid_agreement"
+        ],
+        "knownConsequence": "One repaired owned box; no extra kit created",
+        "cancellationProposal": "Before work starts, return paid coin and release reservations; interruption during work needs an explicit phase policy"
+      },
+      "actors": [
+        {
+          "id": "mira",
+          "profile": {
+            "age": 28,
+            "seed": 4172,
+            "occupation": "joiner",
+            "values": [
+              "kept_commitments",
+              "careful_repair"
+            ],
+            "goal": "Deliver promised quay braces before local minute 32"
+          },
+          "hypotheticalState": {
+            "life": "alive",
+            "bodySupport": {
+              "usableHands": true
+            },
+            "resources": {
+              "coins": 2
+            },
+            "stock": {
+              "surveyKits": 2,
+              "roughLogs": 3
+            },
+            "reservedForAcceptedDuty": {
+              "surveyKits": 2
+            },
+            "learnedMethods": [
+              "measured_joint_method"
+            ],
+            "location": "quay",
+            "occupancy": "free_after_current_count"
+          },
+          "history": [
+            {
+              "id": "mira.duty.accepted",
+              "classification": "O",
+              "accepted": true,
+              "terms": "Two actual kits reserved for quay braces",
+              "dueLocalMinute": 32
+            },
+            {
+              "id": "mira.player.previous_help",
+              "classification": "O",
+              "witnessed": true,
+              "meaning": "Values player help; no blanket permission"
+            }
+          ],
+          "decision": {
+            "eligible": false,
+            "guard": "Both actual kits are reserved for an accepted duty",
+            "chosenAlternative": "Decline current repair; offer advice or a later quote after delivery",
+            "priorityReason": "Duty and remaining means prevent acceptance before preferences matter"
+          },
+          "dialogue": {
+            "classification": "O",
+            "freshLine": "Both kits are promised to the quay. After that delivery, I can inspect your box.",
+            "knowledgeBoundary": "Names only her own disclosed duty; no distant storm certainty or Oren's private stock"
+          }
+        },
+        {
+          "id": "oren",
+          "profile": {
+            "age": 41,
+            "seed": 4173,
+            "occupation": "joiner",
+            "values": [
+              "reliable_exchange",
+              "quiet_work"
+            ],
+            "goal": "Earn a kiln-maintenance fee while keeping an emergency reserve"
+          },
+          "hypotheticalState": {
+            "life": "alive",
+            "bodySupport": {
+              "usableHands": true
+            },
+            "resources": {
+              "coins": 0
+            },
+            "stock": {
+              "surveyKits": 2,
+              "roughLogs": 4
+            },
+            "reservePolicy": {
+              "surveyKits": 1
+            },
+            "learnedMethods": [
+              "measured_joint_method"
+            ],
+            "location": "quay",
+            "occupancy": "free"
+          },
+          "history": [
+            {
+              "id": "oren.gauge.loan.returned",
+              "classification": "O",
+              "witnessed": true,
+              "closedCustody": true,
+              "meaning": "Player returned his specific gauge intact"
+            }
+          ],
+          "decision": {
+            "eligible": true,
+            "chosenAction": "Accept if the player pays and the rack is free",
+            "rankingReason": "One spendable kit remains, the fee serves his goal, and the prior return supports supervised collaboration",
+            "endLocalMinute": 26
+          },
+          "dialogue": {
+            "classification": "O",
+            "freshLine": "You brought the gauge back clean. One coin and six minutes; my spare kit stays on the shelf.",
+            "knowledgeBoundary": "Reveals his own offered terms, not private goals of other people"
+          }
+        }
+      ],
+      "relationshipProject": {
+        "cause": "oren.gauge.loan.returned",
+        "directedChange": {
+          "from": "oren",
+          "to": "player",
+          "domain": "care_of_borrowed_tools",
+          "axis": "trust",
+          "prototypeDelta": 1
+        },
+        "acceptedAgreement": "Return one specific borrowed gauge",
+        "closure": "Actual item/custody return receipt; apology or gift alone cannot close it",
+        "newOpportunity": "Supervised brace-repair audition",
+        "additionalGuards": [
+          "Oren voluntarily offers attendance",
+          "player explicitly accepts",
+          "one actual kit and rack reserved",
+          "both actors free",
+          "source/body support remains legal"
+        ],
+        "effectOnCompletion": "A witnessed sound brace permits ordinary technique instruction and a later commission quote",
+        "ungranted": [
+          "Oren's stock",
+          "automatic technique ownership",
+          "institutional licence",
+          "romantic affection",
+          "ongoing consent"
+        ],
+        "nonRelationshipRoute": "Pay for ordinary repair or use another lawful worker"
+      },
+      "expected": {
+        "positive": "Only Oren starts the paid job; durable publication precedes repair/coin/stock/dialogue receipts",
+        "adverse": [
+          "Rack already occupied: neither starts",
+          "Oren's spendable kit transferred before commit: stale quote rejects",
+          "Mira's friendship does not consume duty stock",
+          "Same loan receipt cannot award trust twice, including at clock zero",
+          "Failed publication produces no job, fee, stock loss or relationship change"
+        ],
+        "acceptanceConsumer": "Local job controls and later People/audition view",
+        "status": "deferred-unexecuted"
+      }
+    },
+    {
+      "id": "O02",
+      "title": "Source-defined early Zorian beside a generated local",
+      "classification": "Mixed S/U/O; the new meeting and all generated content are O",
+      "source": {
+        "title": "Mother of Learning",
+        "provenance": "Completed GM-reviewed supplied WebToEpub edition; qualified provenance, not newly verified primary publication",
+        "editionSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+        "claimOwner": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+        "notesOwner": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+        "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+        "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+        "readingHere": "Selected reviewed claims/notes and manifest only; no raw source reread or whole-book coverage claim"
+      },
+      "sourceBaseline": {
+        "sourceCutoff": {
+          "chapter": 1
+        },
+        "occurrenceBoundary": "After the chapter-1 scroll/key demonstration, before the train journey",
+        "branchId": "fixture.mol.early_original_meeting",
+        "newScene": "Original paper-seal discussion; not a claimed canonical meeting"
+      },
+      "sourceActor": {
+        "id": "source.zorian.ch1",
+        "sourceDefined": true,
+        "lockedFacts": [
+          {
+            "field": "age",
+            "value": 15,
+            "label": "S",
+            "claimId": "MOL-C001-01",
+            "locators": [
+              {
+                "chapter": 1,
+                "pStart": 15,
+                "pEnd": 15
+              },
+              {
+                "chapter": 1,
+                "pStart": 26,
+                "pEnd": 42
+              },
+              {
+                "chapter": 1,
+                "pStart": 48,
+                "pEnd": 55
+              }
+            ]
+          },
+          {
+            "field": "demonstrated_certification_and_personal_mana_channeling",
+            "value": "Demonstrated first-circle certification through the sealed identity scroll and opened the keyed housing key",
+            "label": "S",
+            "claimId": "MOL-C001-04",
+            "locators": [
+              {
+                "chapter": 1,
+                "pStart": 65,
+                "pEnd": 80
+              },
+              {
+                "chapter": 1,
+                "pStart": 83,
+                "pEnd": 86
+              }
+            ]
+          }
+        ],
+        "attributedPolicy": {
+          "label": "S reported claim, not observer proof of every application",
+          "claimId": "MOL-C001-05",
+          "locators": [
+            {
+              "chapter": 1,
+              "pStart": 81,
+              "pEnd": 100
+            }
+          ],
+          "content": "Ilsa reports academy verification and commercial-badge policy; student hearsay about mentorship remains hearsay"
+        },
+        "excludedRandomFill": [
+          "ancestry",
+          "organs",
+          "hidden faculties",
+          "future loop knowledge",
+          "fixed source events",
+          "source motives and relationships"
+        ],
+        "gameplayParameters": {
+          "exactCurrentReserve": null,
+          "castingCost": null,
+          "exactMastery": null,
+          "status": "U; requires source evidence or an explicitly O selected parameter before execution"
+        },
+        "guardResult": "Knowledge and demonstrated channeling do not quote a new spell with unknown current reserve/cost",
+        "romanceAffordance": false,
+        "originalDialogue": {
+          "label": "O; fresh situational proposal, not source quotation or demonstrated canon response",
+          "line": "The scroll verifies my certificate. It does not tell us whether your seal will work.",
+          "boundary": "Only certificate scene facts; no later reveals"
+        },
+        "fixedMotivesAndVoiceCues": {
+          "label": "S from reviewed viewpoint; source beliefs remain attributed",
+          "claimId": "MOL-C001-01",
+          "cues": [
+            "Book-focused and returning to study",
+            "Prefers quiet; often restrains irritation to avoid conflict"
+          ],
+          "boundary": "Family-favoritism feelings are his interpretation, not a generated moral trait or objective claim about all relatives"
+        }
+      },
+      "generatedActor": {
+        "id": "fixture.mol.eda",
+        "sourceDefined": false,
+        "label": "O generated supply apprentice",
+        "frozenProfile": {
+          "seed": 882,
+          "profileRevision": 1,
+          "age": 26,
+          "occupation": "bookbinder's supply apprentice",
+          "goal": "Repair a paper housing seal with ordinary glue",
+          "priorIds": [
+            "adult_apprentice",
+            "careful_material_work"
+          ],
+          "institutionalRole": "Original local supply arrangement; no canonical office authority"
+        },
+        "hypotheticalState": {
+          "life": "alive",
+          "bodySupport": {
+            "ordinaryHands": true
+          },
+          "stock": {
+            "paperSheets": 2,
+            "gluePots": 1
+          },
+          "knowledge": [
+            "learned_ordinary_paper_seal"
+          ],
+          "personalManaSource": null,
+          "certification": null
+        },
+        "action": "Offer an ordinary glued seal; ask a willing eligible caster to assess a magical alternative",
+        "blockedAction": "Cannot channel personal mana from a copied method or apprentice role alone",
+        "originalDialogue": "I can mend the paper now. For the keyed part, we need someone who can actually channel.",
+        "boundaries": "O profile never inherits Zorian's certificate, family, secret knowledge or named history"
+      },
+      "observerProjection": {
+        "author": "Can retrieve reviewed baseline facts with qualifications",
+        "zorian": "His witnessed certificate/key event; no later private facts",
+        "eda": "Only original scene observations; source fact existence is not a learning receipt",
+        "player": "Certificate detail remains absent unless the original scene actually witnesses or hears it",
+        "mandatoryPrivateSupport": "Trusted verifier sees necessary source/body/fuel records; speaker receives a safe unquoted or blocked-action result"
+      },
+      "expected": {
+        "positive": "Source overrides persist across prior revision; generated ordinary work remains useful",
+        "adverse": [
+          "Role label cannot supply personal mana",
+          "Author cutoff chapter 1 cannot import later loop knowledge",
+          "A later reveal in chapter 1 is still absent before its occurrence/learning",
+          "Unknown numeric support prevents an executable quote",
+          "Reopening dialogue does not reroll Eda"
+        ],
+        "status": "deferred-unexecuted"
+      }
+    },
+    {
+      "id": "O03",
+      "title": "Two eras and a repaired-bridge branch",
+      "classification": "O, including all reference events and secret facts",
+      "referenceRevision": 1,
+      "worldId": "fixture.reedharbor",
+      "regions": [
+        "quay",
+        "sealed_ridge"
+      ],
+      "referenceEvents": [
+        {
+          "id": "storm",
+          "occursAtLocalMinute": 60,
+          "prerequisites": [
+            "weather_front"
+          ],
+          "revealPosition": 4
+        },
+        {
+          "id": "washout",
+          "occursAtLocalMinute": 61,
+          "prerequisites": [
+            "storm",
+            "bridge_unbraced"
+          ],
+          "revealPosition": 4
+        },
+        {
+          "id": "cala_death",
+          "occursAtLocalMinute": 62,
+          "prerequisites": [
+            "washout",
+            "cala_on_bridge_without_other_rescue"
+          ],
+          "revealPosition": 4
+        },
+        {
+          "id": "emergency_ferry_demand",
+          "occursAtLocalMinute": 70,
+          "prerequisites": [
+            "washout"
+          ],
+          "revealPosition": 5
+        },
+        {
+          "id": "tea_arrival",
+          "occursAtLocalMinute": 80,
+          "prerequisites": [
+            "tea_cart_paid_and_route_open"
+          ],
+          "revealPosition": 5
+        },
+        {
+          "id": "tunnel_disclosure",
+          "occursAtLocalMinute": 100,
+          "prerequisites": [
+            "actual_exploration"
+          ],
+          "revealPosition": 9
+        }
+      ],
+      "catalogue": {
+        "availableDefinitions": [
+          "gauge",
+          "survey_kit",
+          "ferry_method",
+          "tunnel_route"
+        ],
+        "impliedCurrentStock": 0,
+        "impliedKnowledge": false,
+        "impliedEnrollment": false
+      },
+      "sharedCommittedFixtureEvents": [
+        {
+          "id": "gauge_transfer",
+          "atLocalMinute": 50,
+          "from": "mira",
+          "to": "oren",
+          "itemId": "gauge.unique1",
+          "count": 1,
+          "operation": "ownership_and_holder_transfer",
+          "cause": "accepted_sale",
+          "independentOfWashout": true
+        },
+        {
+          "id": "mira_ferry_report",
+          "atLocalMinute": 75,
+          "observer": "mira",
+          "content": "Attributed emergency-ferry request if it actually occurs",
+          "requires": [
+            "emergency_ferry_demand"
+          ]
+        }
+      ],
+      "branchIntervention": {
+        "branchId": "repaired",
+        "eventId": "brace_done",
+        "atLocalMinute": 30,
+        "actualCosts": {
+          "logs": 2,
+          "kits": 1
+        },
+        "actualEffect": "bridge_unbraced=false",
+        "invalidatesExpectations": [
+          "washout",
+          "cala_death",
+          "emergency_ferry_demand"
+        ],
+        "doesNotInvalidate": [
+          "storm",
+          "tea_arrival",
+          "gauge_transfer"
+        ],
+        "canonReferencePreserved": true
+      },
+      "queries": [
+        {
+          "id": "era_early",
+          "request": {
+            "edition": "fixture.edition1",
+            "sourceCutoff": 3,
+            "era": "before_storm",
+            "instanceId": "reedharbor.baseline",
+            "occurrenceAt": 20,
+            "region": "quay",
+            "observer": "player",
+            "task": "Ask who can inspect the bridge"
+          },
+          "state": {
+            "calaLife": "alive",
+            "gaugeOwner": "mira",
+            "gaugeHolder": "mira",
+            "playerEvidence": [
+              "cala_met",
+              "heard_weather_forecast"
+            ]
+          },
+          "expected": {
+            "include": [
+              "Cala's witnessed offered inspection terms",
+              "weather forecast as testimony",
+              "contemporary known quay route"
+            ],
+            "exclude": [
+              "actual future washout/death",
+              "tunnel route",
+              "future tea stock",
+              "unseen gauge ownership"
+            ],
+            "trustedVerifier": "Current Cala availability/support and Mira's exact gauge stock; author catalogue is not a grant"
+          }
+        },
+        {
+          "id": "era_late_baseline",
+          "request": {
+            "edition": "fixture.edition1",
+            "sourceCutoff": 9,
+            "era": "after_storm",
+            "instanceId": "reedharbor.baseline",
+            "occurrenceAt": 90,
+            "region": "quay",
+            "observer": "player",
+            "task": "Hire a guide and borrow Mira's gauge"
+          },
+          "state": {
+            "calaLife": "dead",
+            "gaugeOwner": "oren",
+            "gaugeHolder": "oren",
+            "miraGaugeCount": 0,
+            "teaShipmentArrived": true,
+            "playerEvidence": [
+              "heard_cala_loss",
+              "witnessed_gauge_sale"
+            ],
+            "miraEvidence": [
+              "ferry_request"
+            ]
+          },
+          "expected": {
+            "include": [
+              "Known Cala loss",
+              "witnessed sale and safe referral to Oren"
+            ],
+            "exclude": [
+              "Cala as eligible worker",
+              "Mira gauge loan action",
+              "Mira's unheard ferry report",
+              "tunnel disclosure at minute 100 despite author cutoff 9",
+              "tea stock owned by player"
+            ],
+            "trustedVerifier": "Dead actor and transferred specimen exclude their uses; nearby catalogue still contains definitions"
+          }
+        },
+        {
+          "id": "era_late_repaired",
+          "request": {
+            "edition": "fixture.edition1",
+            "sourceCutoff": 9,
+            "era": "after_storm",
+            "instanceId": "reedharbor.repaired",
+            "occurrenceAt": 90,
+            "region": "quay",
+            "observer": "player",
+            "task": "Revisit inspection and ferry work"
+          },
+          "state": {
+            "calaLife": "alive",
+            "bridgeBraced": true,
+            "gaugeOwner": "oren",
+            "gaugeHolder": "oren",
+            "playerEvidence": [
+              "brace_done",
+              "storm_witnessed",
+              "cala_met_after_storm"
+            ]
+          },
+          "expected": {
+            "include": [
+              "Actual survivor's offered inspection if current means/free shift permit",
+              "ordinary ferry quote if independently available",
+              "known brace receipt"
+            ],
+            "exclude": [
+              "canonical flood-death outcome",
+              "automatic emergency-ferry demand/reward",
+              "Mira's transferred gauge",
+              "tunnel future/private fact"
+            ],
+            "referenceExpectationStatus": {
+              "washout": "invalidated",
+              "cala_death": "invalidated",
+              "emergency_ferry_demand": "invalidated",
+              "storm": "occurred",
+              "tea_arrival": "independent",
+              "gauge_transfer": "occurred"
+            }
+          }
+        }
+      ],
+      "promotionCase": {
+        "backgroundPersonId": "fixture.reedharbor.nila",
+        "task": "Introduce an actual replacement ferrier only in the branch needing one",
+        "requires": [
+          "stable branch/body identity",
+          "reviewed contemporary baseline or O profile",
+          "no existing duplicate",
+          "explicit actual allocated stock",
+          "knowledge channels",
+          "activation receipt"
+        ],
+        "aggregateAccounting": "Debit one allocated boat-use shift, not materialize a free boat from ferry-business prosperity",
+        "historyBoundary": "No fabricated historical controller ticks or inherited Cala memories",
+        "status": "proposed-not-activated"
+      },
+      "expected": {
+        "positive": "Era/branch/viewpoint filters and actual stock join agree",
+        "adverse": [
+          "Different instances with the same Quay label cannot share gauge/workshop",
+          "Invalidation never rewinds an already committed event",
+          "No observer learns a secret through dependency names or omitted-record counts"
+        ],
+        "status": "deferred-unexecuted"
+      }
+    },
+    {
+      "id": "O04",
+      "title": "Little inspection family with genuinely different world support",
+      "classification": "O; worlds and all mechanics are original reversible proposals",
+      "family": {
+        "id": "fixture.witness_strip",
+        "function": "Expose a seam's movement to a supported inspection action",
+        "sharedLearnedTalent": "Steady tracing from actual supervised practice",
+        "notGrantedByDefinition": [
+          "strip stock",
+          "source faculty",
+          "expert judgement",
+          "local permission"
+        ]
+      },
+      "variants": [
+        {
+          "worldId": "fixture.reedharbor",
+          "recipe": {
+            "id": "physical_strip",
+            "acquisition": "Buy/receive taught ordinary pattern",
+            "inputs": {
+              "dryReed": 1,
+              "soot": 1,
+              "twine": 1
+            },
+            "tools": [
+              "knife",
+              "dry_bench"
+            ],
+            "output": "One owned physical witness strip"
+          },
+          "talent": {
+            "acquisition": "Finish supervised tracing practice with own materials",
+            "growth": "Cleaner repeated traces reduce rework in the specific inspection method; no arbitrary universal rarity ceiling",
+            "counter": "Poor light or hand injury can still invalidate fine tracing"
+          },
+          "ability": {
+            "id": "ordinary_trace",
+            "support": [
+              "usable_hands",
+              "actual_strip",
+              "learned_method",
+              "light",
+              "permission_to_touch_joint"
+            ],
+            "cost": "One consumable strip and one occupied inspection interval",
+            "useConsumer": "Proposed registered fixed-joint inspection; actual evidence can select brace repair instead of unnecessary replacement",
+            "counter": "A covered or moving joint needs uncovering/stabilization or another method",
+            "portability": "Pattern and ordinary talent travel where materials/body/contact are compatible; physical stock travels only through lawful cargo/custody"
+          },
+          "rule": "A mark reports deformation, not hidden structural history or guaranteed future safety",
+          "projectOutcome": "A traced loose joint opens one actual reinforcement quote; stock and shift still required"
+        },
+        {
+          "worldId": "fixture.lumenward",
+          "recipe": {
+            "id": "resonant_strip",
+            "acquisition": "Earn local instruction and an actual eligible resident's casting cooperation",
+            "inputs": {
+              "glassThread": 1,
+              "ink": 1
+            },
+            "tools": [
+              "supported_lattice_bench"
+            ],
+            "output": "One owned strip with an explicitly supported resonance function"
+          },
+          "talent": {
+            "acquisition": "Ordinary steady tracing carries over; local tuning requires separate learned practice",
+            "growth": "Earned tuning extends useful fixed-scene contrast and lowers ordinary rework; does not create personal source",
+            "counter": "Incorrect lattice tuning can produce no interpretable result"
+          },
+          "ability": {
+            "id": "lattice_contrast",
+            "support": [
+              "actual_luminous_source_owner",
+              "learned_tuning",
+              "live_local_lattice",
+              "available_personal_charge",
+              "owned_strip",
+              "permission",
+              "caster_free"
+            ],
+            "cost": "One prototype charge unit plus a casting interval; exact numbers unselected",
+            "useConsumer": "Proposed fixed light-plane condition plus joint-observation consumer, funded by willing actual caster",
+            "counter": "Source suppression, disrupted lattice or loss of caster stops enhanced inspection; ordinary strip use can remain independently legal",
+            "portability": "Learned tuning and compatible stock may travel; a visitor without source/lattice cannot execute the enhancement"
+          },
+          "rule": "Ambient support, owned source and personal reserve are separate; an arcane role label supplies none",
+          "projectOutcome": "Revealed internal seam permits a different repair/research phase; no free magical item or innate faculty"
+        },
+        {
+          "worldId": "fixture.lumenward",
+          "variant": "optional_exception",
+          "sourceStatus": "O proposed exception, not sourced infinity",
+          "ability": {
+            "id": "anchored_clear_light",
+            "superiorFunction": "No fuel depletion while its specific live source and illuminated anchor support it",
+            "requirements": [
+              "actual_source_acquired",
+              "bound_anchor_live",
+              "declared_contact_and_targets"
+            ],
+            "counter": "Anchor closure or loss of source support ends the function; do not invent an exhaustion cap",
+            "portability": "An uncarried anchor does not support another world",
+            "useConsumer": "Missing bespoke guarded-function/maintained-support adapter; finite numeric capacity model cannot represent true inexhaustibility"
+          },
+          "status": "reference-design-only"
+        }
+      ],
+      "expected": {
+        "positive": "Ordinary and enhanced inspection create different lawful decisions and useful cross-world learning",
+        "adverse": [
+          "Recipe row creates no stock",
+          "Training memory creates no luminous source",
+          "Unsupported enhancement blocks without erasing ordinary learned skill",
+          "Loss of live anchor ends only its actual contribution",
+          "No infinite JSON number or arbitrary nerf substitutes for the selected semantic rule"
+        ],
+        "uiConsumer": "Local recipe/use controls, known-cost/support explanation and later observed project outcome",
+        "status": "deferred-unexecuted"
+      },
+      "voiceExamples": [
+        {
+          "worldId": "fixture.reedharbor",
+          "region": "quay",
+          "era": "before_storm",
+          "profession": "joiner",
+          "context": "supported ordinary inspection",
+          "cue": "Concrete material terms; no mystical explanation",
+          "line": "The soot line moved at the joint. Brace that side before we use the box.",
+          "classification": "O"
+        },
+        {
+          "worldId": "fixture.lumenward",
+          "region": "lattice_workshop",
+          "era": "local_current",
+          "profession": "tuning_worker",
+          "context": "enhanced inspection with a willing eligible caster",
+          "cue": "Local lattice/charge terms, plain costs and scope",
+          "line": "I can tune the strip while the lattice holds. If it closes, the ink mark still works.",
+          "classification": "O"
+        },
+        {
+          "worldId": "fixture.reedharbor",
+          "personId": "oren",
+          "context": "voluntary supervised audition after tool return",
+          "cue": "Short teaching instruction; no automatic friendship or reward",
+          "line": "Keep the strip on the seam. I'll check the mark before we spend the next kit.",
+          "classification": "O"
+        }
+      ]
+    }
+  ],
+  "contractShapes": {
+    "status": "proposed field contracts; no runtime schema or parser created",
+    "referenceClaim": {
+      "required": [
+        "id",
+        "revision",
+        "worldId",
+        "editionHash",
+        "subjects",
+        "relation",
+        "valueOrUnknown",
+        "claimKind",
+        "reviewReceipt",
+        "sourceLocators",
+        "occurrenceValidity",
+        "revealLocator",
+        "exceptionIds",
+        "dependencyIds",
+        "supersedesIds"
+      ],
+      "constraints": [
+        "Claim kind preserves witnessed/reported/narrator/inference/original/unknown",
+        "No exact occurrence date manufactured from partial order",
+        "A correction appends/supersedes; prior committed reference remains identifiable"
+      ]
+    },
+    "branchPolicy": {
+      "required": [
+        "id",
+        "revision",
+        "worldId",
+        "continuityId",
+        "instanceId",
+        "eraRecipeId",
+        "referenceRevision",
+        "sourceCutoff",
+        "explicitOverridesWithCauses",
+        "activationIntent",
+        "clockRelations",
+        "absencePolicy",
+        "compatibilityChoice"
+      ],
+      "constraints": [
+        "Canon reference unchanged by game intervention",
+        "Policies do not create stock/body/source merely by selection"
+      ]
+    },
+    "individualProfile": {
+      "required": [
+        "identityId",
+        "bodyId",
+        "instanceId",
+        "sourceDefined",
+        "profileRevision",
+        "priorIdsAndRevisions",
+        "generationSeedOrNull",
+        "fixedOverrides",
+        "unknownProtectedFields",
+        "initialGrantReceipt",
+        "initialKnowledgeChannels",
+        "goalAndPreferenceProfile",
+        "episodeRefs"
+      ],
+      "constraints": [
+        "Source-defined fixed facts/unknowns are not random fill",
+        "Generated legal profile sampled once then frozen",
+        "Actor activation uses actual existing owners; profile is no second stock ledger"
+      ]
+    },
+    "observerAssertion": {
+      "required": [
+        "assertionId",
+        "topic",
+        "content",
+        "speakerIdOrChannel",
+        "recipientId",
+        "occurrenceClockRef",
+        "learnedAtClockRef",
+        "basis",
+        "evidenceRefs",
+        "qualification"
+      ],
+      "constraints": [
+        "Hearing only proves statement/channel occurred",
+        "Current belief separately references accepted/disputed assertions",
+        "Consent and agreement are separate voluntary receipts"
+      ]
+    },
+    "queryResponse": {
+      "required": [
+        "requestIdentityAndScope",
+        "inputRevisionVector",
+        "sourceQualifications",
+        "trustedMechanicalDependencyClosure",
+        "observerSafeRecords",
+        "unknownOrIncompleteStatus",
+        "commitPrerequisites"
+      ],
+      "constraints": [
+        "Trusted closure kept outside speaker payload",
+        "Private withheld IDs/counts do not disclose secrets",
+        "Mandatory supports cannot be removed by presentation budget",
+        "Stale revision rejects authoritative action"
+      ]
+    }
+  }
+}

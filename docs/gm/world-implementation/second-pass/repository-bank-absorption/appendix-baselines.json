@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "repositories": [
+    {
+      "id": "yair-upstream",
+      "title": "YAIR upstream",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/miktaew/yet-another-idle-rpg",
+        "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+        "branch": "master",
+        "cache_key": "yair-upstream.git",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+            "lines": [
+              [
+                1,
+                32
+              ]
+            ],
+            "symbol": "purpose/modding/branch guidance",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/README.md"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+            "lines": [
+              [
+                1,
+                21
+              ]
+            ],
+            "symbol": "MIT notice",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/LICENSE"
+          },
+          {
+            "path": "src/main.js",
+            "sha256": "1ec0c28e9468067535473330e2a480f01ca3e42b0ec2f7d76ba3c71be0c0ae82",
+            "lines": [
+              [
+                692,
+                735
+              ],
+              [
+                5503,
+                5552
+              ]
+            ],
+            "symbol": "start_activity / native tick or create_save",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg/blob/e3356432ad5112f30842cfe6a6b5c3a4ced77de9/src/main.js"
+          }
+        ]
+      },
+      "review_scope": "Current pin/purpose/notice/actual native activity and save/tick readback; reuse completed native feasibility and finite fork-network traces at matching root revisions. Not another all-file/all-branch audit.",
+      "prior_evidence": [
+        "../upstream-native-feasibility/REPORT.md",
+        "../upstream-native-feasibility/FEASIBILITY.json",
+        "../fork-network-absorption/REPORT.md",
+        "../fork-network-absorption/INVENTORY.json"
+      ],
+      "observed": "Both native activity starts check declared JOB/TRAINING work availability or equipped gathering tool then initialize the activity. Upstream tick produces actual stock/skill XP; dev main uses component getters and manually projects character equipment/money/XP to save. Purpose explicitly warns source/default and deployed heads differ.",
+      "disposition": "Baseline/current engine lineage, not a second engine candidate. Preserve existing native consumers; reuse narrow fork fixes through their already-qualified packets. No transplant of the older monolithic root into the adopted v0.6 dirty fork.",
+      "current_yair_owner": "src/main.js, src/models/skill.js, src/models/location.js, src/components/levelable_component.js, src/gameplay_publication.js, src/expansion_persistence.js",
+      "novelty": "No new cross-game mechanism claimed; predecessor consumer/pin qualification prevents duplicate owners.",
+      "rights": {
+        "notice": "MIT, Copyright (c) 2021 Miktaew; notice retained.",
+        "copy_route": "No code/assets copied. Later scoped subset adaptation preserves source/fork/commit notices; separate resources and external setting text require individual provenance."
+      },
+      "limits": "Source only. No original/development gameplay execution, branch refresh, merge, build or test. Saved default heads not complete fork network coverage; prior network review has its own finite exposed scope."
+    },
+    {
+      "id": "yair-dev",
+      "title": "YAIR development",
+      "status": "reused-qualified-prior-review",
+      "source": {
+        "url": "https://github.com/miktaew/yet-another-idle-rpg-dev",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "branch": "master",
+        "cache_key": "yair-dev.git",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "a81eff6ba29ef7b52453987c392c93824de98f2542993041ce62d0922a2c4f8e",
+            "lines": [
+              [
+                1,
+                32
+              ]
+            ],
+            "symbol": "purpose/modding/branch guidance",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/README.md"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+            "lines": [
+              [
+                1,
+                21
+              ]
+            ],
+            "symbol": "MIT notice",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/LICENSE"
+          },
+          {
+            "path": "src/main.js",
+            "sha256": "4878df96921457d475c62fa266bc5b343d2c2b010bff96ab17b417fdb033b9af",
+            "lines": [
+              [
+                717,
+                758
+              ],
+              [
+                3103,
+                3130
+              ]
+            ],
+            "symbol": "start_activity / native tick or create_save",
+            "url": "https://github.com/miktaew/yet-another-idle-rpg-dev/blob/af47a8e9b112116935870ae7126dd2f194d2694a/src/main.js"
+          }
+        ]
+      },
+      "review_scope": "Current pin/purpose/notice/actual native activity and save/tick readback; reuse completed native feasibility and finite fork-network traces at matching root revisions. Not another all-file/all-branch audit.",
+      "prior_evidence": [
+        "../upstream-native-feasibility/REPORT.md",
+        "../upstream-native-feasibility/FEASIBILITY.json",
+        "../fork-network-absorption/REPORT.md",
+        "../fork-network-absorption/INVENTORY.json"
+      ],
+      "observed": "Both native activity starts check declared JOB/TRAINING work availability or equipped gathering tool then initialize the activity. Upstream tick produces actual stock/skill XP; dev main uses component getters and manually projects character equipment/money/XP to save. Purpose explicitly warns source/default and deployed heads differ.",
+      "disposition": "Baseline/current engine lineage, not a second engine candidate. Preserve existing native consumers; reuse narrow fork fixes through their already-qualified packets. No transplant of the older monolithic root into the adopted v0.6 dirty fork.",
+      "current_yair_owner": "src/main.js, src/models/skill.js, src/models/location.js, src/components/levelable_component.js, src/gameplay_publication.js, src/expansion_persistence.js",
+      "novelty": "No new cross-game mechanism claimed; predecessor consumer/pin qualification prevents duplicate owners.",
+      "rights": {
+        "notice": "MIT, Copyright (c) 2021 Miktaew; notice retained.",
+        "copy_route": "No code/assets copied. Later scoped subset adaptation preserves source/fork/commit notices; separate resources and external setting text require individual provenance."
+      },
+      "limits": "Source only. No original/development gameplay execution, branch refresh, merge, build or test. Saved default heads not complete fork network coverage; prior network review has its own finite exposed scope."
+    }
+  ],
+  "findings": [],
+  "closeout_context_refresh": "Closeout refresh: PROJECT and fork-network REPORT now record a separately authorized selective native UI/guard/trade/crafting adoption with its own matched build and deferred behavior. Those baseline fixes are delivered in that lane, not remaining imports in this review. Broad campaign/body/time/dependency scope is unchanged; actual persistExpansion boundary was reread."
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "status": "complete-input-recovery-and-qualified-research",
+  "date": "2026-10-06",
+  "steam_app_id": 1910680,
+  "steam_build_id": "24426975",
+  "main_input": {
+    "installed_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Orb of Creation/Orb Of Creation.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+    "copied_path": "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp.dll",
+    "bytes": 2044928,
+    "sha256": "46b723ad8e3df5adf7186ec32b220c338e26c1cc79369e01213c091155073bdc",
+    "copy_sha256": "46b723ad8e3df5adf7186ec32b220c338e26c1cc79369e01213c091155073bdc"
+  },
+  "reference_dll_count": 166,
+  "private_workspace": "/Users/weiwei/.codex/research/orb-of-creation/24426975",
+  "decompiled_directory": "/Users/weiwei/.codex/research/orb-of-creation/24426975/decompiled",
+  "input_manifest": "/Users/weiwei/.codex/research/orb-of-creation/24426975/INPUT_MANIFEST.json",
+  "input_manifest_sha256": "9c278ae6af914239adc1682ca26e546a7b8ea0d322647251370f7aaf20dcd68b",
+  "decompilation_manifest": "/Users/weiwei/.codex/research/orb-of-creation/24426975/DECOMPILATION_MANIFEST.json",
+  "decompilation_manifest_sha256": "f5f9516320cd07f0ad8e72999837387b5cd0b2235581f05f3dde43e302935049",
+  "decompile_command": [
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+    "--disable-updatecheck",
+    "-p",
+    "-o",
+    "/Users/weiwei/.codex/research/orb-of-creation/24426975/decompiled",
+    "-r",
+    "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed",
+    "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp.dll"
+  ],
+  "exit_code": 0,
+  "stderr_bytes": 0,
+  "generated_files": 1003,
+  "csharp_files": 1002,
+  "project_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "qualification": "Matching main assembly and selected serialized fields reviewed with exact source/caller/consumer spans. Recovery counts do not establish whole-game or runtime coverage. Raw copies/source/data/tools/notes/logs remain outside Git.",
+  "game_launched": false,
+  "profiles_or_saves_read": false,
+  "raw_source_in_git": false,
+  "installed_game_mutated": false,
+  "unity_version": "6000.0.70f1",
+  "asset_manifest": "/Users/weiwei/.codex/research/orb-of-creation/24426975/ASSET_MANIFEST.json",
+  "asset_manifest_sha256": "ffd92d07a3c26dcd129936fde83c808ad588a6f7e341e45bcc5e9c285abcc8f8",
+  "asset_index": "/Users/weiwei/.codex/research/orb-of-creation/24426975/assets/INDEX.json",
+  "asset_index_sha256": "9bd61b9f1a58cb4f6aa92c9b839f0825f46c768a8447e178af7403030331119e",
+  "asset_extraction_script": "/Users/weiwei/.codex/research/orb-of-creation/24426975/extract_assets.py",
+  "asset_extraction_script_sha256": "5a212d2155514feaf97f62db7865c7426e2363f048d5ef0d3646eff12f5b9911",
+  "extracted_objects": 23047,
+  "asset_parse_error_count": 4,
+  "asset_parser_repairs": "In-process only: align generated MonoBehaviour enabled byte; strip synthetic Unity base fields from generated SerializeReference data nodes; strict exact byte consumption remains required.",
+  "asset_parser_versions": {
+    "UnityPy": "1.25.4",
+    "TypeTreeGeneratorAPI": "0.0.10"
+  },
+  "installed_internal_version": {
+    "value": "v1.0.5-2",
+    "asset_file": "sharedassets0.assets",
+    "path_id": 4567,
+    "class": "StringVariable",
+    "json_pointer": "/data/value",
+    "sha256": "3bab1ad6169d7b2f8b1bb2212767c5fc32e5394be22107369c1671a79259bb34"
+  },
+  "product_version_primary_correspondence": "https://steamcommunity.com/app/1910680/discussions/0/585055745797527963/",
+  "asset_parse_errors": [
+    {
+      "asset_file": "resources.assets",
+      "path_id": 1435,
+      "type": "MonoBehaviour",
+      "error": "unpack requires a buffer of 1 bytes",
+      "class": "LanguageSourceAsset",
+      "name": "I2Languages"
+    },
+    {
+      "asset_file": "sharedassets1.assets",
+      "path_id": 6276,
+      "type": "MonoBehaviour",
+      "error": "'ascii' codec can't encode character '\\udc80' in position 22: ordinal not in range(128)",
+      "class": "UIConditionalTextItem",
+      "name": ""
+    },
+    {
+      "asset_file": "sharedassets1.assets",
+      "path_id": 7329,
+      "type": "MonoBehaviour",
+      "error": "'ascii' codec can't encode character '\\udc80' in position 22: ordinal not in range(128)",
+      "class": "UIConditionalTextItem",
+      "name": ""
+    },
+    {
+      "asset_file": "level1",
+      "path_id": 11186,
+      "type": "MonoBehaviour",
+      "error": "Expected to read 112 bytes, but only read 52 bytes",
+      "class": "LocalizationExporter",
+      "name": ""
+    }
+  ],
+  "tool": "ilspycmd9.1.0.7988",
+  "tool_runtime": "Existing private Microsoft.NETCore.App8.0.31 osx-arm64 route",
+  "supplemental_method_evidence": {
+    "assembly_path": "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp-firstpass.dll",
+    "sha256": "cafe3f4fc522b3af33a10cb363731a0985c249a55a51a710ee0adf94910a0891",
+    "method": "BigDouble.AsPercent",
+    "decompiled_stdout_lines": [
+      387,
+      395
+    ],
+    "finding": "Exponent minus2 means divide by100. AsPenaltyPercent is1-AsPercent.",
+    "reproduction_argv": [
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+      "--disable-updatecheck",
+      "-t",
+      "BigDouble",
+      "/Users/weiwei/.codex/research/orb-of-creation/24426975/input/Managed/Assembly-CSharp-firstpass.dll"
+    ]
+  },
+  "private_note_hashes": {
+    "SPELLS": "73d19061b3102f21eb269dc6a0955666e9f2763e32b91e690aa06f88b873ab78",
+    "PRODUCTION": "813d3ddac34e3133ad42726dfbecfb7625467ccd26bd251b9d2bc928936816e9",
+    "PROGRESSION": "5550ecb37aeb657a2096cd391719ca797ba08310c3999bc577057bb7b814290c",
+    "AGROMANCY": "9aaafc800566507a04818e255d76d80b1fd85f055c39b90e6b75860b37c6fa9c",
+    "ROOT": "c91c43a59783491bf732ce78799c1060a95235971f0be3e2e5cdd52d50805814"
+  },
+  "asset_read_python_search_paths": [
+    "/Users/weiwei/.codex/research/orb-of-creation/24426975/tools/python",
+    "/Users/weiwei/.codex/research/crush-crush/25589052/tools/python"
+  ]
+}

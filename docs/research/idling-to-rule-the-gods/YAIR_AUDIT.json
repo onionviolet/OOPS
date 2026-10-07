@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "observed_at_utc": "2026-10-06T05:25:21.945548+00:00",
+  "files": [
+    {
+      "path": "src/simulation.js",
+      "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e",
+      "reviewed_spans": [
+        [
+          42,
+          119
+        ],
+        [
+          176,
+          211
+        ]
+      ],
+      "qualification": "Affected live interface reread after detected external input drift; initial spans qualify the earlier hash, current spans qualify refreshed hash.",
+      "initial_sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "initial_reviewed_spans": [
+        [
+          42,
+          115
+        ],
+        [
+          119,
+          227
+        ],
+        [
+          416,
+          443
+        ]
+      ],
+      "refresh_reviewed_spans": [
+        [
+          42,
+          119
+        ],
+        [
+          176,
+          211
+        ]
+      ]
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+      "reviewed_spans": [
+        [
+          55,
+          94
+        ],
+        [
+          130,
+          184
+        ],
+        [
+          193,
+          212
+        ]
+      ],
+      "qualification": "Affected live interface reread after detected external input drift; initial spans qualify the earlier hash, current spans qualify refreshed hash.",
+      "initial_sha256": "669f684cb5f0b8d5becd3e17db7a4aee4c206ae7ce0e1426e2d659a1d028dfc2",
+      "initial_reviewed_spans": [
+        [
+          1,
+          258
+        ]
+      ],
+      "refresh_reviewed_spans": [
+        [
+          55,
+          94
+        ],
+        [
+          130,
+          184
+        ],
+        [
+          193,
+          212
+        ]
+      ]
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "reviewed_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/frontier_campaign.js",
+      "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "reviewed_spans": [
+        [
+          1,
+          108
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "reviewed_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "reviewed_spans": [
+        [
+          35,
+          80
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+      "reviewed_spans": [
+        [
+          38,
+          76
+        ],
+        [
+          76,
+          132
+        ]
+      ],
+      "qualification": "Affected live interface reread after detected external input drift; initial spans qualify the earlier hash, current spans qualify refreshed hash.",
+      "initial_sha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808",
+      "initial_reviewed_spans": [
+        [
+          76,
+          130
+        ],
+        [
+          134,
+          158
+        ]
+      ],
+      "refresh_reviewed_spans": [
+        [
+          38,
+          76
+        ],
+        [
+          76,
+          132
+        ]
+      ]
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "sha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79",
+      "reviewed_spans": [
+        [
+          208,
+          228
+        ]
+      ],
+      "qualification": "Affected live interface reread after detected external input drift; initial spans qualify the earlier hash, current spans qualify refreshed hash.",
+      "initial_sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+      "initial_reviewed_spans": [
+        [
+          208,
+          226
+        ]
+      ],
+      "refresh_reviewed_spans": [
+        [
+          208,
+          228
+        ]
+      ]
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "reviewed_spans": [
+        [
+          1,
+          118
+        ],
+        [
+          208,
+          246
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "reviewed_spans": [
+        [
+          1,
+          22
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "reviewed_spans": [
+        [
+          1,
+          42
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "reviewed_spans": [
+        [
+          1,
+          58
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "reviewed_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "reviewed_spans": [
+        [
+          1,
+          51
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "cabfa80da10f399def1c7f0ebdf35fac661d2b6344619e52718900550c5685d4",
+      "reviewed_spans": [
+        [
+          423,
+          510
+        ]
+      ],
+      "qualification": "Affected live interface reread after detected external input drift; initial spans qualify the earlier hash, current spans qualify refreshed hash.",
+      "initial_sha256": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "initial_reviewed_spans": [
+        [
+          401,
+          487
+        ]
+      ],
+      "refresh_reviewed_spans": [
+        [
+          423,
+          510
+        ]
+      ]
+    },
+    {
+      "path": "src/world_instances.js",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "reviewed_spans": [
+        [
+          100,
+          130
+        ],
+        [
+          310,
+          345
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "reviewed_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "qualification": "Selected live owner spans; source only, not behavior acceptance. End bounds checked in final validation."
+    },
+    {
+      "path": "src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "reviewed_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "qualification": "Selected source only; no behavior gate."
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f",
+      "reviewed_spans": [
+        [
+          1,
+          79
+        ]
+      ],
+      "qualification": "Selected source only; no behavior gate."
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+      "reviewed_spans": [
+        [
+          1,
+          42
+        ]
+      ],
+      "qualification": "Selected source only; no behavior gate."
+    }
+  ],
+  "verified_existing": [
+    {
+      "owner": "src/simulation.js",
+      "symbols": [
+        "simulationOccupiesActor",
+        "previewSimulationCommand",
+        "completeJob",
+        "cancelSimulationJob"
+      ],
+      "fact": "Actor and participant occupation, finite paid jobs, supported completion/refunds and site capacity already exist."
+    },
+    {
+      "owner": "src/feature_expansion_work_plan.js",
+      "symbols": [
+        "advanceOne",
+        "startWorkPlan",
+        "controlWorkPlan"
+      ],
+      "fact": "Finite command/travel/wait cursors, actual reservation receipts and function-target stopping already exist; currently player-only,32step maximum and no mirrored inventory/clock."
+    },
+    {
+      "owner": "src/field_workshop.js",
+      "symbols": [
+        "fieldProject",
+        "fieldDefinitions"
+      ],
+      "fact": "Independent funded project phases and final assembly, paid method acquisition/practice and two distinct fuel choices exist."
+    },
+    {
+      "owner": "src/reference_gameplay_content.js",
+      "symbols": [
+        "referenceGameplayDefinitions",
+        "referenceGameplayWorkPlans"
+      ],
+      "fact": "Conserved sleeve/charge/material transformation, paid teacher attention and finite target mastery practice exist."
+    },
+    {
+      "owner": "src/reference_gameplay_state.js",
+      "symbols": [
+        "advanceReferenceGameplay",
+        "referenceControlPresentation"
+      ],
+      "fact": "Optional pre-enrolled conduct/prepared attempts and retained character feats exist; earlier results are qualified separately."
+    },
+    {
+      "owner": "src/frontier_campaign.js",
+      "symbols": [
+        "previewFieldRenewal",
+        "commitFieldRenewal"
+      ],
+      "fact": "One existing optional field renewal discloses losses; resets selected mastery/energy while retaining native adventure and belongings. Do not add second prestige."
+    },
+    {
+      "owner": "src/party_content.js",
+      "symbols": [
+        "partyDefinitions"
+      ],
+      "fact": "Named willing Lio with independent health/stamina/guard supplies and paid recovery exists; broad pet/profession roster not established."
+    },
+    {
+      "owner": "src/main.js",
+      "symbols": [
+        "persistExpansion"
+      ],
+      "fact": "Plans stage native owners then call persistExpansionPlan before publishing staged native state; same publisher must own proposed work."
+    },
+    {
+      "owner": "src/world_instances.js",
+      "symbols": [
+        "validateWorldInstance",
+        "planWorldClock"
+      ],
+      "fact": "World absence supports freeze only; played visit intervals determine local elapsed. ITRTG offline design does not authorize new YAIR wall-time catch-up."
+    },
+    {
+      "owner": "src/party_battle.js",
+      "symbols": [
+        "partySupportReasons",
+        "previewPartyBattle"
+      ],
+      "fact": "Current party admission already rejects Lio while occupied by another job, so a work/fight choice can reuse this real consumer."
+    },
+    {
+      "owner": "src/feature_expansion_society.js",
+      "symbols": [
+        "societyDefinitions.controllers"
+      ],
+      "fact": "Existing finite funded resident controllers can start actual independent jobs; player itineraries stay player-only."
+    },
+    {
+      "owner": "src/event_feed.js",
+      "symbols": [
+        "eventFeed"
+      ],
+      "fact": "Existing known-event/news feed and observation-scoped resident reports already cover much of return-summary presentation; no new generic report system proposed."
+    }
+  ],
+  "candidate_gap_boundaries": [
+    "Selectable competing project/guard occupation for one named willing companion would be new authored consumer; generic job occupancy already exists.",
+    "Facility upgrades already exist; useful new candidate must change a real downstream material/production choice.",
+    "Companion specialization must add an actual owned equipment/method consumer, not duplicate party stats.",
+    "New summary may aggregate retained actual job receipts; generic feats/automation/challenges already implemented-unverified."
+  ],
+  "prior_comparators": [
+    "../caves-of-qud/REPORT.md",
+    "../dcss-dda-depth/REPORT.md"
+  ],
+  "limits": [
+    "Shared input files can change during parallel implementation. These hashes qualify this read only; refresh affected inputs before implementation.",
+    "No source/build/browser/save/behavior tests run in this research lane.",
+    "No general full-YAIR gap audit claimed."
+  ],
+  "final_interface_refresh": {
+    "observed_at_utc": "2026-10-06T05:45:14.902474+00:00",
+    "changed_inputs": [
+      "src/simulation.js",
+      "src/feature_expansion_work_plan.js",
+      "src/reference_gameplay_state.js",
+      "src/reference_gameplay_feats.js",
+      "src/main.js"
+    ],
+    "review": "Active parallel work added book-world schema10/publication integration. Rechecked occupation, paid completion, existing finite goals, scoped attempts/feats and sole durable publisher; proposed consumers still fit. No runtime edit or schema-selection authority transferred to this research lane.",
+    "implementation_gate": "Future implementing owner must preserve current optional book-world and reference state readers and refresh live interface versions.",
+    "full_current_file_audit": false
+  }
+}

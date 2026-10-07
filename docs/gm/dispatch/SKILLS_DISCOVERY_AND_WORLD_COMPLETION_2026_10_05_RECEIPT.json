@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "assigningThreadId": "01a10a5f-186a-7420-b02f-7ef1c4880d68",
+  "packet": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+  "observedUTC": "2026-10-05 11:53:40 UTC",
+  "scope": "Full-world completion and Frontier planning; bounded functional skill and progressive-discovery implementation with Engine integration.",
+  "canonicalStatusOwner": "01a1074b-e2ed-7523-a0cd-56de915fbcd9",
+  "roles": [
+    {
+      "role": "plan",
+      "threadId": "01a1074b-e2ed-7523-a0cd-56de915fbcd9",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10be8-7a43-7fe3-9037-122e21dba207",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791201147,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "statusCursor": "51980a2d-7f32-4a08-986e-46b8afe6638a:1",
+      "initialProgress": "I’ll reconcile the current GM returns into one plan, define what makes each scoped world complete, and record the new skill/discovery work separately from the broader world implementation hold."
+    },
+    {
+      "role": "engine",
+      "threadId": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10be8-7f37-7d13-9e1d-12147a543adf",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791201148,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "statusCursor": "24c8c52e-2e4b-4413-84b0-22a32110e147:1",
+      "initialProgress": null
+    },
+    {
+      "role": "frontier",
+      "threadId": "01a10945-010b-7a91-844a-d6d3024c6f35",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10be8-81cf-7243-8a5b-27c245c4f324",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791201149,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "statusCursor": "022fcba0-145f-469a-bf22-6d45d46d306e:1",
+      "initialProgress": "I’ll update the Frontier plan with exploration, combat/control and mastery arcs, then define what counts as a complete campaign. The held source module stays untouched."
+    },
+    {
+      "role": "ability",
+      "threadId": "01a104a2-fabf-7bf1-a95f-1e93353b9196",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10be8-87ec-7a11-abb8-a4b8389fe377",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791201150,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "statusCursor": "4f143012-13c9-447e-a02a-eb65fa2bc56a:1",
+      "initialProgress": "I’ll implement a finite set of useful skills with distinct effects, then return them for native integration. I’ll inspect the current skill consumers and the Engine’s caller contract before writing dependent code."
+    },
+    {
+      "role": "discovery",
+      "threadId": "01a10998-7c21-7c02-9ffd-b288ec71f677",
+      "hostId": "local",
+      "dispatchAccepted": true,
+      "observedState": "active",
+      "latestTurn": {
+        "id": "01a10be8-8ad6-7423-b2e2-e1fc1d265588",
+        "status": "inProgress",
+        "error": null,
+        "startedAt": 1791201151,
+        "completedAt": null,
+        "durationMs": null
+      },
+      "statusCursor": "2b458f7d-7b06-401a-9fc0-805add427ee1:1",
+      "initialProgress": "I’ll implement the pure discovery projection, starting with the new scope packet and existing knowledge/unlock owners. I’ll keep native UI and save integration with Engine and save the export contract for it to bind."
+    }
+  ],
+  "limits": {
+    "broaderWorldRuntime": "still proposed for review",
+    "behavioralChecks": "deferred under existing policy",
+    "gameplayDeliveredByDispatch": false,
+    "newChatsCreated": false
+  }
+}

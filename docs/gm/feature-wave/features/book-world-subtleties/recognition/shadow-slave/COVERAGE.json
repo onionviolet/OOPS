@@ -1,0 +1,1385 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-05",
+  "writer": "recognition_subtleties",
+  "world": {
+    "id": "shadow-slave",
+    "title": "Shadow Slave",
+    "source": {
+      "edition": "Shadow Slave / Guiltythree, Calibre16 English chapters 1–1840 plus separately supplied volumes 9, 10, 11",
+      "sha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6",
+      "locatorConvention": "All XHTML p elements, one-based, including empty p elements; whitespace words",
+      "manifestSha256": "2b3c168bc5a82d5a4a75a0a1fa60cdff96e9277c92deabdc1ca4979c52570412",
+      "coverageSha256": "8b1c1b1bac3218ddc798875d7ecda070a98865b66dd9a02bf310c96830e3c5f2",
+      "coveragePath": "docs/research/novels/full-book/shadow-slave/coverage.json",
+      "reviewedExtent": {
+        "chapterRanges": [
+          [
+            1,
+            1000
+          ],
+          [
+            1576,
+            1589
+          ],
+          [
+            1788,
+            1792
+          ]
+        ],
+        "reviewedIntegratedStoryItems": 1019,
+        "readerReportedRead": 3000,
+        "suppliedChapterGoal": 3000,
+        "narrowReusedRanges": [
+          [
+            1576,
+            1589
+          ],
+          [
+            1788,
+            1792
+          ]
+        ],
+        "reusedSurroundingArcEnrichmentPending": true,
+        "notReviewedHere": "All supplied chapters outside the captured integrated ranges, including volumes 9–11."
+      },
+      "verifiedSourceFileHash": true,
+      "provenance": "Exact supplied compilation. Primary publication/translation authenticity and whole-series coverage are unverified.",
+      "suppliedVolumes": [
+        {
+          "edition": "Calibre16",
+          "chapters": [
+            1,
+            1840
+          ],
+          "sha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6",
+          "reviewedByThisSnapshot": true
+        },
+        {
+          "edition": "volume-9",
+          "chapters": [
+            1841,
+            2260
+          ],
+          "sha256": "b8fcea86e2761833b5ce995fbd7df8872f65a0ad7b64e4542ce9128d731dd7c8",
+          "reviewedByThisSnapshot": false,
+          "verifiedSourceFileHash": true
+        },
+        {
+          "edition": "volume-10",
+          "chapters": [
+            2261,
+            2720
+          ],
+          "sha256": "18e8216c63ce675e87e145b6f7547b446f548d848ffc517502e63bec19ba6f99",
+          "reviewedByThisSnapshot": false,
+          "verifiedSourceFileHash": true
+        },
+        {
+          "edition": "volume-11",
+          "chapters": [
+            2721,
+            3000
+          ],
+          "sha256": "b1151c9f2e7ace31781ddef0482a37cd48f5581b8d6b139df7f5992e14fd5b75",
+          "reviewedByThisSnapshot": false,
+          "structuralException": "Missing declared toc/title page; original 2737–2739 spine order differs from numbered chapter order.",
+          "verifiedSourceFileHash": true
+        }
+      ]
+    },
+    "baselineImmutable": true,
+    "nativeBound": false,
+    "nativeWorldStatus": "unactivated-source-qualified-adapter",
+    "era": {
+      "id": "ss.forgotten-shore.kai-rescue.after",
+      "place": "Forgotten Shore after Kai’s rescue, chapters 118–120; separately qualified post-Third-Nightmare exception",
+      "entry": "Proposed ordinary local entrant with a stated rank/body/source. Sunny replacement, a Nightmare host role and banished-Sunny entry are separate unactivated choices.",
+      "branch": "Original local encounter branch after the Kai rescue; post-theft rule requires its own later era and is never an early Shore condition."
+    },
+    "rules": [
+      {
+        "id": "ss.sincerity",
+        "eraId": "ss.forgotten-shore.kai-rescue.after",
+        "algorithm": "sincerity",
+        "channel": "lie-flaw-test",
+        "title": "A lie-detecting observer does not learn motives or actual identity",
+        "evidence": [
+          {
+            "claimId": "SS-0101-0120-C32",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+            "locators": [
+              {
+                "chapter": 118,
+                "member": "1/2/OEBPS/page-22_u2.html",
+                "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                "paragraphs": [
+                  13,
+                  32
+                ]
+              },
+              {
+                "chapter": 119,
+                "member": "1/2/OEBPS/page-23_u3.html",
+                "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                "paragraphs": [
+                  19,
+                  21
+                ]
+              }
+            ],
+            "qualification": "Kai reports a lie-detecting Flaw and accepts explanations; monster applicability unknown.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "SS-0006-0020-C20",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 17,
+                "member": "1/1/OEBPS/page-16_u3.html",
+                "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                "paragraphs": [
+                  4,
+                  14
+                ]
+              },
+              {
+                "chapter": 17,
+                "member": "1/1/OEBPS/page-16_u3.html",
+                "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                "paragraphs": [
+                  34,
+                  48
+                ]
+              },
+              {
+                "chapter": 18,
+                "member": "1/1/OEBPS/page-17_u1_u1.html",
+                "memberSha256": "352d3ac1d5dff3270941d8ab22439008f8e92b22fb6530cc5dc19c78fd778af6",
+                "paragraphs": [
+                  62,
+                  64
+                ]
+              }
+            ],
+            "qualification": "Displayed Clear Conscience plus witnessed pressure/answers; separate from Shadow Bond.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "SS-0006-0020-C25",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 20,
+                "member": "1/1/OEBPS/page-19_u2.html",
+                "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+                "paragraphs": [
+                  23,
+                  55
+                ]
+              }
+            ],
+            "qualification": "Witnessed truthful wording can mislead about motives.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ],
+        "findingScope": "reported statement sincerity",
+        "alternative": "Ask a narrow question and corroborate the facts independently.",
+        "demandedJoins": [
+          "actual lie-flaw-test observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ],
+        "requiredFaculty": "lie-detecting-flaw"
+      },
+      {
+        "id": "ss.name-condition",
+        "eraId": "ss.third-nightmare.fate-severance.after",
+        "algorithm": "name-condition",
+        "channel": "name-condition-check",
+        "title": "Retained Shadow Bond can lack its activation condition",
+        "evidence": [
+          {
+            "claimId": "SS-0006-0020-C16",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 15,
+                "member": "1/1/OEBPS/page-14_u1.html",
+                "memberSha256": "b759cdb1a210d584ac8875cc909a6fbf035b1f02b546e2ec412fc4ac0a83ab30",
+                "paragraphs": [
+                  48,
+                  58
+                ]
+              }
+            ],
+            "qualification": "Displayed faculty description; exact worthy-master eligibility and first activation unresolved in this range.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "OE07",
+            "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  1,
+                  18
+                ]
+              },
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  26,
+                  54
+                ]
+              }
+            ],
+            "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ],
+        "findingScope": "specific faculty name condition",
+        "alternative": "Use willing ordinary cooperation; do not claim an activated bond.",
+        "demandedJoins": [
+          "actual name-condition-check observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      },
+      {
+        "id": "ss.local-recognition",
+        "eraId": "ss.third-nightmare.fate-severance.after",
+        "algorithm": "recognition-loss",
+        "channel": "recognition-response",
+        "title": "One failed recognition is not an exhaustive record test",
+        "evidence": [
+          {
+            "claimId": "OE07",
+            "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  1,
+                  18
+                ]
+              },
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  26,
+                  54
+                ]
+              }
+            ],
+            "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ],
+        "findingScope": "one actual observer encounter",
+        "alternative": "Introduce yourself now and let a new encounter form.",
+        "demandedJoins": [
+          "actual recognition-response observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      }
+    ],
+    "replacementAndContinuity": {
+      "disguise": "A nickname, implied weakness, masked public theory or a copied physical form does not acquire True Name, Aspect, Flaw, Soul Core or another person’s Memories.",
+      "credential": "Displayed status can be private; public title/alias and institutional doctrine do not establish the actual faculty or binding.",
+      "memory": "Sunny’s truthful wording can create misleading impressions. Kai’s Flaw checks lying, not omniscient causality; post-theft recognition failure is not a blanket demonstrated record erasure.",
+      "bodySoul": "Avatars share one mind, soul and essence reserve. Individually equipped weapons remain actual stock; one summoned Memory sword remains one item. Fate theft is not body/soul/power duplication.",
+      "sourceExceptions": [
+        {
+          "claimId": "SS-0006-0020-C16",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+          "locators": [
+            {
+              "chapter": 15,
+              "member": "1/1/OEBPS/page-14_u1.html",
+              "memberSha256": "b759cdb1a210d584ac8875cc909a6fbf035b1f02b546e2ec412fc4ac0a83ab30",
+              "paragraphs": [
+                48,
+                58
+              ]
+            }
+          ],
+          "qualification": "Displayed faculty description; exact worthy-master eligibility and first activation unresolved in this range.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "SS-0006-0020-C20",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+          "locators": [
+            {
+              "chapter": 17,
+              "member": "1/1/OEBPS/page-16_u3.html",
+              "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+              "paragraphs": [
+                4,
+                14
+              ]
+            },
+            {
+              "chapter": 17,
+              "member": "1/1/OEBPS/page-16_u3.html",
+              "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+              "paragraphs": [
+                34,
+                48
+              ]
+            },
+            {
+              "chapter": 18,
+              "member": "1/1/OEBPS/page-17_u1_u1.html",
+              "memberSha256": "352d3ac1d5dff3270941d8ab22439008f8e92b22fb6530cc5dc19c78fd778af6",
+              "paragraphs": [
+                62,
+                64
+              ]
+            }
+          ],
+          "qualification": "Displayed Clear Conscience plus witnessed pressure/answers; separate from Shadow Bond.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "SS-0006-0020-C25",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+          "locators": [
+            {
+              "chapter": 20,
+              "member": "1/1/OEBPS/page-19_u2.html",
+              "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+              "paragraphs": [
+                23,
+                55
+              ]
+            }
+          ],
+          "qualification": "Witnessed truthful wording can mislead about motives.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "OE07",
+          "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1589,
+              "member": "2/3/OEBPS/page-358.html",
+              "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+              "paragraphs": [
+                1,
+                18
+              ]
+            },
+            {
+              "chapter": 1589,
+              "member": "2/3/OEBPS/page-358.html",
+              "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+              "paragraphs": [
+                26,
+                54
+              ]
+            }
+          ],
+          "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "OE16",
+          "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1584,
+              "member": "2/3/OEBPS/page-353.html",
+              "memberSha256": "92033180e997732550b81194771d39c6a7f46f43521881ac489fd0b982a18ecf",
+              "paragraphs": [
+                1,
+                44
+              ]
+            }
+          ],
+          "qualification": "Narration summarizes avatar experiments: one mind/soul/essence, individually supplied weapons, one Memory sword.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "OE08",
+          "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1790,
+              "member": "2/4/OEBPS/page-199_u1_u1.html",
+              "memberSha256": "c7196530a6750232692425283b144157dcd2cb126579b59197fd612f4610b848",
+              "paragraphs": [
+                1,
+                17
+              ]
+            }
+          ],
+          "qualification": "Sunny conditional developed theory; no independently witnessed Bird emergence/location or restoration.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        }
+      ],
+      "carrierDisposition": "Sunny survives bodily and retains tested intrinsic faculties after theft. Nephis’s response and Cassie’s later memory report are distinct observer evidence. Bird return/recovery stays conditional theory, never an actual rightful-claimant transfer."
+    },
+    "selectedTropeChain": {
+      "pattern": "Actual rescue → negotiated errands and selective self-description → truthful misunderstanding → independent corroboration → useful cooperation without magical ownership.",
+      "people": [
+        "ss.sunless",
+        "ss.jet",
+        "ss.kai",
+        "ss.nephis",
+        "ss.cassie"
+      ],
+      "subversions": [
+        "Accept ordinary help",
+        "Refuse invasive name disclosure",
+        "Question without claiming ownership",
+        "Corroborate a sincere but incomplete answer",
+        "Introduce oneself after recognition loss"
+      ],
+      "aftermath": "Later committed witnesses remember only their actual encounter; the later theft-era exception cannot silently rewrite earlier Shore history.",
+      "evidence": [
+        {
+          "claimId": "SS-0006-0020-C22",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+          "locators": [
+            {
+              "chapter": 17,
+              "member": "1/1/OEBPS/page-16_u3.html",
+              "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+              "paragraphs": [
+                76,
+                78
+              ]
+            },
+            {
+              "chapter": 18,
+              "member": "1/1/OEBPS/page-17_u1_u1.html",
+              "memberSha256": "352d3ac1d5dff3270941d8ab22439008f8e92b22fb6530cc5dc19c78fd778af6",
+              "paragraphs": [
+                68,
+                99
+              ]
+            }
+          ],
+          "qualification": "Jet reports counseling/Academy food, lodging and lessons; no guaranteed safety.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "SS-0006-0020-C25",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+          "locators": [
+            {
+              "chapter": 20,
+              "member": "1/1/OEBPS/page-19_u2.html",
+              "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+              "paragraphs": [
+                23,
+                55
+              ]
+            }
+          ],
+          "qualification": "Witnessed truthful wording can mislead about motives.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "SS-0101-0120-C32",
+          "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+          "locators": [
+            {
+              "chapter": 118,
+              "member": "1/2/OEBPS/page-22_u2.html",
+              "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+              "paragraphs": [
+                13,
+                32
+              ]
+            },
+            {
+              "chapter": 119,
+              "member": "1/2/OEBPS/page-23_u3.html",
+              "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+              "paragraphs": [
+                19,
+                21
+              ]
+            }
+          ],
+          "qualification": "Kai reports a lie-detecting Flaw and accepts explanations; monster applicability unknown.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        },
+        {
+          "claimId": "OE07",
+          "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1589,
+              "member": "2/3/OEBPS/page-358.html",
+              "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+              "paragraphs": [
+                1,
+                18
+              ]
+            },
+            {
+              "chapter": 1589,
+              "member": "2/3/OEBPS/page-358.html",
+              "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+              "paragraphs": [
+                26,
+                54
+              ]
+            }
+          ],
+          "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+          "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+        }
+      ]
+    },
+    "smallInteractions": [
+      {
+        "detail": "Flaw pressure, truthful words and inference differ; Shadow Bond’s worthy-master/name description is not a completed activation test.",
+        "evidence": [
+          {
+            "claimId": "SS-0006-0020-C16",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 15,
+                "member": "1/1/OEBPS/page-14_u1.html",
+                "memberSha256": "b759cdb1a210d584ac8875cc909a6fbf035b1f02b546e2ec412fc4ac0a83ab30",
+                "paragraphs": [
+                  48,
+                  58
+                ]
+              }
+            ],
+            "qualification": "Displayed faculty description; exact worthy-master eligibility and first activation unresolved in this range.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "SS-0006-0020-C20",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 17,
+                "member": "1/1/OEBPS/page-16_u3.html",
+                "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                "paragraphs": [
+                  4,
+                  14
+                ]
+              },
+              {
+                "chapter": 17,
+                "member": "1/1/OEBPS/page-16_u3.html",
+                "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                "paragraphs": [
+                  34,
+                  48
+                ]
+              },
+              {
+                "chapter": 18,
+                "member": "1/1/OEBPS/page-17_u1_u1.html",
+                "memberSha256": "352d3ac1d5dff3270941d8ab22439008f8e92b22fb6530cc5dc19c78fd778af6",
+                "paragraphs": [
+                  62,
+                  64
+                ]
+              }
+            ],
+            "qualification": "Displayed Clear Conscience plus witnessed pressure/answers; separate from Shadow Bond.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "SS-0006-0020-C25",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 20,
+                "member": "1/1/OEBPS/page-19_u2.html",
+                "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+                "paragraphs": [
+                  23,
+                  55
+                ]
+              }
+            ],
+            "qualification": "Witnessed truthful wording can mislead about motives.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ],
+        "nativeConsumerGap": "Native dialogue command, actual faculty/source, disclosed-name and binding carrier."
+      },
+      {
+        "detail": "Avatar bodies consume a shared actual essence reserve and need individually supplied weapons; Memory access failure does not prove deletion of every intrinsic faculty.",
+        "evidence": [
+          {
+            "claimId": "OE16",
+            "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1584,
+                "member": "2/3/OEBPS/page-353.html",
+                "memberSha256": "92033180e997732550b81194771d39c6a7f46f43521881ac489fd0b982a18ecf",
+                "paragraphs": [
+                  1,
+                  44
+                ]
+              }
+            ],
+            "qualification": "Narration summarizes avatar experiments: one mind/soul/essence, individually supplied weapons, one Memory sword.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "OE07",
+            "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  1,
+                  18
+                ]
+              },
+              {
+                "chapter": 1589,
+                "member": "2/3/OEBPS/page-358.html",
+                "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                "paragraphs": [
+                  26,
+                  54
+                ]
+              }
+            ],
+            "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ],
+        "nativeConsumerGap": "Native shared controller/soul/essence and separate body/material loadouts."
+      }
+    ],
+    "everydayTextureAndVoice": [
+      {
+        "original": true,
+        "speaker": "Proposed Academy intake worker, separate early-era texture",
+        "text": "Food first. The forms are much less useful to someone who cannot stay awake.",
+        "cue": "Food/lodging/classes and actual exhaustion; new incidental worker, no reward hook.",
+        "evidence": [
+          {
+            "claimId": "SS-0006-0020-C22",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 17,
+                "member": "1/1/OEBPS/page-16_u3.html",
+                "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                "paragraphs": [
+                  76,
+                  78
+                ]
+              },
+              {
+                "chapter": 18,
+                "member": "1/1/OEBPS/page-17_u1_u1.html",
+                "memberSha256": "352d3ac1d5dff3270941d8ab22439008f8e92b22fb6530cc5dc19c78fd778af6",
+                "paragraphs": [
+                  68,
+                  99
+                ]
+              }
+            ],
+            "qualification": "Jet reports counseling/Academy food, lodging and lessons; no guaranteed safety.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ]
+      },
+      {
+        "original": true,
+        "speaker": "Proposed cooperating survivor",
+        "text": "That answers my question. It leaves a few others, which is allowed.",
+        "cue": "Truthful wording and observer-limited knowledge; original dialogue, no borrowed author voice.",
+        "evidence": [
+          {
+            "claimId": "SS-0006-0020-C25",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+            "locators": [
+              {
+                "chapter": 20,
+                "member": "1/1/OEBPS/page-19_u2.html",
+                "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+                "paragraphs": [
+                  23,
+                  55
+                ]
+              }
+            ],
+            "qualification": "Witnessed truthful wording can mislead about motives.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          },
+          {
+            "claimId": "SS-0101-0120-C32",
+            "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+            "locators": [
+              {
+                "chapter": 118,
+                "member": "1/2/OEBPS/page-22_u2.html",
+                "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                "paragraphs": [
+                  13,
+                  32
+                ]
+              },
+              {
+                "chapter": 119,
+                "member": "1/2/OEBPS/page-23_u3.html",
+                "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                "paragraphs": [
+                  19,
+                  21
+                ]
+              }
+            ],
+            "qualification": "Kai reports a lie-detecting Flaw and accepts explanations; monster applicability unknown.",
+            "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+          }
+        ]
+      }
+    ],
+    "stableSourcePeople": [
+      "ss.sunless",
+      "ss.jet",
+      "ss.kai",
+      "ss.nephis",
+      "ss.cassie",
+      "ss.vile-thieving-bird"
+    ],
+    "unknowns": [
+      "All 3000 chapters are reader-reported read, but only the captured accepted ranges are used.",
+      "Volumes 9–11 have no reviewed/integrated credit in this frozen snapshot.",
+      "Nightmare historical-role ontology, exact first worthy-master eligibility and universal soul signature remain unbound.",
+      "Bird emergence/location and guaranteed fate/relationship restoration are not witnessed.",
+      "No all-observer/all-record recognition erasure is proved by the selected encounter."
+    ],
+    "missingNativeBindings": [
+      "native realm/era/location and entry",
+      "actor/body/controller/soul owners",
+      "actual source/fuel/method and native material custody",
+      "per-observer testimony/belief and committed-history owner",
+      "native command/UI and durable publication"
+    ],
+    "implementationStatus": "implemented-unverified; pure adapter; parent original-scene consumer required",
+    "deferredGates": [
+      "actual gameplay",
+      "save/reload/failure",
+      "keyboard/regression",
+      "director acceptance"
+    ],
+    "topologyDisposition": {
+      "settingContinuity": "Waking society, Dream Realm regions and particular Nightmare trials are distinct; the Spell is not equated with Paradise’s contractor hub.",
+      "structures": [
+        {
+          "kind": "nightmare-presented-history",
+          "qualifiedFinding": "Sunny experiences a centuries-reversed scene and a role body; this does not certify literal time travel or all ancient history.",
+          "evidence": [
+            {
+              "claimId": "SS-0001-0005-C06",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0001-0005/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 2,
+                  "member": "1/1/OEBPS/page-1.html",
+                  "memberSha256": "02b53f87f166927675f2b8a12486340fc18e1a93fa059b9365ecec180a6f42c1",
+                  "paragraphs": [
+                    1,
+                    7
+                  ]
+                }
+              ],
+              "qualification": "Subjective witnessed temporal presentation, not authenticated physical history",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        },
+        {
+          "kind": "rank-qualified-travel-doctrine",
+          "qualifiedFinding": "Sleeper spirit-entry and higher bodily/passenger travel are learned doctrine, with stage-specific limits; this opening report is not every travel operation exercised.",
+          "evidence": [
+            {
+              "claimId": "SS-0006-0020-C21",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 17,
+                  "member": "1/1/OEBPS/page-16_u3.html",
+                  "memberSha256": "c7d73ad22d198c1e1f018391451fe6c5e1cdc07f9efa94ae162935af398ab9a2",
+                  "paragraphs": [
+                    62,
+                    78
+                  ]
+                }
+              ],
+              "qualification": "Learned doctrine and Jet’s report; higher entry not exercised in this range",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        },
+        {
+          "kind": "represented-nightmare-collapse",
+          "qualifiedFinding": "The attacked Nightmare ends and Sunny actually returns bodily. The Bird’s own far-side emergence is not witnessed.",
+          "evidence": [
+            {
+              "claimId": "OE04",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1580,
+                  "member": "2/3/OEBPS/page-349.html",
+                  "memberSha256": "a486773244aacd00b3ed40fc9fcd183db99449ddbe4bcadec4da4a1923a5ad43",
+                  "paragraphs": [
+                    49,
+                    89
+                  ]
+                }
+              ],
+              "qualification": "Narrated theft/collapse with privileged counterfactual; no Bird destination witness",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            },
+            {
+              "claimId": "OE05",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    1,
+                    10
+                  ]
+                },
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    28,
+                    43
+                  ]
+                },
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    48,
+                    67
+                  ]
+                }
+              ],
+              "qualification": "Witnessed bodily Sunny return/Transcendence and unavailable Spell services",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            },
+            {
+              "claimId": "OE08",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1790,
+                  "member": "2/4/OEBPS/page-199_u1_u1.html",
+                  "memberSha256": "c7196530a6750232692425283b144157dcd2cb126579b59197fd612f4610b848",
+                  "paragraphs": [
+                    1,
+                    17
+                  ]
+                }
+              ],
+              "qualification": "Sunny conditional developed theory; no independently witnessed Bird emergence/location or restoration.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        },
+        {
+          "kind": "shared-soul-multiple-bodies",
+          "qualifiedFinding": "Avatars occupy body positions while sharing one mind/soul/essence. This is not several separately born actors or separate reward owners.",
+          "evidence": [
+            {
+              "claimId": "OE16",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1584,
+                  "member": "2/3/OEBPS/page-353.html",
+                  "memberSha256": "92033180e997732550b81194771d39c6a7f46f43521881ac489fd0b982a18ecf",
+                  "paragraphs": [
+                    1,
+                    44
+                  ]
+                }
+              ],
+              "qualification": "Narration summarizes avatar experiments: one mind/soul/essence, individually supplied weapons, one Memory sword.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "third Nightmare",
+          "to": "waking ruins",
+          "kind": "actual Sunny physical return",
+          "actor": "Sunny survives",
+          "source": "Transcendence/intrinsic functions differ from Spell connection",
+          "cargo": "tested summons and failed summons remain different",
+          "authority": "no restored True Name/Bond activation",
+          "evidence": [
+            {
+              "claimId": "OE07",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1589,
+                  "member": "2/3/OEBPS/page-358.html",
+                  "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                  "paragraphs": [
+                    1,
+                    18
+                  ]
+                },
+                {
+                  "chapter": 1589,
+                  "member": "2/3/OEBPS/page-358.html",
+                  "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                  "paragraphs": [
+                    26,
+                    54
+                  ]
+                }
+              ],
+              "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            },
+            {
+              "claimId": "OE05",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    1,
+                    10
+                  ]
+                },
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    28,
+                    43
+                  ]
+                },
+                {
+                  "chapter": 1581,
+                  "member": "2/3/OEBPS/page-350.html",
+                  "memberSha256": "244cd33e0c3d788c694a045c04bef6434cdf1dd101dbbab182a7f625dbbfba15",
+                  "paragraphs": [
+                    48,
+                    67
+                  ]
+                }
+              ],
+              "qualification": "Actual return",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        },
+        {
+          "from": "represented Bird",
+          "to": "possible reality",
+          "kind": "conditional theory only",
+          "actorBodySoul": "final identity and location unknown",
+          "cargo": "stolen fate is not duplication of Sunny’s entire source/body",
+          "clock": "specific collapse opportunity, not general omnipotence",
+          "evidence": [
+            {
+              "claimId": "OE08",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1790,
+                  "member": "2/4/OEBPS/page-199_u1_u1.html",
+                  "memberSha256": "c7196530a6750232692425283b144157dcd2cb126579b59197fd612f4610b848",
+                  "paragraphs": [
+                    1,
+                    17
+                  ]
+                }
+              ],
+              "qualification": "Sunny conditional developed theory; no independently witnessed Bird emergence/location or restoration.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ]
+        }
+      ],
+      "activation": "No native Dream/Nightmare/fate/Spell or avatar-body adapter. No source-supported guarantee for post-banishment Sunny’s own round trip.",
+      "nativeGaps": [
+        "Physical/spirit/represented role bodies and qualified passenger edges",
+        "Native Spell/True Name/fate owner without source/fuel duplication",
+        "Region/trial clocks, local residents, independent inventory and actual return operations"
+      ]
+    },
+    "deepChainDisposition": {
+      "id": "recognition.ss.cooperation-without-ownership",
+      "family": "recognition-to-earned-cooperation",
+      "sourceVsOriginal": "Original post-rescue cooperation chain grounded in Shore evidence; its later fate exception stays a separate era.",
+      "actors": [
+        "ss.sunless",
+        "ss.kai",
+        "ss.stone-saint",
+        "ss.proposed-castle-contact"
+      ],
+      "privateGoals": [
+        "Kai wants release and safety.",
+        "Sunny wants practical access while protecting his name and private means.",
+        "Ordinary castle contacts have their own resources and beliefs."
+      ],
+      "phases": [
+        {
+          "id": "release",
+          "prerequisite": "actual captivity and physically reachable grate",
+          "means": "actual lifting help; flight does not grant lifting strength",
+          "evidence": [
+            {
+              "claimId": "SS-0101-0120-C30",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 115,
+                  "member": "1/2/OEBPS/page-19_u3.html",
+                  "memberSha256": "ed165f96ea7e129864b0f1df2684a08979a8355137f96b2912f772be7df378db",
+                  "paragraphs": [
+                    63,
+                    71
+                  ]
+                },
+                {
+                  "chapter": 116,
+                  "member": "1/2/OEBPS/page-20.html",
+                  "memberSha256": "faa5e9515136517203a38f7b0b30cb52924885dbce7a8356a320e3aed250cf73",
+                  "paragraphs": [
+                    1,
+                    3
+                  ]
+                },
+                {
+                  "chapter": 116,
+                  "member": "1/2/OEBPS/page-20.html",
+                  "memberSha256": "faa5e9515136517203a38f7b0b30cb52924885dbce7a8356a320e3aed250cf73",
+                  "paragraphs": [
+                    20,
+                    20
+                  ]
+                },
+                {
+                  "chapter": 116,
+                  "member": "1/2/OEBPS/page-20.html",
+                  "memberSha256": "faa5e9515136517203a38f7b0b30cb52924885dbce7a8356a320e3aed250cf73",
+                  "paragraphs": [
+                    35,
+                    35
+                  ]
+                },
+                {
+                  "chapter": 117,
+                  "member": "1/2/OEBPS/page-21_u3.html",
+                  "memberSha256": "35b9140eeb423843548d82f2a6e3a183f0eda3242d79ff92b4a319ab57bb83e8",
+                  "paragraphs": [
+                    1,
+                    5
+                  ]
+                }
+              ],
+              "qualification": "Witnessed flight/grate release with separate strength",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ],
+          "choices": [
+            "help",
+            "request assistance",
+            "decline a dangerous intervention"
+          ]
+        },
+        {
+          "id": "terms",
+          "prerequisite": "rescue actually performed and voluntary promised work",
+          "means": "independent Kai, errands and actual coercion risk; not a magical bond",
+          "evidence": [
+            {
+              "claimId": "SS-0101-0120-C31",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 116,
+                  "member": "1/2/OEBPS/page-20.html",
+                  "memberSha256": "faa5e9515136517203a38f7b0b30cb52924885dbce7a8356a320e3aed250cf73",
+                  "paragraphs": [
+                    7,
+                    18
+                  ]
+                },
+                {
+                  "chapter": 116,
+                  "member": "1/2/OEBPS/page-20.html",
+                  "memberSha256": "faa5e9515136517203a38f7b0b30cb52924885dbce7a8356a320e3aed250cf73",
+                  "paragraphs": [
+                    69,
+                    80
+                  ]
+                },
+                {
+                  "chapter": 118,
+                  "member": "1/2/OEBPS/page-22_u2.html",
+                  "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                  "paragraphs": [
+                    40,
+                    40
+                  ]
+                },
+                {
+                  "chapter": 118,
+                  "member": "1/2/OEBPS/page-22_u2.html",
+                  "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                  "paragraphs": [
+                    61,
+                    63
+                  ]
+                }
+              ],
+              "qualification": "Witnessed bargain and promise, no supernatural enforcement",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ],
+          "choices": [
+            "accept ordinary help",
+            "negotiate",
+            "release without errands"
+          ]
+        },
+        {
+          "id": "question",
+          "prerequisite": "actual narrow question and truthful reply",
+          "means": "Sunny’s own Flaw and Kai’s actual lie-detection rather than mind reading",
+          "evidence": [
+            {
+              "claimId": "SS-0101-0120-C32",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 118,
+                  "member": "1/2/OEBPS/page-22_u2.html",
+                  "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                  "paragraphs": [
+                    13,
+                    32
+                  ]
+                },
+                {
+                  "chapter": 119,
+                  "member": "1/2/OEBPS/page-23_u3.html",
+                  "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                  "paragraphs": [
+                    19,
+                    21
+                  ]
+                }
+              ],
+              "qualification": "Kai reports a lie-detecting Flaw and accepts explanations; monster applicability unknown.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            },
+            {
+              "claimId": "SS-0006-0020-C25",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0006-0020/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 20,
+                  "member": "1/1/OEBPS/page-19_u2.html",
+                  "memberSha256": "4dc4e2439a64524d29c807208892b04785ced4f2f57ad7e587dd3b4fdd07ffad",
+                  "paragraphs": [
+                    23,
+                    55
+                  ]
+                }
+              ],
+              "qualification": "Witnessed truthful wording can mislead about motives.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ],
+          "choices": [
+            "answer narrowly",
+            "corroborate",
+            "decline invasive name question"
+          ]
+        },
+        {
+          "id": "supplies",
+          "prerequisite": "local travel/help actually requested",
+          "means": "actual water/limited arrows/cargo and route, no copied Memories",
+          "evidence": [
+            {
+              "claimId": "SS-0101-0120-C34",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 119,
+                  "member": "1/2/OEBPS/page-23_u3.html",
+                  "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                  "paragraphs": [
+                    2,
+                    2
+                  ]
+                },
+                {
+                  "chapter": 119,
+                  "member": "1/2/OEBPS/page-23_u3.html",
+                  "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                  "paragraphs": [
+                    31,
+                    33
+                  ]
+                },
+                {
+                  "chapter": 120,
+                  "member": "1/2/OEBPS/page-24_u2.html",
+                  "memberSha256": "395080af936242eace854d1fa8060c5818216b89b8ceb6e9a11790b42e6ff69a",
+                  "paragraphs": [
+                    18,
+                    48
+                  ]
+                }
+              ],
+              "qualification": "Witnessed preparation/limited stock and bounded interpretation",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ],
+          "choices": [
+            "share owned water",
+            "wait",
+            "take a supported safer route"
+          ]
+        },
+        {
+          "id": "reencounter",
+          "prerequisite": "committed later meeting",
+          "means": "actual remembered promises/account and independent observer correction",
+          "evidence": [
+            {
+              "claimId": "SS-0101-0120-C32",
+              "notesPath": "docs/research/novels/full-book/shadow-slave/workers/r0101-0120/NOTES.md",
+              "locators": [
+                {
+                  "chapter": 118,
+                  "member": "1/2/OEBPS/page-22_u2.html",
+                  "memberSha256": "bb24e5d2eea0cd95c8eec2ad3293735ec43966c9658e43e7005e54e25eb28a3f",
+                  "paragraphs": [
+                    13,
+                    32
+                  ]
+                },
+                {
+                  "chapter": 119,
+                  "member": "1/2/OEBPS/page-23_u3.html",
+                  "memberSha256": "8490eb254af40fa41f37a04ed91cadbbbcbd18982a1b25ee18d64b9b825d53f4",
+                  "paragraphs": [
+                    19,
+                    21
+                  ]
+                }
+              ],
+              "qualification": "Kai reports a lie-detecting Flaw and accepts explanations; monster applicability unknown.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            },
+            {
+              "claimId": "OE07",
+              "notesPath": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1589,
+                  "member": "2/3/OEBPS/page-358.html",
+                  "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                  "paragraphs": [
+                    1,
+                    18
+                  ]
+                },
+                {
+                  "chapter": 1589,
+                  "member": "2/3/OEBPS/page-358.html",
+                  "memberSha256": "9474dc8b31c182607e22a1875726370b6063ee544d8def75ae2acfedb7ad2fb7",
+                  "paragraphs": [
+                    26,
+                    54
+                  ]
+                }
+              ],
+              "qualification": "Narrated causal account and one observed Nephis recognition failure; no exhaustive record/observer test.",
+              "sourceSha256": "2faa3640bfc84043d1821b935c42bd4d22a9c7af3b65a985b3595ed0b519c0b6"
+            }
+          ],
+          "choices": [
+            "correct mistaken impression",
+            "keep earned cooperation",
+            "resolve duty",
+            "later source era explicitly requalifies recognition"
+          ]
+        }
+      ],
+      "outcomes": {
+        "lawful": "Cooperation through actual help and performed terms, without a name-bond.",
+        "refusal": "Departure or release without claim remains possible.",
+        "partial": "Sincere explanation supports only its stated scope; supplies and risky help can be postponed.",
+        "hostile": "Threat/coercion has only the actual people’s persistent reaction; no automatic control or stolen affection."
+      },
+      "aftermath": "Kai’s actual release, used supplies and completed errands persist. No reimprisonment or respawned loot on revisit; post-theft nonrecognition is an explicit later source-qualified branch.",
+      "status": "source-qualified authoring disposition; native full-world chain unactivated",
+      "callableRecognitionRules": [
+        "ss.sincerity",
+        "ss.name-condition",
+        "ss.local-recognition"
+      ],
+      "nativeBindingsRequired": [
+        "native realm/era/location and entry",
+        "actor/body/controller/soul owners",
+        "actual source/fuel/method and native material custody",
+        "per-observer testimony/belief and committed-history owner",
+        "native command/UI and durable publication"
+      ],
+      "clockPolicy": "No new clock. Native worlds remain unactivated; unsupported absence stays frozen under the eventual host policy."
+    }
+  },
+  "consumers": {
+    "callableModule": "src/feature_expansion_book_recognition.js",
+    "originalSceneSpecification": "subtlety.reference_desk",
+    "hostScene": "subtlety.relay_office",
+    "registeredConsumerStatus": "parent-integration-required",
+    "nativeBookWorld": "unactivated"
+  },
+  "sourceReview": "Reused existing accepted claim ledgers and bounded reviewed notes. No new whole-book read or targeted raw-text query was needed."
+}

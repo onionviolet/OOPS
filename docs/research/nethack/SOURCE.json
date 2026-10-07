@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/NetHack/NetHack",
+  "branch": "NetHack-5.0",
+  "commit": "8898570da710513f38d81ed973f834863b795217",
+  "checkout": "/tmp/yairpg-nethack-source",
+  "checkout_status": "clean at inspection",
+  "license_file": "dat/license",
+  "license_description": "NetHack General Public License (as named in source); README directs readers to dat/license",
+  "scope": "Representative source audit only; no decompilation; no source copied; not whole-game coverage.",
+  "coverage": [
+    {"topic": "item verbs and contextual application", "file": "src/apply.c", "functions": ["doapply"]},
+    {"topic": "potion uses and target effects", "file": "src/potion.c", "functions": ["peffect_oil", "peffects", "potionhit"]},
+    {"topic": "item discovery/knowledge", "file": "src/o_init.c", "functions": ["discover_object"]},
+    {"topic": "companion suitability, taming, feeding", "files": ["src/dog.c", "src/dogmove.c"], "functions": ["dogfood", "tamedog", "initedog", "dog_eat"]},
+    {"topic": "food and spell/effect systems", "files": ["src/eat.c", "src/spell.c", "src/zap.c"], "functions": ["lesshungry", "eaten_stat", "spelleffects", "dobuzz"]},
+    {"topic": "conduct counters and adjudication", "file": "src/topten.c", "functions": ["encodeconduct"]}
+  ],
+  "sha256": {
+    "src/apply.c": "7f95ad2e793912164d93c827f96336d755eb7eae9f102446423fcf648ca6a28c",
+    "src/dog.c": "c26e55a2538ca4dca9c3cf25100dbde99f943b4a19c2ec07e41926aa1ecad1b3",
+    "src/dogmove.c": "bf2d229a59e70404cc2388bfd77d9eb06498c0c88d9e43ce33a46434629e4563",
+    "src/eat.c": "3207a2aa41f607b8bf581fc59ec904ceabbc910d1dea4f16cf66b430c65bc351",
+    "src/o_init.c": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+    "src/potion.c": "0c2995f4bef0ea1c000d7c1b7bf6b057573fe86421eeb018888e9832943e7263",
+    "src/spell.c": "83a90f5eb2534f40b85181fe19e6188ab3e475cc6110f8f42f88119b8f29f091",
+    "src/topten.c": "f718393324418c36ac8935da66c45450ac6b8f6b0f9f49638744bfabb937e317",
+    "src/zap.c": "fe7ab143eed4bcdfac56173cb10aab9ff128ce35da0441ea0849842a698149a3",
+    "dat/license": "93a3ae2cb8dee482daddfaebe53bcffe5b114b603def19b4dca21621cbc5a747"
+  }
+}

@@ -1,0 +1,617 @@
+{
+  "revision": 1,
+  "recordedAt": "2026-10-07T05:22:20.951Z",
+  "parent": "/root",
+  "parentChat": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "worker": "/root/home_furnishings_resume",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "status": "leaf_source_complete_released_implemented_unverified",
+  "beforeState": "Three predecessor partial leaf files inspected and preserved. Pre-repair hashes not captured; do not interpret delivered hashes as before-state.",
+  "ownershipReleased": [
+    "src/home_furnishing_content.js",
+    "src/home_furnishing_facts.js",
+    "src/home_furnishing_host.js",
+    "docs/gm/home-social-base-2026-10-07/base/"
+  ],
+  "deliveredLeaf": [
+    {
+      "path": "src/home_furnishing_content.js",
+      "bytes": 13682,
+      "sha256": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2"
+    },
+    {
+      "path": "src/home_furnishing_facts.js",
+      "bytes": 23628,
+      "sha256": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2"
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "bytes": 4786,
+      "sha256": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128"
+    }
+  ],
+  "deliveredDocs": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/INTERFACE.md",
+      "bytes": 9812,
+      "sha256": "651baa6c661a825a07b6503723e0daff946feff06a16fd79b7318faa1b058c02"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/DELIVERY.md",
+      "bytes": 2488,
+      "sha256": "41dcb392180d1d596cfaacc2909e4829bf23ef81a013d73d075d47e5fa23fb13"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/CHECKPOINT.md",
+      "bytes": 2870,
+      "sha256": "8ac2de9d1a3301da9c4eaae2e24aeee0b50f9fd1a78dd2f7aca190a039867cfe"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/base/ACCEPTANCE_BACKLOG.md",
+      "bytes": 3405,
+      "sha256": "6ad3f36313f4707e385c9733cfa169ba865a63a605243cad26d27776d04d3934"
+    }
+  ],
+  "observedDependencyInputs": [
+    {
+      "path": "src/site_projects.js",
+      "bytes": 2927,
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "bytes": 30762,
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5"
+    },
+    {
+      "path": "src/book_world_mol_ids.js",
+      "bytes": 4062,
+      "sha256": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195"
+    },
+    {
+      "path": "src/book_world_mol_actions.js",
+      "bytes": 50442,
+      "sha256": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "bytes": 33625,
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "bytes": 5495,
+      "sha256": "702d983d11899483bc9cb1d41dd037b02d7aa714105edf07757e5e0e545e729e"
+    },
+    {
+      "path": "src/simulation.js",
+      "bytes": 56936,
+      "sha256": "f4694817b730dffbea6dd14eabe5a35df4641a318029502f90bcefd1040bed45"
+    },
+    {
+      "path": "src/field_workshop.js",
+      "bytes": 17872,
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05"
+    }
+  ],
+  "dependencyNote": "Delivery-time live fingerprints only. Root-owned shared integration inputs remain mutable; these are not an integrated build manifest.",
+  "ids": {
+    "prefix": "home_furnishings.",
+    "group": "home_furnishings",
+    "world": "base.frontier",
+    "site": "field.assembly",
+    "location": "Shack",
+    "situation": "home_furnishings.fit_out",
+    "survey": "home_furnishings.survey",
+    "rack": "home_furnishings.drying_rack",
+    "bench": "home_furnishings.drafting_bench",
+    "dryFirst": "home_furnishings.first_drying",
+    "dry": "home_furnishings.dry_offcuts",
+    "adapt": "home_furnishings.adapt_notebook",
+    "salvage": "home_furnishings.draft_stave",
+    "pack": "home_furnishings.draft_kit"
+  },
+  "existingNativeItems": {
+    "log": "Rough wood log",
+    "sap": "Tree sap",
+    "kit": "Prepared survey kit",
+    "green": "Green repair offcut",
+    "offcut": "Compatible repair offcut",
+    "sound": "Sound repair stave",
+    "sharp": "Field fitting knife",
+    "dull": "Dulled field fitting knife",
+    "notebook": "Cyorian annotated design notebook"
+  },
+  "definitions": {
+    "commands": 10,
+    "situations": 1,
+    "newPeople": 0,
+    "newItems": 0,
+    "newSites": 0,
+    "newSources": 0,
+    "newControllers": 0,
+    "newSaveDomains": 0,
+    "schemaBump": false
+  },
+  "commands": [
+    {
+      "id": "home_furnishings.survey",
+      "revision": 1,
+      "duration": 3,
+      "once": true,
+      "claim": "home_furnishings.survey_right",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "resource",
+          "actor": "player",
+          "native": true,
+          "key": "money",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.drying_rack.frame",
+      "revision": 1,
+      "duration": 4,
+      "once": true,
+      "claim": "project.home_furnishings.drying_rack.frame",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.drying_rack.finish",
+      "revision": 1,
+      "duration": 3,
+      "once": true,
+      "claim": "project.home_furnishings.drying_rack.finish",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Tree sap\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.drafting_bench.frame",
+      "revision": 1,
+      "duration": 4,
+      "once": true,
+      "claim": "project.home_furnishings.drafting_bench.frame",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Rough wood log\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Sound repair stave\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -2
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.drafting_bench.finish",
+      "revision": 1,
+      "duration": 3,
+      "once": true,
+      "claim": "project.home_furnishings.drafting_bench.finish",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Compatible repair offcut\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Tree sap\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.first_drying",
+      "revision": 1,
+      "duration": 4,
+      "once": true,
+      "claim": "home_furnishings.first_drying",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Green repair offcut\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [],
+      "outputs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Compatible repair offcut\"}",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "home_furnishings.dry_offcuts",
+      "revision": 1,
+      "duration": 4,
+      "once": false,
+      "claim": null,
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Green repair offcut\"}",
+          "amount": -2
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [],
+      "outputs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Compatible repair offcut\"}",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "home_furnishings.adapt_notebook",
+      "revision": 1,
+      "duration": 4,
+      "once": true,
+      "claim": "home_furnishings.adaptation",
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Tree sap\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "id": "home_furnishings.draft_stave",
+      "revision": 1,
+      "duration": 3,
+      "once": false,
+      "claim": null,
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Compatible repair offcut\"}",
+          "amount": -2
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Sound repair stave\"}",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "home_furnishings.draft_kit",
+      "revision": 1,
+      "duration": 3,
+      "once": false,
+      "claim": null,
+      "site": "field.assembly",
+      "cancellation": "refund",
+      "reservationReturns": 1,
+      "costs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Sound repair stave\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Tree sap\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Field fitting knife\"}",
+          "amount": -1
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": -1
+        },
+        {
+          "type": "vital",
+          "actor": "player",
+          "key": "stamina",
+          "amount": -1
+        }
+      ],
+      "returned": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Cyorian annotated design notebook\"}",
+          "amount": 1,
+          "reservationReturn": true
+        },
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Dulled field fitting knife\"}",
+          "amount": 1,
+          "reservationReturn": true
+        }
+      ],
+      "outputs": [
+        {
+          "type": "item",
+          "actor": "player",
+          "key": "{\"id\":\"Prepared survey kit\"}",
+          "amount": 1
+        }
+      ]
+    }
+  ],
+  "passed": [
+    {
+      "kind": "syntax",
+      "commands": [
+        "node --check src/home_furnishing_content.js",
+        "node --check src/home_furnishing_facts.js",
+        "node --check src/home_furnishing_host.js"
+      ],
+      "result": "exit 0"
+    },
+    {
+      "kind": "imports",
+      "modules": [
+        "src/home_furnishing_content.js",
+        "src/home_furnishing_facts.js",
+        "src/home_furnishing_host.js"
+      ],
+      "result": "all imported including host; no behavioral invocation"
+    },
+    {
+      "kind": "definition_compilation",
+      "operation": "createSimulationRegistry({...homeFurnishingDefinitions, sites:[existing field.assembly capacity 1]})",
+      "result": "10 unique commands, 1 situation; definition/predicate/effect/site references compile"
+    }
+  ],
+  "notRun": [
+    "unit",
+    "model",
+    "gameplay",
+    "browser",
+    "save",
+    "reload",
+    "import_journey",
+    "failed_persistence",
+    "regression",
+    "keyboard",
+    "director_acceptance",
+    "leaf_or_integrated_build"
+  ],
+  "laterGate": "docs/gm/home-social-base-2026-10-07/base/ACCEPTANCE_BACKLOG.md",
+  "rootJoins": "docs/gm/home-social-base-2026-10-07/base/INTERFACE.md"
+}

@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "lane": "objects",
+  "worker": "/root/objects",
+  "integrator": "Features GM /root",
+  "status": "admitted-implemented-unverified",
+  "public_person": "Eda, Village sluice fitter",
+  "stable_person_id": "feature_objects.miri",
+  "paths": [
+    "src/feature_expansion_objects.js",
+    "src/feature_expansion_objects_host.js"
+  ],
+  "exports": {
+    "src/feature_expansion_objects.js": [
+      "FEATURE_OBJECT_IDS",
+      "FEATURE_OBJECT_ITEMS",
+      "featureObjectItemSpecifications",
+      "FEATURE_OBJECT_KEYS",
+      "featureObjectSources",
+      "featureObjectDefinitions",
+      "registerFeatureObjectItems"
+    ],
+    "src/feature_expansion_objects_host.js": [
+      "featureObjectFacts",
+      "featureObjectContext",
+      "beginFeatureObjects",
+      "commitFeatureObjectCommand",
+      "previewFeatureObjectCommand",
+      "validateFeatureObjectState",
+      "featureObjectPresentation"
+    ]
+  },
+  "registry": {
+    "definitionsExport": "featureObjectDefinitions",
+    "sourcesExport": "featureObjectSources",
+    "group": "feature_objects",
+    "counts": {
+      "people": 1,
+      "commands": 36,
+      "sites": 1,
+      "powers": 1,
+      "situations": 1,
+      "sources": 1,
+      "newNativeItems": 7
+    }
+  },
+  "ids": {
+    "world": "base.frontier",
+    "actor": "feature_objects.miri",
+    "situation": "feature_objects.sluice",
+    "site": "feature_objects.fitting_bench",
+    "method": "feature_objects.grain_matching",
+    "loan": "feature_objects.knife_loan",
+    "begin": "feature_objects.begin",
+    "staticCommands": [
+      "feature_objects.inspect",
+      "feature_objects.borrow",
+      "feature_objects.buy",
+      "feature_objects.borrow_fine",
+      "feature_objects.buy_sound",
+      "feature_objects.observe_alignment",
+      "feature_objects.learn",
+      "feature_objects.buy_matched",
+      "feature_objects.deliver_kits",
+      "feature_objects.revisit"
+    ],
+    "generatedCommandFamilies": [
+      "return_{sharp,dull,fine,fineDull}",
+      "repair_{dull,fineDull}_{own,loan}",
+      "refit_{sharp,dull}",
+      "cut_{sharp,fine}_{own,loan}",
+      "match_fine_{own,loan}",
+      "kit_{sharp,fine}_{own,loan}",
+      "dry_{shade,braced,shelf}",
+      "install_{brace,seal}"
+    ],
+    "commands": [
+      "feature_objects.begin",
+      "feature_objects.inspect",
+      "feature_objects.borrow",
+      "feature_objects.buy",
+      "feature_objects.borrow_fine",
+      "feature_objects.buy_sound",
+      "feature_objects.return_sharp",
+      "feature_objects.return_dull",
+      "feature_objects.return_fine",
+      "feature_objects.return_fineDull",
+      "feature_objects.repair_dull_own",
+      "feature_objects.repair_dull_loan",
+      "feature_objects.repair_fineDull_own",
+      "feature_objects.repair_fineDull_loan",
+      "feature_objects.refit_sharp",
+      "feature_objects.refit_dull",
+      "feature_objects.cut_sharp_own",
+      "feature_objects.cut_sharp_loan",
+      "feature_objects.cut_fine_own",
+      "feature_objects.cut_fine_loan",
+      "feature_objects.match_fine_own",
+      "feature_objects.match_fine_loan",
+      "feature_objects.kit_sharp_own",
+      "feature_objects.kit_sharp_loan",
+      "feature_objects.kit_fine_own",
+      "feature_objects.kit_fine_loan",
+      "feature_objects.dry_shade",
+      "feature_objects.dry_braced",
+      "feature_objects.dry_shelf",
+      "feature_objects.observe_alignment",
+      "feature_objects.learn",
+      "feature_objects.install_brace",
+      "feature_objects.install_seal",
+      "feature_objects.buy_matched",
+      "feature_objects.deliver_kits",
+      "feature_objects.revisit"
+    ]
+  },
+  "requiredJoins": [
+    {
+      "path": "src/data/expedition_items.js",
+      "action": "Import registerFeatureObjectItems from ../feature_expansion_objects.js, then call registerFeatureObjectItems({itemTemplates:item_templates,OtherItem}) exactly once after native items are initialized.",
+      "consumer": "native item_templates/getItemFromKey/item key save reconstruction"
+    },
+    {
+      "path": "src/feature_expansion_content.js or src/simulation_content.js",
+      "action": "Compose all featureObjectDefinitions family arrays exactly once; spread featureObjectSources into simulationSources. Do not enroll Eda on ordinary service enrollment: provision:false remains.",
+      "consumer": "actual expeditionRegistry.simulation and expeditionRegistry.sources"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "action": "Merge featureObjectFacts(state,context,registry) in simulationFacts. Derive on every current preview, commit and completion support check, with the existing staged native gameplay/vitals snapshot.",
+      "consumer": "exact borrowed custody/body/source and current completion support"
+    },
+    {
+      "path": "src/main.js",
+      "action": "Feature UI reads need live gameplay.player.inventory plus vitals.player and current native location/body/access facts. Route explicit begin to beginFeatureObjects and feature_objects commands to commitFeatureObjectCommand, then persistExpansion once. Generic raw commit remains supported only with the same derived facts.",
+      "consumer": "actual native coin/item/vital/unlock/XP publisher"
+    },
+    {
+      "path": "src/main.js / src/feature_expansion_ui.js",
+      "action": "Mount Tools & the drying shelf in existing Notebook Here. Use featureObjectPresentation or projectFeatureCommands(group feature_objects) after explicit introduction; begin label asks Eda. Existing featureWorkControls/cancelSimulationJob cancels exact accepted work. Supply known player records, loan condition/deposit and optional retained joint quest.",
+      "consumer": "real accessible action buttons, current work, matching returns and earned records"
+    },
+    {
+      "path": "src/expansion_engine.js / native save admission",
+      "action": "Invoke validateFeatureObjectState for the optional named case during load/admission and staged publication. When the staged or loaded native snapshot is available pass it as third argument to bind held loan key/count to actual carried native stock. Prior to native restore pure state validation still validates owner/holder/variant/deposit/target consistency.",
+      "consumer": "optional absent-by-default content compatibility and actual loan native binding"
+    },
+    {
+      "path": "src/main.js persistExpansion",
+      "action": "Before publication, validateFeatureObjectState(plan.state,expeditionRegistry,plan) also covers scheduler-completed loan variant transforms. Its staged native snapshot owns the actual held tool; no second stock ledger is introduced.",
+      "consumer": "all command and timed completion native/save consumers"
+    },
+    {
+      "path": "build.js / generated current bundle",
+      "action": "Rebuild after final joins and record disk/source-map correspondence.",
+      "consumer": "current native application output"
+    }
+  ],
+  "compatibility": {
+    "expansion": 5,
+    "simulation": "existing 1-4; this explicit caused situation begins at >=3 and guarded timed commitments use >=4",
+    "definitionRevision": 1,
+    "newSaveNamespace": null,
+    "missingDefault": "No Eda, joint, stock, source, discovery, deposit or reward. Imports/render/load grant nothing.",
+    "meaning": "Fixed native item variants, existing people/owner/custody/site/job/fact/source/power/knowledge owners. No arbitrary mutable item codec. New IDs need registered definitions/native templates; unsupported removal is a recoverable validation rejection. Frozen current accepted jobs retain revision1 effects/support."
+  },
+  "clock": "Only existing played common clock. Every player operation requires present Village native body/stock/clock; no absent actor policy, offline catch-up, controller timer or autonomous reward engine. Guarded work losing declared contact/source returns its reserved inputs through existing schema4 completion support.",
+  "custody": "Borrowed sharp/fine tools remain in player native bag and custody-protected while player+lender are reserved. At successful settlement exact return precedes owner consumption; one worn variant is created for that owner, then the same loan ID lends it to the player. Own tools enter existing job escrow. Refitting is owned-only. Return refunds actual Eda-held two-coin deposit; deposit backing is validated.",
+  "paidTransfers": "Purchases and deposits debit native player money and credit actual Eda coins. Lesson coin is reserved then transferred on completion. Kit wages debit Eda coins/order demand and credit native player money. Cancellation inverts exact reserved transfer/funding; two funded kit orders remain finite.",
+  "functionalConsumers": {
+    "tools": "sharp cutting -> exact dulled tool; material edge repair -> exact sharp tool; owned refit preserves edge condition and changes usable guide",
+    "material": "log -> two wet staves; wet -> sound via 6-minute ordinary, 4-minute braced or 2-minute sealed target path; acquired source plus fine tool sound -> matched stave",
+    "worldTarget": "consumed sound/matched insert plus sap installs persistent braced/sealed joint and changes real drying duration/effort",
+    "nativeOutput": "two sound staves+sap -> two existing Prepared survey kits used by all current native stock consumers; finite actual kit delivery receives wage",
+    "discovery": "present reserved player sees Eda consume her actual sound stave and use/dull her actual fine tool; understanding/source acquired only by separate paid supervised lesson; Woodworking native unlock precedes later XP use"
+  },
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import",
+    "stale/failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "performed": [
+    "syntax both modules",
+    "inert ESM host import",
+    "standalone createSimulationRegistry 36 commands",
+    "item-key/definition closure against seven descriptors plus three retained native templates",
+    "all refundable timed commands have current completion support",
+    "source-reviewed unknown-negation: explicit read-only absent owned/knowledge facts keep paid acquisition reachable after discovery"
+  ],
+  "hashes": {
+    "outputs": {
+      "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+    },
+    "inputsObserved": {
+      "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97",
+      "docs/gm/feature-wave/features/ASSIGNMENT.md": "fe48fe7d47f9aad9cefe89dfbceab37b41889ef67586cfac19fcde66e969155a",
+      "docs/gm/feature-wave/features/INTERFACE.md": "764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d",
+      "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md": "a7c70774ed2958419c2a8d8ec702cb6915f8edde0360b41400301d3c1e779edf",
+      "docs/gm/world-implementation/second-pass/absorption-incorporation/ENGINE_PACKETS.md": "e1aac545779661d22f0a6c134bd2f5b0df333896bb67922ed1f8b52751934878",
+      "src/simulation.js": "7e96a16a8bf161b483c3b34aa26001be4180adba141f0c7293f39cfee701546a",
+      "src/simulation_effects.js": "a036326a14e49ef71cc3e877602a6436c01e4792c601bba3d207add252099cca",
+      "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+      "src/main.js": "44dbd4bc5dc4498d1b80839bfa53bda3c1a1a6af68f3ccb2808d7682cbfcbe6e",
+      "src/items.js": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "src/data/expedition_items.js": "933aa1b256a22cfe3e724d2566d75e8a813254c9077d4beb6b13f37b9c56c967",
+      "src/original_frontier_facts.js": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+      "src/original_frontier_campaign_content.js": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866",
+      "src/original_frontier_field_content.js": "faee6d0d221637b40b48a564072ebbea5fdb623d42a795ba2934163478b5f9c3"
+    }
+  },
+  "note": "Shared files are actively parent-integrated. An attempted live combined registry first double-admitted this already joined lane; deduplicated live check then found in-progress tidemark.counterweight missing model, reported to parent. Neither finding changes this lane standalone pass or claims current whole-wave integration.",
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "source-ready-existing-file-joins-owned-by-parent"
+}

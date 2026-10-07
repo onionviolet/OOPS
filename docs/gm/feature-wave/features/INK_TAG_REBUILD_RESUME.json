@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "dateUtc": "2026-10-05T22:02:36.645410+00:00",
+  "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "authority": "Existing direct feature-wave integration goal resumed; one named post-delivery Ink choice-tag source/build correspondence repair",
+  "previousIntegrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+  "observedPreviousTurn": "completed/idle, turn01a10df7-496c-7560-a5d0-250aa200a440",
+  "reservation": "Only shared generated build/index and current integration receipt/canonical bundle references; no specialist source files",
+  "sourceOwner": "Ink01a10dc6-5661-7161-9b4c-310ede7fb1f6; corrected story/compiler committed to disk; role now requests shared window and is not running any source/build process",
+  "failure": "Delivered dbd0224cf6dd has older choice-tag compiled JSON; current Ink source/compiler/artifact no longer matches delivered build",
+  "checkPolicy": "syntax/import/compiler/build/hash only, behavior and private saves untouched",
+  "inputs": {
+    "stories/feature_wave.ink": "4d4a7be449589255ca9620833fc469da73f095b5dcad14716bad3915c8ef9a6f",
+    "stories/feature_wave.json": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+    "scripts/compile_feature_ink.mjs": "c423e528c54c4f62dd8d1958c51dd6b6bb06e28c81459571e3cb6200748de91b",
+    "src/ink_narrative.js": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "docs/gm/feature-wave/features/BUILD.json": "0a26dc523be08b9680dfc34c16254b166e18289972b3db029d19839365eca9ca"
+  }
+}

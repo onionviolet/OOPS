@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-10-05T22:01:22.209947+00:00",
+  "scope": "backlog-only static source/native/save/UI/current-bundle admission",
+  "status": "admitted-implemented-unverified",
+  "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+  "build": "docs/gm/feature-wave/features/BUILD.json",
+  "bundleFingerprint": "dbd0224cf6dd",
+  "bundleHash": "dbd0224cf6dd78dd380b954c61f74333c4b485f8e6b1b4a48dcc364cccda759c",
+  "backlogControls": 41,
+  "matchedModuleAndConsumerHashes": {
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/backlog_expansion_content.js": "b57f6273c32f1272d5515003064346763cc83e5b6b754816694115d58fcecaa6",
+    "src/backlog_expansion_core.js": "03c0d0da5deda2bc0d204d8ff1109e9563cfb0fd7d3f1d1caa38028aef05e8ea",
+    "src/backlog_expansion_host.js": "3db936f5f3967bc9a1c127a293c2145d0546967d6f1857d04736874961ec96ca",
+    "src/backlog_expansion_opportunities.js": "e3dcdf6c02938241aa4bbaa8dfa7770f72560557ab9cc4770f49318ceb5933ac",
+    "src/backlog_expansion_time.js": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+    "src/backlog_expansion_ui.js": "ca2f835b857d4859b0ae21441e0f4e357376b70d53cc7b0e00b43018643ac4d7",
+    "src/main.js": "93c9d042276eb025f0d328edcbe526b5afc267f770c8a789a38d151d684d1788",
+    "src/simulation_content.js": "c0f8ead106d753ecd5ba8a826313230fff0f6c4364c0a2a5642bcc9d983ca0e4",
+    "src/expedition_content.js": "9e88583dc7dbdb3f9c7d9c25b3cc706ea2378badd93aa54311745ad86bc46882",
+    "src/expansion_engine.js": "d69ca17a7533f2588ad10990942f2931938db356fed3733b44b04f91ba1eb6b7",
+    "src/save_files.js": "3254f46b12f4336e66bedd453561ae17948239aa1ecac4f72fc9e096effc8b26",
+    "src/native_gameplay_adapter.js": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+    "src/data/expedition_items.js": "65cfb495c24560d752c2316e81d29b55ce7cb797536f2fb35066fd760c1a0310",
+    "src/adventure_notebook.js": "c4a3ddd0459ef5cd61ffb794ada317acee98816a18c1487b31e4eb1cab7fd4a5",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+  },
+  "performed": [
+    "cold full expedition registry/host/UI imports",
+    "41 callable commands and actual people/site registration inspection",
+    "current recorded backlog and native consumer SHA-256 correspondence",
+    "all seven backlog module source-map contents correspond to disk"
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import roundtrip",
+    "save failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "otherLaneDrift": {
+    "paths": [
+      "stories/feature_wave.json",
+      "scripts/compile_feature_ink.mjs",
+      "stories/feature_wave.ink"
+    ],
+    "activeOwner": "Ink GM 01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+    "meaning": "Ink follow-up source is newer than the recorded shared bundle; a final whole-wave rebuild remains with shared integrator. No backlog source or native consumer drift."
+  }
+}

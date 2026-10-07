@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-10-06T05:51:38.159973+00:00",
+  "status": "passed",
+  "source_pin": "b41c17888a91100bbf8f1febecaa636a1b421f5b",
+  "external_source_clean": true,
+  "source_manifest_files_checked": 344,
+  "json_documents_parsed_before_receipt": 10,
+  "evidence_spans_hashes_checked": 144,
+  "local_links_checked": 32,
+  "source_coverage_partition": "all tracked source lines partition into selected semantic read/unread ranges",
+  "yair_evidence_domain": "Private exact read-input snapshot; live hash match at capture. Later live drift is reported without pretending snapshot is current forever.",
+  "live_yair_drift_at_final_check": [],
+  "reader_status": "all three completed/released; parent integrated targeted repairs",
+  "required_research_gates": {
+    "five_paths": 5,
+    "ranked_original_packets": 4,
+    "pinned_inspectable_source": true,
+    "coverage_truthful": "selected ranges only",
+    "final_readback": "JSON/evidence/hash/link/artifact readback"
+  },
+  "not_run": [
+    "Rogue Legacy game install/purchase/launch/assets/build",
+    "YAIR build/syntax/runtime/test/browser",
+    "generated save/reload/import/failure/regression",
+    "human playable/director acceptance"
+  ],
+  "write_scope": "New lane outputs only; dispatcher ASSIGNMENT untouched; helper/source/read snapshots outside Git. No runtime/canonical/other-lane/save/profile/commit/publication/automation actions.",
+  "errors": [],
+  "artifact_sha256": {
+    "CHECKPOINT.md": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f",
+    "COVERAGE.json": "6ec4ba4ad0bafbcae4471b0248cb6fe029f86dc492a844d1d489cf9a684ec9bb",
+    "FINDINGS.json": "59313d6084b28da0ad9dc0c4b0c2f1e41042a1356370be3120f9b4aad8f30bac",
+    "IMPLEMENTATION_PACKETS.md": "e4ac274689ea8f76b0d93ce6ae6f4ced5715a5a848e596e55bc427cb497fd8e7",
+    "INTAKE.json": "b0b7cdaedf181c70a4c9c9e1731d0ba6ecf0c26831c73e6186146991f0f07e7a",
+    "REPORT.md": "5308717b7cbcd66310665e7a263c5e1d4d1ecbb9273dba2c36ed478ceb17ba7f",
+    "YAIR_INPUTS.json": "a870be0a796d59a2c8735218c14e6bd27db196572afe56acd888cba4b088f38f",
+    "readers/gear.json": "15da11614301aee3e53ae3a906a5db3b8b739bdb15a5655cf7826e434fd9dbe7",
+    "readers/rooms_combat.json": "e9a381577632395ef538b6d72f5f91b4676e94ac2a72aa5984318bf678f9077c",
+    "readers/root.json": "ac1ba1e6088a29c0ffedf9fe27e87d9eaa947132e901d0b1d336d7ff11655877",
+    "readers/root_yair.json": "1067544002d98d4c599f264e8d2dba7413cb72a2f2e05920a0701d78705006b5",
+    "readers/yair.json": "991c45273efc96aa6aca042baadfe3929333a120c97108c5b6d473dbb31f774e"
+  },
+  "validator": {
+    "path": "/Users/weiwei/.codex/research/rogue-legacy/validate_dossier.py",
+    "sha256": "32297412cc59582314ba5ec71deefe421570473688aee5137bcc0cf93f2b3ba2"
+  },
+  "qualification": "Document/source checks establish the dossier and reviewed snapshot, not gameplay correctness, balance, license exception, asset-complete recovery or shipped behavior."
+}

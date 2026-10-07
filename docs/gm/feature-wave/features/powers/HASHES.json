@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "inputHashesObservedAtDelivery": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97",
+    "docs/gm/feature-wave/features/ASSIGNMENT.md": "fe48fe7d47f9aad9cefe89dfbceab37b41889ef67586cfac19fcde66e969155a",
+    "docs/gm/feature-wave/features/INTERFACE.md": "764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md": "a7c70774ed2958419c2a8d8ec702cb6915f8edde0360b41400301d3c1e779edf",
+    "docs/gm/world-implementation/second-pass/absorption-incorporation/ENGINE_PACKETS.md": "e1aac545779661d22f0a6c134bd2f5b0df333896bb67922ed1f8b52751934878",
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/skill_expansion_host.js": "1cc711679510eb661d130744177f7a80e07302fc7180f4c8b2c32af59882cf55",
+    "src/simulation.js": "186c211aa3ed0a0408c3946afd413fe021cdc57ac1be2cbddeb27e8cb7440411",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/simulation_effects.js": "ecda0411636d243f5c13bbb00e65da54ee6810531d13d01590c0f0774a0b1722",
+    "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+    "src/native_battle_contracts.js": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+    "src/native_battle_host.js": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+    "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+    "src/party_content.js": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+    "src/models/combat.js": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+    "src/enemies.js": "34d48562a0cfcab036bb32c7f5af284673342ff6b3638e18a08328e63aa16334",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+  },
+  "outputHashes": {
+    "src/feature_expansion_powers.js": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+    "src/feature_expansion_powers_host.js": "8baf5e250a47823d0591cf6a0a16cf920e1bb9d9f18ed60f223c49cd5c0b3c8f",
+    "src/feature_expansion_battle.js": "a30d2c5620e792633f79b69f58944441b7e0e26ecc100a47b92b1543e2b6023d",
+    "src/feature_expansion_battle_host.js": "d8788153129f96631fa7278ae5b8dd617afb119031d629fe9d97c046e7b53f8c"
+  },
+  "note": "Input files are shared read-only moving owners; these hashes identify the delivery-time source snapshot rather than claiming they were frozen before lane work."
+}

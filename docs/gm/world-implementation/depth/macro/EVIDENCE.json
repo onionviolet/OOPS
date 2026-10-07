@@ -1,0 +1,1544 @@
+{
+  "schema": 1,
+  "purpose": "Planning-only document/source/API evidence; not runtime acceptance",
+  "capturedAt": "2026-10-05T00:38:32.982847+00:00",
+  "scope": "docs/gm/world-implementation/depth/macro",
+  "runtimeApproval": {
+    "state": "awaiting-human-plan-review-with-depth-planning-authorized",
+    "plan": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "authority": "Latest user explicitly authorizes macro and micro planning prompts and depth expansion; runtime implementation and wider parallel dispatch remain held."
+  },
+  "requiredReports": [
+    "REPORT.md",
+    "SYSTEM_GRAPH.md",
+    "WORLD_LOOP_MATRIX.md",
+    "ENGINE_REQUIREMENTS.md",
+    "CHECKPOINT.md"
+  ],
+  "checks": {
+    "markdownFiles": 10,
+    "localLinks": 110,
+    "anchors": 5,
+    "missingLinks": [],
+    "badAnchors": [],
+    "whitespaceOrFenceErrors": [],
+    "mermaidStructuralGraphs": 10,
+    "diagramCheckLimit": "Static flowchart node/edge/connectedness checks only; no Mermaid rendering or browser proof."
+  },
+  "gitDiffCheck": {
+    "exitCode": 0,
+    "limit": "Tracked scoped whitespace check; manual scan also covers untracked authored Markdown."
+  },
+  "effectiveSnapshot": {
+    "path": "docs/gm/world-implementation/depth/INPUT_SNAPSHOT.json",
+    "sha256": "a87496e390cd0a0925aa1dcc2b613d1a414918bb91190716aed4a5cbbe905069",
+    "originalPlanSha256": "e3978739814091e9f5306723f00bd397d7ae68f7eb888ef989d4e74466e648ed",
+    "supplementalPlanSha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68",
+    "reconciliation": "Original hash retained; supplemental traceability pointer adopted without execution approval.",
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "expectedSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "currentSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "matches": true
+      },
+      {
+        "path": "PROJECT.md",
+        "expectedSha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "currentSha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "matches": true
+      },
+      {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "expectedSha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68",
+        "currentSha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68",
+        "matches": true
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/macro/ASSIGNMENT.md",
+        "expectedSha256": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645",
+        "currentSha256": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645",
+        "matches": true
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/micro/ASSIGNMENT.md",
+        "expectedSha256": "654e53270d12849ab8a7f8a6acd994f8353fd8c0b1218c77965424c74ad3b9b4",
+        "currentSha256": "654e53270d12849ab8a7f8a6acd994f8353fd8c0b1218c77965424c74ad3b9b4",
+        "matches": true
+      },
+      {
+        "path": "docs/worlds/naruto/ABILITY_VARIANTS.md",
+        "expectedSha256": "c4c90ba43051787b7549910a5a3e45cc56c0722e39fd2218f586917f225ddf8b",
+        "currentSha256": "c4c90ba43051787b7549910a5a3e45cc56c0722e39fd2218f586917f225ddf8b",
+        "matches": true
+      },
+      {
+        "path": "docs/worlds/naruto/SOURCE_LEDGER.md",
+        "expectedSha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+        "currentSha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004",
+        "matches": true
+      },
+      {
+        "path": "src/body_progression.js",
+        "expectedSha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "currentSha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "matches": true
+      },
+      {
+        "path": "src/energy_resources.js",
+        "expectedSha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "currentSha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "matches": true
+      },
+      {
+        "path": "src/power_models.js",
+        "expectedSha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "currentSha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "matches": true
+      },
+      {
+        "path": "src/world_instances.js",
+        "expectedSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "currentSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "matches": true
+      },
+      {
+        "path": "src/site_projects.js",
+        "expectedSha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+        "currentSha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+        "matches": true
+      },
+      {
+        "path": "src/causal_situations.js",
+        "expectedSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+        "currentSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+        "matches": true
+      },
+      {
+        "path": "docs/gm/dispatch/RESEARCH_FINDINGS_EXPLAINED.md",
+        "expectedSha256": "eac5e67a64a79808a4bf1ec1a9a09740adb7a79cb1c809f899cd6fd7b597c48a",
+        "currentSha256": "eac5e67a64a79808a4bf1ec1a9a09740adb7a79cb1c809f899cd6fd7b597c48a",
+        "matches": true
+      }
+    ]
+  },
+  "workerReadTimeFingerprints": [
+    {
+      "path": "AGENTS.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+        }
+      ],
+      "currentSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "PROJECT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c"
+        }
+      ],
+      "currentSha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16"
+        }
+      ],
+      "currentSha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/gm/dispatch/RESEARCH_FINDINGS_EXPLAINED.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "eac5e67a64a79808a4bf1ec1a9a09740adb7a79cb1c809f899cd6fd7b597c48a"
+        }
+      ],
+      "currentSha256": "eac5e67a64a79808a4bf1ec1a9a09740adb7a79cb1c809f899cd6fd7b597c48a",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68"
+        }
+      ],
+      "currentSha256": "63ec2d23066ad13f0eeab7dcf4d1c84c1492a1624324faebb4b80ae61d7aea68",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff"
+        }
+      ],
+      "currentSha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/ASSIGNMENT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645"
+        }
+      ],
+      "currentSha256": "69de908dd04b3267fb50c3a585cc44d7ca9846f332ec4da307945b6e8a281645",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/CHECKPOINT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "0e1a27aab44ea2c693f0679fdcad73c49f1f07b83a90adc436beba819422c92a"
+        },
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "0e1a27aab44ea2c693f0679fdcad73c49f1f07b83a90adc436beba819422c92a"
+        }
+      ],
+      "currentSha256": "084a73c1c7fc2e21aaf8b22820f63506c66d77058c21f229203c51b4a03b990a",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Parent-owned checkpoint advanced to final report/review closeout; expected authored update."
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/CHECKPOINT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "c6c535a7bfb9d0c64d90fe016f28ef46f23c05d2766a5cedd5eb58dffab68181"
+        }
+      ],
+      "currentSha256": "c6c535a7bfb9d0c64d90fe016f28ef46f23c05d2766a5cedd5eb58dffab68181",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CHECKPOINT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb"
+        }
+      ],
+      "currentSha256": "b9104bfeb67d5330c52307dde0d4e89c15177c4f6d3f6ceca891a1d912ac52cb",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+        }
+      ],
+      "currentSha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/COVERAGE.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "0a9d59cfaf9abe303a8cf56f6924bb6f50f353c7748bfdd0afa368dd411828c9"
+        }
+      ],
+      "currentSha256": "0a9d59cfaf9abe303a8cf56f6924bb6f50f353c7748bfdd0afa368dd411828c9",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/POWERS.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "3fd7d9f8f41fe00c361e11632843643c620a5cef2d65c1bef9b1fdfeff4b7a79"
+        }
+      ],
+      "currentSha256": "3fd7d9f8f41fe00c361e11632843643c620a5cef2d65c1bef9b1fdfeff4b7a79",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68"
+        }
+      ],
+      "currentSha256": "20e802bbbf82f090b05f20d8064f627e719bc4c2489fa485420c808232633b68",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/TIMELINE.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "5a441deab922cf3737ebf0a6f4d0eaa60707f7dcf8d6e17436586e7c4896a97d"
+        }
+      ],
+      "currentSha256": "5a441deab922cf3737ebf0a6f4d0eaa60707f7dcf8d6e17436586e7c4896a97d",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/mother-of-learning/WORLD.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "77f6027e60afc3df982b3a5b179ec549c903839a23e88db89fbfab4f17f4c008"
+        }
+      ],
+      "currentSha256": "77f6027e60afc3df982b3a5b179ec549c903839a23e88db89fbfab4f17f4c008",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/CHECKPOINT.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "ca2d978a1c0b7bcc5852c85a35dd14890aa8f53421ab2104cbff1e74c0492488"
+        }
+      ],
+      "currentSha256": "6118ef4a4467fb021442079f459315c190dfeb519b05ea542afded68687efb0b",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/COVERAGE.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "c261db76aed703c82fda0d134cb102cc6a19085fe4d39d80ae0e86cb1b7ff7c0"
+        }
+      ],
+      "currentSha256": "753867f72e2c0c58b3d93718be0bafea7307eba92d3ec91cba837db23d696662",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/INSTITUTIONS_AND_LIFE.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "961a8ad3593743858232dbfcc605a0aa8cfd0039ef4793997d942bd3465244e6"
+        }
+      ],
+      "currentSha256": "e29ee4588bf48c654fb17e036b3e3e53b26d0e27046fda7032ae353a100057f8",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/POWER_INDEX.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "70ddb3d0f5dbf4963202854e8bb4d2ef6e4db672ccaafd3b8a0d7eb5ae778ae1"
+        }
+      ],
+      "currentSha256": "fd0e8562f958d8efe4691f3e3bf938a66099c40a3f62bdf99e2ed97597cef2a1",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "3daed76247b84ce0ad568e56f5f5f6863c90295cc03658f31c66822446558bf7"
+        }
+      ],
+      "currentSha256": "4b6ec94c07e37d7be834459a2b7164c2face05b66bad51074b620718c0934e7a",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "docs/research/novels/full-book/reverend-insanity/TIMELINE.md",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+          "sha256": "abd7567d68f7c3ee5d2c76e7b734e6447de8b6afe100f55675a806540e31af91"
+        }
+      ],
+      "currentSha256": "006c3772dc8c16266cd93f9251c208c30c539d85473a85542731ef453dda4775",
+      "matchesAllReadTimeHashes": false,
+      "reconciliation": "Independent source GM integrated 391-400. Case deliberately retains analyzed 1-390 snapshot. Current checkpoint/synthesis/timeline and earlier producer/193-200 passages were read back; new 391-400 claims excluded."
+    },
+    {
+      "path": "src/body_progression.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+        }
+      ],
+      "currentSha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/causal_situations.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366"
+        }
+      ],
+      "currentSha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/energy_resources.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef"
+        }
+      ],
+      "currentSha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/everyday_life.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df"
+        }
+      ],
+      "currentSha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/game_time.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c"
+        }
+      ],
+      "currentSha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/items.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5"
+        }
+      ],
+      "currentSha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3"
+        }
+      ],
+      "currentSha256": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/power_models.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+        }
+      ],
+      "currentSha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e"
+        }
+      ],
+      "currentSha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/realm_state.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+        }
+      ],
+      "currentSha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/simulation.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+        }
+      ],
+      "currentSha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052"
+        }
+      ],
+      "currentSha256": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+        }
+      ],
+      "currentSha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+        }
+      ],
+      "currentSha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/site_projects.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479"
+        }
+      ],
+      "currentSha256": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    },
+    {
+      "path": "src/world_instances.js",
+      "readTime": [
+        {
+          "note": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+          "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+        }
+      ],
+      "currentSha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "matchesAllReadTimeHashes": true,
+      "reconciliation": "No drift from read-time fingerprints."
+    }
+  ],
+  "additionalInspectedInputs": [
+    {
+      "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+      "sha256": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af"
+    },
+    {
+      "path": "docs/WANDERING_ZONES_AND_INSIGHT.md",
+      "sha256": "4b3056a67f94884edb36a907454c7523e51dde68f578e6a64d6da100e9d26a0d"
+    },
+    {
+      "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "sha256": "a6ba3088d1330823318a648f531903a219e9c5100356eccabf5c3c5d46d6f179"
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936"
+    },
+    {
+      "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "sha256": "a1918358694147bbc90ac85e05bed59302ae9b60146f7850b6d9485a7dce532d"
+    },
+    {
+      "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "sha256": "b5d52cc1b0567995d77e9b5f43e9a74ee33a9cb99cb39ed3028064332f4b651f"
+    },
+    {
+      "path": "docs/worlds/naruto/SOURCE_LEDGER.md",
+      "sha256": "d0636f17f1425b1d3bacd670f31611845243112251e76239bff3299ec8da8004"
+    },
+    {
+      "path": "docs/worlds/naruto/ABILITY_VARIANTS.md",
+      "sha256": "c4c90ba43051787b7549910a5a3e45cc56c0722e39fd2218f586917f225ddf8b"
+    },
+    {
+      "path": "docs/worlds/fallout/CAMPAIGN.md",
+      "sha256": "f5a7adccf642dcd955cda490e142a317c53380e35b601e5e496fc90ba052d790"
+    },
+    {
+      "path": "docs/worlds/fallout/SOURCE_LEDGER.md",
+      "sha256": "d4c4eed832b8937879df19dae543de538dd5e7ab839bc4fa28c36d9fc5455c2f"
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "sha256": "cb39a4e9f939a834f8e4eba2b25deac46b7ea7f016e11380f4be87a56ba90ed7"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md",
+      "sha256": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84"
+    }
+  ],
+  "diagrams": [
+    {
+      "file": "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md",
+      "diagram": 1,
+      "nodes": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "edges": [
+        [
+          "E1",
+          "E2"
+        ],
+        [
+          "E1",
+          "E3"
+        ],
+        [
+          "E1",
+          "E4"
+        ],
+        [
+          "E2",
+          "E4"
+        ],
+        [
+          "E2",
+          "E5"
+        ],
+        [
+          "E3",
+          "E5"
+        ],
+        [
+          "E4",
+          "E5"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+      "diagram": 1,
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "K",
+        "L",
+        "N",
+        "P",
+        "R",
+        "S",
+        "T",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "H",
+          "Z"
+        ],
+        [
+          "Z",
+          "R"
+        ],
+        [
+          "Z",
+          "A"
+        ],
+        [
+          "R",
+          "G"
+        ],
+        [
+          "A",
+          "G"
+        ],
+        [
+          "G",
+          "S"
+        ],
+        [
+          "S",
+          "P"
+        ],
+        [
+          "P",
+          "B"
+        ],
+        [
+          "P",
+          "K"
+        ],
+        [
+          "K",
+          "T"
+        ],
+        [
+          "S",
+          "F"
+        ],
+        [
+          "T",
+          "F"
+        ],
+        [
+          "F",
+          "X"
+        ],
+        [
+          "B",
+          "X"
+        ],
+        [
+          "X",
+          "E"
+        ],
+        [
+          "Z",
+          "E"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "E",
+          "N"
+        ],
+        [
+          "N",
+          "A"
+        ],
+        [
+          "N",
+          "R"
+        ],
+        [
+          "N",
+          "H"
+        ],
+        [
+          "N",
+          "K"
+        ],
+        [
+          "A",
+          "L"
+        ],
+        [
+          "L",
+          "B"
+        ],
+        [
+          "B",
+          "R"
+        ],
+        [
+          "C",
+          "P"
+        ],
+        [
+          "C",
+          "E"
+        ],
+        [
+          "C",
+          "H"
+        ],
+        [
+          "D",
+          "N"
+        ],
+        [
+          "D",
+          "S"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 1,
+      "nodes": [
+        "B",
+        "C",
+        "F",
+        "G",
+        "H",
+        "P",
+        "Q",
+        "S",
+        "W",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "G"
+        ],
+        [
+          "Z",
+          "W"
+        ],
+        [
+          "G",
+          "S"
+        ],
+        [
+          "W",
+          "S"
+        ],
+        [
+          "S",
+          "C"
+        ],
+        [
+          "S",
+          "Q"
+        ],
+        [
+          "C",
+          "P"
+        ],
+        [
+          "Q",
+          "P"
+        ],
+        [
+          "P",
+          "B"
+        ],
+        [
+          "B",
+          "F"
+        ],
+        [
+          "F",
+          "Z"
+        ],
+        [
+          "P",
+          "H"
+        ],
+        [
+          "H",
+          "W"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 2,
+      "nodes": [
+        "B",
+        "E",
+        "M",
+        "P",
+        "R",
+        "S",
+        "T",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "M"
+        ],
+        [
+          "Z",
+          "S"
+        ],
+        [
+          "Z",
+          "P"
+        ],
+        [
+          "M",
+          "R"
+        ],
+        [
+          "S",
+          "R"
+        ],
+        [
+          "P",
+          "R"
+        ],
+        [
+          "R",
+          "T"
+        ],
+        [
+          "T",
+          "B"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "Z"
+        ],
+        [
+          "R",
+          "X"
+        ],
+        [
+          "X",
+          "E"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 3,
+      "nodes": [
+        "B",
+        "C",
+        "D",
+        "H",
+        "P",
+        "S",
+        "U",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "H"
+        ],
+        [
+          "Z",
+          "P"
+        ],
+        [
+          "Z",
+          "C"
+        ],
+        [
+          "H",
+          "S"
+        ],
+        [
+          "P",
+          "S"
+        ],
+        [
+          "C",
+          "S"
+        ],
+        [
+          "S",
+          "U"
+        ],
+        [
+          "U",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "D",
+          "Z"
+        ],
+        [
+          "U",
+          "X"
+        ],
+        [
+          "X",
+          "Z"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 4,
+      "nodes": [
+        "B",
+        "C",
+        "I",
+        "M",
+        "P",
+        "S",
+        "W",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "S"
+        ],
+        [
+          "Z",
+          "C"
+        ],
+        [
+          "Z",
+          "M"
+        ],
+        [
+          "S",
+          "I"
+        ],
+        [
+          "C",
+          "I"
+        ],
+        [
+          "M",
+          "I"
+        ],
+        [
+          "I",
+          "W"
+        ],
+        [
+          "W",
+          "B"
+        ],
+        [
+          "B",
+          "P"
+        ],
+        [
+          "P",
+          "Z"
+        ],
+        [
+          "B",
+          "X"
+        ],
+        [
+          "X",
+          "P"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 5,
+      "nodes": [
+        "A",
+        "B",
+        "C",
+        "E",
+        "F",
+        "R",
+        "S",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "A"
+        ],
+        [
+          "Z",
+          "C"
+        ],
+        [
+          "Z",
+          "F"
+        ],
+        [
+          "A",
+          "S"
+        ],
+        [
+          "C",
+          "S"
+        ],
+        [
+          "F",
+          "S"
+        ],
+        [
+          "S",
+          "R"
+        ],
+        [
+          "R",
+          "B"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "Z"
+        ],
+        [
+          "R",
+          "X"
+        ],
+        [
+          "X",
+          "Z"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "diagram": 6,
+      "nodes": [
+        "C",
+        "D",
+        "E",
+        "H",
+        "K",
+        "P",
+        "R",
+        "S",
+        "V"
+      ],
+      "edges": [
+        [
+          "H",
+          "P"
+        ],
+        [
+          "P",
+          "S"
+        ],
+        [
+          "S",
+          "C"
+        ],
+        [
+          "C",
+          "V"
+        ],
+        [
+          "V",
+          "E"
+        ],
+        [
+          "E",
+          "R"
+        ],
+        [
+          "R",
+          "H"
+        ],
+        [
+          "R",
+          "K"
+        ],
+        [
+          "K",
+          "P"
+        ],
+        [
+          "E",
+          "D"
+        ],
+        [
+          "D",
+          "V"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+      "diagram": 1,
+      "nodes": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "H1",
+        "H2",
+        "H3",
+        "M",
+        "P",
+        "R",
+        "S",
+        "U1",
+        "U2",
+        "U3",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "R"
+        ],
+        [
+          "R",
+          "H1"
+        ],
+        [
+          "R",
+          "H2"
+        ],
+        [
+          "R",
+          "H3"
+        ],
+        [
+          "H1",
+          "S"
+        ],
+        [
+          "H2",
+          "S"
+        ],
+        [
+          "H3",
+          "S"
+        ],
+        [
+          "S",
+          "U1"
+        ],
+        [
+          "S",
+          "U2"
+        ],
+        [
+          "S",
+          "U3"
+        ],
+        [
+          "U1",
+          "P"
+        ],
+        [
+          "U2",
+          "P"
+        ],
+        [
+          "U3",
+          "P"
+        ],
+        [
+          "P",
+          "B"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "A"
+        ],
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "D"
+        ],
+        [
+          "D",
+          "P"
+        ],
+        [
+          "A",
+          "X"
+        ],
+        [
+          "X",
+          "Z"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    },
+    {
+      "file": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+      "diagram": 2,
+      "nodes": [
+        "A",
+        "B",
+        "D",
+        "E",
+        "H1",
+        "H2",
+        "H3",
+        "M",
+        "P",
+        "R",
+        "S",
+        "U1",
+        "U2",
+        "U3",
+        "X",
+        "Z"
+      ],
+      "edges": [
+        [
+          "Z",
+          "R"
+        ],
+        [
+          "R",
+          "H1"
+        ],
+        [
+          "R",
+          "H2"
+        ],
+        [
+          "R",
+          "H3"
+        ],
+        [
+          "H1",
+          "S"
+        ],
+        [
+          "H2",
+          "S"
+        ],
+        [
+          "H3",
+          "S"
+        ],
+        [
+          "S",
+          "U1"
+        ],
+        [
+          "S",
+          "U2"
+        ],
+        [
+          "S",
+          "U3"
+        ],
+        [
+          "U1",
+          "P"
+        ],
+        [
+          "U2",
+          "P"
+        ],
+        [
+          "U3",
+          "P"
+        ],
+        [
+          "P",
+          "B"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "E",
+          "A"
+        ],
+        [
+          "A",
+          "M"
+        ],
+        [
+          "M",
+          "D"
+        ],
+        [
+          "D",
+          "P"
+        ],
+        [
+          "A",
+          "X"
+        ],
+        [
+          "X",
+          "Z"
+        ]
+      ],
+      "unparsedLines": [],
+      "undeclaredNodes": [],
+      "connectedUndirected": true
+    }
+  ],
+  "reviewResolution": {
+    "API_REVIEW": "Evidence target now exists; exact export/reputation/energy/reset support repairs retained.",
+    "SOURCE_REVIEW": "Existing Frame viewing selected; reset carriers and research-memory wording tightened; source-edition/primary authenticity qualified; new RI drift reconciled without widening case."
+  },
+  "workerCloseout": {
+    "macro_api_support": "terminal; API note and bounded parent review read",
+    "macro_gu_time_loops": "terminal; Gu/MoL note and bounded parent source review read",
+    "miniworld_contract_review": "terminal from previous released scope",
+    "pendingProcessesOrUnknownWrites": []
+  },
+  "outputHashesExcludingSelf": [
+    {
+      "path": "docs/gm/world-implementation/depth/macro/CHECKPOINT.md",
+      "sha256": "084a73c1c7fc2e21aaf8b22820f63506c66d77058c21f229203c51b4a03b990a"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md",
+      "sha256": "768037784d4bcea012566d96401912a97cc4359d3b5369fa9a15c0b4b9e105bd"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+      "sha256": "23eac043cf267073708fb6cf0128570a50be1f34c0d2b82995cce4eee2886c3d"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+      "sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/workers/API_REVIEW.md",
+      "sha256": "bc38f2723546ff41c46f383c9d93581b053510a2d008b04a4fb38d924cc87fdc"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/workers/API_SUPPORT.md",
+      "sha256": "73ff2950eee52f07d760b9cc881fd1e9512b1a8284ea27ad93fbd912ee3b0289"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/workers/GU_TIME_LOOPS.md",
+      "sha256": "67808935faea88ce55e6f2e0f77aee4bfd7a9be93fb0091fcb24ca43420e84f9"
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/macro/workers/SOURCE_REVIEW.md",
+      "sha256": "ea8f58927593f9106e74fb86495a51614679dd9711f3ebddc6fcd9db6e7c2293"
+    }
+  ],
+  "notRun": [
+    "gameplay tests",
+    "runtime imports",
+    "build",
+    "browser or save checks",
+    "source/library operations"
+  ],
+  "notChanged": [
+    "runtime/source modules",
+    "private saves",
+    "canonical plan/RUN",
+    "other writer files",
+    "attribution/LICENSE"
+  ]
+}

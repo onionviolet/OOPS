@@ -1,0 +1,311 @@
+{
+  "status": "pass",
+  "validated_at": "2026-10-06T05:24:20.200871+00:00",
+  "research_complete": true,
+  "local_decompilation_gate": "performed_pass_export_only",
+  "source_or_runtime_execution": "not_run",
+  "command": [
+    "python3",
+    "/Users/weiwei/.codex/research/rimworld/1.6.4871/validate_research.py"
+  ],
+  "script_sha256": "4b7d48b73c6dd85b7f6c990ed863ac536d1beb6e2127f78ea8faaaa09e0c6c3c",
+  "checks": {
+    "json_readback": {
+      "status": "pass",
+      "files": [
+        "BODY_SOCIAL_FINDINGS.json",
+        "COVERAGE.json",
+        "FINDINGS.json",
+        "INTAKE.json",
+        "STORYTELLER_FINDINGS.json"
+      ]
+    },
+    "private_manifests": {
+      "status": "pass",
+      "results": [
+        {
+          "manifest": "/Users/weiwei/.codex/research/rimworld/1.6.4871/INPUT_MANIFEST.json",
+          "sha256": "f695f23aa1e5affaf34728d7aa20f5ea0af89a23cb7f72f253bac138ae854eb8",
+          "file_count": 653,
+          "mismatches": []
+        },
+        {
+          "manifest": "/Users/weiwei/.codex/research/rimworld/1.6.4871/DECOMPILATION_MANIFEST.json",
+          "sha256": "88447b834dce16767232d20b102301a20a26aaf60e6a72276d18c2e0aaad82a5",
+          "file_count": 9214,
+          "mismatches": []
+        }
+      ]
+    },
+    "package_hash": {
+      "status": "pass",
+      "path": "/Users/weiwei/Downloads/rimworld_enUS_1_6_4871_rev588_.dmg"
+    },
+    "claim_evidence": {
+      "status": "pass",
+      "findings": 12,
+      "references_checked": 69,
+      "five_paths": 5
+    },
+    "coverage": {
+      "status": "pass",
+      "source_files": 54,
+      "unique_lines": 3697,
+      "qualification": "Only enumerated semantic intervals. Export count is not semantic coverage."
+    },
+    "current_yair_inputs": {
+      "status": "pass",
+      "files": 14,
+      "drift": []
+    },
+    "links": {
+      "status": "pass",
+      "results": [
+        {
+          "from": "CHECKPOINT.md",
+          "target": "ASSIGNMENT.md",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "INTAKE.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "COVERAGE.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "REPORT.md",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "IMPLEMENTATION_PACKETS.md",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "CHECKPOINT.md",
+          "target": "VALIDATION.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "IMPLEMENTATION_PACKETS.md",
+          "target": "ASSIGNMENT.md",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "IMPLEMENTATION_PACKETS.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "COVERAGE.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "INTAKE.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "/Users/weiwei/.codex/research/rimworld/1.6.4871/INPUT_MANIFEST.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "/Users/weiwei/.codex/research/rimworld/1.6.4871/DECOMPILATION_MANIFEST.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "https://store.steampowered.com/eula/294100_eula_1",
+          "kind": "web",
+          "status": "not_refetched_static_link"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "IMPLEMENTATION_PACKETS.md",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "BODY_SOCIAL_FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "STORYTELLER_FINDINGS.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "VALIDATION.json",
+          "kind": "local",
+          "status": "pass"
+        },
+        {
+          "from": "REPORT.md",
+          "target": "CHECKPOINT.md",
+          "kind": "local",
+          "status": "pass"
+        }
+      ]
+    },
+    "dispatcher_assignment_untouched": {
+      "status": "pass",
+      "sha256": "f3b3ec3f4bdecdff0800005be74100881b3386caae11ce4cb64187719e2b6dde"
+    },
+    "analytical_output_scope": {
+      "status": "pass",
+      "raw_source_or_asset_files": [],
+      "qualification": "This lane and its two readers wrote only analytical outputs here plus private extraction/manifest/tool scripts outside the checkout. Active peer changes are not attributed to this lane."
+    },
+    "pending_export_or_mount_operations": {
+      "status": "pass",
+      "processes": []
+    },
+    "worker_review": {
+      "status": "pass",
+      "workers": [
+        {
+          "id": "/root/body_social_reader",
+          "state": "completed_released",
+          "route": "gpt-6-luna medium",
+          "review": "caller/ingest and opinion feedback enriched; checksum/feeder exception repaired"
+        },
+        {
+          "id": "/root/storyteller_reader",
+          "state": "completed_released",
+          "route": "gpt-6-luna medium",
+          "review": "eligibility/condition/growth consequence reread; actual growth mutation added"
+        }
+      ]
+    },
+    "ranked_packets": {
+      "status": "pass",
+      "count": 3,
+      "path": "IMPLEMENTATION_PACKETS.md",
+      "status_qualification": "original_proposals_runtime_not_implemented"
+    },
+    "not_run": [
+      "Recovered C# compilation",
+      "RimWorld runtime",
+      "YAIR build/runtime/browser",
+      "Gameplay/unit/save-failure/regression suites",
+      "Generated-save/reload acceptance",
+      "Director acceptance"
+    ]
+  },
+  "errors": [],
+  "output_fingerprints": [
+    {
+      "path": "BODY_SOCIAL_FINDINGS.json",
+      "sha256": "01367599d5b1b242ebdd4ecdcad134f86888834aa9bc60e959a67923c41834fb",
+      "bytes": 24963
+    },
+    {
+      "path": "CHECKPOINT.md",
+      "sha256": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a",
+      "bytes": 3156
+    },
+    {
+      "path": "COVERAGE.json",
+      "sha256": "aa86df42055707da48e60db8bf21c762e975893464349f8a4322e085de53ac7e",
+      "bytes": 23192
+    },
+    {
+      "path": "FINDINGS.json",
+      "sha256": "4c8b567cacd345bedb7f51692c335d61a1054f47d514aac8f87ed288bb86fd0f",
+      "bytes": 50984
+    },
+    {
+      "path": "IMPLEMENTATION_PACKETS.md",
+      "sha256": "43d6c48e12dc7f26b56793ddadc0b0a2f1e377f34705cbc18558ccaba9e1f3c7",
+      "bytes": 10489
+    },
+    {
+      "path": "INTAKE.json",
+      "sha256": "ceed0a0dd17b5b02955863c15c64957ff6366c81a793372a8efe8ba02502df29",
+      "bytes": 4543
+    },
+    {
+      "path": "REPORT.md",
+      "sha256": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+      "bytes": 11157
+    },
+    {
+      "path": "STORYTELLER_FINDINGS.json",
+      "sha256": "6468381c1c834878b107f5f2044f3bcdb38beecaa8f2d5caf1c5e9aad1beac2f",
+      "bytes": 22210
+    }
+  ],
+  "remaining_gate": "Gameplay packets require the live runtime integrator, a later rebuilt generated-save acceptance run and director review. No research source-absence gate remains."
+}

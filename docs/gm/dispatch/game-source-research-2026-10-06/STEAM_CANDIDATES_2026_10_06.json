@@ -1,0 +1,78 @@
+{
+  "checked_on": "2026-10-06",
+  "candidates": [
+    {
+      "app_id": 1147690,
+      "name": "NGU IDLE",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "is_free": true,
+      "steam_url": "https://store.steampowered.com/app/1147690/",
+      "api_url": "https://store.steampowered.com/api/appdetails?appids=1147690&cc=us&l=english",
+      "developers": [
+        "4G"
+      ],
+      "route": "C# BepInEx modding evidence; installed-build managed assembly still needs verification",
+      "source": "https://github.com/jshepler/jshepler.ngu.mods",
+      "research_focus": "competing resource allocations, equipment, challenges and rebirth"
+    },
+    {
+      "app_id": 329970,
+      "name": "KeeperRL",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "is_free": false,
+      "steam_url": "https://store.steampowered.com/app/329970/",
+      "api_url": "https://store.steampowered.com/api/appdetails?appids=329970&cc=us&l=english",
+      "developers": [
+        "Electric Succubi"
+      ],
+      "route": "published original C++ source",
+      "source": "https://github.com/miki151/keeperrl",
+      "research_focus": "independent minions, jobs, material production, equipment and base development"
+    },
+    {
+      "app_id": 512900,
+      "name": "Streets of Rogue",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "is_free": false,
+      "steam_url": "https://store.steampowered.com/app/512900/",
+      "api_url": "https://store.steampowered.com/api/appdetails?appids=512900&cc=us&l=english",
+      "developers": [
+        "Matt Dabrowski"
+      ],
+      "route": "C# assembly references in RogueLibs project; installed-build decompilation not performed",
+      "source": "https://github.com/Chasmical/RogueLibs/blob/main/RogueLibsCore/RogueLibsCore.csproj",
+      "research_focus": "NPC behavior, traits, abilities and multiple approaches to objectives"
+    },
+    {
+      "app_id": 241600,
+      "name": "Rogue Legacy",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "is_free": false,
+      "steam_url": "https://store.steampowered.com/app/241600/",
+      "api_url": "https://store.steampowered.com/api/appdetails?appids=241600&cc=us&l=english",
+      "developers": [
+        "Cellar Door Games"
+      ],
+      "route": "published original C# FNA source; assets excluded",
+      "source": "https://github.com/flibitijibibo/RogueLegacy1",
+      "research_focus": "character traits, successor selection and retained progression"
+    }
+  ],
+  "qualification": "Live developer storefront metadata; code inspection feasibility requires the separately cited source/mod projects. No local candidate game was acquired or decompiled."
+}

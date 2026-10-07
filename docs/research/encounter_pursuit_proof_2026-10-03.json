@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-03",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "sharedDirtyCheckoutPreserved": true,
+  "bundle": "v0.6-082d8b3ec6cc",
+  "tests": {
+    "passed": 181,
+    "failed": 0,
+    "command": "npm test"
+  },
+  "build": "npm run build succeeded",
+  "browser": {
+    "url": "http://127.0.0.1:18541/",
+    "fingerprint": "http://127.0.0.1:18541/dist/bundle.js?version=v0.6-082d8b3ec6cc",
+    "findings": [
+      "Vanilla opening has no pursuit enrollment or menu. Actual optional association and Neri controls spend NPC supplies, retain request/session identity, preserve response focus, block native travel during a reserved encounter, pause played time, settle one useful preparation source, and survive native reload/export/import without duplicate rewards or quest changes.",
+      "Native Village/Shack travel records only directly witnessed route intentions. The apprentice spends paid route/search supplies, respects private shelter, follows a later witnessed return, and a real coin settles the challenge without a combat reward.",
+      "The marked hunter senses an actual agreed active mark, respects shelter, and loses the supported trail after real paid mark removal and concealment. A later report reveals the result instead of displaying private search coordinates.",
+      "A saved four-minute summons survives reload without changing its deadline, manifests despite the Shack sanctuary, queues while native sleeping continues, keeps an indefinite response request, then resumes a nonlethal encounter and settles once.",
+      "A real native combat location continues fighting while the heavenly request waits. Its realm locator follows the actual return; scripted acceptance remains unavailable during combat and becomes usable after leaving.",
+      "The opted-in scripted review remains absent until independently funded specialists and actual native workshop assembly finish, then starts once through reload and resolves via the same encounter executor.",
+      "Injected save failure preserves exact old bytes with no actor, supplies, version upgrade or pursuit partially published."
+    ],
+    "errors": [],
+    "warnings": [],
+    "generatedSavesOnly": true
+  },
+  "artifactFolder": "/Users/weiwei/.codex/visualizations/2026/10/03/01a103e4-7b89-7113-aa95-d3726f87ff12/encounter-proof",
+  "privateSavesAccessed": false,
+  "sourceSha256": {
+    "src/pursuit.js": "d3ca01c9084d84c44f3d716852bec4e1a0983086894b7fb930e52ab977a0b6ca",
+    "src/pursuit_content.js": "59c15577649cb9ea8b2ac577288154d5cdcc79d73c136fc8f85413a87fb2b686",
+    "src/pursuit_ui.js": "8031947023c17848173694c3109756ff79d49048a76a0819587390df223cfb9c",
+    "src/encounter_content.js": "718dbcc85d4e4a727f8c2ae9b944d87c24fe482078e55e5a8003a7f2fda2a364",
+    "src/simulation.js": "6358112fec774fe8412bccc53fa3c46083e02892ecf7d128f9bbbe53178d93c8",
+    "src/simulation_contracts.js": "72401d470dfea6e4a983281b331926f523dc614418b6cd0160fcc06f222a03c1",
+    "src/simulation_effects.js": "e64d422c240a78dfd94410fe73db7b8a95c785136369a5df41918670cc2e5db8",
+    "src/simulation_content.js": "31ed8ace9f8bc61d15624d102303898bd256842af4fec322d349b276254c5bf3",
+    "src/main.js": "7ebbe5754db66893f8ea2cbc1c6d86007848ff1ec1ecc007e249a69f271a81f1",
+    "src/adventure_notebook.js": "9b79be934e0ee18565e688eeb42bbcf7fd6912642592366fa5d4f4619862a224",
+    "src/event_feed.js": "c5fc9a8818b2f7369d2fc892d4c2402615e72f45f87742c559824cf5a4fcec45",
+    "src/event_feed_ui.js": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+    "src/people_knowledge.js": "53fe9acd2e4d79219f781249170d2a45bc8ac989f52c97ac90824abec38801f0",
+    "tests/pursuit.test.js": "29faf5896f565ee11f40416e0a1d6fd98229a6979b86fbe76d650d6b8fe8fa85",
+    "tests/simulation.test.js": "35f0aa6c738295d48e0979c95a0b30c1fc59f6b3e72908b307cef6be7b16059f",
+    "scripts/pursuit_browser.cjs": "d4aff10cc240cb75029e21466dff0efb6991eae4bb3a94599796095545e8a7b8",
+    "docs/ENCOUNTERS_AND_PURSUIT.md": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6"
+  },
+  "remaining": [
+    "Human fiction/pacing/menu review",
+    "Actual hostile-NPC native Combat adapter",
+    "Full native party combat and cross-world pursuit",
+    "Lethal/offline policies, live prestige and historical restoration"
+  ],
+  "notebookRegression": {
+    "url": "http://127.0.0.1:18541/",
+    "fingerprint": "http://127.0.0.1:18541/dist/bundle.js?version=v0.6-082d8b3ec6cc",
+    "findings": [
+      "Notebook has its own native Journal tab and no DOM under the location menu. Fresh opening hides the new tab; local clues remain vague. Keyboard focus/user selection survive ticks; saved practice opens its Journal view and cancels there.",
+      "An old generated town save derives one contract in native Quests, retaining money/inventory/native quest state through reload. Local notes do not reveal the answer or later ledger. The separate list avoids the native quest sorter; no quest is copied into Notebook.",
+      "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+    ],
+    "errors": [],
+    "warnings": [],
+    "generatedSavesOnly": true
+  },
+  "reviewUrl": "http://127.0.0.1:53341/review.html"
+}

@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T04:06:40.425652+00:00",
+  "steam_app_id": 1313140,
+  "catalog_scope": "official US-English base-app declared DLC plus selected primary developer announcements; not every regional or historical bonus",
+  "status": "catalog_complete_selected_source_traces_complete",
+  "products": [
+    {
+      "app_id": 3840050,
+      "name": "Cult of the Lamb: Woolhaven",
+      "type": "dlc",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Jan 22, 2026"
+      },
+      "official_url": "https://store.steampowered.com/app/3840050/",
+      "classification": "gameplay expansion",
+      "documented_scope": "Winter, frostbite/famine protection, colony structures, ranching, new dungeon progression. Officially gated near base-game completion; exact shipped access/policy remains to trace.",
+      "source_access": "shipped managed implementation privately preserved",
+      "semantic_coverage": "selected_source_inspected",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "finding_ids": [
+        "LAMB-F36",
+        "LAMB-F37",
+        "LAMB-F38",
+        "LAMB-F39",
+        "LAMB-F40",
+        "LAMB-F41",
+        "LAMB-F42",
+        "LAMB-F46"
+      ],
+      "unread": "Full Woolhaven campaign, bosses, other abilities/rituals/weather, animal riding, complete enclosure logic, serialized defaults and most content bundles."
+    },
+    {
+      "app_id": 2890190,
+      "name": "Cult of the Lamb: Pilgrim Pack",
+      "type": "dlc",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Aug 12, 2024"
+      },
+      "official_url": "https://store.steampowered.com/app/2890190/",
+      "classification": "interactive story and gameplay questline with cosmetics",
+      "documented_scope": "Interactive Pilgrim story and questline with recruitable characters; bonus pages and cosmetics. Exact quest/relationship consequences remain to trace.",
+      "source_access": "shipped managed quest/gating implementation privately preserved",
+      "semantic_coverage": "selected_source_inspected",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "finding_ids": [
+        "LAMB-F43",
+        "LAMB-F46"
+      ],
+      "unread": "Interactive comic/bonus prose, whole quest graph, every recruit/offspring exception and presentation assets."
+    },
+    {
+      "app_id": 2015880,
+      "name": "Cult of the Lamb: Cultist Pack",
+      "type": "dlc",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Aug 11, 2022"
+      },
+      "official_url": "https://store.steampowered.com/app/2015880/",
+      "classification": "cosmetics",
+      "documented_scope": "Follower forms, outfits and base decorations; no new gameplay system documented.",
+      "source_access": "packaged definitions and shared code/catalog identifiers present; no cosmetic asset extraction",
+      "semantic_coverage": "documented cosmetic scope plus packaged metadata, not standalone gameplay review",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "unread": "All skins/outfits/decorations and any indirect shared-system appearance interactions."
+    },
+    {
+      "app_id": 2646130,
+      "name": "Cult of the Lamb: Sinful Pack",
+      "type": "dlc",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Jan 16, 2024"
+      },
+      "official_url": "https://store.steampowered.com/app/2646130/",
+      "classification": "cosmetics",
+      "documented_scope": "Forms, outfits, fleece and decorations; separate from the free Sins of the Flesh update.",
+      "source_access": "packaged definitions and shared code/catalog identifiers present; no cosmetic asset extraction",
+      "semantic_coverage": "documented cosmetic scope plus packaged metadata, not standalone gameplay review",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "unread": "All skins/outfits/decorations and any indirect shared-system appearance interactions."
+    },
+    {
+      "app_id": 2015890,
+      "name": "Cult of the Lamb Soundtrack",
+      "type": "music",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Aug 11, 2022"
+      },
+      "official_url": "https://store.steampowered.com/app/2015890/",
+      "classification": "soundtrack",
+      "documented_scope": "Music product, no gameplay expansion claimed.",
+      "source_access": "not separately supplied or acquired by this game snapshot",
+      "semantic_coverage": "documented music product only",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "unread": "Soundtrack/media contents; not a gameplay system."
+    },
+    {
+      "app_id": 3258330,
+      "name": "Cult of the Lamb: Hymns of the Unholy",
+      "type": "music",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Oct 28, 2024"
+      },
+      "official_url": "https://store.steampowered.com/app/3258330/",
+      "classification": "soundtrack arrangement",
+      "documented_scope": "Music product, no gameplay expansion claimed.",
+      "source_access": "not separately supplied or acquired by this game snapshot",
+      "semantic_coverage": "documented music product only",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "unread": "Soundtrack/media contents; not a gameplay system."
+    },
+    {
+      "app_id": 2331540,
+      "name": "Cult of the Lamb: Heretic Pack",
+      "type": "dlc",
+      "release_date": {
+        "coming_soon": false,
+        "date": "Apr 24, 2023"
+      },
+      "official_url": "https://store.steampowered.com/app/2331540/",
+      "classification": "cosmetics",
+      "documented_scope": "Forms, outfits, fleece and decorations; separate from the free Relics update.",
+      "source_access": "packaged definitions and shared code/catalog identifiers present; no cosmetic asset extraction",
+      "semantic_coverage": "documented cosmetic scope plus packaged metadata, not standalone gameplay review",
+      "ownership_entitlement": "unknown; not inspected",
+      "activated": false,
+      "unread": "All skins/outfits/decorations and any indirect shared-system appearance interactions."
+    }
+  ],
+  "free_base_updates": [
+    {
+      "title": "Relics of the Old Faith",
+      "classification": "free base content update",
+      "official_url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/",
+      "documented_scope": "Heavy attacks, relics, postgame dungeon progression and challenges; semantic source trace pending.",
+      "source_access": "current base-game code privately preserved; historical introduction does not pin current behavior",
+      "semantic_coverage": "selected shared current-edition paths, not whole update",
+      "finding_ids": [
+        "LAMB-F35"
+      ],
+      "unread": "All update-specific content not explicitly covered by these finding IDs; co-op/heavy-attack/relic/boss families remain largely unread."
+    },
+    {
+      "title": "Sins of the Flesh",
+      "classification": "free base content update",
+      "official_url": "https://store.steampowered.com/news/app/1313140/view/6300039510138524560",
+      "documented_scope": "Sin production/spend, disciples, eggs, trait and care interactions, storage/cleaning automation. Historical level 10 cap requires current source qualification after1.5.0 removed the cap.",
+      "source_access": "current base-game code privately preserved; historical introduction does not pin current behavior",
+      "semantic_coverage": "selected shared current-edition paths, not whole update",
+      "finding_ids": [
+        "LAMB-F15",
+        "LAMB-F17",
+        "LAMB-F23",
+        "LAMB-F24",
+        "LAMB-F27",
+        "LAMB-F28"
+      ],
+      "unread": "All update-specific content not explicitly covered by these finding IDs; co-op/heavy-attack/relic/boss families remain largely unread."
+    },
+    {
+      "title": "Unholy Alliance",
+      "classification": "free base content update",
+      "official_url": "https://store.steampowered.com/news/app/1313140/view/5963414363405480774",
+      "documented_scope": "Local co-op, added follower traits/quests, nursery, tarot/relic tradeoffs, transmog and weapon accessibility. Exact shipped mechanics pending source trace.",
+      "source_access": "current base-game code privately preserved; historical introduction does not pin current behavior",
+      "semantic_coverage": "selected shared current-edition paths, not whole update",
+      "finding_ids": [
+        "LAMB-F25",
+        "LAMB-F26",
+        "LAMB-F31"
+      ],
+      "unread": "All update-specific content not explicitly covered by these finding IDs; co-op/heavy-attack/relic/boss families remain largely unread."
+    },
+    {
+      "title": "1.5.0 baseline update",
+      "classification": "free base version update alongside paid Woolhaven",
+      "official_url": "https://store.steampowered.com/news/app/1313140/view/1822556746159558",
+      "documented_scope": "Removed follower level cap, reworked spies, inherited-character exceptions and base changes; separate from paid expansion.",
+      "source_access": "current base-game code privately preserved; historical introduction does not pin current behavior",
+      "semantic_coverage": "selected shared current-edition paths, not whole update",
+      "finding_ids": [
+        "LAMB-F15",
+        "LAMB-F16"
+      ],
+      "unread": "All update-specific content not explicitly covered by these finding IDs; co-op/heavy-attack/relic/boss families remain largely unread."
+    }
+  ],
+  "qualification": "No purchase, entitlement inspection/change, download control or game activation. Package availability will not be relabeled semantic coverage.",
+  "edition": "Steam1313140/build25223484/version1.5.26",
+  "private_snapshot": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484",
+  "activation": "No game launch and no subscription API invoked; actual ownership/activation unknown",
+  "rules_preserved": "Raw main/firstpass and203 managed dependencies; mixed resources.assets repair input; addressables catalog/link and packaged DLC definitions. Large audio banks/sidecars and most bundles omitted.",
+  "packaged_bonus_metadata": [
+    {
+      "name": "Pre-Order Cthulhu Worshipper Skin",
+      "classification": "historical cosmetic bonus metadata",
+      "source": "resource_text/DLC.txt, packaged resources.assets TextAsset",
+      "source_access": "private packaged definition preserved",
+      "semantic_coverage": "metadata only",
+      "official_current_catalog": "Not in the7declared Steam API entries; not a claim that every historical/region bonus is listed."
+    }
+  ],
+  "other_package_symbols": {
+    "qualification": "Named unreviewed symbolic content is not proof of a separate released product/update",
+    "examples": [
+      "Palworld skin/ID names",
+      "seasonal event classes"
+    ],
+    "semantic_coverage": "unread; no claim of complete promotional/free-event catalog"
+  }
+}

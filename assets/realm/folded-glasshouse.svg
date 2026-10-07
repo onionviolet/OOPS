@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" role="img" aria-labelledby="title desc">
+  <title id="title">The Folded Glasshouse</title>
+  <desc id="desc">A small sunlit botanical workshop beyond a folded brass doorway, with a wood bench, folded glass panes, climbing plants, and a faint second doorway seam.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#d9eddf"/>
+      <stop offset="1" stop-color="#f5dca9"/>
+    </linearGradient>
+    <linearGradient id="glass" x2="1" y2="1">
+      <stop stop-color="#e7f7ec" stop-opacity=".83"/>
+      <stop offset="1" stop-color="#80bba6" stop-opacity=".48"/>
+    </linearGradient>
+    <linearGradient id="brass" x2="1" y2="1">
+      <stop stop-color="#f0d690"/>
+      <stop offset=".52" stop-color="#b98545"/>
+      <stop offset="1" stop-color="#705537"/>
+    </linearGradient>
+    <linearGradient id="floor" x2="0" y2="1">
+      <stop stop-color="#b9905f"/>
+      <stop offset="1" stop-color="#75563f"/>
+    </linearGradient>
+    <filter id="soft" x="-.2" y="-.2" width="1.4" height="1.4">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="720" height="260" rx="18" fill="#243b37"/>
+  <rect x="12" y="12" width="696" height="236" rx="12" fill="url(#sky)"/>
+  <circle cx="522" cy="58" r="35" fill="#fff0bd" opacity=".74" filter="url(#soft)"/>
+  <circle cx="522" cy="58" r="19" fill="#fff0bd" opacity=".72"/>
+
+  <!-- The greenhouse's folded glazing catches the morning light. -->
+  <path d="M224 193V82l101-42 97 42v111Z" fill="#d6e6cb" stroke="#738d72" stroke-width="4"/>
+  <path d="M237 184V88l87-36v132Z" fill="url(#glass)" stroke="#789b89" stroke-width="3"/>
+  <path d="M331 184V52l82 36v96Z" fill="url(#glass)" stroke="#789b89" stroke-width="3"/>
+  <path d="m247 94 68-28v73l-68 29Zm94-28 62 27v65l-62-26Z" fill="#fff4cf" opacity=".32"/>
+  <path d="M325 42v146M231 87l94-39 94 40M230 132l94-39 95 39" fill="none" stroke="#658778" stroke-width="3" opacity=".78"/>
+  <path d="M421 82h13v111h-13" fill="#b6d6bd" stroke="#789b89" stroke-width="3"/>
+  <path d="m434 85 23 9v94l-23 5Z" fill="url(#glass)" stroke="#789b89" stroke-width="3"/>
+
+  <!-- A soft, barely visible seam hints at another folded threshold. -->
+  <path d="M615 68v126m9-121v116m-9-112 9-4m-9 112 9 4" fill="none" stroke="#9b805c" stroke-width="2" opacity=".48"/>
+
+  <path d="M190 193h440v27H190z" fill="url(#floor)"/>
+  <path d="M190 193h440" stroke="#e0bd82" stroke-width="4"/>
+  <path d="m320 194 88 26h92l-63-27Z" fill="#f5dba2" opacity=".25"/>
+  <path d="M207 220h411" stroke="#513f35" stroke-width="3" opacity=".62"/>
+
+  <!-- A workbench with a folded pane and a few well-used tools. -->
+  <path d="M455 155h144v12H455z" fill="#795337"/>
+  <path d="M468 167v44m118-44v44" stroke="#654832" stroke-width="8"/>
+  <path d="M470 151h59l-7-19h-45Z" fill="#c4e7d4" fill-opacity=".72" stroke="#759887" stroke-width="2"/>
+  <path d="m532 154 16-17 13 5-12 12m27-7h12" fill="none" stroke="#d8bd80" stroke-width="4" stroke-linecap="round"/>
+  <path d="M548 167h28" stroke="#a77b4c" stroke-width="3"/>
+
+  <!-- Pots and layered leaves make the room feel tended, not wild. -->
+  <path d="M269 181h31l-4 15h-23Zm48 4h24l-3 11h-18Z" fill="#b66d4e"/>
+  <path d="M284 181c-17-14-13-30-3-38 0 12 8 16 8 25 7-13 17-17 24-15-8 8-5 18-16 28m30 4c-8-15-2-26 9-30-3 10 2 15 3 22 5-9 13-11 19-7-8 5-8 11-16 15" fill="#527d59"/>
+  <path d="M292 177c-2-18-14-23-22-20 7 6 4 12 12 18m49 6c1-13 11-18 19-15-6 5-4 10-11 14" fill="none" stroke="#83a96e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="286" cy="169" r="3" fill="#d7c27b"/>
+
+  <!-- The folded brass doorway sits in the foreground, opening into the room. -->
+  <path d="M42 231V78Q42 28 96 28h52q53 0 53 50v153" fill="none" stroke="#493e31" stroke-width="16" stroke-linecap="round"/>
+  <path d="M48 229V79q0-44 48-44h50q48 0 48 44v150" fill="none" stroke="url(#brass)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M62 222V81q0-31 35-31h17v166Z" fill="#273c37" opacity=".96"/>
+  <path d="M114 50h30q35 0 35 31v138l-65-7Z" fill="#e9c879" opacity=".18" stroke="#efcf82" stroke-width="3"/>
+  <path d="M111 50v162m69-131-16 8v66l16 8" fill="none" stroke="#e6c477" stroke-width="3" opacity=".82"/>
+  <circle cx="168" cy="132" r="4" fill="#f0d894"/>
+  <path d="M57 219h132" stroke="#c8a967" stroke-width="4" opacity=".8"/>
+
+  <path d="M214 229h402" stroke="#f1d6a0" stroke-width="2" opacity=".28"/>
+  <path d="M16 16h688v228H16" fill="none" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
+</svg>

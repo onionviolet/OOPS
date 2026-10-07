@@ -1,0 +1,57 @@
+{
+  "assembly_version": "2.0.211.56",
+  "assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+  "tool": "ilspycmd 9.1.0.7988",
+  "runtime": "Microsoft.NETCore.App 8.0.31 osx-arm64",
+  "exit_code": 0,
+  "stderr_bytes": 0,
+  "csharp_files": 5437,
+  "generated_files": 5438,
+  "inline_decompiler_diagnostics": [],
+  "qualification": "Full main-assembly export completed; not compiled or run, not all recovered methods semantically reviewed. Third-party managed assemblies remain references, not separately decompiled.",
+  "private_workspace": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56",
+  "download": "/Users/weiwei/Downloads/caves_of_qud_enUS_2_0_211_56_.dmg",
+  "input_manifest": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/INPUT_MANIFEST.json",
+  "decompilation_manifest": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/DECOMPILATION_MANIFEST.json",
+  "decompiled_directory": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+  "definitions_directory": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/input/StreamingAssets/Base",
+  "bundle_short_version": "2.0.4",
+  "version_qualification": "Filename and decompiled AssemblyVersion agree on 2.0.211.56; bundle short version is generic 2.0.4.",
+  "game_installed": false,
+  "game_run": false,
+  "private_saves_read": false,
+  "proprietary_source_in_git": false,
+  "diagnostic_scan_qualification": "No decompiler error comments found. Initial broad text scan matched an ordinary ModManager TypeLoadException message, not a decompilation diagnostic.",
+  "download_sha256": "b9af64f66987fb1942dff2b4a8e841d5ef2b565c6fe7136d52604fad06a13fd4",
+  "blueprint_data_qualification": {
+    "xml_files": 14,
+    "standard_xml_parser_rejections": [
+      "Items.xml",
+      "Furniture.xml",
+      "Creatures.xml"
+    ],
+    "reason": "Numeric control-character references rejected by Python XML1.0 parser. Original files were not edited. Qud uses its XmlTextReader-derived XmlDataHelper; runtime XML loading was not executed.",
+    "top_level_object_blueprints": "Empty scaffold; actual definitions are split below Base/ObjectBlueprints/."
+  },
+  "decompile_command": [
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+    "--disable-updatecheck",
+    "-p",
+    "-o",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+    "-r",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/input/Managed",
+    "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/input/Managed/Assembly-CSharp.dll"
+  ],
+  "review_helpers": [
+    {
+      "agent": "/root/qud_npc_reader",
+      "scope": "NPC_FINDINGS.json",
+      "state": "completed/released",
+      "model": "gpt-6-luna",
+      "reasoning_effort": "medium"
+    }
+  ],
+  "unused_package": "Included Pets Pack installer was not extracted or activated; base main assembly is the decompiled target."
+}

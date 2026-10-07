@@ -1,0 +1,512 @@
+{
+  "reader": "tome_progression",
+  "edition": "Tales of Maj'Eyal / ToME 1.7.6 source; base game module and TE4 engine source",
+  "archive": {
+    "path": "/Users/weiwei/.codex/research/tales-of-maj-eyal/acquisition/t-engine4-src-1.7.6-nomusic.tar.bz2",
+    "sha256": "e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871",
+    "license_boundary": "Source comments identify GPL-3.0-or-later. This note records behavior and short identifiers, not copied source text."
+  },
+  "coverage": [
+    {
+      "path": "tome-1.7.6/data/quests/escort-duty.lua",
+      "sha256": "33c9c1c516b776537ab94a49e089c0aec409701ffe735c9a4cab28799ee61449",
+      "semantically_read_ranges": [
+        [
+          60,
+          89
+        ],
+        [
+          91,
+          116
+        ],
+        [
+          118,
+          210
+        ]
+      ],
+      "symbols": [
+        "desc",
+        "on_status_change",
+        "getPortalSpot",
+        "on_grant"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/data/chats/escort-quest.lua",
+      "sha256": "55cbe2fc47ec4ab405d230eac446502b6169190d24adda6481f89a029dc466ca",
+      "semantically_read_ranges": [
+        [
+          20,
+          45
+        ]
+      ],
+      "symbols": [
+        "reward selection chat"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/mod/ai/escort.lua",
+      "sha256": "bddfcbb01e6af1a8d6c48ba6b8bd496a555f8749d529e517bedcb3fea35f2797",
+      "semantically_read_ranges": [
+        [
+          20,
+          74
+        ]
+      ],
+      "symbols": [
+        "escort_quest",
+        "move_escort"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/mod/class/EscortRewards.lua",
+      "sha256": "e514ab5c4c2b76ace82286dd412290813bed26fc18c200eddf36e343fe9dd75e",
+      "semantically_read_ranges": [
+        [
+          264,
+          285
+        ],
+        [
+          294,
+          474
+        ],
+        [
+          476,
+          586
+        ]
+      ],
+      "symbols": [
+        "getGiver",
+        "listRewards",
+        "getReward",
+        "rewardChatAnwsers"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/mod/class/interface/PlayerStats.lua",
+      "sha256": "6d77b5a993ceb7ddad0af5e52e78a13c659cecee267d87ab3cedf0c83e38e124",
+      "semantically_read_ranges": [
+        [
+          60,
+          62
+        ]
+      ],
+      "symbols": [
+        "registerEscorts"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/data/achievements/kills.lua",
+      "sha256": "b47b27a9eb7162028e5c1b1cf8651d7739f70c3912802f5ab13f2baeaa04b318",
+      "semantically_read_ranges": [
+        [
+          93,
+          127
+        ]
+      ],
+      "symbols": [
+        "ESCORT_KILL",
+        "ESCORT_LOST",
+        "ESCORT_SAVED"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/data/birth/worlds.lua",
+      "sha256": "f5d1cfae60c777536e6cfa2eca4bf7cc05c302d9f7d449b015a27faf624db784",
+      "semantically_read_ranges": [
+        [
+          78,
+          101
+        ]
+      ],
+      "symbols": [
+        "supports_fallen_transform"
+      ]
+    },
+    {
+      "path": "te4-1.7.6/engine/Quest.lua",
+      "semantically_read_ranges": [
+        [
+          22,
+          118
+        ]
+      ],
+      "symbols": [
+        "PENDING",
+        "COMPLETED",
+        "DONE",
+        "FAILED",
+        "init",
+        "setStatus",
+        "isSuccess"
+      ],
+      "sha256": "377f0a5babd9a4bacf21ccf42a3d84baf3b86788100fa3c28435293fcd570f8d"
+    },
+    {
+      "path": "te4-1.7.6/engine/interface/ActorTalents.lua",
+      "semantically_read_ranges": [
+        [
+          785,
+          805
+        ],
+        [
+          889,
+          908
+        ],
+        [
+          940,
+          968
+        ],
+        [
+          981,
+          1004
+        ]
+      ],
+      "symbols": [
+        "canLearnTalent",
+        "knowTalentType",
+        "setTalentTypeMastery",
+        "learnTalentType",
+        "unlearnTalentType"
+      ],
+      "sha256": "bff5b9a8a49a47e6b646677aade142b3aed2eb50caed52394faa1a838654595b"
+    },
+    {
+      "path": "te4-1.7.6/engine/dialogs/ShowAchievements.lua",
+      "sha256": "ad12b1cb89bb2c287b706707e0ee66b871a4157d29494b4821b4ebdd728e5633",
+      "semantically_read_ranges": [
+        [
+          130,
+          150
+        ]
+      ],
+      "symbols": [
+        "getTrack"
+      ]
+    },
+    {
+      "path": "te4-1.7.6/engine/interface/WorldAchievements.lua",
+      "sha256": "894d5e15bbfa82933e6ca512d6c7b6a7aa9225a90e409f29565b99029d8eccf2",
+      "semantically_read_ranges": [
+        [
+          121,
+          160
+        ]
+      ],
+      "symbols": [
+        "gainAchievement"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/mod/class/interface/WorldAchievements.lua",
+      "sha256": "2289a871ae5df9e0175292a7b96c7a71f9ccca7d3f94669ac50aff5c24b500a6",
+      "semantically_read_ranges": [
+        [
+          138,
+          175
+        ]
+      ],
+      "symbols": [
+        "getCurrentAchievementDifficultyId",
+        "gainAchievement"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/data/talents/uber/wil.lua",
+      "sha256": "bde073032f50b20d456193dd79131b7e54e2dcdfc42ca92736e6f406e8c28931",
+      "semantically_read_ranges": [
+        [
+          298,
+          345
+        ]
+      ],
+      "symbols": [
+        "Fallen.require",
+        "special2",
+        "on_learn"
+      ]
+    },
+    {
+      "path": "tome-1.7.6/mod/dialogs/LevelupDialog.lua",
+      "sha256": "0b2e95043ce0b67c92a113c5ef4743ab04666d1f739f23830488f704f495ec83",
+      "semantically_read_ranges": [
+        [
+          433,
+          492
+        ]
+      ],
+      "symbols": [
+        "learnType"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "kind": "observed",
+      "claim": "Quest grant picks an escort giver/reward type, makes a level-matched escort actor linked to the quest, and seeks a pathable portal at least 10 tiles away. The escort AI sometimes rests, routes toward the portal, attacks visible hostiles, and flees when an enemy is near while its route is blocked.",
+      "evidence": [
+        {
+          "path": "tome-1.7.6/data/quests/escort-duty.lua",
+          "symbols": [
+            "on_grant",
+            "getPortalSpot"
+          ],
+          "span": [
+            118,
+            198
+          ]
+        },
+        {
+          "path": "tome-1.7.6/mod/class/EscortRewards.lua",
+          "symbols": [
+            "getGiver"
+          ],
+          "span": [
+            264,
+            278
+          ]
+        },
+        {
+          "path": "tome-1.7.6/mod/ai/escort.lua",
+          "symbols": [
+            "escort_quest",
+            "move_escort"
+          ],
+          "span": [
+            21,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "Arrival at the recall portal sets quest status DONE, invokes the reward chat, increments saved-escort profile module data and grants the ESCORT_SAVED achievement progress; then the escort is removed. The chat turns data-driven reward fields into a choice: stats, saves, talent levels, category mastery/access, or special reward. A talent reward sets category mastery to 1.0 only if that actor does not know the category, then force-learns the talent with no_unlearn; this branch does not call learnTalentType, so it does not itself mark the category learned. A category reward sets mastery and calls learnTalentType(tt, false), recording the category in the actor as false (untrained); level-up category logic treats false as not currently known/trained and may learn it with a category point. The chosen member is selected from the party.",
+      "evidence": [
+        {
+          "path": "tome-1.7.6/data/quests/escort-duty.lua",
+          "symbols": [
+            "portal on_move"
+          ],
+          "span": [
+            181,
+            190
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/chats/escort-quest.lua",
+          "symbols": [
+            "reward chat",
+            "registerEscorts"
+          ],
+          "span": [
+            24,
+            37
+          ]
+        },
+        {
+          "path": "tome-1.7.6/mod/class/EscortRewards.lua",
+          "symbols": [
+            "rewardChatAnwsers"
+          ],
+          "span": [
+            489,
+            570
+          ]
+        },
+        {
+          "path": "te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbols": [
+            "setTalentTypeMastery",
+            "learnTalentType"
+          ],
+          "span": [
+            947,
+            999
+          ]
+        },
+        {
+          "path": "te4-1.7.6/engine/interface/ActorTalents.lua",
+          "symbols": [
+            "knowTalentType",
+            "learnTalentType"
+          ],
+          "span": [
+            889,
+            891
+          ]
+        },
+        {
+          "path": "tome-1.7.6/mod/dialogs/LevelupDialog.lua",
+          "symbols": [
+            "learnType"
+          ],
+          "span": [
+            448,
+            457
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "Talent, mastery and quest reward text mutate the selected run actor and quest object. registerEscorts separately writes a module-profile count keyed by fate. Achievement progress uses the player actor\u2019s achievement_data for mode=player, while the global completed-achievement record is stored in the module profile when the threshold is reached; these are distinct stores.",
+      "evidence": [
+        {
+          "path": "tome-1.7.6/mod/class/interface/PlayerStats.lua",
+          "symbols": [
+            "registerEscorts"
+          ],
+          "span": [
+            60,
+            62
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/achievements/kills.lua",
+          "symbols": [
+            "ESCORT_KILL",
+            "ESCORT_LOST",
+            "ESCORT_SAVED"
+          ],
+          "span": [
+            93,
+            127
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/chats/escort-quest.lua",
+          "symbols": [
+            "antimagic branch",
+            "reward_message"
+          ],
+          "span": [
+            24,
+            37
+          ]
+        },
+        {
+          "path": "te4-1.7.6/engine/interface/WorldAchievements.lua",
+          "symbols": [
+            "gainAchievement"
+          ],
+          "span": [
+            131,
+            160
+          ]
+        },
+        {
+          "path": "te4-1.7.6/engine/dialogs/ShowAchievements.lua",
+          "symbols": [
+            "getTrack"
+          ],
+          "span": [
+            130,
+            148
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "Failure is explicit: escort death sets quest FAILED; the quest status callback removes matching escort entities. If the player caused death, ESCORT_KILL and betrayed fate are recorded; otherwise ESCORT_LOST and lost fate. Quest engine status transitions are idempotent for already-equal status and call on_status_change after mutation. Grant can also be aborted before a quest is registered if no free spawn tile or portal route exists (on_grant returns true); this is a setup failure, not a failed escort reward.",
+      "evidence": [
+        {
+          "path": "tome-1.7.6/data/quests/escort-duty.lua",
+          "symbols": [
+            "on_status_change",
+            "on_grant",
+            "npc.on_die"
+          ],
+          "span": [
+            78,
+            88
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/quests/escort-duty.lua",
+          "symbols": [
+            "on_grant",
+            "npc.on_die"
+          ],
+          "span": [
+            118,
+            164
+          ]
+        },
+        {
+          "path": "te4-1.7.6/engine/Quest.lua",
+          "symbols": [
+            "setStatus"
+          ],
+          "span": [
+            98,
+            114
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "observed",
+      "claim": "ESCORT_KILL progress has a separate current-actor consumer: the Maj'Eyal world descriptor\u2019s supports_fallen_transform predicate reads actor.achievement_data for the current difficulty-specific ESCORT_KILL id and returns true after any positive count. The Fallen evolution talent requirement calls this predicate for the current actor. Source does not show this as a new-character birth-option unlock or a profile-aggregate gate; the completed achievement profile record is separate.",
+      "evidence": [
+        {
+          "path": "tome-1.7.6/data/achievements/kills.lua",
+          "symbols": [
+            "ESCORT_KILL"
+          ],
+          "span": [
+            93,
+            104
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/birth/worlds.lua",
+          "symbols": [
+            "supports_fallen_transform"
+          ],
+          "span": [
+            82,
+            100
+          ]
+        },
+        {
+          "path": "tome-1.7.6/data/talents/uber/wil.lua",
+          "symbols": [
+            "Fallen.require.special2"
+          ],
+          "span": [
+            298,
+            306
+          ]
+        },
+        {
+          "path": "tome-1.7.6/mod/class/interface/WorldAchievements.lua",
+          "symbols": [
+            "difficulty id",
+            "gainAchievement"
+          ],
+          "span": [
+            138,
+            160
+          ]
+        }
+      ]
+    }
+  ],
+  "chain": [
+    "level grant -> choose random giver kind/reward type -> spawn escort and distant reachable recall portal -> escort AI pursues portal and responds to hostiles -> escort arrival sets DONE -> chat picks an applicable reward and party member -> actor stats/talents/category-state/mastery updated; quest logs reward text -> separate module-profile escort fate count and current actor achievement progress update -> actor achievement progress can satisfy the same actor\u2019s Fallen evolution requirement; completed achievement profile record is a separate channel"
+  ],
+  "failure_and_unknowns": [
+    "Confirmed setup aborts: no free adjacent actor grid; no reachable portal candidate. Both return true from on_grant. The supplied reader did not follow every caller of Quest:init to verify all user-facing cleanup for this abort.",
+    "AI path failure falls back to move_simple; the inspected excerpt does not establish that this guarantees eventual arrival.",
+    "The progression audit did not inspect save serialization internals or online/account synchronization. Profile module writes and run-actor writes are distinguishable in inspected call sites, but durability timing is not asserted.",
+    "Achievement completion thresholds and the current-actor evolution gate are observed in source; this reading did not execute the game or validate UI presentation.",
+    "The Fallen requirement is an evolution-talent prerequisite evaluated for the current actor through the world descriptor, not evidence of an account/profile-wide or future-character starting-option unlock."
+  ],
+  "original_behavior_ideas": [
+    "Use a multi-step escort-like expedition where each checkpoint offers a visible tactical choice (protect, scout, or divert) and completion grants one concrete existing-actor progression reward; failure records a run consequence without silently claiming a permanent unlock.",
+    "Let a committed local accomplishment qualify a current actor for a particular advanced lesson or function, while keeping separate achievement completion and any future-character/profile policy explicit. This is an original proposal, not a verified profile-wide unlock from the escort path."
+  ],
+  "scope_note": "This is source evidence and original behavior inspiration only. It makes no claim about current YAIR implementation or gaps."
+}

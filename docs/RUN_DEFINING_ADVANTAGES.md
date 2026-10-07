@@ -45,3 +45,11 @@ An advantage passes the definition test if the player can name a new strategy, a
 The earlier ring-versus-vessel comparison remains a useful proposal, not a locked starting roster. Resolve the bottle source gap if pursuing that inspiration. A crafting origin is another low-to-medium integration candidate; distributed agency is a later structural experiment. User creative preference and playable evidence should select the pair. No new book purchase is necessary for the publicly verified examples; exact later rules need a bounded source pass when selected.
 
 No source code, bundles, personal saves or research-lane dossiers changed in this comparison. Browser implementation and creative acceptance remain pending.
+
+## Bookshelf origin refinement, 2026-10-03
+
+The [detailed acquisition notes](BOOKSHELF_INSPIRATION.md#1-acquisition-development-and-the-identity-of-a-power), [collaborator models](BOOKSHELF_INSPIRATION.md#4-collaborators-multiple-selves-and-growing-places) and [world-access notes](BOOKSHELF_INSPIRATION.md#5-distinct-worlds-portable-strength-and-sustained-campaigns) preserve shelf-derived origin comparisons in their source owner. Download/collector sources, living holders, talent appropriation, distinct histories, many selves, finite returns and domain/network origins can change a journey's rules in different ways. The B01/B07/B12/B15/B16/B21 source cases retain their chapter-versus-premise boundaries; no starting roster is selected.
+
+For an actual origin, choose acquisition scope, control/activation, operating means, growth, recovery, compatibility and retention separately. A source can be exceptionally strong, can grant useful competence immediately, and can later overcome an early restriction when authored that way. Copying a method is distinct from producing an item or replacing a body; contact across worlds is distinct from a visit. Different origins can change projects and objectives as well as encounter solutions.
+
+[Five scenario cards](BOOKSHELF_INSPIRATION.md#five-original-scenario-cards) provide reviewable original uses and gates. Their narrowed proofs preserve the permanent breadth of this origin research. Existing reset distinctions and one-prestige first milestone remain authoritative; detailed saving adds no automatic restart, new source or personal-save change.

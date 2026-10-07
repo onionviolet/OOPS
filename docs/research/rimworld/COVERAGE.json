@@ -1,0 +1,974 @@
+{
+  "status": "five_mechanic_paths_semantically_reviewed",
+  "scope": "Only explicitly listed intervals in exact local export/Core definitions. Independent reader notes reviewed and sampled against the source; exported code is not whole-source semantic coverage.",
+  "source": {
+    "assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+    "assembly_version": "1.6.9676.17433",
+    "payload_version": "1.6.4871 rev573",
+    "filename_revision": "rev588",
+    "route": "supplied_local_dmg_private_ilspy_export",
+    "runtime": "not_run"
+  },
+  "exported_csharp_files": 9213,
+  "mechanic_paths": [
+    {
+      "id": "jobs",
+      "claim_ids": [
+        "RW-JOB-01",
+        "RW-JOB-02",
+        "RW-JOB-03"
+      ]
+    },
+    {
+      "id": "needs_health_action",
+      "claim_ids": [
+        "body-01"
+      ]
+    },
+    {
+      "id": "attributed_social_memory",
+      "claim_ids": [
+        "social-01"
+      ]
+    },
+    {
+      "id": "storyteller_incidents",
+      "claim_ids": [
+        "RW-STORY-01",
+        "RW-STORY-02",
+        "RW-STORY-03",
+        "RW-STORY-04",
+        "RW-STORY-05"
+      ]
+    },
+    {
+      "id": "defs_components_material_production",
+      "claim_ids": [
+        "RW-MATERIAL-01",
+        "RW-MATERIAL-02"
+      ]
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld.Planet/TileTemperaturesComp.cs",
+      "sha256": "ffb14aaab6ce9a0c7fb7174d8bb2d3383ac86da138efe31bd53c14e1da6c59c1",
+      "spans": [
+        [
+          63,
+          90
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 28
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Bill_Production.cs",
+      "sha256": "9a0ce78c37f25ffc3ca69bc74db14a343e49bded11cdd2cee90dd1133a188a37",
+      "spans": [
+        [
+          113,
+          127
+        ],
+        [
+          207,
+          243
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 52
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/CompQuality.cs",
+      "sha256": "e07103ce60d82c815919c0726d577f41bb8a46a9c932be2eee5c37c48af255bc",
+      "spans": [
+        [
+          12,
+          47
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 36
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/DefGenerator.cs",
+      "sha256": "17063b436ef3d0b320364eff1a0cac8eb764040129d9a6119258fed7a0766de9",
+      "spans": [
+        [
+          10,
+          29
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 20
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameCondition.cs",
+      "sha256": "e37f275f2fdcd56f1e50f489ffd78849828b33d3f55c89fffe1eb71c720392a0",
+      "spans": [
+        [
+          306,
+          309
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 4
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameConditionManager.cs",
+      "sha256": "9a601f4a316c21d64bbd6a40eddb99998241dcf3ce98c0f760f06a5dd4bcd0e4",
+      "spans": [
+        [
+          167,
+          231
+        ],
+        [
+          404,
+          419
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 81
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameCondition_ColdSnap.cs",
+      "sha256": "e41cd28d5814d804e120bd53a0ce5ef634bec1030b46284f2e6871078fb581cc",
+      "spans": [
+        [
+          3,
+          13
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 11
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker.cs",
+      "sha256": "53d212411187e72b25e593ca6fe235b032152e156bfa6276828b0d5eeffcdade",
+      "spans": [
+        [
+          35,
+          175
+        ],
+        [
+          183,
+          230
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 189
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_ColdSnap.cs",
+      "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10",
+      "spans": [
+        [
+          1,
+          24
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 24
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_MakeGameCondition.cs",
+      "sha256": "467f183b609a8b7cd22a398bf1e635d966ab1ab8263379358649173963693b0a",
+      "spans": [
+        [
+          7,
+          87
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 81
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/InteractionWorker_Insult.cs",
+      "sha256": "9a53be7fbfe76b5c9f3edc2b5186cd61e45a4b3dc2fbead3fbbe8f03d3c56fee",
+      "spans": [
+        [
+          5,
+          16
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 12
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobDriver_Ingest.cs",
+      "sha256": "42ccc1052a2f238754c2cdecf9b21d0a2ac62ca197b6d6fcbf1d1730f0306910",
+      "spans": [
+        [
+          104,
+          117
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 14
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobGiver_GetFood.cs",
+      "sha256": "535fa14a7defd274d10a93518418b6327ef57ddd9f89ccb016dfabfb3901933c",
+      "spans": [
+        [
+          25,
+          128
+        ],
+        [
+          130,
+          183
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 158
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobGiver_Work.cs",
+      "sha256": "24b62dd766dcec8331557675cb7a7d4a96ef889488a122e3795ce9749e42ac18",
+      "spans": [
+        [
+          19,
+          103
+        ],
+        [
+          219,
+          245
+        ],
+        [
+          263,
+          295
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 145
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/MemoryThoughtHandler.cs",
+      "sha256": "e3b1bb76660ce17fe50201ff99caca07d2814a8253ad779d6670c805a40b67e0",
+      "spans": [
+        [
+          76,
+          99
+        ],
+        [
+          129,
+          200
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 96
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Food.cs",
+      "sha256": "401013b7a91ca879a7483644fe50f694ce0e84d243c1884db8c510f4d99bfc74",
+      "spans": [
+        [
+          29,
+          47
+        ],
+        [
+          119,
+          179
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 80
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Mood.cs",
+      "sha256": "e1a41d55414598a5388c765b9f3c921ecc5bba030c3dca4214ec0024fbb51de4",
+      "spans": [
+        [
+          20,
+          35
+        ],
+        [
+          86,
+          92
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 23
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/NegativeInteractionUtility.cs",
+      "sha256": "4b2387b68a3e7da479dbb094bfdcb7cc485446509206ad8fe2c1393481dbfab0",
+      "spans": [
+        [
+          1,
+          44
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 44
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_InteractionsTracker.cs",
+      "sha256": "72fb91cb9d56c782b2147139be0107e6b245e53e9bf808536658247f407335ab",
+      "spans": [
+        [
+          147,
+          173
+        ],
+        [
+          176,
+          269
+        ],
+        [
+          285,
+          299
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 136
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_NeedsTracker.cs",
+      "sha256": "17bb4b88c4331a2fa0c721382cb7da04e66739dcde65f855fd6fbb2e8b3ea61d",
+      "spans": [
+        [
+          110,
+          119
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 10
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_RelationsTracker.cs",
+      "sha256": "7e2c781de1ca2129634d114f6f60a013e513ee83b7f202410a4f3fc9e93c1895",
+      "spans": [
+        [
+          592,
+          629
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 38
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+      "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83",
+      "spans": [
+        [
+          289,
+          303
+        ],
+        [
+          334,
+          347
+        ],
+        [
+          361,
+          370
+        ],
+        [
+          810,
+          831
+        ],
+        [
+          1070,
+          1101
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader",
+        "parent",
+        "parent_review"
+      ],
+      "semantic_lines": 93
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/RecipeDefGenerator.cs",
+      "sha256": "bf8ff9929fbbd1beb92721f21ff3c10e91b4f5531764b7bc56f8c86befe1c3ef",
+      "spans": [
+        [
+          9,
+          116
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 108
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StatPart_Quality.cs",
+      "sha256": "3b80ea8e8f92ffce05a05631972d7f948e0acaa03c3ceeb4d484ecfab72339e0",
+      "spans": [
+        [
+          39,
+          80
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 42
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StatWorker.cs",
+      "sha256": "6e34d2b48e8c918b6fb8584dd8e9e0ce62e6519c51da418bfa560c2257ed8786",
+      "spans": [
+        [
+          75,
+          87
+        ],
+        [
+          299,
+          314
+        ],
+        [
+          791,
+          803
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 42
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+      "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297",
+      "spans": [
+        [
+          213,
+          235
+        ],
+        [
+          237,
+          269
+        ],
+        [
+          271,
+          305
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 91
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+      "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d",
+      "spans": [
+        [
+          39,
+          68
+        ],
+        [
+          96,
+          132
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 67
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp_RandomMain.cs",
+      "sha256": "75d25e9c331b55670fc4bb519af762f42f80ff97a161015e883c14e273d223b8",
+      "spans": [
+        [
+          11,
+          59
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 49
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtDef.cs",
+      "sha256": "906aed83fa3694d3e3dba573b877ac9bbad5bd54503763b0fbe008595b7ee157",
+      "spans": [
+        [
+          88,
+          88
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 1
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtHandler.cs",
+      "sha256": "80650774ab30d3402c8c0b387fb9c7f794c662557db9466de16810e408bb19aa",
+      "spans": [
+        [
+          133,
+          145
+        ],
+        [
+          159,
+          224
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 79
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_Memory.cs",
+      "sha256": "4b389f8ec2e8bf12832eb0f875b5ca64c4c759d70327c224644d811b70ef99ff",
+      "spans": [
+        [
+          39,
+          63
+        ],
+        [
+          122,
+          130
+        ],
+        [
+          166,
+          180
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 49
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_MemorySocial.cs",
+      "sha256": "3ac6007dc1dd363849bffbc2dd1a3bf3e4427eeb18b9f907177a02d2c645a14b",
+      "spans": [
+        [
+          10,
+          49
+        ],
+        [
+          68,
+          85
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 58
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Toils_Ingest.cs",
+      "sha256": "ee2f3bd7bb4bb735231bd2453317af46f51d55491b4d81249cca2c846a8a4f06",
+      "spans": [
+        [
+          395,
+          437
+        ]
+      ],
+      "read_by": [
+        "body_social_reader",
+        "parent_review"
+      ],
+      "semantic_lines": 43
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Verb_MeleeAttackDamage.cs",
+      "sha256": "e88d0e53dc1b851a06a3fb5c7d9e10dbf19527851d9753bbe1720293c8c0c60c",
+      "spans": [
+        [
+          14,
+          58
+        ],
+        [
+          102,
+          114
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 58
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/WorkGiver_DoBill.cs",
+      "sha256": "bdc6fce4264eb455b611b82be0b32528b4b7ac5ecd5cde2dfe1b5d29000edca9",
+      "spans": [
+        [
+          139,
+          203
+        ],
+        [
+          223,
+          242
+        ],
+        [
+          250,
+          297
+        ],
+        [
+          408,
+          421
+        ],
+        [
+          439,
+          498
+        ],
+        [
+          602,
+          688
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 294
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/JobDriver_DoBill.cs",
+      "sha256": "144603a1ea06eb13868b878eeee4535639ff9aae3fb2b08174b99656e3a4cccd",
+      "spans": [
+        [
+          46,
+          143
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 98
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/MentalBreaker.cs",
+      "sha256": "4ab71ba6796af66f75e4c1efc9a198bc3e70c6e43ea000274b0a87b0eb92a714",
+      "spans": [
+        [
+          247,
+          308
+        ],
+        [
+          311,
+          367
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 119
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/Pawn_JobTracker.cs",
+      "sha256": "8edb76844e96ade41c3dda9fbc9168cca138cd92c4eed6cd1dd2e1b4123c35aa",
+      "spans": [
+        [
+          373,
+          381
+        ],
+        [
+          475,
+          522
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 57
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/Toils_Recipe.cs",
+      "sha256": "bd7d56e62de07238eea340f75eeab3111aadc10d896e55b1ecbe70781e7b854a",
+      "spans": [
+        [
+          12,
+          141
+        ],
+        [
+          171,
+          390
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 350
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/GenRecipe.cs",
+      "sha256": "41cb19d602f388137484b15bc4126fbcdebad63013c34f8432cabff5b28337e3",
+      "spans": [
+        [
+          9,
+          38
+        ],
+        [
+          79,
+          125
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 77
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/RecipeWorker.cs",
+      "sha256": "02bf3a5747e4f099fb524a8cd93bfd88ecd43451ba61e24bdee3d8734d6ec993",
+      "spans": [
+        [
+          43,
+          46
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 4
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/RecipeWorkerCounter.cs",
+      "sha256": "dc0d44c166c2797cb39df826fa69f881519b6bc5b4d0cc300dcbafaca3bf9b39",
+      "spans": [
+        [
+          10,
+          92
+        ],
+        [
+          120,
+          149
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 113
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/ThingWithComps.cs",
+      "sha256": "309339f7197a6d50c5d612cb2a64d4457a08a89bd1a8bb86e275850aad6f7202",
+      "spans": [
+        [
+          193,
+          221
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 29
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/Tool.cs",
+      "sha256": "c8719ea230a74ebeaa0e7c6d7ef09409e0dc064fc1e91162f4983f9adfade7e9",
+      "spans": [
+        [
+          69,
+          104
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 36
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/VerbProperties.cs",
+      "sha256": "2054df843e41bf0c6aeef2465268783fb4db67a1b3d3875e36636686912e7e60",
+      "spans": [
+        [
+          326,
+          348
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 23
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+      "sha256": "0f5e7d6100893d811e6757f3693e192e7e10f892213c7a2050aa276b9707efb2",
+      "spans": [
+        [
+          98,
+          131
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 34
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/InteractionDefs/Interactions_Social.xml",
+      "sha256": "d311b82ce2ec0810e1ae1f24625d0b4cc1111e27463e53bc298d4251cf7af99e",
+      "spans": [
+        [
+          115,
+          126
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 12
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Stats/Stats_Weapons_Melee.xml",
+      "sha256": "ed8806acbc4928b3061e1ea2f9ef36ee2be94bf7d2c05ee756b047a0e8133f6e",
+      "spans": [
+        [
+          30,
+          92
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 63
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+      "sha256": "39ecee17f87e429af68adf7e76523f4d34e79afbf6105c8a2df54894a4419dd5",
+      "spans": [
+        [
+          259,
+          273
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 15
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Storytellers.xml",
+      "sha256": "def397844c6f02595c447ad0f60f19edebecb84a6398e54e871a38b6fe8be0c5",
+      "spans": [
+        [
+          665,
+          695
+        ]
+      ],
+      "read_by": [
+        "storyteller_reader"
+      ],
+      "semantic_lines": 31
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Items/Items_Resource_Stuff.xml",
+      "sha256": "8cdc15befea94055a946a1131c7724acc0cf999b866a5fad474a0816731c9088",
+      "spans": [
+        [
+          134,
+          177
+        ],
+        [
+          190,
+          245
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 100
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Misc/Weapons/BaseWeapons.xml",
+      "sha256": "db07467327633fceaa2de5225e7f90db386ff874545c05faa313683ecab0c107",
+      "spans": [
+        [
+          117,
+          206
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 90
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Misc/Weapons/MeleeMedieval.xml",
+      "sha256": "29048e27b162d78c80015bd6e54f83f4d2b4783b01ec7341c11e1b7eeb735c96",
+      "spans": [
+        [
+          120,
+          179
+        ]
+      ],
+      "read_by": [
+        "parent"
+      ],
+      "semantic_lines": 60
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThoughtDefs/Thoughts_Memory_Social.xml",
+      "sha256": "1be09e7a15669f8f62aa0651e8112c6db701261bfa33f14edd41232c7a8b824e",
+      "spans": [
+        [
+          67,
+          96
+        ]
+      ],
+      "read_by": [
+        "body_social_reader"
+      ],
+      "semantic_lines": 30
+    }
+  ],
+  "reviewed_source_files": 54,
+  "reviewed_unique_lines": 3697,
+  "unreviewed": "Most of the 9213 C# files, other DLC installers/defs, full food/spatial/medical/combat/quality distribution and other incidents.",
+  "execution": "source_not_run; no gameplay/browser/save-failure/regression suites",
+  "reader_route": "Two disjoint gpt-6-luna medium workers; coordinator reviewed caller/consumer/exception paths and repaired evidence."
+}

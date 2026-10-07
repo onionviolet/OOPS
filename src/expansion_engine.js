@@ -1,10 +1,61 @@
+import {validateContextualBalmState} from './contextual_balm_facts.js';
+import {validateCoolingRefinement} from './cooling_refinement_facts.js';
+import {validateAgreedDutyState} from './agreed_duty_facts.js';
+import {validateGameAbsorptionAssay} from './game_absorption_assay_facts.js';
+import {validateHomeFurnishings} from './home_furnishing_facts.js';
+import {validateCrushSocial} from './crush_social_host.js';
+import {validateProto23State,syncProto23Clock,nextProto23Boundary} from './proto23_world_state.js';
+import {proto23SimulationContexts} from './proto23_world_host.js';
+import {reconcileParadiseCampaignDepthRuntime,validateParadiseCampaignDepthControllers} from './book_world_paradise_campaign_runtime.js';
+import {validateParadiseCampaignDepthState} from './book_world_paradise_campaign_facts.js';
+import {worldCompletionCropClockSupported} from './world_completion_crop_clock.js';
+import {validateWorldCompletionState,worldCompletionContext} from './world_completion_facts.js';
+import {worldCompletionTimersSupported,retainWorldCompletionWindows,nextWorldCompletionBoundary,worldCompletionSimulationContexts,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
+import {validateLorePractice} from './lore_practice_facts.js';
+import {retainLorePracticeWindows,nextLorePracticeBoundary,lorePracticeTimersSupported,lorePracticeSimulationContexts,reconcileLorePractice} from './lore_practice_runtime.js';
+import {validateBookCareState} from './book_care_facts.js';
+import {reconcileBookCareRuntime} from './book_care_runtime.js';
+import {validateFieldCareState} from './field_care_facts.js';
+import {validateStatusCareState} from './status_care_facts.js';
+import {advanceAuditRemainder,retainAuditRemainderWindows,auditRemainderSimulationContexts} from './audit_remainder_runtime.js';
+import {validateCausalStories} from './causal_story_core.js';
+import {causalStorySimulationContexts, nextCausalStoryBoundary, reconcileCausalStoryPlan} from './causal_story_host.js';
+import {validateAuditRemainderProjects} from './audit_remainder_facts.js';
+import {AUDIT_REMAINDER_ENGINE_SCHEMA,validateAuditRemainder} from './audit_remainder_state.js';
+import {BOOK_WORLD_ENGINE_SCHEMA,validateParadiseCampaignState,syncParadiseClock,nextParadiseBoundary} from './book_world_paradise_state.js';
+import {paradiseSimulationContexts} from './book_world_paradise_host.js';
+import {validateMolCampaignState,syncMolClock,nextMolBoundary} from './book_world_mol_state.js';
+import {molSimulationContexts} from './book_world_mol_host.js';
+import {validateBacklogState} from './backlog_expansion_host.js';
+import {validateInkNarrative} from './ink_narrative.js';
+import {retainRepositoryAbsorptionWindows} from './repository_absorption_facts.js';
+import {validateNestedLife} from './feature_expansion_nested_life.js';
+import {validateNestedCampaignState,syncNestedCampaignClock,nextNestedCampaignBoundary,nestedSimulationContexts} from './feature_expansion_nested_host.js';
+import {validateNestedChains,nestedChainSimulationContexts} from './feature_expansion_nested_chains_host.js';
+import {validateRelayState} from './feature_expansion_subtlety_host.js';
+import {validateReferenceDeskState} from './feature_expansion_reference_desk.js';
+import {validateTidemarkState,syncTidemarkClock,nextTidemarkBoundary,tidemarkSimulationContexts} from './feature_expansion_destination_host.js';
+import {validateFeatureObjectState} from './feature_expansion_objects_host.js';
+import {validateWorkPlans,workPlanNextBoundary} from './feature_expansion_work_plan.js';
+import {validateAuditedWorkshop} from './audited_workshop_facts.js';
+import {validateReferenceGameplay,REFERENCE_ENGINE_SCHEMA} from './reference_gameplay_state.js';
+import {validateRealmState,syncRealmClock,realmSimulationContexts,nextRealmActivityBoundary,expireRealmObservation} from './realm_state.js';
+import {retainOriginalFrontierWindow} from './original_frontier_facts.js';
 import {validateTechniqueDefinitions, validateTechniqueEffect, validateTechniqueRecords, applyTechniqueEffect, techniqueFacts, activePractice} from "./techniques.js";
 import {evaluateRule, chooseOutcome} from "./rules.js";
 import {validateCapabilityDefinitions, queryCapabilities} from "./capabilities.js";
 import {validateGameplaySnapshot, validateGameplayEffect, applyGameplayEffect} from "./gameplay_transactions.js";
+import {validateChronicle, advanceChronicle, nextChronicleBoundary, recordArchiveDuty} from "./chronicle.js";
+import {validateSchedule, recurringWindow} from "./world_rhythm.js";
+import {validateSimulationState, createSimulationRegistry} from "./simulation_contracts.js";
+import {nextSimulationBoundary, advanceSimulationBoundary, waitingSimulationChoice, simulationOccupiesActor} from "./simulation.js";
 
 // Definitions are immutable content; only this JSON namespace is persisted.
-export const ENGINE_SCHEMA = 3;
+export const ENGINE_SCHEMA = 5;
+// Only opted-in wave namespaces need this newer reader. Unenrolled saves keep5.
+export const FEATURE_ENGINE_SCHEMA = 6;
+export const NESTED_ENGINE_SCHEMA = 7;
+export const CONTINUED_LIFE_ENGINE_SCHEMA = 8;
 const scopes = ["campaign", "journey", "world", "actor", "scenario", "external"];
 const clone = value => structuredClone(value);
 const object = value => value && typeof value === "object" && !Array.isArray(value);
@@ -20,7 +71,7 @@ export function createExpansionState(seed = 1) {
         campaign: domain(), journey: {...domain(), id: "journey-1"},
         worlds: {"base.frontier": domain()},
         actors: {player: {...domain(), worldId: "base.frontier", sources: {}, techniques: {}}}, scenarios: {},
-        pending: [], opportunities: {}, history: [], checkpoints: {}};
+        pending: [], opportunities: {}, history: [], checkpoints: {}, chronicle: null, simulation: null};
 }
 
 function validateDomain(value) {
@@ -28,6 +79,7 @@ function validateDomain(value) {
     for(const [key, fact] of Object.entries(value.facts)) {
         check(id(key) && ["boolean", "string", "number"].includes(typeof fact) &&
             (typeof fact !== "number" || Number.isFinite(fact)), "Invalid saved fact.");
+        if(key.startsWith("cycle.")) check(integer(fact), "Invalid saved recurring service claim.");
     }
     for(const [key, amount] of Object.entries(value.resources)) {
         check(id(key) && Number.isFinite(amount) && amount >= 0 && amount <= Number.MAX_SAFE_INTEGER, "Invalid saved resource.");
@@ -53,9 +105,11 @@ function validateEffects(effects, registry) {
             check(id(effect.id) && integer(effect.delay) && integer(effect.lifetime) && effect.lifetime > 0 &&
                 typeof effect.blocking === "boolean", "Invalid opportunity effect.");
             if(registry) check(registry.opportunities.has(effect.id), `Unknown opportunity: ${effect.id}`);
-        } else if(["item", "xp", "reputation"].includes(effect.type)) validateGameplayEffect(effect);
+        } else if(effect.type === "chronicle") check(effect.operation === "archive-duty", "Unsupported chronicle effect.");
+        else if(["item", "xp", "reputation"].includes(effect.type)) validateGameplayEffect(effect);
         else if(effect.type === "technique") validateTechniqueEffect(effect, registry);
         else if(effect.type === "source") {
+            check(effect.origin == null || ["unknown", "inherited", "trained", "acquired"].includes(effect.origin), "Invalid source origin.");
             check(id(effect.sourceId) && ["grant", "remove"].includes(effect.operation) &&
                 (effect.duration == null || integer(effect.duration) && effect.duration > 0), "Invalid capability source effect.");
             if(registry) check(registry.sources.has(effect.sourceId), `Unknown source: ${effect.sourceId}`);
@@ -75,10 +129,56 @@ function validateBudget(value) {
 }
 
 export function validateExpansionState(state, registry) {
-    if(state?.schema === 1 || state?.schema === 2) return validateExpansionState(migrateExpansionState(state), registry);
-    check(object(state) && state.schema === ENGINE_SCHEMA, "This expansion save needs a compatible engine schema.");
+    if([1, 2, 3, 4].includes(state?.schema)) return validateExpansionState(migrateExpansionState(state), registry);
+    check(object(state) && [ENGINE_SCHEMA,FEATURE_ENGINE_SCHEMA,NESTED_ENGINE_SCHEMA,CONTINUED_LIFE_ENGINE_SCHEMA,REFERENCE_ENGINE_SCHEMA,BOOK_WORLD_ENGINE_SCHEMA,AUDIT_REMAINDER_ENGINE_SCHEMA].includes(state.schema), "This expansion save needs a compatible engine schema.");
     check(integer(state.sequence) && integer(state.clock) && integer(state.rng) && state.rng > 0 && state.rng <= 0xffffffff,
         "Invalid expansion clock or random state.");
+    check(state.schema !== AUDIT_REMAINDER_ENGINE_SCHEMA || state.auditRemainder != null || state.causalStories != null || state.motherOfLearning?.schema === 1 || state.proto23Village?.schema === 1,
+        'Expansion11 requires its actual optional audit, causal, Cyoria or Proto23 owner.');
+    check([state.realmPrototype,state.featureDestination,state.nestedCampaign,state.bookWorldCampaign,state.motherOfLearning,state.proto23Village]
+        .filter(owner=>owner?.activeVisitId!=null).length<=1,'One controlled native body requires one active retained-world visit.');
+    validateAuditRemainderProjects(state,registry);
+    validateChronicle(state.chronicle, state.clock);
+    validateSimulationState(state.simulation, state, registry?.simulation);
+    validateHomeFurnishings(state,registry);
+    validateCrushSocial(state,registry);
+    validateStatusCareState(state,registry);
+    validateFieldCareState(state,registry);
+    validateBookCareState(state,registry);
+    validateLorePractice(state,registry);
+    validateWorldCompletionState(state,registry);
+    validateCausalStories(state,registry);
+    const nativeTravel=state.actors?.player?.facts;
+    if(nativeTravel?.["original_frontier.travel.remaining"] != null) {
+        check(state.simulation?.schema >= 4 && nativeTravel["original_frontier.freight.introduced"] === true && integer(nativeTravel["original_frontier.travel.remaining"]) &&
+            typeof nativeTravel["original_frontier.travel.from"] === "string" && typeof nativeTravel["original_frontier.travel.to"] === "string" &&
+            integer(nativeTravel["original_frontier.travel.startedAt"]) && nativeTravel["original_frontier.travel.startedAt"] <= state.clock, "Unsupported saved native journey.");
+    }
+    validateRealmState(state);
+    validateTidemarkState(state);
+    check(state.nestedCampaign==null||[NESTED_ENGINE_SCHEMA,CONTINUED_LIFE_ENGINE_SCHEMA,REFERENCE_ENGINE_SCHEMA,BOOK_WORLD_ENGINE_SCHEMA,AUDIT_REMAINDER_ENGINE_SCHEMA].includes(state.schema),"Nested campaign owners require an admitted expansion7/8/9/10 reader.");
+    validateNestedCampaignState(state);
+    validateParadiseCampaignState(state);
+    validateParadiseCampaignDepthState(state,registry);
+    validateParadiseCampaignDepthControllers(state,registry);
+    validateMolCampaignState(state);
+    validateProto23State(state);
+    validateNestedChains(state,registry);
+    validateNestedLife(state,registry);
+    validateRelayState(state,registry);
+    validateReferenceDeskState(state);
+    validateBacklogState(state);
+    validateInkNarrative(state);
+    validateFeatureObjectState(state);
+    validateWorkPlans(state.simulation?.workPlans,state,registry?.simulation,registry?.workPlans);
+    validateReferenceGameplay(state,registry);
+    validateAuditedWorkshop(state,registry);
+    validateGameAbsorptionAssay(state,registry);
+    validateContextualBalmState(state,registry);
+    validateCoolingRefinement(state,registry);
+    validateAgreedDutyState(state);
+    check(state.schema !== REFERENCE_ENGINE_SCHEMA || state.referenceGameplay?.schema === 1, 'Expansion9 requires its optional reference gameplay owner.');
+    check(state.schema !== BOOK_WORLD_ENGINE_SCHEMA || state.bookWorldCampaign?.schema === 1, 'Expansion10 requires its explicit source-world campaign owner.');
     validateDomain(state.campaign); validateDomain(state.journey);
     check(id(state.journey.id), "Invalid journey ID.");
     for(const key of ["worlds", "actors", "scenarios"]) {
@@ -90,6 +190,7 @@ export function validateExpansionState(state, registry) {
         check(id(actor.worldId) && Object.hasOwn(state.worlds, actor.worldId), "Unknown actor world.");
         check(object(actor.sources || {}), "Invalid actor sources.");
         for(const [sourceId, source] of Object.entries(actor.sources || {})) {
+            check(source.origin == null || ["unknown", "inherited", "trained", "acquired"].includes(source.origin), "Invalid saved source origin.");
             check(id(sourceId) && object(source) && integer(source.acquiredAt) && source.acquiredAt <= state.clock &&
                 (source.expiresAt == null || integer(source.expiresAt) && source.expiresAt > source.acquiredAt) &&
                 id(source.receiptId), "Invalid saved capability source.");
@@ -150,13 +251,15 @@ export function validateExpansionState(state, registry) {
 function migrateExpansionState(saved) {
     const state = clone(saved);
     state.schema = ENGINE_SCHEMA;
+    state.chronicle ??= null;
+    state.simulation ??= null;
     for(const actor of Object.values(state.actors || {})) {actor.sources ??= {}; actor.techniques ??= {};}
     return state;
 }
 
 export function loadExpansionState(saved, registry, seed = 1) {
     return validateExpansionState(saved == null ? createExpansionState(seed)
-        : [1, 2].includes(saved.schema) ? migrateExpansionState(saved) : clone(saved), registry);
+        : [1, 2, 3, 4].includes(saved.schema) ? migrateExpansionState(saved) : clone(saved), registry);
 }
 
 function validateCost(cost) {
@@ -189,7 +292,7 @@ function validateRule(rule) {
     }
 }
 
-export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = [], techniques = []}) {
+export function createContentRegistry({worlds = [], actions = [], opportunities = [], capabilities = [], sources = [], rollTables = [], techniques = [], simulation = {}}) {
     const register = definitions => {
         const map = new Map();
         for(const definition of definitions) {
@@ -201,7 +304,7 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
         return map;
     };
     const registry = {worlds: register(worlds), actions: register(actions), opportunities: register(opportunities),
-        capabilities: register(capabilities), sources: register(sources), rollTables: register(rollTables), techniques: register(techniques)};
+        capabilities: register(capabilities), sources: register(sources), rollTables: register(rollTables), techniques: register(techniques), simulation: createSimulationRegistry(simulation)};
     validateCapabilityDefinitions(registry, validateRule);
     validateTechniqueDefinitions(registry);
     for(const table of registry.rollTables.values()) {
@@ -218,6 +321,10 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
             integer(action.duration) && typeof action.repeatable === "boolean" &&
             ["actor", "scenario", "world", "journey", "campaign"].includes(action.completionScope), "Invalid action definition.");
         validateRule(action.requires); validateRule(action.visibleWhen);
+        if(action.schedule) {
+            validateSchedule(action.schedule);
+            check(action.repeatable, "Recurring services must be repeatable.");
+        }
         check(Array.isArray(action.costs), "Costs must be an array.");
         action.costs.forEach(validateCost);
         check(action.cancellation == null || ["none", "refund", "forfeit"].includes(action.cancellation), "Invalid cancellation policy.");
@@ -234,6 +341,7 @@ export function createContentRegistry({worlds = [], actions = [], opportunities 
         for(const modifier of action.durationModifiers || []) {
             validateRule(modifier.when);
             check(integer(modifier.minutes) && typeof modifier.label === "string", "Invalid duration modifier.");
+            check(modifier.operation == null || ["set", "add", "subtract"].includes(modifier.operation), "Invalid duration operation.");
         }
         for(const modifier of action.modifiers || []) {
             validateRule(modifier.when);
@@ -316,14 +424,20 @@ export function evaluateAction(state, registry, actionId, context) {
     const reasons = [...requirements.reasons];
     if(action.worldId !== context.worldId || actor.worldId !== context.worldId) reasons.push("This expedition belongs to another world.");
     const owner = getDomain(state, action.completionScope, context);
+    const schedule = action.schedule && recurringWindow(action.schedule, context.facts?.calendarMinute, owner.facts[`cycle.${action.id}`]);
+    if(schedule && !schedule.open) reasons.push(schedule.reason);
     if(!action.repeatable && (owner.completed[action.id] || state.pending.some(job => job.actionId === action.id &&
         (action.completionScope === "campaign" || action.completionScope === "journey" ||
             action.completionScope === "world" && job.context.worldId === context.worldId ||
             action.completionScope === "scenario" && job.context.scenarioId === context.scenarioId ||
             action.completionScope === "actor" && job.context.actorId === context.actorId)))) reasons.push("Already committed or completed.");
     if(activePractice(actor)) reasons.push("Finish or cancel your active technique drill first.");
+    if(simulationOccupiesActor(state, context.actorId)) reasons.push("Finish your living-world work or encounter first.");
+    if(context.actorId === "player" && waitingSimulationChoice(state)) reasons.push("Resolve the waiting world decision first.");
     if(state.pending.some(job => job.context.actorId === context.actorId)) reasons.push("Finish your current expedition first.");
     const blocking = Object.values(state.opportunities).filter(o => o.status === "available" && o.blocking);
+    if(context.actorId === "player" && state.chronicle?.session) reasons.push("Finish or withdraw from the elder encounter first.");
+    if(context.actorId === "player" && state.chronicle?.life.endedAt != null) reasons.push("This mortal life has ended.");
     if(blocking.length && !blocking.some(o => o.definitionId === action.opportunityId &&
         o.context.actorId === context.actorId && o.context.worldId === context.worldId &&
         o.context.scenarioId === (context.scenarioId || null))) reasons.push("Resolve the waiting choice before starting other work.");
@@ -346,7 +460,8 @@ export function evaluateAction(state, registry, actionId, context) {
     const contributors = [];
     let duration = action.duration;
     for(const modifier of action.durationModifiers || []) if(evaluateRule(modifier.when, facts).met) {
-        duration = modifier.minutes; contributors.push(modifier.label);
+        duration = modifier.operation === "add" ? duration + modifier.minutes : modifier.operation === "subtract" ? Math.max(0,duration-modifier.minutes) : modifier.minutes; contributors.push(modifier.label);
+        check(integer(duration), "Invalid adjusted duration.");
     }
     if(Object.values(state.opportunities).some(o => o.blocking && o.status === "scheduled" &&
         o.context.actorId === context.actorId && o.due < state.clock + duration)) {
@@ -359,7 +474,7 @@ export function evaluateAction(state, registry, actionId, context) {
         return {id: ref.id, tableId: table.id, revision: table.revision, label: table.label, outcomes: odds, contributors};
     });
     return {actionId, visible: visibility.met, eligible: visibility.met && reasons.length === 0,
-        reasons, costs, duration, outcomes, contributors, capabilities, rolls};
+        reasons, costs, duration, outcomes, contributors, capabilities, rolls, schedule};
 }
 
 function applyEffects(state, external, effects, context, registry, gameplay = {}, receiptId = "validation", draw = 0) {
@@ -371,7 +486,8 @@ function applyEffects(state, external, effects, context, registry, gameplay = {}
             const next = (resources[effect.key] || 0) + effect.amount;
             check(Number.isFinite(next) && next >= 0 && next <= Number.MAX_SAFE_INTEGER, `Insufficient or invalid ${effect.key}.`);
             resources[effect.key] = next;
-        } else if(["item", "xp", "reputation"].includes(effect.type)) applyGameplayEffect(gameplay, effect, context.actorId);
+        } else if(effect.type === "chronicle") recordArchiveDuty(state.chronicle, state.clock, receiptId);
+        else if(["item", "xp", "reputation"].includes(effect.type)) applyGameplayEffect(gameplay, effect, context.actorId);
         else if(effect.type === "technique") applyTechniqueEffect(getDomain(state, "actor", context), effect,
             {registry, clock: state.clock, worldId: context.worldId, receiptId, draw});
         else if(effect.type === "source") {
@@ -379,7 +495,7 @@ function applyEffects(state, external, effects, context, registry, gameplay = {}
             if(effect.operation === "remove") delete sources[effect.sourceId];
             else if(!sources[effect.sourceId] || sources[effect.sourceId].expiresAt != null && sources[effect.sourceId].expiresAt <= state.clock) {
                 sources[effect.sourceId] = {acquiredAt: state.clock, expiresAt: effect.duration == null ? null : state.clock + effect.duration,
-                    receiptId, worldId: context.worldId, revision: registry.sources.get(effect.sourceId).revision};
+                    receiptId, worldId: context.worldId, revision: registry.sources.get(effect.sourceId).revision, origin: effect.origin || "unknown"};
             }
         } else {
             const key = opportunityKey(effect.id, context);
@@ -417,6 +533,9 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
     const next = clone(state), external = clone(context.external || {}), gameplay = clone(context.gameplay || {});
     const savedContext = {actorId: context.actorId, worldId: context.worldId, scenarioId: context.scenarioId || null};
     const effects = [...(action.effects || [])];
+    // Reserve the cycle at commitment, like spent inputs. Cancelling or reloading
+    // cannot farm this occurrence, and frozen jobs never consult a later calendar.
+    if(preview.schedule) getDomain(next, action.completionScope, savedContext).facts[`cycle.${action.id}`] = preview.schedule.cycle;
     if(context.scenarioId && Object.values(next.checkpoints).some(cp => cp.scenarioId === context.scenarioId)) {
         const safe = effect => effect.scope === "scenario" || effect.type === "fact" && effect.scope === "campaign";
         check(preview.costs.every(cost => cost.scope === "scenario") && effects.every(safe) &&
@@ -458,22 +577,32 @@ export function commitAction(state, registry, actionId, context, expectedSequenc
     return {state: next, external, gameplay, acquisitions, gameplayBefore: clone(context.gameplay || {}), preview, commitment: clone(job)};
 }
 
-export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}) {
+export function advanceSimulation(state, registry, minutes, external = {}, gameplay = {}, simulationContexts = {}) {
     check(integer(minutes) && Number.isSafeInteger(state.clock + minutes), "Invalid simulation duration.");
     validateBudget(external);
     validateGameplaySnapshot(gameplay);
     const next = clone(state), budgets = clone(external), owned = clone(gameplay);
-    const acquisitions = [];
+    const acquisitions = [], unlocks = [];
+    const simulationPlan = {state: next, external: budgets, gameplay: owned, acquisitions, unlocks,
+        vitals: Object.fromEntries(Object.entries(simulationContexts).filter(([,c]) => c.vitals).map(([id,c]) => [id, clone(c.vitals)])),
+        equipment: Object.fromEntries(Object.entries(simulationContexts).filter(([,c]) => c.equipment).map(([id,c]) => [id, clone(c.equipment)]))};
+    const loreContexts=()=>({...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
     const target = next.clock + minutes;
-    let stoppedAtChoice = false;
+    let stoppedAtChoice = false, boundaries = 0;
     while(true) {
-        if(Object.values(next.opportunities).some(o => o.status === "available" && o.blocking)) {stoppedAtChoice = true; break;}
+        if(next.chronicle && next.chronicle.life.endedAt !== null) break;
+        if(["dead", "departed"].includes(next.simulation?.people.player?.life)) break;
+        if(Object.values(next.opportunities).some(o => o.status === "available" && o.blocking) || waitingSimulationChoice(next) || next.simulation?.sessions.player) {stoppedAtChoice = true; break;}
         const times = [...next.pending.map(job => job.due), ...Object.values(next.opportunities)
             .filter(o => o.status === "scheduled" || o.status === "available")
             .map(o => o.status === "scheduled" ? o.due : o.expires)];
-        const boundary = Math.min(...times);
-        if(boundary > target) {next.clock = target; break;}
+        const boundary = Math.min(...times, nextChronicleBoundary(next.chronicle), nextSimulationBoundary(next,{skipLoreJobs:!lorePracticeTimersSupported(next,loreContexts()),skipCompletionJobs:!worldCompletionTimersSupported(next,loreContexts()),skipCompletionCropChecks:!worldCompletionCropClockSupported(next,loreContexts().player)}), nextLorePracticeBoundary(next,loreContexts()), nextWorldCompletionBoundary(next,loreContexts()), nextCausalStoryBoundary(next), nextRealmActivityBoundary(next), nextTidemarkBoundary(next), nextNestedCampaignBoundary(next), nextParadiseBoundary(next), nextMolBoundary(next),nextProto23Boundary(next), workPlanNextBoundary(next));
+        const clockBoundary = Number.isFinite(boundary)?Math.max(next.clock,boundary):null;
+        if(boundary > target) {retainOriginalFrontierWindow(next,next.clock,target);retainRepositoryAbsorptionWindows(next,next.clock,target);retainAuditRemainderWindows(next,next.clock,target);retainLorePracticeWindows(next,next.clock,target,loreContexts());retainWorldCompletionWindows(next,next.clock,target,loreContexts()); next.clock = target; syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next); expireRealmObservation(next); next.chronicle = advanceChronicle(next.chronicle, next.clock); break;}
+        retainOriginalFrontierWindow(next,next.clock,Math.max(next.clock,boundary));retainRepositoryAbsorptionWindows(next,next.clock,Math.max(next.clock,boundary));retainAuditRemainderWindows(next,next.clock,Math.max(next.clock,boundary));retainLorePracticeWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());retainWorldCompletionWindows(next,next.clock,Math.max(next.clock,boundary),loreContexts());
         next.clock = Math.max(next.clock, boundary);
+        syncRealmClock(next,clockBoundary); syncTidemarkClock(next); syncNestedCampaignClock(next); syncParadiseClock(next); syncMolClock(next);syncProto23Clock(next);
+        expireRealmObservation(next);
         const due = next.pending.filter(job => job.due <= next.clock).sort((a, b) => a.due - b.due || a.sequence - b.sequence);
         for(const job of due) finish(next, budgets, job, registry, owned, acquisitions);
         next.pending = next.pending.filter(job => job.due > next.clock);
@@ -481,9 +610,22 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
             if(o.status === "scheduled" && o.due <= next.clock) o.status = "available";
             if(o.status === "available" && !o.blocking && o.expires <= next.clock) o.status = "expired";
         }
+        next.chronicle = advanceChronicle(next.chronicle, next.clock);
+        advanceSimulationBoundary(simulationPlan, registry,proto23SimulationContexts(next, worldCompletionSimulationContexts(next,lorePracticeSimulationContexts(next,causalStorySimulationContexts(next,auditRemainderSimulationContexts(next,molSimulationContexts(next,paradiseSimulationContexts(next,nestedChainSimulationContexts(next,nestedSimulationContexts(next,tidemarkSimulationContexts(next,realmSimulationContexts(next,simulationContexts))))))))))));
+        advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment});
+        reconcileLorePractice(state,simulationPlan,registry,{...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
+        if(++boundaries >= 512) break; // Return unspent time; never skip causal work.
     }
+    advanceAuditRemainder(state,simulationPlan,registry,{...simulationContexts.player,actorId:"player",external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment});
+    reconcileCausalStoryPlan(state,simulationPlan,registry,causalStorySimulationContexts(next,simulationContexts));
+    reconcileLorePractice(state,simulationPlan,registry,{...simulationContexts,player:{...simulationContexts.player,external:budgets,gameplay:owned,vitals:simulationPlan.vitals,equipment:simulationPlan.equipment}});
+    reconcileBookCareRuntime(state,simulationPlan,registry);
+    reconcileParadiseCampaignDepthRuntime(state,simulationPlan,registry);
+    reconcileWorldCompletionPlan(simulationPlan,registry,loreContexts());
     validateExpansionState(next, registry);
-    return {state: next, external: budgets, gameplay: owned, acquisitions, gameplayBefore: clone(gameplay), stoppedAtChoice, remaining: target - next.clock};
+    return {state: next, external: budgets, gameplay: owned, acquisitions, unlocks, native: simulationPlan.native, equipment: simulationPlan.equipment,
+        ...(next.causalStories ? {vitals: simulationPlan.vitals} : {}),
+        gameplayBefore: clone(gameplay), stoppedAtChoice, remaining: target - next.clock, budgetExhausted: boundaries >= 512};
 }
 
 export function cancelAction(state, registry, jobId, context, expectedSequence = state.sequence) {

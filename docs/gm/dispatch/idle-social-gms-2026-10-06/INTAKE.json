@@ -1,0 +1,104 @@
+{
+  "qualification": "Dispatch source snapshot only; not semantic review, behavior or DLC coverage. Refresh current inputs before recovery.",
+  "games": [
+    {
+      "lane": "melvor-idle",
+      "manifest_fields": {
+        "appid": "1267910",
+        "name": "Melvor Idle",
+        "installdir": "Melvor Idle",
+        "StateFlags": "4",
+        "buildid": "13311431"
+      },
+      "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Melvor Idle",
+      "source_format_evidence": "nwjs",
+      "source_inputs": [
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Melvor Idle/Melvor Idle.app/Contents/Resources/app.nw/index.html",
+          "bytes": 749,
+          "sha256": "305cbcede0ab8df9970ff16f4cc247d164d342454cd10f1724e597d786d57f9c"
+        },
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Melvor Idle/Melvor Idle.app/Contents/Resources/app.nw/main.js",
+          "bytes": 348,
+          "sha256": "737e6b0992139151d8fddb03e9218329c87cf4b4d0c2a36d0321549d16b2c358"
+        },
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Melvor Idle/Melvor Idle.app/Contents/Resources/app.nw/package.json",
+          "bytes": 757,
+          "sha256": "a3cbfa9a2b425aec12595299d87ca3458625d4addac4f3197474af7b3161bc25"
+        }
+      ]
+    },
+    {
+      "lane": "orb-of-creation",
+      "manifest_fields": {
+        "appid": "1910680",
+        "name": "Orb of Creation",
+        "installdir": "Orb of Creation",
+        "StateFlags": "4",
+        "buildid": "24426975"
+      },
+      "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Orb of Creation",
+      "source_format_evidence": "mono",
+      "source_inputs": [
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Orb of Creation/Orb Of Creation.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+          "bytes": 2044928,
+          "sha256": "46b723ad8e3df5adf7186ec32b220c338e26c1cc79369e01213c091155073bdc"
+        }
+      ]
+    },
+    {
+      "lane": "your-chronicle",
+      "manifest_fields": {
+        "appid": "1546320",
+        "name": "Your Chronicle",
+        "installdir": "YourChronicle",
+        "StateFlags": "4",
+        "buildid": "25001959"
+      },
+      "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle",
+      "source_format_evidence": "il2cpp",
+      "source_inputs": [
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Resources/Data/il2cpp_data/Metadata/global-metadata.dat",
+          "bytes": 14014748,
+          "sha256": "2f84664c809f076c73e4515567c282682b0fcafafc57cb9d7e5eaf4d948b9c6f"
+        },
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Frameworks/GameAssembly.dylib",
+          "bytes": 141935014,
+          "sha256": "8a21647ce035ff6993d0faa617d2f8ac63e25297f4ecf9b18bab6770bb72f969"
+        }
+      ]
+    },
+    {
+      "lane": "crush-crush",
+      "manifest_fields": {
+        "appid": "459820",
+        "name": "Crush Crush",
+        "installdir": "CrushCrush",
+        "StateFlags": "4",
+        "buildid": "25589052"
+      },
+      "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/CrushCrush",
+      "source_format_evidence": "mono",
+      "source_inputs": [
+        {
+          "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/CrushCrush/CrushCrush.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+          "bytes": 1328640,
+          "sha256": "7205b130274facea0c4af1605c0116a4890c39fdb04852542d292ec777845ddd"
+        }
+      ]
+    }
+  ],
+  "project_inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md": "caf2df0f0c65766e8cda341a9e89862ae26fc8acaedb8e5bdfc142210e5f44d2"
+  },
+  "checked_private_saves": false,
+  "mutated_installed_games": false
+}

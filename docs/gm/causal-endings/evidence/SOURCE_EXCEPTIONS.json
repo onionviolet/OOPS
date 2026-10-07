@@ -1,0 +1,139 @@
+{
+  "artifact": "causal-endings/source-exceptions",
+  "status": "analytical paraphrase; hypothetical branches are original proposals; no gameplay activation",
+  "cases": [
+    {
+      "id": "MOL-LOOP",
+      "title": "Mother of Learning: specific initiated restart versus final soul exit",
+      "edition": {
+        "label": "supplied WebToEpub compilation, metadata dated 2022-04-29",
+        "sha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+        "qualification": "Dossier verified local snapshot/navigation; primary authenticity and publication completeness not certified."
+      },
+      "evidence": [
+        {
+          "fact_ids": ["MOL-C006-05", "MOL-C006-06", "MOL-C007-03"],
+          "locator": "Ch. 6, OEBPS/Text/0006_6_Concentrate_and_Try_Again.xhtml p112-130; Ch. 7, OEBPS/Text/0007_7_Of_Gaps_And_Pretending.xhtml p80-108",
+          "supports": "Comparator only: one narrated stabbing is followed by return to Cirin; Zach reports prior invasion deaths. It does not define an automatic restart for arbitrary killing or the final ritual."
+        },
+        {
+          "fact_ids": ["MOL-C083-10", "MOL-C084-01", "MOL-C084-02"],
+          "locator": "Ch. 83, OEBPS/Text/0083_83_The_Quiet_Life.xhtml p166-198; Ch. 84, OEBPS/Text/0084_84_Powerless.xhtml p2-18",
+          "supports": "Quatach-Ichl detonates his own soul; Zorian initiates the restart before blackout and wakes with severe soul injury still present. This specific initiated restart does not prove an automatic response to arbitrary death."
+        },
+        {
+          "fact_ids": ["MOL-C091-10", "MOL-C091-11", "MOL-C091-12"],
+          "locator": "Ch. 91, OEBPS/Text/0091_91_A_Path_Paid_in_Blood.xhtml p233-341",
+          "supports": "Final ritual roles, costs, lethal Guardian/primordial threat, Zorian's pre-running soul-exit contingency, possession of his sleeping original, and release of the original soul."
+        },
+        {
+          "fact_ids": ["MOL-C092-01", "MOL-C092-02", "MOL-C092-08", "MOL-C092-09"],
+          "locator": "Ch. 92, OEBPS/Text/0092_92_The_Scramble.xhtml p2-150",
+          "supports": "Loop-body anchors fail after return; marker tracking/rescue is costly; Zach needs treatment; Zach reports the outside timeline continued."
+        },
+        {
+          "fact_ids": ["MOL-C093-03", "MOL-C106-05", "MOL-C106-08"],
+          "locator": "Ch. 93, OEBPS/Text/0093_93_Shelter_in_the_Storm.xhtml p41-66; Ch. 106, OEBPS/Text/0106_106_I_Win_III.xhtml p35-44",
+          "supports": "Fresh counterparts lack loop relationships; invasion retreats while Sudomir escapes; Jornak suffers a separate actual deadline-pact death after Zach's contract dissolves."
+        }
+      ],
+      "pre_state": "Final Festival-alignment breach, Ch. 91. Gate/Guardian, Key, alignment, ritual roles, Orb and costly contributions are relevant; source does not supply a stable universal remaining-iteration count here.",
+      "no_intervention": "Ritual opens costly path; allies die; Zorian is mortally pierced, executes the prepared soul separation, wins a soul contest for his sleeping original's body and releases the original soul. He then wakes outside the loop; body-anchored enhancements fail and he must spend resources to wake Zach.",
+      "hypothetical_outcomes": [
+        {
+          "id": "MOL-A",
+          "result": "Attempt fails or access is denied during the ritual.",
+          "basis": "Source shows lethal Guardian attack and assigned costly roles, but does not define player access/combat. Failure receipt is an original proposal; no silent interruption."
+        },
+        {
+          "id": "MOL-B",
+          "result": "Eligible attack kills Zorian before the final-exit contingency.",
+          "basis": "Outcome is unknown. Chapter 91 does not establish a restart, canonical return, player survival, or memory transfer if this contingency is beaten."
+        },
+        {
+          "id": "MOL-C",
+          "result": "Player removes a required ritual contribution before the path stabilizes.",
+          "basis": "The ritual dependencies are source-evidenced, but every substitution and resulting loop/world state are not. Author the dependency response; do not recreate the canonical exit."
+        }
+      ],
+      "knowledge_and_response": "Retain loop memories only through a source-defined marker/memory carrier; originals/counterparts do not inherit relationships by default. Gate roles, collaborators, Guardian, Zach and outside society hold different evidence. Independent surviving actors may change plans when contributors disappear; source gives no universal fallback.",
+      "closures": {
+        "actor": "A witnessed death, a character-initiated restart, the special soul-exit/identity transfer, and post-exit death are distinct transitions; arbitrary final-ritual death remains unresolved.",
+        "player": "Player death/knowledge/return contract is unknown and requires an explicit rule.",
+        "society": "Outside timeline continues; local invasion and surviving threats resolve on their own state."
+      },
+      "native_unactivated": ["loop reset", "marker memory transfer", "soul/body transfer", "counterpart identity", "ritual dependency outcomes", "loop-aware endings"]
+    },
+    {
+      "id": "FV-FORTUNE",
+      "title": "I Am the Fated Villain: Gu's Fortune threshold and Ye Chen death",
+      "edition": {
+        "label": "supplied English MTL/Gemini-2.5-Flash-labeled EPUB",
+        "sha256": "3136ed56debd2f33ba03751e80bdbbd027cc0a06977cd19a5825b843cb6a9496",
+        "qualification": "Edition provenance is compilation metadata; translation fidelity, primary authenticity, and complete publication are not established."
+      },
+      "member_prefix": "temp_copyright_1770454724_I Am the Fated Villain (gemini-2.5-flash) ENG_split_",
+      "evidence": [
+        {
+          "fact_ids": ["FV-S0035-C01", "FV-S0037-C01", "FV-S0047-C01"],
+          "locator": "physical 35 / printed Ch. 35, 002.html#calibre_toc_36 p1-23; physical 37 / printed Ch. 37, 003.html#calibre_toc_38 p2-40; physical 47 / printed Ch. 47, 003.html#calibre_toc_48 p1-100 (Fortune drop p1-76; remnant death p77-100)",
+          "supports": "Gu reports a System rule for extra rewards from killing a Favored Son at zero Fortune; his curse-counter is an actual special defense; the early Lin Tian arc resolves with Gu killing the remnant at zero Fortune. Exact physical 47 paragraph range is in that dossier claim; do not generalize the reward or defense."
+        },
+        {
+          "fact_ids": ["FV-S0056-C02", "FV-S0059-C02", "FV-S0060-C01", "FV-S0061-C02", "FV-S0062-C02", "FV-S0063-C02"],
+          "locator": "physical 56 / printed Ch. 55, 004.html#calibre_toc_57 p63-94; physical 59 / printed Ch. 58, 004.html#calibre_toc_60 p61-78, p103-123; physical 60 / printed Ch. 59, 004.html#calibre_toc_61 p9-37; physical 61 / 004.html#calibre_toc_62 p51-88; physical 62 / 004.html#calibre_toc_63 p57-94; physical 63 / 004.html#calibre_toc_64 p32-49, p78-94",
+          "supports": "Ye Chen, the favored target, pursues the Halberd; the realm has a dangerous entry cap; Gu follows Ye via a pill mark, not a source-supported informant betrayal."
+        },
+        {
+          "fact_ids": ["FV-S0064-C01", "FV-S0064-C02", "FV-S0067-C01", "FV-S0068-C01", "FV-S0068-C02", "FV-S0069-C01", "FV-S0069-C02", "FV-S0070-C01", "FV-S0070-C02"],
+          "locator": "physical 64 / printed Ch. 63, 004.html#calibre_toc_65 p8-82; physical 67 / printed Ch. 66, 004.html#calibre_toc_68 p7-68; physical 68 / printed Ch. 67, 004.html#calibre_toc_69 p16-88; physical 69 / printed Ch. 68, 004.html#calibre_toc_70 p1-30; physical 70 / printed Ch. 69, 004.html#calibre_toc_71 p1-28",
+          "supports": "Bond severance reduces Fortune; Gu's Dharma Incarnate defeats Ye's attack; Ye Liuli is coerced under a misunderstood oath/mental-control mechanism; Gu kills Ye at zero Fortune and claims no backlash due to a demonic exception. The oath bypass is not a general rule."
+        },
+        {
+          "fact_ids": ["FV-S0071-C02", "FV-S0074-C01", "FV-S0074-C02", "FV-S0075-C01", "FV-S0076-C01", "FV-S0131-C01"],
+          "locator": "physical 71, ENG_split_005.html#calibre_toc_72 p52-79; physical 74, ENG_split_005.html#calibre_toc_75 p1-38, p58-85; physical 75, ENG_split_005.html#calibre_toc_76 p1-67; physical 76, ENG_split_005.html#calibre_toc_77 p1-14; physical 131, ENG_split_010.html#calibre_toc_132 p12-50, p69-76",
+          "supports": "Downstream: Gu removes/subdues the Halberd into private Weapon Space and departs with Liuli and Yan Ji; local observers falsely infer he sealed it; Liuli remains controlled and later reports hazy memories and thoughts of Gu. These are not Ye's return or freely chosen allegiance."
+        }
+      ],
+      "pre_state": "Secret-realm arc, physical 59-70. Ye Chen has map/key, ring-bound Yan Ji and a pursuit of the Eight Desolate Demon Halberd. Gu has an undisclosed pill mark, system information, Elder Ming protection, and an independent reason to follow. The entry ceiling is a world rule; 'favored son' is not automatic combat protection.",
+      "no_intervention": "Gu tracks Ye by the marked pill. Their mistrust severs Yan Ji's bond and costs Ye 200 Fortune; Gu defeats the key attack. He coerces Liuli into opening her Knowledge Sea under an oath she expects to constrain him, plants a different control mechanism, and kills Ye at zero Fortune. Gu claims his demonic nature consumes heavenly demons and avoids backlash. This is a source-specific exception, not transferable player immunity.",
+      "hypothetical_outcomes": [
+        {
+          "id": "FV-A",
+          "result": "Attempted entry/attack fails or is denied at the realm boundary.",
+          "basis": "Source establishes an above-cap repelling/lethal boundary; does not establish player access or outcome. Surface denial or concrete failed entry rather than protagonist immunity."
+        },
+        {
+          "id": "FV-B",
+          "result": "Player reveals pill tracking or protects Liuli's party; Ye escapes the planned confrontation.",
+          "basis": "Original proposal. The source supports the secret mark and party danger, not successful warning, trust, escape, or Gu's fallback. Do not respawn Ye or recreate the same confrontation."
+        },
+        {
+          "id": "FV-C",
+          "result": "Canon-supported Gu kills Ye after zero Fortune; alternatively, an authored eligible player kill happens earlier.",
+          "basis": "Gu's actual death/oath exception is supported at physical 69-70. Earlier player death, equivalent threshold reward, oath immunity, loot/identity transfer, and demonic outcome are not supported and must be separately authored."
+        }
+      ],
+      "knowledge_and_response": "Ye does not know the pill mark; Gu does. Yan Ji knows the relationship break; Liuli, Aunt Xue, retainers and public rumor have separate views. Future reactions need actual witness/information channels. Gu may act only through retained means/resources; no universal replacement target.",
+      "closures": {
+        "actor": "Ye's narrated death is terminal in the reviewed arc; no return is shown. Gu retains the Halberd; Liuli survives with compromised autonomy and later hazy memory; Yan Ji accompanies Gu under explicit perception limits.",
+        "player": "No transferable Fortune, immunity, title, oath bypass, identity, or power is evidenced.",
+        "society": "Lower-Realm observers wrongly believe Gu sealed the artifact. Broader political consequences outside reviewed claims are unknown."
+      },
+      "native_unactivated": ["secret realm profile", "Fortune/system thresholds", "pill-mark pursuit", "authored oath terms", "Gu-specific exception", "mental-control/soul mechanism", "downstream actor/ending consumers"]
+    }
+  ],
+  "input_sha256": {
+    "docs/research/novels/full-book/mother-of-learning/EDITION.md": "1e0b35bb89da5b4740e5a97577bfe8bc994aa124b93025c8754b3585e9ec7e40",
+    "docs/research/novels/full-book/mother-of-learning/readers/006-020_NOTES.md": "4648f23197ec633a99452bb51a265e82cfcd9b3f7ae7a9a54d7b8b7db6b6d77a",
+    "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md": "d18494cd135c37c5948b44d0a5e686b4df1acf6cc7269a5961922e4e4abb4e0b",
+    "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md": "733a96cc2cba1f2df29e3f974c71468919ec6cadcf95b7ce0615a357a1947e3a",
+    "docs/research/novels/full-book/fated-villain/EDITION.md": "3419038860429028f78391f24e7cae2e908120f2e1cbc8da355550c1a5816aac",
+    "docs/research/novels/full-book/fated-villain/workers/s0031-0050/NOTES.md": "6fee12f17bc13eec090a77bdab61685d085dbb7f2c435cb332afd4a33c458440",
+    "docs/research/novels/full-book/fated-villain/workers/s0051-0070/NOTES.md": "340951e946ad72eeb052ae4d9b2ebbc1be363d5d0997c4a00fd73cbda54256fb",
+    "docs/research/novels/full-book/fated-villain/workers/s0071-0090/NOTES.md": "bd9c6e980c2c3b96a5dd483678c59d0468ea5aa816af4deb9c78482ac7406a40",
+    "docs/research/novels/full-book/fated-villain/workers/s0131-0150/NOTES.md": "f7a9a9d09e884434a76135cd801be50e260088e9346000fe1f0711c4ba1a1480",
+    "docs/research/novels/full-book/fated-villain/PEOPLE.md": "18909a66008de829f8e49eabcde8b307c80f776a4b5a052f76eea3099f408aa0"
+  },
+  "validation": "Static source-locator review only; no tests, build, game actions, or save access."
+}

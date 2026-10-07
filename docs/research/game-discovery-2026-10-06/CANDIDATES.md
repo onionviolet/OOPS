@@ -1,0 +1,15 @@
+# Distinct game candidates
+
+Follow-up: [broader mechanics standard](DEEPER_RESEARCH.md) and [five parked unresolved questions](DEEPER_QUEUE.json). The original shortlist and two completed packets below retain their finite scope.
+
+2026-10-06, finite discovery complete. Two source-ready packets; one lower-priority candidate screened and deferred. No game mechanics implemented by this lane. Existing 30-repository/nine-reference bank and all19 remainder rows remain with their current owners.
+
+| Rank | Candidate and primary source | Named distinct question | Actual coverage and disposition |
+| --- | --- | --- | --- |
+| 1 | [Brogue Community Edition](https://github.com/tmewett/BrogueCE/tree/104a20fedbe7d9360d2dfc8ff665571694212ad8) | Can failed/inconclusive paid experimentation combine with earlier polarity evidence to identify a remaining substance? | CE1.15.1 snapshot; nineteen selected semantic evidence anchors. GD-01 is source-ready. Existing fixed oil assay is reused; the new consumer combines negative evidence with classification and changes a real preservation/avoidance decision. Lower integration cost than a site/circuit resolver. |
+| 2 | [Shattered Pixel Dungeon](https://github.com/00-Evan/shattered-pixel-dungeon/tree/e9defd0444c96d2fce3de5ec297c3398be8b7c55) | Can an ingredient transformation alter lasting local substrate, changing a later action and its self-risk? | 4.0.1/code920 snapshot; twenty-one selected evidence windows, including optional unselected branches. GD-02 is source-ready. Real seed/regular/exotic/cloud/trap/lightning/payment/persistence joins; no whole-game coverage. Requires a finite substrate/action/custody consumer. |
+| 3 | [Sil-Q](https://github.com/sil-quirk/sil-q/tree/1be7df63d6e7f9db2461e125acd17728caa53c3d) | Can a song's momentary ability change a door into a retained ward, with actor-specific resistance later? | Source accessible; bounded song admission/switch/upkeep, door mutation and representative monster resistance spans screened. Deferred, `sourceReady: false`: acquisition and complete aftermath not traced. Generic sustain/voice upkeep overlaps reserved ToME brace work; spatial door rules need a separately selected local consumer. No third implementation packet or re-review request. |
+
+Ranking is a reversible research judgment, not a measured depth/balance comparison or favorite roster. [PACKETS.json](PACKETS.json) has only the two complete selected packets. Both current original source paths were accessible, so no missing binary/decompiler input blocks this research. Public source availability and README descriptions were not substituted for semantic review.
+
+[Method and prior reuse](METHOD_AND_REUSE.md) explains why existing NetHack/Qud/DCSS, resident/facility/work-plan, body, social and source-owned ALL19 paths were preserved. [Input snapshot](INPUT_SNAPSHOT.json) records moving native owners; the builder must refresh them and shared ownership before binding. No purchase, game installation, decompilation, tool-stack installation, source/asset import, global configuration or external chat prompt occurred.

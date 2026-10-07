@@ -1,0 +1,1027 @@
+{
+  "schema": 1,
+  "role": "Regions ecology and harvesting GM",
+  "date": "2026-10-04",
+  "timezone": "America/New_York",
+  "status": "planning-complete; document checks passed; awaiting master/director review",
+  "scope": "Planning-only; regional/environment/resource-node ecology and harvesting.",
+  "authority": "ASSIGNMENT.md; assigning master alone merges canonical plan/RUN; runtime implementation held.",
+  "qualification": "All new mechanisms and world scenes are original proposals. Code inspection establishes declarations/control flow only. No game/build/import/browser/save execution or new source reading.",
+  "cost_evidence": {
+    "runtime_measurements": null,
+    "token_measurements": null,
+    "note": "No runtime/token cost telemetry was captured. Fewer represented nodes and due-boundary updates are complexity proposals, not measured savings."
+  },
+  "findings": [
+    {
+      "id": "REG01",
+      "priority": "P1",
+      "kind": "missing",
+      "title": "Finite harvest needs a bound node transaction, not another output table",
+      "baseline_relation": "Macro/Micro already require conserved nodes/lots; this pass names the native admission and settlement boundary.",
+      "evidence": [
+        {
+          "path": "src/models/location.js",
+          "line_start": 457,
+          "line_end": 507,
+          "claim": "Native gathering derives item chance/count and interval from definitions and skill; this function has no finite-node reservation.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 6098,
+          "line_end": 6145,
+          "claim": "Native tick draws with Math.random, credits gathered statistics and inventory, then resets the interval; no regional depletion is joined here.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 54,
+          "line_end": 77,
+          "claim": "World definitions accept region IDs/layers, sites, scalar facts and unique claim IDs; they do not expose a resource-node contract.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 55,
+          "line_end": 71,
+          "claim": "MC02 already specifies stock reservation, lot condition, partial work and duplicate/stale/publication cases.",
+          "qualifier": "prior original planning fixture"
+        }
+      ],
+      "current_player_behavior": "Existing repeatable professions yield location-specific native materials. Neither these tables nor detached world manifests establish finite regional harvest.",
+      "proposed_player_behavior": "Selected new patches quote exact node/rights/method/tool/body revisions, reserve stock and occupancy, and publish extracted amount, residue, cargo and evidence together. A partial phase retains completed yield and releases only uncut reservations.",
+      "authoritative_owner": {
+        "state": "One instance-bound resource owner plus existing inventory/custody and actor/job owners",
+        "writer": "Shared Engine/native integration; Regions authors patch rules; Items authors outputs",
+        "design": "docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "Engine-selected node/phase/publication contract and compatibility",
+        "Items lot/native projection",
+        "REG02",
+        "REG06"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "An opt-in managed bank supplies cloth/care or a route project through real gathered material; existing Village woodcutting remains the familiar baseline.",
+          "status": "O; new patch and terms unaccepted"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A01",
+          "given": "MC02 fixture has 12 units; player reserves 5 and NPC 2.",
+          "when": "Both settle and player publication is retried.",
+          "then": "Available stock is 5; player creates exactly 4 raw plus 1 residue once; failed publication changes neither stock nor cargo.",
+          "status": "not-run; future behavioral acceptance"
+        },
+        {
+          "id": "RG-A02",
+          "given": "A cut has one completed phase and uncut reserved stock.",
+          "when": "The worker cancels or loses access before the next phase.",
+          "then": "Completed cargo/labor remain; only untouched stock/tool occupancy releases; no whole-job refund plus output.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Retain native professions, skills, inventory and repeatable opening. Bind only selected new finite patches first.",
+      "alternative": "For one fixed patch, typed scalar instance facts plus revision-guarded world update, existing job escrow and staged native output may suffice if Engine proves bounds, competing reservations and joint publication. This does not establish generic ecology.",
+      "source_status": {
+        "native": "current dirty source",
+        "new_mechanism": "O",
+        "uncertainty": "No runtime record shape or numerical policy approved."
+      },
+      "verification_limits": "Static control-flow and MC02 readback only; staged publication/native adapters and all acceptance cases remain unexecuted."
+    },
+    {
+      "id": "REG02",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Bind availability and renewal to explicit clocks and extraction boundaries",
+      "baseline_relation": "Plan names seasons/local time; it has not selected admission/completion rules for a changing habitat.",
+      "evidence": [
+        {
+          "path": "src/data/locations.js",
+          "line_start": 1918,
+          "line_end": 1936,
+          "claim": "Village fishing declares Spring/Summer/Autumn availability.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 1241,
+          "line_end": 1270,
+          "claim": "JOB/TRAINING starts call can_work; the GATHERING branch checks the tool slot without calling can_work.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 6098,
+          "line_end": 6151,
+          "claim": "Gathering reward settlement precedes the tick's can_work check.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/weather.js",
+          "line_start": 9,
+          "line_end": 51,
+          "claim": "Native seasonal temperature and deterministic day-count rain cycles already exist.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 308,
+          "line_end": 344,
+          "claim": "Local elapsed advances over occupied visit intervals and freezes otherwise.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 164,
+          "line_end": 169,
+          "claim": "A paid job completes by applying frozen effects; it does not generally recheck current seasonal/physical support.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Native seasonal definitions and eventual stops exist. Static flow permits an unavailable gathering start and places its periodic availability stop after possible rewards; no browser reproduction was run.",
+      "proposed_player_behavior": "A selected harvest policy declares its clock, window and check points. Commit rejects a closed window; each live extraction phase checks current required support before yield, with paid/frozen work handled by its stated policy. Renewal uses authorized local elapsed; portable viability uses its declared clock.",
+      "authoritative_owner": {
+        "state": "Existing native calendar/world clock and selected extraction continuation",
+        "writer": "Shared Engine owns check/order; Regions authors seasonal/habitat policy",
+        "design": "PROJECT.md and docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "REG01",
+        "Foundations completion-time revalidation",
+        "Timeline/clock mapping",
+        "Items viability clock"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "Fishing at the last autumn boundary either finishes a paid legal catch or stops before another catch according to the displayed policy; winter preparation has a useful alternative.",
+          "status": "O policy; native fishing/season declarations are verified"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A03",
+          "given": "The seasonal window is closed.",
+          "when": "A direct gathering command bypasses the visible button.",
+          "then": "No harvest begins or produces reward.",
+          "status": "not-run; future behavioral acceptance"
+        },
+        {
+          "id": "RG-A04",
+          "given": "A cut spans window closure and a detached destination is absent.",
+          "when": "The scheduler processes the next phase and later reentry.",
+          "then": "Only legally completed extraction remains; the chosen stop/refund policy applies once; absence freeze produces no secret regrowth.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Reuse native deterministic calendar/weather and saved clock mappings. Detailed stochastic weather is unnecessary for a first seasonal choice.",
+      "alternative": "Use one authored wet/dry window and its next boundary, without adding a climate simulator.",
+      "source_status": {
+        "native": "static ordering risk",
+        "new_mechanism": "O",
+        "uncertainty": "Exact boundary semantics, absent-time exceptions and compensation remain director/Engine choices."
+      },
+      "verification_limits": "No exploit/runtime claim, changed code or game execution; seasons do not prove habitat growth or due-phase enforcement."
+    },
+    {
+      "id": "REG03",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Separate harvestable stock from the producer and renewal regime",
+      "baseline_relation": "MC02 has a ceiling/time/input regrowth rule; producer loss, husbandry and finite-reserve discovery need concrete policies.",
+      "evidence": [
+        {
+          "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+          "line_start": 31,
+          "line_end": 47,
+          "claim": "Selective extraction, viable specimens and renewable/slow/finite/unique sites are proposed.",
+          "qualifier": "original design owner"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 62,
+          "line_end": 68,
+          "claim": "MC02 reserves harvest units and proposes qualified regrowth up to 12 after 40 local minutes.",
+          "qualifier": "original fixture, unaccepted values"
+        },
+        {
+          "path": "src/data/locations.js",
+          "line_start": 2137,
+          "line_end": 2164,
+          "claim": "Orchard work outputs apples and animal care outputs wool; these declarations do not model crop stages or individual sheep.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/data/locations.js",
+          "line_start": 2319,
+          "line_end": 2340,
+          "claim": "Willow wood/sap and underwater silver are location output tables with distinct access, intervals and skills.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Skill improves chance/count/time/quality in existing professions. Finding an ore table or repeatable wool does not establish the reserve, crop or producer's life.",
+      "proposed_player_behavior": "Declare a local renewal regime: managed service share, regenerative producer, replenished flow, finite deposit or unique claim. A method changes specific retained producer state when relevant. Farming tracks selected planting/care/maturity/harvest causes; prospecting can expose existing inaccessible ore without regenerating it.",
+      "authoritative_owner": {
+        "state": "Instance patch/reserve/producer state; promoted living actors only where needed",
+        "writer": "Regions rules and ecology planner; People owns individually represented life; Items owns seed/feed/output",
+        "design": "docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "REG01",
+        "REG02",
+        "Items living/specimen custody",
+        "Bases site rights and care support"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "Tap one authored sap stand for later repeated supply, cut it for immediate wood, or preserve a cutting for a permitted new stand; the producer's later function changes.",
+          "status": "O; no claim that existing willow table already supports these choices"
+        },
+        {
+          "world": "Original cultivation realm",
+          "case": "A tended fictional reagent bed needs compatible local support; a genuinely source-supported inexhaustible producer can use its specific exception.",
+          "status": "O example; no book canon/selected realm"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A05",
+          "given": "Two otherwise equal patches have different producer-preservation outcomes.",
+          "when": "The chosen renewal boundary arrives.",
+          "then": "The preserved producer renews under its paid/support rule; a destroyed producer does not refill merely from elapsed time. A new planting has actual input/cause.",
+          "status": "not-run; future behavioral acceptance"
+        },
+        {
+          "id": "RG-A06",
+          "given": "A finite deposit has inaccessible reserve.",
+          "when": "A successful survey opens another seam.",
+          "then": "Extractable access increases within the same reserve; already exported ore is not regenerated.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Track the few lifecycle facts that alter play; background orchards need no per-fruit actor. Existing service shares may stay renewable contracts.",
+      "alternative": "Use a stage enum and due time for a single tended patch; avoid universal breeding/genetics or growth simulation.",
+      "source_status": {
+        "native": "ordinary material/activity support only",
+        "new_mechanism": "O",
+        "uncertainty": "Renewal inputs, growth timing and ecological realism unselected."
+      },
+      "verification_limits": "No generic farming/mining/living-source engine established; superior source functions must not be limited by these original ordinary examples."
+    },
+    {
+      "id": "REG04",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Make selected habitats affect neighboring resources and routes through actual causes",
+      "baseline_relation": "Macro lists terrain/weather/population; a coupled habitat change would give regional interventions a distinct payoff.",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+          "line_start": 53,
+          "line_end": 72,
+          "claim": "Zones list seasonal modifiers, resources and populations; density and contact are distinct from threat strength.",
+          "qualifier": "prior proposal"
+        },
+        {
+          "path": "src/weather.js",
+          "line_start": 71,
+          "line_end": 97,
+          "claim": "Temperature uses the current native location and calendar modifiers, not a per-region water/soil/habitat state.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/everyday_life.js",
+          "line_start": 75,
+          "line_end": 95,
+          "claim": "Local weather/scene prose and recurring people's work are supported read models.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "line_start": 74,
+          "line_end": 75,
+          "claim": "An authored one-occurrence shower changes a workbench fact; this is a bounded causal hook, not watershed ecology.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Native weather and local authored wet-work conditions provide useful atmosphere and constraints. No inspected function joins an upstream extraction to downstream habitat supply.",
+      "proposed_player_behavior": "For a selected case, add one typed local cause edge such as disturbed bank -> observed turbidity -> changed fish access/output, or restored channel -> usable water -> tended supply. Settle transfers/losses and elapsed effects with the actual habitat owner. Disturbance can change routes, resources or contact without inventing more creatures.",
+      "authoritative_owner": {
+        "state": "Instance habitat/flow ledger linked to patch and route owners",
+        "writer": "Regions planner; Engine due-boundary integration; Bases owns built intervention",
+        "design": "docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "REG01",
+        "REG02",
+        "REG03",
+        "REG07",
+        "Bases utilities/project function"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "A fictional bank project improves dry-route access but disturbs one fishing pocket until its authored recovery; a different work method preserves that pocket.",
+          "status": "O; causal game rule, no ecological science claim"
+        },
+        {
+          "world": "Fallout Water Line",
+          "case": "An original intake survey distinguishes hazardous salvage, ordinary supply and restoring the route's water function, changing later resident access.",
+          "status": "O continuation of Macro's base-game-scoped Water Line fixture; exact radiation/device rules remain unresolved"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A07",
+          "given": "A habitat event has a single cause receipt and a bounded receiving patch.",
+          "when": "An upstream intervention occurs and the event is processed twice.",
+          "then": "Only the declared downstream support/yield/access changes once; transferred population/stock is conserved; quiet unaffected sites stay unchanged.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Choose one consequential coupling; terrain labels alone need no ecological simulation.",
+      "alternative": "An authored threshold/flow at meaningful boundaries is enough for this case; postpone a full food web, fluid physics and terrain deformation.",
+      "source_status": {
+        "baseline": "source-backed native hooks and prior planning",
+        "new_mechanism": "O",
+        "uncertainty": "Habitat equations, causal magnitudes and fan-setting source-specific effects unselected."
+      },
+      "verification_limits": "No connected habitat simulation, performance measurement or new primary-source ecological claim."
+    },
+    {
+      "id": "REG05",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Treat the return leg and cargo-dependent access as regional gameplay",
+      "baseline_relation": "Macro already preserves travel; this pass adds directed egress and changing access to the harvest decision.",
+      "evidence": [
+        {
+          "path": "src/models/location.js",
+          "line_start": 199,
+          "line_end": 202,
+          "claim": "Native safe-location links are not necessarily symmetric.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/data/locations.js",
+          "line_start": 819,
+          "line_end": 852,
+          "claim": "Carya Canyon -> Forest road is 300; Forest road -> Canyon is 120. The bridge challenge unlocks local activities.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/data/locations.js",
+          "line_start": 2330,
+          "line_end": 2340,
+          "claim": "An underwater silver activity exists; its table is not a dynamic diving/transport/return controller.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/main.js",
+          "line_start": 1213,
+          "line_end": 1216,
+          "claim": "Entering native combat locations starts combat unless the caller supplies supported skip behavior.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "docs/WANDERING_ZONES_AND_INSIGHT.md",
+          "line_start": 102,
+          "line_end": 120,
+          "claim": "Graph targets, true travel cost, occupancy and native entry policy are already specified.",
+          "qualifier": "prior proposal"
+        }
+      ],
+      "current_player_behavior": "Real native routes and asymmetric durations already shape access. A schematic mark or known route does not implement a new field session or safe return.",
+      "proposed_player_behavior": "Quote outbound work plus a real directed egress option, actual carried load/transport and selected exposure. At a legal boundary, changed route support offers wait, alternative passage, supported relocation, cache or assistance using real custody. A capable source can genuinely bypass an obstacle it supports.",
+      "authoritative_owner": {
+        "state": "Existing native location graph plus Engine route/session/cargo owners",
+        "writer": "Regions authors route conditions; Engine owns travel/body/native entry; Combat owns hostile interruption",
+        "design": "docs/WANDERING_ZONES_AND_INSIGHT.md"
+      },
+      "dependencies": [
+        "REG01",
+        "REG02",
+        "Engine route/occupancy and cargo binding",
+        "Items storage/custody",
+        "Combat/pursuit only when selected"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "A collector returning from the Canyon budgets the actual 300-minute leg, then chooses carry, paid transport or a permitted cache for bulky output.",
+          "status": "Native durations; O cargo/transport/cache rules"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A08",
+          "given": "A harvest plan uses the Canyon links and one supported carrying rule.",
+          "when": "The player completes work and returns.",
+          "then": "Outward and return durations use their own authoritative links; tools/cargo/actor reach the actual endpoint once.",
+          "status": "not-run; future behavioral acceptance"
+        },
+        {
+          "id": "RG-A09",
+          "given": "One authored water route changes while cargo is carried.",
+          "when": "The collector chooses a known alternative or supported wait.",
+          "then": "The menu explains the current reason/cost; no map click teleports cargo, guarantees escape or starts unintended native enemy waves.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Reuse the native graph and a few meaningful pockets; do not require grid pathfinding.",
+      "alternative": "A route ledger with explicit directions and sparse condition checks supplies this choice before continuous navigation.",
+      "source_status": {
+        "native": "current route declarations and entry flow",
+        "new_mechanism": "O",
+        "uncertainty": "Cargo burden, failure and temporary-cache terms unaccepted."
+      },
+      "verification_limits": "No travel/browser execution; safety, transport and free retreat are not inferred from a safe-zone label."
+    },
+    {
+      "id": "REG06",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Collectors, prey and residents must spend the same budget without duplicate claims",
+      "baseline_relation": "Aggregate promotion exists in the plan; resource contention and output timing need one arbitration case.",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+          "line_start": 70,
+          "line_end": 84,
+          "claim": "Population/cause budgets and promotion from aggregates are already proposed.",
+          "qualifier": "planning baseline"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 62,
+          "line_end": 71,
+          "claim": "A competitor reserves two units, changes node revision and cannot erase settled player cargo.",
+          "qualifier": "original accounting case"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 49,
+          "line_end": 73,
+          "claim": "Existing command previews check actor/participant occupancy, co-location, claims and site capacity.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "line_start": 50,
+          "line_end": 57,
+          "claim": "The craftsman receives actual transferred logs and spends them on an independent job.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 396,
+          "line_end": 399,
+          "claim": "Attaching an actor ID requires a real registered actor; it is not a population promotion or budget debit.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Real NPC production and occupancy are usable groundwork. Merely attaching a population label/actor ID grants no funded movement, harvesting or finite animal products.",
+      "proposed_player_behavior": "Independent collectors reserve their own time/tools/access and the same available node units. Resolve same-time contenders in one declared stable order. Separate untapped aggregate population, reserved/promoted individuals and departures/deaths. A background sheep share can stay aggregate; capture, named rivalry or personal contact promotes identity before interaction.",
+      "authoritative_owner": {
+        "state": "Resource availability with actor/job owners and conserved regional aggregates",
+        "writer": "Regions budgets/planner; People controller/life; Engine arbitration; Society rights; Combat aftermath",
+        "design": "docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "REG01",
+        "REG02",
+        "Foundations deterministic ordering",
+        "People aggregate promotion and life",
+        "Society/Bases regional rights"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "A funded collector takes the remaining flax while the player works at the bench; the player can buy that actual stock, negotiate later access or use another supply.",
+          "status": "O; no instant theft of settled cargo"
+        },
+        {
+          "world": "Original beast wilderness",
+          "case": "Collect shed material, tend a represented herd, capture a particular animal or hunt; each spends the relevant products/population once.",
+          "status": "O; no selected book species"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A10",
+          "given": "A population has six aggregate animals and two are promoted with owned means.",
+          "when": "One is captured and the other leaves or dies.",
+          "then": "Aggregate plus actual live/reserved/departed ledger conserves the six identities; product/loot sources settle only once.",
+          "status": "not-run; future behavioral acceptance"
+        },
+        {
+          "id": "RG-A11",
+          "given": "Player and funded NPC attempt the last shared harvest units at the same due boundary.",
+          "when": "Stable arbitration and a retry run.",
+          "then": "Reserved units are protected; the loser gets a real stop/requote, not hidden depletion of owned cargo; reopening does not reroll priority.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Keep background output aggregate; do not simulate a person for every anonymous worker or animal. Named actors stay durable.",
+      "alternative": "One bounded paid collector schedule plus one promotion case can qualify competition before ecosystem-wide AI.",
+      "source_status": {
+        "native": "actor/job support; finite ecology absent from inspected contracts",
+        "new_mechanism": "O",
+        "uncertainty": "Arbitration, legal rights and demographic renewal unselected."
+      },
+      "verification_limits": "Existing craftsman production is not proof of NPC harvesting or animal/ecological populations."
+    },
+    {
+      "id": "REG07",
+      "priority": "P1",
+      "kind": "risk",
+      "title": "Known places need dated observations, not perpetual access to current hidden facts",
+      "baseline_relation": "Dated signals are in the macro proposal; existing projections reveal a specific adapter risk and reusable observation support.",
+      "evidence": [
+        {
+          "path": "src/world_instances.js",
+          "line_start": 407,
+          "line_end": 427,
+          "claim": "The knowledge allowlist exposes current instance fact/site values for the admitted keys.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 119,
+          "line_end": 122,
+          "claim": "An observation stores a sampled fact and observedAt.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 168,
+          "line_end": 171,
+          "claim": "Knowledge retains stage, value, time, cause and optional basis.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/everyday_life.js",
+          "line_start": 59,
+          "line_end": 72,
+          "claim": "Route learning keeps the first origin and does not require replacing that competence.",
+          "qualifier": "static source inspection"
+        },
+        {
+          "path": "src/observation_channels.js",
+          "line_start": 311,
+          "line_end": 318,
+          "claim": "Replay returns scoped stored receipts without new sampling.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Identity disclosure, learned route origin and timestamped knowledge already have owners. Reusing the world allowlist for remote changing patch stock would expose current values after only historical observation.",
+      "proposed_player_behavior": "Show sampled habitat/stock/route evidence with endpoint, local clock, basis and estimation scope. Keep learned competence when conditions change. An old report may open a re-survey, resident report or supported sensor action; current exact stock requires current supported observation. Menu/map/readback share that evidence.",
+      "authoritative_owner": {
+        "state": "Existing actor observation/knowledge receipts, referencing actual region revisions",
+        "writer": "Engine projection/observation binding; Regions evidence payload; Experience rendering",
+        "design": "docs/WANDERING_ZONES_AND_INSIGHT.md"
+      },
+      "dependencies": [
+        "REG01",
+        "REG02",
+        "Experience known-information view",
+        "Society attributed reports"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "A riverbank chart remains useful route knowledge, but its earlier fish/stock estimate does not silently update after another collector's visit.",
+          "status": "O use of inspected observation/knowledge owners"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A12",
+          "given": "The player sampled a patch; an unseen funded NPC changes it.",
+          "when": "The map/list/menu is opened remotely.",
+          "then": "The old timestamped estimate remains; no exact hidden update or new draw occurs. A later legal survey updates evidence and changes a plan.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Reuse current observations, knowledge basis and replay semantics; no second belief/map engine.",
+      "alternative": "One last-supported observation per patch plus causal retained important discoveries suffices before a detailed survey history.",
+      "source_status": {
+        "native": "potential future projection misuse, not a demonstrated current UI defect",
+        "new_mechanism": "O",
+        "uncertainty": "Estimate bounds and automatic evidence-refresh terms unaccepted."
+      },
+      "verification_limits": "No source claim of live omniscient game UI; no new knowledge adapter or map binding executed."
+    },
+    {
+      "id": "REG08",
+      "priority": "P2",
+      "kind": "simplify",
+      "title": "Make preservation and transplant support selective regional choices",
+      "baseline_relation": "Micro's lot/preservation chain is already sufficient; broad freshness/upkeep would add cost without a chosen payoff.",
+      "evidence": [
+        {
+          "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+          "line_start": 41,
+          "line_end": 49,
+          "claim": "Suitability and preservation create particular choices; ordinary inventory should avoid constant spoilage management.",
+          "qualifier": "original design owner"
+        },
+        {
+          "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+          "line_start": 85,
+          "line_end": 95,
+          "claim": "A viable cutting, negotiated planting site and useful later supply are proposed.",
+          "qualifier": "original design owner"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 63,
+          "line_end": 71,
+          "claim": "MC02 gives packaging, preservation, condition and local-time rules.",
+          "qualifier": "original fixture"
+        },
+        {
+          "path": "src/world_instances.js",
+          "line_start": 108,
+          "line_end": 111,
+          "claim": "Detached instance clock supports freeze, not a universal aging clock for carried specimens.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "Existing ordinary output uses native inventory; inspected region owners do not provide generic freshness, plant establishment or cross-world growth.",
+      "proposed_player_behavior": "Selected delicate samples declare exposure/viability and the clock during travel/storage; pack, process on site, choose a closer service or pay a supplier. A transported living sample establishes a local producer only through compatible site/support, paid work and actual stock transfer. Environmental/resource functions may be superior without invented universal penalties.",
+      "authoritative_owner": {
+        "state": "Items lot/condition/custody; Regions recipient habitat; Bases site support",
+        "writer": "Items owns preservation effects; Regions authors establishment predicates; Engine clocks/cargo",
+        "design": "docs/GATHERING_AND_RESOURCE_USES.md"
+      },
+      "dependencies": [
+        "REG02",
+        "REG03",
+        "REG05",
+        "Items condition/provenance",
+        "Bases preservation/planting functions"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "Keep ordinary logs useful without expiry; protect one live cutting or process one delicate sap sample before the actual return leg.",
+          "status": "O selective specimen rule"
+        },
+        {
+          "world": "Original cultivation realm",
+          "case": "Study an imported specimen's supported habitat, then establish one paid local bed; carrying it does not automatically create an endlessly producing garden.",
+          "status": "O; no selected canon"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A13",
+          "given": "An ordinary log and a selected viable sample share cargo.",
+          "when": "Travel, local freeze and supported preservation run.",
+          "then": "Only the selected sample follows its declared active clock/exposure; packaging changes the stated condition once; failed planting retains its actual spent inputs/history.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Keep ordinary items stable and avoid maintenance across every visited zone. Growing an imported specimen is optional where it creates a new useful route.",
+      "alternative": "A supported/compromised state and declared viability boundary may suffice; continuous moisture/temperature simulation is optional.",
+      "source_status": {
+        "baseline": "prior design proposal",
+        "new_mechanism": "O",
+        "uncertainty": "Exact viability, cross-world support and specimen compatibility remain open."
+      },
+      "verification_limits": "No new item/biological transport or preservation implementation; no real-world botanical or medical claims."
+    },
+    {
+      "id": "REG09",
+      "priority": "P2",
+      "kind": "already-covered",
+      "title": "Retain sparse purposeful regions and bounded aggregates as the default resolution",
+      "baseline_relation": "The macro and wandering owners already reject a compulsory full map. Preserve that simplification during plan merge.",
+      "evidence": [
+        {
+          "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+          "line_start": 53,
+          "line_end": 55,
+          "claim": "Adjacency and terrain pockets precede optional coordinates/climate/demographics.",
+          "qualifier": "planning baseline"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+          "line_start": 70,
+          "line_end": 84,
+          "claim": "Separate cause/population/strength/contact, with promotion and due-region aggregation.",
+          "qualifier": "planning baseline"
+        },
+        {
+          "path": "docs/WANDERING_ZONES_AND_INSIGHT.md",
+          "line_start": 128,
+          "line_end": 164,
+          "claim": "The center menu is primary; map presentation, bounded wandering and tile simulation have distinct costs.",
+          "qualifier": "accepted interface direction plus proposals"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 317,
+          "line_end": 331,
+          "claim": "Existing scheduler computes boundaries and settles ordered due jobs; a regional ecology adapter is not yet among the listed boundaries.",
+          "qualifier": "static source inspection"
+        }
+      ],
+      "current_player_behavior": "The familiar menu, native graph and sparse supported jobs remain coherent. Decorative terrain and background prose carry no extra actor budget or dynamic ecology by themselves.",
+      "proposed_player_behavior": "An author declares represented patches/routes, actual named actors, conserved aggregates and unsimulated background. Process selected growth/migration/competition only at meaningful authorized boundaries with stable continuation. Add exact positions only for a concrete selected reach/tactic, not for every herb or resident.",
+      "authoritative_owner": {
+        "state": "One region manifest/resolution policy referencing existing owners",
+        "writer": "Regions authoring; Shared Engine scheduler; Runtime-efficiency measurement; Experience views",
+        "design": "docs/WANDERING_ZONES_AND_INSIGHT.md"
+      },
+      "dependencies": [
+        "Authoring resolution/coverage checks",
+        "REG01",
+        "REG06",
+        "Engine due-boundary/continuation binding"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "case": "A town service, managed field, wilderness pocket and finite ruin differ through rights/supply/people/return consequences while all remain playable through ordinary actions.",
+          "status": "O new region content; no grid requirement"
+        }
+      ],
+      "acceptance_cases": [
+        {
+          "id": "RG-A14",
+          "given": "One chosen region has four purposeful nodes, aggregate flow and a promoted named participant.",
+          "when": "Its optional map is hidden; a due boundary is resumed.",
+          "then": "Legal actions/costs/history remain identical; each due cause settles once; no background person or infinite source is silently converted to a finite actor model.",
+          "status": "not-run; future behavioral acceptance"
+        }
+      ],
+      "retain_simplify": "Retain genuine inexhaustibility/superiority when a selected source supports it. Background stays background; quiet intervals and reliable ordinary supply stay useful.",
+      "alternative": "A fixed authored patch and one competitor are an honest first approximation; clearly label any unimplemented dynamic habitat/population/geometry.",
+      "source_status": {
+        "baseline": "already-covered design, not new engine",
+        "new_mechanism": "O bindings only",
+        "uncertainty": "No measured runtime/token reduction; workload thresholds require later profiling."
+      },
+      "verification_limits": "Theoretical reduction in represented state is an inference; no new benchmark, build or gameplay executed."
+    }
+  ],
+  "inspection": {
+    "capture_at_utc": "2026-10-05T01:09:16.136398+00:00",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "shared_snapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+    "inputs": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "shared_snapshot_sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "shared_snapshot_sha256": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "drift": false,
+        "read_scope": "resume/status and expansion proposal; headings used for owner retrieval"
+      },
+      {
+        "path": "docs/GAME_MASTER_PROMPT.md",
+        "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "shared_snapshot_sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "drift": false,
+        "read_scope": "context-pressure-and-refresh 181-212; headings"
+      },
+      {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "shared_snapshot_sha256": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "drift": false,
+        "read_scope": "full, with targeted readback 81-128"
+      },
+      {
+        "path": "docs/gm/world-implementation/RUN.json",
+        "sha256": "c503822d403e99aaa7a2af48e0bf24b92bf7d760c587fd03012096b9f84a477f",
+        "shared_snapshot_sha256": "cd2f4309eadad53dceb9f3daa92a24c6b4500038a1b786afbc49ea96ee8aa4ff",
+        "drift": true,
+        "read_scope": "initial full read; targeted current role/approval snapshot"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/README.md",
+        "sha256": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "full"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+        "sha256": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "full; frozen baseline preserved"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/regions/ASSIGNMENT.md",
+        "sha256": "1cc35f8b35b5bb997a6c079d6d5ab68b6d6d4a85c4250293651233b0b46112d9",
+        "shared_snapshot_sha256": "1cc35f8b35b5bb997a6c079d6d5ab68b6d6d4a85c4250293651233b0b46112d9",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+        "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "shared_snapshot_sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+        "sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "shared_snapshot_sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+        "sha256": "23eac043cf267073708fb6cf0128570a50be1f34c0d2b82995cce4eee2886c3d",
+        "shared_snapshot_sha256": "23eac043cf267073708fb6cf0128570a50be1f34c0d2b82995cce4eee2886c3d",
+        "drift": false,
+        "read_scope": "full plus line readback 44-96"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md",
+        "sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+        "shared_snapshot_sha256": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787",
+        "drift": false,
+        "read_scope": "Frontier 1-37, Fallout/MoL 96-151 and targeted headings/search; no new book claims"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+        "sha256": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+        "shared_snapshot_sha256": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+        "drift": false,
+        "read_scope": "MC02 55-71 plus targeted headings/related-case search"
+      },
+      {
+        "path": "docs/GATHERING_AND_RESOURCE_USES.md",
+        "sha256": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af",
+        "shared_snapshot_sha256": "80c00373e08110f72165b2523e826336d7a85a2ff38d36187f1ca954014873af",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "docs/WANDERING_ZONES_AND_INSIGHT.md",
+        "sha256": "4b3056a67f94884edb36a907454c7523e51dde68f578e6a64d6da100e9d26a0d",
+        "shared_snapshot_sha256": "4b3056a67f94884edb36a907454c7523e51dde68f578e6a64d6da100e9d26a0d",
+        "drift": false,
+        "read_scope": "full"
+      },
+      {
+        "path": "src/data/locations.js",
+        "sha256": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+        "shared_snapshot_sha256": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+        "drift": false,
+        "read_scope": "targeted search and slices 1-34,819-854,1840-1940,2126-2262,2270-2350"
+      },
+      {
+        "path": "src/world_instances.js",
+        "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "shared_snapshot_sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+        "drift": false,
+        "read_scope": "1-193,271-345,365-429 plus targeted search"
+      },
+      {
+        "path": "src/everyday_life.js",
+        "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+        "shared_snapshot_sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+        "drift": false,
+        "read_scope": "1-96, scene 75-96 reread"
+      },
+      {
+        "path": "src/models/location.js",
+        "sha256": "218ef9408ec8bbc6b302b7c260b8b52cc06aa5acc319a550e5e63b46cf649e78",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "10-150,183-287,421-525 plus targeted search"
+      },
+      {
+        "path": "src/main.js",
+        "sha256": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "268-283,1213-1285,2190-2248,6070-6153 plus gathering/weather search"
+      },
+      {
+        "path": "src/activities.js",
+        "sha256": "b12e0afde7f9af9d8e07d4dc12bdfa03d955328847f4148a37fecdb2d26b2204",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "155-218 plus gathering family search"
+      },
+      {
+        "path": "src/world_rhythm.js",
+        "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+        "shared_snapshot_sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+        "drift": false,
+        "read_scope": "1-31"
+      },
+      {
+        "path": "src/game_time.js",
+        "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "8-88 plus targeted search"
+      },
+      {
+        "path": "src/weather.js",
+        "sha256": "dd04eef6a8d917cca9ef3f5ed0cb1aef880dbd74ac762429fabb4529f577d02b",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "1-107,194-201 plus weather search"
+      },
+      {
+        "path": "src/world_knowledge.js",
+        "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "full 1-14"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "sha256": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "shared_snapshot_sha256": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "drift": false,
+        "read_scope": "targeted harvest/weather/controller search;29-58,74-100 slices"
+      },
+      {
+        "path": "src/village_content.js",
+        "sha256": "0a8a4a250e97091ccf92bcaae138a5f071e6dba673ea462a31fe9b8e868b4e15",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "39-72 plus route/weather search"
+      },
+      {
+        "path": "src/simulation_resolution.js",
+        "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "shared_snapshot_sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "drift": false,
+        "read_scope": "targeted declaration/job/source search only"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "shared_snapshot_sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "drift": false,
+        "read_scope": "115-133,168-202 plus observation/knowledge search"
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "shared_snapshot_sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "drift": false,
+        "read_scope": "47-130,130-193,275-351 slices with targeted readback 153-191 and declaration search"
+      },
+      {
+        "path": "src/observation_channels.js",
+        "sha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "126-138,311-318 plus declaration/sample search"
+      },
+      {
+        "path": "src/pocket_observation.js",
+        "sha256": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+        "shared_snapshot_sha256": null,
+        "drift": null,
+        "read_scope": "targeted declaration/sample/receipt search only"
+      }
+    ],
+    "drift_note": "Initial read capture is preserved above. During checks, the master added the planning-only integration strategy role to plan/wave/RUN; relevant steering and new strategy rows were reread. Runtime hold and this role's exclusive scope remain unchanged. All inspected source and baseline report fingerprints were unchanged at checks.",
+    "reconciled_drift": [
+      {
+        "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "sha256": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+        "change": "Adds integration/implementation strategy steering, role and compared-route guidance; no runtime approval or regional requirement removed."
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/README.md",
+        "sha256": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+        "change": "Adds thirteenth planning strategy scope; original twelve audits and boundaries retained."
+      },
+      {
+        "path": "docs/gm/world-implementation/RUN.json",
+        "sha256": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4",
+        "change": "Live dispatch/status receipts, including strategy creation; current region role remains planning-only and approval held. This hash is a timestamped observation, not a claim that RUN stops changing."
+      }
+    ]
+  }
+}

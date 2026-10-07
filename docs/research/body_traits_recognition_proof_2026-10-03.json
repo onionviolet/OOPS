@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-03",
+  "scope": "Opt-in body traits with acquisition origins, recoverable conditions/lasting changes and witnessed NPC reactions.",
+  "build": {
+    "bundle": "dist/bundle.js?version=v0.6-a1a745899e43",
+    "css": "style.css?version=v0.6-3f59f1de4c47"
+  },
+  "tests": {
+    "command": "npm test",
+    "pass": 154,
+    "fail": 0,
+    "skipped": 0
+  },
+  "files": {
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/body_ui.js": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d",
+    "src/character_bio.js": "f6dc97c32f651734fb1984df7a93b9c44b42b1078380b7df51a1b670c8dd959a",
+    "src/character_bio_ui.js": "0c6fb45a782c1699f59e1fb7ca4c26b99c40edaf8de51f302a535f4a00dacb28",
+    "src/expansion_engine.js": "3fc85b2b973b9c377d9d3c32bc1580cc0322b721cec0af3a8d6a4b501e4e92d1",
+    "src/expedition_content.js": "94cffa797282d9afaa23a05d44e25975dc81a2d0b15b66551b9ba4ed1407b671",
+    "src/town_content.js": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+    "src/town_ui.js": "35a343603294c150a11cd378d3e2b8e321a26875a361ab2560890a1f61091b90",
+    "src/capabilities.js": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+    "src/simulation_contracts.js": "91240bce07ab7f037145064dccd145114f911c794129aa3820e10ce58a9c48c0",
+    "src/simulation_effects.js": "de319a24c3f3ed4e4b6fa3b4f87776ef30bd14b81b8b6490390a6e6a24396ea6",
+    "src/simulation_content.js": "ad7b86b7f8aae4e87c535f8049712558a5851e6b71149d9c5ce38911e2308365",
+    "src/simulation_ui.js": "11421d07d0d427d319851e50897af87c525885afd27812b4052d6336eca746d0",
+    "src/people_knowledge.js": "424555a6a7e6e8405b6fd36594a4097c10e80132ce146d3b76638edc344e3452",
+    "src/adventure_notebook.js": "eadfe77fefff62f175380518cb6572c5544339da8f56511d02700f7ebfa20d05",
+    "src/main.js": "673d1836f5641d9e009c25c1b965f3671350f9c72581dacfab668e4530a1cdde",
+    "tests/body_progression.test.js": "314a8e7bb7ed41195df14c739a163106310082d3a90ff930c72106e955cfaa4d",
+    "tests/character_bio.test.js": "6a5d5dd3d6595e636c57f5afe2d08d53afc5859ceeb928ff98d2e64e7b885127",
+    "scripts/body_browser.cjs": "6fd66f3aa1ba8ec9f88cb5b37ec224b96f390936b8cd2742ea10667bff9556d1",
+    "style.css": "3f59f1de4c473d0a3b78d44e2ecb416fd6369cde8f1d3dc3f0bf4ecb964121f1",
+    "index.html": "da22bc443db9f12343ede95a28631467562fc417ac506ccdc43d4e9029f6c583",
+    "dist/bundle.js": "a1a745899e43a6a70acdadac938216eed2406dbb93db29a219a4909b88bba9bb",
+    "dist/bundle.js.map": "ae3882b9762569ff518601275feebe0254f032ac8e5ca81fc8016f580384320e"
+  },
+  "browser": {
+    "body": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Existing native craft greeting remains the access gate. One atomic opt-in enrolls body/local services without age or rewards. Latent inherited balance stays absent from Bio until a saved/reloaded discovery; NPC knowledge begins only after demonstrated footing and omits its origin.",
+        "Timed drills spend native stamina and grant native Climbing XP only on completion. Cancellation forfeits stamina without XP/practice. Soreness blocks another drill; saved recovery removes the condition while retaining both drills, trained grip and callused palms.",
+        "Rough-kit supplies reserve/refund and pay once. Recovery clears the scrape while preserving an acquired scar. Four specific demonstrations create four directed memories/familiarity with no repeat button, private origin or original quest rewrite. Native encoded import/reload keeps money, kit, training, traits and marks without duplicate rewards.",
+        "Injected storage failure leaves exact original bytes, no partial local-service enrollment, trait or resource publication. Reload restores the original optional body choice."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "bio": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Native demographic fields remain intact. Existing Running/Climbing/Perception effects and an already earned discovery appear in Bio. Skill links focus the native bar and keep focus through ticks. Journal placement, user-selected Quests, and reload retain XP, biography, money, possessions and the same actor without new bonuses.",
+        "A generated observed technique remains observation, rather than ownership or execution. Bio opens its actual Notebook Practice view without adding progress."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "notebook": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Notebook has its own native Journal tab and no DOM under the location menu. Fresh opening hides the new tab; local clues remain vague. Keyboard focus/user selection survive ticks; saved practice opens its Journal view and cancels there.",
+        "An old generated town save derives one contract in native Quests, retaining money/inventory/native quest state through reload. Local notes do not reveal the answer or later ledger. The separate list avoids the native quest sorter; no quest is copied into Notebook.",
+        "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "town": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Fresh original character creation and elder greeting remain playable; the town chapter is absent in Village, with no native town access, age or living-world enrollment.",
+        "Optional permit atomically opens the native Town square; ordinary native travel, saved survey, unique payment and return knowledge complete with unchanged original quests/dialogue. Native encoded export/import and reload retain town access, kit, money and one completion.",
+        "Injected browser storage failure publishes no permit/access or costs and retains exact stored bytes; reload restores the unjoined native adventure.",
+        "The timber alternative reserves actual gathered logs, refunds cancellation, resumes through reload and consumes its materials once."
+      ],
+      "errors": [],
+      "warnings": [],
+      "failedRequests": [
+        {
+          "url": "https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "generatedSavesOnly": true
+    },
+    "village": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Native-menu discovery, pending reload, real objects, partial native reading reload and one completion pass without chronicle enrollment.",
+        "A real preparation contribution, one saved claim per day, native encoded file import/export and completed-book reload pass without duplicate rewards.",
+        "Generated story-access/material fixture: native craftsman greeting, real token handover, reputation, faster packing, actual Shack travel, material refund, mid-build/packing reload, real kit consumption and changing home-board text pass.",
+        "The understood booklet opens a separate guaranteed-ready route, retaining the token and using no kit while leaving the crossing unrepaired.",
+        "Generated later-day and closed-window calendars reopen only the current gathering, with no payouts for skipped days.",
+        "Injected storage failure publishes no claim, reward or advanced joined calendar; reload restores the available gathering."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "simulation": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "chronicle": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+        "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+        "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+        "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+        "Attended briefing contributes usable preparation through the existing capability/read model.",
+        "Stronger generated native XP build wins against the same fixed elder.",
+        "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+        "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+        "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "people": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "A fresh opening has no record or Notebook. The actual greeting introduces only the elder. Records are readable during dialogue while actions/empty tabs stay hidden; expansion and focus survive ticks.",
+        "Native travel retains the selected People view and learned record away from Village. Reload retains its native greeting marker without granting rewards, moving NPCs or enrolling life/work. Travel access is generated for this bounded proof.",
+        "Generated native craftsman access reveals only his name/place. Enrollment adds no preferences. Actual questions and a real paid/material commission add their own evidence, survive reload, and leave the hidden relationship axis intact.",
+        "The optional permit does not introduce the clerk. The actual office briefing does, revealing the agreed work without settlement or later-ledger spoilers."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "everyday": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-a1a745899e43",
+      "findings": [
+        "Native discovery/inspection, actual craftsman greeting, paid teaching with pending reload, no invented Literacy/book completion, later real reading and native file roundtrip retain the first source.",
+        "Generated trained Perception and missing-book fixture uses field deduction and the real dry-bank survey without new book progress or Literacy.",
+        "Known working preferences, actual commission/interruption, saved moods, teacher refusal, real player-to-NPC apology material, retained memory and resumed teaching pass.",
+        "A saved three-minute quiet alternative resolves the same mood without payment or deleting the earlier interruption memory.",
+        "Native travel and a quiet home break settle the player independently of the NPC mood/memory, with contextual Shack writing.",
+        "A missed morning meeting has a real two-minute/one-coin finite fallback; pending reload preserves cost and gives the same temporary preparation.",
+        "Failed durable teaching publishes no tuition, job or learned route; reload restores the unlearned state."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "visibleReview": {
+    "url": "http://127.0.0.1:18546/game/index.html",
+    "screenshot": "/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/body-traits-review/body-traits.jpg",
+    "generatedSave": true,
+    "screenshotAcquired": "/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/body-traits-review/body-acquired-traits.jpg"
+  },
+  "limits": [
+    "Generated saves only; personal saves and previous preview origins remain untouched.",
+    "The browser body proof uses generated prior native story access, supplies and skill XP, with actual native greeting/actions thereafter. It does not prove the entire natural rat-field progression.",
+    "Natural balance, conditioned hands and rough-work marks are original review examples; no race/bloodline roster or compulsory aging/maintenance is selected.",
+    "NPC recognition requires explicit demonstrated evidence in this slice; automatic population-wide perception remains authored work.",
+    "No inherited lineage history is invented; legacy acquisition origins remain unknown. New definitions require the updated fork.",
+    "Human content/pacing/Bio scrolling acceptance and broader physique/lineage/medical progression remain pending."
+  ]
+}

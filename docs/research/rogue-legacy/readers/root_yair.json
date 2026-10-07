@@ -1,0 +1,405 @@
+{
+  "observations": [
+    {
+      "id": "YAIR.body-functional",
+      "observation": "Body records already distinguish inherited Natural balance, trained Conditioned grip and acquired Palm mark. Awakening/activation is paid elapsed-time work, grip practice has stamina/soreness cost, and ordinary recovery preserves permanent marks/learned grip. Active balance contributes route preparation; grip changes actual packing duration and tender hands add work time. No general trait framework is missing.",
+      "evidence": [
+        {
+          "file": "src/body_progression.js",
+          "start": 15,
+          "end": 69,
+          "symbol": "bodySources/bodyCommands/bodyFacts",
+          "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+        },
+        {
+          "file": "src/expedition_content.js",
+          "start": 79,
+          "end": 130,
+          "symbol": "field_pack / expedition route modifiers",
+          "sha256": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.body-combat-consumer",
+      "observation": "Existing sluice material/frame responses already require recovered hands and Strength8. The inspected action list has no specific sure-footing response consuming awakened Natural balance and Conditioned grip together. That is a narrow authored consumer candidate, not a claim that traits lack functional effects.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 247,
+          "end": 263,
+          "symbol": "previewFeatureBattleAction body gates",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "start": 413,
+          "end": 432,
+          "symbol": "featureBattleView",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.existing-retention",
+      "observation": "Field renewal already previews losses, returns only Load-bearing Step mastery to1, reopens its practice, zeroes focus/drive reserve and strain, and retains native inventory/equipment/XP/people/workshop. Campaign transition planners require safe boundaries and support explicit reset domains; they do not establish a complete selectable heir/death lifecycle. Chronicle old age explicitly ends the chosen life once.",
+      "evidence": [
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 62,
+          "end": 66,
+          "symbol": "campaignDefinitions.transitions",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 95,
+          "end": 108,
+          "symbol": "previewFieldRenewal / commitFieldRenewal",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "file": "src/simulation.js",
+          "start": 452,
+          "end": 509,
+          "symbol": "campaign transition / origin planners",
+          "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e"
+        },
+        {
+          "file": "src/chronicle.js",
+          "start": 64,
+          "end": 108,
+          "symbol": "createChronicle / advanceChronicle",
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.helper-offers",
+      "observation": "Helper commission already pays three coins and transfers one log, spawns a durable simulation actor, uses a funded local controller and returns one actual kit for collection. prepareSimulationEffects freezes the spawn template and derived unique identity in the command job. The inspected hire command chooses one template; it does not present a saved set of three distinct candidate builds before contracting.",
+      "evidence": [
+        {
+          "file": "src/helper_content.js",
+          "start": 9,
+          "end": 44,
+          "symbol": "helperDefinitions",
+          "sha256": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d"
+        },
+        {
+          "file": "src/simulation_resolution.js",
+          "start": 11,
+          "end": 33,
+          "symbol": "prepareSimulationEffects",
+          "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+        },
+        {
+          "file": "src/simulation.js",
+          "start": 111,
+          "end": 159,
+          "symbol": "startCommand",
+          "sha256": "e2b44034fbbcedf7bd085d7b4cdd2358e7f99efebbfa81213979c8805cc1907e"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "start": 114,
+          "end": 123,
+          "symbol": "applySimulationEffects spawn branch",
+          "sha256": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.durable-publisher",
+      "observation": "persistExpansionPlan writes staged expansion/native money, gameplay/ownership/equipment/unlocks and optional native projection into the existing copied envelope before storage.setItem. prepareGameplayPublication stages item reconstruction and XP, refusing negative XP without a reset adapter. A new proposal must use this publisher and its matching live host, not Rogue Legacy separate-file/catch-only persistence. Source reading alone does not verify failure atomicity in play.",
+      "evidence": [
+        {
+          "file": "src/expansion_persistence.js",
+          "start": 7,
+          "end": 50,
+          "symbol": "persistExpansionPlan",
+          "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+        },
+        {
+          "file": "src/gameplay_publication.js",
+          "start": 15,
+          "end": 62,
+          "symbol": "prepareGameplayPublication",
+          "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+        },
+        {
+          "file": "src/native_equipment_transaction.js",
+          "start": 6,
+          "end": 27,
+          "symbol": "prepareNativeEquipment",
+          "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02"
+        }
+      ]
+    },
+    {
+      "id": "YAIR.projects",
+      "observation": "Site project compiler checks phase dependencies/cycles and compiles paid participant jobs into retained world phase facts. Current dry rack and fitting shelf already provide permanent useful upgrade consumers. Another generic manor/upgrade ledger is unnecessary without a new concrete consumer.",
+      "evidence": [
+        {
+          "file": "src/site_projects.js",
+          "start": 4,
+          "end": 31,
+          "symbol": "compileSiteProject / projectView",
+          "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "start": 47,
+          "end": 60,
+          "symbol": "field rope/rack/supply commands",
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        }
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "file": "src/body_progression.js",
+      "ranges_read": [
+        [
+          1,
+          85
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/expedition_content.js",
+      "ranges_read": [
+        [
+          50,
+          61
+        ],
+        [
+          79,
+          130
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/frontier_campaign.js",
+      "ranges_read": [
+        [
+          36,
+          108
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/power_models.js",
+      "ranges_read": [
+        [
+          1,
+          55
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/site_projects.js",
+      "ranges_read": [
+        [
+          1,
+          32
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/helper_content.js",
+      "ranges_read": [
+        [
+          1,
+          45
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/simulation.js",
+      "ranges_read": [
+        [
+          109,
+          162
+        ],
+        [
+          452,
+          511
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "ranges_read": [
+        [
+          106,
+          130
+        ],
+        [
+          225,
+          247
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/simulation_resolution.js",
+      "ranges_read": [
+        [
+          1,
+          41
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/chronicle.js",
+      "ranges_read": [
+        [
+          64,
+          108
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/expansion_persistence.js",
+      "ranges_read": [
+        [
+          1,
+          51
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "ranges_read": [
+        [
+          1,
+          62
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/native_equipment_transaction.js",
+      "ranges_read": [
+        [
+          1,
+          29
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/feature_expansion_battle.js",
+      "ranges_read": [
+        [
+          134,
+          173
+        ],
+        [
+          247,
+          263
+        ],
+        [
+          273,
+          287
+        ],
+        [
+          328,
+          355
+        ],
+        [
+          395,
+          432
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/feature_expansion_battle_host.js",
+      "ranges_read": [
+        [
+          14,
+          29
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/feature_expansion_objects.js",
+      "ranges_read": [
+        [
+          141,
+          145
+        ],
+        [
+          160,
+          180
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/feature_expansion_objects_host.js",
+      "ranges_read": [
+        [
+          41,
+          50
+        ],
+        [
+          88,
+          107
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "ranges_read": [
+        [
+          16,
+          38
+        ],
+        [
+          76,
+          131
+        ],
+        [
+          141,
+          158
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    },
+    {
+      "file": "src/native_battle.js",
+      "ranges_read": [
+        [
+          16,
+          20
+        ],
+        [
+          38,
+          68
+        ]
+      ],
+      "purpose": "Root YAIR semantic mapping"
+    }
+  ],
+  "limits": [
+    "Moving dirty source snapshot; recheck before integration",
+    "No runtime/build/save/gameplay tests",
+    "Scope-specific missing consumers, not repository-wide absence proof"
+  ],
+  "refresh": "Parent semantically refreshed cited simulation/effect spans after NetHack fact/group integration added one line; same paid spawn/frozen jobs/transition meaning retained."
+}

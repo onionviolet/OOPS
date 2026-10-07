@@ -1,0 +1,22 @@
+{
+  "steam_app_id": 466170,
+  "steam_build_id": "25514347",
+  "managed_directory": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed",
+  "main_assemblies": [
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+      "bytes": 13332992,
+      "sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Idling to Rule the Gods/itrtg.app/Contents/Resources/Data/Managed/Assembly-CSharp-firstpass.dll",
+      "bytes": 4096,
+      "sha256": "c11127a51460b0dd7aecff5e9377c85b3246cdc28e80d7dc683aa1103ee840fd"
+    }
+  ],
+  "assembly_count": 149,
+  "project_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "assignment_path_available": true,
+  "authorized_on": "2026-10-06",
+  "qualification": "Installed main assembly fingerprinted; no decompilation or semantic source coverage claimed by the dispatcher."
+}

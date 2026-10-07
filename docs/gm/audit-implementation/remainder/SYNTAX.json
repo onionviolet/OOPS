@@ -1,0 +1,389 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T20:21:23.869303+00:00",
+  "scope": "Current changed JavaScript vs matched first-wave plus all new remainder/artifact/Causal sources",
+  "checks": [
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_content.js",
+      "sha256": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_facts.js",
+      "sha256": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_hooks.js",
+      "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_host.js",
+      "sha256": "0883c135c06c956afcbc924ea470fad7eede0fdd993a82f763d47543db8c2f87",
+      "syntax": "pass",
+      "error": "",
+      "recheckedAtUtc": "2026-10-06T20:33:25.755012+00:00"
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_battle.js",
+      "sha256": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_content.js",
+      "sha256": "579fc855d3eeac9c72b33d48738cfbe660bebaf51b7cba7180e4d9de0ccc3685",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_host.js",
+      "sha256": "451a013cf242f52192a7ac82a79b1dfdd8c253e1033bc2fbfed10c2378147f02",
+      "syntax": "pass",
+      "error": "",
+      "recheckedAtUtc": "2026-10-06T20:33:25.755012+00:00"
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_state.js",
+      "sha256": "d3ec46789b721f7d8487d3c3744ec17bf97f662d202e3d4ebf07de81439b62c7",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_content.js",
+      "sha256": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_facts.js",
+      "sha256": "63722f676dea471cfe8a99217a9d472e7ea5d235c0b0a56ac672c0be565c41fe",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_host.js",
+      "sha256": "77e20f77de30d7653e18bc2125a0446d7fd08983b974d56a0717faeb5698d45d",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_content.js",
+      "sha256": "3408be95a8c49d645536a809a67faa3feefa0971d263b9930393881f9d500980",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_facts.js",
+      "sha256": "b7e95d666c9596af24073fd6eb2ef870c67508bb84afce5c7fcdadb0ee614c85",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "sha256": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_host.js",
+      "sha256": "ebbadd989a91113c8b413b6f2e55c768259481a4b82ef8094b9ba5a89179617b",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_host.js",
+      "sha256": "785b6a7f50f5ce5a293e1b37de28690dc6dff3d68c637a2c639a5706ec6c0063",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_content.js",
+      "sha256": "0513318f63a127ae71be958afbd861746e41ce1ef2474e8ae634a31c4aca118e",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_host.js",
+      "sha256": "263942b055657ec2ff70abd4032f1736fdb9a1428c2821e8b8f7609c0ce255fc",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_state.js",
+      "sha256": "a025f987b5b50cd09c11c0ca7e30839fd55bb6528e8745b5d38041ca934d3186",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_runtime.js",
+      "sha256": "ad875c2fc89af1703b53e34f7897680d1878ebb0161375e395ba112e4c3c7154",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "sha256": "8df750a318f6e720c3be0daef1602846c2c18684a77a40246d34d8873b51872e",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audited_workshop_fixture.js",
+      "sha256": "091972f4a508bb0a9d6b9eeca7b5f35c211badf01ab4c3f501940d8345ddd2c3",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/audited_workshop_lesson.js",
+      "sha256": "cc1e202053c83eb358d637b3f2caaee96a3421c552c625e2b003bb2e1f8e9696",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/backlog_expansion_host.js",
+      "sha256": "fdea94ae9d03a8dd73839c9fa14f6d2e0cfb815188dee58a72e2a3df3152d556",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/book_world_paradise_actions.js",
+      "sha256": "5e12ed459f22f9f54d38b07d9e6f1d7aa805114f531f8307b1c7fa7ac99b95de",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "sha256": "134b6a3fbbb04c2c30830d0146541f664ef422aaabfff86b15c762c8489dd526",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "sha256": "41fd21f99ca2431abb79b948316f54fcc4c013fca1c96353b1d95e70b1397698",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/book_world_player_agency_contracts.js",
+      "sha256": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "f6ad90f0efd6495928d9a68cee701222f36ac58c67fe8002b531061f1f239f90",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "c2c0dff9c92302a3c0388ec9287d5bf4291b9b952d57d0cb63621568d21f3ac1",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_content.js",
+      "sha256": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "sha256": "ad4fa37289d6a8008edecd8209d3c6774db9fb4e9b41f18a4bed13a3a3237771",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "774d70dba90d199355c5f151fe56fa9ab569b28271850cb90e48902d5eebeca8",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_powers_host.js",
+      "sha256": "8f58b5480035905f8c722ff0348f10ef4091e4852666f94cace78a9f30123e24",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/nethack_fieldcraft_facts.js",
+      "sha256": "068ec400b967873a795d789122da2454d6c28086c54527ef66448e49476505fc",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "sha256": "77b3e5265b19c0f7085f5ac068de789cf293039e585d7a37438548c24945325a",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "sha256": "bc6048763447d2fd38916a71576c978557c3c2eb1e35da76703c96d195c218e1",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "syntax": "pass",
+      "error": ""
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+      "syntax": "pass",
+      "error": ""
+    }
+  ],
+  "behavior": "deferred/unrun",
+  "finalCopyAmendment": "docs/gm/audit-implementation/remainder/UI_COPY_CHECK.json"
+}

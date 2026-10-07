@@ -1,0 +1,1578 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-10-07T03:48:54.225257+00:00",
+  "role": "Factorio source GM /root/factorio_gm",
+  "integrator": "/root",
+  "assignment": "Bounded local readiness plus primary official prototype/API/expansion research and original YAIR proposals.",
+  "status": "complete finite installed-source/API research and official experimental comparison",
+  "writer_scope": [
+    "docs/research/factorio/",
+    "/Users/weiwei/.codex/research/factorio/"
+  ],
+  "local_source": {
+    "ready": true,
+    "version": "2.0.77",
+    "buildid": "23347942",
+    "source_receipt": "INSTALLED_INTAKE.json",
+    "review_receipt": "INSTALLED_REVIEW.json",
+    "native_binary_metadata": {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio",
+      "bytes": 207914304,
+      "sha256": "90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820",
+      "file": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit executable x86_64] [arm64]\n/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio (for architecture x86_64):\tMach-O 64-bit executable x86_64\n/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio (for architecture arm64):\tMach-O 64-bit executable arm64"
+    },
+    "preserved_text_files": 1877,
+    "preserved_text_bytes": 8099483,
+    "modules": [
+      "core",
+      "base",
+      "space-age",
+      "quality",
+      "elevated-rails"
+    ],
+    "separate_recycler_module": false,
+    "stability_gate": "StateFlags4/nonzero build/complete download and staging/no stage dir; manifest and copied text stats unchanged before/after intake.",
+    "blocker": null,
+    "personal_saves_profiles_entitlements_read": false,
+    "readiness_history": [
+      {
+        "observed_at_utc": "2026-10-07T03:42:11.987700+00:00",
+        "libraries": [
+          {
+            "library": "/Users/weiwei/Library/Application Support/Steam",
+            "manifest_exists": false,
+            "staging_exists": false,
+            "common_factorio": []
+          }
+        ],
+        "downloads_factorio_candidates": [],
+        "ready": false,
+        "reason": "No Factorio appmanifest/common payload/staging directory or supplied Downloads candidate found."
+      }
+    ]
+  },
+  "official_public_source": {
+    "pin": {
+      "version": "2.1.21",
+      "channel": "latest-experimental-at-observation",
+      "commit": "374934f81f82b09ec9fc459f92a316bd642ddd82",
+      "repo": "https://github.com/wube/factorio-data"
+    },
+    "inventory_files": 327,
+    "selected_source_file_count": 51,
+    "selected_source_bytes": 1535966,
+    "tree_sha256": "873bf46ec2022dd7ac0d487e1ecd95a36ac20a9951f8690a9e0c5c1b8d9ea39e",
+    "selected_files": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/README.md",
+        "bytes": 1197,
+        "sha256": "3ec290962b5a59fdb5eb312031cade1f3810c35b059a9a78ddc17f05b8d2b353",
+        "git_blob_sha": "b2672e123417f717320d0f97db615805c3cfe51f",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/README.md",
+        "lines": 23,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/info.json",
+        "bytes": 193,
+        "sha256": "c1b8f8b74948524801b64109b4a8a4a2701cb2a6a868a3674ee20b2c27e0684c",
+        "git_blob_sha": "3d36a1c7b4016ed1ef76a6583ad880a34a5c12d2",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/info.json",
+        "lines": 9,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "core/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/core/info.json",
+        "bytes": 181,
+        "sha256": "aa1f8a1c6282b1deeb1a0982ac9eeff227a19f9b40d096bd05f797b711fe08e0",
+        "git_blob_sha": "537f40e450e67f78a222e4f0424b7fbfbc9c163b",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/core/info.json",
+        "lines": 9,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "quality/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/info.json",
+        "bytes": 318,
+        "sha256": "401fd5f624d09eff68e8a3ea141b201cf16d574761e3882a553e16d43026f4b2",
+        "git_blob_sha": "8927a3d42919dc2c191c8e7e4ab6de1329e98fd3",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/info.json",
+        "lines": 12,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "recycler/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/info.json",
+        "bytes": 271,
+        "sha256": "ab94595c08764e419caf49a0856f371111671d0695f77baccb5868dea45a5800",
+        "git_blob_sha": "7142dd9563911c6671aaa1c8ffb82593faa10aab",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/recycler/info.json",
+        "lines": 11,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/info.json",
+        "bytes": 508,
+        "sha256": "d0f338f39a22e1bc574be08c07a3466ea6b5af906d79cffdfe1fdb2ebf30b5d5",
+        "git_blob_sha": "b59131b7c0d3d2d5539f6ec75d3fec1679cef147",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/info.json",
+        "lines": 16,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "elevated-rails/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/info.json",
+        "bytes": 316,
+        "sha256": "ade1cdb0e617343cb9dd8c373262326d5cae1b0e820bbfc00466b850a2989541",
+        "git_blob_sha": "eae4287bd8dce6efea4e0b74221f01e561f9087e",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/info.json",
+        "lines": 12,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "metadata-reviewed",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/data.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/data.lua",
+        "bytes": 5097,
+        "sha256": "db581282eac517197fd82bbc29ed3cc2556f064808d0f9386f342d9b8213dbe4",
+        "git_blob_sha": "7c3e782fd0944f1d3d6ada3c4b6d14d2178fc7cb",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/data.lua",
+        "lines": 105,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/data-updates.lua",
+        "bytes": 10362,
+        "sha256": "52991b03c5ea4c43351376888070a517f8603046b226b76c633021d95e48d18d",
+        "git_blob_sha": "0b2e41ca50e9d5ee4834615cdc9686eb973484f9",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/data-updates.lua",
+        "lines": 317,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/recipe.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/recipe.lua",
+        "bytes": 79432,
+        "sha256": "8ac181d33e985664d766f741e3501a695fd27f21575b08f1c8fd49d2cac72f62",
+        "git_blob_sha": "60d677f82f2ebf0e133b2b8e73e93d9a37400774",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/recipe.lua",
+        "lines": 2655,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-02",
+            "symbol": "iron-gear-wheel",
+            "lines": [
+              763,
+              768
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-02",
+            "symbol": "automation-science-pack",
+            "lines": [
+              1000,
+              1016
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-02",
+            "symbol": "iron-plate",
+            "lines": [
+              1450,
+              1458
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/technology.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/technology.lua",
+        "bytes": 123144,
+        "sha256": "0fe834c532069856f9ed227dc1cb952ac3227592fd5c98a78210daa0e5137d2c",
+        "git_blob_sha": "f7791e8043912f2ba6b0ac2e61936ee641383cef",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/technology.lua",
+        "lines": 5468,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-02",
+            "symbol": "automation-science-pack / electric-mining-drill",
+            "lines": [
+              87,
+              125
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-02",
+            "symbol": "automation",
+            "lines": [
+              1912,
+              1935
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/item.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/item.lua",
+        "bytes": 151999,
+        "sha256": "f15e0dbbf839cb8dae9812defeaac97ab81ec5433f663841e2833f82bac542a6",
+        "git_blob_sha": "e432eacfa0015cc6d21478eb68aa5f2cbd929437",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/item.lua",
+        "lines": 4774,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/entity/entities.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/entities.lua",
+        "bytes": 321241,
+        "sha256": "87a2906faeb16028eec4a05a38d76152eff9f992aa936e21d4794f756910c407",
+        "git_blob_sha": "92d65e8a44f72b7fcf5d4ee45c60b62714eca49c",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/entities.lua",
+        "lines": 10755,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-02",
+            "symbol": "lab",
+            "lines": [
+              3983,
+              4000
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-03",
+            "symbol": "assembling-machine-2",
+            "lines": [
+              3340,
+              3349
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-04",
+            "symbol": "boiler",
+            "lines": [
+              1257,
+              1288
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-04",
+            "symbol": "steam-engine",
+            "lines": [
+              1779,
+              1812
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-04",
+            "symbol": "accumulator",
+            "lines": [
+              5388,
+              5394
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-04",
+            "symbol": "nuclear-reactor",
+            "lines": [
+              8972,
+              8995
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/entity/mining-drill.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/mining-drill.lua",
+        "bytes": 61530,
+        "sha256": "2a483516ced8b628aa242dc198ae92724fd59fcb99c6c2b7bca56b8ec10382c3",
+        "git_blob_sha": "78db5f50f349880fd3cf248e27bdda49344e42b7",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/mining-drill.lua",
+        "lines": 1937,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-03",
+            "symbol": "electric-mining-drill gameplay fields",
+            "lines": [
+              1749,
+              1757
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-04",
+            "symbol": "electric-mining-drill",
+            "lines": [
+              1749,
+              1757
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/entity/resources.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/resources.lua",
+        "bytes": 11105,
+        "sha256": "f92102c6fb094d874b6f5e331ef10238943b552264fd0400cf66c663c34b041e",
+        "git_blob_sha": "20c6a67ca8f3a6b4ed843e3f69a15b76efdcf3af",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/resources.lua",
+        "lines": 337,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/entity/transport-belts.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/transport-belts.lua",
+        "bytes": 39651,
+        "sha256": "46cec8476aa185d82f4a40de4e8ff5852538447a4f4b8115ba6e97533b51bf6f",
+        "git_blob_sha": "3d48baf95fd1acdabffaaf223ffb680af3cca1ae",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/transport-belts.lua",
+        "lines": 1377,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-03",
+            "symbol": "transport-belt",
+            "lines": [
+              149,
+              183
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-03",
+            "symbol": "underground-belt",
+            "lines": [
+              258,
+              306
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/entity/trains.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/trains.lua",
+        "bytes": 52122,
+        "sha256": "da0bca648634928fc57c9a7b1d9bc7035caa6382594e70cd3cf0e37c7f9fad7a",
+        "git_blob_sha": "8ca4c05de9d5cf66c5f09a9fb23e14fca951f795",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/trains.lua",
+        "lines": 1708,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/entity/flying-robots.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/flying-robots.lua",
+        "bytes": 27487,
+        "sha256": "45ae0c34bb9075891f6b8d6232cfbbdd0424bd30b933863176104ab50c2fff1a",
+        "git_blob_sha": "7bb55967ba26dd7b0183c48f379ed2b595aa55ae",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/flying-robots.lua",
+        "lines": 1052,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/entity/enemies.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/entity/enemies.lua",
+        "bytes": 38175,
+        "sha256": "1830ca96de1f9862485d7ad34c44e63eda8339a5cc28427715c0c597588a0e7d",
+        "git_blob_sha": "a39673a4ddd573f1d3b13a04558d00813be89eba",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/entity/enemies.lua",
+        "lines": 1167,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-04",
+            "symbol": "pollution attack/absorption fields",
+            "lines": [
+              103,
+              174
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "base/prototypes/pollution.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/pollution.lua",
+        "bytes": 405,
+        "sha256": "68d62206682171b0c7f4926918148090fa274ce8ca28634ababa5edcd1a11dee",
+        "git_blob_sha": "083dca7c16dc95a58d5a6fb9b79c4c21a6e26fd4",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/pollution.lua",
+        "lines": 19,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/planet/planet.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/planet/planet.lua",
+        "bytes": 2875,
+        "sha256": "1d5c258ffbc92848ed7ec4a9ac5def0cb3dae49c946dbb627b0512f5228b50e1",
+        "git_blob_sha": "6e04166edfe5366f329942ac86ae1dc4a16be090",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/planet/planet.lua",
+        "lines": 85,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "base/prototypes/planet/surface-property.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/base/prototypes/planet/surface-property.lua",
+        "bytes": 578,
+        "sha256": "16f23ea8df87d12727332f54341fc01afed02e13fe4b14d8592cf33d1b22d87f",
+        "git_blob_sha": "56ddd6c292216c48bdb53c778be1fcd1d8e33d97",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/prototypes/planet/surface-property.lua",
+        "lines": 33,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "core/prototypes/utility-constants.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/core/prototypes/utility-constants.lua",
+        "bytes": 24724,
+        "sha256": "fef316a4ed94320b5f2177196bb0656610e2f5664811c21741dc89cc913d9e99",
+        "git_blob_sha": "052b88a6a4e440106646a1d5f0429878c9448c66",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/core/prototypes/utility-constants.lua",
+        "lines": 621,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-12",
+            "symbol": "platform acceleration / rocket lift weight",
+            "lines": [
+              521,
+              531
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "quality/data.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/data.lua",
+        "bytes": 304,
+        "sha256": "87fc60b4d14ffd33087df86ea79a33bd8f1fd4306230886923f375766a0d0b68",
+        "git_blob_sha": "2e18e9741144be9cffe8d1aab3b3c45ec9be5a1c",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/data.lua",
+        "lines": 10,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "quality/prototypes/quality.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/quality.lua",
+        "bytes": 2264,
+        "sha256": "e44d96174de0fd296b367697d6ff5997fca7bc363dc7c0668a1a10da29bf03e7",
+        "git_blob_sha": "c254bae859acbdc7b7a5145b0d84aeee787a8ebb",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/prototypes/quality.lua",
+        "lines": 73,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-06",
+            "symbol": "quality chain and per-function multipliers",
+            "lines": [
+              1,
+              73
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "quality/prototypes/item.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/item.lua",
+        "bytes": 1855,
+        "sha256": "665020622092107589de3199afe647a038df0e4969424015abea668bb5eedb4b",
+        "git_blob_sha": "ce0dbd7cc05e36a911e983c6a4a0270a82f5509a",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/prototypes/item.lua",
+        "lines": 56,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-06",
+            "symbol": "quality modules",
+            "lines": [
+              1,
+              56
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "quality/prototypes/recipe.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/recipe.lua",
+        "bytes": 1119,
+        "sha256": "b2dccb3974f6fc1b883c31d5ab1a26159500f31eaf03a417e1e35f3a3a9f7c53",
+        "git_blob_sha": "6ca48d9da7ef1c87e3e3505bc0a98b23627a5fe0",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/prototypes/recipe.lua",
+        "lines": 41,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "quality/prototypes/technology.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/technology.lua",
+        "bytes": 3174,
+        "sha256": "6c4ed5c443e0e34067c7027aedcd91d3b24643ebad4eeb991d9f574893009d2b",
+        "git_blob_sha": "021d83c43bfbf60211d51e8a53fb0d9e9cd4820e",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/prototypes/technology.lua",
+        "lines": 146,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-06",
+            "symbol": "quality unlocks",
+            "lines": [
+              1,
+              146
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "quality/prototypes/base-data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/prototypes/base-data-updates.lua",
+        "bytes": 791,
+        "sha256": "daa6f24ab5f2817609f0e79842a5e945b2b1ecc38bd1167eeef92494446de7ef",
+        "git_blob_sha": "872e2dd34d8b81154cfa421c56be27c75d66aa06",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/prototypes/base-data-updates.lua",
+        "lines": 12,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-06",
+            "symbol": "fluid exceptions / train modifiers",
+            "lines": [
+              1,
+              11
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "recycler/data.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/data.lua",
+        "bytes": 10382,
+        "sha256": "8fd2a4456385883bb948797760cadea473917330406e0eec7066789cc014d119",
+        "git_blob_sha": "d457b54dd330935f28a08d3285097aaf2eebeec7",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/recycler/data.lua",
+        "lines": 296,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-07",
+            "symbol": "recycler recipe/research",
+            "lines": [
+              58,
+              100
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-07",
+            "symbol": "recycler gameplay fields",
+            "lines": [
+              140,
+              155
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "recycler/data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/data-updates.lua",
+        "bytes": 703,
+        "sha256": "b82124342f10af5d4519ad761dc19fcb5eefda1b0fa980c4188122fb37c4a8b7",
+        "git_blob_sha": "2170af98417a0803e4ddd3844c5e9f2ea961324b",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/recycler/data-updates.lua",
+        "lines": 25,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-07",
+            "symbol": "generated recipe pass",
+            "lines": [
+              1,
+              25
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "recycler/recycling.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/recycling.lua",
+        "bytes": 9644,
+        "sha256": "b3673ea8330e5ce7d47a74b715b3675d240d986f5eba56e797e6f47a2fa01066",
+        "git_blob_sha": "c92ac5575c5300c27f139d4db069c2e63e9eae6b",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/recycler/recycling.lua",
+        "lines": 276,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-07",
+            "symbol": "reverse generation / default_can_recycle / self recycling",
+            "lines": [
+              73,
+              276
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-13",
+            "symbol": "fractional ingredient recovery",
+            "lines": [
+              110,
+              130
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "elevated-rails/data.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/data.lua",
+        "bytes": 600,
+        "sha256": "e2011a36a400d67864b910453da1fc66112c8a4ada4513f73bba571f031f1b6b",
+        "git_blob_sha": "570f5525e6475c371a270aac3558c624ed895e7f",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/data.lua",
+        "lines": 10,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "elevated-rails/prototypes/entity/elevated-rails.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/prototypes/entity/elevated-rails.lua",
+        "bytes": 12579,
+        "sha256": "e23b78439900645bb7d69a38d59528ac48d1772558a50ae77c29c4664645bc6b",
+        "git_blob_sha": "7b979580cbfc835cc87627b672fbe03d0cbbdcfd",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/prototypes/entity/elevated-rails.lua",
+        "lines": 391,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-14",
+            "symbol": "rail-ramp support range",
+            "lines": [
+              38,
+              112
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-14",
+            "symbol": "rail-support support range",
+            "lines": [
+              287,
+              310
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "elevated-rails/prototypes/recipe/elevated-rails.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/prototypes/recipe/elevated-rails.lua",
+        "bytes": 692,
+        "sha256": "c48705081c53660fd10226bc71bab2b094bdf0799a16eff69b31986bb17ad086",
+        "git_blob_sha": "23cf2e6483d591213336882eaa6c6127a3b280dc",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/prototypes/recipe/elevated-rails.lua",
+        "lines": 27,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-14",
+            "symbol": "ramp/support material recipes",
+            "lines": [
+              1,
+              27
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "elevated-rails/prototypes/technology/elevated-rails.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/prototypes/technology/elevated-rails.lua",
+        "bytes": 845,
+        "sha256": "57cec87964079e7afa3e595b9e9d69ecadd5eb0b2961283b5624af62b16eb135",
+        "git_blob_sha": "5cbeac00818a7b7eff74455eb8da88a10ce40bb5",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/prototypes/technology/elevated-rails.lua",
+        "lines": 38,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-14",
+            "symbol": "elevated rail planner unlock",
+            "lines": [
+              1,
+              38
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "elevated-rails/prototypes/base-data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/prototypes/base-data-updates.lua",
+        "bytes": 651,
+        "sha256": "7248f4b9c7f8d1ac3d794f40d07ed0da8aa887acda3a93c8f8cf0581d1f5f704",
+        "git_blob_sha": "b1bc54d3c0ac6c312d93768a39994eba14abe60c",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/prototypes/base-data-updates.lua",
+        "lines": 22,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/data.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/data.lua",
+        "bytes": 6027,
+        "sha256": "7b5f9b82c4481d173e704391107fbdb2f4e1beef9383ce01c234c79b6c354f6e",
+        "git_blob_sha": "26cf8e98cfef9566e03e5031d1415faedcc5f94a",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/data.lua",
+        "lines": 123,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-01",
+            "symbol": "require graph",
+            "lines": [
+              1,
+              72
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/data-updates.lua",
+        "bytes": 743,
+        "sha256": "301d47ffc7d2a762e0c17ae20a4e502602a0ffeee0e1d9c37c2e12b5ce215217",
+        "git_blob_sha": "e6e5a08c0f4fcc307c264b4c7427e72329bd46c7",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/data-updates.lua",
+        "lines": 13,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/base-data-updates.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/base-data-updates.lua",
+        "bytes": 59876,
+        "sha256": "3186fadf83ec2ea17f5935f27aba584fd829a42bb067382f196f0a23b745bc7a",
+        "git_blob_sha": "84989af37c92d4e3636ec043cb97b669a907393f",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/base-data-updates.lua",
+        "lines": 1650,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-06",
+            "symbol": "Space Age quality technology patch",
+            "lines": [
+              831,
+              900
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "base heating consumption patches",
+            "lines": [
+              85,
+              133
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/recipe.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/recipe.lua",
+        "bytes": 88245,
+        "sha256": "392bd1b35d108e084827224d7768033f18c1588d496593764560c1371651b509",
+        "git_blob_sha": "49ed9c12521de5aac83366632161a34c3c68fa22",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/recipe.lua",
+        "lines": 2821,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-08",
+            "symbol": "pentapod-egg propagation",
+            "lines": [
+              380,
+              415
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-09",
+            "symbol": "three nutrients routes",
+            "lines": [
+              323,
+              378
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-09",
+            "symbol": "bioflux",
+            "lines": [
+              442,
+              464
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-09",
+            "symbol": "agricultural science recipe",
+            "lines": [
+              798,
+              825
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-10",
+            "symbol": "lava/ore melting and casting",
+            "lines": [
+              1393,
+              1524
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-10",
+            "symbol": "scrap recycling / holmium",
+            "lines": [
+              2116,
+              2203
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "lithium imported holmium input",
+            "lines": [
+              2380,
+              2403
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-12",
+            "symbol": "promethium science",
+            "lines": [
+              2762,
+              2790
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-13",
+            "symbol": "scrap shared probability ranges",
+            "lines": [
+              2137,
+              2152
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/technology.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/technology.lua",
+        "bytes": 58494,
+        "sha256": "0d5d4c16b22de39925e26ed605a644bfe757b83d84c76fc6a666966af435970f",
+        "git_blob_sha": "3e12e5862b3c1fcb383baf53d6fb77f6c77b0ee5",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/technology.lua",
+        "lines": 2433,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-09",
+            "symbol": "agricultural science trigger",
+            "lines": [
+              1142,
+              1163
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-12",
+            "symbol": "planet discovery prerequisites",
+            "lines": [
+              365,
+              512
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-12",
+            "symbol": "late location/science/research productivity",
+            "lines": [
+              2036,
+              2196
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/item.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/item.lua",
+        "bytes": 61081,
+        "sha256": "49ae9c217352322d8afb0a810131b5113c9b0a694714ba4f36ba78ab6ce20680",
+        "git_blob_sha": "76a373251c7424d3d222f27d14599903c0a1ad5b",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/item.lua",
+        "lines": 1713,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-08",
+            "symbol": "nutrient/mash/jelly/bioflux spoil fields",
+            "lines": [
+              798,
+              862
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-08",
+            "symbol": "pentapod egg trigger",
+            "lines": [
+              1157,
+              1222
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/item-effects.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/item-effects.lua",
+        "bytes": 8537,
+        "sha256": "f34023833064a38978b03ae870c66929a65d082309e2a1132fad111c6be59f41",
+        "git_blob_sha": "cfffb9e8236bb384b875e9ee56f74f228eee8d23",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/item-effects.lua",
+        "lines": 328,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/prototypes/entity/entities.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/entity/entities.lua",
+        "bytes": 98347,
+        "sha256": "f77f2552c4059326fff18357dde6ee34200f66079cc70bfa3c6b46ac2353e616",
+        "git_blob_sha": "fc6363211ed40638be00e2bda81afd3a3448c43c",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/entity/entities.lua",
+        "lines": 2841,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-09",
+            "symbol": "biochamber",
+            "lines": [
+              93,
+              121
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-09",
+            "symbol": "agricultural tower",
+            "lines": [
+              1397,
+              1461
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-10",
+            "symbol": "foundry",
+            "lines": [
+              1249,
+              1268
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-10",
+            "symbol": "lightning rod",
+            "lines": [
+              1911,
+              1918
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-10",
+            "symbol": "lightning collector",
+            "lines": [
+              1993,
+              2007
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "heating tower",
+            "lines": [
+              2207,
+              2224
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "fusion generator",
+            "lines": [
+              2518,
+              2551
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "fusion reactor",
+            "lines": [
+              2614,
+              2653
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-12",
+            "symbol": "platform hub capacity / pressure",
+            "lines": [
+              213,
+              239
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-12",
+            "symbol": "thruster performance / two fluid inputs",
+            "lines": [
+              918,
+              945
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/entity/resources.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/entity/resources.lua",
+        "bytes": 15588,
+        "sha256": "07e2362971172aeb334a658d0beadad54111f0cbf42d8b252a9e265b71f6199c",
+        "git_blob_sha": "6660ed6388b3aa66f9aade6559c9cda8f5954610",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/entity/resources.lua",
+        "lines": 515,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/prototypes/entity/plants.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/entity/plants.lua",
+        "bytes": 68159,
+        "sha256": "6b476a57f10cc6617744b9495a1506d8e61754e4f0add46485167baedd7ad83f",
+        "git_blob_sha": "2450706925fb1ff9a3a7a3922bbbe2a7948f2248",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/entity/plants.lua",
+        "lines": 1974,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-09",
+            "symbol": "growth time units / harvest spores",
+            "lines": [
+              5,
+              10
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/planet/planet.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/planet/planet.lua",
+        "bytes": 25608,
+        "sha256": "468c2ec02108d7c481faa9bd2cb95d85aa6352a35c2289732622ec473539c38f",
+        "git_blob_sha": "9a4371eb6aab0d8cde1c252beb8501821d6e7fcd",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/planet/planet.lua",
+        "lines": 831,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-10",
+            "symbol": "Fulgora surface properties",
+            "lines": [
+              291,
+              318
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "Aquilo environment",
+            "lines": [
+              610,
+              644
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          },
+          {
+            "finding_id": "FAC-11",
+            "symbol": "Aquilo heating requirement",
+            "lines": [
+              681,
+              685
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      },
+      {
+        "path": "space-age/prototypes/planet/asteroid-spawn-definitions.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/planet/asteroid-spawn-definitions.lua",
+        "bytes": 18789,
+        "sha256": "082ca9dccba36a7ebde1b1a69feaf6f29488c07601fbcdb39484761f265186c6",
+        "git_blob_sha": "16968eda4c2057b75c32e62db4f7bb7794237b69",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/planet/asteroid-spawn-definitions.lua",
+        "lines": 444,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/prototypes/entity/asteroid.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/entity/asteroid.lua",
+        "bytes": 27616,
+        "sha256": "51b8120904736ae8113314440b1d4221966ce181fa0c607f358096403c2ea06d",
+        "git_blob_sha": "0a711994a84b7d16e81b1a6fc421ac42b11d3488",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/entity/asteroid.lua",
+        "lines": 516,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "preserved-accessible-unread",
+        "reviewed_bounds": []
+      },
+      {
+        "path": "space-age/prototypes/surface.lua",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/prototypes/surface.lua",
+        "bytes": 342,
+        "sha256": "1437ed4b81524d7db13dd9e3cfaf1f92bba2fb117204ed23e821cad8accefd2a",
+        "git_blob_sha": "f7db48259296b1805a93007f5eb7cb5750d565b5",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/prototypes/surface.lua",
+        "lines": 17,
+        "access": "official-public-readable-prototype-source",
+        "semantic_review": "selected-gameplay-bounds-reviewed",
+        "reviewed_bounds": [
+          {
+            "finding_id": "FAC-12",
+            "symbol": "space-platform properties",
+            "lines": [
+              1,
+              17
+            ],
+            "scope": "listed gameplay fields/definition; visual helpers and unrelated definitions excluded"
+          }
+        ]
+      }
+    ],
+    "apis": [
+      {
+        "url": "https://lua-api.factorio.com/latest/runtime-api.json",
+        "application_version": "2.1.21",
+        "api_version": 6,
+        "bytes": 2120334,
+        "sha256": "f21602449ec6c077afb4a26311ef075af7aedb8c067d53b9cc87efccca4d761f",
+        "private_path": "/Users/weiwei/.codex/research/factorio/runtime-api-2.1.21.json"
+      },
+      {
+        "url": "https://lua-api.factorio.com/latest/prototype-api.json",
+        "application_version": "2.1.21",
+        "api_version": 6,
+        "bytes": 1858100,
+        "sha256": "5abe17bc8797770ab6c7ceb0cbe4348ab3b716efef59c7ee3e539596337132e6",
+        "private_path": "/Users/weiwei/.codex/research/factorio/prototype-api-2.1.21.json"
+      }
+    ],
+    "auxiliary": [
+      {
+        "id": "data-lifecycle",
+        "url": "https://lua-api.factorio.com/latest/auxiliary/data-lifecycle.html",
+        "sha256": "d87ff568c050209195a538f3e2ab3aca1bbb64927cf4dc05d47cf570684e416c",
+        "bytes": 30647,
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-docs/data-lifecycle-2.1.21.html",
+        "visible_version": "2.1.21"
+      },
+      {
+        "id": "mod-structure",
+        "url": "https://lua-api.factorio.com/latest/auxiliary/mod-structure.html",
+        "sha256": "828c09cfb7ede33a5acf3af8a79c2fc0c25079b3c688b81e14de96ae323652c1",
+        "bytes": 34963,
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-docs/mod-structure-2.1.21.html",
+        "visible_version": "2.1.21"
+      },
+      {
+        "id": "item-weight",
+        "url": "https://lua-api.factorio.com/latest/auxiliary/item-weight.html",
+        "sha256": "1c866b225e685e1bfcec96bfea14453f852f04037ae451a2a35e514408a57401",
+        "bytes": 24833,
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-docs/item-weight-2.1.21.html",
+        "visible_version": "2.1.21"
+      }
+    ],
+    "qualification": "Official publicly readable data/prototype Lua and API contracts; not closed native implementation, not the absent supplied Steam build, not a permissive-license claim. Raw source retained privately, not copied into YAIR source."
+  },
+  "stable_metadata_comparison": {
+    "version": "2.0.77",
+    "channel": "latest-stable-at-observation",
+    "git_commit": "ce6741a54c3199caad4ed147e9987fd8d5653fdf",
+    "reviewed": "Four official stable module metadata files plus actual installed selected gameplay/API reconciliation in INSTALLED_REVIEW.json.",
+    "records": [
+      {
+        "path": "base/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/ce6741a54c3199caad4ed147e9987fd8d5653fdf/base/info.json",
+        "sha256": "fe566a0b08b331d7cfbd13a5857d7f6f2414591efa26723a6f8dbd3781ac4786",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.0.77/base/info.json",
+        "data": {
+          "name": "base",
+          "version": "2.0.77",
+          "title": "Base Mod",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": []
+        }
+      },
+      {
+        "path": "quality/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/ce6741a54c3199caad4ed147e9987fd8d5653fdf/quality/info.json",
+        "sha256": "2c2578fd84cc2e920c944c90047eaa5a1f6984a1ce07c246fc1906d90c5505ad",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.0.77/quality/info.json",
+        "data": {
+          "name": "quality",
+          "version": "2.0.77",
+          "title": "Quality",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0"
+          ],
+          "quality_required": true,
+          "factorio_version": "2.0"
+        }
+      },
+      {
+        "path": "space-age/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/ce6741a54c3199caad4ed147e9987fd8d5653fdf/space-age/info.json",
+        "sha256": "f8957fc975949bb647b64ca246a4de7f981232c4ab47c4db4f60ccea6aef5e1a",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.0.77/space-age/info.json",
+        "data": {
+          "name": "space-age",
+          "version": "2.0.77",
+          "title": "Space Age",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0",
+            "elevated-rails >= 2.0.0",
+            "quality >= 2.0.0"
+          ],
+          "quality_required": true,
+          "space_travel_required": true,
+          "spoiling_required": true,
+          "freezing_required": true,
+          "segmented_units_required": true,
+          "expansion_shaders_required": true,
+          "factorio_version": "2.0"
+        }
+      },
+      {
+        "path": "elevated-rails/info.json",
+        "url": "https://raw.githubusercontent.com/wube/factorio-data/ce6741a54c3199caad4ed147e9987fd8d5653fdf/elevated-rails/info.json",
+        "sha256": "310a4c06d65f08199a76780388ba93c333bb752b1258415ea4d5211d9a681089",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.0.77/elevated-rails/info.json",
+        "data": {
+          "name": "elevated-rails",
+          "version": "2.0.77",
+          "title": "Elevated Rails",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0"
+          ],
+          "rail_bridges_required": true,
+          "factorio_version": "2.0"
+        }
+      }
+    ]
+  },
+  "steam_declared_catalog": [
+    {
+      "appid": 427520,
+      "success": true,
+      "name": "Factorio",
+      "type": "game",
+      "fullgame": null,
+      "dlc": [
+        645390,
+        436090,
+        3311770
+      ],
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=427520&cc=US&l=english",
+      "sha256": "e40ca134eaaf7c09ec6f43a1b274179ff5a28305e66d4aca1ef4e76eb15692e9",
+      "private_path": "/Users/weiwei/.codex/research/factorio/steam-app-427520.json"
+    },
+    {
+      "appid": 645390,
+      "success": true,
+      "name": "Factorio: Space Age",
+      "type": "dlc",
+      "fullgame": {
+        "appid": "427520",
+        "name": "Factorio"
+      },
+      "dlc": null,
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=645390&cc=US&l=english",
+      "sha256": "eae3b9f8271e77e4fadfe76a094201b3d7bba6656048eb638e9a4b57ceb5b6d4",
+      "private_path": "/Users/weiwei/.codex/research/factorio/steam-app-645390.json"
+    },
+    {
+      "appid": 436090,
+      "success": true,
+      "name": "Factorio - Soundtrack",
+      "type": "music",
+      "fullgame": {
+        "appid": "427520",
+        "name": "Factorio"
+      },
+      "dlc": null,
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=436090&cc=US&l=english",
+      "sha256": "c6155cdcec3c52420a4cfb60ee15ad38809c23bc9c3b2d656d4cb39c7aaba249",
+      "private_path": "/Users/weiwei/.codex/research/factorio/steam-app-436090.json"
+    },
+    {
+      "appid": 3311770,
+      "success": true,
+      "name": "Factorio: Space Age - Soundtrack",
+      "type": "music",
+      "fullgame": {
+        "appid": "427520",
+        "name": "Factorio"
+      },
+      "dlc": null,
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=3311770&cc=US&l=english",
+      "sha256": "103fd327e0e5973cac507512d4e57e657a5d93258f7bc23fa5cdc5fdc9b0626a",
+      "private_path": "/Users/weiwei/.codex/research/factorio/steam-app-3311770.json"
+    }
+  ],
+  "yair_inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "8130571b601f280ee5162a9b695ea357faa1a5eff8b1ab571ad589c0c1098585",
+      "bytes": 155625,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+      "bytes": 40724,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "bytes": 10439,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+      "sha256": "0f84afe95dc057686bc49156515d20bade9340b8ef5b1cbf0cdb87bba82e0666",
+      "bytes": 9990,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+      "bytes": 84012,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/energy_resources.js",
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "bytes": 4384,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "bytes": 2927,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "6a14bf583fbb25a3dd2adeb19e38677c5610d3655f73e3eb42b92330d11594fc",
+      "bytes": 33533,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "bytes": 2314,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/gameplay_transactions.js",
+      "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+      "bytes": 5677,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/repository_absorption_workplan.js",
+      "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+      "bytes": 17529,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/audited_kit_reserve_host.js",
+      "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+      "bytes": 6851,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/world_completion_materials_runtime.js",
+      "sha256": "cacdf13ada154a6be2895be477b14b38eb02c342333ad5f0a612c05629f6ce8d",
+      "bytes": 4936,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    },
+    {
+      "path": "src/world_completion_crop_clock.js",
+      "sha256": "3e9fe3b2d3ae5251148f48113d937ae38a8f4be16cb368a228b9d2b9955a4a35",
+      "bytes": 1033,
+      "review_scope": "selected relevant source fields; current owners outrank memory"
+    }
+  ],
+  "prohibited_actions_performed": [],
+  "never_done": [
+    "agent-initiated game purchase/download/install/launch (human supplied finalized install only)",
+    "DLC activation/entitlement change",
+    "native decompilation",
+    "save/profile reads or writes",
+    "source-library mutation",
+    "YAIR gameplay/canonical/build edits",
+    "commits/push/publication/automation/new chat/uninstall/access bypass"
+  ],
+  "repository_dirty_state": "Existing broad dirty tree was observed and preserved; only assigned Factorio research directory was written."
+}

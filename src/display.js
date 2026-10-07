@@ -1,9 +1,12 @@
+import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
+import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
 "use strict";
 
 import { current_trader, to_buy, to_sell } from "./trade.js";
 import { skills } from "./data/skills.js";
 import { get_next_skill_milestone, get_unlocked_skill_rewards } from "./models/skill.js";
 import { character, cold_status_temperatures, lowest_tolerable_temperature } from "./data/character.js";
+import {nativeSkillDiscovery} from './skill_discovery_native.js';
 import { game_options, 
     can_work, current_location, 
     active_effects, enough_time_for_earnings, 
@@ -16,6 +19,7 @@ import { game_options,
     travel_times, 
     favourite_items,
     get_context,
+    canConsumeNativeCraftingItem,
     translate} from "./main.js";
 import { activities } from "./activities.js";
 import { format_time, current_game_time, seasons } from "./game_time.js";
@@ -26,6 +30,7 @@ import { enemy_killcount, enemy_templates } from "./enemies.js";
 import { expo, format_reading_time, stat_names, round_item_price, format_working_time, task_type_names, celsius_to_fahrenheit, is_a_older_than_b, select_outline_class } from "./misc.js"
 //import { stances } from "./combat_stances.js";
 import { recipes, get_recipe_xp_value, find_recipe_material, get_component_stats } from "./crafting_recipes.js";
+import {recipeMakeableNow} from "./crafting_visibility.js";
 import { effect_templates } from "./active_effects.js";
 import { player_storage } from "./data/storage.js";
 import { quests } from "./quests.js";
@@ -198,6 +203,8 @@ const crafting_pages = {};
 
 let selected_crafting_category;
 let selected_crafting_subcategory;
+let crafting_filter_bound = false;
+let crafting_filter_applied = false;
 
 const loading_progress_div = document.getElementById("loading_screen_loading_progress");
 
@@ -403,15 +410,21 @@ function create_equipment_comparison(item, quality) {
  * @param {Boolean} params.options.skip_quality
  * @param {Array} params.options.quality array with 1 or 2 values (1 - show only it, instead of item's; 2 - show start comparison between the two)
  */
+// Rendering reads only the current validated player state. It never changes
+// item templates, stable keys, native quantities, custody or discovery records.
+let fieldcraftKnowledgeReader=()=>null;
+export function setFieldcraftKnowledgeReader(read){if(typeof read!=='function')throw new Error('Bind the current player knowledge reader.');fieldcraftKnowledgeReader=read;}
+function nativeItemView(item){const state=fieldcraftKnowledgeReader();return projectGameAbsorptionAssayItemView(item,state,projectFieldcraftItemView(item,state,{name:item.getName(),description:item.description||''}));}
 function create_item_tooltip_content({item, options={}, is_trade = false}) {
     let item_tooltip = "";
 
     //different function used depending if its in trade (oh the horror...)
     const value_function = is_trade?"getValue":"getBaseValue";
     
-    item_tooltip = `<b>${item.getName()}</b>`;
-    if(item.description) {
-        item_tooltip += `<br>${item.description}`;
+    const item_view=nativeItemView(item);
+    item_tooltip = `<b>${item_view.name}</b>`;
+    if(item_view.description) {
+        item_tooltip += `<br>${item_view.description}`;
     }
 
     let show_quality = item.quality && !options.skip_quality && item.use_quality;
@@ -660,8 +673,8 @@ function xp_target_name(target) {
  * @param {Object} item_effect from item effects[]
  */
 
-function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
-    const effect = effect_templates[effect_name];
+function create_effect_tooltip({effect_name, duration, add_bonus=false, descriptor=null}) {
+    const effect = descriptor || effect_templates[effect_name];
     const tooltip = document.createElement("div");
 
     let tooltip_html_content = "";
@@ -673,7 +686,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
     insert_HTML(name_span, `'${effect.name}' : `);
     const duration_span = document.createElement("span");
     duration_span.classList.add("active_effect_duration");
-    duration_span.innerText = ""+ format_time({time: {minutes: duration}});
+    duration_span.innerText = duration == null ? "Until resolved" : ""+ format_time({time: {minutes: duration}});
     const top_div = document.createElement("div");
     top_div.classList.add("active_effect_name_and_duration");
     top_div.appendChild(name_span);
@@ -728,12 +741,7 @@ function create_effect_tooltip({effect_name, duration, add_bonus=false}) {
             tooltip_html_content = `${name} xp gain: x${effects.xp_multipliers[xp_multipliers[0]]}`;
         }
         for(let i = 1; i < xp_multipliers.length; i++) {
-            let name;
-            if(xp_multipliers[i] !== "all" && xp_multipliers[i] !== "hero" && xp_multipliers[i] !== "all_skill") {
-                name = skills[xp_multipliers[i]].getName();
-            } else {
-                name = xp_multipliers[i].replace("_"," ");
-            }
+            const name = capitalize_first_letter(xp_target_name(xp_multipliers[i]));
             tooltip_html_content += `<br>${name} xp gain: x${effects.xp_multipliers[xp_multipliers[i]]}`;
         }
     }
@@ -971,12 +979,7 @@ function format_book_bonuses(bonuses) {
             formatted = `x${bonuses.xp_multipliers[xp_multipliers[0]]} ${name} xp gain`;
         }
         for(let i = 1; i < xp_multipliers.length; i++) {
-            let name;
-            if(xp_multipliers[i] !== "all" && xp_multipliers[i] !== "hero" && xp_multipliers[i] !== "all_skill") {
-                name = skills[xp_multipliers[i]].getName();
-            } else {
-                name = xp_multipliers[i].replace("_"," ");
-            }
+            const name = xp_target_name(xp_multipliers[i]);
             formatted += `, x${bonuses.xp_multipliers[xp_multipliers[i]]} ${name} xp gain`;
         }
     }
@@ -1505,6 +1508,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
  * @param {Boolean} data.is_trade whethere player is in trade, affecting whether displayed price be basic or trade-specific
  */
 function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {    
+    if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
     //removal of unneeded divs
 
     const equipment = character.getEquipment();
@@ -1623,6 +1627,10 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
                     }
                 }
 
+                // A newly learned identity can change a retained vial row even
+                // when its quantity did not change. Keys/counts stay untouched.
+                const fieldcraft_view=nativeItemView(character.getItems()[inventory_key].item);
+                if(fieldcraft_view.charge!==null){const label=item_divs[inventory_key].querySelector(".item_name");if(label)label.textContent=fieldcraft_view.name;}
                 //overwrite tooltip (for displayed prices)
                 const tooltip_div = item_divs[inventory_key].querySelector(".item_tooltip");
                 tooltip_div.replaceWith(create_item_tooltip(character.getItems()[inventory_key].item, {}, is_trade));
@@ -1814,9 +1822,9 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     let item_name_div_content = "";
     if(target_item.tags?.equippable) {
         if(target_item.tags.tool) {
-            item_name_div_content = `<span class = "item_slot" >[tool]</span> <span class="item_name">${target_item.getName()}</span>`;
+            item_name_div_content = `<span class = "item_slot" >[tool]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
         } else {
-            item_name_div_content = `<span class = "item_slot" >[${target_item.equip_slot}]</span> <span class="item_name">${target_item.getName()}</span>`;
+            item_name_div_content = `<span class = "item_slot" >[${target_item.equip_slot}]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
         }
         item_name_div.classList.add(`${item_class}_name`);
         item_div.appendChild(item_name_div);
@@ -1833,7 +1841,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         //
     } else if(target_item.tags.component) {
         //
-        item_name_div_content = `<span class = "item_category">[Comp]</span> <span class="item_name">${target_item.getName()}</span>`;
+        item_name_div_content = `<span class = "item_category">[Comp]</span> <span class="item_name">${nativeItemView(target_item).name}</span>`;
         item_name_div.classList.add(`${item_class}_name`);
         item_div.appendChild(item_name_div);
 
@@ -1855,7 +1863,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         //
     } else {
         //
-        item_name_div_content = `<span class = "item_category"></span> <span class = "item_name">${target_item.getName()}</span>`;
+        item_name_div_content = `<span class = "item_category"></span> <span class = "item_name">${nativeItemView(target_item).name}</span>`;
     }
 
     if (target_item.use_quality && target_item.quality) {
@@ -2017,8 +2025,9 @@ function update_displayed_book(book_id) {
 
 
 
-    let percent = Math.min(book_stats[book_key].accumulated_time / book_stats[book_key].required_time, 1);
-    document.getElementById("action_progress_bar").style.width = 385*percent+"px";
+    const percent = Math.min(book_stats[book_id].accumulated_time / book_stats[book_id].required_time, 1);
+    const progressBar = document.getElementById("action_progress_bar");
+    if(progressBar) progressBar.style.width = 385*percent+"px";
 }
 
 function update_displayed_normal_location(location) {
@@ -2532,7 +2541,8 @@ function create_location_choices({location, category, is_combat = false}) {
 
             location_action_div.appendChild(create_location_action_tooltip(location.actions[key]));
     
-            insert_HTML(location_action_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.actions[key].starting_text);
+            // Kuroiteiken/yairp 4b3b2ae (MIT): the label agrees with unlock messages.
+            insert_HTML(location_action_div, `<i class="material-icons location_choice_icon">check_box_outline_blank</i> ` + location.actions[key].action_name);
             choice_list.push(location_action_div);
         });
     } else if (category === "fast_travel") {
@@ -2744,6 +2754,10 @@ function update_displayed_location_types(current_location) {
 function open_crafting_window() {
     action_div.style.display = "none";
     document.getElementById("crafting_window").style.display = "block";
+    if(!crafting_filter_bound) {
+        document.getElementById("crafting_makeable_filter").addEventListener("change", apply_crafting_filter);
+        crafting_filter_bound = true;
+    }
 
     //only show available categories
     let first_available_category = null;
@@ -2827,6 +2841,42 @@ function unexpand_displayed_recipes() {
             elements[j].classList.remove(classes[i]);
         }
     }
+    apply_crafting_filter();
+}
+
+function apply_crafting_filter() {
+    const filtered = document.getElementById("crafting_makeable_filter").checked;
+    const empty = document.getElementById("crafting_filter_empty");
+    if(!filtered && !crafting_filter_applied) {
+        empty.hidden = true;
+        return;
+    }
+    const inventory = character.getItems();
+    let makeable_in_current_page = 0;
+    for(const [category, pages] of Object.entries(crafting_pages)) {
+        for(const [subcategory, page] of Object.entries(pages)) {
+            // Only already-created, unlocked native recipe rows are considered.
+            for(const row of page.querySelectorAll(".recipe_div[data-recipe_id]")) {
+                const recipe = recipes[category][subcategory][row.dataset.recipe_id];
+                const makeable = !filtered || recipeMakeableNow({recipe,
+                    stationTier: current_location?.crafting?.tiers[category], inventory,
+                    itemTemplates: item_templates, isMaterialKnown: id => item_log.is_known(id),
+                    canConsume: canConsumeNativeCraftingItem});
+                if(makeable && category === selected_crafting_category && subcategory === selected_crafting_subcategory) {
+                    makeable_in_current_page++;
+                }
+                // Keep an open/focused recipe stable while its last material is consumed.
+                const retained = row.classList.contains("selected_recipe") || row.contains(document.activeElement);
+                const hidden = filtered && !makeable && !retained;
+                if(row.hidden !== hidden) {
+                    row.hidden = hidden;
+                    row.style.display = hidden ? "none" : "";
+                }
+            }
+        }
+    }
+    empty.hidden = !filtered || !selected_crafting_category || makeable_in_current_page > 0;
+    crafting_filter_applied = filtered;
 }
 
 function get_recipe_page(category, subcategory) {
@@ -3050,6 +3100,7 @@ function update_displayed_crafting_recipes() {
             })
         })
     });
+    apply_crafting_filter();
 }
 
 /**
@@ -3403,7 +3454,7 @@ function update_item_recipe_visibility() {
                 if(!recipes[recipe_category][recipe_subcategory][recipe].isUnlocked()) {
                     return;
                 }
-                const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"`);
+                const recipe_div = crafting_pages[recipe_category][recipe_subcategory].querySelector(`[data-recipe_id="${recipe}"]`);
                 if(!recipes[recipe_category][recipe_subcategory][recipe].get_availability().available_ammount) {
                     recipe_div.classList.add("recipe_unavailable");
                 } else {
@@ -3412,6 +3463,7 @@ function update_item_recipe_visibility() {
             });
         })
     });
+    apply_crafting_filter();
 }
 
 function create_location_action_tooltip(location_action) {
@@ -3789,39 +3841,29 @@ function create_xp_bonus_breakdown(bonus, include_multipliers) {
     return html_string;
 }
 
+function displayedEffects() {return Object.fromEntries(Object.entries({...active_effects,...character.getSimulationEffects()}).filter(([,e])=>e.duration==null||e.duration>0));}
 function update_displayed_effects() {
-    const effect_count = Object.keys(active_effects).length;
-    active_effect_count.innerText = effect_count;
-    if(effect_count > 0) {
-        //effects exist, refresh the whole displayed content
-        clear_HTML_content(active_effects_tooltip);
-        
-        Object.values(effect_divs).forEach(eff => {
-            eff.remove();
-        });
-
-        effect_divs = {};
-        Object.values(active_effects).forEach(effect => {
-            effect_divs[effect.name] = create_effect_tooltip({effect_name: effect.name, duration: effect.duration, add_bonus: true});
-            active_effects_tooltip.appendChild(effect_divs[effect.name]);
-        });
-    } else {
-        //no effects
-        set_HTML(active_effects_tooltip, 'No active effects');
-        effect_divs = {};
+    const effects = displayedEffects();
+    active_effect_count.innerText = Object.keys(effects).length;
+    clear_HTML_content(active_effects_tooltip);
+    effect_divs = {};
+    if(!Object.keys(effects).length) set_HTML(active_effects_tooltip, 'No active effects');
+    for(const [key,effect] of Object.entries(effects)) {
+        effect_divs[key] = create_effect_tooltip({effect_name:effect.name,duration:effect.duration,add_bonus:true,descriptor:effect});
+        active_effects_tooltip.appendChild(effect_divs[key]);
     }
     update_displayed_effect_durations();
 }
-
 function update_displayed_effect_durations() {
-    Object.keys(effect_divs).forEach(key => {
-        if(!active_effects[key]?.duration) {
-            effect_divs[key].remove();
-            delete effect_divs[key];
-        } else {
-            effect_divs[key].querySelector(".active_effect_duration").innerText = format_time({time: {minutes: active_effects[key].duration}, round: false});
-        }
-    });
+    const effects = displayedEffects();
+    if(Object.keys(effects).some(key=>!effect_divs[key])) {update_displayed_effects();return;}
+    for(const [key,row] of Object.entries(effect_divs)) {
+        const effect = effects[key];
+        if(!effect || effect.duration === 0) {row.remove();delete effect_divs[key];}
+        else row.querySelector(".active_effect_duration").innerText = effect.duration == null ? "Until resolved" : format_time({time:{minutes:effect.duration},round:false});
+    }
+    active_effect_count.innerText = Object.keys(effects).length;
+    if(!Object.keys(effects).length && !active_effects_tooltip.textContent) set_HTML(active_effects_tooltip,'No active effects');
 }
 
 function update_displayed_time() {
@@ -4002,7 +4044,7 @@ function update_displayed_item_log() {
             */
         }
 
-        const name = item_templates[item.id]?.getName() || item.id;
+        const name = item_templates[item.id]?nativeItemView(item_templates[item.id]).name:item.id;
 
         html_content += `<tr><td>${name}</td ><td>`;
 
@@ -4450,6 +4492,7 @@ function start_reading_display(title) {
  * @param {Skill} skill 
  */
 function create_new_skill_bar(skill) {
+    if(!nativeSkillDiscovery(skill,character))return;
     if(!skill_bar_divs[skill.category]) {
         skill_bar_divs[skill.category] = {};
 
@@ -4576,6 +4619,16 @@ function create_new_skill_bar(skill) {
  * @returns 
  */
 function update_displayed_skill_bar(skill, leveled_up=true) {
+    if(!nativeSkillDiscovery(skill,character)){
+        skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
+        if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];
+        const category=[...skill_list.querySelectorAll('.skill_category_div')].find(n=>n.dataset.skill_category===skill.category);
+        if(category&&!Object.keys(skill_bar_divs[skill.category]||{}).length){
+            category.remove();
+            delete skill_bar_divs[skill.category];
+        }
+        return;
+    }
     /*
     skill_bar divs: 
         skill -> children (1): 
@@ -4634,6 +4687,7 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
 }
 
 function update_displayed_skill_level(skill) {
+    if(!nativeSkillDiscovery(skill,character))return;
     if(!skill_bar_divs[skill.category]?.[skill.skill_id]) {
         return;
     }
@@ -4650,7 +4704,8 @@ function update_displayed_skill_level(skill) {
 }
 
 function update_displayed_skill_description(skill) {
-    if(!skill_bar_divs[skill.category][skill.skill_id]) {
+    if(!nativeSkillDiscovery(skill,character))return;
+    if(!skill_bar_divs[skill.category]?.[skill.skill_id]) {
         return;
     }
     skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[3].innerText = `${skill.get_effect_description()}`;

@@ -1,0 +1,17 @@
+# Bounded source integration review
+
+Source-only: **no open actionable findings** in the three selected consumers or their exact shared joins. Severity/fix queue is empty. Gameplay remains implemented-unverified; every behavioral gate in the wave acceptance backlog stays deferred.
+
+- **Reserve:** `feature_expansion_work_plan.js:138–143,146–159,188–208,250–255` supplies no stock-cursor polling deadline, preserves a prior hold at3 until2, allows a released batch below4, and counts accepted jobs separately from successful completions. Refunded/cancelled work does not recover the accepted-batch budget. Eligibility uses fresh carried-owned stock/body facts.
+- **Compatibility:** `feature_expansion_work_plan.js:86–122,272–299` accepts old1, creates ordinary cursors as1 and upgrades to2 only for explicit stockPolicy. Captured `kit-reserve/WORK_PLAN_INPUT.js:55–61` rejects2 and stock fields. That input matches BASELINE; original `reference_gameplay_content.js` and `feature_expansion_objects.js` also match their baseline hashes, including frozen original resin timing.
+- **Frame:** `audited_workshop_fixture.js:28–78,114–172` separates free consent from exact refundable material/coin/effort reservations and once-only world fixture settlement. Kit joining consumes actual inputs at the retained bench. `frontier_campaign.js:62–65` retains its existing field-renewal policy with no reset of these owners.
+- **Earned choice:** `audited_workshop_lesson.js:37–75,86–96,128–154,174–235` uses current reference body/hands facts, exact held sleeve support and one redeemed branch after real completed deeds. `simulation.js:184–210` passes the popped lesson/resin reservation while recomputing support before settlement. Returned sleeve variants use reservation-return markers; the narrow new recipe grants neither a source nor mastery. The known hands approximation repair is confirmed in final source.
+- **Shared/UI joins:** exact definitions enter the feature registry and fourth work plan; `simulation_effects.js:38–42,164–180`, `expansion_engine.js:130–134`, `main.js:783–830` and `feature_expansion_wave_host.js:65–71` join fresh facts, validation, refund/control dispatch and visible controls to the existing owners/publisher. `audited_workshop_host.js:16–25` now permits ordinary frame terms without incorrectly requiring the cooling meeting; the lesson still requires its explicit workshop owner.
+
+## Evidence and limits
+
+15 selected JavaScript syntax checks pass. Cold import reports735 commands,26 controllers,8 worlds and4 plans; all8 new commands equal their registered definitions, all referenced targets/sites/powers resolve, and the reserve definition is exact. [CHECKS.json](CHECKS.json) records checks; [INPUTS.json](INPUTS.json) records SHA-256/bytes at review start and sealing.
+
+`PROJECT.md`, `audited_workshop_lesson.js`, `audited_workshop_host.js` and `feature_expansion_work_plan.js` changed during review. Their final versions were reinspected; none of the recorded inputs changed during final syntax/import/definition checks. This report applies to final hashes sealed at **2026-10-06T06:45:11.084930+00:00**, not future edits.
+
+No unit, gameplay, browser, save/reload/import, failure, keyboard, regression or director checks ran. No source/code/canonical files or private saves were edited, and no build was run by this reviewer. Root owns current packaging evidence. This read-only source review is complete and its review-directory write ownership is released.

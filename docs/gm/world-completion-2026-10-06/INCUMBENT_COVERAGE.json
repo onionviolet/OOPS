@@ -1,0 +1,1180 @@
+{
+  "schema": 1,
+  "owner": "source-reconciliation leaf under 01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+  "snapshotAtUtc": "2026-10-07T01:52:15.512615+00:00",
+  "status": "source-reconciled-implemented-unverified",
+  "scope": "finite original base.frontier DOD rows1-5; no behavior/build execution",
+  "proofPolicy": {
+    "sourceRead": true,
+    "definitionImport": true,
+    "unitBrowserGameplaySaveFailureRegressionSuites": false,
+    "build": false,
+    "directorAcceptance": false
+  },
+  "movingDependencies": [
+    {
+      "owner": "01a112fe care-worlds",
+      "scope": "shared/native/UI/save/build plus P1/P2/injury/treatment",
+      "state": "moving_reserved_dependency",
+      "sourceObserved": "field_care7 already composed; historical status-care943 bundle cannot verify changed source"
+    },
+    {
+      "owner": "01a112b9-ea83 assay",
+      "scope": [
+        "src/game_absorption_assay_content.js",
+        "src/game_absorption_assay_facts.js",
+        "src/game_absorption_assay_host.js",
+        "src/game_absorption_assay_item_view.js"
+      ],
+      "state": "reserved_untouched"
+    }
+  ],
+  "registrySnapshot": {
+    "commands": 950,
+    "controllers": 41,
+    "worlds": 8,
+    "workPlans": 4,
+    "evidence": "read-only node definition import; moving source, not final matching build"
+  },
+  "requiredGapQueue": [
+    {
+      "id": "WC-G1",
+      "rows": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "result": "released P1/P2/care plus supported exact job/clock/received-knowledge joins"
+    },
+    {
+      "id": "WC-G2",
+      "rows": [
+        3,
+        4
+      ],
+      "result": "same lens held-use loan/deposit/measurement/return under exact custody"
+    },
+    {
+      "id": "WC-G3",
+      "rows": [
+        3,
+        4
+      ],
+      "result": "actual learner procedure/strip -> same drain/crop material consumer"
+    },
+    {
+      "id": "WC-G4",
+      "rows": [
+        4,
+        5
+      ],
+      "result": "useful mature loaded-survey recipient/output and earned honest chapter closure"
+    },
+    {
+      "id": "WC-G5",
+      "rows": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": "actual registry/native/Here/Notebook/knownPeople/validator/compatibility/matching-build closure"
+    }
+  ],
+  "incumbentPaths": [
+    {
+      "id": "travel_access",
+      "file": "src/main.js",
+      "symbol": "beginFrontierJourney",
+      "consumerIdsOrMeaning": [
+        "native shortest accessible route",
+        "durable remaining played travel",
+        "actual arrival"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "native_river",
+      "file": "src/data/locations.js",
+      "symbol": "initialize_locations definitions",
+      "consumerIdsOrMeaning": [
+        "Village swimming applies Wet",
+        "earned river balancing",
+        "2160-minute downstream hike and Riverbank return",
+        "real flax/fishing",
+        "crab-gated continuation"
+      ],
+      "state": "preserved_native_earned_access"
+    },
+    {
+      "id": "frontier_closure",
+      "file": "src/original_frontier_career_content.js",
+      "symbol": "originalFrontierCareerDefinitions",
+      "consumerIdsOrMeaning": [
+        "counter_small",
+        "counter_resilient",
+        "counter_private",
+        "charter_terminate",
+        "specialist_settle",
+        "successor_handoff",
+        "departure_arrive_town",
+        "home_return"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "mature_paid_work",
+      "file": "src/original_frontier_career_content.js",
+      "symbol": "originalFrontierCareerDefinitions",
+      "consumerIdsOrMeaning": [
+        "fund_next_local_need",
+        "routine_ordinary_check",
+        "routine_frame_check",
+        "specialist_compare"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "exploration_control_mastery",
+      "file": "src/original_frontier_field_content.js",
+      "symbol": "originalFrontierFieldDefinitions",
+      "consumerIdsOrMeaning": [
+        "compile_dossier",
+        "dossier_trial_report",
+        "work_forest_protected",
+        "work_cave_shared",
+        "feat_mastered_footing"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "home_material_research",
+      "file": "src/audit_remainder_home_content.js",
+      "symbol": "remainderHomeDefinitions",
+      "consumerIdsOrMeaning": [
+        "trim_covered",
+        "dry_offcuts",
+        "research",
+        "build_jig",
+        "salvage_delicate"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "loaded_specialization",
+      "file": "src/audit_remainder_home_content.js",
+      "symbol": "remainderHomeDefinitions",
+      "consumerIdsOrMeaning": [
+        "survey_loaded"
+      ],
+      "state": "missing_useful_downstream_recipient_or_material_result"
+    },
+    {
+      "id": "independent_residence",
+      "file": "src/audit_remainder_home_content.js",
+      "symbol": "remainderHomeDefinitions",
+      "consumerIdsOrMeaning": [
+        "room.frame",
+        "room.finish",
+        "resident_accept",
+        "resident_bind",
+        "collect_resident",
+        "departure"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "independent_shifts",
+      "file": "src/audit_remainder_livelihood_content.js",
+      "symbol": "remainderLivelihoodDefinitions",
+      "consumerIdsOrMeaning": [
+        "fund_shift1",
+        "work_shift1",
+        "collect_shift1",
+        "work_allocation_vale"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "funded_successor",
+      "file": "src/original_frontier_career_content.js",
+      "symbol": "originalFrontierCareerDefinitions",
+      "consumerIdsOrMeaning": [
+        "successor_teach",
+        "successor_fund",
+        "successor_work",
+        "successor_report",
+        "successor_handoff"
+      ],
+      "state": "delivered"
+    },
+    {
+      "id": "instruments",
+      "file": "src/artifact_workshop_content.js",
+      "symbol": "artifactWorkshopDefinitions",
+      "consumerIdsOrMeaning": [
+        "assemble.single",
+        "disassemble.single",
+        "use.measure",
+        "use.paired_kit",
+        "use.pin_kit"
+      ],
+      "state": "delivered_fixed_owned_functions_new_loan_needed"
+    },
+    {
+      "id": "native_care",
+      "file": "src/status_care_facts.js",
+      "symbol": "projectStatusCareEffects",
+      "consumerIdsOrMeaning": [
+        "native stats",
+        "actual rain multiplier",
+        "actual Wet reset"
+      ],
+      "state": "historical_delivery_plus_moving_care_dependency"
+    },
+    {
+      "id": "crop_cooking",
+      "file": "src/audit_remainder_consequences_content.js",
+      "symbol": "remainderConsequencesDefinitions",
+      "consumerIdsOrMeaning": [
+        "plot_plant",
+        "plot_cover",
+        "plot_early",
+        "plot_neglect",
+        "frost expiry",
+        "native Cooking herbs recipes"
+      ],
+      "state": "delivered_new_cover_admission_needed"
+    }
+  ],
+  "offeredPathWithoutMatureSupportedDownstreamConsumer": [
+    {
+      "id": "remainder_home.survey_loaded",
+      "file": "src/audit_remainder_home_content.js",
+      "observed": "Actual current specialization reduces effort from3to2 over4minutes holding log/kit; only its own knowledge record is emitted, and no source consumes that record.",
+      "required": "One actual useful heavy-material/result or funded qualified recipient; preserve ordinary survey and fine-fit output."
+    }
+  ],
+  "mfFamilies": [
+    {
+      "id": "MF-COVER-01",
+      "family": "Shared facts, requirements, legal commands and atomic publication",
+      "historicalStatus": "present",
+      "currentDisposition": "delivered",
+      "sourcePaths": [
+        "src/simulation.js",
+        "src/expansion_persistence.js",
+        "src/gameplay_publication.js"
+      ],
+      "currentMeaning": "One existing command/job/native durable publisher.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-02",
+      "family": "Preserved familiar opening, vanilla continuity and private saves",
+      "historicalStatus": "present",
+      "currentDisposition": "preserved",
+      "sourcePaths": [
+        "src/main.js",
+        "src/save_files.js",
+        "src/original_frontier_campaign_host.js"
+      ],
+      "currentMeaning": "Optional entry preserves vanilla; no private-save reads.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-03",
+      "family": "Ordinary competence, equipment and viable specializations",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/original_frontier_career_content.js",
+        "src/audit_remainder_home_content.js"
+      ],
+      "currentMeaning": "Funded ordinary/mature work and equipment exist; loaded survey needs a downstream recipient/result.",
+      "requiredRemaining": [
+        "WC-G4"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-04",
+      "family": "Discovery, acquisition, practice and four working method functions",
+      "historicalStatus": "built-unverified",
+      "currentDisposition": "delivered",
+      "sourcePaths": [
+        "src/skill_expansion_content.js",
+        "src/skill_discovery.js",
+        "src/skill_discovery_native.js"
+      ],
+      "currentMeaning": "Four methods have native/discovery consumers; behavior unverified.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-05",
+      "family": "Extended mastery, incomplete transmission and personal traditions",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/original_frontier_field_content.js",
+        "src/original_frontier_career_content.js",
+        "src/feature_expansion_powers.js"
+      ],
+      "currentMeaning": "Mature feats, paid growth and willing taught handoff exist; universal incomplete traditions optional.",
+      "requiredRemaining": [
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-06",
+      "family": "Gathering, selective resources, wandering and ecological renewal",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/activities.js",
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_consequences_content.js"
+      ],
+      "currentMeaning": "Actual native yields and finite crop/material stock; new offcut/crop connection required.",
+      "requiredRemaining": [
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-07",
+      "family": "Object affordances, identification, charges and physical portions",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/artifact_collection.js",
+        "src/artifact_workshop_content.js",
+        "src/nethack_fieldcraft_content.js",
+        "src/simulation_effects.js"
+      ],
+      "currentMeaning": "Useful fixed pieces/charges exist; exact borrowed held-use missing.",
+      "requiredRemaining": [
+        "WC-G2"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-08",
+      "family": "Craft, refinement, production, repair and maintenance",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/feature_expansion_objects.js",
+        "src/audit_remainder_home_content.js",
+        "src/crafting_recipes.js"
+      ],
+      "currentMeaning": "Actual cut/dry/jig/salvage/repair/native recipes; new measured strip/drain/cover required.",
+      "requiredRemaining": [
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-09",
+      "family": "Books, useful information, contextual rereading and humor",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/original_frontier_field_content.js",
+        "src/reference_gameplay_content.js"
+      ],
+      "currentMeaning": "Useful dossiers/reports/lesson consumers exist; new sample/measurement procedure join required.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-10",
+      "family": "Body, organ, lineage, source, control, fuel and suppression",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/body_progression.js",
+        "src/energy_resources.js",
+        "src/power_models.js",
+        "src/backlog_expansion_body.js"
+      ],
+      "currentMeaning": "Actual hands/marks/energy/faculty and selected clay-body support; general anatomy/lineage optional.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-11",
+      "family": "Distinct conceptual, magical, technological and combination rules",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/feature_expansion_powers.js",
+        "src/feature_expansion_objects.js",
+        "src/power_models.js"
+      ],
+      "currentMeaning": "Specific mastery/source/control/material rules have actual consumers; arbitrary combinations optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-12",
+      "family": "Independent people, means, professions, private decisions and memory",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/audit_remainder_livelihood_content.js",
+        "src/audit_remainder_home_content.js",
+        "src/feature_expansion_society.js"
+      ],
+      "currentMeaning": "Independent finite means/work/private completion already exists; new overlap and received closure required.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G4"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-13",
+      "family": "Factions, institutions, assent, relationships, family and legacy",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/original_frontier_career_content.js",
+        "src/feature_expansion_society.js",
+        "src/simulation_effects.js"
+      ],
+      "currentMeaning": "Actual consent/institution terms/separate willing succession; broad families/romance optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-14",
+      "family": "Recurring rivals, enemy protagonists, identities and fate appropriation",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/frontier_campaign.js",
+        "src/feature_expansion_battle.js",
+        "src/causal_story_content.js"
+      ],
+      "currentMeaning": "Retained native rival and bounded original causal cases; universal fate appropriation optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-15",
+      "family": "Combat plans, unequal abilities, party roles and noncombat counters",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/original_frontier_field_content.js",
+        "src/native_battle.js",
+        "src/feature_expansion_battle.js",
+        "src/audit_remainder_combat_objectives_battle.js"
+      ],
+      "currentMeaning": "Actual distinct native/party/guard/objective/ordinary alternatives; current injury/retreat care moving.",
+      "requiredRemaining": [
+        "WC-G1"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-16",
+      "family": "Everyday moods, ordinary texture and incidental life",
+      "historicalStatus": "present",
+      "currentDisposition": "delivered",
+      "sourcePaths": [
+        "src/everyday_life.js",
+        "src/world_rhythm.js"
+      ],
+      "currentMeaning": "Ordinary moods/texture remain legitimate without reward for every detail.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-17",
+      "family": "Discovery privacy, useful controls and essential recovery",
+      "historicalStatus": "built-unverified",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/skill_discovery.js",
+        "src/feature_expansion_host.js",
+        "src/adventure_notebook.js"
+      ],
+      "currentMeaning": "Existing qualified controls/work/cancel; new group recovery/recap joins required.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-18",
+      "family": "Original/book world identity, source era and local knowledge",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/world_knowledge.js",
+        "src/book_world_player_agency_contracts.js",
+        "src/original_frontier_campaign_content.js"
+      ],
+      "currentMeaning": "Qualified original/era/source meanings retained; new lore is original, not novel canon.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-19",
+      "family": "Complete finite campaigns, overlapping careers and cumulative endings",
+      "historicalStatus": "detached",
+      "currentDisposition": "delivered_baseline_new_connected_chapter_required",
+      "sourcePaths": [
+        "src/original_frontier_campaign_content.js",
+        "src/original_frontier_career_content.js"
+      ],
+      "currentMeaning": "All154 incumbent commands/seven cumulative endings exist; this new substantial chain/closure remains required.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G2",
+        "WC-G3",
+        "WC-G4",
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-20",
+      "family": "Scripted/random events, granular rescue and causal aftermath",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/causal_situations.js",
+        "src/causal_story_core.js",
+        "src/audit_remainder_consequences_content.js"
+      ],
+      "currentMeaning": "Actual events/crop/funded grievance/causal outcomes; new qualified warning/rain joins required.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-21",
+      "family": "Probability, luck, guarantees and persisted random boundaries",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/simulation.js",
+        "src/expansion_engine.js",
+        "src/native_battle.js"
+      ],
+      "currentMeaning": "Authored persisted draws and bounded native battle streams exist; universal luck/RNG conversion optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-22",
+      "family": "Local time, lived years, age and meaningful absence",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/chronicle.js",
+        "src/audit_remainder_runtime.js",
+        "src/realm_clock_leases.js"
+      ],
+      "currentMeaning": "Common played clock and selected local retention exist; new supported deadlines required, no free years.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-23",
+      "family": "Defeat, true death, rewind, branches and retained carriers",
+      "historicalStatus": "partial",
+      "currentDisposition": "optional_unselected",
+      "sourcePaths": [
+        "src/chronicle.js",
+        "src/expansion_engine.js",
+        "src/backlog_expansion_time.js"
+      ],
+      "currentMeaning": "Isolated selected temporal prototypes do not supply universal native death/rewind; unnecessary here.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-24",
+      "family": "One field prestige and useful continued progression",
+      "historicalStatus": "native",
+      "currentDisposition": "preserved_native",
+      "sourcePaths": [
+        "src/frontier_campaign.js"
+      ],
+      "currentMeaning": "Existing one field-renewal prestige remains authoritative.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-25",
+      "family": "Run-defining origins, infancy/nonhuman lives and multiple selves",
+      "historicalStatus": "planned",
+      "currentDisposition": "optional_unselected",
+      "sourcePaths": [
+        "src/backlog_expansion_body.js",
+        "src/realm_traveler_profiles.js"
+      ],
+      "currentMeaning": "Arbitrary infancy/nonhuman origins/multiple selves not required for this home world.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-26",
+      "family": "World passage, compatibility, native isolation and retained return",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/native_realm_traveler.js",
+        "src/feature_expansion_destination.js",
+        "src/feature_expansion_nested_native.js",
+        "src/book_world_paradise_native.js"
+      ],
+      "currentMeaning": "Selected native instances/entry/return exist; generic all-world travel remains optional.",
+      "requiredRemaining": [
+        "WC-G1"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-27",
+      "family": "Observation, overlap, conceptual contact and emergence",
+      "historicalStatus": "built-unverified",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/observation_channels.js",
+        "src/pocket_observation.js",
+        "src/observation_content.js"
+      ],
+      "currentMeaning": "Selected observation/contact/provenance exists; universal conceptual contact optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-28",
+      "family": "Custody, stock, physical ownership, loans and member inventories",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/simulation_effects.js",
+        "src/native_storage_transaction.js",
+        "src/realm_cargo.js",
+        "src/exchange_content.js"
+      ],
+      "currentMeaning": "Exact stock/custody/return exists; new same-loan held use/deposit conservation required.",
+      "requiredRemaining": [
+        "WC-G2"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-29",
+      "family": "Lived hub, bounded destinations and continuing residence",
+      "historicalStatus": "planned",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/feature_expansion_nested_content.js",
+        "src/feature_expansion_nested_life.js",
+        "src/book_world_paradise_content.js"
+      ],
+      "currentMeaning": "Native hub/destinations/continued paid life delivered; home connected maturity remains current objective.",
+      "requiredRemaining": [
+        "WC-G4"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-30",
+      "family": "Finite routines, mixed work plans and safe offline catch-up",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_optional_depth",
+      "sourcePaths": [
+        "src/feature_expansion_work_plan.js",
+        "src/repository_absorption_workplan.js",
+        "src/audited_kit_reserve_content.js"
+      ],
+      "currentMeaning": "Four bounded plans/finite programs/stock reserve delivered; general offline optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-31",
+      "family": "Homes, site rights, projects, labor, demand and economy",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/site_projects.js",
+        "src/audit_remainder_home_content.js",
+        "src/audit_remainder_livelihood_content.js"
+      ],
+      "currentMeaning": "Actual room/right/worker/material/demand economy exists; new shutter/overlap material joins required.",
+      "requiredRemaining": [
+        "WC-G1",
+        "WC-G3"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-32",
+      "family": "Familiar desktop UI, optional glyphs, filtering and clear terms",
+      "historicalStatus": "built-unverified",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/feature_expansion_ui.js",
+        "src/action_legibility_ui.js",
+        "src/adventure_notebook.js"
+      ],
+      "currentMeaning": "Current native desktop Here/controls exist; new chains/accepted work/known People needed.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-33",
+      "family": "Authoring, package activation, consumer closure and diagnostics",
+      "historicalStatus": "partial",
+      "currentDisposition": "delivered_partial_world_join",
+      "sourcePaths": [
+        "src/simulation_contracts.js",
+        "src/scene_definitions.js",
+        "src/site_projects.js",
+        "src/expansion_engine.js"
+      ],
+      "currentMeaning": "Compiler dropped-participant gap repaired; new package actual caller/validator/native/build closure required.",
+      "requiredRemaining": [
+        "WC-G5"
+      ],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-34",
+      "family": "Qualified sources, economical roles, refresh and finite handoffs",
+      "historicalStatus": "present",
+      "currentDisposition": "delivered",
+      "sourcePaths": [
+        "docs/GAME_MASTER_PROMPT.md",
+        "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md"
+      ],
+      "currentMeaning": "Qualified sources/finite checkpoint/ownership protocol reused, no new readers.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    },
+    {
+      "id": "MF-COVER-35",
+      "family": "Reference reuse, provenance and selective absorption",
+      "historicalStatus": "present",
+      "currentDisposition": "delivered",
+      "sourcePaths": [
+        "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+        "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md"
+      ],
+      "currentMeaning": "Provenance/selective absorption retained; four assay leaves reserved; wider discovery optional.",
+      "requiredRemaining": [],
+      "behaviorVerifiedByThisReview": false
+    }
+  ],
+  "mfGaps": [
+    {
+      "id": "MF-GAP-01",
+      "title": "Connect the finite Frontier campaign and its cumulative outcomes",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_baseline",
+      "remainingRequired": [
+        "WC-G4",
+        "WC-G5"
+      ]
+    },
+    {
+      "id": "MF-GAP-02",
+      "title": "Give selected objects/materials actual functions and conserved operating state",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_fixed_functions_missing_held_loan",
+      "remainingRequired": [
+        "WC-G2",
+        "WC-G3"
+      ]
+    },
+    {
+      "id": "MF-GAP-03",
+      "title": "Connect funded resident choices, reciprocal agreements and willing succession",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_bounded_workers_missing_new_connected_join",
+      "remainingRequired": [
+        "WC-G1",
+        "WC-G3",
+        "WC-G4"
+      ]
+    },
+    {
+      "id": "MF-GAP-04",
+      "title": "Extend selected methods into mature functions and supported exceptional counters",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_selected_functions_missing_loaded_payoff_and_care",
+      "remainingRequired": [
+        "WC-G1",
+        "WC-G4"
+      ]
+    },
+    {
+      "id": "MF-GAP-05",
+      "title": "Bind one selected destination and its retained native return",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_selected_native_worlds_universal_optional",
+      "remainingRequired": []
+    },
+    {
+      "id": "MF-GAP-06",
+      "title": "Qualify a selected life/origin/death/temporal carrier operation",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "optional_unselected",
+      "remainingRequired": []
+    },
+    {
+      "id": "MF-GAP-07",
+      "title": "Add a readable mixed work plan only if repetition is insufficient",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_bounded_plans_offline_optional",
+      "remainingRequired": []
+    },
+    {
+      "id": "MF-GAP-08",
+      "title": "Close one resource-to-resident-to-project supply chain",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_finite_chains_missing_new_material_join",
+      "remainingRequired": [
+        "WC-G3"
+      ]
+    },
+    {
+      "id": "MF-GAP-09",
+      "title": "Make selected package consumer closure diagnosable",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "compiler_fixed_new_package_closure_required",
+      "remainingRequired": [
+        "WC-G5"
+      ]
+    },
+    {
+      "id": "MF-GAP-10",
+      "title": "Choose RNG/native boundaries for consequential odds or appropriation",
+      "historicalStatus": "proposed-later-packet",
+      "currentDisposition": "delivered_authored_streams_universal_optional",
+      "remainingRequired": []
+    }
+  ],
+  "incPackets": [
+    {
+      "id": "INC-P1",
+      "historicalState": "proposed; finite Frontier runtime remains unselected",
+      "currentDisposition": "historical_finite_frontier_delivered",
+      "meaning": "All33parents/15steps/seven endings/E01-E09 source/native/UI/build in historical Frontier coverage; new DOD exceeds that ceiling."
+    },
+    {
+      "id": "INC-P2",
+      "historicalState": "proposed selected object/material/native function circuit",
+      "currentDisposition": "selected_fixed_consumers_delivered_with_new_loan_join",
+      "meaning": "Objects/materials/assembly/use/identification now function; exact held loan/new sample/material chain remains WC-G2/3."
+    },
+    {
+      "id": "INC-P3",
+      "historicalState": "proposed funded reciprocal work/participants/willing succession; mixed queue and diagnostics optional",
+      "currentDisposition": "selected_work_teaching_plans_delivered_with_connected_join",
+      "meaning": "Named funded work/participants/reciprocal teaching/succession/four work plans now function; current overlap/closure join remains."
+    },
+    {
+      "id": "INC-P4",
+      "historicalState": "proposed mature method/native counter; substantial installed-body route conditional",
+      "currentDisposition": "selected_mature_methods_counters_delivered_with_loaded_join",
+      "meaning": "Native functional specializations/mastery/guards/body/energy consumers delivered; loaded home survey needs useful downstream outcome; arbitrary anatomy optional."
+    },
+    {
+      "id": "INC-P5",
+      "historicalState": "proposed selected destination; body/time/reset policies unselected",
+      "currentDisposition": "selected_native_destinations_delivered_universal_optional",
+      "meaning": "Glasshouse/Tidemark/nested/Paradise have actual native entry/return bindings; universal origins/reset/ecology not required."
+    }
+  ],
+  "repositoryFindings": [
+    {
+      "id": "RB-INT-01",
+      "title": "Monster item affordances join means, state, target, and observed effect",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_functions",
+      "meaning": "artifact/fieldcraft/material affordances; new lens use WC-G2"
+    },
+    {
+      "id": "RB-INT-02",
+      "title": "Action-specific door traps feed water into material-aware inventory consequences",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_material_consequence_new_rain_join",
+      "meaning": "soaked/protected kit and wet bench function; P2/P5 current drain/rain required"
+    },
+    {
+      "id": "RB-POW-01",
+      "title": "Mastery changes an actual function",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_mastery_functions",
+      "meaning": "four methods/mature source/native consumers; loaded survey payoff WC-G4"
+    },
+    {
+      "id": "RB-POW-02",
+      "title": "Risk and execution blockers have actual consequences",
+      "historicalDisposition": "already-supported",
+      "currentDisposition": "delivered",
+      "meaning": "actual costs/support/refund/failure/native objective paths"
+    },
+    {
+      "id": "RB-POW-03",
+      "title": "Possession, body costs and independent monster evolution remain distinct",
+      "historicalDisposition": "deferred",
+      "currentDisposition": "optional_unselected",
+      "meaning": "general possession/monster evolution not needed here"
+    },
+    {
+      "id": "RB-POW-04",
+      "title": "Device activation joins typed effects to no-op cost handling",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_objects",
+      "meaning": "frame/prism/pin functions and actual paid item/vital/energy consumers"
+    },
+    {
+      "id": "RB-LIV-01",
+      "title": "Teach a finite known method through an eligible person",
+      "historicalDisposition": "selected-existing-delivery",
+      "currentDisposition": "delivered_new_procedure_join",
+      "meaning": "named consenting paid lessons exist; P4 another actual learner procedure"
+    },
+    {
+      "id": "RB-LIV-02",
+      "title": "Keep method understanding, practice, and functional benefit separate",
+      "historicalDisposition": "selected-existing-delivery",
+      "currentDisposition": "delivered",
+      "meaning": "knowledge/method/mastery/stock/body remain distinct"
+    },
+    {
+      "id": "RB-LIV-03",
+      "title": "Bound stock-aware work and profession decisions to an authored local policy",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_new_overlap_join",
+      "meaning": "finite funded worker/controller and stock-reserve functions exist"
+    },
+    {
+      "id": "RB-LIV-04",
+      "title": "Choose the existing simulation seam over an imported actor or timer framework",
+      "historicalDisposition": "unsuitable",
+      "currentDisposition": "rejected_duplicate_engine",
+      "meaning": "reuse existing simulation; no actor/timer transplant"
+    },
+    {
+      "id": "RB-PRO-01",
+      "title": "An authored mixed-activity itinerary is the queue pattern worth borrowing",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered",
+      "meaning": "four mixed plans and finite stock-aware reserve"
+    },
+    {
+      "id": "RB-PRO-02",
+      "title": "Mentor specialization is useful as a consequence pattern, not a task engine to import",
+      "historicalDisposition": "duplicate",
+      "currentDisposition": "delivered",
+      "meaning": "exclusive home loaded/fine training and independent teacher/source"
+    },
+    {
+      "id": "RB-PRO-03",
+      "title": "Keep civilization job economies and offline/reset rules as separate design boundaries",
+      "historicalDisposition": "alternative",
+      "currentDisposition": "optional_unselected",
+      "meaning": "civilization population economy/offline reset not required"
+    },
+    {
+      "id": "RB-AUT-01",
+      "title": "Keep narrative choices behind one canonical native command boundary",
+      "historicalDisposition": "duplicate",
+      "currentDisposition": "delivered",
+      "meaning": "one native command boundary and publisher"
+    },
+    {
+      "id": "RB-AUT-02",
+      "title": "An optional Ink cursor needs a durable identity and explicit compatibility gate",
+      "historicalDisposition": "alternative",
+      "currentDisposition": "delivered_selected_ink_optional_here",
+      "meaning": "versioned Ink host exists; no new interpreter required for this chain"
+    },
+    {
+      "id": "RB-AUT-03",
+      "title": "Grid query libraries do not replace the current directed road graph",
+      "historicalDisposition": "unsuitable",
+      "currentDisposition": "rejected_duplicate_engine",
+      "meaning": "native directed paths are sufficient, no grid required"
+    },
+    {
+      "id": "RB-CAM-01",
+      "title": "Attack resolution composes a successful action from skill gates, target/effect hooks, active effects, and state changes",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_native_functions",
+      "meaning": "native actual body/gear/guards/status/objective result hooks; care moving"
+    },
+    {
+      "id": "RB-CAM-02",
+      "title": "NPC agendas encode finite turn-by-turn duties and a guarded return to the starting routine",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_new_overlap_join",
+      "meaning": "finite resident agendas/jobs/return and separate funded work"
+    },
+    {
+      "id": "RB-CAM-03",
+      "title": "Scenario WML joins discovery-gated encounters, a unit-bound reward, named recalls, and a campaign transition gate",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_selected_campaigns",
+      "meaning": "Frontier and current native destination chains/discovery/retained return"
+    },
+    {
+      "id": "RB-REF-01",
+      "title": "Wildermyth documents an explicit story-input to supported-outcome authoring contract",
+      "historicalDisposition": "incorporate-as-proposed",
+      "currentDisposition": "delivered_new_chapter_join",
+      "meaning": "actual causal definitions/outcomes/observer receipts; new earned chapter recap required"
+    }
+  ],
+  "optionalDepth": [
+    "general native time reversal/true death/rebirth/all body origins",
+    "population-wide NPC attacks/ecology/household/romance economy",
+    "general lot/organ/device schemas unless a later concrete consumer demands them",
+    "GD-02 substrate/charge scene and parked GD-D01-D05 deeper discovery",
+    "ACS wider31findings/15paths/twoDLCtraces/five deeper research priorities",
+    "additional worlds/renderers/ECS/server/offline catch-up/prestige"
+  ],
+  "inputSha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9",
+    "docs/gm/world-completion-2026-10-06/BRIEF.md": "97c6e7fc8af15372cbdb41175cb27ca4285ddb7cffbe10b22056f37559f78140",
+    "docs/gm/world-completion-2026-10-06/WORLD_DEFINITION_OF_DONE.md": "9ec0ccfbbdb27476541c131e60acb02f9449ef1ccf2c6db5b7a34f77bca661f0",
+    "docs/gm/world-completion-2026-10-06/INTERFACE.md": "ebe71ae1f81cf18a83c862c23a5c6b35034380befa4441c8242ef1aec90c2335",
+    "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md": "bc2ccfdfde1ed7aaf234fe236211c47438d773e3d35daf7ccb5f125f830c2db9",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "ae62a7f18abe2164923879f6a7ac41b241976421089d311e5030a554e7347259",
+    "docs/gm/WORLD_IMPLEMENTATION_RUN.md": "1f5afce4cbbb6455d303170aa71ed224e18a39f83b2ac25fdb1f42e0cd9621ac",
+    "docs/gm/world-implementation/frontier-runtime/COVERAGE.json": "95acfa51d9e5602ca147d34fd7e71e609fd5aa171b6e7ed44be82bda29aef459",
+    "docs/gm/world-implementation/second-pass/missing-feature-audit/FEATURE_COVERAGE.json": "02320a8c983ac0b027147141abdaaa34116d2333eb3938c7bc6e79cfcbe159a3",
+    "docs/gm/world-implementation/second-pass/missing-feature-audit/FINDINGS.json": "b6eadbdc0c3987d675b9af46672535ccc203142fc66232f68f79835c0bdd23ca",
+    "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json": "bc7b997407da484cbd659951182c65ada36f54814f2a01cfd2d2c3235116f84c",
+    "docs/gm/audit-implementation/QUEUE.json": "6767d8a8c33d3133ddcd8a47813e6d6bf0ab17a42e76fee09f20399b92ed1201",
+    "docs/gm/book-lore-to-gameplay-2026-10-06/IMPLEMENTATION_PACKETS.md": "0ca13328d7e1580b03eef4b229ca72fa550d8a6804e744036c030c46b825e588",
+    "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+    "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md": "4bdfaca1aa23e1ab708c4c6edf0fb5526877287cd475ac36ee83997ee44980c6",
+    "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md": "e59e353fc6abbdc5aa5b473ab01592161315711bbf39f3947181be5b70411ad6",
+    "src/audit_remainder_home_facts.js": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+    "src/audit_remainder_runtime.js": "ad875c2fc89af1703b53e34f7897680d1878ebb0161375e395ba112e4c3c7154",
+    "src/expansion_engine.js": "5fca4f32083e0627c84b20d3baaa55a943443a80f11d4344c9c166b8ecbb0e26",
+    "src/expedition_content.js": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+    "src/field_care_content.js": "8602f2cf5cc3a4bf76f6ee3c6290fae328c25a512ba823e5c721d35f712db740",
+    "src/main.js": "e98b4881db0dcd0b3f2619bdf0b4e644290925ce46d3be9268239715e0c62207",
+    "src/people_knowledge.js": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+    "src/simulation_content.js": "6ee63ad18d82a4875bdf3c76ab33cfeebbdc8a492232bf29147b0ef99833da14",
+    "src/simulation_contracts.js": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+    "src/simulation_effects.js": "3daa13c230f48045beacdff434e5739d53fe7e08a1ec3e0265872633f4452976",
+    "src/simulation.js": "bf45629aa2b91bff5f2ce6f1821e1f5315c0bc9d4d2664e703f151297b39710e",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/save_files.js": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+    "src/original_frontier_campaign_host.js": "80d5abd69b1c42f937c6dbf4dc07a74d9c135638a64a8146786298b0fe5b9675",
+    "src/original_frontier_career_content.js": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79",
+    "src/audit_remainder_home_content.js": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/skill_discovery.js": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+    "src/skill_discovery_native.js": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+    "src/original_frontier_field_content.js": "faee6d0d221637b40b48a564072ebbea5fdb623d42a795ba2934163478b5f9c3",
+    "src/feature_expansion_powers.js": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+    "src/activities.js": "b12e0afde7f9af9d8e07d4dc12bdfa03d955328847f4148a37fecdb2d26b2204",
+    "src/audit_remainder_consequences_content.js": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+    "src/artifact_collection.js": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+    "src/artifact_workshop_content.js": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+    "src/nethack_fieldcraft_content.js": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/crafting_recipes.js": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/audit_remainder_livelihood_content.js": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+    "src/feature_expansion_society.js": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/feature_expansion_battle.js": "0baddc191d38d593509c37bf836caa511fb6df94a1c34d53b0884b73584a7a09",
+    "src/causal_story_content.js": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+    "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+    "src/audit_remainder_combat_objectives_battle.js": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83",
+    "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+    "src/world_rhythm.js": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+    "src/feature_expansion_host.js": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467",
+    "src/adventure_notebook.js": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+    "src/world_knowledge.js": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+    "src/book_world_player_agency_contracts.js": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+    "src/original_frontier_campaign_content.js": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/causal_story_core.js": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+    "src/chronicle.js": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/backlog_expansion_time.js": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+    "src/realm_traveler_profiles.js": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+    "src/native_realm_traveler.js": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+    "src/feature_expansion_destination.js": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/book_world_paradise_native.js": "c12bd030f45927297fa086b00a9bb70b6ef9f05360b3ba47c258f7d49a85d77f",
+    "src/observation_channels.js": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+    "src/pocket_observation.js": "ce7043827b9911d5ad210bcbfe88081b047aeaa593eee531f53266ffad091095",
+    "src/observation_content.js": "30a1108998f88c6c85c1eea7cf26d990eeec6c685aad6b8330ee0b0fcc6c20e6",
+    "src/native_storage_transaction.js": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+    "src/realm_cargo.js": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+    "src/exchange_content.js": "7bef23a86877a384c438f15b26de22acf79d84d9012dccdfd17f0eb4aca08bef",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/feature_expansion_nested_life.js": "774d70dba90d199355c5f151fe56fa9ab569b28271850cb90e48902d5eebeca8",
+    "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+    "src/feature_expansion_work_plan.js": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+    "src/repository_absorption_workplan.js": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9",
+    "src/audited_kit_reserve_content.js": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+    "src/site_projects.js": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+    "src/feature_expansion_ui.js": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "src/scene_definitions.js": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f"
+  },
+  "deferredAcceptance": [
+    "connected personal/Orr/self/decline/late work",
+    "owned/borrowed/operator lens/deposit/held refusal",
+    "personal/Neri/ordinary learner means and output",
+    "log/offcut/measured crop/cooking and disposal before/after rain",
+    "old absence/frozen jobs/marks/conditions/stock/import",
+    "changed native travel/return and public/quiet/unresolved closure",
+    "stale/forged/failed publication/keyboard/director review"
+  ],
+  "writerState": "completed_released_to_root_AUDIT_REVIEW_revision2"
+}

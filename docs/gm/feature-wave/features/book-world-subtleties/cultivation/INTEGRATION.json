@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "inspectedAt": "2026-10-05T22:25:55.555Z",
+  "scope": {
+    "writer": "/root/cultivation_subtleties",
+    "mutablePaths": [
+      "src/feature_expansion_book_cultivation.js",
+      "docs/gm/feature-wave/features/book-world-subtleties/cultivation/"
+    ],
+    "sourceOwnersReadOnly": true,
+    "privateSavesOpened": false
+  },
+  "module": "src/feature_expansion_book_cultivation.js",
+  "moduleSha256": "540e99414192ec73cfbe26feb11e5dc6783a3286dd7765649830bd4fed79286c",
+  "exports": [
+    "cultivationBookProfiles",
+    "cultivationBookSceneSpecs",
+    "cultivationBookSourcePins",
+    "evaluateCultivationBookRule",
+    "getCultivationBookProfile"
+  ],
+  "stateEffects": [],
+  "saveMeaningChanges": [],
+  "nativeConsumer": null,
+  "activation": "unactivated",
+  "admission": "Optional inert source-profile import only. Register/use a selected profile in an actual native scene before reporting source-world implementation. Compiled unused metadata is not playable.",
+  "callable": {
+    "name": "evaluateCultivationBookRule",
+    "arguments": [
+      "worldId",
+      "ruleId",
+      "snapshot"
+    ],
+    "snapshotRequired": {
+      "context": [
+        "editionSha256",
+        "eraId",
+        "placeId",
+        "entryMode",
+        "actualBranchId",
+        "branchKind"
+      ],
+      "actual": [
+        "actorId",
+        "bodyId",
+        "controllerId",
+        "soulId",
+        "rule-specific actual source/material/right/body/fuel fields"
+      ],
+      "observer": [
+        "id",
+        "for recognition: requestedTests and attributed evidence rows"
+      ],
+      "intent": [
+        "rule-specific requested action",
+        "for recognition: claimId and claimedActorId"
+      ]
+    },
+    "recognitionEvidence": [
+      "observerId",
+      "subjectActorId",
+      "claimId",
+      "branchId",
+      "evidenceId",
+      "test",
+      "outcome:match|mismatch|inconclusive"
+    ],
+    "result": [
+      "status:supported|blocked|unknown",
+      "authorOnlyReasons",
+      "missingSnapshotFields",
+      "evidenceIds",
+      "demandedNativeJoins",
+      "nativeConsumer:null",
+      "activation:unactivated",
+      "commitmentAllowed:false",
+      "playerExplanation:null"
+    ],
+    "qualification": "supported means supplied evidence fits a scoped prerequisite rule. It does not authorize a command. Unknown source edition/era/place/entry, absent fields, unsupported soul recognition, conflicted tests and incomplete evidence remain unknown. No input mutation/state/rewards/XP/timers.",
+    "projection": "Author-only reasons may mention private facts. Legibility must project known costs/alternatives and per-observer evidence. Do not render reasons directly as player dialogue."
+  },
+  "worldConsumers": [
+    {
+      "worldId": "fated-villain",
+      "profileId": "cultivation.fated_villain.v1",
+      "actualBranchId": null,
+      "ruleIds": [
+        "recognition",
+        "private-system-entitlement",
+        "ring-assistance",
+        "remelted-key-availability",
+        "wang-host-recovery"
+      ],
+      "sceneIds": [
+        "cultivation.fv.guest_errand"
+      ],
+      "deepChainId": "cultivation.fv.chain.guest_credit",
+      "topologyEdgeIds": [
+        "cultivation.fv.edge.tree_custody",
+        "cultivation.fv.edge.past_incursion",
+        "cultivation.fv.edge.return"
+      ],
+      "nativeConsumer": null,
+      "joins": [
+        "Native Taixuan instance and ordinary entrant.",
+        "Guest-work permission/custody command and independent steward/porter actors.",
+        "Observer-specific remembered return plus Ink continuation."
+      ],
+      "topologyJoins": [
+        "actual instance/branch IDs",
+        "body/cargo/route/source costs",
+        "history/witness aftermath",
+        "one durable publisher"
+      ],
+      "deepChainJoins": [
+        "Features replacement carriers",
+        "permission/duty/custody native commands",
+        "Legibility witness correction",
+        "Ink continuation"
+      ]
+    },
+    {
+      "worldId": "reverend-insanity",
+      "profileId": "cultivation.reverend_insanity.v1",
+      "actualBranchId": null,
+      "ruleIds": [
+        "recognition",
+        "purple-token-access",
+        "gu-activation",
+        "moonlight-feed-substitution",
+        "watched-recipe-access",
+        "bamboo-test-validity"
+      ],
+      "sceneIds": [
+        "cultivation.ri.token_inspection"
+      ],
+      "deepChainId": "cultivation.ri.chain.token_trade_credit",
+      "topologyEdgeIds": [
+        "cultivation.ri.edge.inheritance_entry",
+        "cultivation.ri.edge.periodic_exit",
+        "cultivation.ri.edge.token_exit"
+      ],
+      "nativeConsumer": null,
+      "joins": [
+        "Native era-specific Shang guest/local instance.",
+        "Owned wooden token with actual binding and bounded service rights.",
+        "Catalogue service/return command, actual merchant stock and remembered clerk encounter."
+      ],
+      "topologyJoins": [
+        "retained instance/route stage",
+        "Gu/actor/cargo portability",
+        "finite exit token charges",
+        "explicit local clock"
+      ],
+      "deepChainJoins": [
+        "credential/authority/custody",
+        "funded shop service",
+        "observer receipt/credit correction",
+        "Ink same-clerk revisit"
+      ]
+    },
+    {
+      "worldId": "regressors-tale",
+      "profileId": "cultivation.regressors_tale.v1",
+      "actualBranchId": null,
+      "ruleIds": [
+        "recognition",
+        "remembered-method-execution",
+        "outer-lesson-access",
+        "sword-reservoir-access",
+        "ham-host-journey",
+        "prior-life-relationship-claim"
+      ],
+      "sceneIds": [
+        "cultivation.rt.lesson_permit"
+      ],
+      "deepChainId": "cultivation.rt.chain.fragment_to_instruction",
+      "topologyEdgeIds": [
+        "cultivation.rt.edge.random_rift",
+        "cultivation.rt.edge.host_relay",
+        "cultivation.rt.edge.memory_dream"
+      ],
+      "nativeConsumer": null,
+      "joins": [
+        "Native Seokyung ordinary entrant and actual teacher/bursar.",
+        "Owned herbs/proceeds, specific school admission, current training/body/source.",
+        "Attributed prior-life claim and same-person attendance continuation; no regression activation."
+      ],
+      "topologyJoins": [
+        "source-qualified route/body/soul",
+        "consented host/source/fuel",
+        "separate destination/subjective clocks",
+        "known memory/identity projection"
+      ],
+      "deepChainJoins": [
+        "owned work proceeds",
+        "school admission",
+        "method mastery/body/source/fuel",
+        "Ink peer/instructor continuation"
+      ]
+    }
+  ],
+  "selectedLaterNeeds": "Shang token/catalogue service is the clearest small source-qualified later consumer; FV steward errand and RT funded lesson are coherent alternatives. No simultaneous launch selected.",
+  "laterGates": [
+    "Source-era/native binding review and absent-data inert default",
+    "Actual actor/custody/rights/body/source/fuel conservative commitment through existing host",
+    "Same-person Ink continuation and known-observer correction",
+    "Deferred gameplay/conservation/partial-work/departure/revisit/save/reload/failure/keyboard/director acceptance"
+  ]
+}

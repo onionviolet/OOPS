@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-06",
+  "assigningThreadId": "01a10db8-e981-76f3-aa4c-600e99310cda",
+  "threadId": "01a10fa6-d749-70a1-882b-eae0fd454060",
+  "hostId": "local",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "requestedTitle": "GM: causal stories and endings",
+  "authority": "Explicit human request for a dedicated GM on player interventions, protagonist attacks, causal story changes and endings across worlds",
+  "assignment": "docs/gm/causal-endings/ASSIGNMENT.md",
+  "baseline": "docs/gm/causal-endings/BASELINE.json",
+  "creationState": "created-and-observed-active",
+  "roleScope": "Read-only source/engine analysis; own role documents/evidence, not gameplay/canonical/build/save writers",
+  "currentGameIntegrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "models": "Configured new-chat defaults retained",
+  "acceptance": "Evidenced capability chain, action/outcome matrix, causal/ending model, four worked cases, up to five concrete implementation packets",
+  "noGameplayChangeClaim": true,
+  "observedStart": {
+    "status": "active",
+    "turnStatus": "inProgress",
+    "cursor": "3df8c9ce-6960-478d-b531-e401f3c3427e:2",
+    "progress": "I’m using the efficient agent routing skill for two bounded source audits. The key distinction is already clear: changing dialogue, resolving combat, and changing an ending are separate engine jobs, so I’m checking the actual connections between them."
+  },
+  "documentChecks": {
+    "assignmentPresent": true,
+    "baselineInputs": 19,
+    "missingInputFiles": 0,
+    "missingLocalLinks": 0,
+    "scope": "dispatch documents only"
+  }
+}

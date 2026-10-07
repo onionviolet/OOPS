@@ -1,0 +1,656 @@
+{
+  "schema_version": 1,
+  "screen_id": "PAPERS_PLEASE",
+  "name": "Papers, Please",
+  "date": "2026-10-06",
+  "status": "finite_supporting_screen_complete",
+  "active_ranked_candidate": false,
+  "rank_owner": "root",
+  "disposition": "retain_mechanism_reference_and_one_unselected_original_prototype",
+  "incumbent": "Current YAIRPG JavaScript plus Ink, existing durable publisher and clock/actor/stock/right owners",
+  "target_gap": "Player-selected evidence comparison under changing institutional requirements must alter real work eligibility, right scope and funded payment, rather than becoming another favorability or cosmetic approval gate.",
+  "coverage": {
+    "primary_design_documents": "selected_creator_posts_and_sections_only",
+    "complete_devlog_read": false,
+    "gameplay_source_files_reviewed": 0,
+    "proprietary_game_algorithm": "source_not_accessed_uninspected",
+    "game_run": false,
+    "installation_intake": "Parent reports no matching Steam installation root. Not independently repeated in this lane.",
+    "private_save_inspection": false,
+    "current_installed_build": "not_inspected",
+    "public_authoring_source": "Creator-linked localization tool, selected packer sections only",
+    "source_or_document_corpus": "No original source recovered; raw creator prose and bulk localization/story payload not retained",
+    "source_proof_limit": "Tool source proof never promoted to gameplay algorithm or complete campaign proof"
+  },
+  "primary_documents": [
+    {
+      "url": "https://dukope.com/devlogs/papers-please/tig-00/",
+      "semantic_scope": "selected creator posts only, rulebook/procedural premise; forum replies are not developer facts",
+      "locators": [
+        "#24 November 22, 2012",
+        "Documents",
+        "Rules"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-NOV",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/tig-01/",
+      "semantic_scope": "selected creator posts only, inspect mode and feedback proposal",
+      "locators": [
+        "Inspect Mode",
+        "Speech Bub",
+        "Tracking Performance"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-DEC",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/tig-02/",
+      "semantic_scope": "selected creator posts122123128131, identity records and household costs",
+      "locators": [
+        "Revised Fingerprint System",
+        "Nightly Stats",
+        "#131 January 09, 2013"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-JAN",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/tig-03/",
+      "semantic_scope": "selected creator posts173174179, paired-evidence intent and feedback",
+      "locators": [
+        "#179 February 03, 2013",
+        "inspect mechanic"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-FEB",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/tig-04/",
+      "semantic_scope": "selected creator posts239243269271286, authoring, corrections, legal/story distinction and historical wage pressure",
+      "locators": [
+        "Data Scripting",
+        "Days",
+        "Travelers",
+        "#271 March 14, 2013",
+        "#286 March 17, 2013"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-MAR",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/mobile/",
+      "semantic_scope": "selected creator sections only, retained interaction logic and presentation; screenshot code samples not semantically read",
+      "locators": [
+        "Step 1: To Unity",
+        "Wanted: Criminal Poster",
+        "Enhanced Inspect Mode",
+        "Auto Player Testing"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-MOBILE",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/localizing-1/",
+      "semantic_scope": "selected load/display localization sections and official source link",
+      "locators": [
+        "Data",
+        "How To Localize It?",
+        "Try It Yourself"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-LOC",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://dukope.com/devlogs/papers-please/lcdplease/",
+      "semantic_scope": "selected demake scope/mechanic/scripting sections; not original game source",
+      "locators": [
+        "Also a Game",
+        "Programming"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-LCD",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://3909.zendesk.com/hc/en-us/articles/20794056066969-F-A-Q",
+      "semantic_scope": "selected campaign/endless/mobile content scope",
+      "locators": [
+        "What determines which ending",
+        "Is the game completely scripted",
+        "mobile version"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-FAQ",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://3909.zendesk.com/hc/en-us/articles/360053256073-Version-Changelist",
+      "semantic_scope": "selected version headings and correction entries, not all historical fixes",
+      "locators": [
+        "1.4.12",
+        "1.4.11",
+        "1.4.10",
+        "1.4.8"
+      ],
+      "fetch_error": "HTTP Error 403: Forbidden",
+      "raw_prose_retained": false,
+      "semantic_access": "Read successfully via web tool; direct urllib HTML hash unavailable",
+      "id": "PP-CHANGELOG",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    },
+    {
+      "url": "https://store.steampowered.com/dlc/239030/Papers_Please/",
+      "document_date": "observed2026-10-06",
+      "semantic_scope": "catalog enumeration only",
+      "locators": [
+        "All 0",
+        "No results found"
+      ],
+      "retrieved_utc": "2026-10-06T20:55:29.109622+00:00",
+      "http_bytes": 42100,
+      "html_sha256": "3d905530d6ae1a6b92a2b5b8e307be1f7e89f6086b6c3f4ffe5d36ac8220b8e3",
+      "raw_prose_retained": false,
+      "semantic_access": "Read via web tool; raw HTML hashing also available",
+      "id": "PP-DLC",
+      "evidence_kind": "creator_primary_documentation_not_game_source"
+    }
+  ],
+  "qualified_claims": [
+    {
+      "id": "PP-D01",
+      "name": "Explicit paired evidence supports interrogation",
+      "source_ids": [
+        "PP-NOV",
+        "PP-DEC",
+        "PP-FEB",
+        "PP-MOBILE"
+      ],
+      "evidence": "creator_documented",
+      "scope": "Dated prototype design plus 2022 retained interaction description",
+      "uninspected": "Full current valid-pair/discrepancy evaluator and interrogation table"
+    },
+    {
+      "id": "PP-D02",
+      "name": "Verified identity differs from authorization validity",
+      "source_ids": [
+        "PP-JAN",
+        "PP-MAR"
+      ],
+      "evidence": "historical_creator_documented",
+      "scope": "Identity-record and mismatched-document development discussion",
+      "uninspected": "Current identity matching, alias tables, document forge rules and legal exceptions"
+    },
+    {
+      "id": "PP-D03",
+      "name": "Rules, authored placements and partially specified generated travelers",
+      "source_ids": [
+        "PP-MAR",
+        "PP-LOC"
+      ],
+      "evidence": "creator_documented_authoring",
+      "scope": "Per-day spreadsheet/CSV and tab-indented traveler scripting; internal names separated from display localization",
+      "uninspected": "Original CSV/schema/parser/generator and all day scripts"
+    },
+    {
+      "id": "PP-D04",
+      "name": "Speed, evaluation feedback and household spending pressure",
+      "source_ids": [
+        "PP-JAN",
+        "PP-MAR"
+      ],
+      "evidence": "historical_creator_documented",
+      "scope": "Early family-cost rationale, immediate mistake feedback and historical timed pay description",
+      "uninspected": "Current pay/fine rates, quotas, health/family transitions and resulting ending conditions"
+    },
+    {
+      "id": "PP-D05",
+      "name": "Legal-rule evaluation differs from story requests",
+      "source_ids": [
+        "PP-MAR",
+        "PP-CHANGELOG"
+      ],
+      "evidence": "historical_creator_bug_and_exception_discussion",
+      "scope": "Creator separates a task from legal border rules and discusses an unresolved deny/detain inconsistency",
+      "uninspected": "Final resolution, universal precedence and all campaign aftermath"
+    },
+    {
+      "id": "PP-D06",
+      "name": "Campaign and generated Endless scope",
+      "source_ids": [
+        "PP-FAQ"
+      ],
+      "evidence": "current_primary_documentation_observed",
+      "scope": "FAQ31 story days/20 endings; decisions and money affect some endings; generated Endless games/rulesets",
+      "uninspected": "All31 day semantics,20 ending predicates,Endless generation/scoring"
+    },
+    {
+      "id": "PP-S01",
+      "name": "Localization production checks and exports supplied authored data",
+      "source_ids": [
+        "PP-LOC"
+      ],
+      "evidence": "public_creator_linked_tool_source_inspected",
+      "scope": "packer/index.js selected capture/load/export and entry-point ranges only; not original gameplay evaluator",
+      "source_ranges": [
+        [
+          359,
+          438
+        ],
+        [
+          496,
+          558
+        ]
+      ],
+      "uninspected": "Page-side capture implementation, full image/font finalization, original rule/pay/family/ending algorithms"
+    }
+  ],
+  "causal_trace": {
+    "prerequisites": "Applicable rule, supplied documents/testimony and accessible comparison tools. Rules and tools vary by authored day in documentation.",
+    "player_choice": "Select a meaningful evidence pair; question or perform available checks; then admit,deny,detain or honor a particular authored request.",
+    "real_cost_and_time": "Creator historically ties timed processing and evaluation to earnings and competing household costs. Current exact rates/penalties not inspected.",
+    "mutation": "Documented discrepancies/responses and inspection decision. Current actual state fields unknown.",
+    "downstream_consumer": "Citations and earnings pressure, plus FAQ-confirmed decisions/money influencing some campaign endings.",
+    "failure_and_aftermath": "Dated correction bugs and legal/story inconsistencies are retained; no claim all fixes shipped or all final consequences known.",
+    "verification_level": "mixed_current_and_historical_primary_documentation_only_for_gameplay"
+  },
+  "public_source_example": {
+    "repository": "https://github.com/PapersPleaseLoc/PapersPleaseLoc.github.io",
+    "creator_link": "https://dukope.com/devlogs/papers-please/localizing-1/",
+    "commit": "1fba12973b37b847ec0867076e8b4eb471ece600",
+    "commit_date": "2022-09-17T09:46:07Z",
+    "inspected_source_path": "packer/index.js",
+    "inspected_ranges": [
+      [
+        359,
+        438
+      ],
+      [
+        496,
+        558
+      ]
+    ],
+    "immutable_source_url": "https://github.com/PapersPleaseLoc/PapersPleaseLoc.github.io/blob/1fba12973b37b847ec0867076e8b4eb471ece600/packer/index.js",
+    "mechanism": "Packer loads CSV through the tool, rejects reported load/begin errors, receives output metadata, captures isolated document elements and writes a package.",
+    "not_established": [
+      "immigration decision evaluator",
+      "wage/fine calculations",
+      "family model",
+      "campaign ending selection",
+      "full capture/renderer implementation",
+      "executed packer reliability"
+    ],
+    "code_or_assets_copied_into_project": false,
+    "executed_or_installed": false,
+    "root_license_file_observed": false,
+    "terms_txt": "Terminology list, not license",
+    "maintenance_evidence": "Packer README calls tool unsupported",
+    "bulk_localization_page": "Structural screening only; raw file discarded and narrative payload uninspected"
+  },
+  "dlc_and_access": {
+    "observed_at_utc": "2026-10-06T20:52:23.149987+00:00",
+    "base_app_id": 239030,
+    "store_url": "https://store.steampowered.com/app/239030/Papers_Please/",
+    "regular_usd": 9.99,
+    "current_usd": 9.99,
+    "discount_percent": 0,
+    "region": "US cc=us",
+    "purchase_recommendation": false,
+    "release_date_observed": {
+      "coming_soon": false,
+      "date": "Aug 8, 2013"
+    },
+    "platforms_documented": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    },
+    "compatibility_or_entitlement_verified": false,
+    "dlc_api_ids": [],
+    "dlc_store_count": 0,
+    "dlc_statement": "No gameplay DLC observed in current official Steam API/catalog. Historical/all-storefront absence not proved.",
+    "free_updates": {
+      "evidence": "Official support changelog headings currently observed",
+      "page_last_updated": "2023-07-17",
+      "desktop_version_heading": "1.4.11 Windows/Mac/Linux",
+      "mobile_version_heading": "1.4.12 iOS/Android",
+      "current_binary_pin": null,
+      "scope": "Free technical/localization/bug updates; selected headings/fixes only",
+      "engine_update_announcement": {
+        "gid": "5070528176579566533",
+        "title": "Version 1.4.9 - Engine Update",
+        "published_utc": "2023-03-07T08:00:22+00:00",
+        "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/5070528176579566533",
+        "contents_sha256": "061042612387ba5a85e112d7395a3a233289a43dd961da9af6ce3a43842def6d",
+        "character_count": 1226
+      },
+      "new_game_content_in_1_4_9": "Publisher explicitly says none"
+    },
+    "related_items": [
+      {
+        "name": "Mobile editions",
+        "disposition": "primary_documentation_only",
+        "content_scope": "Same31 days/20 endings; touch UI and mid-day resume, no additional story",
+        "price_and_entitlement": "uninspected"
+      },
+      {
+        "name": "Vita port",
+        "disposition": "creator_documentation_only",
+        "content_scope": "Referenced in mobile article as layout/control adaptation",
+        "current_price_and_availability": "uninspected"
+      },
+      {
+        "name": "LCD, Please",
+        "url": "https://dukope.itch.io/lcd-please",
+        "disposition": "free_standalone_creator_demake_documentation_only",
+        "content_scope": "Explicitly stripped story/extra docs/repeat characters; comparison/memory and daily notices remain",
+        "source_and_gameplay": "uninspected_unrun"
+      },
+      {
+        "name": "Streamed soundtrack,merchandise,official short film",
+        "disposition": "nongame_extras_uninspected",
+        "content_scope": "Observed official links; not DLC or gameplay-source coverage"
+      }
+    ]
+  },
+  "broader_dependency_map": [
+    {
+      "family": "evidence_and_transmission",
+      "keep_distinct": [
+        "actual occurrence",
+        "testimony",
+        "document claim",
+        "observer belief",
+        "discovered rule",
+        "corrected account",
+        "transmitted copy"
+      ],
+      "missing_consumer": "Explicit comparison pair and retained attribution/evidence revision; not omniscient disclosure"
+    },
+    {
+      "family": "identity_and_rights",
+      "keep_distinct": [
+        "identity match",
+        "credential authenticity",
+        "authorization scope",
+        "current revocation or expiry",
+        "practical body/means"
+      ],
+      "missing_consumer": "A declared current-rule/right consumer must govern useful jobs/access"
+    },
+    {
+      "family": "institutional_work",
+      "keep_distinct": [
+        "paid inspection",
+        "funded commission",
+        "time opportunity cost",
+        "approval",
+        "completion",
+        "wage",
+        "review/citation"
+      ],
+      "missing_consumer": "Actual work/access/payment change, with existing conservation/publication"
+    },
+    {
+      "family": "exceptions_and_people",
+      "keep_distinct": [
+        "legal evaluation",
+        "story request",
+        "discretion",
+        "personal feelings",
+        "independent refusal",
+        "recurring actor aftermath"
+      ],
+      "missing_consumer": "Authored exception authority and observed aftermath, not generic favor"
+    },
+    {
+      "family": "authoring_and_presentation",
+      "keep_distinct": [
+        "semantic identifiers",
+        "localized display",
+        "authored story placement",
+        "generated ordinary cases",
+        "daily reference",
+        "explained mistakes"
+      ],
+      "missing_consumer": "Readable observed evidence cards; no copied pixel documents or separate engine required"
+    }
+  ],
+  "current_yairpg_evidence": [
+    {
+      "path": "src/simulation_effects.js",
+      "sha256_at_read": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "selected_ranges": [
+        [
+          194,
+          213
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256_at_read": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "selected_ranges": [
+        [
+          24,
+          43
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256_at_read": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "selected_ranges": [
+        [
+          104,
+          120
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/town_content.js",
+      "sha256_at_read": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+      "selected_ranges": [
+        [
+          19,
+          45
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256_at_read": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "selected_ranges": [
+        [
+          126,
+          137
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256_at_read": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "selected_ranges": [
+        [
+          167,
+          183
+        ],
+        [
+          214,
+          234
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "docs/gm/dispatch/idle-social-gms-2026-10-06/ASSIGNMENT.md",
+      "sha256_at_read": "89c8f0b779825812eca82d8808a308657c95325973a58cc7c18066f0e18c49af",
+      "selected_ranges": [
+        [
+          7,
+          29
+        ]
+      ],
+      "scope": "read_only_selected_source_or_current_scope_not_runtime_test"
+    },
+    {
+      "path": "src/feature_expansion_subtlety_scene.js",
+      "sha256_at_read": "2da0e17e45d495a43872330377e9c42bfe15694b4277dd3627e1eb6fbf984671",
+      "selected_ranges": [
+        [
+          25,
+          28
+        ],
+        [
+          62,
+          81
+        ],
+        [
+          95,
+          98
+        ]
+      ],
+      "scope": "read_only_incumbent_relay_owner_and_gap_check"
+    },
+    {
+      "path": "src/feature_expansion_subtlety_host.js",
+      "sha256_at_read": "edf27f5e13829b72e75252135037e065e5f1d63b18491eb23118defaf09552a1",
+      "selected_ranges": [
+        [
+          41,
+          54
+        ]
+      ],
+      "scope": "read_only_incumbent_relay_owner_and_gap_check"
+    },
+    {
+      "path": "src/backlog_expansion_replacement.js",
+      "sha256_at_read": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+      "selected_ranges": [
+        [
+          16,
+          22
+        ]
+      ],
+      "scope": "read_only_incumbent_relay_owner_and_gap_check"
+    }
+  ],
+  "original_prototype": {
+    "id": "PP-P1",
+    "title": "Storm-damaged teaching bench",
+    "status": "unselected_original_proposal_unimplemented",
+    "setting": "Existing-style local work circle, no new world or required family system",
+    "prerequisite": "Older authorization,dated closure and keeper testimony available through actual observation; bench condition and authority tracked independently.",
+    "choices": [
+      "compare old authorization to posted closure",
+      "inspect actual brace with paid time",
+      "clarify with actual keeper",
+      "accept one supported repair exception",
+      "refuse and pursue ordinary work"
+    ],
+    "real_cost": "Conserved wood/kit,usable body,shared played time and finite keeper fee; numerical balance unselected.",
+    "mutation": "Scoped repair right and accepted funded job after supported evidence/consent; teaching remains unavailable until actual repair.",
+    "downstream_consumer": "Repair enables useful bench teaching/work; actual completed work pays once from reserved funds.",
+    "failure_or_aftermath": "Identity match with invalid authorization starts no paid job; failed support/cancellation uses declared refund; closure and correction receipts survive display-memory pruning; independent refusal creates no fee or affection debt.",
+    "compatibility": "Integrator selects any added evidence/rule carrier; old absent optional state inert; retain one publisher/clock/job/inventory owner.",
+    "exclusions": [
+      "mandatory dependents",
+      "offline death clock",
+      "global suspicion score",
+      "arbitrary omniscient fines",
+      "new engine"
+    ],
+    "observable_later_gate": "Hold identity/liking constant; changing only current rule or observed brace condition changes actual job eligibility. Show conserved paid repair,invalid claim without job,retained correction and independent refusal.",
+    "acceptance_run": false,
+    "specific_review_response": "Keeper cites the actual closure record and observed issue; no omniscient fine or private truth leak.",
+    "person_aftermath": "Completed repair lets an independently willing learner use the reopened bench under their own agreement. While closed they may pay another available teacher or defer with their own purse,time and knowledge."
+  },
+  "integration_assessment": {
+    "benefit": "Meaningful evidence literacy and institutional access/work choice.",
+    "incumbent_reuse": "Existing knowledge basis,claims,memory,jobs,clock,Ink and publisher provide groundwork.",
+    "missing": "Declared valid pair/reaction and authority version/scope consumers plus funded aftermath.",
+    "effort": "Qualitative medium for bounded authored case; larger general institutions/generation require separate scope.",
+    "engine_replacement": "Not recommended by this screen; creator port story does not prove benefit of a YAIRPG migration.",
+    "performance_or_authoring_speed": "Not measured"
+  },
+  "external_manifests": [
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/papers-please/steam-us-metadata.json",
+      "sha256": "98df5e35fb405563691a58f308fbd7232abb2e3e836a1d5f9f17bad738d0f1ac"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/papers-please/steam-news-metadata.json",
+      "sha256": "9310bc29b6f6863975efecd7b27ea9d32f6111b75ef3286b050a7eff7dcec369"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/papers-please/creator-document-metadata.json",
+      "sha256": "9137b436821b5c08c18a5e8cfa703b184becb1274df36654849885b14adfc68e"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/papers-please/loc-tool-tree-metadata.json",
+      "sha256": "9c5d05746965443fd874f46977173308725b188b7f48be00fc368bfda32bf553"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/papers-please/loc-tool-input-manifest.json",
+      "sha256": "7b72a22d00b5655b0c3cdbc33de4c0c64ae09a9fd872c9d04ae50c7de113debd"
+    }
+  ],
+  "access_gaps": {
+    "creator_html_hashing": "Direct urllib403 for10 creator/support documents; web reading succeeded. No fabricated HTML hashes.",
+    "original_game_source": "No accessed creator-published core gameplay source. Public localization source is not a substitute.",
+    "unread_material": [
+      "Remaining devlog posts and quoted commenters",
+      "Code screenshots/figures not semantically transcribed",
+      "Full31-day campaign and20-ending predicates",
+      "Exact current pay/citation/family/time rules",
+      "All legal/story exception resolutions",
+      "Complete localization capture/tool pipeline",
+      "LCD gameplay/source",
+      "Mobile/Vita current price/entitlement"
+    ]
+  },
+  "verification": {
+    "json_and_internal_links": "passed_document_checks",
+    "runtime_tests_build_save_changes": false,
+    "unit_browser_save_regression_director_gates": "deferred_unrun",
+    "purchases_installs_decompiler": false,
+    "commit_push_publication": false
+  },
+  "specific_gap_beyond_relay": {
+    "already_present": "Attributed actual/claimed old repair; one finite invitation allocation,unused correction,spent compensation; real office/custody/work rights and finite purse validation.",
+    "missing_in_bounded_read": "Explicitly selected two-item evidence comparison evaluated under a declared current institutional rule revision, including formerly valid authorization invalidated by new rules, then real work/access/payment/person aftermath.",
+    "version_limit": "An existing scene schema/version flag is not proof of temporal institutional requirements or a document comparator.",
+    "reuse": "Preserve current correction,identity,right,custody,paid-work and publisher owners instead of creating parallel versions."
+  }
+}

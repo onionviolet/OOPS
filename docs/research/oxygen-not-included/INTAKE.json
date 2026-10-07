@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "game": "Oxygen Not Included",
+  "appid": 457140,
+  "buildid": "24423041",
+  "platform": "macOS Unity managed player",
+  "scope_date": "2026-10-06",
+  "installed_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/OxygenNotIncluded",
+  "source_kind": "locally installed managed assemblies, native solver interface and streaming rule data",
+  "private_root": "/Users/weiwei/.codex/research/oxygen-not-included/24423041",
+  "stable_gate": {
+    "state_flags": 4,
+    "buildid_nonzero": true,
+    "target_build_matches": true,
+    "staging_size": 0,
+    "bytes_downloaded_equals_target": true,
+    "bytes_staged_equals_target": true,
+    "two_observations_minutes_apart": true,
+    "managed_size_mtime_unchanged_during_copy": true
+  },
+  "retained_inputs": {
+    "file_count": 1498,
+    "bytes": 214127896,
+    "managed_files": 134,
+    "streaming_rule_bundle_files": 1358,
+    "native_metadata_files": 6,
+    "input_hash_manifest": "/Users/weiwei/.codex/research/oxygen-not-included/24423041/INPUT_HASHES.json",
+    "input_hash_manifest_sha256": "050801798501629d4dc685b7b333aae8402ca263cd6f15c5b1b9cd16d90601b5",
+    "assembly_csharp_sha256": "9b6e9ef6d1cef9477d20a7cbb70680e892c1218a4ac0ba61d2affc4c3a496095",
+    "firstpass_sha256": "a5e6ecac282327854f203b7f85e7628219ceb5aa05d9a87d23c2f097d2a97397",
+    "native_simdll_sha256": "d332d15417d4c6c32786682aa9b020dd43fde1839b19b5bcc985160a4fea5145"
+  },
+  "managed_export": {
+    "complete": true,
+    "exports": [
+      {
+        "directory": "decompiled",
+        "exit_code": 0,
+        "csharp_files": 4337,
+        "files": 4338,
+        "bytes": 24357312
+      },
+      {
+        "directory": "decompiled-firstpass",
+        "exit_code": 0,
+        "csharp_files": 2447,
+        "files": 2448,
+        "bytes": 5307282
+      }
+    ],
+    "export_hash_manifest": "/Users/weiwei/.codex/research/oxygen-not-included/24423041/EXPORT_HASHES.json",
+    "partial_attempt": {
+      "exit_code": 143,
+      "reason": "Initial project export stopped after 1,484 files to prioritize finite targeted analysis; subsequently completed both project exports from the same retained input pins."
+    },
+    "diagnostics": "Complete main and firstpass exports exit 0 with empty stdout/stderr. 73 targeted main-assembly type requests included two absent guessed names (exit 70); GasBreatherFromWorldProvider and QualityOfLifeNeed repaired those semantic targets. DlcManager was separately exported from firstpass."
+  },
+  "tools": {
+    "dotnet": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+    "ilspycmd": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+    "version": "9.1.0.7988",
+    "project_command_template": "dotnet ilspycmd.dll --disable-updatecheck -p -o <private/export> -r <private/inputs/Managed> <private/inputs/Managed/assembly.dll>",
+    "selected_command_template": "dotnet ilspycmd.dll --disable-updatecheck -r <private/inputs/Managed> -t <type> <private/inputs/Managed/assembly.dll>",
+    "selected_command_records": [
+      "SELECTED_EXPORT.json",
+      "SECOND_EXPORT.json",
+      "THIRD_EXPORT.json"
+    ],
+    "existing_tools_reused_read_only": true
+  },
+  "license": "Retained ONI_LICENSE.txt privately. Recovered proprietary code is private research evidence and is not copied into this repository or selected for reuse. Preserve YAIR LICENSE/upstream attribution.",
+  "official_metadata": {
+    "source": "https://store.steampowered.com/api/appdetails?appids=457140&cc=us&l=english",
+    "declared_dlc_ids": [
+      4310080,
+      1452490,
+      2952300,
+      3302470,
+      3655420,
+      4157740,
+      1244160
+    ],
+    "metadata_snapshot": "/Users/weiwei/.codex/research/oxygen-not-included/24423041/OFFICIAL_METADATA.json",
+    "platforms": {
+      "windows": true,
+      "mac": true,
+      "linux": true
+    }
+  },
+  "privacy": "No personal saves, player preferences, workshop subscription/profile folders or account identifiers retained; copied Steam manifest removes LastOwner.",
+  "scope": "Only docs/research/oxygen-not-included and private research owner; no runtime/canonical/other-owner changes.",
+  "cleanup_gate": "Managed recovery and finite representative analysis complete; root must reconcile user cleanup condition and native/unread semantic limits before installation cleanup. No uninstall performed."
+}

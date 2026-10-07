@@ -1,0 +1,407 @@
+{
+  "family": "sect knowledge, institution and exploration",
+  "status": "selected_source_trace_complete",
+  "claims": [
+    {
+      "id": "ACS-I01",
+      "kind": "code_established",
+      "claim": "School-wide method availability is distinct from actor learning. UnLockGong inserts a shared method name and enables Practice for the first method; it does not call actor LearnEsotericaEx.",
+      "sources": [
+        "school_method",
+        "learn_gate"
+      ]
+    },
+    {
+      "id": "ACS-I02",
+      "kind": "code_established",
+      "claim": "Teacher command needs a valid reachable learner with interruptible work and sufficient learner TreeExp. Learning checks method eligibility, disciple work, hidden teaching restriction, rank, incompatibilities and prerequisites. Teaching has a 20-second idle toil after movement; learner comprehension multiplier is0.75, or0.5 for that actor's current MasterID. Completion rechecks gates/stock and then actually subtracts TreeExp through LearnEsotericaEx, adds DaoHang and records learned method.",
+      "sources": [
+        "teaching_cmd",
+        "teaching_job",
+        "learn_gate"
+      ]
+    },
+    {
+      "id": "ACS-I03",
+      "kind": "code_established",
+      "claim": "Completed learning changes actual actor combat skills, recipes, magic/modifiers and selected world access, depending on the definition. DanFang_1's non-commented definition declares eight medicine recipes; EsotericaFinish iterates Dans into LearnDanFormulas. No automatic granted items or mastered craft are shown by this unlock.",
+      "sources": [
+        "book_def",
+        "learn_effect"
+      ]
+    },
+    {
+      "id": "ACS-I04",
+      "kind": "code_established",
+      "claim": "Working grounded shelves add100 institutional memory capacity each. Inserting a new method consumes difficulty units of capacity, rejects duplicates/insufficient space and gives the contributing actor comprehension. Deposit toil costs min(difficulty*100/(intelligence*logicStage),600) simulation seconds for a selected manual; it records institutional access without deleting the manual in the inspected deposit path. Interruption publishes failure and removes its item command, while JobCangJingGe puts down the carried item.",
+      "sources": [
+        "shelf_def",
+        "archive",
+        "archive_job",
+        "archive_toil",
+        "archive_command"
+      ]
+    },
+    {
+      "id": "ACS-I05",
+      "kind": "code_established",
+      "claim": "Archive self-study has20 simulation seconds, rank/eligibility gates and learner comprehension debit at0.75 of derived cost. Insufficient comprehension at settlement publishes failure with no LearnEsotericaEx. Archive scale also lowers GetTreeExpNeed by min(floor(usedMemory/1000)*0.01,0.2). UI eligibility flag itself can remain true when comprehension is insufficient; command and settlement stock gates establish actual rejection.",
+      "sources": [
+        "archive_ui",
+        "archive_command",
+        "archive_toil",
+        "archive",
+        "learn_gate"
+      ]
+    },
+    {
+      "id": "ACS-I06",
+      "kind": "code_established",
+      "claim": "World travel launches an occupied hidden actor, with outbound/visit/return stages. Base journey duration is distance*3 divided by flight-speed and event modifiers. GetLingCost is literally0 for departure; normal visit waits120 simulation seconds and dispatches actual story options. Arrival count drives child-location discovery through sys_openplace then Lua helper and PlacesMgr unlock, while the first linked visit can expose linked locations.",
+      "sources": [
+        "explore_command",
+        "explore_behaviour",
+        "explore_job",
+        "explore_actor",
+        "explore_mgr",
+        "place_story",
+        "explore_lua"
+      ]
+    },
+    {
+      "id": "ACS-I07",
+      "kind": "code_established",
+      "claim": "Stay mode generates repeated stories and returns after16800 simulation seconds in the inspected path. Callback during outward travel maps elapsed outward progress into return-stage progress; no refund of elapsed time is shown. Non-God CheckWaitDie return preparation drains10\u201330percent of MaxLing; return releases exploration/equipment flags and actual carried awards. Punishment and fight-map waits delay progression; shortage/no selected story never implies a guaranteed reward.",
+      "sources": [
+        "explore_mgr",
+        "explore_job",
+        "explore_actor"
+      ]
+    }
+  ],
+  "sources": {
+    "job_def": {
+      "path": "input/Settings/JobDef/JobDef_Disciple.xml",
+      "sha256": "4d55b3d646851b290e1e39dfd1a47599dd73dd45d365ca64c51918727f8a9363",
+      "read_spans": [
+        [
+          26,
+          33
+        ],
+        [
+          116,
+          126
+        ]
+      ],
+      "kind": "readable_configuration",
+      "review": "root semantic read"
+    },
+    "book_def": {
+      "path": "input/Settings/Esoterica/Esoterica_Book.xml",
+      "sha256": "3457e2d8827784328ac24f6d73860a3dfbf919b9579c650cea70f40bfa6e96ce",
+      "read_spans": [
+        [
+          28,
+          65
+        ]
+      ],
+      "kind": "readable_configuration",
+      "review": "root semantic read"
+    },
+    "shelf_def": {
+      "path": "input/Settings/ThingDef/Building/Building_Ornament.xml",
+      "sha256": "f45934d639a4086fdd41ffea4b9ec0f7258a0cdc395a38baf3680e6177734b99",
+      "read_spans": [
+        [
+          1419,
+          1438
+        ]
+      ],
+      "kind": "readable_configuration",
+      "review": "root semantic read"
+    },
+    "place_story": {
+      "path": "input/Settings/MapStories/MapStory_System.xml",
+      "sha256": "fa8294d273fe05575542029ac83646eb5dc5ec174b54f85c8ef964ab02a8d4c7",
+      "read_spans": [
+        [
+          1,
+          36
+        ]
+      ],
+      "kind": "readable_configuration",
+      "review": "root semantic read"
+    },
+    "teaching_cmd": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandTeachHim.cs",
+      "sha256": "166546b03dcd9da16cb0fe9346b3bb24ca39ae33556c0167721c4b40382db315",
+      "read_spans": [
+        [
+          1,
+          88
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "teaching_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobTeachHim.cs",
+      "sha256": "1ecb72e75880071cd40adb055da9a4fa9d9edf4a08347660f38f6644fa88db49",
+      "read_spans": [
+        [
+          1,
+          64
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "learn_gate": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+      "read_spans": [
+        [
+          790,
+          862
+        ],
+        [
+          1038,
+          1050
+        ],
+        [
+          1782,
+          1840
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "learn_effect": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/EsotericaMgr.cs",
+      "sha256": "ea3f7f40aca5034d86e294f184cec7c26ae8b9546379a2ce6af0c89ced9b41c6",
+      "read_spans": [
+        [
+          372,
+          442
+        ],
+        [
+          455,
+          566
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "school_method": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/SchoolMgr.cs",
+      "sha256": "45d0044c40f6805208ad3b6caf11f9f421fdc6c8aa68c98830a6bb678a7bcd27",
+      "read_spans": [
+        [
+          730,
+          765
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "archive": {
+      "path": "decompiled/Assembly-CSharp/CangJingGeMgr.cs",
+      "sha256": "5229156f789fa6d4af65fcc06a47813625325fb428ff5f0d5b408ddd99538341",
+      "read_spans": [
+        [
+          1,
+          68
+        ],
+        [
+          274,
+          444
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "archive_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobCangJingGe.cs",
+      "sha256": "5fd6db20c7a1754901b5c25ebb88ca7e80849c28294c6a53ef3e6276b2e137ec",
+      "read_spans": [
+        [
+          1,
+          70
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "archive_toil": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilCangJingGe.cs",
+      "sha256": "adfa40f48e968099709153b1ef56fd0c45681dcd46ffc409cffbc3a71174de53",
+      "read_spans": [
+        [
+          1,
+          161
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "archive_command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandCangJingGe.cs",
+      "sha256": "2e82d8e25e8ab647c7e6a2d68fc2e1adb135fc3b4d20d3209c08a58931db4ba3",
+      "read_spans": [
+        [
+          1,
+          209
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "archive_ui": {
+      "path": "decompiled/Assembly-CSharp/Wnd_CangJingGeWindow.cs",
+      "sha256": "5070948b99ecccf3b013bd86fe7ade7f20f42b8d870cead7bc1930786db4b43e",
+      "read_spans": [
+        [
+          252,
+          295
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandGoMapExplore.cs",
+      "sha256": "f0c1061e7f90eb970ea33aa84efc57079da30450143a33313f3d5df83dc636d4",
+      "read_spans": [
+        [
+          1,
+          42
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_behaviour": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourGoMapExplore.cs",
+      "sha256": "7adb39e7e1f81bc77ac3985f9c5eee9c06aa6ead82b4018bb70d742c020e1277",
+      "read_spans": [
+        [
+          1,
+          20
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobLeave2Explore.cs",
+      "sha256": "3fa87b5f80a2c4c60819e61227d8d009f46c6d5b192b184663503e36bce60260",
+      "read_spans": [
+        [
+          1,
+          149
+        ],
+        [
+          150,
+          219
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_mgr": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/PlacesMgr.cs",
+      "sha256": "0eb08f9fe89e4193300eb4f3c8049a5fbbe459b7c8a68987139a2ebf4bac8acc",
+      "read_spans": [
+        [
+          450,
+          770
+        ],
+        [
+          783,
+          875
+        ],
+        [
+          945,
+          1030
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_actor": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+      "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+      "read_spans": [
+        [
+          6861,
+          6885
+        ],
+        [
+          7017,
+          7042
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    },
+    "explore_lua": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingLuaHelperBase.cs",
+      "sha256": "3dbc48eb22aa976c0e4fe7bf365e2234e9db59a037aae4687c971e546471ac24",
+      "read_spans": [
+        [
+          183,
+          228
+        ]
+      ],
+      "kind": "recovered_managed_code",
+      "review": "root semantic read"
+    }
+  },
+  "prerequisites": [
+    "A valid current method definition and eligible learner; rank/prerequisite/mutex checks remain actor-local.",
+    "Archive use requires a reachable shelf/workspace, actual manual or learned contributing actor, free difficulty capacity.",
+    "World departure requires an applicable exploration command, connected room and no cant-explore flag; caller-level UI admission not comprehensively audited."
+  ],
+  "decisions": [
+    "Teach a named learner, use archive self-study, or contribute a method to institutional storage.",
+    "Choose destination, ordinary visit versus stay, story option at arrival or callback."
+  ],
+  "expenditures": [
+    "Learning spends learner TreeExp, using0.75 general or0.5 actual mentor teaching multiplier; not teacher TreeExp in inspected branch.",
+    "Archive deposit occupies actor/workspace for computed time and difficulty capacity; no copied book item minted/deleted by this deposit path.",
+    "Outbound GetLingCost=0; time/actor availability spent; non-God return CheckWaitDie debits10\u201330percent MaxLing."
+  ],
+  "state_changes": [
+    "Shared GongList, archive allesolist/esodic/used capacity stay separate from actor EsotericaV/TreeExp/DaoHang.",
+    "Actor learning updates real skill/recipe/modifier/access consumers; discovery updates ArrivedCount and unlocked place data.",
+    "Travel retains a stages/callback/actual award path and returns the same actor."
+  ],
+  "downstream_consumers": [
+    "NpcPractice.GetTreeExpNeed consumes institutional corpus benefit.",
+    "EsotericaFinish consumes the chosen learned definition into actor recipes/skills/modifiers and selected world access.",
+    "PlacesMgr.IsLocked/UnLockPlace and actual story selection consume repeated discovery evidence."
+  ],
+  "time_policy": "All inspected toils/managers use passed dt/keeptime and game-time state. Travel and stay policies differ. No universal offline catch-up claim; runtime display seconds are not asserted to wall-clock seconds.",
+  "failure_and_aftermath": [
+    "Teaching interrupted or invalid/insufficient learner at finish: no learning debit/output, movement/occupied time already spent; whole job-engine interruption mechanics reviewed by actors lane.",
+    "Archive duplicates/capacity loss: no new insert/comprehension award, reported failure; item returns through existing job put-down path.",
+    "Self-study shortfall at finish: failure message, no method awarded.",
+    "Callback preserves elapsed journey rather than teleporting home; travel punishment pauses progression, and some arrivals have no eligible story."
+  ],
+  "uncertainties": [
+    "No complete institution diplomacy/economy/population audit.",
+    "No guarantee of random story item yield, specific recipe balance, stable public localization name or universal offline policy.",
+    "Ordinary local fog JobExplore was inspected but excluded from selected world-map trace coverage; different job semantics.",
+    "Generated project not compiled or executed; code branches are evidence, not observed installed gameplay."
+  ],
+  "yair_fit": {
+    "reused": [
+      "src/simulation.js paid participant/site jobs, frozen outcomes and completion support",
+      "src/simulation_effects.js attributed knowledge/world/recipe effects",
+      "src/site_projects.js phased site/access consumers",
+      "src/audited_workshop_lesson.js current Eda knowledge/stock/teaching",
+      "src/skill_discovery.js knowledge-qualified UI"
+    ],
+    "missing": "One original earned workshop deposit and named learner study chain whose institutional access does not grant personal ability/fuel; no generic archive domain exists in inspected selected owners. Implementation must refresh moving current owners."
+  }
+}

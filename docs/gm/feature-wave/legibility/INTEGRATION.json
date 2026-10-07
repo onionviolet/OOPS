@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 1,
+  "interfaceVersion": 2,
+  "status": "implemented-source-native-ui-build-admitted-unverified",
+  "owner": "01a10dc6-46de-7ec2-afe1-8d6bd2155c58",
+  "integrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "interface": "docs/gm/feature-wave/legibility/INTERFACE.md",
+  "exports": {
+    "src/action_legibility.js": [
+      "ACTION_LEGIBILITY_VERSION",
+      "projectKnownActionRequirements",
+      "projectActionCosts",
+      "projectActionLegibility",
+      "projectSimulationActionLegibility",
+      "playerActionDisclosure",
+      "projectAcceptedWorkLegibility",
+      "projectActionAftermath",
+      "projectSimulationAftermath",
+      "projectEssentialRecovery",
+      "projectRecognitionLegibility",
+      "projectReplacementLegibility",
+      "projectSubtletyKnowledgeLegibility",
+      "projectMissionLegibility",
+      "projectTropeChainLegibility",
+      "projectHubCampaignLegibility"
+    ],
+    "src/action_legibility_ui.js": [
+      "createActionLegibilityList",
+      "createActionLegibilityPanel"
+    ]
+  },
+  "style": "styles/action_legibility.css",
+  "versions": {
+    "projection": 2,
+    "ui": 1,
+    "expansion": "5 unchanged",
+    "simulation": "1-4 unchanged",
+    "realmPrototype": "2 unchanged"
+  },
+  "compatibility": {
+    "newSaveFields": [],
+    "missingDefault": "No UI state, enrollment, discoveries, actors, costs or rewards created on load/render.",
+    "historicalCommitments": "Accepted-work terms read the frozen job; no effects, RNG, outcome IDs or labels become previews or results.",
+    "publisher": "All callbacks call existing host planners and persistExpansion/persistExpansionPlan exactly once through main.",
+    "clock": "Existing played-time owner only; unsupported absence unchanged."
+  },
+  "registeredIds": [],
+  "activation": "Only actions passed by owning discovery-aware hosts; hidden actions project null. Known requirements/means and alternatives use explicit observer-qualified disclosure metadata.",
+  "requiredJoins": [
+    {
+      "id": "L01",
+      "owner": "src/original_frontier_campaign_host.js",
+      "join": "Import projectSimulationActionLegibility/playerActionDisclosure/projectAcceptedWorkLegibility/projectSimulationAftermath. Reuse actual preview p/context ctx and provide known requirement/means maps. Replace generic failure collapse with projected blockers and preserve work/native-journey/program/quest semantics.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    },
+    {
+      "id": "L02",
+      "owner": "src/feature_expansion_host.js",
+      "join": "projectFeatureCommands returns legibility rows from the real preview/facts plus action-specific disclosure. Eliminate raw private reasons and unknown item-key label parsing. Apply core projection to existing mature native responses, funded queue offers and destination passage terms.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    },
+    {
+      "id": "L03",
+      "owner": "src/original_frontier_campaign_ui.js and src/feature_expansion_ui.js",
+      "join": "Import createActionLegibilityList in existing action sections; render projected action/work/retained-account rows and route callbacks to existing freshly sequence-checked command handlers. Keep native rest/navigation and finite queue/session controls reachable.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    },
+    {
+      "id": "L04",
+      "owner": "src/backlog_expansion_ui.js / actual Backlog host",
+      "join": "Core projectActionLegibility for previewBacklogAction results with actual packet/duration, explicit known terms/reason matches, no evaluation/enrollment at renderer. Preserve recovery/cancel/return choices from current Backlog records.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    },
+    {
+      "id": "L05",
+      "owner": "src/ink_narrative_ui.js / actual Ink host",
+      "join": "Core projection from actual visible Ink choices and host eligible result; explicitly qualify cost/consequence terms. Use list per existing choice section, keep pause/resume/recover controls, commit same host choice/cursor/sequence path.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    },
+    {
+      "id": "L06",
+      "owner": "index.html / build.js",
+      "join": "Load styles/action_legibility.css beside native style; include both modules through real host/UI imports and final matched current bundle/map.",
+      "status": "source/UI/build-admitted; gameplay-deferred"
+    }
+  ],
+  "performedChecks": {
+    "javaScriptSyntax": "node --check passed for both new modules",
+    "moduleImportsExports": "dynamic imports loaded all nine projection exports and both UI factories without DOM instantiation",
+    "cssSyntax": "esbuild 0.25.10 transform loader css; pass, zero warnings",
+    "localImportLinks": "each relative import exists",
+    "whitespace": "direct checks include untracked source/CSS; pass",
+    "sourceReview": "projection privacy/valueKnown/partial OR/negation; frozen work; retained observer account; UI stale removal/focus/keyed order/error guards/async destroy reviewed",
+    "recognitionExtension": "node --check and cold dynamic import/export load passed for additive projection2; no function/action evaluation or behavioral test.",
+    "refinementFinal": "REFINEMENT_CHECKS.json owns16export syntax/cold-import/source-review and exact live recognition/relay/recovery consumer paths; no unit/game/action execution.",
+    "missingAdapterRepair": "Source review repaired playerActionDisclosure: missing bound native bag/vitals is unavailable data, not zero counts/stale native vitals; energy terms use actual saved acquired policy/reserve only. Final syntax/import passes."
+  },
+  "deferredChecks": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "admission": {
+    "native": true,
+    "persistence": "no new legibility persistence; actual host callbacks retain one durable publisher",
+    "ui": true,
+    "style": true,
+    "currentBuild": true,
+    "bundleFingerprint": "11aaa9cbfc69"
+  },
+  "deliveryClaim": "Original and directly steered recognition/replacement/hub/mission/chain legibility have actual native/UI/current-bundle consumers;221local contents exactly match current bundle11aaa9cbfc69. Gameplay/keyboard/save/director checks remain deferred.",
+  "sourceHashes": {
+    "src/action_legibility.js": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "styles/action_legibility.css": "721590da18e74e257aa7758db98b3b69871291e52f4b6d3a653278086ee25c3d",
+    "src/original_frontier_campaign_host.js": "80d5abd69b1c42f937c6dbf4dc07a74d9c135638a64a8146786298b0fe5b9675",
+    "src/original_frontier_campaign_ui.js": "633ea9b0381111add25ef125fdd1f6a75528acdd146e78f455afcd827fd007be",
+    "src/ink_narrative_ui.js": "f3ef871104ce86719c3a6dc83878ef273ecee16e467b825e2c8073793768a850"
+  },
+  "sourceReservation": "All role source released; internal UI/review child completed. No further code or shared writes pending. Later behavior/director acceptance remains separate.",
+  "consumerNotes": [
+    {
+      "id": "L-privacy",
+      "path": "src/feature_expansion_legibility.js",
+      "required": "known:true qualifies a requirement term only; current truth needs valueKnown:true backed by own/current observed evidence. Preserve own default descriptors when adding authored reason prose; do not mark remote/private site capacity observed merely from definition membership."
+    },
+    {
+      "id": "L-external",
+      "paths": [
+        "src/backlog_expansion_ui.js",
+        "src/ink_narrative_ui.js",
+        "native mature battle controls",
+        "workPlanView consumer",
+        "destination enter/return consumer"
+      ],
+      "required": "Use the core projection and shared list with actual current host preview/cost/terms. Raw error.message arrays are not blanket player disclosure. Keep each recovery/return/cancel callback under its actual owner."
+    },
+    {
+      "id": "L-accounts",
+      "required": "Actually feed projectAcceptedWorkLegibility and projectSimulationAftermath rows to admitted lists; callable exports alone do not satisfy frozen costs/reservations or witnessed cause/account qualification."
+    }
+  ],
+  "recoverySourceReceipt": "docs/gm/feature-wave/legibility/RESUME_STATIC.json",
+  "recoveryJoinReceipt": "docs/gm/feature-wave/legibility/RESUME_JOIN.md",
+  "roleWriterReleased": true,
+  "recoverySourceHashes": {
+    "src/action_legibility.js": "a5d7a8cfaa37ab728f7694ce6baf451ab4a675ca36adab62945b73f8c6325e9a",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "styles/action_legibility.css": "721590da18e74e257aa7758db98b3b69871291e52f4b6d3a653278086ee25c3d"
+  },
+  "followupAdmissionStatic": "docs/gm/feature-wave/legibility/ADMISSION_STATIC.json",
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "source-delivered-admission-in-progress",
+  "extension": {
+    "authority": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+    "interface": "docs/gm/feature-wave/legibility/RECOGNITION_INTERFACE.md",
+    "version": 2,
+    "newSaveFields": [],
+    "baselineAdmission": "V1 admitted source/native/UI/build; later approved Ink rebuild48e8a7514ff2 predates this v2 source amendment",
+    "sourceImplemented": true,
+    "native": true,
+    "ui": true,
+    "currentBuild": true,
+    "compatibility": "Existing v1 APIs and callback shapes preserved. New explicit addressed-account and qualified carrier APIs do not enroll/save/recognize/transfer anything.",
+    "joins": [
+      {
+        "id": "RS01",
+        "owner": "actual Backlog replacement and Features relay-office host",
+        "required": "Pass actual retained own or communicated observer accounts with exact viewer recipient, qualified test/claim/suspicion/correction and carrier-change records. Do not pass private actual carrier state as knowledge. Freeze receipt/version mapping against RECOGNITION_INTERFACE.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      },
+      {
+        "id": "RS02",
+        "owner": "Features subtlety presentation and Ink original continuation",
+        "required": "Call projectRecognitionLegibility/projectReplacementLegibility and render their actions/aftermath through existing shared list. Supply learned local vocabulary, exact retained cause text, and independently legal honest-entry/recovery/test actions with displayed command tokens.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      },
+      {
+        "id": "RS03",
+        "owner": "Features main/registry/source-build integration",
+        "required": "Admit actual relay-office source/native callbacks; include projection v2 and native/UI consumers in final matched bundle. Preserve old namespaces/jobs, paid duties, prior actors and one durable publisher.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      }
+    ],
+    "sourceReceipt": "docs/gm/feature-wave/legibility/RECOGNITION_CHECKS.json",
+    "concreteLedgerAdapter": "projectSubtletyKnowledgeLegibility: own simulation.knowledge viewer ledger, real record text/time/cause, exact authored metadata; ignore private replacement.recognition and NPC/situation truth",
+    "repairs": "Source review repaired missing recovery command and actual consumer test-kind/explicit correction-pointer compatibility; no game/action execution.",
+    "finalAdmissionReceipt": "docs/gm/feature-wave/legibility/FINAL_ADMISSION.json"
+  },
+  "nestedExtension": {
+    "authority": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+    "interface": "docs/gm/feature-wave/legibility/MISSION_INTERFACE.md",
+    "sourceImplemented": true,
+    "native": true,
+    "ui": true,
+    "currentBuild": true,
+    "newSaveFields": [],
+    "joins": [
+      {
+        "id": "N01",
+        "owner": "Features actual hub/mission/instance host",
+        "required": "Freeze real known contract/header, per-field before-acceptance terms, separately known issuer/local objectives, actual current clock snapshots, addressed occurred/current extraction records, completed settlement receipts and changed revisit accounts. Call projectMissionLegibility/projectHubCampaignLegibility; do not pass frozen outcomes/private actual state as observer records.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      },
+      {
+        "id": "N02",
+        "owner": "Features three-chain presentation and Ink continuation",
+        "required": "Call projectTropeChainLegibility from individually disclosed retained links, actual occurred closure/relationship receipts and current legal prepared/refusal/partial/withdrawal actions. No author future branches/counts, hidden motive/power or compulsory replacement boss. Qualified world vocabulary and exact host token preserved.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      },
+      {
+        "id": "N03",
+        "owner": "Features shared native/UI/build",
+        "required": "Feed known groups/actions/aftermath to existing shared lists and route row.command unchanged through existing instance/mission publisher. Include utility16exports and real hub/chain callers in final matched bundle.",
+        "status": "actual-source-native-ui-current-build-admitted; behavior deferred"
+      }
+    ],
+    "actualNativeMapping": "docs/gm/feature-wave/legibility/NESTED_BINDINGS.md",
+    "carrierScope": "Explicitly qualified body/occupant/controller/soul, memory/method/source/faculty/fuel/capacity, goods/custody, title/authority, burdens/alliances remain separate. No inferred inheritance.",
+    "finalAdmissionReceipt": "docs/gm/feature-wave/legibility/FINAL_ADMISSION.json"
+  },
+  "finalAdmissionReceipt": "docs/gm/feature-wave/legibility/FINAL_ADMISSION.json"
+}

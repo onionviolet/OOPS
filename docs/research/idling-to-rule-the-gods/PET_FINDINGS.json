@@ -1,0 +1,171 @@
+{
+  "task": "bounded_pet_campaign_trace",
+  "status": "complete_connected_campaign_trace",
+  "input": {
+    "game": "Idling to Rule the Gods",
+    "build": 25514347,
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c",
+    "source_root": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/decompiled",
+    "source_mode": "read-only decompiled C#; no game/runtime inspection"
+  },
+  "path": {
+    "name": "campaign page pet selection and growth-campaign projection",
+    "start": {
+      "file": "JENBACKJIFC.cs",
+      "symbol": "JENBACKJIFC.ELGDGHNJMPD(JEBLMDKEKOF)",
+      "span": "9588-9614",
+      "sha256": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+      "observed": "The actual page router has an explicit Campaigns branch that iterates the saved pet records and invokes EFNIFLDMKBG on each. The sibling Pets and Dungeons branches invoke their own UI/service refresh routes. This is direct route evidence and prevents conflating similarly named pet/dungeon methods."
+    },
+    "selection_and_eligibility": {
+      "file": "OHKFICBLBFN.cs",
+      "symbol": "OHKFICBLBFN.EFLGABICFAE()",
+      "span": "3001-3015",
+      "sha256": "90cb5abcc998a388ed6b95ff163205899f2a5b573c4b7fffa635e9766eaa28ae",
+      "observed": "This method builds an eligible pet list using evolved/active/status-related flags, a user-set growth threshold, and an exclusion for Questing assignment. It sets a projected clone-distribution amount from a configured per-pet quantity times eligible count. EFLGABICFAE is explicitly called from this class's GUI callback and by page routing/refreshes; it is a projection/refresh, not proven as campaign launch. The actual commit caller is OHKFICBLBFN around lines 1850-1887: it builds the chosen-pet list from selected pets whose assignment is None, rejects an empty list, requires at least two pets for Growth, rejects more than ten, then calls the selected campaign record BADCAGOLPIP(game, duration, list). It reports when selected pets became unavailable."
+    },
+    "competing_assignment_and_auto_select": {
+      "file": "OHKFICBLBFN.cs",
+      "symbol": "OHKFICBLBFN.JGCEPPGHFAB()",
+      "span": "5284-5417",
+      "sha256": "90cb5abcc998a388ed6b95ff163205899f2a5b573c4b7fffa635e9766eaa28ae",
+      "observed": "The UI auto-selection resets each candidate's selection flag, excludes pets already assigned to another activity unless their current campaign assignment matches the chosen campaign, and fills up to ten. It handles some campaign-specific pets first, then for Growth selects the eligible pet with the lowest computed total growth if a slot remains; remaining candidates are ranked by the value returned from OAGNMDAEKKP. The GUI displays selection toggles and repeatedly computes this campaign-specific projected value. This method mutates UI selection flags only in the reviewed span; campaign commitment was not established here."
+    },
+    "campaign_model_and_reward_projection": {
+      "file": "OHPMBFGGLLM.cs",
+      "symbol": "OHPMBFGGLLM.OAGNMDAEKKP(GPBDFEPBIML, EANFJBBJCEN, PFBFLAJEGBI, EANFJBBJCEN, List<OHPMBFGGLLM>, List<LAOFGDGIAAC>)",
+      "span": "2632-2740",
+      "sha256": "a933cc1d9dfd8568370ab19d38f531bcae67647be172edff1dcbd0f2f4831bea",
+      "observed": "The method caps requested duration at 24 hours, combines same-campaign bonuses from the supplied pet-history records, applies special-case pet behavior, and returns a Growth reward projection. In the Growth branch it starts with a 0.25 base coefficient; above total growth 225 it uses log base 15(total growth) minus 1.75, then multiplies by summed growth-campaign bonus and campaign-duration factor, divides by 100, applies a further multiplier, and suppresses the reward for Gray. The decompiled arithmetic is retained structurally in code; the obfuscated helper names make the second multiplier's domain less certain without a broader helper audit. This is a projection method, not evidence by itself that this is the settlement entry point. Confirmed actual caller: the same UI commit branch invokes the selected campaign record method with the final eligible list."
+    },
+    "growth_target_ordering": {
+      "file": "KHGFPLLPDFD.cs",
+      "symbol": "KHGFPLLPDFD.BADCAGOLPIP(PFBFLAJEGBI, int, List<OHPMBFGGLLM>)",
+      "span": "285-314",
+      "sha256": "3a86c54d1887a5a9aa1850cd4816a62347d1bc49b7664735058b8ac00015d793",
+      "observed": "The record stores campaign duration in milliseconds (one hour by default; requested duration 1-24 multiplies the base), clears elapsed progress, snapshots selected pet IDs, and for Growth orders that snapshot by current growth ascending before updating the campaign record. This supplies a concrete competing-use/target ordering rule. A verified caller that commits the user's pet selection into this record was not found in this bounded trace. The verified commit call at OHKFICBLBFN:1884 passes the selected pet list into this method."
+    },
+    "tick_and_pet-side_update": {
+      "file": "Assets.Scripts/UpdateStats.cs",
+      "symbol": "UpdateStats.GLODOBLAJCO()",
+      "span": "4140; campaign record progression loop 4400-4403",
+      "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+      "observed": "UpdateStats.Start schedules GLODOBLAJCO every 0.5 seconds (Assets.Scripts/UpdateStats.cs:2035-2047). In this actual Unity callback, each active campaign record in the saved campaign list receives BPMABPHBKOP(delta) (4400-4403). The pet record update OFOFHFENAJA is a distinct system and is not used as evidence for campaign progression."
+    },
+    "campaign_record_progress": {
+      "file": "KHGFPLLPDFD.cs",
+      "symbol": "KHGFPLLPDFD.BPMABPHBKOP(EANFJBBJCEN)",
+      "span": "263-283",
+      "sha256": "3a86c54d1887a5a9aa1850cd4816a62347d1bc49b7664735058b8ac00015d793",
+      "observed": "While remaining campaign duration is positive, elapsed time accumulates by the supplied delta. It reports either time remaining or time elapsed after completion. This reviewed method advances a campaign record but does not establish reward settlement. Its verified periodic caller is UpdateStats.GLODOBLAJCO, which iterates the game's saved campaign records and passes the elapsed delta."
+    },
+    "shortage_or_rejection_case": {
+      "file": "OHKFICBLBFN.cs",
+      "symbol": "OHKFICBLBFN campaign pet-selection UI / eligibility route",
+      "span": "OHKFICBLBFN.cs:1850-1880; eligibility refresh 3001-3015",
+      "sha256": "90cb5abcc998a388ed6b95ff163205899f2a5b573c4b7fffa635e9766eaa28ae",
+      "observed": "The actual campaign-start route handles no selected/available pet, selected pets no longer available, Growth with fewer than two, and more than ten selected pets through explicit UI errors before the campaign-record call. The distinct refresh filter excludes Questing and uses current activity state. This is a directly observed rejection path."
+    },
+    "equipment_link": "Pet equipment is visibly rendered in the pet GUI and OAGNMDAEKKP consumes a pet's equipment-derived bonuses in its campaign projection, but actual equipment crafting, material reservation, and resulting item ownership were not traced in this bounded file path.",
+    "completion_reward_gap": "Resolved for Growth: the campaign row reaches its finished threshold, UI invokes AAMCJECDMCK(true), the settlement computes campaign rewards and directly mutates the selected weakest pet growth through KGKNCEFPEJJ, then clears the campaign and unlocks participants. Other campaign kinds are outside this focused completion trace.",
+    "completion_and_reward_settlement": {
+      "status": "source trace complete after parent caller correction",
+      "active_renderer": {
+        "file": "OHKFICBLBFN.cs",
+        "symbol": "GNNIGBPCCIN -> KCMHIOFHCED",
+        "spans": [
+          [
+            1924,
+            1945
+          ],
+          [
+            2010,
+            2040
+          ],
+          [
+            4279,
+            4343
+          ]
+        ],
+        "observed": "Completed Result calls AAMCJECDMCK with default false; early qualified Finish passes true. Duplicate CHOAGPDPKDI excluded."
+      },
+      "selected_mutation_anchors": {
+        "KHGFPLLPDFD.cs": [
+          [
+            1260,
+            1312
+          ],
+          [
+            1539,
+            1558
+          ],
+          [
+            2272,
+            2310
+          ],
+          [
+            2563,
+            2574
+          ],
+          [
+            1018,
+            1029
+          ]
+        ],
+        "OHPMBFGGLLM.cs": [
+          [
+            4010,
+            4028
+          ]
+        ]
+      },
+      "observed": "Growth contributions are summed, allocated to a qualified lowest-growth participant with source exceptions, applied to actual pet growth/counters, then campaign participants and timing are cleared. No runtime execution claimed.",
+      "retired_reader_renderer": "CHOAGPDPKDI 3211-3262 belongs to a duplicate-looking caller path and is not counted as active semantic coverage."
+    }
+  },
+  "semantic_coverage": {
+    "reviewed_spans": [
+      "JENBACKJIFC.cs:9603-9608",
+      "OHKFICBLBFN.cs:1850-1887",
+      "OHKFICBLBFN.cs:3001-3015",
+      "OHKFICBLBFN.cs:5284-5417",
+      "OHPMBFGGLLM.cs:2632-2740",
+      "KHGFPLLPDFD.cs:263-283",
+      "KHGFPLLPDFD.cs:363-392",
+      "Assets.Scripts/UpdateStats.cs:2035-2047",
+      "Assets.Scripts/UpdateStats.cs:4140; 4400-4403",
+      "OHKFICBLBFN.cs:3211-3262",
+      "KHGFPLLPDFD.cs:1260-1295",
+      "KHGFPLLPDFD.cs:1537-1546",
+      "KHGFPLLPDFD.cs:2272-2309",
+      "KHGFPLLPDFD.cs:2563-2572",
+      "OHPMBFGGLLM.cs:4010-4028"
+    ],
+    "searches": [
+      "pet/dungeon/campaign terms across recovered C# export to locate candidate owners",
+      "direct references to candidate pet/UI/state methods to distinguish actual callers from duplicate/decoy methods",
+      "UpdateStats and page-router references for periodic and GUI root evidence"
+    ],
+    "not_semantically_reviewed": [
+      "cancel/abort/refund behavior beyond the focused completed Growth campaign settlement",
+      "dungeon team allocation and equipment crafting lifecycle",
+      "settlement rules for non-Growth campaign types"
+    ]
+  },
+  "limits": {
+    "identifiers": "Most gameplay symbols are obfuscated; names above are recovered symbols, while domain labels are grounded only where visible enum/UI strings and actual call sites support them.",
+    "runtime": "Static decompile only. No game launch, UI observation, runtime behavior, save inspection, platform/network behavior, or execution was performed.",
+    "coverage_claim": "This is a connected static source trace from actual campaign UI dispatch and selection through pet eligibility, Growth-specific competing assignment and duration setup, periodic UpdateStats tick, completed-row claim action, direct weakest-pet growth mutation and campaign cleanup. Runtime behavior and other campaign types are outside this evidence.",
+    "source_excerpt_policy": "No raw source text copied into the project; observations are concise paraphrases."
+  },
+  "parent_review": {
+    "status": "reviewed with corrections",
+    "integrated_owner": "ROOT_SUPPLEMENTS.json#ITR-04",
+    "corrections": [
+      "Actual OHKFICBLBFN.GNNIGBPCCIN calls KCMHIOFHCED; CHOAGPDPKDI is excluded duplicate evidence.",
+      "Completed Result calls AAMCJECDMCK with default false. True is the qualified early-finish path, not a general reward-enable flag.",
+      "Claim is player initiated after timer completion; timer alone is not growth settlement."
+    ],
+    "qualification": "Integrated root evidence governs final caller claims."
+  }
+}

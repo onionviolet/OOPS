@@ -1,3 +1,4 @@
+import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
 /*
@@ -46,6 +47,7 @@ import { update_bestiary_entry_tooltip } from "./display.js";
 import AvailabilityComponent from "./components/availability_component.js";
 import { availabilities, availability_havers } from "./data/component_references.js";
 import { Rewards } from "./rewards.js";
+import {ROUTE_NOTES, SURVEY_TOKEN} from "./village_content.js";
 
 availabilities["item"] = {};
 
@@ -1209,7 +1211,7 @@ function getItemFromKey(key) {
     let {id, components, quality} = JSON.parse(key);
     if(id && !quality) {
         if(item_templates[id]) {
-            return getItem(item_templates[id]);
+            return preserveWorldCompletionNativeItem(key,getItem(item_templates[id]));
         } else {
             throw new Error(`Inventory item "${key}" couldn't be found!`);
         }
@@ -1393,7 +1395,12 @@ book_stats["Counting Mice"] = new BookData({
 });
 
 //books
+book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
 (()=>{
+    item_templates[ROUTE_NOTES] = new Book({name: ROUTE_NOTES, value: 0,
+        description: "A surveyor's practical notes, kept dry beneath the old Village waypost. Four minutes of reading explains a safe dry-bank route beside the crossing. 'Follow the drainage cuts, never the muddy footprints.'"});
+    item_templates[SURVEY_TOKEN] = new OtherItem({name: SURVEY_TOKEN, value: 0,
+        description: "A brass token stamped with a familiar maker's mark. The old Village craftsman might know whose it was. Returning it is a choice; it is not consumed by reading the accompanying notes."});
     item_templates["ABC for kids"] = new Book({
         name: "ABC for kids",
         description: "The simplest book on the market",

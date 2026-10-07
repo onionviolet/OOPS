@@ -1,0 +1,994 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-05",
+  "writer": "recognition_subtleties",
+  "world": {
+    "id": "mother-of-learning",
+    "title": "Mother of Learning",
+    "source": {
+      "edition": "Mother of Learning / nobody103, English WebToEpub compilation, metadata 2022-04-29",
+      "sha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+      "locatorConvention": "pN is the Nth XHTML p element in document order, including chapter-label p elements; nested emphasis stays in its paragraph. Non-p headings are represented by the navigation title.",
+      "manifestSha256": "7382d752d308dd19cb114de924c49cec04e55c8b40d0e9319d06eedbd5d91378",
+      "coverageSha256": "4fe9eb7c4a823d6f099f5b7302eb15a8b965d5e00fd0f9321a958f75b33219ea",
+      "coveragePath": "docs/research/novels/full-book/mother-of-learning/coverage.json",
+      "reviewedExtent": {
+        "storyChapters": [
+          [
+            1,
+            106
+          ]
+        ],
+        "epilogue": true,
+        "reviewedIntegratedStoryItems": 107
+      },
+      "verifiedSourceFileHash": true,
+      "provenance": "Exact supplied compilation. Primary publication/translation authenticity and whole-series coverage are unverified."
+    },
+    "baselineImmutable": true,
+    "nativeBound": false,
+    "nativeWorldStatus": "unactivated-source-qualified-adapter",
+    "era": {
+      "id": "mol.cyoria.first-chariot.school",
+      "place": "Cirin arrival and Cyoria academy district",
+      "entry": "Proposed ordinary student/artisan visitor; optional impersonation is a separately authored branch, never an automatic loop entrant.",
+      "branch": "Original participant intervention after an explicitly selected Chariot opening; no loop/reset activated."
+    },
+    "rules": [
+      {
+        "id": "mol.mana-key",
+        "eraId": "mol.cyoria.first-chariot.school",
+        "algorithm": "signature",
+        "channel": "mana-key",
+        "title": "A keyed implement checks personal mana, not a face",
+        "evidence": [
+          {
+            "claimId": "MOL-C001-04",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  65,
+                  80
+                ]
+              },
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  83,
+                  86
+                ]
+              }
+            ],
+            "qualification": "W; Zorian",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          },
+          {
+            "claimId": "MOL-C001-05",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  81,
+                  100
+                ]
+              }
+            ],
+            "qualification": "C; Ilsa reports academy policy; Zorian reports student hearsay",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ],
+        "findingScope": "this implement access condition",
+        "alternative": "Ask Ilsa/the academy to verify eligibility or obtain a key honestly.",
+        "demandedJoins": [
+          "actual mana-key observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ],
+        "requiredMethod": "channel-personal-mana"
+      },
+      {
+        "id": "mol.local-memory",
+        "eraId": "mol.cyoria.first-chariot.school",
+        "algorithm": "memory",
+        "channel": "remembered-encounter",
+        "title": "A remembered answer belongs to one person and one history",
+        "evidence": [
+          {
+            "claimId": "MOL-C005-01",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 5,
+                "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+                "memberSha256": "06762ccc93005d367e6827b5ea76033b6a876878acc029d170398451897483e0",
+                "paragraphs": [
+                  2,
+                  29
+                ]
+              }
+            ],
+            "qualification": "W; Zorian’s experience",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          },
+          {
+            "claimId": "MOL-C012-01",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/006-020_NOTES.md",
+            "locators": [
+              {
+                "chapter": 12,
+                "member": "OEBPS/Text/0012_12_Soul_Web.xhtml",
+                "memberSha256": "9248f7ee55d4aee7fee07e25a00f7050f82a2f44bb9dbebdf46bccf123211708",
+                "paragraphs": [
+                  2,
+                  7
+                ]
+              }
+            ],
+            "qualification": "N/C; soul-bond danger and familiar asymmetry",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ],
+        "findingScope": "one observer remembered account",
+        "alternative": "Explain the present encounter and let this observer build a new relationship.",
+        "demandedJoins": [
+          "actual remembered-encounter observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      },
+      {
+        "id": "mol.physical-sound",
+        "eraId": "mol.cyoria.first-chariot.school",
+        "algorithm": "mechanism",
+        "channel": "mechanism-observation",
+        "title": "Illusion taxonomy does not determine the counter",
+        "evidence": [
+          {
+            "claimId": "MOL-C018-07",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/006-020_NOTES.md",
+            "locators": [
+              {
+                "chapter": 18,
+                "member": "OEBPS/Text/0018_18_The_Pact_is_Sealed.xhtml",
+                "memberSha256": "6331b3c54798f5d47eaa3b76ecaa40dee50430227234fbcd1d6a9f011d3b071f",
+                "paragraphs": [
+                  46,
+                  56
+                ]
+              }
+            ],
+            "qualification": "W/C; sound versus mental illusion",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ],
+        "findingScope": "physical-sound versus mind-ward pair",
+        "alternative": "Address the sound-producing mechanism or ask a specialist.",
+        "demandedJoins": [
+          "actual mechanism-observation observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      }
+    ],
+    "replacementAndContinuity": {
+      "disguise": "Appearance/alias can change a claim. It supplies no personal mana, keyed entitlement, completed class, licensed commerce or faculty.",
+      "credential": "Certification, housing key, Academy verification and commercial badge are distinct. Xvim later verifies identity through the retained first-year mana signature; this requires the actual record/test and does not make every observer a soul examiner.",
+      "memory": "Zorian demonstrates retained memories/control in a new pass. His counterpart’s memory and local records are not updated by his recall.",
+      "bodySoul": "Simulacrum capture can target the wrong body. Zorian’s late interpretation of original-self replacement remains his private assessment, not an early NPC fact.",
+      "sourceExceptions": [
+        {
+          "claimId": "MOL-C026-13",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/021-035_NOTES.md",
+          "locators": [
+            {
+              "chapter": 26,
+              "member": "OEBPS/Text/0026_26_Soulkill.xhtml",
+              "memberSha256": "a951d08b15800212bea04a662d71123d10f8cb1eb01263d2ee5ce0b7885aeab2",
+              "paragraphs": [
+                195,
+                204
+              ]
+            }
+          ],
+          "qualification": "W; matriarch, Red Robe",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C031-08",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/021-035_NOTES.md",
+          "locators": [
+            {
+              "chapter": 31,
+              "member": "OEBPS/Text/0031_31_Marked.xhtml",
+              "memberSha256": "ccc1e2e3ff343e942a796868f3995df29008c9778803f68aeb4ff5e3fdba5801",
+              "paragraphs": [
+                141,
+                160
+              ]
+            }
+          ],
+          "qualification": "W/C; Alanic, Zorian",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C099-03",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md",
+          "locators": [
+            {
+              "chapter": 99,
+              "member": "OEBPS/Text/0099_99_Powderkeg.xhtml",
+              "memberSha256": "acfa2eb7bd8d05ffec2f02dc6f958ffb6a1722d0d64d766f525744c7eb7b18f6",
+              "paragraphs": [
+                86,
+                93
+              ]
+            }
+          ],
+          "qualification": "N; underlying identity and moral uncertainty",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C103-10",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md",
+          "locators": [
+            {
+              "chapter": 103,
+              "member": "OEBPS/Text/0103_103_Window_of_Opportunity.xhtml",
+              "memberSha256": "327d5665bc4ccddf08b2df2a0d8f5fe23d88a3eb8fdde796b0400a7d7cf13c5c",
+              "paragraphs": [
+                175,
+                194
+              ]
+            }
+          ],
+          "qualification": "W; two Silverlakes",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C049-05",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/036-050_NOTES.md",
+          "locators": [
+            {
+              "chapter": 49,
+              "member": "OEBPS/Text/0049_49_Substitution.xhtml",
+              "memberSha256": "32e1d8799d560185eb47cf5e618906a1f123f0908f2fbc7d9932ddb88bb6da78",
+              "paragraphs": [
+                81,
+                109
+              ]
+            }
+          ],
+          "qualification": "W/C; Xvim verifies identity / time-loop evidence",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        }
+      ],
+      "carrierDisposition": "Actual actor/body/controller, source/mana, practiced mastery, memories, key/badge custody, academy rights and relationships remain separately owned. No actor death or replacement is performed by the adapter."
+    },
+    "selectedTropeChain": {
+      "pattern": "An unknown student passes the visible introduction, meets a keyed/credential gate, then faces a teacher or familiar peer’s narrower account.",
+      "people": [
+        "mol.ilsa-zileti",
+        "mol.zorian-kazinski",
+        "mol.kirielle-kazinski"
+      ],
+      "subversions": [
+        "Honest admission",
+        "Ask for institutional verification",
+        "Refuse bodily teaching and attend traditional lessons",
+        "Cooperate without stealing another student’s place"
+      ],
+      "aftermath": "Only a committed local meeting can become this observer’s later remembered encounter; no new antagonist is generated.",
+      "evidence": [
+        {
+          "claimId": "MOL-C001-04",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1,
+              "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+              "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+              "paragraphs": [
+                65,
+                80
+              ]
+            },
+            {
+              "chapter": 1,
+              "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+              "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+              "paragraphs": [
+                83,
+                86
+              ]
+            }
+          ],
+          "qualification": "W; Zorian",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C001-05",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+          "locators": [
+            {
+              "chapter": 1,
+              "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+              "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+              "paragraphs": [
+                81,
+                100
+              ]
+            }
+          ],
+          "qualification": "C; Ilsa reports academy policy; Zorian reports student hearsay",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        },
+        {
+          "claimId": "MOL-C003-05",
+          "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+          "locators": [
+            {
+              "chapter": 3,
+              "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+              "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+              "paragraphs": [
+                58,
+                82
+              ]
+            },
+            {
+              "chapter": 3,
+              "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+              "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+              "paragraphs": [
+                96,
+                100
+              ]
+            }
+          ],
+          "qualification": "W/C; Ilsa and Zorian",
+          "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+        }
+      ]
+    },
+    "smallInteractions": [
+      {
+        "detail": "The train’s shaping ward and crystallized engine fuel are separate; possessing an engine material does not remove a passenger casting restriction.",
+        "evidence": [
+          {
+            "claimId": "MOL-C001-07",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  114,
+                  114
+                ]
+              },
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  129,
+                  134
+                ]
+              },
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  155,
+                  156
+                ]
+              }
+            ],
+            "qualification": "N; transit and ambient constraints",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          },
+          {
+            "claimId": "MOL-C001-10",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  114,
+                  115
+                ]
+              }
+            ],
+            "qualification": "W; technology",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ],
+        "nativeConsumerGap": "Native personal-mana source, train region/ward and implement carriers."
+      },
+      {
+        "detail": "Animation dance teaching needs known steps and usable control; refusal has an ordinary lesson alternative.",
+        "evidence": [
+          {
+            "claimId": "MOL-C003-05",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 3,
+                "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                "paragraphs": [
+                  58,
+                  82
+                ]
+              },
+              {
+                "chapter": 3,
+                "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                "paragraphs": [
+                  96,
+                  100
+                ]
+              }
+            ],
+            "qualification": "W/C; Ilsa and Zorian",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ],
+        "nativeConsumerGap": "Consent/lesson appointment and method/body-control commands."
+      }
+    ],
+    "everydayTextureAndVoice": [
+      {
+        "original": true,
+        "speaker": "Proposed unnamed academy desk assistant",
+        "text": "Keep the key beside the scroll. It saves us both a second search.",
+        "cue": "Housing keys, sealed certification and ordinary school administration.",
+        "evidence": [
+          {
+            "claimId": "MOL-C001-04",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  65,
+                  80
+                ]
+              },
+              {
+                "chapter": 1,
+                "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                "paragraphs": [
+                  83,
+                  86
+                ]
+              }
+            ],
+            "qualification": "W; Zorian",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ]
+      },
+      {
+        "original": true,
+        "speaker": "Proposed dance helper",
+        "text": "The slow lesson is available. You still have to know where your feet go.",
+        "cue": "Traditional sessions remain viable alongside uncomfortable bodily guidance.",
+        "evidence": [
+          {
+            "claimId": "MOL-C003-05",
+            "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+            "locators": [
+              {
+                "chapter": 3,
+                "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                "paragraphs": [
+                  58,
+                  82
+                ]
+              },
+              {
+                "chapter": 3,
+                "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                "paragraphs": [
+                  96,
+                  100
+                ]
+              }
+            ],
+            "qualification": "W/C; Ilsa and Zorian",
+            "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+          }
+        ]
+      }
+    ],
+    "stableSourcePeople": [
+      "mol.zorian-kazinski",
+      "mol.ilsa-zileti",
+      "mol.kirielle-kazinski",
+      "mol.kael",
+      "mol.alanic"
+    ],
+    "unknowns": [
+      "No native academy source/body/key/registry binding.",
+      "No universally available soul-signature oracle. Source-backed Academy mana-signature verification remains bounded to its retained record and actual test.",
+      "Early NPCs cannot know late loop-self/simulacrum explanations.",
+      "Human bond domination is a library account, not a guaranteed transfer mechanism."
+    ],
+    "missingNativeBindings": [
+      "native realm/era/location and entry",
+      "actor/body/controller/soul owners",
+      "actual source/fuel/method and native material custody",
+      "per-observer testimony/belief and committed-history owner",
+      "native command/UI and durable publication"
+    ],
+    "implementationStatus": "implemented-unverified; pure adapter; parent original-scene consumer required",
+    "deferredGates": [
+      "actual gameplay",
+      "save/reload/failure",
+      "keyboard/regression",
+      "director acceptance"
+    ],
+    "topologyDisposition": {
+      "settingContinuity": "Eldemar/Cyoria in the supplied Mother of Learning story, not an institutional mission hub.",
+      "structures": [
+        {
+          "kind": "same-world-recurrence",
+          "qualifiedFinding": "Zorian experiences a return to Chariot morning with retained memory/control; at the selected opening its mechanism, domain and trigger remain unknown.",
+          "evidence": [
+            {
+              "claimId": "MOL-C005-01",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 5,
+                  "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+                  "memberSha256": "06762ccc93005d367e6827b5ea76033b6a876878acc029d170398451897483e0",
+                  "paragraphs": [
+                    2,
+                    29
+                  ]
+                }
+              ],
+              "qualification": "W; Zorian’s experience",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            },
+            {
+              "claimId": "MOL-C005-08",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 5,
+                  "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+                  "memberSha256": "06762ccc93005d367e6827b5ea76033b6a876878acc029d170398451897483e0",
+                  "paragraphs": [
+                    157,
+                    166
+                  ]
+                }
+              ],
+              "qualification": "W; second return; unresolved reset trigger",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ]
+        },
+        {
+          "kind": "accelerated-pocket-copy-theory",
+          "qualifiedFinding": "Ch54 characters propose a physically real copied snapshot rebuilt in an accelerated pocket dimension; this is explicitly an unproved theory at that disclosure.",
+          "evidence": [
+            {
+              "claimId": "MOL-C054-02",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/051-065_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 54,
+                  "member": "OEBPS/Text/0054_54_The_Gate_Is_Barred.xhtml",
+                  "memberSha256": "7a137befb5ba5b16d9ddc62b66bf9fb7dfdd5b3720763d55d3b6229f310078a3",
+                  "paragraphs": [
+                    32,
+                    60
+                  ]
+                }
+              ],
+              "qualification": "C; Zorian’s theory and Zach’s response",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            },
+            {
+              "claimId": "MOL-C058-03",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/051-065_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 58,
+                  "member": "OEBPS/Text/0058_58_Questions_and_Answers.xhtml",
+                  "memberSha256": "0a385f1789500bf681ff6175275c0a9520753878cb9832cac0df56ab93116110",
+                  "paragraphs": [
+                    59,
+                    77
+                  ]
+                }
+              ],
+              "qualification": "W/C; full disclosure",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ]
+        },
+        {
+          "kind": "material-spiritual-plane-boundary",
+          "qualifiedFinding": "The matriarch attributes absent interplane summoning to the loop. This report does not grant travel to every plane or source-backed return permission.",
+          "evidence": [
+            {
+              "claimId": "MOL-C022-09",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/021-035_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 22,
+                  "member": "OEBPS/Text/0022_22_Complications.xhtml",
+                  "memberSha256": "ca5c496c564293a4c5c027cdd087eaa54a1472a99f5f462cdbee3b43f75edca3",
+                  "paragraphs": [
+                    125,
+                    146
+                  ]
+                }
+              ],
+              "qualification": "C/W; matriarch",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "Cirin",
+          "to": "Cyoria",
+          "kind": "ordinary train within one setting",
+          "body": "ordinary traveler",
+          "methods": "shaping inhibited on train",
+          "cargo": "actual carried stock; no duplicate",
+          "clock": "ordinary source journey, no imported exact global rate",
+          "evidence": [
+            {
+              "claimId": "MOL-C001-07",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    114,
+                    114
+                  ]
+                },
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    129,
+                    134
+                  ]
+                },
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    155,
+                    156
+                  ]
+                }
+              ],
+              "qualification": "N; transit and ambient constraints",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            },
+            {
+              "claimId": "MOL-C001-10",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    114,
+                    115
+                  ]
+                }
+              ],
+              "qualification": "W; technology",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ]
+        },
+        {
+          "from": "remembered prior pass",
+          "to": "new Chariot pass",
+          "kind": "experienced recurrence, mechanism unknown at entry",
+          "bodySoul": "no native retention operation selected",
+          "memory": "Zorian’s tested memory/control",
+          "cargo": "not authenticated by remembering it",
+          "authority": "local institution does not inherit prior-pass appointments",
+          "evidence": [
+            {
+              "claimId": "MOL-C005-01",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 5,
+                  "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+                  "memberSha256": "06762ccc93005d367e6827b5ea76033b6a876878acc029d170398451897483e0",
+                  "paragraphs": [
+                    2,
+                    29
+                  ]
+                }
+              ],
+              "qualification": "W; Zorian’s experience",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ]
+        }
+      ],
+      "activation": "No loop, copied realm, plane passage or offline catch-up is active. No shared Paradise-style mission issuer.",
+      "nativeGaps": [
+        "Exact selected-loop body/soul/memory/cargo retention",
+        "Local versus outside clock and reset trigger",
+        "Separate native academy and every destination’s retained state"
+      ]
+    },
+    "deepChainDisposition": {
+      "id": "recognition.mol.earned-admission",
+      "family": "incomplete-method-to-earned-authority",
+      "sourceVsOriginal": "Original branchable chain using academy/key/teaching source cues; it is not claimed to be a canonical quest.",
+      "actors": [
+        "mol.ilsa-zileti",
+        "mol.zorian-kazinski",
+        "mol.proposed-desk-assistant"
+      ],
+      "privateGoals": [
+        "The academy wants verifiable eligibility and controlled person-targeting teaching.",
+        "The entrant wants lawful access without impersonating another student."
+      ],
+      "phases": [
+        {
+          "id": "introduction",
+          "prerequisite": "actual arrival and willing meeting",
+          "means": "personal claim and held scroll/key",
+          "evidence": [
+            {
+              "claimId": "MOL-C001-04",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    65,
+                    80
+                  ]
+                },
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    83,
+                    86
+                  ]
+                }
+              ],
+              "qualification": "W; Zorian",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ],
+          "choices": [
+            "honest introduction",
+            "ask about admission",
+            "decline impersonation"
+          ]
+        },
+        {
+          "id": "gate",
+          "prerequisite": "exact implement plus completed channel test",
+          "means": "actual mana/control, bound key or academy verification",
+          "evidence": [
+            {
+              "claimId": "MOL-C001-04",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    65,
+                    80
+                  ]
+                },
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    83,
+                    86
+                  ]
+                }
+              ],
+              "qualification": "W; Zorian",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            },
+            {
+              "claimId": "MOL-C001-05",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    81,
+                    100
+                  ]
+                }
+              ],
+              "qualification": "C; Ilsa reports academy policy; Zorian reports student hearsay",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ],
+          "choices": [
+            "complete supported test",
+            "request verification",
+            "leave housing access pending"
+          ]
+        },
+        {
+          "id": "lesson",
+          "prerequisite": "actual lesson offer and student choice",
+          "means": "teacher control/known steps or ordinary sessions",
+          "evidence": [
+            {
+              "claimId": "MOL-C003-05",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 3,
+                  "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                  "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                  "paragraphs": [
+                    58,
+                    82
+                  ]
+                },
+                {
+                  "chapter": 3,
+                  "member": "OEBPS/Text/0003_3_The_Bitter_Truth.xhtml",
+                  "memberSha256": "de97f51f0015aa044667335a9cdae700b2ad89f540522fb96b262a62359262ad",
+                  "paragraphs": [
+                    96,
+                    100
+                  ]
+                }
+              ],
+              "qualification": "W/C; Ilsa and Zorian",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ],
+          "choices": [
+            "consent to guided lesson",
+            "choose traditional sessions",
+            "postpone"
+          ]
+        },
+        {
+          "id": "account",
+          "prerequisite": "later remembered local meeting",
+          "means": "actual observer memory and compared answer, no transferred affection",
+          "evidence": [
+            {
+              "claimId": "MOL-C005-01",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 5,
+                  "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+                  "memberSha256": "06762ccc93005d367e6827b5ea76033b6a876878acc029d170398451897483e0",
+                  "paragraphs": [
+                    2,
+                    29
+                  ]
+                }
+              ],
+              "qualification": "W; Zorian’s experience",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ],
+          "choices": [
+            "clarify a mistaken claim",
+            "offer corroboration",
+            "keep unsupported prior-pass story private"
+          ]
+        },
+        {
+          "id": "closure",
+          "prerequisite": "performed qualification or explicit refusal",
+          "means": "native institution’s own actual decision and retained duties",
+          "evidence": [
+            {
+              "claimId": "MOL-C001-05",
+              "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+              "locators": [
+                {
+                  "chapter": 1,
+                  "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+                  "memberSha256": "9f09317b745e62ee9cd5479cc0803ff510f44132c63f359bd8f490e0b9716923",
+                  "paragraphs": [
+                    81,
+                    100
+                  ]
+                }
+              ],
+              "qualification": "C; Ilsa reports academy policy; Zorian reports student hearsay",
+              "sourceSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf"
+            }
+          ],
+          "choices": [
+            "lawful qualification",
+            "ordinary study without badge",
+            "refusal without new boss",
+            "unsupported impersonation remains blocked"
+          ]
+        }
+      ],
+      "outcomes": {
+        "lawful": "Earned only the verified local entitlement; methods/source/mastery still separate.",
+        "refusal": "Ordinary lessons or leave remain available.",
+        "partial": "Unverified key/credential leaves only that gate pending.",
+        "hostile": "An attempted unauthorized claim prompts only the affected observer/institution’s actual response, not automatic murder or universal hostility."
+      },
+      "aftermath": "Keep the same teacher/witness and actually committed lessons. Retained duties/appointments require the native institution, not a regenerated reward.",
+      "status": "source-qualified authoring disposition; native full-world chain unactivated",
+      "callableRecognitionRules": [
+        "mol.mana-key",
+        "mol.local-memory",
+        "mol.physical-sound"
+      ],
+      "nativeBindingsRequired": [
+        "native realm/era/location and entry",
+        "actor/body/controller/soul owners",
+        "actual source/fuel/method and native material custody",
+        "per-observer testimony/belief and committed-history owner",
+        "native command/UI and durable publication"
+      ],
+      "clockPolicy": "No new clock. Native worlds remain unactivated; unsupported absence stays frozen under the eventual host policy."
+    }
+  },
+  "consumers": {
+    "callableModule": "src/feature_expansion_book_recognition.js",
+    "originalSceneSpecification": "subtlety.reference_desk",
+    "hostScene": "subtlety.relay_office",
+    "registeredConsumerStatus": "parent-integration-required",
+    "nativeBookWorld": "unactivated"
+  },
+  "sourceReview": "Reused existing accepted claim ledgers and bounded reviewed notes. No new whole-book read or targeted raw-text query was needed."
+}

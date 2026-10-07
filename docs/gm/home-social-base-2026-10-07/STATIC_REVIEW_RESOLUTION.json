@@ -1,0 +1,13 @@
+{
+  "review": "integration-review/REVIEW.json",
+  "findings": [
+    "IR-01",
+    "IR-02",
+    "IR-03",
+    "IR-04",
+    "IR-05"
+  ],
+  "status": "all repaired and source-read back before cc3798910c48 build",
+  "sourceChecks": "SOURCE_CHECKS.json",
+  "proof": "source inspection and build only; actual journey/save/merchant tests deferred"
+}

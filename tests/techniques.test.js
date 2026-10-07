@@ -113,7 +113,7 @@ test("schemas1/2 migrate additively, frozen old jobs remain intact, and bad tech
     for(const schema of [1,2]) {
         const old=structuredClone(p.state);old.schema=schema;delete old.actors.player.techniques;
         const before=structuredClone(old), migrated=loadExpansionState(old,expeditionRegistry);
-        assert.equal(migrated.schema,3);assert.deepEqual(migrated.pending,old.pending);assert.deepEqual(migrated.actors.player.techniques,{});
+        assert.equal(migrated.schema,5);assert.deepEqual(migrated.pending,old.pending);assert.deepEqual(migrated.actors.player.techniques,{});
         assert.deepEqual(old,before);
     }
     const practiced=startPractice(understood()).state;

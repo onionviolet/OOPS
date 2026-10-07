@@ -1,0 +1,102 @@
+{
+  "status": "official-catalog-qualified-no-gameplay-DLC-declared",
+  "catalog_scope": "Official Steam appdetails US-English base declared list and product metadata, checked2026-10-07UTC; not all historical/regional/bundle products.",
+  "catalog": [
+    {
+      "steam_app": 975370,
+      "name": "Dwarf Fortress",
+      "type": "game",
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=975370&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-975370.json",
+      "sha256": "1cc277fc93f20361c4d84e515a5ab260d5336ce0ea3d203ef3d2227e8274c588"
+    },
+    {
+      "steam_app": 2232370,
+      "name": "Dwarf Fortress Soundtrack (Fortress)",
+      "type": "music",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=2232370&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-2232370.json",
+      "sha256": "0a92cb5b69a5aca92933f6c8932dcbaead1fe70708cce6da696cee3685ccb130"
+    },
+    {
+      "steam_app": 2937200,
+      "name": "Dwarf Fortress Soundtrack 2 (Adventure)",
+      "type": "music",
+      "platforms": {
+        "windows": true,
+        "mac": true,
+        "linux": true
+      },
+      "url": "https://store.steampowered.com/api/appdetails?appids=2937200&cc=us&l=english",
+      "snapshot": "/Users/weiwei/.codex/research/dwarf-fortress/official/steam-appdetails-2937200.json",
+      "sha256": "6da3a4ce73da3504662b218b1541999e68df8edcd6f72c6134e712ee00ecbbbe"
+    }
+  ],
+  "base": {
+    "installed": true,
+    "steam_app": 975370,
+    "buildid": "24557528",
+    "payload": "Windows native PE and shipped raws/Lua",
+    "selected_source_inspected": true,
+    "full_source_inspected": false,
+    "owned": "not-inspected; installed payload is not entitlement evidence"
+  },
+  "expansions": [],
+  "non_gameplay": [
+    {
+      "steam_app": 2232370,
+      "name": "Dwarf Fortress Soundtrack (Fortress)",
+      "classification": "music/soundtrack",
+      "metadata_inspected": true,
+      "payload_acquired": false,
+      "payload_inspected": false,
+      "owned": "not-inspected",
+      "installed": "not separately inspected; base soundtrack assets do not establish standalone product installation",
+      "mechanic_coverage": "non-gameplay; no gameplay system inferred"
+    },
+    {
+      "steam_app": 2937200,
+      "name": "Dwarf Fortress Soundtrack 2 (Adventure)",
+      "classification": "music/soundtrack",
+      "metadata_inspected": true,
+      "payload_acquired": false,
+      "payload_inspected": false,
+      "owned": "not-inspected",
+      "installed": "not separately inspected; base soundtrack assets do not establish standalone product installation",
+      "mechanic_coverage": "non-gameplay; no gameplay system inferred"
+    }
+  ],
+  "updates_and_other_content": [
+    {
+      "name": "Lua procedural-generation update",
+      "classification": "base-game update",
+      "disposition": "selected-shipped-Lua-source-inspected",
+      "qualification": "Current retained53.16 procedural mod; native Myth & Magic development announcements do not establish all flags/features reachable."
+    },
+    {
+      "name": "Classic Windows/Linux editions",
+      "classification": "alternate official distribution, not a DLC",
+      "disposition": "documented-only-not-acquired",
+      "url": "https://bay12games.com/dwarves/index.html"
+    },
+    {
+      "name": "Steam Workshop/community mods",
+      "classification": "mods, not official paid gameplay DLC",
+      "disposition": "official-format-documented; no subscription/acquisition/user-mod inspection",
+      "url": "https://bay12games.com/dwarves/modding_guide.html"
+    }
+  ],
+  "account_entitlements_inspected": false,
+  "purchases": false,
+  "activation_or_subscription": false
+}

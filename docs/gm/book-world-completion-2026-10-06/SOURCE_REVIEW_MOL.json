@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "role": "/root/integration_map",
+  "status": "completed_released",
+  "scope": "Read-only source definitions; no host/state/native inspection or behavior tests",
+  "sourceOwner": "/root/mol_campaign",
+  "sourceHashes": {
+    "src/book_world_mol_ids.js": "67c5aaf78898d9c42b71ec04fa2a8527189d6f74062c563945f644addfa1b466",
+    "src/book_world_mol_content.js": "a99e2a71453ac23b1342df1f6941a289522a4e2a2f8610782e3bb614e296d3a0",
+    "src/book_world_mol_actions.js": "7a9ee07ae7e72b3e321160b47643cb8af8fb0ea7fef0d64c7ed80048156220fe"
+  },
+  "findings": [
+    {
+      "id": "MOL-SR-01",
+      "priority": 1,
+      "title": "Definition-side paper supply cannot reach mature research",
+      "locations": [
+        {
+          "file": "src/book_world_mol_content.js",
+          "line": 29
+        },
+        {
+          "file": "src/book_world_mol_content.js",
+          "line": 35
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 44
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 51
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 53
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 67
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 71
+        }
+      ],
+      "finding": "Player-obtainable paper from listed commands totals6: catalogue1,Kael1,two shop commands2+2. Mandatory mature route needs8, or9 with the social report. Shop holds6 but only4 is exposed by its once-only commands.",
+      "qualification": "Host/state/native intentionally not reviewed; an explicit entry paper grant could change this result.",
+      "suggestedRepair": "Provide enough counted reachable paper for each selected mature alternative and account for remaining finite stock."
+    },
+    {
+      "id": "MOL-SR-02",
+      "priority": 1,
+      "title": "Prepared physical device support needs current reserved/held means",
+      "locations": [
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 21
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 31
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 58
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 102
+        }
+      ],
+      "finding": "Known root lamp issue: duration commands reserve the lamp but repeat held-lamp support at completion. Unique review finding: tether returns the same player rope and saves tetherPrepared, but prepared/ordinary retrieval do not require or reserve current rope, so storing/selling it preserves advertised physical tether use.",
+      "qualification": "Root already sent the lamp completion finding to the writer; no fix is verified here.",
+      "suggestedRepair": "Count only the exact lamp reservation belonging to the supported job at completion; prepared/ordinary retrieval need actual held rope or a real installed tether owner."
+    },
+    {
+      "id": "MOL-SR-03",
+      "priority": 2,
+      "title": "Player receipts reveal author-only future-system names",
+      "locations": [
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 68
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 70
+        },
+        {
+          "file": "src/book_world_mol_ids.js",
+          "line": 13
+        }
+      ],
+      "finding": "Ibery's temporal instruction names Guardian template,Black Room,soul marker,future month and memory packet although only continuous local notes were observed. Closure names the festival invasion. Negative entitlement wording still conveys future-system vocabulary to the player.",
+      "qualification": "Baseline author-only scope exclusions are appropriate in source/docs; these names are the player-knowledge receipt issue.",
+      "suggestedRepair": "Keep the player account to actual continuous observations, received testimony and unverified temporal claims; retain future-source exclusions in author-only baseline/docs."
+    },
+    {
+      "id": "MOL-SR-04",
+      "priority": 2,
+      "title": "Retained hazard and later control mastery lack gameplay consumers",
+      "locations": [
+        {
+          "file": "src/book_world_mol_content.js",
+          "line": 6
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 31
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 61
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 72
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 74
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 84
+        }
+      ],
+      "finding": "Hazard avoided/deterred/alarmed and forecast residue_and_movement are written but no ids/content/actions predicate consumes them. Return/mature controls ignore retained hazard. Operator mastery grows1→2→3 but all executable consumers gate>=1 and no later mastery band/function changes cost,precision,response or return use.",
+      "qualification": "Temporary injuries,real mana/material costs,received research standing and the mature paid demonstration are functional; this finding targets the named write-only dispositions and post1operator counter.",
+      "suggestedRepair": "One finite aftermath inspection/recovery/use should depend on actual retained hazard; one selected mature-control function or alternative should consume the extra mastery if it is described as functional progression."
+    },
+    {
+      "id": "MOL-SR-05",
+      "priority": 2,
+      "title": "Advertised calibration count exceeds Nora's finite mana",
+      "locations": [
+        {
+          "file": "src/book_world_mol_content.js",
+          "line": 11
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 47
+        },
+        {
+          "file": "src/book_world_mol_actions.js",
+          "line": 48
+        }
+      ],
+      "finding": "Nora starts18personalMana;assembly spends2;three advertised six-charge calibrations need18more. Maximum supported calibrations after assembly is floor16/6=2,leaving4unusable under the six-charge definition.",
+      "qualification": "No automatic mana recovery or NPC refill appears in reviewed definitions,which correctly preserves finite means.",
+      "suggestedRepair": "Disclose at most two available full calibrations/remove unreachable third,or author a distinct supported partial calibration from remaining actual mana."
+    }
+  ],
+  "minorNotes": [
+    {
+      "id": "MOL-SR-N1",
+      "file": "src/book_world_mol_actions.js",
+      "line": 36,
+      "note": "Imaya promises two household jobs but only one player-paid household wage command is listed; room/meal are paid services. Correct the count unless a second actual job is intentionally authored."
+    }
+  ],
+  "definitionArithmetic": {
+    "playerPaperGrants": [
+      {
+        "id": "catalog_shift",
+        "count": 1
+      },
+      {
+        "id": "paper",
+        "count": 2
+      },
+      {
+        "id": "extra_paper",
+        "count": 2
+      },
+      {
+        "id": "kael_shift",
+        "count": 1
+      }
+    ],
+    "playerAccessiblePaper": 6,
+    "paperStockAtShop": 6,
+    "maturePaperBaseDemand": 8,
+    "socialAdditionalPaper": 1,
+    "ordinaryWages": 28,
+    "preparedRouteCrownsBeforePaperRepair": 24,
+    "noraInitialMana": 18,
+    "assemblyMana": 2,
+    "calibrationManaEach": 6,
+    "maximumFullCalibrations": 2,
+    "noraRemainderAfterTwo": 4,
+    "preparedMatureFuelCycle": 6
+  },
+  "checked": [
+    "static definition arithmetic only",
+    "targeted completed dossier name/role/pattern matching",
+    "local source consumer search",
+    "review JSON/link/source-pointer validation"
+  ],
+  "notReviewed": [
+    "book_world_mol_host.js",
+    "book_world_mol_state.js",
+    "book_world_mol_native.js"
+  ],
+  "unrun": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/load/import behavior",
+    "failure",
+    "regression",
+    "keyboard",
+    "director"
+  ],
+  "reservationsReleased": [
+    "docs/gm/book-world-completion-2026-10-06/SOURCE_REVIEW_MOL.md",
+    "docs/gm/book-world-completion-2026-10-06/SOURCE_REVIEW_MOL.json"
+  ]
+}

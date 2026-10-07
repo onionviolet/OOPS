@@ -1,0 +1,972 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-05",
+  "writer": "recognition_subtleties",
+  "world": {
+    "id": "circle-of-inevitability",
+    "title": "Circle of Inevitability · separate sequel era",
+    "source": {
+      "edition": "Circle of Inevitability, separate sequel / supplied English Light Novel World compilation, creator unknown",
+      "sha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f",
+      "locatorConvention": "zero-based EPUB spine_index; printed chapters are separate and have a gap; paragraph locators to be defined by GM",
+      "manifestSha256": "02e538ab3a232bff2752f5b6fa0a346b557c1a78b12eb581add8a145307ab0bf",
+      "coverageSha256": "12dad059d38270667aa76581e788081fc7f11ea8f018d351c5a23bb09846a915",
+      "coveragePath": "docs/research/novels/full-book/circle-of-inevitability/COVERAGE.json",
+      "reviewedExtent": {
+        "spineIndexRanges": [
+          [
+            1,
+            1170
+          ]
+        ],
+        "reviewedIntegratedStoryItems": 1170,
+        "sourceBoundary": "1178 narrative members plus supplied afterword; printed chapter 1026 is absent. No missing text reconstructed."
+      },
+      "verifiedSourceFileHash": true,
+      "provenance": "Exact supplied compilation. Primary publication/translation authenticity and whole-series coverage are unverified."
+    },
+    "baselineImmutable": true,
+    "nativeBound": false,
+    "nativeWorldStatus": "unactivated-source-qualified-adapter",
+    "era": {
+      "id": "coi.trier.market.society-review",
+      "place": "Trier market district, asylum identity check and Research Society gathering",
+      "entry": "Proposed ordinary newcomer/collaborator; appearance tools, boons and potion/body changes require their actual carriers. No inherited first-novel player state.",
+      "branch": "Original local investigation branch after stated market-district entry. Earlier Cordu disclosures are attributed history, not every observer’s knowledge."
+    },
+    "rules": [
+      {
+        "id": "coi.sincerity",
+        "eraId": "coi.trier.market.society-review",
+        "algorithm": "sincerity",
+        "channel": "truth-serum-test",
+        "title": "Sincere identity belief is not authenticated identity",
+        "evidence": [
+          {
+            "claimId": "r030-c17",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 406,
+                "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+                "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+                "paragraphs": [
+                  1,
+                  28
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ],
+        "findingScope": "reported statement sincerity",
+        "alternative": "Seek independent corroboration or a qualified specialist.",
+        "demandedJoins": [
+          "actual truth-serum-test observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ],
+        "requiredMethod": "truth-serum"
+      },
+      {
+        "id": "coi.office",
+        "eraId": "coi.trier.market.society-review",
+        "algorithm": "registry",
+        "channel": "institutional-registry",
+        "title": "Impersonating Muggle does not grant her committee place",
+        "evidence": [
+          {
+            "claimId": "r030-c31",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 410,
+                "member": "OEBPS/Text/0410_410_A_Leisure_Week.xhtml",
+                "memberSha256": "1a609a0056d9f98c203cfd7333a90192e6faa87d891908355130735855d780ad",
+                "paragraphs": [
+                  54,
+                  78
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "r030-c34",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 411,
+                "member": "OEBPS/Text/0411_411_Review_Committee.xhtml",
+                "memberSha256": "a212c54c2b6c8691b1e3c3fd0985d7154667fc701547fde96e12dab6ea4fb055",
+                "paragraphs": [
+                  34,
+                  58
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ],
+        "findingScope": "supplied native institutional right",
+        "alternative": "Seek a seat or appointment in your own name.",
+        "demandedJoins": [
+          "actual institutional-registry observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      },
+      {
+        "id": "coi.appearance",
+        "eraId": "coi.trier.market.society-review",
+        "algorithm": "appearance",
+        "channel": "appearance-observation",
+        "title": "An appearance change does not defeat every tracking channel",
+        "evidence": [
+          {
+            "claimId": "r028-c35",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r028/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 385,
+                "member": "OEBPS/Text/0385_385_Before_and_After_Comparison.xhtml",
+                "memberSha256": "d8442d2f04117c0d07654c2486649908b8ee8a34a9ef50a9ec1956fccde856d8",
+                "paragraphs": [
+                  41,
+                  64
+                ]
+              }
+            ],
+            "qualification": "actor_inference",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "r029-c03",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r029/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 387,
+                "member": "OEBPS/Text/0387_387_Vile.xhtml",
+                "memberSha256": "6b861813bb18ca1c953772e5d39397eca75893c063686e6a21821a5f3437130d",
+                "paragraphs": [
+                  35,
+                  50
+                ]
+              }
+            ],
+            "qualification": "character_claim",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ],
+        "findingScope": "appearance consistency only",
+        "alternative": "Investigate the tracking method or relocate with informed help.",
+        "demandedJoins": [
+          "actual appearance-observation observation",
+          "independent actual carriers",
+          "player-known observer report"
+        ]
+      }
+    ],
+    "replacementAndContinuity": {
+      "disguise": "Lumian uses Lie to present as Muggle. The displayed identity and actual participant are separate; he declines the committee seat while impersonating her.",
+      "credential": "Society membership, chosen committee office, testimony and prepared contracts are distinct. No copied face signs a contract or grants a seat automatically.",
+      "memory": "A proxy can sincerely believe a hypnotically supplied identity. Truth serum cannot by itself distinguish that proxy from the actual person.",
+      "bodySoul": "Potion-linked bodily transformation, Lie appearance, soul/heart-and-mind/physical layers and borrowed identity are separate. Aurore’s Pualis/Pulitt inference is not proven by bodily change.",
+      "sourceExceptions": [
+        {
+          "claimId": "r004-c17",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r004/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 45,
+              "member": "OEBPS/Text/0045_45_Make-up_Lesson.xhtml",
+              "memberSha256": "4557df08158a909d8ebb6ebf80c86a0b671d0a0711e22a852d6ab0051465fa38",
+              "paragraphs": [
+                8,
+                34
+              ]
+            }
+          ],
+          "qualification": "character_claim",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r006-c08",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r006/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 69,
+              "member": "OEBPS/Text/0069_69_Him.xhtml",
+              "memberSha256": "bd967144de25efc4530cf6f2ad9605b5f83953511b1c3eed19f940ebaaf2b2ae",
+              "paragraphs": [
+                15,
+                50
+              ]
+            }
+          ],
+          "qualification": "actor_inference",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r028-c35",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r028/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 385,
+              "member": "OEBPS/Text/0385_385_Before_and_After_Comparison.xhtml",
+              "memberSha256": "d8442d2f04117c0d07654c2486649908b8ee8a34a9ef50a9ec1956fccde856d8",
+              "paragraphs": [
+                41,
+                64
+              ]
+            }
+          ],
+          "qualification": "actor_inference",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r029-c03",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r029/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 387,
+              "member": "OEBPS/Text/0387_387_Vile.xhtml",
+              "memberSha256": "6b861813bb18ca1c953772e5d39397eca75893c063686e6a21821a5f3437130d",
+              "paragraphs": [
+                35,
+                50
+              ]
+            }
+          ],
+          "qualification": "character_claim",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r030-c17",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 406,
+              "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+              "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+              "paragraphs": [
+                1,
+                28
+              ]
+            }
+          ],
+          "qualification": "witnessed",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        }
+      ],
+      "carrierDisposition": "Lumian, Aurore/Roche, Franca, the captured person and any hypothetical proxy remain separately identified. No later resurrection/death or possession is committed by this adapter."
+    },
+    "selectedTropeChain": {
+      "pattern": "Impersonation to raise a traitor warning → safety hearing and corroboration → offer of authority → voluntary refusal → guarded cooperation.",
+      "people": [
+        "coi.lumian-lee",
+        "coi.aurore-roche",
+        "coi.franca",
+        "coi.hela",
+        "coi.professor",
+        "coi.gandalf",
+        "coi.magician"
+      ],
+      "subversions": [
+        "Attend under one’s own name",
+        "Decline the stolen office",
+        "Use ordinary corroboration",
+        "Withdraw/relocate before a trap",
+        "Leave an unidentified mechanism unresolved"
+      ],
+      "aftermath": "Reported information goes only to recipients who heard it. Prepared committee contracts are not treated as already signed; public disguise does not rewrite the actual actor.",
+      "evidence": [
+        {
+          "claimId": "r030-c17",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 406,
+              "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+              "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+              "paragraphs": [
+                1,
+                28
+              ]
+            }
+          ],
+          "qualification": "witnessed",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r030-c31",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 410,
+              "member": "OEBPS/Text/0410_410_A_Leisure_Week.xhtml",
+              "memberSha256": "1a609a0056d9f98c203cfd7333a90192e6faa87d891908355130735855d780ad",
+              "paragraphs": [
+                54,
+                78
+              ]
+            }
+          ],
+          "qualification": "witnessed",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        },
+        {
+          "claimId": "r030-c34",
+          "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+          "locators": [
+            {
+              "spineIndex": 411,
+              "member": "OEBPS/Text/0411_411_Review_Committee.xhtml",
+              "memberSha256": "a212c54c2b6c8691b1e3c3fd0985d7154667fc701547fde96e12dab6ea4fb055",
+              "paragraphs": [
+                34,
+                58
+              ]
+            }
+          ],
+          "qualification": "witnessed",
+          "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+        }
+      ]
+    },
+    "smallInteractions": [
+      {
+        "detail": "The arrow, sedation, actual sheepskin, incantation, transformed body, bandaging and transfer to Jenna occur in a specific order; knowing the trick supplies none of those materials.",
+        "evidence": [
+          {
+            "claimId": "r030-c17",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 406,
+                "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+                "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+                "paragraphs": [
+                  1,
+                  28
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "r030-c18",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 406,
+                "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+                "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+                "paragraphs": [
+                  31,
+                  60
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ],
+        "nativeConsumerGap": "Native captive/controller, injury/care, material custody and method commands."
+      },
+      {
+        "detail": "A stronger astral cue is a bounded observation, not a precise soul diagnosis. Anti-tracking hypotheses remain competing explanations.",
+        "evidence": [
+          {
+            "claimId": "r004-c17",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r004/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 45,
+                "member": "OEBPS/Text/0045_45_Make-up_Lesson.xhtml",
+                "memberSha256": "4557df08158a909d8ebb6ebf80c86a0b671d0a0711e22a852d6ab0051465fa38",
+                "paragraphs": [
+                  8,
+                  34
+                ]
+              }
+            ],
+            "qualification": "character_claim",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "r028-c35",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r028/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 385,
+                "member": "OEBPS/Text/0385_385_Before_and_After_Comparison.xhtml",
+                "memberSha256": "d8442d2f04117c0d07654c2486649908b8ee8a34a9ef50a9ec1956fccde856d8",
+                "paragraphs": [
+                  41,
+                  64
+                ]
+              }
+            ],
+            "qualification": "actor_inference",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "r029-c03",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r029/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 387,
+                "member": "OEBPS/Text/0387_387_Vile.xhtml",
+                "memberSha256": "6b861813bb18ca1c953772e5d39397eca75893c063686e6a21821a5f3437130d",
+                "paragraphs": [
+                  35,
+                  50
+                ]
+              }
+            ],
+            "qualification": "character_claim",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ],
+        "nativeConsumerGap": "Native faculty/source/actual observation and attributed theory owners."
+      }
+    ],
+    "everydayTextureAndVoice": [
+      {
+        "original": true,
+        "speaker": "Proposed Cordu tavern keeper, separate early-era texture",
+        "text": "Tell the short version while I find the glasses. The long one can wait for the table.",
+        "cue": "Local yarns, visitors and uneven city fashions; original incidental person.",
+        "evidence": [
+          {
+            "claimId": "q001-c01",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/q001/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 1,
+                "member": "OEBPS/Text/0001_1_Foreigners.xhtml",
+                "memberSha256": "846f85af6aba1e14c4dfd7058eca650835f11676a5d42a7020086d1d0c2dc7d0",
+                "paragraphs": [
+                  33,
+                  40
+                ]
+              },
+              {
+                "spineIndex": 1,
+                "member": "OEBPS/Text/0001_1_Foreigners.xhtml",
+                "memberSha256": "846f85af6aba1e14c4dfd7058eca650835f11676a5d42a7020086d1d0c2dc7d0",
+                "paragraphs": [
+                  91,
+                  98
+                ]
+              }
+            ],
+            "qualification": "character_claim",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          },
+          {
+            "claimId": "q001-c02",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/q001/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 1,
+                "member": "OEBPS/Text/0001_1_Foreigners.xhtml",
+                "memberSha256": "846f85af6aba1e14c4dfd7058eca650835f11676a5d42a7020086d1d0c2dc7d0",
+                "paragraphs": [
+                  37,
+                  56
+                ]
+              },
+              {
+                "spineIndex": 1,
+                "member": "OEBPS/Text/0001_1_Foreigners.xhtml",
+                "memberSha256": "846f85af6aba1e14c4dfd7058eca650835f11676a5d42a7020086d1d0c2dc7d0",
+                "paragraphs": [
+                  63,
+                  79
+                ]
+              }
+            ],
+            "qualification": "narrator_explicit",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ]
+      },
+      {
+        "original": true,
+        "speaker": "Proposed society attendee",
+        "text": "You can warn us without taking the chair. Someone still has to keep the minutes.",
+        "cue": "Committee refusal, privacy and ordinary work during the hearing.",
+        "evidence": [
+          {
+            "claimId": "r030-c34",
+            "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+            "locators": [
+              {
+                "spineIndex": 411,
+                "member": "OEBPS/Text/0411_411_Review_Committee.xhtml",
+                "memberSha256": "a212c54c2b6c8691b1e3c3fd0985d7154667fc701547fde96e12dab6ea4fb055",
+                "paragraphs": [
+                  34,
+                  58
+                ]
+              }
+            ],
+            "qualification": "witnessed",
+            "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+          }
+        ]
+      }
+    ],
+    "stableSourcePeople": [
+      "coi.lumian-lee",
+      "coi.aurore-roche",
+      "coi.franca",
+      "coi.jenna",
+      "coi.hela",
+      "coi.magician"
+    ],
+    "unknowns": [
+      "Separate sequel edition, people/era and active rules; no first-novel automatic loadout.",
+      "Magician’s detailed identity test mechanism is unspecified.",
+      "Seal/aura tracking is attributed attacker speech or participant inference, not a universal soul radar.",
+      "The native registry comparison procedure is original, not claimed canonical institutional machinery.",
+      "Remaining supplied source beyond captured accepted extent is not promoted here."
+    ],
+    "missingNativeBindings": [
+      "native realm/era/location and entry",
+      "actor/body/controller/soul owners",
+      "actual source/fuel/method and native material custody",
+      "per-observer testimony/belief and committed-history owner",
+      "native command/UI and durable publication"
+    ],
+    "implementationStatus": "implemented-unverified; pure adapter; parent original-scene consumer required",
+    "deferredGates": [
+      "actual gameplay",
+      "save/reload/failure",
+      "keyboard/regression",
+      "director acceptance"
+    ],
+    "topologyDisposition": {
+      "settingContinuity": "Separate sequel continuity/era. Trier and Cordu are places, not interchangeable mission instances.",
+      "structures": [
+        {
+          "kind": "dream-versus-waking-inventory",
+          "qualifiedFinding": "Lumian’s dream coin is absent after waking. This is one tested carried item, not proof every method/material has the same boundary.",
+          "evidence": [
+            {
+              "claimId": "r002-c05",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r002/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 10,
+                  "member": "OEBPS/Text/0010_10_Blood.xhtml",
+                  "memberSha256": "e3bbc665332e40b398510a6d38dd3aef9b7c581223b7048037c375a1c5a9cb45",
+                  "paragraphs": [
+                    8,
+                    29
+                  ]
+                },
+                {
+                  "spineIndex": 10,
+                  "member": "OEBPS/Text/0010_10_Blood.xhtml",
+                  "memberSha256": "e3bbc665332e40b398510a6d38dd3aef9b7c581223b7048037c375a1c5a9cb45",
+                  "paragraphs": [
+                    97,
+                    101
+                  ]
+                }
+              ],
+              "qualification": "narrator_explicit",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        },
+        {
+          "kind": "dream-loop-account",
+          "qualifiedFinding": "Investigators’ self-awareness/wish-trigger explanation and experience/fiction composition remain attributed hypotheses.",
+          "evidence": [
+            {
+              "claimId": "r009-c04",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r009/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 108,
+                  "member": "OEBPS/Text/0108_108_Report.xhtml",
+                  "memberSha256": "8abdbbfc0b572307d23354b4f6149fd9581dfc5bbfe7869be7adf94bbf8278cb",
+                  "paragraphs": [
+                    24,
+                    27
+                  ]
+                },
+                {
+                  "spineIndex": 108,
+                  "member": "OEBPS/Text/0108_108_Report.xhtml",
+                  "memberSha256": "8abdbbfc0b572307d23354b4f6149fd9581dfc5bbfe7869be7adf94bbf8278cb",
+                  "paragraphs": [
+                    34,
+                    47
+                  ]
+                }
+              ],
+              "qualification": "character_claim",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        },
+        {
+          "kind": "symbolic-mental-space",
+          "qualifiedFinding": "Lumian’s dream and Susie’s interpretation are distinguished from literal external historical discovery.",
+          "evidence": [
+            {
+              "claimId": "r010-c30",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r010/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 128,
+                  "member": "OEBPS/Text/0128_128_In_the_Dream.xhtml",
+                  "memberSha256": "8293a04415cf924355fe410735a68684a030a4fb108ced66f36efa0ba1b6ee9a",
+                  "paragraphs": [
+                    24,
+                    68
+                  ]
+                }
+              ],
+              "qualification": "actor_inference",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        },
+        {
+          "kind": "fragmented-dream-setting",
+          "qualifiedFinding": "Lumian infers separated dream fragments; Amandina’s crossing report and his private Cordu figures are not omniscient knowledge for the whole team.",
+          "evidence": [
+            {
+              "claimId": "r050-c687-01",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r050/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 687,
+                  "member": "OEBPS/Text/0687_687_Gaining_Immortality.xhtml",
+                  "memberSha256": "bb0acc5e1a424f9957e7fef0dae9b7e8f4741ee4010bd1743594aee553acc9a1",
+                  "paragraphs": [
+                    1,
+                    10
+                  ]
+                },
+                {
+                  "spineIndex": 687,
+                  "member": "OEBPS/Text/0687_687_Gaining_Immortality.xhtml",
+                  "memberSha256": "bb0acc5e1a424f9957e7fef0dae9b7e8f4741ee4010bd1743594aee553acc9a1",
+                  "paragraphs": [
+                    22,
+                    37
+                  ]
+                }
+              ],
+              "qualification": "actor_inference",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "from": "dream ruin",
+          "to": "waking Lumian",
+          "kind": "wake/experience",
+          "memory": "subjective account can be described",
+          "cargo": "the tested coin is absent",
+          "knowledge": "not shared with everyone by default",
+          "source": "no free boon, soul or potion copy",
+          "evidence": [
+            {
+              "claimId": "r002-c05",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r002/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 10,
+                  "member": "OEBPS/Text/0010_10_Blood.xhtml",
+                  "memberSha256": "e3bbc665332e40b398510a6d38dd3aef9b7c581223b7048037c375a1c5a9cb45",
+                  "paragraphs": [
+                    8,
+                    29
+                  ]
+                },
+                {
+                  "spineIndex": 10,
+                  "member": "OEBPS/Text/0010_10_Blood.xhtml",
+                  "memberSha256": "e3bbc665332e40b398510a6d38dd3aef9b7c581223b7048037c375a1c5a9cb45",
+                  "paragraphs": [
+                    97,
+                    101
+                  ]
+                }
+              ],
+              "qualification": "narrator_explicit",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        },
+        {
+          "from": "one apparent dream fragment",
+          "to": "another",
+          "kind": "reported/perceived fragment passage",
+          "body": "exact general passage carrier unresolved",
+          "authority": "not a hub-issued mission",
+          "clock": "no universal rate selected",
+          "evidence": [
+            {
+              "claimId": "r050-c687-01",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r050/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 687,
+                  "member": "OEBPS/Text/0687_687_Gaining_Immortality.xhtml",
+                  "memberSha256": "bb0acc5e1a424f9957e7fef0dae9b7e8f4741ee4010bd1743594aee553acc9a1",
+                  "paragraphs": [
+                    1,
+                    10
+                  ]
+                },
+                {
+                  "spineIndex": 687,
+                  "member": "OEBPS/Text/0687_687_Gaining_Immortality.xhtml",
+                  "memberSha256": "bb0acc5e1a424f9957e7fef0dae9b7e8f4741ee4010bd1743594aee553acc9a1",
+                  "paragraphs": [
+                    22,
+                    37
+                  ]
+                }
+              ],
+              "qualification": "actor_inference",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ]
+        }
+      ],
+      "activation": "No automatic sequel loadout, dream cargo exporter, infinite dream city or generic reset. Later-source cues are author-facing, unavailable to an earlier player.",
+      "nativeGaps": [
+        "Selected exact dream/mental scene and actor/source cutoff",
+        "Independent waking/dream inventory and observation carriers",
+        "Boundary condition, clocks and retained residents/actual aftereffects"
+      ]
+    },
+    "deepChainDisposition": {
+      "id": "recognition.coi.hearing-without-stolen-chair",
+      "family": "recognition-to-institutional-change",
+      "sourceVsOriginal": "Original society-hearing chain using reviewed sequel cues; first-novel bodies and roles do not enter by default.",
+      "actors": [
+        "coi.lumian-lee",
+        "coi.franca",
+        "coi.hela",
+        "coi.magician",
+        "coi.gandalf",
+        "coi.proposed-recorder"
+      ],
+      "privateGoals": [
+        "Lumian seeks truth and safety without acquiring Aurore’s chair by impersonation.",
+        "The society needs trustworthy evidence while members retain privacy."
+      ],
+      "phases": [
+        {
+          "id": "testimony",
+          "prerequisite": "actual captive/test and delivered testimony",
+          "means": "completed truth-serum result; sincerity versus actual identity separate",
+          "evidence": [
+            {
+              "claimId": "r030-c17",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 406,
+                  "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+                  "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+                  "paragraphs": [
+                    1,
+                    28
+                  ]
+                }
+              ],
+              "qualification": "witnessed",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ],
+          "choices": [
+            "corroborate",
+            "retain provisional identity",
+            "refuse unsupported verdict"
+          ]
+        },
+        {
+          "id": "corroboration",
+          "prerequisite": "willing qualified helper or ordinary independent lead",
+          "means": "specific supplied specialist report; opaque mechanism remains unknown",
+          "evidence": [
+            {
+              "claimId": "r030-c17",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 406,
+                  "member": "OEBPS/Text/0406_406_Inevitability-like_Ending.xhtml",
+                  "memberSha256": "c8593c530d512b241d2697fcb5eb5c9a6c36d692b895f6791537f27b629e43e3",
+                  "paragraphs": [
+                    1,
+                    28
+                  ]
+                }
+              ],
+              "qualification": "witnessed",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ],
+          "choices": [
+            "request help",
+            "wait",
+            "use ordinary witness evidence"
+          ]
+        },
+        {
+          "id": "hearing",
+          "prerequisite": "actual meeting and reported evidence",
+          "means": "held Lie item for source disguise, actual participant and received facts",
+          "evidence": [
+            {
+              "claimId": "r030-c31",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 410,
+                  "member": "OEBPS/Text/0410_410_A_Leisure_Week.xhtml",
+                  "memberSha256": "1a609a0056d9f98c203cfd7333a90192e6faa87d891908355130735855d780ad",
+                  "paragraphs": [
+                    54,
+                    78
+                  ]
+                }
+              ],
+              "qualification": "witnessed",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ],
+          "choices": [
+            "speak under own identity",
+            "make bounded warning",
+            "leave"
+          ]
+        },
+        {
+          "id": "office",
+          "prerequisite": "committee offer/vote",
+          "means": "actual appointment remains distinct from face/claimed Muggle",
+          "evidence": [
+            {
+              "claimId": "r030-c34",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 411,
+                  "member": "OEBPS/Text/0411_411_Review_Committee.xhtml",
+                  "memberSha256": "a212c54c2b6c8691b1e3c3fd0985d7154667fc701547fde96e12dab6ea4fb055",
+                  "paragraphs": [
+                    34,
+                    58
+                  ]
+                }
+              ],
+              "qualification": "witnessed",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ],
+          "choices": [
+            "decline borrowed chair",
+            "seek own appointment",
+            "contest entitlement with scrutiny"
+          ]
+        },
+        {
+          "id": "safety",
+          "prerequisite": "members agree to a supported action",
+          "means": "independent relocation, written terms and actual signature only when performed",
+          "evidence": [
+            {
+              "claimId": "r030-c34",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r030/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 411,
+                  "member": "OEBPS/Text/0411_411_Review_Committee.xhtml",
+                  "memberSha256": "a212c54c2b6c8691b1e3c3fd0985d7154667fc701547fde96e12dab6ea4fb055",
+                  "paragraphs": [
+                    34,
+                    58
+                  ]
+                }
+              ],
+              "qualification": "witnessed",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            },
+            {
+              "claimId": "r028-c35",
+              "notesPath": "docs/research/novels/full-book/circle-of-inevitability/workers/r028/NOTES.md",
+              "locators": [
+                {
+                  "spineIndex": 385,
+                  "member": "OEBPS/Text/0385_385_Before_and_After_Comparison.xhtml",
+                  "memberSha256": "d8442d2f04117c0d07654c2486649908b8ee8a34a9ef50a9ec1956fccde856d8",
+                  "paragraphs": [
+                    41,
+                    64
+                  ]
+                }
+              ],
+              "qualification": "actor_inference",
+              "sourceSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f"
+            }
+          ],
+          "choices": [
+            "cooperate",
+            "retain privacy",
+            "relocate",
+            "do not claim a draft is signed"
+          ]
+        }
+      ],
+      "outcomes": {
+        "lawful": "Evidence-driven hearing and legitimate appointment/decline.",
+        "refusal": "No forced chair or continuing disguise.",
+        "partial": "Identity/test mechanism or unsigned terms remain pending.",
+        "hostile": "Actual traitor/exposure response needs identified actors and evidence; attacker speech does not reveal every hidden member."
+      },
+      "aftermath": "Shared evidence reaches only actual recipients. Declined chair, actual contract signing and relocation persist under each native owner.",
+      "status": "source-qualified authoring disposition; native full-world chain unactivated",
+      "callableRecognitionRules": [
+        "coi.sincerity",
+        "coi.office",
+        "coi.appearance"
+      ],
+      "nativeBindingsRequired": [
+        "native realm/era/location and entry",
+        "actor/body/controller/soul owners",
+        "actual source/fuel/method and native material custody",
+        "per-observer testimony/belief and committed-history owner",
+        "native command/UI and durable publication"
+      ],
+      "clockPolicy": "No new clock. Native worlds remain unactivated; unsupported absence stays frozen under the eventual host policy."
+    }
+  },
+  "consumers": {
+    "callableModule": "src/feature_expansion_book_recognition.js",
+    "originalSceneSpecification": "subtlety.reference_desk",
+    "hostScene": "subtlety.relay_office",
+    "registeredConsumerStatus": "parent-integration-required",
+    "nativeBookWorld": "unactivated"
+  },
+  "sourceReview": "Reused existing accepted claim ledgers and bounded reviewed notes. No new whole-book read or targeted raw-text query was needed."
+}

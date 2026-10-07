@@ -1,0 +1,35 @@
+{
+  "observed_utc": "2026-10-07T06:26:15.335231+00:00",
+  "status": "matching-build and finite new shared source review acquired; implemented-unverified",
+  "integrator": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "integrator_receipt": "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+  "bundle_fingerprint": "e77080593d4b",
+  "bundle_sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4",
+  "map_sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8",
+  "index_sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c",
+  "root_current_source_map_matches": 370,
+  "retort_bundled_paths": [
+    "src/factorio_retort_content.js",
+    "src/factorio_retort_facts.js",
+    "src/factorio_retort_host.js",
+    "src/factorio_retort_native.js"
+  ],
+  "checks": "Root compared current bundle/map/index hashes and every receipt local source against source-map contents; no second build or gameplay executed.",
+  "gameplay_status": "implemented-unverified",
+  "remaining_goal": "Full both-architecture native exports/repairs and reviewed native/DLC binding remain active.",
+  "review": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/RETORT_REVIEW.md",
+  "review_result": "No additional source defects;17reviewedfiles match bundled contents. Merchant refresh preserves five exact native keys; registry/context/reader/typed dispatch/Notebook joins present. Reviewer completed/released.",
+  "immutable_preview": "http://127.0.0.1:18197/",
+  "shared_release": "docs/gm/home-social-base-2026-10-07/RELEASE.json",
+  "current_shared_owner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "prior_combined_build": {
+    "bundle_fingerprint": "cc3798910c48",
+    "bundle_sha256": "cc3798910c48e61f3908cdf2225090d136a3efddd62327cad196c34338c2ed30",
+    "map_sha256": "f992821952f2e4f2b21cc82114632fcfe818aa65c5d1f5763745f38552e611d7",
+    "index_sha256": "6b32506b2373a12aa516494d47b8a76115b809a6a84579cd7ac1cb55e288e210",
+    "root_current_source_map_matches": 353,
+    "immutable_preview": "http://127.0.0.1:18196/"
+  },
+  "current_shared_release": "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+  "retort_retention": "All four exact released leaf hashes and existing typed joins retained in latest all-audit build; old immutable combined receipt preserved."
+}

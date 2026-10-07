@@ -147,8 +147,8 @@ test("schema1 migration keeps frozen legacy jobs and converts kit stock once wit
     assert.equal(migrated.inventories.person.main_character[SURVEY_KIT_KEY].count, 3);
     assert.equal(migrated.expansion.actors.player.resources.kits, 0);
     assert.deepEqual(prepareV06Save(migrated), migrated); assert.deepEqual(save, original);
-    assert.equal(loadExpansionState(migrated.expansion, expeditionRegistry).schema, 3);
-    assert.equal(validateExpansionState(state).schema, 3);
+    assert.equal(loadExpansionState(migrated.expansion, expeditionRegistry).schema, 5);
+    assert.equal(validateExpansionState(state).schema, 5);
     assert.deepEqual(state, original.expansion);
     const oldRegistry = registry({actions: [action({effects: [{type: "resource", scope: "external", key: "money", amount: 5}]})]});
     const old = commitAction(fresh(1), oldRegistry, "test.work", context());

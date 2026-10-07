@@ -1,0 +1,18 @@
+{
+  "capturedAtUtc": "2026-10-07T05:04:07.905670+00:00",
+  "revision": "e93a8cd617932fb698ff889b968a32f9a20d48f3",
+  "url": "https://raw.githubusercontent.com/23html/23html.github.io/e93a8cd617932fb698ff889b968a32f9a20d48f3/index.html",
+  "privatePath": "/tmp/yairpg-proto23-e93a8cd61793/index.html",
+  "bytes": 837656,
+  "sha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "paths": [
+    "changelog",
+    "changelog/changelog.html",
+    "ctst.png",
+    "favicon.ico",
+    "index.html",
+    "laugh6.wav"
+  ],
+  "licenseApi": null,
+  "coverage": "bounded source inspection; no execution"
+}

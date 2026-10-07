@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-05",
+  "state": "integrated-built-unverified; assigned source/integration/build outcome complete under behavioral deferral",
+  "checks": "syntax, ESM and merged definition registry imports only; no gameplay",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "da831711ea0f94a7bfc941d1b5de865f6331ac430d2bebe3c971e1a67f026772",
+    "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md": "69bd02bbda1646d04ad682b560c457c320e9bdeeb68a1a3d791c27b5b71e7bbf",
+    "docs/gm/world-implementation/INTERFACE.md": "0324a210418cebee872331f49a4b96e240ab3127fbb42743d2277022df2e9008",
+    "src/skill_expansion_content.js": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/data/skills.js": "11bd4bafd1591520cfe3a9892a3de28ed274bc278d8dfa19a5ed7d70b2024a96",
+    "src/party_content.js": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+    "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+    "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+    "src/village_content.js": "0a8a4a250e97091ccf92bcaae138a5f071e6dba673ea462a31fe9b8e868b4e15",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/native_unlock_transaction.js": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad",
+    "src/skill_expansion_host.js": "609288d09683f4847b60d31470fdc31cc3116144ba5e882edd2fc7cb5d66cc7e",
+    "src/skill_expansion_ui.js": "9f0bad4f1cdca46d2fcd3820e98cbe8e5cbb1f1a0ab8ef178684859620df6bf0"
+  },
+  "integrationReceipt": "docs/gm/world-implementation/engine/SKILLS_BUILD.json",
+  "bundleSHA256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3"
+}

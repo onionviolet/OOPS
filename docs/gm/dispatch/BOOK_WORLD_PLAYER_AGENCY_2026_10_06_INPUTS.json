@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-06",
+  "capturedAtUtc": "2026-10-06T05:05:19.001622+00:00",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "currentSharedWriter": "01a10f81-ee24-7531-b509-6b509160ea8f",
+  "resumeBookWorldGM": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "sharedReleasedAtCapture": false,
+  "snapshotOnly": true,
+  "files": {
+    "PROJECT.md": "77958b38b64aafd751cf254503f8f9a40b74578aba0ee85ee2c4f7841bf7b429",
+    "docs/gm/reference-gameplay/CHECKPOINT.md": "374ffe617d88b34c321446e3a969e622edc2a3d7da7d29a3bf11e466ff71833b",
+    "docs/gm/reference-gameplay/ASSIGNMENT.md": "755cec4ba8f50628d2cc02d375114e9d86b8d66791cfab34cdc2baae06579cb7",
+    "docs/gm/feature-wave/features/CHECKPOINT.md": "b13a15157c78bedcf29e86c81cf4500ec59102aec48c07df73b0011d581b8237",
+    "docs/research/novels/trailblaze-reading/paradise-depth/FINAL_VALIDATION.json": "ec81773bdd9597686020cac148666a1f703a06bed114571c261ec12db1e16c5a",
+    "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84",
+    "docs/worlds/LORE_AND_CONTINUITY.md": "8eb966d8ce49b3e0cbfa3bb4823289dfdac97e2dec884fa18cbe3c52f3ef3fa7",
+    "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936",
+    "src/main.js": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+    "src/simulation_content.js": "c36b749cf8d069158469c655e2ecbcdb8b8453004cca624e778f3a6557eb284f",
+    "src/expansion_engine.js": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37",
+    "src/feature_expansion_nested_host.js": "fda1161bcbb2dd59d2fdc3695ccf8e137c6db06a8133654bfc5b5795bdffb8a8",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/feature_expansion_book_roster.js": "880bd66b18d3d8dfc451370ecb9cc8fb8b1028619e3dfbf1f6a33dfbc43d254c",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5"
+  },
+  "note": "Reference is active; shared/canonical reservation retained. Rehash after explicit completed/released handoff."
+}

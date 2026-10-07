@@ -1,0 +1,255 @@
+{
+  "schema": 1,
+  "role": "bounded game-family semantic reconciliation",
+  "capturedAt": "2026-10-07",
+  "scope": "GD-01, GD-02, and finite discovery/deeper-game queues found in intake; this is not a whole-game audit or release",
+  "findings": [
+    {
+      "id": "GD-01-EVIDENCE-ASSAY",
+      "owner": "docs/gm/game-absorption-2026-10-06/",
+      "source": {
+        "game": "Brogue Community Edition 1.15.1 master snapshot",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "locators": [
+          "src/brogue/Items.c:5844-5927 (BRC-E05 constrained last-kind elimination)",
+          "src/brogue/Items.c:5931-5994 (BRC-E06 shared kind-table identification)",
+          "src/brogue/Items.c:6202-6273 (BRC-E09 harmless splash identity exception)",
+          "src/brogue/Items.c:6294-6357 (BRC-E07 target/refusal order)",
+          "src/brogue/Items.c:6368-6392 (BRC-E08 one-unit spend/turn)"
+        ],
+        "coverage": "Exact evidence IDs/ranges above are those in source-traces/BROGUE.json. The leaf reread selected elimination, failed-impact, and spend paths; it did not reread the whole game."
+      },
+      "boundary": {
+        "source": "Brogue's evidence-qualified last-kind elimination, harmless failed splash, kind-level knowledge, and spend/cancel ordering.",
+        "originalAdaptation": "YAIR's retained negative test plus separately earned oil control, Eda consignment, two wash candidates, vial/pin/knife actions, and downstream kit use are original. Durable negative receipts plus later comparison extend Brogue; they are not source parity."
+      },
+      "delivery": {
+        "source": "Four disjoint modules exist: src/game_absorption_assay_content.js, facts.js, host.js, item_view.js; ten commands/two item specs; pure reducer, cancellation host, presentation and item projection. Leaves are implemented-unverified.",
+        "native": "Nine live shared inputs refreshed, generated patch applied and actual source/native/scheduler/validator/loader/publisher/cancel consumers joined. Matching audit build e77080593d4b delivered, implemented-unverified.",
+        "ui": "Actual feature panel, Notebook Here group and native item projection joined in source. Browser acceptance deferred.",
+        "state": "Optional existing actor/world facts, attributed knowledge, exact existing jobs/conditions/stock and one durable native publisher. No schema/domain added. New IDs require updated fork; old absence/frozen meanings preserved by source readers, save/reload not verified."
+      },
+      "blockers": "No current shared/source/build blocker remains. Actual selected integration and matching build delivered; only explicitly deferred gameplay/save/failure/director acceptance remains.",
+      "ownerDisposition": "Predecessor released exact leaves/task scope; audit root is sole current integrator. Old blocked/unapplied status retained in history/BEFORE_FINAL_OWNERS.json.",
+      "acceptance": "Exact deferred groups in docs/gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md: evidence order/choices; real stock and kit aftermath; cancellation/lost support/durable publication; synthetic save/reload/import compatibility; rebuilt UI/privacy/keyboard/director. All deferred and unrun under current policy."
+    },
+    {
+      "id": "GD-02-SITE-TRANSFORMATION",
+      "owner": "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md and PACKETS.json",
+      "source": {
+        "game": "Shattered Pixel Dungeon 4.0.1",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "locators": [
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java:468-565 (SPD-E03)",
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/exotic/ExoticPotion.java:125-154 (SPD-E04)",
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java:1116-1149 (SPD-E08)",
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/StormCloud.java:31-59 (SPD-E07)",
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/WandOfLightning.java:62-103,143-198 (SPD-E09)",
+          "shattered-pixel-dungeon/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java:638-642 (SPD-E15; source save caller, not executed)"
+        ],
+        "coverage": "21 named source windows are in source-traces/SHATTERED.json; finite trace, not full source/game."
+      },
+      "boundary": {
+        "source": "Seeds yield identified levitation potion; converting to StormClouds spends alchemy energy; rain can mutate eligible ground, remove traps/clear fire; cloud expiry does not revert terrain; wetness changes lightning behavior and can injure/kill caster. Terrain/traps are saved in source architecture, but this trace did not execute saving.",
+        "originalAdaptation": "Optional three-node culvert, field.focus trade, dry/wet charge reach, self-risk, retained trap/water and one finite Prepared-kit cache transfer are YAIR proposals. Native costs/fiction do not numerically copy SPD energy."
+      },
+      "delivery": {
+        "source": "Source-ready original packet only.",
+        "native": "No source leaf or runtime/native/UI/state/build delivery selected.",
+        "ui": "No UI delivery.",
+        "state": "Exact missing join is persistent substrate/hazard state connected to personal crossing, charged action, risk and actual cache custody result; flag-only route clearance is insufficient."
+      },
+      "blockers": "Intentionally unselected distinct persistent substrate/hazard/custody feature. GD-01 is now integrated in source; this finite objective does not automatically select GD-02. A future selection needs explicit typed state/compatibility and native owner.",
+      "ownerDisposition": "Distinct source-ready follow-on, explicitly unselected in game-absorption QUEUE.json; keep parked.",
+      "acceptance": "If later selected: compare personal/refined routes on synthetic state, prove material/vial/focus/charge/HP conservation, actual retained hazard/trap and cache transfer on revisit/reload, supported/unsupported targets, cancellation and failed publication, then rebuilt UI/director gate. Not run."
+    },
+    {
+      "id": "GD-D01-KEY-EXPLORATION",
+      "owner": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "source": {
+        "game": "Brogue CE",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "locator": "DEEPER_QUEUE.json row GD-D01; source-traces/BROGUE.json is the coverage owner. The specific origin-qualified key/machine payment and retained-access source spans are explicitly unread."
+      },
+      "boundary": {
+        "inference": "Question asks how origin-qualified keys/machines, custody/spend and intervention change discoveries/access; older helper names were only indexed.",
+        "source": "No mechanic assertion beyond that finite question is currently source-qualified."
+      },
+      "delivery": {
+        "source": "Parked, unassigned; sourceReady false.",
+        "native": "None.",
+        "ui": "None.",
+        "state": "Named source-missing dependency: read actual key-origin admission, spend/retention, machine mutation and later access paths at pinned source before any packet."
+      },
+      "ownerDisposition": "Discovery owner retains pin/coverage; no dispatch or implementation selected.",
+      "acceptance": "Source trace first; any later player behavior has its own bounded implementation and deferred play/save gates."
+    },
+    {
+      "id": "GD-D02-STATUS-ENVIRONMENT",
+      "owner": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "source": {
+        "game": "Brogue CE",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "locator": "DEEPER_QUEUE.json row GD-D02; source-traces/BROGUE.json. Full effect ordering and late immunity/equipment exceptions are explicitly unread."
+      },
+      "boundary": {
+        "inference": "Question covers body/status/terrain combinations changing danger/actions and late exceptions; prior hallucination timing/display does not qualify this.",
+        "source": "No comprehensive status immunity rule inferred from names or prior isolated status work."
+      },
+      "delivery": {
+        "source": "Parked, unassigned; sourceReady false.",
+        "native": "None.",
+        "ui": "None.",
+        "state": "Named source-missing dependency: trace actual flight/fire/gas/status/equipment protection order and late immunity/capability exceptions."
+      },
+      "ownerDisposition": "Discovery owner retains; no dispatch or implementation selected.",
+      "acceptance": "Source trace first; later concrete behavior and acceptance only if selected."
+    },
+    {
+      "id": "GD-D03-ALCHEMY-RESOURCE-CHAIN",
+      "owner": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "source": {
+        "game": "Shattered Pixel Dungeon",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "locator": "DEEPER_QUEUE.json row GD-D03; source-traces/SHATTERED.json. Existing packet samples seed conversion and AquaBrew, not toolkit charging/recycling/competing recipe/capacity and late artifact chain."
+      },
+      "boundary": {
+        "inference": "Question is resource payer/recovery and competing recipes, not a generic second alchemy currency.",
+        "source": "Do not extrapolate from selected 3-seed/4-energy conversion sample."
+      },
+      "delivery": {
+        "source": "Parked, unassigned; sourceReady false.",
+        "native": "None.",
+        "ui": "None.",
+        "state": "Named source-missing dependency: acquired toolkit source, recharge/recycling, capacity/curse and late artifact exceptions plus actual output consumers."
+      },
+      "ownerDisposition": "Discovery owner retains; no dispatch or implementation selected.",
+      "acceptance": "Source trace first; preserve actual competition/shortage consequence if later selected."
+    },
+    {
+      "id": "GD-D04-EQUIPMENT-COMMITMENTS",
+      "owner": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "source": {
+        "game": "Shattered Pixel Dungeon",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "locator": "DEEPER_QUEUE.json row GD-D04; source-traces/SHATTERED.json. Blacksmith earned admission and exact equipment transformation/cost/retained or lost properties are not traced by current packet."
+      },
+      "boundary": {
+        "inference": "Question is constrained modification and regret/loss, not generic crafting or YAIR fit infrastructure.",
+        "source": "Existing YAIR equipment infrastructure cannot stand in for source mechanics."
+      },
+      "delivery": {
+        "source": "Parked, unassigned; sourceReady false.",
+        "native": "None.",
+        "ui": "None.",
+        "state": "Named source-missing dependency: admission, consumed objects/service claim, exact transformation, compatibility, retained property and combat use."
+      },
+      "ownerDisposition": "Discovery owner retains; no dispatch or implementation selected.",
+      "acceptance": "Source trace first; later implementation must connect the modification to actual equipment/combat consumers."
+    },
+    {
+      "id": "GD-D05-SONG-WARD-CONTINUITY",
+      "owner": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "source": {
+        "game": "Sil-Q",
+        "pin": "1be7df63d6e7f9db2461e125acd17728caa53c3d",
+        "locator": "DEEPER_QUEUE.json row GD-D05 and FINDINGS.json/screenedAlternatives/0; prior screen covered switching/upkeep/door mutation and representative resistance only."
+      },
+      "boundary": {
+        "inference": "Question asks complete learned song/capacity/retained ward/resistance-removal/passage consequence.",
+        "source": "Prior narrow screen does not prove successful traversal, late resistance, persistence or complete song economics."
+      },
+      "delivery": {
+        "source": "Parked, unassigned; sourceReady false.",
+        "native": "None.",
+        "ui": "None.",
+        "state": "Named source-missing dependency: exact acquisition, voice/major-minor capacity, ward persistence, actor resistance/removal and actual passage result."
+      },
+      "ownerDisposition": "Discovery owner retains; no dispatch or implementation selected.",
+      "acceptance": "Source trace first; distinguish from already delivered maintained-brace family."
+    },
+    {
+      "id": "ACS-DEEPER-FIVE-PATHS-AND-DLC",
+      "owner": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md and DLC_COVERAGE.json",
+      "source": {
+        "game": "Amazing Cultivation Simulator",
+        "locator": "DEEPER_RESEARCH.md table Five ACS depth priorities; original REPORT.md/FINDINGS.json/COVERAGE.json plus traces/dlc.md and DLC_COVERAGE.json retain source pins and individual spans."
+      },
+      "boundary": {
+        "source": "Owner reports finite original 31 findings/15 paths and two narrow Wudang dual-component progression and Bamboo fishing traces. Specific source-backed examples include ratio-specific components/consumers and environment/equipment-qualified fishing/reaction/danger.",
+        "sourceMissing": "Five deeper paths remain partial questions: ascension/routes; formation geometry; tribulation/artifact deployment; deeper alchemy/ecology/material consumers; sect/institution/diplomacy/people/exploration. Full DLC and unreviewed runtime/acquisition joins remain open.",
+        "inference": "These are deeper research priorities, not selected production systems or complete ACS coverage."
+      },
+      "delivery": {
+        "source": "Research delivered; selected implementation packets are separate and current owner calls them a small actionable subset.",
+        "native": "No new integration claimed by these deeper notes.",
+        "ui": "No new UI claim.",
+        "state": "Keep source/read coverage and each priority-specific source-missing dependencies attached to ACS owner."
+      },
+      "ownerDisposition": "Link incumbent ACS research owner; no duplicate reader/implementation dispatch here.",
+      "acceptance": "Any chosen path needs its own source-qualified route, actual native consumer and later acceptance; no broad all-game claim."
+    }
+  ],
+  "nativeBindingReview": {
+    "readOnly": true,
+    "patch": "Initial review saw9drifted shared inputs/unapplied patch. Receiver acquired explicit current release, regenerated9inputs and applied patch before matching build; historical observation preserved in history/BEFORE_FINAL_OWNERS.json.",
+    "necessaryJoins": [
+      "simulation_content definitions",
+      "simulation_effects facts",
+      "simulation.js reservationReturns and popped-job completion binder",
+      "expansion_engine optional validator",
+      "expedition item reconstruction",
+      "main.js actual gameplay/vitals/equipment/location context, staged commit/cancel and native load validation",
+      "feature presentation",
+      "Notebook Here route",
+      "native item projection",
+      "single durable publication",
+      "matching bundle/map"
+    ],
+    "identifiedDefects": [],
+    "confirmedSourceLeafRepair": "Earlier review found returned Empty bench vial incorrectly counted as fresh native acquisition; discharge now uses reservationReturn:true. This repaired code has documented syntax/import/definition checks, not gameplay verification.",
+    "integrationObservations": [
+      "The nine-file patch is dated and all nine source inputs drift; its application requires refreshed inputs and a live exclusive release.",
+      "The leaf's imported functions were syntax/import/definition checked, while command/job/completion/loader/display behavior remains unexecuted. This is an acceptance boundary, not a confirmed defect."
+    ]
+  },
+  "laterAcceptance": "Exact five named acceptance groups are in docs/gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md. Current AGENTS policy explicitly defers gameplay/unit/browser/save-failure/regression tests; none run in this review.",
+  "pathsRead": [
+    "AGENTS.md",
+    "PROJECT.md current intent and expansion direction",
+    "docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md",
+    "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/intake/INTAKE.md",
+    "docs/gm/audit-absorption-2026-10-07/intake/SOURCES.json (selective game-discovery/deeper paths)",
+    "docs/gm/game-absorption-2026-10-06/CHECKPOINT.md",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION_INPUTS.json",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION.patch",
+    "docs/gm/game-absorption-2026-10-06/INTEGRATION.md",
+    "docs/gm/game-absorption-2026-10-06/DELIVERY.md",
+    "docs/gm/game-absorption-2026-10-06/CONTRACT.md",
+    "docs/gm/game-absorption-2026-10-06/QUEUE.json",
+    "docs/gm/game-absorption-2026-10-06/EVIDENCE.json",
+    "docs/gm/game-absorption-2026-10-06/BUILD.json",
+    "docs/gm/game-absorption-2026-10-06/SOURCE_REVIEW.md",
+    "docs/gm/game-absorption-2026-10-06/SOURCE_EVIDENCE.json",
+    "docs/gm/game-absorption-2026-10-06/ACCEPTANCE_BACKLOG.md",
+    "src/game_absorption_assay_content.js",
+    "src/game_absorption_assay_facts.js",
+    "src/game_absorption_assay_host.js",
+    "src/game_absorption_assay_item_view.js",
+    "src/simulation.js current reservation/completion paths",
+    "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+    "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+    "docs/research/game-discovery-2026-10-06/PACKETS.json",
+    "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md",
+    "docs/research/game-discovery-2026-10-06/source-traces/BROGUE.md",
+    "docs/research/game-discovery-2026-10-06/source-traces/SHATTERED.md",
+    "docs/research/game-discovery-2026-10-06/source-traces/BROGUE.json",
+    "docs/research/game-discovery-2026-10-06/source-traces/SHATTERED.json",
+    "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+    "docs/research/amazing-cultivation-simulator/CHECKPOINT.md"
+  ],
+  "integrationUpdate": "Current selected source/native/UI/compatible-state and matching e77080593d4b build delivered; source pin/exceptions unchanged; gameplay/save/director deferred.",
+  "currentBuild": "docs/gm/audit-absorption-2026-10-07/BUILD.json"
+}

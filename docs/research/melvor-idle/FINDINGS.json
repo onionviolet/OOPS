@@ -1,0 +1,3688 @@
+{
+  "status": "completed-assigned-finite-source-research-runtime-unverified",
+  "pins": {
+    "hosted_version": "v1.3.1",
+    "script_query": "12097",
+    "data_version": 528,
+    "steam_launcher_build": "13311431",
+    "launcher_package_version": "1.2.2",
+    "checked_at": "2026-10-06T20:33:30.639507+00:00"
+  },
+  "findings": [
+    {
+      "id": "OFF01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "offline-and-automation",
+      "claim": "Offline catchup runs the ordinary50ms passive/active tick and death check, with24h processed cap, stock costs and real failure. It is not a rate multiplier granting predicted output.",
+      "chain": {
+        "prerequisites": "Saved active action and tickTimestamp; offline combat setting; Slayer unlock for Slayer area.",
+        "decision": "Choose active recipe/combat and loadout; permit offline combat or stop it.",
+        "cost_time": "At>=60s gap run min(elapsed,24h) ordinary ticks; passive actions run beside one active action. Consumer-specific costs debit during those ticks.",
+        "mutation": "Same passiveTick/activeTick/checkDeath as online; shortage/death may stop action.",
+        "downstream": "OfflineProgressElement compares real before/after bank/equipment/food/prayer/soul/XP/currency/kills/discovery snapshots and shows losses, stock-full and action messages.",
+        "failure_aftermath": "Offline error surfaces mod-linked diagnostic and attempts activeAction.stop; no proof of rollback/atomic settlement. GolbinRaid excluded from offline trigger."
+      },
+      "source_refs": [
+        {
+          "file": "game.js",
+          "lines": [
+            149,
+            169
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            1769,
+            1800
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2074,
+            2168
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2199,
+            2227
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2335,
+            2398
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            3455,
+            3510
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            3790,
+            3856
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        }
+      ],
+      "inference": "A safe adaptation should summarize real settled receipts and retain shortages; Melvor does not establish YAIRPG offline policy or transactional guarantees."
+    },
+    {
+      "id": "OFF02",
+      "status": "source-inspected-runtime-unverified",
+      "family": "automation-capacity-failure",
+      "claim": "Production stops after a failed output insertion by default; that action can already have consumed ingredients. Existing bank stacks can grow at full slot count; new item identities need a slot. Opt-in continueIfBankFull repeats the loss.",
+      "chain": {
+        "prerequisites": "CraftingSkill active recipe/timer; costs actually owned.",
+        "decision": "Allocate bank slots or permit continued work when bank full; preservation chance can spare costs but not guarantee them.",
+        "cost_time": "Ordinary action interval; recipe costs are checked then preserved or consumed before rewards.",
+        "mutation": "Bank.addItem updates existing quantity or inserts new stack only with free slot; otherwise logs lostItems. Currency and XP rewards remain processed even when an item cannot fit.",
+        "downstream": "Recipe stops/restarts after actual next-cost and reward-result check; ItemFound only fires on successful bank insertion; offline result reports lost goods.",
+        "failure_aftermath": "Default stop is not preflight protection or refund. This partial settlement is materially different from current YAIRPG staged publisher; do not copy its partial-write behavior."
+      },
+      "source_refs": [
+        {
+          "file": "skill.js",
+          "lines": [
+            2717,
+            2745
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "skill.js",
+          "lines": [
+            2787,
+            2818
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "skill.js",
+          "lines": [
+            3145,
+            3181
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "bank2.js",
+          "lines": [
+            636,
+            708
+          ],
+          "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+          "url": "https://steam.melvoridle.com/assets/js/built/bank2.js?12097"
+        },
+        {
+          "file": "settings.js",
+          "lines": [
+            21,
+            30
+          ],
+          "sha256": "45b9c767267d50deb97192effc72f350d233de3657428b8128e116a47be1a5d4",
+          "url": "https://steam.melvoridle.com/assets/js/built/settings.js?12097"
+        }
+      ],
+      "inference": "Useful producer throughput has at least ingredients,active-time,output-capacity and consumable support constraints. A gross rate or item-find name cannot establish retained usable output."
+    },
+    {
+      "id": "DATA01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "authoring-dependency-packages",
+      "claim": "Namespaced data packages register ordered hard dependencies and conditionally apply dependent data/modifications only if a named namespace exists. DLC content and cross-DLC patches have separate conditional owners.",
+      "chain": {
+        "prerequisites": "Namespace registered by actual base/DLC entitlement-and-enabled loader; valid package namespace.",
+        "decision": "Author scoped data/conditional dependencies or a custom executable skill; do not treat a content namespace as player readiness.",
+        "cost_time": "Authoring/integration maintenance rather than player currency; no runtime delay inferred.",
+        "mutation": "Mod context creates namespace; addPackage rewrites data namespace to its own registered namespace and calls Game.registerDataPackage; registerGameData constructs hard-dependent classes in order.",
+        "downstream": "Conditional dependentData selects cross-DLC data and modifications; stable namespaced IDs consumed by recipe/equipment/requirements registries and save writer.",
+        "failure_aftermath": "Unregistered namespace throws; invalid class references can throw during construction; registration is not shown to roll back atomically. Method patches may conflict and alter args/return."
+      },
+      "source_refs": [
+        {
+          "file": "namespaceRegistry.js",
+          "lines": [
+            1,
+            78
+          ],
+          "sha256": "68bd4ccf86711372fb0b5593fb403d7878606156b706c7f61ea78c1044b1dc24",
+          "url": "https://steam.melvoridle.com/assets/js/built/namespaceRegistry.js?12097"
+        },
+        {
+          "file": "cloudManager.js",
+          "lines": [
+            208,
+            237
+          ],
+          "sha256": "81b6b25f24f71bb4ed6803f5e53f04cc240023c9b19ff313a3b281d2a500d281",
+          "url": "https://steam.melvoridle.com/assets/js/built/cloudManager.js?12097"
+        },
+        {
+          "file": "cloudManager.js",
+          "lines": [
+            506,
+            534
+          ],
+          "sha256": "81b6b25f24f71bb4ed6803f5e53f04cc240023c9b19ff313a3b281d2a500d281",
+          "url": "https://steam.melvoridle.com/assets/js/built/cloudManager.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            553,
+            641
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4751,
+            4820
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            5055,
+            5120
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4326,
+            4445
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        }
+      ],
+      "inference": "Reuse YAIRPG's existing declarative registries and versioned receipts. A dependency manifest aids authoring but must not substitute actual actor knowledge,stock,body,consent or native capability checks."
+    },
+    {
+      "id": "MOD01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "mod-lifecycle-storage-hooks",
+      "claim": "Mod setup,character load,interface hooks and character/account storage are different lifecycle owners. Patcher blocks core save/database/native/cloud classes and warns on other patch overlap.",
+      "chain": {
+        "prerequisites": "Mod-manager-loaded script/module and context; valid mod namespace needed by APIs; characterStorage unlocked only by characterLoaded.",
+        "decision": "Choose data addition versus a named method patch; character-bound versus account-bound small metadata; stage hooks at the right lifecycle.",
+        "cost_time": "Compatibility and patch-order maintenance; no player reward or cost inferred.",
+        "mutation": "Character storage serializes JSON key/value state, capacity2^13 counted by JS string length; setItem rejects at>=100% and warns>75%.",
+        "downstream": "Mod encoder saves settings and character storage keyed by modId in the existing SaveWriter; decoder restores only installed mod IDs. Shared mod API exports selected endpoints.",
+        "failure_aftermath": "Missing mod decode skips that record in this path; no claim of retaining every disabled/uninstalled mod's data. Hooks catch/log errors; no transaction isolation. Changes to method hooks can reframe return values."
+      },
+      "source_refs": [
+        {
+          "file": "mod.js",
+          "lines": [
+            4326,
+            4445
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4525,
+            4608
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4914,
+            5018
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            5347,
+            5506
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            6346,
+            6378
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        }
+      ],
+      "documentation_source": {
+        "repo": "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project",
+        "commit": "aa84a4253d998ab03f396aee9e1c0b3a9df0582c",
+        "private_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/authoring/manifest.json",
+        "qualification": "Official declarations include Abyssal/Cartography/Harvesting/Corruption, but package1.13.0/CHANGES still labels an older V1.2 pin. Use hosted executable sources for current behavior; do not presume metadata-version equivalence."
+      },
+      "inference": "Do not bring arbitrary class patching or secondary mutable storage into YAIRPG publisher. Typed optional leaf domains and explicit host adapters already satisfy the relevant authoring need."
+    },
+    {
+      "id": "SHOP01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "earned-automation-upgrade",
+      "claim": "Auto-eat is an earned GP-funded shop modifier with a real purchase mutation and downstream selected-food consumer. Shop preflights reward bank capacity before spending; ordinary crafting has a different capacity failure order.",
+      "chain": {
+        "prerequisites": "Purchase buy limit,tutorial allowance,owned costs and purchaseRequirements; unlockRequirements separately govern the presentation chain.",
+        "decision": "Invest game GP in auto-eat tier versus other means; manually eat or rely on its actual threshold.",
+        "cost_time": "Tier I fixed1,000,000GP; one-time purchase. Tier II and III data costs5,000,000 and20,000,000GP with prior-tier unlock gates. No purchase duration imposed by this function.",
+        "mutation": "buyItemOnClick caps quantity,checks ownership/requirements/limit and bank capacity,consumes cost,records purchased count,emits purchaseMade and recomputes provided stats.",
+        "downstream": "Game registers shop.providedStats with combat; player consumes provider modifiers; autoEat uses resulting threshold/target/efficiency and actual selected equipped food. Tier I base percentages20/40/60.",
+        "failure_aftermath": "Ineligible or bank-full shop purchase returns before cost. Confirm setting may delay mutation. Auto-eat remains unable to heal a lethal hit and still depends on actual stock; no survival guarantee. No rollback or save-atomicity proof from this code."
+      },
+      "source_refs": [
+        {
+          "file": "shop.js",
+          "lines": [
+            411,
+            453
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "shop.js",
+          "lines": [
+            464,
+            552
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "shop.js",
+          "lines": [
+            579,
+            596
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            476,
+            486
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "baseManager.js",
+          "lines": [
+            198,
+            216
+          ],
+          "sha256": "ba1db6605148a0eb1d7c20adafd43a322c24d17ace0104cb8489a1ba312745a8",
+          "url": "https://steam.melvoridle.com/assets/js/built/baseManager.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            134,
+            150
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            2393,
+            2399
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            623,
+            672
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        }
+      ],
+      "data_refs": [
+        {
+          "file": "data/melvorDemo.json",
+          "lines": [
+            33625,
+            33727
+          ],
+          "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06",
+          "locator": "/data/shopPurchases entries id Auto_Eat_Tier_I,Auto_Eat_Tier_II,Auto_Eat_Tier_III"
+        }
+      ],
+      "inference": "An automation upgrade can buy a new stock-consuming action policy rather than grant passive invulnerability. Current YAIR favourite consumables and guard adapters already exist; any addition must name a specific missing accepted policy consumer."
+    },
+    {
+      "id": "MEL-PROD-C01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Gathered wood and smelted ore become spent ranged ammunition",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C01",
+      "complete_causal_trace": {
+        "id": "PROD-C01",
+        "name": "Gathered wood and smelted ore become spent ranged ammunition",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Unlocked gathering/Smithing/Fletching and their level-1 recipes, an admissible tree/rock, 15 owned feathers, bank space, and an owned compatible ranged weapon/quiver. Feathers are a separate bottleneck, not generated by woodcutting.",
+        "decision": "Choose the log type for Arrow Shafts, then smelt bronze, smith arrowtips, attach feathers, and tip the arrows; equip the actual arrow stack.",
+        "base_cost_time": "1 Normal Log ->15 shafts at Fletching base2s; 15 shafts+15 feathers ->15 headless arrows at2s; 1 Copper Ore+1 Tin Ore ->1 Bronze Bar at Smithing2s; 1 bar ->15 tips at2s; 15 tips+15 headless arrows ->15 Bronze Arrows at2s. Normal tree base3s, Copper/Tin each Mining3s: a nominal19s action-time pipeline before modifiers, rock downtime, acquisition/selection/equipment or combat. Declared feather shop cost8GP each gives120GP for15; purchasing execution is outside this trace.",
+        "mutation": "Gathering gives real bank items; crafting checks each entire current cost bundle, rolls preservation, spends the bundle before rewards, and separately adds XP/mastery. Arrow alternative material changes output quantity, not a generic skill bonus.",
+        "consumer": "player.equipItem conserves bank/equipment stock; ranged attack requires matching ammoType. consumeAmmo removes one quiver item on the first attack proc unless preserved; equipment removes depleted stacks and recomputes stats.",
+        "failure_aftermath": "Missing any next crafting input stops the skill; depleted mining nodes wait for respawn. Incompatible or empty ammo prevents the next ranged attack and reports wrong/no ammo. Full-bank reward loss can occur after craft inputs and time were spent (shared parent OFF02); owned feathers and combat XP do not replace missing arrows.",
+        "sources": [
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              176,
+              218
+            ],
+            "function_chain": "isTreeUnlocked -> selectTree -> actionInterval"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              301,
+              368
+            ],
+            "function_chain": "actionRewards -> bank Rewards"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              126,
+              160
+            ],
+            "function_chain": "Mining base interval and quantity"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              214,
+              224
+            ],
+            "function_chain": "canMineOre -> passiveTick"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              416,
+              431
+            ],
+            "function_chain": "onRockClick"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              595,
+              604
+            ],
+            "function_chain": "actionRewards"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              670,
+              704
+            ],
+            "function_chain": "postAction -> node depletion -> timer pause"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              740,
+              766
+            ],
+            "function_chain": "startRespawningRock -> respawnRock"
+          },
+          {
+            "source": "smithing.js",
+            "lines": [
+              147,
+              173
+            ],
+            "function_chain": "actionRewards -> postAction"
+          },
+          {
+            "source": "fletching.js",
+            "lines": [
+              29,
+              46
+            ],
+            "function_chain": "alternative quantity and mastery interval"
+          },
+          {
+            "source": "fletching.js",
+            "lines": [
+              119,
+              138
+            ],
+            "function_chain": "getRecipeCosts -> selectAltRecipeOnClick"
+          },
+          {
+            "source": "fletching.js",
+            "lines": [
+              172,
+              213
+            ],
+            "function_chain": "actionRewards -> postAction"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1484,
+              1529
+            ],
+            "function_chain": "equipItem -> remove bank stock -> equip stack"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              736,
+              807
+            ],
+            "function_chain": "attack -> ammo check -> consumeAmmo"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1068,
+              1077
+            ],
+            "function_chain": "removeFromQuiver -> consumeAmmo"
+          },
+          {
+            "source": "equipment.js",
+            "lines": [
+              322,
+              329
+            ],
+            "function_chain": "removeQuantityFromSlot -> unequipItem"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              720,
+              730
+            ],
+            "function_chain": "onRangedAttackFailure"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/0/data/trees/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/4/data/rockData/1"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/4/data/rockData/2"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/5/data/recipes/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/5/data/recipes/72"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/8/data/recipes/0"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/8/data/recipes/1"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/8/data/recipes/2"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/items/255"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/shopPurchases/63"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C02",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Fishing and cooking create healing stock, with a different passive route",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C02",
+      "complete_causal_trace": {
+        "id": "PROD-C02",
+        "name": "Fishing and cooking create healing stock, with a different passive route",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Fishing1, Cooking1, selected Raw Shrimp in Shallow Shores, actual raw fish and supported food slots. Tutorial outcomes and ordinary outcomes differ.",
+        "decision": "Select area/fish, actively cook Shrimp, then equip and eat the actual cooked item. Alternatively passive-cook a different category only while actively cooking another category.",
+        "base_cost_time": "Raw Shrimp action samples4-8s; Shallow Shores declares75% fish/25% junk/0% special before modifiers (tutorial forces fish). Active Shrimp consumes1 raw shrimp at recipe base2s; Cooking base success70% plus modifiers, including recipe mastery. A successful base batch yields1 cooked/perfect item, each a distinct real item. Passive interval is5x modified cooking interval, nominal10s for Shrimp; costs remain real.",
+        "mutation": "Crafting consumes/preserves inputs before active success roll. Successful active cooking awards food, XP/common rewards/mastery or auto-equips if earned/enabled. Failure yields no ordinary food/XP; special Pig+Mole/Abyssal failure modifiers can add byproducts. Passive cooking directly spends costs and adds recipe.baseQuantity of normal product to category stockpile; it does not run the active success/perfect/doubling/preservation/XP/mastery/common-reward path.",
+        "consumer": "Stockpile collection moves retained goods into bank only on successful addition. equipFood removes stock from bank. eatFood heals using item.healsFor * mode multiplier plus current food-healing modifiers, then consumes actual slot quantity unless preserved; Shrimp declares healsFor3.",
+        "failure_aftermath": "Burning loses the paid raw fish unless the crafting preservation roll saved it. Missing ingredients stop cooking. Stopping active cooking stops all passive timers; existing stockpiles remain. Full bank prevents collecting a stockpile and leaves it retained. Empty food without enabled/earned swapping cannot heal; at full HP eating returns without spending. No passive multiplier alone supplies cooked goods.",
+        "sources": [
+          {
+            "source": "fishing.js",
+            "lines": [
+              93,
+              114
+            ],
+            "function_chain": "actionInterval -> activeFish"
+          },
+          {
+            "source": "fishing.js",
+            "lines": [
+              193,
+              320
+            ],
+            "function_chain": "getAreaChances -> actionRewards -> rewards"
+          },
+          {
+            "source": "fishing.js",
+            "lines": [
+              399,
+              445
+            ],
+            "function_chain": "start area and choose fish"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              231,
+              292
+            ],
+            "function_chain": "interval/success/perfect/costs"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              311,
+              437
+            ],
+            "function_chain": "active success/failure -> common rewards; passive stockpile/costs; onStop"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              439,
+              493
+            ],
+            "function_chain": "active/passive/recipe choices"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              545,
+              554
+            ],
+            "function_chain": "onCollectStockpileClick"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              940,
+              940
+            ],
+            "function_chain": "baseSuccessChance"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1682,
+              1701
+            ],
+            "function_chain": "equipFood"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1744,
+              1790
+            ],
+            "function_chain": "eatFood -> getFoodHealing -> current cooking modifier"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/1/data/fish/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/1/data/areas/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/3/data/recipes/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/3/data/masteryLevelBonuses"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/items/21"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C03",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Marks require obtained tablets; synergy spends both equipped familiars",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C03",
+      "complete_causal_trace": {
+        "id": "PROD-C03",
+        "name": "Marks require obtained tablets; synergy spends both equipped familiars",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Ent: Summoning1 and Woodcutting; Octopus: Summoning15 and Fishing. Applicable unlocked skill/realm action rolls the first mark. Further rolls require itemFindCount(tablet)>=1 after mark level>0; finding a mark is not a paid tablet stack. Mark quick-create appears after discovery.",
+        "decision": "Choose one log/fish alternative, craft real tablets, equip both actual stacks, continue the relevant skills to obtain enough marks, and use the unlocked pair.",
+        "base_cost_time": "Each base Ent/Octopus batch yields25 tablets after Summoning base5s and costs6 green shards plus chosen material. Non-shard quantity is ceil(1000/max(20,item sale value)) before reductions, minimum1. Thus Normal Logs/Raw Shrimp (sale1) cost50 each under zero modifiers. Green shard declared shop price200GP: six purchased shards1200GP per batch. The1000 target is not always1000GP of sacrificed materials because of the minimum20 valuation. No purchase runtime is claimed.",
+        "mutation": "Crafting adds tablet bank stack and XP/mastery; successful bank addition increments TimesFound. Marks increment marksUnlocked; thresholds1,6,16,31,46,61. Ent+Octopus tier1 pair ordinarily needs each mark level>1, so at least6 discoveries each. Modifiers/relic can bypass that unlock condition.",
+        "consumer": "Ent own item adds10% extra primary product chance to Woodcutting; Octopus adds3% to Fishing. Pair adds6 to Woodcutting Bird Nest chance and6 to Melvor Fishing special chance. player.computeSummoningSynergy installs only unlocked equipped pair. Own consumesOn listener spends relevant familiar; synergy listener spends both on matched Woodcutting/Fishing event. Away from depletion and with zero preservation, a Woodcutting event therefore requests2 Ent charges+1 Octopus, Fishing requests2 Octopus+1 Ent. Charge use separately awards Summoning XP before the preservation roll except Eternal damage type.",
+        "failure_aftermath": "Missing selected materials stops crafting; there is no automatic fallback to another material. Full bank on first tablet prevents TimesFound and can keep further mark rolls blocked even after paid crafting. Depleted equipped stacks are unequipped and stats/listeners recomputed, removing current bonuses/synergy; mark discovery persists. Exact final-charge event listener order and late preservation interactions are runtime-unverified.",
+        "sources": [
+          {
+            "source": "skill.js",
+            "lines": [
+              2736,
+              2748
+            ],
+            "function_chain": "addCommonRewards -> rollMarksForSkill"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              8,
+              22
+            ],
+            "function_chain": "recipe source/material/tier/skill registration"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              318,
+              367
+            ],
+            "function_chain": "non-shard/shard cost reductions -> min-sale-value alternative cost"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              396,
+              413
+            ],
+            "function_chain": "getAltRecipeCosts -> choice -> stop"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              529,
+              556
+            ],
+            "function_chain": "tablet actionRewards -> postAction"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              650,
+              778
+            ],
+            "function_chain": "marks -> synergy unlock -> probability -> future-mark gate"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              270,
+              285
+            ],
+            "function_chain": "addXPForTabletConsumption"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              823,
+              852
+            ],
+            "function_chain": "tablet XP formulas and recipe/mark constants"
+          },
+          {
+            "source": "production/summoningMenus.js",
+            "lines": [
+              26,
+              90
+            ],
+            "function_chain": "discovery state -> quick-create selection"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1024,
+              1046
+            ],
+            "function_chain": "own equipment event -> removeSummonCharge"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1061,
+              1067
+            ],
+            "function_chain": "synergy event -> both slots"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1630,
+              1657
+            ],
+            "function_chain": "own/synergy matcher registration"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              2442,
+              2505
+            ],
+            "function_chain": "unlock -> modifiers -> preservation -> charge depletion"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1296,
+              1299
+            ],
+            "function_chain": "depletion -> computeAllStats and matcher reassignment"
+          },
+          {
+            "source": "bank2.js",
+            "lines": [
+              636,
+              690
+            ],
+            "function_chain": "bank success -> TimesFound"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/13/data/recipes/3"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/13/data/recipes/5"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/13/data/synergies/25"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/items/416"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/items/418"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/shopPurchases/56"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/items/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/items/9"
+          }
+        ],
+        "uncertainty": "Recipe mastery-unlock helper itself checks levels, not discovery. The reviewed mark quick-create enforces discovery visibility; other recipe selection tab gates were not inspected. Do not claim all API entry points hard-reject an undiscovered recipe."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C04",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Herb seed risk becomes a charged production potion",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C04",
+      "complete_causal_trace": {
+        "id": "PROD-C04",
+        "name": "Herb seed risk becomes a charged production potion",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Owned2 Garum Seeds, Farming5 and empty eligible Herb plot; Herblore1 and2 separate Potato Seeds for Bird Nest Potion. Seeds and plot access are prerequisites rather than free rewards.",
+        "decision": "Plant Garum, optionally improve compost/safety, wait, harvest, choose to sacrifice herb plus potato seeds to a potion, activate it for Woodcutting and choose auto-reuse only if desired.",
+        "base_cost_time": "Garum declares2 seeds and5400000ms (90min) growth. Plant consumes seed stock immediately. Base growth chance50+compostLevel/2 unless current cropsCannotDie. FarmingRecipe baseQuantity5, Herb harvestMultiplier2: nominal10 herbs before modifiers after successful growth/harvest. Bird Nest Potion consumes1 Garum Herb+2 Potato Seeds and Herblore base2s to make1 potion of current recipe mastery tier.",
+        "mutation": "plantPlot stores Growing recipe/time; passive growth callback resolves Grown/Dead. Successful harvest first adds goods to bank, then gives XP/mastery/possible returned seeds and resets plot. Herb category also grants XP on planting; failure does not mean every prior XP disappears. Herblore mastery tiers1/20/50/90 select one of four actual potion IDs; prior low-tier stock is not retroactively rewritten. Separate bank upgrade recipes trade3 lower-tier potions for1 next-tier.",
+        "consumer": "Bird Nest Potion I declares50 charges and+5 Bird Nest chance on Woodcutting. usePotion consumes1 real bank potion, stores active charges and registers consumesOn; provider stats enter shared player modifiers. Each matched Woodcutting action consumes a charge unless preserved, regardless whether a nest appears. Woodcutting.getRandomProductInfo consumes the current scoped chance.",
+        "failure_aftermath": "Dead crops retain spent seeds/time and must be cleared; successful harvest blocked by full bank leaves plot grown. Potion activation requires stock. At zero charges, only enabled auto-reuse with owned same potion reloads; otherwise provider/listener removed. Recipe mastery and planted/harvested history persist, but absent herbs/seeds cannot be replaced by passive potion or mastery bonuses.",
+        "sources": [
+          {
+            "source": "farming2.js",
+            "lines": [
+              2,
+              18
+            ],
+            "function_chain": "FarmingRecipe baseQuantity"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              190,
+              204
+            ],
+            "function_chain": "FarmingGrowthTimer callback"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              358,
+              431
+            ],
+            "function_chain": "growth outcome and seed/time/chance costs"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              445,
+              601
+            ],
+            "function_chain": "harvest -> bank -> rewards -> reset; plant -> actual costs"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              651,
+              659
+            ],
+            "function_chain": "passiveTick"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              1116,
+              1136
+            ],
+            "function_chain": "plantRecipe -> createGrowthTimer"
+          },
+          {
+            "source": "herblore.js",
+            "lines": [
+              69,
+              81
+            ],
+            "function_chain": "current-tier actionItem and base quantity"
+          },
+          {
+            "source": "herblore.js",
+            "lines": [
+              106,
+              145
+            ],
+            "function_chain": "3-to-1 bank upgrades -> getPotionTier"
+          },
+          {
+            "source": "herblore.js",
+            "lines": [
+              178,
+              211
+            ],
+            "function_chain": "potion actionRewards"
+          },
+          {
+            "source": "herblore.js",
+            "lines": [
+              260,
+              260
+            ],
+            "function_chain": "tierMasteryLevels"
+          },
+          {
+            "source": "potionManager.js",
+            "lines": [
+              27,
+              135
+            ],
+            "function_chain": "charges -> stock use -> matcher -> depletion/auto-reuse -> provider stats"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              272,
+              287
+            ],
+            "function_chain": "getRandomProductInfo"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              341,
+              365
+            ],
+            "function_chain": "nest/random product reward"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/6/data/recipes/14"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/6/data/categories/1"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/11/data/recipes/7"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/items/126"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C05",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Pool mastery is spendable specialization with reversible safety loss",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C05",
+      "complete_causal_trace": {
+        "id": "PROD-C05",
+        "name": "Pool mastery is spendable specialization with reversible safety loss",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "A skill-with-mastery action and enough realm-specific mastery pool XP for requested recipe levels. Pool cap depends on the number of mastery actions in that realm, not merely current skill level.",
+        "decision": "Retain pool checkpoint passives or exchange exact pool XP for particular action mastery; optional confirmation warns when active checkpoints will be lost.",
+        "cost_time": "Successful common-reward actions accumulate recipe XP and pool XP. Pool reward is1/4 recipe mastery XP below skill99 and1/2 at99+. getBaseMasteryPoolCap is500000 per true mastery action in realm. Spending adds the exact action XP then subtracts same pool XP. This costs previously earned time/opportunities rather than inventory stock.",
+        "mutation": "Recipe mastery persists and its scoped modifiers can increase even while pool falls. Bonus count/provided stats are recomputed when checkpoint changes; level/pool are separate stores. Farm25% pool is cropsCannotDie; Cooking95% is+10 Normal-damage food healing; Firemaking95% gives+5 realm-scoped masteryXP across skills.",
+        "consumer": "Actual getPlotGrowthChance reads the current cropsCannotDie modifier at growth completion; eatFood reads current healing modifiers when consuming food; other skills getMasteryXPModifier reads current shared providers. Therefore pool spending can change already planted crops or already cooked food usefulness without removing the physical items or learned recipe XP.",
+        "failure_aftermath": "Insufficient pool does nothing. Spending below Farm25% restores50+compost/2 growth chance if no other safety source; previously paid seeds can subsequently die. Dropping Cooking95% loses the healing bonus on future eating. These are source-derived conditional effects, not observed runtime outcomes. Avoid treating retained recipe mastery as a permanently retained checkpoint.",
+        "sources": [
+          {
+            "source": "skill.js",
+            "lines": [
+              1971,
+              2014
+            ],
+            "function_chain": "levelUpMasteryWithPoolXP -> warning -> exchange -> action/pool XP"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2021,
+              2068
+            ],
+            "function_chain": "recipe levels -> bonus stats"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2109,
+              2162
+            ],
+            "function_chain": "cap/progress -> addMasteryPoolXP -> checkpoint recalculation"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2276,
+              2317
+            ],
+            "function_chain": "mastery formula -> level99 pool fraction -> current modifiers"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2513,
+              2553
+            ],
+            "function_chain": "action/pool modifiers into providedStats"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              358,
+              364
+            ],
+            "function_chain": "growth completion evaluates safety"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              419,
+              424
+            ],
+            "function_chain": "getPlotGrowthChance"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1781,
+              1790
+            ],
+            "function_chain": "getFoodHealing -> current scoped modifier"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/6/data/masteryPoolBonuses/1"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/3/data/masteryPoolBonuses/3"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/2/data/masteryPoolBonuses/3"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C06",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Stardust purchase becomes retained interskill mastery bonus",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C06",
+      "complete_causal_trace": {
+        "id": "PROD-C06",
+        "name": "Stardust purchase becomes retained interskill mastery bonus",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Unlocked Astrology and Deedree, current action mastery40 for the second standard star, and owned Stardust.",
+        "decision": "Spend active study time to gather stardust and earn mastery, then upgrade Deedree standard mastery star instead of spending dust elsewhere.",
+        "base_cost_time": "Astrology base3s actions; base random Stardust chance5% and Golden Stardust2% independently before modifiers. Deedree second standard star costs10,20,40,80,160,320,640,1280 ordinary Stardust over8 purchases. Each increments+1 masteryXP for Woodcutting and Farming. Studying is active time allocation; the purchased effect is not a carried material output.",
+        "mutation": "checkAndConsumeAstroModCosts spends actual dust before incrementing timesBought; unlocked/isMaxed guards apply. addAstroModProvidedStats rebuilds retained modifiers from purchases, with no per-use charge decrement.",
+        "consumer": "Game registers skill.providedStats; player.addProviderModifiers imports them; game.modifiers aliases that player table. Woodcutting/Farming mastery calculations query scoped masteryXP even while Astrology is not actively studying.",
+        "failure_aftermath": "Locked, maxed or missing dust prevents upgrade; bank-full dust loss during study can delay the next purchase. Purchased bonuses remain without replenishing dust; they improve progression/throughput and do not mint logs, herbs or seed stock. Ancient Relics mode master relic doubles purchased constellation stats only for a complete constellation; this is not ordinary universal2x.",
+        "sources": [
+          {
+            "source": "astrology.js",
+            "lines": [
+              2,
+              38
+            ],
+            "function_chain": "AstrologyModifier costs/count/requirements"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              74,
+              104
+            ],
+            "function_chain": "recipe standard/unique/abyssal dust carriers"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              298,
+              306
+            ],
+            "function_chain": "isModifierUnlocked"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              356,
+              416
+            ],
+            "function_chain": "study reward chance -> addProvidedStats"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              437,
+              518
+            ],
+            "function_chain": "cost quote -> consumption -> upgrade state"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              866,
+              874
+            ],
+            "function_chain": "studyConstellationOnClick"
+          },
+          {
+            "source": "astrology.js",
+            "lines": [
+              1077,
+              1077
+            ],
+            "function_chain": "baseInterval"
+          },
+          {
+            "source": "game.js",
+            "lines": [
+              1038,
+              1056
+            ],
+            "function_chain": "registerSkill -> stat provider"
+          },
+          {
+            "source": "baseManager.js",
+            "lines": [
+              197,
+              213
+            ],
+            "function_chain": "provider registration -> computeAllStats"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              2393,
+              2397
+            ],
+            "function_chain": "addProviderModifiers"
+          },
+          {
+            "source": "game.js",
+            "lines": [
+              532,
+              534
+            ],
+            "function_chain": "game.modifiers aliases player modifiers"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2276,
+              2317
+            ],
+            "function_chain": "current mastery XP consumer"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              1718,
+              1727
+            ],
+            "function_chain": "mode-qualified hasMasterRelic"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/14/data/recipes/0/standardModifiers/1"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/14/data/baseRandomItemChances"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-C07",
+      "status": "source-inspected-runtime-unverified",
+      "family": "production",
+      "name": "Built obstacle passives depend on contiguous course and impose tradeoffs",
+      "reader_artifact": "readers/production.json",
+      "reader_path_id": "PROD-C07",
+      "complete_causal_trace": {
+        "id": "PROD-C07",
+        "name": "Built obstacle passives depend on contiguous course and impose tradeoffs",
+        "status": "source_verified_runtime_unverified",
+        "prerequisite": "Unlocked course slot, skill requirements and real construction money/items. Slot/category and sequential course support differ from merely owning an obstacle definition.",
+        "decision": "Build Cargo Net or select a later obstacle for useful off-skill bonuses; choose whether later gathering doubling is worth artisan preservation penalty, and pay again to replace the slot.",
+        "base_cost_time": "Cargo Net declares10000GP construction,4s running,8XP and6GP action rewards; its built passive is+3GP gain and+2 Fishing masteryXP. Rock Climb requires level30 Woodcutting/Fishing/Mining/Thieving,500 Teak Logs+500 Coal+500 Onion Seeds+500000GP; declares+5 doubling to those four skills with global-10 preservation chance.",
+        "mutation": "Building consumes modified costs, stores obstacle per slot and increments historical build count; repeated builds reduce item cost4% each up to10 builds, with95% or earned100% reduction cap. Running cycles contiguous built obstacles; it is separate from passive provision. Replacing/destroying updates built map and recomputes stats without material refund in reviewed destroy function.",
+        "consumer": "forEachActiveObstacle stops at first gap/dummy in each course, so later constructed obstacles past a gap lose passive provision too. Current preservation chance is consumed by CraftingSkill.action; gathering doubling is consumed by actual yield methods. Negative modifiers are real costs of loadout, not descriptive flavor.",
+        "failure_aftermath": "Unavailable stock/slot/skill blocks build; removing an early obstacle can disable later passives and pillar support. Mastery/relic may halve/eliminate negatives under explicit modifiers/mode; a base reward is not always positive overall. Blueprint/UI runtime and full course progression were not exercised.",
+        "sources": [
+          {
+            "source": "agility.js",
+            "lines": [
+              417,
+              434
+            ],
+            "function_chain": "quote construction costs"
+          },
+          {
+            "source": "agility.js",
+            "lines": [
+              460,
+              536
+            ],
+            "function_chain": "interval -> negative multiplier -> build cost"
+          },
+          {
+            "source": "agility.js",
+            "lines": [
+              539,
+              598
+            ],
+            "function_chain": "actionRewards -> cycle next built obstacle"
+          },
+          {
+            "source": "agility.js",
+            "lines": [
+              1168,
+              1225
+            ],
+            "function_chain": "contiguous active course -> passive stats -> destroy/build"
+          },
+          {
+            "source": "agility.js",
+            "lines": [
+              1292,
+              1310
+            ],
+            "function_chain": "build choice eligibility -> confirmed build"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              1149,
+              1167
+            ],
+            "function_chain": "preservation chance/cap consumer"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/12/data/obstacles/0"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/12/data/obstacles/16"
+          }
+        ]
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-PROD-F01",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F01",
+        "fact": "Crafting pays current bundled item/currency costs before output, with80% base preservation cap plus explicit cap modifiers; ordinary item-cost reduction caps80%, ceil and minimum1. Missing next inputs rechecks after every cycle. This preserves a real throughput/input bottleneck even at high mastery. Specific Smithing removeCoalCosts can override Coal cost to0.",
+        "sources": [
+          {
+            "source": "skill.js",
+            "lines": [
+              984,
+              1017
+            ],
+            "function_chain": "cost reduction -> modified item/currency costs"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              1149,
+              1167
+            ],
+            "function_chain": "preservation chance/cap"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2787,
+              2815
+            ],
+            "function_chain": "current and next stock gates"
+          },
+          {
+            "source": "smithing.js",
+            "lines": [
+              103,
+              122
+            ],
+            "function_chain": "Coal cost exception"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-F02",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F02",
+        "fact": "Shared action timer clamps modified skill intervals to at least250ms. Mastery interval is skill-specific: Woodcutting/Mining use actual interval; Fletching1300ms and Smithing/Herblore1700ms are fixed reference values; Cooking uses85% base recipe interval. Faster production does not automatically mean equal per-action mastery policy across skills.",
+        "sources": [
+          {
+            "source": "skill.js",
+            "lines": [
+              1046,
+              1054
+            ],
+            "function_chain": "modifyInterval"
+          },
+          {
+            "source": "fletching.js",
+            "lines": [
+              45,
+              46
+            ],
+            "function_chain": "masteryModifiedInterval"
+          },
+          {
+            "source": "smithing.js",
+            "lines": [
+              43,
+              44
+            ],
+            "function_chain": "masteryModifiedInterval"
+          },
+          {
+            "source": "herblore.js",
+            "lines": [
+              80,
+              81
+            ],
+            "function_chain": "masteryModifiedInterval"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              231,
+              232
+            ],
+            "function_chain": "getRecipeMasteryModifiedInterval"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              269,
+              270
+            ],
+            "function_chain": "masteryModifiedInterval"
+          },
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              158,
+              159
+            ],
+            "function_chain": "masteryModifiedInterval"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-F03",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F03",
+        "fact": "Logs have competing material uses: shafts, Familiar tablets, Firemaking burn, bonfire. Normal Firemaking spends1 log per2s burn before preservation; post-tutorial primary products include Coal with declared40% chance. Bonfire spends10 logs for20s Normal bonfire+5 Firemaking XP; expiry attempts re-light while skill active and payment can fail. Free bonfires exception does not waive Abyssal bonfire costs.",
+        "sources": [
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              3,
+              24
+            ],
+            "function_chain": "default bonfireCost10"
+          },
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              328,
+              332
+            ],
+            "function_chain": "one-log burn costs"
+          },
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              394,
+              437
+            ],
+            "function_chain": "XP and product rewards"
+          },
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              455,
+              515
+            ],
+            "function_chain": "expiry -> relight -> stock costs; Abyssal exemption"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/2/data/logs/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/2/data/primaryProducts/0"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/2/data/defaultPrimaryProducts"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-F04",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F04",
+        "fact": "Runecrafting consumes actual Essence rather than granting spells. Base Air and Mind Rune each cost1 Rune Essence at base2s; Wind Strike requires2 Air+1 Mind per ordinary spell cost. Mining Essence gives2 at base3s. player.attack checks current bank rune bundle, consumes unless preserved, and suppresses damage on insufficient runes; aurora use can separately consume another bundle in the same attack.",
+        "sources": [
+          {
+            "source": "rockTicking.js",
+            "lines": [
+              595,
+              604
+            ],
+            "function_chain": "material rewards"
+          },
+          {
+            "source": "runecrafting.js",
+            "lines": [
+              2,
+              6
+            ],
+            "function_chain": "base2s"
+          },
+          {
+            "source": "runecrafting.js",
+            "lines": [
+              170,
+              205
+            ],
+            "function_chain": "actual Rune reward"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              736,
+              788
+            ],
+            "function_chain": "attack -> rune ownership/cost; aura cost/failure"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1008,
+              1015
+            ],
+            "function_chain": "consumeRunes"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/skillData/4/data/rockData/0"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/10/data/recipes/0"
+          },
+          {
+            "source": "data/melvorFull.json",
+            "pointer": "/data/skillData/10/data/recipes/1"
+          },
+          {
+            "source": "data/melvorDemo.json",
+            "pointer": "/data/attackSpells/0"
+          }
+        ],
+        "limit": "This traces a named production-to-consumption connection, not a full spellbook/Alt Magic audit. Staff reduction/combo substitutions alter live getRuneCosts and were not reviewed here."
+      }
+    },
+    {
+      "id": "MEL-PROD-F05",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F05",
+        "fact": "Multiple simultaneous Woodcutting trees are explicitly capped and must share realm; action interval is slowest selected tree, faster trees multiply output by slowest/current ratio. Shaft-generating modifiers use real Fletching alternative-cost match against tree.product. This is a defined production shortcut, not automatic generic interskill conversion.",
+        "sources": [
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              152,
+              218
+            ],
+            "function_chain": "tree multiplier -> selection limit/realm -> slowest timer"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              288,
+              298
+            ],
+            "function_chain": "Fletching Arrow Shafts material match"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              309,
+              340
+            ],
+            "function_chain": "per-tree quantity -> optional shaft reward"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-F06",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "additional_findings",
+      "record": {
+        "id": "PROD-F06",
+        "fact": "Failure and interruption policies differ: crafting stops on missing costs/full-bank setting; gathering choice resets timer; passive Cooking stops with active Cooking; Farming has independent passive growth timers and retains grown crop when output cannot enter bank. Do not impose one universal paused/offline production policy.",
+        "sources": [
+          {
+            "source": "artisanSkill.js",
+            "lines": [
+              29,
+              49
+            ],
+            "function_chain": "create -> current cost; changing recipe stops"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2692,
+              2734
+            ],
+            "function_chain": "stop/action/giveRewards continuation"
+          },
+          {
+            "source": "cooking.js",
+            "lines": [
+              413,
+              437
+            ],
+            "function_chain": "passive cost stop -> onStop"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              456,
+              470
+            ],
+            "function_chain": "grown harvest -> full-bank return"
+          },
+          {
+            "source": "farming2.js",
+            "lines": [
+              651,
+              659
+            ],
+            "function_chain": "passive growth timers"
+          }
+        ],
+        "limit": "Browser-closed/offline recovery and installed runtime are parent-owned and not reviewed here."
+      }
+    },
+    {
+      "id": "MEL-PROD-D01",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D01",
+        "package": "melvorTotH",
+        "status": "selected_data_and_function_join_reviewed",
+        "finding": "Expansion appends nine material alternatives to the existing base Arrow Shafts recipe, multipliers10..18; Spruce gives150 and Carrion270 shafts per1 log under base15 output before modifiers. FletchingRecipe.applyDataModification appends, retaining earlier alternative entries. Existing material matching used by optional Woodcutting shaft rewards can match these newer logs too.",
+        "sources": [
+          {
+            "source": "fletching.js",
+            "lines": [
+              295,
+              337
+            ],
+            "function_chain": "recipe alternatives -> append modification"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              288,
+              298
+            ],
+            "function_chain": "same real recipe material match"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/modifications/fletchingRecipes/0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-D02",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D02",
+        "package": "melvorTotH",
+        "status": "selected_declared_costs_reviewed_shared_consumers",
+        "finding": "Level100 Poison Rune recipe consumes Pure Essence plus2 each base Air/Water/Earth Runes. Higher tier adds a real base-item sink. Tier4 Eagle consumes feathers and3 shard colors, retains25-per5s base and requires reciprocal mark level>4 in ordinary synergies; at least46 discoveries on the other familiar, subject to explicit bypasses.",
+        "sources": [
+          {
+            "source": "artisanSkill.js",
+            "lines": [
+              146,
+              164
+            ],
+            "function_chain": "bundle construction"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2247,
+              2249
+            ],
+            "function_chain": "level gate"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2787,
+              2815
+            ],
+            "function_chain": "actual bundled stock consumer"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              675,
+              724
+            ],
+            "function_chain": "tier reciprocal marks/gate"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/data/skillData/10/data/recipes/0"
+          },
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/data/skillData/13/data/recipes/0"
+          }
+        ],
+        "limit": "Exact Poison spell consumers and Eagle synergy rows/acquisition paths are not semantically reviewed."
+      }
+    },
+    {
+      "id": "MEL-PROD-D03",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D03",
+        "package": "melvorExpansion2",
+        "status": "selected_declared_costs_reviewed_shared_consumers",
+        "finding": "Barrier Touch Potion uses base Garum Herb plus5 Barrier Gems; Barrier familiar uses shard colors and alternative Barrier gems, shares bank/craft/charge owners. River Crossing Agility costs200 Paper+50000GP and Cartography15 and grants survey/refinement modifiers; Nysa star purchases likewise declare Cartography/Archaeology consumers.",
+        "data": [
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/3/data/recipes/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/5/data/recipes/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/13/data/obstacles/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/14/data/recipes/0"
+          }
+        ],
+        "limit": "Barrier damage/combat and actual Cartography/Archaeology consumers are parent/other-reader scope, not established by these declared modifiers alone."
+      }
+    },
+    {
+      "id": "MEL-PROD-D04",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D04",
+        "package": "melvorItA",
+        "status": "selected_material_mark_charge_chain_reviewed",
+        "finding": "Abyssal Ent/Octopus require normal99 and Abyssal5/15, yield5 tablets per base5s, cost12 Azure shards and own realm inputs. Abyssia Logs sell25 Abyssal Pieces; current alternative formula uses5000 AP target, so200 logs before modifiers. They max at mark4 instead of base default6. Pair exists with Abyssal-scoped Fishing special+6 and Shadow Raven Nest chance+1. Realm-matched marks remain distinct; familiar equipped modifier/own consumesOn can be broader than pair realm matcher.",
+        "sources": [
+          {
+            "source": "summoning.js",
+            "lines": [
+              8,
+              22
+            ],
+            "function_chain": "maxMarkLevel/realm/action data"
+          },
+          {
+            "source": "item.js",
+            "lines": [
+              5,
+              42
+            ],
+            "function_chain": "item sale currency defaults/explicit AP value"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              362,
+              367
+            ],
+            "function_chain": "sale currency selects AP cost"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              696,
+              778
+            ],
+            "function_chain": "tier unlock -> current realm mark gate"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              848,
+              852
+            ],
+            "function_chain": "1000GP/5000AP constants"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1630,
+              1657
+            ],
+            "function_chain": "own versus synergy consumesOn scopes"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/recipes/3"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/recipes/7"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/synergies/1"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/160"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/799"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-PROD-D05",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D05",
+        "package": "melvorItA",
+        "status": "selected_explicit_exception_reviewed",
+        "finding": "Abyssal Octopus item cantEquipWith ordinary Octopus, so base and Abyssal counterparts are not a free extra pair. player.equipItem checks conflicts. Its named modifier can grant100% tablet preservation, bypassing usual80% tablet cap; Eternal damage type suppresses Summoning XP on charge calls. Abyssal consumption XP formula uses level and ignores interval, unlike ordinary consumption XP.",
+        "sources": [
+          {
+            "source": "player.js",
+            "lines": [
+              1490,
+              1503
+            ],
+            "function_chain": "cantEquipWith"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              2480,
+              2505
+            ],
+            "function_chain": "100% named bypass; Eternal XP exception"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              824,
+              830
+            ],
+            "function_chain": "ordinary versus Abyssal consumption XP"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/799"
+          }
+        ],
+        "limit": "Which source grants useNoSummoningChargesAbyssalOctopus and actual Eternal combat unlocks are unread here."
+      }
+    },
+    {
+      "id": "MEL-PROD-D06",
+      "family": "production-support-or-DLC-join",
+      "status": "source-inspected-bounded-subset-runtime-unverified",
+      "reader_artifact": "readers/production.json",
+      "record_kind": "expansion_joins",
+      "record": {
+        "id": "PROD-D06",
+        "package": "melvorTotH",
+        "status": "selected_base_material_modification_reviewed",
+        "finding": "Official expansion modifies existing Magic Logs Firemaking primary products to add Charcoal, adding a base-skill expansion-material join. Source modification and product reward path reviewed; Charcoal recipe consumers remain unread in this reader.",
+        "sources": [
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              394,
+              421
+            ],
+            "function_chain": "primaryProduct output"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/modifications/skillData/0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "MEL-C1",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Food preparation -> timed combat survival -> depletion -> death",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C1",
+      "complete_causal_trace": {
+        "id": "C1",
+        "family": "Food preparation -> timed combat survival -> depletion -> death",
+        "classification": "source fact with one explicitly labelled ordering inference",
+        "prerequisite": {
+          "fact": "Owned food moves from bank into one of three equipped slots. Auto-eat Tier I data is a one-time1,000,000GP purchase granting20% threshold/40% refill target/60% efficiency. Tier II and III data add10/20/20 to those respective modifiers with5,000,000/20,000,000GP and prior-purchase unlock gates. Purchase mutation itself was not reviewed.",
+          "evidence": [
+            "player:50-88",
+            "player:1682-1705",
+            "food:1-30",
+            "demo:33625-33727"
+          ]
+        },
+        "decision": {
+          "fact": "Choose active food slot or eat/hold-to-eat manually, versus using purchased auto eat; optional auto swap additionally requires unlocked modifier and setting. Food with stats only contributes while selected.",
+          "evidence": [
+            "food:220-259",
+            "player:1724-1742",
+            "player:2422-2426"
+          ]
+        },
+        "cost_time": {
+          "fact": "Healing consumes quantity from selected equipped stock unless preserved. Auto eat computes ceil((limit-HP)/floor(foodHealing*efficiency/100)), caps it by equipped quantity, and does not interrupt. Manual eat interrupts the player action and restarts the summon bar; hold-to-eat tries every200ms. Base attack interval is equipment speed or4000ms, then modifiers and tick rounding, floor250ms. These are action delays, not free HP.",
+          "evidence": [
+            "player:652-672",
+            "player:1744-1813",
+            "character:226-230"
+          ]
+        },
+        "mutation": {
+          "fact": "HP heals only to max; consumption lowers EquippedFood quantity, clears slot at0 and recomputes food stats when selected item changes. Stat/food eaten events record actual healing/use.",
+          "evidence": [
+            "character:706-728",
+            "food:31-43",
+            "player:1737-1789"
+          ]
+        },
+        "consumer": {
+          "fact": "Player.damage calls autoEat only after damage and only if HP remains above0. Same shared game tick then calls combat.checkDeath. The stocked food can prevent later HP depletion but cannot recover a character already killed by the triggering hit. checkDeath processes both detected player and enemy deaths before deciding to stop, so a simultaneous enemy kill can still dispatch rewards/completion.",
+          "evidence": [
+            "player:623-635",
+            "game:1781-1797",
+            "base:501-532"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "When selected stock ends, unlocked/enabled swap can use another nonempty slot; otherwise food owner is empty. Player death removes effects, restores20% maxHP with minimum1, tracks death, applies current item-protection/free-death penalty branch and disables prayers. Combat stops. Standard item penalty picks among lowest deathPenaltyPriority equipment slots and, if the selected item is not empty and tutorial is complete, loses that equipped stack and all its charges. Perma-death mode resets the current character save except Golbin Raid/event/freeDeath. The actual reset consumer deletes the current local save slot, requests current-character PlayFab save deletion only if signed in, then reloads the index; it does not delete the cloud account. No offline invulnerability branch was found.",
+          "evidence": [
+            "player:652-672",
+            "player:2569-2576",
+            "player:2628-2669",
+            "base:501-532",
+            "combat:497-518",
+            "melvorMain:583-594"
+          ]
+        },
+        "boundary": "Auto-eat shop consumption/UI purchase behavior not source-traced. No player runtime or private save used; zero-effective-healing edge cases were not exercised."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C2",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Owned equipment + usable spell/ammo -> timed attack -> actual fuel -> damage reward -> unusable continuation",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C2",
+      "complete_causal_trace": {
+        "id": "C2",
+        "family": "Owned equipment + usable spell/ammo -> timed attack -> actual fuel -> damage reward -> unusable continuation",
+        "classification": "source fact",
+        "prerequisite": {
+          "fact": "Equipment swap conserves bank/equipped quantities, requires equip requirements, current combat restrictions, compatible concurrent equipment and available bank space. Weapon selects attackType and damageType. A combat spell requires normal and Abyssal magic level, requirements and required equipped item, unless explicit ignoreReqs mode. Wind Strike data requires2Air+1Mind rune and magic level1.",
+          "evidence": [
+            "player:1456-1535",
+            "equipment:229-258",
+            "player:2272-2331",
+            "player:1897-1904",
+            "demo:32520-32542"
+          ]
+        },
+        "decision": {
+          "fact": "Choose ranged/magic equipment, attack spell and combination rune policy; curse/aurora also have spellbook/required-item restrictions. Ordinary hit bonuses do not satisfy fuel or damage-type compatibility.",
+          "evidence": [
+            "player:193-196",
+            "player:336-406",
+            "player:1905-1972"
+          ]
+        },
+        "cost_time": {
+          "fact": "Character queues base attack interval or special inter-hit interval. First proc checks runes; magic special with usesRunesPerProc checks each proc and can append extraRuneConsumption. Rune cost subtracts provided runes/flat adjustments but clamps each positive cost to at least1; preservation can waive actual bank consumption. Ranged verifies required ammoType (type4 exception) before attack and consumes one equipped arrow after first attack unless preserved.",
+          "evidence": [
+            "character:1439-1481",
+            "player:605-618",
+            "player:673-692",
+            "player:736-815",
+            "player:1008-1016",
+            "player:1068-1084"
+          ]
+        },
+        "mutation": {
+          "fact": "Actual rune costs reduce bank stock; successful final-arrow attack retains that arrow stats until postattack consumption, then equipment quantity0 unequips and recomputes stats/rebinds consumption events.",
+          "evidence": [
+            "player:1008-1016",
+            "player:1068-1084",
+            "equipment:320-328",
+            "player:1296-1310"
+          ]
+        },
+        "consumer": {
+          "fact": "Permitted attacks invoke Character.attack; ordinary damage is gated by immunity, area hit check and barrier, then damage gives weapon/combat XP/currency rewards; enemy death dispatches combat drops, task counters and dungeon progress.",
+          "evidence": [
+            "player:620-622",
+            "character:770-775",
+            "character:978-1039",
+            "player:730-736",
+            "combat:520-582",
+            "combat:597-648"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Missing runes or wrong/empty ammo causes notification and no super.attack for that attempt. Character.act still queues the next action; this check does not stop combat, while enemy cadence continues. Missing curse/aurora runes turn that augmentation off rather than cancelling the base attack. Failed attacks and continued exposure can reach C1 death.",
+          "evidence": [
+            "player:694-728",
+            "player:736-790",
+            "character:1397-1420",
+            "combat:276-293",
+            "base:501-532"
+          ]
+        },
+        "boundary": "Not a complete attack/XP balance audit. All ranged weapon types, spellbooks and special attacks remain unread; source-shown flags establish distinct cadence rather than exhaustive content coverage."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C3",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Atlas barrier -> summoning owned tablets/potion charges -> distinct barrier damage -> ordinary combat resumes -> reward feeds crafting",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C3",
+      "complete_causal_trace": {
+        "id": "C3",
+        "family": "Atlas barrier -> summoning owned tablets/potion charges -> distinct barrier damage -> ordinary combat resumes -> reward feeds crafting",
+        "classification": "source fact",
+        "prerequisite": {
+          "fact": "Golem Territory data needs lifetime finding of Ancient Stone Tablet and Normal damage type; its nine-monster sequence includes Granite Golem with50% barrier. Tortoise tablet equips in Summon1/2, gives summoningMaxhit16 and+75% barrierSummonDamage, consumes on PlayerSummonAttack. Barrier recipe data atSummoning70 has25base output,14Red+6Blue shards plus selected non-shard barrier gem alternative; Summoning cost functions add non-shard material cost.",
+          "evidence": [
+            "aod:35509-35548",
+            "requirements:544-557",
+            "aod:31836-31938",
+            "aod:10042-10073",
+            "aod:48086-48122",
+            "summon:318-368",
+            "summon:395-417"
+          ]
+        },
+        "decision": {
+          "fact": "Equip an actually owned attacking familiar, optionally a second earned synergy and a Barrier Touch potion. Synergy is enabled by actual mark-tier cross-checks or explicit all-synergy/master-relic exception. Barrier Touch I adds1flat barrier summon damage, has2charges and consumes on same summon event; it is a bonus to an enabled action, not an attack enabler by itself.",
+          "evidence": [
+            "player:1456-1535",
+            "summon:685-704",
+            "player:2442-2445",
+            "aod:10075-10097",
+            "potion:25-68"
+          ]
+        },
+        "cost_time": {
+          "fact": "Summon cadence starts at3000ms plus modifiers, tick-rounded and floor250ms. Summon attack emits interval-bearing PlayerSummonAttack; equipment event handlers spend one tablet unless preserved and gain Summoning XP from consumption interval (except Eternal damage type). Potion consumes an owned bottle on activation and one event charge unless preserved; matching auto-reuse may consume next owned bottle. Tablet recipe source base interval5000ms and GP-equivalent non-shard budget1000 exist, but complete production caller was not reviewed.",
+          "evidence": [
+            "player:113-119",
+            "player:882-913",
+            "player:1630-1650",
+            "player:2487-2507",
+            "summon:270-285",
+            "summon:133-138",
+            "summon:848-850",
+            "potion:32-106"
+          ]
+        },
+        "mutation": {
+          "fact": "Summon damage clamps to remaining barrier when active, otherwise HP. Damage dispatch permits SummonAttack/BarrierBleed/BarrierBurn to reduce barrier, while ordinary attacks have0HP damage until barrier ends. Barrier reaches0, invokes removal hook, and later ordinary attacks can affect HP.",
+          "evidence": [
+            "player:844-903",
+            "character:682-705",
+            "character:733-758",
+            "character:978-982",
+            "character:1182-1191"
+          ]
+        },
+        "consumer": {
+          "fact": "Enemy death enables reward path. Barrier monster dust quantity is max(floor(HPlevel*barrierPercent/100/20),1), with doubling and autoloot/container branches. Dust is an actual ingredient in the AoD crafting Imbued Leather recipe (Leather1+Dust1), so barrier victory supplies another skill. Dungeon finish awards Golem Chest and completion, which the Unholy Forest UI unlock requirement consumes.",
+          "evidence": [
+            "combat:597-621",
+            "combat:678-705",
+            "aod:48443-48461",
+            "combat:864-916",
+            "aod:35549-35589",
+            "areas:635-660"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Tablet0 unequips and stats recalc can remove canSummonAttack; empty summoningMaxHit stats means no new summon timer. Potion expiry removes its stats/events and notifies, unless selected auto-reuse finds another bottle. Enemy attacks continue while remaining barrier prevents ordinary HP damage. Important exception: successful first regular hits can separately apply flatBarrierDamage directly; barrier bleed/burn also work, so neither summons-only nor every-attack-barrier-damage is accurate.",
+          "evidence": [
+            "player:2272-2285",
+            "player:909-913",
+            "player:2487-2507",
+            "potion:69-107",
+            "character:1065-1069",
+            "character:682-692"
+          ]
+        },
+        "boundary": "Crafting recipe content inspected, full crafting execution delegated to production reader. Full Atlas monsters/equipment/synergies/Ancient Relics campaign unread; no purchased/owned DLC claim."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C4",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Bank bones/souls -> prayer decision -> per-attack/regen fuel -> modifier/protection -> expiration and death",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C4",
+      "complete_causal_trace": {
+        "id": "C4",
+        "family": "Bank bones/souls -> prayer decision -> per-attack/regen fuel -> modifier/protection -> expiration and death",
+        "classification": "source fact; timing risk separated as source inference",
+        "prerequisite": {
+          "fact": "Burying unlocked-skill bank bones consumes bounded owned quantity and adds prayer points; basic Bones give1point before modifiers. Souls consume stock separately to create soulPoints. UI prayer button is usable only after normal/Abyssal level gates. Protect Item requiresPrayer26 in data, Normal/Pure damage types and2points per enemy attack; grants itemProtection1.",
+          "evidence": [
+            "bank:1212-1260",
+            "demo:14367-14378",
+            "prayer:168-192",
+            "prayer:277-286",
+            "full:40149-40165"
+          ]
+        },
+        "decision": {
+          "fact": "Choose at most two active prayers, compatible books and current weapon damage type; Unholy requires at least2allowUnholyPrayerUse modifier and Abyssal uses separate soul fuel. Choosing ordinary accuracy/damage prayer differs from selecting functional loss protection.",
+          "evidence": [
+            "player:1815-1889",
+            "prayer:1-52",
+            "full:40166-40181"
+          ]
+        },
+        "cost_time": {
+          "fact": "Player attack costs pointsPerPlayer on first hit, each special proc if flagged, or every Unholy proc. Enemy Character.attack calls target.postAttack, which spends pointsPerEnemy. Regen spending occurs on a real healing regen event. Cost modifiers/preservation apply; choosing a prayer upfront requires current max per-event cost rather than one fixed tick drain.",
+          "evidence": [
+            "player:794-799",
+            "character:1100-1128",
+            "player:915-923",
+            "player:1973-2007",
+            "player:2046-2071",
+            "player:2691-2714"
+          ]
+        },
+        "mutation": {
+          "fact": "Current PP/SP are decremented and clamped0; when below maximum active cost, prayers disable through toggle->computeAllStats. Active prayer modifiers are derived from that active set, not permanently granted.",
+          "evidence": [
+            "player:1973-2016",
+            "player:1869-1889",
+            "player:2454-2467"
+          ]
+        },
+        "consumer": {
+          "fact": "Death penalty tests the current itemProtection/freeDeath value before removing chosen equipment. Prayer depletion thus affects the actual loss consumer, rather than merely changing displayed stats.",
+          "evidence": [
+            "player:2569-2576",
+            "player:2628-2633"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Insufficient budget or incompatible type prevents activation. After depletion, the player continues combat without active prayer benefits. Standard loss and perma-death branches follow C1.",
+          "evidence": [
+            "player:1815-1836",
+            "player:1973-2007",
+            "combat:497-518"
+          ]
+        },
+        "inference": "Because enemy attack calls postAttack after damage, and game.tick checks death after activeTick, a lethal enemy attack can spend the last Protect Item budget and disable it before death penalty consults current itemProtection. This ordering is source-derived and not runtime verified; do not promise last-budget protection."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C5",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Dungeon/task access -> player commitment -> sequence resources/time -> persistent completion -> later action unlock",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C5",
+      "complete_causal_trace": {
+        "id": "C5",
+        "family": "Dungeon/task access -> player commitment -> sequence resources/time -> persistent completion -> later action unlock",
+        "classification": "source fact, with data-only late admission cost",
+        "prerequisite": {
+          "fact": "Entry requirements and UI unlock are distinct: selectDungeon checks entry plus damage compatibility; CombatAreaMenu UI also hides selectable content until unlockRequirement. Entry ItemFound uses lifetime find, SlayerItem uses actual equipped required item or explicit bypass, DungeonCompletion uses retained clear count. TotH Herald UI unlock requires Necromancers Palace clear; entry needs Golden Key shop purchase. Data defines that access purchase consuming one Golden Key, but shop mutator was not reviewed.",
+          "evidence": [
+            "combat:1190-1220",
+            "combat:1293-1308",
+            "areas:619-680",
+            "requirements:291-315",
+            "requirements:460-488",
+            "requirements:544-566",
+            "toth:34308-34347",
+            "toth:36773-36804"
+          ]
+        },
+        "decision": {
+          "fact": "Select a monster/dungeon, choose autoRestartDungeon, resume an authored boss pause, or buy/reroll/extend a Slayer category. Manual Slayer selection soft-checks having found the Slayer item; automatic selection requires runtime equipped support via normal requirement check.",
+          "evidence": [
+            "combat:1274-1310",
+            "combat:899-916",
+            "combat:1534-1558",
+            "slayer:207-330",
+            "slayer:349-361"
+          ]
+        },
+        "cost_time": {
+          "fact": "Dungeon entry itself has no generic material/time charge in selectDungeon; actual cost is fighting each monster after spawn+attack delays and C1\u2013C4 consumables. Current area requirements remain checked in player.rollToHit and summoning hits. Slayer roll/extension constructs modified Costs and consumes only after eligibility; roll activates after1000ms. TotH Legendary data uses50,000SlayerCoins roll,21,600extend,level102,60base kills, providing a late-game example of greater commitment rather than just higher stats.",
+          "evidence": [
+            "combat:1293-1308",
+            "base:587-613",
+            "player:268-272",
+            "player:620-622",
+            "player:882-895",
+            "slayer:207-315",
+            "toth:34352-34395"
+          ]
+        },
+        "mutation": {
+          "fact": "Combat kill increases areaProgress; full dungeon sequence resets progress, grants rewards/once-only reward, increments retained completion and emits dungeonCompleted. Slayer matching kill decrements killsLeft; at0 tasksCompleted increases, event fires and selects next task without roll charge.",
+          "evidence": [
+            "combat:864-917",
+            "combat:625-648",
+            "slayer:222-234"
+          ]
+        },
+        "consumer": {
+          "fact": "Retained completion feeds DungeonRequirement, UI later unlock and events; new Slayer category completions remain persisted. Finishing a dungeon can repeat automatically except Into the Mist or a listener preventAutoRestart; otherwise loots/stops. Boss pause prevents active combat ticking until explicit resume.",
+          "evidence": [
+            "requirements:291-304",
+            "areas:635-660",
+            "combat:899-917",
+            "combat:276-283",
+            "combat:1534-1558",
+            "slayer:391-408"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Invalid entry/damage type does not select; missing ongoing requirements makes player hit checks fail. Unaffordable/no-eligible task does not consume its roll cost. Fleeing stops timer/action and may loot; player death stops combat, but checkDeath also processes an enemy death detected in the same tick, so a simultaneous final kill may still dispatch completion/rewards. Prior kills and consumed resources stay actual; partial areaProgress alone is not a clear.",
+          "evidence": [
+            "combat:1190-1220",
+            "combat:1274-1308",
+            "player:620-622",
+            "slayer:260-288",
+            "combat:1366-1387",
+            "base:501-518"
+          ]
+        },
+        "boundary": "No full TotH Herald combat effects/reward chain or Golden Key acquisition/shop mutation review. Entry checks alone should not be claimed to enforce every UI unlock requirement through arbitrary programmatic calls."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C6",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "ItA weapon means -> allowed damage type -> food suitability -> Into the Abyss clear -> realm gate data",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C6",
+      "complete_causal_trace": {
+        "id": "C6",
+        "family": "ItA weapon means -> allowed damage type -> food suitability -> Into the Abyss clear -> realm gate data",
+        "classification": "source fact with unreviewed realm consumer clearly bounded",
+        "prerequisite": {
+          "fact": "Strange Sword data requiresAttack99 and changes weapon damageType toAbyssal. Into the Abyss dungeon allows onlyAbyssal, entryAttack99, UI unlock after The Abyssal Approach. Abyssal damage type makes its owner immune toNormal; Eternal makes owner immune toNormal andAbyssal.",
+          "evidence": [
+            "ita:47430-47482",
+            "ita:105654-105701",
+            "ita:519-541"
+          ]
+        },
+        "decision": {
+          "fact": "Bring functional compatible weapon and select suitable food/prayer/spellbook, rather than merely increasing a Normal attack bonus. Player.computeDamageType reads equipped weapon type; selector and in-combat equipment changes validate allowed area/monster types.",
+          "evidence": [
+            "player:2304-2324",
+            "combat:1194-1220",
+            "player:1355-1365",
+            "player:1815-1836",
+            "player:1905-1910"
+          ]
+        },
+        "cost_time": {
+          "fact": "Weapon equip moves owned item out of bank (not destroyed), and equipping may be forbidden during dungeons/strongholds without swapping modifier. Same fight consumables/time remain C1\u2013C4. Toxic Crab Cream Soup hashealsFor28 and selected foodHealingValue+1000 scoped toAbyssal. That modifier is consumed by getFoodHealing query using current damageType/cooking action; last-food depletion removes selected modifier.",
+          "evidence": [
+            "player:1456-1535",
+            "player:2144-2165",
+            "ita:52957-52976",
+            "player:1781-1790",
+            "player:2422-2426",
+            "player:1737-1742"
+          ]
+        },
+        "mutation": {
+          "fact": "Actual compatible attacks can progress the nineteen-monster dungeon; same dungeon-completion map/event mutates after last kill.",
+          "evidence": [
+            "ita:105654-105679",
+            "combat:864-917",
+            "player:620-622",
+            "character:770-775"
+          ]
+        },
+        "consumer": {
+          "fact": "ItA Abyssal realm data declares Into the Abyss completion>=1 as its unlockRequirement; DungeonRequirement reads actual retained count. This is integrated data+completion-owner evidence, but realm UI/activation consumer belongs to expansion reader and is not claimed reviewed here.",
+          "evidence": [
+            "ita:11058-11072",
+            "requirements:291-304",
+            "combat:129-141"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Normal weapon rejects area/immune monster instead of becoming sufficient through stat scaling. Depletion removes healing suitability and active benefits, retaining real death risk. Eternal branch additionally suppresses tablet-consumption XP and ordinary Slayer/Corruption XP in reviewed kill consumers; its full reward/progression rules are not covered.",
+          "evidence": [
+            "combat:1194-1220",
+            "character:770-775",
+            "player:2487-2491",
+            "combat:623-646",
+            "player:623-635"
+          ]
+        },
+        "boundary": "All ItA depth rewards, Corruption effect rules, Eternal content and full realm activation unread. No DLC ownership claim."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-C7",
+      "status": "source-inspected-runtime-unverified",
+      "family": "combat",
+      "name": "Base-package Stronghold tier equipment -> actual passives/encounter -> repeated completion/reward -> higher-tier commitment",
+      "reader_artifact": "readers/combat.json",
+      "reader_path_id": "C7",
+      "complete_causal_trace": {
+        "id": "C7",
+        "family": "Base-package Stronghold tier equipment -> actual passives/encounter -> repeated completion/reward -> higher-tier commitment",
+        "classification": "source fact; selected stronghold only; free-update chronology left to parent primary docs",
+        "prerequisite": {
+          "fact": "Stronghold of the Undead data requiresSlayer10 and25Undead Graveyard completions, allowsNormal player damage and overrides monster damage toPure. Standard has no required items; Augmented needs three actual Undead Enhancement1/2/3 items; Superior needs the three corresponding Augmented items. These are actual equipped requirements, not lifetime find or an arbitrary power score.",
+          "evidence": [
+            "full:48429-48595",
+            "combat:1322-1340"
+          ]
+        },
+        "decision": {
+          "fact": "Select a legal stronghold tier and equipped loadout. Required tier gear must remain equipped: areaRequirementsMet rechecks, current manager restrictions expose areaItems, and equipment-set/removal paths reject taking required items out. Generic stronghold swapping also needs its modifier.",
+          "evidence": [
+            "combat:129-141",
+            "combat:243-266",
+            "player:1241-1261",
+            "player:1428-1455",
+            "player:2144-2165"
+          ]
+        },
+        "cost_time": {
+          "fact": "No generic admission consumption occurs in selectStronghold. Opportunity cost is occupying gear slots plus fighting the full fixed sequence with real spawn/attack and C1\u2013C4 supplies. Tier passives change actual enemy state via computeUnsavedPassives and computePassivesForEnemy, rather than merely decorating the reward UI.",
+          "evidence": [
+            "combat:1322-1340",
+            "combat:1389-1433",
+            "combat:1438-1469",
+            "base:587-613"
+          ]
+        },
+        "mutation": {
+          "fact": "Each completed full sequence resets areaProgress, increments timesCompleted, picks selected tier rewards and emits StrongholdCompleted. Standard and Augmented data award one corresponding enhancement scroll at100% chance; Superior reward is Undead Enhancement Superior at1% chance. Rewards use current loot doubling/item-drop suppression and bank add; counters do not imply a guaranteed rare item.",
+          "evidence": [
+            "combat:970-1024",
+            "full:48531-48589"
+          ]
+        },
+        "consumer": {
+          "fact": "Actual selected tier passives affect enemy initialization, and Superior completions also call the pet roll/fixed-clear branch. AutoRestartDungeon controls continuing the current sequence; absent repeat it loots and shows completion with or without successful reward.",
+          "evidence": [
+            "combat:1447-1461",
+            "combat:994-1024",
+            "base:591-613"
+          ]
+        },
+        "depletion_failure_aftermath": {
+          "fact": "Insufficient gear/entry/type prevents admission without a generic material charge. During combat, depleted food/prayer/ammo/tablets use prior real failure semantics; death stops combat but simultaneous enemy death may still complete the sequence in the same tick. Existing completed counts and prior earned reward remain actual. Gear loss after a standard death can prevent reentry, creating a means-restoration prerequisite; perma-death remains a separate mode.",
+          "evidence": [
+            "combat:1322-1340",
+            "player:2628-2669",
+            "combat:497-518",
+            "base:501-518"
+          ]
+        },
+        "boundary": "Reward scroll upgrade execution and all other Strongholds/passive formulas remain unread. This trace establishes selected tier gating, passives, counter and reward consumers, not full stronghold progression/rare-drop balance."
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP01",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "AoD survey -> travel -> archaeology -> artifact consumer",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP01",
+      "complete_causal_trace": {
+        "id": "EXP01",
+        "family": "AoD survey -> travel -> archaeology -> artifact consumer",
+        "disposition": "source-inspected representative connected path; runtime-unverified",
+        "prerequisite": "Cartography surveyable adjacent hex with actual requirements; reach Old Village lead; Archaeology UI requires discovered site and sufficient level.",
+        "choice": "Queue or auto-survey, pay a selected travel path, select a map and tool sizes. A Shovel selects the large table that can yield Torn Map.",
+        "cost_time": "Survey actions occupy skill timer. Travel consumes actual route item/currency costs. Excavation uses real selected-map charge, with preservation exceptions. Blank replacement map costs100Paper at OldVillage; upgrade actions spend tier-specific inputs/time.",
+        "state_mutation": "Fully surveyed POI becomes a lead; arrival sets isDiscovered and creates free starter map. Excavation grants real bank artifact or failed-search XP/possible bones, then consumes charge. Found Torn Map sets historical item-find count.",
+        "downstream_consumer": "Ancient Market hidden requirement reads historical Torn Map find, not a virtual flag or current possession; travel/requisite changes can discover it and create its own dig-site map. Alternatively donate an actual artifact, consume one bank unit, retain distinct donatedItems and award museum thresholds once; award stats feed current skill/combat computation.",
+        "failure_aftermath": "No travel budget means no movement. Survey eligibility/queue adjacency matters. Map exhausted or no tool stops digging. Artifact size selected by tool and chance means no guaranteed Torn Map. Failed excavation still consumes time/charge unless preserved. Museum duplicates or missing physical item give no reward.",
+        "evidence": [
+          "C_SURVEY",
+          "C_TRAVEL",
+          "C_DISCOVER",
+          "C_MAPS",
+          "A_VIS",
+          "A_SITE",
+          "A_REWARDS",
+          "A_TOOLS",
+          "AO_DROP_MAP",
+          "AO_HIDDEN",
+          "AO_TOOLS",
+          "R_ITEM_FOUND",
+          "A_MUSEUM",
+          "A_STATS"
+        ],
+        "semantic_limit": "Representative OldVillage/AncientMarket and museum path; not all map hexes, hidden puzzles, artifacts, tool upgrade chains or museum rewards.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP02",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "AoD Ancient Relics dungeon -> constrained skill-cap allocation",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP02",
+      "complete_causal_trace": {
+        "id": "EXP02",
+        "family": "AoD Ancient Relics dungeon -> constrained skill-cap allocation",
+        "disposition": "source-inspected mode and connected event path; runtime-unverified",
+        "prerequisite": "Explicit Ancient Relics mode sets initial skill caps to 10, disables XP overflow, preservation and doubling, and withholds Fishing/Cooking until base Impending Darkness completion.",
+        "choice": "Prepare and finish a qualifying dungeon, then choose one skill from two randomly presented eligible candidates for each pending noncombat cap reward.",
+        "cost_time": "Dungeon fighting spends ordinary combat preparation, consumables and time. Each first qualifying Pre99 completion set awards five pending noncombat increases; these choices have no additional currency cost.",
+        "state_mutation": "The actual dungeon counter/event calls increaseSkillLevelCaps: fixed combat caps rise by 5, at most 99; five pending noncombat caps can rise by 15, at most 99. The given receipt removes the requirement listeners. Selection advances one chosen cap and decrements pending choices.",
+        "downstream_consumer": "Skill.addXP uses currentLevelCap and mode overflow policy. Newly admitted level unlocks existing recipes/skill content. Mode-enabled skill actions can find relics; relic and completed-set modifiers enter actual provided stats. Cap selection sets preventAutoRestart so ordinary automation stops for the earned decision.",
+        "failure_aftermath": "Repeat completion cannot re-award the same given requirement set. Capped skills are excluded/rerolled. Missing prerequisite completion gives no cap. Relic rolls skip found/ineligible relics and allow at most one random relic per action.",
+        "evidence": [
+          "AO_MODE",
+          "AO_CAP",
+          "MODE_CAP",
+          "D_COMPLETE",
+          "R_DUNGEON",
+          "G_CAP_LISTEN",
+          "G_CAP_REWARD",
+          "MODE_SELECTION",
+          "G_CAP_CHOICE",
+          "S_CAP_APPLY",
+          "S_XP",
+          "S_RELIC",
+          "S_RELIC_SETTLE",
+          "S_STATS"
+        ],
+        "cross_expansion": "AoD dependent data for TotH adds post-99 dungeon and Herald cap rewards. ItA dependent data for AoD adds Abyss depth and final-depth cap rewards. These extend the same Ancient Relics owner and are not universal rules for every mode.",
+        "cross_evidence": [
+          "AO_DEP_TOTH",
+          "TOTH_CAP",
+          "ITA_CAP",
+          "ITA_DEP_AOD",
+          "D_DEPTH"
+        ],
+        "semantic_limit": "Representative normal AncientRelics; expired speedrun-mode variants not semantically reviewed or treated as currently active.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP03",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "TotH standard120 production -> real equipment -> dungeon-access purchase",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP03",
+      "complete_causal_trace": {
+        "id": "EXP03",
+        "family": "TotH standard120 production -> real equipment -> dungeon-access purchase",
+        "disposition": "source-inspected representative advanced production and entry gates; runtime-unverified",
+        "prerequisite": "The enabled TotH predicate allows a standard maximum of 120. Advanced production and equipment gates remain independent: Meteorite needs Mining 112 and a purchased Augite pickaxe; ore stock also needs Astrology-discovered vein HP.",
+        "choice": "Study an eligible constellation, mine its found Meteorite, smelt two ore per Meteorite Bar at Smithing 110, forge three bars into a Meteorite 2H Sword at Smithing 115, then equip after Attack 108 and Impending Darkness completion.",
+        "cost_time": "Actions use their existing timers. Mining spends finite ore HP; smelting and forging consume actual inputs unless preservation applies. The sword occupies both Weapon and Shield slots.",
+        "state_mutation": "A successful Astrology post-action roll adds 5\u201324 Meteorite HP. Mining grants ore and spends HP. The artisan cycle grants actual bars or sword and stops when next inputs are unavailable. Equipping conserves bank and displaced equipment counts.",
+        "downstream_consumer": "Actual equipped stats feed combat. Ancient Sanctuary also needs a durable Labyrinth Solution purchase, paid with five real labyrinth clue items, plus base Impending Darkness unlock. The shop consumes clues and saves the purchase count used by the dungeon requirement. Final Throne access similarly consumes a physical Golden Key into saved access.",
+        "failure_aftermath": "No discovered meteoriteHP or wrong pickaxe/level blocks resource gathering. Missing inputs stops crafting. Equip requirements/conflicts/bank-capacity can refuse transition. Wrong damage type or absent access purchase blocks dungeon. Larger level cap alone grants none of these objects or access.",
+        "evidence": [
+          "S_CAP",
+          "ASTRO",
+          "ASTRO_CALL",
+          "ASTRO_ROLL",
+          "MINE_METEOR",
+          "MINE_GATE",
+          "MINE_CHOICE",
+          "MINE_PRODUCT",
+          "MINE_HP",
+          "TOTH_METEORITE",
+          "TOTH_BAR",
+          "TOTH_SWORD_RECIPE",
+          "CRAFT_COST",
+          "CRAFT_RECIPE",
+          "S_CRAFT",
+          "CRAFT_RESULT",
+          "TOTH_SWORD",
+          "E_EQUIP",
+          "TOTH_SOLUTION",
+          "SHOP_BUY",
+          "TOTH_SANCTUARY",
+          "D_GATE",
+          "D_SELECT",
+          "TOTH_KEY",
+          "MINE_FINITE"
+        ],
+        "semantic_limit": "Representative Meteorite production and Sanctuary/final-key access. Complete clue drop sources, final boss phases, every level-100\u2013120 recipe and lived balance were not reviewed. This is the ordinary timed route; Instant Actions modes were not exercised.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP04",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "ItA base Bane gate -> earned damage means -> separate realm and XP",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP04",
+      "complete_causal_trace": {
+        "id": "EXP04",
+        "family": "ItA base Bane gate -> earned damage means -> separate realm and XP",
+        "disposition": "source-inspected representative entry and realm/XP consumers; official narrative Bane identity also verified",
+        "prerequisite": "The official product page names base Bane defeat as the opening. Data uses base Impending Darkness completion to unlock The Abyssal Approach; the full Bane event identity/fight belongs to the combat reader.",
+        "choice": "Finish The Abyssal Approach with Normal damage to earn Strange Sword. Equip that actual Abyssal weapon, meet Attack 99 and finish Into the Abyss. Then select the unlocked Abyssal realm and its actions.",
+        "cost_time": "Ordinary combat spends real time/preparation. Sword is an actual dungeon reward and bank/equipment transfer, not a free realm-stat upgrade. Abyssal skill actions use their own physical inputs/time.",
+        "state_mutation": "Into the Abyss completion satisfies Realm.isUnlocked and triggers skill/realm visibility. Skill.addAbyssalXP changes separate Abyssal XP and levels without replacing standard XP.",
+        "downstream_consumer": "Realm IDs scope actions and mastery. Abyssal-level requirements use the separate level; monster immunity rejects Normal damage, and area allowedDamageType enforces actual weapon means. Abyssal Pieces and Abyssal Slayer Coins fund real upgrades. Abyssal combat level combines standard and Abyssal competence.",
+        "failure_aftermath": "Base completion alone bypasses none of the sword, Attack 99, damage or entry-dungeon gates. Wrong damage prompts the specific Strange Sword hint. Access does not grant level 60 or item stock.",
+        "evidence": [
+          "ITA_APPROACH",
+          "ITA_ENTRY",
+          "ITA_SWORD",
+          "ITA_REALM",
+          "ITA_DAMAGE",
+          "D_GATE",
+          "D_HINT",
+          "D_SELECT",
+          "D_COMPLETE",
+          "E_EQUIP",
+          "REALM",
+          "REALM_SELECT",
+          "S_CAP",
+          "S_XP",
+          "G_COMBAT_LEVELS",
+          "CHAR_IMMUNE"
+        ],
+        "documentation_source": "https://store.steampowered.com/app/2860590/Melvor_Idle_Into_the_Abyss/",
+        "semantic_limit": "Base Bane fight details and full realm content outside this bounded reader. Entitlement predicate read in code only; no owned-account state inspected.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP05",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "ItA Harvesting sustained focus -> threshold drops -> crafting/equipment/tool consumers",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP05",
+      "complete_causal_trace": {
+        "id": "EXP05",
+        "family": "ItA Harvesting sustained focus -> threshold drops -> crafting/equipment/tool consumers",
+        "disposition": "source-inspected first-vein and representative late-tool chain; runtime-unverified",
+        "prerequisite": "Into the Abyss completion unlocks Harvesting; the first Abyssal Vein needs Abyssal level 1. Other veins may require purchased upgrades. Charged equipped gloves and earned tree nodes affect the same action pipeline.",
+        "choice": "Remain at one vein to build intensity or switch and accept decay. Pay for 500 glove charges when useful; pursue a later permanent Harvester through its actual upgrade and material requirements.",
+        "cost_time": "Base actions take three seconds and resolve yield before increasing intensity. Base maximum intensity is 28,800. The actual inactive-site decay timer is 20 seconds, despite a stale ten-second comment. Glove charges cost 100,000 AP per 500 before the existing merchant-permit discount. Each Harvesting action consumes one equipped glove charge. Netherite Harvester requires 25,000 Netherite Bars, 250 million AP, Harvesting Abyssal level 50 and the previous upgrade.",
+        "state_mutation": "A weighted product draw fails when current intensity is below its threshold; a successful draw grants actual product and XP/AXP. Every action then raises intensity. Base quantity rises from 1 to 2/3/4 at 40/80/100 percent. Full intensity also permits a base 0.1 percent chance for a real Harvesting Chest.",
+        "downstream_consumer": "Four harvested Abyssal Stone plus four Abyssium Ore make Abyssium Bar. Five harvested Bark plus ten Azurian Fragments make Azurian Bar. Two Quartz plus two Azurian Bars and two Nightopal make a ring with real melee stats and one Abyssal resistance. Chest opening conserves stock and grants seeds or physical rake parts. Charged gloves provide intensity, interval and AXP modifiers only while equipped with charges; matched action events reduce charges and conditional modifiers listen for depletion. Purchased Harvester adds one flat primary product after quantity multipliers.",
+        "failure_aftermath": "A below-threshold draw gives no primary product or XP in that branch, but spends action time, raises intensity and consumes the equipped matched glove charge. Switching decays warmup. A full bank retains the next chest drop and consumes only completed openings. Upgrades grant modifiers, not another free gathering job.",
+        "evidence": [
+          "ITA_VEIN",
+          "H_ELIGIBLE",
+          "H_GATE",
+          "H_ACTION",
+          "H_DECAY",
+          "H_TIERS",
+          "ITA_STONE_USE",
+          "ITA_BARK_USE",
+          "ITA_QUARTZ_USE",
+          "ITA_RING",
+          "CRAFT_RECIPE",
+          "S_CRAFT",
+          "CRAFT_RESULT",
+          "E_EQUIP",
+          "ITA_CHEST",
+          "BANK_OPEN",
+          "ITA_HARVEST_GLOVES",
+          "ITA_HARVEST_BUY",
+          "SHOP_BUY",
+          "SHOP_GLOVE_COST",
+          "E_LISTEN",
+          "E_CHARGE",
+          "CHARGES",
+          "CHARGE_CONDITION",
+          "ITA_HARVESTER",
+          "SHOP_STATS",
+          "S_PRODUCT"
+        ],
+        "semantic_limit": "Quartz is a harvested material, not evidence of random combat Gem-slot drops in Harvesting. Random Abyssal Gem drawing was observed in Mining. Other veins, rake assembly/farming, upgrades and synergy tables remain partial.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP06",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "ItA Corruption exposure -> kill-qualified discovery -> optional paid spawn corruption",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP06",
+      "complete_causal_trace": {
+        "id": "EXP06",
+        "family": "ItA Corruption exposure -> kill-qualified discovery -> optional paid spawn corruption",
+        "disposition": "source-inspected counter/effect discovery/AXP/toggle chain; runtime-unverified",
+        "prerequisite": "Corruption unlocks after Into the Abyss. Start-of-fight counter applicators require positive Corruption levels for both sides; the player-side applicator also needs the actual skill unlock.",
+        "choice": "Fight for ordinary hit-built corruption, or enable the saved permanent-corruption setting and pay for each eligible spawned monster with actual Soul Points.",
+        "cost_time": "Hits increase the counter using Corruption level and rate. Incoming hits reduce the incomplete counter. The optional permanent cost is floor(monster Corruption level \u00d7 (1 + cost modifier/100)); the spawn spends actual Soul Points.",
+        "state_mutation": "A full counter calls ApplyCorruption. The table chooses unique unlocked effects, with a 0.2 percent chance per requested slot to select an eligible unknown row at that enemy combat level. The live effect is tracked. Effect removal unlocks the selected row only when the enemy is actually Dead.",
+        "downstream_consumer": "Applicators operate on the combat character. Representative Corruption0 supplies 25 percent accuracy, consumed by Character.modifyAccuracy. A corrupted enemy kill grants Corruption AXP. The paid PermanentCorruption passive supplies 100 percent instant-corruption chance, filling the counter at application. Tree modifiers affect actual counter rates or permanent cost.",
+        "failure_aftermath": "Exposure alone does not unlock a new effect. Missing enemy level eligibility prevents discovery. Insufficient Soul Points preserves the ordinary path and reports the failure online. The toggle defaults false. Eternal-damage kills explicitly receive no Corruption AXP.",
+        "evidence": [
+          "ITA_CORR_UNLOCK",
+          "ITA_CORR_COUNTER",
+          "CORR_TABLE",
+          "CORR_STATS",
+          "CORR_APPLY",
+          "ITA_CORR_EFFECT",
+          "CHAR_ACCURACY",
+          "CORR_TOGGLE",
+          "D_AUTOCORRUPT",
+          "ITA_CORR_PERMA",
+          "D_CORRUPTION_XP"
+        ],
+        "semantic_limit": "Representative counter, discovery and one effect. Complete effect combinations, soul acquisition and every effect interaction remain unread.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP07",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "ItA earned skill points -> parent-gated node choice -> permanent production benefit",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP07",
+      "complete_causal_trace": {
+        "id": "EXP07",
+        "family": "ItA earned skill points -> parent-gated node choice -> permanent production benefit",
+        "disposition": "source-inspected Harvesting tree representative; runtime-unverified",
+        "prerequisite": "An actual Abyssal level increase awards its level delta as skill-tree points. Harvesting branches have real point costs and require every listed parent. Nodes can also require items, currencies or other predicates.",
+        "choice": "Spend early points on the AXP branch A or mastery branch B. NodeAB3 needs both A2 and B2.",
+        "cost_time": "A1/B1 each cost one point, A2/B2 each cost two, and AB3 costs three. Seeing a node grants nothing. Other authored node costs are consumed through the same Costs owner.",
+        "state_mutation": "UnlockNode rechecks parents, ownership and points, deducts costs, marks the node unlocked, retains it and recomputes skill-provided stats.",
+        "downstream_consumer": "The A/B nodes improve AXP/mastery. AB3 grants one flat additional Harvesting primary product. The quantity function adds this after multipliers; action rewards deliver the resulting actual stock. Existing skill serialization records node booleans and remaining points.",
+        "failure_aftermath": "Missing parents, points or costs give no mutation. Nodes do not create gear, body or source ownership. No general respec behavior is claimed.",
+        "evidence": [
+          "S_TREE_POINTS",
+          "ITA_TREE_NODES",
+          "TREE",
+          "TREE_BUY",
+          "S_STATS",
+          "S_PRODUCT",
+          "H_ACTION",
+          "TREE_SAVE"
+        ],
+        "semantic_limit": "One representative tree and serialization-code inspection. Full trees for the 26 skill-data entries and runtime save/reload remain unreviewed.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    },
+    {
+      "id": "MEL-EXP08",
+      "status": "source-inspected-runtime-unverified",
+      "family": "expansions",
+      "name": "ItA Township resource economy -> manual Abyssal wave -> XP/currency and continuing maintenance",
+      "reader_artifact": "readers/expansions.json",
+      "reader_path_id": "EXP08",
+      "complete_causal_trace": {
+        "id": "EXP08",
+        "family": "ItA Township resource economy -> manual Abyssal wave -> XP/currency and continuing maintenance",
+        "disposition": "source-inspected current1.3.1 representative gateway/wave/upkeep/storage; runtime-unverified",
+        "prerequisite": "Build the actual Abyssal Gateway after Into the Abyss. Its data costs 25,000 each Food, Wood, Stone and Planks, plus 10,000 each Bar, Clothing and Potions. It provides 50,000 Soul storage and baseline production of 250 Armour & Weaponry plus local materials. Wave access needs the enabled predicate, Abyssal skill support and built gateway.",
+        "choice": "Build with actual town resources, maintain health and armor production, then click Fight Wave Now when health-scaled armor stock covers Abyssal level \u00d7 10,000. Repair current degraded buildings to sustain generation.",
+        "cost_time": "Construction spends existing resources. The wave waits two seconds, then spends its full wave-size Armor & Weaponry. Repair spends AP, GP or local resources. Ordinary passive town upkeep uses its separate tick.",
+        "state_mutation": "A processed wave adds wave-size \u00d7 100 AXP with fortification modification, adds AP/ASC with actual currency modifiers, removes armor stock and refreshes town state. Ordinary ticks separately add resources/XP and can reduce building efficiency and health.",
+        "downstream_consumer": "Township AXP advances levels and points. AP/ASC fund real shops or repairs. Armor & Weaponry uses Soul storage, distinct from Normal storage. Capacity and resource caps bound production. Efficiency modifies generation; paid repair restores 100 percent efficiency.",
+        "failure_aftermath": "The button refuses insufficient stock/health and simultaneous wave processing. The current processor has no loss/damage branch and no second readiness check after the two-second timer. Ordinary building degradation remains active. Storage limits accumulation.",
+        "evidence": [
+          "ITA_GATEWAY",
+          "T_BUILD",
+          "T_GATE",
+          "T_ARMOR",
+          "T_WAVE",
+          "T_WAVE_CURRENCIES",
+          "S_TREE_POINTS",
+          "T_TICK",
+          "T_EFF",
+          "T_DECAY",
+          "T_PRODUCE",
+          "T_REPAIR_COST",
+          "SHOP_BUY"
+        ],
+        "version_correction": "reduceAllAbyssalBuildingEfficiency and getAbyssalXPOnLoss exist, but no current wave invocation was observed. No wave-caused building damage is claimed; historical behavior needs separately versioned source.",
+        "semantic_limit": "Representative Gateway, manual wave, upkeep and storage. All biomes, building chains, trader conversions, casual tasks and dynamic mod overrides were not reviewed.",
+        "claim_kind": "source fact unless explicitly documentation or inference"
+      },
+      "parent_review": "Root verified high-consequence sampled caller/consumer chains and corrected death-save wording and Meteorite range; other precise source spans retain qualified reader review."
+    }
+  ],
+  "larger_original_implications": [
+    {
+      "theme": "Professions are competing means",
+      "implication": "Retain separate useful output,custody,site,time and downstream consumer. Shared XP or passive stat bonuses alone do not provide a supply economy. A stock rule must stop before the next unsupported commitment without inventing refunds or historical ownership.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Information,collection and executable use differ",
+      "implication": "Finding something can create a persistent clue,while donation or reuse spends the actual item. Keep learned map information separate from current carrier and local permission; use existing YAIR knowledge and native stock owners.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Progression can change investment strategy",
+      "implication": "An earned milestone may unlock a different kind of function,compatibility or route rather than only increase a rate. If spent progression support removes another benefit,show that real consequence before commitment. No new global mastery currency is selected.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Automation is a disclosed commitment",
+      "implication": "Finite earned routines need actual actor/source/contact,recipe revision,inputs and safe stop conditions. Summaries should distinguish gross attempts,usable production,consumed support,interruption and unprocessed time. Current YAIR played-time and world lease rules remain authoritative.",
+      "status": "original-design-analysis"
+    },
+    {
+      "theme": "Expansion depth comes from distinct rules",
+      "implication": "A new damage/resource/knowledge topology can preserve familiar professions while requiring fresh local preparation. Do not copy Melvor level caps,late-stage grind or freely merge realm resources into the first YAIR milestone.",
+      "status": "original-design-analysis"
+    }
+  ],
+  "scope": "Five assigned mechanic families and representative meaningful base/DLC joins.22 gameplay paths plus5 parent offline/shop/authoring traces; this is not whole-game or every-item semantic coverage.",
+  "reader_integrations": [
+    {
+      "reader": "production",
+      "artifact": "docs/research/melvor-idle/readers/production.json",
+      "sha256": "a82564a16514c2ee3178a2a249900b2315e17cf7b79e2bb3e41e34d9cbc3c847",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    },
+    {
+      "reader": "combat",
+      "artifact": "docs/research/melvor-idle/readers/combat.json",
+      "sha256": "0e435a0192320bd8e048a1fc52e668b16e478da117deafa9c799c72bc2a3c370",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    },
+    {
+      "reader": "expansions",
+      "artifact": "docs/research/melvor-idle/readers/expansions.json",
+      "sha256": "aab67a4ac661c023ba9a7984c94a635d2f68d2bd4ed5f15be634cbed2e6e2af9",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    }
+  ],
+  "dependency_maps": {
+    "production": [
+      {
+        "from": "Woodcutting",
+        "via": "bank logs",
+        "to": "Fletching arrow shafts",
+        "kind": "material_consumed",
+        "chain": "PROD-C01"
+      },
+      {
+        "from": "Mining",
+        "via": "Copper/Tin ore -> Smithing bar/tips",
+        "to": "Fletching tipped ammunition",
+        "kind": "material_consumed",
+        "chain": "PROD-C01"
+      },
+      {
+        "from": "Fletching",
+        "via": "equipped quiver arrows",
+        "to": "Ranged attack",
+        "kind": "equipment_stack_consumed",
+        "chain": "PROD-C01"
+      },
+      {
+        "from": "Fishing",
+        "via": "bank raw fish",
+        "to": "Cooking/Summoning alternatives",
+        "kind": "competing_material_cost",
+        "chains": [
+          "PROD-C02",
+          "PROD-C03"
+        ]
+      },
+      {
+        "from": "Cooking",
+        "via": "equipped cooked food",
+        "to": "HP restoration/Pig tablet alternatives",
+        "kind": "material_cost_and_healing",
+        "chain": "PROD-C02",
+        "additional_pointer": {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/13/data/recipes/9"
+        }
+      },
+      {
+        "from": "Farming",
+        "via": "grown herbs and separate seed inputs",
+        "to": "Herblore potion",
+        "kind": "material_consumed",
+        "chain": "PROD-C04"
+      },
+      {
+        "from": "Herblore",
+        "via": "activated Potion item and matched-event charges",
+        "to": "Woodcutting nest chance",
+        "kind": "charged_modifier",
+        "chain": "PROD-C04"
+      },
+      {
+        "from": "Woodcutting/Fishing",
+        "via": "applicable marks; crafted/obtained and equipped tablets",
+        "to": "Summoning pair bonuses",
+        "kind": "discovery_then_material_and_event_cost",
+        "chain": "PROD-C03"
+      },
+      {
+        "from": "Summoning Ent+Octopus",
+        "via": "scoped random-product/special chance",
+        "to": "Woodcutting/Fishing",
+        "kind": "bonus_funded_by_tablet_depletion",
+        "chain": "PROD-C03"
+      },
+      {
+        "from": "Firemaking",
+        "via": "spent log, random actual Coal",
+        "to": "Smithing recipes with Coal costs",
+        "kind": "material_byproduct",
+        "finding": "PROD-F03",
+        "consumer": "smithing.js103-122; artisanSkill.js146-164; skill.js2787-2815"
+      },
+      {
+        "from": "Firemaking",
+        "via": "retained95% mastery pool checkpoint",
+        "to": "other Melvor-realm skills mastery XP",
+        "kind": "conditional_passive_no_stock_output",
+        "chain": "PROD-C05"
+      },
+      {
+        "from": "Mining -> Runecrafting",
+        "via": "Essence -> current bank rune bundle",
+        "to": "Magic and separate aurora consumption",
+        "kind": "material_consumed",
+        "finding": "PROD-F04"
+      },
+      {
+        "from": "Astrology",
+        "via": "dust-funded retained constellation purchase",
+        "to": "Woodcutting/Farming mastery calculations",
+        "kind": "persistent_passive",
+        "chain": "PROD-C06"
+      },
+      {
+        "from": "Agility construction",
+        "via": "sequentially built course modifiers",
+        "to": "Fishing mastery/gathering doubling/artisan preservation",
+        "kind": "supported_passive_with_tradeoff",
+        "chain": "PROD-C07"
+      },
+      {
+        "from": "mastery pool spending",
+        "via": "lost current safety/healing checkpoint",
+        "to": "previously planted crops/previously cooked food",
+        "kind": "retained_learning_vs_current_passive",
+        "chain": "PROD-C05"
+      }
+    ],
+    "combat": [
+      {
+        "from": "Bank owned equipment",
+        "via": "equip requirements, slots, conflict/bank space/combat restrictions",
+        "to": "equipped stats + weapon attackType/damageType + event costs",
+        "evidence": [
+          "player:1456-1535",
+          "player:2272-2331",
+          "player:1630-1650"
+        ]
+      },
+      {
+        "from": "Bank food + purchase modifiers + selected food",
+        "via": "HP>0 damage callback / manual choice / damageType healing query",
+        "to": "HP survival + stock/stat depletion + manual attack interruption",
+        "evidence": [
+          "player:623-672",
+          "player:1682-1813",
+          "player:2422-2426"
+        ]
+      },
+      {
+        "from": "Spell selection + required item/level/book",
+        "via": "rune provision and per-first/per-proc bank costs",
+        "to": "actual normal/special attack or failed exposed attempt",
+        "evidence": [
+          "player:336-406",
+          "player:673-790",
+          "player:1897-1939"
+        ]
+      },
+      {
+        "from": "Familiar owned tablets + marks + optional potion",
+        "via": "summon timer/event, damageType-specific maxhit, charged bonuses",
+        "to": "barrier removal / HP attack / Summoning XP / conserved last-charge expiry",
+        "evidence": [
+          "player:882-913",
+          "player:2272-2285",
+          "player:2487-2507",
+          "summon:685-704",
+          "potion:32-107"
+        ]
+      },
+      {
+        "from": "Bones/souls bank stock",
+        "via": "bank consumption into PP/SP then chosen prayer/book per-event cost",
+        "to": "current stat modifier or functional item-loss protection",
+        "evidence": [
+          "bank:1212-1260",
+          "player:1815-1889",
+          "player:1973-2007",
+          "player:2628-2633"
+        ]
+      },
+      {
+        "from": "Life-time find, actual equipped requirement, prior dungeon/shop record",
+        "via": "UI unlock + selection entry + current areaRequirementsMet",
+        "to": "legal fight + drops + Slayer and clear counters",
+        "evidence": [
+          "areas:619-680",
+          "combat:129-141",
+          "combat:1190-1340",
+          "slayer:315-328",
+          "requirements:291-304",
+          "requirements:460-488",
+          "requirements:544-557"
+        ]
+      },
+      {
+        "from": "Barrier kill + loot owner",
+        "via": "actual dust drop and crafting item cost",
+        "to": "Imbued Leather material support",
+        "evidence": [
+          "combat:678-705",
+          "aod:48443-48461"
+        ]
+      },
+      {
+        "from": "Repeated fight/completion events",
+        "via": "same active/passive ticks and retained time/resource state",
+        "to": "later dungeon access, task tiers, realm requirement data and possible death",
+        "evidence": [
+          "game:1781-1797",
+          "game:2198-2226",
+          "combat:864-917",
+          "slayer:222-234",
+          "ita:11058-11072"
+        ]
+      },
+      {
+        "from": "Actual equipped Stronghold tier set + retained prior dungeon clears",
+        "via": "legal tier admission, persistent gear restrictions and selected enemy passives",
+        "to": "timesCompleted, tier-specific bank rewards, Superior pet and repeat/stop",
+        "evidence": [
+          "combat:129-141",
+          "combat:1322-1340",
+          "combat:970-1024",
+          "combat:1438-1469",
+          "full:48429-48595"
+        ]
+      }
+    ],
+    "expansions": [
+      {
+        "join": "A surveyed lead is distinct from a discovered destination. Paid arrival connects a POI and free initial map to Archaeology.",
+        "paths": [
+          "EXP01"
+        ]
+      },
+      {
+        "join": "An artifact can unlock later travel from historical find evidence, become a physical museum donation, or remain owned stock. Finding and possession are separate predicates.",
+        "paths": [
+          "EXP01"
+        ]
+      },
+      {
+        "join": "Actual dungeon/depth completion events feed earned cap allocation, one-time receipts, XP admission and automation interruption.",
+        "paths": [
+          "EXP02",
+          "EXP04"
+        ]
+      },
+      {
+        "join": "Higher caps grant no physical equipment or access. Crafting inputs, equip prerequisites, slot tradeoffs and purchased entry all remain distinct.",
+        "paths": [
+          "EXP03"
+        ]
+      },
+      {
+        "join": "AXP earns points; chosen nodes and upgrades alter actual quantity, AXP/mastery efficiency, corruption rate/cost or Township currency rewards.",
+        "paths": [
+          "EXP05",
+          "EXP06",
+          "EXP07",
+          "EXP08"
+        ]
+      },
+      {
+        "join": "Sustained site work and charged boosts improve production. Switching and depleted charges retain costs; actual outputs then feed crafting and combat.",
+        "paths": [
+          "EXP05"
+        ]
+      },
+      {
+        "join": "Town armor and Soul storage are different owners from bank equipment, combat Soul Points and global AP/ASC. Resource identity matters.",
+        "paths": [
+          "EXP06",
+          "EXP08"
+        ]
+      },
+      {
+        "join": "AoD dependent TotH and ItA dependent AoD data explicitly extend Ancient Relics instead of replacing base mode progression.",
+        "paths": [
+          "EXP02"
+        ]
+      }
+    ],
+    "root": [
+      {
+        "from": "actual entitlement + enabled expansion",
+        "through": "cloudManager.loadGameData and Game namespace registration",
+        "to": "DLC data registered",
+        "edge_kind": "loader eligibility; not player mastery",
+        "refs": [
+          "cloudManager.js:208-237,506-534",
+          "game.js:274-288"
+        ]
+      },
+      {
+        "from": "package dependentData namespace",
+        "through": "Game.registerDataPackage",
+        "to": "cross-expansion data/modification only when matching namespace exists",
+        "edge_kind": "conditional authoring dependency",
+        "refs": [
+          "game.js:553-576",
+          "melvorExpansion2.json:/dependentData",
+          "melvorItA.json:/dependentData"
+        ]
+      },
+      {
+        "from": "mod declaration and loaded dependency IDs",
+        "through": "Mod Manager loading loop",
+        "to": "setup/context/hooks or skip failed mod",
+        "edge_kind": "module load order; no auto dependency installation used",
+        "refs": [
+          "mod.js:1840-1896"
+        ]
+      },
+      {
+        "from": "characterLoaded lifecycle",
+        "through": "characterStorage.unlock -> context setItem -> encoder",
+        "to": "small modId-bound optional save metadata",
+        "edge_kind": "state lifecycle",
+        "refs": [
+          "mod.js:4548-4556,5347-5506,6346-6378"
+        ]
+      },
+      {
+        "from": "ordinary time gap",
+        "through": "offline runTicks -> passiveTick + selected activeTick -> checkDeath",
+        "to": "actual resulting stocks/food/prayer/XP/losses",
+        "edge_kind": "causal settlement",
+        "refs": [
+          "game.js:1769-1800,2074-2168,2199-2227"
+        ]
+      },
+      {
+        "from": "recipe-owned inputs + selected action interval",
+        "through": "consume/preserve -> bank add -> cost recheck",
+        "to": "usable product or lost output + action stop/continue",
+        "edge_kind": "cost-before-capacity exception",
+        "refs": [
+          "skill.js:2787-2818,3145-3181",
+          "bank2.js:636-708"
+        ]
+      }
+    ]
+  },
+  "late_exceptions": {
+    "combat": [
+      {
+        "fact": "Unholy prayer book cannot mix with standard/Abyssal; requires equipped enabling count and each proc consumption; normal point stat bonuses are distinct from enabling its use. Abyssal uses souls and allowedDamageType.",
+        "evidence": [
+          "player:1815-1889",
+          "player:794-799",
+          "bank:1238-1260"
+        ]
+      },
+      {
+        "fact": "Magic extraRuneConsumption, usesRunesPerProc, attack usesPrayerPointsPerProc, and potion usesPotionChargesPerProc each govern distinct costs; a multi-hit attack is not universally one cost per hit or per bar.",
+        "evidence": [
+          "player:741-749",
+          "player:794-799",
+          "potion:88-93",
+          "character:1439-1453"
+        ]
+      },
+      {
+        "fact": "AttackSpell spellbook allowDamageModifiers=false bypasses ordinary max-hit/stat damage scaling; required equipment and fuel still apply.",
+        "evidence": [
+          "character:150-156",
+          "player:2253-2270",
+          "player:736-760"
+        ]
+      },
+      {
+        "fact": "Equipment requirement change can unequip invalid gear and grant giveFreeDeath while combat/thieving active; it protects the next death after forced requirement invalidation, not infinite combat safety.",
+        "evidence": [
+          "player:281-305",
+          "combat:497-518"
+        ]
+      },
+      {
+        "fact": "Protect Item can prevent ordinary item loss but does not exempt normal perma-death save deletion. FreeDeath/event/raid exemptions belong to manager death-mode branch.",
+        "evidence": [
+          "player:2628-2669",
+          "combat:497-518"
+        ]
+      },
+      {
+        "fact": "Abyssal versus Eternal actual immunities, compatible prayer/spell/weapon types and selected food healing are functional. Eternal consumption/reward XP exceptions are preserved; unknown later content is not folded into base progression.",
+        "evidence": [
+          "ita:519-541",
+          "player:1815-1836",
+          "player:1905-1910",
+          "player:2487-2491",
+          "combat:623-646",
+          "ita:52957-52976"
+        ]
+      },
+      {
+        "fact": "TotH Herald pauseOnBosses triggers manager pause and explicit resume; dungeon equipment/food swaps can require modifiers. Thus the whole sequence is not necessarily unattended repeatable.",
+        "evidence": [
+          "toth:34308-34347",
+          "combat:1534-1558",
+          "player:2144-2165"
+        ]
+      },
+      {
+        "fact": "Permanent Corruption auto activation checks available soul points, consumes its actual modified cost, then adds a passive. If insufficient, it notifies online instead; full passive effect/content remains expansion-reader scope.",
+        "evidence": [
+          "combat:1494-1519"
+        ]
+      },
+      {
+        "fact": "Rune spending happens before hit rolls, so a miss still costs fuel unless preserved. Aurora costs are processed before the canAttack branch, so a failed base-rune/ammo attempt can still consume an available active Aurora. A PlayerSummonAttack event is emitted after both hit and miss paths, so matching tablet/potion consumption is attempt-based.",
+        "evidence": [
+          "player:736-790",
+          "player:882-906",
+          "player:1630-1650",
+          "potion:88-107"
+        ]
+      },
+      {
+        "fact": "Both playerDied and enemyDied are detected at the start of checkDeath; player death is processed, then enemy death/rewards, then stop. Simultaneous final death is not categorically an unfinished dungeon.",
+        "evidence": [
+          "base:501-518",
+          "combat:520-582",
+          "combat:864-917"
+        ]
+      },
+      {
+        "fact": "Stronghold tiers require actual owned/equipped gear as live means, select actual enemy passives and probabilistic rewards; gear slot/compatibility cost differs from a consumable entry fee. Selected base-package Undead source trace is C7.",
+        "evidence": [
+          "full:48429-48595",
+          "combat:1322-1340",
+          "combat:970-1024",
+          "combat:1438-1469"
+        ]
+      }
+    ],
+    "expansions": [
+      {
+        "fact": "Ancient Relics disables preservation and doubling. Generic Archaeology/artisan preservation branches do not prove those bonuses remain effective in this mode.",
+        "evidence": [
+          "AO_MODE",
+          "A_REWARDS",
+          "S_CRAFT"
+        ]
+      },
+      {
+        "fact": "Discovery modifiers can expire by moves. Active POI stats depend on current position. Discovery, mastery and museum awards retain separate records.",
+        "evidence": [
+          "C_TRAVEL",
+          "C_DISCOVER",
+          "C_STATS",
+          "A_MUSEUM"
+        ]
+      },
+      {
+        "fact": "Fully surveying the map opens mastery; mastery thresholds award actual persistent bonuses. One surveyed hex is not full-map completion.",
+        "evidence": [
+          "C_MASTERY",
+          "C_BONUSES"
+        ]
+      },
+      {
+        "fact": "The Eternal realm stays hidden while locked and is ignored by completion. It requires historical Eternity Mitt acquisition. Eternal damage is immune to Normal/Abyssal and excluded from the Corruption AXP kill consumer. Full Eternal content remains unread.",
+        "evidence": [
+          "ITA_REALM",
+          "ITA_DAMAGE",
+          "D_CORRUPTION_XP",
+          "R_ITEM_FOUND"
+        ]
+      },
+      {
+        "fact": "The product page describes a single final boss; current Throne data uses three Herald monster phases. Full phase mechanics were not reviewed here.",
+        "qualified_data_locator": "data/melvorTotH.json:34308, /data/dungeons[id=Throne_of_the_Herald]"
+      },
+      {
+        "fact": "The Harvesting decay comment says ten seconds; the actual passiveRegenInterval is 20,000 ms. Executable timing takes precedence.",
+        "evidence": [
+          "H_ELIGIBLE",
+          "H_DECAY"
+        ]
+      },
+      {
+        "fact": "The wave button checks readiness once. The processor does not recheck readiness after its two-second timer. This is source observation, not a demonstrated exploit or authorized fix.",
+        "evidence": [
+          "T_WAVE"
+        ]
+      },
+      {
+        "fact": "Township ticks and manual waves are separate. No current wave-caused building damage call was found. Dormant helper/loss names do not establish live aftermath.",
+        "evidence": [
+          "T_TICK",
+          "T_DECAY",
+          "T_WAVE"
+        ]
+      }
+    ],
+    "production": [
+      {
+        "id": "PROD-D01",
+        "package": "melvorTotH",
+        "status": "selected_data_and_function_join_reviewed",
+        "finding": "Expansion appends nine material alternatives to the existing base Arrow Shafts recipe, multipliers10..18; Spruce gives150 and Carrion270 shafts per1 log under base15 output before modifiers. FletchingRecipe.applyDataModification appends, retaining earlier alternative entries. Existing material matching used by optional Woodcutting shaft rewards can match these newer logs too.",
+        "sources": [
+          {
+            "source": "fletching.js",
+            "lines": [
+              295,
+              337
+            ],
+            "function_chain": "recipe alternatives -> append modification"
+          },
+          {
+            "source": "woodcutting.js",
+            "lines": [
+              288,
+              298
+            ],
+            "function_chain": "same real recipe material match"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/modifications/fletchingRecipes/0"
+          }
+        ]
+      },
+      {
+        "id": "PROD-D02",
+        "package": "melvorTotH",
+        "status": "selected_declared_costs_reviewed_shared_consumers",
+        "finding": "Level100 Poison Rune recipe consumes Pure Essence plus2 each base Air/Water/Earth Runes. Higher tier adds a real base-item sink. Tier4 Eagle consumes feathers and3 shard colors, retains25-per5s base and requires reciprocal mark level>4 in ordinary synergies; at least46 discoveries on the other familiar, subject to explicit bypasses.",
+        "sources": [
+          {
+            "source": "artisanSkill.js",
+            "lines": [
+              146,
+              164
+            ],
+            "function_chain": "bundle construction"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2247,
+              2249
+            ],
+            "function_chain": "level gate"
+          },
+          {
+            "source": "skill.js",
+            "lines": [
+              2787,
+              2815
+            ],
+            "function_chain": "actual bundled stock consumer"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              675,
+              724
+            ],
+            "function_chain": "tier reciprocal marks/gate"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/data/skillData/10/data/recipes/0"
+          },
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/data/skillData/13/data/recipes/0"
+          }
+        ],
+        "limit": "Exact Poison spell consumers and Eagle synergy rows/acquisition paths are not semantically reviewed."
+      },
+      {
+        "id": "PROD-D03",
+        "package": "melvorExpansion2",
+        "status": "selected_declared_costs_reviewed_shared_consumers",
+        "finding": "Barrier Touch Potion uses base Garum Herb plus5 Barrier Gems; Barrier familiar uses shard colors and alternative Barrier gems, shares bank/craft/charge owners. River Crossing Agility costs200 Paper+50000GP and Cartography15 and grants survey/refinement modifiers; Nysa star purchases likewise declare Cartography/Archaeology consumers.",
+        "data": [
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/3/data/recipes/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/5/data/recipes/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/13/data/obstacles/0"
+          },
+          {
+            "source": "data/melvorExpansion2.json",
+            "pointer": "/data/skillData/14/data/recipes/0"
+          }
+        ],
+        "limit": "Barrier damage/combat and actual Cartography/Archaeology consumers are parent/other-reader scope, not established by these declared modifiers alone."
+      },
+      {
+        "id": "PROD-D04",
+        "package": "melvorItA",
+        "status": "selected_material_mark_charge_chain_reviewed",
+        "finding": "Abyssal Ent/Octopus require normal99 and Abyssal5/15, yield5 tablets per base5s, cost12 Azure shards and own realm inputs. Abyssia Logs sell25 Abyssal Pieces; current alternative formula uses5000 AP target, so200 logs before modifiers. They max at mark4 instead of base default6. Pair exists with Abyssal-scoped Fishing special+6 and Shadow Raven Nest chance+1. Realm-matched marks remain distinct; familiar equipped modifier/own consumesOn can be broader than pair realm matcher.",
+        "sources": [
+          {
+            "source": "summoning.js",
+            "lines": [
+              8,
+              22
+            ],
+            "function_chain": "maxMarkLevel/realm/action data"
+          },
+          {
+            "source": "item.js",
+            "lines": [
+              5,
+              42
+            ],
+            "function_chain": "item sale currency defaults/explicit AP value"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              362,
+              367
+            ],
+            "function_chain": "sale currency selects AP cost"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              696,
+              778
+            ],
+            "function_chain": "tier unlock -> current realm mark gate"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              848,
+              852
+            ],
+            "function_chain": "1000GP/5000AP constants"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              1630,
+              1657
+            ],
+            "function_chain": "own versus synergy consumesOn scopes"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/recipes/3"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/recipes/7"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/skillData/25/data/synergies/1"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/160"
+          },
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/799"
+          }
+        ]
+      },
+      {
+        "id": "PROD-D05",
+        "package": "melvorItA",
+        "status": "selected_explicit_exception_reviewed",
+        "finding": "Abyssal Octopus item cantEquipWith ordinary Octopus, so base and Abyssal counterparts are not a free extra pair. player.equipItem checks conflicts. Its named modifier can grant100% tablet preservation, bypassing usual80% tablet cap; Eternal damage type suppresses Summoning XP on charge calls. Abyssal consumption XP formula uses level and ignores interval, unlike ordinary consumption XP.",
+        "sources": [
+          {
+            "source": "player.js",
+            "lines": [
+              1490,
+              1503
+            ],
+            "function_chain": "cantEquipWith"
+          },
+          {
+            "source": "player.js",
+            "lines": [
+              2480,
+              2505
+            ],
+            "function_chain": "100% named bypass; Eternal XP exception"
+          },
+          {
+            "source": "summoning.js",
+            "lines": [
+              824,
+              830
+            ],
+            "function_chain": "ordinary versus Abyssal consumption XP"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorItA.json",
+            "pointer": "/data/items/799"
+          }
+        ],
+        "limit": "Which source grants useNoSummoningChargesAbyssalOctopus and actual Eternal combat unlocks are unread here."
+      },
+      {
+        "id": "PROD-D06",
+        "package": "melvorTotH",
+        "status": "selected_base_material_modification_reviewed",
+        "finding": "Official expansion modifies existing Magic Logs Firemaking primary products to add Charcoal, adding a base-skill expansion-material join. Source modification and product reward path reviewed; Charcoal recipe consumers remain unread in this reader.",
+        "sources": [
+          {
+            "source": "firemakingTicks.js",
+            "lines": [
+              394,
+              421
+            ],
+            "function_chain": "primaryProduct output"
+          }
+        ],
+        "data": [
+          {
+            "source": "data/melvorTotH.json",
+            "pointer": "/modifications/skillData/0"
+          }
+        ]
+      }
+    ]
+  },
+  "broader_implications_from_readers": {
+    "production": [
+      {
+        "status": "original_design_implication_unselected",
+        "idea": "Treat professions as competing uses of the same owned goods: expedition supplies, charged tools, sale, learning inputs and infrastructure. A retained technique may improve one conversion while a current loaded tool still has to be paid and replenished. Existing Eda/workshop routes already demonstrate this distinction; extend exact consumers before adding a global mastery bar."
+      },
+      {
+        "status": "original_design_implication_unselected",
+        "idea": "Preparation specialization can trade throughput against reliability or later function. Pool-spending safety loss and Agility positive/negative loadouts suggest contextual choices, but no copied realm-wide numerical penalty or universal pool/reset is selected. YAIRPG can keep this within one local actor/body/bench campaign."
+      },
+      {
+        "status": "original_design_implication_unselected",
+        "idea": "Late recipes can keep earlier ordinary places useful through material demand rather than mandatory chores. TotH base rune sinks and expansion append-only alternatives support deliberate return trips and substitutes, without granting an imported world/power or replacing current clock/inventory."
+      },
+      {
+        "status": "original_design_implication_unselected",
+        "idea": "Separate practice reward, physical output and ongoing support. A failed prepared job can retain learned history while creating no goods; supplied consumable bonuses can expire while acquired knowledge persists. Any adaptation needs disclosed reservation, cancellation and downstream native effect, not an extra idle ticker."
+      }
+    ],
+    "expansions": [
+      "Learning, earned access, physical ownership and current execution means need separate consumers. AoD discovery and ItA weapon damage gates fit current YAIRPG knowledge/body/stock contracts.",
+      "Deepening usually needs one task result to feed another actual choice. Current salvage, harness fitting, assays and resident allocation already implement many such joins; reuse them before adding bars.",
+      "Progression can alter activity order and earned choices without a reset. Ancient Relics is an explicit mode; its universal caps should not be imposed on the familiar YAIRPG opening.",
+      "Distinct realms can reuse character, inventory and save owners while explicitly scoping local XP, fuel, damage and mastery. Current cultivation profiles remain author-only evaluators with no native consumer; rule support alone does not activate a world.",
+      "Permanent passives still need actual cost and consumer. A node label without a quantity, accuracy or generation consequence is insufficient.",
+      "Retain failures and late exceptions beyond packet selection: finite ore HP, depleted charges, kill-qualified discoveries, bank-full pending drops, versioned waves and cross-DLC mode patches."
+    ]
+  },
+  "unresolved_questions_and_unread": {
+    "production": [
+      "No runtime UI, action replay, saved-state, offline simulation, entitlement, production balance or director acceptance was verified. Public source/data were reviewed only at exact pins.",
+      "Other recipe tab discovery gates, complete prerequisite shop/access paths, later spellbook/Alt Magic consumers, all event matcher internals, final-charge ordering and external mods remain unread. Named shop prices here are declared data, not tested transactions.",
+      "Selected DLC/base production joins are bounded. No whole TotH/AoD/ItA gameplay/content coverage. Nysa/River Crossing and Barrier modifiers are declared consumers with explicit downstream limits; parent readers may close those traces.",
+      "Birthday2023/AprilFools2024 packages were not semantically reviewed by this reader; parent owns edition/event disposition. Supplemental artisanMenu.js was acquired to locate selection code but not semantically reviewed; acquisition is not coverage.",
+      "Implementation proposals are original and unselected. Current shared source writers/integrator own any runtime/canonical/publisher adoption; private saves/accounts/source libraries remain untouched."
+    ],
+    "combat": [
+      "Reviewed exact selected spans and complete small owners, not all13,859combat-family script lines or whole game.",
+      "No installed game launch, account/private-save/cloud/login/profile inspection, DLC entitlement change or source-library mutation.",
+      "Only selected public Demo/Full/AoD/ItA/TotH content windows were semantically reviewed. Birthday/AprilFools packages were not semantically reviewed in this combat leaf.",
+      "All spell/weapon/prayer/synergy/monster/dungeon/drop tables and special-effect balance remain incomplete; full TotH Herald, Ancient Relics, ItA depth/Eternal campaign and Golbin Raid implementation are outside this finite leaf.",
+      "Summoning production cost/data reviewed but complete artisan action/mark-to-craft UI execution belongs to production reader; dust-crafting recipe data not complete craft runtime proof.",
+      "Golden Key and auto-eat purchase costs are data-inspected; shop purchase mutation absent from provided selected scripts, not claimed complete.",
+      "Realm activation, loot-chest opening and Corruption effects beyond the reviewed auto-cost branch belong to expansion/other lanes.",
+      "Current YAIR source fit is exact hash-pinned. No new tests, builds, browser/play/save/import/failure/regression/director checks ran; prior counts/bundles are not proof of changed code."
+    ],
+    "expansions": [
+      "The public expansion payloads are obtained, but this is representative semantic coverage, not every item, monster, recipe, dungeon, hex, puzzle, tool, museum reward, tree, effect or biome.",
+      "No Melvor runtime behavior, private account entitlement, player progress or saves were inspected. Code baseline timing and costs are not lived pacing.",
+      "Which original local choice should consume a known survey receipt without duplicating current assay/salvage? The narrow consumer is proposed; concrete fiction and numbers remain unselected.",
+      "Would sustained site work improve actual play? Existing finite projects and paid preparation may already meet the goal. The parked option does not establish a missing shared platform.",
+      "Full Bane combat, AoD Barrier/Unholy Prayer/Gem combat, offline/automation, mods and update/event catalog belong to the parent and other readers.",
+      "Full Eternal content, Adventure Abyssal cap purchases, complete Herald phases, Strongholds and late rake/farming paths remain unread beyond selected locators.",
+      "Serialization source was reviewed, but no Melvor reload/export/import was exercised. All deferred YAIRPG player, save, failure, regression and director checks remain unrun."
+    ],
+    "unselected_design_option": {
+      "id": "MELVOR_SITE_CONTINUITY_OPTION",
+      "status": "Original design option, parked, unselected and unimplemented",
+      "decision": "park until current gameplay acceptance resolves need",
+      "inspiration": [
+        "EXP05",
+        "EXP07"
+      ],
+      "problem": "YAIRPG already has paid site jobs, earned physical preparation and actual toolkit allocation. No reviewed generic site-continuity consumer changes later bounded output when a worker stays or switches. A general warmup meter could overlap those jobs and add unwanted maintenance.",
+      "bounded_option": "If sustained work remains useful after play, author one optional finite bench batch with retained alignment stages and a useful later cut. Leaving/cancelling has declared consequences; the ordinary independent job stays valid. Reuse actual site capacity, stock and jobs.",
+      "current_owners": [
+        "Y_PROJECT",
+        "Y_LIVELIHOOD",
+        "Y_LIVELIHOOD_HOST",
+        "Y_HOME",
+        "Y_FIT",
+        "Y_ARTIFACT"
+      ],
+      "exact_missing_consumer": "A leaf batch-stage-to-next-output predicate requiring the same actual batch, site, tool and supported worker. No global timer, scheduler, universal decay or copied Harvesting system is selected.",
+      "compatibility": "Explicit future leaf revision. Old jobs receive no changed semantics or retroactive progress. Preserve the native opening and one-prestige milestone.",
+      "kept_consequences": "Actual worker occupancy and conserved held tools; physical inputs are still required. Interruption/conditions can end support according to declared policy. Records grant no output.",
+      "later_player_gate": "Only if selected: show fresh batch, supported continuation, declared interruption aftermath and ordinary fallback, then deferred compatibility/save checks."
+    }
+  }
+}

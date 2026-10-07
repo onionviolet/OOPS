@@ -1,0 +1,800 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "review_scope": "Read-only campaign, world-instance, travel, clock, timeline, life and prestige joins, with bounded coverage dispositions for the other USER_VISION families.",
+  "authority_and_limits": {
+    "vision": "docs/USER_VISION.md U01-U14 and later direct steering; PROJECT.md resume and expansion proposal; current revision 11 plan and live RUN.",
+    "selected_first_milestone": "Preserve vanilla opening, one represented realm and the existing single field-apprenticeship prestige. Original Frontier's finite campaign remains a planned expansion, not an automatic runtime selection.",
+    "verification": "Static current dirty-source inspection and document reconciliation only. No tests, build, browser, save, book, bank mutation or gameplay claim was made.",
+    "implementation_acceptance": "PROJECT and PLAYTEST identify the current bounded additions as implemented-unverified with behavioral/save/director gates deferred. Older executed evidence is not proof of changed current behavior.",
+    "concurrent_inputs": {
+      "plan_revision": 11,
+      "plan_sha256": "545e7464ca1603bf88cad479914cbf48a6cd368b49b5ade04ba6480f3e7a8b7b",
+      "run_sha256_at_review": "667412200fa73beffc2e6f6492c0c972481bdb49f69f5ff6b7286f4761de7ae6",
+      "project_sha256": "aca475bae6a5838076bae40f58453afe29ac53d0de07a76896eaa0af4c7d343a",
+      "note": "Plan hash matched the assignment snapshot. RUN had advanced; its live hash was reread. Canonical files were not written."
+    }
+  },
+  "coverage": [
+    {
+      "id": "CWT01",
+      "family": "Finite campaign completion and connected careers",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u01",
+        "docs/USER_VISION.md#u02",
+        "docs/USER_VISION.md#u04",
+        "docs/USER_VISION.md#complete-scoped-worlds-useful-skills-and-discovery-ui-2026-10-05",
+        "docs/USER_VISION.md#timeline-styles-different-endings-and-wider-functional-depth-2026-10-05"
+      ],
+      "status": "selected-planning-complete-runtime-gap",
+      "producer_consumer_native_ui_save": "The extant native Village/Shack/field/cave/road/Town network, native quests and the registered frontier field/rival content can support local work. src/frontier_campaign.js is composed by src/simulation_content.js; src/main.js binds its field renewal/rematch host and frontier campaign panel; the common expansion publisher persists expansion plus native publication. This is the bounded current producer/consumer. The separate src/original_frontier_campaign_content.js exports Short Measure people/sites/situation/commands/controllers and views, but has no importer or registry/native/UI/save consumer in current source. Original Frontier's local ledger freezes 33 parent IDs, 15 strand steps, seven ending cases, E01-E09 selected adapters, O01-O05 optional adapters and AC01-AC12 deferred acceptance. They are planning IDs, not delivered content.",
+      "evidence": [
+        {
+          "path": "src/frontier_campaign.js",
+          "symbol": "campaignDefinitions; one field_renewal transition",
+          "start_line": 1,
+          "end_line": 15,
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "campaignDefinitions composition",
+          "start_line": 8,
+          "end_line": 8,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "campaignDefinitions registered people, commands and transition",
+          "start_line": 28,
+          "end_line": 72,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "actFrontierCampaign and native panel binding",
+          "start_line": 580,
+          "end_line": 595,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "symbol": "detached export comment and campaign IDs",
+          "start_line": 1,
+          "end_line": 18,
+          "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d"
+        },
+        {
+          "path": "docs/worlds/original-frontier/COMPLETION_LEDGER.json",
+          "symbol": "finite scope/IDs and proposed states",
+          "start_line": 1,
+          "end_line": 20,
+          "sha256": "ee49092c3cbd5a10e7f5a2cf7f1b5aff42cdfd8d8932c2ffd4d2ebeb9bbce53e"
+        },
+        {
+          "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+          "symbol": "required ending cases and retained closure",
+          "start_line": 75,
+          "end_line": 106,
+          "sha256": "4f6302604c75d4718dc3504d0d4c467b010f63424a882d8b5f1e0878a611756a"
+        }
+      ],
+      "prior_ids": [
+        "OF.SCOPE.01-02",
+        "OF.PLACE.*",
+        "OF.PATH.*",
+        "OF.ARC01-05",
+        "OF.END.01-07",
+        "OF.MECH.*",
+        "E01-E09",
+        "AC01-AC12",
+        "GE01",
+        "GE12",
+        "TL04-TL05",
+        "TL08",
+        "MC05",
+        "EF02",
+        "EF05",
+        "AUTH01",
+        "AUTH06",
+        "EX04",
+        "EX05"
+      ],
+      "actual_gap_or_no_gap": "Material missing selected delivery: completed connected campaign paths/endings and native player return closure are not registered. Preserve the already working base field/rival mini-campaign and native quest/skill systems; don't relabel the original detached module as gameplay or duplicate its planned IDs.",
+      "selected_vs_optional": "Selected later for the requested complete Frontier world after director review; do not expand current first milestone or replace native opening/prestige. Frontier's seven endings and 33 parent IDs stay authoritative. Deeper cave/mountain/river links and mill/farm integrations remain optional in its ledger.",
+      "proposed_packet_seam": "After selection, root freezes only the next finite ledger tranche; shared Engine composes the existing originalFrontierDefinitions/Sources into simulation_content.js/expedition_content.js, supplies actual native access, publishes enrollment+opening atomically in main.js, and creates or binds the local campaign UI/save projection. Recheck actual route durations and paid stock at commitment/settlement. Migrate only if saved semantics change; retain stable IDs/aliases or reject old meaning explicitly. Acceptance is AC01-AC12, with branch-specific funded/failed/declined/return examples and later deferred behavior/save/director gates."
+    },
+    {
+      "id": "CWT02",
+      "family": "Geography, place access and useful returns",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u02",
+        "docs/USER_VISION.md#u03",
+        "docs/USER_VISION.md#u12",
+        "docs/USER_VISION.md#implementation-first-parallel-exploration-2026-10-04"
+      ],
+      "status": "native-base-support-plus-campaign-coverage-gap",
+      "producer_consumer_native_ui_save": "Native locations define directed travel edges, unlock access, combat/gathering/crafting and save current location. Frontier's selected footprint reuses Village, Shack, Infested field, Nearby cave, Forest road, Town outskirts and Town square. Glasshouse has a single explicit physical return door and a separate paid observation/view lease. A generic campaign authoring geography may describe endpoints, but endpoint metadata alone does not switch every native location, quest, market, actor, item and calendar consumer to that instance.",
+      "evidence": [
+        {
+          "path": "src/data/locations.js",
+          "symbol": "native Village/Shack/road graph and travel edges",
+          "start_line": 363,
+          "end_line": 376,
+          "sha256": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f"
+        },
+        {
+          "path": "src/data/locations.js",
+          "symbol": "Frontier road connection and native travel duration",
+          "start_line": 732,
+          "end_line": 743,
+          "sha256": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f"
+        },
+        {
+          "path": "src/world_instances.js",
+          "symbol": "authoring-only site/claim/fact bindings; runtime fact projection",
+          "start_line": 134,
+          "end_line": 190,
+          "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+        },
+        {
+          "path": "src/realm_state.js",
+          "symbol": "one supported Glasshouse instance and player/world/location invariants",
+          "start_line": 18,
+          "end_line": 39,
+          "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "persist before native state publication and location/calendar publication",
+          "start_line": 293,
+          "end_line": 343,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        }
+      ],
+      "prior_ids": [
+        "EF02",
+        "MC01-MC05",
+        "REG01-REG09",
+        "GE08",
+        "GE11",
+        "TL06",
+        "RB-P4",
+        "RB-P5",
+        "OF.PLACE.*",
+        "O01-O05"
+      ],
+      "actual_gap_or_no_gap": "No gap in native original geography, or Glasshouse same-body room entry/return, as scoped. Gap if a selected arbitrary campaign/second native world must isolate normal commands, actor routes, access, shops/quests, inventory claims and return. A region/world label is not that binding. Glasshouse native binding remains implemented-unverified under the explicit later gate.",
+      "selected_vs_optional": "Reuse current native Frontier map for the selected first full campaign. Additional realm/native campaign instances and a hub/cosmology remain optional until chosen; retain the one-realm first milestone.",
+      "proposed_packet_seam": "Use a fixed selected endpoint integration with existing native location/save owners first. Expand `createWorldBindings` only for demonstrated campaign consumers; bind location/access/stock/claims/history together and reconcile current body location on leave/return. No generic simultaneous-world or arbitrary endpoint service until a real selected use requires it."
+    },
+    {
+      "id": "CWT03",
+      "family": "Separate world instances, retained history, cargo and view modes",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u02",
+        "docs/USER_VISION.md#u08",
+        "docs/USER_VISION.md#world-structures-and-return-interactions-2026-10-03",
+        "docs/USER_VISION.md#proceeding-while-preserving-vanilla-2026-10-03"
+      ],
+      "status": "one-compiled-pocket-supported; general-world-isolation-gap; alternate-body-detached",
+      "producer_consumer_native_ui_save": "world_instances.js stores typed definitions, facts, visits and played elapsed; realm_state.js binds exactly the compiled Folded Glasshouse definition and validates it against external frontier.main. main.js binds one player body/current native location and commits through the common save envelope. realm_cargo/native_realm_traveler stage actual cargo and boundary access for this path. Observation channel supports one real paid slit under exact source/anchor/endpoint/clock bindings. Traveler profiles describe physical/projection/alternate/shared modes and owner guards, but their returned native actions explicitly still require binding; no general native controller consumes those plans. Same native bag/equipment/body travels; metadata does not clone or isolate all native campaign domains.",
+      "evidence": [
+        {
+          "path": "src/world_instances.js",
+          "symbol": "comment that world bindings are authoring maps and integrator binds actual owners",
+          "start_line": 134,
+          "end_line": 158,
+          "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+        },
+        {
+          "path": "src/realm_state.js",
+          "symbol": "single Glasshouse definition, single instance and body/location checks",
+          "start_line": 9,
+          "end_line": 39,
+          "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "symbol": "detached prototype declaration and snapshot-only native status",
+          "start_line": 1,
+          "end_line": 5,
+          "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "symbol": "alternate/shared controller/source/pool checks",
+          "start_line": 351,
+          "end_line": 368,
+          "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+        },
+        {
+          "path": "docs/ENGINE_AUTHORING.md",
+          "symbol": "current native Glasshouse body/cargo/clock bindings and unbound adapters",
+          "start_line": 9,
+          "end_line": 19,
+          "sha256": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069"
+        }
+      ],
+      "prior_ids": [
+        "EF02",
+        "POW02",
+        "TL02",
+        "TL06",
+        "MC01",
+        "RB-P4",
+        "RB-P5",
+        "U01-U03",
+        "U10-U12"
+      ],
+      "actual_gap_or_no_gap": "No-gap credit for compiled same-body Glasshouse doorway, exact actual-stock custody, distinct paid view edge, retained local records and supported played activity clock, subject to its current deferred acceptance. Material absent capability is arbitrary native campaign/instance binding across all native state/UI/save owners and executable alternate/shared embodiment. Do not claim alternate_body from the declarative profile alone.",
+      "selected_vs_optional": "Preserve existing Glasshouse as optional second-room prototype and current same-body rules. Arbitrary worlds, branches, projections, shared/alternate bodies and transferred cargo are optional until a named campaign consumes them.",
+      "proposed_packet_seam": "If chosen, Engine adds one source-qualified native operation with body/controller, owner-bound fuel, exact stock, endpoints and return/claim rules; all read/write/target/UI/save adapters must share its binding. Save either remains additive and absent by default or receives explicit versioned migration; never backfill a visit, body, item or source on render/load. A selected acceptance must move there/back and review each lot once, preserve one body/bag, prove known/unknown view facts and compare pre/post save envelope."
+    },
+    {
+      "id": "CWT04",
+      "family": "Local, played, occurrence, subjective and absence time",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u01",
+        "docs/USER_VISION.md#u05",
+        "docs/USER_VISION.md#u07",
+        "docs/USER_VISION.md#timeline-styles-different-endings-and-wider-functional-depth-2026-10-05"
+      ],
+      "status": "common-played-time-support; local-lease-support-for-glasshouse; subjective/outside-policy-unselected",
+      "producer_consumer_native_ui_save": "Native Game_Time/calendar advances on actual game minutes. expansionState.clock joins native recurring jobs and enrolled chronicle; persistExpansion reconciles realm time and saves before publication. Glasshouse leases union actual visit/observation intervals once; its local decisions freeze without a supported visit/view and no browser-closed catch-up is declared. Its native binding does not support arbitrary NPC jobs with wholly local due times. occurrence/reveal and observer knowledge are separate in saved event records/attributed knowledge, but no generalized branch/timeline scheduler consumes arbitrary source timelines. Original Frontier first-pass response window is a proposal, not a delivered timer.",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "symbol": "common clock domains and no-write when no supported live work",
+          "start_line": 464,
+          "end_line": 493,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/realm_clock_leases.js",
+          "symbol": "actual visit/observation time union and accrued local elapsed",
+          "start_line": 150,
+          "end_line": 215,
+          "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e"
+        },
+        {
+          "path": "src/realm_state.js",
+          "symbol": "local elapsed/clock support and observer/host integration",
+          "start_line": 72,
+          "end_line": 140,
+          "sha256": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "saved occurrence time, open/missed deadlines, life boundary",
+          "start_line": 58,
+          "end_line": 106,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "docs/ENGINE_AUTHORING.md",
+          "symbol": "explicit common/local clock seam and absent unsupported local jobs",
+          "start_line": 118,
+          "end_line": 124,
+          "sha256": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069"
+        }
+      ],
+      "prior_ids": [
+        "EF05",
+        "TL01",
+        "TL03",
+        "TL07",
+        "TL08",
+        "EX04",
+        "EX05",
+        "REG07",
+        "BAS03",
+        "MC03",
+        "C3-C7"
+      ],
+      "actual_gap_or_no_gap": "No gap in a coherent common played calendar, Glasshouse supported local activity union, occurrence timestamps or frozen absence for the supported current realm. Missing selected adapter only if a campaign needs divergent local/subjective/outside rates, arbitrary local NPC timers, age changes, wall-time deadlines or timeline branch invalidation. No evidence authorizes absence simulation or elapsed-time catch-up.",
+      "selected_vs_optional": "Keep shared played time and Frontier persistent chronicle baseline. Subjective/dilated/external clocks, life-stage jumps and unattended campaign simulation remain unselected optional features.",
+      "proposed_packet_seam": "Before a temporal campaign, select one bounded clock relation and name every affected domain: practice, source expiry, recovery, calendar/age, NPC commitments and local resources. Preserve monotonic joined time, event occurrence versus discovery, and settlement ordering; fund only actual work. Save a versioned clock anchor and migrate/derive explicitly. Acceptance includes supported-interval union once, absence freeze, interruption at a deadline, reload at boundary and no invented elapsed rewards."
+    },
+    {
+      "id": "CWT05",
+      "family": "Cumulative choices, branches, endings and aftermath",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u01",
+        "docs/USER_VISION.md#u05",
+        "docs/USER_VISION.md#u06",
+        "docs/USER_VISION.md#timeline-styles-different-endings-and-wider-functional-depth-2026-10-05"
+      ],
+      "status": "narrow-saved-causes-and-claims-exist; full-campaign-endings-planned",
+      "producer_consumer_native_ui_save": "Situation phases, event records, once-only claims, campaign facts, attributed knowledge, native quests and chronicle records already support finite locally authored consequences. Glasshouse research, paid work, closure and return provide a useful specific connected case. Original Frontier's seven outcomes require cumulative work/stock/consent/career evidence and retained future use; current detached content is not consumed, and `frontier.field_renewal` is only the existing one-time prestige transition, not those campaign endings. Logs are bounded views; do not use them as sole causal history.",
+      "evidence": [
+        {
+          "path": "src/frontier_campaign.js",
+          "symbol": "single optional field renewal and retained domains",
+          "start_line": 62,
+          "end_line": 71,
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "bounded causal relationship memories and event outcome",
+          "start_line": 48,
+          "end_line": 62,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+          "symbol": "seven cumulative proposed endings and useful returns",
+          "start_line": 75,
+          "end_line": 106,
+          "sha256": "4f6302604c75d4718dc3504d0d4c467b010f63424a882d8b5f1e0878a611756a"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+          "symbol": "TL01 causal expectation and retained old memory; TL07 durable receipts",
+          "start_line": 38,
+          "end_line": 109,
+          "sha256": "c31c55659c680b5ddc8ccd7d5fa37eaca480c0b0292b641b18cea5ebc82dc471"
+        }
+      ],
+      "prior_ids": [
+        "TL01",
+        "TL05",
+        "TL07",
+        "TL08",
+        "SOC01-SOC09",
+        "SB01-SB02",
+        "SBR01-SBR05",
+        "OF.END.01-07",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF",
+        "GE12",
+        "MC05"
+      ],
+      "actual_gap_or_no_gap": "No gap in finite situation/claim/history primitives or selected small native chronicle examples. The Frontier seven-ending campaign closure remains a material selected-planning gap; generic source-wide timeline graph, universal karma bar or all-object causality is not required.",
+      "selected_vs_optional": "Selected as later Frontier complete-world planning requirement; optional per-world endings and time-loop alternatives remain scoped by each chosen campaign. No bodily death/world destruction ending is included in Frontier's ledger.",
+      "proposed_packet_seam": "Author one cumulative Frontier graph on existing situation/fact/claim/relationship/stock owners. Preserve separately resolved arc, career, institution, departure, retirement and succession states; project options only from settled visible prerequisites. Use original Short Measure as the connected entry, then let funded alternatives change actual stock, resident roles and useful return work. Save stable event/cause IDs; if meanings change, alias/migrate or preserve frozen old definitions. Acceptance cases OF.END.01-.07 / AC07-AC10 compare cooperation with quiet mastery, failed/withdrawn service, lawful private agreement, succession and departure."
+    },
+    {
+      "id": "CWT06",
+      "family": "Age, fainting, defeat, death, rebirth and rewind",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u01",
+        "docs/USER_VISION.md#u05",
+        "docs/USER_VISION.md#u06",
+        "docs/USER_VISION.md#u08",
+        "docs/USER_VISION.md#u13"
+      ],
+      "status": "ordinary-fainting-native; optional-chronicle-mortal-aging exists; general-death/rebirth/rewind-absent-and-unselected",
+      "producer_consumer_native_ui_save": "Native combat has existing recovery/fainting behavior. A separately opted-in chronicle carries initial age/lifespan and can end an enrolled mortal life from old age on joined time while retaining its chronicle. The native occupation guard prevents further player activity after ended life; there is no rebirth, replacement-body, lineage continuation or coupled dependency rollback in that flow. Named reset/field renewal is domain-specific and does not implement remembered live rewind. Save lifecycle remains ordinary save/backup/import owners; no new reset policy or private save operation was reviewed.",
+      "evidence": [
+        {
+          "path": "src/chronicle.js",
+          "symbol": "mortal mode, optional age, joined-clock ending and retained chronicle",
+          "start_line": 11,
+          "end_line": 18,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "src/chronicle.js",
+          "symbol": "mortal chronicle enrollment, 18-to-80 policy and old-age settlement",
+          "start_line": 64,
+          "end_line": 106,
+          "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "ended chronicle blocks a new player activity",
+          "start_line": 466,
+          "end_line": 474,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "symbol": "domain-specific one-time field renewal",
+          "start_line": 62,
+          "end_line": 107,
+          "sha256": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+        }
+      ],
+      "prior_ids": [
+        "TL02",
+        "TL03",
+        "TL05",
+        "TL08",
+        "POW01-POW02",
+        "SOC08-SOC09",
+        "GE03",
+        "U01",
+        "U05",
+        "U08",
+        "U13"
+      ],
+      "actual_gap_or_no_gap": "Do not report ordinary defeat/fainting or the existing single field renewal as missing. There is no general selected death/rebirth/loop flow, but none is selected for the vanilla or finite Frontier first milestone; keep policy frozen rather than define accidental gameplay from a proposal.",
+      "selected_vs_optional": "Optional, future world-specific feature. If selected, must disclose opt-in and separately define life/body/identity, succession, restored domains, retained memories/sources/stock/claims, dependencies, external commitments, costs, export and return. No default aging, lethal save loss, browser-closed loss or generalized rebirth.",
+      "proposed_packet_seam": "No packet now. A future world owner must supply its exact loop/death narrative and one supported carrier recipe; Engine then owns domain reset/migration and native death/save/UI integration. Acceptance requires before/after inventories, sources, body/host, knowledge, local history and unpaid commitments with stable IDs across interruption/reload; director chooses whether that specific world uses the mechanic."
+    },
+    {
+      "id": "CWT07",
+      "family": "Body, controller, and alternate embodiment across worlds",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u06",
+        "docs/USER_VISION.md#u08",
+        "docs/USER_VISION.md#u09",
+        "docs/USER_VISION.md#u11"
+      ],
+      "status": "body/source/condition foundations present; alternate/shared body execution detached",
+      "producer_consumer_native_ui_save": "body_progression.js and native actor source/vital owners implement a bounded same-character body/condition example; traveler profile code statically qualifies source, body, controller, fuel, cargo and support, but no production host consumes alternate_body/shared_body actions. Player native character and simulation actor binding remain singular in current Glasshouse. Power copying/discovery does not imply donor anatomy or stock.",
+      "evidence": [
+        {
+          "path": "src/body_progression.js",
+          "symbol": "Village body record, condition and native work commands",
+          "start_line": 1,
+          "end_line": 60,
+          "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "symbol": "planner-only current profile status and execution modes",
+          "start_line": 1,
+          "end_line": 5,
+          "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "symbol": "actual support/source/method and shared controller guards",
+          "start_line": 282,
+          "end_line": 295,
+          "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "symbol": "alternate/shared source controller and pool guard",
+          "start_line": 351,
+          "end_line": 368,
+          "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+        }
+      ],
+      "prior_ids": [
+        "POW01-POW05",
+        "GE03",
+        "GE06-GE07",
+        "MC01",
+        "MC03",
+        "C1-C4",
+        "U06",
+        "U08-U11"
+      ],
+      "actual_gap_or_no_gap": "No gap claim for existing body scalar/condition/source or trained skill families. Gap only for an authorized selected world that needs operational non-native body/controller/source/stock transitions; traveler support remains a feasibility model, not playable power.",
+      "selected_vs_optional": "Same-body Frontier is current. Acquired organ, possession, alternate-body, projection and shared consciousness are optional source-specific routes with preserved unequal source rules, not universal prerequisites.",
+      "proposed_packet_seam": "Qualify one exact body/source method against current body, owner, host, controller, target, fuel and an actual output; integrate to current native body/vitals/save/UI once. Never clone/transfer donor anatomy, item, soul, fuel or ancestry with a source record. Migration required only if existing saved body/source meaning changes; do not initialize on read/render."
+    },
+    {
+      "id": "CWT08",
+      "family": "Functional progression, item/craft/maintenance and distinct counters",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u04",
+        "docs/USER_VISION.md#u06",
+        "docs/USER_VISION.md#u07",
+        "docs/USER_VISION.md#u12"
+      ],
+      "status": "substantial-native-support; representative new skills registered-and-built; selected-family breadth and gameplay acceptance remain open",
+      "producer_consumer_native_ui_save": "Native skills, crafting/refinement, inventory/equipment, conditions, recipes, encounter, expedition and shared staged publisher already produce paid useful functions. Four new Frontier skill families and discovery UI are registered in current source and matched build per PROJECT/RUN; behavioral/director acceptance remains deferred. Existing UI adoption matches bundle27acfe9c3c70 per PROJECT. Neither numeric tier catalogs nor declarative imported modules alone prove every family works. Item audit narrows selected gaps to exact stock/input/output role joins such as multi-output recipe/appurtenances; broader components/specimens require selected cases.",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "symbol": "durable save publication before native gameplay display",
+          "start_line": 308,
+          "end_line": 343,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "src/skill_expansion_content.js",
+          "symbol": "four original functional method families; registered in current source",
+          "start_line": 1,
+          "end_line": 30,
+          "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "symbol": "current bounded skill behavior unverified and behavioral/save gates deferred",
+          "start_line": 1,
+          "end_line": 13,
+          "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+          "symbol": "exact production roles and current native crafting support",
+          "start_line": 1,
+          "end_line": 16,
+          "sha256": "558685b5e5cec7b6441c87c696bfbac3f14bcaa3ab360f5f38e1c73a1a3725f5"
+        }
+      ],
+      "prior_ids": [
+        "EF01",
+        "EF03-EF09",
+        "GE01-GE12",
+        "GP1-GP5",
+        "IT01-IT13",
+        "POW01",
+        "CB01-CB14",
+        "EX01-EX03",
+        "RB-P1-RB-P3"
+      ],
+      "actual_gap_or_no_gap": "No gap for supported simple work, native stock, teaching/practice, representative functional skills or one existing prestige. Remaining gap is path/campaign-complete consumer coverage and deferred actual playability; selected exact systems are refined only where the named campaign needs them. Do not assert measured efficiency or full cross-domain function from code labels.",
+      "selected_vs_optional": "Original Frontier required paths use adventure/control/mastery plus craft/inquiry/cooperation as its ledger specifies. General installed-component/organ lots, multiworker projects, arbitrary tactical battlefield, energy channels and all-skill upper-tier rules remain optional until sourced and selected.",
+      "proposed_packet_seam": "Incorporation should reuse native inventory/skills/XP/equipment/effects and the common save publisher. For each selected case provide producer, exact actual compatible input/tool/owner, target/function, upkeep/counter and visible result plus one limitation/failure; don't create another XP/source/inventory ledger. Keep branch costs/effects and RNG frozen on accepted work; migrate stable persistent IDs explicitly when semantics change."
+    },
+    {
+      "id": "CWT09",
+      "family": "Independent NPC means, society, relationships, bases and institutions",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u05",
+        "docs/USER_VISION.md#u06",
+        "docs/USER_VISION.md#u14",
+        "docs/USER_VISION.md#complete-scoped-worlds-useful-skills-and-discovery-ui-2026-10-05"
+      ],
+      "status": "authored-local-actors-and-saved-relations-supported; generalized campaign social/economic coverage-planned",
+      "producer_consumer_native_ui_save": "Simulation supports independently provisioned finite actors/controllers, paid jobs, private attributed knowledge, relationships, assistance, parties, pursuit and current local commitments; native NPCs/shops/factions have their own owners. Current defined use cases are real source features but do not simulate all Village/Town residents or a generic institutions/family/legacy economy. Frontier completion requires funded resident actions and outcomes; broad family/death/succession not selected. Do not mistake a purse field, status label, or a teacher fee sink for recipient income/independent means.",
+      "evidence": [
+        {
+          "path": "src/simulation_content.js",
+          "symbol": "registered bounded campaign, helpers, party and pursuit actors/commands",
+          "start_line": 28,
+          "end_line": 50,
+          "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "symbol": "disputed evidence and finite actor behavior limits",
+          "start_line": 1,
+          "end_line": 18,
+          "sha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+          "symbol": "operating terms and economic consequences beyond prior base contracts",
+          "start_line": 1,
+          "end_line": 17,
+          "sha256": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55"
+        },
+        {
+          "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+          "symbol": "funded resident action and living aftermath criteria",
+          "start_line": 1,
+          "end_line": 60,
+          "sha256": "bca7ca25c481269f53ab46c2b96f970ca82de83877f2759203af4909e9f6729e"
+        }
+      ],
+      "prior_ids": [
+        "SOC01-SOC09",
+        "SB01-SB02",
+        "SBR01-SBR05",
+        "BAS01-BAS05",
+        "MC04-MC05",
+        "GE12",
+        "OF.MECH.NPC",
+        "OF.MECH.DEMAND",
+        "OF.MECH.HANDOFF"
+      ],
+      "actual_gap_or_no_gap": "No gap for finite willing/provisioned/paid local actor behavior and explicitly bounded cases. Missing generalized independent career/faction/family/legacy economy is a world-specific proposal, not an absence across all NPC behavior. Selected Frontier does require its named employer/receiver/helper means and branch-local commitments, not a society simulation.",
+      "selected_vs_optional": "Fund and bind actors only for chosen Frontier cases. Reciprocal family/romance, inheritance/death succession, faction governance, broad rumor beliefs and distant population automation are optional/per-world.",
+      "proposed_packet_seam": "Use existing actor purse/stock/job/relationship/knowledge owners; freeze exact funds, location, consent, duration, choice and result. A selected project adapter needs validated worker/tool/site reservations before each irreversible settlement. No phantom income/backpay or omniscient private belief reads. Migration only if durable actor/relationship identity changes."
+    },
+    {
+      "id": "CWT10",
+      "family": "Discovery, interface, recovery and authoring/tooling joins",
+      "requirement_basis": [
+        "docs/USER_VISION.md#u10",
+        "docs/USER_VISION.md#u11",
+        "docs/USER_VISION.md#complete-scoped-worlds-useful-skills-and-discovery-ui-2026-10-05"
+      ],
+      "status": "selected-skill-discovery-registered-and-built; broad campaign authoring diagnostics and acceptance partial",
+      "producer_consumer_native_ui_save": "Knowledge/skill discovery modules project observer-safe unknown/hint/known/usable/recovery/return states into current skill native UI and use real facts/XP/source owners. Engine has registry compilers for commands, situations, sites, projects, encounters and effects; malformed/unbound IDs reject. Existing panels have mixed blocker/focus/recovery affordances; experience audit identifies targeted integration seams. Original Frontier needs player-only quest/episode views and campaign UI consumer; those exports remain detached. Build status is source/build receipt evidence; changed behavior and director preference remain unverified.",
+      "evidence": [
+        {
+          "path": "src/skill_discovery.js",
+          "symbol": "observer-directed discovery projection",
+          "start_line": 1,
+          "end_line": 90,
+          "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f"
+        },
+        {
+          "path": "src/skill_discovery_native.js",
+          "symbol": "native skill discovery command bindings",
+          "start_line": 1,
+          "end_line": 10,
+          "sha256": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5"
+        },
+        {
+          "path": "src/main.js",
+          "symbol": "Frontier panel native binding; ordinary shared publisher",
+          "start_line": 6783,
+          "end_line": 6790,
+          "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+          "symbol": "registry/compiler diagnostics and stable-meaning compatibility",
+          "start_line": 1,
+          "end_line": 13,
+          "sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8"
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "symbol": "skill integration current build and deferred behavior/director gates",
+          "start_line": 1,
+          "end_line": 13,
+          "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+        }
+      ],
+      "prior_ids": [
+        "EX01-EX10",
+        "AUTH01-AUTH08",
+        "TF01-TF06",
+        "GE01",
+        "OF.UI.DISCOVERY",
+        "OF.UI.RECOVERY",
+        "OF.UI.ACTIONS",
+        "DISC-UNKNOWN",
+        "DISC-HINT",
+        "DISC-KNOWN",
+        "DISC-USABLE",
+        "DISC-RECOVERY",
+        "DISC-RETURN"
+      ],
+      "actual_gap_or_no_gap": "No gap for the four skill method and progressive discovery modules being present/registered/current build. Behavior not yet accepted. Remaining finite issue is exposing and recovering selected campaign opportunities through the correct player/known-state path and authoring diagnosis of real consumers; not a missing generic UI engine.",
+      "selected_vs_optional": "Selected campaign needs observer-safe reveal, usable native choices, saved return, explicit known blockers and interrupted-work recovery. A broad authoring IDE/toolkit is optional; use current compiler/registry and compact diagnostics for selected features.",
+      "proposed_packet_seam": "Add campaign projection through existing quest/episode and player knowledge owners, binding each row to a registered command and truthful visibility/requirement reason. Keep renderer read-only; recover focus/status when controls disappear. Extend validators to selected required IDs/consumer joins rather than invent plugin runtime. Save only durable acquired/known/accepted state; no migration if existing ownership is unchanged. Behavior acceptance is deferred and distinct from syntax/build."
+    }
+  ],
+  "prior_audit_dispositions": [
+    {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "sha256": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "coverage": "macro world loop, geography/stock/projects, timers, encounters and organization",
+      "disposition": "Reuse as planning, not implementation; finite local join criteria are carried into CWT01-CWT05."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "sha256": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "coverage": "MC01-MC05 body, harvest, battlefield, relationships and bases; ME01-ME10 and C1-C7",
+      "disposition": "Reuse; body/stock/worker/cause/clock joins are summarized in CWT07-CWT09, not repeated."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+      "sha256": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+      "coverage": "EF01-EF09 transaction, world binding, due-time, owner and schema seams",
+      "disposition": "EF02/EF05 remain current selected adapter requirements; positive native persistence remains a no-gap finding."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+      "sha256": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+      "coverage": "REG01-REG09 regions, harvest, stock, routes and ecology",
+      "disposition": "Retain as conditional world-specific design; native geography exists; don't require every resource ecology in Frontier."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+      "sha256": "db2468cc839d89ff9d926903019822f5606798474271dd674aa0baf0538e8452",
+      "coverage": "POW01-POW05 body/source/anchor/maintenance/counters",
+      "disposition": "Reuse; alternate-body/controller execution remains detached; preserve ordinary and exceptional support."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+      "sha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+      "coverage": "CB01-CB14 action timing, saved native contest and selected encounter depth",
+      "disposition": "Current party/rival proof is a bounded fixed nonlethal contest; broad spatial/population battlefield is optional until a campaign selects it."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+      "sha256": "558685b5e5cec7b6441c87c696bfbac3f14bcaa3ab360f5f38e1c73a1a3725f5",
+      "coverage": "IT01-IT13 items, crafting, custody, outputs and maintenance",
+      "disposition": "Native inventory/crafting/custody are positive support; exact extra roles and multi-output routes stay need-triggered."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "sha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "coverage": "SOC01-SOC09, SB01-SB02, SBR01-SBR05 relationships, family and independent actors",
+      "disposition": "Finite local actor/knowledge/relationship support retained; family/maturity/general society routes are optional extensions."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+      "sha256": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+      "coverage": "TL01-TL08 chronology, reset qualification, clocks, career and closure",
+      "disposition": "Most important time false-gap correction: common played time and supported leases exist; generalized loop/dilation/aging remain unselected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+      "sha256": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55",
+      "coverage": "BAS01-BAS05 rights, operations, worker means and lasting institution",
+      "disposition": "Reuse contracts; no generic political/faction system selected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+      "sha256": "a4856af2334c9c770e4b712e0cc468cc3ba4bd35d4a80d86ae9b4c58857643a3",
+      "coverage": "EX01-EX10 discoverability, destinations, recovery and interface",
+      "disposition": "Current four-skill discovery integration exists; broad panels/recovery behavior still requires deferred acceptance."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "sha256": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+      "coverage": "AUTH01-AUTH08 registries, compiler, compositions and content correction",
+      "disposition": "Reuse current registry/compilers; no new authoring IDE or generator justified."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+      "sha256": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+      "coverage": "Dependency DAG, implementation route, Frontier stock/travel blockers and selective packets",
+      "disposition": "Frontier E01-E09/O01-O05 are separate adapters; audit confirms native route/stock join remains a concrete check."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+      "sha256": "5bf57c437a0e2d9448c6aabb6a60359fa3f8aa796f80e0b7ca7b8b78c72de561",
+      "coverage": "Runtime-efficiency ten decisions; historical scheduler changes vs unmeasured current cost",
+      "disposition": "No measured performance claim; event-driven selected clocks only. Avoid broad simulated absence."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+      "sha256": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa",
+      "coverage": "TF01-TF06 retrieval, qualified evidence and closeout workflow",
+      "disposition": "Reused existing source-index/edition/work packet evidence; no savings percentage inferred."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+      "sha256": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+      "coverage": "bank/query, source/timeline absorption, character and campaign completion",
+      "disposition": "Use selected views and source claim IDs, not a large unconsumed global corpus."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+      "sha256": "72f789bb5a9cefc0e3c1e86d6b7ca02fe698f4f6eaf85db20f4d379b9380066e",
+      "coverage": "GE01-GE12, GX1-GX6, GC1-GC8, GP1-GP5; selected functions and counters",
+      "disposition": "Four skill functions are current registered source/build; path continuation and bigger world closure remain separate."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+      "sha256": "e101b1fb4fe4c30f52f6950b284271f2a6a78479d7899a6c5c59cfa3beeb9066",
+      "coverage": "Selective external architecture fit and alternatives",
+      "disposition": "Completed comparison only; no dependency selected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+      "sha256": "03646681cd6820619cd03b958ca58a3f77b89ce41af53f3a09e7831a4b5ccef4",
+      "coverage": "30-repository candidate qualification and reusable pattern inventory",
+      "disposition": "Existing connected features and legal/provenance limits respected; no code/content imported."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/REPORT.md",
+      "sha256": "529279af778d66801bc5ab7ec0b7bd538f865d000f4f3c3ad8d8f2770478116a",
+      "coverage": "Upstream feasibility analysis",
+      "disposition": "Complete finite source analysis exists in the actual final report/checkpoint reviewed by the qualified prior-inventory lane. Older canonical pending-dispatch text is dated; current canonical incorporation is separate. Fork bounded ADOPTION is implemented and rebuilt with deferred behavior. No broader runtime/import is selected."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md",
+      "sha256": "012b0aa2e5748264f75fa8c83301e70852d98bd909c398788c5017b1d027f82d",
+      "coverage": "Normal/development fork inventory and shortlist",
+      "disposition": "Complete finite source analysis exists in the actual final report/checkpoint reviewed by the qualified prior-inventory lane. Older canonical pending-dispatch text is dated; current canonical incorporation is separate. Fork bounded ADOPTION is implemented and rebuilt with deferred behavior. No broader runtime/import is selected."
+    }
+  ],
+  "ranked_material_gaps": [
+    "CWT01",
+    "CWT03",
+    "CWT05",
+    "CWT04",
+    "CWT07"
+  ],
+  "abstentions": [
+    "Do not re-propose pure world-instance metadata as native isolation; EF02/CWT02 already identify the actual native consumer gap.",
+    "Do not report alternate_body, projections, portable inventory, all-campaign clocks, unsupported absence, generic death/rebirth or rewind as implemented.",
+    "Do not report current `base.frontier` geography, local native jobs/items/skills, single field prestige, bounded encounter, causal situation/claims, Glasshouse physical visit/view, or the four new skill registrations as missing merely because Frontier's larger campaign is not complete.",
+    "Do not demand mechanical consequence for every scene/person/object; USER_VISION and revision 9 accept texture and unresolved background.",
+    "No broad book/library/source sweep, external dependency, numerically estimated effort/savings or implementation authorization is added here."
+  ],
+  "input_and_status_notes": {
+    "project_and_plan": "Current PROJECT.md and plan revision 11 read; selected Frontier planning, one-realm/one-prestige boundary and pending analysis returns retained.",
+    "original_frontier": "Local completion ledger revision 2 and planning receipt status consulted; 33 parent, 15 substep and seven ending IDs stay planning requirements. No runtime/content registration credit is inferred.",
+    "upstream_fork_returns": "PROJECT says checked upstream/native and fork-network report returns pending; do not treat their existing snapshot files as accepted final evidence. Narrow fork ADOPTION and matching build are separately delivered.",
+    "acceptance": "Current skill wave source and matching build are delivered; gameplay/save/failure/keyboard/director gates are deferred. Current Glasshouse path keeps its own implemented-unverified/deferred scope.",
+    "root_reconciliation": "Root corrected report-completion versus stale canonical dispatch status using appendix-prior-and-interface.json; source/build/behavior/director distinctions preserved."
+  }
+}

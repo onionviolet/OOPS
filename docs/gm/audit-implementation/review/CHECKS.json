@@ -1,0 +1,93 @@
+{
+  "syntax": [
+    {
+      "path": "src/audited_workshop_fixture.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_workshop_lesson.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_workshop_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_workshop_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_kit_reserve_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_kit_reserve_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_kit_reserve_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/simulation.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/expedition_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/main.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "coldRegistry": {
+    "exitCode": 0,
+    "result": {
+      "commands": 735,
+      "controllers": 26,
+      "worlds": 8,
+      "plans": 4,
+      "commandsExact": true,
+      "targetsSitesPowersKnown": true,
+      "reserveDefinitionExact": true
+    },
+    "error": ""
+  },
+  "changedDuringSealingChecks": []
+}

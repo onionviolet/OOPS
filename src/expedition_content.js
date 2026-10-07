@@ -1,5 +1,25 @@
+import {crushSocialWorkPlans} from './crush_social_content.js';
+import {factorioRetortPlanDefinitions} from './factorio_retort_content.js';
+import {proto23Worlds} from './proto23_world_content.js';
+import {worldCompletionSources} from './world_completion_content.js';
+import {paradiseWorlds} from './book_world_paradise_content.js';
+import {molWorlds} from './book_world_mol_content.js';
+import {nestedWorlds} from './feature_expansion_nested_content.js';
+import {backlogCapabilities} from './backlog_expansion_content.js';
+import {TIDEMARK_WORLD} from './feature_expansion_destination.js';
+import {societyWorkPlans} from './feature_expansion_society.js';
+import {referenceGameplayWorkPlans} from './reference_gameplay_content.js';
+import {auditedKitReservePlanDefinitions} from './audited_kit_reserve_content.js';
+import {createWorkPlanRegistry} from './feature_expansion_work_plan.js';
+import {initializeCampaignFacts} from "./frontier_campaign.js";
 import {techniqueDefinitions, techniqueActions, ratStepRoute} from "./technique_content.js";
 import {createContentRegistry} from "./expansion_engine.js";
+import {archiveDutyAction} from "./chronicle.js";
+import {villageActions, villageCapabilities, villageSources} from "./village_content.js";
+import {simulationDefinitions, simulationSources} from "./simulation_content.js";
+import {townActions, townSources, TOWN_FACTS} from "./town_content.js";
+import {bodySources,bodyCapabilities} from "./body_progression.js";
+import {fieldSources,initializeFieldFacts} from "./field_workshop.js";
 
 const fact = (scope, key, value) => ({type: "fact", scope, key, value});
 const resource = (scope, key, amount) => ({type: "resource", scope, key, amount});
@@ -16,9 +36,14 @@ const surveyed = [fact("actor", "surveyed", true), aftermath];
 
 // Original review content, not an accepted campaign or a direct book adaptation.
 export const expeditionRegistry = createContentRegistry({
-    worlds: [{id: "base.frontier", label: "Mortal frontier", provenance: "Original Village prototype"}],
+    simulation: simulationDefinitions,
+    worlds: [...proto23Worlds,...molWorlds,...paradiseWorlds,...nestedWorlds,TIDEMARK_WORLD,{id:"pocket.folded_glasshouse",label:"Folded Glasshouse",publicName:"Folded Glasshouse",continuityLabel:"Original contained workshop",provenance:"Original optional persistent pocket prototype; native isolation checks deferred."},{id: "base.frontier", label: "YAIRPG: Parallel Frontier", publicName: "Frontier", continuity: "branch", sourceWorld: "YAIRPG",
+        continuityLabel: "YAIRPG · Branch dimension",
+        provenance: "Alternate continuity derived from Miktaew's YAIRPG. Expanded fork content belongs to this dimension; the original continuity remains the reference."}],
     techniques: techniqueDefinitions,
-    capabilities: [
+    capabilities: [...backlogCapabilities,
+        ...villageCapabilities,
+        ...bodyCapabilities,
         {id: "frontier.carry", label: "Carry route markers", stacking: "max", providers: [
             {id: "strength.basic", kind: "skill", label: "Strength 10", amount: 1,
                 when: {fact: "strength", op: "gte", value: 10}},
@@ -30,10 +55,12 @@ export const expeditionRegistry = createContentRegistry({
             {id: "skill.climbing", kind: "skill", label: "Climbing 5: practiced anchors", amount: 1,
                 when: {fact: "climbing", op: "gte", value: 5}}]},
         {id: "frontier.preparation", label: "Route preparation", stacking: "sum", providers: [
+            {id: "knowledge.route_signals", kind: "knowledge", label: "Cartographer's route signals", amount: 1,
+                when: {fact: "chronicle.routeSignals", op: "eq", value: true}},
             {id: "skill.climbing_preparation", kind: "skill", label: "Climbing 5", amount: 1,
                 when: {fact: "climbing", op: "gte", value: 5}}]},
     ],
-    sources: [{id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
+    sources: [...worldCompletionSources,...villageSources, ...simulationSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
         description: "An earned knack for reading routes. Adds one route preparation source.",
         grants: [{capability: "frontier.preparation", amount: 1}]}],
     rollTables: [{id: "frontier.observation", label: "Inspection discovery", revision: 1,
@@ -41,9 +68,9 @@ export const expeditionRegistry = createContentRegistry({
             {id: "field_eye", label: "Discovered Field eye: +1 route preparation", weight: 1,
                 effects: [{type: "source", sourceId: "frontier.field_eye", operation: "grant"}]}]}],
     opportunities: [{id: "frontier.departure", label: "The guide's next departure"}],
-    actions: [...techniqueActions, ratStepRoute,
+    actions: [...techniqueActions, ratStepRoute, archiveDutyAction, ...villageActions, ...townActions,
         {id: "frontier.inspect", worldId: "base.frontier", revision: 2, label: "Inspect the crossing",
-            description: "Find anchor points and earn 12 Perception XP. A 20% discovery can earn Field eye, improving later survey odds.", completionScope: "actor",
+            description: "Look for firm anchor points. Earn 12 Perception XP; you may notice something else along the bank.", completionScope: "actor",
             duration: 3, repeatable: false, requires: village, costs: [],
             rolls: [{id: "observation", tableId: "frontier.observation"}],
             outcomes: [{id: "learned", label: "Anchor points mapped", chance: 1,
@@ -58,9 +85,12 @@ export const expeditionRegistry = createContentRegistry({
             duration: 0, repeatable: true, requires: {all: [village, unsurveyed, {fact: "rope", op: "lte", value: 0, reason: "You already carry a survey rope."}]},
             costs: [{scope: "external", key: "money", amount: 16, label: "wooden coins"}],
             outcomes: [{id: "supplied", label: "Reusable survey rope added to inventory", chance: 1, effects: [item(SURVEY_ROPE_KEY, 1, "survey rope")]}]},
-        {id: "frontier.pack", worldId: "base.frontier", revision: 1, label: "Have a survey kit packed",
+        {id: "frontier.pack", worldId: "base.frontier", revision: 2, label: "Have a survey kit packed",
             description: "The Village supplier packs markers and crossing supplies from your notes. Costs 6 wooden coins and 4 minutes; earns one kit and 4 Climbing XP. Cancelling forfeits the fee.", completionScope: "actor",
             duration: 4, repeatable: true, cancellation: "forfeit",
+            durationModifiers: [{when: capable("village.packing"), minutes: 2, label: "Craftsman's lesson: pack in 2 minutes"},
+                {when:capable("body.hand_control"),minutes:1,operation:"subtract",label:"Conditioned grip: 1 minute quicker"},
+                {when: {fact:"body.handsTender",op:"eq",value:true}, minutes:2, operation:"add", label:"Tender hands: 2 more minutes"}],
             requires: {all: [village, knownAnchor, unsurveyed, {fact: "kits", op: "eq", value: 0, reason: "You already carry a kit."}]},
             costs: [{scope: "external", key: "money", amount: 6, label: "wooden coins"}],
             outcomes: [{id: "packed", label: "Survey kit packed from your field notes", chance: 1,
@@ -123,5 +153,10 @@ export const expeditionRegistry = createContentRegistry({
 export function initializeExpedition(state) {
     // Additive content migration for the first engine schema. Never replay rewards.
     state.actors.player.facts.surveyed ??= false;
-    return state;
+    for(const key of ["village.discovered", "village.tokenReturned", "village.board", "village.routeKnown", "village.chalkRead"]) state.actors.player.facts[key] ??= false;
+    for(const key of TOWN_FACTS) state.actors.player.facts[key] ??= false;
+    state.actors.player.facts["body.enrolled"] ??= false;
+    return initializeCampaignFacts(initializeFieldFacts(state));
 }
+
+expeditionRegistry.workPlans=createWorkPlanRegistry([...societyWorkPlans,...referenceGameplayWorkPlans,...auditedKitReservePlanDefinitions,...crushSocialWorkPlans,...factorioRetortPlanDefinitions],expeditionRegistry.simulation);

@@ -1,0 +1,1840 @@
+{
+  "schema": 1,
+  "revision": 2,
+  "date": "2026-10-05",
+  "worldId": "base.frontier",
+  "worldStatus": "implemented-built-unverified; behavioral/director acceptance deferred; world-complete withheld",
+  "authority": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+  "timelineAuthority": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+  "representedPlaces": [
+    "Village",
+    "Shack",
+    "Infested field",
+    "Nearby cave",
+    "Forest road",
+    "Town outskirts",
+    "Town square"
+  ],
+  "requiredParentCount": 33,
+  "requiredStrandStepCount": 15,
+  "requiredEndingCaseCount": 7,
+  "requirements": [
+    {
+      "id": "OF.SCOPE.01",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Freeze current world, represented places/era, native/background boundary and finite ending",
+      "existingSupport": "This owner + WORLD_BRIEF; no native world copy. AC01/AC09",
+      "nativeSources": [
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/power_models.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC01",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.SCOPE.01"
+    },
+    {
+      "id": "OF.SCOPE.02",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Preserve opening, progress, access and one optional renewal; missing state grants no old reward",
+      "existingSupport": "Native/story/expedition/renewal owners plus opt-in. AC01/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/pathfinding.js",
+        "src/save_files.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_contracts.js"
+      ],
+      "selectedAdapters": [
+        "E01",
+        "E02",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC01",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.SCOPE.02"
+    },
+    {
+      "id": "OF.PLACE.VILLAGE",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Useful early work/learning, recovery/news and changed later meeting",
+      "existingSupport": "Native activities/elder/craftsman + new local offers. AC02/AC04/AC09",
+      "nativeSources": [
+        "src/adventure_notebook.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/event_feed.js",
+        "src/expansion_persistence.js",
+        "src/expansion_quest_ui.js",
+        "src/expedition_content.js",
+        "src/field_workshop.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/people_knowledge.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/site_projects.js",
+        "src/skill_discovery.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E01",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC04",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PLACE.VILLAGE"
+    },
+    {
+      "id": "OF.PLACE.SHACK",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Earned preparation, practice, craft/rest and handoff review; no copied chest",
+      "existingSupport": "Existing board/rack/rope/body rest. AC05/AC06/AC09",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/acquisition.js",
+        "src/adventure_notebook.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/event_feed.js",
+        "src/expansion_quest_ui.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/main.js",
+        "src/native_storage_transaction.js",
+        "src/pathfinding.js",
+        "src/people_knowledge.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E04",
+        "E07",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC05",
+        "AC06",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PLACE.SHACK"
+    },
+    {
+      "id": "OF.PLACE.CORRIDOR",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Forest road and Town outskirts have route/evidence/access purposes and real journey cost",
+      "existingSupport": "Native edges, town survey, new trace case. AC03/AC05",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC05"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PLACE.CORRIDOR"
+    },
+    {
+      "id": "OF.PLACE.TOWN",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Accessible Town square supports receiving/lesson/contracts and useful home return",
+      "existingSupport": "Permit/ledger + optional Wen/customer work. AC02/AC07/AC09",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/adventure_notebook.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/event_feed.js",
+        "src/expansion_persistence.js",
+        "src/expansion_quest_ui.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/pathfinding.js",
+        "src/people_knowledge.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E01",
+        "E02",
+        "E05",
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC07",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PLACE.TOWN"
+    },
+    {
+      "id": "OF.PLACE.WILDERNESS",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Infested field and accessible cave margin support observation/danger/material/prepared choices",
+      "existingSupport": "Existing rat/cave access + new case. Safe-parent alternative uses a reached place; no fabricated access. AC03/AC04/AC05",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC04",
+        "AC05"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PLACE.WILDERNESS"
+    },
+    {
+      "id": "OF.PATH.DISPATCH",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Count/contract/stock choices grow into repeat demand and mature agreement",
+      "existingSupport": "Native money/items; employer/claim owners; ARC01/02/04/05. AC02/AC07/AC09",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/native_storage_transaction.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC07",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PATH.DISPATCH"
+    },
+    {
+      "id": "OF.PATH.CRAFT",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Material/recipe/facility choices change usable preparation and achieve a tested mature lot",
+      "existingSupport": "Gathering/craft/workshop + narrow material function. AC06/AC08",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/field_workshop.js",
+        "src/native_battle.js",
+        "src/native_storage_transaction.js",
+        "src/party_battle.js",
+        "src/pursuit.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/skill_expansion_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E03",
+        "E04",
+        "E05"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC06",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PATH.CRAFT"
+    },
+    {
+      "id": "OF.PATH.INQUIRY",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Discovery changes lawful intervention; prepared exploration produces useful mature evidence",
+      "existingSupport": "Native sensory/travel skills, known route methods, TRACE/cooperation. AC03/AC07/AC08",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC07",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PATH.INQUIRY"
+    },
+    {
+      "id": "OF.PATH.STEWARD",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Consented protection/control, organization and taught successor are viable with actual means",
+      "existingSupport": "Existing Lio/Mara/field contacts + selected consumers; no assumed convoy host. AC04/AC07/AC09",
+      "nativeSources": [
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC04",
+        "AC07",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.PATH.STEWARD"
+    },
+    {
+      "id": "OF.ARC01",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Audit/underwrite/refusal/delay cause distinct funded dispatch, handover, meeting and useful lesson/work",
+      "existingSupport": "Held Short Measure; timing/stock guards and integration unresolved. AC02/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/acquisition.js",
+        "src/adventure_notebook.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/event_feed.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/expansion_quest_ui.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/native_storage_transaction.js",
+        "src/pathfinding.js",
+        "src/people_knowledge.js",
+        "src/save_files.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_contracts.js",
+        "src/simulation_effects.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E01",
+        "E02",
+        "E04",
+        "E07",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.ARC01"
+    },
+    {
+      "id": "OF.ARC02",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Return-lot charter supplies finite continuing needs/routine and closes without closing ordinary life",
+      "existingSupport": "New jobs/programs/purses/stock content. AC06/AC07/AC09",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/native_storage_transaction.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E04",
+        "E05",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC06",
+        "AC07",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.ARC02"
+    },
+    {
+      "id": "OF.ARC03",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Fit-for-use evidence yields a material/specification result and useful alternatives/refusal",
+      "existingSupport": "Narrow lot result, paid sample/producer contribution; no broad spoilage. AC06/AC07/AC08",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/native_battle.js",
+        "src/native_storage_transaction.js",
+        "src/party_battle.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E03",
+        "E04",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC06",
+        "AC07",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.ARC03"
+    },
+    {
+      "id": "OF.ARC04",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Closed-counter threat has causal ordinary negotiated/production, trained exceptional and refusal outcomes",
+      "existingSupport": "Bounded charter and actual means. Fighting buyer never voids a legal contract. AC07/AC08/AC09",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/native_storage_transaction.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E04",
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.ARC04"
+    },
+    {
+      "id": "OF.ARC05",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Useful local return, willing funded successor or specialist/departure closure",
+      "existingSupport": "Native corridor/cave outing suffices; mountain/river optional. AC08/AC09",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/main.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC08",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.ARC05"
+    },
+    {
+      "id": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Required .01\u2013.05: clue \u2192 qualified comparison/preparation \u2192 usable outward result \u2192 return/handoff",
+      "existingSupport": "Existing inspection/native wilderness + TRACE case; no omniscient map or forced deep clear. AC03/AC05/AC08",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/adventure_notebook.js",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/event_feed.js",
+        "src/expansion_quest_ui.js",
+        "src/field_workshop.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/people_knowledge.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/site_projects.js",
+        "src/skill_discovery.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC05",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE"
+    },
+    {
+      "id": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Required .01\u2013.05: consent/risk \u2192 safe-parent or actual new native encounter or compatible control \u2192 funded workday/handoff",
+      "existingSupport": "Existing actual combat/guard/assessment + post-acceptance receipt and new caller; real recovery. AC04/AC05/AC08",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC04",
+        "AC05",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL"
+    },
+    {
+      "id": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Required .01\u2013.05: acquisition \u2192 real practice \u2192 compatible new use \u2192 harder feat \u2192 bounded insight/ordinary teaching",
+      "existingSupport": "Rat-step/Load-bearing/grip + narrow new functions; no renamed bonus or second prestige. AC05/AC06/AC08",
+      "nativeSources": [
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC05",
+        "AC06",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY"
+    },
+    {
+      "id": "OF.MECH.DEMAND",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Customer funds every order; actual use/settlement changes need; fresh work needs real funding",
+      "existingSupport": "Actor stock/purse/claims/jobs; no calendar refill. RULES_AND_STARTS; AC06/AC07",
+      "nativeSources": [
+        "src/acquisition.js",
+        "src/native_storage_transaction.js",
+        "src/simulation.js",
+        "src/simulation_effects.js"
+      ],
+      "selectedAdapters": [
+        "E04",
+        "E05"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC06",
+        "AC07"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.DEMAND"
+    },
+    {
+      "id": "OF.MECH.TIME",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Correct native units/calendar; unsupported absence freezes new loss; budgets retain remaining time",
+      "existingSupport": "Native pathfinder/main/common scheduler; repair held NPC-minute error later. AC03/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/main.js",
+        "src/pathfinding.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.TIME"
+    },
+    {
+      "id": "OF.MECH.PROGRESSION",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Native XP, method mastery, feat/insight and execution differ; four functions change real consumers",
+      "existingSupport": "Native skills + technique/power/source records + frozen Ability callers. AC04\u2013AC08",
+      "nativeSources": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/data/locations.js",
+        "src/data/skills.js",
+        "src/field_workshop.js",
+        "src/main.js",
+        "src/native_battle.js",
+        "src/party_battle.js",
+        "src/pathfinding.js",
+        "src/power_models.js",
+        "src/pursuit.js",
+        "src/site_projects.js",
+        "src/skill_expansion_content.js",
+        "src/technique_content.js",
+        "src/town_content.js"
+      ],
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC04",
+        "AC05",
+        "AC06",
+        "AC07",
+        "AC08"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.PROGRESSION"
+    },
+    {
+      "id": "OF.MECH.NPC",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Mira/Wen and one willing collaborator take paid independent actions with own means/knowledge",
+      "existingSupport": "Stable people/controllers/jobs/reports, no cloned helper. AC02/AC07/AC09",
+      "nativeSources": [
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E05",
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC07",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.NPC"
+    },
+    {
+      "id": "OF.MECH.CONSERVATION",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Exact stock/custody/equipment/purse/claim/participants/site settle once",
+      "existingSupport": "Native acquisition/custody/envelope; actual employer-stock guard. AC02/AC06/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/acquisition.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/native_storage_transaction.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js",
+        "src/simulation_effects.js"
+      ],
+      "selectedAdapters": [
+        "E04",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC06",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.CONSERVATION"
+    },
+    {
+      "id": "OF.MECH.RNG",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Selected eligible clue/trial draw freezes table/result/cause; basic progress has ordinary route",
+      "existingSupport": "Existing committed draws; fixed Short Measure needs none. AC03/AC06/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/power_models.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E06",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC03",
+        "AC06",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.RNG"
+    },
+    {
+      "id": "OF.MECH.CONSEQUENCE",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Recoverable failure retains limited evidence; deliberate closed branches persist; no silence duties",
+      "existingSupport": "Situations/claims/knowledge, explicit cancel/end rules. AC04/AC07/AC09/AC10",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/power_models.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E06",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC04",
+        "AC07",
+        "AC09",
+        "AC10"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.CONSEQUENCE"
+    },
+    {
+      "id": "OF.MECH.HANDOFF",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Stay/specialist/funded successor/departure have closure and useful return terms",
+      "existingSupport": "Learner's own method/body/tools/means and finite agreement. AC08/AC09",
+      "nativeSources": [
+        "src/body_progression.js",
+        "src/causal_situations.js",
+        "src/field_workshop.js",
+        "src/helper_content.js",
+        "src/power_models.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/site_projects.js",
+        "src/technique_content.js"
+      ],
+      "selectedAdapters": [
+        "E06",
+        "E08"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC08",
+        "AC09"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MECH.HANDOFF"
+    },
+    {
+      "id": "OF.UI.DISCOVERY",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Unknown names/counts/search/tooltips hidden; known blocked/learned/temporary loss follow actual knowledge",
+      "existingSupport": "Current owners + discovery return; no rendering mutation. AC01/AC03/AC11",
+      "nativeSources": [
+        "src/adventure_notebook.js",
+        "src/event_feed.js",
+        "src/expansion_quest_ui.js",
+        "src/people_knowledge.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC01",
+        "AC03",
+        "AC11"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.UI.DISCOVERY"
+    },
+    {
+      "id": "OF.UI.RECOVERY",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Current work/cancel/recovery/navigation survive blocked access/return/removed controls",
+      "existingSupport": "Native menu + Notebook/focus/attention. AC04/AC10/AC11",
+      "nativeSources": [
+        "src/adventure_notebook.js",
+        "src/event_feed.js",
+        "src/expansion_quest_ui.js",
+        "src/people_knowledge.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC04",
+        "AC10",
+        "AC11"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.UI.RECOVERY"
+    },
+    {
+      "id": "OF.UI.ACTIONS",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Known action/event/quest/person/work/recap uses one truthful binding",
+      "existingSupport": "Native/Notebook/Quests/Events, private state omitted. AC02/AC07/AC09/AC11",
+      "nativeSources": [
+        "src/adventure_notebook.js",
+        "src/event_feed.js",
+        "src/expansion_quest_ui.js",
+        "src/people_knowledge.js",
+        "src/skill_discovery.js"
+      ],
+      "selectedAdapters": [
+        "E07"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC02",
+        "AC07",
+        "AC09",
+        "AC11"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.UI.ACTIONS"
+    },
+    {
+      "id": "OF.GATE.BUILD",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Every required function has registered code/native caller/UI/compatibility and current build identity",
+      "existingSupport": "Engine full approved integration; imports/catalogue alone fail. AC12",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/expedition_content.js",
+        "src/save_files.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_contracts.js"
+      ],
+      "selectedAdapters": [
+        "E01",
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "implemented-unverified",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC12"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.GATE.BUILD"
+    },
+    {
+      "id": "OF.GATE.BEHAVIOR",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Generated branch/use/return/save/failure/custody/keyboard cases pass when authorized",
+      "existingSupport": "Engine; deferred, unrun stays pending. AC01\u2013AC11",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js"
+      ],
+      "selectedAdapters": [
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "deferred-acceptance",
+      "planningStatus": "specified",
+      "acceptanceCases": [
+        "AC01",
+        "AC02",
+        "AC03",
+        "AC04",
+        "AC05",
+        "AC06",
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10",
+        "AC11"
+      ],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "deferred-acceptance",
+      "runtimeCoverageKey": "OF.GATE.BEHAVIOR"
+    },
+    {
+      "id": "OF.GATE.DIRECTOR",
+      "requiredForDelivery": true,
+      "playerMustDoEveryBranch": false,
+      "criterion": "Weibao accepts fiction, useful functions, career viability, pacing, discovery and endings",
+      "existingSupport": "Separate playable human review; no test substitutes",
+      "nativeSources": [
+        "docs/PLAYTEST.md",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/save_files.js",
+        "src/simulation_contracts.js"
+      ],
+      "selectedAdapters": [
+        "E09"
+      ],
+      "owner": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "status": "deferred-acceptance",
+      "planningStatus": "specified",
+      "acceptanceCases": [],
+      "remaining": "Deferred generated gameplay/save/failure/keyboard/relevant-regression and director acceptance; current code/build coverage is in runtimeDelivery.",
+      "runtimeStatus": "deferred-acceptance",
+      "runtimeCoverageKey": "OF.GATE.DIRECTOR"
+    }
+  ],
+  "strandSteps": [
+    {
+      "id": "OF.EXPLORE.01",
+      "parent": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Early: discover a specific discrepancy through the existing waypost/crossing or town-office notice. Use reading, a willing teacher or existing Perception-3 deduction when those native actions remain unfinished. An already knowledgeable traveler receives a new question, not another reward.",
+      "resultAndDependency": "An attributed question and known observation places. Reuse `village.routeKnown`/first `routeOrigin`, `campaign.anchor` and actual town records. A town-timber contributor can still pursue new field work; their old timber choice remains true.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE.01",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.EXPLORE.02",
+      "parent": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established: compare two physical observations, one at a known Village crossing/road point and one at Forest road or the unlocked cave entrance. First-pass proposal: each new comparison takes 5 played minutes and 2 stamina; consulting an offered report is free but remains reported evidence.",
+      "resultAndDependency": "A small dossier records place, time, firsthand/reported basis and the limit of the observation. New campaign records use existing knowledge/receipt owners. No passive bestiary counter, report or menu grants a discovery as if personally seen.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE.02",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.EXPLORE.03",
+      "parent": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established: choose preparation for a known question. A personal footing task can use rope/Climbing or earned Rat-step; a loaded task uses real kit, ordinary handling or compatible Load-bearing Step. Native Forest wolves and cave-room rats invite different equipment and recovery plans.",
+      "resultAndDependency": "Two usable plans with different material/time/body needs, known reasons when blocked, and a lawful return point. The actual action determines applicability; a narrow-footwork source never gains cargo capacity from this dossier.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE.03",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.EXPLORE.04",
+      "parent": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Mature: undertake the actual outward journey, finish a local comparison or safely decline the off-path work, then return with an actionable observation. Town's existing survey can contribute its own result if actually performed; a new dossier must not award its six-coin settlement again.",
+      "resultAndDependency": "One tested safe approach, an accurately qualified danger boundary or a deliberate incomplete map changes a later local action: choose the usable staging point, prepare the appropriate kit, or close the unsuitable order. Safe-road/entrance work is a viable completion route. Native travel remains travel, including Running modifiers.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE.04",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.EXPLORE.05",
+      "parent": "OF.EXPLORE",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Mature return: give the actual dossier to a willing resident, keep it for home preparation or withdraw an earlier unsupported recommendation. A recipient executes one funded local trial using their own means.",
+      "resultAndDependency": "A useful return/hand-off and a changed firsthand meeting. A correction preserves earlier evidence and marks it superseded; it does not rewrite the player's native quest history. The resident's result is offered later, not live private telemetry.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E07"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.EXPLORE.05",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.CONTROL.01",
+      "parent": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Early: hear the resident's work question and known risk; inspect native equipment, health/stamina, available tools and the actual safe-parent fallback. Existing `field.assess` can establish a voluntary trial; it remains its own once-only assessment.",
+      "resultAndDependency": "A protection plan names who works, who can leave and what is being protected. Listening grants no source, combat skill or job acceptance. New co-located proposal/consent content; no global patrol rewrite.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL.01",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.CONTROL.02",
+      "parent": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established ordinary route: survey from the safe parent, reschedule for an inspected condition or accept a smaller supported observation. Supply a real kit and funded worker effort.",
+      "resultAndDependency": "A narrower useful result with no fought encounter and less reach. New bounded job and compatible local observation effect; it does not mark a native zone cleared. The same campaign can mature through competent ordinary organization.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL.02",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.CONTROL.03",
+      "parent": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established combat route: voluntarily enter the actual unlocked Cave room or Forest and complete a declared post-acceptance native encounter while the observer stays at the safe parent. Recover and return before consenting to their work.",
+      "resultAndDependency": "Actual native combat, loot/XP/recovery and a new attributed encounter receipt permit one supervised edge-observation job from the safe parent. The observer never enters the repeating combat zone and the receipt suppresses no native spawns. Engine must freeze zone/count baseline at acceptance and consume a once-only contribution receipt from the native result callback. Old clearance cannot be paid again; one encounter is not proof the whole forest is safe.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL.03",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.CONTROL.04",
+      "parent": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Trained control route: apply ordinary stance, measured focus or mastered breath drive to a compatible loaded observation frame at the safe staging point. First-pass new assessment has a controlled shove and a hold/release decision; it is separate from `field.assess`.",
+      "resultAndDependency": "A frame remains stable, is deliberately released safely or requires a smaller test. Use existing source/power/energy/body checks and paid participant reservation. No new stun, taunt, monster binding, shield technique or player-owned Lio method is presumed.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL.04",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.CONTROL.05",
+      "parent": "OF.CONTROL",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Mature: complete one real workday under the chosen protection plan, pay/transfer its output, then teach a willing resident the ordinary stop procedure or hand off a fully funded second job. Decline or safely terminate future protection if desired.",
+      "resultAndDependency": "Independent resident competence, useful output and a remembered plan that changes their next offer. A failed/withdrawn protection attempt leaves a smaller safe-parent job or a later funded retry; native injury recovery remains authoritative. No forced life reset or second prestige.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E02",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.CONTROL.05",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.MASTERY.01",
+      "parent": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Early acquisition: choose an actual source. Existing Rat-step uses field-edge observation or native Starving-wolf-rat victory, then paid study; Load-bearing Step uses a willing co-located craftsman or the specifically acquired/demonstrated imprint route. Existing reading/teacher/deduction still teach ordinary route knowledge.",
+      "resultAndDependency": "Record first source and what was learned. Observing, hearing, copying, inherited Natural balance and trained Conditioned grip are distinct. No source appears from showing a trainer or ability menu.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY.01",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.MASTERY.02",
+      "parent": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established training: preserve Rat-step's ownership at 2, execution at 6 with Agility 8, and cap 12. Slow six-minute practice and optional saved decisions reach the same method. Load-bearing Step's paid two-minute lesson teaches mastery 1; its once-only two-minute/one-stamina application raises it to 2.",
+      "resultAndDependency": "Existing execution opens only at actual requirements. Recover hands/energy and resume known controls. Native Running/Climbing/Equilibrium/Perception keep their own XP/milestones; new campaign practice cannot add a mirror mastery XP bar.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY.02",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.MASTERY.03",
+      "parent": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Established application: use a taught method on a compatible real task, then record its result. A new light-footing trial serves characters who already finished the crossing; a new loaded-frame trial serves those who already used the loose-bank response. First-pass proposal: 6 minutes/2 stamina for light footing, or 4 minutes with the chosen actual field energy for the frame; both accept ordinary slower alternatives.",
+      "resultAndDependency": "New application definitions/receipts are required. Rat-step moves the player's unloaded body across authored footing; Load-bearing Step steadies the actual load within its capacity. Neither repeats old survey/road rewards, grants every technique nor treats memory as a usable body.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY.03",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.MASTERY.04",
+      "parent": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Mature feat: make one reliable compatible outcome and explain its boundary. Rat-step 12 already guarantees its original ready-guide outcome when that route is still unfinished; propose a new repeatable precision trial that permits a reliable mastered footing result for progressed saves. Load-bearing Step 2 already supports three-output drive; propose a frame test requiring that output or a correctly chosen ordinary multi-person plan.",
+      "resultAndDependency": "The feat opens a specific useful practice/work action or a funded teaching appointment. Its completion is once per authored feat, independently of the repeatable work. Old source/mastery can satisfy prerequisites but does not fabricate having performed the new feat. Numerical gates beyond inspected existing values stay proposals until Ability/Engine freeze callers.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY.04",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.MASTERY.05",
+      "parent": "OF.MASTERY",
+      "requiredForDelivery": true,
+      "playerCanChooseLegalAlternative": true,
+      "interaction": "Mature insight/teaching: compare one actual success with one deliberately chosen limitation test, safe abort or honest observed failure. Record why a source/target/control condition mattered. Teach a consenting resident the ordinary portion, or keep the personal practice and close teaching.",
+      "resultAndDependency": "A bounded insight may unlock the compatible improved application; the learner pays real attention/time/tools and owns their own operation. Method/power transfer occurs only through a delivered source-specific teaching adapter. Teaching Rat-step to arbitrary NPC bodies or granting Lio's interposition to the player is optional, not assumed.",
+      "owner": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "selectedAdapters": [
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.MASTERY.05",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    }
+  ],
+  "endingCases": [
+    {
+      "id": "OF.END.01",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Small public counter",
+      "cumulativeCause": "Actual revised/qualified order, adequate limited evidence and consenting split owners; do not require a donation or full charter",
+      "aftermath": "Lower throughput, conserved reserve and funded small jobs. Inquiry/ordinary native work remains useful",
+      "closureAndRevisit": "Larger promise is not falsely fulfilled; revisit remembers the smaller agreement",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.01",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.02",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Resilient public service",
+      "cumulativeCause": "Tested preparation plus real substitute resources/paid worker or supported control workday; owners sign feasible public terms",
+      "aftermath": "One functional process/site/known route and a funded next need; no infinite wages or hostile native-market takeover",
+      "closureAndRevisit": "Stronger function can remove a real bottleneck; future capacity still depends on actual means",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.02",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.03",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Independent specialist",
+      "cumulativeCause": "Real mature inquiry/craft/control/mastery feat, useful output/report and consciously declined or separately resolved institution role",
+      "aftermath": "Personal practice, tested procedure and elective paying customers; not compulsory management",
+      "closureAndRevisit": "Native gathering/trade/rest and new funded specialist work continue; personal method survives service closure",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.03",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.04",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Lawful private agreement",
+      "cumulativeCause": "Producer/receiver chooses an actual paid exclusive agreement, or player negotiates that route with evidence/consent rather than preventing it",
+      "aftermath": "Public capacity narrows/closes, but a legitimate private career/service continues. Relationships retain specific agreements",
+      "closureAndRevisit": "No universal villain penalty or duel erases the contract; later reopening needs parties' new consent",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.04",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.05",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Failed/withdrawn charter",
+      "cumulativeCause": "Actual funded attempt fails or a signed obligation is terminated under disclosed terms; retain paid costs and witnessed result",
+      "aftermath": "Counter closes for this charter, trained methods/observations/home/native livelihoods survive; narrow repair/retry may exist",
+      "closureAndRevisit": "Terminal record cannot be reset by field renewal. A future project is a new funded cause, not undoing failure or awarding missed wages",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.05",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.06",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Willing succession",
+      "cumulativeCause": "Learner owns one taught ordinary operation and actual tools/body/fuel, consents, receives finite funds/stock and completes a supported independent contribution",
+      "aftermath": "Resident has a genuine capability, player can explore or retire from management; limited continuing service and remembered lineage",
+      "closureAndRevisit": "Report only known results. Funds/access loss can pause the next task without erasing teaching; handoff is not NPC/player cloning",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.06",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    },
+    {
+      "id": "OF.END.07",
+      "parents": [
+        "OF.ARC04",
+        "OF.ARC05",
+        "OF.MECH.CONSEQUENCE",
+        "OF.MECH.HANDOFF"
+      ],
+      "requiredForDelivery": true,
+      "playerMustReachAll": false,
+      "outcome": "Departure with retained home",
+      "cumulativeCause": "Local duties are settled/declined/terminated; chosen actual exit/native journey costs and terms are known",
+      "aftermath": "The campaign remains with its agreements/stock/methods. Player can keep home, visit another supported place or simply stop managing",
+      "closureAndRevisit": "On return, actual known changes and last reports are distinguished. No new off-screen aging/loss/death or extraction timer is inferred",
+      "owner": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "selectedAdapters": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "acceptanceCases": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10"
+      ],
+      "status": "proposed",
+      "planningStatus": "specified",
+      "runtimeStatus": "implemented-unverified",
+      "runtimeCoverageKey": "OF.END.07",
+      "sourceUIIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711"
+    }
+  ],
+  "boundedSharedSkillInputs": {
+    "source": "src/skill_expansion_content.js",
+    "contract": "docs/gm/world-implementation/INTERFACE.md",
+    "contractRevision": "S2",
+    "status": "source-present; native integration/build not checked by this planning role",
+    "ids": [
+      "frontier.brace_control",
+      "frontier.trail_reading",
+      "frontier.timber_judgment",
+      "frontier.shared_inquiry"
+    ]
+  },
+  "heldEpisode": {
+    "path": "src/original_frontier_campaign_content.js",
+    "status": "implemented-detached-held",
+    "gaps": [
+      "NPC route-minute mismatch",
+      "Actual target-stock/custody guard for paid lot inspection"
+    ],
+    "runtimeResumeAuthorizedForThisRole": false,
+    "historicalBaseline": true,
+    "supersededBy": "runtimeDelivery"
+  },
+  "behaviorChecks": "deferred and not run",
+  "humanAcceptance": "pending playable director review",
+  "optionalAdapters": [
+    "O01",
+    "O02",
+    "O03",
+    "O04",
+    "O05"
+  ],
+  "checks": "See PLANNING_CHECKS.json final readback.",
+  "runtimeDelivery": {
+    "date": "2026-10-05",
+    "owner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "assignment": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+    "delivery": "docs/gm/world-implementation/frontier-runtime/DELIVERY.md",
+    "coverage": "docs/gm/world-implementation/frontier-runtime/COVERAGE.json",
+    "build": "docs/gm/world-implementation/frontier-runtime/BUILD.json",
+    "bundleFingerprint": "f381c6503a58",
+    "statusCounts": {
+      "parents": {
+        "implemented-unverified": 31,
+        "pending": 2
+      },
+      "strandSteps": {
+        "implemented-unverified": 15,
+        "pending": 0
+      },
+      "endings": {
+        "implemented-unverified": 7,
+        "pending": 0
+      },
+      "adapters": {
+        "implemented-unverified": 9,
+        "pending": 0
+      }
+    },
+    "meaning": "Frozen required IDs/criteria unchanged. Current code/native/UI/build portions delivered; individual branch and world acceptance are distinct."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "verified_human_source": {
+    "thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+    "turn_id": "01a112e4-319f-7dd0-902d-8c903b40eab1"
+  },
+  "assignment": "ASSIGNMENT.md",
+  "retained_acs_queue": "DEPTH_QUEUE.json",
+  "genre_open_followup": {
+    "verified_human_source_thread": "01a112b9-410a-7da2-9182-392141662439",
+    "verified_human_turn": "01a112f4-826c-7172-a8dc-eb2a2934dd28",
+    "recipient_thread": "01a112e7-2306-7a82-9920-0befd36006cc",
+    "sent": true,
+    "qualification": "Genre-open scope clarification sent to the existing scout; research completion not inferred."
+  },
+  "receipts": [
+    {
+      "key": "melvor-idle",
+      "thread_id": "01a112e5-e6b3-7d92-b15c-c33d8fbed002",
+      "host_id": "local",
+      "sent": true,
+      "qualification": "Scope clarification sent; receiver completion not yet confirmed."
+    },
+    {
+      "key": "orb-of-creation",
+      "thread_id": "01a112e6-0dd2-7af0-8bd6-c49d7ebb2395",
+      "host_id": "local",
+      "sent": true,
+      "qualification": "Scope clarification sent; receiver completion not yet confirmed."
+    },
+    {
+      "key": "your-chronicle",
+      "thread_id": "01a112e6-339b-7eb3-828d-a30f1d5e8272",
+      "host_id": "local",
+      "sent": true,
+      "qualification": "Scope clarification sent; receiver completion not yet confirmed."
+    },
+    {
+      "key": "crush-crush",
+      "thread_id": "01a112e6-5a29-7dc0-a321-4b2e129294a8",
+      "host_id": "local",
+      "sent": true,
+      "qualification": "Scope clarification sent; receiver completion not yet confirmed."
+    },
+    {
+      "key": "idle-social-engine-scout",
+      "thread_id": "01a112e7-2306-7a82-9920-0befd36006cc",
+      "host_id": "local",
+      "sent": true,
+      "qualification": "Scope clarification sent; receiver completion not yet confirmed."
+    }
+  ]
+}

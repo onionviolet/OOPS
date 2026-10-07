@@ -1,0 +1,15 @@
+# Open-ended design input for plan review
+
+2026-10-04. Weibao requested that other aspects remain open ended as well as ability families and progression. This is direction for the combined review plan, not approval to begin the expanded implementation run. The coordinator relayed the later instruction to combine the ideas into a concrete plan for human review before parallel work.
+
+Use selected catalogues as examples and delivery scope, not an exhaustive ontology. Keep these five areas extensible:
+
+1. **Origins and existence.** Species, lineage, age, upbringing, physical and spiritual bodies, organs, consciousness, identity, memory, embodiment and starting circumstances can vary independently. A counterpart's name does not supply their abilities or history.
+2. **Means and acquisition.** Knowledge, teachers, biological faculties, fuel, tools, living sources, companions, patrons, contracts, permissions and local authority can enable different functions. Observation, instruction, copying, borrowing, transfer, theft, sacrifice and creation retain different ownership and provenance.
+3. **Progression and change.** Technique mastery, subskills, control, efficiency, capacity, biological development, adaptation, evolution, research, crafting, relationships and institutional standing can develop through separate routes. Branching, fusion, specialization, replacement, suppression, restoration and loss remain possible where the actual rules support them. No single level or tier must summarize all development.
+4. **Worlds and everyday life.** Geography, ecology, material and spiritual layers, eras, clocks, institutions, economies, ordinary occupations, social roles, relationships, residence, travel and historical consequences can differ. Preserve routes for exploration, making, learning, negotiation and community life as well as fighting.
+5. **Ability semantics and combinations.** Specify the real source, method, target, contact, output, duration, interruption, knowledge and consequences. New mechanisms may require new reviewed execution primitives. Copying, future sight, time stop, loops, transformation and authority must retain meaningful variants rather than becoming one generic effect per family.
+
+Open-ended design needs exact rules for each implemented case. It does not mean arbitrary callbacks, an unbounded first milestone, automatic compatibility, equal strength, or a promise that every proposed mechanism already executes. The first one-realm/one-prestige slice can stay bounded while future definitions add new structures. Unknown source facts remain unknown; deliberate original experiments remain labelled proposals.
+
+The review plan should distinguish the extensible design space, the selected first executable cases, required shared functions, existing support, unresolved dependencies and later acceptance gates. The current ability assignment and existing dossiers provide evidence for that selection; no new runtime support was delivered during this held run.

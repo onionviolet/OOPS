@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-02",
+  "tests": {
+    "passed": 102,
+    "failed": 0
+  },
+  "build": "success",
+  "sourceHashes": {
+    "src/simulation_contracts.js": "37d90f91a88ad7fca9034bb09c58fa4d58c08f03a90ba05ae52d8775bcfb3e8f",
+    "src/simulation_effects.js": "3bd8ee8814e07f8a929e89d96b8253f87eb082a1c02417f43ce6dccf5dadb2e6",
+    "src/simulation_ui.js": "512eefc043b939a486831391c68cf8bad10cb4f61ca048dc42684c4af3676f69",
+    "src/simulation.js": "fbadb1f2e59ef4607cceee42c255df5b1c9ab622d5161605c7715b16e03ba982",
+    "src/simulation_content.js": "5d2d73bcf8d2302a267abcd92272820ec9fca1da913bc91339c667fd21325b05",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/native_equipment_transaction.js": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+    "src/native_unlock_transaction.js": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad",
+    "src/expansion_engine.js": "56f2aad0dd78652a9baf732c1c2758476226df488c46baec31b737ef8a7e7ad1",
+    "src/main.js": "99462c15d9b25e1c783ca65d47cd701eac7eaebe5849898ce763fd8f4baabc77",
+    "tests/simulation.test.js": "70bacf4a9123c4951f189d481af0ffa5f6314a22892bf0163555701d0fa2e4c6",
+    "dist/bundle.js": "2277bdd98897fff76e6dfa11dc51c360ba43fb82803bec75a4cbed3f0abc98ce"
+  },
+  "browser": {
+    "platform": {
+      "url": "http://127.0.0.1:18463/",
+      "fingerprint": "http://127.0.0.1:18463/dist/bundle.js?version=v0.6-2277bdd98897",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "chronicle": {
+      "url": "http://127.0.0.1:18461/",
+      "fingerprint": "http://127.0.0.1:18461/dist/bundle.js?version=v0.6-2b5c2c5ed3c0",
+      "findings": [
+        "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+        "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+        "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+        "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+        "Attended briefing contributes usable preparation through the existing capability/read model.",
+        "Stronger generated native XP build wins against the same fixed elder.",
+        "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+        "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+        "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "village": {
+      "url": "http://127.0.0.1:18463/",
+      "fingerprint": "http://127.0.0.1:18463/dist/bundle.js?version=v0.6-2b5c2c5ed3c0",
+      "findings": [
+        "Native-menu discovery, pending reload, real objects, partial native reading reload and one completion pass without chronicle enrollment.",
+        "A real preparation contribution, one saved claim per day, native encoded file import/export and completed-book reload pass without duplicate rewards.",
+        "Generated story-access/material fixture: native craftsman greeting, real token handover, reputation, faster packing, actual Shack travel, material refund, mid-build/packing reload, real kit consumption and changing home-board text pass.",
+        "The understood booklet opens a separate guaranteed-ready route, retaining the token and using no kit while leaving the crossing unrepaired.",
+        "Generated later-day and closed-window calendars reopen only the current gathering, with no payouts for skipped days.",
+        "Injected storage failure publishes no claim, reward or advanced joined calendar; reload restores the available gathering."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "performance": {
+    "scenario": "two-actor Village, completed commission and routine, 10000 supported minutes",
+    "minutes": 10000,
+    "batches": 20,
+    "elapsedMs": 39.861,
+    "simulationBytes": 3870,
+    "expansionBytes": 4921,
+    "events": 1,
+    "logEntries": 12
+  },
+  "limits": [
+    "generated saves and generated story access only",
+    "human narrative/balance acceptance pending",
+    "different fingerprints recorded for earlier regression suites and the final changed-event proof"
+  ],
+  "environmentNotes": [
+    "A parallel browser attempt stalled before Play on the stdout-logging test server, including get_game_version undefined. Sequential reruns and a file-logging server passed; five fresh startup contexts captured no errors. Test-server I/O was suspected, not established as an application defect."
+  ]
+}

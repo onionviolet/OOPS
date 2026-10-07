@@ -1,0 +1,234 @@
+--- docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js	2026-10-06 02:35:34
++++ src/feature_expansion_work_plan.js	2026-10-06 02:40:46
+@@ -3,8 +3,12 @@
+ import {assert, record, stableId, natural, copy, validatePredicate, meets} from './simulation_contracts.js';
+ import {previewSimulationCommand, commitSimulationCommand, cancelSimulationJob, simulationFacts, simulationOccupiesActor} from './simulation.js';
+ import {activePractice} from './techniques.js';
++import {AUDITED_KIT_RESERVE_IDS as KIT, AUDITED_KIT_RESERVE_POLICY as KIT_POLICY,
++    AUDITED_KIT_RESERVE_TERMS as KIT_TERMS, planDefinitions as kitPlans} from './audited_kit_reserve_content.js';
++import {auditedKitReserveFacts} from './audited_kit_reserve_facts.js';
+ 
+-export const WORK_PLAN_SCHEMA = 1;
++export const WORK_PLAN_SCHEMA = 2;
++export const LEGACY_WORK_PLAN_SCHEMA = 1;
+ const statuses = ['running', 'paused', 'complete', 'cancelled'];
+ const keysOnly = (value, keys) => assert(Object.keys(value).every(key => keys.includes(key)), 'The optional itinerary cursor cannot contain a copied context or unsupported fields.');
+ const stage = (state, context) => ({state: copy(state), external: copy(context.external || {}), gameplay: copy(context.gameplay || {}),
+@@ -16,6 +20,32 @@
+ const liveJob = (state, cursor) => cursor.accepted && state.simulation.jobs.find(j => j.id === cursor.accepted.jobId && j.actorId === cursor.actorId);
+ const knownCompletion = (state, step, actorId) => !!state.actors[actorId].completed[step.commandId];
+ 
++function validateStockPolicy(policy) {
++    assert(record(policy), 'Invalid optional stock policy.');
++    keysOnly(policy,Object.keys(KIT_POLICY));
++    assert(Object.entries(KIT_POLICY).every(([key,value]) => policy[key] === value),
++        'Unsupported reserve policy. Retain the original save and remove only this optional cursor to recover it.');
++}
++
++function validateStockDefinition(d, commands) {
++    validateStockPolicy(d.stockPolicy);
++    const retained = kitPlans[0];
++    assert(d.id === KIT.plan && d.revision === 1 && d.origin === KIT.origin && d.label === retained.label && d.actorId === 'player' && d.goal == null &&
++        JSON.stringify(d.steps) === JSON.stringify(retained.steps), 'The reserve needs its exact finite revision-1 resin plan.');
++    if(!commands) return;
++    const route = commands.get(KIT.command), t = KIT_TERMS;
++    assert(route?.revision === t.commandRevision && route.worldId === KIT.world && route.location === KIT.location && route.siteId === KIT.site &&
++        route.actorId === 'player' && !route.once && !route.encounterId && !route.outcomes && route.duration === t.duration &&
++        route.cancellation === 'refund' && route.completionFailure === 'refund' && route.completionRequires &&
++        route.costs?.length === 3 && route.costs.every(e => e.actor === 'player') &&
++        route.costs.some(e => e.type === 'item' && e.key === t.resinKey && e.amount === -t.resinCount) &&
++        route.costs.some(e => e.type === 'item' && e.key === t.soundKey && e.amount === -t.soundCount) &&
++        route.costs.some(e => e.type === 'vital' && e.key === 'stamina' && e.amount === -t.stamina) &&
++        route.effects?.filter(e => e.type === 'item').length === 1 &&
++        route.effects.some(e => e.type === 'item' && e.actor === 'player' && e.key === KIT_POLICY.key && e.amount === KIT_POLICY.batchOutput),
++        'The reserve requires the retained resin route, exact costs, support/refunds and two native-kit output.');
++}
++
+ function validateStep(step, commands) {
+     assert(record(step) && stableId(step.id) && ['command','travel','wait'].includes(step.kind), 'Invalid mixed work-plan step.');
+     if(step.kind === 'command') {
+@@ -43,6 +73,7 @@
+         assert(new Set(d.steps.map(s => s.id)).size === d.steps.length, 'Duplicate mixed itinerary step.');
+         validatePredicate(d.visibleWhen); validatePredicate(d.requires);
+         if(d.goal != null) validatePredicate(d.goal);
++        if(d.stockPolicy != null) validateStockDefinition(d,simulationRegistry?.commands);
+         for(const step of d.steps) validateStep(step, simulationRegistry?.commands);
+         assert(!simulationRegistry || simulationRegistry.commands.has(d.origin), 'Missing itinerary origin.');
+         plans.set(d.id, copy(d));
+@@ -54,11 +85,22 @@
+ // save. Native context, inventory, facts, outputs and clock are never mirrored.
+ export function validateWorkPlans(value, state, simulationRegistry, planRegistry) {
+     if(value == null) return;
+-    assert(record(value) && value.schema === WORK_PLAN_SCHEMA && record(value.cursors) && Object.keys(value.cursors).length <= 8, 'Unsupported optional workPlans schema. Remove only this cursor record to recover the save.');
++    assert(record(value) && [LEGACY_WORK_PLAN_SCHEMA,WORK_PLAN_SCHEMA].includes(value.schema) && record(value.cursors) && Object.keys(value.cursors).length <= 8, 'Unsupported optional workPlans schema. Remove only this cursor record to recover the save.');
+     keysOnly(value,['schema','cursors']);
+     for(const [actorId,c] of Object.entries(value.cursors)) {
+         assert(record(c) && actorId === 'player' && c.actorId === actorId && state.simulation?.people[actorId], 'Invalid itinerary actor.');
+-        keysOnly(c,['id','definitionId','origin','revision','actorId','label','status','index','steps','startedAt','updatedAt','startedSequence','reason','accepted','goal']);
++        keysOnly(c,['id','definitionId','origin','revision','actorId','label','status','index','steps','startedAt','updatedAt','startedSequence','reason','accepted','goal',
++            ...(value.schema === WORK_PLAN_SCHEMA ? ['stockPolicy','stockHold','stockAcceptedBatches'] : [])]);
++        if(c.stockPolicy != null) {
++            assert(value.schema === WORK_PLAN_SCHEMA && [9,10].includes(state.schema) && state.referenceGameplay?.schema === 1 && c.goal == null,
++                'The optional stock policy requires workPlans2 and the enrolled reference gameplay reader.');
++            assert(state.referenceGameplay.workshop && state.actors?.player?.facts?.['reference_gameplay.opened'] === true &&
++                state.actors.player.completed[KIT.origin] === 1 && c.startedSequence > 0 && c.id === `work-plan:${c.startedSequence}`,
++                'The optional reserve requires its actual bench meeting and explicit accepted cursor receipt.');
++            validateStockDefinition({...c,id:c.definitionId},simulationRegistry?.commands);
++            assert(typeof c.stockHold === 'boolean' && natural(c.stockAcceptedBatches) && c.stockAcceptedBatches <= c.stockPolicy.maxAcceptedBatches &&
++                c.stockAcceptedBatches >= c.index + (c.accepted ? 1 : 0) && (!c.accepted || !c.stockHold), 'Invalid finite reserve budget or hold state.');
++        } else assert(!Object.hasOwn(c,'stockHold') && !Object.hasOwn(c,'stockAcceptedBatches'), 'A stock cursor lost its frozen policy.');
+         if(c.goal != null) {
+             assert([9,10].includes(state.schema) && state.referenceGameplay?.schema === 1, 'Goal-directed practice requires the reference gameplay reader.');
+             validatePredicate(c.goal);
+@@ -68,13 +110,15 @@
+         'Invalid finite itinerary cursor.');
+         assert(natural(c.startedAt) && c.startedAt <= state.clock && natural(c.updatedAt) && c.updatedAt >= c.startedAt && c.updatedAt <= state.clock &&
+             natural(c.startedSequence) && c.startedSequence <= state.sequence && (c.reason == null || typeof c.reason === 'string'), 'Invalid itinerary receipt.');
+-        assert(c.status !== 'complete' || c.index === c.steps.length || c.goal != null && !c.accepted, 'Incomplete itinerary marked complete.');
++        assert(c.status !== 'complete' || c.index === c.steps.length || c.goal != null && !c.accepted ||
++            c.stockPolicy != null && c.stockAcceptedBatches === c.stockPolicy.maxAcceptedBatches && !c.accepted, 'Incomplete itinerary marked complete.');
+         assert(c.index < c.steps.length || ['complete','cancelled'].includes(c.status), 'Finished itinerary is still running.');
+         for(const step of c.steps) validateStep(step, simulationRegistry?.commands);
+         assert(new Set(c.steps.map(s => s.id)).size === c.steps.length, 'Duplicate saved itinerary step.');
+         if(planRegistry) {
+             const d = planRegistry.get(c.definitionId);
+-            assert(d && d.revision === c.revision && d.origin === c.origin && d.label === c.label && JSON.stringify(d.steps) === JSON.stringify(c.steps) && JSON.stringify(d.goal ?? null) === JSON.stringify(c.goal ?? null),
++            assert(d && d.revision === c.revision && d.origin === c.origin && d.label === c.label && JSON.stringify(d.steps) === JSON.stringify(c.steps) && JSON.stringify(d.goal ?? null) === JSON.stringify(c.goal ?? null) &&
++                JSON.stringify(d.stockPolicy ?? null) === JSON.stringify(c.stockPolicy ?? null),
+                 'This itinerary needs its retained definition. Remove only its optional cursor to keep the rest of the save.');
+         }
+         if(c.accepted != null) {
+@@ -94,7 +138,9 @@
+ export function workPlanNextBoundary(state) {
+     // Accepted jobs already supply their due boundary through simulation.js.
+     // A running unreserved cursor demands a single common played-minute check.
+-    return Object.values(root(state)?.cursors || {}).some(c => c.status === 'running' && !c.accepted) ? state.clock + 1 : Infinity;
++    // Stock routines reconsider at actual common played boundaries. They never
++    // manufacture minute polling while waiting for the player to spend a kit.
++    return Object.values(root(state)?.cursors || {}).some(c => c.status === 'running' && !c.accepted && !c.stockPolicy) ? state.clock + 1 : Infinity;
+ }
+ 
+ function settleAccepted(out, cursor, registry) {
+@@ -106,7 +152,10 @@
+     else {cursor.status = 'paused'; cursor.reason = 'The accepted step stopped or was cancelled. Its actual reservation policy was applied; no itinerary result was awarded.';}
+     cursor.accepted = null;
+     cursor.updatedAt = out.state.clock;
+-    if(cursor.index === cursor.steps.length) cursor.status = 'complete';
++    if(cursor.index === cursor.steps.length) {
++        cursor.status = 'complete';
++        if(cursor.stockPolicy) cursor.reason = 'The finite three-accepted-batch reserve is complete. No later batch will be reserved.';
++    }
+     return true;
+ }
+ 
+@@ -136,6 +185,30 @@
+         const step = cursor.steps[cursor.index], context = ctxFor(out,actorId,contexts);
+         if(!contexts[actorId]) {cursor.status = 'paused'; cursor.reason = 'A current native context is required before the next step.'; break;}
+         const facts = simulationFacts(out.state,context,registry);
++        if(cursor.stockPolicy) {
++            const stock = auditedKitReserveFacts(out.state,context,facts), policy = cursor.stockPolicy;
++            if(!stock['auditedKitReserve.supported']) {
++                cursor.status = 'paused'; cursor.reason = 'Reserve paused: return to Eda’s Village bench with your supported living body and usable hands, then resume.';
++                cursor.updatedAt = out.state.clock; work++; break;
++            }
++            if(cursor.stockAcceptedBatches === policy.maxAcceptedBatches) {
++                cursor.status = 'complete'; cursor.reason = 'All three accepted batches have been used. Refunded or cancelled commitments also count; no further work is reserved.';
++                cursor.updatedAt = out.state.clock; work++; break;
++            }
++            const available = stock['auditedKitReserve.available'];
++            if(available >= policy.upper || cursor.stockHold && available > policy.lower) {
++                const reason = `Reserve holding: ${available} available owned kits. Restart at ${policy.lower} or fewer; holding spends no materials, stamina or work time.`;
++                if(!cursor.stockHold || cursor.reason !== reason) {cursor.stockHold = true; cursor.reason = reason; cursor.updatedAt = out.state.clock; work++;}
++                break;
++            }
++            // At intermediate stock a previously released routine stays released;
++            // a held routine stays held. A two-kit batch can finish at five kits.
++            cursor.stockHold = false;
++            if(stock['auditedKitReserve.resinAvailable'] < KIT_TERMS.resinCount || stock['auditedKitReserve.soundAvailable'] < KIT_TERMS.soundCount) {
++                cursor.status = 'paused'; cursor.reason = 'Reserve paused: carry 1 owned Set repair resin and 2 owned Sound repair staves, unequipped and outside custody, then resume. No inputs were reserved.';
++                cursor.updatedAt = out.state.clock; work++; break;
++            }
++        }
+         if(cursor.goal && meets(cursor.goal,facts)) {
+             cursor.status = 'complete'; cursor.reason = 'The useful function is earned. No further practice is reserved.';
+             cursor.updatedAt = out.state.clock; work++; break;
+@@ -174,11 +247,17 @@
+         cursor = root(out.state).cursors[actorId];
+         const job = out.state.simulation.jobs.find(j => j.actorId === actorId && j.commandId === step.commandId && j.sequence === out.state.sequence);
+         cursor.updatedAt = out.state.clock; cursor.reason = ''; work++;
++        if(cursor.stockPolicy) {
++            assert(job, 'A reserve batch requires the existing real three-minute job.');
++            cursor.stockAcceptedBatches++;
++        }
+         if(job) {cursor.accepted = {jobId:job.id,commandId:job.commandId,revision:job.revision,sequence:job.sequence,
+             startedAt:out.state.clock,due:job.due,completedBefore}; break;}
+         cursor.index++;
+     }
+-    if(cursor.index === cursor.steps.length && !cursor.accepted) {cursor.status = 'complete'; cursor.reason = '';}
++    if(cursor.index === cursor.steps.length && !cursor.accepted) {
++        cursor.status = 'complete'; cursor.reason = cursor.stockPolicy ? 'The finite three-accepted-batch reserve is complete. No later batch will be reserved.' : '';
++    }
+     return work;
+ }
+ 
+@@ -195,12 +274,13 @@
+     const d = planRegistry.get(definitionId); assert(d, 'Unknown finite itinerary.');
+     const previous = root(state)?.cursors.player;
+     assert(!previous || ['complete','cancelled'].includes(previous.status), 'Pause, finish or cancel your existing itinerary first.');
+-    const facts = simulationFacts(state,context,registry);
++    const currentFacts = simulationFacts(state,context,registry);
++    const facts = {...currentFacts, ...auditedKitReserveFacts(state,context,currentFacts)};
+     assert(meets(d.visibleWhen,facts) && meets(d.requires,facts), 'Hear and accept this itinerary’s known origin first.');
+     assert(!context.busy && !simulationOccupiesActor(state,'player') && !state.pending.some(j => j.context.actorId === 'player') &&
+         !activePractice(state.actors.player) && state.simulation.programs.player?.status !== 'running', 'Finish your current native activity or routine first.');
+     const out = stage(state,context), cause = `work-plan:${++out.state.sequence}`;
+-    out.state.simulation.workPlans ||= {schema: WORK_PLAN_SCHEMA,cursors:{}};
++    out.state.simulation.workPlans ||= {schema: LEGACY_WORK_PLAN_SCHEMA,cursors:{}};
+     out.state.simulation.workPlans.cursors.player = {id:cause,definitionId:d.id,revision:d.revision,actorId:'player',origin:d.origin,label:d.label,
+         startedSequence:out.state.sequence,startedAt:state.clock,updatedAt:state.clock,steps:copy(d.steps),index:0,status:'running',accepted:null,reason:''};
+     if(d.goal != null) {
+@@ -208,6 +288,13 @@
+         out.state.schema = out.state.bookWorldCampaign?10:9;
+         out.state.simulation.workPlans.cursors.player.goal = copy(d.goal);
+     }
++    if(d.stockPolicy != null) {
++        validateStockDefinition(d,registry.simulation.commands);
++        assert(out.state.referenceGameplay?.schema === 1 && [9,10].includes(out.state.schema), 'Enroll the reference gameplay before accepting a stock reserve.');
++        out.state.simulation.workPlans.schema = WORK_PLAN_SCHEMA;
++        const c = out.state.simulation.workPlans.cursors.player;
++        c.stockPolicy = copy(d.stockPolicy); c.stockHold = false; c.stockAcceptedBatches = 0;
++    }
+     advanceOne(out,registry,{player:context},'player');
+     validateWorkPlans(root(out.state),out.state,registry.simulation,planRegistry);
+     return out;
+@@ -244,18 +331,25 @@
+ export function workPlanView(state, registry, planRegistry, context) {
+     const c = root(state)?.cursors[context.actorId || 'player'];
+     if(!c) return null;
+-    const next = c.steps[c.index], job = liveJob(state,c);
++    const job = liveJob(state,c), stockEnded = c.stockPolicy && (['complete','cancelled'].includes(c.status) ||
++        c.stockAcceptedBatches === c.stockPolicy.maxAcceptedBatches && !job);
++    const next = stockEnded ? null : c.steps[c.index];
+     let quote = null;
+     if(next?.kind === 'command' && !job) {
+         const d = registry.simulation.commands.get(next.commandId);
+         if(d?.revision === next.revision) quote = previewSimulationCommand(state,registry,next.commandId,{...context,targetId:next.targetId || null});
+     }
++    const stock = c.stockPolicy ? auditedKitReserveFacts(state,context) : null;
++    const holding = c.stockPolicy && !['complete','cancelled'].includes(c.status) && !job &&
++        (stock['auditedKitReserve.available'] >= c.stockPolicy.upper || c.stockHold && stock['auditedKitReserve.available'] > c.stockPolicy.lower);
+     return {id:c.id,definitionId:c.definitionId,label:c.label,status:c.status,index:c.index,total:c.steps.length,reason:c.reason,
++        ...(c.stockPolicy ? {stockPolicy:copy(c.stockPolicy),stockHold:c.stockHold,holding:!!holding,available:stock['auditedKitReserve.available'],
++            acceptedBatches:c.stockAcceptedBatches,remainingBatches:c.stockPolicy.maxAcceptedBatches-c.stockAcceptedBatches} : {}),
+         steps:c.steps.map((s,index) => ({id:s.id,kind:s.kind,label:s.kind === 'command' ? registry.simulation.commands.get(s.commandId)?.label || 'Retained work step' : s.label,
+-            status:index < c.index ? 'complete' : index === c.index ? job ? 'accepted' : 'next' : 'future'})),
+-        next: next ? {id:next.id,kind:next.kind,label:quote?.label || next.label || 'Next known step',eligible:!!quote?.eligible,
+-            reasons:job ? [] : quote ? quote.visible ? quote.reasons : ['Requirements not yet known.'] : c.reason ? [c.reason] : [],
+-            duration:quote?.duration || 0,costs:quote?.eligible ? quote.costs : [],targetId:next.targetId || null} : null,
++            status:index < c.index ? 'complete' : stockEnded ? 'unused' : index === c.index ? job ? 'accepted' : 'next' : 'future'})),
++        next: next ? {id:next.id,kind:next.kind,label:quote?.label || next.label || 'Next known step',eligible:!!quote?.eligible && !holding && (!c.stockPolicy || c.stockAcceptedBatches < c.stockPolicy.maxAcceptedBatches),
++            reasons:job ? [] : holding ? [c.reason || 'The reserve is holding. No next batch is reserved.'] : quote ? quote.visible ? quote.reasons : ['Requirements not yet known.'] : c.reason ? [c.reason] : [],
++            duration:quote?.duration || 0,costs:quote?.eligible && !holding && (!c.stockPolicy || c.stockAcceptedBatches < c.stockPolicy.maxAcceptedBatches) ? quote.costs : [],targetId:next.targetId || null} : null,
+         accepted:job ? {id:job.id,label:job.label,remaining:Math.max(0,job.due-state.clock),cancellation:job.cancellation} : null,
+         canResume:c.status === 'paused',canPause:c.status === 'running',canCancel:!['complete','cancelled'].includes(c.status),
+         canForget:!job,definitionRetained:!planRegistry || planRegistry.has(c.definitionId)};

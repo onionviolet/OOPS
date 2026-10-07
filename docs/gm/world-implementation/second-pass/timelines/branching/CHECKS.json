@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-05",
+  "status": "PASS",
+  "counts": [
+    {
+      "graph": "FRONTIER_COUNTER_AND_FIELD",
+      "nodes": 18,
+      "edges": 31,
+      "endings": 5,
+      "traces": 5
+    },
+    {
+      "graph": "STILLWATER_TWO_PASS",
+      "nodes": 17,
+      "edges": 19,
+      "endings": 4,
+      "traces": 4
+    }
+  ],
+  "distinct_ending_signatures": 9,
+  "connected_document_walkthroughs": 9,
+  "markdown_targets": 31,
+  "mermaid_blocks": 2,
+  "mermaid_nodes": 35,
+  "coverage_rows": 12,
+  "scope_files": [
+    "CASES.md",
+    "CHECKPOINT.md",
+    "CHECKS.json",
+    "CHOICE_GRAPH.json",
+    "DEPENDENCIES.md",
+    "FRONTIER_RECONCILIATION.md",
+    "INPUTS.json",
+    "REPORT.md",
+    "REVIEW.md",
+    "TIMELINE_STYLES.md",
+    "VISION_COVERAGE.json"
+  ],
+  "source_receipt": {
+    "sha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+    "matches_manifest": true,
+    "members": [
+      {
+        "chapter": 84,
+        "member": "OEBPS/Text/0084_84_Powerless.xhtml",
+        "sha256": "ae686db964049e7b007110939b353878d3cd48c158eb74cbed66167427b48d66",
+        "matches_manifest": true
+      },
+      {
+        "chapter": 91,
+        "member": "OEBPS/Text/0091_91_A_Path_Paid_in_Blood.xhtml",
+        "sha256": "e9011dcdc30a914afc086ff8121bbb9b1562cafe71045544579074b762e9eae0",
+        "matches_manifest": true
+      },
+      {
+        "chapter": "epilogue",
+        "member": "OEBPS/Text/0107_Epilogue.xhtml",
+        "sha256": "ec7f59ef8c1f1eec424b069c1af9e2ec2896eb7e180e4ee9b9af72f03eb01bf4",
+        "matches_manifest": true
+      }
+    ],
+    "semantic_reuse": "three narrow windows checked in old audit; hash-matching evidence reused, not a new full-book semantic audit"
+  },
+  "drift": [
+    {
+      "path": "PROJECT.md",
+      "initial": "095ab060e6aca28b67e7a9594ef1ad1385b30f5622f730d12661975f4e0d8974",
+      "current": "ac3c253ea5bebc6ecb9be8df5e8396a1caa50405596294c9066e672af3fea7a0"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "initial": "1f1d7219436b3d259fcb5bc005c807df44e454dbd2f758f70f05cceeff58643d",
+      "current": "3f42db58f3eebc69cf8ec82d2536364fde2715549b2e4d52e65de4a9b800bcca"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "initial": "7b2461e16292c46e842300e07f8514e246663cebe08c1ff9109da32882071c1a",
+      "current": "f1ad8e1286b9c2ca50ab85172023244e8015492ee50ee376f0378ade9c88dcd2"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "initial": "cfa24f4d37dc4114298411347cec9728de5afba87d4f23db8d145ae72e0dd600",
+      "current": "3c7767c6ff5bac1083a7c699773fb6a203328edadd6fc1e44386077136f98e21"
+    },
+    {
+      "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "initial": "c8d7a47f243f9207c632931ce377a7b1adc634dc2ae34f8eeea6a9bedb8bff6e",
+      "current": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a"
+    },
+    {
+      "path": "docs/worlds/original-frontier/CHECKPOINT.md",
+      "initial": "d906e04ddb4614851d2d0851f3f3de0cbf0eee89cfc9fd0d944f80a870fbe3de",
+      "current": "df51d8d552db67450227f1d12ee56eccf1a79c5f35f34aaf9791323cc23fcf49"
+    }
+  ],
+  "errors": [],
+  "verification_limit": "Document consistency only: graph edges/traces/unique outcomes and explicit written ledgers, not executing game rules or acceptance. No runtime/build/browser/unit/save/failure/benchmark.",
+  "reconciled_current_hashes": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "docs/USER_VISION.md": "3f42db58f3eebc69cf8ec82d2536364fde2715549b2e4d52e65de4a9b800bcca",
+    "PROJECT.md": "ac3c253ea5bebc6ecb9be8df5e8396a1caa50405596294c9066e672af3fea7a0",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "f1ad8e1286b9c2ca50ab85172023244e8015492ee50ee376f0378ade9c88dcd2",
+    "docs/gm/world-implementation/RUN.json": "3c7767c6ff5bac1083a7c699773fb6a203328edadd6fc1e44386077136f98e21",
+    "docs/worlds/original-frontier/CAMPAIGN.md": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a",
+    "docs/worlds/original-frontier/CHECKPOINT.md": "df51d8d552db67450227f1d12ee56eccf1a79c5f35f34aaf9791323cc23fcf49"
+  },
+  "reconciliation": "PROJECT/USER_VISION/plan/RUN and current Frontier owner changed through parallel planning. Live revision7 resume/new request and Frontier completed seven-ending owner were reread. Old inputs preserved, variants scoped separately in FRONTIER_RECONCILIATION; source/runtime/old-Timeline fingerprints did not drift at check.",
+  "independent_review": {
+    "agent": "/root/branch_graph_review",
+    "route": "gpt-6-luna, medium, fork_turns none; self-contained bounded independent review",
+    "status": "completed; no child/process or ongoing writer",
+    "rounds": 2,
+    "findings": "R1 coil ledger/R2 Mira itinerary/R3 later invoices resolved by focused reviewer; root resolved remaining named teacher/payer gap R5 using exact held lesson source. Root added R4 safe limit and R6 actual-time/failure/R7 named ordinary site-cost clarifications. Review report retains historical stage findings, not an unqualified final gameplay pass."
+  },
+  "future_behavior": "BG01-BG05 all unexecuted; original control invoice/deadline variants not canonical acceptance or numerical balance.",
+  "final_document_checks": "Post-repair parsed all JSON and read back node/edge/ending/trace/known means; all 9 traces connect and end correctly; ending signatures distinct; current request/source targets exist; 2 Mermaid blocks reference declared IDs; no whitespace/newline/link error; original ledger arithmetic and named lesson/receipt checked. No graph was executed as game code.",
+  "artifact_hashes": {
+    "VISION_COVERAGE.json": "1511bdf44498f86aba1cfc8e0c1a6ef96a13150eda8ac3b3cc4ee0c139575572",
+    "CHOICE_GRAPH.json": "669f998989290003db2fb6b9217b4dec697f4d2b7c8bd4a13168e6f26235a9d0",
+    "REPORT.md": "3d6973c7484a12ba3727e5b5ee3b1dbbf489bb7796d30cc7819351594f6b612a",
+    "DEPENDENCIES.md": "d3d41ea42595e386a76f070ad55e2e41076a30bd9e6a709d34356aed41d35528",
+    "TIMELINE_STYLES.md": "a0d9adf23358a449ff100dd1a60e9d394aec7b864c2b677b3f36d6b7b5a80c0f",
+    "INPUTS.json": "3fe7bb034acce0c9a378a50af9be59d6e6ebfa0e8e69e5d2e51485d63fcfd67a",
+    "CASES.md": "00b64bc98dde6356c271651bd10d9182a1d710def18300cbe2aa586e9439afa3",
+    "FRONTIER_RECONCILIATION.md": "55a9051938217c817c0a746f20b328067e842e5b8eab7c74fd701d994d407387",
+    "REVIEW.md": "ff803a8bef7026bdbda5576d8e22d3eaefa93c275420468aa5376981780124ec"
+  },
+  "completion_usage": {
+    "tokens": 279928,
+    "elapsed_seconds": 2145,
+    "provenance": "host goal tokensUsed/timeUsedSeconds at first completed-status snapshot",
+    "scope": "cumulative host goal counter; later delivery-metadata edits excluded; worker usage not separately exposed",
+    "budget": null,
+    "savings_or_billing_inference": false
+  }
+}

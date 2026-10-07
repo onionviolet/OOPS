@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "interfaceVersion": 1,
+  "status": "replacement and nested carrier/native/clock/save/UI/build admitted; implemented-unverified",
+  "owner": "01a10dc6-296b-7ca3-9efc-fb53590301da",
+  "integrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "sourceScope": "new src/backlog_expansion_* only",
+  "compatibility": {
+    "expansion": {
+      "oldUnenrolled": 5,
+      "optedInWave": 6
+    },
+    "simulation": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "optionalBacklog": {
+      "retained": 1,
+      "replacementOptIn": 2
+    },
+    "absentDefault": "absent; no enrollment, origins, rewards, body changes or elapsed replay",
+    "oldBuildPolicy": "Reuse Features actual FEATURE_ENGINE_SCHEMA6, now implemented in expansion_engine. Backlog stages schema6 only on explicit opt-in; old expansion5 reader explicitly rejects6 before native load. No new fork_schema marker is required.",
+    "optedInNativeEnvelope": "existing fork_schema1; optional expansion6 and backlog1",
+    "replacementPolicy": "Only explicit replacement meet sets Backlog2, which requires replacement1. Reader accepts retained1/2; missing replacement stays inert. Old Backlog1 reader rejects2. Expansion6 stays unchanged.",
+    "nestedWaveCoexistence": "Backlog validates6/7; its commands retain Math.max(current,6), never downgrade nested7. Actual expansion_engine owns whole-save7 admission; nestedCampaign remains Features-owned."
+  },
+  "exports": {
+    "src/backlog_expansion_host.js": [
+      "backlogActions",
+      "validateBacklogState",
+      "previewBacklogAction",
+      "commitBacklogAction",
+      "backlogView",
+      "backlogNativeContext",
+      "backlogNativeActionReasons",
+      "assertBacklogPublication",
+      "backlogNativeClockPaused",
+      "validateBacklogEnvelope",
+      "assertBacklogItemDisposition"
+    ],
+    "src/backlog_expansion_core.js": [
+      "BACKLOG_SCHEMA",
+      "backlogPlan",
+      "assertBacklogBoundary",
+      "backlogRecord",
+      "backlogInventory",
+      "backlogItem",
+      "backlogTransfer",
+      "backlogActor",
+      "backlogLog",
+      "backlogAssert",
+      "BACKLOG_REPLACEMENT_SCHEMA"
+    ],
+    "src/backlog_expansion_ui.js": [
+      "createBacklogExpansionPanel"
+    ],
+    "src/backlog_expansion_content.js": [
+      "backlogSimulationDefinitions",
+      "backlogSources",
+      "backlogCapabilities",
+      "backlogItemDefinitions"
+    ],
+    "src/backlog_expansion_body.js": [
+      "BODY_IDS",
+      "BODY_ITEM_KEYS",
+      "bodyCommands",
+      "stageBodyCommand",
+      "bodyView",
+      "validateBodyRecord",
+      "bodyNativeInputs",
+      "reanchorBodyInputs",
+      "bodyPhysicalProjection",
+      "bodyActionReasons",
+      "bodyTransitionActive",
+      "bodyItemDispositionReasons",
+      "validateBodyNativeInventory",
+      "bodyDefinitions",
+      "bodySources",
+      "bodyCapabilities",
+      "bodyItemDefinitions"
+    ],
+    "src/backlog_expansion_time.js": [
+      "timeCommands",
+      "stageTimeCommand",
+      "timeView",
+      "validateTimeRecord",
+      "settleTimeAdvance",
+      "timeActionReasons",
+      "timeNativeActionReasons",
+      "timeClockPauseReason",
+      "assertTimeSeal",
+      "timePeople",
+      "timeSites"
+    ],
+    "src/backlog_expansion_opportunities.js": [
+      "OPPORTUNITY_IDS",
+      "OPPORTUNITY_ITEMS",
+      "opportunityDefinitions",
+      "opportunityCommands",
+      "stageOpportunityCommand",
+      "opportunityView",
+      "validateOpportunityRecord"
+    ],
+    "src/backlog_expansion_replacement.js": [
+      "REPLACEMENT_IDS",
+      "REPLACEMENT_CONTRACT",
+      "replacementDefinitions",
+      "replacementSources",
+      "replacementCommands",
+      "stageReplacementCommand",
+      "validateReplacementRecord",
+      "replacementView",
+      "replacementCarrierView",
+      "replacementActionVisible"
+    ],
+    "src/backlog_expansion_transit.js": [
+      "CARRIER_TRANSIT_SCHEMA",
+      "carrierTransitContext",
+      "buildCarrierTransitSnapshot",
+      "previewCarrierTransit",
+      "stageCarrierTransit",
+      "previewCarrierClock",
+      "stageCarrierClock",
+      "validateCarrierTransitRecord",
+      "summarizeCarrierTransitIntent",
+      "carrierTransitView"
+    ]
+  },
+  "requiredJoins": [
+    {
+      "owner": "src/simulation_content.js",
+      "purpose": "Register returned provision:false proof people/sites and real source/capability definitions. No automatic provisioning on load."
+    },
+    {
+      "owner": "src/expansion_engine.js",
+      "purpose": "Call validateBacklogState(state) and reject unsupported opted-in namespace. Preserve absent old saves."
+    },
+    {
+      "owner": "src/main.js",
+      "purpose": "Use actual campaignContext plus vitals, equipment and fresh-creation evidence; call commitBacklogAction(...,{advancePlan:(plan,n)=>advanceChroniclePlan(plan,n,true)}), then existing persistExpansion(plan) once. Do not save from modules."
+    },
+    {
+      "owner": "src/main.js",
+      "purpose": "Bind new Notebook/local action panel through createBacklogExpansionPanel. Panels render projections and exact-sequence commands."
+    },
+    {
+      "owner": "src/main.js / native_gameplay_adapter.js / selected native gates",
+      "purpose": "Enforce active loop stock/time seal and possession/nonhuman body functions on native work, trade, storage, equipment, travel, quest/reward and extension commits. A detached lock helper is insufficient."
+    },
+    {
+      "owner": "fresh native character creation",
+      "purpose": "Offer deliberate nonhuman opening before any native progress. Evidence packet must be derived from actual newly created zero-clock/zero-XP hero and exact sequence, never a saved flag or load migration."
+    },
+    {
+      "owner": "src/main.js:update_timer/update and persistExpansion",
+      "purpose": "backlogNativeClockPaused stops ordinary joined ticks and passive regeneration while active live loop; assertBacklogPublication(expansionState,plan) permits only explicitly tagged backlog.loop.practice/rewind/finish staged plans. Keep rendering/export read-only available."
+    },
+    {
+      "owner": "src/main.js:backlog command/read context",
+      "purpose": "Set context.wallNowMs=Date.now() from the actual host clock, and full current equipment/vitals. Offline catch-up remains explicit and bounded; ordinary joined ticking/regeneration pauses while its prepaid escrow is armed/paused."
+    },
+    {
+      "owner": "src/save_files.js:validateSaveEnvelope",
+      "purpose": "Call validateBacklogEnvelope(save) on actual saved native bag/all other native bags; optional backlog requires expansion6. Keep native fork_schema1. Preserve namespace and reject unknown backlog schema."
+    },
+    {
+      "owner": "native_gameplay_adapter.js:assertNativeItemDisposition and main native storage",
+      "purpose": "Call assertBacklogItemDisposition(state,key); unique BL-01 stock cannot be sold/stored/consumed/loaned outside body controls, including encoded aliases. Body helper native inventory validation includes secondary bags/equipment and canonical simulation owners once."
+    },
+    {
+      "owner": "src/data/expedition_items.js",
+      "purpose": "ADMITTED: backlogItemDefinitions registered via actual OtherItem codec at explicit imported definition registration; unique BL-01 retained as item ID."
+    }
+  ],
+  "publication": "Existing persistExpansion/persistExpansionPlan only; stock/XP native, body/resources/claims simulation; exact full joined clock advancement or rejection at waiting choice",
+  "checks": {
+    "sourceSyntaxImportLinkBuild": "Existing seven-module syntax and cold imports; fresh full registry/host/UI cold imports, 41 callable controls/people/sites, exact current backlog+native consumer and map hashes checked. BUILD_ADMISSION.json records scope and Ink drift.",
+    "unitBrowserGameplaySaveReloadFailureKeyboardRegressionDirector": "deferred"
+  },
+  "admission": {
+    "native": true,
+    "persistence": true,
+    "ui": true,
+    "currentBuild": true,
+    "registries": true,
+    "itemCodec": true,
+    "note": "Current replacement17/Backlog2 and nested carrier/native/save/UI source consumption match bundle11aaa9cbfc69. AMENDMENT_BUILD_ADMISSION owns readback; earlier baseline receipt is historical. Behavior gates deferred."
+  },
+  "successor": "/root/backlog",
+  "nativeContract": {
+    "publication": "assertBacklogPublication(previousExpansionState, stagedPlan), before native staging. Only tagged backlog allowed commands pass an active seal.",
+    "clockPause": "backlogNativeClockPaused(state) pauses ordinary ticking/regeneration. Explicit injected advanceChroniclePlan from commit is permitted and must consume all requested minutes without a waiting choice.",
+    "context": "Live feature/campaign context plus vitals/equipment, wallNowMs=Date.now(), nativeOtherInventories and trusted bodyNativeInputs from actual character + creation initializer evidence. Native living vitals required for every proof. backlogNativeContext reads character.is_alive; every proof requires nativeAlive===true and actual positive health.",
+    "possession": "Native vitals remain the parked original. Actual simulation clay vitals move with the controlled clay body; clock/native physical activity pause until explicit return. Envelope verifies parked vital offsets.",
+    "actions": "backlogActions() lazily returns frozen command rows. Deferred lookup avoids simulation/content/engine circular eager initialization; UI calls this function."
+  },
+  "sourceHashes": {
+    "src/backlog_expansion_body.js": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4",
+    "src/backlog_expansion_content.js": "ee51b4bab44414b98972f98f641eba97a1bb7b755472c4558c6c4178b43cc9b1",
+    "src/backlog_expansion_core.js": "0ac7c83cdd85b94c7f31637dffa75421f216eb7379634e57dea63dadca89d727",
+    "src/backlog_expansion_host.js": "738a38e102ad3e30bb783e004e8dfb2856c40e3cfd587719ec7e324e50f0e8b8",
+    "src/backlog_expansion_opportunities.js": "e3dcdf6c02938241aa4bbaa8dfa7770f72560557ab9cc4770f49318ceb5933ac",
+    "src/backlog_expansion_replacement.js": "384603fe1322941e8d31ec694e28b5aae4b5d96eeea809ee663c42d58d9e98d5",
+    "src/backlog_expansion_time.js": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb",
+    "src/backlog_expansion_transit.js": "767e483e63f31964d058f066b7492e0cfaf827e31cf3efd0a1fbb8e4a6783906",
+    "src/backlog_expansion_ui.js": "2770159e5f2f10b8f1f8057aade99d7b976ce9305e174e84b53de1180d470f26"
+  },
+  "parentAdmission": {
+    "status": "current amendment source/native/clock/save/UI/build admitted; implemented-unverified",
+    "integrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "bundleFingerprint": "11aaa9cbfc69",
+    "scopedCurrentReadback": "docs/gm/feature-wave/backlog/AMENDMENT_BUILD_ADMISSION.json",
+    "historicalBaselineReadback": "docs/gm/feature-wave/backlog/BUILD_ADMISSION.json",
+    "gameplayChecks": "deferred",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json"
+  },
+  "sourceStageStatus": "source-released-implemented-unverified",
+  "otherLaneDrift": {
+    "paths": [],
+    "meaning": "Current whole source map matches all221local disk contents; previous Ink source drift is historical in baseline receipt."
+  },
+  "replacementAmendment": {
+    "status": "source/native/host/UI/registry/current-build admitted; implemented-unverified",
+    "delivery": "docs/gm/feature-wave/backlog/REPLACEMENT_DELIVERY.md",
+    "operation": "fixed original office_substitution",
+    "canonicalReplacement": "not claimed",
+    "commands": 17,
+    "allBacklogControls": 58,
+    "actualIds": {
+      "holder": "backlog.registry.eda",
+      "clerk": "backlog.registry.orrin",
+      "witness": "backlog.registry.bera",
+      "office": "backlog.registry.seal_steward",
+      "duty": "backlog.registry.two_seals",
+      "loan": "backlog.registry.template_loan"
+    },
+    "join": "Features relay reuses these exact actors/carriers. Call commitBacklogAction on actual backlog.replacement.* IDs; do not allocate second prospective subtlety.* actors/rights. replacementCarrierView is author-only; replacementView player-known reports. Any extra scene effects merge staged state rather than copying carrier records.",
+    "nativeConsequences": [
+      "native kit delivery and funded wages",
+      "separate paid learned source/method",
+      "actual blank/stamina/template operation and fitted seals",
+      "exact loan/return",
+      "accepted liability and once-only actual seal duty",
+      "scoped heard recognition and retained later meeting"
+    ],
+    "heldSharedJoins": [],
+    "release": "all Backlog source released; only local role evidence remains owned by Backlog",
+    "relaySourceObservation": "Actual relay source reuses Eda/Orrin/Bera and the same office. Main binds createQualifiedBacklogAdapter to native body/progression input and preserves office/duty/personal carriers; ordinary panel, relay and Ink replacement preview/commit share it.",
+    "knownDisclosure": "Before deliberate meeting only the neutral terms invitation is visible; all later private liability/method/recognition rows require actual scene enrollment. Player reports read only knowledge.player; observer memories stay scoped.",
+    "sourceChecks": [
+      "four changed-module syntax checks",
+      "cold full registry/host/UI imports",
+      "17 explicit command handlers and58 unique overall IDs",
+      "three people/one site/two powers/two sources actual registry inspection"
+    ],
+    "actualConsumerModules": [
+      "src/feature_expansion_book_host.js",
+      "src/feature_expansion_subtlety_scene.js",
+      "src/feature_expansion_subtlety_host.js",
+      "src/ink_narrative.js",
+      "src/main.js",
+      "src/backlog_expansion_ui.js"
+    ],
+    "uiSourceAdmission": "Both panels use injected qualified preview. Render stores the exact packet/sequence; click clones that offer without fresh read/token refresh. Main repeats native body/progression/carrier qualification before durable publication.",
+    "currentBuildAdmission": true,
+    "buildReceipt": "docs/gm/feature-wave/backlog/AMENDMENT_BUILD_ADMISSION.json"
+  },
+  "nestedWorldAmendment": {
+    "status": "actual native passage/clock/publisher/UI/current-build admitted; implemented-unverified",
+    "inputInterface": "docs/gm/feature-wave/backlog/TRANSIT_RETURN.md#frozen-interface-v1-for-features",
+    "module": "src/backlog_expansion_transit.js",
+    "expectedNativeJoins": [
+      "actual stageNativePassage + readContext",
+      "existing shared advancePlan + exact actual clock sync + readContext",
+      "qualified per-edge carrier rules and native instance/mission owner snapshots"
+    ],
+    "scope": "Same-body/cargo/source/method/fuel/rights/debt/knowledge references and distinct native/hub/local/subjective/transit clocks. Parent owns actual hub/two destination/mission instances and durable namespace.",
+    "actualFeaturesInterface": "docs/gm/feature-wave/features/nested-campaign/INTERFACE.md",
+    "reviewIssues": [],
+    "operation": "actual same-body instant/no-fee handoff plus explicit common/local clock stage; existing host pays/times extraction separately",
+    "apiBoundary": "full body/cargo/private owner seals are ephemeral. Parent nestedCampaign records summarizeCarrierTransitIntent only. No new namespace or native owner allocated. Existing native Frontier binds externalEndpoints; no fake frontier instance.",
+    "requiredNativeJoins": [
+      "Construct carrierTransitContext from actual nestedCampaign instances/visits, native domain snapshots, current body/cargo/vitals, actual assigned-player mission and directed qualified carrier policies.",
+      "Call buildCarrierTransitSnapshot and previewCarrierTransit in actual passage preview; commit with stageCarrierTransit around bare same-body native/visit move. Fees/timed extraction are existing host commitments before handoff; arrivals/mission/knowledge effects after.",
+      "Reconcile local clock observation cursors before constructing passage snapshot/request. Bind stageCarrierClock to actual shared advance and sync callbacks; retain legitimately funded scheduler results.",
+      "Validate actual changed intents before publisher, consume compact IDs/deltas only into existing bounded nested receipt schema; foreign office jurisdiction and missing local fuel remain blocked/unknown.",
+      "Native UI/legibility uses carrierTransitView player route evidence plus actual operation eligibility; never private owner binding strings.",
+      "Final whole-wave build/source map must include actual consumed adapter and replacement code."
+    ],
+    "nativeAdmission": "actual callable source joins inspected; named evidence/mission/history/clock repairs resolved",
+    "currentBuildAdmission": true,
+    "acceptedSourceReview": "Scheduler changes preserved before narrow sync; owner revisions monotonic, exact values retained; actual player mission, typed support predicates, native Frontier endpoint, original locks and compact private-safe receipts accepted. All full guards ephemeral.",
+    "sourceReleased": true,
+    "currentConsumerObservation": "Actual adapter wraps native moveWorld, extraction shared clock and existing durable publisher. Native refinementPresentation consumes nestedCarrierKnowledge. Source uses valid recollection evidence, only an active mission applicable to its edge, and the selected context mission ID.",
+    "additionalConsumerRequirement": "Resolved: actual nested host enforces capacity96 and reserves arrival/return slots before accepting or departing; moveWorld retains every ended visit without pruning.",
+    "actualConsumerModule": "src/feature_expansion_nested_carriers.js",
+    "actualConsumerCalls": [
+      "previewNestedCarriers -> previewCarrierTransit",
+      "stageNestedCarrierMove -> stageCarrierTransit around actual moveWorld",
+      "stageNestedCarrierClock -> stageCarrierClock from main planNestedAction",
+      "retainNestedCarrierReceipt -> validate/compact/delete intents from existing publisher",
+      "nestedCarrierKnowledge -> player-known carrierTransitView"
+    ],
+    "consumerRepairs": [],
+    "resolvedConsumerRepairs": [
+      {
+        "path": "src/feature_expansion_nested_host.js",
+        "evidence": "commitNestedCommand and prepareNestedArrival call syncNestedCampaignClock on the unpublished state before constructing the carrier request; bare moveWorld repeats the now-reconciled sync."
+      },
+      {
+        "path": "src/feature_expansion_nested_host.js",
+        "evidence": "Explicit96 visit capacity and arrival/return reservation replace old slice pruning; no ended visit is erased by moveWorld."
+      },
+      {
+        "path": "src/feature_expansion_nested_carriers.js",
+        "evidence": "Evidence fallback kind remembered is invalid in existing validateRealmContext, whose enum allows recollection/observation/report/inference/instruction. Existing nested knowledge records have no basis; choose an allowed truthful fallback.",
+        "resolution": "Live adapter repaired by sole Features integrator; source readback and syntax inspected."
+      },
+      {
+        "path": "src/feature_expansion_nested_carriers.js",
+        "evidence": "Bind only an active applicable mission to a passage edge. Settled/returned historical mission must remain retained in nestedCampaign but cannot block unrelated hub<->Frontier home entry/return. request missionId must use the actual selected binding mission, not unconditional state.nestedCampaign.mission.id.",
+        "resolution": "Live adapter repaired by sole Features integrator; source readback and syntax inspected."
+      }
+    ],
+    "buildReceipt": "docs/gm/feature-wave/backlog/AMENDMENT_BUILD_ADMISSION.json"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema": 1,
+  "status": "completed",
+  "released": true,
+  "sealedAt": "2026-10-06T20:19:28.592139+00:00",
+  "disposition": "source-only-no-open-actionable-battle-findings",
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "id": "B1",
+      "severity": "P2",
+      "status": "repaired-in-current-source",
+      "title": "Schema5 earned retreat/counter windows rejected by schema4-only guard",
+      "sourceConsequence": "Battle5 earned and displayed a defense opening, but opportunityReasons required exact schema4 and rejected its two intended actions. This was inferred from source, not exercised.",
+      "originalEvidence": "src/feature_expansion_battle.js:178-184 at initial hash",
+      "repairEvidence": "src/feature_expansion_battle.js:182 now rejects schemas below FEATURE_REFERENCE_BATTLE_SCHEMA, preserving3 rejection and4 behavior while admitting5.",
+      "verification": "Affected final source reinspected and node --check passed; exact registered definitions and cold import passed."
+    },
+    {
+      "id": "B2",
+      "severity": "P2",
+      "status": "repaired-in-current-source",
+      "title": "New maintained brace and fitting recovery omitted actual hand capacity",
+      "sourceConsequence": "Their new predicates checked absence of soreness but did not reject explicitly fewer than two usable hands, permitting unsupported physical work. This was inferred from source, not exercised.",
+      "originalEvidence": [
+        "src/audit_remainder_combat_objectives_content.js:38-40 at initial hash",
+        "src/audit_remainder_combat_objectives_battle.js:78-79 at initial hash"
+      ],
+      "repairEvidence": [
+        "src/audit_remainder_combat_objectives_content.js:1,40 imports and requires remainderCombatFitHandsUsable",
+        "src/audit_remainder_combat_objectives_battle.js:1,80 requires the same actual capacity/life/soreness predicate"
+      ],
+      "verification": "Both final changed modules reinspected and syntax/cold import checks pass."
+    },
+    {
+      "id": "B3",
+      "severity": "P2",
+      "status": "repaired-in-current-source",
+      "title": "Root enrollment could change helper support inside frozen3/4 sessions",
+      "sourceConsequence": "helperReasons was reused by action previews and native helper cadence but selected new fit support from root ownership alone, changing a frozen3/4 support path. Reachability by normal enrollment does not waive the explicit frozen-session contract.",
+      "originalEvidence": "src/feature_expansion_battle.js:69-74 before this bounded repair",
+      "repairEvidence": "src/feature_expansion_battle.js:71-72 chooses new fit support only for auditRemainder1 plus current battle5 or no current battle for a new admission. Existing3/4 always use the legacy skills.lioSupported predicate.",
+      "verification": "Exact final function and its helper/signal/cadence callers reinspected; named syntax check and final cold definitions/import pass."
+    }
+  ],
+  "observations": [
+    {
+      "id": "schema-admission",
+      "summary": "New explicitly opted-in sessions choose5 and initialize reference opportunity fields plus both optional namespaces. Existing3/4 branches remain selected by their saved schema; new native fit lookup returns null for3/4. First-wave source-map copies of all three shared battle/host/powers modules match the recorded baseline hashes.",
+      "evidence": [
+        "src/feature_expansion_battle.js:13-18,77-109,142-143",
+        "src/feature_expansion_battle_host.js:15-26,59-63",
+        "src/audit_remainder_combat_fit_hooks.js:84-89",
+        "src/feature_expansion_battle.js:69-75 keeps saved3/4 helper support on the legacy predicate"
+      ]
+    },
+    {
+      "id": "same-cost-and-cadence",
+      "summary": "One base cost is adjusted by fit/objective quotes, and commit pays the returned final cost once. Automatic Lio admission uses that same final cost. Native Combat remains the cadence owner, snapshots bind current token/ownership/vitals, and body maneuvers apply their quoted escape gain directly.",
+      "evidence": [
+        "src/feature_expansion_battle.js:199-208,217-294,316-322,348-350,407-426",
+        "src/feature_expansion_battle_host.js:28-30,65-77"
+      ]
+    },
+    {
+      "id": "maintained-incoming",
+      "summary": "Unsupported/expired/strike/helper-loss maintained state clears before action. Each guarded incoming attempt pays upkeep before the strike roll; capacity is consumed even on a miss. Failure drops mitigation before the native roll. The victim snapshot receives staged stamina after upkeep; defense/temporary shield are folded into the existing native strike/mitigation calculation without extra draws.",
+      "evidence": [
+        "src/audit_remainder_combat_objectives_battle.js:90-130",
+        "src/feature_expansion_battle.js:325-327,351-381",
+        "src/combat_math.js:47-65"
+      ]
+    },
+    {
+      "id": "actual-gear-and-returns",
+      "summary": "Admitted frame profiles are retained against current owned/equipped/custody/source/body support. Native stats/actual shield readers use their profile. Landed hook fatigue immunity is quoted before HP loss while normal damage and held-guard disruption remain. Finish settles grip, physical charge/reusable rope and fitting custody through the one effect owner before session deletion; successful recovery requires the actual gate3/custody receipt, and no new passage reward is paid after route clearance.",
+      "evidence": [
+        "src/audit_remainder_combat_fit_facts.js:54-79",
+        "src/feature_expansion_battle_host.js:19-22,59-63",
+        "src/feature_expansion_battle.js:300-314,364-388",
+        "src/audit_remainder_combat_objectives_battle.js:131-145",
+        "src/audit_remainder_combat_objectives_state.js:55-82,94-104,125-131"
+      ]
+    },
+    {
+      "id": "receipts-and-ui",
+      "summary": "One action/sequence advances before fit settlement and exact parent nonce receipts. Optional native controls pass through existing add/preview with distinct maneuver/grip/physical IDs. Admission rows route through the same actual preview/initializer, preserving actual preparation flags and paid helper controls. All relevant registered command definitions match current source.",
+      "evidence": [
+        "src/feature_expansion_battle.js:385-399,452-473",
+        "src/feature_expansion_powers_host.js:38-54,78-81",
+        "src/audit_remainder_combat_fit_hooks.js:206-257",
+        "src/audit_remainder_combat_objectives_battle.js:40-60"
+      ]
+    }
+  ],
+  "scope": {
+    "shared": [
+      "src/feature_expansion_battle.js",
+      "src/feature_expansion_battle_host.js",
+      "src/feature_expansion_powers_host.js"
+    ],
+    "laneContracts": "combat_fit and combat_objectives content/facts/hooks/state/host joins",
+    "excluded": "Independent causal/artifact/main additions, their gameplay, all builds and all behavioral/save suites."
+  },
+  "checks": {
+    "syntaxFiles": 16,
+    "syntaxFailures": 0,
+    "coldRegistry": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "battleSchemas": [
+        3,
+        4,
+        5
+      ],
+      "battleCommandDefinitionsExact": true,
+      "fitDefinitionsExact": true,
+      "objectiveDefinitionsExact": true
+    },
+    "registryQualification": "Whole registry totals include concurrent unrelated root additions; only battle/fit/objective definition equality is reviewed evidence.",
+    "baselineSourceMap": [
+      {
+        "path": "src/feature_expansion_battle.js",
+        "source": "../src/feature_expansion_battle.js",
+        "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+        "matchesFirstWaveBaseline": true
+      },
+      {
+        "path": "src/feature_expansion_battle_host.js",
+        "source": "../src/feature_expansion_battle_host.js",
+        "sha256": "f2d5f77917eb6bbf987a8a3ea52defe1e358fd357fe9312de68788b9180c1e91",
+        "matchesFirstWaveBaseline": true
+      },
+      {
+        "path": "src/feature_expansion_powers_host.js",
+        "source": "../src/feature_expansion_powers_host.js",
+        "sha256": "3cfdc58e451c8add4d38ed9a0f4db3b423b87de26d435ac8f43f24013c06d987",
+        "matchesFirstWaveBaseline": true
+      }
+    ],
+    "finalNamedRepairSyntax": {
+      "path": "src/feature_expansion_battle.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    "finalColdRegistry": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "battleCommandDefinitionsExact": true,
+      "fitDefinitionsExact": true,
+      "objectiveDefinitionsExact": true
+    }
+  },
+  "movingQualification": {
+    "changedSinceStart": [
+      "src/feature_expansion_battle.js",
+      "src/audit_remainder_combat_objectives_content.js",
+      "src/audit_remainder_combat_objectives_battle.js",
+      "src/audit_remainder_state.js"
+    ],
+    "battleRepairsReinspected": [
+      "src/feature_expansion_battle.js",
+      "src/audit_remainder_combat_objectives_content.js",
+      "src/audit_remainder_combat_objectives_battle.js"
+    ],
+    "independentChangedInput": "src/audit_remainder_state.js received unrelated root additions; only its continuing schema11/enrollment predicate was refreshed, not the new independent consumers.",
+    "changedDuringFinalChecks": [],
+    "appliesTo": "Final hashes in INPUTS.json resealed at 2026-10-06T20:19:28.592139+00:00",
+    "changedDuringReseal": []
+  },
+  "behavioralGates": "All unit/gameplay/browser/save/reload/import/failure/regression/keyboard/director gates remain deferred and unperformed. Implemented-unverified only.",
+  "ownership": "Only review-battle/ artifacts written. No runtime/code/canonical edits, delegation, build or user-save/library mutation. Writer released.",
+  "priorSeal": "2026-10-06T20:15:36.648066+00:00"
+}

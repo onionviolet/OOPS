@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "checkedAtUTC": "2026-10-06T20:00:04.450907+00:00",
+  "status": "passed",
+  "scope": "Research artifacts/static source/current-owner interfaces only, not game or YAIR runtime tests",
+  "counts": {
+    "sourceEvidenceRecords": 51,
+    "sourceRangeWindows": 70,
+    "sourceUniqueReviewedLines": {
+      "BROGUE": 715,
+      "SHATTERED": 1318,
+      "SIL-Q": 593
+    },
+    "localLinks": 20,
+    "packetNativeSymbols": 24
+  },
+  "sourceSnapshots": [
+    {
+      "name": "BROGUE",
+      "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+      "headMatches": true,
+      "workingTreeClean": true,
+      "evidenceRecords": 19,
+      "sourceFilesChecked": 5,
+      "uniqueNamedReviewedLines": 715,
+      "qualification": "Range/hash checks validate records; semantic coverage is the declared source review, not inferred from counts."
+    },
+    {
+      "name": "SHATTERED",
+      "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+      "headMatches": true,
+      "workingTreeClean": true,
+      "evidenceRecords": 21,
+      "sourceFilesChecked": 21,
+      "uniqueNamedReviewedLines": 1318,
+      "qualification": "Range/hash checks validate records; semantic coverage is the declared source review, not inferred from counts."
+    },
+    {
+      "name": "SIL-Q",
+      "pin": "1be7df63d6e7f9db2461e125acd17728caa53c3d",
+      "headMatches": true,
+      "workingTreeClean": true,
+      "evidenceRecords": 11,
+      "sourceFilesChecked": 7,
+      "uniqueNamedReviewedLines": 593,
+      "qualification": "Range/hash checks validate records; semantic coverage is the declared source review, not inferred from counts."
+    }
+  ],
+  "stablePacketIds": [
+    "GD-01-EVIDENCE-ASSAY",
+    "GD-02-SITE-TRANSFORMATION"
+  ],
+  "sourceReadyPackets": 2,
+  "jsonParsed": 5,
+  "errors": [],
+  "warnings": [],
+  "nativeDriftAfterSnapshot": [],
+  "knownLeafSnapshotDrift": [
+    {
+      "leaf": "BROGUE",
+      "path": "src/simulation.js",
+      "recorded": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373",
+      "current": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "BROGUE",
+      "path": "src/simulation.js",
+      "recorded": "1f15e132df296cd5243a32ccbe8685aec8b3f326f70d5f41ddac5ecc4e6d5373",
+      "current": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "BROGUE",
+      "path": "src/main.js",
+      "recorded": "3e6b716ba16abb4442e99223ad92fecbaa68dd18e7a1a6f4ece8611038b0bc84",
+      "current": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    },
+    {
+      "leaf": "SHATTERED",
+      "path": "src/feature_expansion_battle.js",
+      "recorded": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9",
+      "current": "4db65ddc9b94f0938f4e8295c1ae0b8d735f937382d9f062e27f87223adfe98b",
+      "disposition": "Active shared integrator changed this input; parent reread named APIs/publisher/support chain; snapshot remains moving. Builder must refresh."
+    }
+  ],
+  "parentRepairs": [
+    "Corrected three SHATTERED.md prose links from another reviewed same-file range to actual conversion, onThrow and Level serialization consumers.",
+    "Replaced speculative old-routeCleared/native-relocation claim with a declared finite original scene and required actual charged/custody consumer.",
+    "Preserved Brogue impact-time inference versus original durable/reordered negative-evidence extension."
+  ],
+  "unrun": [
+    "Game installation/build/runtime/playthrough",
+    "YAIR runtime edits/build",
+    "Unit/browser/gameplay/save/reload/import/failure/keyboard/regression/director gates"
+  ],
+  "outputHashes": {
+    "FOLLOWUP_VALIDATION.json": "bc539df88faaf5f2f1cb7e923e4d8b028e9f4b139f64d8a978c3aa57bd531cf6",
+    "IMPLEMENTATION_PACKETS.md": "4bdfaca1aa23e1ab708c4c6edf0fb5526877287cd475ac36ee83997ee44980c6",
+    "CANDIDATES.md": "aff18d359e18722555e92b8593e2f524a6ce3dae3db85525f98327424a444103",
+    "CHECKPOINT.md": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6",
+    "FINDINGS.json": "159dcee99d05890cba69f2bd83d5f7bb38d12c2cb9562b2453acc474f9c93b3d",
+    "METHOD_AND_REUSE.md": "cc9364a58c66ca8d0f571860276c24c575ef3359606553925e8681452278e4bf",
+    "PACKETS.json": "fd8297f683368f70de4cb4b43182c4310380a299d160be8621d8031ce7d2c138",
+    "DEEPER_QUEUE.json": "a5787e0638c08ddbc4370a6fb2585322c9844db7e314e6083fb6fbd14879b352",
+    "INPUT_SNAPSHOT.json": "f2d77127256ddc5ddb39b46f47a8a66ea10a621654ae0fb6c86940771dc44fd5",
+    "DEEPER_RESEARCH.md": "e59e353fc6abbdc5aa5b473ab01592161315711bbf39f3947181be5b70411ad6",
+    "world-completion-dispatch/ASSIGNMENT.md": "533264d71dc8a493165c4ca7600ca5188a3e9dbfffcb29efc7ba4ac069d2e133",
+    "world-completion-dispatch/INPUTS.json": "ecc635fbd333be4e207f9b45c50d0048d85259d71bfb43a6b857d6c8a0de72d4",
+    "world-completion-dispatch/RECEIPT.json": "d434523e8ace1afee3e895b882cd368dde7741c17963a227ad0f583986cf6425",
+    "book-lore-dispatch/ASSIGNMENT.md": "4edac831819ca68a188dea42f32fce7f67d4128c409589229b680ba2cc01568d",
+    "book-lore-dispatch/RECEIPT.json": "06659324c636b37b5d55d5a94c36bf3dfa800ed2dc7562d952c0656bf6814423",
+    "source-traces/BROGUE.md": "fa563dc001e1375716bb826749927a532e0994f2807b8a511065dd2d35e933db",
+    "source-traces/BROGUE.json": "bd63ea68daee81c39d52a07f275782edefab294544a818508f53b66b89a1b4a4",
+    "source-traces/SHATTERED.md": "8e46119d0f4688f2799f6052f711a687573b8ae93dc525f5f7016f1b11dfee39",
+    "source-traces/SHATTERED.json": "c3b08ecfe5cd41394a9a5a0250e92d32bd273943c356d237f589639e45029b40",
+    "history/CHECKPOINT_FINITE_RESEARCH_2026_10_06.md": "959aa8e791baf632740f35946461b93404f90cd2b1baef06447350ecc0ea434e"
+  },
+  "hashQualification": "VALIDATION.json excludes itself to avoid a circular checksum; source and outputs not rewritten by this readback.",
+  "bootstrapRepair": "Initial static readback ran before its own VALIDATION.json existed. The manifest now exists; every local Markdown target and all JSON were rechecked successfully. Other source/pin/hash/API checks had no failures and were not rerun.",
+  "integratorStatus": "Final wait_threads immediate snapshot: active/inProgress; source-readiness grants no shared takeover.",
+  "followUp": {
+    "owner": "DEEPER_RESEARCH.md",
+    "queue": "DEEPER_QUEUE.json",
+    "validation": "FOLLOWUP_VALIDATION.json",
+    "qualification": "Original source/readiness checks are unchanged historical results; follow-up checks only saved docs, links and reused pins."
+  }
+}

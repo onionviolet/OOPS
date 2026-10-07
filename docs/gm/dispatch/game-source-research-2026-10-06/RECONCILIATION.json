@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-10-06T20:41:44.319497+00:00",
+  "dispatcher_thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+  "trusted_human_authority": {
+    "source_thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+    "verified_by": "Native read_thread actual userMessage content, not peer paraphrase alone",
+    "text": "save accordingly and note to relevant chat for deeper considerations and more for other games as well?"
+  },
+  "acs_original_findings": 31,
+  "acs_original_finite_paths": 15,
+  "acs_selected_packets": 3,
+  "acs_supplemental_dlc_traces": 2,
+  "acs_supplement_source_hashes_rechecked": 16,
+  "acs_supplement_source_hash_mismatches": [],
+  "source_inputs": {
+    "docs/research/caves-of-qud/REPORT.md": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+    "docs/research/caves-of-qud/INTAKE.json": "004eee9d6804803ae93cbfb9e2f35ce0a4a58742bc7e03a87f3424461337dba9",
+    "docs/research/caves-of-qud/VALIDATION.json": "63783c0ab636982a0c37312291eb75e1d090c9d573d0168a337db1602a46a741",
+    "docs/research/rimworld/REPORT.md": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+    "docs/research/rimworld/COVERAGE.json": "aa86df42055707da48e60db8bf21c762e975893464349f8a4322e085de53ac7e",
+    "docs/research/rimworld/INTAKE.json": "ceed0a0dd17b5b02955863c15c64957ff6366c81a793372a8efe8ba02502df29",
+    "docs/research/rimworld/VALIDATION.json": "3cc74aef16eabdb12d8d34d1f313890e3b474f20ffec523f05201ae21a2d33de",
+    "docs/research/rimworld/CHECKPOINT.md": "32cebd72dc997d2df23e556feab97d5ea066dd446a7370e0e7f74b216b00e61a",
+    "docs/research/tales-of-maj-eyal/REPORT.md": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+    "docs/research/tales-of-maj-eyal/COVERAGE.json": "eaa5c674b915dcae1fd4d720718c43806d188a3421c3141b3985c6a8fc15ce73",
+    "docs/research/tales-of-maj-eyal/INTAKE.json": "22b0dcff614dab7239751f29bae4b409aa690c2f425aa64b94a0efd5a9386bdc",
+    "docs/research/tales-of-maj-eyal/VALIDATION.json": "88e93ddaaf499e553950b8bd7ff5ccd68784004e121aa18a8c8f4d272064923a",
+    "docs/research/tales-of-maj-eyal/CHECKPOINT.md": "a1840d71136f1ae9ba08f1ffb7b4d19917159b41a4923ac8e0e9370ea6255ce4",
+    "docs/research/elin/REPORT.md": "eb0520ad82014a2eac6bd151dcddaadb11f9a2dbcbf857a393514a6ab1d9e56e",
+    "docs/research/elin/COVERAGE.json": "1ad5971ac1471cbe7db4701289fdab97e1fb0eedd364ff590d4808bd69632ac4",
+    "docs/research/elin/INTAKE.json": "9720273a133a672bb60ae1633d05b4629d903f5be72ef2d77f31d5fe140d8819",
+    "docs/research/elin/VALIDATION.json": "fe31ef93ad26207dfe8912cb3a9b412ef328d5b82dc074e9463f87e8e1ba10af",
+    "docs/research/elin/CHECKPOINT.md": "5624b49e0cbcba636778025428e36f7896d3964c7b3e0e423a84a4ba80b694b1",
+    "docs/research/idling-to-rule-the-gods/REPORT.md": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+    "docs/research/idling-to-rule-the-gods/COVERAGE.json": "3d8abc444fe4d4e046eaffd2f63e3b122600a53e778981a0f1cd211c57e697c6",
+    "docs/research/idling-to-rule-the-gods/INTAKE.json": "ced29b7ac889d0c76686e956f9354a3e9344273ff31f9aadb1b36913a7e064d4",
+    "docs/research/idling-to-rule-the-gods/VALIDATION.json": "e91eb86d69221100cfe37fb909bd619f0102d28e1303d203d93f8e0980db2654",
+    "docs/research/idling-to-rule-the-gods/CHECKPOINT.md": "04ffba122960c4787557f175de5a3a0494d5e3836c499aa94786a315b8961dc2",
+    "docs/research/rogue-legacy/REPORT.md": "5308717b7cbcd66310665e7a263c5e1d4d1ecbb9273dba2c36ed478ceb17ba7f",
+    "docs/research/rogue-legacy/COVERAGE.json": "6ec4ba4ad0bafbcae4471b0248cb6fe029f86dc492a844d1d489cf9a684ec9bb",
+    "docs/research/rogue-legacy/INTAKE.json": "b0b7cdaedf181c70a4c9c9e1731d0ba6ecf0c26831c73e6186146991f0f07e7a",
+    "docs/research/rogue-legacy/VALIDATION.json": "221454216252ffe6ad5cc62bec924c3f9c2164d65f13dd90ac14f774b4f3314c",
+    "docs/research/rogue-legacy/CHECKPOINT.md": "16c3bf662cb72eb9d635c71a3e88163dff6e08cff80b0338a38e1e6f6b40445f",
+    "docs/research/streets-of-rogue/REPORT.md": "c0c24db0c25db33bc1cde40163edff4ebfcaae7e69dce4a72f7070b6ea504718",
+    "docs/research/streets-of-rogue/COVERAGE.json": "6683cf12d6acc116a0c3e95583232ebd81bb13eb8e4d2676fa0af9384e1417cc",
+    "docs/research/streets-of-rogue/INTAKE.json": "590379e6bd8f4bf8d2322f20e4907858aac3cb210d604555b9280597cc8c5c35",
+    "docs/research/streets-of-rogue/VALIDATION.json": "886622c341a278a30a674e2e02754990bcb0ff25cbd0a0e9a247a3bb805a60af",
+    "docs/research/streets-of-rogue/CHECKPOINT.md": "a7cdbee2bad02cc792613df7e2b215f12364163f1660292e3604522be902237c",
+    "docs/research/keeperrl/REPORT.md": "00e3b232af375474b7ee1f3ac9f909ef9bf378c8f02b62b05719ee6eb7eb7d67",
+    "docs/research/keeperrl/COVERAGE.json": "ac288824c83768d3922f4c5e5861a369e565f7de3ab3236f07cbec80a97cc298",
+    "docs/research/keeperrl/INTAKE.json": "f7a31ce4af30545f20c2e75cc204317fa156e4aa846d9c820e266963b6904463",
+    "docs/research/keeperrl/VALIDATION.json": "b14ccdf79cda54ae28beee9ebf898250ef5e99699ad173e0554561ed508f7823",
+    "docs/research/keeperrl/CHECKPOINT.md": "9544ae970c3afb59a552bc0fd7205bbc244a94caa2952977fba32d78b7df63fa",
+    "docs/research/amazing-cultivation-simulator/REPORT.md": "5807ae2d22045da23209e81aa770b13d622a759836b2f5ef8506f91fe02bedd0",
+    "docs/research/amazing-cultivation-simulator/COVERAGE.json": "2dc7e5ee1ad60470044f972d04950d448ef2bf3aac96785d23d686d885320bb2",
+    "docs/research/amazing-cultivation-simulator/INTAKE.json": "098e00666937c622e8fd2b01948cc5403e4edeb7830727461f7ace4cfb1fb45c",
+    "docs/research/amazing-cultivation-simulator/VALIDATION.json": "1769b1c4f8cee974a51211101f5d199208d86a8f12039ef4ad70fd9e640f7e60",
+    "docs/research/amazing-cultivation-simulator/CHECKPOINT.md": "60b68a0d50ae1319c7ff122c1bf9d6c5ecde2750c9759a554a6b2df27cfdfef2",
+    "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e",
+    "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json": "eb9e9e557c4f745b2d39efcf0fcdf685dc027fcbada7a9c3f8011bd37acdf633",
+    "docs/research/amazing-cultivation-simulator/traces/dlc.json": "d130048850c8cba33dc481247608a276147cdd1837bcb1897b5b4e4a56c2cb25",
+    "docs/research/amazing-cultivation-simulator/FOLLOWUP_MESSAGES.json": "6f7884e8fd8bbb68bb2d3ef4d1c2456b37a048a6b8c79b6a0c15fd5d1cfe6495",
+    "PROJECT.md": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/ENGINE_EXPANSION.md": "90d53346df0a536d73017d180518c845bdeb6d2194966b9dbde74cb789d493f6",
+    "docs/IDEA_INDEX.md": "9024522452064269da205e399e6e023516490a1d088ddd29ba6b55c4fc586c6f"
+  },
+  "coordination_chat_snapshots_from_acs_receipt": [
+    {
+      "thread_id": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+      "title": "Assess deep idea implementation",
+      "purpose": "Current ACS/idle-game/DLC/scout coordinator"
+    },
+    {
+      "thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+      "title": "Find decompilable games like Caves",
+      "purpose": "Existing multi-game source dispatcher"
+    },
+    {
+      "thread_id": "01a112b9-410a-7da2-9182-392141662439",
+      "title": "Discover games to absorb into YAIRPG",
+      "purpose": "Newer source-discovery lane"
+    },
+    {
+      "thread_id": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "title": "Implement audited RPG features",
+      "purpose": "Shared integration owner; scope note only"
+    }
+  ],
+  "source_scope_notes": {
+    "original_reports": "completed scoped source passes retained; no full-game review claim",
+    "streets-of-rogue": "available-source fallback complete; original gameplay-source criterion unmet0/5",
+    "runtime_owner": "Live PROJECT current audited-remainder owner preserved; no canonical/runtime writes made"
+  },
+  "steam_inventory": {
+    "games": 9,
+    "declared_products": 21,
+    "owner": "DLC_COVERAGE.json",
+    "qualification": "Official US English Steam base-app declared DLC inventory plus accessible child metadata. This does not establish entitlement, installation, enabled runtime, every storefront product, or semantic source coverage."
+  },
+  "new_assignments_or_exports": 0,
+  "runtime_edits": false,
+  "purchase_or_entitlement_changes": false,
+  "validation": "passed",
+  "own_output_fingerprints": {
+    "README.md": "35b3058886f26eb9fcef7493c4cd3bacc56b9fd1731b95282df982c5fd12d0fd",
+    "DEEPER_RESEARCH.md": "0f84afe95dc057686bc49156515d20bade9340b8ef5b1cbf0cdb87bba82e0666",
+    "DEPTH_QUEUE.json": "b19584f6a3e613321234ed0abd4bb6cedd97c07d5fec1f45bf74b3541beb4e84",
+    "DLC_COVERAGE.json": "a6b269a153178a9aed8f92fec313a59d68eef3cbc6f148ef828b64b6352de7a1",
+    "CHECKPOINT.md": "c19ffc720b39970c164d190f870b288cc3110d68fb90229823fc5408d58f32a2"
+  },
+  "moving_context_drift": [],
+  "source_artifact_drift": [],
+  "followup_delivery": {
+    "authority": "Verified direct human request to note relevant chats in ACS thread",
+    "sent_utc": "2026-10-06T20:44:04.033655+00:00",
+    "recipients": [
+      {
+        "thread_id": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+        "status": "native_send_accepted"
+      },
+      {
+        "thread_id": "01a112b9-410a-7da2-9182-392141662439",
+        "status": "native_send_accepted"
+      }
+    ],
+    "qualification": "Native send success confirmed; recipient reading or later incorporation not claimed. No new execution requested."
+  }
+}

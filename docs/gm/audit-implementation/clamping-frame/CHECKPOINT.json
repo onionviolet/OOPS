@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:41:15.001900+00:00",
+  "task": "/root/clamping_frame",
+  "parent": "/root",
+  "parentChat": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "status": "implemented-unverified; changes ready; exclusive worker write scope released to parent",
+  "owned": [
+    "src/audited_workshop_fixture.js",
+    "docs/gm/audit-implementation/clamping-frame/DELIVERY.md",
+    "docs/gm/audit-implementation/clamping-frame/ACCEPTANCE_BACKLOG.md",
+    "docs/gm/audit-implementation/clamping-frame/CHECKPOINT.json"
+  ],
+  "ownedHashes": {
+    "src/audited_workshop_fixture.js": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab",
+    "docs/gm/audit-implementation/clamping-frame/DELIVERY.md": "d913e313722edfd66f4b1ea57a2ea37aa5cd3774b4969ada8c6b98055505c82e",
+    "docs/gm/audit-implementation/clamping-frame/ACCEPTANCE_BACKLOG.md": "5afd04d5238243e06976f60770b5a1c3fc0f77785e68edb1fadecf0de58c774a"
+  },
+  "inputHashesAtClose": {
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/simulation.js": "c0ee920813e47c7808fd49ba12518991f8547bbe2dc8cd24760495833a9641c2",
+    "src/simulation_effects.js": "1bb6cd287655adcd5f64e6c3dbb7447745f087b4c63c20417fd92360b62915e1",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/expedition_content.js": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+    "src/data/expedition_items.js": "1d9d522f2243a839f767381e4ecaf0d6a16df106abce2c61a018a318f88d56d0",
+    "src/data/inventory_templates.js": "ae1dda0f899a5ec2fae7d4f128b9b48d6dd9723b4dd7e93b4f280d61a51f4a3b",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012"
+  },
+  "baseline": "docs/gm/audit-implementation/BASELINE.json",
+  "checks": [
+    {
+      "command": "node --check src/audited_workshop_fixture.js",
+      "result": "pass",
+      "sourceSha256": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab"
+    },
+    {
+      "command": "node --input-type=module: direct ESM import ./src/audited_workshop_fixture.js and descriptor export inventory",
+      "result": "pass; five exports; three revision1 commands; existing bench",
+      "sourceSha256": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab"
+    },
+    {
+      "command": "node --input-type=module: createSimulationRegistry({...featureObjectDefinitions, commands:[...featureObjectDefinitions.commands,...auditedFixtureDefinitions.commands]})",
+      "result": "pass; 39 descriptor commands, three fixture commands, existing Eda dry fitting bench",
+      "sourceSha256": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab",
+      "featureDefinitionSha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    }
+  ],
+  "priorCheck": "One initial ESM import was blocked by the unfinished sibling audited_workshop_lesson.js dependency; final import passed after it appeared. No owned-source repair was required for that transient integration state.",
+  "commandIds": [
+    "audit_fixture.enroll",
+    "audit_fixture.build",
+    "audit_fixture.bind_kits"
+  ],
+  "exports": [
+    "AUDITED_FIXTURE_IDS",
+    "AUDITED_FIXTURE_KEYS",
+    "auditedFixtureDefinitions",
+    "auditedFixtureFacts",
+    "validateAuditedFixture"
+  ],
+  "remainingParentBindings": [
+    "Shared current registry and Notebook projection audit_workshop",
+    "Fresh reference.workshop facts plus pure fixture facts at admission and completion",
+    "audit_fixture reservationReturns1 and expansion validator binding",
+    "Parent integrated current-source build"
+  ],
+  "integrationNote": "Resolved by parent at release: root shared commit gate requires referenceGameplay1 for the fixture and cooling-workshop meeting receipt only for audit_lesson. Fixture preview/commit prerequisites agree; no cooling meeting/source is required.",
+  "balanceNote": "Specified frame production6 equals existing sleeve resin-setting3 + resin-kits3 total6; original knife-kit production4 remains. No full sleeve speed advantage is claimed.",
+  "compatibility": "Existing optional expansion9/10 + referenceGameplay1 + simulation4, exact command revision1. No new schema or inventory owner. Absent typed facts inert; old reader may reject unsupported optional pending commands while retaining original save.",
+  "deferred": [
+    "unit",
+    "gameplay",
+    "browser",
+    "generated-save/reload/import/failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "pendingProcesses": [],
+  "pendingToolSessions": [],
+  "children": [],
+  "unknownOwnedWrites": [],
+  "nextAction": "Parent inspect source and complete integrated current build. Worker source/docs scope released; no further worker writes without parent reassignment.",
+  "parentReportedCheck": "Root reports successful cold canonical import:735 commands/26 controllers/8 worlds/4 plans. Parent-owned, not worker gameplay evidence."
+}

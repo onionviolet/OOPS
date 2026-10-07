@@ -1,0 +1,54 @@
+{
+  "repository": "https://github.com/NetHack/NetHack",
+  "branch": "NetHack-5.0",
+  "commit": "8898570da710513f38d81ed973f834863b795217",
+  "checkout": "/tmp/yairpg-nethack-source",
+  "scope": "Selected additional function audit; not complete game coverage; no code copied.",
+  "source_coverage": [
+    {"file": "src/objnam.c", "functions": ["xname", "xname_flags"], "topic": "appearance/type/object-specific known state and displayed names"},
+    {"file": "src/o_init.c", "functions": ["observe_object", "discover_object"], "topic": "instance appearance and type encounter/identification flags"},
+    {"file": "src/eat.c", "functions": ["eatfood", "done_eating", "eatcorpse", "cprefx", "intrinsic_possible", "should_givit", "temp_givit", "givit", "cpostfx", "eating_conducts"], "topic": "timed consumption, pre-consumption species consequences, post-consumption intrinsic eligibility/acquisition, conduct"},
+    {"file": "src/dogmove.c", "functions": ["dog_hunger", "dog_invent", "dog_goal", "dog_move"], "topic": "care, movement goals, fetch/carry and follow behavior"},
+    {"file": "src/zap.c", "functions": ["burn_floor_objects", "dobuzz", "melt_ice"], "topic": "shared action path, object/terrain effects"},
+    {"file": "src/mhitu.c", "functions": ["selected intrinsic/defense interactions only"], "topic": "combat effect/defense context; not exhaustive intrinsic lifecycle"}
+  ],
+  "yairpg_implementation_status": {
+    "baseline": "PROJECT.md reference gameplay delivery 2026-10-06; bundle 2f04d677a4db, marked implemented-unverified. Root reports fieldcraft preview-built; this audit ran no build or gameplay gate.",
+    "existing_support": [
+      "item_log records item acquisition/count/quality and is_known tests catalogue presence",
+      "fieldcraft records one observed substance identity in simulation knowledge",
+      "native UsableItem consumption with active meal effects, recovery chances, consuming-skill XP and one-item removal; consumable favourites/auto-consume",
+      "fieldcraft full/empty vial distinction, exact knife transformation, local ration/feeding/training/manual and assisted pin recovery",
+      "generic simulation actors, condition timers, effects, native battle and party travel exist"
+    ],
+    "not_counted_as_support": [
+      "native food consumption exists in source but was not behaviorally validated in this audit; generic simulation data is not corpse-derived intrinsic eligibility/provenance",
+      "generic effect handlers/material fields are not shared environmental damage to items and terrain",
+      "Rill local training/retrieval is not an autonomous movement, party-travel, carry or battle controller"
+    ]
+  },
+  "fingerprints": {
+    "upstream": {
+      "src/objnam.c": "40ca2dcd919d1c824d07479aaeeaec8017d9982458703b719f56c93ff48474ea",
+      "src/o_init.c": "f78eedb733aec727cda4a30097e99ed9bf33c6cc35b5b8bde437e46b9e77d695",
+      "src/eat.c": "3207a2aa41f607b8bf581fc59ec904ceabbc910d1dea4f16cf66b430c65bc351",
+      "src/dogmove.c": "bf2d229a59e70404cc2388bfd77d9eb06498c0c88d9e43ce33a46434629e4563",
+      "src/zap.c": "fe7ab143eed4bcdfac56173cb10aab9ff128ce35da0441ea0849842a698149a3",
+      "src/mhitu.c": "20df43e3587fae04831a0f2c1dfc6ce25cba3ecd69f7999e7dd1be0ec86aa456"
+    },
+    "local_inspected_snapshot": {
+      "src/display.js": "d909f40b2ebd552502293a473dc8f216bf31e7e4da9eb4c6484f008dc1749bf9",
+      "src/items.js": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "src/main.js": "cabfa80da10f399def1c7f0ebdf35fac661d2b6344619e52718900550c5685d4",
+      "src/nethack_fieldcraft_content.js": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+      "src/nethack_fieldcraft_facts.js": "5e95f308f65c12841d21ee45c3b82462eba853d90f5a05e02d2cacc445a7d46b",
+      "src/nethack_fieldcraft_host.js": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03",
+      "src/simulation.js": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+      "src/simulation_effects.js": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc",
+      "src/active_effects.js": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+      "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295"
+    }
+  }
+}

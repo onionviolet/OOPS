@@ -1,0 +1,16 @@
+{
+  "capturedAtUtc": "2026-10-05T19:54:53.075948+00:00",
+  "inputs": {
+    "src/original_frontier_campaign_content.js": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/site_projects.js": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+    "src/main.js": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5",
+    "src/simulation_content.js": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4",
+    "src/adventure_notebook.js": "c1cbe41be447591759fd5aad7a1562a8c4cfc4162c8838f48742d45cef288947",
+    "src/simulation_ui.js": "6678a1d2202944c8d9a01100215e7600df366473c93dd352542e6dc7f158de3e",
+    "src/event_feed.js": "8c93855617ae91ed9e2900d8a5c7d6c944667a5cfdb1cdcfa11a848c4d449436",
+    "src/expansion_quest_ui.js": "fb64b1878555b4910532ed61424f3ae79c47ef97381a71dc26e4895040053ef1",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f"
+  }
+}

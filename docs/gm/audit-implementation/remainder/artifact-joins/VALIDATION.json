@@ -1,0 +1,410 @@
+{
+  "capturedAt": "2026-10-06T20:16:57.994715+00:00",
+  "status": "source joins ready; implemented-unverified",
+  "outputHashes": {
+    "src/feature_expansion_content.js": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+    "src/data/expedition_items.js": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68",
+    "src/simulation_ui.js": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+    "src/adventure_notebook.js": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+    "src/feature_expansion_wave_host.js": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2"
+  },
+  "currentInputHashes": {
+    "src/feature_expansion_content.js": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+    "src/data/expedition_items.js": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68",
+    "src/simulation_ui.js": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+    "src/adventure_notebook.js": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17",
+    "src/feature_expansion_wave_host.js": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2",
+    "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+    "src/expedition_content.js": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+    "src/simulation.js": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+    "src/simulation_contracts.js": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+    "src/audit_remainder_home_facts.js": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+    "src/audit_remainder_home_host.js": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+    "src/audit_remainder_content.js": "3408be95a8c49d645536a809a67faa3feefa0971d263b9930393881f9d500980",
+    "src/audit_remainder_state.js": "8df750a318f6e720c3be0daef1602846c2c18684a77a40246d34d8873b51872e",
+    "src/artifact_collection.js": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+    "src/artifact_workshop_content.js": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+    "src/artifact_workshop_host.js": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+    "src/causal_story_content.js": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_host.js": "b76865f779a48b03c5589bd548de65b49dd696b8958cbcce1adcb64908c01189",
+    "src/causal_story_ui.js": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+    "src/display.js": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1",
+    "docs/gm/artifact-collection/INTEGRATION.md": "0c5b6732419b3d9ace9c071d938083303ad1f73fe9d9b706c4ff2aaa5e323792",
+    "docs/gm/artifact-collection/RELEASE.json": "13aeb07883320c9fcc963ef18f9160f725479dc1789368be1b7f2a5ef015ffe5",
+    "docs/gm/causal-endings/INTEGRATION.md": "50641e0f90a9a2f6e415fd6cafbecaa53df4a82eb692d5bb5830be82090173c1",
+    "docs/gm/causal-endings/INTEGRATION.json": "be2133ca067383efbf1af5dda7ec3f59316fde51eb9f804ac43ad9ceb679d36c",
+    "docs/gm/causal-endings/CHECKPOINT.md": "f6cc7bf9ead590daf023e2c4534adfd098ce8dfaa3dd1a66ae3808272516447f"
+  },
+  "checks": [
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/feature_expansion_content.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/data/expedition_items.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/simulation_ui.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/adventure_notebook.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/feature_expansion_wave_host.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "cold aggregate/full registry/UI module imports and declared native-ID coverage only",
+      "argv": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {featureExpansionDefinitions as f,featureExpansionSources as sources} from './src/feature_expansion_content.js';\nimport {artifactWorkshopDefinitions as a,artifactWorkshopItemSpecifications as ai,ARTIFACT_WORKSHOP_IDS as ids} from './src/artifact_workshop_content.js';\nimport {causalStoryDefinitions as c,causalStorySources as cs,causalStorySeedEffects} from './src/causal_story_content.js';\nimport {auditRemainderItemSpecifications as ri} from './src/audit_remainder_content.js';\nimport {expeditionRegistry as r} from './src/expedition_content.js';\nimport * as wave from './src/feature_expansion_wave_host.js';\nimport * as notebook from './src/adventure_notebook.js';\nimport * as simulationUI from './src/simulation_ui.js';\nconst nativeIds=[...ai,...ri].map(d=>d.id);\nif(ai.length!==6||ri.length!==10||new Set(nativeIds).size!==16)throw new Error('Native apparatus/remainder declarations changed');\nfor(const d of [...a.commands,...c.commands])if(!r.simulation.commands.has(d.id))throw new Error('Missing actual command '+d.id);\nfor(const d of cs)if(!r.sources.has(d.id))throw new Error('Missing actual source '+d.id);\nconst onEnroll=JSON.stringify(r.simulation.onEnroll);\nif(onEnroll.includes('causal.story.')||onEnroll.includes('artifact_collection'))throw new Error('Eager external stock/actor seeding');\nconsole.log(JSON.stringify({featureCounts:Object.fromEntries(Object.entries(f).map(([k,v])=>[k,v.length])),featureSourceCount:sources.length,registry:{commands:r.simulation.commands.size,controllers:r.simulation.controllers.size,worlds:r.worlds.size,sources:r.sources.size},artifact:{commands:a.commands.length,items:ai.length,entry:r.simulation.commands.get(ids.open).requires,visibility:r.simulation.commands.get(ids.open).visibleWhen},causal:{commands:c.commands.length,sources:cs.length,seedEffects:causalStorySeedEffects.length},remainderNativeItems:ri.length,nativeIds,genericOnEnroll:r.simulation.onEnroll.length,exports:{wave:Object.keys(wave),notebook:Object.keys(notebook),simulationUI:Object.keys(simulationUI)}}));"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"featureCounts\":{\"people\":22,\"sites\":11,\"conditions\":3,\"powers\":7,\"advancements\":2,\"encounters\":2,\"commands\":328,\"controllers\":17,\"events\":4,\"transitions\":0,\"origins\":0,\"energies\":0,\"pursuits\":0,\"situations\":10},\"featureSourceCount\":8,\"registry\":{\"commands\":932,\"controllers\":41,\"worlds\":8,\"sources\":50},\"artifact\":{\"commands\":15,\"items\":6,\"entry\":{\"all\":[{\"fact\":\"auditRemainder.enrolled\",\"op\":\"eq\",\"value\":true,\"reason\":\"Open the optional local projects before meeting the instrument maker.\"},{\"all\":[{\"fact\":\"actor.life\",\"op\":\"eq\",\"value\":\"alive\",\"reason\":\"Recover before using the workshop.\"},{\"fact\":\"village.craftsmanMet\",\"op\":\"eq\",\"value\":true}]}]},\"visibility\":{\"all\":[{\"fact\":\"auditRemainder.enrolled\",\"op\":\"eq\",\"value\":true,\"reason\":\"Open the optional local projects before meeting the instrument maker.\"},{\"fact\":\"village.craftsmanMet\",\"op\":\"eq\",\"value\":true}]}},\"causal\":{\"commands\":63,\"sources\":4,\"seedEffects\":97},\"remainderNativeItems\":10,\"nativeIds\":[\"Empty resonance frame\",\"Amber measuring prism\",\"Blue aligning prism\",\"Single-prism resonance frame\",\"Paired resonance frame\",\"Fine alignment pin\",\"Reusable measuring jig\",\"Green repair offcut\",\"Compatible repair offcut\",\"Association herb seed packet\",\"Rigid reinforced field harness\",\"Flexible lashed field harness\",\"Kit brace pad\",\"Sluice traversal lashing\",\"Marked sluice fitting\",\"Learned brace wrap\"],\"genericOnEnroll\":1,\"exports\":{\"wave\":[\"featureWavePresentation\"],\"notebook\":[\"createAdventureNotebook\"],\"simulationUI\":[\"createSimulationPanel\"]}}\n",
+      "stderr": ""
+    },
+    {
+      "kind": "leased local source links, exact single registrars/presenter, specialized controls/Notebook source joins",
+      "exitCode": 0,
+      "links": [
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./audit_remainder_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./audit_remainder_state.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./feature_expansion_objects.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./feature_expansion_powers.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./feature_expansion_battle.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./feature_expansion_society.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./feature_expansion_destination.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./reference_gameplay_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./nethack_fieldcraft_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./audited_workshop_fixture.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./audited_workshop_lesson.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./artifact_workshop_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_content.js",
+          "import": "./causal_story_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../audit_remainder_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../artifact_workshop_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../nethack_fieldcraft_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../book_world_paradise_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../feature_expansion_subtlety_scene.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../backlog_expansion_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../repository_absorption_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../feature_expansion_objects.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../feature_expansion_powers.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../reference_gameplay_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/data/expedition_items.js",
+          "import": "../items.js",
+          "exists": true
+        },
+        {
+          "source": "src/simulation_ui.js",
+          "import": "./simulation.js",
+          "exists": true
+        },
+        {
+          "source": "src/simulation_ui.js",
+          "import": "./everyday_life.js",
+          "exists": true
+        },
+        {
+          "source": "src/simulation_ui.js",
+          "import": "./people_knowledge.js",
+          "exists": true
+        },
+        {
+          "source": "src/adventure_notebook.js",
+          "import": "./feature_expansion_battle.js",
+          "exists": true
+        },
+        {
+          "source": "src/adventure_notebook.js",
+          "import": "./techniques.js",
+          "exists": true
+        },
+        {
+          "source": "src/adventure_notebook.js",
+          "import": "./people_ui.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./audit_remainder_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./audit_remainder_state.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./artifact_workshop_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_objects_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_society_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_destination_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_powers_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./action_legibility.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./reference_gameplay_state.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./reference_gameplay_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./nethack_fieldcraft_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./audited_workshop_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./audited_kit_reserve_host.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./feature_expansion_work_plan.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./reference_gameplay_content.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./simulation.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./simulation_contracts.js",
+          "exists": true
+        },
+        {
+          "source": "src/feature_expansion_wave_host.js",
+          "import": "./techniques.js",
+          "exists": true
+        }
+      ],
+      "nativeCatalogExecution": "Not run after cycle repair: baseline display.js:47 reads document at module initialization; static native registration inspected, no fake DOM/browser."
+    },
+    {
+      "kind": "syntax after root requested all remainder generic UI exclusions",
+      "argv": [
+        "node",
+        "--check",
+        "src/simulation_ui.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "root requested exact new generic command/cancel and private-created-person exclusions",
+      "groups": [
+        "audit_remainder",
+        "remainder_livelihood",
+        "remainder_home",
+        "remainder_offers",
+        "remainder_consequences",
+        "remainder_combat_fit",
+        "remainder_combat_objectives"
+      ],
+      "personPrefixes": [
+        "remainder_",
+        "remainder."
+      ],
+      "exitCode": 0
+    }
+  ],
+  "priorResolvedFailures": [
+    {
+      "entry": "feature_expansion_content first then expedition_content",
+      "location": "src/audit_remainder_home_facts.js:6",
+      "error": "ReferenceError Cannot access D before initialization",
+      "repairOwner": "root",
+      "repair": "deferred pure definition-map access"
+    },
+    {
+      "entry": "same cold aggregate and actual native item module import",
+      "location": "src/audit_remainder_home_host.js:65",
+      "error": "ReferenceError Cannot access D before initialization",
+      "repairOwner": "root",
+      "repair": "unused public command export changed to deferred function"
+    }
+  ],
+  "gameplaySuitesRun": false,
+  "buildRun": false,
+  "nativeCatalogRuntimeClaimed": false,
+  "pendingProcesses": [],
+  "scope": "Only five leased files plus artifact-joins docs; no root/main/native/save/scheduler/artifact/Causal module mutation",
+  "finalSteering": "Root requested audit root/all6 remainder command/cancel and created-person exclusions; old unrelated groups unchanged."
+}

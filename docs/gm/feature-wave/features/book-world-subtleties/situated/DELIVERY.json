@@ -1,0 +1,70 @@
+{
+  "revision": 1,
+  "date": "2026-10-05",
+  "owner": "/root/situated_subtleties",
+  "status": "complete finite specialist scope; writer reservation released",
+  "files": [
+    {
+      "path": "src/feature_expansion_book_situated.js",
+      "sha256": "53445ec8421f2b0d219ea62835dcec67b45884ea9dbbfc504141e617b67e996f",
+      "bytes": 63850
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/CHECKPOINT.md",
+      "sha256": "67f1ef0289a095ec660f1b360b7126738b486c6a2f2cbf4b7be46bcae869a8a0",
+      "bytes": 2458
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/COVERAGE.json",
+      "sha256": "7a72b8146757dbdbe4719f23c612935cbbfe21c3db10e364ced84d4f48e0c1e6",
+      "bytes": 81455
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/INTEGRATION.json",
+      "sha256": "9f41fdb64a383e9ee114a5ef67b11d6959b6fa3e6175c16ec7be4c5b2739167c",
+      "bytes": 11383
+    },
+    {
+      "path": "docs/gm/feature-wave/features/book-world-subtleties/situated/SOURCE_RECEIPT.json",
+      "sha256": "df237c56f00fe3188e903a527fc4a6ce6df89cca835b1a6b82eec04854a8e13f",
+      "bytes": 15695
+    }
+  ],
+  "counts": {
+    "sourceProfiles": 4,
+    "sceneSpecs": 5,
+    "sourceEditions": 5,
+    "admissionRules": 18,
+    "topologyDispositions": 4,
+    "chainDispositions": 4,
+    "registeredWorlds": 0,
+    "registeredScenes": 0,
+    "registeredCommands": 0,
+    "nativeEffects": 0,
+    "saveNamespaces": 0
+  },
+  "checks": {
+    "syntax": "node --check src/feature_expansion_book_situated.js passed after final edits",
+    "import": "static ES module import/12 exports passed after final edits",
+    "source": "5/5actual supplied hashes match reviewed manifest;31dossier inputs/29unique analytical claims linked",
+    "build": "not run by specialist; sole Features integrator owns build",
+    "limits": "No rule scenario/behavior/save/regression tests run. Source linkage does not establish source-world gameplay."
+  },
+  "deferred": [
+    "gameplay/browser",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "nativeStatus": "profiles/rules implemented-unverified; scene/topology/chain specifications unactivated; INTEGRATION.json names exact gaps",
+  "preserved": [
+    "shared runtime/canonical/build ownership",
+    "source libraries and full-book dossiers read-only",
+    "private saves untouched",
+    "attribution/LICENSE",
+    "existing native opening/prestige/time policies"
+  ],
+  "release": "Parent may import/register source profiles or continue native binding after this receipt; worker performs no further writes."
+}

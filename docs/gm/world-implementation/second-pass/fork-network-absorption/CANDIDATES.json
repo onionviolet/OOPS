@@ -1,0 +1,1046 @@
+{
+  "schema_version": 1,
+  "status": "complete_static_candidates",
+  "authorization": "Planning only, no candidate imported or runtime selected. Shared Engine retains all source/UI/save/build ownership.",
+  "baseline": {
+    "normal": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+    "dev_master": "af47a8e9b112116935870ae7126dd2f194d2694a",
+    "dev_refactoring": "c5de678cfbd5b0879c5460b5b861fc967af660ac",
+    "dirty_local_head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty_native_hashes_unchanged": true
+  },
+  "shortlist": [
+    "FNA01",
+    "FNA02",
+    "FNA03",
+    "FNA04",
+    "FNA05"
+  ],
+  "candidates": [
+    {
+      "repository": "Kuroiteiken/yairp",
+      "branch": "contribute/upstream-display",
+      "head": "44cef56b76a43d28b37c061c416ad902097ecc63",
+      "head_url": "https://github.com/Kuroiteiken/yairp/tree/44cef56b76a43d28b37c061c416ad902097ecc63",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "4b3b2ae5dd101ec55b9b8b7f9c6f53e79e62c3aa",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/4b3b2ae5dd101ec55b9b8b7f9c6f53e79e62c3aa"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/display.js",
+          "symbol_or_lines": "create_location_choices action rendering",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/44cef56b76a43d28b37c061c416ad902097ecc63/src/display.js"
+        }
+      ],
+      "id": "FNA01",
+      "title": "Use the authored native action name",
+      "shortlist_rank": 1,
+      "status": "proposed_not_imported",
+      "route": "subset-adapt",
+      "player_or_author_benefit": "Action labels agree with unlock logs and distinguish similarly worded actions.",
+      "native_consumer_trace": "GameAction.action_name fallback starting_text -> availability/context-filtered location actions -> button; start_game_action still owns commitment.",
+      "novelty_against_roots_and_dirty_fork": "Both original root masters/refactoring and current display use starting_text for the action button; current GameAction already stores action_name. Contribution timer guard at44cef56 is already current and excluded.",
+      "current_join_points": [
+        "src/models/game_action.js:20",
+        "src/display.js:2537",
+        "src/data/locations.js native action definitions"
+      ],
+      "dependencies_and_preparation": [
+        "Take only the label expression, retaining current model fallback, disclosure filter, action ID and button handler.",
+        "Freeze current display input hash with sole Engine writer."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No persistence/schema/dependency change.",
+        "Do not import the whole contribution branch or generated bundle."
+      ],
+      "qualitative_effort": "very small",
+      "confidence": "high source trace; behavior unrun",
+      "later_acceptance_gate": [
+        "Rebuild matched source; later confirm known ant/action labels and log names agree, fallback actions unchanged, keyboard/tooltip control retained."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Kuroiteiken/yairp/blob/44cef56b76a43d28b37c061c416ad902097ecc63/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Zorakir/yet-another-another-idle-rpg",
+      "branch": "master",
+      "head": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "head_url": "https://github.com/Zorakir/yet-another-another-idle-rpg/tree/fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "c079925a6685a3d448b04620cf71b9b90d40e0a4",
+          "url": "https://github.com/Zorakir/yet-another-another-idle-rpg/commit/c079925a6685a3d448b04620cf71b9b90d40e0a4"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/crafting_recipes.js",
+          "symbol_or_lines": "ComponentRecipe.getResult125-136",
+          "url": "https://github.com/Zorakir/yet-another-another-idle-rpg/blob/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/crafting_recipes.js"
+        }
+      ],
+      "id": "FNA02",
+      "title": "Guard component recipe inputs",
+      "shortlist_rank": 2,
+      "status": "proposed_not_imported",
+      "route": "subset-adapt",
+      "player_or_author_benefit": "Malformed material choices produce an actionable error rather than opaque property access failure.",
+      "native_consumer_trace": "Native use_recipe selected material -> ComponentRecipe.getResult -> material mapping -> item template/quality -> native item constructors.",
+      "novelty_against_roots_and_dirty_fork": "Original-root/current component getResult indexes filter(...)[0].result_id without input/match guard. Current constructors/quality and grouped material owners differ from the old source. Calendar fix from same commit already duplicates local normalized calendar.",
+      "current_join_points": [
+        "src/crafting_recipes.js:155",
+        "src/main.js:3099",
+        "src/main.js:3112"
+      ],
+      "dependencies_and_preparation": [
+        "Adapt missing material/matching definition/result guards before any cost/stock mutation.",
+        "Keep current roll_quality, native result constructors and custody checks."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "UI selection can fail before getResult at recipe_material.count; this subset is a specific guard, not complete craft transaction hardening.",
+        "No save field/schema; preserve current error/cost semantics and sole Engine writer."
+      ],
+      "qualitative_effort": "small",
+      "confidence": "high source defect/consumer trace; malformed live UI scenario not executed",
+      "later_acceptance_gate": [
+        "Later verify missing/unmatched material rejection and valid component/clothing output, no stock/XP changes on rejection; matched rebuild and generated craft/reload proof if any settlement path changes."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Zorakir/yet-another-another-idle-rpg/blob/fe99d02ba6b8978ec92f93307c0252cacc54c583/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Zorakir/yet-another-another-idle-rpg",
+      "branch": "master",
+      "head": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "head_url": "https://github.com/Zorakir/yet-another-another-idle-rpg/tree/fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "c079925a6685a3d448b04620cf71b9b90d40e0a4",
+          "url": "https://github.com/Zorakir/yet-another-another-idle-rpg/commit/c079925a6685a3d448b04620cf71b9b90d40e0a4"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/trade.js",
+          "symbol_or_lines": "add_to_buying_list/remove_from_buying_list/add_to_selling_list142-236",
+          "url": "https://github.com/Zorakir/yet-another-another-idle-rpg/blob/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/trade.js"
+        }
+      ],
+      "id": "FNA03",
+      "title": "Keep clamped trade requests immutable",
+      "shortlist_rank": 3,
+      "status": "proposed_not_imported",
+      "route": "subset-adapt",
+      "player_or_author_benefit": "Trade selection keeps request values stable while enforcing actual stock limits.",
+      "native_consumer_trace": "index.html inventory click -> main globals -> trade add/remove lists -> grouped stock and calculate_total_values -> current atomic native trade commitment.",
+      "novelty_against_roots_and_dirty_fork": "Old fork introduces count copies instead of mutating selected_item. Current trade still mutates selected_item.count and stores request object directly; current grouped saturation/valuation already supersedes fork scalar-price accounting. Existing UI constructs fresh literals, so no current user-visible defect is claimed.",
+      "current_join_points": [
+        "index.html:1642",
+        "index.html:1651",
+        "src/main.js:6362",
+        "src/trade.js:144",
+        "src/trade.js:225",
+        "src/trade.js:240",
+        "src/main.js prepareNativeTradePlan"
+      ],
+      "dependencies_and_preparation": [
+        "Use a copied immutable request and one actual delta in current grouped buy/sell/remove accounting.",
+        "Retain calculate_total_values, saturation groups, exact quotes and atomic publication; copy no old pricing code."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No new save/schema required.",
+        "Potential alias relationships among items/unsorted/sorted groups need careful preservation.",
+        "Known robustness benefit, not measured speed gain or demonstrated visible bug; Engine owns native trade."
+      ],
+      "qualitative_effort": "small to moderate",
+      "confidence": "high static mutation finding; medium benefit/integration",
+      "later_acceptance_gate": [
+        "Later reused request/overlarge count/grouped saturation/stale quote checks, failed publication and generated trade/save behavior if settlement changes; matched rebuild."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Zorakir/yet-another-another-idle-rpg/blob/fe99d02ba6b8978ec92f93307c0252cacc54c583/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "MrDrJames/yet-another-idle-rpg-dev",
+      "branch": "asterisks-rewards",
+      "head": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+      "head_url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev/tree/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+          "url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev/commit/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/locations.js",
+          "symbol_or_lines": "Combat_zone.get_clear_text315-325",
+          "url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev/blob/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8/src/locations.js"
+        },
+        {
+          "path": "src/display.js",
+          "symbol_or_lines": "update_displayed_combat_location/update_location_kill_count",
+          "url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev/blob/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8/src/display.js"
+        }
+      ],
+      "id": "FNA04",
+      "title": "Hint at known remaining clear rewards",
+      "shortlist_rank": 4,
+      "status": "proposed_not_imported",
+      "route": "subset-adapt",
+      "player_or_author_benefit": "A known combat zone can indicate that an already disclosed clear milestone remains.",
+      "native_consumer_trace": "rewards_with_clear_requirement + enemy_groups_killed/enemy_count -> get_clear_text -> initial clear display and per-kill refresh; main exact-clear reward executor is unchanged.",
+      "novelty_against_roots_and_dirty_fork": "Both roots/current have actual clear rewards but plain clear counts, no helper marker; model moved from src/locations.js to models/location.js locally.",
+      "current_join_points": [
+        "src/models/location.js:245",
+        "src/data/locations.js:455",
+        "src/display.js:2672",
+        "src/display.js:2694",
+        "src/main.js:2775"
+      ],
+      "dependencies_and_preparation": [
+        "Define known/public reward-hint eligibility from actual observer/discovery owner before adding a marker.",
+        "Share one pure clear-display projection across both current renderer paths."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Naive any-future-reward marker leaks hidden progress. Omit undisclosed thresholds/rewards.",
+        "No save/schema or automatic unlock/reward.",
+        "Do not import old singleton model."
+      ],
+      "qualitative_effort": "small; disclosure rule must be settled",
+      "confidence": "high trace; medium product/disclosure fit",
+      "later_acceptance_gate": [
+        "Later show/hide hint before/after known threshold, unknown milestone remains hidden, both refresh paths agree, reload changes no reward and focus retained."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev/blob/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "SchokoKaramel/yet-another-idle-rpg",
+      "branch": "master",
+      "head": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "head_url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/tree/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "34df88733842b0f384a509f0aa15ec8b523f1081",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/commit/34df88733842b0f384a509f0aa15ec8b523f1081"
+        },
+        {
+          "commit": "37c93d9fe0b7a37c5600ca117950318997926a4b",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/commit/37c93d9fe0b7a37c5600ca117950318997926a4b"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/locations.js",
+          "symbol_or_lines": "1875",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/locations.js#L1875"
+        },
+        {
+          "path": "src/quests.js",
+          "symbol_or_lines": "345",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/quests.js#L345"
+        },
+        {
+          "path": "src/enemies.js",
+          "symbol_or_lines": "skeleton definitions305+",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/enemies.js"
+        },
+        {
+          "path": "src/items.js",
+          "symbol_or_lines": "Old weathered book/Cultivator journal/materials",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/items.js"
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "symbol_or_lines": "Fort material recipes",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/crafting_recipes.js"
+        }
+      ],
+      "id": "FNA05",
+      "title": "Reauthor the Fort resource and quest chain",
+      "shortlist_rank": 5,
+      "status": "proposed_not_imported",
+      "route": "defer_then_subset-adapt",
+      "player_or_author_benefit": "A readable earned book lead connects exploration, combat drops, crafting and a later dungeon payoff in the existing home realm.",
+      "native_consumer_trace": "Old weathered book -> The old fort quest -> cave/camp entrance task events -> Fort clear rewards/material recipes -> Fort dungeon -> Cultivator journal.",
+      "novelty_against_roots_and_dirty_fork": "Named Fort chain and skeleton material path absent both roots/refactoring/current; native book/quest/clear/item/recipe systems already exist. Schoko generic Cultivation/XP bonuses are independent and excluded.",
+      "current_join_points": [
+        "src/data/locations.js",
+        "src/data/dialogues.js",
+        "src/quests.js",
+        "src/items.js",
+        "src/crafting_recipes.js",
+        "src/main.js native reward/event handlers"
+      ],
+      "dependencies_and_preparation": [
+        "Wait for reviewed complete Frontier runtime authorization and its finite campaign/owner map.",
+        "Freeze side-arc stable IDs, earned access/book/quest/recipe dependencies and original branch fiction.",
+        "Extract only connected definitions, remap through current native models and authored rewards."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Do not modify inherited opening or select source-world/second prestige/new realm.",
+        "Native IDs/reward events/book progression must survive old/new load without replaying rewards; old-build unsupported content needs explicit compatibility policy.",
+        "No global XP/drop/curve/cultivation pack, unused skills or old Skill class; Engine owns bindings/save/build."
+      ],
+      "qualitative_effort": "moderate content/native adaptation; larger for mature campaign closure",
+      "confidence": "high source-connected chain; balance/prose/browser unverified",
+      "later_acceptance_gate": [
+        "Later generated early-to-dungeon route, alternate entry/refusal, real drops/crafting/book rewards once, partial quest/clear/craft save/import/reload, legacy opening unaffected, director fiction/pace acceptance."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "MIT source notice retained; no added binary assets. No evidence of external borrowed Fort prose; reauthor local fiction/balance and retain source credit rather than assume source canon."
+      }
+    },
+    {
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "head": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "head_url": "https://github.com/Kuroiteiken/yairp/tree/9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "3b430259576f04e6c327dd0f4e88215c78c0246a",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/3b430259576f04e6c327dd0f4e88215c78c0246a"
+        },
+        {
+          "commit": "b0f4c3e909c52b7638f5c75fe06738efe2864002",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/b0f4c3e909c52b7638f5c75fe06738efe2864002"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/display/crafting_display.js",
+          "symbol_or_lines": "328",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/display/crafting_display.js#L328"
+        },
+        {
+          "path": "src/display/crafting_display.js",
+          "symbol_or_lines": "639",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/display/crafting_display.js#L639"
+        }
+      ],
+      "id": "FNA06",
+      "title": "Filter crafting to currently makeable known recipes",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "Optional filter can reduce clutter in a large earned recipe catalog.",
+      "native_consumer_trace": "recipe rows/material availability -> makeable/never-crafted states -> craft UI refresh.",
+      "novelty_against_roots_and_dirty_fork": "Local already greys unavailable recipes, but no makeable-only control found; no need JSON recipe conversion or module rewrite.",
+      "current_join_points": [
+        "src/display.js:3065",
+        "src/crafting_recipes.js get_availability",
+        "src/main.js use_recipe"
+      ],
+      "dependencies_and_preparation": [
+        "Use current exact availability/custody eligibility, explicit show-all-known toggle."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Never scan/reveal undiscovered recipes in counts/search; keep recovery/known blocked functions accessible.",
+        "Never-crafted marker needs authoritative successful-craft record, not inferred stock.",
+        "No new recipe/state schema without selected persistent record."
+      ],
+      "qualitative_effort": "small to moderate",
+      "confidence": "high upstream trace; medium need",
+      "later_acceptance_gate": [
+        "Later known/unknown, reserved stock, tool/station loss, filter reset, real craft refresh and keyboard checks."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "head": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "head_url": "https://github.com/Kuroiteiken/yairp/tree/9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "44cc89c471fbc1cacd3d04f741c14ce8e54dca46",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/44cc89c471fbc1cacd3d04f741c14ce8e54dca46"
+        },
+        {
+          "commit": "ea8e4c144b180bf940bf8b6019b88296d7f4f596",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/ea8e4c144b180bf940bf8b6019b88296d7f4f596"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/save_repairs.js",
+          "symbol_or_lines": "62",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_repairs.js#L62"
+        },
+        {
+          "path": "src/save_repairs.js",
+          "symbol_or_lines": "218",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_repairs.js#L218"
+        },
+        {
+          "path": "src/save_load.js",
+          "symbol_or_lines": "1592",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_load.js#L1592"
+        }
+      ],
+      "id": "FNA07",
+      "title": "Repair a demonstrated old-save entitlement idempotently",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "Recover a proven missing earned unlock/reputation without paying it twice.",
+      "native_consumer_trace": "completed saved content -> calculated shortfall/missing one-time unlock -> reward path -> restored state.",
+      "novelty_against_roots_and_dirty_fork": "Current has validation/migration/retired-content preservation and atomic staged unlocks; no matching demonstrated missing entitlement. Exact Kuro save/reputation/quest owners differ.",
+      "current_join_points": [
+        "src/save_files.js",
+        "src/save_compatibility.js",
+        "src/native_unlock_transaction.js",
+        "src/expansion_persistence.js"
+      ],
+      "dependencies_and_preparation": [
+        "Name a concrete legacy fixture/defect and mathematical entitlement from earned saved history."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No inferred old rewards/history from current max skill/availability alone.",
+        "Repair must stage with save and remain repeat-load idempotent; private saves untouched."
+      ],
+      "qualitative_effort": "moderate for selected bug",
+      "confidence": "high pattern trace; low need without defect",
+      "later_acceptance_gate": [
+        "Later generated old/already-repaired/partial/failure fixtures; no double awards."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "head": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "head_url": "https://github.com/Kuroiteiken/yairp/tree/9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "ee0efe821e7816b4fa049cc7894ab8afa2c8c05f",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/ee0efe821e7816b4fa049cc7894ab8afa2c8c05f"
+        },
+        {
+          "commit": "30acdf227bfc2ad69caf9ea9368e1d68caa800ca",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/30acdf227bfc2ad69caf9ea9368e1d68caa800ca"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/world_index.js",
+          "symbol_or_lines": "reverse source caches",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/world_index.js"
+        },
+        {
+          "path": "src/display/journal_panels.js",
+          "symbol_or_lines": "542",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/display/journal_panels.js#L542"
+        }
+      ],
+      "id": "FNA08",
+      "title": "Knowledge-gated reverse source index",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "A learned item can link back to its observed gathering/trading/crafting/enemy sources.",
+      "native_consumer_trace": "registry reverse source indexes -> Journal source search/render.",
+      "novelty_against_roots_and_dirty_fork": "Current world_knowledge/discovery/observations own known records; no equivalent general reverse lookup. Whole-registry scan would disclose future content.",
+      "current_join_points": [
+        "src/world_knowledge.js",
+        "src/observation_channels.js",
+        "src/adventure_notebook.js",
+        "src/skill_discovery.js"
+      ],
+      "dependencies_and_preparation": [
+        "Compile actual observer-known source edges, not all registered facts."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No rewards/discoveries from projection; keep actual and believed/testified sources distinct.",
+        "No copy of Kuro journal/new architecture."
+      ],
+      "qualitative_effort": "moderate",
+      "confidence": "high trace; medium cross-owner fit",
+      "later_acceptance_gate": [
+        "Later undiscovered source absence, heard/observed distinction, source learning and return projection checks."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Dimava/NekoRPG",
+      "branch": "english",
+      "head": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "head_url": "https://github.com/Dimava/NekoRPG/tree/e299be78e1274d955c081309f501f1f34451d1c5",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "dcf55cacc0ef8d6158dae971f92ca09ce416f8c6",
+          "url": "https://github.com/Dimava/NekoRPG/commit/dcf55cacc0ef8d6158dae971f92ca09ce416f8c6"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/islands/Options.vue",
+          "symbol_or_lines": "20",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/islands/Options.vue#L20"
+        },
+        {
+          "path": "src/main.js",
+          "symbol_or_lines": "115",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/main.js#L115"
+        },
+        {
+          "path": "src/main.js",
+          "symbol_or_lines": "5981",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/main.js#L5981"
+        }
+      ],
+      "id": "FNA09",
+      "title": "Opt-in return after defeat recovery",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "An explicitly enabled recovery option can resume the prior activity after a defeat-caused sleep heals.",
+      "native_consumer_trace": "faint -> sleeping-from-defeat flag/option -> save/load intent -> full-heal tick -> stop sleep -> last combat location.",
+      "novelty_against_roots_and_dirty_fork": "Current has auto return to bed, sleep and last combat location but no corresponding cause-aware wake/return. Both roots lack this option.",
+      "current_join_points": [
+        "src/main.js:2537",
+        "src/main.js:3884",
+        "src/main.js:6069",
+        "src/save_files.js"
+      ],
+      "dependencies_and_preparation": [
+        "Decide explicit default-off behavior and safe cause/intent representation.",
+        "Recheck destination/access/actual recovery; preserve voluntary sleep and pending work."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "May repeatedly re-enter unwinnable combat; deliberate attempt/cancel policy needed.",
+        "Native saved battle/party/recovery/realm location owners differ.",
+        "Absent old fields default inactive; no browser-closed advancement.",
+        "No Neko code/assets imported."
+      ],
+      "qualitative_effort": "moderate",
+      "confidence": "high source trace; medium product fit",
+      "later_acceptance_gate": [
+        "Later defeat/voluntary sleep, reload partial heal, disabled option, stale/inaccessible destination and no repeat-fight surprise checks."
+      ],
+      "provenance": {
+        "code_license": null,
+        "license_url": null,
+        "notices": "No declared top-level license at inspected revision; use independent behavioral design only, no code/content/assets copy.",
+        "asset_or_fiction_limits": "Neko tree lacks declared license and per-asset art/font/music provenance; only independently authored behavior is proposed."
+      }
+    },
+    {
+      "repository": "Dimava/NekoRPG",
+      "branch": "english",
+      "head": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "head_url": "https://github.com/Dimava/NekoRPG/tree/e299be78e1274d955c081309f501f1f34451d1c5",
+      "introducing_or_dependency_commits": [],
+      "source": [
+        {
+          "path": "src/islands/Bestiary.vue",
+          "symbol_or_lines": "88",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/islands/Bestiary.vue#L88"
+        },
+        {
+          "path": "src/gems.js",
+          "symbol_or_lines": "6",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/gems.js#L6"
+        },
+        {
+          "path": "src/components/ItemTooltip.vue",
+          "symbol_or_lines": "122",
+          "url": "https://github.com/Dimava/NekoRPG/blob/e299be78e1274d955c081309f501f1f34451d1c5/src/components/ItemTooltip.vue#L122"
+        }
+      ],
+      "id": "FNA10",
+      "title": "Expected value of already disclosed loot",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "A known enemy loot panel can summarize expected value for planning.",
+      "native_consumer_trace": "loot data/current modifier/items -> expected-value helper -> bestiary/item tooltip; read-only.",
+      "novelty_against_roots_and_dirty_fork": "Current bestiary already shows drop odds/items; value summary is small novel projection. Neko gems/softcap subsystem is absent and excluded.",
+      "current_join_points": [
+        "src/display.js:5003",
+        "src/display.js:5080",
+        "src/enemies.js Enemy.get_loot",
+        "src/items.js value/saturation owners"
+      ],
+      "dependencies_and_preparation": [
+        "Use known loot only and label estimate with actual native chance/value/saturation assumptions."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Registry-only hidden loot/chance/current market mismatches can mislead; no Neko gem economy copy."
+      ],
+      "qualitative_effort": "small to moderate",
+      "confidence": "high upstream trace; medium priority",
+      "later_acceptance_gate": [
+        "Later known loot odds/value projection and changing modifier/value conditions; no grant or hidden source reveal."
+      ],
+      "provenance": {
+        "code_license": null,
+        "license_url": null,
+        "notices": "No declared top-level license at inspected revision; use independent behavioral design only, no code/content/assets copy.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "SchokoKaramel/yet-another-idle-rpg",
+      "branch": "master",
+      "head": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "head_url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/tree/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "87976b2f61f77d49010d29fa7a647691488ea688",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/commit/87976b2f61f77d49010d29fa7a647691488ea688"
+        },
+        {
+          "commit": "bcf12b1cf3539c635f83462391d1daa0d06007d0",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/commit/bcf12b1cf3539c635f83462391d1daa0d06007d0"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/main.js",
+          "symbol_or_lines": "5570",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/main.js#L5570"
+        },
+        {
+          "path": "src/locations.js",
+          "symbol_or_lines": "LocationActivity.getActivityEfficiency410+",
+          "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/locations.js"
+        }
+      ],
+      "id": "FNA11",
+      "title": "Native gathering methods with actual count/time effects",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "Learned gathering competence can change actual material yield or work duration.",
+      "native_consumer_trace": "Gather efficiency -> material-count settlement; Gather speed -> activity efficiency timing.",
+      "novelty_against_roots_and_dirty_fork": "Fork IDs/functions absent both roots/current, while current useful methods/source/XP and work owners already support narrow earned functions. No need separate global Skill class or generic XP curve.",
+      "current_join_points": [
+        "src/models/location.js getActivityEfficiency",
+        "src/main.js native gathering settlement",
+        "src/skill_expansion_host.js",
+        "src/gameplay_publication.js"
+      ],
+      "dependencies_and_preparation": [
+        "Select original acquired method and concrete input/output before adding formulas."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Do not copy displayed-only Efficient training factor, unclamped Lucky loot or unused Failure expert.",
+        "One actual clock/RNG/reservation/publication owner."
+      ],
+      "qualitative_effort": "moderate",
+      "confidence": "high observed consumers; balance unverified",
+      "later_acceptance_gate": [
+        "Later resource/timing/XP actual effect versus tooltip, custody and save settlement."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/SchokoKaramel/yet-another-idle-rpg/blob/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "head": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "head_url": "https://github.com/Kuroiteiken/yairp/tree/9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "c98e3a5abf887f3d1c12173e568434146c320066",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/c98e3a5abf887f3d1c12173e568434146c320066"
+        },
+        {
+          "commit": "e0a3ad07856f87ee96c48be051265a13c99a76ac",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/e0a3ad07856f87ee96c48be051265a13c99a76ac"
+        },
+        {
+          "commit": "67c448ee32454c3e3986f6a4c4ab1a3b827fa3c2",
+          "url": "https://github.com/Kuroiteiken/yairp/commit/67c448ee32454c3e3986f6a4c4ab1a3b827fa3c2"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/guild_jobs.js",
+          "symbol_or_lines": "generate_guild_board/accept/hunt/gather/standing/deadline",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/guild_jobs.js"
+        },
+        {
+          "path": "src/save_load.js",
+          "symbol_or_lines": "board serialization",
+          "url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_load.js"
+        }
+      ],
+      "id": "FNA12",
+      "title": "Repeatable funded local work board",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "Independent requests can make gathered stock and local combat outcomes useful.",
+      "native_consumer_trace": "declared enemies/materials -> board ranks/jobs -> kills/hand-in/expiry -> standing/reward -> saved board.",
+      "novelty_against_roots_and_dirty_fork": "Current finite association commission/pending jobs exist; this fork adds a board/standing loop. Root/current lack guild_jobs.js; board capability is not a conserved economy.",
+      "current_join_points": [
+        "src/simulation.js",
+        "src/frontier_campaign.js",
+        "src/quests.js",
+        "src/site_projects.js"
+      ],
+      "dependencies_and_preparation": [
+        "Author actual funded customer/stock/access/acceptance/cancellation/job scope."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Avoid second clock/job/progression ledger or endless unsolicited standing cap.",
+        "Random offers must freeze/save once; preserve real earned local knowledge."
+      ],
+      "qualitative_effort": "moderate to large",
+      "confidence": "high trace; economy/complete campaign unproven",
+      "later_acceptance_gate": [
+        "Later accepted/expired/abandoned jobs, exact zone/type/stock hand-in, funded once-only rewards and reload."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/Kuroiteiken/yairp/blob/9bebc9e49b0039a26044bcf6b03808826ceb692b/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "FueledByOCHD/experimental-idle-rpg-MyWork",
+      "branch": "master",
+      "head": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "head_url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/tree/669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "79da9e8b8fdebfac9cd3678d36096b61082294bb",
+          "url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/commit/79da9e8b8fdebfac9cd3678d36096b61082294bb"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/combat_stances.js",
+          "symbol_or_lines": "154",
+          "url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/blob/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/combat_stances.js#L154"
+        },
+        {
+          "path": "src/character.js",
+          "symbol_or_lines": "341",
+          "url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/blob/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/character.js#L341"
+        },
+        {
+          "path": "src/main.js",
+          "symbol_or_lines": "967",
+          "url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/blob/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/main.js#L967"
+        }
+      ],
+      "id": "FNA13",
+      "title": "Resource-funded alternate combat mode",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "A deliberately acquired combat mode can spend real energy for a distinct attack.",
+      "native_consumer_trace": "mana availability -> Magic Stance -> magic base damage in active native combat loop.",
+      "novelty_against_roots_and_dirty_fork": "Fork has live paid mana stance; roots/current have different energy/source/power/battle owners. Generic spell template is unused, not a delivered casting system.",
+      "current_join_points": [
+        "src/energy_resources.js",
+        "src/native_battle.js",
+        "src/models/combat.js",
+        "src/power_models.js"
+      ],
+      "dependencies_and_preparation": [
+        "Select authored acquisition/function/body/fuel/counter; implement in current battle planner."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Do not import sandbox gifts/open zones/10^12 XP pinatas, old skill/stat save fields or dead spells."
+      ],
+      "qualitative_effort": "moderate to large",
+      "confidence": "high live stance trace; low code-port fit",
+      "later_acceptance_gate": [
+        "Later acquisition, resource depletion, damage/target/counter, interrupt and saved battle settlement."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork/blob/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "ArturLange/suraimu",
+      "branch": "master",
+      "head": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "head_url": "https://github.com/ArturLange/suraimu/tree/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "introducing_or_dependency_commits": [
+        {
+          "commit": "0ac1f404d6177af548d6a42845efa46460e50b23",
+          "url": "https://github.com/ArturLange/suraimu/commit/0ac1f404d6177af548d6a42845efa46460e50b23"
+        }
+      ],
+      "source": [
+        {
+          "path": "src/items/items_data.ts",
+          "symbol_or_lines": "169",
+          "url": "https://github.com/ArturLange/suraimu/blob/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/items/items_data.ts#L169"
+        },
+        {
+          "path": "src/locations.ts",
+          "symbol_or_lines": "2076",
+          "url": "https://github.com/ArturLange/suraimu/blob/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/locations.ts#L2076"
+        },
+        {
+          "path": "src/crafting_recipes.ts",
+          "symbol_or_lines": "522",
+          "url": "https://github.com/ArturLange/suraimu/blob/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/crafting_recipes.ts#L522"
+        }
+      ],
+      "id": "FNA14",
+      "title": "Connected original gathering-material sinks",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "Distinct gathered materials become useful when processing, recipe and customer/equipment sinks are closed.",
+      "native_consumer_trace": "active item registry + forest/mountain gathering/trader stock; processing/equipment recipes missing for many new materials.",
+      "novelty_against_roots_and_dirty_fork": "New names/catalog absent newer roots/current; most remaining skills/locations/dialogues duplicate roots. This is a partial catalog, not complete progression.",
+      "current_join_points": [
+        "src/items.js",
+        "src/crafting_recipes.js",
+        "src/data/locations.js",
+        "src/crafting_component_filling.js"
+      ],
+      "dependencies_and_preparation": [
+        "Create original material names, reachable source, processing, actual function and consumed sink."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No TS hierarchy/toolchain import; reject silent omit-invalid-item behavior.",
+        "Tensura-signaling terms/canon need source qualification/originalization; no added PNG copy."
+      ],
+      "qualitative_effort": "moderate content; high full-port",
+      "confidence": "high partial consumer trace; low catalog closure",
+      "later_acceptance_gate": [
+        "Later source-to-process-to-use/trade chain, no unusable stranded catalog entries."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/ArturLange/suraimu/blob/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "MIT code notice preserved; Hipokute and other source-signaling lore/terms need qualified originalization. Added PNGs have unrecorded individual provenance."
+      }
+    },
+    {
+      "repository": "SardineMilk/incrpg",
+      "branch": "main",
+      "head": "5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "head_url": "https://github.com/SardineMilk/incrpg/tree/5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "introducing_or_dependency_commits": [],
+      "source": [
+        {
+          "path": "src/data/activitiesData.js",
+          "symbol_or_lines": "9",
+          "url": "https://github.com/SardineMilk/incrpg/blob/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/data/activitiesData.js#L9"
+        },
+        {
+          "path": "src/game/tick.js",
+          "symbol_or_lines": "14",
+          "url": "https://github.com/SardineMilk/incrpg/blob/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/game/tick.js#L14"
+        },
+        {
+          "path": "src/utils/save.js",
+          "symbol_or_lines": "5",
+          "url": "https://github.com/SardineMilk/incrpg/blob/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/utils/save.js#L5"
+        }
+      ],
+      "id": "FNA15",
+      "title": "Meter-driven traversal scene",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "Grip/height/fall state can give a distinct traversal choice.",
+      "native_consumer_trace": "cliff actor effects/triggers -> tick progress/fall damage -> location -> v1 all-actor save.",
+      "novelty_against_roots_and_dirty_fork": "Different entity/reactor engine, no common ancestry; current action/simulation/climbing/route owners already exist.",
+      "current_join_points": [
+        "src/models/game_action.js",
+        "src/expansion_engine.js",
+        "src/simulation.js"
+      ],
+      "dependencies_and_preparation": [
+        "A selected original scene can use current finite commitment/state rather than port engine."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No license found; no source/rat image copying or new scheduler/save engine."
+      ],
+      "qualitative_effort": "moderate specific scene; high engine port",
+      "confidence": "high trace; medium scene fit",
+      "later_acceptance_gate": [
+        "Later paid attempts/progress/fall/interrupt/state persistence for selected scene."
+      ],
+      "provenance": {
+        "code_license": null,
+        "license_url": null,
+        "notices": "No declared top-level license at inspected revision; use independent behavioral design only, no code/content/assets copy.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "shtosik/yet-another-idle-rpg",
+      "branch": "main",
+      "head": "eac55fcf36b7c53514b05ca927f3bb147783b5d4",
+      "head_url": "https://github.com/shtosik/yet-another-idle-rpg/tree/eac55fcf36b7c53514b05ca927f3bb147783b5d4",
+      "introducing_or_dependency_commits": [],
+      "source": [
+        {
+          "path": "src/app/services/battle-manager.service.ts",
+          "symbol_or_lines": "49",
+          "url": "https://github.com/shtosik/yet-another-idle-rpg/blob/eac55fcf36b7c53514b05ca927f3bb147783b5d4/src/app/services/battle-manager.service.ts#L49"
+        },
+        {
+          "path": "src/app/store/player/player.store.ts",
+          "symbol_or_lines": "285",
+          "url": "https://github.com/shtosik/yet-another-idle-rpg/blob/eac55fcf36b7c53514b05ca927f3bb147783b5d4/src/app/store/player/player.store.ts#L285"
+        }
+      ],
+      "id": "FNA16",
+      "title": "Discovered damage-type weakness",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "independent_pattern_defer",
+      "player_or_author_benefit": "Knowledge and an actually matching attack can change combat rather than raw level alone.",
+      "native_consumer_trace": "learned skill + equipped attack type -> damage/weakness function -> fight/UI state.",
+      "novelty_against_roots_and_dirty_fork": "YAIRPG relation unverified; separate Angular game. Current native combat has shared math and powers but no equivalent generic typed weakness rule selected.",
+      "current_join_points": [
+        "src/combat_math.js",
+        "src/models/combat.js",
+        "src/native_battle.js",
+        "src/observation_channels.js"
+      ],
+      "dependencies_and_preparation": [
+        "Freeze authored type/resistance/counter/knowledge cases in a selected world."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "No Angular code/assets or separate per-store save owners; related React bow/board paths incomplete."
+      ],
+      "qualitative_effort": "moderate to large",
+      "confidence": "medium relation/fit; high cited native-family function",
+      "later_acceptance_gate": [
+        "Later known/unknown weakness, actual attack means/type/counter, damage UI and saved knowledge."
+      ],
+      "provenance": {
+        "code_license": null,
+        "license_url": null,
+        "notices": "No declared top-level license at inspected revision; use independent behavioral design only, no code/content/assets copy.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    },
+    {
+      "repository": "BippyCost/yet-another-idle-rpg-tweak",
+      "branch": "testing",
+      "head": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+      "head_url": "https://github.com/BippyCost/yet-another-idle-rpg-tweak/tree/03a6469e11499c1daf7c203a4f0af55bd79c708f",
+      "introducing_or_dependency_commits": [],
+      "source": [
+        {
+          "path": "src/items.js",
+          "symbol_or_lines": "legacy renamed-item aliases",
+          "url": "https://github.com/BippyCost/yet-another-idle-rpg-tweak/blob/03a6469e11499c1daf7c203a4f0af55bd79c708f/src/items.js"
+        },
+        {
+          "path": "src/crafting_recipes.js",
+          "symbol_or_lines": "legacy recipe aliases",
+          "url": "https://github.com/BippyCost/yet-another-idle-rpg-tweak/blob/03a6469e11499c1daf7c203a4f0af55bd79c708f/src/crafting_recipes.js"
+        }
+      ],
+      "id": "FNA17",
+      "title": "Legacy alias migration principle",
+      "shortlist_rank": null,
+      "status": "proposed_not_imported",
+      "route": "pattern_defer",
+      "player_or_author_benefit": "An intentional saved-ID rename can retain old item/recipe references.",
+      "native_consumer_trace": "renamed definitions -> legacy registry aliases -> old key resolution.",
+      "novelty_against_roots_and_dirty_fork": "No current rename selected; existing compatibility/retired-content owner already protects prototype state. Bippy aliases do not establish complete quest/kill-count migration.",
+      "current_join_points": [
+        "src/save_compatibility.js",
+        "src/save_files.js"
+      ],
+      "dependencies_and_preparation": [
+        "Only for a specific selected rename with full ID-domain mapping and fixtures."
+      ],
+      "compatibility_save_ui_owner_conflicts": [
+        "Do not import infernal setting/XP balance or treat partial aliases as compatible save migration."
+      ],
+      "qualitative_effort": "small specific mapping; wider for full rename",
+      "confidence": "high alias trace; low current need",
+      "later_acceptance_gate": [
+        "Later all item/recipe/quest/kill/current-location references across old/new/reload; no duplicate rewards."
+      ],
+      "provenance": {
+        "code_license": "MIT",
+        "license_url": "https://github.com/BippyCost/yet-another-idle-rpg-tweak/blob/03a6469e11499c1daf7c203a4f0af55bd79c708f/LICENSE",
+        "notices": "Preserve2021 Miktaew MIT notice and fork/commit attribution for copied subsets. No bundle/assets recommended.",
+        "asset_or_fiction_limits": "No new asset is required by this subset. Source-derived additions remain attributed; original local wording and balance are proposals."
+      }
+    }
+  ],
+  "not_selected": [
+    "Whole fork/engine branch or generated bundle transplant",
+    "Global XP/tickrate/drop/trader balance packs",
+    "Schoko aggregate tooltip as a repair: all earlier milestones already shown locally",
+    "Unused spell/anti-tag/Failure expert/ranged/task-board declarations",
+    "Unlicensed detached source/content/assets",
+    "Automatic new world/time/death/prestige/dependency runtime"
+  ],
+  "coverage_ref": "INVENTORY.json",
+  "validation_status": "Static source/document checks only; gameplay/browser/save/failure/keyboard/director checks unrun.",
+  "followup_adoption": {
+    "authority": "Direct follow-up absorption request",
+    "receipt": "ADOPTION.md",
+    "build_receipt": "ADOPTION_BUILD.json",
+    "implemented_unverified": [
+      "FNA01",
+      "FNA02",
+      "FNA03",
+      "FNA06"
+    ],
+    "held": [
+      "FNA04 hidden-clear-reward marker",
+      "FNA05 Fort campaign",
+      "other larger pattern candidates"
+    ],
+    "analysis_baseline": "Original candidate status/novelty fields remain the pre-adoption static review snapshot."
+  }
+}

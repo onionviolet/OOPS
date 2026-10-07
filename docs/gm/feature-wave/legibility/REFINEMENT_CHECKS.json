@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "projectionVersion": 2,
+  "status": "source-static-checked-native-ui-build-pending",
+  "sourceHash": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+  "exportCount": 16,
+  "checks": {
+    "syntax": "Final node --check passed",
+    "coldImport": "Final dynamic import passed,16exports/version2, no action/DOM execution",
+    "relativeImportLinks": "pass",
+    "whitespaceFinalNewline": "pass",
+    "independentSourceReview": "Existing UI child source-reviewed recognition, found missing-command defect; repaired. Later bounded source review of mission/chain/hub helpers found no actionable defects. Source-only; no runtime/integration conclusions.",
+    "liveConsumerReview": "Actual recognition host uses own player ledger; actual main supplies displayed id/sequence recovery tokens. Repaired explicit correction and named test-label compatibility.",
+    "nativeDisclosureBinding": "Missing bag/native vitals no longer produces fabricated zero/stale availability; no action/function test run.",
+    "finalCarrierSyntax": "node --check passed after explicit controller/soul/authority/burdens/carried/equipped carrier labels; no behavior evaluation."
+  },
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "sourceBuildPolicy": "Do not treat any prior bundle as proof of changed utility. Features alone rebuilds with actual consumers. No private-save/library/canonical/shared build writes.",
+  "liveConsumerPaths": [
+    "src/feature_expansion_recognition_host.js -> projectSubtletyKnowledgeLegibility -> own backlog.registry knowledge",
+    "src/feature_expansion_subtlety_host.js::relayKnowledgePresentation -> projectSubtletyKnowledgeLegibility -> own subtlety.relay knowledge",
+    "src/main.js::replacementRecoverySnapshot -> displayed id/sequence -> existing actBacklog/persistExpansion",
+    "src/action_legibility_ui.js::createActionLegibilityList -> attributed aftermath and actual recovery callbacks"
+  ],
+  "pendingNativeUiBuildFamilies": [
+    "nested hub/mission projectors",
+    "three-chain projector",
+    "final current source-map correspondence"
+  ],
+  "nestedActualMapping": "NESTED_BINDINGS.md records actual emitted knowledge keys and current host/chain/view/token joins."
+}

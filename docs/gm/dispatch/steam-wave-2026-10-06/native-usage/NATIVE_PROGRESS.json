@@ -1,0 +1,146 @@
+{
+  "observed_utc": "2026-10-07T14:04:14.806358+00:00",
+  "scope": "Root acceptance read-only live-state refresh; exact closed-corpus acquisition remains separate.",
+  "active_goal": "both architecture full exports, meaningful failures, native/DLC review and original use",
+  "native_owner": "/root/factorio_native_finish3",
+  "ARM_receipt": "ARM_CORPUS_ACQUISITION.json",
+  "ARM_verified": {
+    "latest_unique": 183199,
+    "latest_status_counts": {
+      "success": 183186,
+      "timeout": 6,
+      "decompiler-failure": 7
+    },
+    "retained_attempt_records": 184332,
+    "through_chunk": 1850,
+    "latest_scalar_affected_methods": 1105,
+    "latest_scalar_instructions": 1951,
+    "latest_scalar_second_source_aliases": 234,
+    "C_body_chunk_hash_and_count_verification": "pass"
+  },
+  "Intel": {
+    "stage": "Full C/ASM export running after partial analysis was saved and independently reopened",
+    "session": 41973,
+    "java_pid": 46960,
+    "callable_seed_matches": 178145,
+    "nonexternal_saved": 182398,
+    "configured_seconds": 900,
+    "heap": "512M",
+    "maxCPU": 1,
+    "SharedReturnCalls": false,
+    "C_coverage": "Live exporter-reported counts below; initial 8,400 records independently acquired. Final corpus acquisition pending.",
+    "next_changed_method": "Finish full stream, close immutable artifacts, then qualify known CFG/ABI repairs and diagnose actual failures.",
+    "guard_pid": null,
+    "previous_analysis_terminal_utc": "2026-10-07T12:46:40Z",
+    "previous_headless_exit0_is_analysis_success": false,
+    "seed_reopen_verified": {
+      "receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/x86-after-OOM-reopened-inspection.json",
+      "observed_at": "2026-10-07T12:48:20.249519Z",
+      "nonexternal": 182396,
+      "callable_matches": 178145,
+      "decoded_instructions": 0,
+      "missing_callable": 0
+    },
+    "changed_options_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/x86-bounded-options-analysis2.json",
+    "changed_option": "x86 Constant Reference Analyzer registeredtrue\u2192false",
+    "analysis_saved_utc": "2026-10-07T13:04:52Z",
+    "actual_monitor_cancel_utc": "2026-10-07T13:04:46Z",
+    "active_phase_cancelled": "FidAnalyzer",
+    "actual_analyzer_seconds": 803,
+    "reported_saved_nonexternal": 182398,
+    "reported_saved_decoded_instructions": 9869783,
+    "reported_saved_callable_matches": 178145,
+    "reported_missing_callables": 0,
+    "whole_analysis_complete": false,
+    "root_reopen_acquisition": "X86_SAVED_REOPEN_ACQUISITION.json",
+    "root_saved_reopen_acquisition": "X86_SAVED_REOPEN_ACQUISITION.json",
+    "initialclosed84acquisition": "X86_INITIAL_CORPUS_ACQUISITION.json",
+    "observed_closed_progress": {
+      "schema": 1,
+      "architecture": "x86_64",
+      "mode": "full",
+      "disk_floor_bytes": 536870912,
+      "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+      "state": "running",
+      "started_at": "2026-10-07T13:09:07.333989Z",
+      "updated_at": "2026-10-07T14:04:07.321309Z",
+      "pid": 46960,
+      "planned_nonexternal": 182398,
+      "retained_unique_entries": 168900,
+      "this_run_written": 168900,
+      "this_run_success": 168835,
+      "this_run_failed": 65,
+      "last_closed_chunk": 1689,
+      "free_bytes": 70101995520,
+      "this_run_status_counts": {
+        "decompiler-failure": 55,
+        "resource-limit": 2,
+        "success": 168835,
+        "timeout": 8
+      }
+    },
+    "whole_C_export_complete": false,
+    "previous_analysis_failure": {
+      "failure": "X86Analyzer/VarnodeContext constantpropagation OOM; checkpointlockedbuffers1",
+      "actual_failure_utc": "2026-10-07T12:45:16Z",
+      "last_live_not_saved_instruction_count": 9869987,
+      "last_live_not_saved_function_count": 186649
+    }
+  },
+  "usage": "retort e77080593d4b/370matching-source build acquired, implemented-unverified; fourlatestleaf hashes and13latestproduction bindings unchanged",
+  "remaining": "Full Intel stream; meaningful failure/CFG/physical-ABI repairs; exact instruction, function, candidate, alias, external and section reconciliation; final immutable both-corpus acquisition and refreshed bounded semantic/source/DLC claims.",
+  "private_preservation": "exactinput/gzip/fullprojecttar/packedDB/chunks/index/archives/restorehelpers retained; no additionaluninstall",
+  "backend_review": "completed/released; rootacquiredexactsourcehashes and14rawtabletargetsets, only2coveredbyoldpreparation; nocrashorrepairclaim",
+  "reader_refresh": {
+    "owner": "/root/factorio_backend_review",
+    "scope": "disjoint reader-refresh notes only; native corpus/tool/runtime read-only",
+    "task": "54previouslyreviewed quality/spoilage+logistics/heat bodies/claims versus current scalar/ABI/flow corpus; exact changedC semanticdisposition",
+    "reason": "211Cchanges afterqualifiedscalarlowering; oldsemanticclaims needlatestbindingaudit",
+    "state": "completed/released,rootactualbindings/API/source/tableguard acquired",
+    "native_execution": false,
+    "unique_bodies": 53,
+    "role_bindings": 54,
+    "latest_C_changes": 2,
+    "unchanged_body_hashes": 53,
+    "claim_status": "21of22unchanged,NLH-11strengthened;finalreaderreportpending",
+    "new_known_casegap": "Inserter1007f70c4,sixactualtargets/64casebytes omittedfrombody+ASM; nativewriterqueuedfaithfulrefresh",
+    "root_receipt": "READER_REFRESH_ACQUISITION.json",
+    "claim_dispositions": {
+      "unchanged": 19,
+      "strengthened": 1,
+      "needs_body_flow_qualification": 2
+    }
+  },
+  "previous_goal_turn_classification": {
+    "state": "progress",
+    "evidence": "ARMwholechunk/body/C/input/scalar hashacquisition,latest13bindings and1877texts/twoAPIrefresh,faithful14tablebackend review,newactualIntelseedreopen+changedanalyzer execution,durablecurrentroot/waveowners"
+  },
+  "capacity_change": {
+    "observed_utc": "2026-10-07T13:29Z",
+    "free_disk_GiB": 66,
+    "physical_RAM_GiB": 16,
+    "swap_used_GiB": 11.1,
+    "scope_cleanup_performed": false,
+    "active_export_profile": "unchanged",
+    "authorized_future_changed_large_method_probe": "afterfullexport/diagnosis,oneatime,RSS\u22644GiB/diskfloor\u22658GiB/finite120\u2013360s,exactmeasuredpeaks/limits andretainedactualfailure",
+    "limit": "Measuredcapacity doesnotproveCrecovery or removefullbothcorpora/semantics/ABI/CFG audits"
+  },
+  "dependency_retention": {
+    "state": "3actualoriginal/private bytepairs+bothLCmetadatahashes rootacquired",
+    "receipt": "DEPENDENCY_ACQUISITION.json",
+    "bundled_library": "libsteam_api.dylib610496B",
+    "license_texts": 2,
+    "system_dependencies": "metadataonly",
+    "DLL_execution_import_decompile": "none"
+  },
+  "private_instrumented_backend_build": {
+    "worker": "/root/factorio_native_finish3",
+    "session": 99410,
+    "status": "Terminal compile EXIT 0; root independently acquired the binary, log, 237 original source hashes and four instrumented source hashes.",
+    "receipt": "BACKEND_BUILD_ACQUISITION.json",
+    "production_backend_source_unchanged": true,
+    "guard": "Native-reported build RSS sum cap 1.5 GiB and disk floor 16 GiB.",
+    "native_variant_execution": "Not yet run. Wait for full exporter lease release.",
+    "repair_qualification": "A successful instrumentation build proves no Factorio C repair."
+  }
+}

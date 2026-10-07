@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "state": "source-native-ui-save-current-build-admitted; implemented-unverified",
+  "authority": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+  "selectedWorld": "base.frontier original proof; no novel adaptation claimed",
+  "mechanismJoin": "finite inspected material substitution and incomplete explanation over existing owners",
+  "registeredIds": [
+    "repositories.ask_wick_sketch",
+    "repositories.inspect_substitute",
+    "repositories.deliver_substitute",
+    "repositories.hear_substitution"
+  ],
+  "claimId": "repositories.substitute_delivery",
+  "sourceFindings": [
+    "RB-INT-01",
+    "RB-INT-02",
+    "RB-LIV-02",
+    "RB-AUT-01",
+    "RB-CAM-03"
+  ],
+  "sourceEvidence": "SOURCE_MATRIX.json retained qualified pinned evidence; no new blanket review",
+  "currentHashes": {
+    "src/repository_absorption_substitutions.js": "6b52ad95786ae491b137d45e3349811779354d4087f8d779c6acebf4d89e08b8",
+    "src/repository_absorption_content.js": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94",
+    "src/repository_absorption_facts.js": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86"
+  },
+  "joins": {
+    "src/repository_absorption_content.js": "imports repositoryAbsorptionSubstitutionCommands and spreads four additional commands into existing group repositories",
+    "src/simulation_content.js": "existing role registration loop already admits all four actual IDs",
+    "src/repository_absorption_host.js": "existing group-scoped commit/known-only presentation routes these unchanged typed commands",
+    "src/repository_absorption_ui.js": "existing projected rows issue exact IDs/current sequence; no standalone new panel",
+    "src/main.js": "existing actRepository and persistExpansion owns single durable native kit/purse settlement",
+    "src/simulation.js": "existing repositories group reservationReturns1/completionSupport1 under simulation4 handles real owner refunds",
+    "dist/bundle.js": "Features coordinated final window must rebuild including new substitution source/content",
+    "src/repository_absorption_facts.js": "New additive miriMethodSupported current source/faculty/understood-knowledge query gates only new trained one-minute substitute inspection and rechecks at completion. Existing jobs/IDs meaning untouched."
+  },
+  "newNamespace": null,
+  "definitionRevision": 1,
+  "roleSourceReleased": true,
+  "checksPerformed": [
+    "new JS/content syntax",
+    "cold actual native registry import",
+    "26repository commands registered, four new IDs present",
+    "new faculty/knowledge fact and substitute inspection syntax",
+    "all26 actual registry bindings and cold host/UI imports"
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "sourceOnlyBuild": "STATIC_SUBTLETY_BUILD.json",
+  "nativeItemNameRepair": "Actual OtherItem delegates Item.name with no id fallback; all3specs now explicitly name=id. IDs/counts/jobs/saved meaning unchanged; final coordinated build consumes corrected native display names.",
+  "currentBuild": {
+    "bundleFingerprint": "11aaa9cbfc69",
+    "receipt": "docs/gm/feature-wave/features/BUILD.json",
+    "localSourcesMatched": 221,
+    "roleModulesMatched": 7,
+    "sourceDrift": 0
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "at": "2026-10-07T06:15:21.630Z",
+  "scope": "Cold definitions/links only; no state fixture or gameplay",
+  "worlds": [
+    "reference.proto23.village",
+    "book.mol.cyoria",
+    "book.paradise.hub",
+    "book.paradise.goa",
+    "nested.paradise_hub",
+    "nested.saltworks",
+    "nested.archive",
+    "feature.tidemark",
+    "pocket.folded_glasshouse",
+    "base.frontier"
+  ],
+  "commands": 1227,
+  "controllers": 52,
+  "conditions": 23,
+  "workPlans": 7,
+  "selected": [
+    {
+      "id": "game_absorption_assay.open",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.buy_full",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.buy_dirty",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.trial_dull",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.trial_fineDull",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.compare",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.examine",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.rinse",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.scrape_dull",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "game_absorption_assay.scrape_fineDull",
+      "group": "game_absorption_assay",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "contextual_balm.dress_scraped_palms",
+      "group": "contextual_balm",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "reference_gameplay.refine_first",
+      "group": "cooling_refinement",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "reference_gameplay.refine_second",
+      "group": "cooling_refinement",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "reference_gameplay.refine_third",
+      "group": "cooling_refinement",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "reference_gameplay.refine_later",
+      "group": "cooling_refinement",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "reference_gameplay.steady_hook",
+      "group": "cooling_refinement",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "feature_society.duty.repair_first",
+      "group": "feature_society",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "feature_society.duty.lesson_first",
+      "group": "feature_society",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "feature_society.duty.ordinary_order",
+      "group": "feature_society",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "feature_society.duty.followup_repair",
+      "group": "feature_society",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    },
+    {
+      "id": "feature_society.duty.followup_lesson",
+      "group": "feature_society",
+      "worldId": "base.frontier",
+      "revision": 1,
+      "registered": true
+    }
+  ],
+  "orrController": [
+    {
+      "id": "feature_society.orr_controller",
+      "revision": 1,
+      "priorities": [
+        2,
+        1
+      ]
+    }
+  ],
+  "priorHarnessRepair": "First readback expected nonexistent priorities property; corrected to actual controller.actions. No source failure or state was exercised.",
+  "files": [
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+    },
+    {
+      "path": "src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7"
+    },
+    {
+      "path": "src/contextual_balm_content.js",
+      "sha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e"
+    },
+    {
+      "path": "src/cooling_refinement_content.js",
+      "sha256": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4"
+    },
+    {
+      "path": "src/agreed_duty_content.js",
+      "sha256": "2364e9abf895cf36001dcf542a0213ca3c7fc0c4143d6b65906aab6fa1bbf91f"
+    }
+  ]
+}

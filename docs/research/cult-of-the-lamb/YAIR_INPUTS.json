@@ -1,0 +1,42 @@
+{
+  "checked_utc": "2026-10-07T03:39:38.061818+00:00",
+  "qualification": "dirty live inputs inspected as design incumbent, not frozen implementation interfaces",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "fb5143d048e972a4ec51e21963cc60977eb2e793879e629d49e5279e5195793f"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70"
+    },
+    {
+      "path": "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11"
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+      "sha256": "0f84afe95dc057686bc49156515d20bade9340b8ef5b1cbf0cdb87bba82e0666"
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/village_content.js",
+      "sha256": "0a8a4a250e97091ccf92bcaae138a5f071e6dba673ea462a31fe9b8e868b4e15"
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "6a14bf583fbb25a3dd2adeb19e38677c5610d3655f73e3eb42b92330d11594fc"
+    }
+  ]
+}

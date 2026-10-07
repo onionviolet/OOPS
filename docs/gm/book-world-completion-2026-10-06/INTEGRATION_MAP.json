@@ -1,0 +1,407 @@
+{
+  "schema": 1,
+  "role": "/root/integration_map",
+  "date": "2026-10-06",
+  "scope": "Read-only exact native integration review; only INTEGRATION_MAP.md/json written",
+  "status": "completed_released",
+  "baseline": {
+    "bundleSha256": "d405e2c1a0e39771841cdeb3e628d2ccc057e817026a2f8dd6796ba1ea35e302",
+    "registry": {
+      "worlds": 8,
+      "sources": 51,
+      "commands": 1059,
+      "controllers": 48,
+      "conditions": 18,
+      "energies": 2
+    },
+    "sourceLineBasis": "Inspected baseline before shared root edits; resolve named symbol if lines move",
+    "knownLiveRootEdits": [
+      "expansion11 admits motherOfLearning1",
+      "global single-active-visit validation begun"
+    ]
+  },
+  "interface": {
+    "leafPrefix": "book_world_mol_",
+    "modules": [
+      "ids",
+      "content",
+      "actions",
+      "state",
+      "host",
+      "native"
+    ],
+    "state": "motherOfLearning",
+    "stateSchema": 1,
+    "engineSchema": 11,
+    "nativeDomain": "book_world_mol_native",
+    "inventoryNamespace": "book_world_mol",
+    "groups": [
+      "book_mol",
+      "book_mol_npc"
+    ],
+    "sourceEpubSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+    "sourceQualification": "Supplied WebToEpub dossier complete; not primary-edition or runtime certification"
+  },
+  "joins": [
+    {
+      "id": "world_registry",
+      "file": "src/expedition_content.js",
+      "line": 36,
+      "symbol": "expeditionRegistry",
+      "join": "Merge molWorlds without automatic enrollment",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "simulation_definitions",
+      "file": "src/simulation_content.js",
+      "line": 43,
+      "symbol": "simulationSources/simulationDefinitions",
+      "join": "Merge sources and exported definition families, including energies only if exported",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "items",
+      "file": "src/data/expedition_items.js",
+      "line": 32,
+      "symbol": "registerParadiseItems reference",
+      "join": "Register exact MOL native item keys before loader",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "native_registration",
+      "file": "src/main.js",
+      "line": 341,
+      "symbol": "createParadiseNativeBindings reference",
+      "join": "Construct/register MOL empty locked native placeholders",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "expansion_admission",
+      "file": "src/expansion_engine.js",
+      "line": 124,
+      "symbol": "validateExpansionState",
+      "join": "Admit MOL1 under11 and validate absent/present MOL state",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_main",
+      "file": "src/main.js",
+      "line": 480,
+      "symbol": "persistExpansion",
+      "join": "Keep MOL1 in11 before both validation passes",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_leaf",
+      "file": "src/book_world_paradise_host.js",
+      "line": 66,
+      "symbol": "commitParadiseCommand",
+      "join": "MOL1 remains11 during Paradise enrollment",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_nested",
+      "file": "src/feature_expansion_nested_host.js",
+      "line": 233,
+      "symbol": "commitNestedCommand",
+      "join": "MOL1 remains11 during nested personal enrollment",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_life",
+      "file": "src/feature_expansion_nested_life.js",
+      "line": 109,
+      "symbol": "preparedState",
+      "join": "MOL1 remains11 during nested life preparation",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_reference",
+      "file": "src/reference_gameplay_state.js",
+      "line": 64,
+      "symbol": "beginReferenceGameplay",
+      "join": "MOL1 remains11 during reference enrollment",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "schema_preservation_workplans",
+      "file": "src/feature_expansion_work_plan.js",
+      "line": 288,
+      "symbol": "work plan host",
+      "join": "MOL1 remains11 during work plan preparation",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "home_projects_after_mol",
+      "file": "src/audit_remainder_state.js",
+      "line": 45,
+      "symbol": "beginAuditRemainder",
+      "join": "MOL-first11 can enroll existing home projects",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "current_context",
+      "file": "src/main.js",
+      "line": 429,
+      "symbol": "simulationNativeContexts",
+      "join": "MOL native frame, actual location owners and supported contexts",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "facts",
+      "file": "src/simulation_effects.js",
+      "line": 53,
+      "symbol": "simulationFacts",
+      "join": "Merge molFacts for command/controller/completion consumers",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "host_dispatch",
+      "file": "src/main.js",
+      "line": 884,
+      "symbol": "actFeatureExpansion",
+      "join": "book_mol host command/cancel route",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "clock",
+      "file": "src/expansion_engine.js",
+      "line": 575,
+      "symbol": "advanceSimulation",
+      "join": "MOL boundaries/sync/contexts in one common-clock scheduler",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "completion",
+      "file": "src/simulation.js",
+      "line": 188,
+      "symbol": "startCommand/completeJob246",
+      "join": "Reservation returns and current book_mol_npc native context",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "native_relocation",
+      "file": "src/simulation_effects.js",
+      "line": 139,
+      "symbol": "applySimulationEffects",
+      "join": "Exact MOL native NPC location/body/revision adapter",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "one_body",
+      "file": "src/realm_state.js",
+      "line": 34,
+      "symbol": "validateRealmState",
+      "join": "Inactive other owners allow valid MOL/Paradise presence; one active visit",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "raw_native_travel",
+      "file": "src/main.js",
+      "line": 1585,
+      "symbol": "change_location",
+      "join": "MOL visit/place bypass gate",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "publication",
+      "file": "src/main.js",
+      "line": 556,
+      "symbol": "persistExpansion",
+      "join": "Stage MOL native write and publish after save succeeds",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "save_snapshot",
+      "file": "src/main.js",
+      "line": 4394,
+      "symbol": "create_save",
+      "join": "MOL native snapshot",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "save_restore",
+      "file": "src/main.js",
+      "line": 6133,
+      "symbol": "native loader",
+      "join": "MOL native restore after definitions",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "save_validation",
+      "file": "src/save_files.js",
+      "line": 40,
+      "symbol": "validateSaveEnvelope",
+      "join": "MOL absent/present structural validation before import write",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "native_consumers",
+      "file": "src/book_world_paradise_native.js",
+      "line": 118,
+      "symbol": "read/stage/snapshot/restore reference",
+      "join": "MOL finite stock/calendar/quest/living-person/location projection",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "conditions",
+      "file": "src/main.js",
+      "line": 282,
+      "symbol": "setSimulationEffectReader",
+      "join": "Explicit MOL native stat effects; labels alone are insufficient",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "sources_powers_energy",
+      "file": "src/simulation_effects.js",
+      "line": 242,
+      "symbol": "applySimulationEffects",
+      "join": "Distinct received knowledge, source faculty, learned mastery and actual reserve/use",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "custody",
+      "file": "src/simulation_effects.js",
+      "line": 176,
+      "symbol": "applySimulationEffects",
+      "join": "Owned or exact loan/operator physical material path",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "center_notebook",
+      "file": "src/feature_expansion_refinements_host.js",
+      "line": 33,
+      "symbol": "refinementPresentation",
+      "join": "Merge molPresentation into existing panel/legibility",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "people",
+      "file": "src/people_knowledge.js",
+      "line": 94,
+      "symbol": "knownPeopleView",
+      "join": "MOL contacts only from observed/attributed player records",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "attention",
+      "file": "src/adventure_notebook.js",
+      "line": 35,
+      "symbol": "attention",
+      "join": "book_mol job/session/decision Here routing",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "events",
+      "file": "src/event_feed.js",
+      "line": 35,
+      "symbol": "eventFeed",
+      "join": "Observed campaign accounts and actual local event controls",
+      "status": "required_join_map_not_implementation_proof"
+    },
+    {
+      "id": "carrier_conservation",
+      "file": "src/book_world_paradise_carriers.js",
+      "line": 11,
+      "symbol": "paradiseCarrierContext reference",
+      "join": "Reuse traveler/cargo and complete actual native owner conservation",
+      "status": "required_join_map_not_implementation_proof"
+    }
+  ],
+  "risks": [
+    {
+      "id": "absence",
+      "files": [
+        "src/simulation.js:407",
+        "src/simulation.js:424",
+        "src/simulation.js:430"
+      ],
+      "finding": "Presence/freeze instance clocks do not automatically pause common-clock jobs/controller due/conditions",
+      "requiredDecision": "Exact absence/job/controller/condition policy"
+    },
+    {
+      "id": "condition_immunity_context",
+      "files": [
+        "src/simulation_effects.js:231"
+      ],
+      "finding": "Condition immunity calls simulationFacts without full native/gameplay/vital context; inspected helpers tolerate absent registry, but new support-based immunity cannot safely infer actual means",
+      "requiredDecision": "Pass full context for any new MOL support-based immunity; preserve no-immunity path"
+    },
+    {
+      "id": "complex_staged_vitals",
+      "files": [
+        "src/simulation_effects.js:156",
+        "src/expansion_engine.js:601"
+      ],
+      "finding": "Ordinary NPC edits persist in people.vitals; full plan.vitals after advance returned only with causalStories",
+      "requiredDecision": "Preserve full vitals only if new leaf requires them"
+    },
+    {
+      "id": "save_reader",
+      "files": [
+        "src/save_files.js:23",
+        "src/save_compatibility.js:9"
+      ],
+      "finding": "MOL absent must stay absent; new exact owner needs updated reader; no automatic rights/stock migration",
+      "requiredDecision": "Additive absent-reader compatibility with exact MOL1"
+    },
+    {
+      "id": "observer",
+      "files": [
+        "src/people_knowledge.js:94",
+        "src/event_feed.js:35"
+      ],
+      "finding": "People/Events must use player-received records, never private loop/protagonist knowledge or global log",
+      "requiredDecision": "Explicit observer-safe accounts and local action routing"
+    }
+  ],
+  "checked": [
+    "static registry import and definition construction",
+    "schema owner search excluding reserved assay leaves",
+    "exact native caller inspection",
+    "input SHA256 capture",
+    "map JSON and source link/line validation"
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import behavior",
+    "failure",
+    "regression",
+    "keyboard",
+    "director"
+  ],
+  "excluded": [
+    "src/game_absorption_assay_content.js",
+    "src/game_absorption_assay_facts.js",
+    "src/game_absorption_assay_host.js",
+    "src/game_absorption_assay_item_view.js"
+  ],
+  "reservationsReleased": [
+    "docs/gm/book-world-completion-2026-10-06/INTEGRATION_MAP.md",
+    "docs/gm/book-world-completion-2026-10-06/INTEGRATION_MAP.json"
+  ],
+  "rootReportedRepairs": {
+    "qualification": "Parent message only; no repeated changing-source inspection after map release",
+    "joins": [
+      "Glasshouse whitelist and global single active visit",
+      "expansion11 admission and lower-schema retention including audit enrollment",
+      "native registry/action/binding/read/stage/snapshot/restore",
+      "presentation/items/People/Events",
+      "condition immunity short circuit and full plan context/registry"
+    ],
+    "remainingInterface": "MOL worker supplies explicit native condition projection"
+  },
+  "subsequentDefinitionReview": {
+    "markdown": "SOURCE_REVIEW_MOL.md",
+    "receipt": "SOURCE_REVIEW_MOL.json",
+    "status": "completed_released",
+    "sourceScope": [
+      "book_world_mol_ids.js",
+      "book_world_mol_content.js",
+      "book_world_mol_actions.js"
+    ],
+    "qualification": "In-progress writer snapshot; no host/state/native or behavior certification"
+  }
+}

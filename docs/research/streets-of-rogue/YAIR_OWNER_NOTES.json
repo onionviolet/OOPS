@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "purpose": "Read-only audit of existing YAIR consumers for the five proposed Streets of Rogue-inspired interaction directions; prevent duplicate implementation packets.",
+  "source_boundary": {
+    "original_gameplay_source": "UNAVAILABLE. No original Streets of Rogue gameplay logic is asserted or traced in this owner audit.",
+    "available_references": "RogueLibs framework commit d76523acb484168f4d2d1d7bc0fce0d2c5d263f1 and redaphid mod commit 01f205c57f65ab98276c6989da6d98eddeb89c65 are private inputs reported by the research owner; framework/mod code is not original game logic or proof of game behavior.",
+    "delivery_state": "Current YAIR feature families are documented implemented-unverified. This audit did not run tests, browser, save, build, or runtime checks."
+  },
+  "decision": {
+    "result": "no-new-gap",
+    "reason": "The five directions already have concrete, integrated consumers in the current expansion/reference gameplay delivery. The requested audit found no additional small consumer that can be justified without duplicating the same player action/result loops. Broader content and human/playable acceptance remain separate from an owner-level gap.",
+    "new_packets": []
+  },
+  "coverage": [
+    {
+      "direction": "context, owner, consent-aware alternative interaction approaches",
+      "covered_by": "The leaking-joint sequence offers ordinary brace versus learned matched seal, preserves a slower ordinary rack, and routes to paid kit delivery. Commands bind the actual target, co-location, owner, lender, consent, stock, knowledge, and costs. The sluice also admits a slower drainage route independently of battle.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "lines": "62-84, 107-121, 141-167, 171-181",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "lines": "41-47, 215-267",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/main.js",
+          "lines": "778-810",
+          "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+          "finding": "Current featureWaveContext composes the actual object/society/reference owners; actFeatureExpansion routes their actions through their hosts and persists the staged plan."
+        }
+      ],
+      "absence_search": "Checked feature_objects and feature_battle command/action consumers and the main dispatch branches. These are already real competing routes; no second generic interaction menu or reskin packet is warranted."
+    },
+    {
+      "direction": "item combinations and target actions with useful aftereffects",
+      "covered_by": "Actual log/sap/stamina/tool inputs create wet or sound staves, matched inserts and native kits. Knife condition changes, custody/deposit, NPC stock, knowledge, XP and persistent world joint phases are explicit. Cancellation refunds inputs; completion consumes or transforms the real item. Targeted delivery and repair also settle actual owner balances/items.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "lines": "57-98, 141-170",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_objects_host.js",
+          "lines": "58-107, 109-134",
+          "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "lines": "92-110, 161-204",
+          "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+        }
+      ],
+      "absence_search": "Checked the concrete object recipes, host preview/commit and effects application for item, transfer, custody, world, relationship, and claim consumers. The actual transformation/aftermath seam exists."
+    },
+    {
+      "direction": "actor-owned abilities/statuses meaningful to NPC action choice",
+      "covered_by": "NPCs have owned powers/sources and actual equipment/body/stamina. The fixed sluice actors select techniques and targets from their live gear, pressure, exposure and condition; paid cooling removes the pole pull option and adds guard behavior. Abilities require their actor's own source/mastery and resources. This is an authored local decision consumer, not a claim of general-purpose NPC AI.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_battle.js",
+          "lines": "128-141, 175-198, 369-411",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/power_models.js",
+          "lines": "1-45",
+          "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "lines": "206-256",
+          "sha256": "56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc"
+        }
+      ],
+      "absence_search": "Checked featureNativeAction's live NPC candidate construction and gates, plus power/faculty/condition effect owners. A broader general controller authoring layer could be future work, but this direction already has the requested concrete consumer and does not justify a duplicate packet."
+    },
+    {
+      "direction": "environment operation with temporary status/change and residue",
+      "covered_by": "The sluice gate/support has an objective, wedge, brace, escape and retained encounter result; the drying shelf joint has leaking/braced/sealed phases that alter later work time. The target change is saved in world/situation state, while materials, stamina, wounds, fatigue and receipts remain as aftermath.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_objects.js",
+          "lines": "107-108, 160-170, 175-181",
+          "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "lines": "89-96, 245-267, 273-280, 311-355",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": "359-390",
+          "sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144"
+        }
+      ],
+      "absence_search": "Checked object phase effects, native battle objective/effect settlement, and simulation boundaries for condition expiry. Persistent local residue and temporary conditions already have owners and consumers."
+    },
+    {
+      "direction": "finite optional conduct/objective tracking and retained consequences",
+      "covered_by": "Optional feats require explicit enrollment, record completed approaches/method evidence, and track no-strike/prepared-team attempts with completed, violated, withdrawn and ordinary outcomes. Attempts are bounded and recognized only from committed receipts; the battle and conduct receipt retain spent costs and outcome.",
+      "evidence": [
+        {
+          "file": "src/reference_gameplay_feats.js",
+          "lines": "30-42, 208-301, 317-340",
+          "sha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3"
+        },
+        {
+          "file": "src/feature_expansion_battle.js",
+          "lines": "273-280, 369-382",
+          "sha256": "d2ac0a252a28656c4f158941c779f6c046952afef1763f1088b5b4a109359ce9"
+        },
+        {
+          "file": "src/main.js",
+          "lines": "401-420, 756-795",
+          "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92"
+        }
+      ],
+      "absence_search": "Checked the feat validator/advance logic, battle result settlement, and the actual main commit path. Recognition is attached to committed state, not merely UI visibility or enrollment."
+    }
+  ],
+  "integration_and_retention": {
+    "live_callers": [
+      {
+        "file": "src/main.js",
+        "lines": "778-810, 7138-7149",
+        "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+        "finding": "Feature object, society, reference gameplay and native sluice commands are routed through concrete hosts; panels/hosts receive the shared current state, context and persistence callback."
+      },
+      {
+        "file": "src/main.js",
+        "lines": "421-479",
+        "sha256": "295671af884ce84e2b52542966e93b49a2ed07a316525f6295e5f5667365af92",
+        "finding": "Actual persistExpansion caller advances reference gameplay at 427, validates and stages the plan, then invokes persistExpansionPlan at 479 before publishing expansion state."
+      },
+      {
+        "file": "src/simulation.js",
+        "lines": "51-175, 176-212, 316-359",
+        "sha256": "a9804728754c4dcaf0cd5cd15f1252f7ddf82b0b35a560990617ebf2bccb1144",
+        "finding": "Preview, commit, frozen job/session, response, event and boundary APIs are actual owners called by the hosts, not unused exports."
+      },
+      {
+        "file": "src/expansion_persistence.js",
+        "lines": "7-51",
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "finding": "Durable publication uses a staged transaction function; source audit only, no persistence behavior executed here."
+      }
+    ],
+    "current_delivery": {
+      "file": "docs/gm/reference-gameplay/DELIVERY.md",
+      "lines": "1-25",
+      "sha256": "f871c352f153abaf593d680ebcb8e83b6df6a056cdb0012a4eaa4783be3dc466",
+      "finding": "Current finite wave is explicitly implemented-unverified; schema9 optional enrollment and feature/legacy boundaries are documented. Gameplay/save/reload/failure/keyboard/director gates are deferred."
+    },
+    "project_intent": {
+      "file": "PROJECT.md",
+      "lines": "1-10, 129-130",
+      "sha256": "1870ff6cb6bfddd2844cb22e6aae2ef604eae6cee1d49db23a6ec61bcd6e5352",
+      "finding": "Expansion preserves a one-realm/one-prestige first milestone and broader systems; current owners already claim inventory, actor controllers, statuses, conditions, occurrence and persistence foundations."
+    },
+    "snapshot": {
+      "path": "/Users/weiwei/.codex/research/streets-of-rogue/yair-observed/",
+      "note": "Read-only copies of cited source/document inputs as observed during the refresh. main.js had drifted since the prior audit; its citation now uses the live staged persistence boundary. Snapshot copies are chmod 0444.",
+      "manifest": "manifest.json"
+    }
+  },
+  "limits": [
+    "Source inputs were already moving/dirty. After parent review identified main.js drift, cited files were refreshed and copied to the private read-only snapshot path in integration_and_retention.snapshot. SHA-256 hashes identify observed contents.",
+    "No lines in this file establish Streets of Rogue mechanics. Original game source is unavailable; only supplied framework/mod context is qualified separately by the research owner.",
+    "No tests, browser, save/reload, build, runtime, commit, or follow-on delegation was performed."
+  ],
+  "coordinator_supplement": {
+    "evidence": [
+      {
+        "file": "src/reference_gameplay_content.js",
+        "lines": "4-98",
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_content.js"
+      },
+      {
+        "file": "src/reference_gameplay_host.js",
+        "lines": "12-79",
+        "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+        "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_host.js"
+      },
+      {
+        "file": "src/reference_gameplay_state.js",
+        "lines": "60-159",
+        "sha256": "6a005324913d4c1425830c83543c497bceb48484a1696605f2c2da9466166bfe",
+        "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/src/reference_gameplay_state.js"
+      },
+      {
+        "file": "docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md",
+        "lines": "1-9",
+        "sha256": "5793b952c1ef36c8e41979ef4802719637c44c767a5f57e5b386c72b5a51c7b6",
+        "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed/docs/gm/reference-gameplay/ACCEPTANCE_BACKLOG.md"
+      }
+    ],
+    "consequential_review": [
+      "Ordinary sleeve resin/kits/recharge need no learned power; only hook control requires acquired active mastery3.",
+      "Reference enrollment/conduct/recognition states and supporting live source/tool/condition admission were read directly.",
+      "Save/behavior/keyboard/director acceptance backlog is deferred and unrun."
+    ],
+    "snapshot": "/Users/weiwei/.codex/research/streets-of-rogue/yair-root-observed",
+    "current_drift_policy": "Use frozen observed snapshots for citations. Live shared writers can change unrelated code; no final bundle/version-parity claim is made."
+  }
+}

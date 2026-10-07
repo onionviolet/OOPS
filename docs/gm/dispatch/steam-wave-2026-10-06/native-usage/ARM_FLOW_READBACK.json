@@ -1,0 +1,301 @@
+{
+  "observed_utc": "2026-10-07T12:40:49.952490+00:00",
+  "architecture": "arm64",
+  "through_chunk": 1850,
+  "scope": "Root read-only latest immutable-record warning/flow projection. Unresolved computed jump is not proof of invalid code: may be valid external tail/virtual dispatch. No C-success semantic-completeness claim.",
+  "summary": {
+    "functions": 183199,
+    "generated_warning_functions": 62548,
+    "computed_jump_functions": 13765,
+    "unresolved_computed_jump_functions": 13765,
+    "computed_jump_instructions": 14590,
+    "unresolved_computed_jump_instructions": 14588,
+    "functions_with_undecoded_body_bytes": 26085,
+    "undecoded_body_bytes": 3149564
+  },
+  "warning_categories": [
+    {
+      "category": "Subroutine does not return",
+      "occurrences": 43837,
+      "functions": 31069
+    },
+    {
+      "category": "Removing unreachable block (ram,<address>)",
+      "occurrences": 28048,
+      "functions": 8194
+    },
+    {
+      "category": "Treating indirect jump as call",
+      "occurrences": 19726,
+      "functions": 19042
+    },
+    {
+      "category": "Could not recover jumptable at <address>",
+      "occurrences": 19719,
+      "functions": 19036
+    },
+    {
+      "category": "Globals starting with '_' overlap smaller symbols at the same address",
+      "occurrences": 9836,
+      "functions": 9836
+    },
+    {
+      "category": "Read-only address (ram,<address>) is written",
+      "occurrences": 5164,
+      "functions": 43
+    },
+    {
+      "category": "Does not return",
+      "occurrences": 2893,
+      "functions": 2833
+    },
+    {
+      "category": "Type propagation algorithm not settling",
+      "occurrences": 1801,
+      "functions": 1801
+    },
+    {
+      "category": "Unknown calling convention -- yet parameter storage is locked",
+      "occurrences": 202,
+      "functions": 202
+    },
+    {
+      "category": "Function: _objc_release replaced with injection: _objc_release_fixup",
+      "occurrences": 185,
+      "functions": 185
+    },
+    {
+      "category": "Restarted to delay deadcode elimination for space: stack",
+      "occurrences": 148,
+      "functions": 148
+    },
+    {
+      "category": "Function: _objc_retainAutoreleasedReturnValue replaced with injection:",
+      "occurrences": 142,
+      "functions": 142
+    },
+    {
+      "category": "Function: _objc_retain replaced with injection: _objc_retain_fixup",
+      "occurrences": 112,
+      "functions": 112
+    },
+    {
+      "category": "This code block may not be properly labeled as switch case",
+      "occurrences": 62,
+      "functions": 5
+    },
+    {
+      "category": "Ignoring partial resolution of indirect",
+      "occurrences": 54,
+      "functions": 16
+    },
+    {
+      "category": "Function: _objc_loadWeakRetained replaced with injection: _objc_load_fixup",
+      "occurrences": 32,
+      "functions": 32
+    },
+    {
+      "category": "Function: _objc_storeStrong replaced with injection: _objc_store_fixup",
+      "occurrences": 26,
+      "functions": 26
+    },
+    {
+      "category": "Could not find normalized switch variable to match jumptable",
+      "occurrences": 15,
+      "functions": 11
+    },
+    {
+      "category": "Do nothing block with infinite loop",
+      "occurrences": 10,
+      "functions": 10
+    },
+    {
+      "category": "This is an inlined function",
+      "occurrences": 9,
+      "functions": 9
+    },
+    {
+      "category": "Heritage AFTER dead removal. Example location: s<address> : <address>",
+      "occurrences": 5,
+      "functions": 5
+    },
+    {
+      "category": "Jumptable with 0 entries at <address>",
+      "occurrences": 5,
+      "functions": 5
+    },
+    {
+      "category": "Function: _objc_autoreleaseReturnValue replaced with injection: _objc_retain_fixup",
+      "occurrences": 4,
+      "functions": 4
+    },
+    {
+      "category": "Switch with 1 destination removed at <address>",
+      "occurrences": 3,
+      "functions": 2
+    },
+    {
+      "category": "Exceeded maximum restarts with more pending",
+      "occurrences": 3,
+      "functions": 3
+    },
+    {
+      "category": "Unknown calling convention",
+      "occurrences": 3,
+      "functions": 3
+    },
+    {
+      "category": "Restarted to delay deadcode elimination for space: ram",
+      "occurrences": 2,
+      "functions": 2
+    },
+    {
+      "category": "Could not emulate address calculation at <address>",
+      "occurrences": 2,
+      "functions": 2
+    },
+    {
+      "category": "Function: _objc_storeWeak replaced with injection: _objc_store_fixup",
+      "occurrences": 2,
+      "functions": 2
+    },
+    {
+      "category": "Heritage AFTER dead removal. Example location: r<address> : <address>",
+      "occurrences": 1,
+      "functions": 1
+    },
+    {
+      "category": "Function: _objc_unsafeClaimAutoreleasedReturnValue replaced with injection:",
+      "occurrences": 1,
+      "functions": 1
+    },
+    {
+      "category": "Function: _objc_retainAutoreleaseReturnValue replaced with injection: _objc_retain_fixup",
+      "occurrences": 1,
+      "functions": 1
+    }
+  ],
+  "next_qualification": "Distinguish actual indirect external/virtual tailcalls from bounded intra-function table targets using original bytes and full context; qualify selected missing flows and preserve unknowns. Undecoded candidate-body bytes may include data/padding, not necessarily missing instructions.",
+  "private_detail": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-usage-audit/ARM_FLOW_READBACK-through1850.json",
+    "bytes": 7265901,
+    "sha256": "247f5aa46b27ba4ad4e41f04adb59b070694da2dc0426551ae3ca56bc7ddf12a",
+    "rows": 13765,
+    "code_or_raw_assembly_included": false
+  },
+  "selected_failed_examples": [
+    {
+      "entry": "1002d00f8",
+      "name": "__Z5fmainiPPc",
+      "status": "timeout",
+      "chunk": "functions-000142.jsonl.gz",
+      "line": 1,
+      "unresolved_computed_jumps": [
+        {
+          "address": "1002dc8d4",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 0,
+      "warning_categories": []
+    },
+    {
+      "entry": "10095b968",
+      "name": "__ZN8Splitter22closeUnusedConnectionsEv",
+      "status": "decompiler-failure",
+      "chunk": "functions-001849.jsonl.gz",
+      "line": 1,
+      "unresolved_computed_jumps": [
+        {
+          "address": "10095ba00",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 540,
+      "warning_categories": []
+    },
+    {
+      "entry": "10095bc4c",
+      "name": "__ZNK8Splitter8drawBaseER9DrawQueue",
+      "status": "decompiler-failure",
+      "chunk": "functions-001849.jsonl.gz",
+      "line": 2,
+      "unresolved_computed_jumps": [
+        {
+          "address": "10095be88",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 1932,
+      "warning_categories": []
+    },
+    {
+      "entry": "100aaf468",
+      "name": "__ZN26DebugVisualizationRenderer20renderTileVariationsEv",
+      "status": "decompiler-failure",
+      "chunk": "functions-000386.jsonl.gz",
+      "line": 23,
+      "unresolved_computed_jumps": [
+        {
+          "address": "100ab01c4",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 0,
+      "warning_categories": []
+    },
+    {
+      "entry": "101ec20f8",
+      "name": "__ZNSt3__110__function6__funcIZN13LuaDataLoader17exportCompactDataE5ModIDE3$_0NS_9allocatorIS4_EEFiP9lua_StateEEclEOS8_",
+      "status": "timeout",
+      "chunk": "functions-001144.jsonl.gz",
+      "line": 33,
+      "unresolved_computed_jumps": [
+        {
+          "address": "101ec29e8",
+          "resolved_flow_count": 0
+        },
+        {
+          "address": "101ec336c",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 0,
+      "warning_categories": []
+    },
+    {
+      "entry": "1026c65c0",
+      "name": "__ZL14stbi__tga_loadP13stbi__contextPiS1_S1_iP17stbi__result_info",
+      "status": "decompiler-failure",
+      "chunk": "functions-001778.jsonl.gz",
+      "line": 95,
+      "unresolved_computed_jumps": [
+        {
+          "address": "1026c6cb4",
+          "resolved_flow_count": 0
+        },
+        {
+          "address": "1026c6fa8",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 2652,
+      "warning_categories": []
+    },
+    {
+      "entry": "1026cc9f8",
+      "name": "__ZL20stbi__convert_formatPhiijj",
+      "status": "decompiler-failure",
+      "chunk": "functions-001779.jsonl.gz",
+      "line": 19,
+      "unresolved_computed_jumps": [
+        {
+          "address": "1026ccce0",
+          "resolved_flow_count": 0
+        }
+      ],
+      "undecoded_body_bytes": 3512,
+      "warning_categories": []
+    }
+  ]
+}

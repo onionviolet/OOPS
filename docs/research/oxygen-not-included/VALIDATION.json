@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "status": "passed_narrow_artifact_and_retention_checks",
+  "findings": 39,
+  "semantic_paths": 23,
+  "evidence_locators": 62,
+  "selected_packets": 5,
+  "json_files_checked": [
+    "COVERAGE.json",
+    "DLC_COVERAGE.json",
+    "FINDINGS.json",
+    "INTAKE.json",
+    "PACKETS.json",
+    "VALIDATION.json"
+  ],
+  "local_markdown_links_checked": 22,
+  "input_files_rehashed": 1498,
+  "export_files_rehashed": 6934,
+  "snapshot_logical_bytes": 247049648,
+  "snapshot_disk_kib": 264788,
+  "full_exports": [
+    {
+      "directory": "decompiled",
+      "exit_code": 0,
+      "csharp_files": 4337,
+      "files": 4338,
+      "bytes": 24357312
+    },
+    {
+      "directory": "decompiled-firstpass",
+      "exit_code": 0,
+      "csharp_files": 2447,
+      "files": 2448,
+      "bytes": 5307282
+    }
+  ],
+  "runtime_or_gameplay_tests_run": false,
+  "personal_save_access": false,
+  "uninstall_performed": false,
+  "cleanup_gate": "Ready for root reconciliation of finite completed source scope and explicit unread/native limits; no uninstall authorized to this GM."
+}

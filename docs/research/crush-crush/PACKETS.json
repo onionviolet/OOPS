@@ -1,0 +1,702 @@
+{
+  "schema_version": 1,
+  "status": "complete-five-original-proposals-unselected",
+  "packets": [
+    {
+      "id": "CC-P01",
+      "rank": 1,
+      "title": "A shared cart-check outing with Tamsin",
+      "status": "original-proposal-unselected",
+      "current_player_journey": "The inherited elder meeting enables promise.begin. The player compares the disputed mill slip, helps with a real log and stamina, declines, or leaves it unanswered. Tamsin independently pays for evidence/repair or spends her own stamina testing the cart. A later actual meeting reports the outcome; only successful shared repair can lead to the actual bracing lesson and repeatable native survey-kit use.",
+      "already_present": "Shared participation, actual owned materials, NPC independent response, epistemic separation of recollection and evidence, directed remembered conduct and useful learned operation all exist. Lio also already supplies an independently resourced shared contest and rest route. A numeric universal relationship engine is not a missing prerequisite.",
+      "exact_missing_consumer": "Within the current Tamsin command family and its Village panel, no authored non-obligatory shared outing consumes her observed repair conduct or an explicitly disclosed working preference to offer different practical collaboration. The family currently ends in reports, bracing description/lesson and personal kit packing. This is a local content gap, not a claim that all shared activity is absent.",
+      "proposed_finite_slice": "After promise.meet_help, Tamsin offers one optional cart-load check at the already modelled Village crossing. Author two disclosed ways to cooperate, such as patient testing and a quicker carry, with distinct current time/effort costs. A shared timed command reserves both actual participants and pays each person\u2019s means. She reports the witnessed conduct and may offer one specific future collaboration based on that deed and stated preference. Declining preserves existing bracing, quests and passage. Friendship appears through what she chooses to do with the traveler rather than a purchased affection threshold.",
+      "reusable_owner": "promiseDefinitions + simulation commandParticipants/occupancy/completion support + existing per-observer knowledge and directed relationship cause ledger. The crossing stays an authored Village outing; this packet does not add general companion following or change native travel.",
+      "compatibility": "Add separately named one-time commands and absent-inert actor facts/knowledge under the current optional simulation record. Keep all old Tamsin phases, frozen jobs and promise.bracing_control meaning. Do not rewrite the inherited elder introduction, chronicle ties, current party battle or reward a retrospective outing. No new realm, prestige, inventory, scheduler or social meter.",
+      "deferred_observable_player_gate": "Later, on a rebuilt game with generated saves, help and meet Tamsin, choose each proposed outing approach, observe both participant occupation and exact paid inputs, cancel/lose contact, and return to the same retained report. Confirm the reported compatibility follows the witnessed deed, repeated reading gives no relationship/resource reward, decline preserves native opening access, and save/reload retains the same report and stock.",
+      "evidence": [
+        {
+          "file": "src/promise_content.js",
+          "lines": [
+            24,
+            67
+          ],
+          "symbol": "promiseDefinitions.commands/controllers",
+          "claim": "Four present approaches, independently paid responses, actual later report, bracing lesson/use; no outing command in this family."
+        },
+        {
+          "file": "src/promise_ui.js",
+          "lines": [
+            19,
+            45
+          ],
+          "symbol": "createPromisePanel/render",
+          "claim": "Current group commands and records are consumed through the Village panel."
+        },
+        {
+          "file": "src/party_content.js",
+          "lines": [
+            12,
+            20
+          ],
+          "symbol": "partyDefinitions.commands",
+          "claim": "Existing Lio meeting, peaceful kit work and shared real rest."
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            62,
+            86
+          ],
+          "symbol": "commandParticipants/previewSimulationCommand",
+          "claim": "Shared participants are real occupied actors with world/contact checks."
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            207,
+            241
+          ],
+          "symbol": "completeJob",
+          "claim": "Completion support checks actual participants/contact and preserves disclosed refund/forfeit consequences."
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "lines": [
+            194,
+            205
+          ],
+          "symbol": "applySimulationEffects knowledge/relationship branches",
+          "claim": "Observer knowledge and cause-deduplicated directed memories already own aftermath."
+        }
+      ],
+      "source_finding_ids": [
+        "CC-F01",
+        "CC-X05",
+        "CC-R01",
+        "CC-R07",
+        "CC-R13"
+      ],
+      "real_cost_time": "Shared played minutes, actual owned stock/stamina of both participants; exact new values remain original tuning proposals.",
+      "interruption_aftermath": "Cancellation keeps or refunds disclosed accepted-job terms; lack of contact prevents continuation; refusal creates no new duty."
+    },
+    {
+      "id": "CC-P02",
+      "rank": 2,
+      "title": "Compare a known use of time with Lio\u2019s actual schedule",
+      "status": "original-proposal-unselected",
+      "current_player_journey": "Once Lio, field membership and the relevant local terms are actually known, the player can prepare their own survey kit, sponsor Lio\u2019s separately funded packing work, or ask him to join the already agreed Mara contest. The latest remainder owns a real four-minute 08:00\u201318:00 Lio shift using his own kit, two stamina and supplied stock; its live job occupies him for party admission.",
+      "already_present": "Real paid NPC scheduling and meaningful opportunity cost already exist. remainderLivelihoodWindow derives the played calendar window from the current native clock binding; workerFree checks actual jobs/sessions/practice. partyHelperReasons rejects Lio while occupied or short of stamina/guard effort. Individual controls already expose costs and legal availability.",
+      "exact_missing_consumer": "The current party panel and livelihood action projections do not provide one observer-qualified comparison of the already known alternatives: who spends the next played minutes, who becomes occupied, when the disclosed work window closes, and which other known action waits. Action legibility supplies per-action terms, alternatives and current quotes, but no joined Lio time/opportunity comparison.",
+      "proposed_finite_slice": "Add one compact comparison to Lio\u2019s current local panel: personal kit work that leaves him free; his disclosed finite packing sponsorship; the current agreed contest. Project each route only after its own terms are known. Show actual material/time/participant cost and current blocked reasons. The four-minute worker shift must fit the current window; contest duration remains player driven and has no invented guaranteed finish time. A \u201cdo this now\u201d control calls the same existing host command.",
+      "reusable_owner": "remainderLivelihoodWindow/remainderLivelihoodFacts + partyHelperReasons + previewSimulationCommand + projectSimulationActionLegibility/projectActionCosts. Existing common played clock and NPC job remain authoritative; no time-block currency or simultaneous player activities are introduced.",
+      "compatibility": "Prefer a read-only view with no saved allocation state. Preserve existing one-time commission demand, Lio\u2019s worn frame and owned kit, actual NPC stamina/purse and nativeBattle meanings. Missing optional audit/reference enrollment leaves the comparison\u2019s extra route absent. Do not inspect private actor means merely because the person is introduced; only disclose his offered terms or previously consented party condition view.",
+      "deferred_observable_player_gate": "Later compare the actual personal/shift/contest routes while Lio is free, mid-shift and just before closing. Sponsor one shift, attempt the contest, finish and collect the two actual kits separately, then retry with his resulting stamina/guard state. Confirm quote refresh does not fund, consume demand, advance clocks, reveal unknown routes or promise a hidden NPC result.",
+      "evidence": [
+        {
+          "file": "src/audit_remainder_livelihood_content.js",
+          "lines": [
+            32,
+            74
+          ],
+          "symbol": "window/REMAINDER_LIVELIHOOD_COMMISSIONS/lio_terms",
+          "claim": "Latest independent Lio work is finite, funded, four minutes, 08:00\u201318:00 and explicitly competes with ordinary party admission."
+        },
+        {
+          "file": "src/audit_remainder_livelihood_content.js",
+          "lines": [
+            107,
+            124
+          ],
+          "symbol": "jobs work/withdraw commands",
+          "claim": "NPC work reserves its own physical stock/escrow/vitals; withdrawal has concrete separate terms."
+        },
+        {
+          "file": "src/audit_remainder_livelihood_facts.js",
+          "lines": [
+            45,
+            50
+          ],
+          "symbol": "remainderLivelihoodWorkerFree",
+          "claim": "Actual participant job/session/practice occupancy is authoritative."
+        },
+        {
+          "file": "src/audit_remainder_livelihood_facts.js",
+          "lines": [
+            61,
+            96
+          ],
+          "symbol": "remainderLivelihoodWindow/remainderLivelihoodFacts",
+          "claim": "Current bound played calendar, remaining window and worker support exist; window4 checks remaining > 4."
+        },
+        {
+          "file": "src/party_battle.js",
+          "lines": [
+            20,
+            40
+          ],
+          "symbol": "partyHelperReasons/initializePartyBattle",
+          "claim": "Already committed work blocks admission; contest requires paid current support."
+        },
+        {
+          "file": "src/party_ui.js",
+          "lines": [
+            21,
+            37
+          ],
+          "symbol": "createPartyPanel.render",
+          "claim": "Existing party view gives current own condition and per-control eligibility, not a three-route time comparison."
+        },
+        {
+          "file": "src/action_legibility.js",
+          "lines": [
+            179,
+            217
+          ],
+          "symbol": "projectActionLegibility/projectSimulationActionLegibility",
+          "claim": "Read-only current quotes and authored known alternatives exist for reuse."
+        }
+      ],
+      "source_finding_ids": [
+        "CC-E01",
+        "CC-E02",
+        "CC-E03"
+      ],
+      "real_cost_time": "Projection free; actual personal3min/log/2stamina route, existing4minLio08:00-18:00packing, or player-driven contest preserves current costs.",
+      "interruption_aftermath": "Occupied Lio cannot join a contest; quote refresh mutates nothing; a closing work window blocks new admission."
+    },
+    {
+      "id": "CC-P03",
+      "rank": 3,
+      "title": "End one finite routine at its next real conversation",
+      "status": "original-proposal-unselected",
+      "current_player_journey": "The existing household itinerary supplies and authorizes Hessa\u2019s work, waits for Orr\u2019s real repair, automatically hears the report, buys a personal lesson, pauses for manual native travel to the Shack and packs a kit. The apprentice itinerary can also automatically hear reports and offer/transfer rights. Separately, Eda\u2019s finite three-trial cooling plan already has a practical goal predicate and stops as soon as hook control is earned; the new kit reserve has a finite accepted-batch budget and stock hold.",
+      "already_present": "Mixed finite command/travel/NPC-wait cursors, current legality checks, real accepted-job receipts, pause/resume/cancel and useful goal stopping are implemented. It is incorrect to propose a new scheduler, unlimited auto-clicker, or generic goal system as missing.",
+      "exact_missing_consumer": "validateStep currently admits only command, travel and wait. advanceOne directly commits eligible command steps, and the current society content includes report, lesson and rights-offer commands in those steps. There is no explicit authored manual conversation handoff boundary in these plans, and the routine guard does not inspect active Ink cursor state. Existing decision events are already protected by previewSimulationCommand, so that protection must not be relabelled missing.",
+      "proposed_finite_slice": "Offer a separate newly named household preparation plan that does only the already explained supply/permission/known-work phase, then ends with a manual \u201chear Hessa\u2019s report\u201d next action. After that actual conversation, the traveler may explicitly accept a second finite known-use phase. This uses a concrete practical target and finite stages, avoids auto-accepting an unfamiliar lesson or rights offer, and needs no new cursor kind. If later interrupting an enrolled Eda goal plan for a known new reply is wanted, author a disclosed content predicate and acknowledgement receipt before another trial; do not infer conversational choices from text.",
+      "reusable_owner": "societyWorkPlans + createWorkPlanRegistry/startWorkPlan/advanceOne/workPlanView + existing manual report commands. Eda\u2019s existing goal is the reuse proof, not a reason to add forced reference enrollment to the opening.",
+      "compatibility": "Keep the current plan IDs/revision1 definitions and frozen old cursors unchanged; register a distinct opt-in plan ID for the conversation-stopping version. The registry is keyed by ID, and changing the current definition under an old cursor makes its retained-definition validation fail. Generic saved goal currently requires referenceGameplay1 and expansion9\u201311, so do not add a goal field to an otherwise unenrolled old home-world cursor. A content-only finite phase can avoid any workPlans schema change; preserve workPlans1/2 and accepted-job refund terms.",
+      "deferred_observable_player_gate": "Later start the new known preparation phase, let Orr finish, and observe that it reserves no lesson and chooses no report response. Read the new conversation manually, leave it paused, travel away, reload and return, then separately choose the next phase. Confirm earlier paid work stays committed/refunded by its original owner, unknown conversations pause only when actually communicated, and old household/apprentice/Eda/stock plans retain their original meanings.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_society.js",
+          "lines": [
+            223,
+            245
+          ],
+          "symbol": "societyWorkPlans",
+          "claim": "Current household/apprentice lists include automatic report and rights actions, and manual native travel."
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "lines": [
+            49,
+            65
+          ],
+          "symbol": "validateStep",
+          "claim": "Only command/travel/wait kinds are currently admitted."
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "lines": [
+            84,
+            122
+          ],
+          "symbol": "validateWorkPlans",
+          "claim": "Absent cursor is inert; goal needs enrolled reference state; exact retained ID/revision/steps are checked."
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "lines": [
+            212,
+            259
+          ],
+          "symbol": "advanceOne",
+          "claim": "Goal stopping, manual travel pause, NPC waits and direct eligible command commits exist."
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "lines": [
+            272,
+            328
+          ],
+          "symbol": "startWorkPlan/controlWorkPlan",
+          "claim": "Explicit start/goal enrollment and accepted-job cancel boundaries already exist."
+        },
+        {
+          "file": "src/reference_gameplay_content.js",
+          "lines": [
+            81,
+            98
+          ],
+          "symbol": "referenceGameplayWorkPlans",
+          "claim": "Three paid cooling trials stop at an already earned useful hook-control goal."
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            65,
+            88
+          ],
+          "symbol": "waitingSimulationChoice/previewSimulationCommand",
+          "claim": "An actually discovered decision event already blocks a new player command."
+        },
+        {
+          "file": "src/feature_expansion_society_host.js",
+          "lines": [
+            110,
+            134
+          ],
+          "symbol": "createSocietyPanel",
+          "claim": "Existing manual controls and next-step/cursor presentation can consume a new finite plan."
+        },
+        {
+          "file": "src/main.js",
+          "lines": [
+            401,
+            405
+          ],
+          "symbol": "simulationNativeContexts",
+          "claim": "Native scheduler context derives busy from native activity/game action/combat/dialogue/sleep/reading/trade; it does not itself add an active Ink-cursor busy flag."
+        }
+      ],
+      "source_finding_ids": [
+        "CC-E08",
+        "CC-E09",
+        "CC-S04"
+      ],
+      "real_cost_time": "Existing paid preparation jobs/finite cursor; new phase stops with no new report/lesson/right reservation.",
+      "interruption_aftermath": "Ending future steps leaves accepted work with its actual owner/refund rules; paused conversation retains cursor and no autochoice."
+    },
+    {
+      "id": "CC-P04",
+      "rank": 4,
+      "title": "One low-pressure authored exchange with Tamsin",
+      "status": "original-proposal-unselected",
+      "current_player_journey": "Tamsin already independently checks a register or repaired cart and offers a later received answer. Silence makes no new promise. Current Ink offers six admitted scene types with saved response boundaries, explicit pause/resume and per-scene/instance/mission scopes. Joss\u2019s pocket scene already proves a real supported reply channel and separately read-only remembered reply, so cross-distance communication is not absent from the project.",
+      "already_present": "Asynchronous NPC action, received attributed knowledge, retained Ink opaque cursors/content identities and no-silence-obligation semantics already exist. Current local hosts recheck actual participant contact/rights and pay authoritative host effects once. This does not require a chat account, language model agent, inbox engine or affection grind.",
+      "exact_missing_consumer": "The current compiled feature-wave story has tidemark.negotiation, relay.office, nested.hub, nested.offer, nested.mission and nested.return only. Neither promiseVisitor/Tamsin nor a home-world personal note exchange has an admitted Ink scene, stable response binding or native panel consumer. Tamsin\u2019s existing asynchronous register/cart reports are fixed command text rather than a small retained authored reply/wait exchange.",
+      "proposed_finite_slice": "After an actual reported Tamsin outcome, she explicitly offers one note exchange at an existing Village contact. Add a short original scene with reply now, ask one practical question, decline or read later. A single separately authored NPC reply becomes visible only after her supported independent action and actual delivery through that declared contact. Waiting creates no promise, streak, missed affection or daily loss. Retain the interrupted response boundary so the traveler can leave and return without re-paying the same host effect.",
+      "reusable_owner": "promiseDefinitions NPC/controller/knowledge owners + commitInkNarrativeAction/getInkNarrativeRecord/inkNarrativeView + one new scene host and native createInkNarrativeUI consumer. Use an existing scene-kind scope with a stable actual world/recipient binding; do not reuse another participant\u2019s scope.",
+      "compatibility": "Register stable new host response IDs and compile one new scene while retaining every currently saved content hash, runtime/cursor identity and receipt. Current narrative wrappers1/2 remain supported and absent-inert. Preserve retained v1/v2 plus today\u2019s revision3 compiled artifact when producing a future revision. Author the actual communication channel and payment/body/contact checks; an old stored line is never treated as live contact. No forced novel-world or life enrollment.",
+      "deferred_observable_player_gate": "Later open the new home-world exchange, choose each finite response, pause midway, travel, wait in ordinary play, save/reload and return. Confirm exactly one supported attributed NPC answer, no NPC private state disclosure, no response after channel/support loss, no debt from silence, no reward from rereading, and old six-scene Ink cursors still restore against their retained hashes.",
+      "evidence": [
+        {
+          "file": "src/promise_content.js",
+          "lines": [
+            39,
+            67
+          ],
+          "symbol": "promiseDefinitions.commands/controllers",
+          "claim": "Independent answer/report and no-obligation decline/silence are already present."
+        },
+        {
+          "file": "src/ink_scene_content.js",
+          "lines": [
+            9,
+            29
+          ],
+          "symbol": "INK_RESPONSES/INK_COMMAND_BINDINGS",
+          "claim": "Current stable response whitelist and authoritative host mapping contain no Tamsin correspondence consumer."
+        },
+        {
+          "file": "src/ink_narrative.js",
+          "lines": [
+            7,
+            51
+          ],
+          "symbol": "schemas/contentByHash/scopeBinding/supportedScenes",
+          "claim": "Optional wrappers, stable actual scopes and retained content identities exist."
+        },
+        {
+          "file": "src/ink_narrative.js",
+          "lines": [
+            141,
+            176
+          ],
+          "symbol": "validateRecord",
+          "claim": "Saved opaque cursor, matching content, safe choice boundary and receipt ledger are validated."
+        },
+        {
+          "file": "src/ink_narrative.js",
+          "lines": [
+            233,
+            302
+          ],
+          "symbol": "requestCheck/commitInkNarrativeAction",
+          "claim": "Response tokens and pause/resume pay/publish through a real current host once."
+        },
+        {
+          "file": "src/pocket_realm_scenes.js",
+          "lines": [
+            147,
+            172
+          ],
+          "symbol": "notice_sample/send_notice/cooperate/replay/return commands",
+          "claim": "Existing independently supported return reply and read-only stored reply prevent a global missing-communication claim."
+        },
+        {
+          "file": "src/feature_expansion_nested_ink_ui.js",
+          "lines": [
+            8,
+            37
+          ],
+          "symbol": "createNestedInkPanels",
+          "claim": "Actual native panel chooses explicit participant/mission scopes, a reusable integration pattern."
+        },
+        {
+          "file": "src/main.js",
+          "lines": [
+            307,
+            312
+          ],
+          "symbol": "currentInkHost",
+          "claim": "The current legacy native Ink consumer selects relay.office or tidemark.negotiation; a home Tamsin scene needs its own explicitly admitted consumer."
+        }
+      ],
+      "source_finding_ids": [
+        "CC-S08",
+        "CC-X05",
+        "CC-R08",
+        "CC-R09"
+      ],
+      "real_cost_time": "Original supported reply/delivery time and bounded host costs; no streak or absence penalty; waiting creates no promise.",
+      "interruption_aftermath": "Loss of supported channel stops delivery; retain completed paid receipts and earlier knowledge; silence is not agreement."
+    },
+    {
+      "id": "CC-P05",
+      "rank": 5,
+      "title": "A Village return recap with retained effects and current costs",
+      "status": "original-proposal-unselected",
+      "current_player_journey": "After Tamsin\u2019s report/bracing lesson or Lio\u2019s contest/rest/packing, their discovered People records remain readable away from the action location. Tamsin exposes known promise text; Lio exposes remembered contests and a local last-result/condition line. Existing nested return scenes already distinguish reported return, separate local aftermath, settlement/refit/revisit, and finite current stock. Campaign transition planners also already preview reset/retain domains.",
+      "already_present": "Remembered effects, current legal costs, separate report basis, persistent native stock/calendars, explicit return scenes and lost/retained transition previews exist. Do not propose a generic replay/reset engine or treat another paid journey as purchased permanent progress.",
+      "exact_missing_consumer": "In the home-world Tamsin/Lio consumers, records and local next-action quotes are separate: promiseView and knownPeopleView flatten known text, while createPromisePanel and createPartyPanel expose their own controls. There is no single qualified home-world return card joining a specific witnessed consequence/learned useful function with today\u2019s legal repair/rest/packing costs. The nested equivalent is already present and should not be duplicated.",
+      "proposed_finite_slice": "At the next actual Village meeting with Tamsin or Lio, show one compact recap: the last received/witnessed event, what useful knowledge or physical effect remains, and the current quote for an actually known next action. Reading the earlier exchange remains free/read-only; doing a new shared job still pays today\u2019s materials, body effort, willingness and time. A learned bracing method persists, but reading it neither creates a kit nor repairs Lio\u2019s wounds. Frame this as returning to a changed relationship/worksite, not a new prestige layer or paid reset.",
+      "reusable_owner": "projectSimulationAftermath/projectActionAftermath + projectSimulationActionLegibility/projectAcceptedWorkLegibility + knownPeopleView/createPeopleOverview and existing per-family native planners. Project attributed knowledge and player-owned effects only; expose another actor\u2019s means only under that actor\u2019s actual disclosed terms.",
+      "compatibility": "Read-only projection should add no save field or replay reward. Preserve chronicle missed/resolved events, original quests/rewards, current NPC funds/stock/wounds/effort and optional native destination/instance metadata. A fresh active action uses the real current quote; a frozen accepted job displays its own existing commitment terms. Retain old outcome/report IDs; no automatic reset or rewritten memory.",
+      "deferred_observable_player_gate": "Later perform one Tamsin/Lio activity, leave, spend or lose a real required material/effort, return, and compare the dated retained consequence with the new quote. Reopen/read/reload the recap repeatedly: no kit, wage, source, stamina, relationship or calendar refill. Confirm interrupted accepted work keeps frozen costs, private NPC reports are not read as player knowledge, and inherited opening/native quest access remains unchanged.",
+      "evidence": [
+        {
+          "file": "src/promise_content.js",
+          "lines": [
+            54,
+            61
+          ],
+          "symbol": "promise.lesson/promise.pack_brace",
+          "claim": "Retained learned operation and current physical kit costs are distinct."
+        },
+        {
+          "file": "src/promise_content.js",
+          "lines": [
+            76,
+            80
+          ],
+          "symbol": "promiseView",
+          "claim": "Current Tamsin consumer returns discovered details, not a joined retained-effect/current-quote recap."
+        },
+        {
+          "file": "src/people_knowledge.js",
+          "lines": [
+            9,
+            36
+          ],
+          "symbol": "knownPeopleView",
+          "claim": "Known people remain observer-qualified; private craftsman means are excluded."
+        },
+        {
+          "file": "src/people_knowledge.js",
+          "lines": [
+            54,
+            63
+          ],
+          "symbol": "knownPeopleView Tamsin/Lio/Joss rows",
+          "claim": "Home-world text/memories and existing received pocket reports already exist."
+        },
+        {
+          "file": "src/party_ui.js",
+          "lines": [
+            21,
+            37
+          ],
+          "symbol": "createPartyPanel.render",
+          "claim": "Local party result, retained wounds/effort and current action checks already exist separately."
+        },
+        {
+          "file": "src/action_legibility.js",
+          "lines": [
+            250,
+            281
+          ],
+          "symbol": "projectAcceptedWorkLegibility/projectActionAftermath/projectSimulationAftermath",
+          "claim": "Frozen commitment terms and dated observer accounts have reusable read-only projections."
+        },
+        {
+          "file": "src/action_legibility.js",
+          "lines": [
+            454,
+            483
+          ],
+          "symbol": "projectMissionLegibility",
+          "claim": "Already existing mission/aftermath adapter preserves current occurred stages and known accounts."
+        },
+        {
+          "file": "stories/feature_wave.ink",
+          "lines": [
+            513,
+            540
+          ],
+          "symbol": "nested_return/nested_return_options",
+          "claim": "Already authored nested return recap/settlement/refit/revisit is present, not a gap."
+        },
+        {
+          "file": "src/feature_expansion_nested_native.js",
+          "lines": [
+            86,
+            119
+          ],
+          "symbol": "createNestedNativeBindings.read/stage/snapshot/restore",
+          "claim": "Native residents, finite stock, independent calendars and quest projections are retained rather than seeded on render."
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            488,
+            509
+          ],
+          "symbol": "previewCampaignTransition/commitCampaignTransition",
+          "claim": "Reset/retention preview and actual paid transition owner already exist."
+        },
+        {
+          "file": "src/people_ui.js",
+          "lines": [
+            4,
+            24
+          ],
+          "symbol": "createPeopleOverview.render",
+          "claim": "Current discovered People cards display location, details and memory text, not current action quotes or owned durable-effect descriptions."
+        }
+      ],
+      "source_finding_ids": [
+        "CC-S01",
+        "CC-S04",
+        "CC-S05",
+        "CC-S06",
+        "CC-R10"
+      ],
+      "real_cost_time": "Reading free; fresh actual action pays current real stock/body/time/support; no replay reward.",
+      "interruption_aftermath": "Retain dated remembered/received result; changed stock/wounds/availability affect new actions only."
+    }
+  ],
+  "source_refresh": "Latest remainder livelihood/native/Ink/People/action-legibility sources re-read before missing-consumer claims; all final files hash-stable during snapshot. PROJECT current top changed during inspection and final snapshot supersedes initial source/bundle wording.",
+  "source_catalog": {
+    "AGENTS.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "line_count": 23
+    },
+    "PROJECT.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/PROJECT.md",
+      "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+      "bytes": 144593,
+      "line_count": 528
+    },
+    "src/promise_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "bytes": 11954,
+      "line_count": 80
+    },
+    "src/promise_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_ui.js",
+      "sha256": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+      "bytes": 4964,
+      "line_count": 53
+    },
+    "src/party_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "bytes": 2866,
+      "line_count": 22
+    },
+    "src/party_battle.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "bytes": 10714,
+      "line_count": 103
+    },
+    "src/party_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_ui.js",
+      "sha256": "75669280c54cf77275c7789c41c83f74b4694ba60d607d87c681b26cbf272f19",
+      "bytes": 5293,
+      "line_count": 43
+    },
+    "src/simulation.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "bytes": 51840,
+      "line_count": 566
+    },
+    "src/simulation_effects.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation_effects.js",
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "bytes": 27572,
+      "line_count": 303
+    },
+    "src/everyday_life.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/everyday_life.js",
+      "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "bytes": 7642,
+      "line_count": 96
+    },
+    "src/feature_expansion_work_plan.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "bytes": 28771,
+      "line_count": 356
+    },
+    "src/feature_expansion_society.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667,
+      "line_count": 246
+    },
+    "src/feature_expansion_society_host.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society_host.js",
+      "sha256": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824",
+      "bytes": 13634,
+      "line_count": 157
+    },
+    "src/audit_remainder_livelihood_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "bytes": 20506,
+      "line_count": 169
+    },
+    "src/audit_remainder_livelihood_facts.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "bytes": 24899,
+      "line_count": 276
+    },
+    "src/reference_gameplay_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705,
+      "line_count": 105
+    },
+    "src/ink_narrative.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "bytes": 26405,
+      "line_count": 354
+    },
+    "src/ink_scene_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "bytes": 41500,
+      "line_count": 386
+    },
+    "src/ink_narrative_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative_ui.js",
+      "sha256": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+      "bytes": 7403,
+      "line_count": 141
+    },
+    "stories/feature_wave.ink": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.ink",
+      "sha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+      "bytes": 29309,
+      "line_count": 599
+    },
+    "stories/feature_wave.json": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.json",
+      "sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+      "bytes": 124528,
+      "line_count": 5853
+    },
+    "src/chronicle.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "bytes": 22410,
+      "line_count": 242
+    },
+    "src/action_legibility.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+      "bytes": 38737,
+      "line_count": 520
+    },
+    "src/action_legibility_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility_ui.js",
+      "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+      "bytes": 20496,
+      "line_count": 378
+    },
+    "src/people_knowledge.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_knowledge.js",
+      "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+      "bytes": 9482,
+      "line_count": 97
+    },
+    "src/people_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_ui.js",
+      "sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+      "bytes": 1852,
+      "line_count": 30
+    },
+    "src/pocket_realm_scenes.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/pocket_realm_scenes.js",
+      "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+      "bytes": 35693,
+      "line_count": 365
+    },
+    "src/feature_expansion_nested_content.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_content.js",
+      "sha256": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+      "bytes": 26965,
+      "line_count": 118
+    },
+    "src/feature_expansion_nested_native.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_native.js",
+      "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+      "bytes": 19930,
+      "line_count": 123
+    },
+    "src/feature_expansion_destination_native.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_destination_native.js",
+      "sha256": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+      "bytes": 17253,
+      "line_count": 135
+    },
+    "src/feature_expansion_nested_ink_ui.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_ink_ui.js",
+      "sha256": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+      "bytes": 2965,
+      "line_count": 40
+    },
+    "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+      "sha256": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+      "bytes": 5632,
+      "line_count": 13
+    },
+    "src/main.js": {
+      "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/main.js",
+      "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "bytes": 387376,
+      "line_count": 7386
+    }
+  },
+  "already_present": [
+    "Directed relationship axes and remembered deeds; no need for universal affection.",
+    "Paid shared participation and independently owned NPC tools/body/funds.",
+    "Real NPC local daytime scheduling and Lio work/contest occupancy.",
+    "Finite mixed work plans, goal stopping, stock hold and real accepted-job receipts.",
+    "Saved Ink choice boundaries/scopes/content identities and native host effect publication.",
+    "Existing physically supported return reply plus read-only stored reply.",
+    "Nested authored return accounts, finite persistent stock/calendars and reset/retain transition preview."
+  ],
+  "no_runtime_selection": true,
+  "later_acceptance": "Gameplay/browser/save/reload/failure/regression/director suites deferred; no research-generated behavior claim."
+}

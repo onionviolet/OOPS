@@ -1,0 +1,1292 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "role": "Combat encounters and AI GM",
+  "status": "complete-planning-report-with-status-followup",
+  "scope": "Only second-pass/combat reports; implementation held; assigning master owns canonical plan/RUN.",
+  "input_evidence": {
+    "initial": {
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "branch": "codex/gameplay-foundations",
+      "files": {
+        "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "docs/gm/world-implementation/RUN.json": "848d1f984185d5dbd42ce51d00c504929aca667ee30d5737a32e2ac1e6d5d50c",
+        "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "docs/gm/world-implementation/second-pass/README.md": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+        "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+        "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md": "c33512be22d9cb9bca149ba79fd9322b4809c144f7854e5d14d8b2c0cabfdc20",
+        "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+        "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "src/native_battle_contracts.js": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+        "src/native_battle_host.js": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+        "src/pursuit.js": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+        "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "docs/ENCOUNTERS_AND_PURSUIT.md": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6"
+      },
+      "frozen_comparison": {
+        "AGENTS.md": "match",
+        "PROJECT.md": "match",
+        "docs/GAME_MASTER_PROMPT.md": "match",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "match",
+        "docs/gm/world-implementation/RUN.json": "drift",
+        "docs/gm/world-implementation/depth/macro/REPORT.md": "match",
+        "docs/gm/world-implementation/depth/micro/REPORT.md": "match",
+        "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md": "match",
+        "src/party_battle.js": "match",
+        "src/native_battle.js": "match",
+        "src/native_battle_contracts.js": "match",
+        "src/native_battle_host.js": "match",
+        "src/pursuit.js": "match",
+        "src/simulation_resolution.js": "match",
+        "docs/ENCOUNTERS_AND_PURSUIT.md": "match"
+      }
+    },
+    "additional_inspected": {
+      "src/models/combat.js": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+      "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+      "src/components/levelable_component.js": "d4e928eafb23b8f139c0a42694aa038c7e7b0cbd756c7c76d7635e9c8b476f31",
+      "src/enemies.js": "34d48562a0cfcab036bb32c7f5af284673342ff6b3638e18a08328e63aa16334",
+      "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "docs/gm/world-implementation/depth/micro/workers/encounter/REVIEW.md": "6fca5b4d5e950ef9df50c1d4e86c3b8384bb6c83a90c549ec8855de71aa5a63e",
+      "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "docs/gm/world-implementation/depth/micro/WORKED_CASES.md": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7"
+    },
+    "inspection_limit": "Targeted source windows and current owner sections; no full-book rereading or claim of full native combat coverage.",
+    "reconciled_current": {
+      "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+      "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+      "docs/gm/world-implementation/RUN.json": "5b5c2b9d3371a0aad9a21231fdd9132fb0e0e23cb1d80bf862ef6fa78f82fbbb",
+      "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+      "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+      "docs/gm/world-implementation/second-pass/README.md": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+      "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+      "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md": "c33512be22d9cb9bca149ba79fd9322b4809c144f7854e5d14d8b2c0cabfdc20",
+      "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "src/native_battle_contracts.js": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+      "src/native_battle_host.js": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+      "src/pursuit.js": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+      "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "docs/ENCOUNTERS_AND_PURSUIT.md": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6",
+      "src/models/combat.js": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+      "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+      "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+      "src/components/levelable_component.js": "d4e928eafb23b8f139c0a42694aa038c7e7b0cbd756c7c76d7635e9c8b476f31",
+      "src/enemies.js": "34d48562a0cfcab036bb32c7f5af284673342ff6b3638e18a08328e63aa16334",
+      "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+      "docs/gm/world-implementation/depth/micro/workers/encounter/REVIEW.md": "6fca5b4d5e950ef9df50c1d4e86c3b8384bb6c83a90c549ec8855de71aa5a63e",
+      "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+      "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+      "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "docs/gm/world-implementation/depth/micro/WORKED_CASES.md": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7"
+    },
+    "drift_reconciliation": {
+      "changed_inputs": {
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": {
+          "initial": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+          "current": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69"
+        },
+        "docs/gm/world-implementation/RUN.json": {
+          "initial": "848d1f984185d5dbd42ce51d00c504929aca667ee30d5737a32e2ac1e6d5d50c",
+          "current": "5b5c2b9d3371a0aad9a21231fdd9132fb0e0e23cb1d80bf862ef6fa78f82fbbb"
+        },
+        "docs/gm/world-implementation/second-pass/README.md": {
+          "initial": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+          "current": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430"
+        }
+      },
+      "review": "Reread current plan authority, depth/second-pass/translation sections and wave index. Plan adds a planning-only integration strategy GM; RUN records this combat chat 01a10998-2514-77c0-9271-d14516068db8 active. No combat scope/hold change; refreshed shifted plan evidence lines. Assignment/snapshot and all inspected runtime sources unchanged. Initial hashes retained.",
+      "runtime_source_drift": false
+    }
+  },
+  "measurement": {
+    "runtime": "No gameplay/runtime benchmark measured.",
+    "tokens": "No task token/cost telemetry exposed. File/word counts are document-size surrogates only.",
+    "static_inference": "Exhaustion call-chain arithmetic and route-objective reasoning are not gameplay/performance measurements."
+  },
+  "findings": [
+    {
+      "id": "CB01",
+      "priority": 1,
+      "kind": "already-covered",
+      "title": "Retain the real contest; qualify a roster adapter rather than replace it",
+      "baseline_relation": "ME05/C5 already identifies arbitrary roster, population and geometry gaps. This pass adds the exact adapter seams and the preserve-current-contest condition.",
+      "evidence": [
+        {
+          "path": "src/native_battle_contracts.js",
+          "lines": [
+            4,
+            18
+          ],
+          "claim": "Schema 2 validates exactly player/partyPartner/roadRival, fixed sides/roles and active-participant occupancy."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            9,
+            40
+          ],
+          "claim": "Lio requires consent, body/control, owned unencumbered kit, health, stamina and effort; acceptance transfers one real coin."
+        },
+        {
+          "path": "src/native_battle_host.js",
+          "lines": [
+            27,
+            48
+          ],
+          "claim": "Host instantiates fixed IDs, a fixed defending rival and fixed helper action, then persists before synchronization."
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "lines": [
+            9,
+            32
+          ],
+          "claim": "Existing cause-bound spawn identity and frozen template binding are reusable; they do not debit population or depot stock."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md",
+          "lines": [
+            14,
+            14
+          ],
+          "claim": "ME05 already requires a bounded general battlefield."
+        }
+      ],
+      "current_player_behavior": "Player can fight Mara with consenting Lio guarding only the player; real wounds/costs and released/yielded helper status persist. Additional sides, arbitrary participants, cargo objectives and NPC-only fights are outside this payload.",
+      "proposed_player_behavior": "Opt-in encounter definition binds stable actual actor/body IDs, allegiance versus current tactical side, capabilities, reservations and objective policy. A host projects those participants without recreating people. Regions supplies one promotion receipt with finite people/stock; returning named people reuse existing state.",
+      "authoritative_owner": {
+        "current": [
+          "src/native_battle_contracts.js",
+          "src/native_battle_host.js",
+          "src/party_battle.js"
+        ],
+        "integration": "Shared Engine; assigning master owns plan/RUN. Regions owns aggregate promotion; combat owns roster/action policy."
+      },
+      "dependencies": [
+        "Stable actor/body/instance endpoint and occupancy contracts",
+        "Regions promotion/stock receipt only for generated combatants",
+        "Declared save compatibility and native projection"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: two promoted road guards escort an already-existing captain; a porter may carry cargo while refusing to join combat. Player growth changes neither captain nor population band."
+      ],
+      "acceptance_case": {
+        "positive": "A fourth actual actor participates with its own eligible actions and stock; NPC-versus-NPC conflict can settle without borrowing player vitals or a sessions.player-only binding.",
+        "adverse": "A busy/dead/different-instance actor or duplicate promotion rejects before state change; a side change does not rewrite identity or grant full player control.",
+        "retention": "Return/reload retains injuries, remaining stock and identities; existing Mara/Lio contest retains current consent/payment/one-HP behavior under its own definition."
+      },
+      "provenance": {
+        "support": "Verified current-source structure; prior micro requirement retained.",
+        "proposal": "Original interface and Frontier fixture; not a new source-world rule.",
+        "uncertainty": "Final payload/codec/side-switch semantics need Engine review."
+      },
+      "simplify_or_retain": "Keep the familiar duel/guard proof and shared staged executor. Parameterize the selected native adapter; do not build a separate battle engine per world.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB02",
+      "priority": 2,
+      "kind": "underexplored",
+      "title": "Combat needs a declared saved clock and action lifecycle",
+      "baseline_relation": "Micro C4/ME08 already calls for encounter clock insertion and ordering. Newly inspected native cadence identifies unsaved windup and roster-wide speed normalization that a general host must handle deliberately.",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "lines": [
+            5789,
+            5803
+          ],
+          "claim": "Joined-clock update returns early while sessions.player exists."
+        },
+        {
+          "path": "src/models/combat.js",
+          "lines": [
+            92,
+            108
+          ],
+          "claim": "Start derives cooldowns and scales every fighter using the fastest cooldown; timers initialize from Date.now."
+        },
+        {
+          "path": "src/models/combat.js",
+          "lines": [
+            180,
+            238
+          ],
+          "claim": "Private timer callbacks update bars and resolve at count 60; progress and timer accumulators are not the saved native battle payload."
+        },
+        {
+          "path": "src/native_battle.js",
+          "lines": [
+            10,
+            14
+          ],
+          "claim": "Saved duel holds seed/actions/last, without a pending action or due time."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            326,
+            395
+          ],
+          "claim": "Common boundary order currently settles jobs, conditions/life, events, pursuit and then controllers."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            48,
+            53
+          ],
+          "claim": "Prior planning requires explicit continuation and deterministic ordering, preserving selected prepaid work."
+        }
+      ],
+      "current_player_behavior": "An agreed native contest pauses joined world time while browser timers drive strikes. Explicit resume restarts Combat cadence. Wounds/draw state persist, but telegraph progress and attack due boundaries are not saved here.",
+      "proposed_player_behavior": "Each new tactical encounter declares its time policy. Save committed windup/launch/recovery and interruption state, revision, real reservation and due boundary in an Engine-selected clock. UI interpolates saved progress; timer callbacks request legal settlement. Paused decision time, actual played combat duration and browser-closed freeze remain distinct. Select deterministic simultaneous-action/support order.",
+      "authoritative_owner": {
+        "current": [
+          "src/models/combat.js",
+          "src/main.js",
+          "src/native_battle.js",
+          "src/simulation.js"
+        ],
+        "integration": "Foundations/Shared Engine owns clocks, ordering and publication; combat supplies action phase/cadence policies."
+      },
+      "dependencies": [
+        "CB01",
+        "Shared clock/continuation/publication contract",
+        "Body/source upkeep and maintained-effect revalidation"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: a guard visibly winds up a sweep while a porter crosses; a maintained ward can expire at the same due boundary. Reload preserves the paid windup and waits for authorized resume."
+      ],
+      "acceptance_case": {
+        "positive": "One due action settles once with the selected support/expiry/reaction order; interrupting before launch differs from interrupting a launched projectile.",
+        "adverse": "Adding one faster participant does not silently alter everyone else's absolute speed unless that encounter explicitly selects native normalization; removed support cancels only dependent pending phases.",
+        "retention": "Reload or UI pause grants neither a fresh cooldown, duplicate charge nor elapsed unapproved time; existing agreed-contest clock policy remains explicit."
+      },
+      "provenance": {
+        "support": "Verified timer, saved-payload and joined-clock structure.",
+        "proposal": "Original action lifecycle; no universal real-time or minute duration is selected.",
+        "uncertainty": "Clock resolution, simultaneous order and new compatibility record remain decisions."
+      },
+      "simplify_or_retain": "Use common due boundaries and visible interpolation, not a second gameplay timer or persisted animation frames. Keep current normalized cadence as an explicit legacy policy until a new policy is qualified.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB03",
+      "priority": 3,
+      "kind": "risk",
+      "title": "Apply exhaustion once to a declared raw/effective attack snapshot",
+      "baseline_relation": "This concrete native/party parity risk was not named in the macro/micro summaries; do not propagate it into the flexible roster.",
+      "evidence": [
+        {
+          "path": "src/components/levelable_component.js",
+          "lines": [
+            326,
+            331
+          ],
+          "claim": "getAttackPower multiplies full.attack_power by the zero-stamina multiplier, default 0.5 plus Persistence."
+        },
+        {
+          "path": "src/native_battle.js",
+          "lines": [
+            16,
+            19
+          ],
+          "claim": "readNativeFighter reads that already-effective attack power and separately passes emptyStaminaMultiplier."
+        },
+        {
+          "path": "src/native_battle.js",
+          "lines": [
+            50,
+            53
+          ],
+          "claim": "Duel adds the multiplier only when this strike crosses from positive stamina to zero."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            83,
+            88
+          ],
+          "claim": "Party adds the multiplier whenever post-debit stamina is zero."
+        },
+        {
+          "path": "src/native_battle_host.js",
+          "lines": [
+            44,
+            48
+          ],
+          "claim": "Party host rereads actual fighter attack snapshots per action."
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "lines": [
+            31,
+            32
+          ],
+          "claim": "Player-facing duel contract says empty stamina halves attack power."
+        }
+      ],
+      "current_player_behavior": "Both routes charge stamina, but their attack snapshot semantics differ. In the inspected normal getter path, a fighter already at zero supplies 0.5 times raw attack; party execution multiplies by 0.5 again. This implies 0.25 times raw attack with no Persistence, whereas duel adds no second multiplier when already empty.",
+      "proposed_player_behavior": "Define whether the fighter binding is raw attack or effective pre-action attack; calculate the post-charge exhaustion function exactly once. One shared strike-cost policy supplies both duel and party, preserving actual efficiency and Persistence rather than adding a universal half-penalty.",
+      "authoritative_owner": {
+        "current": [
+          "src/components/levelable_component.js",
+          "src/native_battle.js",
+          "src/party_battle.js"
+        ],
+        "integration": "Shared Engine/native-combat owner; no change is authorized by this audit."
+      },
+      "dependencies": [
+        "Declared fighter snapshot contract",
+        "CB02"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: Mara makes the same ordinary strike with no stamina in a duel and in Lio's contest. Lio's presence alone should not introduce a second exhaustion factor."
+      ],
+      "acceptance_case": {
+        "positive": "Static and later runtime cases cover positive stamina, the strike that reaches zero, already zero, efficiency and an actual Persistence bonus; equivalent source/action paths yield the declared single factor.",
+        "adverse": "Already-effective attack power cannot be charged the same exhaustion function twice; a missing binding cannot substitute an invented base stat.",
+        "retention": "Reload at zero stamina follows the same policy and retains spent stamina; no new reward or refilled reserve follows migration."
+      },
+      "provenance": {
+        "support": "Call-chain comparison and symbolic 0.5 times 0.5 arithmetic, not executed damage measurement.",
+        "proposal": "Shared raw/effective snapshot contract.",
+        "uncertainty": "Actual resulting damage distributions and balance require later permitted behavioral checks."
+      },
+      "simplify_or_retain": "Retain the real native stat getter and earned Persistence behavior; eliminate duplicate policy at the binding/executor seam after review.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB11",
+      "kind": "underexplored",
+      "title": "One status lifecycle with explicit stacking, reapplication and tick order",
+      "baseline_relation": "CB02/05 require time/effect consumers; this follow-up defines condition policy and retains existing native buffs and simulation conditions.",
+      "evidence": [
+        {
+          "path": "src/active_effects.js",
+          "lines": [
+            14,
+            33
+          ],
+          "claim": "Native effects carry stats, durations, tags, potency and group priorities."
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            3528,
+            3569
+          ],
+          "claim": "Native application chooses stronger groups and republishes effective stats."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            189,
+            200
+          ],
+          "claim": "Simulation applies immunity, max/sum intensity, replaces expiry/cause and resets nextTick."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            333,
+            337
+          ],
+          "claim": "Expiry is processed before a tick at the same boundary."
+        }
+      ],
+      "current_player_behavior": "Native weather/food/medicine effects and actor simulation conditions already exist. The latter can be removed, timed and ticked; each actor/condition ID stores one record. Reapplication replaces expiry/cause and restarts the tick boundary, even when max stacking retains an old stronger intensity. This is a current policy, not a blanket defect.",
+      "proposed_player_behavior": "Select actual target/component, causal source, start/clock, intensity, duration/expiry, tick phase, stacking/refresh/replace/independent-source policy, active consumers, immunity and removal/treatment/continuation. Native stats and simulation requirements consume one authoritative operation, never duplicate the same modifier or tick. A stronger shorter exposure and weaker refresh follow declared rules. Already-launched or inflicted effects declare whether source loss matters.",
+      "authoritative_owner": {
+        "current": [
+          "src/active_effects.js",
+          "src/main.js",
+          "src/simulation_effects.js",
+          "src/simulation.js"
+        ],
+        "integration": "Foundations owns lifecycle/order/publication; Bodies/Powers owns body/source policy; Items/Regions owns object/field targets; combat binds action consumers."
+      },
+      "dependencies": [
+        "CB02",
+        "CB05",
+        "Declared native/simulation projection and compatibility"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: a poisoned dart imposes a qualified body exposure; repeated darts may add dose without indefinitely postponing all paid ticks. Removing the shooter does not cure an already-inflicted poison unless that poison requires maintained support. Values/policy are original proposals."
+      ],
+      "acceptance_case": {
+        "positive": "Both helpful and harmful statuses apply their actual consumer once; same-boundary expiry/tick, stronger-shorter reapplication, two causal sources and immunity follow the selected policy.",
+        "adverse": "Reapplication cannot silently postpone an already-due tick, shorten a retained stronger effect, remove another source's effect or stack the native and simulation modifier twice unless explicitly authored.",
+        "retention": "Clock/phase/source, removal receipts and treatment costs survive reload; failed publication advances neither reserve, tick nor duration."
+      },
+      "provenance": {
+        "support": "Current native and simulation policy inspected directly.",
+        "proposal": "Original lifecycle contract and poison case.",
+        "uncertainty": "No universal stacking, tick-first rule, exposure duration or immunity is selected; current simple conditions can keep their existing semantics."
+      },
+      "simplify_or_retain": "Use a few explicit policy variants, selected by status definition. Do not make every effect a separate engine or silently migrate the familiar native buffs.",
+      "verification_limits": "Static inspection only; proposed gameplay, UI, save/reload and failure cases remain unrun under the review hold. All new examples are original mechanics, not source canon or selected balance.",
+      "priority": 4
+    },
+    {
+      "id": "CB12",
+      "kind": "missing",
+      "title": "Status functions alter supported actions rather than only multiplying stats",
+      "baseline_relation": "CB05's control/defense dispatch is extended with concrete condition-to-action and recovery consumers.",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            47,
+            47
+          ],
+          "claim": "Simulation conditions expose intensity as facts, without automatically changing all native fighter actions."
+        },
+        {
+          "path": "src/body_progression.js",
+          "lines": [
+            65,
+            69
+          ],
+          "claim": "Existing tender-hand conditions already produce a useful body prerequisite."
+        },
+        {
+          "path": "src/energy_resources.js",
+          "lines": [
+            31,
+            43
+          ],
+          "claim": "Reserve and strain are separate; cooling/recovery and use limits already have real consumers."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            69,
+            88
+          ],
+          "claim": "Current guard/strike branches check existing support and costs; they do not implement general blind/root/stagger/voice-control consumers."
+        }
+      ],
+      "current_player_behavior": "Sore/scraped hands can affect body-related eligibility, and energy strain can prevent further energy use. Native buff stats are real. Merely applying a new stun, blind or burn label does not make its combat function operate.",
+      "proposed_player_behavior": "Define what changes: bleeding/poison/burn tick a supported body; stagger interrupts a specific windup; knockdown changes posture and getting-up cost; entanglement restricts locomotion but permits supported stationary actions; sensory loss affects particular observation/aim channels; loss of voice blocks voice-dependent methods; disarm removes the actual equipped implement, not innate faculties. Beneficial bracing, steady aim, wards and assisted recovery have equally real consumers. Cooling, dispelling, treatment, removing an exposure and restoring tissue are distinct.",
+      "authoritative_owner": {
+        "current": [
+          "src/body_progression.js",
+          "src/energy_resources.js",
+          "src/party_battle.js"
+        ],
+        "integration": "Combat owns action/posture consumers; Bodies owns compatible anatomy/recovery; Powers owns method channels and source exceptions."
+      },
+      "dependencies": [
+        "CB11",
+        "CB04",
+        "CB05",
+        "Body/method/support and independent actor control contracts"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: a porter whose leg is trapped can still shout a warning or maintain an eligible hand guard. A disarmed animal can still bite. A blinded ordinary archer can act on a sound report without acquiring exact visual aim."
+      ],
+      "acceptance_case": {
+        "positive": "One harmful status and one preparation benefit change actual action legality/timing; a compatible alternative remains usable. Treatment restores only the affected function.",
+        "adverse": "No universal immunity from 'boss' status, free source from a buff, or generic silence blocking purely mental/innate methods. Fear/charm cannot infer romance/consent or an unapproved controller over an independent mind.",
+        "retention": "Interrupted/recovered actions and remaining costs persist; a status cannot repeatedly farm stagger or rewards through re-render/reload."
+      },
+      "provenance": {
+        "support": "Existing body prerequisite and strain groundwork verified.",
+        "proposal": "All added status action semantics are original examples.",
+        "uncertainty": "Exact control eligibility/duration and mind-control mechanisms need local review or source-qualified rules; preserve genuine superior effects."
+      },
+      "simplify_or_retain": "Qualify a small set of distinct functions with ordinary and prepared-idle responses. Add source-specific protection/reaction windows where supported instead of a universal control-resistance formula.",
+      "verification_limits": "Static inspection only; proposed gameplay, UI, save/reload and failure cases remain unrun under the review hold. All new examples are original mechanics, not source canon or selected balance.",
+      "priority": 5
+    },
+    {
+      "id": "CB13",
+      "kind": "underexplored",
+      "title": "Small physical interactions create tactical decisions with lasting causes",
+      "baseline_relation": "Refines CB04/07/08 with object/field/action details; these are optional consumers selected for a scene, not a universal realism checklist.",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            144,
+            165
+          ],
+          "claim": "Real consumption/transfer/equipment/custody already reject unavailable or borrowed stock."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            174,
+            198
+          ],
+          "claim": "Witnessed travel and qualified projections already separate real evidence from secret movement."
+        },
+        {
+          "path": "src/active_effects.js",
+          "lines": [
+            37,
+            58
+          ],
+          "claim": "Wet/cold already have concrete native consequences; do not present those existing functions as missing."
+        }
+      ],
+      "current_player_behavior": "Current play already has weather modifiers, owned stock and witnessed pursuit. Fixed native contests lack tactical object positions, launched ammunition, footing and observer-specific action noise.",
+      "proposed_player_behavior": "Select a few real interactions: slippery/uneven footing changes a committed movement; noise/light exposes a contact to recipients in range; an occupied hand, carried load or injured grip changes a specific action; dropping/disarming gear transfers it to one reachable location; recovering it costs exposure/time; reloading/weapon switching opens a phase; moving/damaged cover changes a sight/path edge; friendly fire affects the actual intervening body. These alter real owners, not duplicate stock or cosmetic 'debuff' icons.",
+      "authoritative_owner": {
+        "current": [
+          "src/simulation_effects.js",
+          "src/pursuit.js",
+          "src/active_effects.js"
+        ],
+        "integration": "Combat owns interactions/action costs; Items owns gear/stock; Regions owns terrain/cover; Society owns recipients' observations."
+      },
+      "dependencies": [
+        "CB04",
+        "CB07",
+        "CB08",
+        "CB11",
+        "Exact object custody/position and observer channel"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: a porter puts down an actual bundle to free a guarding hand; a dropped bow lies behind the bank; a noisy retrieval alerts only an eligible nearby scout. Rain retains its real authored cold function without implying a universal electrical combo."
+      ],
+      "acceptance_case": {
+        "positive": "Dropping and recovering one implement changes eligible actions and leaves exactly one item. A noisy action supplies an attributed contact, and damaged cover changes a real shot/movement opportunity.",
+        "adverse": "No global alarm from an unwitnessed drop, free reload/ammunition, remote pickup, universal wet/fire/electricity interaction or invented full-body combat physics.",
+        "retention": "Stock/location/cover and observer evidence remain on later return; duplicated requests cannot create another item or report."
+      },
+      "provenance": {
+        "support": "Ownership/evidence/native weather groundwork verified.",
+        "proposal": "New tactical terrain, hand/load/noise and pickup cases are original.",
+        "uncertainty": "Only selected scenes need these capabilities; body/gear/source exceptions remain explicit."
+      },
+      "simplify_or_retain": "Start with free-hand/bundle custody, one noise channel and one cover edge. Broad scent, armor-breakage, encumbrance and detailed physics stay optional until a meaningful selected case needs them.",
+      "verification_limits": "Static inspection only; proposed gameplay, UI, save/reload and failure cases remain unrun under the review hold. All new examples are original mechanics, not source canon or selected balance.",
+      "priority": 6
+    },
+    {
+      "id": "CB14",
+      "kind": "underexplored",
+      "title": "Readable status feedback and safe prepared responses",
+      "baseline_relation": "Extends existing action/knowledge/policy requirements with combat-specific explanation and status management; Experience retains overall UI ownership.",
+      "evidence": [
+        {
+          "path": "src/native_battle_host.js",
+          "lines": [
+            37,
+            50
+          ],
+          "claim": "Native host persists a committed action and pauses on failure before further published combat."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            72,
+            75
+          ],
+          "claim": "Current helper exposes actual unsupported/exhausted reasons."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            373,
+            395
+          ],
+          "claim": "Existing deterministic controllers can choose among eligible responses."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            55,
+            61
+          ],
+          "claim": "Hidden target build facts are not generally exposed as observed knowledge."
+        }
+      ],
+      "current_player_behavior": "Native helper controls explain consent/support/effort failures; a current contest reports its last action. General status cause, next tick, affected actions, treatment and prepared responses are not yet a combat interface.",
+      "proposed_player_behavior": "Own known status view shows cause, intensity, actual blocked/modified functions, duration/next event in its clock, cumulative cost and legal remedy. Enemy view exposes only observed or declared terms. Prepared policies can reserve real medicine, take cover, switch a supported method, retreat at a selected limit or stop for a novel threat. Reactions share the same ordering and action budget. Aggregate ordinary ticks for readability without hiding a decisive interrupt or extra death/loss policy.",
+      "authoritative_owner": {
+        "current": [
+          "src/native_battle_host.js",
+          "src/party_battle.js",
+          "src/simulation.js"
+        ],
+        "integration": "Combat supplies status/reaction facts; Experience owns accessible presentation; Engine integrates controls/atomic publication; Society owns knowledge."
+      },
+      "dependencies": [
+        "CB06",
+        "CB11",
+        "CB12",
+        "Knowledge-qualified UI, phase clock and real treatment stock"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: 'Entangled: cannot cross; can still guard or cut the rope.' A prepared porter can set down cargo and use one owned remedy; an unfamiliar authority effect pauses for a deliberate choice."
+      ],
+      "acceptance_case": {
+        "positive": "Player can explain why one action is blocked and choose an actual alternative; a reserved remedy is consumed once and has its own interruption/exposure cost.",
+        "adverse": "No hidden exact enemy timer/weakness from an icon, unpaid automatic cure, autonomous irreversible decision or chain of zero-time reactions.",
+        "retention": "Prepared policy/reason/reservations survive reload; failed saving publishes no consumed medicine, cure or advance."
+      },
+      "provenance": {
+        "support": "Existing reason messages/controller/publication pattern verified.",
+        "proposal": "Original status UI and prepared response examples.",
+        "uncertainty": "Exact auto-response scope, pause triggers and losses remain reviewed player/local policies."
+      },
+      "simplify_or_retain": "Use one compact status explanation and short authored response priorities. Group repeated ticks; keep meaningful phase changes visible. Do not require active clicking for every tick.",
+      "verification_limits": "Static inspection only; proposed gameplay, UI, save/reload and failure cases remain unrun under the review hold. All new examples are original mechanics, not source canon or selected balance.",
+      "priority": 7
+    },
+    {
+      "id": "CB04",
+      "priority": 8,
+      "kind": "missing",
+      "title": "Resolve sensed contact, attack geometry and projectile identity separately",
+      "baseline_relation": "C5/ME05 already lists positions/LOS/guard/projectiles. Add a query contract and launched-effect versus live-source distinction so a label or UI target list cannot impersonate these functions.",
+      "evidence": [
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            69,
+            90
+          ],
+          "claim": "Current target is fixed; guard redirects the next rival attempt to Lio without position, line or movement checks."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            115,
+            135
+          ],
+          "claim": "Location contact and declared signature/authority locator differ, but neither implements tactical reach/LOS."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            55,
+            61
+          ],
+          "claim": "Facts expose canonical target location for rule checks and observation-qualified build information; this is not a tactical belief/visibility query."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            55,
+            61
+          ],
+          "claim": "Existing C5 specifies geometry, real projectiles, guard/escape/loot consumers."
+        }
+      ],
+      "current_player_behavior": "Lio protects only the player against Mara's next attempt; location equality suffices for pursuit contact. Players cannot deliberately aim at a position, obstruct a projectile, redirect by actual reach or select a spatial area.",
+      "proposed_player_behavior": "A read-only legality query separates actual endpoint/position, actor-known contact and effect-specific sensing/movement/contact/line/cover/reach. Movement commits a reachable path. Launch creates a paid effect identity with declared path/arrival and homing policy; impact rechecks target/path rather than copying fresh secret coordinates. Guard consumes actual reach/effort at a permitted reaction point. Area effects select actual eligible targets once at their declared phase with friendly-fire policy.",
+      "authoritative_owner": {
+        "current": [
+          "src/party_battle.js",
+          "src/pursuit.js",
+          "src/simulation_effects.js"
+        ],
+        "integration": "Combat owns legality/reaction contract; Regions owns geometry; Powers owns source channels/target exceptions; Engine owns actual positions/effects/publication."
+      },
+      "dependencies": [
+        "CB01",
+        "CB02",
+        "Authoritative geometry and movement endpoint",
+        "Real ammunition/stock and effect instance owners"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier crossing: a bow scout sees farther than a stave can strike; a reed screen blocks sight while a solid bank blocks the declared arrow path. A moving porter can guard only a reachable incoming shot."
+      ],
+      "acceptance_case": {
+        "positive": "Seeing beyond melee reach enables reporting/aiming but not a melee strike; an independent launched arrow survives later bow/source loss under its policy and remains spent.",
+        "adverse": "A sound contact does not reveal exact hidden coordinates; ordinary non-homing arrows do not follow a target behind new cover; one guard cannot shield every distant area target for one payment.",
+        "retention": "Saved movement/projectile/reaction revisions resolve once across reload or failed publication; area victims and stock changes cannot partially publish."
+      },
+      "provenance": {
+        "support": "Verified limitations and prior C5 coverage.",
+        "proposal": "All crossing geometry, ranges, ammunition and timing are original proposals; no franchise attack rules asserted.",
+        "uncertainty": "Choose graph or metric representation, launch/impact target phase and guard/area semantics for the selected content."
+      },
+      "simplify_or_retain": "Start with a few connected positions and effect-specific sight/cover/reach edges, or a small authored metric map. Do not require continuous physics, per-frame ray casts or full-map navigation for every encounter.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB05",
+      "priority": 9,
+      "kind": "underexplored",
+      "title": "Tactical functions need real consumers before damage math",
+      "baseline_relation": "Plan/component contracts preserve source-specific functions and positive superiority. This adds combat dispatch criteria for control, maintained defense and counter-functions.",
+      "evidence": [
+        {
+          "path": "src/combat_math.js",
+          "lines": [
+            28,
+            58
+          ],
+          "claim": "Shared strike math resolves damage/shield/evasion/critical; mitigation retains a minimum damage floor for eligible numerical hits."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            87,
+            93
+          ],
+          "claim": "Party executor calls this math then clamps HP at one; it has no general control/interruption/area/effect dispatch."
+        },
+        {
+          "path": "src/power_models.js",
+          "lines": [
+            3,
+            43
+          ],
+          "claim": "Power models calculate scope/cost, including authority rules without invented damage capacity; actual effect execution is separate."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            81,
+            94
+          ],
+          "claim": "Owned power, execution requirements, cooldown and local support are checked for ordinary commands."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "lines": [
+            178,
+            191
+          ],
+          "claim": "Selected powers need actual target/order/time/function and source-specific genuine positive effects."
+        }
+      ],
+      "current_player_behavior": "Current native contests provide hit/block/evasion and paid interposition. Owning a broader power record does not make its control, defense, counter or area function operate in native combat.",
+      "proposed_player_behavior": "New combat actions bind the actual acquisition/body/source/energy/item support to an executable function. Contact legality and typed effect/reaction rules settle before eligible numerical damage. Root/silence/disarm/suppression interrupt only what they actually affect; posture, strain and recovery alter their declared consumers. Maintained barriers pay their genuine terms; supported immunity/no-contact prevents damage rather than receiving the ordinary minimum-hit floor.",
+      "authoritative_owner": {
+        "current": [
+          "src/combat_math.js",
+          "src/party_battle.js",
+          "src/power_models.js",
+          "src/simulation.js"
+        ],
+        "integration": "Powers owns source-specific function and support; Foundations owns effect order; combat owns tactical consumers/phase interruption."
+      },
+      "dependencies": [
+        "CB02",
+        "CB04",
+        "Shared typed effect/composition contract",
+        "Actual body/source/energy/stock execution adapters"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: extinguishing a fuel-fed lamp stops that lamp's flame; it does not erase an independent ink locator. A braced guard protects a reachable body, not an unattended distant cargo area. These are distinct functions, not a generic counter bonus."
+      ],
+      "acceptance_case": {
+        "positive": "One actual control effect cancels a supported windup; one independently launched effect persists. A genuinely superior selected source keeps its demonstrated advantage.",
+        "adverse": "Blocking ordinary combustion does not universally cancel magical heat, tracking or authority; an untargetable body cannot be chipped through the physical minimum-damage floor.",
+        "retention": "Payment/strain/source removal/recovery stop or restore only corresponding effects; renderer/import metadata grants no combat function."
+      },
+      "provenance": {
+        "support": "Current numerical executor and scope/cost plumbing are inspected; plan's positive-function rule retained.",
+        "proposal": "Original illustrative effects, not verified novel canon or a selected power roster.",
+        "uncertainty": "Any adapted exceptional mechanism needs its existing source GM's exact contemporary scene before binding."
+      },
+      "simplify_or_retain": "Reuse shared effect planners with explicit local predicates. Implement only the selected action functions; avoid a universal elemental counter table or forced weaknesses for every superior source.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB06",
+      "priority": 10,
+      "kind": "underexplored",
+      "title": "Small deterministic tactical policies must act on beliefs and means",
+      "baseline_relation": "Independent funded actors are already required. Existing controllers are useful groundwork; the missing piece is combat-aware legal candidates, knowledge and objective policy rather than a new omniscient AI.",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            373,
+            395
+          ],
+          "claim": "Controllers already select highest-priority eligible command/event/encounter response at due boundaries."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            21,
+            61
+          ],
+          "claim": "Facts separate actor knowledge from hidden builds but also include canonical target location and world facts for eligibility."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            174,
+            198
+          ],
+          "claim": "Pursuit updates only directly witnessed departures; player projection hides private search/supply/coordinates."
+        },
+        {
+          "path": "src/native_battle_host.js",
+          "lines": [
+            37,
+            46
+          ],
+          "claim": "Native host supplies fixed guard/strike actions, with no tactical objective chooser."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/workers/encounter/REVIEW.md",
+          "lines": [
+            38,
+            40
+          ],
+          "claim": "Original prior fixture allows porter refusal and captain rescue rather than elimination-only behavior."
+        }
+      ],
+      "current_player_behavior": "Outside combat, paid controllers and evidence-driven pursuit already exist. In the native party contest, each fighter's role chooses one fixed action; no escort/rescue/supply-retention policy chooses among legal battlefield actions.",
+      "proposed_player_behavior": "Extend a bounded deterministic policy with actual objective, observed contacts/reports and their age, current committed plan, available actions/support, reserve/strain and stop/retreat policy. Planner consumes an actor-qualified observation projection; canonical validator may inspect actual state. Choose among legal actions with stable tie ordering. Orders to independent allies remain requests; witnessed signals/reports carry plans to others.",
+      "authoritative_owner": {
+        "current": [
+          "src/simulation.js",
+          "src/simulation_effects.js",
+          "src/pursuit.js",
+          "src/native_battle_host.js"
+        ],
+        "integration": "Combat owns tactical planning; Society owns noncombat goals/knowledge and relationships; Engine integrates one shared scheduler/reservation path."
+      },
+      "dependencies": [
+        "CB01",
+        "CB02",
+        "CB04",
+        "Actor-qualified knowledge view distinct from canonical eligibility",
+        "Paid action/budget execution"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier captain guards a retreat corridor, rescues an injured scout or withdraws when supplies run low. A porter keeps carrying rather than abandoning delivery to chase a hidden enemy."
+      ],
+      "acceptance_case": {
+        "positive": "Same known state and seed select the same legal action; a credible new report changes the plan at the next declared decision boundary. A fighter can finish an NPC-only goal without player proximity.",
+        "adverse": "Private player repositioning does not retarget an unaware archer; no ammunition or revoked support prevents that shot; a paid ally refuses an order beyond the agreed role.",
+        "retention": "Committed moves finish before replanning unless genuinely interrupted; returning actors retain goals/means/wounds without auto-scaling."
+      },
+      "provenance": {
+        "support": "Existing controller ordering, own knowledge and pursuit evidence are verified; current facts are eligibility plumbing, not proof of an AI knowledge leak in a shipped scene.",
+        "proposal": "Original tactical policy/goal cases.",
+        "uncertainty": "Perception age/error/report credibility and exact role terms belong to selected local content."
+      },
+      "simplify_or_retain": "Use short authored priorities or a small finite-state policy. Add expensive search/utility planning only for a named case these policies cannot express. No live LLM planner or always-running world-wide combatant loop is needed.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB07",
+      "priority": 11,
+      "kind": "underexplored",
+      "title": "Objective settlement and physical escape differ from voluntary withdrawal",
+      "baseline_relation": "Micro already requires risky retreat. This adds the concrete pursuit handoff and objective progress/end conditions that prevent silent closure of a hostile threat.",
+      "evidence": [
+        {
+          "path": "src/native_battle.js",
+          "lines": [
+            26,
+            36
+          ],
+          "claim": "Agreed contest settlement closes pursuit and deletes the player session."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            48,
+            59
+          ],
+          "claim": "Party result is won/lost/withdrawn with retained helper summary; pursuit is tested or withdrawn."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            249,
+            257
+          ],
+          "claim": "Generic withdrawal clears the session/claim and may close pursuit, without movement."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            12,
+            27
+          ],
+          "claim": "Current pursuit definitions target player and use registered ordinary/signature/authority routes."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            138,
+            181
+          ],
+          "claim": "Paid movement finishes at committed destination and directly witnessed departure supplies a lead."
+        }
+      ],
+      "current_player_behavior": "Withdrawing safely ends an agreed nonlethal test and preserves spent resources/wounds. It does not model reaching cover, escaping a hostile pursuer, moving companions/cargo, holding a line or rescuing someone.",
+      "proposed_player_behavior": "Declare encounter goals and end conditions independently of enemy defeat: delivery, hold, rescue, capture under selected eligibility, concession or elimination only where supported. Physical retreat pays/rechecks its route and can be intercepted. At disengagement, preserve positions, bodies, cargo custody and observer-qualified trail; an eligible active pursuit continues from those facts. Agreeing to stop still closes a voluntary contest without inventing danger.",
+      "authoritative_owner": {
+        "current": [
+          "src/native_battle.js",
+          "src/party_battle.js",
+          "src/simulation.js",
+          "src/pursuit.js"
+        ],
+        "integration": "Combat owns goal/disengagement settlement; Regions owns exit routes; Society owns negotiation/terms; Engine owns reservations/clock/native travel."
+      },
+      "dependencies": [
+        "CB01",
+        "CB02",
+        "CB04",
+        "CB06",
+        "Expanded pursuit participants/targets only when selected content needs them"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: delivering four bundles past a stronger captain succeeds without defeating him; a porter and cart may be left behind if only the player reaches the ford. A rescue frees the actual scout before later treatment."
+      ],
+      "acceptance_case": {
+        "positive": "A negotiated corridor or completed delivery closes its real objective while surviving enemies remain; voluntary test withdrawal retains its safe current behavior.",
+        "adverse": "A blocked route interrupts retreat at its current position with paid time/injury retained; cancellation cannot teleport allies/cargo or mark an uninformed enemy as having lost the trail.",
+        "retention": "A pursuer retains legitimate observed leads and supplies; repeated settlement gives no new objective reward or false escape."
+      },
+      "provenance": {
+        "support": "Verified voluntary withdrawal and pursuit movement behavior.",
+        "proposal": "Original hostile crossing/objective/handoff rules; no lethal or death/reset policy selected.",
+        "uncertainty": "Which hostile endings, escape windows and pursuit scopes exist is a human-reviewed local policy."
+      },
+      "simplify_or_retain": "Start with one objective ledger and one or two real exits. Preserve safe voluntary contest closure; do not force all fights into pursuit or add universal guaranteed escape.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB08",
+      "priority": 12,
+      "kind": "underexplored",
+      "title": "Aftermath must retain actual combat capability and stock eligibility",
+      "baseline_relation": "C5 already separates injury/death and loot. Add the minimum operational injury/recovery and per-observer outcome receipt so later encounters and production actually change.",
+      "evidence": [
+        {
+          "path": "src/native_battle.js",
+          "lines": [
+            27,
+            36
+          ],
+          "claim": "Current outcome preserves scalar HP/stamina and directed memory, not death/ordinary loot."
+        },
+        {
+          "path": "src/party_battle.js",
+          "lines": [
+            49,
+            59
+          ],
+          "claim": "Saved result records helper status/guards and directed memories."
+        },
+        {
+          "path": "src/frontier_campaign.js",
+          "lines": [
+            41,
+            46
+          ],
+          "claim": "Mara has real kit/time-funded recovery and rematch with the same actor."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            123,
+            165
+          ],
+          "claim": "Existing body/vital and owned transfer/custody effects are reusable; equipped/borrowed goods have transfer restrictions."
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            59,
+            61
+          ],
+          "claim": "One-HP defeat is not death/organs; guard/escape/loot need actual consumers."
+        }
+      ],
+      "current_player_behavior": "Mara/Lio keep scalar wounds and stamina; a supplied kit and time can support Mara's rematch. Contest victory does not transfer equipment, declare death or make organs available.",
+      "proposed_player_behavior": "For the chosen encounter, settle life versus incapacity/yield, affected body function/condition, occupancy, treatment cost/time and actually displaced/damaged stock. Publish cause-bound outcome receipts to witnesses/report recipients and persistent goals/projects. Salvage requires an actual eligible abandoned/seized item with custody/rights policy. Body-bound specimens remain with Bodies/Items acquisition rules; combat supplies evidence of actual state, never an automatic drop.",
+      "authoritative_owner": {
+        "current": [
+          "src/native_battle.js",
+          "src/party_battle.js",
+          "src/frontier_campaign.js",
+          "src/simulation_effects.js"
+        ],
+        "integration": "Bodies owns functional injury/recovery; Items owns loot/custody/specimens; combat supplies actual aftermath; Society owns reports/reactions; Engine publishes atomically."
+      },
+      "dependencies": [
+        "CB01",
+        "CB05",
+        "CB07",
+        "Body/function and exact stock owners",
+        "Per-observer evidence and goal/project consumer"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: a sprained porter cannot brace until eligible care/rest; an injured captain declines another escort job. One abandoned bow can be recovered once, while a yielded scout still owns their worn equipment and body."
+      ],
+      "acceptance_case": {
+        "positive": "Injury changes one actual action/work prerequisite and treatment restores only that function; a returning opponent retains changed gear and a witness-qualified memory.",
+        "adverse": "Nonlethal victory does not create death, organs or all owner stock; no healer or medicine means no free functional recovery; hidden combat does not update every resident's beliefs.",
+        "retention": "Treatment/output costs and any lawful loot transfer settle once; affected future escort/project availability reflects saved body/stock/knowledge state."
+      },
+      "provenance": {
+        "support": "Verified existing wounds/recovery/custody; broader injury and observer receipt are proposals.",
+        "proposal": "Original limited functional injury and aftermath cases.",
+        "uncertainty": "New injury rules, treatment and dangerous outcomes require body/local policy review; source-specific anatomy/death exceptions stay with their source owner."
+      },
+      "simplify_or_retain": "Qualify one consequential injury and one lawful salvage receipt. Defer full organ damage simulation, universal gore loot and lethal policy until selected content uses them.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB09",
+      "priority": 13,
+      "kind": "simplify",
+      "title": "Use a selected tactical graph and meaningful decision boundaries",
+      "baseline_relation": "Macro already proposes distant aggregates. This refines combat scheduling/navigation without claiming measured runtime or token savings.",
+      "evidence": [
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            94,
+            114
+          ],
+          "claim": "Ordinary route planner is deterministic minimum-hop BFS; each route has minutes and each leg pays supply."
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            373,
+            402
+          ],
+          "claim": "Existing due controllers and routines already avoid mandatory per-frame world decisions."
+        },
+        {
+          "path": "src/models/combat.js",
+          "lines": [
+            180,
+            238
+          ],
+          "claim": "Current UI/cadence uses repeated per-fighter timer steps; this is not a measured general-battlefield cost."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "lines": [
+            103,
+            111
+          ],
+          "claim": "Plan supports bounded aggregates promoted into actual actors; second pass should find lower-cost correct alternatives."
+        }
+      ],
+      "current_player_behavior": "Current pursuit selects the first minimum-hop route and charges actual supplies/time. This is coherent for a hop/supply priority; it does not claim earliest arrival, danger avoidance or arbitrary battlefield navigation.",
+      "proposed_player_behavior": "A selected encounter uses a small graph with explicit route duration/access/exposure/cover and chosen tactical objective. Replan on arrival, contact/report changes, invalidation, resource exhaustion or a selected due boundary. Distant ordinary activity uses only authorized aggregate resolution; materialized people never respawn or lose their concrete state. Exact active targets use real legality/effect rules.",
+      "authoritative_owner": {
+        "current": [
+          "src/pursuit.js",
+          "src/simulation.js",
+          "src/models/combat.js"
+        ],
+        "integration": "Combat owns selected decision/path objective; Regions owns geometry/population; Runtime-efficiency owns later measurements; Engine owns cadence/publication."
+      },
+      "dependencies": [
+        "CB02",
+        "CB04",
+        "CB06",
+        "Declared path objective and absence/aggregate authority"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier: one direct road takes ten minutes and one supply; two three-minute legs take six minutes and two supplies. A ration-saving guard can prefer the direct route; a time-critical medic can prefer the two-leg route if funded. Values are illustrative proposals."
+      ],
+      "acceptance_case": {
+        "positive": "Each role chooses the declared time/supply/risk objective; committed travel is charged once and finishes before normal replanning.",
+        "adverse": "A 'fastest' policy cannot silently reuse minimum-hop BFS with unequal edge times; an invalidated sight/path edge stops only dependent actions; aggregation cannot add hidden ammunition or revive a promoted person.",
+        "retention": "Same represented facts yield the same decisions across reload; browser absence follows the current explicit freeze unless separately selected otherwise."
+      },
+      "provenance": {
+        "support": "Verified graph/control structure; route-choice distinction is static reasoning.",
+        "proposal": "Original illustrative graph and decision criteria.",
+        "uncertainty": "No active-battlefield timing, memory, CPU, token usage or savings measurement is available."
+      },
+      "simplify_or_retain": "Retain BFS for a real fewest-leg objective. Use weighted shortest path only for a selected time/supply requirement; prefer authored small alternatives over full continuous navigation. Event-boundary scheduling is a proposed lower-work shape, not demonstrated performance gain.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    },
+    {
+      "id": "CB10",
+      "priority": 14,
+      "kind": "already-covered",
+      "title": "Preserve genuine detection/superiority without conflating guarantees",
+      "baseline_relation": "Already explicit in plan and existing pursuit owner. Keep this as a regression constraint on CB04-CB09, not another invented deficiency.",
+      "evidence": [
+        {
+          "path": "docs/ENCOUNTERS_AND_PURSUIT.md",
+          "lines": [
+            17,
+            19
+          ],
+          "claim": "Current original heavenly writ ignores ordinary cover/shelter in this realm; arrival, strength, lethality, response deadline and outcome guarantees are separate."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            120,
+            135
+          ],
+          "claim": "Locator requires actual active faculty and declared mark/authority; authority can move its actor to the detected location."
+        },
+        {
+          "path": "src/pursuit.js",
+          "lines": [
+            149,
+            165
+          ],
+          "claim": "Authorized locator/contact and request timing are declared; no general damage guarantee follows."
+        },
+        {
+          "path": "src/power_models.js",
+          "lines": [
+            30,
+            36
+          ],
+          "claim": "Authority model tests custody/jurisdiction/termination without invented damage capacity."
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "lines": [
+            189,
+            191
+          ],
+          "claim": "Keep source-supported powerful positives and conditional inexhaustibility; unknown conditions stay explicit."
+        }
+      ],
+      "current_player_behavior": "An optional original writ can find the player despite ordinary concealment and offer a persistent nonlethal response request. Removing its actual authority stops its supported function. This is bounded authored behavior, not a universal novel cosmology.",
+      "proposed_player_behavior": "Every selected exceptional action declares what it genuinely guarantees, by which source/target/jurisdiction/phase and with which evidenced exceptions. Preserve superior range/control/output or inexhaustibility where supported; counters affect named functions only. A guaranteed locator does not automatically hit, kill, win, loot or reveal every secret.",
+      "authoritative_owner": {
+        "current": [
+          "docs/ENCOUNTERS_AND_PURSUIT.md",
+          "src/pursuit.js",
+          "src/power_models.js"
+        ],
+        "integration": "Powers/source GM owns exact mechanism; combat binds actual tactical outcome; assigning master preserves qualifications."
+      },
+      "dependencies": [
+        "CB04",
+        "CB05",
+        "Relevant exact source scene for any adapted exception"
+      ],
+      "concrete_world_examples": [
+        "Original Frontier writ remains able to locate the player in the Shack; ordinary road scouts respect shelter. Both can share contact/publication machinery without sharing locator reach or outcome rules."
+      ],
+      "acceptance_case": {
+        "positive": "Actual authority continues through ordinary cover under the current policy; a stronger fixed captain remains stronger when player support is insufficient.",
+        "adverse": "A generic concealment modifier cannot weaken a declared guaranteed locator; finding alone grants neither damage nor private build knowledge; missing/removed authority cannot continue operating.",
+        "retention": "Reentry/reload retains the same declared guarantees and bounds; no UI redraw invents a weakness or raises the opponent to match the player."
+      },
+      "provenance": {
+        "support": "Verified existing original proof and explicit plan requirement.",
+        "proposal": "Preservation contract, not new canonical ability data.",
+        "uncertainty": "Unknown adapted costs/counters require exact source retrieval or an explicitly original rule, never balancing by invention."
+      },
+      "simplify_or_retain": "Share endpoint/action/effect owners while preserving local source predicates. Do not add a mandatory counter to every superior source.",
+      "verification_limits": "Static source/contract inspection only. No game imports, build, unit/benchmark/browser/save/failure execution; future cases below are unrun. No numerical balance or runtime schema is approved."
+    }
+  ],
+  "followups": [
+    {
+      "date": "2026-10-04",
+      "request": "Status effects, little things, and more?",
+      "scope": "Extend combat planning only; runtime held.",
+      "finding_ids": [
+        "CB11",
+        "CB12",
+        "CB13",
+        "CB14"
+      ],
+      "appendix": "docs/gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md",
+      "inspected_input_hashes": {
+        "src/active_effects.js": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+        "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+        "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "src/combat_stances.js": "642df72156c03305606c9b6aac536b8183018bc082cd02d987ff7ee20d5d2265",
+        "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df"
+      },
+      "review": "Live plan revision 4 adds a separate whole-world bank synthesis role; combat assignment and runtime hold unchanged. Existing combat/runtime hashes remain unchanged; current plan evidence pointers refreshed.",
+      "checked_input_hashes": {
+        "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+        "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+        "docs/gm/world-implementation/RUN.json": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae",
+        "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+        "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+        "docs/gm/world-implementation/second-pass/README.md": "7a6ea6814ef7a12832dd09ff475f2b4bd04dd4df34fbca59d2654f367d4668d1",
+        "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+        "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md": "c33512be22d9cb9bca149ba79fd9322b4809c144f7854e5d14d8b2c0cabfdc20",
+        "src/party_battle.js": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+        "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+        "src/native_battle_contracts.js": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea",
+        "src/native_battle_host.js": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc",
+        "src/pursuit.js": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8",
+        "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+        "docs/ENCOUNTERS_AND_PURSUIT.md": "d54d07b7bdb3ac2f97aafd5941149e3e014ada6a11c07e954e701745e92a86d6",
+        "src/models/combat.js": "8654817d302ddbf928a0a9510be6b698f09cc7f2f056ab4fa6065b9284fbe24f",
+        "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+        "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+        "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+        "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+        "src/components/levelable_component.js": "d4e928eafb23b8f139c0a42694aa038c7e7b0cbd756c7c76d7635e9c8b476f31",
+        "src/enemies.js": "34d48562a0cfcab036bb32c7f5af284673342ff6b3638e18a08328e63aa16334",
+        "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+        "docs/gm/world-implementation/depth/micro/workers/encounter/REVIEW.md": "6fca5b4d5e950ef9df50c1d4e86c3b8384bb6c83a90c549ec8855de71aa5a63e",
+        "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+        "docs/gm/world-implementation/depth/micro/ENGINE_REQUIREMENTS.md": "5e6e88e353b412e42a64dd4623a82a42e27f7d907b069fb7e8c7f41e5f8cea7e",
+        "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+        "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+        "docs/gm/world-implementation/depth/micro/WORKED_CASES.md": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7",
+        "src/active_effects.js": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+        "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+        "src/combat_stances.js": "642df72156c03305606c9b6aac536b8183018bc082cd02d987ff7ee20d5d2265",
+        "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+        "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+        "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df"
+      },
+      "document_check": {
+        "result": "PASS",
+        "owned_files": 5,
+        "findings": 14,
+        "evidence_ranges": 65,
+        "local_markdown_links": 34,
+        "unique_input_hashes": 39,
+        "summary_words": 584,
+        "json_fields_ids_priorities_dependencies": "pass",
+        "whitespace_readback": "pass",
+        "runtime_source_drift": "none",
+        "owned_children_processes": "none",
+        "game_checks": "unrun; planning-only"
+      }
+    }
+  ]
+}

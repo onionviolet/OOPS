@@ -1,0 +1,2143 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "coordinator": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "base": {
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty": true
+  },
+  "scope": "Five required finite Paradise/Goa and distinct Cyoria campaign rows source/native/UI/compatible-state/current-build complete; implemented-unverified; later gameplay/save/director acceptance deferred.",
+  "checks": {
+    "sourceSyntaxImportBuildLinks": "allowed",
+    "newGameplayUnitBrowserSaveFailureRegression": "deferred by current user instruction",
+    "privateSavesSourceLibrary": "untouched",
+    "currentMatchingBuild": "ebf951d62861",
+    "currentStaticSources": 335
+  },
+  "roles": {
+    "original": {
+      "threadId": "01a10945-010b-7a91-844a-d6d3024c6f35",
+      "hostId": "local",
+      "state": "inactive completed planning predecessor; local INC-P1 implementation reserved to 01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "assignment": "docs/worlds/original-frontier/ASSIGNMENT.md",
+      "writes": [
+        "docs/worlds/original-frontier/"
+      ],
+      "cursor": "022fcba0-145f-469a-bf22-6d45d46d306e:11",
+      "mode": "planning-only",
+      "currentAssignment": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "latestTurn": "completed",
+      "observedState": "idle",
+      "initialProgress": "The campaign and completion documents are saved; I\u2019ll verify the partial writes before continuing. I\u2019ll add cumulative choices and endings to the same plan, with supported clocks and useful post-arc lives, while keeping the source module held.",
+      "heldWrites": [
+        "src/original_frontier_campaign_content.js"
+      ],
+      "latestTurnId": "01a10c52-165b-76f2-a9de-5d641c366054",
+      "report": "docs/worlds/original-frontier/REPORT.md",
+      "sourceModuleHeld": true,
+      "reservation": "inactive completed planning predecessor; selected finite implementation/local progress transfers to new GM after actual receipt"
+    },
+    "engine": {
+      "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "hostId": "local",
+      "state": "completed source integration for selected full remainder; shared reservation released by final record",
+      "assignment": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+      "writes": [
+        "selected shared source/native/UI/save/registry/build and canonical current surfaces"
+      ],
+      "checkpoint": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "release": "docs/gm/audit-implementation/remainder/RELEASE.json",
+      "mode": "implementation-first; all behavioral gates deferred",
+      "reservation": "no active source writer after source release; future work needs existing task/owner recovery"
+    },
+    "ability": {
+      "threadId": "01a104a2-fabf-7bf1-a95f-1e93353b9196",
+      "hostId": "local",
+      "state": "four-skill source return complete; matching Engine build verified",
+      "assignment": "docs/gm/world-implementation/ABILITY_ASSIGNMENT.md",
+      "writes": [
+        "src/skill_expansion_content.js",
+        "src/world_ability_runtime.js only if selected callers demand it",
+        "docs/gm/world-implementation/abilities"
+      ],
+      "cursor": "4f143012-13c9-447e-a02a-eb65fa2bc56a:7",
+      "mode": "bounded-skill-discovery-implementation",
+      "currentAssignment": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "latestTurn": "completed",
+      "observedState": "idle",
+      "initialProgress": "I\u2019m continuing the same four-skill assignment from the saved files. The source-review helper\u2019s connection failed; its earlier consumer report is saved. I\u2019ll finish the review here and check the Engine\u2019s updated contract.",
+      "latestTurnId": "01a10c52-1ea4-7c51-8291-ed03fefabdcd"
+    },
+    "completed-books": {
+      "threadId": null,
+      "state": "proposed-not-dispatched",
+      "worlds": [
+        "fated-villain",
+        "regressors-tale",
+        "omniscient-reader",
+        "labyrinth-mad-god",
+        "mother-of-learning",
+        "worm",
+        "legendary-mechanic"
+      ]
+    },
+    "continuing-books": {
+      "threadId": null,
+      "state": "proposed-not-dispatched",
+      "worlds": [
+        "paradise",
+        "reverend-insanity",
+        "shadow-slave",
+        "lord-of-mysteries",
+        "circle-of-inevitability"
+      ]
+    },
+    "franchise-worlds": {
+      "threadId": null,
+      "state": "proposed-not-dispatched",
+      "worlds": [
+        "skyrim",
+        "fallout",
+        "elden-ring",
+        "naruto",
+        "bleach",
+        "harry-potter"
+      ]
+    },
+    "macro-planning": {
+      "threadId": "01a10487-5a34-71f3-9475-2587546a661a",
+      "hostId": "local",
+      "state": "planning-complete-reconciled-as-proposals",
+      "assignment": "docs/gm/world-implementation/depth/macro/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/depth/macro/ reports only"
+      ],
+      "mode": "planning-only",
+      "cursor": "af75beb3-9b90-4e39-bddb-6d9fc489d81e:32",
+      "inputSnapshot": "docs/gm/world-implementation/depth/INPUT_SNAPSHOT.json"
+    },
+    "micro-planning": {
+      "threadId": "01a10488-0145-7171-802f-274b034b7fd7",
+      "hostId": "local",
+      "state": "planning-complete-reconciled-as-proposals",
+      "assignment": "docs/gm/world-implementation/depth/micro/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/depth/micro/ reports only"
+      ],
+      "mode": "planning-only",
+      "cursor": "6d3fd119-74f3-46a7-bd98-671ab88b31cd:22",
+      "inputSnapshot": "docs/gm/world-implementation/depth/INPUT_SNAPSHOT.json"
+    },
+    "aspect-foundations": {
+      "threadId": "01a10997-911b-7f90-b23c-249356216f97",
+      "state": "planning-complete-inspected",
+      "mode": "planning-only",
+      "requestedTitle": "Engine foundations GM",
+      "assignment": "docs/gm/world-implementation/second-pass/foundations/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/foundations/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "762fc26c-6c9d-4edb-91cc-4b39226d6fc0:4",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/foundations.json"
+    },
+    "aspect-runtime-efficiency": {
+      "threadId": "01a10997-a4c6-7402-8281-997f8f5ca597",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Runtime efficiency GM",
+      "assignment": "docs/gm/world-implementation/second-pass/runtime-efficiency/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/runtime-efficiency/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "752ea556-47a4-4a7e-b7b1-ba318d086f4b:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/runtime-efficiency.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-token-efficiency": {
+      "threadId": "01a10997-afcc-71f2-b437-060d0ef1308e",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Token and workflow efficiency GM",
+      "assignment": "docs/gm/world-implementation/second-pass/token-efficiency/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/token-efficiency/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "92541db0-f840-4e73-bb19-23fd01378b7e:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/token-efficiency.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-authoring": {
+      "threadId": "01a10997-c990-7002-89e7-55fca38f0b1b",
+      "state": "planning-complete-inspected",
+      "mode": "planning-only",
+      "requestedTitle": "World authoring and integration GM",
+      "assignment": "docs/gm/world-implementation/second-pass/authoring/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/authoring/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "81369447-e3f2-4094-b1dd-5d38bd2c3ce4:3",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/authoring.json"
+    },
+    "aspect-regions": {
+      "threadId": "01a10997-d522-7e53-b28c-f01548602d24",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Regions ecology and harvesting GM",
+      "assignment": "docs/gm/world-implementation/second-pass/regions/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/regions/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "148ef8af-079d-4d45-a935-68945d2a8b28:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/regions.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-items": {
+      "threadId": "01a10997-eb61-7123-a961-f82304097f66",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Items crafting and refinement GM",
+      "assignment": "docs/gm/world-implementation/second-pass/items/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/items/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "b662ceff-3dc8-4be5-bda1-ace69de298c7:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/items.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-powers": {
+      "threadId": "01a10998-0eb6-7c12-8574-bc60c1173dd0",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Bodies powers and interactions GM",
+      "assignment": "docs/gm/world-implementation/second-pass/powers/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/powers/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "ccd9a09c-faac-4a0c-a226-4db9bb5b79b8:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/powers.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-combat": {
+      "threadId": "01a10998-2514-77c0-9271-d14516068db8",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Combat encounters and AI GM",
+      "assignment": "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/combat/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "7b0bf20b-2f5d-4c77-9261-fcebab087fcb:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/combat.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-society": {
+      "threadId": "01a10998-3659-74d1-a1c7-732b2020c74c",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Society relationships and dialogue GM",
+      "assignment": "docs/gm/world-implementation/second-pass/society/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/society/branching"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "5e91172b-bc7e-442a-8ca0-15a3235921d3:5",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/society.json",
+      "latestTurnId": "01a10c51-fd97-7071-9830-fcb499becb5a",
+      "observedState": "idle",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "initialProgress": "I\u2019ll trace two social choices from an early meeting into different career or community outcomes, using the original USER_VISION wording and current code owners. I\u2019ll reuse the completed audit and save this branching analysis in its own report folder.",
+      "currentAssignment": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "report": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "declaredOutputHashesVerified": 5,
+      "runtimeDelivered": false
+    },
+    "aspect-bases": {
+      "threadId": "01a10998-50d9-7710-9eae-d6ac283b0a23",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Bases institutions and economy GM",
+      "assignment": "docs/gm/world-implementation/second-pass/bases/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/bases/reports and checkpoint only"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "c0aa2859-e29f-4a85-8489-2843338d902f:1",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/bases.json",
+      "observedState": "notLoaded",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "statusEvidence": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-aspect-status.json"
+    },
+    "aspect-timelines": {
+      "threadId": "01a10998-5d20-7480-83c3-eba338d63d08",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Timelines progression and campaign GM",
+      "assignment": "docs/gm/world-implementation/second-pass/timelines/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/timelines/branching"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "55b86ea7-1302-40ff-8c72-782ae77a8902:9",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/timelines.json",
+      "latestTurnId": "01a10c51-f1e8-7420-9890-ba80410a0c76",
+      "observedState": "idle",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "initialProgress": "I\u2019ll compare timeline styles, then build two causal choice graphs with distinct endings, persistent aftermath and useful return paths in the new branching report directory.",
+      "currentAssignment": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "report": "docs/gm/world-implementation/second-pass/timelines/branching/REPORT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/timelines/branching/CHECKS.json",
+      "declaredOutputHashesVerified": 9,
+      "runtimeDelivered": false
+    },
+    "aspect-experience": {
+      "threadId": "01a10998-7c21-7c02-9ffd-b288ec71f677",
+      "state": "pure discovery plus Engine S3 native/Practice integration delivered; behavior/director deferred",
+      "mode": "bounded-skill-discovery-implementation",
+      "requestedTitle": "Player experience and discoverability GM",
+      "assignment": "docs/gm/world-implementation/second-pass/experience/ASSIGNMENT.md",
+      "writes": [
+        "src/skill_discovery.js",
+        "docs/gm/world-implementation/second-pass/experience"
+      ],
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json",
+      "hostId": "local",
+      "cursor": "2b458f7d-7b06-401a-9fc0-805add427ee1:3",
+      "latestTurn": "completed",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/experience.json",
+      "currentAssignment": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+      "currentDispatchReceipt": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05_RECEIPT.json",
+      "observedState": "notLoaded",
+      "initialProgress": "I\u2019ll implement the pure discovery projection, starting with the new scope packet and existing knowledge/unlock owners. I\u2019ll keep native UI and save integration with Engine and save the export contract for it to bind.",
+      "delivery": "src/skill_discovery.js with six pure exports; syntax/import/source/link checks reported; no native UI/build/behavior credit",
+      "nativeIntegration": true
+    },
+    "aspect-integration": {
+      "threadId": "01a109a1-7ea4-7623-a7f9-2cc339cc594d",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Integration and implementation strategy GM",
+      "assignment": "docs/gm/world-implementation/second-pass/integration/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/integration/ reports and checkpoint only"
+      ],
+      "boundary": "Delivery strategy and task packets; existing Engine retains shared runtime integration.",
+      "hostId": "local",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/integration.json",
+      "cursor": "8f77bb0e-8353-4eae-a361-8209cdb5c210:1",
+      "latestTurn": "completed",
+      "observedState": "notLoaded",
+      "report": "docs/gm/world-implementation/second-pass/integration/REPORT.md",
+      "declaredOutputHashesVerified": 5,
+      "runtimeDelivered": false
+    },
+    "aspect-world-bank": {
+      "threadId": "01a109b5-80c1-75f3-acf5-cf2a39323bb0",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "World absorption and adaptive characters GM",
+      "assignment": "docs/gm/world-implementation/second-pass/world-bank/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/world-bank/ reports and checkpoint only"
+      ],
+      "boundary": "World-bank/query/era/character synthesis, no repeated whole-book reading or runtime ownership.",
+      "hostId": "local",
+      "cursor": "29c399bd-d2a1-4d67-8cfb-29c44e3c2d37:1",
+      "latestTurn": "completed",
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/world-bank/INPUT_SNAPSHOT.json",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/world-bank.json",
+      "observedState": "notLoaded",
+      "report": "docs/gm/world-implementation/second-pass/world-bank/REPORT.md",
+      "declaredOutputHashesVerified": 6,
+      "runtimeDelivered": false
+    },
+    "aspect-engine-absorption": {
+      "threadId": "01a10a0d-d78f-7bf1-ba46-e16c38bf0f1b",
+      "state": "planning-complete-inspected-reconciled",
+      "mode": "planning-only",
+      "requestedTitle": "Selective engine absorption GM",
+      "assignment": "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+        "docs/gm/world-implementation/second-pass/engine-absorption/FINDINGS.json",
+        "docs/gm/world-implementation/second-pass/engine-absorption/DEPENDENCIES.md",
+        "docs/gm/world-implementation/second-pass/engine-absorption/CHECKPOINT.md",
+        "disjoint analytical appendices in the same role directory"
+      ],
+      "boundary": "External engine/tool/pattern comparison and proposed packets only; no runtime adoption, duplicate audit or shared integrator.",
+      "inputSnapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/receipts/engine-absorption.json",
+      "dispatchCoordinator": "01a109e5-344f-7941-8d55-156d37a15716",
+      "hostId": "local",
+      "cursor": "00a6e80c-670c-47f1-a29a-5fe222c96e58:1",
+      "latestTurn": "completed",
+      "observedAtUTC": "2026-10-05T03:15:27.644499+00:00",
+      "observedCommentary": "I\u2019m using the efficient agent routing and evidence-gated handoff skills for two disjoint upstream checks. The main decision stays here: whether each tool adds a missing player behavior without duplicating the clock, inventory, people, or save owners.",
+      "observedState": "notLoaded",
+      "report": "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md",
+      "declaredOutputHashesVerified": 7,
+      "runtimeDelivered": false
+    },
+    "plan-coordinator": {
+      "threadId": "01a1074b-e2ed-7523-a0cd-56de915fbcd9",
+      "hostId": "local",
+      "state": "released-predecessor; limited planning succession authorized",
+      "mode": "planning-only",
+      "currentAssignment": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "cursor": "51980a2d-7f32-4a08-986e-46b8afe6638a:7",
+      "latestTurn": "completed",
+      "observedState": "idle",
+      "initialProgress": "I\u2019ll continue from the saved revision 6 plan and add the timeline/endings analysis when its returns arrive. The four-skill implementation keeps its current authorization; broader time, death and world mechanics remain planning work.",
+      "writes": [
+        "PROJECT.md",
+        "docs/USER_VISION.md",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/world-implementation/CHECKPOINT.md",
+        "docs/gm/world-implementation/history"
+      ],
+      "latestTurnId": "01a10c52-18fb-7e21-b391-5b681fad1730",
+      "deliveryState": "complete canonical planning amendment; prior built skill delivery preserved",
+      "finalCheck": "canonicalCloseout in RUN.json"
+    },
+    "granularity-expansion": {
+      "threadId": "01a10488-0145-7171-802f-274b034b7fd7",
+      "hostId": "local",
+      "state": "planning-complete-inspected-reconciled",
+      "latestTurn": "completed",
+      "latestTurnId": "01a10c52-111e-7aa2-a69c-5923ce985a7b",
+      "cursor": "075e2754-a1e0-46b9-9f6b-5970c05a084f:7",
+      "observedState": "idle",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "initialProgress": "I\u2019m using the agent-routing and evidence-gated handoff skills to split the analysis into disjoint reviews and keep each proposal tied to a concrete player action and existing owner.",
+      "mode": "planning-only",
+      "currentAssignment": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/granularity-expansion"
+      ],
+      "report": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+      "declaredOutputHashesVerified": 10,
+      "runtimeDelivered": false
+    },
+    "upstream-native-feasibility": {
+      "threadId": "01a10c9e-a6fa-7c11-a71b-5b88fbf994e3",
+      "hostId": "local",
+      "requestedTitle": "Upstream GM: native expansion and feasibility",
+      "state": "completed checked planning evidence reconciled",
+      "mode": "planning-only",
+      "assignment": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/ASSIGNMENT.md",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/DISPATCH_RECEIPT.json",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/REPORT.md",
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/FEASIBILITY.json",
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/CHECKPOINT.md",
+        "narrowly justified analytical appendix in own folder only"
+      ],
+      "excludedWrites": [
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/ASSIGNMENT.md",
+        "docs/gm/world-implementation/second-pass/upstream-native-feasibility/DISPATCH_RECEIPT.json",
+        "runtime/canonical/upstream/source/library/private-save inputs"
+      ],
+      "latestTurn": "completed",
+      "latestTurnId": "01a10c9e-b4ab-7e93-a37b-3b60624c3f99",
+      "observedState": "idle",
+      "cursor": "4ab8264b-0341-45e0-91da-bb24ba8fbd27:3",
+      "initialProgress": "Upstream still resolves to the assigned e3356432 revision. Its source layout differs from the fork\u2019s, so the review needs to trace behavior rather than compare filenames. I\u2019m using the efficient-agent-routing and evidence-gated-handoff skills for two read-only helpers: one maps upstream consumers, and one maps the original vision. I\u2019ll check their evidence and own the final reports.",
+      "upstream": {
+        "url": "https://github.com/miktaew/yet-another-idle-rpg.git",
+        "defaultBranch": "master",
+        "remoteHeadAndCachedRefAtDispatch": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9"
+      },
+      "findingsAccepted": true,
+      "runtimeAuthorization": false,
+      "acceptanceQualification": "completed planning evidence incorporated; proposed wider runtime not selected",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json"
+    },
+    "fork-network-absorption": {
+      "threadId": "01a10ca4-415e-7a71-93a9-7e335bae8d93",
+      "hostId": "local",
+      "requestedTitle": "Fork GM: normal and dev absorption review",
+      "state": "completed checked planning evidence reconciled",
+      "mode": "planning-only",
+      "assignment": "docs/gm/world-implementation/second-pass/fork-network-absorption/ASSIGNMENT.md",
+      "dispatchReceipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/DISPATCH_RECEIPT.json",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/INVENTORY.json",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/CANDIDATES.json",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/CHECKPOINT.md",
+        "necessary evidence appendices in own folder only"
+      ],
+      "excludedWrites": [
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/ASSIGNMENT.md",
+        "docs/gm/world-implementation/second-pass/fork-network-absorption/DISPATCH_RECEIPT.json",
+        "runtime/canonical/other-report/library/private-save inputs"
+      ],
+      "latestTurn": "completed",
+      "latestTurnId": "01a10ca4-4db3-7160-838e-6fc6bfd2e974",
+      "observedState": "idle",
+      "cursor": "64a4e919-3e76-47eb-91f4-52e885744950:3",
+      "initialProgress": "The assignment separates discovery from code review and keeps all imports on hold. I\u2019m using the efficient-agent-routing skill for bounded fork readers; I\u2019ll own the final reports and check their evidence against the live dirty fork.",
+      "roots": [
+        {
+          "repo": "miktaew/yet-another-idle-rpg",
+          "defaultBranch": "master",
+          "head": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "reportedForkCount": 26,
+          "reportedNetworkCount": 26
+        },
+        {
+          "repo": "miktaew/yet-another-idle-rpg-dev",
+          "defaultBranch": "master",
+          "head": "af47a8e9b112116935870ae7126dd2f194d2694a",
+          "reportedForkCount": 16,
+          "reportedNetworkCount": 16
+        }
+      ],
+      "findingsAccepted": true,
+      "runtimeAuthorization": false,
+      "acceptanceQualification": "completed planning evidence incorporated; proposed wider runtime not selected",
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "wholeBranchImported": false,
+      "selectedSubsetAdoption": "Separately authorized FNA01/02/03/06 plus XP/build adaptations integrated/rebuilt, behavior unverified",
+      "adoption": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+      "currentBuild": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json"
+    },
+    "absorption-incorporation": {
+      "threadId": "01a10d43-b542-7630-a102-cb11c8d94763",
+      "hostId": "local",
+      "state": "completed incorporation plus authorized dispatch; canonical current-progress released to new implementation GM after receipt flag",
+      "mode": "planning-only",
+      "assignment": "docs/gm/world-implementation/second-pass/absorption-incorporation/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/absorption-incorporation/FOLLOWUP_RECEIPT.json",
+      "writes": [
+        "PROJECT.md current resume",
+        "docs/USER_VISION.md narrow request",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/world-implementation/CHECKPOINT.md",
+        "own reconciliation report directory only"
+      ],
+      "internalReaders": [
+        "/root/bank_reader",
+        "/root/delivery_reader",
+        "/root/prior_reader"
+      ],
+      "runtimeAuthorization": false,
+      "latestTurn": "inProgress",
+      "outputComplete": true,
+      "reservation": "released after final dispatch receipt; no concurrent canonical/source writer",
+      "internalReadersState": "all three completed/read-only; no live child",
+      "latestTurnQualification": "own current turn; app completion is not claimed before final response"
+    },
+    "missing-feature-audit": {
+      "threadId": "01a10d44-0649-7932-9869-32f293ed898a",
+      "hostId": "local",
+      "state": "completed checked finite audit incorporated",
+      "mode": "planning-only",
+      "assignment": "docs/gm/world-implementation/second-pass/missing-feature-audit/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/absorption-incorporation/FOLLOWUP_RECEIPT.json",
+      "writes": [
+        "docs/gm/world-implementation/second-pass/missing-feature-audit own report files only"
+      ],
+      "runtimeAuthorization": false,
+      "latestTurn": "completed",
+      "cursor": "bd8b94f7-3eb5-44a7-ab70-4e833ee724ea:24",
+      "observedState": "idle",
+      "findingsAccepted": true,
+      "acceptanceQualification": "planning evidence only; no runtime/mechanic admission",
+      "featureFamilies": 35,
+      "gapFamilies": 10,
+      "priorityPackets": 5,
+      "finalReceipt": "docs/gm/world-implementation/second-pass/missing-feature-audit/appendix-validation.json"
+    },
+    "repository-bank-absorption": {
+      "threadId": null,
+      "state": "completed checked planning evidence incorporated; 20 dispositions",
+      "mode": "planning-only",
+      "writes": [
+        "own report directory only"
+      ],
+      "runtimeAuthorization": false,
+      "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json"
+    },
+    "frontier-runtime": {
+      "state": "code-native-ui-build-delivered; behavior/director deferred",
+      "mode": "implementation",
+      "assignment": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/frontier-runtime/DISPATCH_RECEIPT.json",
+      "selectedPacket": "INC-P1",
+      "sourceWriter": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "canonicalWriter": "sole current-progress writer after final receipt release",
+      "newBehaviorState": "implemented-unverified",
+      "tests": "deferred",
+      "writes": [
+        "INC-P1 source/native/UI/save/registry/build and engineering evidence only",
+        "Frontier local implementation progress/coverage/checkpoint",
+        "canonical current progress after actual receipt release; assignment/snapshot/receipt stay parent-owned"
+      ],
+      "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "hostId": "local",
+      "requestedTitle": "GM: implement Frontier campaign",
+      "runtimeWriterReleased": true,
+      "canonicalWriterReleased": true,
+      "runtimeAuthorization": true,
+      "findingsSelection": "INC-P1 only; optional O01\u2013O05 unselected",
+      "observedState": "active",
+      "latestTurn": "inProgress",
+      "cursor": "4f5ec92d-46bc-49da-aba3-5db4f01aea73:3",
+      "latestTurnId": "01a10d9e-095f-7140-b4a4-2e8d825df4aa",
+      "initialProgress": "The runtime release is confirmed. I\u2019m taking the shared native integration and assigning two disjoint content workers to careers/endings and field/mastery work, plus one worker for the campaign panel.",
+      "delivery": "docs/gm/world-implementation/frontier-runtime/DELIVERY.md",
+      "build": "docs/gm/world-implementation/frontier-runtime/BUILD.json",
+      "coverage": "docs/gm/world-implementation/frontier-runtime/COVERAGE.json",
+      "bundleFingerprint": "f381c6503a58",
+      "observedAtDispatch": "2026-10-05 19:53:35 UTC",
+      "sourceGoalComplete": true,
+      "writerReservation": "Delivery finished; this GM remains the scoped owner for a later authorized gate or explicit live handoff.",
+      "internalWorkers": [
+        {
+          "id": "/root/career_content",
+          "state": "completed-and-released",
+          "files": [
+            "src/original_frontier_career_content.js",
+            "CAREER_RETURN.md"
+          ]
+        },
+        {
+          "id": "/root/field_content",
+          "state": "completed-and-released",
+          "files": [
+            "src/original_frontier_field_content.js",
+            "FIELD_RETURN.md"
+          ]
+        },
+        {
+          "id": "/root/campaign_panel",
+          "state": "completed-and-released",
+          "files": [
+            "src/original_frontier_campaign_ui.js",
+            "UI_RETURN.md"
+          ]
+        },
+        {
+          "id": "/root/coverage_map",
+          "state": "completed-and-released",
+          "files": [
+            "COVERAGE.json",
+            "COVERAGE.md"
+          ]
+        }
+      ]
+    }
+  },
+  "worlds": [
+    {
+      "slug": "original-frontier",
+      "role": "original",
+      "worldId": "base.frontier",
+      "docs": "docs/worlds/original-frontier/",
+      "module": "src/original_frontier_campaign_content.js",
+      "source": "PROJECT.md",
+      "sourceDescription": "existing native YAIRPG and current original expansion",
+      "state": "implemented-built-unverified; behavior/director deferred",
+      "runtimeOwner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "runtimeCoverage": "docs/gm/world-implementation/frontier-runtime/COVERAGE.json",
+      "build": "docs/gm/world-implementation/frontier-runtime/BUILD.json"
+    },
+    {
+      "slug": "fated-villain",
+      "role": "completed-books",
+      "worldId": "book.fated_villain",
+      "docs": "docs/worlds/novel-worlds/fated-villain/",
+      "module": "src/worlds/fated_villain_campaign.js",
+      "source": "docs/research/novels/full-book/fated-villain/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "regressors-tale",
+      "role": "completed-books",
+      "worldId": "book.regressors_tale",
+      "docs": "docs/worlds/novel-worlds/regressors-tale/",
+      "module": "src/worlds/regressors_tale_campaign.js",
+      "source": "docs/research/novels/full-book/regressors-tale/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "omniscient-reader",
+      "role": "completed-books",
+      "worldId": "book.omniscient_reader",
+      "docs": "docs/worlds/novel-worlds/omniscient-reader/",
+      "module": "src/worlds/omniscient_reader_campaign.js",
+      "source": "docs/research/novels/full-book/omniscient-reader/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "labyrinth-mad-god",
+      "role": "completed-books",
+      "worldId": "book.labyrinth_mad_god",
+      "docs": "docs/worlds/novel-worlds/labyrinth-mad-god/",
+      "module": "src/worlds/labyrinth_mad_god_campaign.js",
+      "source": "docs/research/novels/full-book/labyrinth-mad-god-1/SYNTHESIS.md",
+      "additionalSource": "docs/research/novels/full-book/labyrinth-mad-god-2/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "mother-of-learning",
+      "role": "completed-books",
+      "worldId": "book.mother_of_learning",
+      "docs": "docs/worlds/novel-worlds/mother-of-learning/",
+      "module": "src/worlds/mother_of_learning_campaign.js",
+      "source": "docs/research/novels/full-book/mother-of-learning/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "worm",
+      "role": "completed-books",
+      "worldId": "book.worm",
+      "docs": "docs/worlds/novel-worlds/worm/",
+      "module": "src/worlds/worm_campaign.js",
+      "source": "docs/research/novels/full-book/worm/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "paradise",
+      "role": "continuing-books",
+      "worldId": "book.paradise",
+      "docs": "docs/worlds/novel-worlds/paradise/",
+      "module": "src/worlds/paradise_campaign.js",
+      "source": "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "reverend-insanity",
+      "role": "continuing-books",
+      "worldId": "book.reverend_insanity",
+      "docs": "docs/worlds/novel-worlds/reverend-insanity/",
+      "module": "src/worlds/reverend_insanity_campaign.js",
+      "source": "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "shadow-slave",
+      "role": "continuing-books",
+      "worldId": "book.shadow_slave",
+      "docs": "docs/worlds/novel-worlds/shadow-slave/",
+      "module": "src/worlds/shadow_slave_campaign.js",
+      "source": "docs/research/novels/full-book/shadow-slave/AUTHORING.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "lord-of-mysteries",
+      "role": "continuing-books",
+      "worldId": "book.lord_of_mysteries",
+      "docs": "docs/worlds/novel-worlds/lord-of-mysteries/",
+      "module": "src/worlds/lord_of_mysteries_campaign.js",
+      "source": "docs/research/novels/full-book/lord-of-mysteries/DESIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "circle-of-inevitability",
+      "role": "continuing-books",
+      "worldId": "book.circle_of_inevitability",
+      "docs": "docs/worlds/novel-worlds/circle-of-inevitability/",
+      "module": "src/worlds/circle_of_inevitability_campaign.js",
+      "source": "docs/research/novels/full-book/circle-of-inevitability/EARLY_CONTEXT.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "legendary-mechanic",
+      "role": "completed-books",
+      "worldId": "book.legendary_mechanic",
+      "docs": "docs/worlds/novel-worlds/legendary-mechanic/",
+      "module": "src/worlds/legendary_mechanic_campaign.js",
+      "source": "docs/research/novels/full-book/legendary-mechanic/GAME_IMPLICATIONS.md",
+      "state": "proposed-awaiting-review",
+      "sourceStatus": "supplied-edition-research-complete; runtime proposed-awaiting-review",
+      "sourceReceipt": "docs/research/novels/full-book/legendary-mechanic/FINAL_AUDIT.json",
+      "sourceVerification": "EPUB, manifest and five final facet hashes match; 74 contiguous integrated ranges1-1463 with note/checkpoint paths. Semantic reading/reconciliation accepted by source GM; 5286 claim count recorded in receipt.",
+      "sourceThreadId": "01a1083e-0912-73a0-af7d-d5bba6b513e0",
+      "sourceCursor": "2ff1879a-f0c0-46b2-a0d4-7eb6d2a1c74e:3"
+    },
+    {
+      "slug": "skyrim",
+      "role": "franchise-worlds",
+      "worldId": "fan.skyrim",
+      "docs": "docs/worlds/skyrim/implementation/",
+      "module": "src/worlds/skyrim_campaign.js",
+      "source": "docs/worlds/skyrim/CAMPAIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "fallout",
+      "role": "franchise-worlds",
+      "worldId": "fan.fallout",
+      "docs": "docs/worlds/fallout/implementation/",
+      "module": "src/worlds/fallout_campaign.js",
+      "source": "docs/worlds/fallout/CAMPAIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "elden-ring",
+      "role": "franchise-worlds",
+      "worldId": "fan.elden_ring",
+      "docs": "docs/worlds/elden-ring/implementation/",
+      "module": "src/worlds/elden_ring_campaign.js",
+      "source": "docs/worlds/elden-ring/CAMPAIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "naruto",
+      "role": "franchise-worlds",
+      "worldId": "fan.naruto",
+      "docs": "docs/worlds/naruto/implementation/",
+      "module": "src/worlds/naruto_campaign.js",
+      "source": "docs/worlds/naruto/CAMPAIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "bleach",
+      "role": "franchise-worlds",
+      "worldId": "fan.bleach",
+      "docs": "docs/worlds/bleach/implementation/",
+      "module": "src/worlds/bleach_campaign.js",
+      "source": "docs/worlds/bleach/CAMPAIGN.md",
+      "state": "proposed-awaiting-review"
+    },
+    {
+      "slug": "harry-potter",
+      "role": "franchise-worlds",
+      "worldId": "fan.harry_potter",
+      "docs": "docs/worlds/harry-potter/implementation/",
+      "module": "src/worlds/harry_potter_campaign.js",
+      "source": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "state": "proposed-awaiting-review"
+    }
+  ],
+  "approval": {
+    "state": "Current full audited remainder and connected returned proofs authorized and source delivered; broader unrelated proposals remain unselected",
+    "plan": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "authority": "Direct human begin-implementation/implement-the-rest-in-parallel/continue-relevant-GMs steering captured in AUDIT_REMAINDER dispatch",
+    "packet": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+    "dispatchReceipt": "docs/gm/world-implementation/frontier-runtime/DISPATCH_RECEIPT.json",
+    "unapproved": [
+      "nineteen-world runtime roster",
+      "new destination qualification visits",
+      "second prestige",
+      "external runtime dependencies",
+      "unrelated adapters"
+    ],
+    "additionalPlanningPacket": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+    "additionalPlanningReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+    "additionalPlanningAuthority": "Direct human timeline/endings/wider-depth request verified in assigning chat, user message 01a10c4d-1cdd-76a1-a2f4-bb28071e0519; planning only.",
+    "narrowAuthoringAmendment": {
+      "date": "2026-10-05",
+      "authority": "Direct user message 01a10c8d-973f-73b0-8f53-d63f7704054c verified in assigning chat01a10a5f-186a-7420-b02f-7ef1c4880d68",
+      "acceptedCorrection": "Functional-payoff applies to selected gameplay systems/required mechanics, not every scenic/incidental book detail.",
+      "runtimeScopeExpanded": false,
+      "worldEraRosterSelected": false,
+      "additionalGMDispatch": false
+    },
+    "upstreamNativePlanning": {
+      "authority": "Verified direct user message01a10c9b-8747-7d31-9a2e-9a58b1d11aec in assigning chat",
+      "assignment": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/DISPATCH_RECEIPT.json",
+      "scope": "separate actual upstream/native expansion/feasibility analysis only",
+      "runtimeOrMergeApproved": false
+    },
+    "forkNetworkPlanning": {
+      "authority": "Verified direct user message01a10ca1-6ff1-7b13-9e78-eb7c53833e87 in assigning chat",
+      "assignment": "docs/gm/world-implementation/second-pass/fork-network-absorption/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/DISPATCH_RECEIPT.json",
+      "scope": "accessible normal/development fork inventory, candidate review and proposed absorption only",
+      "runtimeMergeImportApproved": false
+    },
+    "canonicalIncorporation": {
+      "authority": "Direct human request in this assigning chat to create next incorporation GM and a separate missing-feature GM.",
+      "assignment": "docs/gm/world-implementation/second-pass/absorption-incorporation/ASSIGNMENT.md",
+      "receipt": "docs/gm/world-implementation/second-pass/absorption-incorporation/FOLLOWUP_RECEIPT.json",
+      "scope": "finite evidence/status/proposal reconciliation; no new runtime or dependency selection"
+    },
+    "selectedForkAdoption": {
+      "authority": "Direct follow-up: anything interesting to consider? Absorb accordingly?",
+      "deliveredCandidateIds": [
+        "FNA01",
+        "FNA02",
+        "FNA03",
+        "FNA06"
+      ],
+      "scope": "bounded native labels/material/trade/crafting view and XP/build stamping only",
+      "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json",
+      "currentBehaviorVerified": false,
+      "broaderRuntimeApproved": false
+    },
+    "frontierRuntime": {
+      "authority": "Direct human request in current incorporation chat01a10d43: send out GM to begin implkementing",
+      "assignment": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+      "selectedPacket": "INC-P1",
+      "goal": "all33parent/15step/seven-ending required native/UI/build implementation, behavior/director deferred",
+      "requiredAdapters": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "optionalAdaptersUnselected": [
+        "O01",
+        "O02",
+        "O03",
+        "O04",
+        "O05"
+      ],
+      "newWorldBodyTimeDeathDependencyPolicySelected": false,
+      "newTestsApproved": false
+    },
+    "bookWorldPlayerAgency": {
+      "packet": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+      "state": "selected finite source-grounded player-agency implementation delivered; broader proposals unselected",
+      "authority": "Direct human continuation and trusted master delegation recorded in packet; existing shared transfer verified in HANDOFF.json",
+      "fieldcraftAuthority": "Trusted human-authorized NetHack delegation recorded in FIELDCRAFT_ADMISSION.json"
+    },
+    "currentRelease": "docs/gm/audit-implementation/remainder/RELEASE.json",
+    "currentCompatibilityDecision": "explicit11/auditRemainder1 OR causalStories1; new admitted battle5/nativeCausal1; old5-10/frozen3-4/jobs retained",
+    "directorAcceptance": "unverified/deferred"
+  },
+  "history": [
+    {
+      "event": "pre-review dispatch",
+      "roles": [
+        "original",
+        "engine",
+        "ability"
+      ],
+      "result": "Original created; Engine/Ability resumed; all messages succeeded before latest review-first instruction."
+    },
+    {
+      "event": "review-first supersession",
+      "roles": [
+        "original",
+        "engine",
+        "ability"
+      ],
+      "result": "Safe-checkpoint-and-wait messages sent; live compact snapshots confirm all three idle/completed and held."
+    },
+    {
+      "event": "depth planning authorized",
+      "roles": [
+        "macro-planning",
+        "micro-planning"
+      ],
+      "result": "Prepared two disjoint planning-only assignments; retained Engine/Ability/Original implementation hold."
+    },
+    {
+      "event": "depth prompts dispatched",
+      "roles": [
+        "macro-planning",
+        "micro-planning"
+      ],
+      "result": "Both send_message calls succeeded and live compact snapshots confirmed active planning-only turns; no runtime role resumed."
+    },
+    {
+      "event": "second aspect pass authorized",
+      "roles": [
+        "foundations",
+        "runtime-efficiency",
+        "token-efficiency",
+        "authoring",
+        "regions",
+        "items",
+        "powers",
+        "combat",
+        "society",
+        "bases",
+        "timelines",
+        "experience"
+      ],
+      "result": "Prepared twelve distinct planning-only assignments from delivered macro/micro findings. No runtime hold released."
+    },
+    {
+      "event": "twelve aspect GMs dispatched",
+      "roles": [
+        "foundations",
+        "runtime-efficiency",
+        "token-efficiency",
+        "authoring",
+        "regions",
+        "items",
+        "powers",
+        "combat",
+        "society",
+        "bases",
+        "timelines",
+        "experience"
+      ],
+      "result": "Native task creation and individual compact progress checks completed; report-only scopes, no runtime hold released."
+    },
+    {
+      "event": "integration strategy requested",
+      "roles": [
+        "aspect-integration"
+      ],
+      "result": "Prepared distinct planning-only synthesis/rollout role; no runtime approval or competing integrator."
+    },
+    {
+      "event": "integration strategy GM created",
+      "roles": [
+        "aspect-integration"
+      ],
+      "result": "Separate native planning task created; consumes audit findings and prepares implementation route/tasks/tooling. No runtime hold released."
+    },
+    {
+      "event": "whole-world bank planning requested",
+      "roles": [
+        "aspect-world-bank"
+      ],
+      "result": "Prepared source-bank/timeline/archetype/relationship/vernacular/coverage capability blueprint; runtime hold retained."
+    },
+    {
+      "event": "whole-world bank GM created",
+      "roles": [
+        "aspect-world-bank"
+      ],
+      "result": "Native planning task created and compact snapshot confirms active/inProgress. Delivered foundations/authoring/society/timeline reports are inputs; no runtime hold released."
+    },
+    {
+      "event": "Legendary Mechanic supplied-edition research verified complete",
+      "roles": [
+        "completed-books"
+      ],
+      "result": "Source owner observed idle/completed; full-book owner records and exact source/manifest/facet hashes verified. Proposed world moved from continuing-books to completed-books; no implementation dispatch or hold release."
+    },
+    {
+      "event": "selective engine absorption planning requested",
+      "roles": [
+        "aspect-engine-absorption"
+      ],
+      "result": "Direct human request in assessment chat authorizes revision 5 plan amendment and a separate research GM. Assigning coordinator observed idle/completed before narrow shared-document amendment. Runtime hold retained; no dependency adoption.",
+      "amendmentCoordinator": "01a109e5-344f-7941-8d55-156d37a15716",
+      "assigningCoordinatorObservedCursor": "dab147ff-d055-4240-8321-324dda3817d9:2"
+    },
+    {
+      "event": "selective engine absorption GM created",
+      "roles": [
+        "aspect-engine-absorption"
+      ],
+      "result": "Native project-local chat creation returned threadId and hostId. Exact report-only scope; no runtime hold released.",
+      "threadId": "01a10a0d-d78f-7bf1-ba46-e16c38bf0f1b",
+      "hostId": "local"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "complete-world planning and bounded skill/discovery dispatch authorized and observed",
+      "roles": [
+        "plan-coordinator",
+        "engine",
+        "original",
+        "ability",
+        "aspect-experience"
+      ],
+      "result": "Five existing chats resumed with disjoint writes; no new chats. Canonical coordination transferred from notLoaded prior coordinator. Final integration/world-bank/absorption returns inspected and reconciled. Broader world runtime hold retained.",
+      "authority": "Direct human request verified in assigning chat 01a10a5f-186a-7420-b02f-7ef1c4880d68, user message 01a10be3-8047-7f03-8951-a2a4a9be9fee. Functional skills, discovery UI and necessary Engine integration are authorized; Frontier full-world work is planning-only.",
+      "receipt": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05_RECEIPT.json",
+      "supersededSnapshot": "docs/gm/world-implementation/history/REVIEW_STATE_BEFORE_SKILL_DISCOVERY_2026_10_05.md"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "transport recovery and timeline/endings/wider vision planning observed",
+      "result": "Assigning preflight reports earlier coordinator/Frontier/Ability/Engine transport failures after partial saved files. Existing tasks resumed with preserved reservations; canonical revision 6/JSON/skill IDs/S2 contract read back and no unknown canonical write found. Four deeper planning scopes and canonical coordination observed active; no new visible chat. Skill runtime scope continues independently.",
+      "authority": "Direct human timeline/endings/wider-depth request verified in assigning chat, user message 01a10c4d-1cdd-76a1-a2f4-bb28071e0519; planning only.",
+      "packet": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "receipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "newChatsCreated": false
+    },
+    {
+      "date": "2026-10-05",
+      "event": "Frontier finite planning return reconciled",
+      "result": "Observed completed/idle owner; matched 14 final artifact hashes and unchanged held source. Indexed frozen 33 parent IDs, 15 strand steps, seven ending cases, nine required/five optional adapters and 12 deferred/director journeys. Wider runtime remains held; actual skill wave continues.",
+      "receipt": "docs/worlds/original-frontier/PLANNING_CHECKS.json"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "granularity checked planning return and Engine partial implementation progress reconciled",
+      "result": "Observed granularity owner completed/idle; matched ten final output hashes. Reconciled six functional paths/twelve traced gaps/eight semantic contracts/five conditional proposals without a runtime grant. Engine reports registered/UI/publication code and initial build, with inquiry visibility fix and final build/evidence outstanding; two disjoint internal leaves remain Engine-owned.",
+      "runtimeApprovalExpanded": false
+    },
+    {
+      "date": "2026-10-05",
+      "event": "timeline planning and concrete skill integration/build reconciled",
+      "result": "Timeline completed/idle; nine artifact hashes verified. Preserve local Frontier seven-case/1440-minute proposal rather than silently adopt 2160-minute/player-funded comparison variants. Engine delivered actual four-family native registration/discovery Practice/publication/repair/build; matched eleven changed inputs and final bundle/map/index. Source integration/build is complete; new behavior and director acceptance remain unrun. Broader world/time/death scope unchanged.",
+      "buildSHA256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "final canonical revision 8 reconciliation",
+      "result": "Society completed/idle and five final output hashes matched. All four new planning returns reconciled once with local Frontier owner and earlier integration/world-bank/absorption. Observed Engine and Ability completed/idle; current source/build matches. Canonical planning is delivered; no broader runtime authorization or deferred behavior/director acceptance inferred."
+    },
+    {
+      "date": "2026-10-05",
+      "event": "narrow texture/loreful adversary/book-world authoring amendment",
+      "result": "Revision9 clarifies incidental texture, five-step source/timeline/progression workflow and lore/causality-based major-adversary criteria. Existing finite IDs and completed skill build remain unchanged. No source reread, new audit/GM, runtime/era/roster/policy/dependency/test selection."
+    },
+    {
+      "date": "2026-10-05",
+      "event": "upstream/native feasibility GM created and progress observed by assigning chat",
+      "threadId": "01a10c9e-a6fa-7c11-a71b-5b88fbf994e3",
+      "result": "One directly requested project-local analysis chat created; upstream e3356432 target verified at dispatch and initial progress. Root records assignment/status only; actual findings pending. No additional GM/runtime/upstream absorption/test authority.",
+      "receipt": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/DISPATCH_RECEIPT.json"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "normal/development fork-network GM created and progress observed",
+      "threadId": "01a10ca4-415e-7a71-93a9-7e335bae8d93",
+      "result": "One further explicitly requested source-analysis chat created by assigning parent. Normal/dev roots and reported26/16 metadata retained as dispatch snapshot; actual source coverage/candidates pending. No code adoption or added runtime authority.",
+      "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/DISPATCH_RECEIPT.json"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "limited incorporation planning writer handoff",
+      "from": "01a1074b-e2ed-7523-a0cd-56de915fbcd9",
+      "to": "01a10d43-b542-7630-a102-cb11c8d94763",
+      "formerPlannerObserved": "idle/completed",
+      "engineObserved": "notLoaded/completed",
+      "runtimeWriterRetained": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "scope": "new assignment only; configured coordinator unchanged"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "revision12 completed bank/native/fork/prior evidence incorporation",
+      "bankFindingsDispositioned": 20,
+      "forkCandidatesDispositioned": 17,
+      "retiredAspectActiveRows": 7,
+      "historicalSkillBuild": "246dd626feeb",
+      "currentAdoptionBuild": "27acfe9c3c70",
+      "pending": "actual final gap return; no runtime/dep selection"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "finite missing-feature final return checked and incorporated; canonical revision12 ready",
+      "threadId": "01a10d44-0649-7932-9869-32f293ed898a",
+      "observedState": "idle/completed",
+      "matchedPeerOutputHashes": 10,
+      "counts": {
+        "bankFindings": 20,
+        "forkCandidates": 17,
+        "gapFamilies": 10,
+        "featureFamilies": 35,
+        "proposedGapFamilies": 26,
+        "noNewGapFamilies": 9,
+        "rankedPackets": 5
+      },
+      "futureGameplayAndDirectorGates": "deferred/open"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "revision12 final canonical static gate passed",
+      "localLinksAndAnchors": 532,
+      "protectedInputsUnchanged": 199,
+      "findingCoverage": [
+        20,
+        17,
+        10,
+        35
+      ],
+      "frozenFrontier": [
+        33,
+        15,
+        7
+      ],
+      "rankedPackets": 5,
+      "runtimeOrTestsRun": false
+    },
+    {
+      "date": "2026-10-05",
+      "event": "direct begin-implementation instruction selects INC-P1",
+      "authority": "send out GM to begin implkementing",
+      "previousEngine": "notLoaded/completed",
+      "previousFrontier": "notLoaded/completed",
+      "newGM": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "runtimeScope": "finite33/15/7/E01\u2013E09; other options unselected",
+      "testDeferralPreserved": true
+    },
+    {
+      "date": "2026-10-05",
+      "event": "one requested Frontier implementation GM created; sole runtime writer released",
+      "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "receipt": "docs/gm/world-implementation/frontier-runtime/DISPATCH_RECEIPT.json",
+      "actualSourceProgress": "pending live observation",
+      "canonicalRelease": "dispatcher-owned until receipt flag true"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "new GM runtime handoff acknowledged; canonical current-progress transfers after sealed receipt",
+      "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "workShape": "shared native integrator plus disjoint career/ending, field/mastery and panel internal workers",
+      "runtimeCompletion": "not claimed"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "INC-P1 runtime delivery supersedes dispatch progress and adoption build correspondence",
+      "previousEngineeringDelivery": {
+        "owner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+        "lastBatchWriter": "01a10ca4-415e-7a71-93a9-7e335bae8d93; completed source released per adoption receipt",
+        "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json",
+        "bundleSHA256": "27acfe9c3c70293559bf1b75e3c01b529b278bbe0395bdcea7eee884688ccfc8",
+        "sourceFingerprintsMatched": 155,
+        "bundledNativeSourcesMatched": 153,
+        "state": "implemented-built-unverified",
+        "behaviorDirector": "deferred/pending",
+        "newSchema": false,
+        "privateSavesTouched": false,
+        "historicalDeliveryOwner": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+        "ownershipQualification": "Current integrator changed;27acfe9c3c70 remains before-dispatch historical source/build correspondence until new GM publishes later evidence."
+      },
+      "previousFrontierWorldState": "held-detached-draft",
+      "previousApproval": {
+        "authority": "Direct human request verified in assigning chat 01a10a5f-186a-7420-b02f-7ef1c4880d68, user message 01a10be3-8047-7f03-8951-a2a4a9be9fee. Functional skills, discovery UI and necessary Engine integration are authorized; Frontier full-world work is planning-only.",
+        "unapproved": [
+          "nineteen-world runtime roster",
+          "Original Frontier campaign runtime",
+          "new destination qualification visits",
+          "second prestige",
+          "external runtime dependencies",
+          "unrelated adapters"
+        ]
+      },
+      "evidence": "docs/gm/world-implementation/frontier-runtime/BUILD.json"
+    },
+    {
+      "date": "2026-10-06",
+      "change": "Revision19 current finite book-world agency/fieldcraft delivery",
+      "beforeState": "docs/gm/book-world-player-agency/BEFORE_STATE.json",
+      "previousPlanRevision": 18,
+      "previousCurrentEngineIntegrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+      "previousCurrentEngineeringDelivery": {
+        "owner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+        "receipt": "docs/gm/world-implementation/frontier-runtime/BUILD.json",
+        "delivery": "docs/gm/world-implementation/frontier-runtime/DELIVERY.md",
+        "bundleSHA256": "f381c6503a5883d1b7aba3fc2df49d952b4300bc8d559335cf88ed8a337bceaf",
+        "bundledNativeSourcesMatched": 160,
+        "state": "implemented-built-unverified",
+        "behaviorDirector": "deferred/pending",
+        "newSchema": "selected simulation4; expansion5/realmPrototype2 unchanged",
+        "privateSavesTouched": false
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "change": "Revision21 audited remainder, returned Causal/artifact and MW01-04 delivered",
+      "beforeState": "docs/gm/audit-implementation/remainder/BEFORE_CANONICAL.json",
+      "previousCurrent": {
+        "coordinator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+        "scope": "Selected finite first-Goa/Paradise agency plus authorized fieldcraft source-native-ui-save-current-build delivered; implemented-unverified; behavioral/save/director gates deferred; wider proposals unchanged.",
+        "currentEngineeringDelivery": {
+          "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+          "state": "source-native-ui-save-build-delivered-implemented-unverified",
+          "packet": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+          "checkpoint": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+          "delivery": "docs/gm/book-world-player-agency/DELIVERY.md",
+          "coverage": "docs/gm/book-world-player-agency/COVERAGE.json",
+          "receipt": "docs/gm/book-world-player-agency/BUILD.json",
+          "release": "docs/gm/book-world-player-agency/RELEASE.json",
+          "writerTransfer": "docs/gm/book-world-player-agency/HANDOFF.json",
+          "bundleFingerprint": "c2e01eb71d2a",
+          "bundleSHA256": "c2e01eb71d2af6bf31f7dfaf9fd2acf623a576e26eff211afd721aee0571a5e1",
+          "bundledNativeSourcesMatched": 240,
+          "qualifiedVendorMaps": 37,
+          "behaviorDirector": "deferred/unrun",
+          "newSchema": "explicit10/bookWorldCampaign1/nativeBookDomain1; old5-9/reference1/frozen state retained",
+          "privateSavesTouched": false,
+          "sourceLibrariesTouched": false,
+          "arbitraryNamedNpcAttack": "unimplemented",
+          "protagonistReplacement": "proposed-unimplemented",
+          "fullNovelOrRosterParity": false
+        },
+        "auditImplementationWave": {
+          "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+          "state": "source-native-state-UI-build-delivered; implemented-unverified",
+          "assignment": "docs/gm/audit-implementation/ASSIGNMENT.md",
+          "checkpoint": "docs/gm/audit-implementation/CHECKPOINT.md",
+          "delivery": "docs/gm/audit-implementation/DELIVERY.md",
+          "build": "docs/gm/audit-implementation/BUILD.json",
+          "queue": "docs/gm/audit-implementation/QUEUE.json",
+          "acceptance": "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md",
+          "bundleFingerprint": "0365f6afe27c",
+          "workers": "kit_reserve/clamping_frame/earned_lesson completed/released",
+          "sourceReviewer": "integration_review completed/released; no open findings",
+          "newPolicy": "explicit workPlans2/stockPolicy1; old1 and expansion9/10 content owners retained",
+          "behavior": "deferred/unrun",
+          "privateSavesTouched": false,
+          "sourceLibrariesTouched": false
+        },
+        "approval": {
+          "state": "INC-P1-finite-frontier-runtime-authorized; other optional broader scopes unselected",
+          "plan": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "authority": "Direct current human request \u201csend out GM to begin implkementing\u201d in assigning chat01a10d43 selects INC-P1; actual exclusive runtime/canonical release recorded in the sealed Frontier dispatch receipt.",
+          "packet": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+          "dispatchReceipt": "docs/gm/world-implementation/frontier-runtime/DISPATCH_RECEIPT.json",
+          "unapproved": [
+            "nineteen-world runtime roster",
+            "new destination qualification visits",
+            "second prestige",
+            "external runtime dependencies",
+            "unrelated adapters"
+          ],
+          "additionalPlanningPacket": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+          "additionalPlanningReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+          "additionalPlanningAuthority": "Direct human timeline/endings/wider-depth request verified in assigning chat, user message 01a10c4d-1cdd-76a1-a2f4-bb28071e0519; planning only.",
+          "narrowAuthoringAmendment": {
+            "date": "2026-10-05",
+            "authority": "Direct user message 01a10c8d-973f-73b0-8f53-d63f7704054c verified in assigning chat01a10a5f-186a-7420-b02f-7ef1c4880d68",
+            "acceptedCorrection": "Functional-payoff applies to selected gameplay systems/required mechanics, not every scenic/incidental book detail.",
+            "runtimeScopeExpanded": false,
+            "worldEraRosterSelected": false,
+            "additionalGMDispatch": false
+          },
+          "upstreamNativePlanning": {
+            "authority": "Verified direct user message01a10c9b-8747-7d31-9a2e-9a58b1d11aec in assigning chat",
+            "assignment": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/ASSIGNMENT.md",
+            "receipt": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/DISPATCH_RECEIPT.json",
+            "scope": "separate actual upstream/native expansion/feasibility analysis only",
+            "runtimeOrMergeApproved": false
+          },
+          "forkNetworkPlanning": {
+            "authority": "Verified direct user message01a10ca1-6ff1-7b13-9e78-eb7c53833e87 in assigning chat",
+            "assignment": "docs/gm/world-implementation/second-pass/fork-network-absorption/ASSIGNMENT.md",
+            "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/DISPATCH_RECEIPT.json",
+            "scope": "accessible normal/development fork inventory, candidate review and proposed absorption only",
+            "runtimeMergeImportApproved": false
+          },
+          "canonicalIncorporation": {
+            "authority": "Direct human request in this assigning chat to create next incorporation GM and a separate missing-feature GM.",
+            "assignment": "docs/gm/world-implementation/second-pass/absorption-incorporation/ASSIGNMENT.md",
+            "receipt": "docs/gm/world-implementation/second-pass/absorption-incorporation/FOLLOWUP_RECEIPT.json",
+            "scope": "finite evidence/status/proposal reconciliation; no new runtime or dependency selection"
+          },
+          "selectedForkAdoption": {
+            "authority": "Direct follow-up: anything interesting to consider? Absorb accordingly?",
+            "deliveredCandidateIds": [
+              "FNA01",
+              "FNA02",
+              "FNA03",
+              "FNA06"
+            ],
+            "scope": "bounded native labels/material/trade/crafting view and XP/build stamping only",
+            "receipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json",
+            "currentBehaviorVerified": false,
+            "broaderRuntimeApproved": false
+          },
+          "frontierRuntime": {
+            "authority": "Direct human request in current incorporation chat01a10d43: send out GM to begin implkementing",
+            "assignment": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+            "selectedPacket": "INC-P1",
+            "goal": "all33parent/15step/seven-ending required native/UI/build implementation, behavior/director deferred",
+            "requiredAdapters": [
+              "E01",
+              "E02",
+              "E03",
+              "E04",
+              "E05",
+              "E06",
+              "E07",
+              "E08",
+              "E09"
+            ],
+            "optionalAdaptersUnselected": [
+              "O01",
+              "O02",
+              "O03",
+              "O04",
+              "O05"
+            ],
+            "newWorldBodyTimeDeathDependencyPolicySelected": false,
+            "newTestsApproved": false
+          },
+          "bookWorldPlayerAgency": {
+            "packet": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+            "state": "selected finite source-grounded player-agency implementation delivered; broader proposals unselected",
+            "authority": "Direct human continuation and trusted master delegation recorded in packet; existing shared transfer verified in HANDOFF.json",
+            "fieldcraftAuthority": "Trusted human-authorized NetHack delegation recorded in FIELDCRAFT_ADMISSION.json"
+          }
+        }
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "event": "Revision22 expanded home-world implementation complete; exact prior current surfaces archived in docs/gm/world-completion-2026-10-06/BEFORE_CANONICAL.json; acceptance deferred."
+    },
+    {
+      "date": "2026-10-07",
+      "event": "Revision23 selected book-world campaign implementation delivered; older canonical surfaces preserved in BEFORE_CANONICAL; gameplay/save/director acceptance unrun."
+    }
+  ],
+  "planRevision": 23,
+  "previousCoordinator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "skillDiscoveryWave": {
+    "state": "native/discovery implementation delivered; present in latest adoption build; behavior unverified",
+    "requiredSkillIds": [
+      "frontier.brace_control",
+      "frontier.trail_reading",
+      "frontier.timber_judgment",
+      "frontier.shared_inquiry"
+    ],
+    "skillIdsFrozen": true,
+    "requiredDiscoveryIds": [
+      "DISC-UNKNOWN",
+      "DISC-HINT",
+      "DISC-KNOWN",
+      "DISC-USABLE",
+      "DISC-RECOVERY",
+      "DISC-RETURN"
+    ],
+    "requiredDiscoveryIdsFrozen": true,
+    "skillSource": "src/skill_expansion_content.js",
+    "discoverySource": "src/skill_discovery.js",
+    "interface": "docs/gm/world-implementation/INTERFACE.md",
+    "moduleDelivery": true,
+    "nativeIntegration": true,
+    "currentBuild": false,
+    "behavioralAcceptance": "deferred",
+    "directorAcceptance": "pending",
+    "requiredIdsOwner": "docs/gm/world-implementation/abilities/SKILL_REQUIREMENTS.md",
+    "selectedCallers": [
+      "skills.brace.contest",
+      "skills.trail.route -> village.dry_bank / village.route_board",
+      "skills.timber.pack",
+      "skills.timber.precise_pack",
+      "skills.inquiry.compare",
+      "skills.inquiry.road_report",
+      "skills.inquiry.recover_attention"
+    ],
+    "callersFrozen": true,
+    "discoveryContract": "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md",
+    "interfaceRevision": "S3",
+    "interfaceSha256AtReconciliation": "4735d8fa42efe3677c6fef02a519c8139f86425f1968cb457d6334c2c7a518e5",
+    "interfaceQualification": "Engine S3 actual callers/native bindings inspected; current changed source/bundle/map/index hashes matched. Behavior/director gates are unrun.",
+    "codePresent": {
+      "skill": true,
+      "discovery": true
+    },
+    "discoveryModuleDelivery": true,
+    "nativeRegistrationReported": true,
+    "uiBindingReported": true,
+    "initialBuildReported": true,
+    "finalBuildVerified": true,
+    "remainingEngineering": [],
+    "delivery": "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md",
+    "buildReceipt": "docs/gm/world-implementation/engine/SKILLS_BUILD.json",
+    "registryReceipt": "docs/gm/world-implementation/engine/SKILLS_REGISTRY.json",
+    "docReceipt": "docs/gm/world-implementation/engine/SKILLS_DOC_CHECK.json",
+    "requiredCommandIds": [
+      "skills.brace.observe",
+      "skills.trail.observe",
+      "skills.timber.observe",
+      "skills.inquiry.observe",
+      "skills.brace.learn",
+      "skills.trail.learn",
+      "skills.timber.learn",
+      "skills.inquiry.learn",
+      "skills.brace.practice",
+      "skills.trail.practice",
+      "skills.timber.practice",
+      "skills.inquiry.practice",
+      "skills.brace.contest",
+      "skills.trail.route",
+      "skills.timber.pack",
+      "skills.timber.precise_pack",
+      "skills.inquiry.compare",
+      "skills.inquiry.road_report",
+      "skills.inquiry.recover_attention"
+    ],
+    "buildSHA256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3",
+    "changedInputHashesVerified": 11,
+    "outputHashesVerified": [
+      "bundle",
+      "source map",
+      "index"
+    ],
+    "registeredFamilies": [
+      "frontier.brace_control",
+      "frontier.trail_reading",
+      "frontier.timber_judgment",
+      "frontier.shared_inquiry"
+    ],
+    "registeredSkillCommands": 19,
+    "registeredPowersSources": 4,
+    "registeredEncounters": 1,
+    "compatibility": {
+      "expansion": 5,
+      "simulation": 3,
+      "records": "additive existing owners only; no backfill, render/import grants or private-save access"
+    },
+    "reviewURL": "http://127.0.0.1:18628/",
+    "currentBuildQualification": "Historical skill receipt246dd626feeb remains original-wave evidence; latest adoption receipt owns current source/output correspondence",
+    "presentInLatestBuild": true,
+    "currentBundleSHA256": "27acfe9c3c70293559bf1b75e3c01b529b278bbe0395bdcea7eee884688ccfc8",
+    "currentBuildReceipt": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json",
+    "sourceDriftSinceSkillReceipt": [
+      "src/main.js",
+      "src/display.js"
+    ],
+    "otherBaselineSourceDriftSinceSkillReceipt": [
+      "src/crafting_recipes.js",
+      "src/trade.js"
+    ],
+    "currentUnchangedChangedInputHashesMatched": 9
+  },
+  "worldCompletion": {
+    "baseline": "Original Frontier / base.frontier / present native continuity",
+    "state": "finite planning checked; selected INC-P1 implementation active/observed, required code/native/UI/build not yet delivered; behavior/director deferred",
+    "requiredCriteria": [
+      "WC-SCOPE",
+      "WC-PATHS",
+      "WC-RULES",
+      "WC-LIFE",
+      "WC-CLOSURE"
+    ],
+    "localCoverageOwner": "docs/worlds/original-frontier/COMPLETION_LEDGER.json",
+    "campaignIds": [
+      "OF.SCOPE.01",
+      "OF.SCOPE.02",
+      "OF.PLACE.VILLAGE",
+      "OF.PLACE.SHACK",
+      "OF.PLACE.CORRIDOR",
+      "OF.PLACE.TOWN",
+      "OF.PLACE.WILDERNESS",
+      "OF.PATH.DISPATCH",
+      "OF.PATH.CRAFT",
+      "OF.PATH.INQUIRY",
+      "OF.PATH.STEWARD",
+      "OF.ARC01",
+      "OF.ARC02",
+      "OF.ARC03",
+      "OF.ARC04",
+      "OF.ARC05",
+      "OF.EXPLORE",
+      "OF.CONTROL",
+      "OF.MASTERY"
+    ],
+    "mechanicIds": [
+      "OF.MECH.DEMAND",
+      "OF.MECH.TIME",
+      "OF.MECH.PROGRESSION",
+      "OF.MECH.NPC",
+      "OF.MECH.CONSERVATION",
+      "OF.MECH.RNG",
+      "OF.MECH.CONSEQUENCE",
+      "OF.MECH.HANDOFF",
+      "OF.UI.DISCOVERY",
+      "OF.UI.RECOVERY",
+      "OF.UI.ACTIONS",
+      "OF.GATE.BUILD",
+      "OF.GATE.BEHAVIOR",
+      "OF.GATE.DIRECTOR"
+    ],
+    "idsFrozen": true,
+    "firstSceneClosesWorld": false,
+    "unsupportedAbsence": "frozen until a selected supported policy",
+    "widerRoster": "proposed for review",
+    "requiredFootprint": [
+      "Village",
+      "Shack",
+      "Infested field",
+      "Nearby cave",
+      "Forest road",
+      "Town outskirts",
+      "Town square"
+    ],
+    "optionalExtensions": [
+      "mill/farm integrations",
+      "deeper cave/mountain regions",
+      "downstream/river campaign expansion"
+    ],
+    "requiredSubstepIds": [
+      "OF.EXPLORE.01",
+      "OF.EXPLORE.02",
+      "OF.EXPLORE.03",
+      "OF.EXPLORE.04",
+      "OF.EXPLORE.05",
+      "OF.CONTROL.01",
+      "OF.CONTROL.02",
+      "OF.CONTROL.03",
+      "OF.CONTROL.04",
+      "OF.CONTROL.05",
+      "OF.MASTERY.01",
+      "OF.MASTERY.02",
+      "OF.MASTERY.03",
+      "OF.MASTERY.04",
+      "OF.MASTERY.05"
+    ],
+    "idsQualification": "Frozen planning requirements from checked local revision 2, not approved runtime or completed gameplay.",
+    "localContract": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+    "localRevision": 2,
+    "requiredEndingCaseIds": [
+      "OF.END.01",
+      "OF.END.02",
+      "OF.END.03",
+      "OF.END.04",
+      "OF.END.05",
+      "OF.END.06",
+      "OF.END.07"
+    ],
+    "selectedAdapterIds": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09"
+    ],
+    "optionalAdapterIds": [
+      "O01",
+      "O02",
+      "O03",
+      "O04",
+      "O05"
+    ],
+    "acceptanceCaseIds": [
+      "AC01",
+      "AC02",
+      "AC03",
+      "AC04",
+      "AC05",
+      "AC06",
+      "AC07",
+      "AC08",
+      "AC09",
+      "AC10",
+      "AC11",
+      "AC12"
+    ],
+    "localReceipt": "docs/worlds/original-frontier/PLANNING_CHECKS.json",
+    "receiptArtifactHashesVerified": 14,
+    "ledgerSha256": "ee49092c3cbd5a10e7f5a2cf7f1b5aff42cdfd8d8932c2ffd4d2ebeb9bbce53e",
+    "timelineAndEndings": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+    "visionCoverage": "docs/worlds/original-frontier/VISION_COVERAGE.md",
+    "style": "open persistent chronicle with causal milestone phases",
+    "frontierRequirementState": "all33mapped;15steps/seven endings/nine adapters code-native-ui-build delivered; behavior/director deferred",
+    "runtimeCoverage": "docs/gm/world-implementation/frontier-runtime/COVERAGE.json",
+    "runtimeBuild": "docs/gm/world-implementation/frontier-runtime/BUILD.json"
+  },
+  "visionDepth": {
+    "state": "all four planning returns checked and reconciled",
+    "packet": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+    "receipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+    "sourceRead": "Original USER_VISION U01\u2013U14 and subsequent direct request blocks",
+    "pendingReturns": [],
+    "frontierStyleProposal": "open persistent chronicle with local milestone phases",
+    "runtimeAuthorizationExpanded": false,
+    "completedReturns": [
+      "Frontier finite completion/timeline/endings/vision application",
+      "granularity GE01\u201312 / GX1\u20136 / GC1\u20138 / GP1\u20135",
+      "timeline: two graphs / nine outcomes / twelve request rows; BG01\u201305",
+      "society: two graphs / eight outcome groups / fifteen request groups / twenty-one quotes"
+    ],
+    "proposalFamilies": [
+      "continuing functional growth",
+      "selected field/preparation",
+      "paid inquiry/tested invention",
+      "one selected supported assembly",
+      "optional opportunity/combination/aftermath"
+    ],
+    "societyCoverage": [
+      "SB01",
+      "SB02",
+      "UVS01\u201315",
+      "SBR01\u201305"
+    ]
+  },
+  "canonicalCloseoutRevision8": {
+    "date": "2026-10-05",
+    "status": "passed",
+    "scope": "canonical Markdown/link/anchor/JSON/finite-ID/writer/delivery readback; static bundle HTTP only",
+    "canonicalFiles": 6,
+    "localLinksAndAnchors": 472,
+    "frontierParentIds": 33,
+    "frontierSubstepIds": 15,
+    "frontierEndingIds": 7,
+    "skillFamilyIds": 4,
+    "skillCommands": 19,
+    "actualAnalysisDependenciesPending": 0,
+    "sourceDriftSinceVerifiedBuild": 0,
+    "servedBundleSHA256": "246dd626feebfb630c482f4da2f6280e7e68569da8513a61f91e8f6f98a7b0a3",
+    "newGameplayTests": "not run; deferred",
+    "privateSaves": "untouched"
+  },
+  "planningDependencies": {
+    "pending": [],
+    "planningEvidenceIncorporated": true,
+    "runtimeMechanicsSelectedByIncorporation": false,
+    "completed": [
+      "all20 repository-bank findings",
+      "qualified prior audits",
+      "upstream-native F/N/Q feasibility",
+      "all17 fork candidates and separately authorized adoption",
+      "all10 final gap families and35 feature-coverage rows"
+    ]
+  },
+  "canonicalCloseoutRevision9": {
+    "date": "2026-10-05",
+    "planRevision": 9,
+    "status": "passed",
+    "scope": "narrow canonical Markdown/link/anchor/JSON/authority/finite-ID/readback amendment",
+    "canonicalFiles": 6,
+    "localLinksAndAnchors": 480,
+    "frontierRequirementIdsUnchanged": 33,
+    "skillBuildUnchanged": "246dd626feeb",
+    "newRuntimeGMSourceReadingOrTests": false,
+    "privateSaves": "untouched"
+  },
+  "canonicalCloseoutRevision10": {
+    "date": "2026-10-05",
+    "planRevision": 10,
+    "status": "passed",
+    "scope": "new planning assignment/status only; actual findings pending",
+    "canonicalFiles": 6,
+    "localLinksAndAnchors": 490,
+    "upstreamAnalysisChat": "01a10c9e-a6fa-7c11-a71b-5b88fbf994e3",
+    "lastObservedState": "active/inProgress",
+    "runtimeMergeApproval": false,
+    "findingsAccepted": false,
+    "skillBuildUnchanged": "246dd626feeb",
+    "newTestsOrRuntime": false
+  },
+  "currentEngineeringDelivery": {
+    "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+    "packet": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+    "checkpoint": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+    "delivery": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+    "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json",
+    "receipt": "docs/gm/audit-implementation/remainder/BUILD.json",
+    "release": "docs/gm/audit-implementation/remainder/RELEASE.json",
+    "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+    "bundleFingerprint": "c12c1524b341",
+    "bundleSHA256": "c12c1524b341c222a67ad4554516030d9c8eb43e4cd2630ca915f98f52cc5784",
+    "bundledNativeSourcesMatched": 282,
+    "qualifiedVendorMaps": 37,
+    "registry": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "workPlans": 4,
+      "sources": 50
+    },
+    "behaviorDirector": "deferred/unrun",
+    "newSchema": "explicit11/auditRemainder1 OR causalStories1; new admitted battle5/nativeCausal1; old5-10/frozen3-4/jobs retained",
+    "privateSavesTouched": false,
+    "sourceLibrariesTouched": false,
+    "arbitraryNamedNpcAttack": "Only selected three original Causal proof leads; general arbitrary attack remains unimplemented",
+    "protagonistReplacement": "proposed-unimplemented",
+    "fullNovelOrRosterParity": false
+  },
+  "canonicalCloseoutRevision11": {
+    "date": "2026-10-05",
+    "planRevision": 11,
+    "status": "passed",
+    "scope": "new analysis assignment/status records only",
+    "canonicalFiles": 6,
+    "localLinksAndAnchors": 500,
+    "actualPlanningReturnsPending": 2,
+    "upstreamOrCandidateFindingsAccepted": false,
+    "runtimeMergeImportApproved": false,
+    "newTestsOrSourceChanges": false,
+    "skillBuildUnchanged": "246dd626feeb"
+  },
+  "incorporation": {
+    "assignment": "docs/gm/world-implementation/second-pass/absorption-incorporation/ASSIGNMENT.md",
+    "reconciliation": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+    "report": "docs/gm/world-implementation/second-pass/absorption-incorporation/REPORT.md",
+    "enginePackets": "docs/gm/world-implementation/second-pass/absorption-incorporation/ENGINE_PACKETS.md",
+    "counts": {
+      "bankFindings": 20,
+      "forkCandidates": 17,
+      "gapFamilies": 10,
+      "featureFamilies": 35,
+      "proposedGapFamilies": 26,
+      "noNewGapFamilies": 9,
+      "rankedPackets": 5
+    },
+    "selectedNewRuntimeOrDependency": false,
+    "privateSavesTouched": false
+  },
+  "canonicalCloseoutRevision12": {
+    "date": "2026-10-05",
+    "planRevision": 12,
+    "status": "passed",
+    "canonicalFiles": 6,
+    "localLinksAndAnchors": 532,
+    "jsonFilesParsed": 12,
+    "bankFindings": 20,
+    "forkCandidates": 17,
+    "gapFamilies": 10,
+    "featureFamilies": 35,
+    "rankedPackets": 5,
+    "frozenFrontier": [
+      33,
+      15,
+      7
+    ],
+    "frozenSkills": 4,
+    "frozenSkillCommands": 19,
+    "initialInputFingerprints": 205,
+    "protectedInputFingerprintsUnchanged": 199,
+    "canonicalChangedInputs": [
+      "PROJECT.md",
+      "docs/USER_VISION.md",
+      "docs/gm/world-implementation/CHECKPOINT.md",
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "docs/gm/world-implementation/README.md",
+      "docs/gm/world-implementation/RUN.json"
+    ],
+    "peerFinalOutputHashesMatched": 10,
+    "bankOutputHashesMatched": 15,
+    "currentAdoptionSourceHashesMatched": 155,
+    "currentBundle": "27acfe9c3c70",
+    "actualPlanningReturnsPending": 0,
+    "runtimeSourceBuildTestsByThisTask": false,
+    "behaviorDirectorAcceptance": "deferred/pending",
+    "scope": "static canonical planning reconciliation only; no source/playable acceptance claim",
+    "validationReceipt": "docs/gm/world-implementation/second-pass/absorption-incorporation/appendix-validation.json"
+  },
+  "canonicalCloseout": {
+    "date": "2026-10-05",
+    "planRevision": 13,
+    "status": "passed",
+    "scope": "actual one-GM selected INC-P1 dispatch and ownership only",
+    "canonicalFiles": 6,
+    "dispatchFiles": 3,
+    "localLinksAndAnchors": 517,
+    "actualCreatedGMs": 1,
+    "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "observedStart": "active/inProgress; runtime handoff acknowledged",
+    "requiredCounts": [
+      33,
+      15,
+      7
+    ],
+    "requiredAdapters": 9,
+    "otherPacketsOptionalAdaptersSelected": false,
+    "sourceEditsOrTestsByDispatcher": false,
+    "testDeferralPreserved": true,
+    "noGameplayCompletionClaim": true,
+    "historicalRevision12": "preserved dated closeout; later authority/status edits are expected drift"
+  },
+  "currentEngineIntegrator": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "canonicalCloseoutRevision13": {
+    "state": "source-native-ui-build-delivered",
+    "date": "2026-10-05",
+    "owner": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "bundleFingerprint": "f381c6503a58",
+    "sourceContentsMatched": 160,
+    "requiredParentsMapped": 33,
+    "strandStepsDelivered": 15,
+    "endingCasesDelivered": 7,
+    "adaptersDelivered": 9,
+    "laterGate": "behavior/director deferred",
+    "localCheckpoint": "docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md"
+  },
+  "featureWave": {
+    "packet": "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md",
+    "release": "docs/gm/feature-wave/features/RELEASE.json",
+    "checkpoint": "docs/gm/feature-wave/features/CHECKPOINT.md",
+    "soleSharedWriter": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "staticBuildChecks": "allowed",
+    "gameplayChecks": "deferred",
+    "predecessor": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "succession": "docs/gm/feature-wave/features/SUCCESSION.json",
+    "delivery": "docs/gm/feature-wave/features/DELIVERY.md",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "1ca667dd9eef",
+    "sourceMatches": 222,
+    "recoveryWorkers": "All content and read-only review reservations released; current root follows completed recovery successor",
+    "finalRelease": "docs/gm/feature-wave/features/REFINEMENT_RELEASE.json"
+  },
+  "previousEngineIntegrator": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+  "inkTagBuildFollowup": {
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "receipt": "docs/gm/feature-wave/features/BUILD.json",
+    "resume": "docs/gm/feature-wave/features/INK_TAG_REBUILD_RESUME.json",
+    "bundle": "48e8a7514ff2",
+    "state": "static-rebuild-delivered; shared-window-released",
+    "gameplay": "deferred"
+  },
+  "bookWorldSubtleties": {
+    "authority": "direct human steering01a10db8",
+    "packet": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "checkpoint": "docs/gm/feature-wave/features/book-world-subtleties/CHECKPOINT.md",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "cataloguedWorlds": 19,
+    "noCompetingIntegrator": true,
+    "behaviorGates": "deferred",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "1ca667dd9eef",
+    "sourceProfileBindings": "19registered profiles, source adaptations unactivated; selected original office/relay/reference actual consumers"
+  },
+  "nestedCampaign": {
+    "packet": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "interface": "docs/gm/feature-wave/features/nested-campaign/INTERFACE.md",
+    "workers": "all source released",
+    "sourceAudit": "completed PR01-08 audit; original divergences explicit",
+    "finiteCases": {
+      "hub": 1,
+      "retainedDestinations": 2,
+      "branchableChains": 3
+    },
+    "behavior": "deferred",
+    "sameBodyNativeProgress": "preserved",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "bundleFingerprint": "1ca667dd9eef",
+    "acceptanceBacklog": "docs/gm/feature-wave/features/nested-campaign/ACCEPTANCE_BACKLOG.md",
+    "continuedLife": "docs/gm/feature-wave/features/nested-campaign/continued-life/DELIVERY.md"
+  },
+  "continuedLife": {
+    "humanSteering": "continue accoridngly",
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "finite-source-native-ui-save-build-delivered-implemented-unverified",
+    "bundleFingerprint": "1ca667dd9eef",
+    "commands": 17,
+    "personalPassages": 3,
+    "paidJobs": 3,
+    "nativeOutputConsumers": 2,
+    "expansionSchema": 8,
+    "personalPolicy": 1,
+    "lifePolicy": 1,
+    "nativeOwner": "existing nestedCampaign1/native-domain1",
+    "delivery": "docs/gm/feature-wave/features/nested-campaign/continued-life/DELIVERY.md",
+    "workers": "nested_chains and recognition_subtleties completed/released",
+    "openSourceReviewFindings": 0,
+    "gameplayAcceptance": "deferred; no unit/browser/save/reload/failure/keyboard/regression/director checks",
+    "publication": "none"
+  },
+  "bookWorldPlayerAgency": {
+    "owner": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+    "state": "source-native-ui-save-build-delivered-implemented-unverified",
+    "packet": "docs/gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md",
+    "checkpoint": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+    "delivery": "docs/gm/book-world-player-agency/DELIVERY.md",
+    "coverage": "docs/gm/book-world-player-agency/COVERAGE.json",
+    "receipt": "docs/gm/book-world-player-agency/BUILD.json",
+    "release": "docs/gm/book-world-player-agency/RELEASE.json",
+    "writerTransfer": "docs/gm/book-world-player-agency/HANDOFF.json",
+    "bundleFingerprint": "c2e01eb71d2a",
+    "bundleSHA256": "c2e01eb71d2af6bf31f7dfaf9fd2acf623a576e26eff211afd721aee0571a5e1",
+    "bundledNativeSourcesMatched": 240,
+    "qualifiedVendorMaps": 37,
+    "behaviorDirector": "deferred/unrun",
+    "newSchema": "explicit10/bookWorldCampaign1/nativeBookDomain1; old5-9/reference1/frozen state retained",
+    "privateSavesTouched": false,
+    "sourceLibrariesTouched": false,
+    "arbitraryNamedNpcAttack": "unimplemented",
+    "protagonistReplacement": "proposed-unimplemented",
+    "fullNovelOrRosterParity": false
+  },
+  "fieldcraftAdoption": {
+    "receipt": "docs/gm/book-world-player-agency/FIELDCRAFT_ADOPTION.json",
+    "bundleFingerprint": "c2e01eb71d2a",
+    "state": "main-source-native-ui-save-build-admitted-implemented-unverified",
+    "broaderCandidates": "unselected"
+  },
+  "referenceGameplayDelivery": {
+    "owner": "01a10f81-ee24-7531-b509-6b509160ea8f",
+    "delivery": "docs/gm/reference-gameplay/DELIVERY.md",
+    "build": "docs/gm/reference-gameplay/BUILD.json",
+    "bundleFingerprint": "2f04d677a4db",
+    "state": "completed/released historical predecessor retained in current integration",
+    "transfer": "docs/gm/book-world-player-agency/HANDOFF.json"
+  },
+  "canonicalCloseoutRevision19": {
+    "date": "2026-10-06",
+    "state": "current finite source/native/UI/save/build delivered; implemented-unverified",
+    "beforeState": "docs/gm/book-world-player-agency/BEFORE_STATE.json",
+    "release": "docs/gm/book-world-player-agency/RELEASE.json",
+    "allRuntimeAcceptance": "deferred-unrun",
+    "privateSavesSourceLibraries": "untouched"
+  },
+  "previousEngineIntegratorRevision19": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "auditImplementationWave": {
+    "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "state": "source/native/UI/compatible-state/current-build delivered; implemented-unverified",
+    "packet": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+    "checkpoint": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+    "delivery": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+    "coverage": "docs/gm/audit-implementation/remainder/COVERAGE.json",
+    "receipt": "docs/gm/audit-implementation/remainder/BUILD.json",
+    "release": "docs/gm/audit-implementation/remainder/RELEASE.json",
+    "acceptance": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+    "bundleFingerprint": "c12c1524b341",
+    "bundleSHA256": "c12c1524b341c222a67ad4554516030d9c8eb43e4cd2630ca915f98f52cc5784",
+    "bundledNativeSourcesMatched": 282,
+    "qualifiedVendorMaps": 37,
+    "registry": {
+      "commands": 932,
+      "controllers": 41,
+      "worlds": 8,
+      "workPlans": 4,
+      "sources": 50
+    },
+    "behaviorDirector": "deferred/unrun",
+    "newSchema": "explicit11/auditRemainder1 OR causalStories1; new admitted battle5/nativeCausal1; old5-10/frozen3-4/jobs retained",
+    "privateSavesTouched": false,
+    "sourceLibrariesTouched": false,
+    "arbitraryNamedNpcAttack": "Only selected three original Causal proof leads; general arbitrary attack remains unimplemented",
+    "protagonistReplacement": "proposed-unimplemented",
+    "fullNovelOrRosterParity": false,
+    "firstWaveDelivery": "docs/gm/audit-implementation/DELIVERY.md",
+    "candidateCount": 22,
+    "currentRemainderCount": 19,
+    "workers": "All six source lanes and leased source/repair slices completed/released",
+    "sourceReviewers": "core/battle/native completed/released; no open actionable reviewed findings"
+  },
+  "historicalEngineRoleAssignments": [
+    {
+      "threadId": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "hostId": "local",
+      "state": "inactive completed predecessor; INC-P1 reservation released to 01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+      "assignment": "docs/gm/world-implementation/ENGINE_ASSIGNMENT.md",
+      "writes": [
+        "existing shared/native/registry/UI/save/build runtime",
+        "docs/gm/world-implementation/INTERFACE.md",
+        "docs/gm/world-implementation/engine",
+        "docs/ENGINE_AUTHORING.md",
+        "docs/ENGINE_EXPANSION.md",
+        "docs/PLAYTEST.md",
+        "docs/ENGINE_GM_NEXT_CHECKPOINT.md"
+      ],
+      "cursor": "24c8c52e-2e4b-4413-84b0-22a32110e147:24",
+      "mode": "bounded-skill-discovery-implementation",
+      "currentAssignment": "docs/gm/dispatch/SKILLS_DISCOVERY_AND_WORLD_COMPLETION_2026_10_05.md",
+      "currentDispatchReceipt": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05_RECEIPT.json",
+      "latestTurn": "completed",
+      "observedState": "idle",
+      "initialProgress": "I\u2019m resuming the same skills-and-discovery objective after the transport failure. I\u2019ll inspect the saved modules and any partial changes, then finish their native registration, action consumers, renderer bindings and rebuild.",
+      "excludedCanonicalWrites": [
+        "PROJECT.md",
+        "docs/USER_VISION.md",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/README.md",
+        "docs/gm/world-implementation/CHECKPOINT.md"
+      ],
+      "latestTurnId": "01a10c52-1c20-7950-b530-dc89d0de7aa1",
+      "internalLeavesReported": [
+        {
+          "id": "/root/practice_engine_gm",
+          "state": "completed-and-released-reported-by-Engine",
+          "writes": [
+            "src/skill_expansion_host.js",
+            "src/skill_expansion_ui.js",
+            "docs/gm/world-implementation/engine/PRACTICE_GM_RETURN.md"
+          ]
+        },
+        {
+          "id": "/root/skill_authoring_engine_gm",
+          "state": "completed-and-released-reported-by-Engine",
+          "writes": [
+            "docs/ENGINE_AUTHORING.md",
+            "docs/gm/world-implementation/engine/AUTHORING_GM_RETURN.md"
+          ]
+        }
+      ],
+      "delivery": "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md",
+      "buildReceipt": "docs/gm/world-implementation/engine/SKILLS_BUILD.json",
+      "runtimeScopeExpanded": false,
+      "reservation": "inactive predecessor; INC-P1 source/runtime/native/UI/save/build transfers to new sole GM after actual receipt"
+    }
+  ],
+  "currentCheckpoint": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md",
+  "previousCoordinatorHomeWorld": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "previousEngineIntegratorHomeWorld": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "homeWorldCompletionDelivery": {
+    "owner": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+    "status": "source/native/UI/compatible-state/current-build complete; implemented-unverified",
+    "target": "base.frontier",
+    "definitionOfDone": "docs/gm/world-completion-2026-10-06/WORLD_DEFINITION_OF_DONE.md",
+    "delivery": "docs/gm/world-completion-2026-10-06/DELIVERY.md",
+    "coverage": "docs/gm/world-completion-2026-10-06/COVERAGE.json",
+    "engineGaps": "docs/gm/world-completion-2026-10-06/ENGINE_GAPS.md",
+    "build": "docs/gm/world-completion-2026-10-06/BUILD.json",
+    "evidence": "docs/gm/world-completion-2026-10-06/EVIDENCE.json",
+    "newCommands": 43,
+    "newPublic": 37,
+    "compatibility": "explicit simulation5; existing expansion11; older <=4/absence/frozen jobs retained",
+    "ownership": "actual care revision4 release/fingerprints acquired; four children/source reviews released; root alone integration/build; final release in checkpoint",
+    "preview": "http://127.0.0.1:18194/; served fingerprint d405e2c1a0e3; panel queued; no gameplay exercised",
+    "remaining": "Only five deferred acceptance families; broader scope is not implicitly selected",
+    "reservedExcluded": "game_absorption_assay four leaves remain untouched; no automatic adoption or external messaging"
+  },
+  "previousCoordinatorBookWorldCompletion": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+  "previousEngineIntegratorBookWorldCompletion": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+  "bookWorldCampaignCompletion": {
+    "owner": "01a11473-1a58-7721-90fc-2367865b6ecf",
+    "status": "Five required finite Paradise/Goa and distinct Cyoria campaign rows source/native/UI/compatible-state/current-build complete; implemented-unverified; later gameplay/save/director acceptance deferred.",
+    "assignment": "docs/gm/book-world-completion-2026-10-06/ASSIGNMENT.md",
+    "delivery": "docs/gm/book-world-completion-2026-10-06/DELIVERY.md",
+    "coverage": "docs/gm/book-world-completion-2026-10-06/COVERAGE.json",
+    "build": "docs/gm/book-world-completion-2026-10-06/BUILD.json",
+    "newActions": 94,
+    "body": "retained independent human; no protagonist source/knowledge/body transfer",
+    "compatibility": "optional motherOfLearning1 under expansion11; no downgrade/forced audit; older domains/absence/frozen jobs retained",
+    "preview": "http://127.0.0.1:18195/ matching immutable public build; prior18194preserved",
+    "remaining": "Explicit five deferred acceptance families; no automatic all19world scope"
+  }
+}

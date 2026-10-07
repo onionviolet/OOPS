@@ -1,0 +1,9 @@
+{
+  "observed_utc": "2026-10-07T07:03:39.022326+00:00",
+  "status": "pass",
+  "archive_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/project-archives/ARM_PROJECT_ARCHIVE.json",
+  "archive_sha256": "d6d73a2864165fcc35a6ddb1d28c3a6e07ca011390d26b9bb442cd18f571e648",
+  "all_original_members": 15,
+  "checks": "Root independently read every archive+livefile byte and verified identical fullmembernames/types/modes/bytes/SHA256; no native/Ghidra process launched, no file removal.",
+  "qualification": "Exact originalnormalproject preservation proved; semantic packedloader proof stillpending. Sole nativewriter may remove only archived redundantowned .gpr/.rep after all livehandles terminal, per prior explicit authorization."
+}

@@ -1,0 +1,2288 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "status": "planning-complete",
+  "report": "REPORT.md",
+  "input_snapshot": "INPUT_SNAPSHOT.json",
+  "checkpoint": "CHECKPOINT.md",
+  "scope": {
+    "normal_upstream": {
+      "url": "https://github.com/miktaew/yet-another-idle-rpg",
+      "head": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+      "branch": "master",
+      "status": "live verified, immutable source inspected"
+    },
+    "development_upstream": {
+      "url": "https://github.com/miktaew/yet-another-idle-rpg-dev",
+      "head": "af47a8e9b112116935870ae7126dd2f194d2694a",
+      "branch": "master",
+      "adopted_fork_foundation": "25afe1a879459d85af609088a046ac4f1d3893e1",
+      "status": "targeted latest foundation/source-delta inspection after related human steering; no fork enumeration"
+    },
+    "fork": {
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "branch": "codex/gameplay-foundations",
+      "dirty": true,
+      "identity": "hashes in INPUT_SNAPSHOT.json"
+    },
+    "writes": [
+      "REPORT.md",
+      "FEASIBILITY.json",
+      "INPUT_SNAPSHOT.json",
+      "CHECKPOINT.md"
+    ],
+    "runtime_authorization": false,
+    "source_library_read": false,
+    "private_saves_accessed": false
+  },
+  "size_definitions": {
+    "small": "Localized definitions with existing native consumers; no new authority/save family.",
+    "medium": "Finite consumer and coordinated adapter/UI/publication changes.",
+    "large": "Multiple owner joins, substantial selected branches or persistent lifecycle changes.",
+    "unknown": "Generalized semantic scope or scale not selected/measured."
+  },
+  "status_boundaries": {
+    "four_skills": "integrated-built-unverified: brace control, trail reading, timber judgment, shared inquiry; no new behavioral checks here",
+    "frontier": "finite campaign planning complete; 33 parent requirements, 15 required strand steps, seven ending cases; runtime not complete",
+    "glasshouse": "narrow same-body native passage/scene/clock integration; current gameplay acceptance deferred",
+    "broad_mechanisms": "proposed; selected finite functions differ from arbitrary generalized support",
+    "normal_sources": "Consumers traced statically; this task does not execute upstream or fork",
+    "development_sources": "Content delta largely leaves examined foundations unchanged; no adoption or runnable-build claim"
+  },
+  "native_owner_map": [
+    {
+      "id": "M01",
+      "owner": "skills/milestones",
+      "upstream_status": "present",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/skills.js",
+          "line": 124,
+          "symbol": "Skill.add_xp",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 1965,
+          "symbol": "add_xp_to_skill",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 2241,
+          "symbol": "process_rewards",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/display.js",
+          "line": 4416,
+          "symbol": "create_new_skill_bar",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/skill.js",
+          "line": 175,
+          "symbol": "Skill.add_xp",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/components/levelable_component.js",
+          "line": 109,
+          "symbol": "addXPToSkill",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 2592,
+          "symbol": "add_xp_to_skill",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Native numerical/milestone hooks do not establish every functional advancement or uncapped growth policy.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M02",
+      "owner": "activities/work/training/gathering",
+      "upstream_status": "present",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/activities.js",
+          "line": 11,
+          "symbol": "Activity",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/locations.js",
+          "line": 324,
+          "symbol": "LocationActivity",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 5503,
+          "symbol": "work/gathering tick",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/display.js",
+          "line": 4209,
+          "symbol": "update_displayed_ongoing_activity",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/location.js",
+          "line": 484,
+          "symbol": "getActivityEfficiency",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 1251,
+          "symbol": "start_activity",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 6120,
+          "symbol": "native gathering publication",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Legacy wages are native rules; conserved continuing customer demand is new selected content.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M03",
+      "owner": "materials/components/equipment",
+      "upstream_status": "present",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/crafting_recipes.js",
+          "line": 39,
+          "symbol": "Recipe",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/items.js",
+          "line": 330,
+          "symbol": "component classes",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 2679,
+          "symbol": "use_recipe",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/crafting_recipes.js",
+          "line": 43,
+          "symbol": "Recipe",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 2930,
+          "symbol": "use_recipe/custody",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        "src/items.js component/native inventory key owners"
+      ],
+      "remaining_boundary": "Meaningful lots, specimens, dynamic installed parts and provenance need consumer-demanded conservation semantics.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M04",
+      "owner": "zones/travel/combat/stances",
+      "upstream_status": "present",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/locations.js",
+          "line": 106,
+          "symbol": "Combat_zone",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 598,
+          "symbol": "change_location",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/enemies.js",
+          "line": 36,
+          "symbol": "Enemy",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/combat_stances.js",
+          "line": 6,
+          "symbol": "Stance",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/location.js",
+          "line": 225,
+          "symbol": "CombatZone",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 1148,
+          "symbol": "change_location",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/combat.js",
+          "line": 17,
+          "symbol": "Combat",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/native_battle.js",
+          "line": 38,
+          "symbol": "commitNativeBattleStrike",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Saved native/guarded party adapters remain bounded; arbitrary native-power/contact/geometry/convoy use is not complete.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M05",
+      "owner": "quests/dialogue/actions/unlocks",
+      "upstream_status": "present",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/actions.js",
+          "line": 4,
+          "symbol": "GameAction",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/dialogues.js",
+          "line": 7,
+          "symbol": "Dialogue",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/quests.js",
+          "line": 158,
+          "symbol": "catchQuestEvent",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 1277,
+          "symbol": "start_textline",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 3352,
+          "symbol": "do_quest_event",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 2323,
+          "symbol": "start_textline",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 1772,
+          "symbol": "process_rewards",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/quests.js",
+          "line": 183,
+          "symbol": "catchQuestEvent",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Native textline reward publication precedes answer display; stable evidence/commitment and observer semantics need selected adapters.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M06",
+      "owner": "people/economy/projects",
+      "upstream_status": "partial",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/traders.js",
+          "line": 12,
+          "symbol": "Trader",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/person.js",
+          "line": 5,
+          "symbol": "inventory/demographic Person",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 16,
+          "symbol": "enrollSimulation",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 373,
+          "symbol": "controllers",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/site_projects.js",
+          "line": 4,
+          "symbol": "compileSiteProject",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/field_workshop.js",
+          "line": 85,
+          "symbol": "compiled project consumer",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Native demographics/trader refresh do not establish independent lives, conserved economy, reciprocal institutions or family simulation.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M07",
+      "owner": "time/life/prestige",
+      "upstream_status": "partial",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/game_time.js",
+          "line": 8,
+          "symbol": "Game_Time",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/chronicle.js",
+          "line": 64,
+          "symbol": "joined age/mortality/events",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/frontier_campaign.js",
+          "line": 95,
+          "symbol": "field renewal",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/expansion_engine.js",
+          "line": 550,
+          "symbol": "isolated scenario checkpoint/rewind",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "No upstream prestige owner found in inspected surface. Isolated scenario APIs lack native historical-reversal caller; broader temporal carriers missing.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M08",
+      "owner": "save/publication/discovery/UI",
+      "upstream_status": "present with metadata-only rewards.js",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 3402,
+          "symbol": "create_save",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/main.js",
+          "line": 3723,
+          "symbol": "load/unsaved combat",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/rewards.js",
+          "line": 1,
+          "symbol": "unused format reference",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 3676,
+          "symbol": "create_save",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/expansion_persistence.js",
+          "line": 7,
+          "symbol": "persistExpansionPlan",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/gameplay_publication.js",
+          "line": 15,
+          "symbol": "prepareGameplayPublication",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_discovery.js",
+          "line": 54,
+          "symbol": "projectDiscoveryFeature",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_expansion_host.js",
+          "line": 13,
+          "symbol": "Practice projection",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "New state must join actual native save/import/publication/display. JSON shape/definition presence is insufficient.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    },
+    {
+      "id": "M09",
+      "owner": "world instance/passage",
+      "upstream_status": "missing generalized native instance support",
+      "upstream_producer_consumer": [
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/locations.js",
+          "line": 17,
+          "symbol": "singleton Location",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "fork_status": "source-present with partial broader coverage",
+      "fork_producer_consumer": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/world_instances.js",
+          "line": 271,
+          "symbol": "createWorldInstance",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/native_realm_traveler.js",
+          "line": 22,
+          "symbol": "single native body",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/realm_state.js",
+          "line": 90,
+          "symbol": "supported Glasshouse clock",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "remaining_boundary": "Pure planners plus one bound pocket do not provide generic native quest/shop/location/clock isolation.",
+      "evidence_kind": "static source inspection, no gameplay execution"
+    }
+  ],
+  "shared_boundaries": [
+    {
+      "id": "B01",
+      "name": "Explicit activation and actual consumer/version diagnostics",
+      "existing_owner": "createContentRegistry/enrollSimulation and selected authoring preflight",
+      "when": "Repeated optional content/new destinations; registry composition alone can change enrollment.",
+      "integration_owner": "Engine"
+    },
+    {
+      "id": "B02",
+      "name": "Native result, physical stock/body/source and publication binding",
+      "existing_owner": "Native item/XP/unlock/vital/equipment plus typed command/publisher",
+      "when": "A chosen outcome crosses native ownership or a physical/source property changes a decision.",
+      "integration_owner": "Engine with relevant content/ability writer"
+    },
+    {
+      "id": "B03",
+      "name": "Funded agreement, evidence and cumulative outcome lifecycle",
+      "existing_owner": "people/jobs/custody/situations/knowledge/claims",
+      "when": "Chosen contract, reciprocal teaching, institution or disputed evidence needs durable terms/closure.",
+      "integration_owner": "Engine with world/society content writer"
+    },
+    {
+      "id": "B04",
+      "name": "Actual instance, clock and temporal carrier ownership",
+      "existing_owner": "world-instance endpoints, Glasshouse leases, common calendar/scheduler",
+      "when": "Distinct world state/local job clock or selected body/time operation must preserve independence/conservation.",
+      "integration_owner": "Engine"
+    },
+    {
+      "id": "B05",
+      "name": "One envelope, compatibility, truthful UI and later acceptance",
+      "existing_owner": "persistExpansionPlan/import/native publisher/discovery/focus/build receipts",
+      "when": "Every selected integration; diagnostics/build, behavior and director acceptance remain separate.",
+      "integration_owner": "Engine; director accepts fiction/pacing"
+    }
+  ],
+  "families": [
+    {
+      "id": "F01",
+      "name": "Ordinary skill and content depth",
+      "vision_request_lines": [
+        197,
+        505,
+        523,
+        533,
+        547,
+        557,
+        579,
+        589
+      ],
+      "included_subfamilies": [
+        "useful native skills",
+        "gathering/jobs/training",
+        "craft/components/equipment",
+        "action/insight/RNG advancement",
+        "simple skills with extraordinary long-term growth"
+      ],
+      "current_status": "Native producers and consumers present; four functional method families integrated-built-unverified. Complete local mastery careers remain proposed.",
+      "smallest_connected_implementation": {
+        "difficulty": "small-to-medium",
+        "result": "One actual resource/recipe/job and one learned use whose output changes a later task, keeping an ordinary alternative."
+      },
+      "complete_selected_family": {
+        "difficulty": "medium",
+        "result": "Early/developed/mature local career with distinct hard application, useful continued work and teaching/closure. Native curves/caps remain until explicitly changed."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Universal uncapped growth and every advancement policy across all worlds.",
+        "reason": "No finite semantics/content roster or pacing evidence; changes to native caps and saved meaning must be selected."
+      },
+      "reuse": [
+        "Native Skill.add_xp and LevelableComponent competence",
+        "Activities/LocationActivity yields",
+        "Native recipes/quality/milestone unlocks",
+        "Current Practice method/source/mastery consumers"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "New useful function declarations and mature feat receipts",
+        "Explicit cap/curve migration only if selected growth changes stored meaning"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Publish native stock/XP/unlocks through existing envelope",
+        "Read actual stored XP/unlock thresholds for bars; method discovery remains separate",
+        "Absent state grants nothing; retained method IDs require compatible registry"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "medium",
+        "reason": "Several useful applications, rewards and alternatives require writing and balance review; late skills cannot only receive new rank names."
+      },
+      "integration_burden": {
+        "size": "small-to-medium",
+        "reason": "Definitions are localized until a new consumer or milestone unlock crosses the publisher."
+      },
+      "later_validation_burden": {
+        "size": "medium",
+        "cases": [
+          "gather/craft/tool exhaustion",
+          "useful ordinary and mature approaches",
+          "no XP or goods on cancellation/render",
+          "old/new/midjob reload and failure publication",
+          "discovery thresholds and keyboard recovery"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Which ordinary careers and extraordinary ceilings are chosen?",
+        "Do proposed recipes fit existing native item/quality identity?"
+      ],
+      "confidence": {
+        "finite_reuse": "high",
+        "pacing": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/skill.js",
+          "line": 175,
+          "symbol": "Skill.add_xp",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/components/levelable_component.js",
+          "line": 109,
+          "symbol": "addXPToSkill",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_expansion_content.js",
+          "line": 114,
+          "symbol": "practice",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 2930,
+          "symbol": "use_recipe",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+          "line": 24,
+          "symbol": "GP1\u2013GP5",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/skills.js",
+          "line": 124,
+          "symbol": "Skill.add_xp",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F02",
+      "name": "Active techniques, mastery, counters and mechanical difficulty",
+      "vision_request_lines": [
+        179,
+        213,
+        277,
+        505,
+        557,
+        579,
+        647,
+        689,
+        983,
+        989
+      ],
+      "included_subfamilies": [
+        "numeric and mechanical difficulty",
+        "method variants/incomplete techniques",
+        "creator-relative mastery",
+        "hidden-strength opponents/nemeses",
+        "conceptual powers and source-specific superiority",
+        "selected target/reach/stance interactions"
+      ],
+      "current_status": "Native auto-combat/stances and fork guarded native battle/party plus typed method execution exist. Full technique-in-combat and arbitrary conceptual interactions are partial or absent.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "One taught method changes an actual consenting/native target result at a known cost, with counter, overwhelming approach or bypass and reachable recovery."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "A world\u2019s finite method/enemy repertoire with acquisition, control/mastery, contact/order, supported counters and aftermath."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Freely composable arbitrary conceptual powers, geometry and transformations.",
+        "reason": "Selected power laws/reach/interruption semantics are missing; no universal balancing rule is justified."
+      },
+      "reuse": [
+        "Native Combat.actionAdapter and saved strike planner",
+        "Current brace contest, elder/rival/party cases",
+        "Technique observation/practice/ownership",
+        "previewPowerModel/resolveEffectAmount and simulation effects"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Demanded native damage/defense/evasion/result adapter",
+        "Explicit contact/range/sustained channel/interruption owner when selected",
+        "Finite method lineage/benchmark receipts if creator comparison changes a function"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Native target/vital/equipment publication and occupied participant guards",
+        "Player evidence qualifies counter disclosures",
+        "Method/source/fuel/mastery persist without generic level equalization"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Each enemy/source variant needs credible means, discovery and supported interactions; fixed scenarios are simpler than arbitrary power composition."
+      },
+      "integration_burden": {
+        "size": "medium-to-large",
+        "reason": "Native strikes and typed command effects share resources but do not provide every combat-time technique or battlefield geometry."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "correct target/reach/consent",
+          "cost/order/interruption and depleted support",
+          "counter/bypass/superiority outcomes",
+          "injury/withdraw/recover and once-only receipt",
+          "save before/after accepted encounter"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B02",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Which specific conceptual function is selected?",
+        "Does its timing need real native attack-loop integration or authored paid responses?"
+      ],
+      "confidence": {
+        "finite_reuse": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/models/combat.js",
+          "line": 17,
+          "symbol": "Combat",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/native_battle.js",
+          "line": 38,
+          "symbol": "commitNativeBattleStrike",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/techniques.js",
+          "line": 85,
+          "symbol": "techniqueFacts",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/power_models.js",
+          "line": 5,
+          "symbol": "previewPowerModel",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 86,
+          "symbol": "power model consumer",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_expansion_content.js",
+          "line": 128,
+          "symbol": "braceResponses",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/combat_stances.js",
+          "line": 6,
+          "symbol": "Stance",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F03",
+      "name": "Research, invention, technology and magical assemblies",
+      "vision_request_lines": [
+        485,
+        547,
+        589,
+        953
+      ],
+      "included_subfamilies": [
+        "hypothesis/evidence/paid trial/conclusion",
+        "personal refinement/creative use",
+        "engineering/devices/suits",
+        "spell/ward/formation assembly",
+        "materials and installed components"
+      ],
+      "current_status": "Native component equipment and actual workshop/project/energy/device scenes exist. General installed assemblies/refitting are not established by the design-model preview branch.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "One funded comparison unlocks a fixed native item/method whose use changes a real later job; declared failure retains only supported evidence."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "Finite research and device career with source-specific assembly variants, outputs, maintenance, interruption and useful return/handoff."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Arbitrary parts/spells/powers combined dynamically across world laws.",
+        "reason": "Installation/conservation, support and semantic composition must be selected before an engine estimate is meaningful."
+      },
+      "reuse": [
+        "Native Recipe/ComponentRecipe/EquipmentRecipe and equipment owners",
+        "compileSiteProject and field workshop",
+        "Knowledge, source/faculty/power and real energy output/control/strain",
+        "Current paid observation/report/device contexts"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Conserved installed-part/lot identity only for meaningful part selection",
+        "Supported output/maintenance/disruption consumer",
+        "A reusable project view/participants adapter when selected multiworker cases require it"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Native item key reconstruction and bag/equipment/custody joins",
+        "Knowledge and actual device possession stay distinct",
+        "Saved installed configuration, policy revision and interrupted work require compatibility"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Recipes, useful test cases and failure conclusions are content-heavy; magical/technological rules require exact selected source claims and fresh prose."
+      },
+      "integration_burden": {
+        "size": "medium-to-large",
+        "reason": "Fixed variants reuse native equipment; dynamic refitting and support span physical/source/time owners."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "conserved inputs/installed parts",
+          "actual output changes hauling/care/production/protection",
+          "sample failure and conclusion limits",
+          "disruption/maintenance/cancellation",
+          "save/import of installed variant and committed trial"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B02",
+        "B03",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Are fixed item variants sufficient or is refitting itself required?",
+        "Which actual physical/magical support can sustain the device?"
+      ],
+      "confidence": {
+        "finite_reuse": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/crafting_recipes.js",
+          "line": 43,
+          "symbol": "Recipe",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/site_projects.js",
+          "line": 4,
+          "symbol": "compileSiteProject",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/field_workshop.js",
+          "line": 85,
+          "symbol": "compiled phase consumer",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/energy_resources.js",
+          "line": 21,
+          "symbol": "applyEnergyEffect",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/power_models.js",
+          "line": 13,
+          "symbol": "design model branch",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/granularity-expansion/REPORT.md",
+          "line": 28,
+          "symbol": "GP3/GP4",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "development",
+          "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+          "path": "src/crafting_recipes.js",
+          "line": 1075,
+          "symbol": "Silk cloth ItemRecipe",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F04",
+      "name": "Independent people, relationships, institutions, projects and party",
+      "vision_request_lines": [
+        319,
+        611,
+        637,
+        657,
+        667,
+        709,
+        719,
+        779,
+        977,
+        995
+      ],
+      "included_subfamilies": [
+        "independent paid lives/possessions",
+        "relationship axes/consent/romance",
+        "agreements/evidence/belief",
+        "institutions/home/base/projects",
+        "party/taming/care/genealogy/inheritance"
+      ],
+      "current_status": "Bounded independently funded people/controllers/jobs/custody and situations plus guarded party exist. Institutional rights, general commitments, belief networks and complete family/taming lifecycles remain selected work.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "One voluntary funded agreement changes goods/time and a later meeting; hearing, believing, promising and helping remain distinct."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "A finite local cast and selected party/institution/care/family path with rights, paid obligations, closure and persistent aftermath."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Autonomous populations, unlimited relationships/families and town-wide dynamic belief.",
+        "reason": "No finite scale/lifecycle semantics selected; authored priorities already suffice for many useful alternatives."
+      },
+      "reuse": [
+        "simulation.people/controllers/jobs and owners",
+        "Native/simulation stock plus exact custody",
+        "Relationships, causal situations, private observations",
+        "compileSiteProject and native guarded party cases"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Stable commitment/closure receipts and attributed assertion/evidence/belief branches",
+        "Reciprocal teaching/care/household/institution rights only for chosen consumers",
+        "Exact companion/tamed entity inventory/body/action mapping"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Institutional purse versus native money settlement",
+        "Player/PnC observers receive only supported reports",
+        "Learner/party member keeps own tools/sources/vitals/custody",
+        "Genealogy/rights persist independently of short display-memory tails"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Cast motives, dialogue, funded alternatives and cumulative endings need substantial content; romance/family/taming are optional selected lifecycles."
+      },
+      "integration_burden": {
+        "size": "medium-to-large",
+        "reason": "Current actors execute finite programs; rights, social commitments and disputed belief have distinct missing joins."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "accept/refuse/silence/amend/close differences",
+          "actual worker/site/funds/consent reservations",
+          "private facts versus heard claims/belief",
+          "party member equipment and recovery",
+          "genealogy/succession effects if selected",
+          "later return/reload with pruned display tails"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B03",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Which local social lifecycle changes actual choices?",
+        "Does an authored correction branch suffice before a generalized belief model?"
+      ],
+      "confidence": {
+        "finite_reuse": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 16,
+          "symbol": "enrollSimulation",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 373,
+          "symbol": "controller scheduling",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/site_projects.js",
+          "line": 4,
+          "symbol": "compileSiteProject",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+          "line": 5,
+          "symbol": "SOC01\u2013SOC15",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "normal",
+          "revision": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "path": "src/person.js",
+          "line": 5,
+          "symbol": "Person",
+          "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F05",
+      "name": "Source, body, organ, soul and acquisition interactions",
+      "vision_request_lines": [
+        277,
+        303,
+        403,
+        863,
+        983,
+        989,
+        995
+      ],
+      "included_subfamilies": [
+        "lineage versus acquired faculty",
+        "organs/specimens/grafts/host drawbacks",
+        "copy/steal/suppress/recover",
+        "soul/memory/identity/luck authority",
+        "clones/concurrent selves/nonhuman body"
+      ],
+      "current_status": "Source/faculty/power/body/energy/custody operations and grip/recovery functions exist. General organ identity, alternate body/native stat projection, soul transfer and conceptual identity/luck rules are not supplied.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "One acquired faculty has actual body/source support, a useful operation and suppression/recovery consumed by native play."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "One source-qualified graft/copy/theft/nonhuman lifecycle including donor/host means, drawback, recognition and retention."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Arbitrary interchangeable bodies, souls, organs, identities and cross-world transfers.",
+        "reason": "Conservation and authority laws differ by source; no universal organ or soul engine is specified."
+      },
+      "reuse": [
+        "Actor sources and simulation faculties/powers/energies",
+        "Body conditions and current grip/balance consumers",
+        "Typed acquire/transfer/custody planners",
+        "Native vitals/equipment/inventory publication"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Conserved specimen/organ/body identity where properties matter",
+        "Donor/host/lineage/acquisition compatibility and actual stat projection",
+        "Source-specific memory/authority/transfer conservation and pool ownership"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Native equipment leaves bag while simulation equipment may reference bag stock",
+        "Body changes must update actual native functions/vitals, not only labels",
+        "Carriers/recognition and acquired sources retain stable saved identity and compatibility"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Source law, donor/host consequences, care/recovery and meaningful uses require targeted verified evidence; original probes remain labelled."
+      },
+      "integration_burden": {
+        "size": "large",
+        "reason": "Physical state, authority/source, fuel, native stats and later world/time carriers share ownership."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "no source duplication or unsupported copying",
+          "exact donor/host/tool/stock/custody",
+          "drawback/suppression/depletion/recovery",
+          "new body actual action restrictions",
+          "transfer/clone and reset carrier cases when selected",
+          "save/import and failed settlement"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B02",
+        "B04",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "What specifically transfers: organ, faculty, knowledge, source, fuel or authority?",
+        "Which identity/body owns stock and recovery after replacement or cloning?"
+      ],
+      "confidence": {
+        "finite_seams": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/body_progression.js",
+          "line": 26,
+          "symbol": "bodyCommands",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation_contracts.js",
+          "line": 40,
+          "symbol": "typed effects",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/power_models.js",
+          "line": 30,
+          "symbol": "authority/hybrid branches",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/native_gameplay_adapter.js",
+          "line": 34,
+          "symbol": "publishNativeVitals",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "line": 9,
+          "symbol": "EF04/EF07",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F06",
+      "name": "Distinct campaigns, source worlds, starts and cumulative endings",
+      "vision_request_lines": [
+        179,
+        189,
+        253,
+        953,
+        967,
+        995,
+        1003,
+        1011,
+        37,
+        23
+      ],
+      "included_subfamilies": [
+        "original and source-book regions",
+        "era/entry/source baseline versus actual branch",
+        "early-to-mature careers/post-arc life",
+        "cumulative alternatives/endings",
+        "baby/tree/random household/predecessor role starts",
+        "lived hub and bounded enduring subworlds"
+      ],
+      "current_status": "Existing native world content and narrower fork slices present. Complete Frontier 33 parents/15 steps/7 endings planning-complete only; held Short Measure not enrolled. Broad roster/starts remain proposed.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "A present-era local arc with real means, causally different outcomes and useful stay/return."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "All required alternatives, functions and aftermath for complete finite Frontier or one selected source-supported region; source roster size is a separate content commitment."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Arbitrary source worlds, eras, starts and histories.",
+        "reason": "Source depth and selected signature functions vary; universal coverage cannot be inferred from a catalogue."
+      },
+      "reuse": [
+        "Native locations/access/quests/activity/craft/combat",
+        "Current situations/knowledge/claims/methods",
+        "Completed source dossiers and selected campaign/mechanic ledgers",
+        "Existing continuity/era/world-instance planners"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Explicit package activation and instance/native bindings for new world",
+        "Selected campaign result/stock/demand/teaching adapters E01\u2013E09 for Frontier",
+        "New starts compose actual body/carrier/life rules rather than granting predecessor powers"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Existing world access/reward claims stay earned and once-only",
+        "Freeze edition/era/regions/entry and public/private actor state",
+        "Definition revisions and frozen jobs preserve paid meaning",
+        "All required ending cases plus afterlife/ordinary aftermath need actual UI and state consumers"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Much work is content and source reconciliation: causal turning points, careers, adversary motives/powers, voice, counter/finale alternatives and useful aftermath. Texture needs no payoff."
+      },
+      "integration_burden": {
+        "size": "medium-to-large",
+        "reason": "Finite Frontier mainly joins current owners; distinct world signatures may demand F02\u2013F08 adapters before actual publication."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "all Frontier 33 parent/15 strand/7 ending coverage",
+          "early/developed/mature viable careers",
+          "causal endings preserve history and refusals",
+          "earned access/lore/observer limits",
+          "old/new/midbranch/return save plus failure and keyboard",
+          "director fiction/pacing/usefulness"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B02",
+        "B03",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Which complete world/edition/era and relevant families are selected next?",
+        "Which finales can be averted by changing their causes?"
+      ],
+      "confidence": {
+        "frontier_scope": "high",
+        "future_world_seams": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+          "line": 3,
+          "symbol": "finite 33/15/7 contract",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+          "line": 13,
+          "symbol": "E01\u2013E09",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/original_frontier_campaign_content.js",
+          "line": 48,
+          "symbol": "held originalFrontierDefinitions",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation_content.js",
+          "line": 28,
+          "symbol": "actual registered families",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/USER_VISION.md",
+          "line": 23,
+          "symbol": "texture and loreful threats",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/USER_VISION.md",
+          "line": 995,
+          "symbol": "starts",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F07",
+      "name": "Travel, instances, cargo and cross-world compatibility",
+      "vision_request_lines": [
+        99,
+        109,
+        791,
+        811,
+        995,
+        1003,
+        1011
+      ],
+      "included_subfamilies": [
+        "rifts/pockets/planes/layers",
+        "same-body and other-body passage",
+        "companions/loans/owned cargo",
+        "instance state and useful return",
+        "foreign source/item/energy compatibility"
+      ],
+      "current_status": "Pure endpoint/world/cargo/lease APIs plus one native same-body Glasshouse binding are present. Generic independent native quest/shop/calendar/location namespaces and local committed-job clocks remain partial or missing.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "Another explicit paid same-body route with actual stock/custody, supported local activity and retained return."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "A mechanically distinct persistent world with native state isolation, supported local work/return and chosen body/cargo/source compatibility."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Arbitrary planes, companion/alternate bodies, borrowed stock and universally compatible powers.",
+        "reason": "Native labels and world IDs do not alone isolate ownership; each passage law needs supported consumer semantics."
+      },
+      "reuse": [
+        "createWorldInstance and endpoint/visit planners",
+        "Exact native cargo snapshot",
+        "nativeRealmTraveler single-body view",
+        "Glasshouse realm state and supported clock leases"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Generic instance resolver spanning reads/writes/targets/stock/native location",
+        "Explicit activation and native quest/trader/calendar projections",
+        "Clock reference on local committed jobs",
+        "Actual companion/member stock and passage obligations when selected"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Same-named Village/site in two instances cannot share stock/facts",
+        "Bag/equipment/custody material binding remains exact",
+        "Observation has no physical contact/source transfer",
+        "Definition/save revisions and return preserve supported dormant state"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Routes, local laws, imports/exports, recovery and actual return purposes require authored declarations for each selected destination."
+      },
+      "integration_burden": {
+        "size": "large",
+        "reason": "Actual native global state and special Glasshouse routing need shared instance/clock/publication seams."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "same-labelled instance isolation",
+          "exact entry/return equipment/bag/loan/companion stock",
+          "clock activation and paid job settlement",
+          "contact/observation/physical scope",
+          "import/reload/unsupported definition/failure",
+          "useful changed home return"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B02",
+        "B04",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "What selected destination remains alive during absence and on which clock?",
+        "Which source/body/stock categories can legally cross?"
+      ],
+      "confidence": {
+        "finite_seams": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/world_instances.js",
+          "line": 271,
+          "symbol": "createWorldInstance",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/native_realm_traveler.js",
+          "line": 22,
+          "symbol": "previewNativeRealmTraveler",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/realm_cargo.js",
+          "line": 63,
+          "symbol": "validateRealmCargoSnapshot",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/realm_state.js",
+          "line": 90,
+          "symbol": "syncRealmClock",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/main.js",
+          "line": 1148,
+          "symbol": "native travel guards",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+          "line": 7,
+          "symbol": "EF02",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F08",
+      "name": "Clocks, loops, regression, aging, death and prestige",
+      "vision_request_lines": [
+        179,
+        211,
+        227,
+        779,
+        995,
+        37
+      ],
+      "included_subfamilies": [
+        "scripted/random/missed deadlines",
+        "local/subjective/outside exposure",
+        "loop/regression/live historical reversal",
+        "aging/death/retirement/succession",
+        "rebirth/retained memories and treasures",
+        "one existing field renewal versus later prestige"
+      ],
+      "current_status": "Global native calendar, optional joined-time Chronicle mortality and narrow field renewal exist. Scenario rewind restores only scenario state, not native history. Broader temporal/death/reset runtime remains unapproved.",
+      "smallest_connected_implementation": {
+        "difficulty": "small-to-medium",
+        "result": "One joined-time milestone/deadline with missed report and actual consequence under current supported time."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "One selected live loop/rebirth/dilation recipe naming anchor, participants, restored/retained carriers, counterparts and outside obligations."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Arbitrary time reversal over concurrent live worlds/bodies/agreements.",
+        "reason": "Causal retention/conservation and simultaneous clock policies are undefined outside selected recipes; chapter jumps cannot invent accumulated work."
+      },
+      "reuse": [
+        "Game_Time/global calendar",
+        "Chronicle age/lifespanDeadline/event boundaries",
+        "Common advanceSimulation scheduler",
+        "Supported instance leases",
+        "Narrow field renewal and isolated checkpointScenario/rewindScenario APIs"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Actual local/subjective exposure reference for growth/recovery/aging/jobs",
+        "Explicit native+simulation carrier snapshot/restore recipe",
+        "Causal dependent-expectation invalidation and counterpart/obligation joins"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Retain RNG/claims or restore only according to chosen source law",
+        "Native inventory/XP/skills/quests/calendar agree with restored world/body",
+        "Show actual losses/retentions and obligations before commitment",
+        "No offline aging/loss or second prestige inferred"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "large",
+        "reason": "Temporal causes, life-stage choices, source rules and downstream alternatives require careful era/observer authoring; source-supported superiority may persist."
+      },
+      "integration_burden": {
+        "size": "large",
+        "reason": "Clocks, saved jobs, native state, bodies, knowledge and outside agreements must remain coherent in one transaction."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "joined/local/subjective boundaries",
+          "split/jump/interruption and unspent budget",
+          "true remembered-loop versus independent prequel",
+          "restored/retained stock/body/source/knowledge and outside commitments",
+          "death/recovery/succession distinctions",
+          "old/new/midlife import/failure and loss preview"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B02",
+        "B03",
+        "B04",
+        "B05"
+      ],
+      "unresolved_questions": [
+        "Which temporal recipe and retained carriers are actually selected?",
+        "What happens to paid work and obligations outside the anchor?"
+      ],
+      "confidence": {
+        "finite_seams": "medium",
+        "generalized": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/chronicle.js",
+          "line": 64,
+          "symbol": "createChronicle/age/deadline",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/expansion_engine.js",
+          "line": 491,
+          "symbol": "advanceSimulation",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/expansion_engine.js",
+          "line": 550,
+          "symbol": "isolated scenario rewind",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/frontier_campaign.js",
+          "line": 95,
+          "symbol": "field renewal",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/simulation.js",
+          "line": 408,
+          "symbol": "campaign transition guards",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+          "line": 9,
+          "symbol": "TL02/TL03",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    },
+    {
+      "id": "F09",
+      "name": "UI, authoring, performance and compatibility",
+      "vision_request_lines": [
+        261,
+        769,
+        821,
+        832,
+        843,
+        854,
+        49
+      ],
+      "included_subfamilies": [
+        "discovery/known blockers/recovery",
+        "native Notebook/Quests/Events controls",
+        "source/consumer/version diagnostics",
+        "optional package activation",
+        "old/dormant save compatibility",
+        "performance/authoring scale and recoverability"
+      ],
+      "current_status": "Pure discovery, native Practice publication and matched build reported by current Engine delivery. All new skill behavior/save/failure/keyboard/director checks deferred. Performance scale not measured in this review.",
+      "smallest_connected_implementation": {
+        "difficulty": "medium",
+        "result": "One known function shows truthful controls/requirements and accepted work/cancellation/recovery without leaking future content."
+      },
+      "complete_selected_family": {
+        "difficulty": "large",
+        "result": "Complete campaign consumer/source/activation/version coverage and actual old/midjob/branch/return save/disclosure acceptance."
+      },
+      "arbitrary_generalized_support": {
+        "difficulty": "unknown",
+        "result": "Massive arbitrary simulation/UI and migration of every possible content history.",
+        "reason": "Future workload/frame/load costs are unmeasured; historical fixtures are not current capacity evidence."
+      },
+      "reuse": [
+        "projectDiscoveryFeature/projectAcceptedWork/projectDiscoveryPanel",
+        "Existing native stored-XP projection and Practice host",
+        "persistExpansionPlan and prepareGameplayPublication",
+        "Full import envelope validation and current registry contracts"
+      ],
+      "new_owners_or_demanded_adapters": [
+        "Modest package activation/consumer/version diagnostics when repeated worlds demand them",
+        "One actual observer/read snapshot and affected projection change set",
+        "Scoped indexes/continuation only after measured workload justifies them"
+      ],
+      "native_ui_save_compatibility_joins": [
+        "Definition acceptance is not native reconstruction or runtime enrollment",
+        "Search/counts/tooltips/preview/return/focus follow known observer boundary",
+        "Frozen commitments and optional absent data remain compatible",
+        "Full import validation preserved; new semantics need explicit migration or rejection"
+      ],
+      "source_and_content_authoring_burden": {
+        "size": "medium-to-large",
+        "reason": "Source pointers and actual consumer maps make additions reviewable; writer ownership and diagnostics should support content rather than create another planner hierarchy."
+      },
+      "integration_burden": {
+        "size": "large",
+        "reason": "This family joins every selected UI/save/clock/content producer; Engine retains sole shared publication/build ownership."
+      },
+      "later_validation_burden": {
+        "size": "large",
+        "cases": [
+          "hidden names/search/counts/tooltips",
+          "known blockers and lost-tool/fuel recovery",
+          "active work/cancellation focus",
+          "source/bundle correspondence when build authorized",
+          "old/new/dormant/midjob reload and failed publication",
+          "current measured crowded workload only when authorized"
+        ],
+        "status": "deferred, not run"
+      },
+      "dependencies": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "unresolved_questions": [
+        "Which measured workload warrants indexing or change-driven views?",
+        "Which definition corrections change committed meaning and need a compatibility decision?"
+      ],
+      "confidence": {
+        "current_joins": "high",
+        "performance_scale": "low"
+      },
+      "source_pointers": [
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_discovery.js",
+          "line": 54,
+          "symbol": "projectDiscoveryFeature",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/skill_expansion_host.js",
+          "line": 13,
+          "symbol": "skillExpansionPresentation",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/expansion_persistence.js",
+          "line": 7,
+          "symbol": "persistExpansionPlan",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/gameplay_publication.js",
+          "line": 15,
+          "symbol": "prepareGameplayPublication",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "src/save_files.js",
+          "line": 17,
+          "symbol": "validateSaveEnvelope",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md",
+          "line": 11,
+          "symbol": "matched build; deferred behavior",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        },
+        {
+          "tree": "fork",
+          "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+          "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+          "line": 5,
+          "symbol": "historical measurements qualified",
+          "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+        }
+      ],
+      "assessment_kind": "qualitative inference from inspected consumers and selected planning contracts; not measured hours or savings",
+      "scope_status": "proposed outside already delivered bounded skill/discovery scope"
+    }
+  ],
+  "native_additions": [
+    {
+      "id": "N01",
+      "name": "Useful skills through increasingly hard applications",
+      "families": [
+        "F01",
+        "F02",
+        "F04"
+      ],
+      "difficulty": "small-to-medium for a connected use; medium for full local mastery path",
+      "early": "Earn taught brace/trail/timber knowledge.",
+      "developed": "Real kit output, route use or fatigue/injury change.",
+      "mature": "Harder actual feat/refinement and willing ordinary learner.",
+      "existing_consumers": [
+        "skills.timber.precise_pack",
+        "skills.trail.route",
+        "skills.brace.press responses"
+      ],
+      "new_work": "Selected mature use/receipt/teaching; no second XP ledger.",
+      "status": "original reversible proposal around built-unverified first uses"
+    },
+    {
+      "id": "N02",
+      "name": "Regional supply chains with useful equipment",
+      "families": [
+        "F01",
+        "F03"
+      ],
+      "difficulty": "small-to-medium; medium if meaningful lot/continuing demand binding needed",
+      "early": "Native wood/ore/herbs/food with real tools/season/access.",
+      "developed": "Actual native components/meals/consumables/gear for an outing.",
+      "mature": "Tested fit-for-use output supports harder work and funded repeat demand.",
+      "existing_consumers": [
+        "native use_recipe",
+        "LocationActivity.getActivityEfficiency",
+        "native component quality/equipment"
+      ],
+      "new_work": "Narrow material specification if existing quality/item variant is insufficient.",
+      "status": "original reversible proposal; official dev cocoon/silk declaration chain is related source evidence, not adopted runnable content"
+    },
+    {
+      "id": "N03",
+      "name": "Zones with different purposes and credible threats",
+      "families": [
+        "F02",
+        "F06"
+      ],
+      "difficulty": "medium; large only if selected richer geometry/power family demands it",
+      "early": "Reached field/cave observation, recoverable danger and preparation.",
+      "developed": "Forest/Town receiving/material/instruction and optional contest trip.",
+      "mature": "Prepared evidence/control/equipment/cooperation/strength solves an actual problem.",
+      "existing_consumers": [
+        "native CombatZone/Enemy/Stance",
+        "nativeBattle strikes",
+        "paid encounter/control effects"
+      ],
+      "new_work": "Post-acceptance result receipt or demanded contact/power consumer.",
+      "status": "original reversible proposal; lore-consistent threats, no automatic level matching or replacement boss"
+    },
+    {
+      "id": "N04",
+      "name": "Real work and people with alternatives",
+      "families": [
+        "F04",
+        "F06"
+      ],
+      "difficulty": "medium local cast/charter; larger optional social lifecycles",
+      "early": "Native jobs fund tools and voluntary local service.",
+      "developed": "Audit/smaller order/underwrite changes actual wages/stock/report.",
+      "mature": "Finite specialist/steward/successor/departure closure with retained ordinary life.",
+      "existing_consumers": [
+        "native rewards/quests/jobs",
+        "people/controllers/purses/custody",
+        "relationship and situation records"
+      ],
+      "new_work": "Finite quote/accept/amend/close and rights/teaching consumers.",
+      "status": "original reversible proposal; silence creates no commitment"
+    },
+    {
+      "id": "N05",
+      "name": "Workshop discoveries and return reasons",
+      "families": [
+        "F03",
+        "F04",
+        "F05"
+      ],
+      "difficulty": "medium authored invention; large arbitrary assembly",
+      "early": "Earned Shack/workbench access.",
+      "developed": "Fund real comparison and fixed fitting; use actual result including failed trial.",
+      "mature": "Better variant, willing paid teaching or finite institution project.",
+      "existing_consumers": [
+        "native components/recipes",
+        "compileSiteProject",
+        "knowledge/jobs/focus-drive energy"
+      ],
+      "new_work": "Dynamic installed-part/support/interruption binding only if refitting changes play.",
+      "status": "original reversible proposal"
+    }
+  ],
+  "career_route": {
+    "id": "R01",
+    "name": "Field craft and route service",
+    "status": "illustrative original proposal using current Frontier completion owner; not implemented campaign",
+    "addition_ids": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05"
+    ],
+    "phases": [
+      {
+        "phase": "early",
+        "play": "Preserve rat/elder/craftsman opening; earn tools/Shack/access; native work/gathering funds explicit timber/trail learning.",
+        "evidence_status": "First methods integrated-built-unverified; no campaign journey proof."
+      },
+      {
+        "phase": "developed",
+        "play": "Practice with real inputs; produce native kits; use dry-bank knowledge and ordinary alternatives; prepare workshop/rack/rope/equipment and combine Town receiving/ledger/permit/instruction.",
+        "travel": "Base Village\u2013Forest road\u2013Town outskirts\u2013Town square legs 240/240/40 played minutes before actual modifiers."
+      },
+      {
+        "phase": "connected campaign",
+        "play": "After authorization, repair held Short Measure stock/custody and 4/4/1 shortcut times; execute audit/underwrite/refuse/delay, independent funded dispatch and observed later report. Accepted workday protection requires a new actual result, not old clear credit."
+      },
+      {
+        "phase": "mature",
+        "play": "Close finite four-order return charter through tested materials, a hard route/control use, supported threat settlement and specialist/steward/teaching/handoff/departure aftermath."
+      },
+      {
+        "phase": "stay/return",
+        "play": "Retain ordinary gathering/trade/rest/practice; new contract needs actual funded need; reports stay observed/timestamped. Existing field renewal optional, no second prestige."
+      }
+    ],
+    "complete_world_gate": "Use existing WORLD_COMPLETION and E01\u2013E09, all 33 parents/15 steps/seven endings. One player path is not delivery of every required alternative.",
+    "source_pointers": [
+      {
+        "tree": "fork",
+        "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+        "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+        "line": 3,
+        "symbol": "completion gate",
+        "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+      },
+      {
+        "tree": "fork",
+        "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+        "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+        "line": 13,
+        "symbol": "required adapters",
+        "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+      },
+      {
+        "tree": "fork",
+        "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+        "path": "docs/worlds/original-frontier/RULES_AND_STARTS.md",
+        "line": 45,
+        "symbol": "travel/work",
+        "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+      },
+      {
+        "tree": "fork",
+        "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+        "path": "src/skill_expansion_content.js",
+        "line": 148,
+        "symbol": "actual first uses",
+        "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+      },
+      {
+        "tree": "fork",
+        "revision": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+        "path": "src/frontier_campaign.js",
+        "line": 17,
+        "symbol": "narrow current campaignDefinitions",
+        "input_identity": "INPUT_SNAPSHOT.json inputs SHA256; commit alone does not identify dirty source"
+      }
+    ]
+  },
+  "sequence": [
+    {
+      "id": "Q01",
+      "action": "Immediate vanilla-style depth",
+      "scope": "Disjoint resource/recipe/job/zone content and developed uses of current methods against frozen consumers.",
+      "parallel_work": "Separate content definitions/actor/outcome prose; avoid shared registry/save writers.",
+      "serialized_work": "Engine native publisher, UI, save, registry and build integration.",
+      "status": "recommendation, not runtime authorization from this analysis"
+    },
+    {
+      "id": "Q02",
+      "action": "Complete represented Frontier when authorized",
+      "scope": "Repair time/stock then all current E01\u2013E09 and 33 parent/15 step/seven ending coverage through checkpoints.",
+      "parallel_work": "Selected arc/recipe/cast/ending content after caller freeze.",
+      "serialized_work": "Shared physical/result/encounter/demand/teaching/UI/publication interfaces and compatibility under Engine.",
+      "status": "complete planning only; runtime remains held"
+    },
+    {
+      "id": "Q03",
+      "action": "Qualify a distinct selected source-world function",
+      "scope": "Retrieve targeted edition/era dossier claims; deliver finite region/career and actual signature rule/return.",
+      "parallel_work": "Source retrieval and fresh era-specific content from existing owners.",
+      "serialized_work": "Actual world activation and instance/native/clock boundaries.",
+      "status": "later selected work; no nineteen-world simultaneous requirement"
+    },
+    {
+      "id": "Q04",
+      "action": "Demanded cross-world/body/time adapters",
+      "scope": "Instance/clock/native joins first; lots/assemblies, reciprocal institutions and temporal carriers only for selected consumers.",
+      "parallel_work": "Ordinary content/prose remains useful while shared seams freeze.",
+      "serialized_work": "Exclusive Engine ownership, compatibility and conserved physical/time boundaries.",
+      "status": "proposal"
+    },
+    {
+      "id": "Q05",
+      "action": "Close evidence in stages",
+      "scope": "Current source/import/build identity, later authorized generated behavior/save/failure/keyboard/branch/return, then director acceptance.",
+      "parallel_work": "Static content/coverage review can proceed without duplicating game suites.",
+      "serialized_work": "Authoritative matched build/behavior receipt and human creative acceptance.",
+      "status": "No game tests/build performed here; existing backlog preserved"
+    }
+  ],
+  "original_request_coverage": {
+    "U01": [
+      "F02",
+      "F06",
+      "F08"
+    ],
+    "U02": [
+      "F06",
+      "F07"
+    ],
+    "U03": [
+      "F06"
+    ],
+    "U04": [
+      "F01",
+      "F09"
+    ],
+    "U05": [
+      "F06",
+      "F08"
+    ],
+    "U06": [
+      "F02",
+      "F04",
+      "F08"
+    ],
+    "U07": [
+      "F01",
+      "F02",
+      "F08"
+    ],
+    "U08": [
+      "F05",
+      "F06",
+      "F08"
+    ],
+    "U09": [
+      "F05",
+      "F06",
+      "F08"
+    ],
+    "U10": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F06",
+      "F07",
+      "F08",
+      "F09"
+    ],
+    "U11": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05"
+    ],
+    "U12": [
+      "F01",
+      "F02",
+      "F03",
+      "F04",
+      "F05",
+      "F07",
+      "F08",
+      "F09"
+    ],
+    "U13": [
+      "F01",
+      "F09"
+    ],
+    "U14": [
+      "F02",
+      "F04",
+      "F05"
+    ],
+    "boundary": "U13 is historical foundation direction; it does not authorize removing current dirty work. Current live owners/latest steering govern."
+  },
+  "development_crosscheck": {
+    "head": "af47a8e9b112116935870ae7126dd2f194d2694a",
+    "adopted_base": "25afe1a879459d85af609088a046ac4f1d3893e1",
+    "source_files_changed": 9,
+    "related_native_extension": "Motherwood/Primeval forest; plant/animal identification; cocoon gathering; silk cloth/components/gear; native use_recipe consumer.",
+    "unchanged_foundation_files": [
+      "src/models/skill.js",
+      "src/components/levelable_component.js",
+      "src/models/person.js",
+      "src/models/combat.js",
+      "src/models/location.js",
+      "src/game_time.js",
+      "src/quests.js"
+    ],
+    "difficulty_effect": "Supports native content extension/reuse; no examined general world/body/time owner reduces F05/F07/F08 burden.",
+    "static_limit": "Bandersnatch Enemy declaration opens at line624 and is unclosed before line638 in inspected src/enemies.js. No syntax/build/runtime check ran; no adoption recommendation follows.",
+    "source_pointers": [
+      {
+        "tree": "development",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "path": "src/data/locations.js",
+        "line": 3507,
+        "symbol": "Motherwood actions",
+        "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+      },
+      {
+        "tree": "development",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "path": "src/data/locations.js",
+        "line": 2469,
+        "symbol": "animal care",
+        "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+      },
+      {
+        "tree": "development",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "path": "src/crafting_recipes.js",
+        "line": 1075,
+        "symbol": "Silk cloth",
+        "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+      },
+      {
+        "tree": "development",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "path": "src/main.js",
+        "line": 2374,
+        "symbol": "use_recipe",
+        "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+      },
+      {
+        "tree": "development",
+        "revision": "af47a8e9b112116935870ae7126dd2f194d2694a",
+        "path": "src/enemies.js",
+        "line": 624,
+        "symbol": "unclosed Bandersnatch declaration",
+        "input_identity": "INPUT_SNAPSHOT.json immutable_inputs"
+      }
+    ],
+    "network_owner": "../fork-network-absorption/ASSIGNMENT.md"
+  },
+  "principles": [
+    "Atmospheric/scenic/casual details may have no mechanical payoff.",
+    "Threats have credible source-era identity, motives, power/resources and causal timelines; earlier interventions can avert them.",
+    "No universal level matching, forced replacement boss or silent source cap change.",
+    "Preserve original opening/earned unlocks/attribution/LICENSE and private saves.",
+    "Complete selected families differ from arbitrary generalized support; no family mandatory in every world.",
+    "Do not claim measured hours, savings, performance or current behavior from source/code/class presence."
+  ],
+  "checks": {
+    "checked_at_utc": "2026-10-05T15:36:25.366999+00:00",
+    "status": "passed",
+    "json_parse": "passed",
+    "family_count": 9,
+    "native_addition_count": 5,
+    "career_count": 1,
+    "sequence_action_count": 5,
+    "native_owner_rows": 9,
+    "source_pointer_count": 122,
+    "local_markdown_links": 43,
+    "remote_links": 4,
+    "working_input_hashes": 75,
+    "immutable_source_blobs": 33,
+    "errors": [],
+    "scope": "document/ID/reference/range/hash/readback only; no gameplay/build/runtime check",
+    "executed_gameplay_checks": [],
+    "deferred_acceptance": "Existing Engine/PLAYTEST/Frontier ledgers own later behavior; planning gate adds no runtime/acceptance claim."
+  },
+  "vision_line_identity": "USER_VISION current initial revision plus two new dispatch sections (+20 lines); hashes and observed drift in INPUT_SNAPSHOT."
+}

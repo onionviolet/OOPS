@@ -2,6 +2,17 @@
 
 Research date: 2026-09-30, America/New_York. Accepted research direction belongs to `../PROJECT.md`. This dossier records developer descriptions, published interfaces and repositories, plus explicitly proposed design uses. No full playthrough, balance assessment, save compatibility or current maintenance guarantee is claimed. Search/forum recommendations were discovery leads; the feature evidence below comes from creators, maintainers or published games.
 
+## Endorsed simulation references, 2026-10-03
+
+Weibao explicitly requested saving **Amazing Cultivation Simulator** and **Caves of Qud**, and expressed particular interest in Qud's nuance. Both were previously mentioned as comparison candidates; they are now endorsed for targeted research. This records interest and research priority, not a playthrough, purchase, favorite designation, selected direct world adaptation or approval of every mechanic. [Direct request](USER_VISION.md#simulation-references-interface-and-selective-intervention-2026-10-03) owns provenance; [current implementation comparisons](RESEARCH_IDLE_GAMES.md#selected-simulation-references-and-living-world-implementation-2026-10-03) owns primary-source evidence and proposed translations.
+
+| Saved reference | Research focus |
+|---|---|
+| [Amazing Cultivation Simulator](https://store.steampowered.com/app/955900/Amazing_Cultivation_Simulator/) | Facilities, disciples, research, local resources, institutions and interactions among sects. Compare how the base affects preparation and opportunities, rather than selecting compulsory colony upkeep. |
+| [Caves of Qud](https://store.steampowered.com/app/333640/Caves_of_Qud/) | Consistent actor bodies/equipment/factions, physical and social alternatives, environmental properties and discovery. Compare one useful interaction through our existing interface before proposing a full tile-world renderer. |
+
+Continue the existing A Dark Room/Level 13 and wider comparison lanes. These references deepen the shared power, site, actor, scene and native-integration packets; they do not create two separate engine implementations.
+
 ## Initial shortlist endorsed for further research
 
 Weibao agreed with this comparison and requested more niche games, especially Proto23-like references. This is research approval, not approval to implement every feature.
@@ -39,3 +50,11 @@ Prioritize Arcanum/Theory of Magic, Immortality Idle and Idlemancery for mundane
 For each closer candidate, trace one concrete unlock from prerequisite through acquisition to practical use, one build tradeoff and one reload/reset behavior. Record source evidence separately from fresh-save browser observations. Avoid claiming whole-game depth from store counts or a short smoke test.
 
 Proposed shared design test: an ordinary skill reveals or enables a technique; that technique changes one obstacle; equipment or preparation offers a second route. Compare the resulting decisions before adding another resource or reset layer. No gameplay changes, personal-save access, commit or push occurred in this research pass.
+
+## Concrete feature follow-up, 2026-10-02
+
+[Focused expansion references](RESEARCH_IDLE_GAMES.md#companion-references-for-expansion-review-2026-10-02) refresh Magic Research 2, Theory of Magic/Arcanum, Increlution and Path of Achra, and add Unnamed Space Idle as a structural comparator for unfolding mechanics and connected resources. [Expansion review principles](DIRECTION_SYNTHESIS.md#expansion-and-balance-policy-2026-10-02) are endorsed for use; particular borrowed mechanics, pacing and implementation remain proposed. This refines the existing catalogue rather than selecting five new work orders.
+
+[Broader text-first RPG inspiration](RESEARCH_IDLE_GAMES.md#broader-inspiration-for-a-text-first-rpg-2026-10-02) extends A Dark Room/Level 13 comparisons with Candy Box 2, Sunless Sea, Fallen London, Roadwarden, Wildermyth, Cultist Simulator, Book of Hours and Outer Wilds. Primary evidence and five connected design lenses stay in that research owner; inclusion is a proposal for useful mechanics, not a confirmed favorite list or implemented feature.
+
+[Features from similar games and beyond](RESEARCH_IDLE_GAMES.md#features-from-similar-games-and-beyond-2026-10-02) adds a primary-source comparison of thirteen game lineages and five original feature families. New closer/structural references are Lootun, Level 13 and Progress Knight; new adjacent references are Kenshi, Caves of Qud, Noita and Amazing Cultivation Simulator. Their detailed evidence, examples, costs and engine dependencies stay in that existing research owner. The proposed priorities are a technique/equipment counter, a bestiary clue, one targeted craft, a funded peer response and a saved preparation plan. These refine the accepted research direction; no new game is designated a favorite, no mechanic is selected for implementation and no gameplay was added.

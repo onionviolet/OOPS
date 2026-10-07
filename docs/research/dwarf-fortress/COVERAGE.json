@@ -1,0 +1,1548 @@
+{
+  "status": "finite-selected-source-data-pass-complete",
+  "scope": "17 connected paths across five depth lenses; selected source/data declarations, not whole game/native runtime semantic coverage.",
+  "parent_review": "Locators and hashes available for root; no independent native/gameplay review claimed.",
+  "paths": [
+    {
+      "id": "DF-C01",
+      "label": "Generation/provenance and stable candidate selection",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-G01",
+        "DF-G02"
+      ],
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            248,
+            301
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            1,
+            66
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            258,
+            283
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/globals.lua",
+          "lines": [
+            172,
+            195
+          ],
+          "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/globals.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C02",
+      "label": "Profile eligibility and coupled world depiction",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-G03",
+        "DF-L02"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "lines": [
+            173,
+            236
+          ],
+          "sha256": "b05a05ff18714e69ae363372377ef1283843dd174bd0b3eae7575ac10f20988d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            154,
+            191
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            6994,
+            6998
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "lines": [
+            5,
+            56
+          ],
+          "sha256": "21f6f4f24c6ae669f40c16b9bf5b391d6f0594b7f4c30d7b3a5fddbd1e8be342",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            39,
+            43
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C03",
+      "label": "Guardian equipment and incomplete generation boundaries",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-G04",
+        "DF-L01"
+      ],
+      "source_refs": [
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            410,
+            415
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+          "lines": [
+            1314,
+            1387
+          ],
+          "sha256": "9557ec18b6e2d5a2f84c07d51d64618b27bea2521ad12abbc734a974faeaf518",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            796,
+            826
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            380,
+            407
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            751,
+            788
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+          "lines": [
+            1,
+            107
+          ],
+          "sha256": "281774a9f1f1ab19e073a85d3e34ba36537d3796439fbbff83e385c9e8d399e6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            218,
+            230
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C04",
+      "label": "Material/weapon/fuel/steel joins",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-M01",
+        "DF-M02"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+          "lines": [
+            8,
+            127
+          ],
+          "sha256": "2f5dd0a0c2d342e2a4fd27406970c5ed34712a9bdd916b603e6415c42ed2bf48",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "lines": [
+            16,
+            59
+          ],
+          "sha256": "72e874e59ea0634f60c30c3514cbe0d08fa34943376ab8de3c3aac7764d6735c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "lines": [
+            5,
+            55
+          ],
+          "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "lines": [
+            139,
+            158
+          ],
+          "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            274,
+            290
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C05",
+      "label": "Preserved tools and material provenance",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-M03",
+        "DF-M04",
+        "DF-M05"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            26,
+            82
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            316
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            5,
+            24
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            280
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            5,
+            52
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            65,
+            102
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            138,
+            169
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C06",
+      "label": "Workshops and civil permissions",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-M06",
+        "DF-A02"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "lines": [
+            5,
+            56
+          ],
+          "sha256": "21f6f4f24c6ae669f40c16b9bf5b391d6f0594b7f4c30d7b3a5fddbd1e8be342",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_buildings/objects/building_custom.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            26,
+            57
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            400,
+            420
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            205,
+            296
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1052,
+            1109
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C07",
+      "label": "Bodies, attacks and functional repairs",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-B01",
+        "DF-B02",
+        "DF-B04"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            22,
+            84
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "lines": [
+            5,
+            58
+          ],
+          "sha256": "911ee0676078fa3811397e84e323c0e968524408a1a900b0ac04dd38860f6ea8",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            215,
+            258
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "lines": [
+            5,
+            81
+          ],
+          "sha256": "72e874e59ea0634f60c30c3514cbe0d08fa34943376ab8de3c3aac7764d6735c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_items/objects/item_weapon.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+          "lines": [
+            210,
+            273
+          ],
+          "sha256": "f9f6cf88a9cf8cc740264ff954414de4bf89dc05b6cbd4463a1dbbdc904e427c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "lines": [
+            101,
+            129
+          ],
+          "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C08",
+      "label": "Poison state/exposure/source immunity",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-B03"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            5052,
+            5103
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            5234,
+            5281
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+          "lines": [
+            69,
+            87
+          ],
+          "sha256": "02d4dca148423d57723087a26f5b8310c4ad87610a8ac3833c23910d0f31a481",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/init.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C09",
+      "label": "Conditional knowledge and undead progression",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-K01",
+        "DF-K02",
+        "DF-K03"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            104,
+            160
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            239,
+            270
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            422,
+            437
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            127,
+            159
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            108,
+            124
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            174,
+            231
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "lines": [
+            235,
+            351
+          ],
+          "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C10",
+      "label": "Physical book production and retained writing",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-K04"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            333,
+            437
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            248,
+            254
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            65,
+            102
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C11",
+      "label": "Role authority and information precision",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-A01",
+        "DF-A03"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            425,
+            462
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            595,
+            698
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            636,
+            689
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C12",
+      "label": "Institution beliefs/resource relations",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-A04",
+        "DF-A05"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            369,
+            423
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1110,
+            1135
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "lines": [
+            1052,
+            1096
+          ],
+          "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/objects/entity_default.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            53,
+            77
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C13",
+      "label": "Crops/opportunities and development-triggered threats",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-E01",
+        "DF-E02"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "lines": [
+            5,
+            110
+          ],
+          "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_plants/objects/plant_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            265,
+            280
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "lines": [
+            400,
+            420
+          ],
+          "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            154,
+            242
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "lines": [
+            516,
+            538
+          ],
+          "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "lines": [
+            33,
+            47
+          ],
+          "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "lines": [
+            173,
+            236
+          ],
+          "sha256": "b05a05ff18714e69ae363372377ef1283843dd174bd0b3eae7575ac10f20988d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C14",
+      "label": "Weather materials and weekly regional interactions",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-E03"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "lines": [
+            43,
+            109
+          ],
+          "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "lines": [
+            144,
+            186
+          ],
+          "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            358,
+            379
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            591,
+            652
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C15",
+      "label": "Disturbance and actor-specific aftermath",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-E04"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+          "lines": [
+            28,
+            135
+          ],
+          "sha256": "c228021b8e7fe6107268ca5f58555c2cc925098c41aeacd415a3200e4c646722",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            239,
+            270
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        }
+      ]
+    },
+    {
+      "id": "DF-C16",
+      "label": "Temporary/transformed bodies and distinct clocks",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-B05",
+        "DF-T01"
+      ],
+      "source_refs": [
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "lines": [
+            1,
+            96
+          ],
+          "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "lines": [
+            1,
+            19
+          ],
+          "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/init/generators.lua",
+          "lines": [
+            591,
+            624
+          ],
+          "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/init/generators.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "lines": [
+            170,
+            201
+          ],
+          "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "lines": [
+            15,
+            48
+          ],
+          "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+          "layer": "shipped-lua"
+        },
+        {
+          "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "lines": [
+            213,
+            295
+          ],
+          "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/examples and notes/gaits.txt",
+          "lines": [
+            1,
+            14
+          ],
+          "sha256": "40c251d344487fed35c2e3e6a1caf0a14f7ee39c00bb337c55a08c3e598d1154",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/examples and notes/gaits.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    },
+    {
+      "id": "DF-C17",
+      "label": "Definition pins, backup and native persistence limits",
+      "status": "selected-declaration-chain-reviewed-runtime-unverified",
+      "findings": [
+        "DF-P01",
+        "DF-P02"
+      ],
+      "source_refs": [
+        {
+          "file": "readme.txt",
+          "lines": [
+            18,
+            33
+          ],
+          "sha256": "ea59b8cd197014c42fd2f7b69f0122fc09769226d9590e9e05b19a9e30c85171",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/readme.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_procedural/info.txt",
+          "lines": [
+            1,
+            8
+          ],
+          "sha256": "21323121fd778e39882b46327f517c08e4ec5c28113d46b59617d08daed38f8b",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_procedural/info.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "data/vanilla/vanilla_entities/info.txt",
+          "lines": [
+            1,
+            8
+          ],
+          "sha256": "b6de84cad5d4ca66cf7cbf01c4c404b9042f01f60145be2dadb6c8c223e4731c",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/data/vanilla/vanilla_entities/info.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            6,
+            23
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        },
+        {
+          "file": "release notes.txt",
+          "lines": [
+            67,
+            77
+          ],
+          "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+          "retained_path": "/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/release notes.txt",
+          "layer": "shipped-definition-or-documentation"
+        }
+      ]
+    }
+  ],
+  "semantic_review": [
+    {
+      "file": "data/init/generators.lua",
+      "sha256": "4958c552ecf2e7ba98e402a1816fb55c5091d6da45287b352c06b512e6700d6d",
+      "total_lines": 827,
+      "reviewed_spans": [
+        [
+          1,
+          135
+        ],
+        [
+          240,
+          430
+        ],
+        [
+          432,
+          827
+        ]
+      ],
+      "reviewed_lines": 722,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/init/globals.lua",
+      "sha256": "b21219682ced612fd6f5d651bb2bf921bea44fd0d1045ea7cb671449b4cd8afe",
+      "total_lines": 638,
+      "reviewed_spans": [
+        [
+          1,
+          66
+        ],
+        [
+          172,
+          197
+        ],
+        [
+          258,
+          283
+        ]
+      ],
+      "reviewed_lines": 118,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/init.lua",
+      "sha256": "02d4dca148423d57723087a26f5b8310c4ad87610a8ac3833c23910d0f31a481",
+      "total_lines": 277,
+      "reviewed_spans": [
+        [
+          1,
+          277
+        ]
+      ],
+      "reviewed_lines": 277,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/materials.lua",
+      "sha256": "f9f6cf88a9cf8cc740264ff954414de4bf89dc05b6cbd4463a1dbbdc904e427c",
+      "total_lines": 273,
+      "reviewed_spans": [
+        [
+          1,
+          273
+        ]
+      ],
+      "reviewed_lines": 273,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/evil.lua",
+      "sha256": "5da7788e431235b0b53f55fe751cda617757f05a599defcbe9428b871ffc199a",
+      "total_lines": 187,
+      "reviewed_spans": [
+        [
+          1,
+          187
+        ]
+      ],
+      "reviewed_lines": 187,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/secret.lua",
+      "sha256": "72a396f8e6955be81f846f792de477ade5598b6c2efe29cd34f5e0bd37a8f843",
+      "total_lines": 352,
+      "reviewed_spans": [
+        [
+          1,
+          352
+        ]
+      ],
+      "reviewed_lines": 352,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/curse.lua",
+      "sha256": "e810e5e7e378fea023292947c0e32e32d8228887aaef7e5cc9b4f6ccaf4bcca6",
+      "total_lines": 96,
+      "reviewed_spans": [
+        [
+          1,
+          96
+        ]
+      ],
+      "reviewed_lines": 96,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/blessing.lua",
+      "sha256": "5c0fef4646de9febb15b6c784c62515e897d8989ce1a5583952c3bb7e3bf1c85",
+      "total_lines": 130,
+      "reviewed_spans": [
+        [
+          1,
+          130
+        ]
+      ],
+      "reviewed_lines": 130,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/disturbance.lua",
+      "sha256": "c228021b8e7fe6107268ca5f58555c2cc925098c41aeacd415a3200e4c646722",
+      "total_lines": 135,
+      "reviewed_spans": [
+        [
+          1,
+          135
+        ]
+      ],
+      "reviewed_lines": 135,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions/item_power.lua",
+      "sha256": "281774a9f1f1ab19e073a85d3e34ba36537d3796439fbbff83e385c9e8d399e6",
+      "total_lines": 437,
+      "reviewed_spans": [
+        [
+          1,
+          140
+        ]
+      ],
+      "reviewed_lines": 140,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/interactions.lua",
+      "sha256": "194260944c5d741904119b22d5e40c310ec819dcfb2492d9c4eadb90e57c329d",
+      "total_lines": 287,
+      "reviewed_spans": [
+        [
+          170,
+          287
+        ]
+      ],
+      "reviewed_lines": 118,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/entities.lua",
+      "sha256": "9557ec18b6e2d5a2f84c07d51d64618b27bea2521ad12abbc734a974faeaf518",
+      "total_lines": 1387,
+      "reviewed_spans": [
+        [
+          1314,
+          1387
+        ]
+      ],
+      "reviewed_lines": 74,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures.lua",
+      "sha256": "8405262179f627cae23abbc212a94b6878a82b7af891dcdb8db87659d1ed569f",
+      "total_lines": 2293,
+      "reviewed_spans": [
+        [
+          154,
+          244
+        ],
+        [
+          516,
+          538
+        ]
+      ],
+      "reviewed_lines": 114,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/shared_info.lua",
+      "sha256": "91cad153766fce68be34ffa423dc5b3621dcaa6aea93175f1ec1e6132f147a62",
+      "total_lines": 6998,
+      "reviewed_spans": [
+        [
+          4,
+          48
+        ],
+        [
+          3814,
+          3828
+        ],
+        [
+          5052,
+          5115
+        ],
+        [
+          5234,
+          5281
+        ],
+        [
+          6290,
+          6340
+        ],
+        [
+          6994,
+          6998
+        ]
+      ],
+      "reviewed_lines": 228,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/scripts/generators/creatures/rcp.lua",
+      "sha256": "b05a05ff18714e69ae363372377ef1283843dd174bd0b3eae7575ac10f20988d",
+      "total_lines": 3024,
+      "reviewed_spans": [
+        [
+          173,
+          290
+        ]
+      ],
+      "reviewed_lines": 118,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_entities/objects/entity_default.txt",
+      "sha256": "f0860b3cc705bc91719b751a2f8e35e149373108a29628176b775d4491d92a42",
+      "total_lines": 2238,
+      "reviewed_spans": [
+        [
+          128,
+          174
+        ],
+        [
+          205,
+          296
+        ],
+        [
+          369,
+          463
+        ],
+        [
+          595,
+          698
+        ],
+        [
+          1050,
+          1135
+        ]
+      ],
+      "reviewed_lines": 424,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_other.txt",
+      "sha256": "3366a590c2ceeb28071849c5b27ac782cd14e5cf452be0af6c9cd28c42cba325",
+      "total_lines": 564,
+      "reviewed_spans": [
+        [
+          1,
+          91
+        ],
+        [
+          138,
+          170
+        ],
+        [
+          265,
+          317
+        ],
+        [
+          333,
+          438
+        ]
+      ],
+      "reviewed_lines": 283,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_reactions/objects/reaction_smelter.txt",
+      "sha256": "44e741a28878a9ce11af484b484680ed680b0649d9b389c63d7da1670c55e6bd",
+      "total_lines": 214,
+      "reviewed_spans": [
+        [
+          1,
+          60
+        ],
+        [
+          139,
+          158
+        ]
+      ],
+      "reviewed_lines": 80,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_plants/objects/plant_standard.txt",
+      "sha256": "a37db5f3070d7f2f192a8a29c303a18f90c68f416e134518d60e0aa7a4d40cdd",
+      "total_lines": 2623,
+      "reviewed_spans": [
+        [
+          5,
+          111
+        ]
+      ],
+      "reviewed_lines": 107,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_materials/objects/inorganic_metal.txt",
+      "sha256": "2f5dd0a0c2d342e2a4fd27406970c5ed34712a9bdd916b603e6415c42ed2bf48",
+      "total_lines": 1041,
+      "reviewed_spans": [
+        [
+          1,
+          135
+        ]
+      ],
+      "reviewed_lines": 135,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_items/objects/item_weapon.txt",
+      "sha256": "72e874e59ea0634f60c30c3514cbe0d08fa34943376ab8de3c3aac7764d6735c",
+      "total_lines": 348,
+      "reviewed_spans": [
+        [
+          1,
+          86
+        ]
+      ],
+      "reviewed_lines": 86,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_creatures/objects/creature_standard.txt",
+      "sha256": "b34c86c1124b767943541eddbcdd3fc091a29fca41f48502d1862924ddf96509",
+      "total_lines": 5732,
+      "reviewed_spans": [
+        [
+          5,
+          129
+        ],
+        [
+          202,
+          311
+        ]
+      ],
+      "reviewed_lines": 235,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_bodies/objects/tissue_template_default.txt",
+      "sha256": "911ee0676078fa3811397e84e323c0e968524408a1a900b0ac04dd38860f6ea8",
+      "total_lines": 413,
+      "reviewed_spans": [
+        [
+          1,
+          140
+        ]
+      ],
+      "reviewed_lines": 140,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_buildings/objects/building_custom.txt",
+      "sha256": "21f6f4f24c6ae669f40c16b9bf5b391d6f0594b7f4c30d7b3a5fddbd1e8be342",
+      "total_lines": 56,
+      "reviewed_spans": [
+        [
+          1,
+          56
+        ]
+      ],
+      "reviewed_lines": 56,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "readme.txt",
+      "sha256": "ea59b8cd197014c42fd2f7b69f0122fc09769226d9590e9e05b19a9e30c85171",
+      "total_lines": 129,
+      "reviewed_spans": [
+        [
+          1,
+          128
+        ]
+      ],
+      "reviewed_lines": 128,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "release notes.txt",
+      "sha256": "0c941415405da7d0ae6623f52a3453dd1437eb7c521c44b4b2b9b6fa45f5cfec",
+      "total_lines": 4159,
+      "reviewed_spans": [
+        [
+          1,
+          90
+        ]
+      ],
+      "reviewed_lines": 90,
+      "coverage": "selected-semantic-spans",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/examples and notes/gaits.txt",
+      "sha256": "40c251d344487fed35c2e3e6a1caf0a14f7ee39c00bb337c55a08c3e598d1154",
+      "total_lines": 89,
+      "reviewed_spans": [
+        [
+          1,
+          89
+        ]
+      ],
+      "reviewed_lines": 89,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_procedural/info.txt",
+      "sha256": "21323121fd778e39882b46327f517c08e4ec5c28113d46b59617d08daed38f8b",
+      "total_lines": 8,
+      "reviewed_spans": [
+        [
+          1,
+          8
+        ]
+      ],
+      "reviewed_lines": 8,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    },
+    {
+      "file": "data/vanilla/vanilla_entities/info.txt",
+      "sha256": "b6de84cad5d4ca66cf7cbf01c4c404b9042f01f60145be2dadb6c8c223e4731c",
+      "total_lines": 8,
+      "reviewed_spans": [
+        [
+          1,
+          8
+        ]
+      ],
+      "reviewed_lines": 8,
+      "coverage": "full-file-read",
+      "interpretation": "Declarative generated rules are distinguished from native execution; source locators below are the evidence."
+    }
+  ],
+  "counts": {
+    "findings": 33,
+    "paths": 17,
+    "files_with_semantic_spans": 29,
+    "reviewed_lines_union": 4951,
+    "shipped_lua_files": 19,
+    "shipped_txt_files": 374,
+    "total_retained_files": 2749
+  },
+  "unread_or_unrecovered": {
+    "native": "Core actor AI/labor scheduling/combat/collision/economy/pathfinding/world history/save transaction implementation unrecovered.",
+    "lua": "Most ~7000-line shared_info, ~3000-line rcp, deity materials, mythical powers, complete generated entities/items and all combinations remain unread; selected entry joins only.",
+    "raws": "Most creature/plant/civilization/material/item/reaction catalogs, languages, text/art and graphics unread.",
+    "assets": "Retained only; no visual/music/media inspection.",
+    "runtime": "No game launch, world generation, mod activation, private save access, gameplay or save/reload verification."
+  },
+  "deferred_checks": [
+    "YAIR unit/browser/gameplay/save/reload/import/failure/regression/keyboard/director",
+    "DF native/runtime behavior, source syntax and dormant-path reachability"
+  ],
+  "writers": [
+    {
+      "role": "/root/dwarf_fortress_gm",
+      "scope": [
+        "docs/research/dwarf-fortress/",
+        "/Users/weiwei/.codex/research/dwarf-fortress/"
+      ],
+      "children": [],
+      "release": "after final artifact validation"
+    }
+  ]
+}

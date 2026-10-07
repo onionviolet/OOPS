@@ -1,0 +1,1749 @@
+{
+  "schema": "integration-implementation-dag-1",
+  "date": "2026-10-04",
+  "captured_at": "2026-10-04T21:33:49.942298-04:00",
+  "role": "Integration and implementation strategy GM",
+  "thread_id": "01a109a1-7ea4-7623-a7f9-2cc339cc594d",
+  "parent_thread_id": "01a10933-feaf-7503-878e-49a6d5ad113f",
+  "status": "checked-planning-delivery; runtime held",
+  "base": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "dirty": true
+  },
+  "authority": {
+    "own_writes": "docs/gm/world-implementation/second-pass/integration/ reports/checkpoint only",
+    "canonical_owner": "Assigning master 01a10933-feaf-7503-878e-49a6d5ad113f; Weibao selects scope",
+    "runtime_writer": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+    "children": [],
+    "owned_pending_sessions": [],
+    "no_runtime_execution": true,
+    "no_external_messages_or_chat_creation": true
+  },
+  "input_hashes": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+    "docs/ENGINE_AUTHORING.md": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/PLAYTEST.md": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+    "docs/gm/world-implementation/ABILITY_ASSIGNMENT.md": "e9157fb5e05a1cdaf9bda1308ff22a9c8750cbf134100a6cc7eddebc31686e58",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f",
+    "docs/gm/world-implementation/RUN.json": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae",
+    "docs/gm/world-implementation/abilities/CHECKPOINT.md": "22ffafcfdfba5ee4f8975bbacb256ec9efe3f668bde354d799cbedc897af97f2",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+    "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md": "e7d7bff10b7958d9809ec7b508d8780fa4f976486e78a44fe0422f46916630b9",
+    "docs/gm/world-implementation/second-pass/authoring/DEPENDENCIES.md": "c3cb93c7edead8d1457821e76dff6f494fa773de366fbc62850e168d17900336",
+    "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json": "4abcdfb4e30e01dc64e42c01cadb37b34b47589f77b534a3d6a853b628162635",
+    "docs/gm/world-implementation/second-pass/authoring/REPORT.md": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+    "docs/gm/world-implementation/second-pass/bases/CHECKPOINT.md": "2d6e88a8971e8a5a356c60967c949046806e1fad08495b9c86697a559733c418",
+    "docs/gm/world-implementation/second-pass/bases/DEPENDENCIES.md": "816e207815933774b1889742dcc202fc8e1413a013bd8dc349aacc37d9f0bf8a",
+    "docs/gm/world-implementation/second-pass/bases/FINDINGS.json": "f9119d4a9f45e515829d1e662d42eda1cd0ceefcc3c2b4066170d46c06d5a2d6",
+    "docs/gm/world-implementation/second-pass/bases/REPORT.md": "f7aa59fae7de59271726cd6b068909953d12faafa8aa8df6dcc6708c8dda9e55",
+    "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md": "fa3297c7fe67bb06ebe62c0a04c9098173af206e1c2d28d0ab3ff627b68068bb",
+    "docs/gm/world-implementation/second-pass/combat/DEPENDENCIES.md": "f3f612644afbfd12650287656b8e14ab0943cc3ef91995b98e0237a4ed38eae2",
+    "docs/gm/world-implementation/second-pass/combat/FINDINGS.json": "479faa686e1bba76d76c29324da6ef35d2111b3301638fe6ffa49573b715738f",
+    "docs/gm/world-implementation/second-pass/combat/REPORT.md": "1023e337cfba0cc09a1cfb53f61f67c5d59e265ba21aae8eca4304293ebb7b7a",
+    "docs/gm/world-implementation/second-pass/experience/CHECKPOINT.md": "a16f6437498d8dbd5756e458b6b91f2d0f749b4c01f0a48c44e2e36b3fc140f6",
+    "docs/gm/world-implementation/second-pass/experience/DEPENDENCIES.md": "09cc4fda6bf481fa995a193ccd3279713a81724ef6c874acaa97d34187e14440",
+    "docs/gm/world-implementation/second-pass/experience/FINDINGS.json": "a977366ef4535f0d739632adef52480c81c679e246197afc4f9cb8b064d340b3",
+    "docs/gm/world-implementation/second-pass/experience/REPORT.md": "a4856af2334c9c770e4b712e0cc468cc3ba4bd35d4a80d86ae9b4c58857643a3",
+    "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md": "8abcad32e9e4282456f3edaffe25998f2b0e3e79b3debd77f2fd6a962470ee48",
+    "docs/gm/world-implementation/second-pass/foundations/DEPENDENCIES.md": "2e29f476304e08dd102273e7a87ba38f93db529ef7ff39a7160b58816942a60f",
+    "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json": "9541a5cc366b66844786389bc7581c09ef0eb79217cd3d5a6d05d7c4e679cf99",
+    "docs/gm/world-implementation/second-pass/foundations/REPORT.md": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+    "docs/gm/world-implementation/second-pass/integration/ASSIGNMENT.md": "cc073c364e3ee26c26d660f258831dd6df2721ae6e8b30c804cf713271cf52b7",
+    "docs/gm/world-implementation/second-pass/integration/INPUT_SNAPSHOT.json": "6b1adc13f640b8f305f8f305c529b8a58d54da5a4b81285cb0f469ab039bc549",
+    "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md": "aa4fcef08e258a6ad839743baa7de7d5a7b68f26ec20e993f9f0ef77c9d5b356",
+    "docs/gm/world-implementation/second-pass/items/DEPENDENCIES.md": "d869107701bf59e3e250412091a85984cc6772af993e0b506568dcfb9ea93d27",
+    "docs/gm/world-implementation/second-pass/items/FINDINGS.json": "d78fefc7ee98a89b0b4daf28e9010be0f6c94eb14c6f2a5497a8a8b9a9f92c48",
+    "docs/gm/world-implementation/second-pass/items/REPORT.md": "b6e50370bc6160c52a01e6f39f98fe064c13846e9a4a19bd3fa18af98e3ea261",
+    "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md": "eb42d3bbc62462834bfe33a9a06fe625bd51da04ef2aac4850aa14c48082c02e",
+    "docs/gm/world-implementation/second-pass/powers/DEPENDENCIES.md": "21d323c750c9896b2c02d213af7801a5d0520aa37436c5c5f4c0635323f86362",
+    "docs/gm/world-implementation/second-pass/powers/FINDINGS.json": "6f6cd09d5bc7785ed36d4f36b0f3b59dd1036eadc0317b4bed5039c8a98bef3b",
+    "docs/gm/world-implementation/second-pass/powers/REPORT.md": "db2468cc839d89ff9d926903019822f5606798474271dd674aa0baf0538e8452",
+    "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md": "1283c37e76520a634cad900832d0e661d628c6a0bee8c9d96ba98d823bc69515",
+    "docs/gm/world-implementation/second-pass/regions/DEPENDENCIES.md": "569fc8f6ff2185a605ee8d0f24c1a6854d036506742d58a89c02e06be2c34bf1",
+    "docs/gm/world-implementation/second-pass/regions/FINDINGS.json": "02a0711f3ac472506564b6a5610d9ac93e65583b201d340ce9a7b57204dc8204",
+    "docs/gm/world-implementation/second-pass/regions/REPORT.md": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/CHECKPOINT.md": "f5d6b768e424f4f94b269a7f87b386a9ebeea9ee52a5f054c8ea8ed373208e71",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/DEPENDENCIES.md": "f771f2dc22101cbcb4bb8a88bf91821b6b8c5f08ed122bf26a908eb57ba45e12",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/FINDINGS.json": "8fc832b133414abda1b9b82a45619216ece56f0f65069a6a044c01e06c6d441c",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md": "5bf57c437a0e2d9448c6aabb6a60359fa3f8aa796f80e0b7ca7b8b78c72de561",
+    "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md": "bad0ac5579708412952d16cfb5390f7edf8aeef4e6c378e9c671dda3640a0d7d",
+    "docs/gm/world-implementation/second-pass/society/DEPENDENCIES.md": "cd3ae313dbbd875fbab7056d886c7d68d384fef9b136d9e22fcdff07590f339a",
+    "docs/gm/world-implementation/second-pass/society/FINDINGS.json": "08c24dc5872d09043e7f14ec335e1a64156b9db6f78c83494b24ab52693d9be2",
+    "docs/gm/world-implementation/second-pass/society/REPORT.md": "2b1ced084e8d3a80294d7a14b44419678f2995c85a5986ee7ab338ac41a3c44d",
+    "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md": "9176a3926f7fb81f40962f8fb08aafcb4e18a11a3f35b199a39e084bcfb966fb",
+    "docs/gm/world-implementation/second-pass/timelines/DEPENDENCIES.md": "e3381379a5fe3fdc56e00fd66a69f2122612b3c31a4b7d54d240de37e046713e",
+    "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json": "c31c55659c680b5ddc8ccd7d5fa37eaca480c0b0292b641b18cea5ebc82dc471",
+    "docs/gm/world-implementation/second-pass/timelines/REPORT.md": "5055caf2dc63c0fc6e2a16a7b9d4efd1a816b9ad067f644de6e950dad6af5631",
+    "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md": "0ce440674f0e185accf958f7fbacca3de84d80fbff22c2ca335e1abe30a03643",
+    "docs/gm/world-implementation/second-pass/token-efficiency/DEPENDENCIES.md": "ac4b6f0e8e781e150cddfd2bd3bb7241ac8f5b574df2e3fd237bc5ee50874323",
+    "docs/gm/world-implementation/second-pass/token-efficiency/FINDINGS.json": "bdf5805e175035fe7e2f6f14d14d9e8b637ca79a5b69ad2e30d1fcaf0c52eb33",
+    "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md": "d149cd4a53b1c9ae79096447f424d862c1030ec7929da4726007f09e060d77fa",
+    "docs/research/novels/full-book/mother-of-learning/COVERAGE.md": "0a9d59cfaf9abe303a8cf56f6924bb6f50f353c7748bfdd0afa368dd411828c9",
+    "docs/research/novels/full-book/mother-of-learning/POWERS.md": "3fd7d9f8f41fe00c361e11632843643c620a5cef2d65c1bef9b1fdfeff4b7a79",
+    "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md": "6baaa4dcb7d3db962e235a413411a837624d6142c8f6ae3462518790623a8ce6",
+    "docs/research/novels/full-book/mother-of-learning/readers/006-020_NOTES.md": "4648f23197ec633a99452bb51a265e82cfcd9b3f7ae7a9a54d7b8b7db6b6d77a",
+    "docs/worlds/original-frontier/REPORT.md": "1f7a4fb09bb4c4e14104fef8c1efe734dd66c35a9bfaab110906f2ad1405fd72",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/expedition_content.js": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/original_frontier_campaign_content.js": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/site_projects.js": "1d9924c1e8dcd349d1ef8ec31b4d9c83f6b315847dc5d41c860815c534be5479",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+  },
+  "initial_snapshot_comparison": {
+    "docs/gm/world-implementation/second-pass/integration/ASSIGNMENT.md": "match",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "drift",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "match",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "match",
+    "docs/worlds/original-frontier/REPORT.md": "match",
+    "docs/ENGINE_AUTHORING.md": "match",
+    "src/expansion_engine.js": "match",
+    "src/expansion_persistence.js": "match",
+    "src/site_projects.js": "match"
+  },
+  "peer_inputs": {
+    "foundations": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/foundations/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/foundations/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "authoring": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/authoring/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/authoring/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "runtime-efficiency": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/runtime-efficiency/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/runtime-efficiency/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "token-efficiency": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/token-efficiency/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/token-efficiency/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority",
+      "completion_qualification": "Checked planning self-delivery; pending master/director review is distinct from unfinished document checks."
+    },
+    "regions": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/regions/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/regions/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "items": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/items/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/items/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "powers": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/powers/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/powers/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "combat": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/combat/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/combat/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "society": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/society/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "bases": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/bases/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/bases/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    },
+    "timelines": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/timelines/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/timelines/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority",
+      "completion_qualification": "Checked planning self-delivery; pending master/director review is distinct from unfinished document checks."
+    },
+    "experience": {
+      "status": "completed-checked-planning",
+      "report": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+      "findings": "docs/gm/world-implementation/second-pass/experience/FINDINGS.json",
+      "checkpoint": "docs/gm/world-implementation/second-pass/experience/CHECKPOINT.md",
+      "consumed": "selected planning evidence, not accepted runtime authority"
+    }
+  },
+  "evidence": {
+    "PLAN": {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "start_line": 1,
+      "end_line": 23,
+      "kind": "held plan",
+      "claim_ids": []
+    },
+    "HOLD": {
+      "path": "PROJECT.md",
+      "start_line": 5,
+      "end_line": 27,
+      "kind": "current owner",
+      "claim_ids": []
+    },
+    "SHORT": {
+      "path": "docs/worlds/original-frontier/REPORT.md",
+      "start_line": 1,
+      "end_line": 34,
+      "kind": "held content and historical static receipt",
+      "claim_ids": []
+    },
+    "TRAVEL": {
+      "path": "src/original_frontier_campaign_content.js",
+      "start_line": 99,
+      "end_line": 110,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "LOT": {
+      "path": "src/original_frontier_campaign_content.js",
+      "start_line": 140,
+      "end_line": 154,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "ENROLL": {
+      "path": "src/simulation.js",
+      "start_line": 16,
+      "end_line": 38,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "COMMAND": {
+      "path": "src/simulation.js",
+      "start_line": 49,
+      "end_line": 89,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "SETTLE": {
+      "path": "src/simulation.js",
+      "start_line": 156,
+      "end_line": 187,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "STOCK": {
+      "path": "src/simulation_effects.js",
+      "start_line": 12,
+      "end_line": 18,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "CONDITION": {
+      "path": "src/simulation_effects.js",
+      "start_line": 189,
+      "end_line": 203,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "ENERGY": {
+      "path": "src/energy_resources.js",
+      "start_line": 10,
+      "end_line": 53,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "PUBLISH": {
+      "path": "src/expansion_persistence.js",
+      "start_line": 5,
+      "end_line": 50,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "NATIVE": {
+      "path": "src/gameplay_publication.js",
+      "start_line": 15,
+      "end_line": 62,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "MAIN": {
+      "path": "src/main.js",
+      "start_line": 305,
+      "end_line": 337,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "FACT": {
+      "path": "src/realm_state.js",
+      "start_line": 50,
+      "end_line": 70,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "INSTANCE": {
+      "path": "src/world_instances.js",
+      "start_line": 271,
+      "end_line": 309,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "CLOCK": {
+      "path": "src/world_instances.js",
+      "start_line": 310,
+      "end_line": 364,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "PROJECT": {
+      "path": "src/site_projects.js",
+      "start_line": 4,
+      "end_line": 31,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "MOL": {
+      "path": "docs/research/novels/full-book/mother-of-learning/POWERS.md",
+      "start_line": 1,
+      "end_line": 30,
+      "kind": "reviewed supplied-edition dossier",
+      "claim_ids": [
+        "MOL-C001-07",
+        "MOL-C001-08",
+        "MOL-C002-05",
+        "MOL-C002-06",
+        "MOL-C002-07"
+      ]
+    },
+    "MOL_NOTES": {
+      "path": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+      "start_line": 41,
+      "end_line": 44,
+      "kind": "reviewed analytical notes",
+      "claim_ids": [
+        "MOL-C002-05",
+        "MOL-C002-06",
+        "MOL-C002-07"
+      ]
+    },
+    "MOL_COVER": {
+      "path": "docs/research/novels/full-book/mother-of-learning/COVERAGE.md",
+      "start_line": 1,
+      "end_line": 20,
+      "kind": "source coverage receipt",
+      "claim_ids": []
+    },
+    "MACRO": {
+      "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+      "start_line": 1,
+      "end_line": 38,
+      "kind": "completed planning",
+      "claim_ids": []
+    },
+    "MICRO": {
+      "path": "docs/gm/world-implementation/depth/micro/REPORT.md",
+      "start_line": 1,
+      "end_line": 48,
+      "kind": "completed planning",
+      "claim_ids": []
+    },
+    "EF": {
+      "path": "docs/gm/world-implementation/second-pass/foundations/REPORT.md",
+      "start_line": 1,
+      "end_line": 13,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "AUTH": {
+      "path": "docs/gm/world-implementation/second-pass/authoring/REPORT.md",
+      "start_line": 1,
+      "end_line": 15,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "RTE": {
+      "path": "docs/gm/world-implementation/second-pass/runtime-efficiency/REPORT.md",
+      "start_line": 1,
+      "end_line": 15,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "TF": {
+      "path": "docs/gm/world-implementation/second-pass/token-efficiency/REPORT.md",
+      "start_line": 1,
+      "end_line": 15,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "REG": {
+      "path": "docs/gm/world-implementation/second-pass/regions/REPORT.md",
+      "start_line": 1,
+      "end_line": 16,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "IT": {
+      "path": "docs/gm/world-implementation/second-pass/items/REPORT.md",
+      "start_line": 1,
+      "end_line": 21,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "POW": {
+      "path": "docs/gm/world-implementation/second-pass/powers/REPORT.md",
+      "start_line": 1,
+      "end_line": 15,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "CB": {
+      "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+      "start_line": 1,
+      "end_line": 18,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "SOC": {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "start_line": 1,
+      "end_line": 17,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "BAS": {
+      "path": "docs/gm/world-implementation/second-pass/bases/REPORT.md",
+      "start_line": 1,
+      "end_line": 17,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "TL": {
+      "path": "docs/gm/world-implementation/second-pass/timelines/REPORT.md",
+      "start_line": 1,
+      "end_line": 17,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "EX": {
+      "path": "docs/gm/world-implementation/second-pass/experience/REPORT.md",
+      "start_line": 1,
+      "end_line": 15,
+      "kind": "peer planning; delivery state in metadata",
+      "claim_ids": []
+    },
+    "COMPOSE": {
+      "path": "src/simulation.js",
+      "start_line": 15,
+      "end_line": 38,
+      "kind": "static source",
+      "claim_ids": []
+    },
+    "NATIVE_WRITE": {
+      "path": "src/main.js",
+      "start_line": 291,
+      "end_line": 363,
+      "kind": "static source",
+      "claim_ids": []
+    }
+  },
+  "nodes": [
+    {
+      "id": "R00",
+      "title": "Review pair and required milestone IDs",
+      "requirement": "required-before-runtime",
+      "status": "awaiting-human-review",
+      "current_support": "Planning authorized; inspected RUN says Engine/Ability/Original held-confirmed.",
+      "owner": "Assigning master 01a10933-feaf-7503-878e-49a6d5ad113f; Weibao selects scope",
+      "proposed_file_scope": [
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/CHECKPOINT.md"
+      ],
+      "depends_on": [],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Reviewed pair/source/era/clock/failure/compatibility",
+        "output": "Accepted decisions and exact reservations"
+      },
+      "observable_effect_and_consumer": "Authorizes concrete selected work",
+      "compatibility_decision": "No runtime/schema decision made here",
+      "source_rule_evidence": [
+        "PLAN",
+        "HOLD"
+      ],
+      "positive_case": "Recorded human acceptance selects routes",
+      "adverse_case": "Draft or creation receipt cannot release hold",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "R01",
+      "title": "Freeze minimal interfaces and native write domains",
+      "requirement": "required-first-pair",
+      "status": "proposed-held",
+      "current_support": "INTERFACE absent at held Engine/Ability boundary; planners/publisher exist.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "docs/gm/world-implementation/INTERFACE.md",
+        "docs/gm/world-implementation/engine/"
+      ],
+      "depends_on": [
+        "R00"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Current exports, selected consumers, native owner domains",
+        "output": "Activation/endpoint/guard/plan/UI/revision contract and legal example; compose staged owner/context inputs and sequence, retain original gameplayBefore, append acquisitions/unlocks, resolve each native domain once"
+      },
+      "observable_effect_and_consumer": "Unblocks dependent callers",
+      "compatibility_decision": "Preserve old envelopes; new semantics receive explicit codec/revision policy",
+      "source_rule_evidence": [
+        "EF",
+        "AUTH",
+        "MAIN",
+        "COMPOSE",
+        "NATIVE_WRITE"
+      ],
+      "positive_case": "Enrollment/begin retains complete prepared plan",
+      "adverse_case": "Native patch cannot overwrite another owner's projection",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "R02",
+      "title": "Explicit package activation and inert composition",
+      "requirement": "required-first-pair",
+      "status": "proposed-held",
+      "current_support": "Provision:false gates actors; all registered sites/automatic checks still enroll.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/world_package_host.js",
+        "src/simulation_content.js",
+        "src/expedition_content.js",
+        "src/simulation.js",
+        "src/simulation_contracts.js"
+      ],
+      "depends_on": [
+        "R01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Explicit entry, descriptor closure, sequence and native context",
+        "output": "Prepared activation, no import/render side effects"
+      },
+      "observable_effect_and_consumer": "Unselected package creates no site/actor/check/stock",
+      "compatibility_decision": "Legacy shared enrollment stays explicit; missing package dormant; reuse claim receipt if sufficient",
+      "source_rule_evidence": [
+        "ENROLL",
+        "AUTH"
+      ],
+      "positive_case": "Selected entry initializes once",
+      "adverse_case": "Common enrollment/render cannot activate destination",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "R03",
+      "title": "Actual destination instance/clock/native entry and return",
+      "requirement": "required-source-route",
+      "status": "proposed-held",
+      "current_support": "Detached instance/visit/clock planners exist; pocket native routing is one-instance-specific.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/world_instance_bindings.js",
+        "src/realm_state.js",
+        "src/main.js",
+        "src/save_files.js",
+        "src/expansion_persistence.js"
+      ],
+      "depends_on": [
+        "R01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Actual endpoint/body/cargo/location, definition, clock/absence/return",
+        "output": "Resolved owner/fact/native location and one visit/departure plan"
+      },
+      "observable_effect_and_consumer": "Same research instance retained on native revisit",
+      "compatibility_decision": "Preserve realmPrototype2 meaning; optional versioned generic destination record only on entry, exact codec frozen first",
+      "source_rule_evidence": [
+        "INSTANCE",
+        "CLOCK",
+        "FACT",
+        "EF"
+      ],
+      "positive_case": "Retain actual stock/people/history",
+      "adverse_case": "Same label in another instance cannot expose these owners",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "R04",
+      "title": "Start/settlement physical and source support obligations",
+      "requirement": "required-first-pair",
+      "status": "proposed-held",
+      "current_support": "Costs/participants/site reserved; completeJob applies frozen effects without general support rechecks.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/work_obligations.js",
+        "src/simulation.js",
+        "src/simulation_contracts.js",
+        "src/simulation_effects.js"
+      ],
+      "depends_on": [
+        "R01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Frozen owner/key/count/custody/source/target/endpoint/policy",
+        "output": "Prepared supported settlement or explicit one-time refund"
+      },
+      "observable_effect_and_consumer": "Paid actual inspection/casting rewards only supported work",
+      "compatibility_decision": "Legacy prepaid jobs unchanged; optional guard fields validated under selected compatibility policy",
+      "source_rule_evidence": [
+        "LOT",
+        "STOCK",
+        "SETTLE",
+        "EF"
+      ],
+      "positive_case": "Logs remain with employer; actual caster fuel pays",
+      "adverse_case": "Changed stock/source means no success wage/report",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "C01",
+      "title": "Repair Short Measure and local requirement cards",
+      "requirement": "required-first-route",
+      "status": "proposed-held",
+      "current_support": "Detached 26-command draft and historical syntax/import/registry receipt; native integration absent.",
+      "owner": "Existing Original 01a10945-010b-7a91-844a-d6d3024c6f35",
+      "proposed_file_scope": [
+        "src/original_frontier_campaign_content.js",
+        "docs/worlds/original-frontier/"
+      ],
+      "depends_on": [
+        "R01",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Frozen guard/access contract, directed travel data/modifier policy",
+        "output": "Existing exports with repaired routes/stock obligations and coverage"
+      },
+      "observable_effect_and_consumer": "Conserved audit/underwrite/refusal shipment, teaching/work",
+      "compatibility_decision": "Retain IDs/commitment meanings or obtain explicit revision review",
+      "source_rule_evidence": [
+        "SHORT",
+        "TRAVEL",
+        "LOT"
+      ],
+      "positive_case": "Audit ships two; one-log underwriting ships three; reserve one",
+      "adverse_case": "No 4/4/1 walking shortcut or invented stock",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "I01",
+      "title": "Connect Frontier native sources and Here/Quests",
+      "requirement": "required-first-route",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/simulation_content.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/local_world_ui.js",
+        "src/adventure_notebook.js",
+        "src/simulation_ui.js"
+      ],
+      "depends_on": [
+        "R02",
+        "R04",
+        "C01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Reviewed definitions/sources/views, real Town access",
+        "output": "Registered native dispatch and complete activation/save plan"
+      },
+      "observable_effect_and_consumer": "Open/choose/learn/work/revisit through actual native controls",
+      "compatibility_decision": "Absent episode creates nothing; new registered IDs needed for new saves",
+      "source_rule_evidence": [
+        "SHORT",
+        "ENROLL",
+        "MAIN",
+        "AUTH",
+        "EX"
+      ],
+      "positive_case": "Known/accepted work appears at real Village/Town",
+      "adverse_case": "No duplicate generic rows or lost staged acquisitions",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "Q01",
+      "title": "First connected source/static/build closure",
+      "requirement": "required-before-repetition",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/engine/",
+        "dist/bundle.js",
+        "dist/bundle.js.map"
+      ],
+      "depends_on": [
+        "I01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Changed source and native/effect/consumer map",
+        "output": "Current static/build receipt; implemented-unverified"
+      },
+      "observable_effect_and_consumer": "Reviewable connected native build",
+      "compatibility_decision": "Static checks do not approve behavior/migration",
+      "source_rule_evidence": [
+        "SHORT",
+        "HOLD",
+        "AUTH"
+      ],
+      "positive_case": "Actual selected outputs and dispatch link",
+      "adverse_case": "Prebuilt bundle/detached import not gameplay proof",
+      "checks": {
+        "performed_here": "Document inspection only; no build run",
+        "later": "Approved syntax/import/link/build; behavior V01 deferred. Stop repeating passed static checks without new failure."
+      }
+    },
+    {
+      "id": "S01",
+      "title": "MoL source/era/actor/rule cards",
+      "requirement": "required-source-route",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "One MoL local world writer assigned after review",
+      "proposed_file_scope": [
+        "docs/worlds/mother-of-learning/"
+      ],
+      "depends_on": [
+        "R00"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Completed supplied-edition claims and chosen O workshop branch",
+        "output": "Claim map and eligible resident/visitor context"
+      },
+      "observable_effect_and_consumer": "Source/fuel/control honestly assigned to actual caster",
+      "compatibility_decision": "Source correction maps impact; no automatic save/canon repair",
+      "source_rule_evidence": [
+        "MOL",
+        "MOL_NOTES",
+        "MOL_COVER",
+        "TF"
+      ],
+      "positive_case": "Resident source/control separate from visitor knowledge",
+      "adverse_case": "Travel/reading grants no innate mana/protagonist privileges",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F01",
+      "title": "Light target/inspection and structure-specific counter",
+      "requirement": "required-source-route",
+      "status": "proposed-held",
+      "current_support": "Timed conditions and per-actor energy exist; native target/function consumer missing.",
+      "owner": "Existing Ability 01a104a2-fabf-7bf1-a95f-1e93353b9196",
+      "proposed_file_scope": [
+        "src/world_ability_runtime.js",
+        "docs/gm/world-implementation/abilities/"
+      ],
+      "depends_on": [
+        "R01",
+        "R03",
+        "R04",
+        "S01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Actual source/fuel/control, fixed bench/endpoint/clock",
+        "output": "Pure selected rule plan over energy/condition/effect owners"
+      },
+      "observable_effect_and_consumer": "Light enables inspection; dispel removes construct only",
+      "compatibility_decision": "Prefer current timed condition with explicit fixed target; if inadequate return minimal record/codec seam",
+      "source_rule_evidence": [
+        "MOL",
+        "MOL_NOTES",
+        "ENERGY",
+        "CONDITION",
+        "POW"
+      ],
+      "positive_case": "Funded caster creates useful light; supported counter removes it",
+      "adverse_case": "No source/fuel/target rejects; ordinary physical burn persists",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "C02",
+      "title": "Cooperative magical and ordinary research content",
+      "requirement": "required-source-route",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "One MoL local world writer assigned after review",
+      "proposed_file_scope": [
+        "src/world_content/mother_of_learning_research.js",
+        "src/world_packages/mother_of_learning.js",
+        "docs/worlds/mother-of-learning/"
+      ],
+      "depends_on": [
+        "R01",
+        "S01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Frozen package/endpoint/guard contract and required rule capability",
+        "output": "Inert definitions/sources/views, activation closure and two approaches"
+      },
+      "observable_effect_and_consumer": "Ordinary stock/work funds useful research and later teaching",
+      "compatibility_decision": "Explicit local issuer/barter and absence/departure; no native mage origin/reset",
+      "source_rule_evidence": [
+        "MOL",
+        "MOL_NOTES",
+        "AUTH",
+        "SOC",
+        "BAS"
+      ],
+      "positive_case": "Illumination vs daylight handling have distinct costs/access",
+      "adverse_case": "Unaccepted service gives no debt/reward; no visitor self-cast",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "I02",
+      "title": "Native research visit and meaningful return",
+      "requirement": "required-source-route",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/simulation_content.js",
+        "src/expedition_content.js",
+        "src/main.js",
+        "src/local_world_ui.js",
+        "src/realm_state.js",
+        "src/world_package_host.js",
+        "src/world_instance_bindings.js"
+      ],
+      "depends_on": [
+        "R02",
+        "R03",
+        "R04",
+        "F01",
+        "C02",
+        "Q01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Reviewed descriptor/rule and first actual interface review",
+        "output": "Registered commands/effects/UI/visit and complete save plan"
+      },
+      "observable_effect_and_consumer": "Enter/commission/use/disclose/exit/revisit actual resident",
+      "compatibility_decision": "Current player body/bag retained; alternate origin/power export unsupported",
+      "source_rule_evidence": [
+        "AUTH",
+        "EF",
+        "NATIVE",
+        "PUBLISH",
+        "EX"
+      ],
+      "positive_case": "Mana/stock/payment/history publish together",
+      "adverse_case": "No duplicated initialization or catalogue-as-gameplay claim",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "Q02",
+      "title": "Pair closure and current combined build",
+      "requirement": "required-before-content-waves",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/engine/",
+        "dist/bundle.js",
+        "dist/bundle.js.map"
+      ],
+      "depends_on": [
+        "Q01",
+        "I02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Combined changed code and independent state/native/source/UI map",
+        "output": "Static/build receipt and deferred acceptance backlog"
+      },
+      "observable_effect_and_consumer": "Repeatable connected-build recipe",
+      "compatibility_decision": "New gameplay remains implemented-unverified",
+      "source_rule_evidence": [
+        "AUTH",
+        "HOLD"
+      ],
+      "positive_case": "Every selected effect has real owner/caller",
+      "adverse_case": "Metadata/import success is insufficient",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "V01",
+      "title": "Deferred current native/save/failure acceptance",
+      "requirement": "required-before-behavioral-qualification",
+      "status": "deferred-by-current-test-policy",
+      "current_support": "Historical fixtures/tests do not qualify changed first-pair code.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396; Weibao accepts fiction/game feel",
+      "proposed_file_scope": [
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/engine/"
+      ],
+      "depends_on": [
+        "Q01",
+        "Q02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Current build, disposable generated states; deferral lifted",
+        "output": "Actual journey/stock/support/failure/keyboard/return evidence"
+      },
+      "observable_effect_and_consumer": "Confirms selected behavior on changed code",
+      "compatibility_decision": "Old/new/mid-job optional records exercised; private saves untouched",
+      "source_rule_evidence": [
+        "SHORT",
+        "HOLD",
+        "MICRO",
+        "EX"
+      ],
+      "positive_case": "Both approaches and revisits settle once",
+      "adverse_case": "Failed storage/stale/support loss publish no partial state",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "C03",
+      "title": "Connected campaign depth and mature useful return",
+      "requirement": "required-selected-campaign-coverage",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Original 01a10945-010b-7a91-844a-d6d3024c6f35 for Frontier; One MoL local world writer assigned after review for MoL",
+      "proposed_file_scope": [
+        "docs/worlds/original-frontier/",
+        "src/original_frontier_campaign_content.js",
+        "docs/worlds/mother-of-learning/",
+        "src/world_content/mother_of_learning_research.js",
+        "src/world_packages/mother_of_learning.js"
+      ],
+      "depends_on": [
+        "Q02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Frozen interfaces and selected required career/arc/function IDs",
+        "output": "Disjoint local content waves and coverage"
+      },
+      "observable_effect_and_consumer": "Ordinary careers, sideways growth, mature outcome, useful home return",
+      "compatibility_decision": "Persistent revisions reviewed; each local writer retains separate files",
+      "source_rule_evidence": [
+        "MACRO",
+        "TL",
+        "BAS",
+        "SOC",
+        "REG"
+      ],
+      "positive_case": "Research changes actual home action; local life remains useful",
+      "adverse_case": "No mandatory rare jackpot/romance/upkeep; missing selected mechanics open",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      },
+      "writer_subscopes": {
+        "Existing Original 01a10945-010b-7a91-844a-d6d3024c6f35": [
+          "docs/worlds/original-frontier/",
+          "src/original_frontier_campaign_content.js"
+        ],
+        "One MoL local world writer assigned after review": [
+          "docs/worlds/mother-of-learning/",
+          "src/world_content/mother_of_learning_research.js",
+          "src/world_packages/mother_of_learning.js"
+        ]
+      }
+    },
+    {
+      "id": "F02",
+      "title": "Demanded physical-property and staged craft adapter",
+      "requirement": "conditional-required:physical-properties",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Items specialist; Engine integrates",
+      "proposed_file_scope": [
+        "src/item_lot_rules.js",
+        "docs/gm/world-implementation/physical-stock/"
+      ],
+      "depends_on": [
+        "R01",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Actual owner/placement/custody, selected properties/recipe",
+        "output": "Conserved pure portions/specimens/craft plan"
+      },
+      "observable_effect_and_consumer": "Properties affect actual native object use",
+      "compatibility_decision": "Engine selects codec/native reconstruction/cargo migration; ordinary logs stay counts",
+      "source_rule_evidence": [
+        "IT",
+        "EF",
+        "MICRO"
+      ],
+      "positive_case": "Owned spare usable beside protected loan; same unit repair/salvage",
+      "adverse_case": "No unique/equipped/borrowed alias duplication",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F03",
+      "title": "Multiworker compiler preservation",
+      "requirement": "conditional-required:cooperative-project",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/site_projects.js",
+        "docs/ENGINE_AUTHORING.md"
+      ],
+      "depends_on": [
+        "R01",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Participants/target/co-location/tool/site and project observation keys",
+        "output": "Normal compiled commands preserving fields or rejecting"
+      },
+      "observable_effect_and_consumer": "Two-worker project occupies actual workers",
+      "compatibility_decision": "Old single-worker workshop/IDs/frozen jobs preserved",
+      "source_rule_evidence": [
+        "PROJECT",
+        "AUTH",
+        "MICRO"
+      ],
+      "positive_case": "Both workers reserved; view local to project",
+      "adverse_case": "Recipient not automatically worker; no field silently dropped",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F04",
+      "title": "Selected maintained source and derived body function",
+      "requirement": "conditional-required:maintained-function",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Bodies specialist; Engine owns native derivation",
+      "proposed_file_scope": [
+        "src/maintained_source_rules.js",
+        "docs/gm/world-implementation/maintained-sources/"
+      ],
+      "depends_on": [
+        "R01",
+        "R03",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Body/anchor/pool, startup/use/upkeep/recovery/capacity/strain/support",
+        "output": "Pure continuation/interruption/contribution plan"
+      },
+      "observable_effect_and_consumer": "Actual maintained source operates/ends precisely",
+      "compatibility_decision": "Lifecycle/revisions and selected contribution codec frozen before saving",
+      "source_rule_evidence": [
+        "POW",
+        "EF",
+        "MICRO"
+      ],
+      "positive_case": "Base training retained; genuine indefinite sustain preserved",
+      "adverse_case": "Support loss ends dependent use; no fuel refill/reacquisition",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F05",
+      "title": "Encounter roster/geometry/escape and aftermath",
+      "requirement": "conditional-required:tactical-encounter",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Combat specialist; Engine integrates battle/pursuit",
+      "proposed_file_scope": [
+        "src/encounter_roster_rules.js",
+        "docs/gm/world-implementation/encounter-roster/"
+      ],
+      "depends_on": [
+        "R01",
+        "R03",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {
+        "rich-ammunition-or-salvage": [
+          "F02"
+        ],
+        "injury-function": [
+          "F04"
+        ],
+        "population-promotion": [
+          "F08"
+        ]
+      },
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Actual roster/means, small positions, detection/reach/objective/clock",
+        "output": "Funded legal action/objective/escape/aftermath plan"
+      },
+      "observable_effect_and_consumer": "Scout/move/guard/escape change encounter",
+      "compatibility_decision": "Keep current contest; selected roster/clock codec reviewed",
+      "source_rule_evidence": [
+        "CB",
+        "MICRO"
+      ],
+      "positive_case": "Strong captain remains strong; ammo/porter real",
+      "adverse_case": "Hidden target not auto-known; withdrawal not physical escape",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F06",
+      "title": "Scoped agreements/rights and reciprocal development",
+      "requirement": "conditional-required:social-institutional-consumer",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "One Bases/People writer; Engine integrates; local GM owns context",
+      "proposed_file_scope": [
+        "src/site_rights_rules.js",
+        "docs/gm/world-implementation/site-rights/"
+      ],
+      "depends_on": [
+        "R01",
+        "R04"
+      ],
+      "optional_depends_on": [
+        "F03"
+      ],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Accepted terms/jurisdiction, adult/observer eligibility, actual availability",
+        "output": "Allowed operation/allocation/reciprocal decision plan"
+      },
+      "observable_effect_and_consumer": "Rental/service/relationships change useful action",
+      "compatibility_decision": "No duplicate people/obligation ledger; selected codec Engine-owned",
+      "source_rule_evidence": [
+        "BAS",
+        "SOC",
+        "TF",
+        "MICRO"
+      ],
+      "positive_case": "Rental allows work not property sale; offered/heard separate",
+      "adverse_case": "Gift/payment/past-life memory not universal consent/knowledge",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F07",
+      "title": "Selected temporal carriers and export conservation",
+      "requirement": "conditional-required:temporal-operation",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Timelines specialist; Engine alone snapshots/save",
+      "proposed_file_scope": [
+        "src/temporal_operation_rules.js",
+        "docs/gm/world-implementation/temporal-operations/"
+      ],
+      "depends_on": [
+        "R01",
+        "R03",
+        "R04"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {
+        "unique-physical-exports": [
+          "F02"
+        ],
+        "retained-body-source-contributions": [
+          "F04"
+        ]
+      },
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "One operation/anchor/counterparts/retained domains/exports/outside work",
+        "output": "Explicit restoration/retention/reconciliation plan"
+      },
+      "observable_effect_and_consumer": "Selected rewind/dilation/start retains distinct function",
+      "compatibility_decision": "Separate reviewed operation payload/recovery; field renewal unchanged",
+      "source_rule_evidence": [
+        "TL",
+        "POW",
+        "MICRO",
+        "MOL"
+      ],
+      "positive_case": "Retained injury/method uses actual carrier",
+      "adverse_case": "Exported object/reward not restored; notes not counterpart memories",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "F08",
+      "title": "Finite harvest/renewal and promoted populations",
+      "requirement": "conditional-required:resource-ecology",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Regions specialist; Engine stock/scheduler join",
+      "proposed_file_scope": [
+        "src/resource_node_rules.js",
+        "docs/gm/world-implementation/resource-nodes/"
+      ],
+      "depends_on": [
+        "R01",
+        "R03",
+        "R04"
+      ],
+      "optional_depends_on": [
+        "F02"
+      ],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Node/producer/quantity/access/tool/clock/collector/promotion",
+        "output": "Conserved harvest/renewal/identity plan"
+      },
+      "observable_effect_and_consumer": "Collection/competition changes later availability",
+      "compatibility_decision": "Selected optional node/clock/promotion codec; no full food web",
+      "source_rule_evidence": [
+        "REG",
+        "IT",
+        "MACRO"
+      ],
+      "positive_case": "Player/collector spend same node; tending preserves producer",
+      "adverse_case": "Exported animal/stock not harvested again; old survey dated",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "T01",
+      "title": "Package manifest and native-consumer preflight",
+      "requirement": "optional-tool; diagnostic closure can initially be manual",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Bounded authoring leaf under Engine",
+      "proposed_file_scope": [
+        "scripts/world_content_preflight.mjs",
+        "src/world_package_contracts.js",
+        "docs/gm/world-implementation/authoring-tools/"
+      ],
+      "depends_on": [
+        "R01",
+        "R02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Selected descriptor, actual capability/item/unlock catalogue/validators",
+        "output": "Diagnostic source-path/activation/dependency/consumer report"
+      },
+      "observable_effect_and_consumer": "Author sees missing consumer or entry leakage",
+      "compatibility_decision": "Author metadata only; no save/source/auto-install writes",
+      "source_rule_evidence": [
+        "AUTH",
+        "TF"
+      ],
+      "positive_case": "Unknown item/source/UI caller fails early",
+      "adverse_case": "Opaque predicates unknown; metadata not gameplay",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "T02",
+      "title": "Safe recipes and world/task scaffolds",
+      "requirement": "optional-authoring-enabler",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Same authoring leaf",
+      "proposed_file_scope": [
+        "scripts/new_world_packet.mjs",
+        "scripts/world_task_packet.mjs",
+        "docs/gm/world-implementation/authoring-tools/"
+      ],
+      "depends_on": [
+        "T01",
+        "Q02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Reviewed connected recipes, capabilities, required IDs, writer map",
+        "output": "Dry-run local scaffold/task packet"
+      },
+      "observable_effect_and_consumer": "Repeat authors need no main/save edits",
+      "compatibility_decision": "Template revision author-only; no automatic registry/save mutation",
+      "source_rule_evidence": [
+        "AUTH",
+        "TF",
+        "SHORT"
+      ],
+      "positive_case": "Names one writer and real consumer",
+      "adverse_case": "Overwrite/contested ownership rejects; no invented source/dispatch",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "T03",
+      "title": "Optional static/local author preview",
+      "requirement": "optional-demand-driven",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Authoring leaf; Engine owns native preview",
+      "proposed_file_scope": [
+        "docs/gm/world-implementation/authoring-tools/"
+      ],
+      "depends_on": [
+        "T01",
+        "T02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Definitions/disclosure-safe views; generated state if authorized",
+        "output": "Static graph/reasons, later approved native preview"
+      },
+      "observable_effect_and_consumer": "Review rule/control flow before repetition",
+      "compatibility_decision": "Actual preview UI source requires separate exact reservation",
+      "source_rule_evidence": [
+        "AUTH",
+        "EX",
+        "TF"
+      ],
+      "positive_case": "Private author truth not player-view data",
+      "adverse_case": "No personal saves/browser claim from static preview",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "P01",
+      "title": "Measured-demand runtime indexes and projections",
+      "requirement": "optional-optimization",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "proposed_file_scope": [
+        "src/simulation.js",
+        "src/main.js",
+        "src/gameplay_publication.js",
+        "docs/gm/world-implementation/engine/",
+        "docs/PLAYTEST.md"
+      ],
+      "depends_on": [
+        "Q02"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {},
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Representative approved workload and owner/read/write revisions",
+        "output": "Initially unsaved exact indexes/order/change sets and qualified measures"
+      },
+      "observable_effect_and_consumer": "Avoid repeat scan/render preserving actual effects",
+      "compatibility_decision": "Derived unsaved state first; backend/worker/schema rewrite awaits evidence",
+      "source_rule_evidence": [
+        "RTE",
+        "EF",
+        "EX"
+      ],
+      "positive_case": "Keep full validators/reward preflight initially",
+      "adverse_case": "No stale quote/RNG/time/observer loss",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "W01",
+      "title": "Repeat package route for selected additional worlds",
+      "requirement": "required-only:selected-additional-worlds",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Assigning master 01a10933-feaf-7503-878e-49a6d5ad113f; Weibao selects scope assigns locals; Existing Engine 01a1056b-d82c-7ef2-babb-d8316c45f396 integrates",
+      "proposed_file_scope": [
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md"
+      ],
+      "depends_on": [
+        "Q02"
+      ],
+      "optional_depends_on": [
+        "T01",
+        "T02"
+      ],
+      "conditional_depends_on": {
+        "physical-property": [
+          "F02"
+        ],
+        "multiworker": [
+          "F03"
+        ],
+        "maintained-source": [
+          "F04"
+        ],
+        "tactical-roster": [
+          "F05"
+        ],
+        "rights-or-reciprocity": [
+          "F06"
+        ],
+        "temporal": [
+          "F07"
+        ],
+        "resource-population": [
+          "F08"
+        ]
+      },
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Selected required capabilities/source cutoff/coverage/owner files",
+        "output": "Disjoint local wave and Engine native receipt"
+      },
+      "observable_effect_and_consumer": "Further destinations gain distinct useful native campaigns",
+      "compatibility_decision": "Per-package revision/missing/alias/migrate/reject policy; actual new files in approved packet",
+      "source_rule_evidence": [
+        "MACRO",
+        "AUTH",
+        "TL",
+        "TF"
+      ],
+      "positive_case": "Gu diets or technology parts/functions stay distinct",
+      "adverse_case": "No all-nineteen/full-book/all-feature launch barrier",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    },
+    {
+      "id": "Z01",
+      "title": "Close selected campaign/mechanic coverage",
+      "requirement": "required-before-milestone-complete",
+      "status": "proposed-held",
+      "current_support": "Named existing source owners/planners are reusable; this new connected implementation is not delivered.",
+      "owner": "Assigning master 01a10933-feaf-7503-878e-49a6d5ad113f; Weibao selects scope; Engine provides current behavior",
+      "proposed_file_scope": [
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/world-implementation/CHECKPOINT.md"
+      ],
+      "depends_on": [
+        "C03",
+        "V01"
+      ],
+      "optional_depends_on": [],
+      "conditional_depends_on": {
+        "selected-additional-worlds": [
+          "W01"
+        ]
+      },
+      "api": {
+        "classification": "proposed boundary; actual existing exports are identified by source evidence and TASK_PACKETS",
+        "input": "Selected required IDs and actual code/state/UI/source/current acceptance",
+        "output": "Accepted milestone coverage; explicit open optional work"
+      },
+      "observable_effect_and_consumer": "Complete reviewed selected campaign/function goal",
+      "compatibility_decision": "Current compatibility behavior before release; private saves untouched",
+      "source_rule_evidence": [
+        "PLAN",
+        "MACRO",
+        "MICRO",
+        "TL"
+      ],
+      "positive_case": "Mature outcome/useful return and all required IDs closed",
+      "adverse_case": "One spell/quest/import cannot qualify entire family",
+      "checks": {
+        "performed_here": "Source/document inspection and own graph/JSON/link/readback checks only; CHECKPOINT records the final receipt.",
+        "later": "Approved source/syntax/import/link/build establishes build readiness only; current native/browser/save/failure and human acceptance remains deferred."
+      }
+    }
+  ],
+  "waves": [
+    {
+      "id": "wave0",
+      "nodes": [
+        "R00",
+        "R01",
+        "S01"
+      ]
+    },
+    {
+      "id": "wave1",
+      "nodes": [
+        "R02",
+        "R04",
+        "C01",
+        "I01",
+        "Q01"
+      ],
+      "parallel": [
+        "R03",
+        "C02",
+        "T01"
+      ]
+    },
+    {
+      "id": "wave2",
+      "nodes": [
+        "F01",
+        "I02",
+        "Q02"
+      ]
+    },
+    {
+      "id": "wave3",
+      "nodes": [
+        "C03",
+        "W01"
+      ],
+      "selected_only": [
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08"
+      ],
+      "optional": [
+        "T02",
+        "T03",
+        "P01"
+      ]
+    },
+    {
+      "id": "wave4",
+      "nodes": [
+        "V01",
+        "Z01"
+      ]
+    }
+  ],
+  "critical_paths": {
+    "frontier": [
+      "R00",
+      "R01",
+      "R04",
+      "C01",
+      "I01",
+      "Q01"
+    ],
+    "source_route": [
+      "R00",
+      "R01",
+      "R03",
+      "F01",
+      "I02",
+      "Q02"
+    ],
+    "parallel_inputs": "R02 also gates I01/I02; S01/C02/Q01 also gate I02. No measured elapsed path length."
+  },
+  "coverage_policy": {
+    "first_pair": "Short Measure plus bounded MoL-compatible cooperative light/control workshop",
+    "first_pair_complete_campaign": false,
+    "all_nineteen_launch_barrier": false,
+    "selected_required_ids_must_close": true,
+    "conditional_dependencies": "Activated only by an actual selected consumer; freeze in its approved packet",
+    "additional_tests": "Deferred; static readiness permits implementation waves but not behavioral qualification/release proof"
+  },
+  "metrics": {
+    "new_runtime_measurement": null,
+    "new_token_or_billed_cost_measurement": null,
+    "historical": "Runtime reviewer records a past 64-helper n=5 scheduler comparison, not current Glasshouse/future savings",
+    "surrogates": "File/word/workload counts not latency/token/development savings"
+  },
+  "writer_scope_policy": {
+    "proposed_allowlists_not_reservations": true,
+    "shared_existing_files_engine_only": true,
+    "original_source_owner": "Existing Original 01a10945-010b-7a91-844a-d6d3024c6f35",
+    "ability_source_owner": "Existing Ability 01a104a2-fabf-7bf1-a95f-1e93353b9196",
+    "future_scopes_master_reserves": true
+  },
+  "checks": {
+    "performed": [
+      "Source/document inspection",
+      "Own JSON/evidence/links/required-and-conditional graph/readback validation recorded in CHECKPOINT"
+    ],
+    "not_run": [
+      "Runtime implementation",
+      "Game syntax/import/build execution",
+      "Unit/game/regression suites",
+      "Browser gameplay",
+      "Save/reload/import/failure",
+      "Benchmark",
+      "Human approval"
+    ],
+    "verification_state": "passed own document/graph/link/ownership/readback checks; runtime not executed",
+    "result": {
+      "nodes": 28,
+      "required_edges": 56,
+      "all_potential_edges": 73,
+      "required_acyclic": true,
+      "all_potential_acyclic": true,
+      "evidence_records": 37,
+      "source_rule_ranges_valid": true,
+      "peer_reports_consumed": 12,
+      "input_hashes": 80,
+      "runtime_sources_unchanged": true,
+      "own_children": 0,
+      "owned_pending_sessions": 0
+    }
+  },
+  "input_drift_since_capture": {
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": {
+      "before": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+      "after": "6917c17bf0a39ebf0fe235346561304e4054f16a86f776cfa66e8cd19e1a554f"
+    },
+    "docs/gm/world-implementation/RUN.json": {
+      "before": "d1c5625ebdf7b36da698454bdaffbffa0e46503a9171ed68e209eada9d32084f",
+      "after": "cef7a519f7069de5a51830c454d06d78f0aaa9e9f1bf803069c6f7c498b26dae",
+      "classification": "master coordination; held role/approval state rechecked"
+    }
+  },
+  "proposed_seam_count_qualification": "Five shared boundary classes, not measured changed-file count, calendar time or savings.",
+  "planning_input_drift_reconciliation": {
+    "canonical_plan": "Master-added revision 4 whole-world bank scope inspected at lines 137-147; separate bank GM remains sole blueprint owner. Integration consumes its future reviewed scoped queries, with no new whole-bank launch prerequisite.",
+    "run": "Master coordination update only; approval remains awaiting-human-plan-review-with-aspect-audits-authorized, Engine/Ability/Original held-confirmed.",
+    "runtime_sources": "No inspected runtime source drift; no code writes here."
+  },
+  "initial_snapshot_comparison_at_first_capture": {
+    "docs/gm/world-implementation/second-pass/integration/ASSIGNMENT.md": "match",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "match",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "match",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "match",
+    "docs/worlds/original-frontier/REPORT.md": "match",
+    "docs/ENGINE_AUTHORING.md": "match",
+    "src/expansion_engine.js": "match",
+    "src/expansion_persistence.js": "match",
+    "src/site_projects.js": "match"
+  }
+}

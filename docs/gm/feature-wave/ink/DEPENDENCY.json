@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "status": "pinned-compiler-recipe-delivered-shared-dependency-join-owned-by-features",
+  "dependency": {
+    "name": "inkjs",
+    "version": "2.4.0",
+    "placement": "dependencies",
+    "specifier": "2.4.0",
+    "registryTarball": "https://registry.npmjs.org/inkjs/-/inkjs-2.4.0.tgz",
+    "integrity": "sha512-EoPCYESIbMtfI8SqEDZCJwn+A5is0QozMLw250iic1ReJCgZpRKIezWj0VqgRUzAx0f3MmEbsUjY/ILe2815JQ==",
+    "publishedGitHead": "edccead8700e9f21be9825d87d8645d8c82a9936",
+    "runtimeImport": "import { Story } from 'inkjs'",
+    "runtimeExportPath": "dist/ink.mjs",
+    "compilerPath": "compiler/Compiler.js",
+    "compilerImportScope": "Node build tool only",
+    "transitiveRuntimeDependencies": [],
+    "license": "MIT"
+  },
+  "sourceQualification": {
+    "bankRoot": "/Users/weiwei/.cache/yairpg-repository-bank/2026-10-05",
+    "bankMirror": "inkjs.git",
+    "bankCommit": "6b1153410ab1c4bcfd9ef04eb2f0107f36be7778",
+    "bankDeclaredVersion": "2.4.0",
+    "bankVersusPublished": "Different Git commits; git diff confirms no src/engine, src/compiler, LICENSE.md or AUTHORS.md changes. Only four devDependency values in package.json differ in the inspected qualification scope.",
+    "inkReferenceCommit": "35c63e52f1d36060930dc7ed3cfba38ea224b528",
+    "inkReferenceRole": "Authoring/runtime reference only; no C# compiler or Ink engine source copied into YAIRPG.",
+    "sourceUrls": [
+      "https://github.com/y-lohse/inkjs/blob/6b1153410ab1c4bcfd9ef04eb2f0107f36be7778/package.json",
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/compiler/Compiler.ts",
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Story.ts",
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/StoryState.ts"
+    ]
+  },
+  "compiler": {
+    "script": "scripts/compile_feature_ink.mjs",
+    "scriptSha256AtWorkerRelease": "174810156e063062e375d83b95ac550e18ba5517b1ce1a548e6c8c4e2b089cda",
+    "source": "stories/feature_wave.ink",
+    "output": "stories/feature_wave.json",
+    "sourceNormalization": "Remove one leading BOM; normalize CRLF and CR to LF. Preserve all remaining source characters.",
+    "canonicalization": "Recursively sort object keys and preserve array order. JSON identity hashing uses compact JSON; emitted artifact uses two-space JSON plus one LF.",
+    "metadataProperty": "yairpgInk",
+    "metadata": {
+      "schemaVersion": 1,
+      "storyId": "feature-wave-negotiation",
+      "storyRevision": "current compiler pin; retained artifacts preserve their own revision",
+      "compilerPackage": "inkjs",
+      "compilerVersion": "2.4.0",
+      "sourceSha256": "SHA256(normalized source UTF-8)",
+      "compiledSha256": "SHA256(compact canonical standard Ink JSON before metadata)",
+      "contentHash": "sha256:SHA256(compact canonical preceding metadata fields excluding contentHash)",
+      "sceneIds": "Explicit list of supported scene identities included in hashed metadata"
+    },
+    "diagnosticsPolicy": "Any compiler error, warning or author message rejects emission.",
+    "includesPolicy": "Single root source only. INCLUDE is rejected; the in-memory JsonFileHandler exposes only the root filename.",
+    "pluginNames": [],
+    "countAllVisits": false,
+    "checkPolicy": "--check recompiles in memory, compares exact output bytes and never writes.",
+    "packageRootOverride": "--package-root PATH or INKJS_PACKAGE_ROOT; direct inkjs package directory or an installation root containing node_modules/inkjs.",
+    "exports": [
+      "INK_COMPILER_PIN",
+      "verifyInkCompilerPackage",
+      "compileFeatureInk"
+    ],
+    "pinnedFileSha256": {
+      "compiler/Compiler.js": "3c6a6db4f87c5c3ce46b723e75f94bd418353e2861cdf97a99cbb5eddb435953",
+      "engine/Story.js": "c85bf7665705f11bb2add0b983cfd2012834285952886ea17d061e47c42b0ad4",
+      "engine/StoryState.js": "0e3e7577aa524788ed57d1d8d90d522f1cc5e1223e1f3ffbaffac6153e5abdb2",
+      "dist/ink.mjs": "e5f3579deb59aa2958660c334f900f8e7fe8939551fe8488fae8d77c00274d69"
+    },
+    "scriptSha256AtRoleIntegration": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+    "hostFunctionPolicy": "EXTERNAL and RANDOM/SEED_RANDOM/LIST_RANDOM rejected before compilation; all effects are registered host response bindings.",
+    "choiceBindingPolicy": "All47 stable response tags must be present uniquely in evaluated choice-only compiled strings before choice points. Output-only tags fail compilation."
+  },
+  "formatCompatibility": {
+    "runtimeStoryFormatCurrent": 21,
+    "runtimeStoryFormatMinimum": 18,
+    "hostAcceptedStoryFormats": [
+      21
+    ],
+    "runtimeSaveFormatCurrent": 10,
+    "runtimeSaveFormatMinimum": 8,
+    "runtimeSaveMaximumGuard": "Engine does not guard a future maximum; YAIRPG must supply the exact format check.",
+    "hostAcceptedInkSaveFormats": [
+      10
+    ],
+    "hostAcceptedInkFormatVersionsInState": [
+      21
+    ],
+    "hostMetadataSchemaVersion": 1,
+    "hostStoryRevision": "1/2 retained immutably;3 current Tidemark+relay+hub/offer/mission/return",
+    "cursorOwnership": "Ink GM adapter and Features optional validator join, in the same existing durable host envelope as game consequences.",
+    "missingOldCursor": "Absent/default null; no load or render enrollment.",
+    "contentChangePolicy": "Keep immutable v1/v2 artifacts for exact old active cursors. Match content/hash/scene per record. Scoped wrapper2 explicit first-scoped-commit migration preserves legacy1 without effects. No render/load migration.",
+    "scopeLimit": "Static bounds and recipe are verified. Scene/cursor/host save, reload, interruption and failure behavior remain deferred.",
+    "randomPolicy": "No narrative RNG/callback owns rewards, costs or host outcomes. Host commands and saved host draws remain authoritative."
+  },
+  "notices": {
+    "upstreamLicensePreserved": true,
+    "inkjsLicense": "LICENSE.md",
+    "inkjsLicenseSha256": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+    "inkjsAuthors": "AUTHORS.md",
+    "inkjsAuthorsSha256": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014",
+    "npmAuthorsFileMissing": true,
+    "retainedNoticeSource": "docs/gm/feature-wave/ink/COMPILER.md",
+    "distributionRecipe": "Features copies the marked inkjs-notice and inkjs-authors blocks to dist/INKJS_NOTICE.txt and dist/INKJS_AUTHORS.txt alongside bundled runtime. The complete exact Node copy recipe is in COMPILER.md.",
+    "requiredDistributionArtifacts": [
+      "dist/INKJS_NOTICE.txt",
+      "dist/INKJS_AUTHORS.txt"
+    ],
+    "noticeUrls": [
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/LICENSE.md",
+      "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/AUTHORS.md"
+    ]
+  },
+  "featuresOwnedJoins": {
+    "dependency": "Add exact dependencies.inkjs=2.4.0 and lock the recorded tarball integrity in the exclusive package/lock window.",
+    "compilerScripts": {
+      "ink:compile": "node scripts/compile_feature_ink.mjs",
+      "ink:check": "node scripts/compile_feature_ink.mjs --check"
+    },
+    "build": "Compile the parent-authored source once; add ink:check before esbuild so source/artifact/compiler drift fails the build. Keep compiler out of browser imports.",
+    "notice": "Copy both marked notices during each build and include them in distribution artifacts.",
+    "runtime": "Import the ESM runtime via 'inkjs'; import compiled JSON as a JSON module for esbuild.",
+    "save": "Use Ink GM adapter's exact format/content/cursor validation and one existing durable host publication path."
+  },
+  "workerEvidence": {
+    "temporaryInstallRoot": "/tmp/yairpg-ink-wave-compiler-ztluajdz",
+    "temporaryPackageRoot": "/tmp/yairpg-ink-wave-compiler-ztluajdz/node_modules/inkjs",
+    "nodeVersion": "v26.4.0",
+    "npmVersion": "11.17.0",
+    "projectNodeRequirement": ">=22.13.0",
+    "performed": [
+      "Pinned bank and published npm source/package identity inspection",
+      "Published npm tarball version/gitHead/integrity/license verification and temporary installation with scripts disabled",
+      "Compiler and ESM runtime export imports",
+      "Compiler-only original branching fixture to in-memory JSON, zero diagnostics",
+      "BOM/CRLF normalization produces identical compiled output bytes",
+      "Compiler script Node syntax and CLI help checks",
+      "Dependency JSON parsing and matching script SHA256 receipt",
+      "Marked MIT and AUTHORS blocks exactly match published source bytes and recorded SHA256 values"
+    ],
+    "notPerformed": [
+      "Writing parent story source or compiled output",
+      "Project package, lock, node_modules, build or source-bank mutation",
+      "Story Continue or choice execution",
+      "Unit, gameplay, browser, save/reload, failure, keyboard or regression checks",
+      "Publication, commits, pushes or private-save access"
+    ],
+    "newGameplayStatus": "implemented-unverified; gameplay belongs to parent source/host/UI joins"
+  }
+}

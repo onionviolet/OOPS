@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "authority": "Human in this chat explicitly requested save and note to relevant chats, including deeper research for other games.",
+  "created_utc": "2026-10-06T20:32:06.758973+00:00",
+  "note": "DEEPER_RESEARCH.md",
+  "dlc": "DLC_COVERAGE.json",
+  "recipients": [
+    {
+      "thread_id": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+      "host_id": "local",
+      "title": "Assess deep idea implementation",
+      "purpose": "Current ACS/idle-game/DLC/scout coordinator",
+      "delivery": "send tool succeeded",
+      "sent_utc": "2026-10-06T20:33:46.123426+00:00",
+      "tool_receipt": {
+        "threadId": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba"
+      },
+      "prompt": "Weibao explicitly asked in the ACS chat to save the broader mechanics/depth findings and note relevant chats, including deeper considerations for other games. The durable note is /Users/weiwei/code/yet-another-idle-rpg/docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md. Three small ACS implementation packets are only a selected actionable subset; the original research contains31findings/15finite paths, not a whole-game review. The new DLC_COVERAGE.json and traces/dlc.json add two selected source traces: Wudang Yin/Yang components feeding learning costs, ratio modifiers and artifact power, and Bamboo fishing with equipment/environment-qualified pools, a speed-adjusted catch window, escape, real output and hostile catches. Both official DLC entries match manifest-installed IDs; larger DLC systems remain explicitly unread.\n\nPlease carry the saved depth standard into your currently requested Melvor Idle, Orb of Creation, Your Chronicle, Crush Crush and game/engine scout assignments, including DLC/expansions and their base-game interactions. Retain mechanic/dependency maps, meaningful failure/aftermath and important late-game branches before selecting small implementation packets. Record five ACS depth priorities in your owned master queue and coordinate later targeted source passes; prior scoped dossiers remain complete within their stated coverage. Current gameplay/save/regression suites remain deferred and shared writer boundaries persist. This note adds no purchase/entitlement change or blanket restart of every completed lane.",
+      "acceptance": "Acknowledged and carrying into own briefs/index; completion not yet claimed",
+      "observed_progress": {
+        "thread_id": "01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+        "status": "active",
+        "turn_status": "inProgress",
+        "latest_commentary": "I\u2019ll check the saved ACS depth note and update the research briefs so each GM preserves the broader mechanics map alongside its selected implementation packets.",
+        "acknowledged_depth_note": true
+      }
+    },
+    {
+      "thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+      "host_id": "local",
+      "title": "Find decompilable games like Caves",
+      "purpose": "Existing multi-game source dispatcher",
+      "delivery": "send tool succeeded",
+      "sent_utc": "2026-10-06T20:33:46.123426+00:00",
+      "tool_receipt": {
+        "threadId": "01a10f82-f847-7440-9ca2-88348b857382"
+      },
+      "prompt": "Weibao explicitly asked in the ACS chat to save the broader mechanics/depth findings and note relevant chats, including deeper considerations for other games. The durable note is /Users/weiwei/code/yet-another-idle-rpg/docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md. Three small ACS implementation packets are only a selected actionable subset; the original research contains31findings/15finite paths, not a whole-game review. The new DLC_COVERAGE.json and traces/dlc.json add two selected source traces: Wudang Yin/Yang components feeding learning costs, ratio modifiers and artifact power, and Bamboo fishing with equipment/environment-qualified pools, a speed-adjusted catch window, escape, real output and hostile catches. Both official DLC entries match manifest-installed IDs; larger DLC systems remain explicitly unread.\n\nPlease retain this in your existing multi-game research/ideaboard owner and carry it into relevant future source assignments. Reuse completed Qud/RimWorld/ToME/Elin/ITRTG/Rogue Legacy/KeeperRL work, identify concrete deeper unread paths and inter-system consequences, and keep small immediately feasible patches separate from the larger mechanics/implementation-method lessons. Include each game's available DLC/expansions with honest inspected/unread/documented/unavailable status. Engine considerations should include simulation/state/time/persistence/authoring methods as well as graphics. No blanket rereading, duplicate exports, purchase or new runtime takeover is requested.",
+      "acceptance": "Acknowledged and carrying into own briefs/index; completion not yet claimed",
+      "observed_progress": {
+        "thread_id": "01a10f82-f847-7440-9ca2-88348b857382",
+        "status": "active",
+        "turn_status": "inProgress",
+        "latest_commentary": "I\u2019ll add the ACS depth notes to the shared research index, keeping the three selected patches separate from the broader findings and unread systems. I\u2019ll also track DLC coverage and engine lessons beyond graphics.",
+        "acknowledged_depth_note": true
+      }
+    },
+    {
+      "thread_id": "01a112b9-410a-7da2-9182-392141662439",
+      "host_id": "local",
+      "title": "Discover games to absorb into YAIRPG",
+      "purpose": "Newer source-discovery lane",
+      "delivery": "send tool succeeded",
+      "sent_utc": "2026-10-06T20:33:46.123426+00:00",
+      "tool_receipt": {
+        "threadId": "01a112b9-410a-7da2-9182-392141662439"
+      },
+      "prompt": "Weibao explicitly asked in the ACS chat to save the broader mechanics/depth findings and note relevant chats, including deeper considerations for other games. The durable note is /Users/weiwei/code/yet-another-idle-rpg/docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md. Three small ACS implementation packets are only a selected actionable subset; the original research contains31findings/15finite paths, not a whole-game review. The new DLC_COVERAGE.json and traces/dlc.json add two selected source traces: Wudang Yin/Yang components feeding learning costs, ratio modifiers and artifact power, and Bamboo fishing with equipment/environment-qualified pools, a speed-adjusted catch window, escape, real output and hostile catches. Both official DLC entries match manifest-installed IDs; larger DLC systems remain explicitly unread.\n\nYour finite Brogue/Shattered delivery remains complete within its recorded scope. Please save this deeper standard and a focused unresolved-mechanics queue in your own discovery owner, and apply it to subsequent relevant game/scout work. Retain broader interaction/knowledge/combat/environment dependencies, meaningful failures and late-game exceptions alongside small packets. Reuse existing source pins and avoid duplicating delivered material-classification/site-transformation work or reactivating every finished leaf. Coordinate future priorities with Assess deep idea implementation; current source/native/build ownership and test deferral remain.",
+      "acceptance": "Acknowledged and carrying into own briefs/index; completion not yet claimed",
+      "observed_progress": {
+        "thread_id": "01a112b9-410a-7da2-9182-392141662439",
+        "status": "active",
+        "turn_status": "inProgress",
+        "latest_commentary": "I\u2019m using current-state-hygiene to preserve the completed research receipt while adding the deeper queue. The note will keep broader mechanics and exceptions visible, and clearly separate them from the two implementation packets.",
+        "acknowledged_depth_note": true
+      }
+    },
+    {
+      "thread_id": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "host_id": "local",
+      "title": "Implement audited RPG features",
+      "purpose": "Shared integration owner; scope note only",
+      "delivery": "send tool succeeded",
+      "sent_utc": "2026-10-06T20:33:46.123426+00:00",
+      "tool_receipt": {
+        "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd"
+      },
+      "prompt": "Weibao explicitly asked in the ACS chat to save the broader mechanics/depth findings and note relevant chats, including deeper considerations for other games. The durable note is /Users/weiwei/code/yet-another-idle-rpg/docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md. Three small ACS implementation packets are only a selected actionable subset; the original research contains31findings/15finite paths, not a whole-game review. The new DLC_COVERAGE.json and traces/dlc.json add two selected source traces: Wudang Yin/Yang components feeding learning costs, ratio modifiers and artifact power, and Bamboo fishing with equipment/environment-qualified pools, a speed-adjusted catch window, escape, real output and hostile catches. Both official DLC entries match manifest-installed IDs; larger DLC systems remain explicitly unread.\n\nThis is a research/roadmap scope note, not an instruction to interrupt or broaden your active ALL19/causal/artifact implementation. Please link the deeper research owner when next updating your canonical research/idea queue, preserving original first-pass completion versus open deeper systems. The three current packets remain unimplemented proposals with exact consumers and later gates; deeper source implications may inform subsequent selected work. Your shared/native/save/UI/build ownership, one-realm/one-prestige first milestone and current test deferral remain intact.",
+      "acceptance": "Sent successfully; active current implementation observed, deeper-note adoption not yet claimed",
+      "observed_progress": {
+        "thread_id": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+        "status": "active",
+        "turn_status": "inProgress",
+        "latest_commentary": "The delivery records are complete, and all source and review writers have released their work. I\u2019m making one last UI wording fix: removing save-schema numbers from the new player-facing descriptions, then refreshing the bundle fingerprint. The old encounter terms and deferred acceptance gates stay recorded in the engineering docs.",
+        "acknowledged_depth_note": false
+      }
+    }
+  ],
+  "status": "all four notes sent",
+  "snapshot_utc": "2026-10-06T20:34:32.543338+00:00"
+}

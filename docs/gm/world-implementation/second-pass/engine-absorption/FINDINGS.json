@@ -1,0 +1,1075 @@
+{
+  "schema": 1,
+  "role": "Selective engine absorption GM",
+  "dateLocal": "2026-10-04",
+  "timezone": "America/New_York",
+  "status": "checked-planning-delivery",
+  "planRevision": 5,
+  "runtimeAuthorization": "held for human review",
+  "baseHead": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "dirtyInputs": "INPUT_QUALIFICATION.json",
+  "scope": "Only engine-absorption report directory; assignment and dispatch snapshot frozen.",
+  "decision": "No external runtime dependency adopted. Existing Engine remains runtime integrator.",
+  "versionPins": {
+    "CDDA": "6c506a7544843e9f79b4fef105484e1e820005dd",
+    "Inform": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+    "Ink": "35c63e52f1d36060930dc7ed3cfba38ea224b528",
+    "inkjs": "edccead8700e9f21be9825d87d8645d8c82a9936",
+    "rot.js": "46782e248c2db9d379a5e4f13bb8323f18dff04b"
+  },
+  "findings": [
+    {
+      "id": "EA01",
+      "rank": 1,
+      "candidate": "Current YAIRPG versus whole-engine replacement",
+      "subsystem": "authoring and native settlement",
+      "missingPlayerBehavior": "The held pair needs coherent native instance/item/function/UI consumers; importing an engine or accepting a definition does not produce the player interaction.",
+      "recommendation": {
+        "route": "extend-current",
+        "decision": "Adopt no third-party runtime dependency for the initial pair; integrate existing manifest-lite/preflight and action recipes."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/doc/JSON/EFFECT_ON_CONDITION.md#L54-L128",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "External condition/effect trigger design is a comparison, not a JS native/save adapter."
+        },
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Source/Sections/Variables%20and%20Rulebooks.w#L795-L986",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Action stage patterns can inform local recipes independently."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            49,
+            172
+          ],
+          "api": "previewSimulationCommand / commitSimulationCommand / completeJob",
+          "consumer": "paid plan and job/claim settlement",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/main.js",
+          "lines": [
+            290,
+            338
+          ],
+          "api": "persistExpansion",
+          "consumer": "prepare native projections, persist once, then publish",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            49
+          ],
+          "api": "persistExpansionPlan",
+          "consumer": "validated whole native envelope with dormant data retained",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_ui.js",
+          "lines": [
+            3,
+            21
+          ],
+          "api": "createPocketRealmPanel",
+          "consumer": "native preview and sequence-bearing dispatch",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Shared Engine integrates; Authoring preflight writer and local world writers have disjoint reservations.",
+      "dependencies": {
+        "required": [
+          "Current legal command/effect/publisher contracts",
+          "Actual instance/item/source/native/UI closure"
+        ],
+        "optional": [],
+        "peerFindings": [
+          "EF02",
+          "EF05",
+          "EF08",
+          "AUTH01",
+          "AUTH02",
+          "AUTH05"
+        ]
+      },
+      "uncertainty": [
+        "No representative author-time or runtime-cost measurement; current Glasshouse behavior remains unverified."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Repaired Short Measure and a distinct source-qualified route each support two real approaches, abstention, actual costs/function, observer-qualified return, reload and failed publication."
+      },
+      "packet": "EA-P1",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA02",
+      "rank": 2,
+      "candidate": "CDDA",
+      "subsystem": "actor-scoped reusable conditions/effects",
+      "missingPlayerBehavior": "A supplier, trader or resident must execute from their own knowledge, finite stock and funds, and a missing participant must not fall back to the player.",
+      "recommendation": {
+        "route": "borrow-pattern",
+        "decision": "Use independent current-definition recipes with explicit actor/target/capability bindings; do not copy EOC syntax or implementation."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/condition.cpp#L684-L727",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Quantity/charge predicates use the selected talker."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/condition.cpp#L1953-L1961",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Recipe knowledge predicate still calls get_player_character."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic_spell_effect.cpp#L2012-L2040",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Spell EOC target/caster bindings differ from ordinary dialogue roles."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/npctalk.cpp#L4093-L4135",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Sale transfers actual items between talkers and handles missing stock."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/simulation_contracts.js",
+          "lines": [
+            24,
+            78
+          ],
+          "api": "validatePredicate / validateSimulationEffect",
+          "consumer": "typed requirements, selectors and effects",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "lines": [
+            137,
+            171
+          ],
+          "api": "applySimulationEffects",
+          "consumer": "actual resource/item/custody/transfer and scoped knowledge",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            373,
+            394
+          ],
+          "api": "advanceSimulationBoundary controller loop",
+          "consumer": "priority-ranked eligible actor commands",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/causal_situations.js",
+          "lines": [
+            16,
+            32
+          ],
+          "api": "applySituationEffect",
+          "consumer": "private truth and causal phase receipts",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "People/world-bank/local content author; Engine alone changes shared validators and consumers.",
+      "dependencies": {
+        "required": [
+          "Existing owner-backed costs/transfers",
+          "Explicit activation and actor knowledge"
+        ],
+        "optional": [
+          "EA-P2 finite-batch scene"
+        ],
+        "peerFindings": [
+          "SOC01",
+          "SOC03",
+          "WB-R04",
+          "AUTH02"
+        ]
+      },
+      "uncertainty": [
+        "Some upstream predicates are global-player-specific; broad actor documentation cannot certify every operation. Current one-topic knowledge is not a belief network."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Trader lacking coins/stock/assent waits; player knowledge does not teach trader; another actor cannot sell reserved sprigs; only witnesses learn actual trade."
+      },
+      "packet": "EA-P1 / EA-P2",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA03",
+      "rank": 3,
+      "candidate": "Inform",
+      "subsystem": "action checking, attempt and reporting",
+      "missingPlayerBehavior": "A valid paid experiment can fail its goal, while an illegal action or failed save must not be narrated as completed work.",
+      "recommendation": {
+        "route": "borrow-pattern",
+        "decision": "Make existing preview -> staged paid plan -> persist -> publish -> observer report an author recipe; no imperative before/nested reward hooks."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Source/Sections/Variables%20and%20Rulebooks.w#L795-L986",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Action pipeline includes visibility/access/carrying, implicit take, request/check/carry/after/report; carry-out reached is action success."
+        },
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/Actions.i6t#L132-L177",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Nested try saves action variables and calls action processing, not a snapshot rollback or separate turn."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            49,
+            106
+          ],
+          "api": "previewSimulationCommand",
+          "consumer": "legal participant, occupancy, costs and possible-output checks",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            108,
+            172
+          ],
+          "api": "startCommand / completeJob",
+          "consumer": "frozen outcomes, cost reservation and completion",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_scenes.js",
+          "lines": [
+            79,
+            108
+          ],
+          "api": "createPocketRealmScenes",
+          "consumer": "paid success/damp-failure/joint trial consumers",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/main.js",
+          "lines": [
+            327,
+            338
+          ],
+          "api": "persistExpansion",
+          "consumer": "write failure pauses before live success publication",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Engine command/publisher owner; Authoring recipe writer; world author owns fresh lines.",
+      "dependencies": {
+        "required": [
+          "Existing durable publisher",
+          "Stable receipt-linked reporting"
+        ],
+        "optional": [],
+        "peerFindings": [
+          "SOC05",
+          "SOC08",
+          "SOC09",
+          "AUTH04"
+        ]
+      },
+      "uncertainty": [
+        "Inform implicit taking can mutate possession before later main-action rejection. Local receipt truthiness/string-memory risks remain existing SOC findings, not repaired here."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Invalid reach/stock rejects without payment; declared failed damp trial pays only its authored costs; storage failure publishes neither repair nor reward; nested work settles once."
+      },
+      "packet": "EA-P1",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA04",
+      "rank": 2,
+      "candidate": "CDDA",
+      "subsystem": "recurrence, magic and save semantics",
+      "missingPlayerBehavior": "Resident work, power use and consequences must remain on declared game clock/support with deterministic commitments, rather than inheriting external event defaults.",
+      "recommendation": {
+        "route": "extend-current",
+        "decision": "Retain current boundary order/RNG/paid jobs; borrow separation of knowledge, components, fuel and function, with actual source-specific support."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/effect_on_condition.cpp#L233-L348",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Recurring requeue is current game time plus recurrence; inactive reactivation rebuilds context."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/savegame_json.cpp#L1599-L1613",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Queue ID/time/context and inactive IDs serialize; definitions remain ID references."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic.cpp#L1138-L1210",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "can_cast checks actor restrictions/components/fuel; crafting inventory is not exclusive custody."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic.cpp#L1885-L1912",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Configured failure-cost treatment is separate from action success."
+        },
+        {
+          "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/6c506a7544843e9f79b4fef105484e1e820005dd/src/magic.cpp#L2370-L2424",
+          "revision": "6c506a7544843e9f79b4fef105484e1e820005dd",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Magic knowledge/save data does not constitute local body/source support."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            119,
+            153
+          ],
+          "api": "startCommand",
+          "consumer": "saved draw and frozen paid job participants/effects",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            326,
+            405
+          ],
+          "api": "advanceSimulationBoundary",
+          "consumer": "jobs/conditions/life/offers/checks/pursuit/controllers/routines order",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/world_instances.js",
+          "lines": [
+            271,
+            344
+          ],
+          "api": "createWorldInstance / planWorldClock",
+          "consumer": "joined played-minute binding and occupied-interval elapsed",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_scenes.js",
+          "lines": [
+            115,
+            124
+          ],
+          "api": "private_research / offer_research",
+          "consumer": "finite resident stock and private-to-offered knowledge",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Engine clock/save owner; Powers owns actual execution semantics; People owns resident priorities.",
+      "dependencies": {
+        "required": [
+          "EF05 explicit clock reference if local committed jobs are selected",
+          "Existing seeded streams and frozen commitments"
+        ],
+        "optional": [],
+        "peerFindings": [
+          "EF03",
+          "EF05",
+          "EF06",
+          "EF08",
+          "SOC03"
+        ]
+      },
+      "uncertainty": [
+        "No upstream or local event execution performed; not every casting caller/order traced. Current Glasshouse already-paid jobs keep joined due times."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Supported time permits one funded resident project; no absent browser work assumed; no fuel/source/stock is granted by knowing a method; paid failure/refund follows frozen policy."
+      },
+      "packet": "EA-P1",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA05",
+      "rank": 3,
+      "candidate": "Inform",
+      "subsystem": "physical relations, touch/visibility, VM save",
+      "missingPlayerBehavior": "Viewing a cabinet or roof is different from reaching its tools, owning them, carrying them or having permission to act.",
+      "recommendation": {
+        "route": "defer",
+        "decision": "Defer Inform physical runtime/VM. Extend current exact stock/custody/body/contact and a few authored positions where required."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Source/Sections/Physical%20World%20Model.w#L8-L95",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Physical relations distinguish containment/support/incorporation and sensory accessibility, not witnessed history or legal title."
+        },
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/State.i6t#L29-L48",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Save/restore delegates to VM state operations, not application actor/job JSON."
+        },
+        {
+          "url": "https://github.com/ganelson/inform/blob/5c7ba42b74db69b93b1290453c65189fa60cfc67/inform7/Internal/Extensions/Graham%20Nelson/Standard%20Rules.i7xd/Materials/Inter/WorldModelKit/Sections/OrderOfPlay.i6t#L335-L386",
+          "revision": "5c7ba42b74db69b93b1290453c65189fa60cfc67",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Top-level turn sequence distinguishes out-of-world actions from timed/every-turn stages."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/pocket_realm_host.js",
+          "lines": [
+            54,
+            66
+          ],
+          "api": "pocketContext / routeContext",
+          "consumer": "actual tool/custody and native body/cargo support",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/world_instances.js",
+          "lines": [
+            407,
+            429
+          ],
+          "api": "worldInstanceView",
+          "consumer": "admitted instance keys are current facts, not historical observation",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/people_knowledge.js",
+          "lines": [
+            3,
+            59
+          ],
+          "api": "knownPeopleView",
+          "consumer": "witness-qualified player People projection",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_scenes.js",
+          "lines": [
+            211,
+            234
+          ],
+          "api": "listener / return_and_leave families",
+          "consumer": "supported contact versus replay/physical passage",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Engine and Regions/Combat contact adapters; Society observation/receipt policy.",
+      "dependencies": {
+        "required": [
+          "Actual endpoint/body/stock owner joins"
+        ],
+        "optional": [
+          "EA-P4 authored position consumer"
+        ],
+        "peerFindings": [
+          "EF04",
+          "EF07",
+          "REG07",
+          "CB04",
+          "SOC05"
+        ]
+      },
+      "uncertainty": [
+        "Generic containment, object lots and spatial reach remain proposals. Current instance view must not silently refresh a dated remote survey."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Viewing reveals only qualified observation; taking/loan/repair requires actual body/contact/assent; known old stock stays dated; return keeps title/custody and receipt."
+      },
+      "packet": "EA-P1 / EA-P4",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA06",
+      "rank": 4,
+      "candidate": "Ink/inkjs",
+      "subsystem": "long-scene authoring and browser playback",
+      "missingPlayerBehavior": "A sustained dialogue with topic revisits, interruption and amendments may need easier authoring than fixed finite command families.",
+      "recommendation": {
+        "route": "defer",
+        "decision": "Optional trial only after long-scene need is demonstrated; current scene definitions win the short herb scene and first pair."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/inkle/ink/blob/35c63e52f1d36060930dc7ed3cfba38ea224b528/README.md",
+          "revision": "35c63e52f1d36060930dc7ed3cfba38ea224b528",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Original .ink can compile to JSON and integrate into game-owned UI; building C# compiler requires toolchain."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/package.json#L20",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Engine-only ESM and full/compiler exports are distinct, with no declared runtime dependencies."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/compiler/Compiler.ts",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "JS compiler can emit Story JSON; compiler is author-time choice, not browser requirement."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Story.ts#L57",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Current choice indices are derived, not stable durable mechanical action IDs."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/pocket_realm_scenes.js",
+          "lines": [
+            182,
+            290
+          ],
+          "api": "createPocketRealmScenes families and bindingsRequired",
+          "consumer": "existing openings/choice-command/return/private boundaries",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/scene_definitions.js",
+          "lines": [
+            4,
+            21
+          ],
+          "api": "compileSituation",
+          "consumer": "ambient and offer-expiry successor scheduling with authored response effects",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_ui.js",
+          "lines": [
+            3,
+            21
+          ],
+          "api": "createPocketRealmPanel",
+          "consumer": "native stable controls and command dispatcher",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Optional narrative author plus sole Engine adapter/save/UI integrator.",
+      "dependencies": {
+        "required": [
+          "Safe observer context and canonical command allowlist if selected"
+        ],
+        "optional": [
+          "Pinned compiler/story/runtime",
+          "EA-P3"
+        ],
+        "peerFindings": [
+          "AUTH01",
+          "AUTH04",
+          "SOC01",
+          "SOC05"
+        ]
+      },
+      "uncertainty": [
+        "No compiler/runtime trial executed; author productivity/bundle/startup/maintenance cost unmeasured. Compiled narrative in the browser is not a security boundary."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Same long scene preserves two distinct approaches/abstention, topic/interrupt return, stable action ID and hidden knowledge across both authoring routes; compare actual repair experience."
+      },
+      "packet": "EA-P3",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA07",
+      "rank": 4,
+      "candidate": "Ink/inkjs",
+      "subsystem": "atomic cursor and content compatibility",
+      "missingPlayerBehavior": "Reload or failed storage at a paid choice must retain exactly one consequence and the matching dialogue position.",
+      "recommendation": {
+        "route": "defer",
+        "decision": "If Ink is later selected, stage a full versioned cursor and canonical command in one existing envelope; reject unsupported/approximate content recovery."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/inkle/ink/blob/35c63e52f1d36060930dc7ed3cfba38ea224b528/ink-engine-runtime/Story.cs#L19",
+          "revision": "35c63e52f1d36060930dc7ed3cfba38ea224b528",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Story format21/minimum18."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Story.ts#L53",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Same story constants do not alone certify semantic parity."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/README.md#L208",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Explicit compatibility table ends at Ink1.2.0/inkjs2.3.0."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/StoryState.ts#L31",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Save10/minimum8; loader lacks future maximum/content-hash validation."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Flow.ts",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "State holds call stack/output/choice threads, not only knot name."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/CallStack.ts#L334",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Changed paths may throw or approximate with warnings."
+        },
+        {
+          "url": "https://github.com/y-lohse/inkjs/blob/edccead8700e9f21be9825d87d8645d8c82a9936/src/engine/Story.ts#L1838",
+          "revision": "edccead8700e9f21be9825d87d8645d8c82a9936",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "External functions are synchronous; lookahead flags and repeated evaluation require pure bindings."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            49
+          ],
+          "api": "persistExpansionPlan",
+          "consumer": "single envelope durability",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/main.js",
+          "lines": [
+            290,
+            338
+          ],
+          "api": "persistExpansion",
+          "consumer": "projection validation, storage failure, then live publication",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "lines": [
+            168,
+            179
+          ],
+          "api": "applySimulationEffects knowledge/relationship",
+          "consumer": "canonical knowledge and consequence receipts independent of prose cursor",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Engine persistence/compatibility/UI writer; narrative author owns story/boundary mapping.",
+      "dependencies": {
+        "required": [
+          "Canonical receipt and full compatible cursor boundary if adopted",
+          "Explicit save-schema decision",
+          "Generated later failure/reload acceptance"
+        ],
+        "optional": [
+          "Ink/inkjs only if EA-P3 wins"
+        ],
+        "peerFindings": [
+          "EF08",
+          "AUTH06",
+          "SOC05"
+        ]
+      },
+      "uncertainty": [
+        "Story/adapter schemas here are proposals, not current exports. Authoring format parity and path migration remain untested. Runtime RNG differs from game RNG."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Failed write retains old cursor/game/stock/draw; duplicate render/callback cannot reward; old cursor loads only matching asset or explicit migration; remove dependency without replaying payment."
+      },
+      "packet": "EA-P3",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA08",
+      "rank": 5,
+      "candidate": "rot.js",
+      "subsystem": "grid path/FOV versus directed graph travel",
+      "missingPlayerBehavior": "A selected spatial encounter may need wall-sensitive sight or legal paid routing; current pursuit BFS does not minimize actual minutes.",
+      "recommendation": {
+        "route": "defer",
+        "decision": "Extend small/weighted directed graphs and authored reach first. Optional rot path/FOV only for a named grid consumer."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/path.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Coordinate topology4/6/8 with passability callback."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/astar.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Grid A* uses unit step cost, not weighted directed road minutes."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/path/dijkstra.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Dijkstra caches to a target; geometry revision must invalidate reuse."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/fov/precise-shadowcasting.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "FOV computes geometric visibility, not perception/knowledge/contact."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/package.json",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Local ES modules are available; no native renderer is required."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/pursuit.js",
+          "lines": [
+            93,
+            101
+          ],
+          "api": "nextPursuitBoundary / firstStep",
+          "consumer": "directed fewest-leg BFS",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/world_instances.js",
+          "lines": [
+            407,
+            429
+          ],
+          "api": "worldInstanceView",
+          "consumer": "canonical instance facts and admitted observer view",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/pocket_realm_host.js",
+          "lines": [
+            58,
+            66
+          ],
+          "api": "routeContext",
+          "consumer": "real body/cargo/endpoint eligibility",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            49,
+            70
+          ],
+          "api": "previewSimulationCommand",
+          "consumer": "target/world/location/occupancy validation",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Regions/Combat owns geometry/rules; Engine alone joins positions/action/save/UI.",
+      "dependencies": {
+        "required": [
+          "Actual topology/position/contact/movement consumer before any library"
+        ],
+        "optional": [
+          "Pinned rot A*/chosen FOV modules only if selected",
+          "EA-P4"
+        ],
+        "peerFindings": [
+          "REG05",
+          "REG07",
+          "REG09",
+          "CB04",
+          "CB09",
+          "EF02"
+        ]
+      },
+      "uncertainty": [
+        "No current generic grid owner/consumer is selected; improved idle play, bundle/load/memory/runtime cost unmeasured. FOV is not identification or belief."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "Alternative scaffold/brace or later grid rescue changes legal sight/reach/path; blocked/no path and stale geometry remain correct; paid movement/observer knowledge persist."
+      },
+      "packet": "EA-P4",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    },
+    {
+      "id": "EA09",
+      "rank": 5,
+      "candidate": "rot.js",
+      "subsystem": "map generation, RNG, scheduler and license provenance",
+      "missingPlayerBehavior": "No missing current player behavior justifies a second actor scheduler, random source or procedural-map owner.",
+      "recommendation": {
+        "route": "defer",
+        "decision": "Do not adopt rot Engine/Scheduler/RNG/maps. Source-notice review and deterministic geometry policy are conditional on future code reuse."
+      },
+      "status": "proposed-held-checked-planning",
+      "sources": [
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/rng.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Module import seeds singleton from Date.now; clone does not redirect generator imports."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/map/uniform.ts#L56",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Generation imports singleton RNG and uses wall-clock time limit."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/map/digger.ts#L61",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Generation can terminate based on Date.now budget."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/eventqueue.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Queue advances its own elapsed time; no public JSON serializer in inspected class."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/src/engine.ts",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "Engine actuates actors and handles locks/thenables outside native transaction path."
+        },
+        {
+          "url": "https://github.com/ondras/rot.js/blob/46782e248c2db9d379a5e4f13bb8323f18dff04b/license.txt",
+          "revision": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+          "accessDateUTC": "2026-10-05",
+          "accessDateLocal": "2026-10-04",
+          "kind": "primary-pinned-code-or-doc",
+          "claim": "BSD-3-Clause repository notice; unused Alea RNG also credits MIT source."
+        }
+      ],
+      "localEvidence": [
+        {
+          "file": "src/simulation.js",
+          "lines": [
+            326,
+            405
+          ],
+          "api": "advanceSimulationBoundary",
+          "consumer": "existing common actor/check/condition/routine ordering",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/world_instances.js",
+          "lines": [
+            271,
+            344
+          ],
+          "api": "createWorldInstance / planWorldClock",
+          "consumer": "saved local elapsed under joined played clock",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        },
+        {
+          "file": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            49
+          ],
+          "api": "persistExpansionPlan",
+          "consumer": "current save owner",
+          "evidenceStatus": "source-inspected-not-behavior-tested"
+        }
+      ],
+      "owner": "Engine only, with Regions if a future realized map consumer qualifies.",
+      "dependencies": {
+        "required": [
+          "Current clock/RNG/publisher remain sole owners"
+        ],
+        "optional": [],
+        "peerFindings": [
+          "EF05",
+          "EF08",
+          "REG09"
+        ]
+      },
+      "uncertainty": [
+        "No map/runtime performance or generator behavior executed. Seed alone is insufficient reproducibility evidence for time-budgeted generators. No global license clearance inferred."
+      ],
+      "acceptanceCase": {
+        "status": "deferred-not-run",
+        "case": "If later generation is selected, realized geometry and failure outcome save once; repeated render/load cannot regenerate/reward; library removal preserves app-owned topology/positions/receipts."
+      },
+      "packet": "EA-P4",
+      "boundaryStatus": {
+        "upstreamFacts": "targeted-source-verified-not-executed",
+        "localFacts": "inspected-source-current-at-input-hashes",
+        "design": "original-proposal-not-human-accepted",
+        "performanceTimeTokenSavings": null
+      }
+    }
+  ],
+  "caseAppendix": "CASES.md",
+  "boundaryAppendix": "DEPENDENCIES.md",
+  "planPackets": "PLAN_PACKETS.md",
+  "checks": {
+    "jsonIdsFieldsSourceLocatorsLinksScopeArithmeticReadback": "passed; document/source checks only",
+    "upstreamExecution": false,
+    "gameplayBrowserSaveBuildSuites": false,
+    "performanceTimeTokenMeasurements": null,
+    "receipt": "INPUT_QUALIFICATION.json"
+  }
+}

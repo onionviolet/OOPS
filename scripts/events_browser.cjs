@@ -1,0 +1,107 @@
+// Rebuilt browser proof on a disposable origin, using newly generated saves only.
+const assert=require('node:assert/strict'), fs=require('node:fs'), path=require('node:path');
+const {pathToFileURL}=require('node:url');
+const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT || 'playwright');
+const {openNotebook}=require('./ui_helpers.cjs');
+const url=process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18533/';
+const output=process.env.YAIRPG_PROOF_DIR || '/tmp/yairpg-events-proof';
+fs.mkdirSync(output,{recursive:true});
+(async()=>{
+    const {advanceSimulation}=await import(pathToFileURL(path.resolve('src/expansion_engine.js')));
+    const {expeditionRegistry}=await import(pathToFileURL(path.resolve('src/expedition_content.js')));
+    const {Game_Time}=await import(pathToFileURL(path.resolve('src/game_time.js')));
+    const browser=await chromium.launch({headless:true,executablePath:process.env.YAIRPG_CHROME});
+    const errors=[],findings=[];
+    try {
+        const open=async fixture=>{
+            const context=await browser.newContext({viewport:{width:1660,height:1050}});
+            if(fixture) await context.addInitScript(data=>{if(!localStorage.getItem('save data')) localStorage.setItem('save data',JSON.stringify(data));},fixture);
+            const page=await context.newPage();page.setDefaultTimeout(10000);page.on('pageerror',e=>errors.push(e.message));
+            await page.goto(url);await page.getByText('PLAY',{exact:true}).click();
+            if(await page.getByText('Confirm',{exact:true}).isVisible()) await page.getByText('Confirm',{exact:true}).click();
+            return {page,context};
+        };
+        const save=async page=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
+        const people=async page=>{await openNotebook(page);await page.locator('[data-notebook-view="people"]').click();};
+        const shift=(fixture,minutes)=>{
+            const out=structuredClone(fixture);out.expansion=advanceSimulation(out.expansion,expeditionRegistry,minutes,{money:out.character.money}).state;
+            const t=new Game_Time(out['current time']);t.goUp(minutes);
+            out['current time']=Object.fromEntries(['year','month','day','hour','minute','day_count'].map(k=>[k,t[k]]));return out;
+        };
+        const card=(page,id)=>page.locator(`[data-world-event="${id}"]`);
+        let {page,context}=await open();
+        const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
+        assert.ok(fingerprint.endsWith(fs.readFileSync('index.html','utf8').match(/dist\/bundle\.js\?version=[^&"]+/)[0]));
+        assert.equal(await page.locator('#world_event_feed').isVisible(),false);
+        await page.getByText('Talk to someone',{exact:false}).click();await page.locator('[data-dialogue="villageElder"]').click();
+        await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
+        const base=await save(page);
+        await people(page);await page.locator('#chronicle_panel summary').click();await page.locator('[data-chronicle="begin-open"]').click();
+        const enrolled=await save(page);
+        fs.writeFileSync(path.join(output,'generated-events-review.json'),JSON.stringify(shift(enrolled,10),null,2));
+        assert.equal(await card(page,'chronicle:cartographer').count(),1);
+        await page.locator('#journal_show_quests').click();await card(page,'chronicle:cartographer').getByRole('button').click();
+        assert.equal(await page.locator('[data-notebook-view="people"]').getAttribute('aria-selected'),'true');
+        assert.equal(await page.locator('#chronicle_panel').evaluate(n=>n.open),true);
+        await card(page,'chronicle:cartographer').getByRole('button').focus();await page.waitForTimeout(1250);
+        assert.equal(await page.evaluate(()=>document.activeElement.closest('[data-world-event]')?.dataset.worldEvent),'chronicle:cartographer');
+        await page.locator('#message_show_events').click();assert.equal(await page.locator('#world_event_feed').isVisible(),false);
+        await page.locator('#message_show_events').click();assert.equal(await page.locator('#world_event_feed').isVisible(),true);
+        const before=await save(page);await page.reload();await page.getByText('PLAY',{exact:true}).click();
+        const after=await save(page);assert.deepEqual(after.inventories,before.inventories);assert.equal(after.character.money,before.character.money);
+        assert.equal(after.expansion.rng,before.expansion.rng);assert.equal(await card(page,'chronicle:cartographer').count(),1);
+        await page.screenshot({path:path.join(output,'events-invitations.png'),fullPage:true});
+        findings.push('Fresh opening has no new enrollment or event UI. Enrollment derives invitations; Events toggles them with native messages. Links open the right Notebook panel; focus survives countdown ticks and reload restores one card without rewards.');
+        await context.close();
+
+        ({page,context}=await open(shift(enrolled,10)));
+        await card(page,'chronicle:cartographer').getByRole('button').click();await page.locator('[data-chronicle="attend"]').click();
+        const attended=await save(page);assert.equal(attended.expansion.chronicle.knowledge.routeSignals,true);
+        assert.equal(attended.expansion.chronicle.events.cartographer.status,'resolved');
+        assert.equal(await card(page,'chronicle:cartographer').count(),0);
+        await page.locator('#world_event_feed > details > summary').click();
+        assert.match(await page.locator('#world_event_feed ol').textContent(),/cartographer explains route signals/);
+        const encoded=await page.evaluate(()=>window.save_to_file());
+        await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles({name:'generated-events.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);
+        await page.getByText('PLAY',{exact:true}).click();const imported=await save(page);
+        assert.equal(imported.expansion.chronicle.knowledge.routeSignals,true);assert.equal(await card(page,'chronicle:cartographer').count(),0);
+        await page.screenshot({path:path.join(output,'events-earned-briefing.png'),fullPage:true});
+        findings.push('The normal Attend action grants real route understanding once. Events removes its invitation and derives the known aftermath; native export/import retains both without re-awarding it.');await context.close();
+
+        ({page,context}=await open(shift(enrolled,48)));
+        assert.equal(await card(page,'chronicle:reports').count(),1);
+        assert.doesNotMatch(await page.locator('#world_event_feed').textContent(),/visiting group has already departed/);
+        await card(page,'chronicle:reports').getByRole('button').click();await page.locator('[data-chronicle="hear"]').click();
+        const heard=await save(page);assert.equal(heard.expansion.chronicle.events.cartographer.heard,true);
+        assert.equal(await card(page,'chronicle:reports').count(),0);
+        assert.match(await page.locator('#world_event_feed ol').textContent(),/visiting group has already departed/);
+        findings.push('A missed briefing advertises an available report after its delay; its actual aftermath appears only after the player hears it.');await context.close();
+
+        const ready=structuredClone(base), wood=JSON.stringify({id:'Rough wood log'}), kit=JSON.stringify({id:'Prepared survey kit'});
+        ready.character.money=30;ready.inventories.person.main_character[wood]={count:10};
+        ready.availabilities.person.oldCraftsman |= 1;ready.availabilities.dialogue.oldCraftsman |= 1;
+        ready.availabilities.textline['oldCraftsman:hello'] |= 4;
+        ({page,context}=await open(ready));await people(page);await page.locator('#simulation_panel > summary').click();
+        await page.locator('[data-simulation="enroll"]').click();const living=await save(page);
+        await page.locator('[data-simulation="village.commission"]').click();
+        await card(page,'work:craftsman').waitFor({state:'visible'});
+        await card(page,'work:craftsman').getByRole('button').click();await page.locator('[data-simulation="village.collect"]').click();
+        const collected=await save(page);assert.equal(collected.inventories.person.main_character[kit].count,1);
+        assert.equal(await card(page,'work:craftsman').count(),0);
+        await page.reload();await page.getByText('PLAY',{exact:true}).click();
+        assert.equal((await save(page)).inventories.person.main_character[kit].count,1);assert.equal(await card(page,'work:craftsman').count(),0);
+        findings.push('A real material-funded craftsman commission finishes independently. Its local ready card opens collection; actual kit ownership and card removal survive reload without duplicate rewards.');await context.close();
+        ({page,context}=await open(shift(living,12)));
+        const occurrence=Object.values((await save(page)).expansion.simulation.events).find(e=>e.definitionId==='village.shower');
+        assert.ok(occurrence);await card(page,`simulation:${occurrence.id}`).getByRole('button').click();
+        await page.locator('[data-simulation="event.wait"]').click();const dry=await save(page);
+        assert.equal(dry.expansion.worlds['base.frontier'].facts['workbench.wet'],false);
+        assert.equal(dry.expansion.simulation.events[occurrence.id].status,'resolved');
+        assert.equal(await card(page,`simulation:${occurrence.id}`).count(),0);
+        await page.screenshot({path:path.join(output,'events-world-response.png'),fullPage:true});
+        findings.push('A public shower appears from the shared scheduler. Events links to the existing response controls; letting the bench dry changes actual saved workshop conditions and resolves the card.');await context.close();
+        assert.deepEqual(errors,[]);
+        const result={url,fingerprint,findings,errors,generatedSavesOnly:true};
+        fs.writeFileSync(path.join(output,'result.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
+    } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exit(1);});

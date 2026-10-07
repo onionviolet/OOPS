@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-04T18:31:40.257736+00:00",
+  "sourceHash": "7cd3c515d1291c3120d9d5e7e83dce135aa1e1ebef1349ec7cf3af7f6be93a3c",
+  "currentHashes": {
+    "src/pocket_realm_scenes.js": "7cd3c515d1291c3120d9d5e7e83dce135aa1e1ebef1349ec7cf3af7f6be93a3c",
+    "src/pocket_realm_host.js": "17d53c94fbd6afc4f1aadb48dbb8b180d60276e4b6afeb6f356a24981f71b814",
+    "src/realm_state.js": "41e58e85b0c04e0a58876cb04c0e455c07acc4d5b7978977dd4eba0a4b94dc7d",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "docs/gm/trailblaze/dialogue/INTEGRATION_REVIEW.md": "ed37bcf7cb71bc4ac7c526642b00bf6026fffaa034c7ce059b048ff8a5cffbfa"
+  },
+  "registeredOrdinaryCommands": 12,
+  "nativePlayerActions": 10,
+  "observationCommandsRegistered": 0,
+  "reviewer": "completed; both module repairs statically confirmed",
+  "deferred": [
+    "browser",
+    "save/import/reload/failure",
+    "scenarios/unit/regression",
+    "final dialogue/voice acceptance"
+  ],
+  "pending": [
+    "engine master final rebuilt source receipt"
+  ],
+  "docCheck": {
+    "localLinks": 25,
+    "anchors": 4,
+    "errors": []
+  },
+  "sharedFindings": "base controller target and departure wording confirmed repaired; wrapper1 prototype compatibility explicitly decided in engine checkpoint r21"
+}

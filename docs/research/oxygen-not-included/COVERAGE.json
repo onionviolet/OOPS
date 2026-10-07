@@ -1,0 +1,1077 @@
+{
+  "schema": 1,
+  "source_pin": "24423041",
+  "semantic_paths": [
+    {
+      "id": "ONI-01",
+      "lens": "materials/native interface",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Choose a material/phase definition",
+      "prerequisites": "Mounted substance table and named element",
+      "expenditure": "No acquisition is performed by definition loading",
+      "mutation": "Material properties are copied into the native element table",
+      "downstream_consumer": "Converters, body heat and crops consume material state",
+      "time_policy": "Simulation dt/native solver",
+      "failure_exception": "Missing substance/table means definition cannot be treated as a working material",
+      "aftermath": "Definitions and solver interface remain separately recoverable",
+      "finding_ids": [
+        "ONI-F01"
+      ],
+      "evidence": [
+        "E01",
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-02",
+      "lens": "mass/heat/production",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Run a water conversion machine",
+      "prerequisites": "Actual input, operation/power and pressure support",
+      "expenditure": "Stored water is removed proportionally",
+      "mutation": "Real oxygen/hydrogen, heat and disease payload produced",
+      "downstream_consumer": "Breathing, energy and local thermal habitat",
+      "time_policy": "Conversion tick/speed multiplier",
+      "failure_exception": "Insufficient input scales/stops conversion; pressure/operation can block",
+      "aftermath": "Actual output and consumed mass remain, not a mere success flag",
+      "finding_ids": [
+        "ONI-F02",
+        "ONI-F03"
+      ],
+      "evidence": [
+        "E05",
+        "E06",
+        "E61",
+        "E62"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-03",
+      "lens": "gas/fluid custody",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Add/remove a conduit payload",
+      "prerequisites": "Conduit exists, compatible element, available capacity",
+      "expenditure": "Admitted/removal quantity comes from actual payload",
+      "mutation": "Remaining contents and transferred temperature/disease change",
+      "downstream_consumer": "Machines/consumers receive that payload",
+      "time_policy": "Flow tick; versioned load",
+      "failure_exception": "Wrong occupied element rejected, full segment cannot accept more",
+      "aftermath": "Versioned pipe contents and sanitation on load",
+      "finding_ids": [
+        "ONI-F04"
+      ],
+      "evidence": [
+        "E07"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-04",
+      "lens": "power/production failure",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Operate fueled facilities on a circuit",
+      "prerequisites": "Owned fuel, connection, energy and wire capacity",
+      "expenditure": "Actual fuel/joules spent",
+      "mutation": "Outputs and powered/unpowered status; overload accumulates",
+      "downstream_consumer": "Machine work and eventual wire HP",
+      "time_policy": "200ms allocation and overload dt",
+      "failure_exception": "Fuel/outage stops support; prolonged overload damages wire",
+      "aftermath": "Repairable damaged infrastructure remains",
+      "finding_ids": [
+        "ONI-F05",
+        "ONI-F06"
+      ],
+      "evidence": [
+        "E08",
+        "E09",
+        "E10"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-05",
+      "lens": "dupe breathing",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Work using environmental or carried air",
+      "prerequisites": "Usable provider and breathable source",
+      "expenditure": "Actual material at body-specific consumption rate",
+      "mutation": "CO2 and consumption reports",
+      "downstream_consumer": "Breath reserve/condition",
+      "time_policy": "200ms consumption and native callback",
+      "failure_exception": "No usable provider reports absent air",
+      "aftermath": "Actual source mass decreases",
+      "finding_ids": [
+        "ONI-F07"
+      ],
+      "evidence": [
+        "E11",
+        "E12"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-06",
+      "lens": "shortage/recovery",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Continue or recover from low breath",
+      "prerequisites": "Recovery cell/station reach and availability",
+      "expenditure": "Reserved recovery space and interrupted labor",
+      "mutation": "Urge, breath recovery or incapacity/death transition",
+      "downstream_consumer": "Work resumes or body cannot act",
+      "time_policy": "Recovery scheduling; suffocation countdown",
+      "failure_exception": "No recovery target leaves escalation; rescue can recover",
+      "aftermath": "Death is source-supported but not selected YAIR policy",
+      "finding_ids": [
+        "ONI-F08"
+      ],
+      "evidence": [
+        "E13",
+        "E14"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-07",
+      "lens": "temperature/body",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Seek warm/cool support",
+      "prerequisites": "Actual body temperature/mass/heat mode",
+      "expenditure": "Homeostatic energy-like conversion; mode specific calorie distinction",
+      "mutation": "Body regulator and urge",
+      "downstream_consumer": "Movement/work and recovery",
+      "time_policy": "Smoothed body temperature and state updates",
+      "failure_exception": "Unsupported extreme temperature persists",
+      "aftermath": "Body state remains distinct from ambient label",
+      "finding_ids": [
+        "ONI-F09"
+      ],
+      "evidence": [
+        "E15",
+        "E16"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-08",
+      "lens": "nutrition/labor",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Eat or continue ordinary work",
+      "prerequisites": "Calories, schedule and available meal",
+      "expenditure": "Source meal expenditure not traced in this path",
+      "mutation": "Hungry/starving/depleted body tags/urge",
+      "downstream_consumer": "Labor and later DeathMonitor consumer",
+      "time_policy": "Schedule and physiology updates",
+      "failure_exception": "Depletion escalates; final death consumer unread",
+      "aftermath": "Selected need state only",
+      "finding_ids": [
+        "ONI-F10"
+      ],
+      "evidence": [
+        "E17"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-09",
+      "lens": "skills/progression",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Master a skill or use granted support",
+      "prerequisites": "Prior skills, available points and no forbidden chore group",
+      "expenditure": "Skill point; increased expectation for learned non-granted skill",
+      "mutation": "Mastery/perks/grants and aptitude-qualified morale",
+      "downstream_consumer": "Eligible labor/navigation",
+      "time_policy": "Passive and active experience; persistent mastery",
+      "failure_exception": "Stress warning is soft; hard gates deny mastery",
+      "aftermath": "Saved skills/aptitude; load repairs stale definitions",
+      "finding_ids": [
+        "ONI-F11",
+        "ONI-F12"
+      ],
+      "evidence": [
+        "E18",
+        "E19",
+        "E45"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-10",
+      "lens": "labor",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Assign/select a chore",
+      "prerequisites": "Permission/perk/schedule/reach/privacy and priority",
+      "expenditure": "Actual worker attention/navigation opportunity",
+      "mutation": "Chosen or preempted chore",
+      "downstream_consumer": "Real facility work",
+      "time_policy": "Schedules, emergency override and priorities",
+      "failure_exception": "Unreachable or unqualified action denied",
+      "aftermath": "No claim of source consent/social contract beyond permissions",
+      "finding_ids": [
+        "ONI-F13"
+      ],
+      "evidence": [
+        "E20"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-11",
+      "lens": "research",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Select a prerequisite-backed technology",
+      "prerequisites": "Typed points, active center, material and qualified worker",
+      "expenditure": "Material consumed during work; all typed point costs at purchase",
+      "mutation": "Progress, complete tech and POI-specific unlock records",
+      "downstream_consumer": "Next tech/facility capability",
+      "time_policy": "Work ticks and prerequisite queue",
+      "failure_exception": "Interrupted work deactivates; missing researcher warns",
+      "aftermath": "Partial progress and supported point-domain load repair",
+      "finding_ids": [
+        "ONI-F14",
+        "ONI-F15"
+      ],
+      "evidence": [
+        "E06",
+        "E21",
+        "E22",
+        "E23",
+        "E24"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-12",
+      "lens": "stress/consequences",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Choose specialization and support",
+      "prerequisites": "Current morale/expectation and configured difficulty",
+      "expenditure": "Support/rest opportunity cost; exact leisure recipes unread",
+      "mutation": "Stress delta and response tiers/chore substitution",
+      "downstream_consumer": "Actual labor availability and later reprise",
+      "time_policy": "4second need update; timed behavior reprieves",
+      "failure_exception": "Morale deficit and stress-break setting determine branch",
+      "aftermath": "Temporary response separate from retained skill history",
+      "finding_ids": [
+        "ONI-F16"
+      ],
+      "evidence": [
+        "E18",
+        "E25",
+        "E26",
+        "E27"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-13",
+      "lens": "plant ecology",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Cultivate/harvest a supported plant",
+      "prerequisites": "Habitat/nutrient/pressure/temperature and maturity",
+      "expenditure": "Actual dirt/alternative nutrients where supported",
+      "mutation": "Growth/stall and actual harvest output",
+      "downstream_consumer": "Nutrition/material production",
+      "time_policy": "Wild/planted rate, stall and ripe-age clock",
+      "failure_exception": "Wilt pauses growth; recipe-specific aging/harvest branch",
+      "aftermath": "No inference of automatic reseeding",
+      "finding_ids": [
+        "ONI-F17",
+        "ONI-F18",
+        "ONI-F19"
+      ],
+      "evidence": [
+        "E06",
+        "E28",
+        "E29",
+        "E30",
+        "E31",
+        "E32"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-14",
+      "lens": "creature ecology",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Feed or maintain a creature",
+      "prerequisites": "Diet-qualified edible sources and hunger mode",
+      "expenditure": "Actual diet-qualified consumption ledger",
+      "mutation": "Calories plus material/disease output",
+      "downstream_consumer": "Ranch production/habitat/nutrition",
+      "time_policy": "GameClock starvation and Unity-time poop cooldown",
+      "failure_exception": "Tame starvation differs from wild; pause recalculates timer",
+      "aftermath": "Saved hunger context and produced matter",
+      "finding_ids": [
+        "ONI-F20",
+        "ONI-F21"
+      ],
+      "evidence": [
+        "E33",
+        "E35"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-15",
+      "lens": "ecological lineage",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Allow reproduction",
+      "prerequisites": "Not confined/paused; fertility and expected reproduction",
+      "expenditure": "Lifecycle progress resets on egg lay",
+      "mutation": "Actual egg and normalized variant roll",
+      "downstream_consumer": "Future species/production potential",
+      "time_policy": "Cycle-based fertility",
+      "failure_exception": "Blocked reproduction halts fertility state",
+      "aftermath": "Saved breeding weights; egg custody distinct from parent",
+      "finding_ids": [
+        "ONI-F22"
+      ],
+      "evidence": [
+        "E34"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-16",
+      "lens": "colony time",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Advance simulation",
+      "prerequisites": "Active simulation tick",
+      "expenditure": "Played simulation time",
+      "mutation": "Cycle events/autosave and clock records",
+      "downstream_consumer": "Physiology, crop, colony events",
+      "time_policy": "600second cycles; render-played time separate",
+      "failure_exception": "No offline policy established",
+      "aftermath": "Old clock components repaired on deserialize",
+      "finding_ids": [
+        "ONI-F23"
+      ],
+      "evidence": [
+        "E35"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-17",
+      "lens": "persistence/failure",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Save/load a colony",
+      "prerequisites": "Definitions, active save DLC and serializable native/managed state",
+      "expenditure": "Disk write; no user save touched",
+      "mutation": "Native cells and managed root/object state written/restored",
+      "downstream_consumer": "All continuing systems",
+      "time_policy": "Save boundaries, build/header and type directory",
+      "failure_exception": "Native bad data/load failure; IO/permission save failure",
+      "aftermath": "Inspectable failure handling is not atomic durability proof",
+      "finding_ids": [
+        "ONI-F24",
+        "ONI-F25"
+      ],
+      "evidence": [
+        "E04",
+        "E36"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-18",
+      "lens": "DLC/content authoring",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Select content applicability",
+      "prerequisites": "Subscription/settings/required-forbidden lists/current save/mounted assets",
+      "expenditure": "No entitlement or enablement action performed",
+      "mutation": "Applicable definitions may differ by context",
+      "downstream_consumer": "Materials/perks/buildings/world rules",
+      "time_policy": "Content/save boundary",
+      "failure_exception": "Installed files alone do not pass every gate",
+      "aftermath": "Source bounds kept distinct from ownership",
+      "finding_ids": [
+        "ONI-F26"
+      ],
+      "evidence": [
+        "E02",
+        "E36",
+        "E37"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-19",
+      "lens": "Spaced Out travel",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Move a fueled rocket between cluster nodes",
+      "prerequisites": "Space status, resource/range and validated destination",
+      "expenditure": "Tank fuel, qualified oxidizer and optional robo-pilot databanks",
+      "mutation": "Path/location and discovery advance",
+      "downstream_consumer": "Arrival/landing and colony supply",
+      "time_policy": "Travel dt accumulates step progress",
+      "failure_exception": "Insufficient resource stops movement; final orbit exception",
+      "aftermath": "Cargo/world state not reduced to a renamed location",
+      "finding_ids": [
+        "ONI-F27"
+      ],
+      "evidence": [
+        "E38",
+        "E39"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-20",
+      "lens": "Frosty production/infrastructure",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Melt cold stock or restore a facility",
+      "prerequisites": "Batch capacity/fuel; actual steel and repair work; supported vents",
+      "expenditure": "Ice/fuel and1200kg repair steel; feedstock on vent completion",
+      "mutation": "Water/exhaust or heat/phase/impurity outputs",
+      "downstream_consumer": "Collection, local habitat and retained restored service",
+      "time_policy": "Batch timer, separate collection work",
+      "failure_exception": "Insufficient fuel/storage stalls; obstructed/disconnected vents are explicit",
+      "aftermath": "Discovery/repair/vent outcomes retained; broader failure branches unread",
+      "finding_ids": [
+        "ONI-F28",
+        "ONI-F29"
+      ],
+      "evidence": [
+        "E40",
+        "E41",
+        "E42",
+        "E43",
+        "E44"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-21",
+      "lens": "Bionic body/support",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Sustain/upgrade/operate a mechanical worker",
+      "prerequisites": "Actual charge, oxygen/oil, installed slots and real operator/depot",
+      "expenditure": "Tank gas, portable charge and upkeep; booster wattage modifiers",
+      "mutation": "Body state, granted competence or remote operation",
+      "downstream_consumer": "Useful work, navigation and maintenance",
+      "time_policy": "Safe/critical/offline states and schedules",
+      "failure_exception": "Depleted battery incapacity; missing operator/depot; depth-qualified water stress",
+      "aftermath": "Granted support is removable; source UngrantSkill also mutates mastery, so retained earned history needs a stronger original YAIR separation.",
+      "finding_ids": [
+        "ONI-F30",
+        "ONI-F31",
+        "ONI-F32",
+        "ONI-F33",
+        "ONI-F34",
+        "ONI-F39"
+      ],
+      "evidence": [
+        "E15",
+        "E18",
+        "E45",
+        "E46",
+        "E47",
+        "E48",
+        "E49",
+        "E50",
+        "E51",
+        "E52",
+        "E53"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-22",
+      "lens": "Prehistoric crisis",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Defend against an identified impactor",
+      "prerequisites": "Actual target, ammunition/entity and operating launcher",
+      "expenditure": "Stored projectile committed to launch",
+      "mutation": "Arrival/impact or defeated/reward event",
+      "downstream_consumer": "Retained colony outcome and later material shower",
+      "time_policy": "Serialized arrival and landed cycle",
+      "failure_exception": "Failure reaches impact; exact crater/damage unread",
+      "aftermath": "Land/defeat and continuing colony state remain separate",
+      "finding_ids": [
+        "ONI-F35",
+        "ONI-F36"
+      ],
+      "evidence": [
+        "E08",
+        "E54",
+        "E55",
+        "E56",
+        "E57"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    },
+    {
+      "id": "ONI-23",
+      "lens": "Aquatic movement/ecology",
+      "status": "representative_dependency_chain_source_inspected",
+      "decision": "Learn swimming/use source-coupled power",
+      "prerequisites": "Actual skill/perk, stamina/support and geyser-attached generator",
+      "expenditure": "Learning/support costs via shared skill/material domains",
+      "mutation": "Navigation/recovery availability and exhale-only wattage",
+      "downstream_consumer": "Underwater labor and electrical service",
+      "time_policy": "Role updates, recovery reservation and source cycle",
+      "failure_exception": "No air/stamina means skill alone is insufficient; source idle means no wattage",
+      "aftermath": "Whole marine content/recruit/rubber catalogue unread",
+      "finding_ids": [
+        "ONI-F37",
+        "ONI-F38"
+      ],
+      "evidence": [
+        "E13",
+        "E58",
+        "E59",
+        "E60"
+      ],
+      "whole_system_reviewed": false,
+      "runtime_exercised": false
+    }
+  ],
+  "all_source_read": false,
+  "whole_game_semantic_coverage": false,
+  "evidence": [
+    {
+      "id": "E01",
+      "path": "inputs/StreamingAssets/elements/liquid.yaml",
+      "symbol_or_marker": "elementId: Brine",
+      "line": 3,
+      "sha256": "f5f992109f2348b8cf1cd90cd61eb91d6927d8470379e0d665597c4ba3c31654",
+      "inspection": "Brine and MurkyBrine definition rows; remaining liquid catalogue not exhaustively read"
+    },
+    {
+      "id": "E02",
+      "path": "selected/ElementLoader.cs",
+      "symbol_or_marker": "public static void Load",
+      "line": 69,
+      "sha256": "174e0dd90b0530f96596ab1a0544698affb51994c5c0e65d45c9e48023c760a4",
+      "inspection": "CollectElementsFromYAML, Load, CopyEntryToElement; finalization cross-references inspected"
+    },
+    {
+      "id": "E03",
+      "path": "selected/SimMessages.cs",
+      "symbol_or_marker": "public unsafe static void CreateSimElementsTable",
+      "line": 1054,
+      "sha256": "fc0681f81d4843cf753c73f35b2fb750861dc68dfcc22c2c77b71230c91ffe47",
+      "inspection": "CreateSimElementsTable; ConsumeMass, AddRemoveSubstance and native message call sites"
+    },
+    {
+      "id": "E04",
+      "path": "selected/Sim.cs",
+      "symbol_or_marker": "[DllImport(\"SimDLL\")]",
+      "line": 1001,
+      "sha256": "398b29de11c8655800a2808b5f652bfad585ee2a689f195275e7a5ba37b18f46",
+      "inspection": "DllImport/native message/save/load interface; native implementation remains opaque"
+    },
+    {
+      "id": "E05",
+      "path": "decompiled/ElectrolyzerConfig.cs",
+      "symbol_or_marker": "public override void ConfigureBuildingTemplate",
+      "line": 31,
+      "sha256": "3359c6c5236be2ecefab69b11fa771960a0a527b9d0654111adffb0cedd00f79",
+      "inspection": "Entire building config"
+    },
+    {
+      "id": "E06",
+      "path": "selected/ElementConverter.cs",
+      "symbol_or_marker": "private void ConvertMass",
+      "line": 434,
+      "sha256": "63e970f81c6f5cdf733660126f5749b7e3f54b8bbb6fad5a981868b3925e57ad",
+      "inspection": "ConvertMass, input availability methods and output descriptor/statistics joins"
+    },
+    {
+      "id": "E07",
+      "path": "selected/ConduitFlow.cs",
+      "symbol_or_marker": "public float AddElement",
+      "line": 2210,
+      "sha256": "db16f5ff75706bffbe1df861ac662730d752bac4bd7d2259381e1173decf563b",
+      "inspection": "AddElement, RemoveElement and serialization/deserialization; flow-routing call sites, not whole routing algorithm"
+    },
+    {
+      "id": "E08",
+      "path": "selected/EnergyGenerator.cs",
+      "symbol_or_marker": "public override void EnergySim200ms",
+      "line": 197,
+      "sha256": "4b9c657c4b00b72c66f0da84a3e5ed72a77902122b391a41d896170c20aef0b2",
+      "inspection": "IsConvertible, EnergySim200ms and Emit call sites"
+    },
+    {
+      "id": "E09",
+      "path": "selected/CircuitManager.cs",
+      "symbol_or_marker": "public void Sim200msLast",
+      "line": 275,
+      "sha256": "25c3488e494136b5672f2c6fd12dbe18c191338b97c64fb183085ced3045a4c2",
+      "inspection": "Consumption allocation and CheckCircuitOverloaded; routing construction not exhaustively read"
+    },
+    {
+      "id": "E10",
+      "path": "selected/ElectricalUtilityNetwork.cs",
+      "symbol_or_marker": "public void UpdateOverloadTime",
+      "line": 69,
+      "sha256": "adaa1af25616517dffa853e3c48819fcbe95ab86da2b4ddf166629efcbd14f90",
+      "inspection": "UpdateOverloadTime damage and decay branches"
+    },
+    {
+      "id": "E11",
+      "path": "selected/OxygenBreather.cs",
+      "symbol_or_marker": "public void Sim200ms",
+      "line": 177,
+      "sha256": "d293c2672d8cd702e027c2bcf1ddd31ad3ded2b2a9e2dca578ff4facee8a861c",
+      "inspection": "GetCurrentGasProvider, Sim200ms, callback and death cleanup"
+    },
+    {
+      "id": "E12",
+      "path": "selected/GasBreatherFromWorldProvider.cs",
+      "symbol_or_marker": "public bool ConsumeGas",
+      "line": 135,
+      "sha256": "b315b2ca105b35d12acd0b04c57ad98b0257d42469e926865edc990ab34c093a",
+      "inspection": "Entire provider"
+    },
+    {
+      "id": "E13",
+      "path": "selected/BreathMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 75,
+      "sha256": "d5cc55818fc3772871c77598fd6f2f148995d9482ff9a4cc2fac46725a849df3",
+      "inspection": "Recovery state machine, scheduling and station reservation methods"
+    },
+    {
+      "id": "E14",
+      "path": "selected/SuffocationMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 103,
+      "sha256": "4ef1a2f701807243849aee0d823dc3d135e67abb306016092e9d0e967c9110f6",
+      "inspection": "Entire monitor; holds breath, rescue and death chain"
+    },
+    {
+      "id": "E15",
+      "path": "selected/WarmBlooded.cs",
+      "symbol_or_marker": "public static bool IsCold",
+      "line": 154,
+      "sha256": "7ba21908b4f4081f7ed1e847372805d0f192bdf776dd4a345fe983bb771f0aa8",
+      "inspection": "Homeostasis mode declarations, alive states and CoolingRegulator/WarmingRegulator calls"
+    },
+    {
+      "id": "E16",
+      "path": "selected/TemperatureMonitor.cs",
+      "symbol_or_marker": "public void UpdateTemperature",
+      "line": 34,
+      "sha256": "5b3ccf6ff3c33e13607b599e1c34a8ea39af4b124256f43202a19d131e3a11b0",
+      "inspection": "Body-temperature averaging, thresholds, safety queries and urge states"
+    },
+    {
+      "id": "E17",
+      "path": "selected/CalorieMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 89,
+      "sha256": "6b4f179fac09736f6e20aa19769d11cca4e7c92c3b397d3bcdebb9433ef018e1",
+      "inspection": "Threshold/meal-schedule predicates and depleted state; final DeathMonitor calorie consumer not read"
+    },
+    {
+      "id": "E18",
+      "path": "selected/MinionResume.cs",
+      "symbol_or_marker": "public SkillMasteryConditions[] GetSkillMasteryConditions",
+      "line": 478,
+      "sha256": "36e56a352be7f7fa975ea2e4a407a7cf41b86e8c0e5664c3a350e2ac83efc584",
+      "inspection": "Mastery predicates, grant/remove/perk/XP declarations and UpdateExpectations/UpdateMorale, selected load repair"
+    },
+    {
+      "id": "E19",
+      "path": "selected/Klei.AI.AttributeLevels.cs",
+      "symbol_or_marker": "public bool AddExperience",
+      "line": 110,
+      "sha256": "7c6e2c68d668424eff10c7efa133233564b3256b19b303c17c9ba5b4c0b5899c",
+      "inspection": "Attribute initialization, save/load and AddExperience gates"
+    },
+    {
+      "id": "E20",
+      "path": "selected/ChorePreconditions.cs",
+      "symbol_or_marker": "public Chore.Precondition HasSkillPerk",
+      "line": 190,
+      "sha256": "4fa0b8fab38821b0c04d03bb7418dbf00661d5d9d6de135df7bb605f4bff93c1",
+      "inspection": "HasSkillPerk, schedule/red-alert, permission/assignment, reach and pickup predicates plus priority comparisons"
+    },
+    {
+      "id": "E21",
+      "path": "selected/ResearchCenter.cs",
+      "symbol_or_marker": "private void ConvertMassToResearchPoints",
+      "line": 71,
+      "sha256": "633678a28166d257de603bb9deec5eb3c60599ca51c8dbc1ddd6eb023bd5cedd",
+      "inspection": "Work start/stop/tick, conversion callback, worker preemption and typed progress"
+    },
+    {
+      "id": "E22",
+      "path": "selected/Research.cs",
+      "symbol_or_marker": "private void CheckBuyResearch",
+      "line": 281,
+      "sha256": "67dd6f34602578a240a7cd2323d4178baffc768064837706fcccdbe104609e22",
+      "inspection": "Prerequisite queue, role warnings, AddResearchPoints, CheckBuyResearch and serialization"
+    },
+    {
+      "id": "E23",
+      "path": "selected/TechInstance.cs",
+      "symbol_or_marker": "public SaveData Save",
+      "line": 83,
+      "sha256": "ab18ea91d8c862de028e9ae1739a6482a42db75a01df6284457d839a7edeb316",
+      "inspection": "Entire class"
+    },
+    {
+      "id": "E24",
+      "path": "selected/ResearchPointInventory.cs",
+      "symbol_or_marker": "private void OnDeserialized",
+      "line": 34,
+      "sha256": "178b75e73bcd0233cab5f6f5370be3779f3037dd6d3de6a6530957fbf7de3ebe",
+      "inspection": "Entire class"
+    },
+    {
+      "id": "E25",
+      "path": "selected/QualityOfLifeNeed.cs",
+      "symbol_or_marker": "public void Sim4000ms",
+      "line": 36,
+      "sha256": "7750b22b493bc28093ff9d7fb8d3c08e323c47ba781516a72f79a29ea52d990a",
+      "inspection": "Entire need: difficulty-dependent morale deficit/surplus stress modifiers"
+    },
+    {
+      "id": "E26",
+      "path": "selected/StressMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 66,
+      "sha256": "bca7cca63f53fc2fab3c1e8e6a7ebf414caec7cbb26fd308b1808fae8d771a31",
+      "inspection": "Entire monitor"
+    },
+    {
+      "id": "E27",
+      "path": "selected/StressBehaviourMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 70,
+      "sha256": "3e8c5701f6e8493c7f9810209ab654e3697ebff7922bc037582f23481c555c88",
+      "inspection": "Entire behavior monitor; concrete destructive stress chore implementations unread"
+    },
+    {
+      "id": "E28",
+      "path": "decompiled/BasicSingleHarvestPlantConfig.cs",
+      "symbol_or_marker": "public GameObject CreatePrefab",
+      "line": 16,
+      "sha256": "869a73362c80e9699d59b3ef4546de1393523c475fe6e23568134f8f7e8391a8",
+      "inspection": "Entire mealwood prefab config"
+    },
+    {
+      "id": "E29",
+      "path": "selected/PlantElementAbsorber.cs",
+      "symbol_or_marker": "public static bool PlanConsume(Storage storage, ConsumeInfo[]",
+      "line": 139,
+      "sha256": "9a2cce1d860762d0b165b69fc0b4b975df8f95782c948f711ea68c92afb851c3",
+      "inspection": "Planner and PlanConsume alternatives; applies no universal all-input assumption"
+    },
+    {
+      "id": "E30",
+      "path": "selected/WiltCondition.cs",
+      "symbol_or_marker": "public enum Condition",
+      "line": 8,
+      "sha256": "ea9d7af4104561e793a2a689a01857d2355a78c35c5124e723b4118cc56a7cba",
+      "inspection": "Condition catalogue and event mappings; selected condition/state call sites"
+    },
+    {
+      "id": "E31",
+      "path": "selected/Growing.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 108,
+      "sha256": "00d8ed5b164b7c9fbb0df759d2ab8ca8a22b7b3b00a04422e9d7b0566c3c1354",
+      "inspection": "Growing/stalled/grown states and growth/old-age rates"
+    },
+    {
+      "id": "E32",
+      "path": "selected/Crop.cs",
+      "symbol_or_marker": "public GameObject SpawnAndGetSomeFruit",
+      "line": 114,
+      "sha256": "f1ab81bfd67219698482efff1f9f30363b3d9828c1696d76e1908121f1598589",
+      "inspection": "Output spawn, yield, temperature, mutation and calorie reporting"
+    },
+    {
+      "id": "E33",
+      "path": "selected/CreatureCalorieMonitor.cs",
+      "symbol_or_marker": "public void PoopInStorage",
+      "line": 198,
+      "sha256": "554217fb8c2e216f6fe5b3608785257d9d39b74c463257b19357d109d76ad50d",
+      "inspection": "Diet-based output methods, OnCaloriesConsumed, tame/wild starvation and pause/recovery states"
+    },
+    {
+      "id": "E34",
+      "path": "selected/FertilityMonitor.cs",
+      "symbol_or_marker": "public void LayEgg",
+      "line": 124,
+      "sha256": "1c1d2294f0de9ab494bddb82e4b9ba20f4ff6a2c3e86ed2adab0414545d36849",
+      "inspection": "Entire fertility monitor"
+    },
+    {
+      "id": "E35",
+      "path": "selected/GameClock.cs",
+      "symbol_or_marker": "private void AddTime",
+      "line": 78,
+      "sha256": "2d6e3fee5065d27814a15f146ae051582abc2a7d8c4dcb355a2620124b28d006",
+      "inspection": "Sim33ms, render-played time, cycle/autosave and load repair"
+    },
+    {
+      "id": "E36",
+      "path": "selected/SaveLoader.cs",
+      "symbol_or_marker": "private void Save(BinaryWriter writer)",
+      "line": 336,
+      "sha256": "3f478c43a7bf4fda235c8323889df79d225dc7a70734d333e8314340a63208fd",
+      "inspection": "Save/load orchestration, file writing failure branches, active DLC predicates; no actual saves read"
+    },
+    {
+      "id": "E37",
+      "path": "selected/DlcManager.cs",
+      "symbol_or_marker": "public static bool IsCorrectDlcSubscribed",
+      "line": 446,
+      "sha256": "6a871ace0993c6291fd4aa11ea5dd1b8437a28d141c9b6d10ab889ff77a828f6",
+      "inspection": "DLC product mapping, subscription, enablement, content-directory and restriction APIs; none invoked"
+    },
+    {
+      "id": "E38",
+      "path": "selected/Clustercraft.cs",
+      "symbol_or_marker": "private void BurnFuelForTravel",
+      "line": 488,
+      "sha256": "906a4ecddd55a0eda082ecc8db3dfb2487109bcb0252325531d797f70ea7d695",
+      "inspection": "Resource/travel gates, per-step fuel/oxidizer consumption, destination handling and destruction call sites"
+    },
+    {
+      "id": "E39",
+      "path": "selected/ClusterTraveler.cs",
+      "symbol_or_marker": "public void Sim200ms",
+      "line": 233,
+      "sha256": "4ff20beb562284812c1dd330324367e87145ed36cc05fb6eca4af5fd3fd6993f",
+      "inspection": "Progress, stopped travel, validated path step and fog reveal"
+    },
+    {
+      "id": "E40",
+      "path": "decompiled/IceKettleConfig.cs",
+      "symbol_or_marker": "public const float MASS_KG_PER_BATCH",
+      "line": 11,
+      "sha256": "192640d04be3916456885335023692f9d9fbf026ff13e7a72a7c39163cc00da9",
+      "inspection": "Entire ice kettle config"
+    },
+    {
+      "id": "E41",
+      "path": "selected/IceKettle.cs",
+      "symbol_or_marker": "public void MeltNextBatch",
+      "line": 151,
+      "sha256": "edecfb108ae0b56e0dc98811e5159f6db86afc86c98721440df4d18fb5dd726c",
+      "inspection": "Batch resource/capacity gates, timer states, MeltNextBatch and fuel equation"
+    },
+    {
+      "id": "E42",
+      "path": "selected/IceKettleWorkable.cs",
+      "symbol_or_marker": "protected override void OnCompleteWork",
+      "line": 50,
+      "sha256": "3cb8eb026b1a01aabc68ca95e93b4ba5ea8ee00b6fc12d28348bdb66c13b4166",
+      "inspection": "Entire collection workable"
+    },
+    {
+      "id": "E43",
+      "path": "selected/GeothermalController.cs",
+      "symbol_or_marker": "public List<GeothermalVent.ElementInfo> ComputeOutputs",
+      "line": 526,
+      "sha256": "109d2f99906fde0aaa7722e26b28b5badde659db39e9278a72f864ea46d76c7d",
+      "inspection": "Repair fetch/work states, heat-weighted content, phase splitting, output routing, input consumption"
+    },
+    {
+      "id": "E44",
+      "path": "selected/GeothermalPlantComponent.cs",
+      "symbol_or_marker": "public static void OnVentingHotMaterial",
+      "line": 114,
+      "sha256": "363363f0138e4365b256457f508eeebb848c656dd5a7c1734ff64740713e7b67",
+      "inspection": "Discovery, scoped vent/controller relation and retained achievement aftermath"
+    },
+    {
+      "id": "E45",
+      "path": "decompiled/BionicMinionConfig.cs",
+      "symbol_or_marker": "public static Tag MODEL",
+      "line": 9,
+      "sha256": "f5ce05650a801e0ca384d27dbb3314424dfdd8b334fc42e4b71894210d983f58",
+      "inspection": "Entire body prefab"
+    },
+    {
+      "id": "E46",
+      "path": "selected/BionicOxygenTankMonitor.cs",
+      "symbol_or_marker": "public bool ConsumeGas",
+      "line": 269,
+      "sha256": "790ed901e0897aec58594fed699543fb8f9560df33e9fe597c68c6ef0db7272c",
+      "inspection": "Actual tank inventory, consume/callback and safe/low/critical refill states"
+    },
+    {
+      "id": "E47",
+      "path": "selected/BionicBatteryMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 574,
+      "sha256": "8fc66c4cbc8d6bb69f7a8dfb59f9db542f7efdb0f54ddc6ad3a4a3a61bf11ea4",
+      "inspection": "Charge declarations/transfer and online/critical/offline/reanimation state branches"
+    },
+    {
+      "id": "E48",
+      "path": "selected/BionicOilMonitor.cs",
+      "symbol_or_marker": "public string GetEffect",
+      "line": 92,
+      "sha256": "29434b96096ab1ec9567e8b8c035daeee2c8b7416f54dc9c91d08ae035b8fc9e",
+      "inspection": "Resource drain, online predicate and skill-qualified lubrication effect"
+    },
+    {
+      "id": "E49",
+      "path": "selected/BionicWaterDamageMonitor.cs",
+      "symbol_or_marker": "private static bool IsFloorWetWithIntolerantSubstance",
+      "line": 64,
+      "sha256": "f07073c41371b6ff0b34174e9616542ae1babe28e06faeec8f0ecadba7fedb4f",
+      "inspection": "Water intolerance, protection/depth exceptions and stress effect"
+    },
+    {
+      "id": "E50",
+      "path": "selected/BionicUpgradesMonitor.cs",
+      "symbol_or_marker": "public void InstallUpgrade",
+      "line": 184,
+      "sha256": "84447900a1474b11858eee39479d201079c9a032e1941d2f67026802f36d724e",
+      "inspection": "Installed versus assigned slots, lock/uninstall and energy modifier refresh"
+    },
+    {
+      "id": "E51",
+      "path": "selected/BionicUpgrade_Skill.cs",
+      "symbol_or_marker": "public void ApplySkill",
+      "line": 18,
+      "sha256": "ca85f968ad05664f0fd98d9171eb6d43c9868b3cb3125624874deed256000d71",
+      "inspection": "Entire grant/remove skill bridge"
+    },
+    {
+      "id": "E52",
+      "path": "selected/RemoteWorker.cs",
+      "symbol_or_marker": "public class RemoteWorker",
+      "line": 4,
+      "sha256": "ef41ff338e10818a021ad874c2f52e579a6ac7cffefc570b68b885b1bc749e75",
+      "inspection": "Entire proxy worker"
+    },
+    {
+      "id": "E53",
+      "path": "selected/RemoteWorkerSM.cs",
+      "symbol_or_marker": "public static bool HasRemoteOperator",
+      "line": 202,
+      "sha256": "14708c480a926b07f4daa8a3552366de544d4d4464caed39ccb0215f7dae7bcf",
+      "inspection": "Controlled/uncontrolled/lost/die branches, maintenance and operator/depot predicates"
+    },
+    {
+      "id": "E54",
+      "path": "selected/LargeImpactorEvent.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 27,
+      "sha256": "24481cc3d500380ff0a6c73514ee02475581b2aca0500a259977f5f42f263fd8",
+      "inspection": "Event create/travel/impact/defeat aftermath, retained landing cycle and reward event"
+    },
+    {
+      "id": "E55",
+      "path": "selected/ClusterMapLargeImpactor.cs",
+      "symbol_or_marker": "public void Setup",
+      "line": 96,
+      "sha256": "a3d887b25bc233ac5ca4be9454ac7269c0160a6d47514567153e1242c4da1abf",
+      "inspection": "Serialized destination/arrival, reveal/status and travel state declarations"
+    },
+    {
+      "id": "E56",
+      "path": "selected/MissileLauncher.cs",
+      "symbol_or_marker": "public void LaunchLongRangeMissile",
+      "line": 363,
+      "sha256": "400b282216b2ae1403eaee87baf7fdde9c4d59e52c7375f5af2075b160d854e5",
+      "inspection": "Ammunition storage, target finding, long-range shot detachment and target clearing"
+    },
+    {
+      "id": "E57",
+      "path": "decompiled/PeatGeneratorConfig.cs",
+      "symbol_or_marker": "public override string[] GetRequiredDlcIds",
+      "line": 21,
+      "sha256": "0a66295e862ae1e6db1c4601a136016acd18cdfd0d586358975d03e4091c320f",
+      "inspection": "Entire peat fuel/power/byproduct config"
+    },
+    {
+      "id": "E58",
+      "path": "selected/SwimMonitor.cs",
+      "symbol_or_marker": "public static void CheckSwimSkill",
+      "line": 213,
+      "sha256": "8f899b31d540c1a55fcb125c52bffe2be3cac70ae494de77ac520a44f1838cc1",
+      "inspection": "Skill-dependent navigation/roles updated, stamina and suit penalty joins; animation tables only structural"
+    },
+    {
+      "id": "E59",
+      "path": "decompiled/ReefGeneratorConfig.cs",
+      "symbol_or_marker": "public override string[] GetRequiredDlcIds",
+      "line": 13,
+      "sha256": "92e509baceee51c1e03df9f49fd068b6cdfc30e6d0ee85c5621d373cddc2b111",
+      "inspection": "Entire geyser-attached DLC power-building config"
+    },
+    {
+      "id": "E60",
+      "path": "selected/ReefGenerator.cs",
+      "symbol_or_marker": "private static void EnableWattage",
+      "line": 166,
+      "sha256": "694f6842f8cb1d79e80ea70ffd80d1900e5682a2c74b9a5cc7f51c88fd20c675",
+      "inspection": "Geyser link and inhale/exhale operational transitions"
+    },
+    {
+      "id": "E61",
+      "path": "selected/PrimaryElement.cs",
+      "symbol_or_marker": "public float Mass",
+      "line": 59,
+      "sha256": "a66d2d39865108ac58a99cdd3262aaed5237c941873ad673ac1c6642bb57a35b",
+      "inspection": "Serialized units/temperature/disease declarations and selected serialization/sanitization"
+    },
+    {
+      "id": "E62",
+      "path": "selected/Electrolyzer.cs",
+      "symbol_or_marker": "public Electrolyzer()",
+      "line": 81,
+      "sha256": "bd68eb712e555ad734dbf5c97a68a57e5dbde157325af9a2954589e39d931b2e",
+      "inspection": "InitializeStates, RoomForPressure and per-cell overPressure mass predicate; native pressure solver remains opaque"
+    }
+  ],
+  "export_counts_are_not_semantic_coverage": true,
+  "unread_frontiers": [
+    "Native pressure/heat/liquid/phase/disease/radiation solver implementations",
+    "Full plant/creature/diet/egg/mutation catalogue and predation",
+    "Complete ordinary dupe diseases, treatments, sleep, toilet, death and rescue variants",
+    "Full tech/build menu and material/category/complex fabrication catalogue",
+    "Rocket module launch readiness, interiors, landing and all late-game transport branches",
+    "Every worldgen seed/layout, DLC trait/story POI and expansion late-game branch",
+    "Concrete stress chores and broader social/information transmission",
+    "Whole renderer/offscreen scheduling, debug/sandbox/editor/mod-loader and cloud-save behavior"
+  ],
+  "checks": {
+    "source_trace": true,
+    "private_hashes": true,
+    "json_locator_validation": "passed, see VALIDATION.json",
+    "game_launch": false,
+    "personal_save_read": false,
+    "browser_gameplay": false,
+    "save_reload": false,
+    "unit_regression": false
+  }
+}

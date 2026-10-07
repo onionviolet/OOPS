@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "files": {
+    "src/audit_remainder_combat_objectives_host.js": "68f8eaab76fd9702b5f2571ac60829acc04e0649d5f952d3523fe4103a963494",
+    "src/audit_remainder_combat_objectives_battle.js": "1b992b44062fd53398e25567ffb541f98a6796d21ebc11152164f50b3ca4e4f3",
+    "src/audit_remainder_combat_objectives_state.js": "c17fe808fce63a1a8470b85e8ef8ce18cc0876c9ef8fcd5446795344869998b6",
+    "src/audit_remainder_combat_objectives_content.js": "9d30b5007de10c1636ce4b1341e518ae9f3f6352299211959e166cd50b02f19f"
+  },
+  "commands": 10,
+  "items": 4,
+  "newControllers": 0,
+  "newPeople": 0,
+  "newSites": 0,
+  "newFeatIds": [
+    "ordinary_supply"
+  ]
+}

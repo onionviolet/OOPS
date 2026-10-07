@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-06T20:42:57.024091+00:00",
+  "status": "passed",
+  "scope": "Local research/index JSON, links, fingerprints, source-bound DLC statuses and selected ACS source pins only.",
+  "checks": {
+    "games": 9,
+    "declared_dlc_products": 21,
+    "local_links": 23,
+    "source_input_pins": 52,
+    "acs_supplement_source_pins": 16,
+    "dlc_coverage_states": {
+      "non_gameplay_item_not_source_reviewed": 8,
+      "package_available_unexpanded": 6,
+      "documented_only_source_unavailable": 5,
+      "source_inspected_selected": 2
+    },
+    "source_artifact_drift": [],
+    "moving_context_drift": [],
+    "streets_original_gameplay_gate": "still unmet0/5"
+  },
+  "errors": [],
+  "files": {
+    "README.md": "35b3058886f26eb9fcef7493c4cd3bacc56b9fd1731b95282df982c5fd12d0fd",
+    "DEEPER_RESEARCH.md": "0f84afe95dc057686bc49156515d20bade9340b8ef5b1cbf0cdb87bba82e0666",
+    "DEPTH_QUEUE.json": "b19584f6a3e613321234ed0abd4bb6cedd97c07d5fec1f45bf74b3541beb4e84",
+    "DLC_COVERAGE.json": "a6b269a153178a9aed8f92fec313a59d68eef3cbc6f148ef828b64b6352de7a1",
+    "RECONCILIATION.json": "b118f5bef18db6fbb05e82056f58b9987ab34270e357e1e38862a61ae134c868",
+    "CHECKPOINT.md": "c19ffc720b39970c164d190f870b288cc3110d68fb90229823fc5408d58f32a2"
+  },
+  "not_run": [
+    "new semantic game reading/export",
+    "game build/runtime/gameplay/unit/browser/save/failure/regression/director tests",
+    "purchases/installs/entitlement changes",
+    "commits/publication/automation"
+  ]
+}

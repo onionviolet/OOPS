@@ -1,0 +1,13 @@
+# Action worker completion and writer release
+
+2026-10-06. **Implemented-unverified.** Exclusive ownership of the new actions module and this actions evidence directory is released to root. No process or child remains active; no shared source, private save, source dossier, source library, test or build output was written.
+
+Delivered `src/book_world_paradise_actions.js`: 38 player commands, 13 private NPC commands, five controllers, two executable procedures, three source definitions, one actual observed-account situation, empty public custom-control definitions, and fresh facts/context projections. `INTEGRATION.json` owns exact IDs, hashes, facts, claims, stock requests and required root seams.
+
+The chart deliberately begins a player-only situation in the current Village and writes only `book.paradise.chart` before optional enrollment. Independent service/pier work uses actual payer funds, materials, reusable escrow and native body support. The paid desk-side booth teaches a real attributed timber-saving procedure; an ordinary extra-timber consumer remains available. Physical warnings, consented cask surrender, paid guard admission and king evacuation change actual source-operation opportunities. Native NPC movement requires root's narrow adapter; imports/render seed nothing.
+
+Source boundary: supplied-MTL `PD-MTL-67f15d112389-r1`, `ERA_CARD_SID20`, exact EPUB hash in integration ledger. Source midnight king-task and negotiated next-day18:00 fire remain distinct and uncertain. The local42/54played-minute gates, wages, cache capacity and alternative outcomes are original prototypes. Su Xiao retains his own early blade and awakened Soul Eater analytically sourced maximum91; no unknown current mana, king yield, future sword method, copied office or Hunter reward is granted.
+
+Root's final source review requested lethal native health zeroing, now defined from fresh actual health facts. After an evacuated/disrupted target, Su Xiao remains alive and searching in Goa with unresolved source task. One finite funded search-stage account can close this local observation ledger; it does not extract him or guarantee transit. After a supported kill, departed means departure from this represented local scene only; source return/failure beyond the scene remains unimplemented.
+
+Allowed checks passed: syntax, imports, immutable definition registry and controller/power/site/knowledge-situation links. No command, preview, evaluator, test, browser or save execution ran. Root owns final registration, actual native stock/location joins, common-clock scheduling, persistence, source/output correspondence and later acceptance backlog.

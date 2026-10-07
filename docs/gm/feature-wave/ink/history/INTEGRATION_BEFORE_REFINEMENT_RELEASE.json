@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "role": "ink",
+  "roleThreadId": "01a10dc6-5661-7161-9b4c-310ede7fb1f6",
+  "readiness": "relay-and-nested-refinement-in-progress-core-baseline-released",
+  "status": "admitted-implemented-unverified",
+  "soleSharedIntegrator": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "paths": {
+    "runtime": "src/ink_narrative.js",
+    "contentBridge": "src/ink_scene_content.js",
+    "ui": "src/ink_narrative_ui.js",
+    "source": "stories/feature_wave.ink",
+    "compiled": "stories/feature_wave.json",
+    "compiler": "scripts/compile_feature_ink.mjs",
+    "dependency": "docs/gm/feature-wave/ink/DEPENDENCY.json",
+    "notices": "docs/gm/feature-wave/ink/COMPILER.md"
+  },
+  "exports": {
+    "src/ink_narrative.js": [
+      "INK_NARRATIVE_SCHEMA",
+      "INK_RUNTIME_VERSION",
+      "INK_CONTENT",
+      "validateInkNarrative(state)",
+      "commitInkNarrativeAction(state,registry,request,context,host)",
+      "inkNarrativeRequest(state,id)",
+      "previewInkNarrativeAction(state,registry,id,context,host)",
+      "inkNarrativeView(state,registry,context,host)"
+    ],
+    "src/ink_scene_content.js": [
+      "INK_RESPONSES",
+      "INK_SCENE_IDS",
+      "inkSceneDefinitions",
+      "INK_COMMAND_BINDINGS",
+      "inkObserverVariables(observed)",
+      "inkBindingFor(host,id)",
+      "createTidemarkInkHost({bindings?})",
+      "INK_WORLD_VOICE_CUES",
+      "ORIGINAL_RELAY_VOICE",
+      "inkVoiceProjection(profile,{state,context,sceneId,nativeBinding})",
+      "inkRelayDefinitions",
+      "INK_RELAY_BINDINGS",
+      "createRelayInkHost({previewReplacement,commitReplacement,voiceProfile?,bindings?})"
+    ],
+    "src/ink_narrative_ui.js": [
+      "createInkNarrativeUI({read,act:(id,token),choose:(id,token)}) -> {element,render}"
+    ]
+  },
+  "joins": [
+    {
+      "owner": "package.json/package-lock.json",
+      "action": "Features install exact production dependency inkjs@2.4.0 --save-exact; DEPENDENCY pins integrity. No project dependency changes by Ink."
+    },
+    {
+      "owner": "build.js/package.json",
+      "action": "Compile source with node scripts/compile_feature_ink.mjs; require --check before esbuild. Browser imports engine-only inkjs root export and compiled JSON; no compiler in bundle."
+    },
+    {
+      "owner": "content registry in src/main.js",
+      "action": "Append inkSceneDefinitions.commands to current simulation command registry. IDs: ink.tidemark.begin, ink.tidemark.terms, ink.tidemark.leave."
+    },
+    {
+      "owner": "src/expansion_engine.js validation + src/save_files.js native envelope preflight",
+      "action": "Call validateInkNarrative(state) on loaded/final staged expansion. Missing state.inkNarrative returns null, no enrollment. Current content mismatch fails with recoverable restore-matching-build message; paid host state stays intact."
+    },
+    {
+      "owner": "src/main.js host commit",
+      "action": "Create host = createTidemarkInkHost(); actInk(id, token) gets fresh expeditionContext but preserves the UI-displayed token. Build request={...token,id}; invoke commitInkNarrativeAction, then existing persistExpansion(plan) once. Programmatic direct action uses inkNarrativeRequest(state,id). Preserve destinationDebit/nativePatch/gameplay/vitals/ownership and destination native publication in the same write. Never publish Ink alone or execute callback rewards."
+    },
+    {
+      "owner": "Notebook/normal center native UI factory/render loop",
+      "action": "Create createInkNarrativeUI({read:()=>inkNarrativeView(state,registry,context,host),act:actInk,choose:actInk}); mount returned element in existing Notebook parent, render in current refresh. View includes token={expectedSequence,sessionId?,expectedRevision?}; UI sends the displayed token to act/choose. Map canWrite/error/inCombat/inDialogue to disabled eligible controls in read and enforce main commit guard."
+    },
+    {
+      "owner": "distribution notice owner",
+      "action": "Preserve full Ink/inkjs MIT notices and inkjs AUTHORS recorded in COMPILER.md; no copied story prose/assets."
+    }
+  ],
+  "commands": {
+    "begin": "ink.tidemark.begin",
+    "revisit": "ink.tidemark.begin",
+    "ask_terms": "ink.tidemark.terms",
+    "leave": "ink.tidemark.leave",
+    "material": "tidemark.accept if not agreed, then tidemark.timber in same envelope",
+    "coin": "tidemark.buy_log with native destinationDebit",
+    "borrow_tool": "tidemark.borrow_kit",
+    "return_tool": "tidemark.return_kit",
+    "use_tool": "tidemark.inspect_floats",
+    "teach": "tidemark.lesson",
+    "refuse": "tidemark.decline"
+  },
+  "activation": "Explicitly visit Tidemark and meet keeper first; discuss button begins optional cursor. No render/load enrollment.",
+  "compatibility": {
+    "expansion": "5 for old unenrolled saves;6 for opted-in wave state, Features-owned FEATURE_ENGINE_SCHEMA",
+    "simulation": "existing1-4 preserved",
+    "narrativeWrapper": 1,
+    "compiledFormat": 21,
+    "saveFormat": 10,
+    "runtime": "inkjs@2.4.0",
+    "absentDefault": null,
+    "compiledContent": {
+      "schemaVersion": 1,
+      "storyId": "feature-wave-negotiation",
+      "storyRevision": 1,
+      "compilerPackage": "inkjs",
+      "compilerVersion": "2.4.0",
+      "sourceSha256": "4d4a7be449589255ca9620833fc469da73f095b5dcad14716bad3915c8ef9a6f",
+      "compiledSha256": "d37584206c4b341ca749f162ed179096fc78e9e7e4163d61f7deace7e78bc3a2",
+      "contentHash": "sha256:ae0be8ab54ef5d062fb651cd7cd070b122ecaf9f79fc9f9ac00cf730a72a6a1f"
+    },
+    "changedBuildPolicy": "New cursor requires exactly pinned content/runtime; different content rejected without replay or new enrollment. Preserve compiled content for active saves; no arbitrary cursor migration selected. Older builds are unsupported for new cursor saves; old saves remain untouched."
+  },
+  "observerPolicy": "Only player known tidemark.meeting/entered/method, offered ink.tidemark.terms, own agreement fact and own custody holder populate whitelisted narrative variables; no NPC private knowledge/output/future rewards.",
+  "publicationPolicy": "All plans clone state. Stable response maps to current native preflight/commit; sequence+session+revision checked. Whole host consequence and opaque cursor settle together via existing durable publisher. Failed/stale/cancelled plans stay unpublished; no external callbacks.",
+  "clockPolicy": "No conversation clock advance; pause/resume are sequenced cursor-only plans. Timed host work uses frozen jobs/shared clock and Tidemark absence freeze. Timed narrative text states acceptance/reservation, never completion.",
+  "performedChecks": [
+    "syntax JS/MJS",
+    "temporary static bundle/import exported APIs",
+    "narrative-only simulation definition registry validates",
+    "all 11 narrative response/control bindings resolve current registered definitions",
+    "compile zero diagnostics; exact normalized source/compiled byte correspondence",
+    "inkjs runtime/compiler exact2.4.0 package source/hash and story21/save10 guards",
+    "no callbacks or independent random operations in source",
+    "Static compiled evaluation strings contain all9 response tags inside choices",
+    "Actual main/registry/validator/publisher/Notebook joins inspected",
+    "Current main temporary in-memory browser build and195local map inputs matched;37vendor maps qualified separately"
+  ],
+  "pending": [
+    "Relay exact main/registry/UI source admission and final matched build",
+    "Nested actual hub/offer/mission/return/settlement/revisit bindings/scoped cursors and final matched build",
+    "deferred gameplay/save/reload/failure/keyboard/regression/director"
+  ],
+  "inputHashes": {
+    "src/ink_narrative.js": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f",
+    "src/ink_scene_content.js": "695cbe5e171870d4b860668f0e2f72f897d4b571f947e5a1c34d8a3b0a0c573c",
+    "src/ink_narrative_ui.js": "f3ef871104ce86719c3a6dc83878ef273ecee16e467b825e2c8073793768a850",
+    "stories/feature_wave.ink": "4d4a7be449589255ca9620833fc469da73f095b5dcad14716bad3915c8ef9a6f",
+    "stories/feature_wave.json": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+    "scripts/compile_feature_ink.mjs": "c423e528c54c4f62dd8d1958c51dd6b6bb06e28c81459571e3cb6200748de91b",
+    "docs/gm/feature-wave/ink/DEPENDENCY.json": "c59b89bb8db939b96c5eac79f28f51060198c92c02a64139300a6dd8688dff8f",
+    "docs/gm/feature-wave/ink/COMPILER.md": "a0954853afe25d5bf2902b8dde7ffbc9db54f81cdd6be5aa606208ec86d11dbc"
+  },
+  "staticEvidence": "docs/gm/feature-wave/ink/STATIC_CHECKS.json",
+  "recoverySourceReceipt": "docs/gm/feature-wave/ink/RESUME_STATIC.json",
+  "recoveryJoinReceipt": "docs/gm/feature-wave/ink/RESUME_JOIN.md",
+  "roleWriterReleased": true,
+  "recoverySourceHashes": {
+    "src/ink_narrative.js": "092c35b69b188fadf946fe5afd8dfb6d9c9e2dd5df1e21c1a291d668c3d5546f",
+    "src/ink_scene_content.js": "695cbe5e171870d4b860668f0e2f72f897d4b571f947e5a1c34d8a3b0a0c573c",
+    "src/ink_narrative_ui.js": "83e58147947d8ae49535497b2f0567addeb7edc21dadf8c3294de4bc2327db05",
+    "scripts/compile_feature_ink.mjs": "393b37f78c42988bde21958f635f26dccb74f89cfcc7fce77b980e1268f87680",
+    "stories/feature_wave.ink": "2ee04643c58f1382aaaf1d06ac41f1924367ec8456f32f39edea04677d954544",
+    "stories/feature_wave.json": "ba66544dca371262a4a2c7d498d35afe6f7efc05a97af04cd6589532cf5ce681"
+  },
+  "legibilityAdmission": "docs/gm/feature-wave/legibility/ADMISSION_STATIC.json",
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "implemented-unverified",
+  "currentSharedIntegrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5, completed/idle observed",
+  "postAdmissionCorrection": {
+    "reason": "Choice tags outside brackets belonged only to chosen output, not offered choice metadata. Corrected all9 and added compile-time structural guard without gameplay execution.",
+    "authoritativeDocumentation": "https://github.com/inkle/ink/blob/master/Documentation/RunningYourInk.md?plain=1",
+    "sourceAndCompiled": "fresh exact ink:check passes",
+    "sharedBuildDrift": [
+      "stories/feature_wave.ink",
+      "stories/feature_wave.json",
+      "scripts/compile_feature_ink.mjs"
+    ],
+    "sharedWindow": "explicit human approved narrow rebuild completed; all shared writes released",
+    "evidence": "docs/gm/feature-wave/ink/ADMISSION_CHECK.json"
+  },
+  "currentBuild": "docs/gm/feature-wave/ink/BUILD.json",
+  "sourceRelease": "docs/gm/feature-wave/ink/RELEASE.json",
+  "nextSteering": "book-world subtleties amendment: support selected replacement/trope scene and observer-specific local voices through exact Features/Backlog interface, no shared writes",
+  "refinement": {
+    "packet": "docs/gm/dispatch/BOOK_WORLD_SUBTLETY_2026_10_05.md",
+    "nestedPacket": "docs/gm/dispatch/NESTED_WORLDS_AND_DEEP_TROPE_CHAINS_2026_10_05.md",
+    "coreBaseline": "docs/gm/feature-wave/ink/RELEASE.json",
+    "voiceRows": "docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json",
+    "voiceReview": "docs/gm/feature-wave/ink/voice-cues/REVIEW.json",
+    "retainedContent1": "docs/gm/feature-wave/ink/content/feature_wave_v1.json",
+    "currentRevision2": {
+      "schemaVersion": 1,
+      "storyId": "feature-wave-negotiation",
+      "storyRevision": 2,
+      "sceneIds": [
+        "tidemark.negotiation",
+        "relay.office"
+      ],
+      "compilerPackage": "inkjs",
+      "compilerVersion": "2.4.0",
+      "sourceSha256": "f637f25d70e25c1ee850703a11470a74154e8ed662deef43ccf53c649b809aac",
+      "compiledSha256": "943d922a566f3a69f3636558dffa71a77dea1829d1fc8dc7abbae130badb3cab",
+      "contentHash": "sha256:2eceb76c13cc1c3e856203f84d6349d98e9e5a963e0f7c7e6afa2555eeb76a65"
+    },
+    "relayScene": "relay.office",
+    "relayActivation": "Explicit begin at actual Village after elder met. First Backlog meet stages living Eda/Orrin/Bera; old native opening/body/rightful person untouched.",
+    "relayRegistryJoin": "Append inkRelayDefinitions.commands to simulation definitions; four immediate no-reward narrative IDs ink.relay.begin/terms/leave/refuse. Existing Backlog replacement definitions/commands remain authoritative.",
+    "relayHostJoin": "Features constructs createRelayInkHost({previewReplacement:previewBacklogAction,commitReplacement:commitBacklogAction}); use actual backlogContext() with nativeAlive/current vitals/equipment, not a fabricated persisted eligibility flag. Main selects matching scene/host and carries displayed token into commitInkNarrativeAction. Revisit resolves actual once-only remembered Backlog command when legal, otherwise no-reward existing-contact conversation.",
+    "relayCommandMappings": {
+      "begin": "backlog.replacement.meet or ink.relay.begin after enrollment",
+      "revisit": "backlog.replacement.revisit or ink.relay.begin after actual prior visit/without completed-duty gate",
+      "relay_terms": "ink.relay.terms",
+      "relay_honest": "backlog.replacement.honest_entry",
+      "relay_alias": "backlog.replacement.claim_eda",
+      "relay_credential": "backlog.replacement.present_honest",
+      "relay_registry": "backlog.replacement.registry_test",
+      "relay_personal": "backlog.replacement.personal_test",
+      "relay_office": "backlog.replacement.accept_office",
+      "relay_work": "backlog.replacement.deliver_duty",
+      "relay_correction": "backlog.replacement.correct_clerk",
+      "relay_refuse": "ink.relay.refuse only while rightful/unaccepted",
+      "relay_leave": "ink.relay.leave"
+    },
+    "observerPolicy": "Player delivered terms/clerk/witness/registry/appointment/duty records gate projections. Private recognition records only projected after corresponding delivered report. Earlier claim/correction and actual body/right/holder remain separate. Voices are authored original strings; book profiles require actual matched native world/era/cutoff/people binding and remain unactivated in19roster records.",
+    "nestedImplementation": "Compiler child exclusively owns runtime optional scoped wrapper2 with retained legacy1; UI child owns source fragment only; parent awaits exact native nested command IDs and compiles/integrates callable bridge afterward. No nested-build or per-book gameplay claim yet.",
+    "status": "implemented-unverified, native/refinement build admission pending Features"
+  }
+}

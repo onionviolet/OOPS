@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "root": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "at": "2026-10-07T06:22:07.475876+00:00",
+  "status": "source-native-ui-compatible-state-current-build-complete-implemented-unverified",
+  "substantiveFamilyIds": [
+    "vision-and-design",
+    "engine-delivery-audits",
+    "games-repositories-native-and-DLC",
+    "novels-lore-causal-power-characters",
+    "world-and-cross-world-campaigns"
+  ],
+  "selectedConnections": [
+    "GD-01-EVIDENCE-ASSAY",
+    "Known-route-overview",
+    "ACS-P01",
+    "ACS-P02",
+    "ACS-P03"
+  ],
+  "newCommands": 21,
+  "newRuntimeModules": 17,
+  "currentRegistry": {
+    "commands": 1227,
+    "worlds": 10,
+    "controllers": 52,
+    "conditions": 23,
+    "workPlans": 7
+  },
+  "acquiredCurrentReturn": "home/social/Proto23/visit/retort cc3798910c48,50exact shared paths plus4resolved releases",
+  "build": "BUILD.json",
+  "qualification": "All source/current-build scope complete; no semantic all-source or accepted gameplay/save claim",
+  "laterAcceptance": "ACCEPTANCE_BACKLOG.md"
+}

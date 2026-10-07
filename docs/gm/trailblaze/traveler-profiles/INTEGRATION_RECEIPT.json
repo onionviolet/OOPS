@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-04T18:10:03.439530+00:00",
+  "status": "current_source_integration_unverified",
+  "testsExecuted": false,
+  "plannerCasesExecuted": false,
+  "writer": "Engine owns shared/native/bundle source; traveler owns report receipt only",
+  "modules": [
+    {
+      "path": "src/realm_traveler_profiles.js",
+      "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775",
+      "includedInBundleMap": true,
+      "bundleMapMatchesLiveSource": true
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "sha256": "10211b786234115a35e78ebb67f0fa5cfde45d4ae95b1bd347a2c0feb4815300",
+      "includedInBundleMap": true,
+      "bundleMapMatchesLiveSource": false
+    },
+    {
+      "path": "src/pocket_realm_host.js",
+      "sha256": "49f31b7e84bd924ad6dd10db59a533c0f44c2a2335e63fd733a9019b9e5eb0f7",
+      "includedInBundleMap": true,
+      "bundleMapMatchesLiveSource": false
+    }
+  ]
+}

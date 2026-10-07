@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "steam_app_id": 1546320,
+  "steam_build_id": "25001959",
+  "source_format": "IL2CPP",
+  "unity_version": "6000.0.58f2",
+  "metadata_header_version": 31,
+  "metadata_tool_interpretation": "31.1",
+  "native_architectures": [
+    "x86_64",
+    "arm64"
+  ],
+  "inputs": [
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Resources/Data/il2cpp_data/Metadata/global-metadata.dat",
+      "bytes": 14014748,
+      "sha256": "2f84664c809f076c73e4515567c282682b0fcafafc57cb9d7e5eaf4d948b9c6f"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Frameworks/GameAssembly.dylib",
+      "bytes": 141935014,
+      "sha256": "8a21647ce035ff6993d0faa617d2f8ac63e25297f4ecf9b18bab6770bb72f969"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Resources/Data/globalgamemanagers",
+      "bytes": 238356,
+      "sha256": "c6dc72b073306f3eac742bea93ce480c48e32ad3c734d84f0902d4eb0de9e70c"
+    },
+    {
+      "path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/YourChronicle/YourChronicle.app/Contents/Info.plist",
+      "bytes": 1526,
+      "sha256": "964d805f9a356f47d7dff523183578b0762d6f259920a40249abb984b6015019"
+    }
+  ],
+  "private_workspace": "/Users/weiwei/.codex/research/your-chronicle/25001959",
+  "recovery_tool": {
+    "release": "2022.1.0-pre-release.21",
+    "published_at": "2026-02-22T14:04:17Z",
+    "download": "https://github.com/SamboyCoding/Cpp2IL/releases/download/2022.1.0-pre-release.21/Cpp2IL-2022.1.0-pre-release.21-OSX-ARM64",
+    "sha256": "6670ddb93f28d4e7f329251d2597d2abbc6ba23e46382f7ca7b5e437ec93606a",
+    "architecture": "osx-arm64",
+    "release_url": "https://github.com/SamboyCoding/Cpp2IL/releases/tag/2022.1.0-pre-release.21",
+    "compatibility_reason": "v31, Unity6, universal Mach-O supported in prerelease20/21; old stable2022.0.7 only29.1 not selected",
+    "signed_sha256": "cd7159b3a8ad051a7a1cb6b716f2ad4bdec2680b265729d5e4e85c05e956e847",
+    "private_adhoc_signing": "codesign -s - --force; only private executable signed; initial137 then help passed"
+  },
+  "recovery_state": "declarations, address annotations and native x86 disassembly complete; selected semantic traces integrated",
+  "recovery_limitation": "Pinned Cpp2IL dll_il_recovery FillMethodBody emits ldnull/throw; never count this as recovered C# method body. Selected native/disassembly traces and installed structured documentation needed.",
+  "save_or_account_read": false,
+  "game_launched": false,
+  "installed_files_mutated": false,
+  "raw_corpus_in_git": false,
+  "delivery_state": "finite selected research complete",
+  "steam_manifest_fields": {
+    "appid": "1546320",
+    "name": "Your Chronicle",
+    "installdir": "YourChronicle",
+    "StateFlags": "4",
+    "buildid": "25001959"
+  },
+  "input_copy_match": [
+    {
+      "name": "global-metadata.dat",
+      "sha256": "2f84664c809f076c73e4515567c282682b0fcafafc57cb9d7e5eaf4d948b9c6f",
+      "matches_installed": true
+    },
+    {
+      "name": "GameAssembly.dylib",
+      "sha256": "8a21647ce035ff6993d0faa617d2f8ac63e25297f4ecf9b18bab6770bb72f969",
+      "matches_installed": true
+    }
+  ],
+  "private_recovery_manifest": "/Users/weiwei/.codex/research/your-chronicle/25001959/RECOVERY_MANIFEST.json",
+  "semantic_coverage_owner": "COVERAGE.json",
+  "published_steam_version": "2.7.16",
+  "published_version_qualification": "Official current publisher announcement, not inferred installed product version. Installed build25001959 is pinned independently.",
+  "recovery_manifest_sha256": "d8384f4dea1c2d675bac5b0d91fb72463af8645145552bec743f951cff4f8fee",
+  "asset_tool": "Existing private UnityPy1.25.4 imported from CrushCrush tools/python; no global install.",
+  "asset_input_manifest": {
+    "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/input-manifest.json",
+    "sha256": "55647be6169bc63bc2ee52a74cb41650575ea4fed29e4789afc409cf227739f1"
+  },
+  "asset_decode_manifest": {
+    "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/assets-review/decoded-manifest.json",
+    "sha256": "8a7943d7a72d2a6c85fcecc456b0cb298d8c7849f0c1adefbd18dafb09afe607"
+  },
+  "project_snapshot": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "qualification": "HEAD plus relevant dirty hashes; current delivery lives in source/build owners, not assumed from HEAD",
+    "PROJECT.md_sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+    "current_owner_manifest": {
+      "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/yairpg-fit/OWNERS.json",
+      "sha256": "8bdcd1206d88f859e1363bc629f13a22470b2560b8d1a989e1ac258aa2089a4c"
+    },
+    "head_verified_at_close": true
+  }
+}

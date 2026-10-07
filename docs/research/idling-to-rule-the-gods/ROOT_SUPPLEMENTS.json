@@ -1,0 +1,561 @@
+{
+  "schema_version": 1,
+  "source_revision": {
+    "steam_build_id": "25514347",
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+  },
+  "findings": [
+    {
+      "id": "ITR-03",
+      "path": "Rebirth control -> eligibility and confirmation -> prospective multipliers and new run -> selected retention -> ordinary NTC enrollment, restriction, completion and reward",
+      "source_observed": [
+        {
+          "file": "JENBACKJIFC.cs",
+          "symbol": "GNNIGBPCCIN -> AIBKCLABBNM -> AGMDPHPPHJC -> JFBCBDOKOFJ",
+          "spans": [
+            [
+              8117,
+              8135
+            ],
+            [
+              3945,
+              4070
+            ],
+            [
+              4502,
+              4517
+            ],
+            [
+              7553,
+              7590
+            ],
+            [
+              7818,
+              7838
+            ],
+            [
+              9526,
+              9580
+            ]
+          ],
+          "sha256": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+          "observed_rule": "Actual Rebirth tab compares current and prospective four multipliers. Rebirth button calls eligibility before opening confirmation. Yes commits default shared rebirth or pending challenge; No clears pending challenge/modal. GPReset uses a second disclosed confirmation. No universal always-beneficial rebirth inferred."
+        },
+        {
+          "file": "PFBFLAJEGBI.cs",
+          "symbol": "KHHKENELKHE",
+          "spans": [
+            [
+              1770,
+              1836
+            ]
+          ],
+          "sha256": "5d28327b96ef81d81cd632e10a23e3135142b7b98dc082eadffc2889ef494206",
+          "observed_rule": "Rejects before15minutes after Super Divinity Generator, uncompleted Light-god gate, forbiddenUfCC/specific lock flags, premature failure of selected NoRebirth/PBC attempts; starting another challenge while one active rejects. Names of special flags preserved, not generalized."
+        },
+        {
+          "file": "EIEEGDPHEPO.cs",
+          "symbol": "ACCKPNGPBHC selected multiplier/reset/retention",
+          "spans": [
+            [
+              4546,
+              4645
+            ],
+            [
+              4640,
+              4739
+            ],
+            [
+              4740,
+              4810
+            ],
+            [
+              4880,
+              4950
+            ],
+            [
+              5100,
+              5148
+            ],
+            [
+              5270,
+              5316
+            ]
+          ],
+          "sha256": "eaca1c0ad0318cdc3a572ccfe0ce7276c1587b65d4996c7400910e6d1e74c245",
+          "observed_rule": "Four prospective base multipliers use current growth fields times common product of ICACGCHJLHO,EHAKFJCEHHN,OGHOPLNGONC and GMMCFKINPPC.EHNDIFDPCLJ(). Transition captures them, installs freshPFBFLAJEGBI, restores selected managers, writes four bases and resets selected per-run timers/counters. Early-rebirth/statistics branch callsIEJPHPIMCFO; otherwise common product floors1. Preserved settings/village managers/equipment/crafting lists do not imply every field retention. NoRebirth predicate triggers explicit loss/cancel."
+        },
+        {
+          "file": "OHCPKHJMFOO.cs",
+          "symbol": "PLLIJIODICJ NTC definition",
+          "spans": [
+            [
+              760,
+              771
+            ],
+            [
+              4411,
+              4415
+            ]
+          ],
+          "sha256": "5709e1e65127395a29cd0eef9ac0a4c2b818bae28217730503670d9bbf924dee",
+          "observed_rule": "NTC requires completedMQC>19; challenge roster offers while completedNTC<20. DRC reset kind is explicit, target says defeatP.BaalV20; exact completion predicate uses god counter>20, not tooltip alone. No training restriction is committed at progression consumer."
+        },
+        {
+          "file": "HJDMNBANOMG.cs",
+          "symbol": "GNNIGBPCCIN -> CNPLFLAIECK -> pending challenge -> AKLNHKMJGFJ",
+          "spans": [
+            [
+              1113,
+              1128
+            ],
+            [
+              1438,
+              1454
+            ],
+            [
+              384,
+              448
+            ],
+            [
+              241,
+              285
+            ]
+          ],
+          "sha256": "6f7a6680a2befad3e6f40047a98516bccf295b6750616ab201060e5ba9997452",
+          "observed_rule": "Actual challenge page selected record callsCNPLFLAIECK. Supported prerequisiteflag and StartChallenge then KHHKENELKHE establish pending challenge. Shared Yes callsAKLNHKMJGFJ; DRC type performs an additional shared rebirth and clears god-defeat flags before recording active challenge."
+        },
+        {
+          "file": "PABFNHJDKAD.cs",
+          "symbol": "IDOGDDMPJGL",
+          "spans": [
+            [
+              4871,
+              4877
+            ]
+          ],
+          "sha256": "c1327c93c3b9e9fb9c642f379e315697b006cff719d652a8183afc7e0443501a",
+          "observed_rule": "Commits active challenge enum/mode and resets inspected challenge attempt counter to1."
+        },
+        {
+          "file": "NLHFJIOHPDO.cs",
+          "symbol": "BPMABPHBKOP",
+          "spans": [
+            [
+              766,
+              772
+            ],
+            [
+              830,
+              851
+            ]
+          ],
+          "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+          "observed_rule": "ActiveNTC returns before training/skill tick gains. On later ordinary training, completedNTC multiplies actual stat gain by clamp(1+0.05*count,1,2) except UAC; both physical and skills consume it. This verifies reward behavior beyond statistics tooltip."
+        },
+        {
+          "file": "Assets.Scripts/UpdateStats.cs",
+          "symbol": "GLODOBLAJCO challenge result poll",
+          "spans": [
+            [
+              4720,
+              4731
+            ]
+          ],
+          "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+          "observed_rule": "Active half-second progression callback callsOHCPKHJMFOO.JFLJMHPHJLH after inspected god-result processing."
+        },
+        {
+          "file": "OHCPKHJMFOO.cs",
+          "symbol": "JFLJMHPHJLH -> MHGHLFDHJGM -> JNEPGDELKBM",
+          "spans": [
+            [
+              2972,
+              2998
+            ],
+            [
+              3198,
+              3216
+            ],
+            [
+              2740,
+              2753
+            ],
+            [
+              2828,
+              2852
+            ],
+            [
+              2918,
+              2938
+            ],
+            [
+              5704,
+              5712
+            ]
+          ],
+          "sha256": "5709e1e65127395a29cd0eef9ac0a4c2b818bae28217730503670d9bbf924dee",
+          "observed_rule": "Ordinary challenge dispatcher checksNTC actualactiveenum and godcounter>20. Premature completion returnsfalse. Successful route records faster elapsed if applicable then increments retained completion record viaEBMENDFAAIF, recomputes challenge metadata and cancels active challenge, refreshes affected systems and invokes save hooks. Hard/Root modes dispatch separate unreviewed implementations. NoRebirth losspredicate covers explicitNRC/DNRC/NRCPC/NRDC/GPAC/NMNRC/LCNRC set."
+        },
+        {
+          "file": "MLNFJDJIDDA.cs",
+          "symbol": "EBMENDFAAIF, DPCPKJICICN and KOFIDBHKBIG cleanup",
+          "spans": [
+            [
+              1597,
+              1627
+            ],
+            [
+              1850,
+              1853
+            ],
+            [
+              1323,
+              1337
+            ]
+          ],
+          "sha256": "c9b92f244234516e02cd92b7bc65fcafcb456a9079b9fb8d13be687d7b9e810c",
+          "observed_rule": "Success increments matching challengecompletion or createscount1, qualified bymode; cleanup clearsactiveenum/mode and selected counters without increment. Completiongetter readsretainedrecord. Broader cleanup internals remain source limits."
+        },
+        {
+          "file": "EIEEGDPHEPO.cs",
+          "symbol": "ACCKPNGPBHC preserved equipment/crafting lists",
+          "spans": [
+            [
+              5100,
+              5126
+            ]
+          ],
+          "sha256": "eaca1c0ad0318cdc3a572ccfe0ce7276c1587b65d4996c7400910e6d1e74c245",
+          "observed_rule": "Equipment inventory and ongoingcrafting records are assignedback; foods obey inspectedupgradecondition. Ordinary rebirth is not wholesale accountwipe. Pet/dungeon internal retention not exhaustively audited."
+        }
+      ],
+      "failure": "Rebirth eligibility rejects unsupported early timing or conflicting challenge enrollment. The NTC completion predicate rejects until its actual god counter exceeds 20. Selected No Rebirth attempts lose on actual rebirth; cancelling clears the active attempt without incrementing the completion record.",
+      "formula_qualification": "The four-base common-product branch is traced. Nested factor generation, the early-statistics adjustment, all challenge overrides and every retained field are not expanded. The actual ordinary NTC training reward is traced and capped.",
+      "retention_scope": "Settings, village managers, four multiplier cap fields, actual equipment and crafting lists are selected retained evidence; fresh core state and selected run clocks/counters reset. These root spans govern integrated claims; the initial worker table is extraction context only.",
+      "inference": "Reset and carryover need a current preview plus committed field policy. A challenge changes actual progression consumers, not merely a label.",
+      "original_transfer": "Extend the existing local attempt record with one bounded ordinary-craft conduct. Preserve native progress and the existing field renewal. Repeated double resets and multiplier grind are outside the proposal.",
+      "reader_notes": "REBIRTH_FINDINGS.json is partial extraction. This root review completes the selected path and supersedes its unresolved active UI/completion status.",
+      "limits": [
+        "Other challenge variants, Hard/Root modes, nested statistics-factor internals and exhaustive account retention remain unread.",
+        "Recovered-game durable save or rollback behavior was neither audited nor executed."
+      ]
+    },
+    {
+      "id": "ITR-02",
+      "path": "Creation stock -> base monument construction -> separate paid upgrade -> derived physical effect",
+      "source_observed": [
+        {
+          "file": "FJHLJJDAFGG.cs",
+          "symbol": "KGCKPJEDEFE",
+          "spans": [
+            [
+              7089,
+              7131
+            ]
+          ],
+          "sha256": "b8cbeaa5602561f0c3d4ebe93d8d859dd6067019f041866fa0c7890eb59b6d13",
+          "observed_rule": "The selected recipe switch charges no creation material for Stone. Soil consumes Stone; one Mountain uses 200,000 Stone before other count/mode modifiers. Unlocks and elapsed work still matter."
+        },
+        {
+          "file": "FFMIPKGAHPK.cs",
+          "symbol": "BPMABPHBKOP selected production commit and APPFBNDJPEH",
+          "spans": [
+            [
+              3190,
+              3265
+            ],
+            [
+              3372,
+              3450
+            ],
+            [
+              2108,
+              2152
+            ]
+          ],
+          "sha256": "fb51251ea566b093f919684026ce92d6ec0c3353614cfa9aa71e31d71c62952a",
+          "observed_rule": "An enabled, non-paused selected creation checks recipe availability and work threshold, then debits recipe stock and credits actual output stock. A shortage may activate a missing prerequisite and disable the requested output. Special bulk branches are qualified separately."
+        },
+        {
+          "file": "GKGFKNJACIH.cs",
+          "symbol": "GNNIGBPCCIN and active allocation controls",
+          "spans": [
+            [
+              732,
+              747
+            ],
+            [
+              258,
+              307
+            ]
+          ],
+          "sha256": "75eb0f2c986a93fbb24938a10cdfd782bbd6a164ef602500ae10d1816dbb793d",
+          "observed_rule": "The actual monument renderer requires monument access. It exposes separate base and upgrade clone controls; upgrade controls use AOG access eligibility and the common allocation owner."
+        },
+        {
+          "file": "HDNKMPEHPIO.cs",
+          "symbol": "KGCKPJEDEFE and LOFCKMMDFLM",
+          "spans": [
+            [
+              1673,
+              1708
+            ],
+            [
+              2693,
+              2727
+            ]
+          ],
+          "sha256": "3e54a64ae802dfb291acd4653960a1ebef1bddaa0714ada8b445909885d19b58",
+          "observed_rule": "Base Mighty Statue construction begins at 2,000 Stone. Positive ordinary monument count scales this by 5 times count; EMC adds its explicit 10,000,000 multiplier. The actual constructor calls LOFCKMMDFLM and creates the attached AOG upgrade record."
+        },
+        {
+          "file": "HDNKMPEHPIO.cs",
+          "symbol": "BPMABPHBKOP selected base/upgrade tick",
+          "spans": [
+            [
+              3897,
+              3913
+            ],
+            [
+              3939,
+              4021
+            ],
+            [
+              4065,
+              4114
+            ]
+          ],
+          "sha256": "3e54a64ae802dfb291acd4653960a1ebef1bddaa0714ada8b445909885d19b58",
+          "observed_rule": "The tick first advances the attached upgrade and applies its returned completion count. Base construction separately checks stock, optional paid divinity fallback and payment flag, pays material, then advances assigned worker time. The inspected completion branches increment the real monument and lifetime counts."
+        },
+        {
+          "file": "AOGKGBPPCIL.cs",
+          "symbol": "IICFFHGEGEF, FLGLHGGDMPM, KGCKPJEDEFE and BPMABPHBKOP",
+          "spans": [
+            [
+              167,
+              196
+            ],
+            [
+              1029,
+              1032
+            ],
+            [
+              886,
+              914
+            ],
+            [
+              717,
+              819
+            ],
+            [
+              868,
+              874
+            ],
+            [
+              1040,
+              1050
+            ]
+          ],
+          "sha256": "a37cce01341085846da48b20780f5006c62b9e3b1ec7225d7f9eb4a73a5a2974",
+          "observed_rule": "The attached record explicitly names itself Upgrade. Access requires LJDBHOBANHM. Its first Mighty Statue upgrade costs ten Mountains; positive individual upgrade count uses count squared, with separate bulk/EMC exceptions. Shortage returns before ordinary payment and may release clones or keep a warning. Sufficient work returns a completion count and clears payment/progress."
+        },
+        {
+          "file": "HDNKMPEHPIO.cs",
+          "symbol": "CHGIPOPHOCK",
+          "spans": [
+            [
+              3314,
+              3350
+            ]
+          ],
+          "sha256": "3e54a64ae802dfb291acd4653960a1ebef1bddaa0714ada8b445909885d19b58",
+          "observed_rule": "Completion increases the attached upgrade count and lifetime upgrade counter. Physical multiplier change is the upgrade-effect difference times actual base monument count times the type contribution. Zero base monument count therefore yields no gain in this selected formula."
+        },
+        {
+          "file": "AOGKGBPPCIL.cs",
+          "symbol": "MNBAJAJCIFB",
+          "spans": [
+            [
+              56,
+              67
+            ]
+          ],
+          "sha256": "a37cce01341085846da48b20780f5006c62b9e3b1ec7225d7f9eb4a73a5a2974",
+          "observed_rule": "The inspected physical upgrade getter returns one at upgrade count zero; otherwise it returns 5 times count squared plus 10 times count. It modifies the existing monument effect."
+        },
+        {
+          "file": "PFBFLAJEGBI.cs",
+          "symbol": "MNBAJAJCIFB, GDLCLEHIIPJ and HMMIMAEMBCD",
+          "spans": [
+            [
+              608,
+              612
+            ],
+            [
+              630,
+              660
+            ],
+            [
+              755,
+              766
+            ],
+            [
+              786,
+              799
+            ],
+            [
+              96,
+              103
+            ]
+          ],
+          "sha256": "5d28327b96ef81d81cd632e10a23e3135142b7b98dc082eadffc2889ef494206",
+          "observed_rule": "Physical output consumes the updated monument multiplier; derived health and attack consume physical output. Nested common multiplier internals were not all expanded."
+        }
+      ],
+      "failure": "Insufficient creation/upgrade stock prevents the ordinary payment/output path. No assigned clones supplies no upgrade work. Missing access hides/unqualifies original allocation controls. Optional paid divinity fallback has its own observed eligibility/price; no free conversion is inferred.",
+      "original_transfer": "A costly workshop fixture should open a concrete production alternative over real materials and shared paid jobs, rather than another passive numeric monument ladder.",
+      "inference": "Material production, infrastructure and combat can share real inputs and tradeoffs. ITRTG scale or balance is not a YAIR prescription.",
+      "reader_notes": "CREATION_FINDINGS.json extracted connected production/upgrade rules. Root correction distinguishes base2000Stone construction from first10Mountain upgrade and replaces duplicate initializer evidence.",
+      "limits": [
+        "All late creations, upgrade families, bulk equations and conversion dependency internals are outside selected review.",
+        "No fresh-account play, UI runtime or persistence behavior verified."
+      ]
+    },
+    {
+      "id": "ITR-04",
+      "path": "Available pets -> bounded Growth campaign -> elapsed progress -> actual result claim -> retained pet growth and released assignment",
+      "source_observed": [
+        {
+          "file": "JENBACKJIFC.cs",
+          "symbol": "GNNIGBPCCIN campaign dispatch",
+          "spans": [
+            [
+              9438,
+              9457
+            ],
+            [
+              9588,
+              9614
+            ]
+          ],
+          "sha256": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+          "observed_rule": "The actual pet/campaign page route reaches OHKFICBLBFN; the distinct dungeon route is not campaign evidence."
+        },
+        {
+          "file": "OHKFICBLBFN.cs",
+          "symbol": "GNNIGBPCCIN -> KCMHIOFHCED result/earlyfinish",
+          "spans": [
+            [
+              1924,
+              1945
+            ],
+            [
+              2010,
+              2040
+            ],
+            [
+              4279,
+              4343
+            ],
+            [
+              1850,
+              1887
+            ]
+          ],
+          "sha256": "90cb5abcc998a388ed6b95ff163205899f2a5b573c4b7fffa635e9766eaa28ae",
+          "observed_rule": "The actual renderer calls KCMHIOFHCED, excluding duplicate CHOAGPDPKDI. Growth launch uses currently unassigned pets, requiring two to ten. Completed Result calls settlement with default false. Qualified early Finish passes true after confirmation; Cancel can clear an unfinished record without reward."
+        },
+        {
+          "file": "KHGFPLLPDFD.cs",
+          "symbol": "BADCAGOLPIP and BPMABPHBKOP",
+          "spans": [
+            [
+              263,
+              319
+            ]
+          ],
+          "sha256": "3a86c54d1887a5a9aa1850cd4816a62347d1bc49b7664735058b8ac00015d793",
+          "observed_rule": "Campaign commitment stores selected pet IDs and a length from one to twenty-four hours times a base hour reduced by the inspected challenge counter. Growth selection is sorted by current growth. Starting releases those pets' old clone allocations. Tick progression advances elapsed time while duration is positive and awards no growth by itself."
+        },
+        {
+          "file": "Assets.Scripts/UpdateStats.cs",
+          "symbol": "GLODOBLAJCO campaigntick",
+          "spans": [
+            [
+              4400,
+              4403
+            ]
+          ],
+          "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+          "observed_rule": "The real half-second callback iterates the saved campaign records and supplies elapsed time."
+        },
+        {
+          "file": "KHGFPLLPDFD.cs",
+          "symbol": "AAMCJECDMCK selected eligibility/target/Growth and cleanup",
+          "spans": [
+            [
+              1260,
+              1312
+            ],
+            [
+              2272,
+              2310
+            ],
+            [
+              2563,
+              2574
+            ],
+            [
+              1018,
+              1029
+            ],
+            [
+              1295,
+              1312
+            ],
+            [
+              1539,
+              1558
+            ]
+          ],
+          "sha256": "3a86c54d1887a5a9aa1850cd4816a62347d1bc49b7664735058b8ac00015d793",
+          "observed_rule": "Unqualified early finish, or a qualified duration below one quarter hour, clears the record and awards nothing. The Growth settlement sums actual projected contributions, selects the lowest-growth participant subject to GrayChild/Succubus rules, applies the Bag modifier, and commits growth through KGKNCEFPEJJ. It clears duration, elapsed time and participant IDs/list. Other campaign results are outside coverage."
+        },
+        {
+          "file": "OHPMBFGGLLM.cs",
+          "symbol": "KGKNCEFPEJJ",
+          "spans": [
+            [
+              4010,
+              4028
+            ]
+          ],
+          "sha256": "a933cc1d9dfd8568370ab19d38f531bcae67647be172edff1dcbd0f2f4831bea",
+          "observed_rule": "The actual mutator increases pet base growth and inspected account/campaign growth counters according to its flags. This establishes a mutation beyond the tooltip projection."
+        },
+        {
+          "file": "OHPMBFGGLLM.cs",
+          "symbol": "OAGNMDAEKKP selected growthprojection",
+          "spans": [
+            [
+              2632,
+              2740
+            ]
+          ],
+          "sha256": "a933cc1d9dfd8568370ab19d38f531bcae67647be172edff1dcbd0f2f4831bea",
+          "observed_rule": "The selected contribution formula caps duration at twenty-four hours and uses current growth, campaign bonuses and duration. Settlement calls this method and sums its returned contributions. Equipment/family modifier internals remain bounded limits."
+        }
+      ],
+      "failure": "Zero available pets, fewer than two Growth pets or more than ten rejects before commitment. Premature unqualified finish clears campaign with no reward. A claimed campaign clears its selected participants.",
+      "inference": "Role selection and helping a weaker party member can deepen companions without adding a separate anonymous workforce or roster.",
+      "original_transfer": "Use one existing willing companion as the worker in ranked staffing packet; an independent profession/dungeon roster and global growth multiplier are excluded.",
+      "reader_notes": "PET_FINDINGS.json supplies extraction evidence. Root review corrects the active completion renderer and the completed-claim default flag; other campaigns remain outside scope.",
+      "limits": [
+        "Dungeoncombat,equipmentcrafting,evolution andnonGrowth rewardsettlement unread.",
+        "No recoveredgame runtime,platform behavior or fullpetretentionaudit."
+      ]
+    }
+  ]
+}

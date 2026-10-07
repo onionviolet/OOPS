@@ -1,0 +1,9 @@
+# Paradise native adapter delivery
+
+Implemented the two independent native owner sets derived from root footprints: seven real native persons, seven locations, separate finite communal/shop inventories, retained calendars and local quest projections. The adapter exports all five requested functions and preserves the nested constructor/callback interface.
+
+Registration creates locked, empty placeholders. Authored `person.vitals` set inaccessible native constructor capacities only, matching root instruction; this does not enroll actors or grant funds/items/XP/equipment. Root explicit durable activation alone initializes actual actor inventories/XP/resources/current vitals. Adapter `paradiseActivation` alone seeds communal/shop stock and metadata; reads/restores/rendering never seed. Legacy coin trading and autonomous shop refresh remain closed.
+
+Stock requests require an exact authored negative `paradiseStock` command, matching player acquisition and current native revision; duplicate causes are refused. Publication/restore only replace this adapter's native-domain owners. Metadata calendars match actual retained instance elapsed. Optional absence permits locked empty serialized placeholders and rejects active owners or retained benefits. Distinct NPC bodies and active-visit player ownership are validated without imposing a new global embodiment lock outside visits.
+
+Syntax passes. A write-free bounded esbuild source/content link passes with zero warnings, keeping the root host/actions external while they remain pending. Full import/link and shared publisher/registration remain root gates. No behavioral, test, browser, save/reload, failure, private-save, source-library, commit, push or publication actions ran. New gameplay is implemented-unverified. Exact source and dependency fingerprints are in DELIVERY.json.

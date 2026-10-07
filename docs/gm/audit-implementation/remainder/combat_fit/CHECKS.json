@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T19:46:53.096881+00:00",
+  "status": "owned syntax/import/definition checks passed; gameplay unverified",
+  "checks": [
+    {
+      "type": "syntax",
+      "command": "node --check each of src/audit_remainder_combat_fit_{content,facts,hooks,host}.js",
+      "exitCode": 0,
+      "result": "all four passed; final host edit rechecked separately"
+    },
+    {
+      "type": "import",
+      "command": "node ESM imports of all four owned modules",
+      "exitCode": 0,
+      "result": "all four imported; final host cancellation import rechecked"
+    },
+    {
+      "type": "definition",
+      "command": "createSimulationRegistry using current simulationDefinitions; compare each already-integrated owned definition exactly, append only missing owned IDs",
+      "exitCode": 0,
+      "result": {
+        "commands": 853,
+        "ownedCommands": 10,
+        "ownedItems": 2,
+        "uniqueOwnedIds": 10,
+        "exactAlreadyIntegrated": 10,
+        "appendedMissing": 0
+      }
+    }
+  ],
+  "correctedCheckerFailures": [
+    {
+      "result": "Blind append after root already integrated owned commands caused duplicate-command registration rejection.",
+      "resolution": "Verify existing owned definitions exactly and append only missing IDs. No source defect or gameplay attempt."
+    },
+    {
+      "result": "Corrected definition checker used output variable add instead of added after successful registration.",
+      "resolution": "Corrected output identifier and reran the same permitted static check; final exitCode0."
+    }
+  ],
+  "notRun": [
+    "build",
+    "unit",
+    "browser",
+    "gameplay",
+    "save",
+    "reload",
+    "import-behavior",
+    "storage-failure",
+    "regression",
+    "director"
+  ]
+}

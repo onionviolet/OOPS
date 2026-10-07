@@ -1,0 +1,40 @@
+{
+  "worker": "/root/remainder_consequences",
+  "parent": "/root",
+  "releasedAt": "2026-10-06T19:44:49.014202+00:00",
+  "writerReleased": true,
+  "scope": [
+    "src/audit_remainder_consequences_content.js",
+    "src/audit_remainder_consequences_facts.js",
+    "src/audit_remainder_consequences_host.js",
+    "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/consequences/COVERAGE.json",
+    "docs/gm/audit-implementation/remainder/consequences/INTEGRATION.md",
+    "docs/gm/audit-implementation/remainder/consequences/VALIDATION.json"
+  ],
+  "status": "all3assigned rows source ready; implemented-unverified; parent joins pending",
+  "rows": [
+    "rimworld:P2",
+    "rimworld:P3",
+    "keeperrl:P4"
+  ],
+  "outputHashes": {
+    "src/audit_remainder_consequences_content.js": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+    "src/audit_remainder_consequences_facts.js": "63722f676dea471cfe8a99217a9d472e7ea5d235c0b0a56ac672c0be565c41fe",
+    "src/audit_remainder_consequences_host.js": "77e20f77de30d7653e18bc2125a0446d7fd08983b974d56a0717faeb5698d45d",
+    "docs/gm/audit-implementation/remainder/consequences/CHECKPOINT.md": "6f0bb133e99404cb3ef8bc5889634e941e2539c81b3f4db1670591d0a78b59a3",
+    "docs/gm/audit-implementation/remainder/consequences/COVERAGE.json": "cfdc373584adedf3ec564f9f93286ef03b5556c85e1438ee25aec40ebe7372ce",
+    "docs/gm/audit-implementation/remainder/consequences/INTEGRATION.md": "8637ec421082a585b02fa76ae701ca4f2c2a2f299329de0fe0c4ba179ed2ba47",
+    "docs/gm/audit-implementation/remainder/consequences/VALIDATION.json": "508c2aebca3f2c574283e7eda1398f06262d7bbd19835467a5084e73cca8677e"
+  },
+  "checks": "VALIDATION.json; syntax/import/full relevant definition/candidate link checks pass",
+  "pendingToolProcesses": [],
+  "uncertainMutations": [],
+  "sharedFilesWritten": [],
+  "behaviorSuitesRun": false,
+  "buildRun": false,
+  "remainingOwnedSourceDefects": [],
+  "parentBindingOwner": "INTEGRATION.md",
+  "deferredGateOwner": "COVERAGE.json deferredGateGroups",
+  "next": "Parent owns combined native/registry/save/UI/clock/gate integration and final build; may take over these released leaf files for repairs."
+}

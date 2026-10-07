@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "worker": "/root/nested_chains",
+  "status": "source-delivered-implemented-unverified",
+  "released": true,
+  "counts": {
+    "commands": 62,
+    "publicCommands": 53,
+    "controllers": 6,
+    "situations": 3,
+    "mergedDefinitionCommands": 98
+  },
+  "sourceHashes": {
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "12a50f38714101984213a4c277905145512338912e34ec066521bb9d52c121f3"
+  },
+  "documentHashes": {
+    "docs/gm/feature-wave/features/nested-campaign/chains/INTEGRATION.json": "bcc57b8374957e6606360fea027486cdee3ffc824e05857adb77e579102ddf69",
+    "docs/gm/feature-wave/features/nested-campaign/chains/DESCRIPTIONS.md": "84d9c35afd0cae3ca12b5f0cd91fb3ada42264651032553fbd3fd5218118a286",
+    "docs/gm/feature-wave/features/nested-campaign/chains/COVERAGE.json": "26a716a70f86a27dbe49f7c784db722dc67ad7bead2073172d9f63652a3bbf2f",
+    "docs/gm/feature-wave/features/nested-campaign/chains/CHECKPOINT.md": "5da5863a6a1cb31e0a6053d5f3bdcae068f749ff2fb2214b19d846089f175066",
+    "docs/gm/feature-wave/features/nested-campaign/chains/DELIVERY.md": "8e8b8bb3104f33b5236343dc5ed2ee0fd9f9036e01dd5f7a2be87cf758628034"
+  },
+  "checks": {
+    "performed": [
+      "node --check: both source modules",
+      "cold imports: both source modules",
+      "createSimulationRegistry: actual native and chain definition families merged once",
+      "all situation phase-effect links",
+      "seven source/document links"
+    ],
+    "deferred": [
+      "behavior",
+      "unit",
+      "browser",
+      "gameplay",
+      "save/reload",
+      "storage failure",
+      "keyboard",
+      "regression",
+      "director fiction/pacing",
+      "final shared bundle: Features integrator"
+    ]
+  }
+}

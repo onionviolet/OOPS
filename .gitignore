@@ -4,3 +4,7 @@ achievements.js
 .eslintrc.json
 .dependency-cruiser.js
 dependency-graph.svg
+
+# Local-only: derived notes from copyrighted novels (public repo)
+/docs/research/novels/
+__pycache__/

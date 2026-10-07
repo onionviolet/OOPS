@@ -1,0 +1,174 @@
+{
+  "capturedAt": "2026-10-07T05:42:05.278510+00:00",
+  "type": "closing-read-only-review-snapshot",
+  "worker": "/root/crush_social_resume",
+  "parent": "/root",
+  "note": "Root may repair shared source concurrently; findings record source observed earlier in the same bounded review, not behavioral executions.",
+  "files": [
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "bytes": 6043,
+      "sha256": "dec2c418bb6a31e318f9514de45f0dcdfb50c02af442068ff6da428b3262712b"
+    },
+    {
+      "path": "docs/gm/home-social-base-2026-10-07/OWNERSHIP.json",
+      "bytes": 3164,
+      "sha256": "17d8823ca23c1ad1bb0a82e2eca41aae96b97d155b61c64448d0fa1bce37dea0"
+    },
+    {
+      "path": "src/proto23_world_ids.js",
+      "bytes": 3002,
+      "sha256": "404ce79d0b29215c716af1a0b802e900a215f8772c67ad343b77b73eb7a0fb38"
+    },
+    {
+      "path": "src/proto23_world_content.js",
+      "bytes": 22080,
+      "sha256": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39"
+    },
+    {
+      "path": "src/proto23_world_actions.js",
+      "bytes": 4266,
+      "sha256": "bce1a1b809448f76812a4c900415d5cfbd05ec62a4d1f97fcb12ea9c23f96303"
+    },
+    {
+      "path": "src/proto23_world_state.js",
+      "bytes": 15503,
+      "sha256": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524"
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "bytes": 18849,
+      "sha256": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8"
+    },
+    {
+      "path": "src/proto23_world_native.js",
+      "bytes": 25244,
+      "sha256": "e1ca6283195b80e025495b3b3d19bcd0b55b021a8a6268599241808ab3224f5d"
+    },
+    {
+      "path": "src/factorio_retort_content.js",
+      "bytes": 11407,
+      "sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f"
+    },
+    {
+      "path": "src/factorio_retort_facts.js",
+      "bytes": 3148,
+      "sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a"
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "bytes": 19117,
+      "sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99"
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "bytes": 10089,
+      "sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 399455,
+      "sha256": "fe172d984ef607b7ec298c1c33362f3077b4055206aa841ff0ffe675315bf2f8"
+    },
+    {
+      "path": "src/simulation.js",
+      "bytes": 57187,
+      "sha256": "bcdd2e8ef7efba11b04c3bd164d8eccda1038566021dcbbed4dba93ee8d4d329"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "bytes": 49202,
+      "sha256": "b2417ca21dbcf08c12e1e8c250d329c96bef8377f54449f33f5d327ad27e911c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "bytes": 30091,
+      "sha256": "08c00949db06dd1327cee3740aa22176f65b625180b756d8d167217ae4ad67b8"
+    },
+    {
+      "path": "src/save_files.js",
+      "bytes": 9271,
+      "sha256": "95013edd0e40deb44659f5d51548301210be18b4aba11b9bff00bcbd2e424567"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "bytes": 3729,
+      "sha256": "ed222db3624744db43835ca4d16586a768b0e6d885d465d9103733bf83fa849a"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "bytes": 9785,
+      "sha256": "693ddfa9331df9d28e8611b0e7ddbaa3398128cbbd91b88120587a7c2e71c6b6"
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "bytes": 9234,
+      "sha256": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c"
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "bytes": 5495,
+      "sha256": "702d983d11899483bc9cb1d41dd037b02d7aa714105edf07757e5e0e545e729e"
+    },
+    {
+      "path": "src/feature_expansion_ui.js",
+      "bytes": 6531,
+      "sha256": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "bytes": 17009,
+      "sha256": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9"
+    },
+    {
+      "path": "src/components/trader_component.js",
+      "bytes": 7425,
+      "sha256": "613731e3c6ecb0dd40b600ba63b1981711bb2faa295620779b37f9ed0af6f056"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "bytes": 12469,
+      "sha256": "eb4a290a530f462ddf1ae57509b0edadf9a6da2b7f07159a07793dd306b6a225"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "bytes": 5959,
+      "sha256": "df8c9fe6e8ccec0f009e73049c88ccad0d586c04488f584d7085db0402cfa547"
+    },
+    {
+      "path": "src/realm_state.js",
+      "bytes": 13487,
+      "sha256": "8277dee8c60f052b8554077244f3cc57f490a018f2cc26d065157dd166030956"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "bytes": 20378,
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0"
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "bytes": 49188,
+      "sha256": "f75320f70f705df0120c60130325536a12065e7a8b383c36bd24e74084676622"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "bytes": 28035,
+      "sha256": "fee5536e90b63c4cbcadffb709dfe5930f25a7fb903bf95c9a35096ee422f90d"
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "bytes": 3036,
+      "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2"
+    },
+    {
+      "path": "src/trade.js",
+      "bytes": 23006,
+      "sha256": "77cd7fcfcfb3add65d7cd4bc92d6b3f154133e9e6d17236a072a3fc3ef92640b"
+    },
+    {
+      "path": "src/pursuit.js",
+      "bytes": 16844,
+      "sha256": "8c7ac6bc0eafdefc57c728df90e1cbdc177c918051232c75a8ce312c2b8d76e8"
+    }
+  ]
+}

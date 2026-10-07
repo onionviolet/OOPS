@@ -1,0 +1,1221 @@
+{
+  "revision": 2,
+  "date": "2026-10-05",
+  "owner": "/root/situated_subtleties",
+  "status": "complete finite PR01\u201308 source-fit audit; reserved audit writer released",
+  "scope": "finite read-only PR01\u201308source-fit; no whole-book reread or dossier/source/library/private-save mutation",
+  "sourceSnapshot": {
+    "id": "PD-MTL-67f15d112389-r1",
+    "sha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+    "actualFileHashVerified": true,
+    "reviewedExtent": "4505distinct supplied bodies+151exact duplicates across4656spine members; existing completed dossier reused",
+    "authority": "completed Paradise FULL_SYNTHESIS/CHECKPOINT and retained exact local source/member hashes",
+    "qualification": "All findings U for primary original canon. Supplied English MTL, no publication/translation/franchise authentication."
+  },
+  "selectedFootprint": {
+    "sourceEra": "early hub service district after first trial in supplied sid26/27",
+    "cutoff": "sid27hub facilities; laterPR05/06/07/08used only to qualify exceptions, not backdated native access",
+    "actualEntry": "original voluntary side entry from Village; original game actor/body retained; not Su Xiao nor his coerced trial/rewards",
+    "worlds": [
+      "nested.paradise_hub",
+      "nested.saltworks",
+      "nested.archive"
+    ],
+    "instances": [
+      "nested.paradise.main",
+      "nested.saltworks.main",
+      "nested.archive.main"
+    ],
+    "baselineVsBranch": "Immutable source baseline remains qualified. Original residents/destinations/role approvals/credits/prices/deadlines/residence/technique and edge rules are prototype additions."
+  },
+  "rows": [
+    {
+      "id": "PR01",
+      "requiredDistinction": "Existing injured body transfer/treatment, thought of death, role approval and forced talent awakening are separate; no generic resurrection or new-body reset.",
+      "sourceLocators": [
+        {
+          "sid": 2,
+          "member": "EPUB/Chapter 1 Revenge_1.xhtml",
+          "memberSha256": "a70de74b4023171dc0c506325cfa1efbb72474b03aa85d892c274b689dd71f0d",
+          "paragraphs": "p37\u201361,p62\u201377",
+          "actualSelectedTextRead": true
+        },
+        {
+          "sid": 3,
+          "member": "EPUB/Chapter 2 The Hunter_2.xhtml",
+          "memberSha256": "4524de7c72c26ae509d81b3a89b8795da92a69458b2c4db521dd95e14214ec47",
+          "paragraphs": "p1\u201330,p41\u201350,p60\u201376",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "local notices",
+        "observed body/wounds",
+        "character interpretation",
+        "MTL discrepancy at sid3p27 versus older primary notice"
+      ],
+      "positiveBenefits": [
+        "Specific life support/treatment keeps this wounded existing person alive",
+        "Role/trial approval opens specific mission access; partial interface categories remain distinct"
+      ],
+      "selectedSourceFit": "Original voluntary side entry preserves the native game actor/body/progress and grants no Hunter brand, copied talent or resurrection. It does not reenact Su Xiao coercion/trial.",
+      "prototypeAdditions": [
+        "Voluntary resident side-entry approval",
+        "Existing YAIRPG body/cargo passage",
+        "Employee/contractor approvals by original residents"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 74,
+          "symbolOrId": "nested.chart",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 76,
+          "symbolOrId": "nested.enroll_receipt",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 78,
+          "symbolOrId": "role_employee",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 79,
+          "symbolOrId": "role_contractor",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 51,
+          "symbolOrId": "function register",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 86,
+          "symbolOrId": "function read",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 116,
+          "symbolOrId": "function restore",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "Source coercive sign-or-die/talent awakening is excluded, not implemented as native policy.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "declared original divergence with required same-body/native approval join",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 117,
+          "symbolOrId": "function busyReasons",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 121,
+          "symbolOrId": "function passage",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 145,
+          "symbolOrId": "if(id==='nested.enroll')",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 47,
+          "symbolOrId": "function validateNestedCampaignState",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Same living human native body, no concurrent Glasshouse/Tidemark occupancy, explicit optional schema and resident enrollment once. Source forced talent/Hunter challenge remains excluded.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "register constructs unavailable empty native definitions; explicit host enrollment creates one optional campaign. read uses current native body/location and exact endpoint bindings. restore does not manufacture roles/source/body; absent campaign requires no saved native domain or campaign location.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR02",
+      "requiredDistinction": "Extraction initiation, interruption, recovery, arrival/private-room permission and later settlement are separate; one repaired route is not universal exit guarantee.",
+      "sourceLocators": [
+        {
+          "sid": 23,
+          "member": "EPUB/Chapter 22 Return and Reward!_22.xhtml",
+          "memberSha256": "01e742305a20cb07ae1db08c16c11381705ab933e4058a220724f420973a84f9",
+          "paragraphs": "p35\u201339,p50\u201374",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "completion/return notices",
+        "observed interference",
+        "system repair/arrival/private-room notice"
+      ],
+      "positiveBenefits": [
+        "Specific repair restores interrupted transit",
+        "Arrived exclusive room has permission-based entry safety as a local notice"
+      ],
+      "selectedSourceFit": "Separate authored mission/extraction/recovery/arrival action IDs; Saltworks alone has authored interference, Archive does not. Source Void Swordsman and safe private room are not copied.",
+      "prototypeAdditions": [
+        "Extraction durations3/2 played minutes",
+        "One Saltworks rope recovery",
+        "Original room/travel endpoints and recovery routes"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 33,
+          "symbolOrId": "NESTED_MISSIONS",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "extraction.initiate",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "extraction.wait",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "extraction.recover",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "extraction.arrive",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "mission.settle",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 86,
+          "symbolOrId": "function read",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 116,
+          "symbolOrId": "function restore",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "No permission-safe exclusive-room system is selected in this branch.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "coded staged original analogue; native stage/arrival conservation pending",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 77,
+          "symbolOrId": "function syncNestedCampaignClock",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 158,
+          "symbolOrId": "id==='nested.extraction.initiate'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 160,
+          "symbolOrId": "id==='nested.extraction.recover'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 236,
+          "symbolOrId": "function prepareNestedArrival",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 162,
+          "symbolOrId": "id==='nested.mission.settle'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Extraction phase IDs validated; authored interference transitions after local due time; exact owned rope recovery then2more local minutes; prepareNestedArrival reruns passage and changes actual host state/location before returned stage. Settlement requires returned stage.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Current native adapter stages retained stock/calendar/quest state; host prepareNestedArrival provides the actual location patch/returned receipt separately. Envelope validates saved actual location against active visit; no automatic extraction reward, resurrection or universal source-safe-room immunity is added.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR03",
+      "requiredDistinction": "World Source accumulated/withdrawn, specific trial multiplier, coins/attribute/access awards and facility-based allocation are separate; no generic kill or XP conversion.",
+      "sourceLocators": [
+        {
+          "sid": 3,
+          "member": "EPUB/Chapter 2 The Hunter_2.xhtml",
+          "memberSha256": "4524de7c72c26ae509d81b3a89b8795da92a69458b2c4db521dd95e14214ec47",
+          "paragraphs": "p41\u201343",
+          "actualSelectedTextRead": true
+        },
+        {
+          "sid": 23,
+          "member": "EPUB/Chapter 22 Return and Reward!_22.xhtml",
+          "memberSha256": "01e742305a20cb07ae1db08c16c11381705ab933e4058a220724f420973a84f9",
+          "paragraphs": "p75\u201391",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "trial settlement panel",
+        "observed awarded status",
+        "facility notice"
+      ],
+      "positiveBenefits": [
+        "Actual trial grants attribute points/coins/access progress",
+        "Named facility enables allocation; supplied milestone bonus remains real in its own source case"
+      ],
+      "selectedSourceFit": "No World Source or trial attribute multiplier selected. Prototype mission wages use own nested.credit resource and finite issuer funds; ordinary Crafting XP comes from authored work, not credit/currency conversion.",
+      "prototypeAdditions": [
+        "8/7 mission credit rewards and3 partial/followup reward values",
+        "Finite24 issuer budget",
+        "Crafting12XP for6-minute funded service work",
+        "Original pressure lesson/refit costs"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 33,
+          "symbolOrId": "NESTED_MISSIONS",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 47,
+          "symbolOrId": "nested.credit",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 60,
+          "symbolOrId": "nested.agenda",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 16,
+          "symbolOrId": "shift",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 90,
+          "symbolOrId": "support_lesson",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 83,
+          "symbolOrId": "function writeAvailability",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "No native World Source collection/withdrawal or stat-allocation facility claim is made.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "distinct original funded rewards; source settlement mechanism deliberately unselected",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 205,
+          "symbolOrId": "id.startsWith('nested.accept.')",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 162,
+          "symbolOrId": "id==='nested.mission.settle'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 32,
+          "symbolOrId": "function validateMission",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 135,
+          "symbolOrId": "function offeredAllowed",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Acceptance deducts/reserves exact issuer credits. Settlement pays actual player from reservation, returns unused portion, records unique settled history and clears active mission. No World Source/attribute/native coin reward effect added.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Actual shop/communal reductions require exact authored command/current native revision and matching same-plan player acquisition receipt. Credits remain state actor resources separate from legacy coin trader; native traders disabled. Host reserved issuer purse and single publisher remain reward owners; native quests have empty rewards.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR04",
+      "requiredDistinction": "Employee versus Contractor history/rights, paid services, attributed tablet information, hub rest/return limits and everyday family concerns differ.",
+      "sourceLocators": [
+        {
+          "sid": 26,
+          "member": "EPUB/Chapter 25 Various Classes_25.xhtml",
+          "memberSha256": "4bd1509955be80ae848d612c5b0aad5d56325e88bb8e00151a372673632acd89",
+          "paragraphs": "p22\u201365",
+          "actualSelectedTextRead": true
+        },
+        {
+          "sid": 27,
+          "member": "EPUB/Chapter 26 Growth_26.xhtml",
+          "memberSha256": "e12ecc997b6a76186b50406a10cf07002340aea8bab116873efb4658c0d2ae0a",
+          "paragraphs": "p1\u201332",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "employee testimony",
+        "purported notarized tablet",
+        "observed drinks/payment/streets",
+        "facility panel"
+      ],
+      "positiveBenefits": [
+        "Employees and Contractors provide actual shops/services",
+        "Paid guidance/rest/equipment/stat/training facilities matter",
+        "Appearance concealment is offered for500source coins in this local account",
+        "Source contractor rest allows3days; employee origin leave3days/month and mission access once/2months are reported local terms"
+      ],
+      "selectedSourceFit": "Early service streets/facility district is the selected inspiration footprint. Original Lin/Mara/Oren, wages, shops, room, care, practiced method and household concern are clearly labelled additions. Native employee/contractor choices grant different actual proposed affordances.",
+      "prototypeAdditions": [
+        "Voluntary employee choice rather than source failed-first-mission status",
+        "Role switches between commitments",
+        "Continued optional residence rather than source3-day forced return",
+        "Original service prices/funds/stock and learned pressure operation"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 20,
+          "symbolOrId": "nestedWorlds",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 61,
+          "symbolOrId": "NESTED_NATIVE_PEOPLE",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 66,
+          "symbolOrId": "NESTED_NATIVE_STOCK",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 77,
+          "symbolOrId": "meet",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 78,
+          "symbolOrId": "role_employee",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 79,
+          "symbolOrId": "role_contractor",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 16,
+          "symbolOrId": "shift",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 83,
+          "symbolOrId": "staff_supply",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 77,
+          "symbolOrId": "rest",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 86,
+          "symbolOrId": "staff_rest",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 17,
+          "symbolOrId": "repair",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 16,
+          "symbolOrId": "refit",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 89,
+          "symbolOrId": "fragment",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 90,
+          "symbolOrId": "support_lesson",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 92,
+          "symbolOrId": "talk_lin",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 51,
+          "symbolOrId": "function register",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 86,
+          "symbolOrId": "function read",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 79,
+          "symbolOrId": "function applyQuest",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 81,
+          "symbolOrId": "function applyAvailability",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 114,
+          "symbolOrId": "function snapshot",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 116,
+          "symbolOrId": "function restore",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "Original role/residence divergence must remain visible in entry terms; do not describe voluntary employee approval as exact source canon.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "intentionalDivergences": [
+        "Source employee failed-trial history is not prototype chosen role",
+        "Source3-day contractor hub rest/employee calendar is not prototype indefinite resident clock"
+      ],
+      "disposition": "coherent original source-qualified footprint; explicit life/role/calendar divergence",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 170,
+          "symbolOrId": "function attachResidents",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 99,
+          "symbolOrId": "function nestedFacts",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 114,
+          "symbolOrId": "function nestedSimulationContexts",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 243,
+          "symbolOrId": "function nestedPresentation",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Fresh people/state resources and native inventory proposals attach only on explicit enrollment. Employee funded shift checks actual actor credit and external native log stock. Active-world resident contexts mark absent residents busy. Native construction/snapshot/calendar ownership remains pending.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Three owner rows, eight distinct native NPC/person inventory/XP/equipment owners, six mutable SafeLocations, three finite communal and three shop inventories, three native quests and three Game_Time calendars. Shop refresh is disabled; seller personal inventory differs from shop. Explicit activation seeds authored finite stock once. Actual restore loads existing saved stock, not initial seeds.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR05",
+      "requiredDistinction": "Origin-jurisdiction ability/item restrictions differ from early entry heirloom exclusion and later paid seven-day real-item storage exception.",
+      "sourceLocators": [
+        {
+          "sid": 2,
+          "member": "EPUB/Chapter 1 Revenge_1.xhtml",
+          "memberSha256": "a70de74b4023171dc0c506325cfa1efbb72474b03aa85d892c274b689dd71f0d",
+          "paragraphs": "p62\u201365",
+          "actualSelectedTextRead": true
+        },
+        {
+          "sid": 213,
+          "member": "EPUB/Chapter 198 Discovered_212.xhtml",
+          "memberSha256": "f47bc60ebd3216199131802195f65e63775ca3ea53e2cd541f29f5a4eb4a8aa5",
+          "paragraphs": "p13\u201318,p57\u201363",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "origin-return notices",
+        "observed paid temporary storage",
+        "local service restrictions"
+      ],
+      "positiveBenefits": [
+        "Stats/passives remain usable in this origin return",
+        "Limited paid real-item storage works7days within size/weight/hazard limits",
+        "Blocked acquired item stats return in Paradise under the stated terms"
+      ],
+      "selectedSourceFit": "Village is the original YAIRPG return place, not declared Su Xiao Earth/origin jurisdiction. Owned ordinary cargo and locally compatible pressure method passage are an original explicit edge policy; no universal all-item/all-power export inferred.",
+      "prototypeAdditions": [
+        "Same actor/body/owned ordinary cargo on original three-instance edges",
+        "Original local pressure method worlds restricted to hub/Saltworks/Archive",
+        "Unapproved loans/unsupported occupancy/export duplicates rejected by planned host"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 28,
+          "symbolOrId": "NESTED_FOOTPRINTS",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 68,
+          "symbolOrId": "nestedSources",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 68,
+          "symbolOrId": "Supported pressure pulse",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 74,
+          "symbolOrId": "nested.chart",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 109,
+          "symbolOrId": "nested.return_frontier",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 86,
+          "symbolOrId": "function read",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "Source origin active-power/item block and7-day real-item storage are later exceptions excluded from this early footprint; Village must not be silently labelled that origin.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+        "Existing source-specific origin restrictions are deliberately unselected; Village must continue to be labelled the original YAIRPG return place."
+      ],
+      "contradictions": [],
+      "disposition": "later source exception kept scoped; original passage policy pending actual conservation join",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 23,
+          "symbolOrId": "function createNestedConnections",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 121,
+          "symbolOrId": "function passage",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 6,
+          "symbolOrId": "previewNativeRealmTraveler",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 199,
+          "symbolOrId": "id==='nested.enter_hub'||id==='nested.return_frontier'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Physical connection policies and current snapshot/traveler previews retain body/cargo; every cargo owner must be player, so borrowed quantity blocks passage. Specific trained operation restricts compatible worlds. No source Earth-origin storage exception copied into Village.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Live read supplies actual native body/current location, local endpoint availability and finite stock. Host cargo/traveler checks govern passage; adapter requires current revision and validates person/equipment/XP owners. No paid origin real-item storage or arbitrary acquired-source export feature is introduced.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR06",
+      "requiredDistinction": "Acquire detection target before concealment, retained track, identify and affect are separate.82concealment types describes detection wording, not82learned powers.",
+      "sourceLocators": [
+        {
+          "sid": 812,
+          "member": "EPUB/Chapter 740 Tokiomi's Heartache_811.xhtml",
+          "memberSha256": "c57c8e1f013e06702a910a5544071ed9331d103b71df03a4814ec963f9a1365f",
+          "paragraphs": "p13\u201320",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "Eye item panel",
+        "observed prior tracking/after concealment",
+        "narrator conditional explanation"
+      ],
+      "positiveBenefits": [
+        "Named equipped Eye retains already-acquired target through this later concealment",
+        "This item has500m/120mana/12h/24h stated terms; those functions stay real in the bounded case"
+      ],
+      "selectedSourceFit": "Late Eye is not installed in the early hub branch. Archive evidence/recognition must use actual witness/register/method checks; no omniscient sight, remote soul scan or generic concealment bypass granted.",
+      "prototypeAdditions": [
+        "Original witnessed record inspection/preservation and separate recognition-chain channels"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 100,
+          "symbolOrId": "archive('inspect'",
+          "status": "coded original archive evidence definition"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 104,
+          "symbolOrId": "archive('preserve'",
+          "status": "coded original archive evidence definition"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 16,
+          "symbolOrId": "function nestedQuestProjection",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 116,
+          "symbolOrId": "function restore",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "Read chain-host actual observer evidence/order once present; ensure source-world profile input never grants Eye/mana/detection",
+        "No selected Eye capability, so no native numeric Eye effect should be claimed.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "explicit later unselected power exception; ordinary evidence work remains separate",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_chains.js",
+          "line": 49,
+          "symbolOrId": "cmd('roles','witness'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_chains.js",
+          "line": 52,
+          "symbolOrId": "cmd('roles','minutes'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_chains.js",
+          "line": 70,
+          "symbolOrId": "cmd('roles','lawful'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_chains_host.js",
+          "line": 48,
+          "symbolOrId": "function nestedChainPeopleView",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_chains_host.js",
+          "line": 60,
+          "symbolOrId": "function nestedChainPresentation",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Chain witness testimony is attributed separately; dated minutes/actual repaired folios corroborate it; institution owns finite provisional claim and transfer. Known player records drive projection; no Eye/radius/mana/82power acquisition path defined.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Local quest projection uses committed actual archive facts; source Eye capability is absent. Native witness/registrar/claimant identities persist independently. Actual scene testimony/correction stays in existing simulation knowledge/claim owners; saved native quest state is checked against that committed projection.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR07",
+      "requiredDistinction": "Accepted hidden task can delay forced return5days; early return permitted with task failure and specific penalties. Approximate return-duration wording is not universal timer.",
+      "sourceLocators": [
+        {
+          "sid": 125,
+          "member": "EPUB/Chapter 121 You can go back_124.xhtml",
+          "memberSha256": "bf40962d5272be21d48d9bd35f4ef8e78241e1466caf7e26c274eb31290e71cb",
+          "paragraphs": "p48\u201349",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "system completion/return/extension notice",
+        "MTL/primary duration discrepancy preserved in reviewed source"
+      ],
+      "positiveBenefits": [
+        "A supported optional extension exists",
+        "Early return remains available instead of compulsory waiting"
+      ],
+      "selectedSourceFit": "Prototype contracts quote their own fixed deadlines/extensions/fees and support withdrawal/breach/recovery.30/36initial deadlines,15/12extensions,2credit fees and3/2extraction waits are original played-time values, not source5days/5minutes normalized.",
+      "prototypeAdditions": [
+        "Finite original extension fee and duration",
+        "Partial truthful-work withdrawal policy",
+        "Explicit breach recovery path",
+        "Presence-only instance clocks/no wall-time punishment"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 33,
+          "symbolOrId": "NESTED_MISSIONS",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "mission.withdraw",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "mission.extend",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "mission.breach",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "extraction.wait",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 11,
+          "symbolOrId": "function nestedCalendarAt",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 86,
+          "symbolOrId": "function read",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 21,
+          "symbolOrId": "function validateNestedNativeMetadata",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "Verify extension payment, once-only deadline revision, active-instance time anchors and withdrawal/penalty/extraction separation in host/native.",
+        "No hidden-quest source penalty magnitude or real-world time conversion selected.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "supported contract distinction; original terms need actual clock/outcome join",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 77,
+          "symbolOrId": "function syncNestedCampaignClock",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 87,
+          "symbolOrId": "function nextNestedCampaignBoundary",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 156,
+          "symbolOrId": "id==='nested.mission.extend'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 212,
+          "symbolOrId": "id==='nested.mission.withdraw'||id==='nested.mission.breach'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 159,
+          "symbolOrId": "id==='nested.extraction.wait'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Local deadline starts from destination elapsed at actual arrival. One extension deducts player credit and pays issuer, updates deadline, sets extended. Active-instance clock drives breach and extraction readiness; next boundary uses joined state clock, not wall time. Early withdrawal/breach preserve extraction/recovery instead of awarding completion.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Native local calendars derive only from each retained instance elapsed, with original year1/month1/day1/06:00 and30-day months. Staging/snapshot/restore preserve those clocks. Host presence policy/common-clock joins remain source of elapsed; no wall-time scheduler or source5-day/3-day/2-month calendar applied.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    },
+    {
+      "id": "PR08",
+      "requiredDistinction": "Reported failed twin fusion survivor has two linked marks/exceptional duplicate entitlements; marks, actor/body/controller and institutional rights are separate.",
+      "sourceLocators": [
+        {
+          "sid": 125,
+          "member": "EPUB/Chapter 121 You can go back_124.xhtml",
+          "memberSha256": "bf40962d5272be21d48d9bd35f4ef8e78241e1466caf7e26c274eb31290e71cb",
+          "paragraphs": "p60\u201367",
+          "actualSelectedTextRead": true
+        }
+      ],
+      "evidenceChannels": [
+        "narrator retrospective history",
+        "reported linked marks/duplicate task and chest entitlements"
+      ],
+      "positiveBenefits": [
+        "This exceptional survivor is described with genuine duplicate entitlements; do not erase it from source analysis"
+      ],
+      "selectedSourceFit": "No twin fusion/two brands/duplicate entitlement selected. One native actor/body/controller and once-only contract settlement; title/role/receipt rendering cannot duplicate credit/items/XP.",
+      "prototypeAdditions": [
+        "One original contract ID/reward owner",
+        "Finite issuer budget and single nested.credit purse",
+        "Separate employee/contractor rights with no mark multiplication"
+      ],
+      "contentConsumers": [
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 33,
+          "symbolOrId": "NESTED_MISSIONS",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 76,
+          "symbolOrId": "nested.enroll_receipt",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "line": 112,
+          "symbolOrId": "mission.settle",
+          "status": "coded definition only; host/native/shared registration not yet verified"
+        }
+      ],
+      "nativeConsumers": [
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 51,
+          "symbolOrId": "function register",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 94,
+          "symbolOrId": "function stage",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 114,
+          "symbolOrId": "function snapshot",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 116,
+          "symbolOrId": "function restore",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        },
+        {
+          "path": "src/feature_expansion_nested_native.js",
+          "line": 30,
+          "symbolOrId": "function validateNestedEnvelope",
+          "status": "actual constructor/registry-injected native adapter exists; shared registration/publication callsite integration remains root-owned"
+        }
+      ],
+      "namedGaps": [
+        "No source duplicate-entitlement implementation is claimed.",
+        "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run."
+      ],
+      "contradictions": [],
+      "disposition": "source exception preserved in dossier; ordinary prototype duplication deliberately excluded",
+      "codedHostAndChainConsumers": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 135,
+          "symbolOrId": "function offeredAllowed",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 68,
+          "symbolOrId": "A contract cannot have two payout owners",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "line": 162,
+          "symbolOrId": "id==='nested.mission.settle'",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        },
+        {
+          "path": "src/feature_expansion_nested_chains_host.js",
+          "line": 87,
+          "symbolOrId": "function validateNestedChains",
+          "status": "coded callable adapter; root native/shared registration not yet present"
+        }
+      ],
+      "currentCodeEvidence": "Contract histories/offers unique by exact mission ID; active mission cannot share a settled history ID. One settlement path has no mark multiplier/second payout. Chains explicitly keep native mission settlement owner separate.",
+      "remainingNativeGap": "Root shared runtime/registry/native adapter/save/UI/joined-clock/publication registration and final matched build remain outside this narrow audit. No behavioral/native command execution was run.",
+      "nativeCodeEvidence": "Initial finite stock only on plan.nestedActivation and metadata-null/revision0. Snapshot/read/restore never refresh stock. Native stock requests are exact authored transfers with matching player receipt. Host retains one mission history/settlement identity; native quest rewards are empty, so no second payout manager.",
+      "auditDisposition": "source-fit closed at current code snapshot; coded native joins identified; implemented-unverified"
+    }
+  ],
+  "nativeAuditPendingPaths": [],
+  "inputHashes": [
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/FULL_SYNTHESIS.md",
+      "sha256": "0c0a44f59a198653db7012b9c3a4f3878916df6b18d4abb97102c3a05beb6a84"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/AUTHORING_BOUNDARIES.md",
+      "sha256": "44ca0acbe2cef6a31b57f9ad20c642a319a20c77f0b371b36cd02e10ada6cfa3"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/POWER_INDEX.json",
+      "sha256": "81bd49a55cfb26019126d814419081feb937424e0525a95a7c33ea98ba06ed03"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/EVENT_INDEX.json",
+      "sha256": "d16225d67d1bcc457cc50dd1ace9d4f21feae38dcd6a27fe70e0d2a15ca4031e"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/expanded_manifest.json",
+      "sha256": "261387d0f195047cbe991916ff00cc9b7dc7b2d46ae1fb2c14116f21e7dd5512"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/workers/opening/NOTES.md",
+      "sha256": "549cacdad7ef7f9976621c5523cdf1b1ab10961ba47d077741ff153501b61962"
+    },
+    {
+      "path": "docs/research/novels/trailblaze-reading/paradise-depth/REVIEW.md",
+      "sha256": "aaccd512a8a5d79ee4c9e47deeeb1e2d9a45875a162ac0c65443ab379c9fdf71"
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/INTERFACE.md",
+      "sha256": "5e47ff33f767f4b64476ce4723153ac8b46ee09e275129a972053c5b4fb53347"
+    },
+    {
+      "path": "src/feature_expansion_nested_content.js",
+      "sha256": "ad9e0b2a7fc152cde5710af40345503d6f21a7f2fdb1d000a85cfe24fec1b9a0"
+    }
+  ],
+  "checks": "Actual selected source spans read, raw source/member hashes matched, completed source owners reused, current content/host/native/chain definitions and source-relevant guards/joins inspected; no runtime execution.",
+  "deferred": [
+    "behavioral/browser",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "release": "Source-fit output ownership released to sole Features integrator. Parent may append final shared registration/build evidence later without reactivating this audit writer. No further worker writes.",
+  "codedModuleSnapshot": [
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "sha256": "965ba92ac821c4284c7a7ad98bb2bd31dd39924b7927fb2fdd0a7de3c7dbddaa"
+    },
+    {
+      "path": "src/feature_expansion_nested_chains.js",
+      "sha256": "0fdfff9a448eb7074e0b1c9d41f3ca88706c51057d8ed38363a134abc2eb18c9"
+    },
+    {
+      "path": "src/feature_expansion_nested_chains_host.js",
+      "sha256": "ae477a196a0b2940317ac9a425b13f8d738d812b4f084557dd474fa98fcf8d44"
+    },
+    {
+      "path": "src/feature_expansion_nested_native.js",
+      "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640"
+    },
+    {
+      "path": "src/feature_expansion_nested_content.js",
+      "sha256": "d14f61e593f6ff4c0d407f4ab252e02309a55684c4093d1f96e95393dea9c71d"
+    }
+  ],
+  "sharedRegistrationSnapshot": {
+    "checkedFiles": [
+      "src/main.js",
+      "src/feature_expansion_wave_host.js",
+      "src/feature_expansion_host.js",
+      "src/feature_expansion_ui.js",
+      "src/expansion_persistence.js",
+      "src/native_gameplay_adapter.js"
+    ],
+    "nestedConsumerMatches": 0,
+    "meaning": "No current root/shared nested consumer match at this source snapshot; authored adapters are not claimed playable."
+  },
+  "conclusion": {
+    "sourceFit": "No undeclared source-rule contradiction found in the reviewed selected original-qualified branch. Deliberate entry/role/residence/calendar/currency/reward/method/destination differences are prototype additions, not novel baseline claims.",
+    "registeredConsumerLimit": "Actual native constructor/stage/snapshot/restore code is present. Root shared callsite registration was absent at the recorded narrow audit snapshot and remains a named integration gate, not an assertion of runtime failure.",
+    "lateExceptions": "PR05origin restrictions/storage, PR06Eye detection, PR07hidden-quest extension and PR08two-mark entitlements remain qualified later source exceptions. They are neither erased from source nor installed in early default state.",
+    "sourceConfidence": "U for primary original canon; actual hash-matched supplied-MTL selected text was checked. No publication/translation/franchise authentication.",
+    "gameplayConfidence": "implemented-unverified code correspondence only; no behavioral/save/failure/keyboard/regression/director checks."
+  },
+  "nativeOwnerMap": {
+    "worlds": [
+      "nested.paradise_hub",
+      "nested.saltworks",
+      "nested.archive"
+    ],
+    "instances": [
+      "nested.paradise.main",
+      "nested.saltworks.main",
+      "nested.archive.main"
+    ],
+    "nativeDomain": "nested_campaign_native schema1",
+    "optionalCampaign": "state.nestedCampaign schema1, absent inert",
+    "people": 8,
+    "locations": 6,
+    "communalStockOwners": 3,
+    "shopOwners": 3,
+    "questOwners": 3,
+    "calendarOwners": 3,
+    "currency": "actor.resources.nested.credit; no legacy native coin converter",
+    "method": "nested.pressure_pulse original hand/tool trained source; no copied novel Hunter/talent/Eye",
+    "publication": "stage returns write(envelope)/publish; sole root persistExpansion must durable-write before publish",
+    "registration": "createNestedNativeBindings injected native constructors; register only empty unavailable definitions, explicit activation seeds stock once"
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "root": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "capturedAt": "2026-10-07T06:02:20.546482+00:00",
+  "explicitCurrentTransfer": "docs/gm/home-social-base-2026-10-07/RELEASE.json plus direct final notification; all children complete/released; no further shared writes by predecessor",
+  "matchingReleasedInputs": [
+    {
+      "path": "src/simulation_content.js",
+      "expected": "94bad60508d05370bb7fdff7a809ffa271c15749d509b4e24fa21236aab41da4",
+      "actual": "94bad60508d05370bb7fdff7a809ffa271c15749d509b4e24fa21236aab41da4"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "expected": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c",
+      "actual": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "expected": "08c00949db06dd1327cee3740aa22176f65b625180b756d8d167217ae4ad67b8",
+      "actual": "08c00949db06dd1327cee3740aa22176f65b625180b756d8d167217ae4ad67b8"
+    },
+    {
+      "path": "src/simulation.js",
+      "expected": "bcdd2e8ef7efba11b04c3bd164d8eccda1038566021dcbbed4dba93ee8d4d329",
+      "actual": "bcdd2e8ef7efba11b04c3bd164d8eccda1038566021dcbbed4dba93ee8d4d329"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "expected": "b2417ca21dbcf08c12e1e8c250d329c96bef8377f54449f33f5d327ad27e911c",
+      "actual": "b2417ca21dbcf08c12e1e8c250d329c96bef8377f54449f33f5d327ad27e911c"
+    },
+    {
+      "path": "src/main.js",
+      "expected": "d158aeaa4ce4d6a66e95d3aeae5089eb0b48b5758985f095126442da44fe6c2e",
+      "actual": "d158aeaa4ce4d6a66e95d3aeae5089eb0b48b5758985f095126442da44fe6c2e"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "expected": "693ddfa9331df9d28e8611b0e7ddbaa3398128cbbd91b88120587a7c2e71c6b6",
+      "actual": "693ddfa9331df9d28e8611b0e7ddbaa3398128cbbd91b88120587a7c2e71c6b6"
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "expected": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+      "actual": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "expected": "ed222db3624744db43835ca4d16586a768b0e6d885d465d9103733bf83fa849a",
+      "actual": "ed222db3624744db43835ca4d16586a768b0e6d885d465d9103733bf83fa849a"
+    },
+    {
+      "path": "src/save_files.js",
+      "expected": "95013edd0e40deb44659f5d51548301210be18b4aba11b9bff00bcbd2e424567",
+      "actual": "95013edd0e40deb44659f5d51548301210be18b4aba11b9bff00bcbd2e424567"
+    },
+    {
+      "path": "src/feature_expansion_destination_host.js",
+      "expected": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d",
+      "actual": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d"
+    },
+    {
+      "path": "src/realm_state.js",
+      "expected": "9bf436dd0e40f1f6de8a5db48baeab2e75cf012386c889d8c01207dbd76cfa0f",
+      "actual": "9bf436dd0e40f1f6de8a5db48baeab2e75cf012386c889d8c01207dbd76cfa0f"
+    },
+    {
+      "path": "src/pocket_realm_host.js",
+      "expected": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+      "actual": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf"
+    },
+    {
+      "path": "src/book_world_mol_host.js",
+      "expected": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+      "actual": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879"
+    },
+    {
+      "path": "src/book_world_mol_state.js",
+      "expected": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+      "actual": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "expected": "fee5536e90b63c4cbcadffb709dfe5930f25a7fb903bf95c9a35096ee422f90d",
+      "actual": "fee5536e90b63c4cbcadffb709dfe5930f25a7fb903bf95c9a35096ee422f90d"
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "expected": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+      "actual": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b"
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "expected": "f75320f70f705df0120c60130325536a12065e7a8b383c36bd24e74084676622",
+      "actual": "f75320f70f705df0120c60130325536a12065e7a8b383c36bd24e74084676622"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "expected": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+      "actual": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+    },
+    {
+      "path": "PROJECT.md",
+      "expected": "e828420c908f0d05d03ce0676c58278ebcc54044c7c89aa417305b3ebc56f278",
+      "actual": "e828420c908f0d05d03ce0676c58278ebcc54044c7c89aa417305b3ebc56f278"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "expected": "23bbf20baf1179bf304297a378ca4ac9319f85ca793855431a346ee45de772bd",
+      "actual": "23bbf20baf1179bf304297a378ca4ac9319f85ca793855431a346ee45de772bd"
+    },
+    {
+      "path": "docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "expected": "ffa576cbeac958665316d4a3aaee020700a1c58542ada77cf2e00abecbcd306c",
+      "actual": "ffa576cbeac958665316d4a3aaee020700a1c58542ada77cf2e00abecbcd306c"
+    },
+    {
+      "path": "dist/bundle.js",
+      "expected": "cc3798910c48e61f3908cdf2225090d136a3efddd62327cad196c34338c2ed30",
+      "actual": "cc3798910c48e61f3908cdf2225090d136a3efddd62327cad196c34338c2ed30"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "expected": "f992821952f2e4f2b21cc82114632fcfe818aa65c5d1f5763745f38552e611d7",
+      "actual": "f992821952f2e4f2b21cc82114632fcfe818aa65c5d1f5763745f38552e611d7"
+    },
+    {
+      "path": "index.html",
+      "expected": "6b32506b2373a12aa516494d47b8a76115b809a6a84579cd7ac1cb55e288e210",
+      "actual": "6b32506b2373a12aa516494d47b8a76115b809a6a84579cd7ac1cb55e288e210"
+    },
+    {
+      "path": "src/components/trader_component.js",
+      "expected": "613731e3c6ecb0dd40b600ba63b1981711bb2faa295620779b37f9ed0af6f056",
+      "actual": "613731e3c6ecb0dd40b600ba63b1981711bb2faa295620779b37f9ed0af6f056"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "expected": "eb4a290a530f462ddf1ae57509b0edadf9a6da2b7f07159a07793dd306b6a225",
+      "actual": "eb4a290a530f462ddf1ae57509b0edadf9a6da2b7f07159a07793dd306b6a225"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "expected": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9",
+      "actual": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "expected": "df8c9fe6e8ccec0f009e73049c88ccad0d586c04488f584d7085db0402cfa547",
+      "actual": "df8c9fe6e8ccec0f009e73049c88ccad0d586c04488f584d7085db0402cfa547"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "expected": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0",
+      "actual": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "expected": "e0103896086f210a34442e0f7633061bc507a7e2f378d0e5212ee698dd25ab3d",
+      "actual": "e0103896086f210a34442e0f7633061bc507a7e2f378d0e5212ee698dd25ab3d"
+    },
+    {
+      "path": "src/home_furnishing_content.js",
+      "expected": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+      "actual": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2"
+    },
+    {
+      "path": "src/home_furnishing_facts.js",
+      "expected": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2",
+      "actual": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2"
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "expected": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+      "actual": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128"
+    },
+    {
+      "path": "src/crush_social_content.js",
+      "expected": "d86b864863bdb516aec260cfcb63db077a37cee0c83f7407ea26d3216d2bc7ba",
+      "actual": "d86b864863bdb516aec260cfcb63db077a37cee0c83f7407ea26d3216d2bc7ba"
+    },
+    {
+      "path": "src/crush_social_facts.js",
+      "expected": "fdc1f50a0c84af82b71fc848c96fc1872e374ee72a572a367b172b3aab253a5a",
+      "actual": "fdc1f50a0c84af82b71fc848c96fc1872e374ee72a572a367b172b3aab253a5a"
+    },
+    {
+      "path": "src/crush_social_host.js",
+      "expected": "e3ab705936e938ba30c9c469ce23e14b362e672d9931589e7c7181fa185a0333",
+      "actual": "e3ab705936e938ba30c9c469ce23e14b362e672d9931589e7c7181fa185a0333"
+    },
+    {
+      "path": "src/crush_social_views.js",
+      "expected": "3c78862b88d3ecda48ac93a9c6af02faf82645615ed9a1bae771fd8affc086ed",
+      "actual": "3c78862b88d3ecda48ac93a9c6af02faf82645615ed9a1bae771fd8affc086ed"
+    },
+    {
+      "path": "src/promise_ui.js",
+      "expected": "ae0cff4c11da250dbe4d645dce74e3d723854129f6a88f639887670f9b9ba28a",
+      "actual": "ae0cff4c11da250dbe4d645dce74e3d723854129f6a88f639887670f9b9ba28a"
+    },
+    {
+      "path": "src/proto23_world_ids.js",
+      "expected": "404ce79d0b29215c716af1a0b802e900a215f8772c67ad343b77b73eb7a0fb38",
+      "actual": "404ce79d0b29215c716af1a0b802e900a215f8772c67ad343b77b73eb7a0fb38"
+    },
+    {
+      "path": "src/proto23_world_content.js",
+      "expected": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+      "actual": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39"
+    },
+    {
+      "path": "src/proto23_world_actions.js",
+      "expected": "bce1a1b809448f76812a4c900415d5cfbd05ec62a4d1f97fcb12ea9c23f96303",
+      "actual": "bce1a1b809448f76812a4c900415d5cfbd05ec62a4d1f97fcb12ea9c23f96303"
+    },
+    {
+      "path": "src/proto23_world_state.js",
+      "expected": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524",
+      "actual": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524"
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "expected": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8",
+      "actual": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8"
+    },
+    {
+      "path": "src/proto23_world_native.js",
+      "expected": "e1ca6283195b80e025495b3b3d19bcd0b55b021a8a6268599241808ab3224f5d",
+      "actual": "e1ca6283195b80e025495b3b3d19bcd0b55b021a8a6268599241808ab3224f5d"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "expected": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "actual": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/factorio_retort_content.js",
+      "expected": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "actual": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f"
+    },
+    {
+      "path": "src/factorio_retort_facts.js",
+      "expected": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "actual": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a"
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "expected": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "actual": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99"
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "expected": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "actual": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+    }
+  ],
+  "additionalExactScope": [
+    {
+      "path": "src/display.js",
+      "sha256": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5"
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1"
+    },
+    {
+      "path": "src/feature_expansion_society_host.js",
+      "sha256": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982"
+    }
+  ],
+  "outsidePriorReleases": [
+    "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md revision4 released (display.js source scope in BEFORE/EVIDENCE)",
+    "docs/gm/reference-gameplay/BOOK_WORLD_HANDOFF.json released to Features; Features book-world-player-agency/RELEASE.json complete/released (reference/society_host)",
+    "docs/gm/world-completion-2026-10-06/ACQUISITION.json + CHECKPOINT.md explicit release (people_knowledge)"
+  ],
+  "actualPriorLiveStatus": "Features notLoaded/latestTurn completed; home-world notLoaded/latestTurn completed; ALL19 notLoaded/completed; book-world idle/completed. Care completion snapshot separately queried before display edit. Steam native/research disjoint and declared no shared writes. No active writer claims additional exact paths.",
+  "soleSharedIntegrator": "this root for GD-01/known routes/selected ACS finite joins and one matching build",
+  "preservedPreview": {
+    "receipt": "docs/gm/home-social-base-2026-10-07/BUILD.json",
+    "fingerprint": "cc3798910c48",
+    "bundleSha256": "cc3798910c48e61f3908cdf2225090d136a3efddd62327cad196c34338c2ed30",
+    "mapSha256": "f992821952f2e4f2b21cc82114632fcfe818aa65c5d1f5763745f38552e611d7",
+    "indexSha256": "6b32506b2373a12aa516494d47b8a76115b809a6a84579cd7ac1cb55e288e210",
+    "matchingLocalMaps": 353,
+    "previewUrl": "http://127.0.0.1:18196/",
+    "immutablePreviewRoot": "/tmp/yairpg-home-social-proto23-current-20261007",
+    "serverSession": 86152
+  },
+  "checks": "source/syntax/import/definition/link/build/map only; all behavior/save/native-constructor suites deferred"
+}

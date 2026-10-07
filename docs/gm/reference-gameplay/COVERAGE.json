@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "assignment": "ASSIGNMENT.md",
+  "status": "all-five-families-source-native-ui-save-build-delivered-implemented-unverified",
+  "bundleFingerprint": "2f04d677a4db",
+  "retention": "per saved character across existing single field renewal; no account or second prestige",
+  "families": [
+    {
+      "id": "achievements-feats",
+      "disposition": "implemented-unverified",
+      "new": [
+        "optional visible character catalogue of 12 unique feats",
+        "once-only receipts with committed/reconciled provenance",
+        "distinct trained-power IDs and actor-attributed substantive battle approaches",
+        "prepared combination requires actual simultaneous admission means plus successful outcome",
+        "explicit conservative earlier-basic-work reconciliation only"
+      ],
+      "coveredExisting": [
+        "actual completion counters, native outcome receipts and observer knowledge",
+        "single durable publisher and existing one field renewal"
+      ],
+      "consumers": [
+        "src/reference_gameplay_feats.js",
+        "src/reference_gameplay_state.js",
+        "src/main.js",
+        "src/feature_expansion_wave_host.js"
+      ],
+      "laterGate": "ACCEPTANCE_BACKLOG.md#later-playable-acceptance"
+    },
+    {
+      "id": "optional-challenges",
+      "disposition": "implemented-unverified",
+      "new": [
+        "explicit no-strike terms/accept/withdraw; maximum three attempts",
+        "defensive automatic conduct policy plus actual chosen gate/material work",
+        "missed player/team strikes violate before session deletion",
+        "separate completed/violated/withdrawn/ordinary outcome receipts",
+        "deliberate prepared-team attempt checks cooling mastery/source/current paid field and supported equipped willing Lio at admission, won/objective finish"
+      ],
+      "coveredExisting": [
+        "ordinary bypass and fixed opponents; persistent wounds/stock/route aftermath"
+      ],
+      "consumers": [
+        "src/reference_gameplay_state.js",
+        "src/feature_expansion_battle.js",
+        "src/main.js",
+        "src/feature_expansion_wave_host.js"
+      ]
+    },
+    {
+      "id": "functional-object-effect",
+      "disposition": "implemented-unverified",
+      "new": [
+        "finite charged/empty sleeves and salt, conserved through real native inventory",
+        "ordinary sap-to-resin, resin-plus-staves-to-native-kits, recharge",
+        "trained source/mastery/body/tool/actual pole eligibility for deeper hook cooling",
+        "four-played-minute existing condition disables only special hook pull and restores it on expiry"
+      ],
+      "coveredExisting": [
+        "custody/equipment/material transactions, source/faculty/power model, participant/site reservation",
+        "shared played clock/condition cleanup; clock freezes during native encounters"
+      ],
+      "consumers": [
+        "src/reference_gameplay_content.js",
+        "src/reference_gameplay_host.js",
+        "src/data/expedition_items.js",
+        "src/simulation_effects.js",
+        "src/feature_expansion_battle.js"
+      ]
+    },
+    {
+      "id": "contextual-battle-opportunity",
+      "disposition": "implemented-unverified",
+      "new": [
+        "optional new sluice schema4, original schema3 unchanged",
+        "fixed gear/body/stamina/target-dependent rush/hook/frame/brace/jab profiles",
+        "real consumed guarded block/mitigation earns one next-choice retreat or counter",
+        "actual costs, one use and expiry receipts; player automatic strikes wait while native opponents continue"
+      ],
+      "coveredExisting": [
+        "native cadence/RNG/guards/nonce and actual combat aftermath"
+      ],
+      "consumers": [
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_battle_host.js",
+        "src/native_battle_contracts.js",
+        "src/feature_expansion_powers_host.js",
+        "src/feature_expansion_ui.js",
+        "src/adventure_notebook.js"
+      ]
+    },
+    {
+      "id": "attributed-service-practice",
+      "disposition": "implemented-unverified",
+      "new": [
+        "real joint inspection/current Eda willingness/body/source/contact qualifies affordable one-coin lesson",
+        "payments enter actual purse; current support rechecked at settlement",
+        "paid trials spend own stamina and real salt, refine existing mastery, produce no item",
+        "existing finite itinerary gains exact saved definition-bound goal; stops before next reservation at useful mastery3 with maximum3 trials",
+        "current tool/source/body/contact/funding loss pauses or returns supported reservations; cancellation remains separate"
+      ],
+      "coveredExisting": [
+        "actual teaching attribution, persistent sources/powers/progression, paid jobs and finite itinerary owners"
+      ],
+      "consumers": [
+        "src/reference_gameplay_content.js",
+        "src/reference_gameplay_host.js",
+        "src/feature_expansion_work_plan.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/feature_expansion_wave_host.js"
+      ]
+    }
+  ],
+  "compatibility": {
+    "reader": "optional expansion9/referenceGameplay1; workshop1, existing workPlans1 with optional exact goal",
+    "absent": "inert; no enrollment or rewards from load/import/render",
+    "older": "expansion5-8 and existing frozen sessions/jobs preserved; schema3 sluice unchanged",
+    "rejection": "earlier readers reject9 at validateSaveEnvelope -> validateExpansionState before native mutation",
+    "laterProof": "generated save/reload/import/failed-publication unrun"
+  },
+  "sourceOwners": [
+    "docs/research/caves-of-qud/REPORT.md",
+    "docs/research/caves-of-qud/FINDINGS.json",
+    "docs/research/caves-of-qud/NPC_FINDINGS.json",
+    "docs/research/dcss-dda-depth/REPORT.md",
+    "docs/research/dcss-dda-depth/FINDINGS.json"
+  ],
+  "sourceQualification": "five selected Qud paths and seven DCSS/DDA traces reused; no raw source copied or broader reading claimed",
+  "checks": "BUILD.json",
+  "deferred": "ACCEPTANCE_BACKLOG.md",
+  "prototypeChoices": "original Eda cooling supplies/prices/trials, profile/window/attempt limits and feat names await director/balance acceptance"
+}

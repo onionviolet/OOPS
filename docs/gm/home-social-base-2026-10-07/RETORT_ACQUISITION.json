@@ -1,0 +1,12 @@
+{
+  "priorOwner": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+  "currentIntegrator": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+  "state": "all four corrected leaves explicitly released and hashes matched",
+  "hashes": {
+    "src/factorio_retort_facts.js": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+    "src/factorio_retort_host.js": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+    "src/factorio_retort_content.js": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+    "src/factorio_retort_native.js": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+  },
+  "packet": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/INTEGRATION_PACKET.md"
+}

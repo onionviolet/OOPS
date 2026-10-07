@@ -1,0 +1,171 @@
+{
+  "owner": "01a113f0-a07e-72a3-bb2f-6af475c2ce94",
+  "acquiredAtUtc": "2026-10-07T02:06:36.478405+00:00",
+  "predecessor": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "release": "docs/gm/care-worlds-2026-10-06/CHECKPOINT.md revision4 explicitly finite complete and releases shared scope; all children/processes completed/released, no pending writer. Live chat completing final report, not a source reservation.",
+  "careEvidenceDrift": [],
+  "careBuild": "69844afdf7bf",
+  "exclusiveSharedScope": [
+    "src/simulation.js",
+    "src/simulation_effects.js",
+    "src/simulation_contracts.js",
+    "src/simulation_content.js",
+    "src/expansion_engine.js",
+    "src/expedition_content.js",
+    "src/main.js",
+    "src/adventure_notebook.js",
+    "src/people_knowledge.js",
+    "src/feature_expansion_wave_host.js",
+    "src/data/expedition_items.js",
+    "src/items.js",
+    "src/save_files.js",
+    "src/audit_remainder_home_facts.js",
+    "src/audit_remainder_consequences_content.js",
+    "src/audit_remainder_consequences_facts.js",
+    "src/audit_remainder_state.js",
+    "src/causal_story_host.js",
+    "build.js",
+    "dist/bundle.js",
+    "dist/bundle.js.map",
+    "index.html",
+    "PROJECT.md",
+    "src/native_battle_contracts.js",
+    "src/feature_expansion_battle.js",
+    "src/field_care_facts.js",
+    "src/field_care_battle.js",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+    "docs/gm/world-implementation/RUN.json",
+    "docs/ENGINE_AUTHORING.md"
+  ],
+  "exclusions": [
+    "src/game_absorption_assay_*",
+    "private saves",
+    "source libraries",
+    "unrelated dirty changes",
+    "tests/browser/gameplay/save/failure/regression/director suites",
+    "install/commit/push/publication/automation/external messages"
+  ],
+  "before": [
+    {
+      "path": "src/simulation.js",
+      "sha256": "598571cf4c27b8249bf8d4841076433e6d68e1292bb4c6f8593e0a449f888a79"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "fa02b0e700bbe93f63bbd2def3ebb9c4a50e94f12f47bbff64a605d62466dcb8"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "c254cc118cec88d7bbe771575392c4bca055e1b1b6033a5cbe0c0e4d92002fc4"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c050e2b1b770afb5290d92cb9340f85244d16bac64c9460670562c69e8bc2165"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "8254373b2d811aba12d77abd714a9686daaac2b66823ac3b8a38b35c9086e300"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "caa0953d547936d4ea7b5aa3e25be4f9f1914368ae27b97576a8d9549a26bd17"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "a016803329716f10e778015adb2ac8504461398597ed9493d4bcede1983a3ac7"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "2a81efb4733a38a4b27c1a7461e9da62bcd9f7fdc2b2135a01b388204eb4df68"
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d"
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "sha256": "36aa5e418b786090419fdd78129485f7288662b48dcf8eb48c11501ac14e0381"
+    },
+    {
+      "path": "src/audit_remainder_consequences_content.js",
+      "sha256": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926"
+    },
+    {
+      "path": "src/audit_remainder_consequences_facts.js",
+      "sha256": "63722f676dea471cfe8a99217a9d472e7ea5d235c0b0a56ac672c0be565c41fe"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "sha256": "2ce58ae1e1561edd52a8747ed490a4dd8decdffbf5d449a250f73246b44b80a4"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "f6ad90f0efd6495928d9a68cee701222f36ac58c67fe8002b531061f1f239f90"
+    },
+    {
+      "path": "build.js",
+      "sha256": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "69844afdf7bf80a0638440d1d895a4b5c746f2d14e88e319d4539907bc86c39f"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "89a619191d4a82b1f6824febe34c2c030478f2ce51cba1cfa10c66d0378bc3e6"
+    },
+    {
+      "path": "index.html",
+      "sha256": "0daff8e6370898532e5e5b009d7fa1c60fc2ad26933273d049db7e86c71d63b0"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "2989589889eb2bcdd3cef1b974c3c4722948c023c5faf085965b365b9ef2dc2e"
+    },
+    {
+      "path": "src/native_battle_contracts.js",
+      "sha256": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8"
+    },
+    {
+      "path": "src/feature_expansion_battle.js",
+      "sha256": "0baddc191d38d593509c37bf836caa511fb6df94a1c34d53b0884b73584a7a09"
+    },
+    {
+      "path": "src/field_care_facts.js",
+      "sha256": "953791fe5e00d9a43056f6a0046ee56b20ca276028549243b8c787232821d273"
+    },
+    {
+      "path": "src/field_care_battle.js",
+      "sha256": "a160bf796a6cd68516d015d3d5d1033ddd53ac7a643c12a0acab387d96de4b9f"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "ae62a7f18abe2164923879f6a7ac41b241976421089d311e5030a554e7347259"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "b51566087b720e351c455edd6eb4006924cbdd11a9d6da7b44873bdd9daea66a"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "sha256": "3816542038c7f29526688107731da47acbb453db3b4951ce3c8f4831737a9ebe"
+    }
+  ],
+  "additionalScopeReason": "Cold definition import still pulls native battle runtime through core contracts; split identical descriptor validators from runtime. Care watch/wound objects/null violate primitive fact publisher; use canonical JSON receipts and absent cleared watch, preserving effects/strike meaning."
+}

@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-10-07T04:42:21.975196+00:00",
+  "objective": "Full nonexternal discovered-function C-like recovery for both slices, followed by actual native semantic chains and original YAIR usage.",
+  "status": "CompleteARMinitialfunctionattempts/13failures; saved/reopenedx86partiallyanalyzed/fullfunctionexportactive. CHECKPOINT/COVERAGEowncurrentstate; notwholeC/semantic/sourcecompletion.",
+  "build": {
+    "version": "2.0.77",
+    "steam_buildid": "23347942",
+    "manifest_fields": {
+      "appid": "427520",
+      "StateFlags": "4",
+      "installdir": "Factorio",
+      "LastUpdated": "1791345070",
+      "SizeOnDisk": "5392464225",
+      "StagingSize": "0",
+      "buildid": "23347942",
+      "BytesToDownload": "4379026224",
+      "BytesDownloaded": "4379026224",
+      "BytesToStage": "5392464225",
+      "BytesStaged": "5392464225"
+    },
+    "manifest_sha256": "f059b74bf6f3914b428bf0e966f0db8d2995c6f7c5a13f050a8d10bb73ea61bb"
+  },
+  "universal": {
+    "original": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/MacOS/factorio",
+    "private_copy": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-universal.macho.gz",
+    "bytes": 207914304,
+    "sha256": "90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820",
+    "before_after_original_and_manifest_unchanged": true,
+    "historical_uncompressed_copy": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-universal.macho",
+    "compression": "gzip",
+    "archive_retention": {
+      "observed_at_utc": "2026-10-07T05:02:49.994976+00:00",
+      "private_archive": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-universal.macho.gz",
+      "archive_sha256": "b64a9ca46283edd181fe101f237ef7adeecff72cc3db693fa05157d8c1617bf3",
+      "archive_bytes": 57436863,
+      "uncompressed_sha256": "90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820",
+      "uncompressed_bytes": 207914304,
+      "roundtrip_verified": true,
+      "uncompressed_private_copy_removed": true,
+      "slices_retained_uncompressed": true,
+      "game_install_untouched": true,
+      "reason": "Owned exact duplicate removed only after gzip roundtrip and compressed archive hash verified, to retain disk for derived Ghidra analysis."
+    }
+  },
+  "slices": [
+    {
+      "architecture": "arm64",
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-arm64.macho",
+      "bytes": 101254464,
+      "sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+      "nm_command": [
+        "nm",
+        "-m",
+        "-n",
+        "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-arm64.macho"
+      ],
+      "symbol_inventory": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-nm-m.jsonl.gz",
+      "symbol_inventory_sha256": "b785d331c00ad94e1bd944743a6d3b3db59deff7aeaf5b6593ce1cdc3805e3b7",
+      "symbol_row_counts": {
+        "all_nm_rows": 266110,
+        "undefined": 844,
+        "__TEXT,__text": 178809,
+        "__TEXT,__objc_methlist": 25,
+        "__TEXT,__gcc_except_tab": 35970,
+        "__TEXT,__const": 16937,
+        "__TEXT,__cstring": 9,
+        "__DATA_CONST,__const": 25138,
+        "__DATA_CONST,__objc_protolist": 5,
+        "__DATA,__objc_const": 72,
+        "__DATA,__objc_ivar": 61,
+        "__DATA,__objc_data": 30,
+        "__DATA,__data": 2561,
+        "__DATA,__thread_vars": 23,
+        "__DATA,__thread_data": 1,
+        "__DATA,__thread_bss": 22,
+        "__DATA,__bss": 181,
+        "__DATA,__common": 5422
+      },
+      "unique_text_symbol_addresses": 178809,
+      "production_named_text_symbol_counts": {
+        "Inserter": 862,
+        "Expansion": 124,
+        "Inventory": 2709,
+        "Quality": 11211,
+        "ItemStack": 1634,
+        "ElectricEnergySource": 207,
+        "RocketSilo": 717,
+        "Recipe": 3331,
+        "Spoil": 218,
+        "CraftingMachine": 353,
+        "FluidBox": 649
+      },
+      "selected_production_symbols": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-production-symbols.jsonl.gz",
+      "load_commands": {
+        "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-load-commands.txt",
+        "sha256": "ffb733f1c8a39cf5fb57bdf5cfa6bbeeade95f29387bd14e3824710749cef37f"
+      },
+      "dependencies": {
+        "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/arm64-dependencies.txt",
+        "sha256": "d4d4725ce3185572b2bbd64a44640d782fb2483b4e7d55dadb7847ac8f889ded"
+      },
+      "ghidra_discovered_functions": null,
+      "decompiler_attempts": 0,
+      "c_like_successes": 0
+    },
+    {
+      "architecture": "x86_64",
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-x86_64.macho",
+      "bytes": 106627632,
+      "sha256": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26",
+      "nm_command": [
+        "nm",
+        "-m",
+        "-n",
+        "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-x86_64.macho"
+      ],
+      "symbol_inventory": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/x86_64-nm-m.jsonl.gz",
+      "symbol_inventory_sha256": "c769271e91a1333844dd952efb44aa589aedb518fceebf0f751cf8020e3b9067",
+      "symbol_row_counts": {
+        "all_nm_rows": 264464,
+        "undefined": 858,
+        "__TEXT,__text": 178146,
+        "__TEXT,__gcc_except_tab": 34670,
+        "__TEXT,__const": 16925,
+        "__TEXT,__cstring": 9,
+        "__DATA,__const": 24930,
+        "__DATA,__objc_protolist": 5,
+        "__DATA,__objc_const": 97,
+        "__DATA,__objc_ivar": 61,
+        "__DATA,__objc_data": 30,
+        "__DATA,__data": 2580,
+        "__DATA,__thread_vars": 23,
+        "__DATA,__thread_data": 1,
+        "__DATA,__thread_bss": 22,
+        "__DATA,__bss": 685,
+        "__DATA,__common": 5422
+      },
+      "unique_text_symbol_addresses": 178146,
+      "production_named_text_symbol_counts": {
+        "Inserter": 859,
+        "Expansion": 122,
+        "Inventory": 2702,
+        "Quality": 11170,
+        "ItemStack": 1633,
+        "ElectricEnergySource": 206,
+        "RocketSilo": 711,
+        "Recipe": 3331,
+        "Spoil": 216,
+        "CraftingMachine": 350,
+        "FluidBox": 646
+      },
+      "selected_production_symbols": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/x86_64-production-symbols.jsonl.gz",
+      "load_commands": {
+        "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/x86_64-load-commands.txt",
+        "sha256": "d3ebde87790ab5db81e2ac2365d26c67993130fa04224219b4be38b928b1a8da"
+      },
+      "dependencies": {
+        "path": "/Users/weiwei/.codex/research/factorio/native-23347942/inventory/x86_64-dependencies.txt",
+        "sha256": "3b44b712c14511ecf0e97e03a7fda6a98fecf7167a73d71dfb1fd2612ada4c4d"
+      },
+      "ghidra_discovered_functions": null,
+      "decompiler_attempts": 0,
+      "c_like_successes": 0
+    }
+  ],
+  "disk_free_bytes_after": 3367579648,
+  "memory_bytes": 17179869184,
+  "privacy_boundary": "Native installed executable only. No game launch, source-library mutation, saves, profiles, entitlements, assets, code publication or raw pseudocode in Git.",
+  "truth_boundary": "Symbol rows/unique text addresses are not discovered-function or decompilation counts. Original source names/comments/types cannot all be restored automatically. Closed native recovery is now authorized; earlier Lua-only completion remains historical.",
+  "dependency_retention": "DEPENDENCY_RETENTION.json",
+  "main_native_scope": "ARM/x86mainexes, allFunctionManager/callable attempt sets; bundledSteamAPI retainedonly, externalbody/systemframeworks unrecovered",
+  "current_native_state_owner": "CHECKPOINT.md"
+}

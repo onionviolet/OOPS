@@ -1,0 +1,20 @@
+# Dependency and scope handoff
+
+The assigning master alone merges [FINDINGS.json](FINDINGS.json) into the [plan](../../IMPLEMENTATION_PLAN.md) and [RUN](../../RUN.json). This packet changes no shared policy, model, config, source dossier or runtime. Preserve the implementation hold and independent reading goals.
+
+| Amendment | Responsible owner | Smallest next step after review | Gate and dependency |
+|---|---|---|---|
+| TF01: selective claim bundles | Existing source GM; authoring GM consumes | Answer one selected MoL shell-drill query from existing claim/profile records. Add only a routing descriptor for another dossier's format when a second consumer needs it | Bundle resolves note/member/paragraph locators and retains source boundary, W/C/I/O or local equivalent, reviewed state, positive function, exception and unknown. No new full-book pass |
+| TF02: scene-specific context | Society/dialogue owner; timeline and source GMs advise; Engine binds actual state later | Draft Joss private/offer/heard projections, plus a MoL copy/original relationship example | Dependencies include era/branch/body, observer knowledge, source/voice revision and relevant settlement events. No private-fact leak or universal friendship. An authoring card is not runtime state |
+| TF03: bounded input/output | Assigning master and each task writer | Add relevant section/record selectors beside existing dirty-input hashes | Missing/truncated output is explicit; material drift reloads affected sections. Required host instructions still apply. No second PROJECT or global index of all lore |
+| TF04: reusable review receipt | Current source/implementation owner and designated reviewer | Attach criterion, input revisions, repair history and semantic/structural distinction to the existing receipt | Reuse only criteria whose relevant inputs are unchanged; inspect changed dependency and repair the named failure. Structural hashes never promote testimony or a prototype into fact |
+| TF05: economical route qualification | Assigning GM under existing live reader policy | Use one real bounded task with a causal/knowledge exception before widening a repeated route | Keep same source and acceptance gate. Include coordinator and workers in any cost comparison; unavailable usage is null. No pricing assumption or blanket model downgrade |
+| TF06: terminal closeout and result density | Master queue/RUN owner; current task writer | Use one final return with finding IDs, changed paths, checks, limits and released scope; refer to the saved matrix | Current writer owns completion. Retired roles stop watching the completed goal. Healthy context reuse and useful disjoint lanes remain authorized |
+
+TF01 and TF03 can be adopted as workflow conventions without a runtime schema. The cheaper first form is a manual targeted query against current files. A reusable extraction helper pays only when several consumers repeat that query; propose it in the owning lane, not as a new coordinator. Search/indexing locates evidence and cannot substitute for semantic reading.
+
+TF02 needs actor/era/knowledge dependencies from the society and timeline lanes. Its initial form is a small authored card with explicit validity conditions. Runtime integration later belongs to Engine after review; the dialogue renderer must consult real settled state. Do not create live LLM narration or a duplicate people store to obtain fresh lines.
+
+TF04 and TF06 refine existing practices. Preserve actual earlier checks, read/reviewed/integrated distinctions, sole writers and known held-code gaps from the macro/micro reports. A parent still reviews returned evidence; it need not repeat a worker's entire scan after its relevant gate is satisfied. New consequential uncertainty justifies a named bounded review.
+
+This audit spawned no internal helpers or visible successors and started no persistent process. No further action is assigned to this role after checked delivery. Later runtime acceptance remains the authorized integration team's deferred journey, failure, save/return and human game-feel review, separate from these document gates.

@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-03",
+  "scope": "Dedicated Journal Notebook and a read-only Bio projection of learned skill/body/source effects.",
+  "build": {
+    "bundle": "dist/bundle.js?version=v0.6-c6d381ca1436",
+    "css": "style.css?version=v0.6-6a28b8839a41"
+  },
+  "tests": {
+    "command": "npm test",
+    "pass": 116,
+    "fail": 0,
+    "skipped": 0
+  },
+  "files": {
+    "src/adventure_notebook.js": "6360052764b0585bced8a9c3ac62ab687fcc48528c18dc210a90f0f17a5600ae",
+    "src/character_bio.js": "d719c5f6676a6d5b121b048348212ce97ddf702739cf752d037601b93c344cad",
+    "src/character_bio_ui.js": "1481f6103ebe1612d76ddaf94bee550fe199f7370f369df26c12668fa1d9c2e4",
+    "src/main.js": "9af33e1717957b78f6336eaad033e4f47c4e784c3e0f5e86ca7fe82d01dcaf5e",
+    "index.html": "8615e1d54d03deb0fa6fe07a1fa6d7486d57f8ef334dc01857353294d40c92ff",
+    "style.css": "6a28b8839a411fc7a53226ae05bc77ad0080879e0bd792a285bb1f17834c1f9f",
+    "tests/character_bio.test.js": "075ed5677af001d1c55d2e27c139630d871cd102d215c5170319093296bed0a5",
+    "scripts/bio_browser.cjs": "3bf8b65c68eb3d2d556d7dc206808cc0110b89a2e70df338bfc67ef575e53657",
+    "scripts/ui_helpers.cjs": "7e594e75bd386e027902423c0c65d99cf5046c7f3fe8f21409d123240e95f16c",
+    "scripts/notebook_browser.cjs": "6a3a703f35de2f3453ae5e1f14d7db213c4ee07f91897493839d22b079649f79",
+    "scripts/town_browser.cjs": "46f67c434115889265e21cb986113d786e32b1c5f973f19b4dfb2a88aeb74d68",
+    "scripts/village_browser.cjs": "5c15b688f0459171858d307655e462dea3d1dca75131b06fbbf826ca6596eff1",
+    "scripts/simulation_browser.cjs": "c018fc59355602b98cd20e921560cb76d94f31c508f8b4487503ddf203cb9147",
+    "scripts/chronicle_browser.cjs": "094499bd7da1d3b63155d35870f87d1cc0079aece54e8e07839110657d8110c4",
+    "dist/bundle.js": "c6d381ca14361219d5d8a57126ffa5c665b3e0b20f45af9483670bb554130c9b",
+    "dist/bundle.js.map": "525e04212918527d4c236d0d2b7f966d5efab7dac62f49f32b8f6de6084c4f2c"
+  },
+  "browser": {
+    "notebook": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Notebook has its own native Journal tab and no DOM under the location menu. Fresh opening hides the new tab; local clues remain vague. Keyboard focus/user selection survive ticks; saved practice opens its Journal view and cancels there.",
+        "An old generated town save derives one contract in native Quests, retaining money/inventory/native quest state through reload. Local notes do not reveal the answer or later ledger. The separate list avoids the native quest sorter; no quest is copied into Notebook.",
+        "Generated independent discovery flags reveal world name and branch separately; native Save/reload retains both learned facts. No live reveal event or automatic discovery is added."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "bio": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Native demographic fields remain intact. Existing Running/Climbing/Perception effects and an already earned discovery appear in Bio. Skill links focus the native bar and keep focus through ticks. Journal placement, user-selected Quests, and reload retain XP, biography, money, possessions and the same actor without new bonuses.",
+        "A generated observed technique remains observation, rather than ownership or execution. Bio opens its actual Notebook Practice view without adding progress."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "town": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Fresh original character creation and elder greeting remain playable; the town chapter is absent in Village, with no native town access, age or living-world enrollment.",
+        "Optional permit atomically opens the native Town square; ordinary native travel, saved survey, unique payment and return knowledge complete with unchanged original quests/dialogue. Native encoded export/import and reload retain town access, kit, money and one completion.",
+        "Injected browser storage failure publishes no permit/access or costs and retains exact stored bytes; reload restores the unjoined native adventure.",
+        "The timber alternative reserves actual gathered logs, refunds cancellation, resumes through reload and consumes its materials once."
+      ],
+      "errors": [],
+      "warnings": [],
+      "failedRequests": [
+        {
+          "url": "https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "generatedSavesOnly": true
+    },
+    "village": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Native-menu discovery, pending reload, real objects, partial native reading reload and one completion pass without chronicle enrollment.",
+        "A real preparation contribution, one saved claim per day, native encoded file import/export and completed-book reload pass without duplicate rewards.",
+        "Generated story-access/material fixture: native craftsman greeting, real token handover, reputation, faster packing, actual Shack travel, material refund, mid-build/packing reload, real kit consumption and changing home-board text pass.",
+        "The understood booklet opens a separate guaranteed-ready route, retaining the token and using no kit while leaving the crossing unrepaired.",
+        "Generated later-day and closed-window calendars reopen only the current gathering, with no payouts for skipped days.",
+        "Injected storage failure publishes no claim, reward or advanced joined calendar; reload restores the available gathering."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    },
+    "simulation": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Native center menu, real player-to-NPC material transfer, paid commission, directed trust, independent bench work, mid-job reload and exactly-once native kit collection pass. Native story access is generated in the fixture; this does not prove natural rat-field progression.",
+        "Learned method, native Shack access, per-batch wood/coin reservation, pending reload, refund/cancel and three-batch automatic completion create real kits.",
+        "A real native encoded export is reimported through the file input and real-loader preflight; native ownership, actor work, generated native NPC equipment and completed routine remain intact after reload.",
+        "Injected quota failure publishes no transfer, money debit, claim, relationship or advanced clock; reload restores the original eligible commission.",
+        "An undiscovered generated decision does not freeze the player; supported time reaches its deadline and frozen aftermath settles without an invisible input prompt."
+      ],
+      "errors": [],
+      "warnings": [],
+      "generatedSavesOnly": true
+    },
+    "chronicle": {
+      "url": "http://127.0.0.1:18503/",
+      "fingerprint": "http://127.0.0.1:18503/dist/bundle.js?version=v0.6-c6d381ca1436",
+      "findings": [
+        "Native-menu enrollment, real stamina cost, saved partial encounter, debrief and timed lesson pass.",
+        "Hostile intent, functional restraint, informed Village reputation and explicit restitution pass.",
+        "Timed promise, mid-job reload, real manual inheritance, native encoded export/import through the real preflight and no duplicate bequest pass.",
+        "Generated time jump misses real windows; local reports preserve information without granting missed rewards.",
+        "Attended briefing contributes usable preparation through the existing capability/read model.",
+        "Stronger generated native XP build wins against the same fixed elder.",
+        "Ordinary wolf-rat combat, timer cleanup on return and native guard spar remain playable.",
+        "Injected storage failure publishes no turn/stamina/calendar change; reload restores the committed encounter.",
+        "Opt-in old age ends once, freezes native game time, survives reload and exports through the native-compatible encoding."
+      ],
+      "errors": [],
+      "generatedSavesOnly": true
+    }
+  },
+  "visibleReview": {
+    "url": "http://127.0.0.1:18538/game/index.html",
+    "screenshot": "/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/bio-review/notebook-and-bio.jpg",
+    "bundle": "dist/bundle.js?version=v0.6-c6d381ca1436",
+    "notebookInLocationMenu": false,
+    "bioBottom": 321,
+    "controlsTop": 321
+  },
+  "limits": [
+    "Generated saves and isolated browser contexts only; personal saves and previous preview origins untouched.",
+    "The visible review uses an already earned generated discovery and generated higher native skill XP; it is not proof of natural training progression.",
+    "Skill effects/milestones come from the existing native owners; the Bio view grants no new bonuses or history.",
+    "Observed-technique Bio uses a generated knowledge fixture; broader observed/learned/owned execution is also covered by unit/menu/chronicle checks.",
+    "New physical transformations, recovery/aging rules, bloodline progression and NPC recognition remain proposals.",
+    "Full native responsive redesign and human wording, placement and ease-of-use acceptance remain pending."
+  ],
+  "additionalChecks": {
+    "pendingReload": "Notebook content and its native selected highlight agree after reload.",
+    "localLinks": "Active-owner links and Markdown fences pass; verbatim archive snapshots retain original path context.",
+    "whitespace": "Source and document diff check passes, excluding generated dist."
+  }
+}

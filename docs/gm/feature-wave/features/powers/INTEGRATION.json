@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "status": "admitted-implemented-unverified",
+  "implementationStatus": "implemented-unverified",
+  "owner": "Features GM child powers",
+  "reservedPaths": [
+    "src/feature_expansion_powers.js",
+    "src/feature_expansion_powers_host.js",
+    "src/feature_expansion_battle.js",
+    "src/feature_expansion_battle_host.js",
+    "docs/gm/feature-wave/features/powers/",
+    "src/native_battle_contracts.js"
+  ],
+  "exports": {
+    "src/feature_expansion_powers.js": [
+      "FEATURE_HARNESS",
+      "FEATURE_HOOK_POLE",
+      "FEATURE_KIT",
+      "FEATURE_LOG",
+      "FEATURE_POWER_ITEMS",
+      "FEATURE_POWER_WORLD",
+      "FEATURE_SPECIALIZATIONS",
+      "featurePowerDefinitions",
+      "featurePowerFacts"
+    ],
+    "src/feature_expansion_powers_host.js": [
+      "featurePowerContext",
+      "featurePowerPresentation",
+      "isFeatureBattle",
+      "planFeaturePowerCommand"
+    ],
+    "src/feature_expansion_battle.js": [
+      "FEATURE_BATTLE_ID",
+      "FEATURE_BATTLE_SCHEMA",
+      "FEATURE_HELPER",
+      "FEATURE_HOOK",
+      "FEATURE_SHIELD",
+      "commitFeatureBattleAction",
+      "featureBattleDefinitions",
+      "featureBattleFacts",
+      "featureBattleToken",
+      "featureBattleView",
+      "featureFighterOwnership",
+      "featureNativeAction",
+      "featureOwnedGear",
+      "initializeFeatureBattle",
+      "previewFeatureBattleAction",
+      "previewFeatureBattleAdmission",
+      "validateFeatureBattle",
+      "withdrawFeatureBattle"
+    ],
+    "src/feature_expansion_battle_host.js": [
+      "createFeatureBattleHost"
+    ]
+  },
+  "registeredIds": {
+    "commands": [
+      "feature_powers.brace.interpose",
+      "feature_powers.brace.redirect",
+      "feature_powers.trail.opening",
+      "feature_powers.trail.exit",
+      "feature_powers.timber.frame",
+      "feature_powers.timber.wedge",
+      "feature_powers.inquiry.read",
+      "feature_powers.inquiry.signal",
+      "feature_powers.brace.sustained",
+      "feature_powers.trail.sustained",
+      "feature_powers.timber.sustained",
+      "feature_powers.inquiry.sustained",
+      "feature_powers.map_exit",
+      "feature_powers.harness_ordinary",
+      "feature_powers.harness_matched",
+      "feature_powers.equip_lio",
+      "feature_powers.lio_release_drill",
+      "feature_battle.inspect",
+      "feature_battle.start",
+      "feature_battle.bypass",
+      "feature_battle.next_watch"
+    ],
+    "people": [
+      "featureBattleShield",
+      "featureBattleHook"
+    ],
+    "encounters": [
+      "feature_battle.sluice"
+    ],
+    "items": [
+      "Braced field harness",
+      "Sluice hook pole"
+    ],
+    "retainedPowers": [
+      "frontier.brace_control",
+      "frontier.trail_reading",
+      "frontier.timber_judgment",
+      "frontier.shared_inquiry"
+    ]
+  },
+  "activation": {
+    "automatic": false,
+    "inspect": "feature_battle.inspect explicitly spawns the two opponents, their physical frame/pole and knowledge after the inspected crossing.",
+    "specializations": "Existing learned methods at mastery four reveal optional reversible paid specialization and sustained mastery4-8 drills.",
+    "battle": "Explicit feature_battle.start only; withHelper is a separate paid admission checked by previewFeatureBattleAdmission and initializeFeatureBattle.",
+    "ordinary": "Eight-minute, three-stamina drainage bypass; ordinary two-kit/two-log harness recipe. No mature method is required.",
+    "enrollment": "If existing simulation services are absent, the known crossing reveals an explicit feature_enroll row; planFeaturePowerCommand calls existing enrollSimulation. No enrollment from render/load."
+  },
+  "versions": {
+    "expansion": 5,
+    "simulation": "current1-4 retained",
+    "nativeBattle": {
+      "schema": 3,
+      "definitionId": "feature_battle.sluice",
+      "revision": 1,
+      "missing": "No enrollment, opponents, sources, learning, items, timers or result. Schema1 Mara and schema2 party contest remain retained."
+    },
+    "definitions": 1,
+    "progress": "Optional existing progression[partyPartner].feature_party.values.release_drills/guarded_encounters; absent zero",
+    "facts": "Optional existing actor facts feature.powers.*.choice and feature.battle.*; absent none/false"
+  },
+  "requiredExistingFileJoins": [
+    {
+      "path": "src/simulation_content.js",
+      "action": "Import featurePowerDefinitions and featureBattleDefinitions. Append power commands and battle people/encounters/commands to corresponding simulationDefinitions arrays; retain existing skillDefinitions powers and skillSources unchanged."
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "action": "Import FEATURE_POWER_ITEMS and register each as existing OtherItem via item_templates before native item validation/reconstruction. Items have no import side effect in this lane. Harness stays native stock for player and simulation-owned/equipped for Lio/opponents."
+    },
+    {
+      "path": "src/native_battle_contracts.js",
+      "action": "Completed in this lane: validateNativeBattle dispatches schema3 to validateFeatureBattle before the existing schema1/2 rival binding check. Retain this import/dispatch in integration."
+    },
+    {
+      "path": "src/main.js",
+      "action": "Wrap the live expedition/campaign facts before all previews and commits using featurePowerContext(state,context). Context must include actual native player vitals, gameplay/equipment/external coins, Strength and body.handsTender. Parent still owns all publication."
+    },
+    {
+      "path": "src/main.js",
+      "action": "Create one createFeatureBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState,getContext:campaignContext,persist:persistExpansion,getCombat,setCombat,endCombat:end_combat,refresh,render,attackersSlot,defendersSlot}). Use generic feature panel DOM slots described below. Native host only resumes explicitly after saved start/resume; do not resume or create opponents on load/render. resume(quotedToken) now requires all four exact current sessionId/sequence/action/seed fields. After a successful start publication pass featureBattleToken(expansionState); for a displayed resume pass the original command token unchanged. Dedicated DOM slots must exist before resume."
+    },
+    {
+      "path": "src/main.js",
+      "action": "For feature_enroll/feature_command/feature_cancel, call planFeaturePowerCommand and persistExpansion(plan); after feature_battle.start publication call featureBattleHost.resume(featureBattleToken(expansionState)). For feature_battle_action translate {type:command.actionType,...tokens,actorId,targetId,targetIds} and call featureBattleHost.act (withdraw may call host.withdraw with all tokens). For feature_battle_resume require exact current tokens and pass the unchanged command token to host.resume(command). No generic answerSimulationEncounter path may execute this native encounter."
+    },
+    {
+      "path": "src/main.js",
+      "action": "Combine featurePowerPresentation(state,registry,featurePowerContext(state,context),featureBattleHost.view(),{battleRunning:featureBattleHost.isRunning()}).sections into generic read-only feature panel. Read host.view for bound native quotes. Do not supply fabricated native fighters. Host pauseReason may be an action notice, not a permanent save-block error."
+    },
+    {
+      "path": "src/feature_expansion_ui.js or parent panel",
+      "action": "Provide document elements feature_battle_attackers/feature_battle_defenders visible while a saved native sluice session exists, before host.resume calls Combat.start; OR pass attackersSlot/defendersSlot callbacks. Combat uses these dedicated slots. Preserve explicit command.sequence with ?? fallback; never refresh a displayed schema3 quote token to bypass stale rejection."
+    },
+    {
+      "path": "src/main.js clock/native/travel/item consumers",
+      "action": "Keep saved session occupations and current special native Combat clock pause policy. Native/rest/travel/item actions remain blocked by the existing simulationOccupiesActor/nativeActionReasons. No offline native strikes or extra clock/timer. Permit retained result/knowledge and optional source state through the one existing envelope validator."
+    }
+  ],
+  "publication": "Only the existing persistExpansion/persistExpansionPlan after complete plan validation. No localStorage/live native body mutation in planners. Host sync mutates only ephemeral NPC Enemy projections; parent publishes native player HP/stamina offsets and saved NPC vitals/stock/equipment.",
+  "clock": "All jobs use existing played-minute jobs and participants/sites. Native Combat owns existing wall cadence while the encounter clock follows the current native special contest pause. Unsupported absence freezes. No independent loop.",
+  "nativeConsumers": {
+    "math": "Native rollCombatStrike/mitigateCombatDamage including own actual attack count, block, crit, stamina efficiency and Persistence exhaustion multiplier.",
+    "team": "Two fixed hostile bodies, actual own equipped frame/pole, held guards, native multi-target split strike, Lio own acquired source/harness kit and paid effort.",
+    "powers": "Shared frame can cover two legal targets at mastery6; release exhausts an unanchored foe, with anchored resistance. Trail owns current target openings and actual escape progress. Timber consumes conserved kit/log for native guard/objective and builds actual harness. Inquiry strips held guard/exposes actual target or reduces own helper guard stamina.",
+    "gearProgress": "Owned equipped Braced field harness supplies native NPC defense+2, shield4 and block chance0.6; Lio own release_drills changes native shield skill, guard stamina and fatigue counter. Hook effect requires actual owned equipped pole.",
+    "objective": "Gate3 or both hostiles yielding secures passage; escape2/3 exits while preserving spent wounds/stock; withdrawal remains zero-cost. All stop at1 HP. Fixed threats do not scale from player stats/level.",
+    "recovery": "Persistent hostile wounds/stamina and two watch rations. Selected next-watch job spends each opponent own ration to recover; no retrospective reset or infinite free rest. Victory/bypass is one route clearance; no repeat reward farming."
+  },
+  "saveConsumers": [
+    "Existing actor facts, simulation powers/mastery, progression, owners/equipment/knowledge/relationships/people vitals/resources; optional validated schema3 session.nativeBattle; native player vital offsets; no parallel inventory or reward ledger."
+  ],
+  "deferredChecks": [
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload",
+    "failed-save",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "outputHashes": {
+    "src/feature_expansion_powers.js": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+    "src/feature_expansion_powers_host.js": "8baf5e250a47823d0591cf6a0a16cf920e1bb9d9f18ed60f223c49cd5c0b3c8f",
+    "src/feature_expansion_battle.js": "bcd989c0820167ca4893197a7cfbff4685ccfe539f2c85288d7c599a82e8bd43",
+    "src/feature_expansion_battle_host.js": "a9b6bf510531b1514c107990deba2e17dd61786f579e54235b73071bd2976a48",
+    "src/native_battle_contracts.js": "d97266df59110dc02a0d455a439cbf46a4551f5efcab92a1027cf952226d08e9"
+  },
+  "sourceFixes": [
+    "schema3 native validator dispatch joined",
+    "native resume requires exact saved token and non-busy current context plus actual DOM slots",
+    "binding vitals reject missing/nonfinite/out-of-bounds native bodies",
+    "saved NPC bodies/vitals and active/yielded wounds validated",
+    "already exhausted native attacks retain the native owner stamina multiplier once",
+    "Lio waits behind an existing player guard and releases when his actual remaining stamina cannot fund his guard",
+    "read-only view no longer triggers native display refresh"
+  ],
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "ready-for-parent-integration"
+}

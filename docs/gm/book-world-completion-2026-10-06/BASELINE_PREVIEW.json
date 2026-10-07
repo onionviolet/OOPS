@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "path": "/tmp/yairpg-book-world-baseline-20261006",
+  "bundleFingerprint": "d405e2c1a0e3",
+  "prior18194Listener": "absent at acquisition; no unknown process terminated",
+  "scope": "public static game assets only, no user saves/source library",
+  "restoredStaticPreview": {
+    "url": "http://127.0.0.1:18194/",
+    "session": 64842,
+    "root": "/tmp/yairpg-book-world-baseline-20261006",
+    "reason": "Historical retained listener was absent; public released build restored on its original URL; no gameplay performed."
+  }
+}

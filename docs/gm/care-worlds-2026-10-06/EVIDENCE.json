@@ -1,0 +1,396 @@
+{
+  "schema": 1,
+  "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "capturedAtUtc": "2026-10-07T02:04:57.803858+00:00",
+  "status": "source/native/UI/current-build delivered, implemented-unverified",
+  "scope": "Finite care/consequences wave, actual existing Paradise hub/Goa and original local P1/P2 story; no full-world/source parity",
+  "files": {
+    "new": [
+      {
+        "path": "src/book_care_content.js",
+        "sha256": "7f71b1a5bbb30ca3323a3162a4042ea68897c7951b80bb446be6f47b99a78cd3"
+      },
+      {
+        "path": "src/book_care_facts.js",
+        "sha256": "c95a2ce4661a61891be15ffd4edc15c528587a4f637fee73fc9968b2077ffb90"
+      },
+      {
+        "path": "src/book_care_host.js",
+        "sha256": "00a5143ffd93d45401a65d49f9392b642729e14e4add53c8e9178c050e70ecaf"
+      },
+      {
+        "path": "src/book_care_runtime.js",
+        "sha256": "8ea54650e0f8c75a5c4b3e9c979977c0063c10000ba64c53877824fe44e3d00c"
+      },
+      {
+        "path": "src/field_care_battle.js",
+        "sha256": "a160bf796a6cd68516d015d3d5d1033ddd53ac7a643c12a0acab387d96de4b9f"
+      },
+      {
+        "path": "src/field_care_content.js",
+        "sha256": "8602f2cf5cc3a4bf76f6ee3c6290fae328c25a512ba823e5c721d35f712db740"
+      },
+      {
+        "path": "src/field_care_facts.js",
+        "sha256": "953791fe5e00d9a43056f6a0046ee56b20ca276028549243b8c787232821d273"
+      },
+      {
+        "path": "src/field_care_host.js",
+        "sha256": "25e5f0fb808c4f76def89dbfbf7b10c0e4f92a81047735def98b30718587fb1f"
+      },
+      {
+        "path": "src/lore_practice_content.js",
+        "sha256": "dee0031568ae955b2d2d297d086eab468e3f8ccc0786045c811873e29b13edff"
+      },
+      {
+        "path": "src/lore_practice_facts.js",
+        "sha256": "11e65fe0f0e67892e1f1de42f4d3132c1b90c47b96b924652dff1fd2b9644de8"
+      },
+      {
+        "path": "src/lore_practice_host.js",
+        "sha256": "e5a8d3f3f57708e66c3969c9e47830285ae8059d3c2501381c4132bca07b59d8"
+      },
+      {
+        "path": "src/lore_practice_runtime.js",
+        "sha256": "3871c6cfa3606ab587114cf995c465ea3bfc9cddcce61ddda42272e4d9558a5b"
+      }
+    ],
+    "sharedJoins": [
+      {
+        "path": "src/main.js",
+        "beforeSha256": "9699473984245b908771bd704447af3dd4ae7324c1140043358414dfdd1549de",
+        "afterSha256": "8254373b2d811aba12d77abd714a9686daaac2b66823ac3b8a38b35c9086e300",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/active_effects.js",
+        "beforeSha256": "0060caa7b08181d4ffa4d293e701fabca31c8e4dee50300a3df3a71af7361e48",
+        "afterSha256": "f189344314508739f54d697e66d383e907d09a9c00948a2e3981337babd9ec7a",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/feature_expansion_battle.js",
+        "beforeSha256": null,
+        "afterSha256": "0baddc191d38d593509c37bf836caa511fb6df94a1c34d53b0884b73584a7a09",
+        "beforeCapture": "later necessary shared join; not fingerprinted before write, source read/review preserved"
+      },
+      {
+        "path": "src/simulation.js",
+        "beforeSha256": "ef9912716c05a7c4298a474504b15f597e5df21f5e91942e8905e3cd6050a26a",
+        "afterSha256": "598571cf4c27b8249bf8d4841076433e6d68e1292bb4c6f8593e0a449f888a79",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "beforeSha256": "61f892ae5a5dbdeb71a515d058a99145ead2d9a09749450ef431d716a5fc1877",
+        "afterSha256": "c254cc118cec88d7bbe771575392c4bca055e1b1b6033a5cbe0c0e4d92002fc4",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "beforeSha256": "acd52c5601e7c8c700f16509a65e3a06a02f5ccf14d96e33a4def288c9f08c9e",
+        "afterSha256": "fa02b0e700bbe93f63bbd2def3ebb9c4a50e94f12f47bbff64a605d62466dcb8",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/simulation_ui.js",
+        "beforeSha256": "23b82917810d559993a2549849bc80ebad323190e10fa049d83cebe49108d99f",
+        "afterSha256": "3c1d8a1d640767772dd3a27aef0ca44488b72418b3998fabc2bfd5ba347b7aaa",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "beforeSha256": "f86ba6573074bcbdd284453c62db067f296da5722d8cdb65136440c87c641625",
+        "afterSha256": "c050e2b1b770afb5290d92cb9340f85244d16bac64c9460670562c69e8bc2165",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/feature_expansion_wave_host.js",
+        "beforeSha256": "fd2d9f5da8a4dc7915cea0250d356a61cafa98a9f861c671f8e5f5f4888f0136",
+        "afterSha256": "a016803329716f10e778015adb2ac8504461398597ed9493d4bcede1983a3ac7",
+        "beforeCapture": "initial24-input snapshot"
+      },
+      {
+        "path": "src/audit_remainder_state.js",
+        "beforeSha256": null,
+        "afterSha256": "2ce58ae1e1561edd52a8747ed490a4dd8decdffbf5d449a250f73246b44b80a4",
+        "beforeCapture": "later necessary shared join; not fingerprinted before write, source read/review preserved"
+      },
+      {
+        "path": "src/audit_remainder_home_facts.js",
+        "beforeSha256": null,
+        "afterSha256": "36aa5e418b786090419fdd78129485f7288662b48dcf8eb48c11501ac14e0381",
+        "beforeCapture": "later necessary shared join; not fingerprinted before write, source read/review preserved"
+      },
+      {
+        "path": "src/audit_remainder_offers_state.js",
+        "beforeSha256": null,
+        "afterSha256": "341572188a54f63dcb26e6e70a33a7b09045c3b3006927086bc5f428ba0ca0cf",
+        "beforeCapture": "later necessary shared join; not fingerprinted before write, source read/review preserved"
+      }
+    ],
+    "canonical": [
+      {
+        "path": "PROJECT.md",
+        "sha256": "2989589889eb2bcdd3cef1b974c3c4722948c023c5faf085965b365b9ef2dc2e"
+      },
+      {
+        "path": "docs/ENGINE_AUTHORING.md",
+        "sha256": "3816542038c7f29526688107731da47acbb453db3b4951ce3c8f4831737a9ebe"
+      }
+    ],
+    "generated": [
+      {
+        "path": "index.html",
+        "sha256": "0daff8e6370898532e5e5b009d7fa1c60fc2ad26933273d049db7e86c71d63b0"
+      },
+      {
+        "path": "dist/bundle.js",
+        "sha256": "69844afdf7bf80a0638440d1d895a4b5c746f2d14e88e319d4539907bc86c39f"
+      },
+      {
+        "path": "dist/bundle.js.map",
+        "sha256": "89a619191d4a82b1f6824febe34c2c030478f2ce51cba1cfa10c66d0378bc3e6"
+      }
+    ],
+    "unchangedOwners": [
+      {
+        "path": "src/models/hero.js",
+        "beforeSha256": "ed5fc03f42906b14b901c34eab426a6824f539dd64d061c9985f8964f8cd6624",
+        "afterSha256": "ed5fc03f42906b14b901c34eab426a6824f539dd64d061c9985f8964f8cd6624",
+        "matches": true
+      },
+      {
+        "path": "src/display.js",
+        "beforeSha256": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5",
+        "afterSha256": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5",
+        "matches": true
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "beforeSha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "afterSha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "matches": true
+      },
+      {
+        "path": "src/save_files.js",
+        "beforeSha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+        "afterSha256": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+        "matches": true
+      },
+      {
+        "path": "src/status_care_content.js",
+        "beforeSha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93",
+        "afterSha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93",
+        "matches": true
+      },
+      {
+        "path": "src/status_care_facts.js",
+        "beforeSha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+        "afterSha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+        "matches": true
+      },
+      {
+        "path": "src/status_care_host.js",
+        "beforeSha256": "0eb35a71fd5c6dc463a255b76d0009b481d9a403b0a4502193c9839954d85992",
+        "afterSha256": "0eb35a71fd5c6dc463a255b76d0009b481d9a403b0a4502193c9839954d85992",
+        "matches": true
+      }
+    ]
+  },
+  "registry": {
+    "commands": 1016,
+    "conditions": 18,
+    "controllers": 47,
+    "worlds": 8,
+    "workPlans": 4,
+    "sources": 50,
+    "newCommands": 73,
+    "newConditions": 4,
+    "newControllers": 6,
+    "newSituations": 2,
+    "newSites": 2,
+    "newWorldsPeopleItemsPrestigeSourcesClockPublisher": 0,
+    "familyCommands": {
+      "field_care": 7,
+      "book_care": 24,
+      "lore_practice": 42
+    },
+    "familyPublicCommands": {
+      "field_care": 7,
+      "book_care": 20,
+      "lore_practice": 26
+    }
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "inkCompiler": "inkjs2.4.0 check passed,0diagnostics",
+    "bundleFingerprint": "69844afdf7bf",
+    "bundleSha256": "69844afdf7bf80a0638440d1d895a4b5c746f2d14e88e319d4539907bc86c39f",
+    "mapSha256": "89a619191d4a82b1f6824febe34c2c030478f2ce51cba1cfa10c66d0378bc3e6",
+    "localSourceContentsMatched": 297,
+    "vendorSourceEntries": 37,
+    "mismatches": [],
+    "indexFingerprintMatches": true,
+    "newMappedModules": [
+      "src/field_care_content.js",
+      "src/field_care_facts.js",
+      "src/lore_practice_content.js",
+      "src/lore_practice_facts.js",
+      "src/book_care_content.js",
+      "src/book_care_runtime.js",
+      "src/book_care_facts.js",
+      "src/lore_practice_runtime.js",
+      "src/field_care_battle.js",
+      "src/lore_practice_host.js",
+      "src/book_care_host.js",
+      "src/field_care_host.js"
+    ]
+  },
+  "checks": {
+    "syntax": {
+      "status": "passed",
+      "paths": [
+        "src/book_care_content.js",
+        "src/book_care_facts.js",
+        "src/book_care_host.js",
+        "src/book_care_runtime.js",
+        "src/field_care_battle.js",
+        "src/field_care_content.js",
+        "src/field_care_facts.js",
+        "src/field_care_host.js",
+        "src/lore_practice_content.js",
+        "src/lore_practice_facts.js",
+        "src/lore_practice_host.js",
+        "src/lore_practice_runtime.js",
+        "src/main.js",
+        "src/active_effects.js",
+        "src/feature_expansion_battle.js",
+        "src/simulation.js",
+        "src/simulation_content.js",
+        "src/simulation_effects.js",
+        "src/simulation_ui.js",
+        "src/expansion_engine.js",
+        "src/feature_expansion_wave_host.js",
+        "src/audit_remainder_state.js",
+        "src/audit_remainder_home_facts.js",
+        "src/audit_remainder_offers_state.js"
+      ],
+      "count": 24
+    },
+    "coldImportsAndDefinitions": {
+      "status": "passed",
+      "scope": "Definition/registry imports and exact static relationships only; no game action/state fixture executed",
+      "exactLoreCommandsAndControllers": true,
+      "allConditionReferencesRegistered": true,
+      "hostAndTimerExportsResolved": true,
+      "withdrawalReturnFlagsAndActualLocationPolicy": "readback passed"
+    },
+    "sourceReviews": {
+      "status": "no open actionable reviewed issue",
+      "reviewers": [
+        "/root/native_joins field/native bridge and book/native integration",
+        "/root/book_care independent lore/current-clock/owner review",
+        "/root/lore_practice leaf self-review",
+        "root shared interface/cancellation readback"
+      ],
+      "repaired": [
+        "Self-observed wound knowledge must not use an unbegun situation basis",
+        "Cut receives actual HP delta, final player target, no guard and actual owned pole",
+        "Pure book projection must accept native body view and actual retained visit",
+        "Book controller install idempotent and opt-in; no due reset",
+        "Hurried/worker inspection completion must not repeat pre-cost vital admission threshold",
+        "Current keyed lore plan vitals/gameplay/equipment for timers",
+        "NPC lore contexts preserve trusted player-body view while retaining own means",
+        "Unsupported exact-due lore timers/jobs omitted from next selection/pop",
+        "Unchanged Orr/Neri supplied return transfers avoid fresh acquisition",
+        "Cancellation preserves actual native location under declared return policy",
+        "Ressa response and physical trial consent are distinct"
+      ],
+      "remaining": []
+    },
+    "whitespace": {
+      "authoredTrackedDiff": "passed",
+      "newFilesAndLane": 21,
+      "generatedBundle": "Exact compiler output retained; multiline template literal trailing spaces are not manually edited"
+    },
+    "links": {
+      "status": "passed",
+      "count": 22,
+      "scope": "New lane and current PROJECT/ENGINE_AUTHORING sections including Markdown anchors"
+    },
+    "finalReadback": {
+      "jsonFilesParsed": 4,
+      "sourceGeneratedCanonicalAndUnchangedFingerprintsMatched": 36,
+      "localSourceMapContentsMatched": 297,
+      "vendorEntries": 37,
+      "localLinksChecked": 22,
+      "newFilesAndLaneWhitespaceChecked": 21,
+      "authoredTrackedDiffCheckExit": 0,
+      "errors": []
+    }
+  },
+  "compatibility": {
+    "schema": "Existing5-11 optional additive owners; no new top-level domain",
+    "frozenBattles": "Unchanged3/4/5 payload meanings; separate explicit next-new4/5 watch only",
+    "absence": "inert",
+    "newIds": "Matching updated fork required for used new command/condition/job IDs",
+    "loreTiming": "Exact new job timing/sample/exposure descriptors and typed pause accounting; old job meanings unchanged",
+    "nativeEffectOwnership": "No synthetic care descriptor serialized into active_effects; actual completed treatment alone changes listed old native durations",
+    "oldConservation": "Only exact completed/reserved new deltas added to Neri/Ressa old equations; new escrows independently conserve",
+    "sourceBoundary": "Source qualified existing supplied-MTL Paradise sid26-28/sid20 frame; fees/injuries/services/rain/story original proposals"
+  },
+  "workers": [
+    {
+      "id": "/root/lore_practice",
+      "scope": "exclusive new lore modules then released",
+      "state": "completed/released"
+    },
+    {
+      "id": "/root/book_care",
+      "scope": "exclusive new book modules then independent read-only lore review",
+      "state": "completed/released"
+    },
+    {
+      "id": "/root/native_joins",
+      "scope": "read-only field and book native integration",
+      "state": "completed/released"
+    }
+  ],
+  "deferred": [
+    "unit",
+    "browser/gameplay",
+    "save/reload/import",
+    "failed/stale publication and behavioral cancellation",
+    "keyboard/regression",
+    "director fiction/prices/pacing"
+  ],
+  "exclusionsPreserved": {
+    "privateSavesTouched": false,
+    "sourceLibrariesTouched": false,
+    "vanillaOpeningAndUnrelatedDirtyWork": true,
+    "upstreamLicenseAttribution": true,
+    "dependenciesChanged": false,
+    "commitPushInstallPublicationAutomationExternalMessages": false
+  },
+  "release": {
+    "state": "completed/released",
+    "noTaskOwnedBackgroundProcess": true,
+    "pendingToolSessions": [],
+    "unknownMutationOutcomes": [],
+    "unsavedImplementationDeltas": [],
+    "implementationRemaining": false,
+    "deferredAcceptance": "ACCEPTANCE_BACKLOG.md",
+    "rootSharedScope": "Released after exact source/build/canonical/fingerprint/link readback"
+  },
+  "owners": {
+    "before": "BEFORE.json",
+    "canonicalBefore": "BEFORE_CANONICAL.json",
+    "delivery": "DELIVERY.md",
+    "checkpoint": "CHECKPOINT.md",
+    "build": "BUILD.json",
+    "backlog": "ACCEPTANCE_BACKLOG.md"
+  },
+  "finalReadbackAtUtc": "2026-10-07T02:05:52.327123+00:00"
+}

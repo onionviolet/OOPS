@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "status": "two_selected_dlc_source_traces_complete",
+  "checked_utc": "2026-10-06T20:30:38.081282+00:00",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "sources": {
+    "dlc_gate": {
+      "path": "decompiled/Assembly-CSharp/DLControl.cs",
+      "sha256": "5e107c59513125425b9ecf36f5cb1dc47a465742ab51f407089af643f0bbb337",
+      "read_spans": [
+        [
+          1,
+          155
+        ]
+      ],
+      "line_count": 155,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "wudang_law": {
+      "path": "input/Settings/Practice/Gong/Gong_13_DLC_WuDang.xml",
+      "sha256": "870b8c84537738fdbe7ab87f4233503b12044a8196456cea21551a6367b20d28",
+      "read_spans": [
+        [
+          1,
+          114
+        ]
+      ],
+      "line_count": 115,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "practice": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+      "read_spans": [
+        [
+          630,
+          750
+        ],
+        [
+          1038,
+          1050
+        ],
+        [
+          3867,
+          3891
+        ]
+      ],
+      "line_count": 4456,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "gold_toil": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+      "sha256": "285d719037c3484cc4feaca7dacd20577ef4d293e8501a6633369fe929361d2e",
+      "read_spans": [
+        [
+          434,
+          479
+        ]
+      ],
+      "line_count": 1006,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "ratio_map": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+      "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+      "read_spans": [
+        [
+          3205,
+          3231
+        ]
+      ],
+      "line_count": 6053,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "ratio_modifiers": {
+      "path": "input/Settings/Modifiers/Modifier_Gong_Esoteriac_DLC_WuDang.xml",
+      "sha256": "fe8322460594bf51450c1d54b1c818e956f2d7c2ea7d0f819da2e7013e75cbea",
+      "read_spans": [
+        [
+          377,
+          520
+        ]
+      ],
+      "line_count": 520,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "artifact_power": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FabaoBase.cs",
+      "sha256": "1d3f1a76465ec8824d31b79fa7d70dae9ba12b5e8816fd3cebc8183ca026a89c",
+      "read_spans": [
+        [
+          414,
+          429
+        ]
+      ],
+      "line_count": 2062,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "bamboo_place": {
+      "path": "input/Settings/World/Places/DLC.xml",
+      "sha256": "f31662e5309dceb3750c6807e49a6fa286b23e94c8bb2af55c86576148a71fef",
+      "read_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "line_count": 32,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_definition": {
+      "path": "input/Settings/ThingDef/Item/Item_Fish_DLC.xml",
+      "sha256": "56783c27f393a7bc4c6059f2a57e2caae8cf933bad95c61ce871b2d59d717daa",
+      "read_spans": [
+        [
+          1,
+          72
+        ]
+      ],
+      "line_count": 2242,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_ui": {
+      "path": "decompiled/Assembly-CSharp/ThingUICommandDefine.cs",
+      "sha256": "21b1a190a2ddaf6942f65c9d7278b407dd7472987e6aeca774e37eafd19b6476",
+      "read_spans": [
+        [
+          4623,
+          4679
+        ]
+      ],
+      "line_count": 4679,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandGoFishing.cs",
+      "sha256": "b4a55b49673db9ddd550879e79fc56d5dffbb38a4728e763a7ae8bd44ab40c9f",
+      "read_spans": [
+        [
+          1,
+          68
+        ]
+      ],
+      "line_count": 68,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_behaviour": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourGoFishing.cs",
+      "sha256": "cf254b25b10f4d780a27d081eb1d87429b94e069f208e610b706141e8f6b4224",
+      "read_spans": [
+        [
+          1,
+          24
+        ]
+      ],
+      "line_count": 24,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobGoFishing.cs",
+      "sha256": "1bfae072a1b75296ddd714441b738413e2744219f2f818f143671dd6ce62f6e7",
+      "read_spans": [
+        [
+          1,
+          68
+        ]
+      ],
+      "line_count": 68,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_toil": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilGoFishing.cs",
+      "sha256": "25cfb86d4d420fff4a0c9aca27fd4f34fd7588a268fbebf1f91abdadd1dc5af2",
+      "read_spans": [
+        [
+          1,
+          572
+        ]
+      ],
+      "line_count": 572,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_data": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FishData.cs",
+      "sha256": "7c1ebb9d813da2f19d6d24e8cb7baf75be2c23804031ff66e764b670710e8d79",
+      "read_spans": [
+        [
+          1,
+          88
+        ]
+      ],
+      "line_count": 88,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    },
+    "fish_generation": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+      "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+      "read_spans": [
+        [
+          2359,
+          2451
+        ]
+      ],
+      "line_count": 3321,
+      "qualification": "Installed readable configuration or pinned managed recovery; selected semantic source read, runtime unobserved"
+    }
+  },
+  "traces": [
+    {
+      "id": "ACS-DLC-W01",
+      "dlc_app_id": 1701600,
+      "title": "Two retained cultivation components change future learning and combat modifiers",
+      "prerequisites": "Accessible Wudang law Gong_13_None has YinYang1; full hidden-law acquisition/entitlement campaign admission remains unread. Ratio modifier recomputation requires this law and LogicStage>=10.",
+      "decisions": "Learn Yin, Yang or neutral eligible methods; prepare light/environment for two-core formation; choose resulting balance versus deliberate polarity.",
+      "expenditure": "Existing learning actually spends actor TreeExp through the base learning path. At LogicStage>=10 the cost reads the appropriate Yin/Yang DaoHang or the minimum of both for neutral methods. Gold toil spends30Ling per dt and allocates quality into two separate accumulators using complementary light factors. No additional currency/stock debit was found in ratio recomputation itself.",
+      "mutation": "AddDaoHang updates Yin/Yang separately according to method polarity (neutral increments both; justvalue branch divides). Ratio Yang/(Yang+Yin) chooses a mapped modifier; old modifier is removed and replacement applied only when band changes. Gold settlement retains both core values/grades and adds quality-derived energy capacity for each.",
+      "downstream_consumers": "Learning-cost formula consumes each retained component. Configured ratio states alter mind, barrier/Fabao/FightSkill levels or offense property; actual FabaoBase.GetPower reads owner NpcFight_FabaoPowerAddP. The distinction is a two-component build with stateful consumers, not a renamed generic level.",
+      "time_policy": "Gold accrues over current dt/environment; ratio recalculates on relevant progression changes at stage10+. No background/offline or active-campaign observation.",
+      "failure_and_aftermath": "Paid learning still obeys base method admission/stock gates. Some intermediate ratio modifiers penalize mind/barrier; balance and extreme polarity have different configured benefits. Existing Gold leave banks partial quality; weak-core replacement/rollback and exact band interpolation not comprehensively audited. Do not claim balance is always best.",
+      "sources": [
+        "wudang_law",
+        "practice",
+        "gold_toil",
+        "ratio_map",
+        "ratio_modifiers",
+        "artifact_power"
+      ],
+      "unread": [
+        "Full acquisition chain, higher-stage split-soul/rebirth and all DLC law skills",
+        "Precise interpolation/Skill modifier lifecycle for all ratio bands",
+        "Miao pet, sect quests, advanced gear/drugs and buildings",
+        "Full tribulation survival and all downstream spell/barrier combat branches"
+      ]
+    },
+    {
+      "id": "ACS-DLC-B01",
+      "dlc_app_id": 1446730,
+      "title": "Ecology and a catch window produce actual fish, dangerous catches and retained records",
+      "prerequisites": "Fishing UI requires Panda DLC gate, a player-owned eligible actor with rod and no visitor/rent restriction; source worker requires normal health and reachable bank. Job locks a water CMD-space and walks to the casting position.",
+      "decisions": "Choose actor, equipped rod/rod element, water/map and current season/weather/time; reel within the catch window or let it escape. Special sentient-rod route can auto-pickup.",
+      "expenditure": "Actor occupancy and elapsed casting/wait time are established. No bait/currency/rod-consumption debit occurs in the selected fishing toil; rod acquisition and ordinary needs upkeep are outside this trace.",
+      "mutation": "Casting/reeling state and FishOn/PickUpFish flags; selected fish is generated with weight/scale, actual item later drops at the actor. Fishing can instead generate an item or creature, including hostile/elite NPCs. Fish counters/title/memory/catalogue are updated on the generation path, before final drop animation.",
+      "downstream_consumers": "ThingMgr.RandomFishThing filters fish by water, map, season, weather, time and rod element, then weights candidates by rod rate. Actual dropped creature can initiate combat. Physical caught items enter the base world/drop/storage pipeline; record consumers expose caught count/heaviest fish/title/catalogue. FishBase declares meat/cooking/rot fields, but complete recipe/food-use path is not claimed.",
+      "time_policy": "Toil uses _keeptime+=dt/Time.timeScale in ordinary mode for waiting/reaction, with random bite wait3..9 and hooktime3; animation completion uses ordinary unit.keeptime. This is an explicit speed-adjusted reaction timer, not evidence of universal wall-clock/offline simulation. FishData converts authored hours into25source-seconds/hour.",
+      "failure_and_aftermath": "Missing legal location or healthy worker prevents job. Missing matching fish can return null; missed hook window discards the attempt and restarts casting without an invented catch. Exit removes alert83, resets flags/effects and job releases command/space. Interrupted post-generation drop/account ordering remains unobserved, so a generated title does not prove delivery into inventory.",
+      "sources": [
+        "dlc_gate",
+        "bamboo_place",
+        "fish_definition",
+        "fish_ui",
+        "fish_command",
+        "fish_behaviour",
+        "fish_job",
+        "fish_toil",
+        "fish_data",
+        "fish_generation"
+      ],
+      "unread": [
+        "Full64-species catalogue and ecology values",
+        "Panda shapeshift/secret bodies, brothers symbiosis/diplomacy and pet development",
+        "Bamboo cultivation/building/cooking entire chains",
+        "Whole saved fishing session/reload and post-generation interruption guarantees"
+      ]
+    }
+  ],
+  "qualification": "Supplement to the completed first pass. Broader DLC and deeper game-system coverage remains open; no whole DLC, runtime, balance or gameplay implementation claim."
+}

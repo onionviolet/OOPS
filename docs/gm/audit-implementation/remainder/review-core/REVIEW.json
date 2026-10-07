@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "status": "completed",
+  "released": true,
+  "sealedAt": "2026-10-06T19:58:50.651376+00:00",
+  "disposition": "source-only-no-open-actionable-non-battle-findings",
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "id": "R1",
+      "severity": "P1",
+      "status": "repaired-in-current-source",
+      "title": "Lane projection overwrote exact root enrollment before root command settlement",
+      "sourceConsequence": "The staged schema11 owner was previously reported enrolled by offers despite no completed root receipt, failing the root command NOT(enrolled) visibility guard. This was inferred directly from source, not exercised.",
+      "originalEvidence": [
+        "src/audit_remainder_host.js:34-36",
+        "src/audit_remainder_state.js:11-12,20-22",
+        "src/audit_remainder_offers_state.js:17-19 at initial review input"
+      ],
+      "repairEvidence": [
+        "src/audit_remainder_facts.js:14-18 strips the reserved root key from each lane projection",
+        "src/audit_remainder_offers_state.js:18 derives enrollment from canonical auditRemainderFacts"
+      ],
+      "verification": "Final source inspected, changed files syntax-checked, final cold registry imported; no behavioral test."
+    }
+  ],
+  "reconciledNonFindings": [
+    {
+      "title": "Home terms situation initializer",
+      "status": "present-in-reviewed-source",
+      "evidence": "src/audit_remainder_home_content.js:95 begins I.situation before basis-bearing knowledge. The initial concern was contradicted by live source and is not an open finding."
+    }
+  ],
+  "scope": {
+    "candidateRows": 19,
+    "laneSourceFiles": 20,
+    "sharedRemainderModules": 5,
+    "reviewed": "All six lane sources and current shared non-battle joins. Optional battle hook modules read for content/state interfaces only.",
+    "excluded": "Root-authored native battle5 integration, separate pending causal/artifact/provenance work, build and every behavioral/save suite."
+  },
+  "sourceObservations": [
+    {
+      "id": "enrollment-compatibility",
+      "text": "Exact root receipt remains authoritative; stage-only schema11 ownership does not make the enroll command hidden. Expansion11/auditRemainder1 is deliberate and old5\u201310 readers/domains remain distinct. New controllers are conditional on enrolled state; provision-false people remain absent until their actual action.",
+      "evidence": [
+        "src/audit_remainder_state.js:9-64",
+        "src/audit_remainder_facts.js:12-24",
+        "src/audit_remainder_offers_state.js:18-20",
+        "src/simulation.js:23-41",
+        "src/simulation_effects.js:128",
+        "src/expansion_engine.js:108-138"
+      ]
+    },
+    {
+      "id": "calendar-and-support",
+      "text": "Main binds current calendar anchor, native rain, NPC contexts and exact transient popped tool reservations; the home helper preserves the whole context map. Livelihood/home support reads actual worker sources/body/rights/stock. The shared support-loss branch refunds only refund policy and forfeits the new disclosed paid effort.",
+      "evidence": [
+        "src/main.js:379-426",
+        "src/audit_remainder_host.js:25-30",
+        "src/audit_remainder_runtime.js:14-20",
+        "src/audit_remainder_livelihood_facts.js:27-119",
+        "src/audit_remainder_home_facts.js:27-129",
+        "src/simulation.js:192-224",
+        "src/simulation_contracts.js:115-119,254-260"
+      ]
+    },
+    {
+      "id": "receipt-and-conservation-joins",
+      "text": "Completed grip practice synchronizes after its actual completed count; consequence reconciliation runs after jobs before events; roster/conduct/collector joins run before final validation and remain idempotent for repeated shared joins. Stock, escrow, actual purse payment, one choice, held tool returns and native fitting custody remain with declared existing owners.",
+      "evidence": [
+        "src/simulation.js:130,217-224,386-389",
+        "src/audit_remainder_runtime.js:21-32",
+        "src/audit_remainder_offers_state.js:61-188",
+        "src/audit_remainder_livelihood_facts.js:178-275",
+        "src/audit_remainder_home_facts.js:228-278",
+        "src/audit_remainder_combat_objectives_state.js:94-131",
+        "src/expansion_engine.js:557-575",
+        "src/main.js:429-445"
+      ]
+    },
+    {
+      "id": "actual-aggregates-ui",
+      "text": "All six lane families, one source and ten distinct native item specifications are aggregated; the native item registration is source-linked through expedition_items. Root router preserves exact lane control payloads, including offers causes, fit cancellation jobId and objective attemptId; Notebook points retained player jobs to Here. Explicit player records and local observation controls avoid exposing private NPC work records as knowledge.",
+      "evidence": [
+        "src/audit_remainder_content.js:1-21",
+        "src/data/expedition_items.js:1,38",
+        "src/feature_expansion_content.js:1-16",
+        "src/audit_remainder_host.js:31-72",
+        "src/main.js:790-839",
+        "src/feature_expansion_wave_host.js:68",
+        "src/adventure_notebook.js:32",
+        "src/reference_gameplay_feats.js:1,31",
+        "src/audit_remainder_home_host.js:42-50",
+        "src/audit_remainder_offers_host.js:44-50",
+        "src/audit_remainder_consequences_host.js:80-94"
+      ]
+    },
+    {
+      "id": "narrow-trade-consequence",
+      "text": "The retained future-trade consequence is joined into both common simulation previews and native nested buy preview/commit eligibility; it leaves authored departure, mission settlement and restitution separate. Original restitution reconciliation can reopen the specific actual demand without extra payout or stock.",
+      "evidence": [
+        "src/audit_remainder_consequences_facts.js:120-166",
+        "src/simulation.js:82-83",
+        "src/feature_expansion_nested_host.js:160,211-215",
+        "src/audit_remainder_consequences_content.js:155-191"
+      ]
+    }
+  ],
+  "checks": {
+    "syntaxFiles": 49,
+    "syntaxFailures": 0,
+    "namedRepairSyntaxFiles": 2,
+    "finalColdRegistry": {
+      "commands": 853,
+      "controllers": 36,
+      "worlds": 8,
+      "plans": 4,
+      "definitionsExact": true,
+      "items": [
+        "Reusable measuring jig",
+        "Green repair offcut",
+        "Compatible repair offcut",
+        "Association herb seed packet",
+        "Rigid reinforced field harness",
+        "Flexible lashed field harness",
+        "Kit brace pad",
+        "Sluice traversal lashing",
+        "Marked sluice fitting",
+        "Learned brace wrap"
+      ],
+      "uniqueItems": true
+    },
+    "itemRegistration": "Static source only; no DOM substitute or native item module execution."
+  },
+  "movingQualification": {
+    "changedSinceStart": [
+      "src/audit_remainder_facts.js",
+      "src/audit_remainder_offers_state.js"
+    ],
+    "reinspectedFinalVersions": true,
+    "changedDuringFinalSeal": [],
+    "appliesTo": "Final SHA-256 inputs in INPUTS.json at 2026-10-06T19:58:50.651376+00:00. Root battle changes after this seal remain outside review."
+  },
+  "artifacts": [
+    "REVIEW.md",
+    "REVIEW.json",
+    "INPUTS.json",
+    "CHECKS.json"
+  ],
+  "behavioralGates": "All deferred and unperformed; source-only inspection does not establish play, durability, balance or acceptance.",
+  "ownership": "Only remainder/review-core written. No source, runtime, canonical, private save, library, build, subagent or external chat mutation. Review-directory ownership released."
+}

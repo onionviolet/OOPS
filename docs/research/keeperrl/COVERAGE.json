@@ -1,0 +1,2255 @@
+{
+  "schema": 1,
+  "status": "finite_five_path_objective_complete",
+  "source_commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+  "whole_repository_semantically_read": false,
+  "source_inventory": {
+    "tracked_blob_files": 939,
+    "gameplay_semantic_file_count": 29,
+    "unique_semantically_read_line_count": 4366,
+    "unread_or_inventory_only_file_count": 910,
+    "unread_or_inventory_only_paths": [
+      ".clang-format",
+      ".github/FUNDING.yml",
+      ".gitignore",
+      "CMakeLists.txt",
+      "COPYING-MEDIA.txt",
+      "COPYING.txt",
+      "LICENSE",
+      "LICENSE_THEORAPLAY.txt",
+      "Makefile",
+      "Makefile-steam",
+      "Makefile-win",
+      "README.md",
+      "achievement_id.h",
+      "achievement_info.h",
+      "ai_type.h",
+      "animation.cpp",
+      "animation.h",
+      "animation_id.cpp",
+      "animation_id.h",
+      "appconfig-dev.txt",
+      "appconfig.txt",
+      "assembled_minion.cpp",
+      "assembled_minion.h",
+      "attack.h",
+      "attack_behaviour.h",
+      "attack_level.h",
+      "attack_type.h",
+      "attr_info.h",
+      "attr_type.h",
+      "audio_device.cpp",
+      "audio_device.h",
+      "automaton_part.h",
+      "avatar_info.cpp",
+      "avatar_info.h",
+      "avatar_menu_option.h",
+      "battle1.txt",
+      "battle2.txt",
+      "battle3.txt",
+      "battle_allies1.txt",
+      "battle_allies2.txt",
+      "bed_type.cpp",
+      "bed_type.h",
+      "best_attack.h",
+      "biome_id.h",
+      "biome_info.h",
+      "body.h",
+      "body_material.h",
+      "body_material_id.h",
+      "body_part.cpp",
+      "body_part.h",
+      "bucket_map.cpp",
+      "bucket_map.h",
+      "buff_id.h",
+      "buff_info.cpp",
+      "buff_info.h",
+      "build_info.cpp",
+      "build_info.h",
+      "building_id.h",
+      "building_info.h",
+      "call_cache.h",
+      "campaign.h",
+      "campaign_builder.cpp",
+      "campaign_builder.h",
+      "campaign_info.h",
+      "campaign_menu_index.cpp",
+      "campaign_menu_index.h",
+      "campaign_type.h",
+      "check_serial.sh",
+      "clock.cpp",
+      "clock.h",
+      "cmake/FindOGG.cmake",
+      "cmake/FindOgg.cmake",
+      "cmake/FindSDL2_image.cmake",
+      "cmake/FindTHEORA.cmake",
+      "cmake/FindVorbis.cmake",
+      "cmake/FindVorbisFile.cmake",
+      "collective.h",
+      "collective_attack.cpp",
+      "collective_attack.h",
+      "collective_builder.cpp",
+      "collective_builder.h",
+      "collective_config.h",
+      "collective_control.cpp",
+      "collective_control.h",
+      "collective_name.h",
+      "collective_teams.cpp",
+      "collective_teams.h",
+      "collective_warning.cpp",
+      "collective_warning.h",
+      "color.cpp",
+      "color.h",
+      "companion_info.h",
+      "conquer_condition.h",
+      "construction_map.h",
+      "container_helpers.h",
+      "container_range.h",
+      "content_factory.cpp",
+      "content_factory.h",
+      "content_id.cpp",
+      "content_id.h",
+      "controller.cpp",
+      "controller.h",
+      "corpse_info.h",
+      "cost_info.cpp",
+      "cost_info.h",
+      "creature.h",
+      "creature_action.cpp",
+      "creature_action.h",
+      "creature_attributes.h",
+      "creature_debt.cpp",
+      "creature_debt.h",
+      "creature_experience_info.cpp",
+      "creature_experience_info.h",
+      "creature_factory.cpp",
+      "creature_factory.h",
+      "creature_group.cpp",
+      "creature_group.h",
+      "creature_id.h",
+      "creature_inventory.cpp",
+      "creature_inventory.h",
+      "creature_list.cpp",
+      "creature_list.h",
+      "creature_name.cpp",
+      "creature_name.h",
+      "creature_predicate.cpp",
+      "creature_predicate.h",
+      "creature_status.cpp",
+      "creature_status.h",
+      "creature_view.h",
+      "custom_item_id.h",
+      "dancing.cpp",
+      "dancing.h",
+      "data_contrib/Lato-Bol.ttf",
+      "data_contrib/SIL_Open_Font_License.txt",
+      "data_contrib/Symbola.ttf",
+      "data_free/controller_neptune.vdf",
+      "data_free/controller_ps4.vdf",
+      "data_free/credits.txt",
+      "data_free/default_keybindings.txt",
+      "data_free/game_config/achievements.txt",
+      "data_free/game_config/attributes.txt",
+      "data_free/game_config/biomes.txt",
+      "data_free/game_config/body_materials.txt",
+      "data_free/game_config/buffs.txt",
+      "data_free/game_config/build_menu.txt",
+      "data_free/game_config/building_info.txt",
+      "data_free/game_config/campaign_info.txt",
+      "data_free/game_config/campaign_villains.txt",
+      "data_free/game_config/creatures.txt",
+      "data_free/game_config/dance_positions.txt",
+      "data_free/game_config/endless_enemies.txt",
+      "data_free/game_config/equipment_groups.txt",
+      "data_free/game_config/furniture.txt",
+      "data_free/game_config/furniture_lists.txt",
+      "data_free/game_config/help.txt",
+      "data_free/game_config/intro_text.txt",
+      "data_free/game_config/item_lists.txt",
+      "data_free/game_config/items.txt",
+      "data_free/game_config/keeper_creatures.txt",
+      "data_free/game_config/keys.txt",
+      "data_free/game_config/layout_mapping.txt",
+      "data_free/game_config/map_layouts/adoxie_temple/adoxie_1.png",
+      "data_free/game_config/map_layouts/adoxie_vault/adoxie_1.png",
+      "data_free/game_config/map_layouts/castle1/castle1_1.png",
+      "data_free/game_config/map_layouts/castle1/castle1_2.png",
+      "data_free/game_config/map_layouts/city/city125_1.png",
+      "data_free/game_config/map_layouts/death/death_1.png",
+      "data_free/game_config/map_layouts/satan/satan_1.png",
+      "data_free/game_config/map_layouts/wizard_tower/tower1.png",
+      "data_free/game_config/names.txt",
+      "data_free/game_config/promotions.txt",
+      "data_free/game_config/random_layouts.txt",
+      "data_free/game_config/resources.txt",
+      "data_free/game_config/spell_schools.txt",
+      "data_free/game_config/spells.txt",
+      "data_free/game_config/storage_ids.txt",
+      "data_free/game_config/technology.txt",
+      "data_free/game_config/tile_gas_types.txt",
+      "data_free/game_config/tiles.txt",
+      "data_free/game_config/translations/english.txt",
+      "data_free/game_config/translations/polish.txt",
+      "data_free/game_config/workshops_menu.txt",
+      "data_free/game_config/world_maps.txt",
+      "data_free/game_config/zlevels.txt",
+      "data_free/glyphs.txt",
+      "data_free/images/barmid.png",
+      "data_free/images/expand_up.png",
+      "data_free/images/icon.png",
+      "data_free/images/icons.png",
+      "data_free/images/map_font.png",
+      "data_free/images/map_font2.png",
+      "data_free/images/menu_core.png",
+      "data_free/images/menu_core_sm.png",
+      "data_free/images/minimap_bar.png",
+      "data_free/images/minimap_icons.png",
+      "data_free/images/mouse_cursor.png",
+      "data_free/images/mouse_cursor2.png",
+      "data_free/images/special_immigrant.png",
+      "data_free/images/spells.png",
+      "data_free/images/succubi.png",
+      "data_free/images/team_icons.png",
+      "data_free/images/ui/barthin.png",
+      "data_free/images/ui/button_bg.png",
+      "data_free/images/ui/button_corner.png",
+      "data_free/images/ui/button_corner_highlight.png",
+      "data_free/images/ui/corner1.png",
+      "data_free/images/ui/corner2X.png",
+      "data_free/images/ui/corner2X_highlight.png",
+      "data_free/images/ui/corner3.png",
+      "data_free/images/ui/cornermini.png",
+      "data_free/images/ui/cornermini2.png",
+      "data_free/images/ui/cornermini2_large.png",
+      "data_free/images/ui/down.png",
+      "data_free/images/ui/horibar.png",
+      "data_free/images/ui/horibarmini.png",
+      "data_free/images/ui/horibarmini2.png",
+      "data_free/images/ui/horiline.png",
+      "data_free/images/ui/horiline2.png",
+      "data_free/images/ui/immigrant2bg.png",
+      "data_free/images/ui/immigrantbg.png",
+      "data_free/images/ui/menu_highlight.png",
+      "data_free/images/ui/scrollbar.png",
+      "data_free/images/ui/scrollmark.png",
+      "data_free/images/ui/ui_highlight.png",
+      "data_free/images/ui/up.png",
+      "data_free/images/ui/vertbar.png",
+      "data_free/images/ui/vertbar2.png",
+      "data_free/images/ui/vertbarmini.png",
+      "data_free/images/ui/vertbarmini2.png",
+      "data_free/images/ui/vertibarmsg1.png",
+      "data_free/images/ui/vertibarmsg2.png",
+      "data_free/images/window_bg.png",
+      "data_free/sokoban_input.txt",
+      "data_free/splash.txt",
+      "data_free/steam_input_manifest.vdf",
+      "data_free/ui/achievements.txt",
+      "data_free/ui/alliance_message.txt",
+      "data_free/ui/avatar_menu.txt",
+      "data_free/ui/battle_summary.txt",
+      "data_free/ui/buildings.txt",
+      "data_free/ui/buildings1.png",
+      "data_free/ui/buildings2.png",
+      "data_free/ui/capture1.png",
+      "data_free/ui/capture2.png",
+      "data_free/ui/capture3.png",
+      "data_free/ui/common.txt",
+      "data_free/ui/conflicting_items.txt",
+      "data_free/ui/controller_hint_real_time.txt",
+      "data_free/ui/controller_hint_turn_based.txt",
+      "data_free/ui/credits.txt",
+      "data_free/ui/damage.txt",
+      "data_free/ui/damage1.png",
+      "data_free/ui/damage2.png",
+      "data_free/ui/damage3.png",
+      "data_free/ui/damage3.xcf",
+      "data_free/ui/deck_menu.png",
+      "data_free/ui/deck_real_time.png",
+      "data_free/ui/deck_turn_based.png",
+      "data_free/ui/exit_menu.txt",
+      "data_free/ui/guard_zones.txt",
+      "data_free/ui/guard_zones1.png",
+      "data_free/ui/guard_zones2.png",
+      "data_free/ui/guard_zones3.png",
+      "data_free/ui/highscores.txt",
+      "data_free/ui/key_capture.txt",
+      "data_free/ui/load_menu.txt",
+      "data_free/ui/loading_screen.txt",
+      "data_free/ui/logo4small.png",
+      "data_free/ui/main_menu.txt",
+      "data_free/ui/message_board.txt",
+      "data_free/ui/message_history.txt",
+      "data_free/ui/mods.txt",
+      "data_free/ui/multi_choice.txt",
+      "data_free/ui/notfound.txt",
+      "data_free/ui/number_menu.txt",
+      "data_free/ui/pillage_menu.txt",
+      "data_free/ui/present_text.txt",
+      "data_free/ui/present_text_below.txt",
+      "data_free/ui/prisoners.txt",
+      "data_free/ui/prisoners_freed.txt",
+      "data_free/ui/settings.txt",
+      "data_free/ui/steed.txt",
+      "data_free/ui/steeds1.png",
+      "data_free/ui/steeds2.png",
+      "data_free/ui/steeds3.png",
+      "data_free/ui/steeds4.png",
+      "data_free/ui/test.png",
+      "data_free/ui/travelling.txt",
+      "data_free/ui/unlock_message.txt",
+      "data_free/ui/witch_animals_school.txt",
+      "data_free/ui/witch_animation_school.txt",
+      "data_free/ui/witch_curse_school.txt",
+      "data_free/ui/witch_polymorph_school.txt",
+      "data_free/ui/yes_or_no.txt",
+      "data_free/ui/yes_or_no_below.txt",
+      "debug.cpp",
+      "debug.h",
+      "destroy_action.cpp",
+      "destroy_action.h",
+      "directory_path.cpp",
+      "directory_path.h",
+      "drag_and_drop.cpp",
+      "drag_and_drop.h",
+      "draw_line.cpp",
+      "draw_line.h",
+      "duel_state.h",
+      "dummy_view.h",
+      "dungeon_level.cpp",
+      "dungeon_level.h",
+      "effect.cpp",
+      "effect.h",
+      "effect_type.h",
+      "encyclopedia.cpp",
+      "encyclopedia.h",
+      "enemy_aggression_level.h",
+      "enemy_factory.cpp",
+      "enemy_factory.h",
+      "enemy_id.h",
+      "enemy_info.cpp",
+      "enemy_info.h",
+      "entity_map.cpp",
+      "entity_map.h",
+      "entity_set.cpp",
+      "entity_set.h",
+      "enum_variant.h",
+      "enums.h",
+      "equipment.cpp",
+      "equipment.h",
+      "equipment_slot.h",
+      "event_generator.cpp",
+      "event_generator.h",
+      "event_listener.h",
+      "exit_info.h",
+      "extern/ProgramOptions.h",
+      "extern/cereal/LICENSE",
+      "extern/cereal/access.hpp",
+      "extern/cereal/archives/adapters.hpp",
+      "extern/cereal/archives/binary.hpp",
+      "extern/cereal/archives/json.hpp",
+      "extern/cereal/archives/portable_binary.hpp",
+      "extern/cereal/archives/xml.hpp",
+      "extern/cereal/cereal.hpp",
+      "extern/cereal/details/helpers.hpp",
+      "extern/cereal/details/polymorphic_impl.hpp",
+      "extern/cereal/details/polymorphic_impl_fwd.hpp",
+      "extern/cereal/details/static_object.hpp",
+      "extern/cereal/details/traits.hpp",
+      "extern/cereal/details/util.hpp",
+      "extern/cereal/external/base64.hpp",
+      "extern/cereal/external/rapidjson/allocators.h",
+      "extern/cereal/external/rapidjson/document.h",
+      "extern/cereal/external/rapidjson/encodedstream.h",
+      "extern/cereal/external/rapidjson/encodings.h",
+      "extern/cereal/external/rapidjson/error/en.h",
+      "extern/cereal/external/rapidjson/error/error.h",
+      "extern/cereal/external/rapidjson/filereadstream.h",
+      "extern/cereal/external/rapidjson/filewritestream.h",
+      "extern/cereal/external/rapidjson/fwd.h",
+      "extern/cereal/external/rapidjson/internal/biginteger.h",
+      "extern/cereal/external/rapidjson/internal/diyfp.h",
+      "extern/cereal/external/rapidjson/internal/dtoa.h",
+      "extern/cereal/external/rapidjson/internal/ieee754.h",
+      "extern/cereal/external/rapidjson/internal/itoa.h",
+      "extern/cereal/external/rapidjson/internal/meta.h",
+      "extern/cereal/external/rapidjson/internal/pow10.h",
+      "extern/cereal/external/rapidjson/internal/regex.h",
+      "extern/cereal/external/rapidjson/internal/stack.h",
+      "extern/cereal/external/rapidjson/internal/strfunc.h",
+      "extern/cereal/external/rapidjson/internal/strtod.h",
+      "extern/cereal/external/rapidjson/internal/swap.h",
+      "extern/cereal/external/rapidjson/istreamwrapper.h",
+      "extern/cereal/external/rapidjson/memorybuffer.h",
+      "extern/cereal/external/rapidjson/memorystream.h",
+      "extern/cereal/external/rapidjson/msinttypes/inttypes.h",
+      "extern/cereal/external/rapidjson/msinttypes/stdint.h",
+      "extern/cereal/external/rapidjson/ostreamwrapper.h",
+      "extern/cereal/external/rapidjson/pointer.h",
+      "extern/cereal/external/rapidjson/prettywriter.h",
+      "extern/cereal/external/rapidjson/rapidjson.h",
+      "extern/cereal/external/rapidjson/reader.h",
+      "extern/cereal/external/rapidjson/schema.h",
+      "extern/cereal/external/rapidjson/stream.h",
+      "extern/cereal/external/rapidjson/stringbuffer.h",
+      "extern/cereal/external/rapidjson/writer.h",
+      "extern/cereal/external/rapidxml/license.txt",
+      "extern/cereal/external/rapidxml/manual.html",
+      "extern/cereal/external/rapidxml/rapidxml.hpp",
+      "extern/cereal/external/rapidxml/rapidxml_iterators.hpp",
+      "extern/cereal/external/rapidxml/rapidxml_print.hpp",
+      "extern/cereal/external/rapidxml/rapidxml_utils.hpp",
+      "extern/cereal/macros.hpp",
+      "extern/cereal/types/array.hpp",
+      "extern/cereal/types/base_class.hpp",
+      "extern/cereal/types/bitset.hpp",
+      "extern/cereal/types/boost_variant.hpp",
+      "extern/cereal/types/chrono.hpp",
+      "extern/cereal/types/common.hpp",
+      "extern/cereal/types/complex.hpp",
+      "extern/cereal/types/concepts/pair_associative_container.hpp",
+      "extern/cereal/types/deque.hpp",
+      "extern/cereal/types/forward_list.hpp",
+      "extern/cereal/types/functional.hpp",
+      "extern/cereal/types/list.hpp",
+      "extern/cereal/types/map.hpp",
+      "extern/cereal/types/memory.hpp",
+      "extern/cereal/types/polymorphic.hpp",
+      "extern/cereal/types/queue.hpp",
+      "extern/cereal/types/set.hpp",
+      "extern/cereal/types/stack.hpp",
+      "extern/cereal/types/string.hpp",
+      "extern/cereal/types/tuple.hpp",
+      "extern/cereal/types/unordered_map.hpp",
+      "extern/cereal/types/unordered_set.hpp",
+      "extern/cereal/types/utility.hpp",
+      "extern/cereal/types/valarray.hpp",
+      "extern/cereal/types/vector.hpp",
+      "extern/cxxopts.h",
+      "extern/expected.hpp",
+      "extern/iomanip.h",
+      "extern/lodepng.cpp",
+      "extern/lodepng.h",
+      "extern/optional.h",
+      "extern/variant.h",
+      "extern/variant.hpp",
+      "extern/variant_serialize.h",
+      "external_enemies.cpp",
+      "external_enemies.h",
+      "external_enemies_type.h",
+      "field_of_view.cpp",
+      "field_of_view.h",
+      "file_path.cpp",
+      "file_path.h",
+      "file_sharing.cpp",
+      "file_sharing.h",
+      "fire.cpp",
+      "fire.h",
+      "fix_steamworks.sh",
+      "font_id.h",
+      "fontstash.cpp",
+      "fontstash.h",
+      "fps_counter.cpp",
+      "fps_counter.h",
+      "framebuffer.cpp",
+      "framebuffer.h",
+      "furnace.cpp",
+      "furnace.h",
+      "furniture.h",
+      "furniture_array.cpp",
+      "furniture_array.h",
+      "furniture_click.cpp",
+      "furniture_click.h",
+      "furniture_dropped_items.cpp",
+      "furniture_dropped_items.h",
+      "furniture_entry.cpp",
+      "furniture_entry.h",
+      "furniture_factory.cpp",
+      "furniture_factory.h",
+      "furniture_layer.h",
+      "furniture_list.cpp",
+      "furniture_list.h",
+      "furniture_list_id.h",
+      "furniture_on_built.cpp",
+      "furniture_on_built.h",
+      "furniture_tick.cpp",
+      "furniture_tick.h",
+      "furniture_type.h",
+      "furniture_usage.cpp",
+      "furniture_usage.h",
+      "fx_base.h",
+      "fx_color.cpp",
+      "fx_color.h",
+      "fx_curve.cpp",
+      "fx_curve.h",
+      "fx_defs.h",
+      "fx_draw_buffers.cpp",
+      "fx_draw_buffers.h",
+      "fx_emission_source.cpp",
+      "fx_emission_source.h",
+      "fx_factory.cpp",
+      "fx_info.cpp",
+      "fx_info.h",
+      "fx_manager.cpp",
+      "fx_manager.h",
+      "fx_math.cpp",
+      "fx_math.h",
+      "fx_name.h",
+      "fx_particle_system.cpp",
+      "fx_particle_system.h",
+      "fx_rect.h",
+      "fx_renderer.cpp",
+      "fx_renderer.h",
+      "fx_texture_factory.cpp",
+      "fx_texture_name.h",
+      "fx_variant_name.h",
+      "fx_vec.cpp",
+      "fx_vec.h",
+      "fx_view_manager.cpp",
+      "fx_view_manager.h",
+      "game.h",
+      "game_config.cpp",
+      "game_config.h",
+      "game_event.h",
+      "game_info.cpp",
+      "game_info.h",
+      "game_save_type.h",
+      "game_time.cpp",
+      "game_time.h",
+      "gdb_input.txt",
+      "gen_variant.h",
+      "gen_variant_serialize.h",
+      "gen_variant_serialize_pretty.h",
+      "gen_version.sh",
+      "gender.cpp",
+      "gender.h",
+      "gui_builder.cpp",
+      "gui_builder.h",
+      "gui_elem.cpp",
+      "gui_elem.h",
+      "gzstream.cpp",
+      "gzstream.h",
+      "hashing.h",
+      "health_type.h",
+      "highscores.cpp",
+      "highscores.h",
+      "immigrant_auto_state.h",
+      "immigration.h",
+      "indexed_vector.h",
+      "inhabitants_info.cpp",
+      "inhabitants_info.h",
+      "input_queue.cpp",
+      "input_queue.h",
+      "intrinsic_attack.cpp",
+      "intrinsic_attack.h",
+      "inventory.cpp",
+      "inventory.h",
+      "ioapi.cpp",
+      "ioapi.h",
+      "item.cpp",
+      "item.h",
+      "item_ability.h",
+      "item_action.h",
+      "item_attributes.cpp",
+      "item_attributes.h",
+      "item_class.h",
+      "item_counts.h",
+      "item_factory.cpp",
+      "item_factory.h",
+      "item_index.cpp",
+      "item_index.h",
+      "item_list.cpp",
+      "item_list.h",
+      "item_list_id.h",
+      "item_prefix.cpp",
+      "item_prefix.h",
+      "item_type.cpp",
+      "item_type.h",
+      "item_types.h",
+      "item_upgrade_info.cpp",
+      "item_upgrade_info.h",
+      "keeper.ico",
+      "keeper.rc",
+      "keeper.res",
+      "keeper32.res",
+      "keeper_base_info.cpp",
+      "keeper_base_info.h",
+      "keeper_creature_info.cpp",
+      "keeper_creature_info.h",
+      "key_verifier.cpp",
+      "key_verifier.h",
+      "keybinding.h",
+      "keybinding_info.h",
+      "keybinding_map.cpp",
+      "keybinding_map.h",
+      "known_tiles.cpp",
+      "known_tiles.h",
+      "lasting_effect.h",
+      "lasting_or_buff.cpp",
+      "lasting_or_buff.h",
+      "layout_canvas.h",
+      "layout_generator.cpp",
+      "layout_generator.h",
+      "layout_mapping.h",
+      "layout_mapping_id.h",
+      "layout_renderer.cpp",
+      "layout_renderer.h",
+      "level.cpp",
+      "level.h",
+      "level_builder.cpp",
+      "level_builder.h",
+      "level_maker.cpp",
+      "level_maker.h",
+      "linux_make.sh",
+      "mac/keeper-Info.plist",
+      "mac/keeper.xcodeproj/project.pbxproj",
+      "main.cpp",
+      "main_loop.cpp",
+      "main_loop.h",
+      "make_all.sh",
+      "map_gui.cpp",
+      "map_gui.h",
+      "map_layout.cpp",
+      "map_layout.h",
+      "map_layout_id.h",
+      "map_layouts.cpp",
+      "map_layouts.h",
+      "map_memory.cpp",
+      "map_memory.h",
+      "mem_usage_counter.h",
+      "message_buffer.h",
+      "message_generator.cpp",
+      "message_generator.h",
+      "minimap_gui.cpp",
+      "minimap_gui.h",
+      "minion_activity.h",
+      "minion_activity_map.h",
+      "minion_controller.cpp",
+      "minion_controller.h",
+      "minion_equipment.h",
+      "minion_equipment_type.h",
+      "minion_page_index.cpp",
+      "minion_page_index.h",
+      "minion_trait.cpp",
+      "minion_trait.h",
+      "miniunz.cpp",
+      "miniunz.h",
+      "mod_info.h",
+      "model.cpp",
+      "model.h",
+      "model_builder.cpp",
+      "model_builder.h",
+      "monster.cpp",
+      "monster.h",
+      "monster_ai.h",
+      "mouse_button_id.h",
+      "move_info.cpp",
+      "move_info.h",
+      "movement_info.cpp",
+      "movement_info.h",
+      "movement_set.cpp",
+      "movement_set.h",
+      "movement_type.cpp",
+      "movement_type.h",
+      "msg_type.h",
+      "music.cpp",
+      "music.h",
+      "music_type.h",
+      "my_containers.h",
+      "name_generator.cpp",
+      "name_generator.h",
+      "name_generator_id.h",
+      "navigation_flags.cpp",
+      "navigation_flags.h",
+      "obj-opt/.gitignore",
+      "obj-opt/extern/.gitignore",
+      "obj/.gitignore",
+      "obj/extern/.gitignore",
+      "opengl.cpp",
+      "opengl.h",
+      "options.cpp",
+      "options.h",
+      "osx_make.sh",
+      "owner_pointer.h",
+      "parse_game.cpp",
+      "parse_game.h",
+      "perlin_noise.cpp",
+      "perlin_noise.h",
+      "phylactery_info.h",
+      "player.cpp",
+      "player.h",
+      "player_control.h",
+      "player_info_action.h",
+      "player_message.cpp",
+      "player_message.h",
+      "portals.cpp",
+      "portals.h",
+      "position.cpp",
+      "position.h",
+      "position_map.cpp",
+      "position_map.h",
+      "position_matching.cpp",
+      "position_matching.h",
+      "pretty_archive.cpp",
+      "pretty_archive.h",
+      "pretty_printing.cpp",
+      "pretty_printing.h",
+      "profiler.h",
+      "progress.cpp",
+      "progress.h",
+      "progress_meter.cpp",
+      "progress_meter.h",
+      "promotion_info.cpp",
+      "promotion_info.h",
+      "random_layout_id.h",
+      "read_write_array.h",
+      "renderable.cpp",
+      "renderable.h",
+      "renderer.cpp",
+      "renderer.h",
+      "resource_counts.cpp",
+      "resource_counts.h",
+      "resource_id.h",
+      "resource_info.h",
+      "resource_path.hpp",
+      "resource_path.mm",
+      "retired_enemy_info.h",
+      "retired_games.cpp",
+      "retired_games.h",
+      "rungdb.bat",
+      "save_file_info.h",
+      "saved_game_info.cpp",
+      "saved_game_info.h",
+      "scripted_help_info.h",
+      "scripted_ui.cpp",
+      "scripted_ui.h",
+      "scripted_ui_data.h",
+      "scroll_position.cpp",
+      "scroll_position.h",
+      "sdl.h",
+      "sdl_event_generator.cpp",
+      "sdl_event_generator.h",
+      "sdl_keycodes.cpp",
+      "sdl_keycodes.h",
+      "sectors.cpp",
+      "sectors.h",
+      "sendreport.bat",
+      "sentences.txt",
+      "serialization.cpp",
+      "serialization.h",
+      "serialize_optional.h",
+      "server/.gitignore",
+      "server/db.php",
+      "server/game_event.php",
+      "server/get_messages.php",
+      "server/get_sites.php",
+      "server/highscores.php",
+      "server/tables_alpha19.sql",
+      "server/upload_scores.html",
+      "server/upload_scores.php",
+      "server/upload_site.html",
+      "server/upload_site.php",
+      "settlement_info.h",
+      "shortest_path.cpp",
+      "shortest_path.h",
+      "simple_game.cpp",
+      "simple_game.h",
+      "sokoban_input.cpp",
+      "sokoban_input.h",
+      "sound.cpp",
+      "sound.h",
+      "sound_library.cpp",
+      "sound_library.h",
+      "special_attr.h",
+      "special_trait.cpp",
+      "special_trait.h",
+      "spectator.cpp",
+      "spectator.h",
+      "spell.cpp",
+      "spell.h",
+      "spell_id.h",
+      "spell_map.h",
+      "spell_school.cpp",
+      "spell_school.h",
+      "spell_school_id.h",
+      "square.cpp",
+      "square.h",
+      "square_array.cpp",
+      "square_array.h",
+      "square_attrib.h",
+      "stack_printer.cpp",
+      "stack_printer.h",
+      "stair_key.cpp",
+      "stair_key.h",
+      "statistics.cpp",
+      "statistics.h",
+      "stb_truetype.cpp",
+      "stb_truetype.h",
+      "stdafx.h",
+      "steam_achievements.cpp",
+      "steam_achievements.h",
+      "steam_appid.txt",
+      "steam_base.cpp",
+      "steam_base.h",
+      "steam_call_result.cpp",
+      "steam_call_result.h",
+      "steam_client.cpp",
+      "steam_client.h",
+      "steam_friends.cpp",
+      "steam_friends.h",
+      "steam_input.cpp",
+      "steam_input.h",
+      "steam_internal.h",
+      "steam_ugc.cpp",
+      "steam_ugc.h",
+      "steam_user.cpp",
+      "steam_user.h",
+      "steam_utils.cpp",
+      "steam_utils.h",
+      "storage_id.h",
+      "storage_info.h",
+      "storage_positions.cpp",
+      "storage_positions.h",
+      "sunlight_info.cpp",
+      "sunlight_info.h",
+      "t_string.cpp",
+      "t_string.h",
+      "target_type.h",
+      "task.h",
+      "task_callback.h",
+      "task_map.h",
+      "team_member_action.cpp",
+      "team_member_action.h",
+      "team_order.cpp",
+      "team_order.h",
+      "tech_id.h",
+      "technology.cpp",
+      "technology.h",
+      "territory.cpp",
+      "territory.h",
+      "test.cpp",
+      "test.h",
+      "test_struct.h",
+      "text_serialization.h",
+      "texture.cpp",
+      "texture.h",
+      "texture_id.h",
+      "theoraplay.cpp",
+      "theoraplay.h",
+      "theoraplay_cvtrgb.h",
+      "tile.cpp",
+      "tile.h",
+      "tile_gas.cpp",
+      "tile_gas.h",
+      "tile_gas_info.h",
+      "tile_gas_type.h",
+      "tile_info.h",
+      "tile_paths.cpp",
+      "tile_paths.h",
+      "tile_predicate.cpp",
+      "tile_predicate.h",
+      "tileset.cpp",
+      "tileset.h",
+      "time_queue.cpp",
+      "time_queue.h",
+      "translations.cpp",
+      "translations.h",
+      "tribe.cpp",
+      "tribe.h",
+      "tribe_alignment.cpp",
+      "tribe_alignment.h",
+      "tutorial.cpp",
+      "tutorial.h",
+      "tutorial_highlight.h",
+      "tutorial_state.cpp",
+      "tutorial_state.h",
+      "unique_entity.cpp",
+      "unique_entity.h",
+      "unknown_locations.cpp",
+      "unknown_locations.h",
+      "unlocks.cpp",
+      "unlocks.h",
+      "unzip.cpp",
+      "unzip.h",
+      "user_input.h",
+      "util.cpp",
+      "util.h",
+      "variant_serialize.cpp",
+      "video.cpp",
+      "view.cpp",
+      "view.h",
+      "view_id.cpp",
+      "view_id.h",
+      "view_index.cpp",
+      "view_index.h",
+      "view_layer.h",
+      "view_object.cpp",
+      "view_object.h",
+      "view_object_action.cpp",
+      "view_object_action.h",
+      "view_object_modifier.h",
+      "village_action.h",
+      "village_behaviour.h",
+      "village_control.h",
+      "villain_group.h",
+      "villain_type.cpp",
+      "villain_type.h",
+      "visibility_map.cpp",
+      "visibility_map.h",
+      "vision.cpp",
+      "vision.h",
+      "vision_id.h",
+      "warlord_controller.cpp",
+      "warlord_controller.h",
+      "weapon_info.h",
+      "win64_make.sh",
+      "window_view.cpp",
+      "window_view.h",
+      "windows_make.sh",
+      "workshop_array.h",
+      "workshop_info.h",
+      "workshop_item.cpp",
+      "workshop_item.h",
+      "workshop_type.h",
+      "workshops.h",
+      "world_map_info.h",
+      "z_level_info.cpp",
+      "z_level_info.h",
+      "zlevel.cpp",
+      "zlevel.h",
+      "zones.cpp",
+      "zones.h"
+    ],
+    "manifest_path": "/Users/weiwei/.codex/research/keeperrl/GIT_TREE_MANIFEST.json",
+    "provenance_read_separately": "INTAKE.json lists license/readme/config/header qualification; unread here means no gameplay semantic coverage claimed."
+  },
+  "paths": [
+    {
+      "id": "K1",
+      "read": true,
+      "reviewed": true,
+      "integrated": true,
+      "semantic_scope": "Individual needs and activities -> compatible work -> exclusive task ownership",
+      "reader": "actor_material_paths",
+      "evidence_count": 26,
+      "remaining_behavioral_gate": "unperformed, excluded from finite source-research acceptance"
+    },
+    {
+      "id": "K2",
+      "read": true,
+      "reviewed": true,
+      "integrated": true,
+      "semantic_scope": "Owned material cost -> paid workshop work -> real product -> allocated usable equipment",
+      "reader": "actor_material_paths",
+      "evidence_count": 15,
+      "remaining_behavioral_gate": "unperformed, excluded from finite source-research acceptance"
+    },
+    {
+      "id": "K3",
+      "read": true,
+      "reviewed": true,
+      "integrated": true,
+      "semantic_scope": "Actual facility use -> bounded attribute growth -> body-qualified strike -> injury/effects",
+      "reader": "training_body_path",
+      "evidence_count": 29,
+      "remaining_behavioral_gate": "unperformed, excluded from finite source-research acceptance"
+    },
+    {
+      "id": "K4",
+      "read": true,
+      "reviewed": true,
+      "integrated": true,
+      "semantic_scope": "Reserved construction -> built attraction/population -> rechecked paid invitation -> actual actor/occupancy",
+      "reader": "base_recruitment_path",
+      "evidence_count": 24,
+      "remaining_behavioral_gate": "unperformed, excluded from finite source-research acceptance"
+    },
+    {
+      "id": "K5",
+      "read": true,
+      "reviewed": true,
+      "integrated": true,
+      "semantic_scope": "Attributed faction pressure -> eligible funded attack -> payment/retreat/conquest -> retained campaign access",
+      "reader": "root",
+      "evidence_count": 23,
+      "remaining_behavioral_gate": "unperformed, excluded from finite source-research acceptance"
+    }
+  ],
+  "semantic_read_ranges": [
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          811,
+          831
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          904,
+          950
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          953,
+          1015
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          1025,
+          1047
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          1050,
+          1070
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          1085,
+          1101
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          27,
+          45
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          47,
+          64
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          66,
+          73
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          75,
+          160
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          162,
+          169
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          327,
+          410
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          417,
+          432
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          616,
+          629
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          106,
+          120
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          221,
+          230
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          242,
+          259
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          261,
+          386
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          389,
+          410
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          39,
+          114
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          126,
+          176
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          210,
+          283
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          286,
+          323
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          1093,
+          1157
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          259,
+          294
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K1",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2281,
+          2288
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "data_free/game_config/resource_info.txt",
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "data_free/game_config/workshop_info.txt",
+      "ranges": [
+        [
+          1,
+          76
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1013,
+          1068
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1077,
+          1104
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1621,
+          1653
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1744,
+          1750
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "workshops.cpp",
+      "ranges": [
+        [
+          26,
+          132
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "minion_equipment.cpp",
+      "ranges": [
+        [
+          41,
+          141
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "minion_equipment.cpp",
+      "ranges": [
+        [
+          143,
+          203
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "minion_equipment.cpp",
+      "ranges": [
+        [
+          206,
+          255
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "minion_equipment.cpp",
+      "ranges": [
+        [
+          257,
+          307
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "monster_ai.cpp",
+      "ranges": [
+        [
+          904,
+          950
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          259,
+          280
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          1093,
+          1157
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K2",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2281,
+          2288
+        ]
+      ],
+      "reader": "actor_material_paths"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1498,
+          1528
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1577,
+          1620
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1657,
+          1669
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective_config.cpp",
+      "ranges": [
+        [
+          267,
+          292
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective_config.cpp",
+      "ranges": [
+        [
+          316,
+          321
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "collective_config.cpp",
+      "ranges": [
+        [
+          358,
+          364
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "minion_activity_map.cpp",
+      "ranges": [
+        [
+          78,
+          99
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "furniture.cpp",
+      "ranges": [
+        [
+          489,
+          495
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature_attributes.cpp",
+      "ranges": [
+        [
+          148,
+          183
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          1153,
+          1175
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          1200,
+          1210
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          1630,
+          1665
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          1761,
+          1815
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2163,
+          2179
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2185,
+          2198
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2483,
+          2494
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          134,
+          159
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K3",
+      "file": "lasting_effect.cpp",
+      "ranges": [
+        [
+          1163,
+          1170
+        ]
+      ],
+      "reader": "training_body_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1158,
+          1163
+        ],
+        [
+          1196,
+          1201
+        ],
+        [
+          1277,
+          1305
+        ],
+        [
+          1328,
+          1342
+        ],
+        [
+          1843,
+          1850
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "construction_map.cpp",
+      "ranges": [
+        [
+          66,
+          116
+        ],
+        [
+          143,
+          158
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          131,
+          160
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "immigrant_info.h",
+      "ranges": [
+        [
+          48,
+          58
+        ],
+        [
+          129,
+          180
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "immigrant_info.cpp",
+      "ranges": [
+        [
+          136,
+          164
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "immigration.cpp",
+      "ranges": [
+        [
+          46,
+          99
+        ],
+        [
+          115,
+          215
+        ],
+        [
+          218,
+          226
+        ],
+        [
+          423,
+          436
+        ],
+        [
+          447,
+          517
+        ],
+        [
+          652,
+          680
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "player_control.cpp",
+      "ranges": [
+        [
+          1802,
+          1850
+        ],
+        [
+          3018,
+          3051
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "collective_config.cpp",
+      "ranges": [
+        [
+          84,
+          105
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "K4",
+      "file": "data_free/game_config/immigration.txt",
+      "ranges": [
+        [
+          151,
+          175
+        ]
+      ],
+      "reader": "base_recruitment_path"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "village_control.cpp",
+      "ranges": [
+        [
+          45,
+          92
+        ],
+        [
+          116,
+          218
+        ],
+        [
+          310,
+          462
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "village_behaviour.cpp",
+      "ranges": [
+        [
+          16,
+          254
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          795,
+          845
+        ],
+        [
+          922,
+          967
+        ],
+        [
+          1714,
+          1786
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          687,
+          725
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          413,
+          424
+        ],
+        [
+          753,
+          890
+        ],
+        [
+          1277,
+          1310
+        ],
+        [
+          1673,
+          1688
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "collective_config.cpp",
+      "ranges": [
+        [
+          198,
+          212
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "game.cpp",
+      "ranges": [
+        [
+          445,
+          484
+        ],
+        [
+          901,
+          932
+        ],
+        [
+          969,
+          1003
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "campaign.cpp",
+      "ranges": [
+        [
+          18,
+          20
+        ],
+        [
+          45,
+          89
+        ],
+        [
+          185,
+          242
+        ],
+        [
+          255,
+          281
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "player_control.cpp",
+      "ranges": [
+        [
+          3767,
+          3815
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "data_free/game_config/enemies.txt",
+      "ranges": [
+        [
+          214,
+          220
+        ],
+        [
+          231,
+          262
+        ],
+        [
+          378,
+          411
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "attack_trigger.h",
+      "ranges": [
+        [
+          1,
+          74
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "minion_activity.cpp",
+      "ranges": [
+        [
+          302,
+          315
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "task.cpp",
+      "ranges": [
+        [
+          369,
+          471
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          861,
+          881
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          781,
+          818
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          890,
+          899
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          218,
+          235
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          266,
+          272
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          374,
+          410
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          475,
+          479
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "body.cpp",
+      "ranges": [
+        [
+          36,
+          42
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "creature_attributes.cpp",
+      "ranges": [
+        [
+          66,
+          76
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "spell_map.cpp",
+      "ranges": [
+        [
+          90,
+          141
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1277,
+          1310
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "immigration.cpp",
+      "ranges": [
+        [
+          240,
+          293
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "immigration.cpp",
+      "ranges": [
+        [
+          545,
+          581
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "task_map.cpp",
+      "ranges": [
+        [
+          16,
+          33
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "creature.cpp",
+      "ranges": [
+        [
+          2644,
+          2651
+        ]
+      ],
+      "reader": "root"
+    },
+    {
+      "path_id": "root_selected_joins",
+      "file": "collective.cpp",
+      "ranges": [
+        [
+          1673,
+          1681
+        ]
+      ],
+      "reader": "root"
+    }
+  ],
+  "root_review_evidence": [
+    {
+      "id": "K1",
+      "worker": "actor_material_paths",
+      "result": "reviewed_integrated",
+      "root_inspected": [
+        "monster_ai.cpp816-830,904-1015",
+        "task_map.cpp64-114,274-283,313-323",
+        "minion_activity_map.cpp75-104,132-160",
+        "creature.cpp2281-2288"
+      ],
+      "qualification": "The priority-dispatch branch ignores the return value of freeFromTask/takeTask; preserve as observed exception, not a YAIR refund design."
+    },
+    {
+      "id": "K2",
+      "worker": "actor_material_paths",
+      "result": "reviewed_integrated",
+      "root_inspected": [
+        "workshops.cpp30-132",
+        "collective.cpp1013-1068,1621-1653",
+        "minion_equipment.cpp257-307",
+        "task.cpp259-294"
+      ],
+      "qualification": "Workshop queued debt, paid stock and created output are distinct. Cancellation refunds paid input only before work starts; YAIR retains its own frozen-job refund policy."
+    },
+    {
+      "id": "K3",
+      "worker": "training_body_path",
+      "result": "reviewed_integrated_after_one_focused_repair",
+      "root_inspected": [
+        "collective.cpp1517-1528,1583-1619,1657-1669",
+        "creature_attributes.cpp148-183",
+        "creature.cpp1630-1666,1761-1815,2163-2179",
+        "body.cpp134-159,374-410,781-818,890-899",
+        "task.cpp369-471",
+        "spell_map.cpp90-141"
+      ],
+      "repair": "Archery is carried weapon eligibility, not proven equipped. Replaced composite/mismatched selected hashes with exact per-file spans.",
+      "qualification": "Facility growth does not guarantee an executable body attack. Spell availability/notification read; concrete cast/fuel/cooldown paths remain unread."
+    },
+    {
+      "id": "K4",
+      "worker": "base_recruitment_path",
+      "result": "reviewed_integrated_after_one_focused_repair",
+      "root_inspected": [
+        "collective.cpp1158-1163,1277-1310,1328-1342",
+        "immigration.cpp46-99,115-148,176-226,248-293,447-517,545-581",
+        "immigrant_info.cpp136-164",
+        "construction_map.cpp143-158"
+      ],
+      "repair": "Corrected /source/ URL prefix and invalid evidence index; qualified actual population test and candidate fallback. Existing YAIR paid actor commissioning prevents a broad recruitment-gap claim.",
+      "qualification": "Built room -> resident occupancy -> funded Invite/Decline is a proposed missing content join, not missing generic spawn/job support."
+    },
+    {
+      "id": "K5",
+      "worker": "root",
+      "result": "read_reviewed_integrated",
+      "root_inspected": [
+        "village_control.cpp47-91,116-218,310-462",
+        "village_behaviour.cpp27-71,155-254",
+        "task.cpp831-845,1714-1786",
+        "creature.cpp687-725",
+        "game.cpp445-484,969-1003",
+        "campaign.cpp45-89,192-215,255-281"
+      ],
+      "qualification": "Probability uses maximum trigger, not additive pressures; attacks need actual actors/capacity/source model. Ransom cancels attacks but does not clear grievances or transfer the paid gold to attacker stock."
+    }
+  ],
+  "unread_subsystems": [
+    "Concrete spell casts/cooldowns/resources and full spell/furniture/creature definition catalogues",
+    "All body materials, effects, attack types, item prefixes, equipment templates and skill branches",
+    "Full enemy/alliance/retirement/adventurer/network/Steam/workshop systems and world generation",
+    "All save migrations, runtime scheduling/performance and executable game behavior"
+  ],
+  "worker_status": [
+    {
+      "task": "/root/actor_material_paths",
+      "model": "gpt-6-luna",
+      "reasoning": "medium",
+      "state": "completed_released",
+      "write_scope": "ACTOR_MATERIAL_NOTES.json",
+      "repair_count": 1
+    },
+    {
+      "task": "/root/training_body_path",
+      "model": "gpt-6-luna",
+      "reasoning": "medium",
+      "state": "completed_released",
+      "write_scope": "TRAINING_BODY_NOTES.json",
+      "repair_count": 1,
+      "root_additional_bound_correction": 0
+    },
+    {
+      "task": "/root/base_recruitment_path",
+      "model": "gpt-6-luna",
+      "reasoning": "medium",
+      "state": "completed_released",
+      "write_scope": "BASE_RECRUITMENT_NOTES.json",
+      "repair_count": 1,
+      "root_additional_bound_correction": 1
+    }
+  ],
+  "integration_owner": "root",
+  "scope_limit": "Selected causal spans are semantic reading; index/search/clone statistics are not reviewed coverage."
+}

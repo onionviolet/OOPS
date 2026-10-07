@@ -1,0 +1,72 @@
+{
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "branch": "codex/gameplay-foundations",
+  "root": "01a116c6-9556-74c1-a50d-e689d91785a0",
+  "files": [
+    {
+      "path": "src/main.js",
+      "sha256": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "7df709c4729e6c38b5195929c0e970d7bc44c77568b61285d84e9a2b58ff3caf"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "27fcf48dca5b1219efd2572f397993996517aff7db90959caa36764ebe18599c"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "f1c086d2dc01eb2c40049c766e2862cc8af2b6eec5092c41c7029b319c618c6c"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "95013edd0e40deb44659f5d51548301210be18b4aba11b9bff00bcbd2e424567"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "8211ea775c51d067e7db9c565d72105740307f0a9f15b0acbb756797240d9570"
+    },
+    {
+      "path": "src/components/trader_component.js",
+      "sha256": "613731e3c6ecb0dd40b600ba63b1981711bb2faa295620779b37f9ed0af6f056"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "344c4d4791d5d90a2b143beb67d068263c3ec47ae3f27ba4be3c6f8e79fb2691"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "sha256": "a5072e09d71bbd8115a107392e9e951b81acc80860733eb87cf05ac70596b95a"
+    },
+    {
+      "path": "index.html",
+      "sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "60a72e9d1ea7408790b2661dd6b6cd72b0316e58b84586a8037cd286ea7485c3"
+    }
+  ],
+  "releasedSharedInputDrift": []
+}

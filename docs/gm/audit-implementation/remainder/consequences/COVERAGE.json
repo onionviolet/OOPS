@@ -1,0 +1,36 @@
+{
+  "worker": "/root/remainder_consequences",
+  "parent": "/root",
+  "status": "implemented-unverified; source ready, shared/native/UI/build joins parent-owned",
+  "sourceScope": ["src/audit_remainder_consequences_content.js", "src/audit_remainder_consequences_facts.js", "src/audit_remainder_consequences_host.js"],
+  "rows": [
+    {
+      "id": "rimworld:P2",
+      "packet": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "existing": ["simulation_effects.js directed caused relationships and timed conditions", "exchange_content.js actual parcel/payment/gauge/order", "people_knowledge.js player exchange observations", "simulation.js expiry/reservations/completion"],
+      "missingConsumerAdded": "Fixed Iona/player interruption condition controls one actual once-only stocked two-coin concession; considerate/repair/later replies preserve directed memory and real accepted parcel obligation",
+      "evidence": ["content ionaCommands", "facts remainderConsequencesFacts", "facts validateRemainderConsequences", "host presentation and existing exchange.remainder knowledge projection"],
+      "newBehaviorVerified": false
+    },
+    {
+      "id": "rimworld:P3",
+      "packet": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+      "existing": ["simulation.js caused event checks and supported jobs", "simulation_effects.js actual transfers/acquisitions/claims/sites", "items.js existing Cooking herbs native material", "causal_situations.js finite caused stages"],
+      "missingConsumerAdded": "One real finite paid packet/right/planting cycle and original observed local cold draft; cover/early/neglect/timeout settle one unique harvest to native herbs 5/3/1/1",
+      "evidence": ["content plotCommands and warning/frost events", "facts retained local deadlines and terminal probe retirement", "facts plot/stock/purse/claim/reservation validation", "native seed item specification"],
+      "newBehaviorVerified": false
+    },
+    {
+      "id": "keeperrl:P4",
+      "packet": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "existing": ["feature_expansion_nested_chains.js actual seizure/attribution/grievance and material water restitution", "feature_expansion_nested_host.js actual visits/local clock/mission settlement/native people", "simulation.js controller decisions/reservations/movement timing/refunds", "simulation_effects.js local credit owners and body effort"],
+      "missingConsumerAdded": "Brin’s actual finite paid commission funds stable willing Corin’s body/agenda/credit route and locally observed demand, with fee/restoration/refusal/timeout, actual future-trade gate, original-restitution reconciliation, paid return or unused-credit refund",
+      "evidence": ["content collectionCommands/notice/expiry/controllers", "facts same-cause committed seizure prerequisite", "facts actual credit/agenda/stamina and bounded receipts validation", "facts existing-command trade consumer", "host staged reconciliation and public known-person projection"],
+      "unsupportedContest": "No actual collector combat profile is bound; no contest or attack option is advertised",
+      "newBehaviorVerified": false
+    }
+  ],
+  "compatibility": "Parent explicit expansion11/auditRemainder1; absent inert; no new consequences module record; old typed owners retained",
+  "reversibleOriginalConstants": {"ionaMinutes": 8, "repairMinutes": 2, "concessionCoins": 2, "seedCoins": 2, "waterCoins": 1, "plantMinutes": 3, "inspectionMinutes": 4, "frostWindowMinutes": 6, "coverMinutes": 2, "herbYields": {"covered": 5, "early": 3, "neglected": 1, "expired": 1}, "commissionCredits": 1, "commissionMinutes": 2, "routeMinutes": 3, "collectionWindowMinutes": 6, "deferralCredits": 2, "returnMinutes": 3},
+  "deferredGateGroups": ["Iona reply/friction/concession/real debt", "herb actual counts/branches/lost support/refunds", "collector funds/movement/choices/trade/departure", "generated persistence/import/reload/failure/old reader", "director/UI/keyboard/balance/combined regression"]
+}

@@ -1,0 +1,25 @@
+{
+  "capturedAtUtc": "2026-10-07T05:01:17.469497+00:00",
+  "currentBundle": "ebf951d628619e9ff75f148352044932c17b7d453e404ede63e2375278a65809",
+  "hashes": {
+    "src/main.js": "99f4ece298c84ddb02c0ea3d21db3c8a54845d011f9b82ac3a4613bda08dc32b",
+    "src/simulation_content.js": "fedb961f3003abd4eb907f94c17579e1e2959a8632709cac217a915c69d05bf2",
+    "src/expedition_content.js": "aa6c57853a8f1813bda1b1a1f5c3fe282c441359942a09a6fa113738c1e40c6f",
+    "src/expansion_engine.js": "ebcfe158a68f1356e04cb9b8e034a27f0c184efef6b94cf1ae39dc232b122fd2",
+    "src/book_world_mol_state.js": "75543dab270539f5c57045c8481a1a89351e0a16b9045fb603a7ad8387d4ddc8",
+    "src/book_world_mol_host.js": "bff62276ab5177013c83c515e24693f119f8b6066c8970c05598f3bea7ced657",
+    "src/book_world_paradise_state.js": "32e951fccf9925b68118938d33222200b2ca08010dbe4853b12ba01c9f8299f5",
+    "src/book_world_paradise_host.js": "758913d57d105c23b0908d3765b035e9947240fbf21e0644d7d629d6d7a2018f",
+    "src/feature_expansion_nested_host.js": "ea461d24e53078667f78b026e57c1ebb121c04090f79f955324fb5617207cef9",
+    "src/audit_remainder_home_content.js": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+    "src/audit_remainder_home_facts.js": "d1a38bd540474cce688a4c8dda5d85b69ee7b2affebbfdebdee47c63585ee95d",
+    "src/audit_remainder_home_host.js": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+    "src/promise_content.js": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+    "src/promise_ui.js": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+    "src/feature_expansion_society.js": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+    "src/feature_expansion_wave_host.js": "8858445f89f4f46329dafccde6a7fee74e165aeb30acf35fd0fa9b74eec707fd",
+    "src/feature_expansion_refinements_host.js": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+    "PROJECT.md": "deac6041129bf8b91826011e9128c48621809016470f71ac3b60a57d30067e9a"
+  },
+  "scope": "new source implementation wave; unrelated sources/private saves untouched"
+}

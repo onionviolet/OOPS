@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-04",
+  "capturedAtUTC": "2026-10-05T03:13:02.853157+00:00",
+  "purpose": "Selective external engine/tool comparison initial inputs; peer draft/delivery state must be qualified against live checkpoints. RUN and receipts will change to record native creation/progress.",
+  "planRevision": 5,
+  "base": {
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty": true
+  },
+  "files": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/ENGINE_AUTHORING.md": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+    "docs/ENGINE_EXPANSION.md": "3dbae588a3a0945094c6b4af9a62159d24eed5a1e299e7235476cc2cbba36575",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+    "docs/gm/world-implementation/RUN.json": "3c8f63b43391a8252a44b552b1074335205910733e65d726611c991321ec7da2",
+    "docs/gm/world-implementation/second-pass/README.md": "84a1efd1b30627121b32c6c86d7ae384ed935510dbf95e23721b977d64279da7",
+    "docs/gm/world-implementation/second-pass/engine-absorption/ASSIGNMENT.md": "bc8c8aae9dcf4f33d058bb26d88119aab1fc93d7de1cb94500806b178f24b76c",
+    "docs/gm/world-implementation/second-pass/foundations/REPORT.md": "84503131cddf4751c616981398d7eb82db5e12f53228fff83a033c723801c4f2",
+    "docs/gm/world-implementation/second-pass/authoring/REPORT.md": "3c81cddd7004a28a87a81b525ee4de231fafb413461340c011516a15720244e8",
+    "docs/gm/world-implementation/second-pass/society/REPORT.md": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+    "docs/gm/world-implementation/second-pass/regions/REPORT.md": "7695a4e6436b5a86208f4be99ec7775e93814212de9d1674144fefc2a6c180d9",
+    "docs/gm/world-implementation/second-pass/combat/REPORT.md": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28",
+    "docs/gm/world-implementation/second-pass/integration/REPORT.md": "f636cac39af8fe3660ef58e660359f6034da64b840ae8a6d45f65feb214cb7b7",
+    "docs/gm/world-implementation/second-pass/world-bank/REPORT.md": "f7ea2775b8a7c7081d80bedfff772a703b97b6c1955cf9bf38d029bbb067fd3a",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/scene_definitions.js": "e685063dc8791982308185145be062604b9e35533bf5ebdc8938072d84e81741",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/people_knowledge.js": "c2978d3644f054990263740e90364d96d01f1c71e71c91d9109d342413a783c3",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+    "src/pocket_realm_scenes.js": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+    "package.json": "db8a5562435b2bd2d467ade0d386ab484426935b724ab1e8d981dd37ca6e9627",
+    "package-lock.json": "115bccf437e1334e77b94bf04414f077dfe9ff2ff2016abec3daa378816c76e9",
+    "dist/bundle.js": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a"
+  },
+  "missingOptionalInputs": []
+}

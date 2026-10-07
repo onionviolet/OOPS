@@ -1,0 +1,4798 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-06T20:15:53.785962+00:00",
+  "edition": "Steam955900/build17074448",
+  "selected_family_count": 5,
+  "families": [
+    {
+      "id": "cultivation",
+      "title": "Cultivation methods, preparation and environmental timing",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/cultivation.json",
+      "trace_sha256": "ddb539a38e3f80211ae7bb8e051ef4f33c9e3940d0df36cf56ba67d5c0cfc3d3",
+      "prose": "traces/cultivation.md",
+      "source_records": 25,
+      "finite_subtraces": 4,
+      "coverage_records": [
+        {
+          "key": "law",
+          "path": "input/Settings/Practice/Gong/Gong_1.xml",
+          "sha256": "f1bb30e8a6195d8c7f64aa5d57f5d365683362936dec6d7357f9be8a53c174bb",
+          "read_spans": [
+            [
+              1,
+              185
+            ]
+          ],
+          "json_pointer": "/sources/0"
+        },
+        {
+          "key": "weather_data",
+          "path": "input/Settings/Weather/Weather.xml",
+          "sha256": "b6c85b77be232a91a75b8d8b616c7f2e68b02df8f3a0eccb9a727d0513b051ec",
+          "read_spans": [
+            [
+              37,
+              169
+            ]
+          ],
+          "json_pointer": "/sources/1"
+        },
+        {
+          "key": "lua_boundary",
+          "path": "input/Scripts/gameult.lua",
+          "sha256": "c49b81d289769d340cba5a0ed63524253ebfb3ba0457570e3e42fe02d635a01a",
+          "read_spans": [
+            [
+              434,
+              479
+            ]
+          ],
+          "json_pointer": "/sources/2"
+        },
+        {
+          "key": "gong_def",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/GongDef.cs",
+          "sha256": "7141fa00aa7f546f6d9eae47d60612d888ee24fbbf620b8d1386232bafb4712a",
+          "read_spans": [
+            [
+              1,
+              137
+            ]
+          ],
+          "json_pointer": "/sources/3"
+        },
+        {
+          "key": "neck_def",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/GongStageNeck.cs",
+          "sha256": "1b4ef6acb350464e5bc8a069d399d1e2fbe0c2025e8d8149a1081100b6e92fba",
+          "read_spans": [
+            [
+              1,
+              80
+            ]
+          ],
+          "json_pointer": "/sources/4"
+        },
+        {
+          "key": "law_load",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/PracticeMgr.cs",
+          "sha256": "210a3ffd979931acfcc9a152ea9de8b4c3eb64c2b96c3aa7dc71b6445e7d0440",
+          "read_spans": [
+            [
+              571,
+              612
+            ]
+          ],
+          "json_pointer": "/sources/5"
+        },
+        {
+          "key": "practice",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+          "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+          "read_spans": [
+            [
+              184,
+              240
+            ],
+            [
+              363,
+              508
+            ],
+            [
+              862,
+              869
+            ],
+            [
+              2324,
+              2369
+            ],
+            [
+              2403,
+              2498
+            ],
+            [
+              2614,
+              2758
+            ],
+            [
+              3122,
+              3212
+            ],
+            [
+              3214,
+              3270
+            ],
+            [
+              3363,
+              3432
+            ],
+            [
+              3452,
+              3490
+            ],
+            [
+              3590,
+              3708
+            ],
+            [
+              3739,
+              3967
+            ],
+            [
+              3982,
+              4118
+            ],
+            [
+              4164,
+              4361
+            ]
+          ],
+          "json_pointer": "/sources/6"
+        },
+        {
+          "key": "practice_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobPractice.cs",
+          "sha256": "424d6cf6b1031f464d0110c2041fc6f2312ecfcdeaac17e370703d2df3916258",
+          "read_spans": [
+            [
+              1,
+              95
+            ]
+          ],
+          "json_pointer": "/sources/7"
+        },
+        {
+          "key": "practice_toil",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilPractice.cs",
+          "sha256": "2ac822a04bbf1cc8845b5fd1e765582190797c08c48dab7b3855afc96b650af6",
+          "read_spans": [
+            [
+              1,
+              153
+            ]
+          ],
+          "json_pointer": "/sources/8"
+        },
+        {
+          "key": "command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandBrokenNeck.cs",
+          "sha256": "7f289566643f30b169357a601e8896f7abd6f7f83ce6a5d43425457d0d63e96e",
+          "read_spans": [
+            [
+              1,
+              75
+            ]
+          ],
+          "json_pointer": "/sources/9"
+        },
+        {
+          "key": "break_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobBrokenNeck.cs",
+          "sha256": "1bcc85530f15b47774acba3f10b4951c9f75a681bce2babd5eaae4f8125ee62c",
+          "read_spans": [
+            [
+              1,
+              90
+            ],
+            [
+              179,
+              196
+            ]
+          ],
+          "json_pointer": "/sources/10"
+        },
+        {
+          "key": "break_toil",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+          "sha256": "285d719037c3484cc4feaca7dacd20577ef4d293e8501a6633369fe929361d2e",
+          "read_spans": [
+            [
+              14,
+              85
+            ],
+            [
+              95,
+              134
+            ],
+            [
+              136,
+              251
+            ],
+            [
+              262,
+              330
+            ],
+            [
+              338,
+              400
+            ],
+            [
+              434,
+              479
+            ],
+            [
+              708,
+              761
+            ],
+            [
+              857,
+              937
+            ]
+          ],
+          "json_pointer": "/sources/11"
+        },
+        {
+          "key": "break_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_BrokenNeck.cs",
+          "sha256": "24da922b4ec80fc7f15ce09e14cf1c76633033c2d227fbf2c37f7bda1808b0e3",
+          "read_spans": [
+            [
+              150,
+              245
+            ],
+            [
+              680,
+              758
+            ],
+            [
+              838,
+              895
+            ]
+          ],
+          "json_pointer": "/sources/12"
+        },
+        {
+          "key": "weather_code",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/WeatherMapData.cs",
+          "sha256": "89c1fcd7f9c699fd8f4d4bc0e3d1ca4500c83f4868c8e30b14c07d48fc7c5a05",
+          "read_spans": [
+            [
+              447,
+              459
+            ],
+            [
+              918,
+              966
+            ]
+          ],
+          "json_pointer": "/sources/13"
+        },
+        {
+          "key": "maps",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+          "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+          "read_spans": [
+            [
+              1888,
+              1910
+            ],
+            [
+              1924,
+              1962
+            ],
+            [
+              2315,
+              2328
+            ],
+            [
+              2893,
+              2918
+            ],
+            [
+              4675,
+              4683
+            ]
+          ],
+          "json_pointer": "/sources/14"
+        },
+        {
+          "key": "map_enum",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/g_emMapProperty.cs",
+          "sha256": "1a256c769e9851192425651ccb01fbd687214d6a5acd6ae0a669adecb22b7188",
+          "read_spans": [
+            [
+              1,
+              32
+            ]
+          ],
+          "json_pointer": "/sources/15"
+        },
+        {
+          "key": "npc_mutation",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+          "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+          "read_spans": [
+            [
+              5801,
+              5804
+            ],
+            [
+              6656,
+              6666
+            ]
+          ],
+          "json_pointer": "/sources/16"
+        },
+        {
+          "key": "thing_ling",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Thing.cs",
+          "sha256": "be94b3f1a7033e9f42ae845bb4b41ce67ae9c676a450553c2cb63a310ce21c8d",
+          "read_spans": [
+            [
+              1033,
+              1063
+            ]
+          ],
+          "json_pointer": "/sources/17"
+        },
+        {
+          "key": "bag_cost",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingsBag.cs",
+          "sha256": "3a8478221e18180fa8baf9e8c736ddf9dbe7d8e10d4d1d201770d450c2e3a5a6",
+          "read_spans": [
+            [
+              818,
+              850
+            ]
+          ],
+          "json_pointer": "/sources/18"
+        },
+        {
+          "key": "yairpg_rhythm",
+          "path": "src/world_rhythm.js",
+          "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+          "read_spans": [
+            [
+              1,
+              31
+            ]
+          ],
+          "json_pointer": "/sources/19"
+        },
+        {
+          "key": "yairpg_practice",
+          "path": "src/reference_gameplay_content.js",
+          "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+          "read_spans": [
+            [
+              30,
+              98
+            ]
+          ],
+          "json_pointer": "/sources/20"
+        },
+        {
+          "key": "yairpg_command",
+          "path": "src/simulation.js",
+          "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+          "read_spans": [
+            [
+              118,
+              140
+            ],
+            [
+              155,
+              221
+            ]
+          ],
+          "json_pointer": "/sources/21"
+        },
+        {
+          "key": "yairpg_energy",
+          "path": "src/energy_resources.js",
+          "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+          "read_spans": [
+            [
+              1,
+              60
+            ]
+          ],
+          "json_pointer": "/sources/22"
+        },
+        {
+          "key": "yairpg_power",
+          "path": "src/power_models.js",
+          "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+          "read_spans": [
+            [
+              1,
+              55
+            ]
+          ],
+          "json_pointer": "/sources/23"
+        },
+        {
+          "key": "yairpg_effects",
+          "path": "src/simulation_effects.js",
+          "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60",
+          "read_spans": [
+            [
+              43,
+              79
+            ],
+            [
+              212,
+              242
+            ],
+            [
+              244,
+              266
+            ]
+          ],
+          "json_pointer": "/sources/24"
+        }
+      ],
+      "review": "Leaf source self-check plus root consequential caller/cost/mutation/consumer/aftermath review; institution authored/reviewed by root. Source review only."
+    },
+    {
+      "id": "production",
+      "title": "Material, artifact and medicine production",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/production.json",
+      "trace_sha256": "458bc6931b89e0f1865b57fc075a57529111cf51a7487643950325dfc9e2a44f",
+      "prose": "traces/production.md",
+      "source_records": 35,
+      "finite_subtraces": 2,
+      "coverage_records": [
+        {
+          "key": "P01",
+          "path": "input/Settings/Practice/FabaoFormula/Fabao.xml",
+          "sha256": "27e1f1fe8ea7db8ee6a2bb28202c124f5fd7e2481f280502af8335186e21880b",
+          "read_spans": [
+            [
+              1,
+              125
+            ],
+            [
+              180,
+              312
+            ]
+          ],
+          "json_pointer": "/sources/0"
+        },
+        {
+          "key": "P02",
+          "path": "input/Settings/Practice/DanFormula/Dan.xml",
+          "sha256": "623556d1ede2d5c5da910eed8e7d5e7f6ea6af091fb579d73e60af6954cd1607",
+          "read_spans": [
+            [
+              1,
+              180
+            ]
+          ],
+          "json_pointer": "/sources/1"
+        },
+        {
+          "key": "P03",
+          "path": "input/Scripts/Fabao/FabaoMgr.lua",
+          "sha256": "0478b7252de765f4a731c92ae46b8befb716898ac67ba9f72d7a52bbdc6d8fd4",
+          "read_spans": [
+            [
+              1,
+              62
+            ]
+          ],
+          "json_pointer": "/sources/2"
+        },
+        {
+          "key": "P04",
+          "path": "input/Settings/ThingDef/Item/Item_Consumable_Dan.xml",
+          "sha256": "dbc4835cc4e9b64c873ece3b9a439bd52e734b5d0a88b027289f01dacbbbefd1",
+          "read_spans": [
+            [
+              1,
+              141
+            ],
+            [
+              633,
+              698
+            ]
+          ],
+          "json_pointer": "/sources/3"
+        },
+        {
+          "key": "P05",
+          "path": "input/Settings/Modifiers/Modifier_Dan.xml",
+          "sha256": "ac6de178739e39f16b44622de677a940e428f3b0cb130e6277025dc108deccbf",
+          "read_spans": [
+            [
+              1,
+              50
+            ],
+            [
+              245,
+              280
+            ]
+          ],
+          "json_pointer": "/sources/4"
+        },
+        {
+          "key": "P06",
+          "path": "input/Settings/ThingDef/Building/Building_Magic.xml",
+          "sha256": "02e1d64eecedded0453865d4347d42da63bdc3de94c1cc23d7212c8e942a9b0e",
+          "read_spans": [
+            [
+              725,
+              793
+            ],
+            [
+              811,
+              875
+            ]
+          ],
+          "json_pointer": "/sources/5"
+        },
+        {
+          "key": "P07",
+          "path": "input/Settings/ThingDef/Item/Item_Equipment_Weapon.xml",
+          "sha256": "ae4ed5dfa175f9835fc49fffed642c56133f3c2535cb090325a61055276ca74a",
+          "read_spans": [
+            [
+              1,
+              80
+            ],
+            [
+              335,
+              386
+            ]
+          ],
+          "json_pointer": "/sources/6"
+        },
+        {
+          "key": "P08",
+          "path": "input/Settings/ThingDef/Item/Item_Material_2_MetalBlock.xml",
+          "sha256": "299e565c7e94447951c1526898207cd4acde2cdf04226eeaff679611be3aa15e",
+          "read_spans": [
+            [
+              1,
+              134
+            ]
+          ],
+          "json_pointer": "/sources/7"
+        },
+        {
+          "key": "P09",
+          "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+          "sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+          "read_spans": [
+            [
+              556,
+              572
+            ],
+            [
+              607,
+              662
+            ]
+          ],
+          "json_pointer": "/sources/8"
+        },
+        {
+          "key": "P10",
+          "path": "input/Settings/World/ItemPhysicalLable/ItemPhysicalLable.xml",
+          "sha256": "661eaf87ba87f75f7428bbf22bbcd809defff5e5f342cd67ae453de4e46271fe",
+          "read_spans": [
+            [
+              62,
+              78
+            ],
+            [
+              181,
+              194
+            ],
+            [
+              220,
+              231
+            ]
+          ],
+          "json_pointer": "/sources/9"
+        },
+        {
+          "key": "P11",
+          "path": "decompiled/Assembly-CSharp/ThingUICommandDefine.cs",
+          "sha256": "21b1a190a2ddaf6942f65c9d7278b407dd7472987e6aeca774e37eafd19b6476",
+          "read_spans": [
+            [
+              3180,
+              3300
+            ],
+            [
+              3537,
+              3627
+            ]
+          ],
+          "json_pointer": "/sources/10"
+        },
+        {
+          "key": "P12",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_IndividualCommand.cs",
+          "sha256": "28d34ac6d0c1ec73772e0cab7e07c4567b12e9a5f9fc4a6fbe448b13a8fb3682",
+          "read_spans": [
+            [
+              1399,
+              1426
+            ],
+            [
+              2791,
+              2858
+            ],
+            [
+              3013,
+              3032
+            ],
+            [
+              3064,
+              3069
+            ]
+          ],
+          "json_pointer": "/sources/11"
+        },
+        {
+          "key": "P13",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandRefiningFabao.cs",
+          "sha256": "a7dcbecdd47e633d745c3ab9ae3f8923c1afd704849293099215be5d4079f063",
+          "read_spans": [
+            [
+              1,
+              102
+            ]
+          ],
+          "json_pointer": "/sources/12"
+        },
+        {
+          "key": "P14",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobRefiningFabao.cs",
+          "sha256": "2bd761076a6b4b69b1044be957fbf2f4c54028c922f14818255095a57efb6ba3",
+          "read_spans": [
+            [
+              1,
+              66
+            ]
+          ],
+          "json_pointer": "/sources/13"
+        },
+        {
+          "key": "P15",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourRefiningFabao.cs",
+          "sha256": "6c2217bf56ece54255ebb76218d3f6615feca87535879fe883b914687b79368b",
+          "read_spans": [
+            [
+              1,
+              29
+            ]
+          ],
+          "json_pointer": "/sources/14"
+        },
+        {
+          "key": "P16",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilRefining.cs",
+          "sha256": "880f659ef37e6ce1e7f8bbb4a99f96d9c18a9b54c92e15814ad17349c900549c",
+          "read_spans": [
+            [
+              1,
+              338
+            ]
+          ],
+          "json_pointer": "/sources/15"
+        },
+        {
+          "key": "P17",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+          "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+          "read_spans": [
+            [
+              2457,
+              2467
+            ]
+          ],
+          "json_pointer": "/sources/16"
+        },
+        {
+          "key": "P18",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ItemThing.cs",
+          "sha256": "b35f48a2de59ecda0434982bdbf35a9bc32f02806601938fb1b35d747fdeacf3",
+          "read_spans": [
+            [
+              914,
+              938
+            ],
+            [
+              1041,
+              1103
+            ]
+          ],
+          "json_pointer": "/sources/17"
+        },
+        {
+          "key": "P19",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/FabaoData.cs",
+          "sha256": "923ff00706f23b341bf65d9ac4aeba213d28206bbd2821f1585e573c7a043554",
+          "read_spans": [
+            [
+              268,
+              406
+            ],
+            [
+              490,
+              504
+            ]
+          ],
+          "json_pointer": "/sources/18"
+        },
+        {
+          "key": "P20",
+          "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FabaoBase.cs",
+          "sha256": "1d3f1a76465ec8824d31b79fa7d70dae9ba12b5e8816fd3cebc8183ca026a89c",
+          "read_spans": [
+            [
+              327,
+              360
+            ],
+            [
+              414,
+              463
+            ]
+          ],
+          "json_pointer": "/sources/19"
+        },
+        {
+          "key": "P21",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+          "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+          "read_spans": [
+            [
+              1,
+              140
+            ],
+            [
+              176,
+              245
+            ],
+            [
+              350,
+              523
+            ],
+            [
+              530,
+              623
+            ]
+          ],
+          "json_pointer": "/sources/20"
+        },
+        {
+          "key": "P22",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMakeItem.cs",
+          "sha256": "238de0545a48cdf96f9f32a084bb8cc04b222435b2a0d03a23aa2dd322852ddc",
+          "read_spans": [
+            [
+              1,
+              53
+            ]
+          ],
+          "json_pointer": "/sources/21"
+        },
+        {
+          "key": "P23",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobMakeItem.cs",
+          "sha256": "fe555918f4328eab69780cc5d770b3c24a69a16c06b3dc6104092287ad679307",
+          "read_spans": [
+            [
+              1,
+              45
+            ]
+          ],
+          "json_pointer": "/sources/22"
+        },
+        {
+          "key": "P24",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilMakeItem.cs",
+          "sha256": "3f129c67974759e44fd634105313dd10cfa283e021c269349aa71e366170ea04",
+          "read_spans": [
+            [
+              1,
+              285
+            ]
+          ],
+          "json_pointer": "/sources/23"
+        },
+        {
+          "key": "P25",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingBeMadeData.cs",
+          "sha256": "d8a92ffebd74db16b570d55351a08ffd2c415c545fc218dde58cf76a17d3d1d7",
+          "read_spans": [
+            [
+              1,
+              61
+            ]
+          ],
+          "json_pointer": "/sources/24"
+        },
+        {
+          "key": "P26",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ItemDataBeMaterial.cs",
+          "sha256": "d638170b946432e123eefad1f736896feac4b427501c404b71540846e90ffb17",
+          "read_spans": [
+            [
+              88,
+              108
+            ]
+          ],
+          "json_pointer": "/sources/25"
+        },
+        {
+          "key": "P27",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilEatItem.cs",
+          "sha256": "e88c04bcb08a10810fe07f351046f306c268bf65cb71f418e88c606bb1bbdc1c",
+          "read_spans": [
+            [
+              1,
+              182
+            ]
+          ],
+          "json_pointer": "/sources/26"
+        },
+        {
+          "key": "P28",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+          "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+          "read_spans": [
+            [
+              4297,
+              4318
+            ],
+            [
+              4370,
+              4397
+            ],
+            [
+              4420,
+              4436
+            ],
+            [
+              4490,
+              4550
+            ],
+            [
+              4660,
+              4688
+            ]
+          ],
+          "json_pointer": "/sources/27"
+        },
+        {
+          "key": "P29",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/FoodNeed.cs",
+          "sha256": "a8c1cbd10d974b5c635bb81605e946eca94286546e863bcfbf8047cacc7076b1",
+          "read_spans": [
+            [
+              25,
+              61
+            ],
+            [
+              117,
+              162
+            ]
+          ],
+          "json_pointer": "/sources/28"
+        },
+        {
+          "key": "P30",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/RestNeed.cs",
+          "sha256": "99b36f126f79ae2ae0535164942445ed8dcfb827432d3af0540d304147afc12a",
+          "read_spans": [
+            [
+              1,
+              60
+            ]
+          ],
+          "json_pointer": "/sources/29"
+        },
+        {
+          "key": "P31",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPropertyMgr.cs",
+          "sha256": "5c479844d3e460bf1ec8f13098d5a6905ba3604813135ed4d92a435c6eb14132",
+          "read_spans": [
+            [
+              849,
+              887
+            ],
+            [
+              1283,
+              1323
+            ]
+          ],
+          "json_pointer": "/sources/30"
+        },
+        {
+          "key": "P32",
+          "path": "decompiled/Assembly-CSharp/XiaWorld.Modifier/ModifierBase.cs",
+          "sha256": "2c9b8f03247236fc594e408b8882bb4cdf52b8aa706da21339f89b9f931e5a12",
+          "read_spans": [
+            [
+              1,
+              75
+            ],
+            [
+              130,
+              169
+            ],
+            [
+              1047,
+              1110
+            ]
+          ],
+          "json_pointer": "/sources/31"
+        },
+        {
+          "key": "P33",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ElixirData.cs",
+          "sha256": "092ac142b595b7d4f587ffddf0dbb4794a3c585e83a57ee38b88dcabff4df8b5",
+          "read_spans": [
+            [
+              1,
+              61
+            ]
+          ],
+          "json_pointer": "/sources/32"
+        },
+        {
+          "key": "P34",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ItemCostData.cs",
+          "sha256": "f30f62782b21be009b30e11b8dbbb6d10f412691f4ab6e8bee39c1b02210aab7",
+          "read_spans": [
+            [
+              1,
+              44
+            ]
+          ],
+          "json_pointer": "/sources/33"
+        },
+        {
+          "key": "P35",
+          "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FightBody.cs",
+          "sha256": "c915ff1a2381146b6f8081dc8abf1963bbf1dda8d941a982b6aec9fa6d13f18f",
+          "read_spans": [
+            [
+              2175,
+              2250
+            ]
+          ],
+          "json_pointer": "/sources/34"
+        }
+      ],
+      "review": "Leaf source self-check plus root consequential caller/cost/mutation/consumer/aftermath review; institution authored/reviewed by root. Source review only."
+    },
+    {
+      "id": "actors",
+      "title": "Actor work selection and social memory",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/actors.json",
+      "trace_sha256": "158007274739f991163e9e760d205a294a8d36007d54d82f959339e15f96825f",
+      "prose": "traces/actors.md",
+      "source_records": 32,
+      "finite_subtraces": 2,
+      "coverage_records": [
+        {
+          "key": "work_def",
+          "path": "input/Settings/JobDef/JobDef_Work.xml",
+          "sha256": "215920c2b2defd304dddec58fcadcc91e65fe5a0437075bca8bffe6239e72b52",
+          "read_spans": [
+            [
+              1,
+              171
+            ]
+          ],
+          "json_pointer": "/sources/work_def"
+        },
+        {
+          "key": "clean_command_def",
+          "path": "input/Settings/CommandDef/CommandTypeDef_Work.xml",
+          "sha256": "8d62ec478e5cdacb260ce5119894c4faaa1f23fe19ddf82b4642a1f55f2ca5eb",
+          "read_spans": [
+            [
+              150,
+              153
+            ]
+          ],
+          "json_pointer": "/sources/clean_command_def"
+        },
+        {
+          "key": "social_stories",
+          "path": "input/Settings/NpcStories/social.xml",
+          "sha256": "26c75ae2b8711b05d793da59e18617942f453bea01771f4c18e689de49f2984b",
+          "read_spans": [
+            [
+              1,
+              94
+            ],
+            [
+              98,
+              136
+            ]
+          ],
+          "json_pointer": "/sources/social_stories"
+        },
+        {
+          "key": "favour_def",
+          "path": "input/Settings/Npc/Favour/Test.xml",
+          "sha256": "e1481332c7f78a6f7cfbf2df61c77d2599610171780a5aadab52b8874d349d5f",
+          "read_spans": [
+            [
+              358,
+              454
+            ]
+          ],
+          "json_pointer": "/sources/favour_def"
+        },
+        {
+          "key": "mood_def",
+          "path": "input/Settings/Npc/Moods/Moods_EventFeedback.xml",
+          "sha256": "30cc5640f5f88f5135df7f2eb69a0610ba745774d0c94de464c76e3b416bee5f",
+          "read_spans": [
+            [
+              558,
+              611
+            ]
+          ],
+          "json_pointer": "/sources/mood_def"
+        },
+        {
+          "key": "practice_relation",
+          "path": "input/Settings/Npc/Relation/PracticeKinship.xml",
+          "sha256": "f2d5861855215e0465d945db86d6735810b5eaa7a08f73406988d517b9d68271",
+          "read_spans": [
+            [
+              1,
+              81
+            ]
+          ],
+          "json_pointer": "/sources/practice_relation"
+        },
+        {
+          "key": "empty_behaviour",
+          "path": "input/Settings/Behaviour/Human.xml",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "read_spans": [],
+          "json_pointer": "/sources/empty_behaviour"
+        },
+        {
+          "key": "work_engine",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobNpcEngine.cs",
+          "sha256": "761553a22b1199fa8007411bb62ab6c832a2b636c4961ec06a9750185a3d2cfa",
+          "read_spans": [
+            [
+              1,
+              694
+            ]
+          ],
+          "json_pointer": "/sources/work_engine"
+        },
+        {
+          "key": "behaviour",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourBase.cs",
+          "sha256": "0743e122b5bfd75007b0314829af9daf386d3753d3e0833c8541024f4a0a560c",
+          "read_spans": [
+            [
+              1,
+              56
+            ]
+          ],
+          "json_pointer": "/sources/behaviour"
+        },
+        {
+          "key": "behaviour_kind",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/g_emBehaviourKind.cs",
+          "sha256": "ad06fa46cd5016ad89f64041fd6289117fa6c275fb36b46bff8326db4799d4c3",
+          "read_spans": [
+            [
+              1,
+              10
+            ]
+          ],
+          "json_pointer": "/sources/behaviour_kind"
+        },
+        {
+          "key": "clean_admission",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourCleanFloor.cs",
+          "sha256": "4572cc03d924168277c3d2c7a8e721c7f9e1cbcc38ca27c31f6ff588c71b1624",
+          "read_spans": [
+            [
+              1,
+              24
+            ]
+          ],
+          "json_pointer": "/sources/clean_admission"
+        },
+        {
+          "key": "clean_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobCleanFloor.cs",
+          "sha256": "3898b43d7c316b1becd46fc022ca982bfcea548f50074892ecba66bf1026d111",
+          "read_spans": [
+            [
+              1,
+              38
+            ]
+          ],
+          "json_pointer": "/sources/clean_job"
+        },
+        {
+          "key": "clean_command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandClean.cs",
+          "sha256": "3a705d9fc9b338444d381a659b5751e69dc706ce7d804cc616ea4a76cd72077f",
+          "read_spans": [
+            [
+              1,
+              62
+            ]
+          ],
+          "json_pointer": "/sources/clean_command"
+        },
+        {
+          "key": "command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Command.cs",
+          "sha256": "f83d41515402285d557dfa78d79c0918b66276a0d045595bda1f1c8e1bdc8d82",
+          "read_spans": [
+            [
+              401,
+              448
+            ],
+            [
+              478,
+              494
+            ],
+            [
+              517,
+              604
+            ]
+          ],
+          "json_pointer": "/sources/command"
+        },
+        {
+          "key": "command_search",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMgr.cs",
+          "sha256": "039c0ef3ab9d3c7831c32cde69c99c42d491182da5268c6cf6db88b2a2ce6024",
+          "read_spans": [
+            [
+              390,
+              503
+            ]
+          ],
+          "json_pointer": "/sources/command_search"
+        },
+        {
+          "key": "job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobBase.cs",
+          "sha256": "694b4ceb709b2be9dd37088dec3fe2f32df7c0f57ac026d507ab7932f78060b1",
+          "read_spans": [
+            [
+              243,
+              258
+            ],
+            [
+              315,
+              345
+            ],
+            [
+              373,
+              412
+            ],
+            [
+              462,
+              552
+            ],
+            [
+              595,
+              689
+            ]
+          ],
+          "json_pointer": "/sources/job"
+        },
+        {
+          "key": "idle",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilIdle.cs",
+          "sha256": "cfb7b99b917cccc985493582a95bfb5d4f25ebeda6e434afdd7232a040dc8b20",
+          "read_spans": [
+            [
+              1,
+              109
+            ]
+          ],
+          "json_pointer": "/sources/idle"
+        },
+        {
+          "key": "free_retry",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobFree.cs",
+          "sha256": "304bb6e4f0dfb1fb8b9bb2d4009c257fb279ffc6de6dad30b37b38b0c7af9439",
+          "read_spans": [
+            [
+              115,
+              129
+            ]
+          ],
+          "json_pointer": "/sources/free_retry"
+        },
+        {
+          "key": "npc",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+          "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+          "read_spans": [
+            [
+              52,
+              61
+            ],
+            [
+              518,
+              525
+            ],
+            [
+              2437,
+              2469
+            ],
+            [
+              4777,
+              4805
+            ],
+            [
+              5269,
+              5284
+            ],
+            [
+              6326,
+              6358
+            ]
+          ],
+          "json_pointer": "/sources/npc"
+        },
+        {
+          "key": "work_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_NpcWork.cs",
+          "sha256": "b984c269fc754e7429aca58554d58c50f8a98244802d467e9419350fd8a9ea31",
+          "read_spans": [
+            [
+              48,
+              64
+            ],
+            [
+              180,
+              198
+            ]
+          ],
+          "json_pointer": "/sources/work_ui"
+        },
+        {
+          "key": "room",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/AreaRoom.cs",
+          "sha256": "48a28f7ee31e2ee6b43a29e45e8112b86565ffd0a0d81612015d045573ebe40f",
+          "read_spans": [
+            [
+              253,
+              256
+            ],
+            [
+              332,
+              339
+            ],
+            [
+              407,
+              411
+            ],
+            [
+              500,
+              515
+            ]
+          ],
+          "json_pointer": "/sources/room"
+        },
+        {
+          "key": "map",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Map.cs",
+          "sha256": "4cec258d3f3fb207a4c1d915718196c80d850eb7f8c24018a0cfd5adbf8e6018",
+          "read_spans": [
+            [
+              519,
+              530
+            ],
+            [
+              2280,
+              2304
+            ]
+          ],
+          "json_pointer": "/sources/map"
+        },
+        {
+          "key": "relation",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcRelation.cs",
+          "sha256": "24e30a4879dff1227b58a4a1f1b637b63e3c53a33de11d2470509ed7bcee5932",
+          "read_spans": [
+            [
+              1,
+              131
+            ],
+            [
+              257,
+              301
+            ],
+            [
+              456,
+              508
+            ],
+            [
+              754,
+              920
+            ],
+            [
+              922,
+              939
+            ],
+            [
+              1037,
+              1129
+            ],
+            [
+              1298,
+              1386
+            ],
+            [
+              1406,
+              1423
+            ],
+            [
+              1431,
+              1479
+            ]
+          ],
+          "json_pointer": "/sources/relation"
+        },
+        {
+          "key": "feeling",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFeeling.cs",
+          "sha256": "ea7866a2b6e01cc0e2709ac40ed3da7301f49bf09ff58836d06eb859bd3ce2b7",
+          "read_spans": [
+            [
+              169,
+              239
+            ],
+            [
+              714,
+              771
+            ]
+          ],
+          "json_pointer": "/sources/feeling"
+        },
+        {
+          "key": "social_weights",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+          "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+          "read_spans": [
+            [
+              1748,
+              1778
+            ]
+          ],
+          "json_pointer": "/sources/social_weights"
+        },
+        {
+          "key": "interactive_kinds",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/g_emNpcInteractiveKind.cs",
+          "sha256": "3831d5b82652dc4370199216f070e73d62f112f6669bde7e5e619b65890742a9",
+          "read_spans": [
+            [
+              1,
+              20
+            ]
+          ],
+          "json_pointer": "/sources/interactive_kinds"
+        },
+        {
+          "key": "social_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobTalk.cs",
+          "sha256": "db674b0814c67c4059129422c005885d70ec1f1b9a22f24acb9e8fea83fb53b2",
+          "read_spans": [
+            [
+              1,
+              87
+            ]
+          ],
+          "json_pointer": "/sources/social_job"
+        },
+        {
+          "key": "npc_story",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMgr.cs",
+          "sha256": "b22f6923fb292e2e98931b24a35a1ffce705a7863b00bac8069f625a9004d1c2",
+          "read_spans": [
+            [
+              1710,
+              1785
+            ]
+          ],
+          "json_pointer": "/sources/npc_story"
+        },
+        {
+          "key": "memory_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_NpcInfo.cs",
+          "sha256": "2af40ac247a7ff35eab5e052cf0c169798476bf00bcd7789f4af9425b2b78079",
+          "read_spans": [
+            [
+              200,
+              212
+            ],
+            [
+              306,
+              343
+            ]
+          ],
+          "json_pointer": "/sources/memory_ui"
+        },
+        {
+          "key": "mood",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMoodMgr.cs",
+          "sha256": "2609f4516540c543816b1dfc1f87ef91d3cef6aa3b75ed9defd49836d837ab5d",
+          "read_spans": [
+            [
+              189,
+              285
+            ],
+            [
+              430,
+              439
+            ],
+            [
+              442,
+              491
+            ],
+            [
+              498,
+              529
+            ]
+          ],
+          "json_pointer": "/sources/mood"
+        },
+        {
+          "key": "favour",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFavourDef.cs",
+          "sha256": "0e5018b320ac09c47e82db98d555efed29a70f7f316b34ff948827520a98f649",
+          "read_spans": [
+            [
+              1,
+              84
+            ]
+          ],
+          "json_pointer": "/sources/favour"
+        },
+        {
+          "key": "property_step",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPropertyMgr.cs",
+          "sha256": "5c479844d3e460bf1ec8f13098d5a6905ba3604813135ed4d92a435c6eb14132",
+          "read_spans": [
+            [
+              1294,
+              1299
+            ]
+          ],
+          "json_pointer": "/sources/property_step"
+        }
+      ],
+      "review": "Leaf source self-check plus root consequential caller/cost/mutation/consumer/aftermath review; institution authored/reviewed by root. Source review only."
+    },
+    {
+      "id": "institution",
+      "title": "Sect knowledge, institutional archive and world exploration",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/institution.json",
+      "trace_sha256": "6f06cb3c9973301184a716c4e90732ff8cb14fe2f7a57abbeeeda4e99bc86b88",
+      "prose": "traces/institution.md",
+      "source_records": 20,
+      "finite_subtraces": 3,
+      "coverage_records": [
+        {
+          "key": "job_def",
+          "path": "input/Settings/JobDef/JobDef_Disciple.xml",
+          "sha256": "4d55b3d646851b290e1e39dfd1a47599dd73dd45d365ca64c51918727f8a9363",
+          "read_spans": [
+            [
+              26,
+              33
+            ],
+            [
+              116,
+              126
+            ]
+          ],
+          "json_pointer": "/sources/job_def"
+        },
+        {
+          "key": "book_def",
+          "path": "input/Settings/Esoterica/Esoterica_Book.xml",
+          "sha256": "3457e2d8827784328ac24f6d73860a3dfbf919b9579c650cea70f40bfa6e96ce",
+          "read_spans": [
+            [
+              28,
+              65
+            ]
+          ],
+          "json_pointer": "/sources/book_def"
+        },
+        {
+          "key": "shelf_def",
+          "path": "input/Settings/ThingDef/Building/Building_Ornament.xml",
+          "sha256": "f45934d639a4086fdd41ffea4b9ec0f7258a0cdc395a38baf3680e6177734b99",
+          "read_spans": [
+            [
+              1419,
+              1438
+            ]
+          ],
+          "json_pointer": "/sources/shelf_def"
+        },
+        {
+          "key": "place_story",
+          "path": "input/Settings/MapStories/MapStory_System.xml",
+          "sha256": "fa8294d273fe05575542029ac83646eb5dc5ec174b54f85c8ef964ab02a8d4c7",
+          "read_spans": [
+            [
+              1,
+              36
+            ]
+          ],
+          "json_pointer": "/sources/place_story"
+        },
+        {
+          "key": "teaching_cmd",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandTeachHim.cs",
+          "sha256": "166546b03dcd9da16cb0fe9346b3bb24ca39ae33556c0167721c4b40382db315",
+          "read_spans": [
+            [
+              1,
+              88
+            ]
+          ],
+          "json_pointer": "/sources/teaching_cmd"
+        },
+        {
+          "key": "teaching_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobTeachHim.cs",
+          "sha256": "1ecb72e75880071cd40adb055da9a4fa9d9edf4a08347660f38f6644fa88db49",
+          "read_spans": [
+            [
+              1,
+              64
+            ]
+          ],
+          "json_pointer": "/sources/teaching_job"
+        },
+        {
+          "key": "learn_gate",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+          "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+          "read_spans": [
+            [
+              790,
+              862
+            ],
+            [
+              1038,
+              1050
+            ],
+            [
+              1782,
+              1840
+            ]
+          ],
+          "json_pointer": "/sources/learn_gate"
+        },
+        {
+          "key": "learn_effect",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/EsotericaMgr.cs",
+          "sha256": "ea3f7f40aca5034d86e294f184cec7c26ae8b9546379a2ce6af0c89ced9b41c6",
+          "read_spans": [
+            [
+              372,
+              442
+            ],
+            [
+              455,
+              566
+            ]
+          ],
+          "json_pointer": "/sources/learn_effect"
+        },
+        {
+          "key": "school_method",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/SchoolMgr.cs",
+          "sha256": "45d0044c40f6805208ad3b6caf11f9f421fdc6c8aa68c98830a6bb678a7bcd27",
+          "read_spans": [
+            [
+              730,
+              765
+            ]
+          ],
+          "json_pointer": "/sources/school_method"
+        },
+        {
+          "key": "archive",
+          "path": "decompiled/Assembly-CSharp/CangJingGeMgr.cs",
+          "sha256": "5229156f789fa6d4af65fcc06a47813625325fb428ff5f0d5b408ddd99538341",
+          "read_spans": [
+            [
+              1,
+              68
+            ],
+            [
+              274,
+              444
+            ]
+          ],
+          "json_pointer": "/sources/archive"
+        },
+        {
+          "key": "archive_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobCangJingGe.cs",
+          "sha256": "5fd6db20c7a1754901b5c25ebb88ca7e80849c28294c6a53ef3e6276b2e137ec",
+          "read_spans": [
+            [
+              1,
+              70
+            ]
+          ],
+          "json_pointer": "/sources/archive_job"
+        },
+        {
+          "key": "archive_toil",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilCangJingGe.cs",
+          "sha256": "adfa40f48e968099709153b1ef56fd0c45681dcd46ffc409cffbc3a71174de53",
+          "read_spans": [
+            [
+              1,
+              161
+            ]
+          ],
+          "json_pointer": "/sources/archive_toil"
+        },
+        {
+          "key": "archive_command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandCangJingGe.cs",
+          "sha256": "2e82d8e25e8ab647c7e6a2d68fc2e1adb135fc3b4d20d3209c08a58931db4ba3",
+          "read_spans": [
+            [
+              1,
+              209
+            ]
+          ],
+          "json_pointer": "/sources/archive_command"
+        },
+        {
+          "key": "archive_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_CangJingGeWindow.cs",
+          "sha256": "5070948b99ecccf3b013bd86fe7ade7f20f42b8d870cead7bc1930786db4b43e",
+          "read_spans": [
+            [
+              252,
+              295
+            ]
+          ],
+          "json_pointer": "/sources/archive_ui"
+        },
+        {
+          "key": "explore_command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandGoMapExplore.cs",
+          "sha256": "f0c1061e7f90eb970ea33aa84efc57079da30450143a33313f3d5df83dc636d4",
+          "read_spans": [
+            [
+              1,
+              42
+            ]
+          ],
+          "json_pointer": "/sources/explore_command"
+        },
+        {
+          "key": "explore_behaviour",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourGoMapExplore.cs",
+          "sha256": "7adb39e7e1f81bc77ac3985f9c5eee9c06aa6ead82b4018bb70d742c020e1277",
+          "read_spans": [
+            [
+              1,
+              20
+            ]
+          ],
+          "json_pointer": "/sources/explore_behaviour"
+        },
+        {
+          "key": "explore_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobLeave2Explore.cs",
+          "sha256": "3fa87b5f80a2c4c60819e61227d8d009f46c6d5b192b184663503e36bce60260",
+          "read_spans": [
+            [
+              1,
+              149
+            ],
+            [
+              150,
+              219
+            ]
+          ],
+          "json_pointer": "/sources/explore_job"
+        },
+        {
+          "key": "explore_mgr",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/PlacesMgr.cs",
+          "sha256": "0eb08f9fe89e4193300eb4f3c8049a5fbbe459b7c8a68987139a2ebf4bac8acc",
+          "read_spans": [
+            [
+              450,
+              770
+            ],
+            [
+              783,
+              875
+            ],
+            [
+              945,
+              1030
+            ]
+          ],
+          "json_pointer": "/sources/explore_mgr"
+        },
+        {
+          "key": "explore_actor",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+          "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+          "read_spans": [
+            [
+              6861,
+              6885
+            ],
+            [
+              7017,
+              7042
+            ]
+          ],
+          "json_pointer": "/sources/explore_actor"
+        },
+        {
+          "key": "explore_lua",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingLuaHelperBase.cs",
+          "sha256": "3dbc48eb22aa976c0e4fe7bf365e2234e9db59a037aae4687c971e546471ac24",
+          "read_spans": [
+            [
+              183,
+              228
+            ]
+          ],
+          "json_pointer": "/sources/explore_lua"
+        }
+      ],
+      "review": "Leaf source self-check plus root consequential caller/cost/mutation/consumer/aftermath review; institution authored/reviewed by root. Source review only."
+    },
+    {
+      "id": "pacing",
+      "title": "Discovery, automation and pacing",
+      "status": "selected_finite_source_trace_complete",
+      "trace": "traces/pacing.json",
+      "trace_sha256": "b30aecd4f774f407722b576c8575972ddced528ff929a17d21ff056e6424d860",
+      "prose": "traces/pacing.md",
+      "source_records": 35,
+      "finite_subtraces": 4,
+      "coverage_records": [
+        {
+          "key": "mod_docs",
+          "path": "input/Mods/Readme_EN.txt",
+          "sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+          "read_spans": [
+            [
+              17,
+              23
+            ],
+            [
+              41,
+              48
+            ]
+          ],
+          "json_pointer": "/sources/mod_docs"
+        },
+        {
+          "key": "help_controls",
+          "path": "input/Settings/Language/OfficialEnglish/Settings/Ui/Help/Help.xml",
+          "sha256": "8f7f141d4258a5e2a5bcaedde31fec374c1f4a0819bcd69d73850fde2977400b",
+          "read_spans": [
+            [
+              66,
+              85
+            ]
+          ],
+          "json_pointer": "/sources/help_controls"
+        },
+        {
+          "key": "handbook_defs",
+          "path": "input/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+          "sha256": "1d260dc5f2877e7aa37d604ba69ca6ccc69f04e34aa8ecda06c633a60d6caf6e",
+          "read_spans": [
+            [
+              1,
+              17
+            ]
+          ],
+          "json_pointer": "/sources/handbook_defs"
+        },
+        {
+          "key": "handbook_defs_en",
+          "path": "input/Settings/Language/OfficialEnglish/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+          "sha256": "5ab7dc25cbfc68311380a1c0e64541ddda8e7ff004b3c7aa7e1a962ce6b8d13f",
+          "read_spans": [
+            [
+              1,
+              17
+            ]
+          ],
+          "json_pointer": "/sources/handbook_defs_en"
+        },
+        {
+          "key": "notice_defs",
+          "path": "input/Settings/Ui/NpcUIEvent/NewNpcUIEvent.txt",
+          "sha256": "d0647ee4c8bd47c44f68318e0651df211d914d22420844a2a3f91e111d6ed38c",
+          "read_spans": [
+            [
+              1,
+              86
+            ]
+          ],
+          "json_pointer": "/sources/notice_defs"
+        },
+        {
+          "key": "time_script",
+          "path": "input/Scripts/Misc/timescript.lua",
+          "sha256": "8b7bd00b40c7584cb780c118286f98aa595d539fa435afa7a1435578cea8a2e2",
+          "read_spans": [
+            [
+              1,
+              170
+            ]
+          ],
+          "json_pointer": "/sources/time_script"
+        },
+        {
+          "key": "lua_main",
+          "path": "input/Scripts/main.lua",
+          "sha256": "58a27d2b542e074ea957c5f1528518e711547d61967682df2fcb36d1fcc82d18",
+          "read_spans": [
+            [
+              11,
+              90
+            ],
+            [
+              113,
+              141
+            ],
+            [
+              194,
+              217
+            ]
+          ],
+          "json_pointer": "/sources/lua_main"
+        },
+        {
+          "key": "mod_base",
+          "path": "input/Scripts/modbase.lua",
+          "sha256": "675e113e910293696e111c0cd50eadcfe2c9de97e6aa264950d1dc6bbee3b6ef",
+          "read_spans": [
+            [
+              1,
+              119
+            ]
+          ],
+          "json_pointer": "/sources/mod_base"
+        },
+        {
+          "key": "lua_error",
+          "path": "input/Scripts/lib.lua",
+          "sha256": "219088958b6adad269a98a71736c730b81d0a6f1bb5fe90567dc81dab0d153fb",
+          "read_spans": [
+            [
+              366,
+              383
+            ]
+          ],
+          "json_pointer": "/sources/lua_error"
+        },
+        {
+          "key": "wood_recipe",
+          "path": "input/Settings/ThingDef/Item/Item_Material_2_WoodBlock.xml",
+          "sha256": "d156c0d684af32eaba0acf8cec95a05f4ab7fd768762ca2eb1c44169e886f2a8",
+          "read_spans": [
+            [
+              1,
+              104
+            ]
+          ],
+          "json_pointer": "/sources/wood_recipe"
+        },
+        {
+          "key": "material_station",
+          "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+          "sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+          "read_spans": [
+            [
+              175,
+              230
+            ]
+          ],
+          "json_pointer": "/sources/material_station"
+        },
+        {
+          "key": "handbook_mgr",
+          "path": "decompiled/Assembly-CSharp/AllIllustratedHandMgr.cs",
+          "sha256": "ef1623d941f273556369e83844d16f6cd1ec06aa6b8fdb1d7aa0afe57857c4c5",
+          "read_spans": [
+            [
+              1,
+              324
+            ],
+            [
+              525,
+              894
+            ]
+          ],
+          "json_pointer": "/sources/handbook_mgr"
+        },
+        {
+          "key": "handbook_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_AllIllustratedHandWindow.cs",
+          "sha256": "24651e8b3bf5b91cc3e500b5922256e8ce4eef630dd3f7cafb192cbc88ab5bcf",
+          "read_spans": [
+            [
+              83,
+              152
+            ],
+            [
+              168,
+              232
+            ],
+            [
+              514,
+              561
+            ]
+          ],
+          "json_pointer": "/sources/handbook_ui"
+        },
+        {
+          "key": "thing_catalogue",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+          "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+          "read_spans": [
+            [
+              376,
+              409
+            ]
+          ],
+          "json_pointer": "/sources/thing_catalogue"
+        },
+        {
+          "key": "item_discovery",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ItemThing.cs",
+          "sha256": "b35f48a2de59ecda0434982bdbf35a9bc32f02806601938fb1b35d747fdeacf3",
+          "read_spans": [
+            [
+              968,
+              979
+            ],
+            [
+              1214,
+              1237
+            ],
+            [
+              1502,
+              1513
+            ]
+          ],
+          "json_pointer": "/sources/item_discovery"
+        },
+        {
+          "key": "map_drop",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/Map.cs",
+          "sha256": "4cec258d3f3fb207a4c1d915718196c80d850eb7f8c24018a0cfd5adbf8e6018",
+          "read_spans": [
+            [
+              2109,
+              2147
+            ],
+            [
+              2625,
+              2650
+            ]
+          ],
+          "json_pointer": "/sources/map_drop"
+        },
+        {
+          "key": "main_time",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/MainManager.cs",
+          "sha256": "df3f72c9e7ce829c07d95aafec8c3c3ae400fbf7399b9fbc931c2903aab7a854",
+          "read_spans": [
+            [
+              76,
+              115
+            ],
+            [
+              353,
+              448
+            ],
+            [
+              855,
+              964
+            ]
+          ],
+          "json_pointer": "/sources/main_time"
+        },
+        {
+          "key": "game_tick",
+          "path": "decompiled/Assembly-CSharp/GameMain.cs",
+          "sha256": "142d99cd40e192ade1780d358268788e5474da61904f5bbc85f573f16a516f73",
+          "read_spans": [
+            [
+              555,
+              585
+            ]
+          ],
+          "json_pointer": "/sources/game_tick"
+        },
+        {
+          "key": "world_tick",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/World.cs",
+          "sha256": "c052c0cda54b6680df68b552857a6d8890068a7ab90def49e5375029ad8044a7",
+          "read_spans": [
+            [
+              63,
+              140
+            ],
+            [
+              888,
+              935
+            ]
+          ],
+          "json_pointer": "/sources/world_tick"
+        },
+        {
+          "key": "world_manager",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/WorldMgr.cs",
+          "sha256": "a6e98a42f6fdddf09f6fdf5c0105a94b4d3253954110cb8a29a18ff2633af190",
+          "read_spans": [
+            [
+              1,
+              20
+            ],
+            [
+              148,
+              151
+            ]
+          ],
+          "json_pointer": "/sources/world_manager"
+        },
+        {
+          "key": "manager_base",
+          "path": "decompiled/Assembly-CSharp/IManagerModule.cs",
+          "sha256": "0ead3d3ae9a82e8d23c44d6a984bf1a39d04f6669ed15ed8da344a04f754b446",
+          "read_spans": [
+            [
+              1,
+              54
+            ]
+          ],
+          "json_pointer": "/sources/manager_base"
+        },
+        {
+          "key": "lua_manager",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/LuaMgr.cs",
+          "sha256": "5a759731d06f93634a6c633202e2f9c3922e41111fb3c628c492dc27e7fad0b1",
+          "read_spans": [
+            [
+              59,
+              114
+            ],
+            [
+              175,
+              183
+            ]
+          ],
+          "json_pointer": "/sources/lua_manager"
+        },
+        {
+          "key": "speed_ui",
+          "path": "decompiled/Assembly-CSharp/Wnd_GameMain.cs",
+          "sha256": "b3853d3a2bdcac1ec59e00df644fc7ad094baecc1b579926e3a6c0c93634b2d4",
+          "read_spans": [
+            [
+              290,
+              311
+            ],
+            [
+              2257,
+              2295
+            ]
+          ],
+          "json_pointer": "/sources/speed_ui"
+        },
+        {
+          "key": "speed_hotkey",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_Global.cs",
+          "sha256": "22e8419d643010b854031e43956d29add3487479039df5b3c7f55ac23b00c8c3",
+          "read_spans": [
+            [
+              310,
+              335
+            ]
+          ],
+          "json_pointer": "/sources/speed_hotkey"
+        },
+        {
+          "key": "notice_mgr",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/MessageMgr.cs",
+          "sha256": "495ccb3cad9850639b2dec03f85f993c2457da3e5f18011e7eb57acc786654f2",
+          "read_spans": [
+            [
+              333,
+              349
+            ],
+            [
+              484,
+              526
+            ],
+            [
+              583,
+              613
+            ],
+            [
+              619,
+              666
+            ],
+            [
+              791,
+              851
+            ],
+            [
+              1107,
+              1132
+            ],
+            [
+              1395,
+              1415
+            ]
+          ],
+          "json_pointer": "/sources/notice_mgr"
+        },
+        {
+          "key": "focus",
+          "path": "decompiled/Assembly-CSharp/GameWatch.cs",
+          "sha256": "2dfc8a74dd8c852c1c9ed7913079a5b6883f0875fb6b1161cab4c4795cf7e1db",
+          "read_spans": [
+            [
+              1725,
+              1743
+            ]
+          ],
+          "json_pointer": "/sources/focus"
+        },
+        {
+          "key": "loop_ui",
+          "path": "decompiled/Assembly-CSharp/Panel_BuildingProduceList.cs",
+          "sha256": "ef856afb5a5b51e53640805fd6977ce8cc49f92d619a69b01be187f07bedf411",
+          "read_spans": [
+            [
+              1,
+              40
+            ],
+            [
+              42,
+              125
+            ],
+            [
+              145,
+              177
+            ]
+          ],
+          "json_pointer": "/sources/loop_ui"
+        },
+        {
+          "key": "produce_queue",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+          "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+          "read_spans": [
+            [
+              1,
+              83
+            ],
+            [
+              115,
+              238
+            ],
+            [
+              264,
+              327
+            ],
+            [
+              330,
+              417
+            ],
+            [
+              493,
+              623
+            ]
+          ],
+          "json_pointer": "/sources/produce_queue"
+        },
+        {
+          "key": "produce_worker",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ToilMakeItem.cs",
+          "sha256": "3f129c67974759e44fd634105313dd10cfa283e021c269349aa71e366170ea04",
+          "read_spans": [
+            [
+              1,
+              258
+            ]
+          ],
+          "json_pointer": "/sources/produce_worker"
+        },
+        {
+          "key": "produce_job",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/JobMakeItem.cs",
+          "sha256": "fe555918f4328eab69780cc5d770b3c24a69a16c06b3dc6104092287ad679307",
+          "read_spans": [
+            [
+              1,
+              45
+            ]
+          ],
+          "json_pointer": "/sources/produce_job"
+        },
+        {
+          "key": "produce_command",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMakeItem.cs",
+          "sha256": "238de0545a48cdf96f9f32a084bb8cc04b222435b2a0d03a23aa2dd322852ddc",
+          "read_spans": [
+            [
+              1,
+              53
+            ]
+          ],
+          "json_pointer": "/sources/produce_command"
+        },
+        {
+          "key": "item_cost",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ItemCostData.cs",
+          "sha256": "f30f62782b21be009b30e11b8dbbb6d10f412691f4ab6e8bee39c1b02210aab7",
+          "read_spans": [
+            [
+              1,
+              44
+            ]
+          ],
+          "json_pointer": "/sources/item_cost"
+        },
+        {
+          "key": "made_data",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/ThingBeMadeData.cs",
+          "sha256": "d8a92ffebd74db16b570d55351a08ffd2c415c545fc218dde58cf76a17d3d1d7",
+          "read_spans": [
+            [
+              1,
+              61
+            ]
+          ],
+          "json_pointer": "/sources/made_data"
+        },
+        {
+          "key": "difficulty_scaling",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/DifficultyMgr.cs",
+          "sha256": "360689020d3426ac4564cb243515da912fdf53531db3ebe22528c1a67cba23f7",
+          "read_spans": [
+            [
+              510,
+              550
+            ]
+          ],
+          "json_pointer": "/sources/difficulty_scaling"
+        },
+        {
+          "key": "building_tick",
+          "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingThing.cs",
+          "sha256": "be2ba58ac8f2cc0125d331b846f1a3f4ff9a7482e4f56199be05dab434b3c555",
+          "read_spans": [
+            [
+              1730,
+              1745
+            ]
+          ],
+          "json_pointer": "/sources/building_tick"
+        }
+      ],
+      "review": "Leaf source self-check plus root consequential caller/cost/mutation/consumer/aftermath review; institution authored/reviewed by root. Source review only."
+    }
+  ],
+  "unique_acs_source_files_with_selected_spans": 124,
+  "selected_source_lines_union": 16957,
+  "selected_source_records_union": [
+    {
+      "path": "input/Settings/Practice/Gong/Gong_1.xml",
+      "sha256": "f1bb30e8a6195d8c7f64aa5d57f5d365683362936dec6d7357f9be8a53c174bb",
+      "read_spans": [
+        [
+          1,
+          185
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 185
+    },
+    {
+      "path": "input/Settings/Weather/Weather.xml",
+      "sha256": "b6c85b77be232a91a75b8d8b616c7f2e68b02df8f3a0eccb9a727d0513b051ec",
+      "read_spans": [
+        [
+          37,
+          169
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 133
+    },
+    {
+      "path": "input/Scripts/gameult.lua",
+      "sha256": "c49b81d289769d340cba5a0ed63524253ebfb3ba0457570e3e42fe02d635a01a",
+      "read_spans": [
+        [
+          434,
+          479
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 46
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GongDef.cs",
+      "sha256": "7141fa00aa7f546f6d9eae47d60612d888ee24fbbf620b8d1386232bafb4712a",
+      "read_spans": [
+        [
+          1,
+          137
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 137
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GongStageNeck.cs",
+      "sha256": "1b4ef6acb350464e5bc8a069d399d1e2fbe0c2025e8d8149a1081100b6e92fba",
+      "read_spans": [
+        [
+          1,
+          80
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 80
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/PracticeMgr.cs",
+      "sha256": "210a3ffd979931acfcc9a152ea9de8b4c3eb64c2b96c3aa7dc71b6445e7d0440",
+      "read_spans": [
+        [
+          571,
+          612
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 42
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+      "read_spans": [
+        [
+          184,
+          240
+        ],
+        [
+          363,
+          508
+        ],
+        [
+          790,
+          869
+        ],
+        [
+          1038,
+          1050
+        ],
+        [
+          1782,
+          1840
+        ],
+        [
+          2324,
+          2369
+        ],
+        [
+          2403,
+          2498
+        ],
+        [
+          2614,
+          2758
+        ],
+        [
+          3122,
+          3212
+        ],
+        [
+          3214,
+          3270
+        ],
+        [
+          3363,
+          3432
+        ],
+        [
+          3452,
+          3490
+        ],
+        [
+          3590,
+          3708
+        ],
+        [
+          3739,
+          3967
+        ],
+        [
+          3982,
+          4118
+        ],
+        [
+          4164,
+          4361
+        ]
+      ],
+      "families": [
+        "cultivation",
+        "institution"
+      ],
+      "read_lines": 1582
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobPractice.cs",
+      "sha256": "424d6cf6b1031f464d0110c2041fc6f2312ecfcdeaac17e370703d2df3916258",
+      "read_spans": [
+        [
+          1,
+          95
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 95
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilPractice.cs",
+      "sha256": "2ac822a04bbf1cc8845b5fd1e765582190797c08c48dab7b3855afc96b650af6",
+      "read_spans": [
+        [
+          1,
+          153
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 153
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandBrokenNeck.cs",
+      "sha256": "7f289566643f30b169357a601e8896f7abd6f7f83ce6a5d43425457d0d63e96e",
+      "read_spans": [
+        [
+          1,
+          75
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 75
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobBrokenNeck.cs",
+      "sha256": "1bcc85530f15b47774acba3f10b4951c9f75a681bce2babd5eaae4f8125ee62c",
+      "read_spans": [
+        [
+          1,
+          90
+        ],
+        [
+          179,
+          196
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 108
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+      "sha256": "285d719037c3484cc4feaca7dacd20577ef4d293e8501a6633369fe929361d2e",
+      "read_spans": [
+        [
+          14,
+          85
+        ],
+        [
+          95,
+          134
+        ],
+        [
+          136,
+          251
+        ],
+        [
+          262,
+          330
+        ],
+        [
+          338,
+          400
+        ],
+        [
+          434,
+          479
+        ],
+        [
+          708,
+          937
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 636
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_BrokenNeck.cs",
+      "sha256": "24da922b4ec80fc7f15ce09e14cf1c76633033c2d227fbf2c37f7bda1808b0e3",
+      "read_spans": [
+        [
+          150,
+          245
+        ],
+        [
+          680,
+          758
+        ],
+        [
+          838,
+          895
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 233
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/WeatherMapData.cs",
+      "sha256": "89c1fcd7f9c699fd8f4d4bc0e3d1ca4500c83f4868c8e30b14c07d48fc7c5a05",
+      "read_spans": [
+        [
+          447,
+          459
+        ],
+        [
+          918,
+          966
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 62
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/GameDefine.cs",
+      "sha256": "b33d57bac847e0159060270adb49ded7ca906c0e338bd86a2164672b0a2addf1",
+      "read_spans": [
+        [
+          1748,
+          1778
+        ],
+        [
+          1888,
+          1910
+        ],
+        [
+          1924,
+          1962
+        ],
+        [
+          2315,
+          2328
+        ],
+        [
+          2893,
+          2918
+        ],
+        [
+          4675,
+          4683
+        ]
+      ],
+      "families": [
+        "actors",
+        "cultivation"
+      ],
+      "read_lines": 142
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emMapProperty.cs",
+      "sha256": "1a256c769e9851192425651ccb01fbd687214d6a5acd6ae0a669adecb22b7188",
+      "read_spans": [
+        [
+          1,
+          32
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 32
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Npc.cs",
+      "sha256": "10158fed2d2ed41c26d98455fc236fec98c0f8799b2ce41043266d77a16aa1e6",
+      "read_spans": [
+        [
+          52,
+          61
+        ],
+        [
+          518,
+          525
+        ],
+        [
+          2437,
+          2469
+        ],
+        [
+          4297,
+          4318
+        ],
+        [
+          4370,
+          4397
+        ],
+        [
+          4420,
+          4436
+        ],
+        [
+          4490,
+          4550
+        ],
+        [
+          4660,
+          4688
+        ],
+        [
+          4777,
+          4805
+        ],
+        [
+          5269,
+          5284
+        ],
+        [
+          5801,
+          5804
+        ],
+        [
+          6326,
+          6358
+        ],
+        [
+          6656,
+          6666
+        ],
+        [
+          6861,
+          6885
+        ],
+        [
+          7017,
+          7042
+        ]
+      ],
+      "families": [
+        "actors",
+        "cultivation",
+        "institution",
+        "production"
+      ],
+      "read_lines": 352
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Thing.cs",
+      "sha256": "be94b3f1a7033e9f42ae845bb4b41ce67ae9c676a450553c2cb63a310ce21c8d",
+      "read_spans": [
+        [
+          1033,
+          1063
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 31
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingsBag.cs",
+      "sha256": "3a8478221e18180fa8baf9e8c736ddf9dbe7d8e10d4d1d201770d450c2e3a5a6",
+      "read_spans": [
+        [
+          818,
+          850
+        ]
+      ],
+      "families": [
+        "cultivation"
+      ],
+      "read_lines": 33
+    },
+    {
+      "path": "input/Settings/Practice/FabaoFormula/Fabao.xml",
+      "sha256": "27e1f1fe8ea7db8ee6a2bb28202c124f5fd7e2481f280502af8335186e21880b",
+      "read_spans": [
+        [
+          1,
+          125
+        ],
+        [
+          180,
+          312
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 258
+    },
+    {
+      "path": "input/Settings/Practice/DanFormula/Dan.xml",
+      "sha256": "623556d1ede2d5c5da910eed8e7d5e7f6ea6af091fb579d73e60af6954cd1607",
+      "read_spans": [
+        [
+          1,
+          180
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 180
+    },
+    {
+      "path": "input/Scripts/Fabao/FabaoMgr.lua",
+      "sha256": "0478b7252de765f4a731c92ae46b8befb716898ac67ba9f72d7a52bbdc6d8fd4",
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 62
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Consumable_Dan.xml",
+      "sha256": "dbc4835cc4e9b64c873ece3b9a439bd52e734b5d0a88b027289f01dacbbbefd1",
+      "read_spans": [
+        [
+          1,
+          141
+        ],
+        [
+          633,
+          698
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 207
+    },
+    {
+      "path": "input/Settings/Modifiers/Modifier_Dan.xml",
+      "sha256": "ac6de178739e39f16b44622de677a940e428f3b0cb130e6277025dc108deccbf",
+      "read_spans": [
+        [
+          1,
+          50
+        ],
+        [
+          245,
+          280
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 86
+    },
+    {
+      "path": "input/Settings/ThingDef/Building/Building_Magic.xml",
+      "sha256": "02e1d64eecedded0453865d4347d42da63bdc3de94c1cc23d7212c8e942a9b0e",
+      "read_spans": [
+        [
+          725,
+          793
+        ],
+        [
+          811,
+          875
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 134
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Equipment_Weapon.xml",
+      "sha256": "ae4ed5dfa175f9835fc49fffed642c56133f3c2535cb090325a61055276ca74a",
+      "read_spans": [
+        [
+          1,
+          80
+        ],
+        [
+          335,
+          386
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 132
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Material_2_MetalBlock.xml",
+      "sha256": "299e565c7e94447951c1526898207cd4acde2cdf04226eeaff679611be3aa15e",
+      "read_spans": [
+        [
+          1,
+          134
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 134
+    },
+    {
+      "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+      "sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+      "read_spans": [
+        [
+          175,
+          230
+        ],
+        [
+          556,
+          572
+        ],
+        [
+          607,
+          662
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 129
+    },
+    {
+      "path": "input/Settings/World/ItemPhysicalLable/ItemPhysicalLable.xml",
+      "sha256": "661eaf87ba87f75f7428bbf22bbcd809defff5e5f342cd67ae453de4e46271fe",
+      "read_spans": [
+        [
+          62,
+          78
+        ],
+        [
+          181,
+          194
+        ],
+        [
+          220,
+          231
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 43
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/ThingUICommandDefine.cs",
+      "sha256": "21b1a190a2ddaf6942f65c9d7278b407dd7472987e6aeca774e37eafd19b6476",
+      "read_spans": [
+        [
+          3180,
+          3300
+        ],
+        [
+          3537,
+          3627
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 212
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_IndividualCommand.cs",
+      "sha256": "28d34ac6d0c1ec73772e0cab7e07c4567b12e9a5f9fc4a6fbe448b13a8fb3682",
+      "read_spans": [
+        [
+          1399,
+          1426
+        ],
+        [
+          2791,
+          2858
+        ],
+        [
+          3013,
+          3032
+        ],
+        [
+          3064,
+          3069
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 122
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandRefiningFabao.cs",
+      "sha256": "a7dcbecdd47e633d745c3ab9ae3f8923c1afd704849293099215be5d4079f063",
+      "read_spans": [
+        [
+          1,
+          102
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 102
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobRefiningFabao.cs",
+      "sha256": "2bd761076a6b4b69b1044be957fbf2f4c54028c922f14818255095a57efb6ba3",
+      "read_spans": [
+        [
+          1,
+          66
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 66
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourRefiningFabao.cs",
+      "sha256": "6c2217bf56ece54255ebb76218d3f6615feca87535879fe883b914687b79368b",
+      "read_spans": [
+        [
+          1,
+          29
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 29
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilRefining.cs",
+      "sha256": "880f659ef37e6ce1e7f8bbb4a99f96d9c18a9b54c92e15814ad17349c900549c",
+      "read_spans": [
+        [
+          1,
+          338
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 338
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+      "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+      "read_spans": [
+        [
+          376,
+          409
+        ],
+        [
+          2457,
+          2467
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 45
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemThing.cs",
+      "sha256": "b35f48a2de59ecda0434982bdbf35a9bc32f02806601938fb1b35d747fdeacf3",
+      "read_spans": [
+        [
+          914,
+          938
+        ],
+        [
+          968,
+          979
+        ],
+        [
+          1041,
+          1103
+        ],
+        [
+          1214,
+          1237
+        ],
+        [
+          1502,
+          1513
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 136
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FabaoData.cs",
+      "sha256": "923ff00706f23b341bf65d9ac4aeba213d28206bbd2821f1585e573c7a043554",
+      "read_spans": [
+        [
+          268,
+          406
+        ],
+        [
+          490,
+          504
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 154
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FabaoBase.cs",
+      "sha256": "1d3f1a76465ec8824d31b79fa7d70dae9ba12b5e8816fd3cebc8183ca026a89c",
+      "read_spans": [
+        [
+          327,
+          360
+        ],
+        [
+          414,
+          463
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 84
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+      "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+      "read_spans": [
+        [
+          1,
+          245
+        ],
+        [
+          264,
+          327
+        ],
+        [
+          330,
+          623
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 603
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMakeItem.cs",
+      "sha256": "238de0545a48cdf96f9f32a084bb8cc04b222435b2a0d03a23aa2dd322852ddc",
+      "read_spans": [
+        [
+          1,
+          53
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 53
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobMakeItem.cs",
+      "sha256": "fe555918f4328eab69780cc5d770b3c24a69a16c06b3dc6104092287ad679307",
+      "read_spans": [
+        [
+          1,
+          45
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 45
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilMakeItem.cs",
+      "sha256": "3f129c67974759e44fd634105313dd10cfa283e021c269349aa71e366170ea04",
+      "read_spans": [
+        [
+          1,
+          285
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 285
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingBeMadeData.cs",
+      "sha256": "d8a92ffebd74db16b570d55351a08ffd2c415c545fc218dde58cf76a17d3d1d7",
+      "read_spans": [
+        [
+          1,
+          61
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 61
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemDataBeMaterial.cs",
+      "sha256": "d638170b946432e123eefad1f736896feac4b427501c404b71540846e90ffb17",
+      "read_spans": [
+        [
+          88,
+          108
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 21
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilEatItem.cs",
+      "sha256": "e88c04bcb08a10810fe07f351046f306c268bf65cb71f418e88c606bb1bbdc1c",
+      "read_spans": [
+        [
+          1,
+          182
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 182
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FoodNeed.cs",
+      "sha256": "a8c1cbd10d974b5c635bb81605e946eca94286546e863bcfbf8047cacc7076b1",
+      "read_spans": [
+        [
+          25,
+          61
+        ],
+        [
+          117,
+          162
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 83
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/RestNeed.cs",
+      "sha256": "99b36f126f79ae2ae0535164942445ed8dcfb827432d3af0540d304147afc12a",
+      "read_spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 60
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPropertyMgr.cs",
+      "sha256": "5c479844d3e460bf1ec8f13098d5a6905ba3604813135ed4d92a435c6eb14132",
+      "read_spans": [
+        [
+          849,
+          887
+        ],
+        [
+          1283,
+          1323
+        ]
+      ],
+      "families": [
+        "actors",
+        "production"
+      ],
+      "read_lines": 80
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Modifier/ModifierBase.cs",
+      "sha256": "2c9b8f03247236fc594e408b8882bb4cdf52b8aa706da21339f89b9f931e5a12",
+      "read_spans": [
+        [
+          1,
+          75
+        ],
+        [
+          130,
+          169
+        ],
+        [
+          1047,
+          1110
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 179
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ElixirData.cs",
+      "sha256": "092ac142b595b7d4f587ffddf0dbb4794a3c585e83a57ee38b88dcabff4df8b5",
+      "read_spans": [
+        [
+          1,
+          61
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 61
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemCostData.cs",
+      "sha256": "f30f62782b21be009b30e11b8dbbb6d10f412691f4ab6e8bee39c1b02210aab7",
+      "read_spans": [
+        [
+          1,
+          44
+        ]
+      ],
+      "families": [
+        "pacing",
+        "production"
+      ],
+      "read_lines": 44
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld.Fight/FightBody.cs",
+      "sha256": "c915ff1a2381146b6f8081dc8abf1963bbf1dda8d941a982b6aec9fa6d13f18f",
+      "read_spans": [
+        [
+          2175,
+          2250
+        ]
+      ],
+      "families": [
+        "production"
+      ],
+      "read_lines": 76
+    },
+    {
+      "path": "input/Settings/JobDef/JobDef_Work.xml",
+      "sha256": "215920c2b2defd304dddec58fcadcc91e65fe5a0437075bca8bffe6239e72b52",
+      "read_spans": [
+        [
+          1,
+          171
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 171
+    },
+    {
+      "path": "input/Settings/CommandDef/CommandTypeDef_Work.xml",
+      "sha256": "8d62ec478e5cdacb260ce5119894c4faaa1f23fe19ddf82b4642a1f55f2ca5eb",
+      "read_spans": [
+        [
+          150,
+          153
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 4
+    },
+    {
+      "path": "input/Settings/NpcStories/social.xml",
+      "sha256": "26c75ae2b8711b05d793da59e18617942f453bea01771f4c18e689de49f2984b",
+      "read_spans": [
+        [
+          1,
+          94
+        ],
+        [
+          98,
+          136
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 133
+    },
+    {
+      "path": "input/Settings/Npc/Favour/Test.xml",
+      "sha256": "e1481332c7f78a6f7cfbf2df61c77d2599610171780a5aadab52b8874d349d5f",
+      "read_spans": [
+        [
+          358,
+          454
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 97
+    },
+    {
+      "path": "input/Settings/Npc/Moods/Moods_EventFeedback.xml",
+      "sha256": "30cc5640f5f88f5135df7f2eb69a0610ba745774d0c94de464c76e3b416bee5f",
+      "read_spans": [
+        [
+          558,
+          611
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 54
+    },
+    {
+      "path": "input/Settings/Npc/Relation/PracticeKinship.xml",
+      "sha256": "f2d5861855215e0465d945db86d6735810b5eaa7a08f73406988d517b9d68271",
+      "read_spans": [
+        [
+          1,
+          81
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 81
+    },
+    {
+      "path": "input/Settings/Behaviour/Human.xml",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "read_spans": [],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 0
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobNpcEngine.cs",
+      "sha256": "761553a22b1199fa8007411bb62ab6c832a2b636c4961ec06a9750185a3d2cfa",
+      "read_spans": [
+        [
+          1,
+          694
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 694
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourBase.cs",
+      "sha256": "0743e122b5bfd75007b0314829af9daf386d3753d3e0833c8541024f4a0a560c",
+      "read_spans": [
+        [
+          1,
+          56
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 56
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emBehaviourKind.cs",
+      "sha256": "ad06fa46cd5016ad89f64041fd6289117fa6c275fb36b46bff8326db4799d4c3",
+      "read_spans": [
+        [
+          1,
+          10
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 10
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourCleanFloor.cs",
+      "sha256": "4572cc03d924168277c3d2c7a8e721c7f9e1cbcc38ca27c31f6ff588c71b1624",
+      "read_spans": [
+        [
+          1,
+          24
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 24
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobCleanFloor.cs",
+      "sha256": "3898b43d7c316b1becd46fc022ca982bfcea548f50074892ecba66bf1026d111",
+      "read_spans": [
+        [
+          1,
+          38
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 38
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandClean.cs",
+      "sha256": "3a705d9fc9b338444d381a659b5751e69dc706ce7d804cc616ea4a76cd72077f",
+      "read_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 62
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Command.cs",
+      "sha256": "f83d41515402285d557dfa78d79c0918b66276a0d045595bda1f1c8e1bdc8d82",
+      "read_spans": [
+        [
+          401,
+          448
+        ],
+        [
+          478,
+          494
+        ],
+        [
+          517,
+          604
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 153
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMgr.cs",
+      "sha256": "039c0ef3ab9d3c7831c32cde69c99c42d491182da5268c6cf6db88b2a2ce6024",
+      "read_spans": [
+        [
+          390,
+          503
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 114
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobBase.cs",
+      "sha256": "694b4ceb709b2be9dd37088dec3fe2f32df7c0f57ac026d507ab7932f78060b1",
+      "read_spans": [
+        [
+          243,
+          258
+        ],
+        [
+          315,
+          345
+        ],
+        [
+          373,
+          412
+        ],
+        [
+          462,
+          552
+        ],
+        [
+          595,
+          689
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 273
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilIdle.cs",
+      "sha256": "cfb7b99b917cccc985493582a95bfb5d4f25ebeda6e434afdd7232a040dc8b20",
+      "read_spans": [
+        [
+          1,
+          109
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 109
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobFree.cs",
+      "sha256": "304bb6e4f0dfb1fb8b9bb2d4009c257fb279ffc6de6dad30b37b38b0c7af9439",
+      "read_spans": [
+        [
+          115,
+          129
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 15
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_NpcWork.cs",
+      "sha256": "b984c269fc754e7429aca58554d58c50f8a98244802d467e9419350fd8a9ea31",
+      "read_spans": [
+        [
+          48,
+          64
+        ],
+        [
+          180,
+          198
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 36
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/AreaRoom.cs",
+      "sha256": "48a28f7ee31e2ee6b43a29e45e8112b86565ffd0a0d81612015d045573ebe40f",
+      "read_spans": [
+        [
+          253,
+          256
+        ],
+        [
+          332,
+          339
+        ],
+        [
+          407,
+          411
+        ],
+        [
+          500,
+          515
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 33
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Map.cs",
+      "sha256": "4cec258d3f3fb207a4c1d915718196c80d850eb7f8c24018a0cfd5adbf8e6018",
+      "read_spans": [
+        [
+          519,
+          530
+        ],
+        [
+          2109,
+          2147
+        ],
+        [
+          2280,
+          2304
+        ],
+        [
+          2625,
+          2650
+        ]
+      ],
+      "families": [
+        "actors",
+        "pacing"
+      ],
+      "read_lines": 102
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcRelation.cs",
+      "sha256": "24e30a4879dff1227b58a4a1f1b637b63e3c53a33de11d2470509ed7bcee5932",
+      "read_spans": [
+        [
+          1,
+          131
+        ],
+        [
+          257,
+          301
+        ],
+        [
+          456,
+          508
+        ],
+        [
+          754,
+          920
+        ],
+        [
+          922,
+          939
+        ],
+        [
+          1037,
+          1129
+        ],
+        [
+          1298,
+          1386
+        ],
+        [
+          1406,
+          1423
+        ],
+        [
+          1431,
+          1479
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 663
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFeeling.cs",
+      "sha256": "ea7866a2b6e01cc0e2709ac40ed3da7301f49bf09ff58836d06eb859bd3ce2b7",
+      "read_spans": [
+        [
+          169,
+          239
+        ],
+        [
+          714,
+          771
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 129
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/g_emNpcInteractiveKind.cs",
+      "sha256": "3831d5b82652dc4370199216f070e73d62f112f6669bde7e5e619b65890742a9",
+      "read_spans": [
+        [
+          1,
+          20
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 20
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobTalk.cs",
+      "sha256": "db674b0814c67c4059129422c005885d70ec1f1b9a22f24acb9e8fea83fb53b2",
+      "read_spans": [
+        [
+          1,
+          87
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 87
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMgr.cs",
+      "sha256": "b22f6923fb292e2e98931b24a35a1ffce705a7863b00bac8069f625a9004d1c2",
+      "read_spans": [
+        [
+          1710,
+          1785
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 76
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_NpcInfo.cs",
+      "sha256": "2af40ac247a7ff35eab5e052cf0c169798476bf00bcd7789f4af9425b2b78079",
+      "read_spans": [
+        [
+          200,
+          212
+        ],
+        [
+          306,
+          343
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 51
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcMoodMgr.cs",
+      "sha256": "2609f4516540c543816b1dfc1f87ef91d3cef6aa3b75ed9defd49836d837ab5d",
+      "read_spans": [
+        [
+          189,
+          285
+        ],
+        [
+          430,
+          439
+        ],
+        [
+          442,
+          491
+        ],
+        [
+          498,
+          529
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 189
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcFavourDef.cs",
+      "sha256": "0e5018b320ac09c47e82db98d555efed29a70f7f316b34ff948827520a98f649",
+      "read_spans": [
+        [
+          1,
+          84
+        ]
+      ],
+      "families": [
+        "actors"
+      ],
+      "read_lines": 84
+    },
+    {
+      "path": "input/Settings/JobDef/JobDef_Disciple.xml",
+      "sha256": "4d55b3d646851b290e1e39dfd1a47599dd73dd45d365ca64c51918727f8a9363",
+      "read_spans": [
+        [
+          26,
+          33
+        ],
+        [
+          116,
+          126
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 19
+    },
+    {
+      "path": "input/Settings/Esoterica/Esoterica_Book.xml",
+      "sha256": "3457e2d8827784328ac24f6d73860a3dfbf919b9579c650cea70f40bfa6e96ce",
+      "read_spans": [
+        [
+          28,
+          65
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 38
+    },
+    {
+      "path": "input/Settings/ThingDef/Building/Building_Ornament.xml",
+      "sha256": "f45934d639a4086fdd41ffea4b9ec0f7258a0cdc395a38baf3680e6177734b99",
+      "read_spans": [
+        [
+          1419,
+          1438
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 20
+    },
+    {
+      "path": "input/Settings/MapStories/MapStory_System.xml",
+      "sha256": "fa8294d273fe05575542029ac83646eb5dc5ec174b54f85c8ef964ab02a8d4c7",
+      "read_spans": [
+        [
+          1,
+          36
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 36
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandTeachHim.cs",
+      "sha256": "166546b03dcd9da16cb0fe9346b3bb24ca39ae33556c0167721c4b40382db315",
+      "read_spans": [
+        [
+          1,
+          88
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 88
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobTeachHim.cs",
+      "sha256": "1ecb72e75880071cd40adb055da9a4fa9d9edf4a08347660f38f6644fa88db49",
+      "read_spans": [
+        [
+          1,
+          64
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 64
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/EsotericaMgr.cs",
+      "sha256": "ea3f7f40aca5034d86e294f184cec7c26ae8b9546379a2ce6af0c89ced9b41c6",
+      "read_spans": [
+        [
+          372,
+          442
+        ],
+        [
+          455,
+          566
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 183
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/SchoolMgr.cs",
+      "sha256": "45d0044c40f6805208ad3b6caf11f9f421fdc6c8aa68c98830a6bb678a7bcd27",
+      "read_spans": [
+        [
+          730,
+          765
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 36
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/CangJingGeMgr.cs",
+      "sha256": "5229156f789fa6d4af65fcc06a47813625325fb428ff5f0d5b408ddd99538341",
+      "read_spans": [
+        [
+          1,
+          68
+        ],
+        [
+          274,
+          444
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 239
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobCangJingGe.cs",
+      "sha256": "5fd6db20c7a1754901b5c25ebb88ca7e80849c28294c6a53ef3e6276b2e137ec",
+      "read_spans": [
+        [
+          1,
+          70
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 70
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilCangJingGe.cs",
+      "sha256": "adfa40f48e968099709153b1ef56fd0c45681dcd46ffc409cffbc3a71174de53",
+      "read_spans": [
+        [
+          1,
+          161
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 161
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandCangJingGe.cs",
+      "sha256": "2e82d8e25e8ab647c7e6a2d68fc2e1adb135fc3b4d20d3209c08a58931db4ba3",
+      "read_spans": [
+        [
+          1,
+          209
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 209
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_CangJingGeWindow.cs",
+      "sha256": "5070948b99ecccf3b013bd86fe7ade7f20f42b8d870cead7bc1930786db4b43e",
+      "read_spans": [
+        [
+          252,
+          295
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 44
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandGoMapExplore.cs",
+      "sha256": "f0c1061e7f90eb970ea33aa84efc57079da30450143a33313f3d5df83dc636d4",
+      "read_spans": [
+        [
+          1,
+          42
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 42
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BehaviourGoMapExplore.cs",
+      "sha256": "7adb39e7e1f81bc77ac3985f9c5eee9c06aa6ead82b4018bb70d742c020e1277",
+      "read_spans": [
+        [
+          1,
+          20
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 20
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobLeave2Explore.cs",
+      "sha256": "3fa87b5f80a2c4c60819e61227d8d009f46c6d5b192b184663503e36bce60260",
+      "read_spans": [
+        [
+          1,
+          219
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 219
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/PlacesMgr.cs",
+      "sha256": "0eb08f9fe89e4193300eb4f3c8049a5fbbe459b7c8a68987139a2ebf4bac8acc",
+      "read_spans": [
+        [
+          450,
+          770
+        ],
+        [
+          783,
+          875
+        ],
+        [
+          945,
+          1030
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 500
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingLuaHelperBase.cs",
+      "sha256": "3dbc48eb22aa976c0e4fe7bf365e2234e9db59a037aae4687c971e546471ac24",
+      "read_spans": [
+        [
+          183,
+          228
+        ]
+      ],
+      "families": [
+        "institution"
+      ],
+      "read_lines": 46
+    },
+    {
+      "path": "input/Mods/Readme_EN.txt",
+      "sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+      "read_spans": [
+        [
+          1,
+          48
+        ]
+      ],
+      "families": [
+        "intake",
+        "pacing"
+      ],
+      "read_lines": 48
+    },
+    {
+      "path": "input/Settings/Language/OfficialEnglish/Settings/Ui/Help/Help.xml",
+      "sha256": "8f7f141d4258a5e2a5bcaedde31fec374c1f4a0819bcd69d73850fde2977400b",
+      "read_spans": [
+        [
+          66,
+          85
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 20
+    },
+    {
+      "path": "input/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+      "sha256": "1d260dc5f2877e7aa37d604ba69ca6ccc69f04e34aa8ecda06c633a60d6caf6e",
+      "read_spans": [
+        [
+          1,
+          17
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 17
+    },
+    {
+      "path": "input/Settings/Language/OfficialEnglish/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+      "sha256": "5ab7dc25cbfc68311380a1c0e64541ddda8e7ff004b3c7aa7e1a962ce6b8d13f",
+      "read_spans": [
+        [
+          1,
+          17
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 17
+    },
+    {
+      "path": "input/Settings/Ui/NpcUIEvent/NewNpcUIEvent.txt",
+      "sha256": "d0647ee4c8bd47c44f68318e0651df211d914d22420844a2a3f91e111d6ed38c",
+      "read_spans": [
+        [
+          1,
+          86
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 86
+    },
+    {
+      "path": "input/Scripts/Misc/timescript.lua",
+      "sha256": "8b7bd00b40c7584cb780c118286f98aa595d539fa435afa7a1435578cea8a2e2",
+      "read_spans": [
+        [
+          1,
+          170
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 170
+    },
+    {
+      "path": "input/Scripts/main.lua",
+      "sha256": "58a27d2b542e074ea957c5f1528518e711547d61967682df2fcb36d1fcc82d18",
+      "read_spans": [
+        [
+          11,
+          90
+        ],
+        [
+          113,
+          141
+        ],
+        [
+          194,
+          217
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 133
+    },
+    {
+      "path": "input/Scripts/modbase.lua",
+      "sha256": "675e113e910293696e111c0cd50eadcfe2c9de97e6aa264950d1dc6bbee3b6ef",
+      "read_spans": [
+        [
+          1,
+          119
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 119
+    },
+    {
+      "path": "input/Scripts/lib.lua",
+      "sha256": "219088958b6adad269a98a71736c730b81d0a6f1bb5fe90567dc81dab0d153fb",
+      "read_spans": [
+        [
+          366,
+          383
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 18
+    },
+    {
+      "path": "input/Settings/ThingDef/Item/Item_Material_2_WoodBlock.xml",
+      "sha256": "d156c0d684af32eaba0acf8cec95a05f4ab7fd768762ca2eb1c44169e886f2a8",
+      "read_spans": [
+        [
+          1,
+          104
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 104
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/AllIllustratedHandMgr.cs",
+      "sha256": "ef1623d941f273556369e83844d16f6cd1ec06aa6b8fdb1d7aa0afe57857c4c5",
+      "read_spans": [
+        [
+          1,
+          324
+        ],
+        [
+          525,
+          894
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 694
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_AllIllustratedHandWindow.cs",
+      "sha256": "24651e8b3bf5b91cc3e500b5922256e8ce4eef630dd3f7cafb192cbc88ab5bcf",
+      "read_spans": [
+        [
+          83,
+          152
+        ],
+        [
+          168,
+          232
+        ],
+        [
+          514,
+          561
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 183
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MainManager.cs",
+      "sha256": "df3f72c9e7ce829c07d95aafec8c3c3ae400fbf7399b9fbc931c2903aab7a854",
+      "read_spans": [
+        [
+          76,
+          115
+        ],
+        [
+          353,
+          448
+        ],
+        [
+          855,
+          964
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 246
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/GameMain.cs",
+      "sha256": "142d99cd40e192ade1780d358268788e5474da61904f5bbc85f573f16a516f73",
+      "read_spans": [
+        [
+          555,
+          585
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 31
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/World.cs",
+      "sha256": "c052c0cda54b6680df68b552857a6d8890068a7ab90def49e5375029ad8044a7",
+      "read_spans": [
+        [
+          63,
+          140
+        ],
+        [
+          888,
+          935
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 126
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/WorldMgr.cs",
+      "sha256": "a6e98a42f6fdddf09f6fdf5c0105a94b4d3253954110cb8a29a18ff2633af190",
+      "read_spans": [
+        [
+          1,
+          20
+        ],
+        [
+          148,
+          151
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 24
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/IManagerModule.cs",
+      "sha256": "0ead3d3ae9a82e8d23c44d6a984bf1a39d04f6669ed15ed8da344a04f754b446",
+      "read_spans": [
+        [
+          1,
+          54
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 54
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/LuaMgr.cs",
+      "sha256": "5a759731d06f93634a6c633202e2f9c3922e41111fb3c628c492dc27e7fad0b1",
+      "read_spans": [
+        [
+          59,
+          114
+        ],
+        [
+          175,
+          183
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 65
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Wnd_GameMain.cs",
+      "sha256": "b3853d3a2bdcac1ec59e00df644fc7ad094baecc1b579926e3a6c0c93634b2d4",
+      "read_spans": [
+        [
+          290,
+          311
+        ],
+        [
+          2257,
+          2295
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 61
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_Global.cs",
+      "sha256": "22e8419d643010b854031e43956d29add3487479039df5b3c7f55ac23b00c8c3",
+      "read_spans": [
+        [
+          310,
+          335
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 26
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MessageMgr.cs",
+      "sha256": "495ccb3cad9850639b2dec03f85f993c2457da3e5f18011e7eb57acc786654f2",
+      "read_spans": [
+        [
+          333,
+          349
+        ],
+        [
+          484,
+          526
+        ],
+        [
+          583,
+          613
+        ],
+        [
+          619,
+          666
+        ],
+        [
+          791,
+          851
+        ],
+        [
+          1107,
+          1132
+        ],
+        [
+          1395,
+          1415
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 247
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/GameWatch.cs",
+      "sha256": "2dfc8a74dd8c852c1c9ed7913079a5b6883f0875fb6b1161cab4c4795cf7e1db",
+      "read_spans": [
+        [
+          1725,
+          1743
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 19
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/Panel_BuildingProduceList.cs",
+      "sha256": "ef856afb5a5b51e53640805fd6977ce8cc49f92d619a69b01be187f07bedf411",
+      "read_spans": [
+        [
+          1,
+          40
+        ],
+        [
+          42,
+          125
+        ],
+        [
+          145,
+          177
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 157
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/DifficultyMgr.cs",
+      "sha256": "360689020d3426ac4564cb243515da912fdf53531db3ebe22528c1a67cba23f7",
+      "read_spans": [
+        [
+          510,
+          550
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 41
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingThing.cs",
+      "sha256": "be2ba58ac8f2cc0125d331b846f1a3f4ff9a7482e4f56199be05dab434b3c555",
+      "read_spans": [
+        [
+          1730,
+          1745
+        ]
+      ],
+      "families": [
+        "pacing"
+      ],
+      "read_lines": 16
+    }
+  ],
+  "export_vs_read": {
+    "exported_csharp_files": 4581,
+    "firstpass_semantically_reviewed_spans": 0,
+    "qualification": "An export/file inventory is recovery only. Exact ranges are selected semantic reading, not whole files/assembly/game reading. Same-file overlapping spans counted once."
+  },
+  "observed_gameplay": false,
+  "limits": [
+    "No whole-game/full-law/full-recipe/full-social/exploration story coverage.",
+    "No romance conclusion, universal offline/background claim or runtime load-order/balance proof.",
+    "No recovered-project compile/run, save success/performance or platform compatibility proof.",
+    "All gameplay/unit/browser/save/reload/failure/regression/director gates deferred."
+  ],
+  "unread_detail_owners": [
+    "traces/cultivation.json",
+    "traces/production.json",
+    "traces/actors.json",
+    "traces/institution.json",
+    "traces/pacing.json"
+  ],
+  "root_additional_reviews": [
+    {
+      "family": "cultivation",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilBrokenNeck.cs",
+      "sha256": "285d719037c3484cc4feaca7dacd20577ef4d293e8501a6633369fe929361d2e",
+      "read_spans": [
+        [
+          203,
+          242
+        ],
+        [
+          434,
+          479
+        ],
+        [
+          708,
+          884
+        ]
+      ],
+      "review": "Entry-paid costs, live Gold accrual, forced Gold success-flag and ordinary success-roll dispatch match leaf claim; root read the previously unselected guard region755\u2013856."
+    },
+    {
+      "family": "cultivation",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcPractice.cs",
+      "sha256": "7fc0bc23870358d0c71b26dfcb57e1c13cf0a1b9cb938c4918d6dd1b78f6e9d3",
+      "read_spans": [
+        [
+          2677,
+          2723
+        ],
+        [
+          3867,
+          3967
+        ],
+        [
+          4037,
+          4118
+        ]
+      ],
+      "review": "Resource subtype expenditure, selected30Ling drain overload, quality-capacity mutation and retained failure aftermath match leaf."
+    },
+    {
+      "family": "production",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilRefining.cs",
+      "sha256": "880f659ef37e6ce1e7f8bbb4a99f96d9c18a9b54c92e15814ad17349c900549c",
+      "read_spans": [
+        [
+          1,
+          108
+        ],
+        [
+          242,
+          338
+        ]
+      ],
+      "review": "Direct ordinary-input energy debit, completed success/failure and interrupt input loss match leaf; no blanket refund claimed."
+    },
+    {
+      "family": "production",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+      "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+      "read_spans": [
+        [
+          350,
+          424
+        ]
+      ],
+      "review": "Actual ingredient debit on first Making call and loop admission before success roll match leaf."
+    },
+    {
+      "family": "production",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/FoodNeed.cs",
+      "sha256": "a8c1cbd10d974b5c635bb81605e946eca94286546e863bcfbf8047cacc7076b1",
+      "read_spans": [
+        [
+          25,
+          61
+        ]
+      ],
+      "review": "Actual hunger-decay consumer reads modifier property with explicit no-need/breakthrough exemptions."
+    },
+    {
+      "family": "production",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/RestNeed.cs",
+      "sha256": "99b36f126f79ae2ae0535164942445ed8dcfb827432d3af0540d304147afc12a",
+      "read_spans": [
+        [
+          1,
+          60
+        ]
+      ],
+      "review": "Actual fatigue-decay/interruption consumer reads property; sleeping/breakthrough/coma exemptions retained."
+    },
+    {
+      "family": "actors",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobCleanFloor.cs",
+      "sha256": "3898b43d7c316b1becd46fc022ca982bfcea548f50074892ecba66bf1026d111",
+      "read_spans": [
+        [
+          1,
+          38
+        ]
+      ],
+      "review": "Successful Did condition gates command finish; interrupted work does not synthesize cleaning result."
+    },
+    {
+      "family": "actors",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/NpcRelation.cs",
+      "sha256": "24e30a4879dff1227b58a4a1f1b637b63e3c53a33de11d2470509ed7bcee5932",
+      "read_spans": [
+        [
+          754,
+          827
+        ],
+        [
+          1336,
+          1386
+        ]
+      ],
+      "review": "Temporary favor expires separately from retained BaseValue drift; warmup/timing dispatch is distinct from outcome, cached affinity limit preserved."
+    },
+    {
+      "family": "pacing",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MessageMgr.cs",
+      "sha256": "495ccb3cad9850639b2dec03f85f993c2457da3e5f18011e7eb57acc786654f2",
+      "read_spans": [
+        [
+          1107,
+          1132
+        ],
+        [
+          1395,
+          1415
+        ]
+      ],
+      "review": "Actual registered message speed policy and top-speed warning pause branch match; no global offline policy inferred."
+    },
+    {
+      "family": "pacing",
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MainManager.cs",
+      "sha256": "df3f72c9e7ce829c07d95aafec8c3c3ae400fbf7399b9fbc931c2903aab7a854",
+      "read_spans": [
+        [
+          353,
+          388
+        ],
+        [
+          855,
+          939
+        ]
+      ],
+      "review": "Nested system holds/player pause/run-gated manager Steps are distinct; pause-update exceptions retained."
+    },
+    {
+      "family": "pacing",
+      "path": "decompiled/Assembly-CSharp/AllIllustratedHandMgr.cs",
+      "sha256": "ef1623d941f273556369e83844d16f6cd1ec06aa6b8fdb1d7aa0afe57857c4c5",
+      "read_spans": [
+        [
+          654,
+          702
+        ],
+        [
+          845,
+          894
+        ]
+      ],
+      "review": "Mode-gated global light ledger, dirty flush and separate account-file write are source-backed. Actual personal ledger not opened."
+    },
+    {
+      "family": "pacing",
+      "path": "input/Scripts/Misc/timescript.lua",
+      "sha256": "8b7bd00b40c7584cb780c118286f98aa595d539fa435afa7a1435578cea8a2e2",
+      "read_spans": [
+        [
+          1,
+          112
+        ]
+      ],
+      "review": "Strict deadline, remove-before-wait-callback and mark-before-file-callback semantics match; no transaction rollback/retry imported."
+    },
+    {
+      "family": "intake",
+      "path": "input/Mods/Readme_EN.txt",
+      "sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+      "read_spans": [
+        [
+          1,
+          45
+        ]
+      ],
+      "review": "Definition override and mod callback documentation read before managed export; documentation is not verified active load precedence."
+    }
+  ],
+  "supplemental_coverage": {
+    "owner": "traces/dlc.json",
+    "sha256": "d130048850c8cba33dc481247608a276147cdd1837bcb1897b5b4e4a56c2cb25",
+    "traces": 2,
+    "dlc_inventory": "DLC_COVERAGE.json",
+    "qualification": "Additional selected DLC reading. Original five-family count/union remains its historical first-pass scope; whole-DLC and broader depth remain unread."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-07",
+  "hash": "SHA-256",
+  "routeFamilies": {
+    "nested": [
+      "nested.enter_hub",
+      "nested.return_frontier",
+      "nested.personal.saltworks",
+      "nested.personal.archive",
+      "nested.personal.return",
+      "nested.mission.arrive",
+      "nested.extraction.arrive"
+    ],
+    "paradise": [
+      "book.paradise.enter_hub",
+      "book.paradise.return_frontier",
+      "book.paradise.goa.personal",
+      "book.paradise.contract.arrive",
+      "book.paradise.return_hub",
+      "book.paradise.extraction.arrive"
+    ],
+    "mol": [
+      "book.mol.enter",
+      "book.mol.return"
+    ],
+    "proto23": [
+      "proto23.enter",
+      "proto23.return"
+    ],
+    "tidemark": [
+      "tidemark.open",
+      "tidemark.enter",
+      "tidemark.return"
+    ],
+    "pocket": [
+      "pocket.open",
+      "pocket.enter",
+      "pocket.exit"
+    ]
+  },
+  "projectionInputs": {
+    "src/feature_expansion_refinements_host.js": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+    "src/action_legibility.js": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+    "src/feature_expansion_presentation_costs.js": "a195808796a447ab8c17d1027f2d757a8ae528723dd0babf05169891cc137a13"
+  },
+  "routeOwners": {
+    "src/feature_expansion_nested_host.js": "9d814bfe228ef9533d62cb3cebf0c0c7c16c194d982347a63d226b3584fe899e",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/book_world_paradise_host.js": "8b59589d68248a12f60385b4aa632730547a8cda2cb6b6406a94baa1ef316d5e",
+    "src/book_world_paradise_content.js": "d2fc6a4093e2a3d43b95f91d940988dd7b549e4e1481fb39f1914cb75b1933be",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_content.js": "6033a10b6845e0529e9109be1e351f75846b6655b091f142fd0a424b04360280",
+    "src/proto23_world_host.js": "0a67b06a26b098631a6b6e1796a285efa8ffde5999f0c1a0e349c59fd79fae19",
+    "src/proto23_world_content.js": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+    "src/pocket_realm_host.js": "50b77fd59c32a6f4c41728732503bc042f9ee7aaeebb7bba2af1ceff0f1055cf",
+    "src/pocket_realm_content.js": "fc07450167ad08273bfb09acdce4ea5dda20897d844911738f540c05c679f325",
+    "src/feature_expansion_destination_host.js": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d",
+    "src/feature_expansion_destination.js": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725"
+  }
+}

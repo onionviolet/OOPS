@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T20:29:23.322441+00:00",
+  "reviewer": "/root/remainder_combat_fit",
+  "repairOwner": "/root",
+  "openActionableFindings": 0,
+  "findings": [
+    {
+      "id": "RN1",
+      "status": "source-repaired-and-reinspected",
+      "issue": "First Causal activation missing actual new-native-owner persistence bindings",
+      "repairFiles": [
+        "src/main.js"
+      ]
+    },
+    {
+      "id": "RN2",
+      "status": "source-repaired-and-reinspected",
+      "issue": "Attach rejected metadata-free earned body or dropped callused/marked fields",
+      "repairFiles": [
+        "src/causal_story_host.js"
+      ]
+    },
+    {
+      "id": "RN3",
+      "status": "source-repaired-and-reinspected",
+      "issue": "Unknown actual hand/mobile capability types passed human admission/persisted frame",
+      "repairFiles": [
+        "src/causal_story_host.js",
+        "src/causal_story_native.js"
+      ]
+    },
+    {
+      "id": "RN4",
+      "status": "source-repaired-and-reinspected",
+      "issue": "Legitimate existing consenting Backlog clay possession blocked by enrolled Causal native owner",
+      "repairFiles": [
+        "src/causal_story_native.js"
+      ],
+      "validationLimit": "Generated possession/return/import/publication behavior remains deferred."
+    }
+  ],
+  "behaviorVerified": false,
+  "engineImplementationReviewed": false
+}

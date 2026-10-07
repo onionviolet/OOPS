@@ -1,0 +1,1196 @@
+{
+  "status": "five_scoped_mechanics_reviewed_source_not_run",
+  "captured_at": "2026-10-06T05:19:19.104816+00:00",
+  "source": {
+    "assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+    "assembly_version": "1.6.9676.17433",
+    "payload_version": "1.6.4871 rev573",
+    "filename_revision": "rev588",
+    "route": "supplied_local_dmg_private_ilspy_export",
+    "runtime": "not_run"
+  },
+  "mechanics": [
+    {
+      "id": "jobs",
+      "claim_ids": [
+        "RW-JOB-01",
+        "RW-JOB-02",
+        "RW-JOB-03"
+      ]
+    },
+    {
+      "id": "needs_health_action",
+      "claim_ids": [
+        "body-01"
+      ]
+    },
+    {
+      "id": "attributed_social_memory",
+      "claim_ids": [
+        "social-01"
+      ]
+    },
+    {
+      "id": "storyteller_incidents",
+      "claim_ids": [
+        "RW-STORY-01",
+        "RW-STORY-02",
+        "RW-STORY-03",
+        "RW-STORY-04",
+        "RW-STORY-05"
+      ]
+    },
+    {
+      "id": "defs_components_material_production",
+      "claim_ids": [
+        "RW-MATERIAL-01",
+        "RW-MATERIAL-02"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "RW-JOB-01",
+      "kind": "observed_source_rule",
+      "title": "Work scheduling checks actor capacity and actual task eligibility",
+      "observed_rule": "Normal/emergency work-giver ordering and timetable priorities are distinct. Labor can stop work. Each giver is filtered by colonist/race policy, disabled work tags/type, ShouldSkip and required capacity; scans ask HasJobOnThing, then the selected giver constructs the concrete job. WorkGiver_DoBill rejects unusable/burning/unreservable bill givers or spots, can return a refueling job, and checks bill timing, work type, ShouldDoNow, allowed worker and required skill before selecting supplies. A scanner exception is logged; it is not evidence of successful job creation.",
+      "limit": "Bounded Work -> DoBill path. Think-tree composition, all spatial/path algorithms and other giver types are not semantically covered.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobGiver_Work.cs",
+          "symbol": "GetPriority; TryIssueJobPackage; PawnCanUseWorkGiver",
+          "spans": [
+            [
+              19,
+              103
+            ],
+            [
+              219,
+              245
+            ],
+            [
+              263,
+              295
+            ]
+          ],
+          "sha256": "24b62dd766dcec8331557675cb7a7d4a96ef889488a122e3795ce9749e42ac18"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/WorkGiver_DoBill.cs",
+          "symbol": "JobOnThing; StartOrResumeBillJob",
+          "spans": [
+            [
+              139,
+              203
+            ]
+          ],
+          "sha256": "bdc6fce4264eb455b611b82be0b32528b4b7ac5ecd5cde2dfe1b5d29000edca9"
+        }
+      ]
+    },
+    {
+      "id": "RW-JOB-02",
+      "kind": "observed_source_rule",
+      "title": "Supply shortage and stock targets control whether a bill starts",
+      "observed_rule": "Missing bill ingredients produce no DoBill result and can delay the next autonomous ingredient search; manual checking reports the actual missing materials or medicine restriction. Ingredient helpers filter bill/recipe permission, spawned/radius/forbidden/reservation state and available quantities. The reviewed no-mix branch chooses one allowed material definition per ingredient requirement and records concrete stack quantities. Bill_Production.TargetCount counts eligible current products, pauses at target and (when configured) resumes at the lower threshold. Its product counter can filter HP, quality, allowed stuff and equipped ownership; this is not historical craft count. Repeat-count/forever modes have separate rules. Bill mode/target/filter fields are serialized.",
+      "limit": "AllowMix branch and complete spatial search not reviewed. One batch can exceed target, and GetCarriedCount/resource-counter internals were not followed. Per-mode counting is not a transactional save guarantee.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/WorkGiver_DoBill.cs",
+          "symbol": "StartOrResumeBillJob; IsUsableIngredient; TryFindBestBillIngredients; TryFindBestIngredientsHelper; NoMixHelper",
+          "spans": [
+            [
+              250,
+              297
+            ],
+            [
+              408,
+              421
+            ],
+            [
+              439,
+              498
+            ],
+            [
+              602,
+              688
+            ]
+          ],
+          "sha256": "bdc6fce4264eb455b611b82be0b32528b4b7ac5ecd5cde2dfe1b5d29000edca9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Bill_Production.cs",
+          "symbol": "ExposeData; ShouldDoNow",
+          "spans": [
+            [
+              113,
+              127
+            ],
+            [
+              207,
+              243
+            ]
+          ],
+          "sha256": "9a0ce78c37f25ffc3ca69bc74db14a343e49bded11cdd2cee90dd1133a188a37"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/RecipeWorkerCounter.cs",
+          "symbol": "CanCountProducts; CountProducts; CountValidThing",
+          "spans": [
+            [
+              10,
+              92
+            ],
+            [
+              120,
+              149
+            ]
+          ],
+          "sha256": "dc0d44c166c2797cb39df826fa69f881519b6bc5b4d0cc300dcbafaca3bf9b39"
+        }
+      ]
+    },
+    {
+      "id": "RW-JOB-03",
+      "kind": "observed_source_rule",
+      "title": "Reservations, unfinished work and consumed ingredients are different state",
+      "observed_rule": "DoBill reserves its giver/spot, reserves as many queued ingredients as possible and then physically collects them. A vanished/burning/unusable giver or deleted bill can fail before finishing. For an unfinished recipe, gathered materials become owned ingredients in a spawned unfinished object with creator, bound bill and remaining work. Resuming is restricted to that creator in this path. Work decrements by actor speed times table speed per delta and can yield to a job override. Completion computes outputs, consumes ingredients through RecipeWorker, records the iteration and then stores/hauls/drops products; missing storage falls back to dropping. Cleanup releases job reservations and may drop carried goods. Failed reservations end queued jobs as no-longer-valid or ordinary jobs as errored.",
+      "limit": "Reservation release is not ingredient refund, and source ordering is not atomic durable publication. Unfinished-object serialization internals are outside this trace; driver exposes its remaining-work fields. Medical/mech recipe outcomes are not claimed.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/JobDriver_DoBill.cs",
+          "symbol": "ExposeData; TryMakePreToilReservations; MakeNewToils; CollectIngredientsToils",
+          "spans": [
+            [
+              46,
+              143
+            ]
+          ],
+          "sha256": "144603a1ea06eb13868b878eeee4535639ff9aae3fb2b08174b99656e3a4cccd"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/WorkGiver_DoBill.cs",
+          "symbol": "ClosestUnfinishedThingForBill; FinishUftJob; StartOrResumeBillJob",
+          "spans": [
+            [
+              162,
+              185
+            ],
+            [
+              223,
+              242
+            ]
+          ],
+          "sha256": "bdc6fce4264eb455b611b82be0b32528b4b7ac5ecd5cde2dfe1b5d29000edca9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/Toils_Recipe.cs",
+          "symbol": "MakeUnfinishedThingIfNeeded; DoRecipeWork; FinishRecipeAndStartStoringProduct; CalculateIngredients; ConsumeIngredients; CheckIfRecipeCanFinishNow",
+          "spans": [
+            [
+              12,
+              141
+            ],
+            [
+              171,
+              390
+            ]
+          ],
+          "sha256": "bd7d56e62de07238eea340f75eeab3111aadc10d896e55b1ecbe70781e7b854a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/RecipeWorker.cs",
+          "symbol": "ConsumeIngredient",
+          "spans": [
+            [
+              43,
+              46
+            ]
+          ],
+          "sha256": "02bf3a5747e4f099fb524a8cd93bfd88ecd43451ba61e24bdee3d8734d6ec993"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/Pawn_JobTracker.cs",
+          "symbol": "StartJob reservation-failure branch; CleanupCurrentJob",
+          "spans": [
+            [
+              373,
+              381
+            ],
+            [
+              475,
+              522
+            ]
+          ],
+          "sha256": "8edb76844e96ade41c3dda9fbc9168cca138cd92c4eed6cd1dd2e1b4123c35aa"
+        }
+      ]
+    },
+    {
+      "id": "RW-MATERIAL-01",
+      "kind": "observed_source_rule",
+      "title": "Definitions generate executable recipes and persistent product traits",
+      "observed_rule": "DefGenerator adds implied recipes. RecipeDefGenerator turns recipeMaker-bearing ThingDefs into concrete recipes, copying work/skill/table/research requirements and products. Stuff-based ingredient count/filter derives from the product and marks ingredient stuff on the result. The inspected longsword definition declares 100 stuff, 18000 work, Crafting 5 and LongBlades; its declared parent adds Crafting/GeneralLaborSpeed, smithy users, UnfinishedWeapon and optional CompQuality. GenRecipe chooses product stuff from the dominant ingredient, creates the real product and sets its optional quality from the worker/skill. ThingWithComps constructs declared components and removes a component on initialization failure. CompQuality serializes its value, prevents unequal-quality stacking and retains quality on split.",
+      "limit": "XML inheritance/cross-reference internals and quality-roll distribution not semantically reviewed. Recipe generation is after resolved definitions; merely declaring a component does not prove its initialization succeeds. DLL includes DLC code, but only Core definitions were copied/read.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/DefGenerator.cs",
+          "symbol": "GenerateImpliedDefs_PreResolve",
+          "spans": [
+            [
+              10,
+              29
+            ]
+          ],
+          "sha256": "17063b436ef3d0b320364eff1a0cac8eb764040129d9a6119258fed7a0766de9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/RecipeDefGenerator.cs",
+          "symbol": "ImpliedRecipeDefs; DefsFromRecipeMakers; CreateRecipeDefFromMaker; SetIngredients",
+          "spans": [
+            [
+              9,
+              116
+            ]
+          ],
+          "sha256": "bf8ff9929fbbd1beb92721f21ff3c10e91b4f5531764b7bc56f8c86befe1c3ef"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Misc/Weapons/BaseWeapons.xml",
+          "symbol": "BaseMeleeWeapon recipeMaker; quality parents",
+          "spans": [
+            [
+              117,
+              206
+            ]
+          ],
+          "sha256": "db07467327633fceaa2de5225e7f90db386ff874545c05faa313683ecab0c107"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Misc/Weapons/MeleeMedieval.xml",
+          "symbol": "MeleeWeapon_LongSword",
+          "spans": [
+            [
+              120,
+              179
+            ]
+          ],
+          "sha256": "29048e27b162d78c80015bd6e54f83f4d2b4783b01ec7341c11e1b7eeb735c96"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/Toils_Recipe.cs",
+          "symbol": "CalculateDominantIngredient",
+          "spans": [
+            [
+              348,
+              369
+            ]
+          ],
+          "sha256": "bd7d56e62de07238eea340f75eeab3111aadc10d896e55b1ecbe70781e7b854a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/GenRecipe.cs",
+          "symbol": "MakeRecipeProducts; PostProcessProduct",
+          "spans": [
+            [
+              9,
+              38
+            ],
+            [
+              79,
+              125
+            ]
+          ],
+          "sha256": "41cb19d602f388137484b15bc4126fbcdebad63013c34f8432cabff5b28337e3"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/ThingWithComps.cs",
+          "symbol": "InitializeComps",
+          "spans": [
+            [
+              193,
+              221
+            ]
+          ],
+          "sha256": "309339f7197a6d50c5d612cb2a64d4457a08a89bd1a8bb86e275850aad6f7202"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/CompQuality.cs",
+          "symbol": "SetQuality; PostExposeData; AllowStackWith; PostSplitOff",
+          "spans": [
+            [
+              12,
+              47
+            ]
+          ],
+          "sha256": "e07103ce60d82c815919c0726d577f41bb8a46a9c932be2eee5c37c48af255bc"
+        }
+      ]
+    },
+    {
+      "id": "RW-MATERIAL-02",
+      "kind": "observed_source_rule",
+      "title": "Quality and material have specific attack consumers",
+      "observed_rule": "StatWorker evaluates stuff factors/offsets and applies StatPart transforms. MeleeWeapon_DamageMultiplier defines quality factors from 0.8 (Awful) to 1.65 (Legendary). Tool.AdjustedBaseMeleeDamageAmount multiplies its particular attack power by weapon damage multiplier and the material multiplier selected by damage armor category; cooldown reads its separate material stat. Steel defines sharp/blunt 1/1; plasteel defines 1.1/0.9 and a 0.8 cooldown factor. VerbProperties passes the live equipment/tool into this calculation; mismatched verb props return zero with an error. The melee damage verb adds its random 0.8-1.2 factor, attaches weapon/quality/tool attribution and applies each DamageInfo to the still-existing target. Therefore a material can favor sharp attacks without equally improving blunt attacks.",
+      "limit": "Hit selection, armor resolution, body injury and full GetDamageFactorFor modifiers are not reviewed. Listed values are source parameters, not observed damage or a balance recommendation. No YAIR stat/item constants should be copied.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StatWorker.cs",
+          "symbol": "GetValue; stuff factors/offsets; FinalizeValue",
+          "spans": [
+            [
+              75,
+              87
+            ],
+            [
+              299,
+              314
+            ],
+            [
+              791,
+              803
+            ]
+          ],
+          "sha256": "6e34d2b48e8c918b6fb8584dd8e9e0ce62e6519c51da418bfa560c2257ed8786"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StatPart_Quality.cs",
+          "symbol": "TransformValue; QualityMultiplier",
+          "spans": [
+            [
+              39,
+              80
+            ]
+          ],
+          "sha256": "3b80ea8e8f92ffce05a05631972d7f948e0acaa03c3ceeb4d484ecfab72339e0"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Stats/Stats_Weapons_Melee.xml",
+          "symbol": "damage quality factors; material damage/cooldown stat defaults",
+          "spans": [
+            [
+              30,
+              92
+            ]
+          ],
+          "sha256": "ed8806acbc4928b3061e1ea2f9ef36ee2be94bf7d2c05ee756b047a0e8133f6e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThingDefs_Items/Items_Resource_Stuff.xml",
+          "symbol": "Steel; Plasteel",
+          "spans": [
+            [
+              134,
+              177
+            ],
+            [
+              190,
+              245
+            ]
+          ],
+          "sha256": "8cdc15befea94055a946a1131c7724acc0cf999b866a5fad474a0816731c9088"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/Tool.cs",
+          "symbol": "AdjustedBaseMeleeDamageAmount; AdjustedCooldown",
+          "spans": [
+            [
+              69,
+              104
+            ]
+          ],
+          "sha256": "c8719ea230a74ebeaa0e7c6d7ef09409e0dc064fc1e91162f4983f9adfade7e9"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse/VerbProperties.cs",
+          "symbol": "AdjustedMeleeDamageAmount live equipment path",
+          "spans": [
+            [
+              326,
+              348
+            ]
+          ],
+          "sha256": "2054df843e41bf0c6aeef2465268783fb4db67a1b3d3875e36636686912e7e60"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Verb_MeleeAttackDamage.cs",
+          "symbol": "DamageInfosToApply; ApplyMeleeDamageToTarget",
+          "spans": [
+            [
+              14,
+              58
+            ],
+            [
+              102,
+              114
+            ]
+          ],
+          "sha256": "e88d0e53dc1b851a06a3fb5c7d9e10dbf19527851d9753bbe1720293c8c0c60c"
+        }
+      ]
+    },
+    {
+      "id": "body-01",
+      "kind": "source_observation",
+      "title": "Hunger state selects an ingest job; starvation feeds back through health",
+      "observed_rule": "Need_Food maps nutrition percentage to fed/hungry/urgently-hungry/starving using race-configured thresholds. Pawn_NeedsTracker calls each need\u2019s NeedInterval on the pawn\u2019s 150-tick hash interval. NeedInterval drains nutrition, then raises malnutrition severity while starving and reduces it otherwise. Hunger consumption itself is modified by the current malnutrition hediff. JobGiver_GetFood offers priority 9.5 only when food need exists, the configured minimum category is reached, level is not above its maximum, hunger is below the race's want-eat percentage, and (below starvation) the pawn is not delegated to a feeder; at starvation the feeder suppression branch does not apply. It searches legal nonforbidden/non-socially-improper food first; on failure it may try fishing for Odyssey-enabled fishers, otherwise gives no job. Chosen targets produce PredatoryHunt, Harvest, TakeFromOtherInventory, or Ingest jobs. JobDriver_Ingest sequences preparation and chewing into FinalizeIngest; that toil computes the requested nutrition, calls Thing.Ingested, and adds the returned nutrition to Need_Food.CurLevel for a living pawn with a food need (also records nutrition eaten). Severe malnutrition (>0.4) enables corpse food; starvation marks desperate selection. Thus health changes both need trajectory and the admissible recovery source, while the consumer still has independent reachability, chair, reservation and food predicates.",
+      "failure_or_exception": "No food source (and no qualifying fish path) returns null. Malnutrition's corpse permission is not unconditional: non-animal pawns need severity >0.4; mutant corpse permission overrides that branch with DesperateOnly preference. An Ingest job can fail before its final nutrition mutation if its source is destroyed/unavailable, no longer ingestible, or cannot be touched. Mental health provides a related hard action gate: MentalBreaker refuses breaks when pawn is downed/asleep/already mental, break-blocked, quest-disabled, mutant-protected, or non-player below extreme intensity; mood below threshold must persist >2000 ticks and an MTB roll must pass.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Food.cs",
+          "symbol": "Need_Food.CurCategory; FoodFallPerTickAssumingCategory; NeedInterval",
+          "spans": [
+            [
+              29,
+              47
+            ],
+            [
+              119,
+              179
+            ]
+          ],
+          "sha256": "401013b7a91ca879a7483644fe50f694ce0e84d243c1884db8c510f4d99bfc74"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobGiver_GetFood.cs",
+          "symbol": "JobGiver_GetFood.GetPriority; TryGiveJob; TryFindFishJob",
+          "spans": [
+            [
+              25,
+              49
+            ],
+            [
+              51,
+              128
+            ],
+            [
+              130,
+              183
+            ]
+          ],
+          "sha256": "535fa14a7defd274d10a93518418b6327ef57ddd9f89ccb016dfabfb3901933c"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/Verse.AI/MentalBreaker.cs",
+          "symbol": "MentalBreaker.MentalBreakerTickInterval; CanHaveMentalBreak",
+          "spans": [
+            [
+              247,
+              308
+            ],
+            [
+              311,
+              367
+            ]
+          ],
+          "sha256": "4ab71ba6796af66f75e4c1efc9a198bc3e70c6e43ea000274b0a87b0eb92a714"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Need_Mood.cs",
+          "symbol": "Need_Mood.CurInstantLevel; NeedInterval",
+          "spans": [
+            [
+              20,
+              35
+            ],
+            [
+              86,
+              92
+            ]
+          ],
+          "sha256": "e1a41d55414598a5388c765b9f3c921ecc5bba030c3dca4214ec0024fbb51de4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_NeedsTracker.cs",
+          "symbol": "Pawn_NeedsTracker.NeedsTrackerTickInterval",
+          "spans": [
+            [
+              110,
+              119
+            ]
+          ],
+          "sha256": "17bb4b88c4331a2fa0c721382cb7da04e66739dcde65f855fd6fbb2e8b3ea61d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/JobDriver_Ingest.cs",
+          "symbol": "JobDriver_Ingest.MakeNewToils",
+          "spans": [
+            [
+              104,
+              117
+            ]
+          ],
+          "sha256": "42ccc1052a2f238754c2cdecf9b21d0a2ac62ca197b6d6fcbf1d1730f0306910"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Toils_Ingest.cs",
+          "symbol": "Toils_Ingest.FinalizeIngest",
+          "spans": [
+            [
+              395,
+              437
+            ]
+          ],
+          "sha256": "ee2f3bd7bb4bb735231bd2453317af46f51d55491b4d81249cca2c846a8a4f06"
+        }
+      ],
+      "limit": "This is one food jobgiver plus mood-break eligibility, not a complete account of all work givers, medical care, ingest drivers, reservations, or health effects. Core food thresholds and any mood-thought def parameters can be race/def/mod dependent; export contains base Core definitions only."
+    },
+    {
+      "id": "social-01",
+      "kind": "source_observation",
+      "title": "Insult attribution creates a recipient memory whose social opinion fades before expiry",
+      "observed_rule": "InteractionDef Insult assigns Insulted as recipientThought. After TryInteractWith passes self, interaction-now and cooldown checks, it applies configured initiator and recipient thoughts before the worker/log aftermath; AddInteractionThought scales mood power and (for social memories) opinion offset by the other pawn's SocialImpact, then stores the other pawn as the memory's social target. MemoryThoughtHandler rejects disallowed thoughts, missing social target, or developmental-stage mismatch; accepted thoughts enter that pawn's memory list, then grouping limits and follow-on thought rules run. Insulted is per-person stack-limited (10) and carries -15 base opinion, lasts 20 days, and creates a separate two-day InsultedMood. Thought_MemorySocial scales the opinion offset toward zero over the final fraction of duration beginning at def.lerpOpinionToZeroAfterDurationPct (default 0.7), while base Thought_Memory discards only when age exceeds duration. ThoughtHandler consumes target-matched social memories to calculate TotalOpinionOffset, stacked by the thought def multiplier. Pawn_RelationsTracker.OpinionOf adds that directed total to relation offsets, applies the pawn\u2019s health-stage opinion factors, and clamps the result. NegativeInteractionUtility then uses the initiator\u2019s opinion of the recipient in its insult-selection factor: the curve ranges from 6 at -100 through 1 at 0 to 0 at +100, multiplied by pair compatibility and (for Abrasive) 2.3; Kind returns zero. InteractionWorker_Insult multiplies this factor by its base selection weight 0.007, except slave initiator to non-slave recipient is zero. Thus a recipient\u2019s negative memory of an earlier insult can increase their later chance to choose an insult back at that actor as the recipient\u2019s opinion of the prospective target is tested. Expiration removes the memory; a configured nextThought, if present, is then created. The insult can also start a social fight (base chance 0.04); that branch suppresses normal worker aftermath but the configured recipient thought was already added.",
+      "failure_or_exception": "TryInteractWith returns false before mutation for self-interaction or failed CanInteractNowWith; a recent interaction also fails unless the def ignores cooldown. Social thought insertion is skipped when the receiving pawn lacks mood, and a missing attributed otherPawn logs and rejects the social memory. If social-fight logic succeeds, worker.Interacted and its letter output are skipped, even though the interaction entry and initial memory remain recorded.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_InteractionsTracker.cs",
+          "symbol": "Pawn_InteractionsTracker.TryInteractWith; AddInteractionThought",
+          "spans": [
+            [
+              147,
+              173
+            ],
+            [
+              176,
+              269
+            ],
+            [
+              285,
+              299
+            ]
+          ],
+          "sha256": "72fb91cb9d56c782b2147139be0107e6b245e53e9bf808536658247f407335ab"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/MemoryThoughtHandler.cs",
+          "symbol": "MemoryThoughtHandler.MemoryThoughtInterval; RemoveExpiredMemories; TryGainMemory(Thought_Memory,Pawn)",
+          "spans": [
+            [
+              76,
+              99
+            ],
+            [
+              129,
+              200
+            ]
+          ],
+          "sha256": "e3b1bb76660ce17fe50201ff99caca07d2814a8253ad779d6670c805a40b67e0"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_MemorySocial.cs",
+          "symbol": "Thought_MemorySocial.ShouldDiscard; OpinionOffset; GroupsWith",
+          "spans": [
+            [
+              10,
+              49
+            ],
+            [
+              68,
+              85
+            ]
+          ],
+          "sha256": "3ac6007dc1dd363849bffbc2dd1a3bf3e4427eeb18b9f907177a02d2c645a14b"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Thought_Memory.cs",
+          "symbol": "Thought_Memory.DurationTicks; ShouldDiscard; ThoughtInterval; MoodOffset",
+          "spans": [
+            [
+              39,
+              63
+            ],
+            [
+              122,
+              130
+            ],
+            [
+              166,
+              180
+            ]
+          ],
+          "sha256": "4b389f8ec2e8bf12832eb0f875b5ca64c4c759d70327c224644d811b70ef99ff"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtHandler.cs",
+          "symbol": "ThoughtHandler.GetSocialThoughts; OpinionOffsetOfGroup; TotalOpinionOffset",
+          "spans": [
+            [
+              133,
+              145
+            ],
+            [
+              159,
+              195
+            ],
+            [
+              197,
+              224
+            ]
+          ],
+          "sha256": "80650774ab30d3402c8c0b387fb9c7f794c662557db9466de16810e408bb19aa"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/InteractionDefs/Interactions_Social.xml",
+          "symbol": "InteractionDef Insult",
+          "spans": [
+            [
+              115,
+              126
+            ]
+          ],
+          "sha256": "d311b82ce2ec0810e1ae1f24625d0b4cc1111e27463e53bc298d4251cf7af99e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/ThoughtDefs/Thoughts_Memory_Social.xml",
+          "symbol": "ThoughtDef Insulted; InsultedMood",
+          "spans": [
+            [
+              67,
+              96
+            ]
+          ],
+          "sha256": "1be09e7a15669f8f62aa0651e8112c6db701261bfa33f14edd41232c7a8b824e"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/ThoughtDef.cs",
+          "symbol": "ThoughtDef.lerpOpinionToZeroAfterDurationPct",
+          "spans": [
+            [
+              88,
+              88
+            ]
+          ],
+          "sha256": "906aed83fa3694d3e3dba573b877ac9bbad5bd54503763b0fbe008595b7ee157"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Pawn_RelationsTracker.cs",
+          "symbol": "Pawn_RelationsTracker.OpinionOf",
+          "spans": [
+            [
+              592,
+              629
+            ]
+          ],
+          "sha256": "7e2c781de1ca2129634d114f6f60a013e513ee83b7f202410a4f3fc9e93c1895"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/NegativeInteractionUtility.cs",
+          "symbol": "NegativeInteractionUtility.NegativeInteractionChanceFactor",
+          "spans": [
+            [
+              20,
+              44
+            ]
+          ],
+          "sha256": "4b2387b68a3e7da479dbb094bfdcb7cc485446509206ad8fe2c1393481dbfab0"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/InteractionWorker_Insult.cs",
+          "symbol": "InteractionWorker_Insult.RandomSelectionWeight",
+          "spans": [
+            [
+              5,
+              16
+            ]
+          ],
+          "sha256": "9a53be7fbfe76b5c9f3edc2b5186cd61e45a4b3dc2fbead3fbbe8f03d3c56fee"
+        }
+      ],
+      "limit": "Only Core's Insult/Insulted path is traced; other interaction workers, thought defs, opinion relationship totals, social-fight combat aftermath, mods and DLC extensions may add rules. The 20-day memory and two-day mood thought are def values, not universal durations."
+    },
+    {
+      "id": "RW-STORY-01",
+      "kind": "observed_source_rule",
+      "claim": "Randy checks on 1,000-tick boundaries, iterates eligible targets and enabled storyteller components, and uses RandomMain's 1.35-day mean-time-between-events component for player-home maps. A category is chosen by configured weights unless ThreatBig has exceeded its max interval. RandomMain then filters category candidates through each worker's CanFireNow before weighted incident selection. Candidate selection is category-level and eligible-set-level, not a direct scheduled promise that ColdSnap will occur.",
+      "limit": "Randy can choose other Misc incidents. Random timing, category weights, incident weights, current state, difficulty, and other storyteller components affect the result.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.StorytellerTick; MakeIncidentsForInterval",
+          "span": [
+            213,
+            224
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.MakeIncidentsForInterval(StorytellerComp,List<IIncidentTarget>)",
+          "span": [
+            271,
+            305
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp_RandomMain.cs",
+          "symbol": "StorytellerComp_RandomMain.MakeIntervalIncidents; ChooseRandomCategory",
+          "span": [
+            11,
+            48
+          ],
+          "sha256": "75d25e9c331b55670fc4bb519af762f42f80ff97a161015e883c14e273d223b8"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.UsableIncidentsInCategory; TrySelectRandomIncident; IncidentChanceFinal",
+          "span": [
+            39,
+            68
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.TrySelectRandomIncident; IncidentChanceFinal",
+          "span": [
+            96,
+            132
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Storytellers.xml",
+          "symbol": "StorytellerDef Randy / RandomMain properties",
+          "span": [
+            665,
+            695
+          ],
+          "sha256": "def397844c6f02595c447ad0f60f19edebecb84a6398e54e871a38b6fe8be0c5"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-02",
+      "kind": "observed_source_rule",
+      "claim": "ColdSnap is a Misc incident targeting Map_PlayerHome. Its worker delegates general game-condition eligibility, then requires seasonal temperature strictly above 0 C and below 15 C. The condition definition excludes coexistence with HeatWave, and the worker rejects an already active same condition or any active condition that cannot coexist. A target without a condition manager also fails closed.",
+      "limit": "The worker's temperature test is for candidate eligibility, not the final local outdoor or room temperature. Other general IncidentWorker restrictions also apply, including target, earliest day, difficulty/scenario, refire, population, active prevent-incidents conditions and game-ending restrictions.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker.cs",
+          "symbol": "IncidentWorker.CanFireNow; FiredTooRecently",
+          "span": [
+            35,
+            175
+          ],
+          "sha256": "53d212411187e72b25e593ca6fe235b032152e156bfa6276828b0d5eeffcdade"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker.cs",
+          "symbol": "IncidentWorker.TryExecute",
+          "span": [
+            183,
+            230
+          ],
+          "sha256": "53d212411187e72b25e593ca6fe235b032152e156bfa6276828b0d5eeffcdade"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_MakeGameCondition.cs",
+          "symbol": "IncidentWorker_MakeGameCondition.CanFireNowSub",
+          "span": [
+            14,
+            54
+          ],
+          "sha256": "467f183b609a8b7cd22a398bf1e635d966ab1ab8263379358649173963693b0a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_ColdSnap.cs",
+          "symbol": "IncidentWorker_ColdSnap.CanFireNowSub; IsTemperatureAppropriate",
+          "span": [
+            5,
+            24
+          ],
+          "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+          "symbol": "IncidentDef ColdSnap",
+          "span": [
+            259,
+            273
+          ],
+          "sha256": "39ecee17f87e429af68adf7e76523f4d34e79afbf6105c8a2df54894a4419dd5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+          "symbol": "GameConditionDef ColdSnap",
+          "span": [
+            118,
+            131
+          ],
+          "sha256": "0f5e7d6100893d811e6757f3693e192e7e10f892213c7a2050aa276b9707efb2"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-03",
+      "kind": "observed_source_rule",
+      "claim": "The selected FiringIncident is fired only after a second CanFireNow check; success executes the worker and records the incident in target story state. The condition worker chooses the incident's gameCondition def, rolls its configured 1.5-3.5 day duration, creates/registers the condition, and may send a letter if visible/applicable. ColdSnap adds a -20 C temperature offset ramped over 12,000 ticks. The manager aggregates applicable condition offsets (including parent/world conditions), and TileTemperaturesComp adds that offset to cached outdoor temperature. Plant.GrowthRateFactor_Temperature reads actual cell temperature and passes it to plant temperature growth rules. The condition manager serializes active conditions, reconnects their manager on load, ticks them, and ends expired conditions.",
+      "limit": "This trace establishes a seasonal crop-growth consequence through the plant temperature multiplier; it does not establish that every crop dies or quantify yield loss. Crop stage, cell/room temperature, plant definition, and duration matter. Letter generation has visibility/applicability gates.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.TryFire",
+          "span": [
+            226,
+            235
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_MakeGameCondition.cs",
+          "symbol": "IncidentWorker_MakeGameCondition.TryExecuteWorker; TryFireLetter",
+          "span": [
+            56,
+            87
+          ],
+          "sha256": "467f183b609a8b7cd22a398bf1e635d966ab1ab8263379358649173963693b0a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameCondition_ColdSnap.cs",
+          "symbol": "GameCondition_ColdSnap.TemperatureOffset",
+          "span": [
+            3,
+            13
+          ],
+          "sha256": "e41cd28d5814d804e120bd53a0ce5ef634bec1030b46284f2e6871078fb581cc"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameConditionManager.cs",
+          "symbol": "RegisterCondition; ExposeData; GameConditionManagerTick; AggregateTemperatureOffset",
+          "span": [
+            167,
+            231
+          ],
+          "sha256": "9a601f4a316c21d64bbd6a40eddb99998241dcf3ce98c0f760f06a5dd4bcd0e4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameConditionManager.cs",
+          "symbol": "GameConditionManager.AggregateTemperatureOffset",
+          "span": [
+            404,
+            419
+          ],
+          "sha256": "9a601f4a316c21d64bbd6a40eddb99998241dcf3ce98c0f760f06a5dd4bcd0e4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld.Planet/TileTemperaturesComp.cs",
+          "symbol": "TileTemperaturesComp.CheckCache",
+          "span": [
+            63,
+            75
+          ],
+          "sha256": "ffb14aaab6ce9a0c7fb7174d8bb2d3383ac86da138efe31bd53c14e1da6c59c1"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "Plant.GrowthRateFactor_Temperature",
+          "span": [
+            361,
+            370
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "Plant inspect-pane temperature consequence",
+          "span": [
+            1070,
+            1101
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+          "symbol": "IncidentDef ColdSnap duration/letter",
+          "span": [
+            259,
+            273
+          ],
+          "sha256": "39ecee17f87e429af68adf7e76523f4d34e79afbf6105c8a2df54894a4419dd5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+          "symbol": "GameConditionDef ColdSnap consequence prose and end message",
+          "span": [
+            118,
+            131
+          ],
+          "sha256": "0f5e7d6100893d811e6757f3693e192e7e10f892213c7a2050aa276b9707efb2"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-04",
+      "kind": "observed_failure_path",
+      "claim": "In a home map whose seasonal temperature is 0 C or lower, ColdSnap fails IsTemperatureAppropriate and is removed from UsableIncidentsInCategory. Randy may still choose another eligible Misc incident; this is a candidate rejection, not a queued cold snap waiting for temperatures to change. A second execution-time eligibility check can also fail after selection if conditions change.",
+      "limit": "The exact distribution and whether any other candidate remains depend on game state and other installed incident definitions.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_ColdSnap.cs",
+          "symbol": "IncidentWorker_ColdSnap.IsTemperatureAppropriate",
+          "span": [
+            16,
+            23
+          ],
+          "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.UsableIncidentsInCategory",
+          "span": [
+            45,
+            67
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.TryFire",
+          "span": [
+            226,
+            235
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-05",
+      "kind": "observed_source_rule",
+      "title": "Temperature factor changes growth state, subject to plant eligibility",
+      "observed_rule": "Plant.GrowthRate multiplies temperature with fertility/light and applicable hazard factors, but blight or a closed growth season yields zero. GrowthPerTick additionally requires a growing, nonresting plant and its vacuum rule, then scales GrowthRate by species growDays. TickLong increments growthInt by GrowthPerTick * 2000 only during growth season and caps it at one. This closes the condition-temperature-property path into a concrete stored growth change.",
+      "limit": "No crop-death, harvest-yield or exact output-loss claim. Growth can already be zero for other reasons; frost effect depends on species, cell temperature, stage and timing.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "GrowthRate; GrowthPerTick; TickLong",
+          "spans": [
+            [
+              289,
+              303
+            ],
+            [
+              334,
+              347
+            ],
+            [
+              810,
+              831
+            ]
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        }
+      ]
+    }
+  ],
+  "yair_inputs": [
+    {
+      "path": "src/simulation.js",
+      "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "read_spans": [
+        [
+          51,
+          109
+        ],
+        [
+          111,
+          175
+        ],
+        [
+          184,
+          228
+        ],
+        [
+          231,
+          242
+        ],
+        [
+          302,
+          343
+        ]
+      ]
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+      "read_spans": [
+        [
+          23,
+          80
+        ],
+        [
+          185,
+          214
+        ]
+      ]
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "669f684cb5f0b8d5becd3e17db7a4aee4c206ae7ce0e1426e2d659a1d028dfc2",
+      "read_spans": [
+        [
+          19,
+          74
+        ],
+        [
+          130,
+          184
+        ]
+      ]
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496",
+      "read_spans": [
+        [
+          7,
+          58
+        ]
+      ]
+    },
+    {
+      "path": "src/native_storage_transaction.js",
+      "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+      "read_spans": [
+        [
+          7,
+          32
+        ]
+      ]
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "read_spans": [
+        [
+          3,
+          62
+        ]
+      ]
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "read_spans": [
+        [
+          1,
+          49
+        ]
+      ]
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "read_spans": [
+        [
+          5,
+          55
+        ]
+      ]
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "read_spans": [
+        [
+          15,
+          41
+        ],
+        [
+          83,
+          96
+        ]
+      ]
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "read_spans": [
+        [
+          1,
+          21
+        ],
+        [
+          48,
+          98
+        ]
+      ]
+    },
+    {
+      "path": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "read_spans": [
+        [
+          33,
+          60
+        ]
+      ]
+    },
+    {
+      "path": "src/feature_expansion_objects_host.js",
+      "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+      "read_spans": [
+        [
+          35,
+          51
+        ]
+      ]
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "read_spans": [
+        [
+          224,
+          246
+        ],
+        [
+          979,
+          1001
+        ],
+        [
+          1783,
+          1815
+        ]
+      ]
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+      "read_spans": [
+        [
+          84,
+          100
+        ],
+        [
+          142,
+          185
+        ]
+      ]
+    }
+  ],
+  "review": {
+    "helpers": [
+      "BODY_SOCIAL_FINDINGS.json",
+      "STORYTELLER_FINDINGS.json"
+    ],
+    "parent_repairs": [
+      "Corrected a copied JobDriver_Ingest hash on Pawn_RelationsTracker evidence after direct digest verification.",
+      "Qualified the GetPriority feeder guard: it only suppresses priority below starvation; at starvation this guard does not apply.",
+      "Followed plant growth factor to GrowthPerTick and TickLong mutation."
+    ],
+    "worker_claims_reviewed": true,
+    "limits": "Bounded source review, not all recovered code or DLC definitions. Files are moving in another implementation lane; hashes identify the inspected dirty snapshot."
+  },
+  "yair_comparison": {
+    "observed": "Native recipes already validate actual input material, create quality-bearing components, and equipment keys include components/quality. Weapon.getAttack consumes component values and item quality. Current fitting/cooling content already reuses these stock/body/custody/condition consumers. Current finite work-plan goal is expressly gated to optional reference gameplay, not a generic stock-buffer controller.",
+    "inference": "The next transfer should extend one missing authored consumer or routine policy. The source review does not justify replacing existing item, health, social, save or scheduler owners.",
+    "bounded_gaps": [
+      "Inspected work-plan goal completes permanently, with no lower-stock resume policy in that cursor.",
+      "Inspected directed relationship memory records have cause/time/text and bounded history; timed social activation/fade is not consumed there. Existing craftsman irritation already demonstrates a basic cooldown, so only a new pair-specific service consumer warrants expansion.",
+      "Inspected simulation/field workshop owners lack a cultivated plot to turn environmental state into actual herb growth/harvest. Native herb items exist; planting stock/source needs explicit authoring."
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "schema": "roguelibs-framework-lifecycle-notes/v1",
+  "source": {
+    "repository": "https://github.com/Chasmical/RogueLibs",
+    "commit": "d76523acb484168f4d2d1d7bc0fce0d2c5d263f1",
+    "commit_date": "2024-12-30T16:01:48+07:00",
+    "checkout": "/Users/weiwei/.codex/research/streets-of-rogue/RogueLibs",
+    "version_limit": "Archived RogueLibs source snapshot; no installed Streets of Rogue build was inspected or matched. This is framework code that references external Assembly-CSharp/Unity types, not a decompile of game logic."
+  },
+  "findings": [
+    {
+      "id": "custom-ability-lifecycle",
+      "scope": "Ability hook discovery/grant callback, press and hold/release callbacks, recharge coroutine, target polling and indicator state.",
+      "caller_chain": [
+        "RogueLibsPlugin.PatchAbilities installs postfixes for StatusEffects.GiveSpecialAbility, PressedSpecialAbility, HeldSpecialAbility, ReleasedSpecialAbility and prefixes for RechargeSpecialAbility2 and SpecialAbilityInterfaceCheck2 (Patches_Abilities.cs:9-21).",
+        "Ability item hooks are attached by Patches_Items.InvItem_SetupDetails through RogueFramework.ItemFactories and InvItem.AddHook (Patches_Items.cs:49-75). Agent.GiveAbility<TAbility> resolves ItemInfo, calls StatusEffects.GiveSpecialAbility, and returns the equipped item hook; Agent.GetAbility reads equippedSpecialAbility.GetHook<CustomAbility> (RogueExtensions.cs:170-187).",
+        "The postfix on GiveSpecialAbility ignores ordinary HomeBase agents (except dummy/MechEmpty), finds the equipped custom hook, invokes OnAdded, then starts target interface and/or recharge routines according to implemented interfaces (Patches_Abilities.cs:26-43).",
+        "Press/Held/Released postfixes use Agent.GetAbility and require hook item name to equal agent.specialAbility; chargeable hold receives mutable elapsed time and zero elapsed triggers ReleasedSpecialAbility. Release reads lastHeld, clears it before invoking OnReleased, and skips when it is zero (Patches_Abilities.cs:45-95).",
+        "RechargeSpecialAbility2 prefix replaces the external coroutine for IAbilityRechargeable hooks. The framework loops while that item stays equipped, invokes OnRecharging, accepts delay/text mutations, yields by configured delay, observes inventory count reaching zero and marks non-targetable slot usable; running flags are cleared on normal loop exit (Patches_Abilities.cs:97-141).",
+        "SpecialAbilityInterfaceCheck2 prefix replaces the external target-check coroutine for IAbilityTargetable hooks. It polls FindTarget every 0.1 seconds while equipped and only displays/marks usable when load/UI/agent conditions pass, count permits and target is non-null. ShowIndicator postfix delegates sprite choice to GetIndicator (Patches_Abilities.cs:143-190)."
+      ],
+      "prerequisites_and_costs": "The hook must be created by a registered item factory and be the agent's equippedSpecialAbility; press/hold/release additionally require the item name to match specialAbility. Interface capabilities independently opt in to charge, target and recharge behavior. CustomAbility.SetupDetails sets stackable=true, initCount=0, lowCountThreshold=100. No framework nugget/point cost is applied by these lifecycle callbacks (CustomAbility.cs:8-39).",
+      "mutations_and_aftermath": "Ability callbacks can mutate ability-specific state; framework-controlled changes include held timer, lastHeld, recharge coroutine flags, count-based usability, target reference and indicator sprite/enabled state. Recharge code itself does not decrement invItemCount; it observes the count, leaving charge consumption to game/ability code outside this path.",
+      "exception_and_cancellation_boundaries": "OnAdded, OnPressed, OnHeld and OnReleased have per-callback try/catch logging and lifecycle processing continues after those caught exceptions. OnRecharging and IAbilityTargetable.FindTarget have no local catch in their coroutines. Recharge/target loops exit when equippedSpecialAbility changes; their running flags are cleared on normal loop exit only, with no finally cleanup if OnRecharging/FindTarget throws. In Held, the callback args.HeldTime is assigned back even after a caught callback error; lastHeld is set to the pre-callback time. A zero result invokes external ReleasedSpecialAbility, whose patched postfix releases only when lastHeld != 0.",
+      "external_boundary": "StatusEffects.GiveSpecialAbility, PressedSpecialAbility, HeldSpecialAbility, ReleasedSpecialAbility, SpecialAbilityInterfaceCheck, RechargeSpecialAbility, SpecialAbilityIndicator.ShowIndicator and underlying inventory/count/UI behavior are Assembly-CSharp methods/fields invoked by this framework. Their bodies were unavailable in RogueLibs; no vanilla input timing, item decrement behavior, or NPC policy is inferred.",
+      "evidence": [
+        {
+          "file": "RogueLibsCore/Patches/Patches_Abilities.cs",
+          "lines": "9-190",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Abilities.cs",
+          "sha256": "c4e29e281e00537a7a7bac1808f164c71e24c4e9258a80e7ce3677f91c7fd6cd"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Abilities/CustomAbility.cs",
+          "lines": "8-39",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/CustomAbility.cs",
+          "sha256": "0a2f17ff06fb4a4e97b74f6241a75db7602286bfe53ebce5a59b086a1a814252"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Abilities/IAbilityChargeable.cs",
+          "lines": "6-18",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityChargeable.cs",
+          "sha256": "5e565bc79be229f14298105da287a2b10f29ae9484f6ec40c6e73b6fca900bfc"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Abilities/IAbilityRechargeable.cs",
+          "lines": "6-14",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityRechargeable.cs",
+          "sha256": "b70055d93f6d7d6f6b29f077f953ad937a4c82c118a949e1aedf2c4dd71b279d"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Abilities/IAbilityTargetable.cs",
+          "lines": "6-14",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Abilities/IAbilityTargetable.cs",
+          "sha256": "1f651caa08c3d103409f470963e44d37b0daa1756b5c25238295d5885d89e46f"
+        },
+        {
+          "file": "RogueLibsCore/Utilities/RogueExtensions.cs",
+          "lines": "170-187",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Utilities/RogueExtensions.cs",
+          "sha256": "30ffd8243db9c7a113838cbf18c5801eefaeac1a5ad695134640b957f73af3c9"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Patches_Items.cs",
+          "lines": "49-75",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Items.cs",
+          "sha256": "a785ef25c3ad01cb7f4ab6ca21e80eaffbeacb72b0003ce2028fdcf969076720"
+        }
+      ]
+    },
+    {
+      "id": "trait-effect-lifecycle",
+      "scope": "Trait/effect factory lookup and attachment, callbacks, update routines, duration/refresh/removal and hook-controller cleanup.",
+      "caller_chain": [
+        "Patches_TraitsStatusEffects patches StatusEffects.AddTrait/AddStatusEffect using transpilers to call SetupTraitHook/SetupEffectHook; removal prefixes capture the current named object and postfixes invoke its custom removal callback (Patches_TraitsStatusEffects.cs:10-42, 44-73, 105-164).",
+        "SetupTraitHook stamps the parent, tries registered TraitFactories, attaches each created hook, and starts StatusEffects.UpdateTrait only for CustomTrait+ITraitUpdateable and agents not named DummyAgent/Backup; it sets Trait.requiresUpdates (Patches_TraitsStatusEffects.cs:120-144). CustomTrait.Initialize calls OnAdded (CustomTrait.cs:33-43).",
+        "SetupEffectHook stamps parent, tries EffectFactories, attaches hook, then explicitly calls CustomEffect.OnAdded. RefreshEffect calls OnRefreshed for custom effects; its default resets CurrentTime to GetEffectTime (Patches_TraitsStatusEffects.cs:76-103; CustomEffect.cs:25-28, 62-73).",
+        "GetStatusEffectTime/GetStatusEffectHate create a temporary StatusEffect and factory hook to query metadata methods, with fallback time 9999. This can instantiate the custom hook before it is attached to a live effect (Patches_TraitsStatusEffects.cs:166-205).",
+        "UpdateStatusEffect prefix substitutes a coroutine for CustomEffect. It conditionally invokes OnUpdated, passes first-tick/delay/removal-text settings, yields, and removes finite-duration effects through StatusEffects.RemoveStatusEffect when the loop ends under the coded conditions. UpdateTrait prefix substitutes an update coroutine for ITraitUpdateable and exits once TraitList no longer contains that Trait (Patches_TraitsStatusEffects.cs:207-299).",
+        "HookController.AddHook assigns Instance, appends the hook and registers optional Unity update interfaces before Initialize. RemoveHook removes the hook and unregisters update interfaces; Dispose/finalizer unregisters and calls IDisposable.Dispose on attached hooks (HookController.cs:23-50, 53-102, 147-175)."
+      ],
+      "prerequisites_and_costs": "Names must match entries in CustomTraitFactory/CustomEffectFactory. The game-side StatusEffects.AddTrait/AddStatusEffect entrypoints and parent lists are external. Trait periodic updates require ITraitUpdateable and exclude agents matching the literal dummy/backup name checks. CustomEffect metadata configures death/knockout/next-level retention flags; duration defaults are seconds as declared by API. No framework currency cost is implemented in these lifecycle paths.",
+      "mutations_and_aftermath": "Traits/effects receive a parent container and hook association. Trait updateable attachment starts a coroutine and sets requiresUpdates. Effects get configured lifetime-retention flags; refresh callback may reset current time; update callback can change CurrentTime, UpdateDelay and ShowTextOnRemoval. Finite effects are removed by the framework path when its loop termination predicate and postcondition allow. Trait removal and effect removal callbacks run from postfixes after the external remove call, using the captured pre-call object. HookController disposal detaches update interface references and disposes IDisposable hooks; it does not call CustomTrait.OnRemoved or CustomEffect.OnRemoved by itself.",
+      "exception_and_cancellation_boundaries": "Trait/effect OnAdded is called via HookController.Initialize or directly in SetupEffectHook with no local catch; trait/effect OnRemoved and effect OnRefreshed likewise have no local catch. Trait OnUpdated and effect OnUpdated are caught/logged per tick. The two GetStatusEffect metadata methods and IHookFactory.TryCreate also have no catch here. Effect update skips callback work in some knocked-out/fallen/teleport/cinematic/unloaded/disappeared states while coroutine loop has additional conditions; multiplayer gate is explicit. Trait update loop stops when trait leaves TraitList; effect routine checks CurrentTime/list plus the shown agent state conditions. Exact vanilla duration decrement/update and collection-removal semantics are external and are not reconstructed.",
+      "external_boundary": "StatusEffects.AddTrait/AddStatusEffect/GetStatusEffectTime/GetStatusEffectHate/UpdateStatusEffect/UpdateTrait/RemoveTrait/RemoveStatusEffect and Agent/StatusEffect/Trait properties are Assembly-CSharp interfaces. RogueLibs patches around them but does not supply the original bodies. Do not treat this trace as proof of the game's ordinary timer tick order, NPC behavior, or all death/knockout cleanup semantics.",
+      "evidence": [
+        {
+          "file": "RogueLibsCore/Patches/Patches_TraitsStatusEffects.cs",
+          "lines": "10-42,44-103,105-164,166-205,207-299",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_TraitsStatusEffects.cs",
+          "sha256": "970c1cebc2ce02ba0918d7c81b48eaf0b1af6d246daa2c0cb2d56252629a8131"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Traits/CustomTrait.cs",
+          "lines": "6-44",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Traits/CustomTrait.cs",
+          "sha256": "fec64ed3af4d12f9ac371ed0e617fb89c3bda13b56d072c105b224f697de8a83"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Effects/CustomEffect.cs",
+          "lines": "6-80",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Effects/CustomEffect.cs",
+          "sha256": "16b6056f83566426c7227f49fb0995563fd572a062151d53570c83e66343598e"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/HookController.cs",
+          "lines": "23-50,53-102,147-175",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/HookController.cs",
+          "sha256": "d24c9216bcf8b919d7d5937f5a2ced614b0c7800839a19c309390fbea5d2a385"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Traits/CustomTraitFactory.cs",
+          "lines": "10-46",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Traits/CustomTraitFactory.cs",
+          "sha256": "5c4e7a19cef867d0a89a1e68c787a29a77aff478713ebbaed84e9631050fb1d3"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Effects/CustomEffectFactory.cs",
+          "lines": "10-46",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Effects/CustomEffectFactory.cs",
+          "sha256": "ed0afe1c07ab49e1cff24d81a3d0b51fd7fc43eff1f08c35a2a78b90a64c935f"
+        }
+      ]
+    },
+    {
+      "id": "unlock-prerequisite-cost-persistence",
+      "scope": "Unlock wrapper registration, prerequisite/cost evaluation and UI refresh, game purchase delegation, custom unlock state backup/restore and framework save/load interception.",
+      "caller_chain": [
+        "LoadInitialUnlocks transpiler inserts InitializeUnlockWrappers after the external unlock list load. That method wraps recognized built-in unlocks, applies framework adjustments, registers custom wrappers, calls AddUnlockFull and persists the custom-unlock backup (Patches_Unlocks.cs:141-247).",
+        "UnlockWrapper exposes UnlockCost, LoadoutCost, CharacterCreationCost and prerequisite lists. CanBeUnlocked requires cost > -1 and every named prerequisite already unlocked in SessionDataBig; UpdateUnlock sets nowAvailable and calls RogueLibs UnlocksExtensions.DoUnlockForced when eligible and cost is zero (UnlockWrapper.cs:55-112; UnlocksExtensions.cs:21-32).",
+        "UI setup/update callers include Patches_CharacterCreation and Patches_ScrollingMenu, which invoke DisplayedUnlock.UpdateUnlock when building/sorting menus. UnlockWrapper.UpdateUnlock auto-forces zero-cost eligible unlocks; nonzero-cost purchase behavior routes through game UI and external Unlocks.DoUnlock. RogueLibs Patches_AgentInteractions wraps DoUnlock only for queue handling (Patches_CharacterCreation.cs:44-47; Patches_ScrollingMenu.cs:156-195; Patches_AgentInteractions.cs:100-101).",
+        "AddUnlockFull integrates the wrapper with external Unlocks.AddUnlock, reconciles unlocked/enabled state from a prior matching unlock, syncs availability fields, runs SetupUnlock, and catches/logs setup exceptions (Patches_Unlocks.cs:268-299).",
+        "SaveUnlockData2 prefix replaces the coroutine with SaveEnumerator. It serializes unlocks and other session data; on ordinary file platforms writes a temporary file and replaces GameUnlocks.dat while invoking the game's BackupGameUnlocks and cloud-save methods. Save exceptions are logged; a concurrent save request is coalesced into one follow-up (Patches_Unlocks.cs:373-539).",
+        "LoadUnlockData2 prefix reads the primary file or second-try backup, restores fields and initial unlocks; on primary read exception/file-missing it asks external LoadUnlockData(true) to retry backup. Failure on second try moves bad file through external CopyToCorrupted then loads initial unlocks. Custom BackupUnlocks XML separately preserves custom unlock nuggets and fields and AddUnlock postfix applies a matching entry when the game's loaded definition is missing (Patches_Unlocks.cs:541-702; BackupUnlock.cs:8-70; BackupUnlocks.cs:8-55)."
+      ],
+      "prerequisites_and_costs": "Wrapper defaults documented in source: UnlockCost 0 means automatic after prerequisites; LoadoutCost default 1 nuggets; CharacterCreationCost default 1 points. CanBeUnlocked only handles cost > -1 and named prerequisites; specialized subclasses may override. Framework turns BigQuest cost to -1 and adds its agent name prerequisite; special game unlock conditions get cost -2. Representative prerequisite edits are explicit in FixPrerequisites. Nugget/point debit, nonzero-cost purchase acceptance, and progression update mechanics are not implemented in UnlockWrapper and rely on unavailable Assembly-CSharp behavior or specialized wrapper overrides.",
+      "mutations_and_aftermath": "Framework mutates wrapper availability/unlocked/enabled fields and prerequisites, integrates wrappers into session unlock lists, and performs automatic zero-cost unlock through its UnlocksExtensions.DoUnlockForced extension. That extension temporarily sets AllowUnlocksAnyway, calls external Unlocks.DoUnlock, restores the flag, then calls external Unlocks.SaveUnlockData(true). Main save persists unlock list plus various session fields/version; custom XML backup records custom unlock name/type/unlocked/notActive/progressCount/progressList plus nuggets. Restore reapplies those fields to a newly created custom definition. Source file shows extra game backup/corrupt/cloud calls but their implementations are unavailable.",
+      "exception_and_cancellation_boundaries": "AddUnlockFull catches and logs per-wrapper setup failures. SaveEnumerator catches/logs the main serialization/write path; nested loadout and console config copying have separate catches. LoadUnlockData2 catches deserialize/restore failures and tries backup, then initial unlocks on second failure. SaveBackupUnlocks/LoadBackupUnlocks XML operations are not inside the main save try when called before it, so their exceptions can escape that boundary. Daily-run menu prefix saves the challenge unlock list and finalizer restores it even when the original menu call exits exceptionally. CanDoUnlocks prefix can force the external method result true when AllowUnlocksAnyway is set. RogueLibs UnlocksExtensions.DoUnlockForced sets AllowUnlocksAnyway=true, calls external DoUnlock, restores the prior flag and calls external SaveUnlockData(true); this sequence is not protected by try/finally, so if DoUnlock throws the flag restoration and save are skipped (UnlocksExtensions.cs:21-32).",
+      "external_boundary": "Unlocks.AddUnlock, DoUnlock, LoadInitialUnlocks, SaveUnlockData, LoadUnlockData, BackupGameUnlocks, CopyToCorrupted, SteamGog.CloudSave, session-data serialization and game UI purchase flow are external Assembly-CSharp/platform methods. UnlocksExtensions.DoUnlockForced is implemented in RogueLibs and calls external DoUnlock and SaveUnlockData; RogueLibs source does not establish actual nugget deduction, menu acceptance rules, game backup contents/atomicity, or internal purchase failure behavior.",
+      "evidence": [
+        {
+          "file": "RogueLibsCore/Hooks/Unlocks/UnlockWrapper.cs",
+          "lines": "45-120",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/UnlockWrapper.cs",
+          "sha256": "b539de2b73cee003ebe94206ddd32cc11015e24ec9dad8b3e06cf6a5578bc24c"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Utilities/UnlocksExtensions.cs",
+          "lines": "13-32",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Utilities/UnlocksExtensions.cs",
+          "sha256": "c129c5d57986de4bfad45e8ae2b21bf7286645681c2589dbd3f23826f17d006f"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Patches_CharacterCreation.cs",
+          "lines": "44-47",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_CharacterCreation.cs",
+          "sha256": "e21bc8f53aec159c08b7669153fa0a8a4a9aba02854d22585912488f7aba603a"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Patches_ScrollingMenu.cs",
+          "lines": "156-195",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_ScrollingMenu.cs",
+          "sha256": "bab6c5027e07e10cb23af6e64a6abef828a90d64e55c4c629d332d4add573587"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+          "lines": "100-101",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+          "sha256": "34fba516101a837b4fb62f93f7dd18aabb41ef17757c5e51ad0b63a55053d6cf"
+        },
+        {
+          "file": "RogueLibsCore/Patches/Patches_Unlocks.cs",
+          "lines": "10-43,88-131,141-161,164-247,249-330,332-345,373-539,541-702",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Unlocks.cs",
+          "sha256": "9d58441942824da6070b714bbec44440d3da168347d8d6b701a53151c69483d9"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlock.cs",
+          "lines": "8-72",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/BackupUnlock.cs",
+          "sha256": "ee4dd05d2fd8477f0f31b08b0524cc06c3da96603136fa0ed81d9cd4afa5695d"
+        },
+        {
+          "file": "RogueLibsCore/Hooks/Unlocks/BackupUnlocks.cs",
+          "lines": "8-55",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Unlocks/BackupUnlocks.cs",
+          "sha256": "50792312b3e00abfa10d5f1865adcbcf74e1472d425607bf561d9700f06b24ca"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "requested_paths": 3,
+    "reviewed_paths": 3,
+    "reviewed_source_lines": [
+      "Patches_Abilities.cs:9-190",
+      "Patches_TraitsStatusEffects.cs:10-299",
+      "CustomTrait.cs:6-44",
+      "CustomEffect.cs:6-80",
+      "UnlockWrapper.cs:45-120",
+      "Patches_Unlocks.cs:10-702",
+      "BackupUnlock.cs:8-72",
+      "RogueExtensions.cs:163-195",
+      "Patches_Items.cs:49-75",
+      "IAbilityChargeable.cs:6-18",
+      "UnlocksExtensions.cs:13-32",
+      "Patches_CharacterCreation.cs:44-47",
+      "Patches_ScrollingMenu.cs:156-195",
+      "Patches_AgentInteractions.cs:100-101",
+      "CustomAbility.cs:8-39",
+      "IAbilityRechargeable.cs:6-14",
+      "IAbilityTargetable.cs:6-14",
+      "HookController.cs:12-175",
+      "CustomTraitFactory.cs:10-46",
+      "CustomEffectFactory.cs:10-46",
+      "BackupUnlocks.cs:8-55"
+    ],
+    "limitations": [
+      "No original Assembly-CSharp game code was available in this task; symbols called from that assembly are interface boundaries only.",
+      "No live game/build, gameplay run, test, save, runtime process or browser was accessed.",
+      "This source checkout is the pinned archived framework commit and is not proven compatible with any installed/current game version.",
+      "The transpiler snippets identify insertion/replacement sites but exact resulting original IL was not decompiled from Assembly-CSharp."
+    ],
+    "manifest_note": "Each source evidence entry records repository-relative path, inspected line span, commit-pinned GitHub URL and complete local SHA-256. Every cited source entry has its complete local SHA-256."
+  }
+}

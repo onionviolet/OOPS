@@ -1,0 +1,319 @@
+{
+  "schema": 1,
+  "classification": "Reviewed framework/compatibility/mod paths, not original game paths",
+  "original_gameplay_paths_complete": 0,
+  "findings": [
+    {
+      "id": "RL-01",
+      "kind": "framework NPC interaction bridge",
+      "claim": "NPC interaction queries collect buttons and defer a named set of side effects; actual menu determination and button outcome bodies remain external.",
+      "caller_chain": [
+        "PatchAgentInteractions -> AgentInteractHook -> InteractHook -> DetermineButtonsHook -> InteractionModel.OnDetermineButtons2",
+        "Patch_Agent provider calls external AgentInteractions.DetermineButtons with Queuing=true; patched AddButton and named side effects enqueue representations",
+        "Provider captures actions and binds button callbacks -> SetSideEffect and AddButton -> OnDetermineButtons2 invokes SideEffect then processes zero/implicit/displayed interactions",
+        "PressedButtonHook -> InteractionModel.OnPressedButton2 -> stored action -> external AgentInteractions.PressedButton"
+      ],
+      "prerequisites_costs": "Actor/object binding is the real interactingAgent. Money/extra prices are obtained from the external DetermineButtons and displayed; the bridge itself does not implement currency debit or vanilla hostility/ownership rules.",
+      "mutations_aftermath": "Actual setup publishes button lists; queued speech, operating, protection, ability and unlock actions run as the deferred side effect. Agent query flags, global queues and the prior interactingAgent are restored/cleared via finally.",
+      "failure_exception": "Provider errors are logged; unavailable button names are logged and return. SideEffect, StopCallback and pressed actions have no local catch. IsInteractable2 gathers representations without invoking SideEffect, but does run providers and mutate/clear temporary lists, so this is not proof of universal preview purity. Agent DetermineButtons/PressedButton and Relationships.ProtectOwned bodies absent.",
+      "evidence": [
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Patches/Patches_AgentInteractions.cs",
+          "lines": "12-61,69-113",
+          "symbols": [
+            "PatchAgentInteractions",
+            "QueuePrefix",
+            "AgentInteractions_AddButton"
+          ],
+          "sha256": "34fba516101a837b4fb62f93f7dd18aabb41ef17757c5e51ad0b63a55053d6cf",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_AgentInteractions.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/VanillaInteractions/Agent.cs",
+          "lines": "9-51,78-85",
+          "symbols": [
+            "Patch_Agent",
+            "QueueAction",
+            "PrepareButton"
+          ],
+          "sha256": "1a401a76c380083336886feaf72b204ce17496315d1557e6a7c5bf1db5e445c6",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Agent.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/InteractionModel.cs",
+          "lines": "164-290,308-368",
+          "symbols": [
+            "OnDetermineButtons2",
+            "OnPressedButton2",
+            "IsInteractable"
+          ],
+          "sha256": "2e10ff0af718854a0647632dd743f4d47d2513673d0c1c20da4a919aa533d677",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/InteractionModel.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Patches/Patches_Interactions.cs",
+          "lines": "75-145,201-215",
+          "symbols": [
+            "DetermineButtonsHook",
+            "InteractHook",
+            "PlayfieldObject_get_interactable"
+          ],
+          "sha256": "d1d32277e26549415b072804d19e02b355a49c493d28e06ea87e3b1b9a2bbc4a",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Interactions.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/SimpleInteractionProvider.cs",
+          "lines": "384-408",
+          "symbols": [
+            "IInteractionProvider.GetInteractions"
+          ],
+          "sha256": "08bbfcfe50ed91957e99fcbfd8b981634c54dde2f01992fa6fe03b850b7f1391",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/SimpleInteractionProvider.cs"
+        }
+      ]
+    },
+    {
+      "id": "RL-02",
+      "kind": "framework compatibility door logic",
+      "claim": "A door produces different interaction choices for local/remote approach, state, actor tools, hoisting and matching key location. This is RogueLibs compatibility reimplementation, not a recovered original Door.cs.",
+      "caller_chain": [
+        "PatchInteractions -> VanillaInteractions.PatchAll -> reflection Include Patch_Door -> patched door DetermineButtons/Interact/InteractFar",
+        "InteractionModel gathers Patch_Door provider -> local/remote/trap/open/locked branches -> implicit or explicit buttons",
+        "PressedButtonHook -> action calls external Unlock/OpenDoor/KnockOnDoor or framework StartOperating -> external Operating coroutine"
+      ],
+      "prerequisites_costs": "Remote branch permits only present door detonator disarm. Automatic/panic doors return. Closed trapped door prioritizes disarm; open doors close only if cooldown/blocked checks allow. Matching key/chunk/sector is offered ahead of skeleton key/lockpick/crowbar. Tool/hoist gates differ. Lockpick/crowbar/detonator operations pass2seconds and makeNoise=true; displayed crowbar -30 is not proof of debit.",
+      "mutations_aftermath": "Key callbacks invoke unlock/open and stop; knock invokes external KnockOnDoor; tool paths enter operating coroutine. Underlying wear, noise, security reaction and quest completion remain unread game code.",
+      "failure_exception": "Re-interaction guard clears justInteractedImmediate and stops. Local cooldown/blocked branches may close interaction without changing door. The exact opening, operation interruption and resource-consumption rules are external, and this is not a full alternative-quest completion trace.",
+      "evidence": [
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/VanillaInteractions/Door.cs",
+          "lines": "8-175",
+          "symbols": [
+            "Patch_Door",
+            "OpenButton"
+          ],
+          "sha256": "64384252064ba0dfdcd8fa5ebe575923c78f3c7a0be80936c7a766545808ad78",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Door.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/VanillaInteractions.cs",
+          "lines": "11-24,83-96",
+          "symbols": [
+            "PatchAll",
+            "Patch",
+            "PatchInteract",
+            "PatchInteractFar"
+          ],
+          "sha256": "1bc4e106b492e56daabff6d4eb764637f86e8744843e1227e4eb01b11b694412",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/InteractionModel.cs",
+          "lines": "141-162,252-290",
+          "symbols": [
+            "StartOperating",
+            "OnPressedButton2"
+          ],
+          "sha256": "2e10ff0af718854a0647632dd743f4d47d2513673d0c1c20da4a919aa533d677",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/InteractionModel.cs"
+        }
+      ]
+    },
+    {
+      "id": "RL-03",
+      "kind": "framework items, traits and action interception",
+      "claim": "Use, combine and targeted items have separate interface hooks and cancelable checks; biological/trait restrictions are actual library checks.",
+      "caller_chain": [
+        "PatchItems installs use/combine/target prefixes and subscribes default item-use checks",
+        "ItemFunctions_UseItem -> targeting UI for targeting interfaces, else InventoryChecks.onItemUsing.Raise -> AgentSwapper -> custom UseItem or external original method",
+        "InvItem_CombineItems/TargetObject -> filter or external preview -> action event -> redirectable actor/target -> custom action or external ItemFunctions call",
+        "RogueEvent.Raise visits nonignored subscribers until Handled and returns !Cancel; AgentSwapper.Dispose restores prior actor"
+      ],
+      "prerequisites_costs": "Ghost/CantInteract, diet traits, electronic body and FullHealth gate ordinary item use. Categories distinguish food/alcohol/health/blood. Targeting rejects over15units and specified bot/mech cases unless checks ignored. Combine auto-stack excludes different syringe contents. Costs/consumption otherwise belong to callbacks/game logic.",
+      "mutations_aftermath": "Successful custom action invokes UseItemAnim; use may set item.used/itemsUsed before callback success. Exhausted/removed items hide dragging/target UI; event may redirect user/other item/target.",
+      "failure_exception": "Custom filter results are preview/result values, not an explicit action branch guard here: actual combine/target still proceeds if event allows, so callbacks must guard execution. Raise/custom callbacks have no local catch; actor restoration uses IDisposable. Zero-count condition has actual operator precedence shown in source; no generic transactional rollback is implemented by these hooks.",
+      "evidence": [
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Patches/Patches_Items.cs",
+          "lines": "9-46,78-283,434-500",
+          "symbols": [
+            "PatchItems",
+            "ItemFunctions_UseItem",
+            "InvItem_CombineItems",
+            "InvItem_TargetObject",
+            "AgentSwapper"
+          ],
+          "sha256": "a785ef25c3ad01cb7f4ab6ca21e80eaffbeacb72b0003ce2028fdcf969076720",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Patches/Patches_Items.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Hooks/Items/InventoryChecks/DefaultInventoryChecks.cs",
+          "lines": "8-177",
+          "symbols": [
+            "SubscribeChecks",
+            "OnlyOilCheck",
+            "OnlyBloodMedicineCheck",
+            "FullHealthCheck"
+          ],
+          "sha256": "fa9b32de8fd466029438756dbd3ab8a9f2041b393d8a5211313080517a503b2b",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Items/InventoryChecks/DefaultInventoryChecks.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Hooks/Items/InventoryChecks/RogueEvent.cs",
+          "lines": "26-31,63-72",
+          "symbols": [
+            "Subscribe",
+            "Raise"
+          ],
+          "sha256": "54a3c529466dd24abca37ddccd71526fde9939c20a98ec0942bdadf6d61e1057",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Hooks/Items/InventoryChecks/RogueEvent.cs"
+        }
+      ]
+    },
+    {
+      "id": "RL-04",
+      "kind": "framework compatibility environment menus",
+      "claim": "Computer actions inspect attached sector/chunk objects and actor technology traits; ventilation rejects broken/already-gassing targets. The actual world effects remain external.",
+      "caller_chain": [
+        "Patch_Computer installs local/remote interaction provider -> NoTechSkill/functional/HomeBase gates -> inspect traps, doors, safe, vents and quest flags",
+        "Menu selection callbacks -> external Computer.TurnOffSecuritySystem/OpenDoors/ReleaseGas/InstallMalware",
+        "Patch_AirConditioner -> functional/local/gas-chunk/usable-item gates -> ShowUseOn -> external insertion behavior"
+      ],
+      "prerequisites_costs": "TechExpert or hiredHackerHacking unlocks some actions. Shared chunk or nonzero sector determines device scope. Gas presence is checked again at ReleaseGas selection. No explicit payment or material debit in these providers. Air conditioner requires actual compatible held item via external playerHasUsableItem.",
+      "mutations_aftermath": "Provider resets hackingToolUsed; tutorial open path sets openedTutorialDoor and invokes TargetSomething. Other callbacks name mutations but their game implementation is unavailable. No gas damage, NPC evacuation, explosion or water poisoning outcome is claimed.",
+      "failure_exception": "HomeBase, broken/NoTechSkill and already-gassing paths suppress or explain options. Some private flags are reflection access boundaries tied to this framework snapshot; no current installed-version parity. Gas insertion/propagation/cost and objective-generation consumers remain missing source.",
+      "evidence": [
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/VanillaInteractions/Computer.cs",
+          "lines": "9-200",
+          "symbols": [
+            "Patch_Computer"
+          ],
+          "sha256": "ca8e344e08dc35e5efd874787b192ac8f2fcf039665387a13feca5062450adfc",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/Computer.cs"
+        },
+        {
+          "source": "RogueLibs",
+          "file": "RogueLibsCore/Interactions/VanillaInteractions/AirConditioner.cs",
+          "lines": "6-30",
+          "symbols": [
+            "Patch_AirConditioner"
+          ],
+          "sha256": "dec2111d9cff661c1a363d533a8abec82678ca97afad9f9ebdb072fe3b0a48b0",
+          "url": "https://github.com/Chasmical/RogueLibs/blob/d76523acb484168f4d2d1d7bc0fce0d2c5d263f1/RogueLibsCore/Interactions/VanillaInteractions/AirConditioner.cs"
+        }
+      ]
+    },
+    {
+      "id": "MOD-01",
+      "kind": "third-party Wizard ability implementation",
+      "claim": "The Wizard mod spends a four-second count before drawing a spell; fizzles and caught cast errors retain that cooldown.",
+      "caller_chain": [
+        "WizardModPlugin.Awake Harmony.PatchAll(ChaosMagicAbility)",
+        "InvItem.SetupDetails postfix initializes ChaosMagic count0/item sprite",
+        "PressedSpecialAbility prefix -> actor/ghost/teleport/equipped/count guards -> count=4 -> Recharge -> CastRandomSpell -> projectile/teleport/status game APIs"
+      ],
+      "prerequisites_costs": "ChaosMagic agent, real equipped special ability and count0. Nonzero count gives CantDo. Cooldown waits1second per decrement and checks external CanRecharge; changing equipped ability ends loop. No explicit money cost.",
+      "mutations_aftermath": "Uniform code branch Random.Range(0,8) picks six projectile types, blink or wild surge; wild surge has a second five-way draw. Projectile tagged ChaosMagic for quest credit and emits2-unit noise request. Blink passes obstacle/danger/wall policies and may return no spot.",
+      "failure_exception": "No spot fizzles without reverting cooldown. Cast exception is logged but __result=true still returned after spending count. Ability drawing/RNG is in memory, not a durable planned result; effect application, projectile damage/status effect internals and networking correctness are external/unverified. No YAIR random-spell packet selected.",
+      "evidence": [
+        {
+          "source": "streets-of-rogue-multiplayer",
+          "file": "WizardMod/Plugin.cs",
+          "lines": "17-26",
+          "symbols": [
+            "Awake"
+          ],
+          "sha256": "cd41c4e079e841a03fc0d1c025d335b4456e12eb5497e035bfadbe69d11a0f60",
+          "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/Plugin.cs"
+        },
+        {
+          "source": "streets-of-rogue-multiplayer",
+          "file": "WizardMod/ChaosMagic.cs",
+          "lines": "24-34,58-113,130-209",
+          "symbols": [
+            "SetupChaosMagicItem",
+            "PressChaosMagic",
+            "Recharge",
+            "CastRandomSpell",
+            "Bolt",
+            "Blink",
+            "WildSurge"
+          ],
+          "sha256": "0083a507479f26aedb0cf5ce839a111d1d88bf355087ed3a8d109a531da10775",
+          "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/ChaosMagic.cs"
+        }
+      ]
+    },
+    {
+      "id": "MOD-02",
+      "kind": "third-party Wizard objective and aftermath implementation",
+      "claim": "The Wizard quest tags recent ability hits, consumes attribution once on a qualifying host neutralization callback, and separates transient progress from an unlock-save request.",
+      "caller_chain": [
+        "WizardModPlugin.Awake patches WizardBigQuest",
+        "ChaosMagicAbility.Bolt sets Bullet.cameFromWeapon -> BulletHitbox.HitAftermath postfix TagChaosVictim stores wizard/Time.time in ConditionalWeakTable",
+        "Quests.AddBigQuestPoints postfix CountChaosKill -> server/quest/Neutralize/hit checks -> remove tag ->6-second same-wizard gate -> kills++ -> completion at8",
+        "Complete -> MarkUnlockComplete -> unlock.unlocked=true and external SaveUnlockData -> session completion list/status -> separate GrantPayoff effects"
+      ],
+      "prerequisites_costs": "Nonplayer target, ChaosMagic-tagged bullet with Wizard source; host serverPlayer and matching active bigQuest. Only Neutralize callback counts. Qualifying same-wizard attribution must be within6seconds. Ability cost is previous cooldown path, not an extra quest payment.",
+      "mutations_aftermath": "Transient tables hold count/completion and hit attribution; tag removal prevents repeat counting. Completion flag set before effects. Payoff separately requests heal, Giant/Fast statuses, points, money/random weapons and recharge. Unlock saved independently; no transaction or save of partial kills is present in this mod file.",
+      "failure_exception": "Tag is removed before wizard/time check so failed attribution cannot be retried. Many completion effects independently catch errors; completed=true can coexist with incomplete payout. Comment saying payoff is not a meta-unlock conflicts with explicit MarkUnlockComplete save request; implementation takes precedence. Table identity may survive same-agent floor transfers as mod comments intend, but actual reload/streaming survival is not proven.",
+      "evidence": [
+        {
+          "source": "streets-of-rogue-multiplayer",
+          "file": "WizardMod/WizardBigQuest.cs",
+          "lines": "17-38,58-161",
+          "symbols": [
+            "TagChaosVictim",
+            "CountChaosKill",
+            "Complete",
+            "MarkUnlockComplete",
+            "GrantPayoff"
+          ],
+          "sha256": "0ab90fa607ab19a8ebc6ec7ea97c59a4f030581c8db78b0574d945c6eac12d5e",
+          "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/WizardBigQuest.cs"
+        },
+        {
+          "source": "streets-of-rogue-multiplayer",
+          "file": "WizardMod/ChaosMagic.cs",
+          "lines": "145-154",
+          "symbols": [
+            "Bolt"
+          ],
+          "sha256": "0083a507479f26aedb0cf5ce839a111d1d88bf355087ed3a8d109a531da10775",
+          "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/ChaosMagic.cs"
+        },
+        {
+          "source": "streets-of-rogue-multiplayer",
+          "file": "WizardMod/Plugin.cs",
+          "lines": "17-26",
+          "symbols": [
+            "Awake"
+          ],
+          "sha256": "cd41c4e079e841a03fc0d1c025d335b4456e12eb5497e035bfadbe69d11a0f60",
+          "url": "https://github.com/redaphid/streets-of-rogue-multiplayer/blob/01f205c57f65ab98276c6989da6d98eddeb89c65/WizardMod/Plugin.cs"
+        }
+      ]
+    }
+  ],
+  "unmet_original_paths": [
+    "NPC hostility/relationships/ownership internals",
+    "Alternative objective completion and quest settlement",
+    "Vanilla trait/ability/status bodies and resulting action choices",
+    "Environment operation propagation/material/resource effects",
+    "Procedural objective generation, original unlock debit, retained run consequences"
+  ],
+  "review": "Root semantically read the cited parent spans; no code execution or game behavior verification."
+}

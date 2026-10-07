@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "scene": "subtlety.relay_office",
+  "status": "implemented-unverified; shared joins pending",
+  "rows": [
+    {
+      "family": "replacement_and_continuity",
+      "consumer": "Actual Backlog willing office/duty handover, name claim, personal/registry tests, correction, return; relay reuses exact people and conserved office. No new body/soul/controller/identity engine.",
+      "gate": "Parent registers frozen Backlog controls and relay actual-office jobs together"
+    },
+    {
+      "family": "trope_chain",
+      "consumer": "Bera old repair -> honest credit or false claim -> one funded invitation -> unused correction or spent exposure/compensation -> same person later. Refusal/retreat never spawns a bully chain.",
+      "gate": "Native costs/recipient conservation and human fiction review"
+    },
+    {
+      "family": "small_interactions",
+      "consumer": "One physical badge wear/compatible fastening repair/exact return; actual native kit/parcel use/unpack; real office permits paid relay dispatch; real old opportunity yields one counted job.",
+      "gate": "Custody/trade, cancellation, completion support, stock/save gates deferred"
+    },
+    {
+      "family": "texture_and_voice",
+      "consumer": "Original bent-spoon ledger, tea rule, old case scrape, Bera neat-corner joke; no forced rewards.",
+      "gate": "Parent may route Ink continuation, director voice review remains open"
+    },
+    {
+      "family": "recognition_and_aftermath",
+      "consumer": "Generic actual Backlog differing observer accounts plus separate relay truth/claim/observer belief/firsthand correction; UI reads only knowledge.player through legibility, same living people return.",
+      "gate": "Parent observer/UI join, then later gameplay/keyboard/director gates"
+    }
+  ]
+}

@@ -1,0 +1,700 @@
+[
+  {
+    "id": "PBC-01",
+    "family": "learning, practice, mastery, and native competence",
+    "requirement_basis": [
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "559-599",
+        "claim": "Granular progression, extraordinary simple-skill growth, mastery, advancement route and incomplete methods."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "995-1005",
+        "claim": "Ability variants may have distinct mechanisms and growth curves; conceptual powers and mechanically grounded difficulty are requested."
+      }
+    ],
+    "status": "source-integrated; stored build receipt is stale against current main.js, gameplay remains unverified, and the bounded drills stop at mastery 4",
+    "evidence": [
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Granular progression, mastery and incomplete methods",
+        "start_line": 559,
+        "end_line": 599,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "3a5589aed9c503c67bcf1e5ae2f66f1f5890f4a4081a862be1aef2631b94ed35",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.787651+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Ability variants and conceptual mechanical difficulty",
+        "start_line": 995,
+        "end_line": 1005,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "c12d894e6fadd4c9ed10b4c411f243b83de1457169f78e84ed126be26e7e0675",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.788042+00:00"
+      },
+      {
+        "path": "src/skill_expansion_content.js",
+        "symbol": "SKILL_IDS, SKILL_CATALOGUE",
+        "start_line": 3,
+        "end_line": 68,
+        "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+      },
+      {
+        "path": "src/skill_expansion_content.js",
+        "symbol": "practice, skillDefinitions",
+        "start_line": 100,
+        "end_line": 175,
+        "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "symbol": "simulationSources, simulationDefinitions",
+        "start_line": 1,
+        "end_line": 50,
+        "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+      },
+      {
+        "path": "src/skill_expansion_host.js",
+        "symbol": "skillExpansionPresentation",
+        "start_line": 13,
+        "end_line": 64,
+        "sha256": "1cc711679510eb661d130744177f7a80e07302fc7180f4c8b2c32af59882cf55"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "symbol": "source/faculty, power and progress settlement",
+        "start_line": 207,
+        "end_line": 243,
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "completeJob, advancePowerProgression",
+        "start_line": 164,
+        "end_line": 219,
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "persistExpansion and shared native save publication",
+        "start_line": 293,
+        "end_line": 335,
+        "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "createSkillExpansionPanel registration",
+        "start_line": 6794,
+        "end_line": 6794,
+        "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "symbol": "persistExpansionPlan",
+        "start_line": 7,
+        "end_line": 49,
+        "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+      },
+      {
+        "path": "docs/ENGINE_AUTHORING.md",
+        "symbol": "Skills and discovery native bindings",
+        "start_line": 207,
+        "end_line": 217,
+        "sha256": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069"
+      },
+      {
+        "path": "docs/gm/world-implementation/engine/SKILLS_BUILD.json",
+        "symbol": "Recorded build input hashes, build fingerprint, and unrun gates",
+        "start_line": 1,
+        "end_line": 64,
+        "sha256": "a84557008ebe5b3ecf7e87e869d3f2f54be013e892e96becb5d6b73d3fe4dcea"
+      },
+      {
+        "path": "docs/PLAYTEST.md",
+        "symbol": "Skills build/deferred acceptance",
+        "start_line": 1,
+        "end_line": 13,
+        "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+      }
+    ],
+    "current_source_build_comparison": {
+      "path": "src/main.js",
+      "current_sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5",
+      "sha256_recorded_by_build": "4e26a58a645592480d1ed5496e99cebef4e9361fc6147c8ac3c700dea38143ba",
+      "conclusion": "main.js has changed since the recorded skill build. Current source confirms the binding, but this audit does not claim the stored bundle exercised the current main.js or current UI behavior."
+    },
+    "producer_consumer_native_ui_save_joins": {
+      "producer": "skill_expansion_content.js declares four observation, lesson, timed practice, mastery milestones and application methods. Observation adds seen knowledge only; completed lessons grant the learned power/source and native-skill unlock; timed practice advances simulation power mastery plus native XP; selected applications change real contest response/vitals, route knowledge, native kit stock, or paid participant report.",
+      "registered_caller": "simulation_content.js imports and spreads skillDefinitions/skillSources into the simulation registry; expedition_content.js builds the content registry; skill_expansion_host.js composes discovery and ordinary preview/commit; main.js supplies current player facts/native vitals and acts through shared persistence.",
+      "native_state": "simulation.knowledge owns discovered/understood records; simulation.powers owns learned method/mastery/fragments; actor sources/faculties own executable source state; native LevelableComponent owns XP/unlocks; simulation.jobs own costs/time/participants/sites; native inventory/vitals own kits, materials, HP/stamina.",
+      "ui": "skill_expansion_ui.js renders known/hinted methods, mastery, milestones, blocked reasons, work, recovery and encounter choices in the native action area; discovery projections are pure/read-only until an actual command settles.",
+      "save": "main.js persistExpansion stages expansion state and native XP/inventory/vitals/unlocks through expansion_persistence.js into the existing save envelope. Requirements and ENGINE_AUTHORING retain expansion5/simulation3 without backfill for these families. New gameplay remains implemented-unverified; the 2026-10-05 PLAYTEST backlog explicitly defers changed behavior, save/reload and director acceptance."
+    },
+    "actual_gap": {
+      "id": "PBD-01",
+      "prior_ids": [
+        "GE01",
+        "GE02",
+        "GE03",
+        "GE04",
+        "GE05"
+      ],
+      "gap": "The four currently required methods have useful learned/practice/application loops, but their authored Frontier practice is capped at mastery four, and the configured drill refuses practice at mastery four. There is no selected continuing mature use for one chosen method that proves simple competence can keep changing meaningful function at extraordinary levels. This is a content/application gap in the bounded prototype, not a missing universal progression engine: authored practice has no global mastery ceiling, typed progression tracks/receipts and five distinct power execution models already exist.",
+      "selected_scope": "Only required after a world/career explicitly selects a method for continuing exceptional growth. No universal cap or level curve is selected for all abilities.",
+      "original_connected_case": "Proposal: keep Trail Reading's current ordinary crossing route. A later authored upper application could use the same drainage method to plan a heavy rescue litter route in a chosen Frontier chapter; increased mastery changes which usable bank/load route the player can prepare, then affects a real work order or rescue outcome. Offer a costly mentor/field observation route and a steady level-alone route if that world's rule permits either; if the crossing campaign has no such mature application, explicitly abstain and keep the current four-tier prototype.",
+      "alternatives_and_abstention": "Use continuous method mastery, an authored action threshold, an insight/teaching transition, or a small hybrid, selected per method. Do not force replacement sources, rare items, random failure, creator ranking or extra prestige as universal gates. No sixth skill, new ledger or runtime extension is warranted where existing mastery and authored consumers suffice.",
+      "packet": {
+        "proposed_files": [
+          "src/skill_expansion_content.js or a selected world-local content module",
+          "src/simulation_content.js only if registry composition needs adjustment",
+          "docs/ENGINE_AUTHORING.md",
+          "docs/PLAYTEST.md"
+        ],
+        "existing_owner_and_consumer": "Reuse simulation.powers mastery, `practice` model preview, native XP effects, existing registered commands/jobs and one concrete consumer such as route preparation, kit yield, or a new authored rescue task. The shared Engine integrator owns any new common registration, validation or publication seam.",
+        "dependencies": {
+          "required": [
+            "a selected skill and an actual later player function that its mature step changes"
+          ],
+          "optional": [
+            "source-verified world-specific learning/rarity rule",
+            "typed progression receipt only if a branch/benchmark cannot use mastery state"
+          ],
+          "current_four_families": "preserve; do not relabel them missing"
+        },
+        "compatibility_and_removal": "Prefer existing scalar mastery and additive content with no schema change. If a selected branch, benchmark, or persistent source lineage adds durable state, choose additive migration/default and old-reader behavior before release. Removing unshipped content removes its registry/UI entries together; shipped saved IDs require dormant-record or migration policy.",
+        "qualitative_cost": "Low to medium for a single authored extension within present seams; high if it expands into reusable benchmark/branch history or broad pacing UI. Balance and maintenance rise with many independent mastery curves.",
+        "deferred_acceptance": "On a rebuilt browser, show the same method's early and mature command changing its named functional outcome; verify costs, native XP/stock/participant owner, preview/blocked state, interruption/cancellation, reload/revisit, and one ordinary alternative. Human review decides whether the growth feels earned and the chosen career is still useful."
+      }
+    },
+    "prior_ids": [
+      "GE01",
+      "GE02",
+      "GE03",
+      "GE04",
+      "GE05",
+      "GE10",
+      "GE11"
+    ],
+    "prior_disposition": "Granularity expansion's GE01–GE05 cover acquisition/continuing applications, level-only growth, aptitude versus skill/source/body and comparison/incomplete methods. The four IDs/methods are current and useful; only their bounded current cap/later application remains. Ability and Engine S3 authoring state the same existing owners."
+  },
+  {
+    "id": "PBC-02",
+    "family": "body, organs, lineage, awakening, suppression, fuel and alternate carriers",
+    "requirement_basis": [
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "559-567",
+        "claim": "Body/energy foundations are one requested progression family; exact paths remain proposals."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "1007-1013",
+        "claim": "Fresh/nonhuman starts, predecessor power distinction, life stages and body/source/custody continuity are future design requests."
+      }
+    ],
+    "status": "present for one narrow body-and-recovery example; partial for lineage/organ/body-changing systems, which remain unselected",
+    "producer_consumer_native_ui_save_joins": {
+      "producer": "body_progression.js authors inherited-but-dormant Natural Balance, trained Conditioned Grip, acquired Palm Mark, actual practice/material work, timed soreness/scrapes and explicit recovery. Body knowledge/origin, awakening, activation and source suppression are separate typed effects; party/native battle support also rechecks an actual helper body, source/faculty and owned kit.",
+      "registered_caller": "expedition_content.js registers bodyCapabilities, bodySources and simulation definitions/commands. simulation_effects.js mutates the saved actor source/faculty and Person.body scalar owners. bodyFacts() supplies command predicates from saved condition/person state and main.js composes it into current location/context.",
+      "native_state": "simulation.people[actor].body holds authored body facts, simulation.conditions holds timed conditions, actor.sources and simulation.faculties hold acquired/awakened/active/suppressed source state, and simulation.powers remains distinct from source anatomy/fuel. The progression example does not simulate organs, arbitrary form replacement or physiological networks.",
+      "ui": "body_ui.js registers body-group controls, reasons, cancellation and scene; main.js creates the panel. The derived Bio and body record disclose current supported state without independently granting mechanics.",
+      "save": "body commands use the current expansion persistence writer and native vitals adapter. PLAYTEST records a 2026-10-03 generated-save body browser/save proof for that older body slice; that proof does not establish organ, carrier-change, lineage-inheritance or alternate-body behavior."
+    },
+    "actual_gap": {
+      "gap": "A selected campaign with temporary form, permanent body change, unique organ, lineage inheritance or body-bound source needs an explicit carrier-transition consumer. Existing scalar body facts and source acquisition records do not restore a temporary form, bind/release an organ, or reconcile an active channel when its supporting body/pool disappears. The `alternate_body` traveler mode is a detached preview explicitly marked `nativeExecutable:false`; the native traveler adapter currently profiles one existing player body for physical passage only.",
+      "selected_scope": "Optional by world and body model. No broad body-transformation, organ, lineage, aging, or second-life runtime is selected for the one-realm/one-prestige first milestone.",
+      "original_connected_case": "Proposal: in a future body-changing world, a temporary glider form enables one elevated route interaction; removing it restores the same body and preserves trained skill, while a separately installed wing organ remains with its actual carrier. A soul-bound learned procedure may persist; body-anchored balance and its physical fuel do not silently migrate. Offer a safe ordinary rope route and abstain from the transformed route if support is unavailable.",
+      "alternatives_and_abstention": "For one chosen effect, author a fixed local temporary-form boundary or an explicit anchor on existing source/custody records. Do not create a universal anatomy simulator, infer lineage from a label, give copies donor anatomy/pools/items, or add recurrent physiology ticking unless a selected world has a concrete consumer.",
+      "packet": {
+        "proposed_files": [
+          "src/body_progression.js or selected world-local carrier definitions",
+          "src/simulation_effects.js only if one typed carrier transition is needed",
+          "src/expansion_engine.js for its registered invariant",
+          "src/body_ui.js",
+          "docs/ENGINE_AUTHORING.md",
+          "docs/PLAYTEST.md"
+        ],
+        "existing_owner_and_consumer": "Body/faculty/source effects and saved Person.body are current owners; ability/identity specialist and shared Engine integrator must define the one selected body transition and consumers. Keep native player body/stats under native bindings; do not treat a preview/profile as a body change.",
+        "dependencies": {
+          "required": [
+            "a named selected world/body transition and actual action it enables"
+          ],
+          "optional": [
+            "custody/unique organ adapter",
+            "shared fuel/channel adapter",
+            "lineage rule"
+          ],
+          "do_not_inherit": [
+            "donor anatomy",
+            "donor fuel",
+            "donor stock"
+          ]
+        },
+        "compatibility_and_removal": "No schema change for static authored support that uses existing fields. A new organ/carrier/anchor needs an additive migration/default and explicit behavior for old saves, abandoned bodies, source removal and shipped records. Remove optional UI/definitions together only before data ships; otherwise retain dormant IDs or migrate.",
+        "qualitative_cost": "High for general carrier/organ/continuation behavior because it joins identity, native body stats, custody, channels, UI and persistence; low for one fixed temporary form with no saved transformation if existing state is sufficient.",
+        "deferred_acceptance": "A rebuilt browser fixture must change actual reach/manipulation, remove the temporary form, verify the same actual body and trained method remain, check one body-anchored source does not migrate, retain organ custody/fuel exactly once, and show the supported ordinary route when the body function is unavailable. Generated save/reload and failed publication required for new durable state."
+      }
+    },
+    "evidence": [
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Body and energy progression family",
+        "start_line": 559,
+        "end_line": 567,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "c3be77a6a2ae6954a913560cec70d7fb8db13f88c6e5be0ace41f0e39097d558",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.788448+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Origins, nonhuman lives and body/source/custody continuity",
+        "start_line": 1007,
+        "end_line": 1013,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "6a033ba953954e867220f5142bb3d45684034bd5890c51190608f9a08812b042",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.788838+00:00"
+      },
+      {
+        "path": "src/body_progression.js",
+        "symbol": "bodySources, bodyCommands, bodyFacts",
+        "start_line": 15,
+        "end_line": 84,
+        "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+      },
+      {
+        "path": "src/body_ui.js",
+        "symbol": "createBodyPanel",
+        "start_line": 1,
+        "end_line": 34,
+        "sha256": "01201d26d64409d4e476d9fe676480c2ecae19d63e3b68cec598a4a80afaba2d"
+      },
+      {
+        "path": "src/realm_traveler_profiles.js",
+        "symbol": "previewRealmTraveler detached planner and native bindings",
+        "start_line": 231,
+        "end_line": 256,
+        "sha256": "8e9cccd40eb14f978d2eea290f41da5ccda073a9ebcfa3606aa77bd7b0086775"
+      },
+      {
+        "path": "src/native_realm_traveler.js",
+        "symbol": "previewNativeRealmTraveler single native physical body profile",
+        "start_line": 20,
+        "end_line": 54,
+        "sha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51"
+      },
+      {
+        "path": "src/expedition_content.js",
+        "symbol": "expeditionRegistry capabilities and sources",
+        "start_line": 25,
+        "end_line": 52,
+        "sha256": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "symbol": "condition, source/faculty and body effect settlement",
+        "start_line": 187,
+        "end_line": 220,
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "expeditionContext, body panel binding, persistExpansion",
+        "start_line": 293,
+        "end_line": 335,
+        "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+      },
+      {
+        "path": "docs/PLAYTEST.md",
+        "symbol": "Body traits, conditions and recognition proof",
+        "start_line": 514,
+        "end_line": 526,
+        "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+      }
+    ],
+    "prior_ids": [
+      "GE03",
+      "POW01",
+      "POW02",
+      "POW03",
+      "POW04",
+      "MC01"
+    ],
+    "prior_disposition": "Powers report POW01–POW04 already detail form/carrier, multiple bodies, learning/copy/transfer/lineage and dependent continuation. POW06 is included only as the exact stable organ-custody prior ID after source report inspection; no repeated organ audit is claimed. The ordinary body/recovery example is already browser/save proven; broader families are conditional gaps."
+  },
+  {
+    "id": "PBC-03",
+    "family": "power variants, combinations, copying, source control and fuel",
+    "requirement_basis": [
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "559-599",
+        "claim": "Skills/talents/body foundations may progress by distinct local routes."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "995-1005",
+        "claim": "Ability variants, copying/observation and conceptual/state-changing behavior are requested."
+      }
+    ],
+    "status": "partial; typed execution/acquisition mechanisms exist; broader examples and native multi-body use remain conditional and unverified",
+    "evidence": [
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Granular skill, talent and body foundations",
+        "start_line": 559,
+        "end_line": 599,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "3a5589aed9c503c67bcf1e5ae2f66f1f5890f4a4081a862be1aef2631b94ed35",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.789232+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Ability variants and conceptual powers",
+        "start_line": 995,
+        "end_line": 1005,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "c12d894e6fadd4c9ed10b4c411f243b83de1457169f78e84ed126be26e7e0675",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.789615+00:00"
+      },
+      {
+        "path": "src/power_models.js",
+        "symbol": "previewPowerModel, resolveEffectAmount",
+        "start_line": 1,
+        "end_line": 55,
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "symbol": "source/faculty and power operations",
+        "start_line": 207,
+        "end_line": 243,
+        "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb"
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "advancePowerProgression",
+        "start_line": 207,
+        "end_line": 219,
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/powers/FINDINGS.json",
+        "symbol": "POW01-POW05",
+        "start_line": 26,
+        "end_line": 488,
+        "sha256": "6f6cd09d5bc7785ed36d4f36b0f3b59dd1036eadc0317b4bed5039c8a98bef3b"
+      },
+      {
+        "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+        "symbol": "MC01 the acquired eye and the host",
+        "start_line": 23,
+        "end_line": 52,
+        "sha256": "c7959759911a598e5321e90f49e3a272f5c36024eb1f3b7cd0d4d9f7fa95fcf7"
+      }
+    ],
+    "producer_consumer_native_ui_save_joins": {
+      "producer": "power_models.js implements practice, design, investment, authority and hybrid capacity/eligibility checks. simulation_effects.js keeps learn/copy/transfer/remove/fragment/refine, source grant/awaken/activate/suppress/develop and progress tracks as separate effects. Copy records its donor and optionally copies method mastery; it does not grant donor anatomy, sources/faculties, fuel, tools or stock. Transfer clears donor power ownership. Hybrid checks acquired constituent lineage/ownership except explicit fusion consumption.",
+      "registered_caller": "simulation_content.js registers authored power definitions and commands; simulation.js commits sequence-checked commands, encounters, progression receipts and timed jobs; preview uses the existing definition model and shared effect executor.",
+      "native_state": "simulation.powers owns method record/mastery/constituent lineage; actor.sources and simulation.faculties own separately acquired/awakened/active/suppressed sources; simulation.progression owns advancement tracks/branches/receipts; energy, items, person bodies and custody keep separate owners.",
+      "ui": "Native Notebook Practice and relevant skill/power panels show actual learned/blocked commands; power model implementation itself is not a generic designer UI and does not mint fictional rank conversions.",
+      "save": "All mentioned expansion records are persisted through the shared expansion envelope. No new save record or compatibility choice is selected by this audit. Native/broader source consumers and cross-world power use are not certified by the presence of a typed model."
+    },
+    "actual_gap": "No generic-engine gap found for keeping source, method, faculty, mastery, constituents, fuel and custody distinct. The four methods already use this separation. Actual missing work is authored, source-qualified combination/counter examples where a selected world needs them, plus POW02/POW04's conditional native body/channel consumers. Do not call power-copy an anatomical/fuel clone or say copying itself is missing.",
+    "original_connected_case": "Proposal: two genuinely learned local methods combine into a named boundary brace only after a workbench experiment; using it spends the player's real effort and physical anchor kit, protects one supported load, and leaves a real falling load if the anchor is absent. A rare superior protection may stay superior. The player can instead use an ordinary rope/brace method; a card or copied method record cannot supply the missing kit or fuel.",
+    "prior_ids": [
+      "GE03",
+      "GE05",
+      "GE07",
+      "GE10",
+      "GE11",
+      "POW02",
+      "POW03",
+      "POW04",
+      "POW05"
+    ],
+    "prior_disposition": "Reuse Powers' acquisition/combination/control and counter contracts; preserve already-supported simple authored counters and intrinsic-execution guidance. A typed model without a selected useful registered content consumer is not a playable combination, but no universal pair graph is warranted."
+  },
+  {
+    "id": "PBC-04",
+    "family": "ordinary and extraordinary combat, party roles, enemy plans and counters",
+    "requirement_basis": [
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "225-239",
+        "claim": "Story outcomes can differ by skill/knowledge and probabilistic difficulty is explored."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "649-667",
+        "claim": "Open-world attacks and hidden NPC strength are explored; universal power-level display, attackability and loss policy are unselected."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "1001-1005",
+        "claim": "Challenges should have mechanically grounded interactions and counters."
+      }
+    ],
+    "status": "partial; native solo combat, simulation controllers and a saved fixed consensual guard contest exist; wider hostile-party/objective tactics are not implemented by that proof",
+    "evidence": [
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "U06 scripted outcomes and U07 chance",
+        "start_line": 225,
+        "end_line": 239,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "6e9362e021d6852cfc7329a314d760c83f68248e88780112b7b8d2b79d7bfa9f",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.790003+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Open-world attacks and hidden NPC strength",
+        "start_line": 649,
+        "end_line": 667,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "6601899889c0498f3428eb4a31145e67904045a3472e9df004db3221dd069c08",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.790385+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Conceptual powers and mechanical counters",
+        "start_line": 1001,
+        "end_line": 1005,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "a1fcc2f0cdafbef1ccc4d06d53ef2778ff9ad972059ccca0c551d8e18af8db85",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.790764+00:00"
+      },
+      {
+        "path": "src/party_content.js",
+        "symbol": "partyDefinitions",
+        "start_line": 1,
+        "end_line": 22,
+        "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491"
+      },
+      {
+        "path": "src/party_battle.js",
+        "symbol": "initializePartyBattle, commitPartyBattleAction, partyBattleView",
+        "start_line": 9,
+        "end_line": 103,
+        "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295"
+      },
+      {
+        "path": "src/native_battle_host.js",
+        "symbol": "createNativeBattleHost",
+        "start_line": 6,
+        "end_line": 59,
+        "sha256": "00d3180526f4725f55f823fa639bfb2e9cca69102eb07ca5ed28e972ee8775cc"
+      },
+      {
+        "path": "src/native_battle_contracts.js",
+        "symbol": "validateNativeBattle",
+        "start_line": 1,
+        "end_line": 19,
+        "sha256": "6fb76d72c73ebf8e215020f80b1e3e0e253dc472e9868631aca5f378ddbee1ea"
+      },
+      {
+        "path": "src/simulation.js",
+        "symbol": "saved actor controller command choice",
+        "start_line": 373,
+        "end_line": 393,
+        "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0"
+      },
+      {
+        "path": "src/party_ui.js",
+        "symbol": "createPartyPanel",
+        "start_line": 7,
+        "end_line": 43,
+        "sha256": "75669280c54cf77275c7789c41c83f74b4694ba60d607d87c681b26cbf272f19"
+      },
+      {
+        "path": "src/main.js",
+        "symbol": "createNativeBattleHost and native panel bindings",
+        "start_line": 6785,
+        "end_line": 6798,
+        "sha256": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "symbol": "persistExpansionPlan",
+        "start_line": 7,
+        "end_line": 49,
+        "sha256": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0"
+      },
+      {
+        "path": "docs/gm/world-implementation/second-pass/combat/REPORT.md",
+        "symbol": "Combat decision summary",
+        "start_line": 1,
+        "end_line": 20,
+        "sha256": "ca9ff7fcc0bb012550f75040955dbcf31bec55d3cb15ccf8f58bbd706fa83b28"
+      },
+      {
+        "path": "docs/PLAYTEST.md",
+        "symbol": "Skills build and deferred acceptance",
+        "start_line": 1,
+        "end_line": 13,
+        "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+      },
+      {
+        "path": "docs/PLAYTEST.md",
+        "symbol": "Historical native party browser and save proof",
+        "start_line": 37,
+        "end_line": 49,
+        "sha256": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a"
+      }
+    ],
+    "producer_consumer_native_ui_save_joins": {
+      "producer": "Existing simulation controllers select eligible registered commands by deterministic authored priority (ENGINE_AUTHORING current controller contract); party_content.js creates one original helper with owned means and willingness. initializePartyBattle() rechecks actual consent, location/world, body, active source/faculty, unencumbered kit, stamina/effort, occupancy and leader recovery. commitPartyBattleAction() enforces fixed legal strikes, one guard, release, yield/exhaustion and saved deterministic RNG, using actual native fighter reads and current target binding.",
+      "registered_caller": "simulation_content.js registers party and encounter definitions/commands. main.js creates the actual Combat host and routes accepted Combat callbacks through native_battle_host.js to the saved native/party battle executor; controllers remain separate from tactical combat policy.",
+      "native_state": "Native Combat supplies cadence and fighter presentation; simulation.sessions.player.nativeBattle schema2 saves the three fixed fighter IDs, roles/status, sequence/action, guard counters and RNG seed; helper's own Person vitals/resources/equipment custody persist; player HP/stamina are published through native adapters. Result/relationships/pursuit facts settle once.",
+      "ui": "party_ui.js shows actual helper condition/guard status, preparation/rest, ask/decline, fight/peaceful settlement/release/withdraw controls. Native fight UI uses native Combat bars/cadence and saved result messages. No human review may generalize this UI beyond the fixed case.",
+      "save": "main.js persistExpansion stages the party and native vitals before durable envelope write; `validateNativeBattle` checks exact roster, role/status, participants and guard counters. PLAYTEST's party proof predates the current four-skill build but covers its own fixed contest; current skill wave has no new browser/save proof."
+    },
+    "actual_gap": {
+      "id": "PBD-02",
+      "prior_ids": [
+        "GE10",
+        "CB04",
+        "CB05",
+        "CB06",
+        "CB07",
+        "CB08",
+        "CB11",
+        "CB12",
+        "CB13",
+        "CB14"
+      ],
+      "gap": "The saved Lio/Mara contest proves native integration and one genuine guard function; it is deliberately hard-coded to one rival, one helper, one protected player, one redirect target and voluntary nonlethal conclusion. It does not establish a general objective-driven hostile battle with opponent plan, actual contact/target legality, counter, retreat/rescue/cargo outcome or unequal-power special means. Deterministic actor controllers already exist for registered world commands; calling all actor AI or party combat absent is false.",
+      "selected_scope": "Optional until a specific world story selects a hostile or objective combat scene and its defeat/injury/legal policy. The broader attack-everyone option, lethal rules, offline strikes and generalized roster are not accepted by this audit.",
+      "original_connected_case": "Proposal: one named road antagonist maintains a real wind screen while two people carry a survey kit. The player can use trained trail knowledge to take an ordinary safe approach, interrupt the supported screen with one authored counter, or escort the kit around the fight. The enemy can change target to the actual carrier when contact is known. Each choice settles only the real injury/cargo/pursuit result; superior defense may simply block an unsupported attack.",
+      "alternatives_and_abstention": "For a small authored scene, use the existing sequenced encounter executor if turn-based results suffice; use nativeBattle only if actual native Combat timing/bars are part of the intended behavior. Keep one selected policy for target legality/replanning. Abstain from a universal battle AI, full faction war, realtime hidden planning or universal immunity/rank tables.",
+      "packet": {
+        "proposed_files": [
+          "src/native_battle_contracts.js only if saved encounter shape expands",
+          "src/party_battle.js or a disjoint selected encounter module",
+          "src/native_battle_host.js only if actual Combat action binding changes",
+          "src/party_ui.js or selected encounter UI",
+          "docs/ENGINE_AUTHORING.md",
+          "docs/PLAYTEST.md"
+        ],
+        "existing_owner_and_consumer": "Retain the shared Engine integrator for common state validation, executor registration and atomic persistence. Reuse the current nativeCombat host, actual fighter reads, simulation condition/source/custody owners and sequence-checked publisher. Do not replace the existing contest contract or simulate results in display-only UI.",
+        "dependencies": {
+          "required": [
+            "selected antagonist/objective",
+            "actual means and known-contact/target rule",
+            "injury/defeat/retreat consequence policy"
+          ],
+          "optional": [
+            "party roles",
+            "pursuit/cargo rescue",
+            "specific authored counter"
+          ],
+          "current_party_proof": "keep exact roster and behavior compatible"
+        },
+        "compatibility_and_removal": "An encounter reusing existing saved schemas/effect owners should avoid a save change. New saved action phases or plans require a versioned battle schema with old nativeBattle1/schema2 compatibility. If shipped, preserve/recover saved sessions or provide explicit migration; do not silently cancel combat on load.",
+        "qualitative_cost": "Medium for one staged authored encounter using the shared simulation resolver; high for persistent native combat turns/plans because saved phases, fighter bindings, stale commands, native cadence and durable recovery all join.",
+        "deferred_acceptance": "Use generated saves in a rebuilt browser to show the encounter can be entered and resumed, the stated plan/counter changes one actual target or objective, unsupported targets/counters remain blocked with a viable ordinary route, a leader/helper can retreat or lose means, real HP/stamina/cargo consequences persist, and reload/failure does not duplicate turns or rewards. Keep narrative/mechanical difficulty and loss-policy review with the director."
+      }
+    },
+    "prior_disposition": "Combat CB01–CB14 remain the detailed owner for fixed native protocol, legal targets/contact, control, action time, objectives/retreat and status semantics. This record preserves the positive current controller and fixed contest foundations and contributes no duplicate generic combat proposal."
+  },
+  {
+    "id": "PBC-05",
+    "family": "refinement, materials, tools, and combat/body support joins",
+    "requirement_basis": [
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "559-567",
+        "claim": "Professions/support and progression are connected directions."
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "lines": "995-1005",
+        "claim": "Ability use must respect source function and meaningful interaction rather than labels alone."
+      }
+    ],
+    "status": "present for named kit/brace consumers; broad object charges and generalized refinement are separate scoped systems",
+    "evidence": [
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Professions/support and progression",
+        "start_line": 559,
+        "end_line": 567,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "c3be77a6a2ae6954a913560cec70d7fb8db13f88c6e5be0ace41f0e39097d558",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.791160+00:00"
+      },
+      {
+        "path": "docs/USER_VISION.md",
+        "symbol": "Function-grounded ability use",
+        "start_line": 995,
+        "end_line": 1005,
+        "sha256": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a",
+        "span_sha256": "c12d894e6fadd4c9ed10b4c411f243b83de1457169f78e84ed126be26e7e0675",
+        "hash_scope": "Canonical inspection snapshot; concurrent owner may change other sections. Validate this span and recheck owner on later admission.",
+        "inspected_at_utc": "2026-10-05T18:39:25.791547+00:00"
+      },
+      {
+        "path": "src/skill_expansion_content.js",
+        "symbol": "timber milestones and pack commands",
+        "start_line": 58,
+        "end_line": 68,
+        "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+      },
+      {
+        "path": "src/skill_expansion_content.js",
+        "symbol": "skills.timber.pack and skills.timber.precise_pack",
+        "start_line": 159,
+        "end_line": 168,
+        "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+      },
+      {
+        "path": "src/body_progression.js",
+        "symbol": "body.rough_kit and body.recover",
+        "start_line": 50,
+        "end_line": 58,
+        "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+      },
+      {
+        "path": "src/party_battle.js",
+        "symbol": "supportReasons",
+        "start_line": 9,
+        "end_line": 26,
+        "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "symbol": "skill and body command registration",
+        "start_line": 1,
+        "end_line": 50,
+        "sha256": "98e921d0868aab3c2d733dee5601fb4765750eff52b3ff7cec7c1e9bfd5d83a4"
+      }
+    ],
+    "producer_consumer_native_ui_save_joins": {
+      "producer": "Timber Judgment mastery changes two real Prepared survey kits from a real two-log batch; body.rough_kit consumes an actual log/coin and leaves a recoverable scrape/permanent mark; party guard requires Lio's actual owned unencumbered kit. Existing workshop/refinement owners remain authoritative for upgrades and service work.",
+      "registered_caller": "Skill/body/party commands register under simulation_content.js; native output is published via main.js and shared gameplay publication. Native inventory custody/equipment transactions have separate owners.",
+      "native_state": "Native inventory owns kits/logs; simulation inventory/owners and custody protect participant stock; body/party actors own vitals and effort; timed jobs reserve inputs/participants/sites.",
+      "ui": "Skill/body/party panels project the actual command previews, material terms, work remaining and supported recovery. Existing notebook/workshop controls are current owners for named examples.",
+      "save": "All settlement uses the current shared expansion/native save envelope. The four-family additions add no schema/default or retroactive stock; their acceptance remains deferred as stated in PLAYTEST."
+    },
+    "actual_gap": "No gap was found in the named functional kit/guard examples. An engine-wide charge model or universal refinement upgrade chain is not required to prove these existing consumers and belongs to the items/world-content audit. Do not infer an object function from its name/icon; for any selected charged object, specify charge producer, exact consumer, custody and failure effect first.",
+    "prior_ids": [
+      "GE06",
+      "GE07",
+      "GE08",
+      "CB05",
+      "POW05"
+    ],
+    "prior_disposition": "Use granularity's GE06/07 assembly consumer distinction and Items' functional-object coverage. Charges/refinement remain optional selected-world item semantics, not a duplicate proposal in this body/combat lane."
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-05",
+  "purpose": "Live source-review and final static-import inputs. Shared files may continue changing under Features GM; this is not a bundle receipt.",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97",
+    "docs/gm/feature-wave/features/ASSIGNMENT.md": "fe48fe7d47f9aad9cefe89dfbceab37b41889ef67586cfac19fcde66e969155a",
+    "docs/gm/feature-wave/features/INTERFACE.md": "764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md": "a7c70774ed2958419c2a8d8ec702cb6915f8edde0360b41400301d3c1e779edf",
+    "docs/gm/world-implementation/second-pass/absorption-incorporation/ENGINE_PACKETS.md": "e1aac545779661d22f0a6c134bd2f5b0df333896bb67922ed1f8b52751934878",
+    "src/simulation.js": "7e96a16a8bf161b483c3b34aa26001be4180adba141f0c7293f39cfee701546a",
+    "src/simulation_contracts.js": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+    "src/simulation_effects.js": "e427b62ca926b4d73e8b337c0cbea1da244e0bb2033bf8ee6ddf9a5abfb5d856",
+    "src/expansion_engine.js": "117fab29685e88a0f04c16ffc4c03bdf0517759cfa1dec3ca197781dd95305f1",
+    "src/expedition_content.js": "4277bafc0a1cb33b47eae5415534fc4b13d7ef4c46d59f31afdfa25a1245047d",
+    "src/simulation_content.js": "f030eb7dfefe2b2c961d943d9e1a985af009c3c296c1127d2b6278edbdfbdfeb",
+    "src/site_projects.js": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+    "src/people_knowledge.js": "a9a5500e1480afec33983b3ccc6402cc0c7962d23bf2e8526a52036bf061c3b2",
+    "src/original_frontier_facts.js": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+    "src/native_gameplay_adapter.js": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad"
+  }
+}

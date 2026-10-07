@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-10-06T05:42:37.944011+00:00",
+  "status": "passed",
+  "performed": {
+    "jsonDocumentsParsed": [
+      "BASELINE.json",
+      "COVERAGE.json",
+      "DISPATCH.json",
+      "SOURCE_SNAPSHOT.json",
+      "VALIDATION.json",
+      "evidence/COMBAT_LIFE_AUDIT.json",
+      "evidence/PARADISE_CASE.json",
+      "evidence/SOURCE_EXCEPTIONS.json"
+    ],
+    "localMarkdownLinksChecked": 40,
+    "workerSourceRefsCheckedStructurally": 100,
+    "requirements": 15,
+    "cases": 4,
+    "packets": 5,
+    "lateSourceDrift": [
+      {
+        "file": "docs/gm/book-world-player-agency/CHECKPOINT.md",
+        "previousSha256": "e545208ddfae3f84b723b52116272fd0685445a9629f7a989e292989995c2685",
+        "refreshedSha256": "2b5c980ed227ff551e7f191c07bb118d53b120bd11bd39e0cc1c1d5135103d37",
+        "reason": "Active writer drift; checkpoint root active and expansion10 owner invariant re-read, others recorded as newer input if any"
+      },
+      {
+        "file": "src/expansion_engine.js",
+        "previousSha256": "3e8ea0eb513040b793dde098b603730762bf49b9e0dce639fd98bae94cd1032d",
+        "refreshedSha256": "a345ad0f45bf2d6243be219818ec0764469c8518494cb237f5bf8a5362fcb3d1",
+        "reason": "Active writer drift; checkpoint root active and expansion10 owner invariant re-read, others recorded as newer input if any"
+      }
+    ],
+    "sourceCheckLimit": "Source refs identify frozen inspected versions; current symbols/hashes are in SOURCE_SNAPSHOT. No runtime or gameplay proof.",
+    "lateSourceDriftDisposition": "Refreshed hashes/current symbols and re-read checkpoint/expansion10 invariant; final moving source boundary is timestamped, not claimed stable"
+  },
+  "errors": [],
+  "deferred": [
+    "gameplay",
+    "unit",
+    "browser",
+    "build",
+    "compiler",
+    "save",
+    "reload",
+    "import behavior",
+    "durable failure injection",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "privateSaves": "not inspected or modified",
+  "gameplayAndCanonicalWrites": false,
+  "analysisOutputs": [
+    "ACTION_OUTCOME_MATRIX.md",
+    "CAUSAL_MODEL.md",
+    "CHECKPOINT.md",
+    "COVERAGE.json",
+    "CURRENT_CAPABILITIES.md",
+    "ENDING_MODEL.md",
+    "IMPLEMENTATION_PACKETS.md",
+    "LIVE_SOURCE_DELTA.md",
+    "REPORT.md",
+    "SOURCE_SNAPSHOT.json",
+    "WORKED_CASES.md",
+    "evidence/COMBAT_LIFE_AUDIT.json",
+    "evidence/COMBAT_LIFE_AUDIT.md",
+    "evidence/PARADISE_CASE.json",
+    "evidence/PARADISE_CASE.md",
+    "evidence/SOURCE_EXCEPTIONS.json",
+    "evidence/SOURCE_EXCEPTIONS.md"
+  ],
+  "initialDocumentCheckRepair": "First check encountered VALIDATION link before this receipt existed; rerun after creation passes.",
+  "analysisOutputSha256": {
+    "ACTION_OUTCOME_MATRIX.md": "9b5e11581ceb844e169d02e12f0172ba502d7a7cdefa3862ce4addf9eee7571b",
+    "CAUSAL_MODEL.md": "b2ae657fa2831efbf807b642fb8391a35b120ef4995082bd207d25bee0a55d35",
+    "CHECKPOINT.md": "eecad749f0b3612813b729feab5353355d818919e6caca58bf4ba84d347407b5",
+    "COVERAGE.json": "98cdb627fd63062466ac66737f23f539cc1a0e613315efabea729377f7b284b4",
+    "CURRENT_CAPABILITIES.md": "294421115f64ad0a92ccefd247bdc66e64f69505687d3b2e3f00a3cee7f5b999",
+    "ENDING_MODEL.md": "e95ac6f899a3d02981dae934e8f35d66840c63ef7744c56b471c966451113127",
+    "IMPLEMENTATION_PACKETS.md": "8812da75cf269bd7d1855b1e51d9d2d5c4a0243ffd49aeb101f84d79a8bd59ab",
+    "LIVE_SOURCE_DELTA.md": "6df7b6be39a7b2af40598be69294f1cb1c0f695883f4365333e1562f055f348d",
+    "REPORT.md": "df95ddaae1886c2ba7a840457f6ce070ed09c71ed78fa38fe86d83ee0f822ce2",
+    "SOURCE_SNAPSHOT.json": "929c33e11229a07949b07df53fd8434892aa5cd20a2fea93318e6c9850fe5f61",
+    "WORKED_CASES.md": "8c52c96e4cdabd2a1fa8d12ff60a56ed2be9c3c7c29174a91a29833b0a73a4fe",
+    "evidence/COMBAT_LIFE_AUDIT.json": "dbd8464f41a23e6f0a6199f63c22dfc1ee455e89b03c4d56833e19980437d3a9",
+    "evidence/COMBAT_LIFE_AUDIT.md": "de45bdc95f36968e9cd0e8013ea75b3d042f74fa3b6c4547d566c22cb84c0099",
+    "evidence/PARADISE_CASE.json": "bba0fc7a26f284c9c4396f2a112229a5a02437812c34151ac8cbbbb51619c9cf",
+    "evidence/PARADISE_CASE.md": "d344419ee0c93ddbfc8c51e33660cae0f55d5b880c70ebffc58ea715a5c6e9ed",
+    "evidence/SOURCE_EXCEPTIONS.json": "8d1384cbac699c8f81b639424545989ae6ed8c1659bb365b82ae21bb700c4ec1",
+    "evidence/SOURCE_EXCEPTIONS.md": "fda4552fdf0484b8642cf5f1e79c4d6ad0e2f3dc1af7aae9694d68f56ec88a02"
+  },
+  "phase": "original revision1 finite analysis checks retained; later revised documents have separate followup receipt",
+  "followupReceipt": "evidence/FATE_FOLLOWUP_VALIDATION.json"
+}

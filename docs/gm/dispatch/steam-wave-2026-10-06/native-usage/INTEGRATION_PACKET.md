@@ -1,0 +1,29 @@
+# Retort shared integration lease
+
+2026-10-07. Human goal: full Factorio native recovery and concrete original use. Retort leaves implement one original production slice, with distinct input reservation, supported progress, output admission and two conserved receivers. This is implemented-unverified until its matching engine/UI/native/build joins exist; deferred gameplay acceptance remains separate.
+
+**Sole shared integrator: home/social root `01a114a8-b32c-78b1-9d2f-9b140bb8300c` for its current finite combined integration/build.** Native root `01a1146c-7d19-7440-92a6-8f5ab5198db9` explicitly transferred its shared source/canonical/build reservation in an in-project coordination message, under the verified direct human instruction to manage the audit chats. Audit coordinator `01a114d2-2065-7b10-86b8-6c68962d9f8f` has the same receipt. No simultaneous shared writer or build. Preserve all live dirty work and the reserved `game_absorption_assay_*` leaves.
+
+## Current inputs and actual deltas
+
+Read [RETORT_INTERFACE.md](RETORT_INTERFACE.md), [NATIVE_VALIDATOR_INTERFACE.md](NATIVE_VALIDATOR_INTERFACE.md), [RETORT_REVIEW.md](RETORT_REVIEW.md) and [ACQUISITION.json](ACQUISITION.json). Four leaves are `factorio_retort_{content,facts,host,native}.js`. The facts/host review repairs are currently exclusively owned by `/root/retort_review`; acquire its explicit hash/release before integration. Content/native are released and unchanged. Native executable recovery is disjoint and need not finish before using the qualified early production trace.
+
+Only two retort shared patches actually applied before the ownership conflict: `simulation.js` skips `provision:false` sites at enrollment; `simulation_contracts.js` admits an optional boolean site `provision`. Preserve these patches. The attempted multi-file integration failed validation before application. No retort registry, reader, main dispatch, UI or build join exists yet.
+
+## Five integration gates
+
+1. Register the six retort command definitions, optional rack and three-command plan through existing aggregators, and register its five plain native OtherItem specifications. The rack must remain absent until its once-only funded installation. Never treat `site.capacity` as stored products.
+2. Recompute retort facts in `simulationFacts` and current feature context. Admit the optional exact-key `referenceGameplay.retort` field and call `validateFactorioRetortState` through its reader. Call `validateFactorioRetortNativeEnvelope` on the final complete save envelope. Keep absence inert and existing save versions unchanged.
+3. Route typed manual command/cancel/plan-start/plan-control through the four retort host wrappers and the existing durable publisher. Exclude the retort group from generic simulation controls and reject generic dispatch bypass that could omit the installation receipt. Include current presentation and notebook work routing. Accepted completion support excludes input/empty-tray counts because those objects are already held by the accepted job.
+4. Repair the concrete merchant refresh join in `src/components/trader_component.js`: snapshot and retain the five exact canonical retort native keys/counts while ordinary template stock refreshes. `emptyInventory()` currently deletes sold conserved objects. Preserve actual native item objects; do not regenerate trays, disable their trade, create another inventory or accept malformed keys. New retort IDs are absent from merchant templates, so refresh cannot mint template copies. The review worker separately fixes actual-body and actual Eda bench owner/capacity gates in the owned leaves.
+5. Qualify syntax, pure imports, complete registry/native item IDs and matching source-map/build receipt. Do not run deferred gameplay/browser/save/failure/regression suites. Return exact modified shared paths, current hashes, current bundle/map identity, any unresolved acceptance and explicit shared release to both roots/coordinator. If this finite build omits retort, state that clearly and transfer exact files after release so the same authorized goal can finish it.
+
+## Acceptance and source binding
+
+Later journey: pay/install once; reserve and settle a batch; see both filled outputs; refuse another batch without spending more input; collect resin while residue still blocks; clear residue and explicitly resume; use resin with two sound staves in the existing survey-kit recipe. Later cancellation, wrong-body, equipment/borrowing, storage, merchant refresh, reload and failed publication checks retain physical pair/input/product conservation. No gameplay pass is claimed now.
+
+[NATIVE_PRODUCTION_TRACE.md](../../../../research/factorio/native/NATIVE_PRODUCTION_TRACE.md) and [SOURCE_BINDING.json](../../../../research/factorio/native/SOURCE_BINDING.json) pin the actual installed 2.0.77 production bodies. Native completed-output capacity admission and paid progress retention are source observations. Pre-batch reservation, two tray variants, sap/fuel/stamina and refundable unburned preparation are stronger original YAIR choices. No Factorio code, rates, assets or recovered raw source is copied into Git.
+
+The separate active native goal still requires complete arm64 and x86_64 function attempts, truthful failures and reviewed consequential mechanics/DLC joins. Retort delivery alone does not complete that goal.
+
+Fresh native evidence correction: the analyzed qualification batch recovered250/250actualC-likebodies. CraftingMachine::canGiveProducts0x100741a98 is an11-linewrapper, and the prior merged loop belongs to ProductionHelper::canGiveProducts0x100741abc. Native successor owns the fresh helper review and binding/trace repair. Treat early locators as historical until replaced. Original retort custody/order choices are unchanged; do not copy the erroneous method attribution into canonical claims.

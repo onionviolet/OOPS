@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-06 America/New_York",
+  "steam_base_app_id": 1546320,
+  "installed_build": "25001959",
+  "inventory_sources": [
+    {
+      "url": "https://store.steampowered.com/dlc/1546320/Your_Chronicle/",
+      "observation": "one listed DLC; public store appdetails also lists1682010",
+      "private_snapshot": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/official/steam_appdetails_1546320.json",
+        "sha256": "a9ac86b311b2ac0e44d553e12ccbf7ba12e100bedf747674f9b6240ad20447d0"
+      }
+    },
+    {
+      "url": "https://store.steampowered.com/app/1682010/Your_Chronicle__Artwork_Addition/",
+      "observation": "Artwork Addition ending illustrations; ED1\u2013ED8; completed after five clears"
+    }
+  ],
+  "dispositions": [
+    {
+      "id": "base1546320",
+      "kind": "base edition",
+      "disposition": "source-inspected",
+      "qualification": "Selected decoded gameplay/native x86 consumers, not every table/method; whole base unread remainder explicit in COVERAGE.",
+      "accessible_payload": "matched Unity6000.0.58f2 IL2CPP31.1 native+metadata and seven serialized assets",
+      "semantic_owner": "COVERAGE.json"
+    },
+    {
+      "id": "1682010-consumer",
+      "kind": "artwork-only DLC",
+      "name": "Artwork Addition",
+      "release_date": "2021-11-01",
+      "disposition": "source-inspected",
+      "inspected": "Native Steam initialized/installed flag -> external AssetBundle/sprite setup -> clear ratio reveal -> Chronicle/start consumers. No observed gameplay state mutation.",
+      "evidence": {
+        "path": "/Users/weiwei/.codex/research/your-chronicle/25001959/native-party/EVIDENCE.json",
+        "sha256": "fdc6e77fcfb2f5b8f5e232b8a467165a56d8729cb4e7af52deef0dd40c75fdf2"
+      },
+      "base_interaction": "Uses existing ending clearNum/maxClearNum rather than adding routes or statistical rewards.",
+      "entitlement": "not queried; unknown",
+      "source": "https://store.steampowered.com/app/1682010/Your_Chronicle__Artwork_Addition/"
+    },
+    {
+      "id": "1682010-art-payload",
+      "kind": "artwork payload",
+      "disposition": "unavailable",
+      "qualification": "No external artwork AssetBundle identified in inspected complete installed file inventory/StreamingAssets scan. Expected literal path unresolved; do not infer entitlement or absence from every possible alternate location. Actual images not inspected/exported.",
+      "missing_input": "The external AssetBundle and named ending sprites required by IllustrationDLC.SetUp.",
+      "source": "https://store.steampowered.com/app/1682010/Your_Chronicle__Artwork_Addition/"
+    },
+    {
+      "id": "base-content-updates",
+      "kind": "free base gameplay updates, not separately listed DLC",
+      "disposition": "source-inspected",
+      "qualification": "Selected source rows/classes plus installed Help show present late systems; published update inventory is documentation-only, not every update content reviewed.",
+      "documented_updates": [
+        {
+          "version": "1.9.0",
+          "addition": "secondary equipment and Pride"
+        },
+        {
+          "version": "2.0.0",
+          "addition": "Chronicle6"
+        },
+        {
+          "version": "2.2.0",
+          "addition": "area/element and offline auto summon/level"
+        },
+        {
+          "version": "2.4.0",
+          "addition": "new area"
+        },
+        {
+          "version": "2.5.0",
+          "addition": "new Chronicle/story-flow remake"
+        },
+        {
+          "version": "2.6.0",
+          "addition": "new Chronicle/concealed rewards"
+        },
+        {
+          "version": "2.7.0",
+          "addition": "area/Wrath"
+        },
+        {
+          "version": "2.7.16",
+          "addition": "latest returned public patch,2026-08-31"
+        }
+      ],
+      "semantic_interactions": [
+        "C7/C8 marks/medicines/route training",
+        "A13 old research and temporary cooperation",
+        "secondary gear powder reinvestment",
+        "Wrath/Envy/Pride/Greed/Gluttony/Alchemy Help joins"
+      ],
+      "limits": "Most update-specific actions/items and late native effects remain unread."
+    },
+    {
+      "id": "mobile-and-ruby-packs",
+      "kind": "shop/IAP convenience/consumables, not Steam expansion catalog",
+      "disposition": "primary-documentation-only",
+      "qualification": "Official mobile Starter/Alchemy/Wrath and Ruby/shop references are separate monetization inventory. Steam source has shop items/cap purchases; no ownership, exact all-pack payload or entitlement review.",
+      "source": "https://apps.apple.com/us/app/your-chronicle/id1608143731"
+    },
+    {
+      "id": "temporary-mimic-event",
+      "kind": "temporary base event",
+      "disposition": "primary-documentation-only",
+      "qualification": "Latest reviewed publisher event2026-04-01..04-07UTC has expired at review; daily Mimic dungeon/doubled appearance/chest behavior documented, event source/runtime not inspected.",
+      "source": "https://steamcommunity.com/games/1546320/announcements/detail/490468185936496520"
+    }
+  ],
+  "additional_gameplay_expansion": "None separately listed in current official Steam DLC catalog; do not treat base update names or historical ideas as released DLC.",
+  "artbooks_cosmetics_soundtracks": "Only Artwork Addition identified in official catalog; no separate artbook/soundtrack payload identified.",
+  "purchases_or_entitlement_changes": false,
+  "installed_unread": "Decoded-unread base/update material remains in COVERAGE; no installed DLC artwork payload positively identified to label installed-unread."
+}

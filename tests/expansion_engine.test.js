@@ -159,7 +159,7 @@ test("isolated rewind previews losses, retains memory and cannot export temporar
 });
 
 test("legacy migration, dormant payload and Unicode file roundtrip retain new commitments", () => {
-    assert.equal(loadExpansionState(undefined, registry).schema, 3);
+    assert.equal(loadExpansionState(undefined, registry).schema, 5);
     const begun = commitAction(fresh(1), registry, "frontier.inspect", context());
     const envelope = {"game version": "v0.5.5.30", "current time": {year: 999, month: 4, day: 1, hour: 8, minute: 0},
         "current location": "Village", character: {name: "魏宝", money: 102, xp: {total_xp: 0}, inventory: {}, equipment: {}},
@@ -167,7 +167,7 @@ test("legacy migration, dormant payload and Unicode file roundtrip retain new co
         expansion: begun.state, retired_content: {schema: 1, entries: [{path: ["cultivation"], value: {qi: 78}}]}};
     const decoded = decodeSaveFile(encodeSaveFile(JSON.stringify(envelope)), "v0.5.5.30");
     assert.deepEqual(decoded.expansion, begun.state); assert.deepEqual(decoded.retired_content, envelope.retired_content);
-    for(const mutate of [s => s.schema = 4, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
+    for(const mutate of [s => s.schema = 6, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
         s => s.pending[0].draw = 1, s => s.pending[0].effects = [{type: "bad"}], s => s.pending[0].actionId = "missing.action"]) {
         const bad = structuredClone(begun.state); mutate(bad);
         assert.throws(() => loadExpansionState(bad, registry));

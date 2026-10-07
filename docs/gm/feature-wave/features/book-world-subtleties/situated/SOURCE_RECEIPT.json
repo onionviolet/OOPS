@@ -1,0 +1,364 @@
+{
+  "revision": 1,
+  "date": "2026-10-05",
+  "sourceEditions": [
+    {
+      "lane": "omniscient-reader",
+      "sourcePath": "/Users/weiwei/Sync/CalibreLibrary/singNsong/Omniscient Reader's Viewpoint [Illustrated Edition] (18)/Omniscient Reader's Viewpoint [Illustrated - singNsong.epub",
+      "declaredSha256": "24cf71786db0c6e91a5ec12a1047a993a25c6bf4d5a72deb0ee2c417436655bf",
+      "actualSha256": "24cf71786db0c6e91a5ec12a1047a993a25c6bf4d5a72deb0ee2c417436655bf",
+      "matchesReviewedManifest": true,
+      "reviewedExtent": "All551 supplied chapters read/reviewed/integrated;1263956 body words; final hospital continuation uncertain",
+      "coverageAuthority": "docs/research/novels/full-book/omniscient-reader/COVERAGE.json",
+      "scope": "existing reviewed dossier reused; no semantic reread or whole-book audit"
+    },
+    {
+      "lane": "worm",
+      "sourcePath": "/Users/weiwei/Downloads/Worm (J. C. McCrae) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "declaredSha256": "5eb58f982c240739ac639de456c858e394c3ea787b21a901e63b0c95eaad2936",
+      "actualSha256": "5eb58f982c240739ac639de456c858e394c3ea787b21a901e63b0c95eaad2936",
+      "matchesReviewedManifest": true,
+      "reviewedExtent": "All304 supplied story/interlude/Teneral entries integrated;1682635 normalized words; ends Interlude: End",
+      "coverageAuthority": "docs/research/novels/full-book/worm/COVERAGE.json",
+      "scope": "existing reviewed dossier reused; no semantic reread or whole-book audit"
+    },
+    {
+      "lane": "legendary-mechanic",
+      "sourcePath": "/Users/weiwei/Downloads/The Legendary Mechanic (Chocolion) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+      "declaredSha256": "fcf19109551a4cc5cc355cb30a93b4947278473737fc2004935c540dd5e1991e",
+      "actualSha256": "fcf19109551a4cc5cc355cb30a93b4947278473737fc2004935c540dd5e1991e",
+      "matchesReviewedManifest": true,
+      "reviewedExtent": "All1463 supplied NCX story entries read/reviewed/integrated;3274716 p words plus3438 x words; story ends c1463:p81, translator afterword p82",
+      "coverageAuthority": "docs/research/novels/full-book/legendary-mechanic/COVERAGE.json",
+      "scope": "existing reviewed dossier reused; no semantic reread or whole-book audit"
+    },
+    {
+      "lane": "labyrinth-mad-god-1",
+      "sourcePath": "/Users/weiwei/Sync/CalibreLibrary/Magnus Grey/Labyrinth of the Mad God_ A LitRPG Adventure (19)/Labyrinth of the Mad God_ A LitRPG Adventu - Magnus Grey.epub",
+      "declaredSha256": "c3caa8d82829d1fea853dd58dc15245d1cc00e5428885c7269370ac83b06faa6",
+      "actualSha256": "c3caa8d82829d1fea853dd58dc15245d1cc00e5428885c7269370ac83b06faa6",
+      "matchesReviewedManifest": true,
+      "reviewedExtent": "All119 numbered narrative chapters read/reviewed/integrated;216003 narrative words including headings; ch119 narrative ends b35",
+      "coverageAuthority": "docs/research/novels/full-book/labyrinth-mad-god-1/COVERAGE.json",
+      "scope": "existing reviewed dossier reused; no semantic reread or whole-book audit"
+    },
+    {
+      "lane": "labyrinth-mad-god-2",
+      "sourcePath": "/Users/weiwei/Sync/CalibreLibrary/Magnus Grey/Labyrinth of the Mad God 2_ A LitRPG Adventure (20)/Labyrinth of the Mad God 2_ A LitRPG Adven - Magnus Grey.epub",
+      "declaredSha256": "cce77f8ec3b292c4895115a05d435841d67d86f897f112deabdd3cb7131a2b6e",
+      "actualSha256": "cce77f8ec3b292c4895115a05d435841d67d86f897f112deabdd3cb7131a2b6e",
+      "matchesReviewedManifest": true,
+      "reviewedExtent": "All121 story chapters plus included Book1 recap read/reviewed/integrated;4843 blocks/224146 words; Nick crosses tower threshold ch121 b47",
+      "coverageAuthority": "docs/research/novels/full-book/labyrinth-mad-god-2/COVERAGE.json",
+      "scope": "existing reviewed dossier reused; no semantic reread or whole-book audit"
+    }
+  ],
+  "dossierInputs": [
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-1/COVERAGE.json",
+      "sha256": "8848f278c7e07ef8ec1cf96cc709811baaa4a03fa677b8705bd24aa2841018ac"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-1/MANIFEST.json",
+      "sha256": "978403d59809eef38546197fb5c5cff02f020df17e2cc6e7a4e2f0abf491cf94"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-1/POWERS.md",
+      "sha256": "31f7fc4b0c26307c0e0a295065fbf38dcd939d025c66eaec7e093d3d37f02a7e"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md",
+      "sha256": "2a70ba10c259d2f03d9e645a71cf4f9d7a86c710ac5e5d9830b17eb11deeb54d"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/COVERAGE.json",
+      "sha256": "c0d817202b7462c779cfb49985b98c4b5a3055e6de7747e7d86c6a28752985eb"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/MANIFEST.json",
+      "sha256": "306d9726421ac5166aedc1281628c37c61803ac7c3cf7b3acfd6804b955572bd"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/WORLD.md",
+      "sha256": "4950de1bd1c62e92a0dcac00cfa430b67be8a09ad2012601289bdcac620f3039"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R03_NOTES.md",
+      "sha256": "70d88e84ef35666d7f9098d51c95a68d863746acce16fb826e8eb332b46a4d2c"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R05_NOTES.md",
+      "sha256": "c18edd53a826632f4b1e3eec49c0fbc755b5df9a8e62ba6da1259fe333bb33e8"
+    },
+    {
+      "path": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R06_NOTES.md",
+      "sha256": "7b035e3a13d97e042705e8b11720e5eb4661d7ac24b029f47ccf620344c47b8f"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/COVERAGE.json",
+      "sha256": "d0ad6c44c867977efe8f8da12b7f357137e81743a247d9481d80e6855b915e49"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/KNOWLEDGE_AND_IDENTITY.md",
+      "sha256": "f9232fd49db78c2697787c8dd6b4beb75aafd8fdacfdfd886ebb98b2f2d4231c"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/MANIFEST.json",
+      "sha256": "50464e00c2d2cfa28b45fd60d61b5ea990e43514a653ec431bb0bf437e46682d"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md",
+      "sha256": "b31b1e3ab1dc2b38cbca7ba5141a48e977766d9d24de4e728942169deb05b6b4"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/readers/0026-0045/NOTES.md",
+      "sha256": "b9986617c3d7438894dff455d06b35b899600a117cb3770200a9dddcb5c0d356"
+    },
+    {
+      "path": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "sha256": "a46d5af23bb9a81ca66cfe19fee590ff3ae3b652351db0fa14bf4ca509948aa3"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/COVERAGE.json",
+      "sha256": "54985c22e9333dac03795f51748f5582fa8bca79bc31c73c76512b3f9d87cd61"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/MANIFEST.json",
+      "sha256": "db04cc20f7ac0ffdb1d4a4ab75762954d75208df2bd693dfa8ade68d1e810625"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/WORLD_AND_DAILY_LIFE.md",
+      "sha256": "9fb42ce262d11e34ca8363c2fdb52f9e1210e16b5501aa459cd5a6fcf930b350"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_001_010.md",
+      "sha256": "79e9011cee8d7bb0d558e6197cfc546e3731e8ca7f3096edb5b937ed3798a229"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md",
+      "sha256": "24364eb1b99d1c77168f5c665d32f66de1d38ec510405554831cf17a1e38a3bf"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_031_050.md",
+      "sha256": "f8ed8c15ea8f4c7373b426f8b240c37f40b56781405b5add5141b8723adca120"
+    },
+    {
+      "path": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_371_390.md",
+      "sha256": "e470bd4fe666d1b53ccd9c5d1d1ad8e3075793e1a28d2fea089fcb0ad6a168c3"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/COVERAGE.json",
+      "sha256": "68f10303585f33b72b0af19c42a9f91da1b29a46622ff7808343aad2aab885b0"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/MANIFEST.json",
+      "sha256": "226a75463a3991ae0cddb68b457a7449f91d878e1e6f4ef7a0ea7269dccdb3e9"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/PEOPLE.md",
+      "sha256": "578798b2a9e453236bc414e08427f7f4c99cb8878c12644342b4b4f19e21bc4e"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/SYSTEMS.md",
+      "sha256": "12526f9e67406ba8fe3247243c425077fca700486fb56c290aea3d2de92b17e8"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/indexes/EVERYDAY.md",
+      "sha256": "8deaaaa929f584e2981fc189883265948f92b7fc23c82dffbd39e1455dc9e8b6"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json",
+      "sha256": "f87c59383f83271a26ef945d8f4b32181e00123a1ef9f0105ededa3e210c46a0"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/readers/008-017/NOTES.json",
+      "sha256": "63ba3ef8fe5906e1b467d2b6d68759c6d5882011102e7635d90b2823fc0e7d19"
+    },
+    {
+      "path": "docs/research/novels/full-book/worm/readers/094-100/NOTES.json",
+      "sha256": "fab1c87ad85d7c5f78369b0f42e49c3c5a3a40af346e21dc673fc6a16dc25f94"
+    }
+  ],
+  "uniqueLocatedClaims": [
+    {
+      "claimId": "ORV-010-02",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_001_010.md",
+      "present": true,
+      "locator": "ch10 chap_00010 b53\u201383"
+    },
+    {
+      "claimId": "ORV-377-01",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_371_390.md",
+      "present": true,
+      "locator": "chap_00377.xhtml b27\u201366"
+    },
+    {
+      "claimId": "ORV-378-01",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_371_390.md",
+      "present": true,
+      "locator": "chap_00378.xhtml b69\u2013108,127\u2013160,167\u2013186"
+    },
+    {
+      "claimId": "ORV-036-01",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_031_050.md",
+      "present": true,
+      "locator": "ch36 b23\u201349,63\u201374,108\u2013123"
+    },
+    {
+      "claimId": "ORV-028-01",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md",
+      "present": true,
+      "locator": "ch28 b4\u201321,53\u201390"
+    },
+    {
+      "claimId": "ORV-029-01",
+      "file": "docs/research/novels/full-book/omniscient-reader/workers/NOTES_011_030.md",
+      "present": true,
+      "locator": "ch29 b5\u201319,28\u201350"
+    },
+    {
+      "claimId": "W100-C01",
+      "file": "docs/research/novels/full-book/worm/readers/094-100/NOTES.json",
+      "present": true,
+      "locator": "W100:p002-p021,p034-p040,p114-p123"
+    },
+    {
+      "claimId": "W002-C04",
+      "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json",
+      "present": true,
+      "locator": "W002:p018-p027"
+    },
+    {
+      "claimId": "W007-C06",
+      "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json",
+      "present": true,
+      "locator": "W007:p028-p041"
+    },
+    {
+      "claimId": "W013-C02",
+      "file": "docs/research/novels/full-book/worm/readers/008-017/NOTES.json",
+      "present": true,
+      "locator": "W013:p002-p026,p045-p053"
+    },
+    {
+      "claimId": "W005-C04",
+      "file": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json",
+      "present": true,
+      "locator": "W005:p025-p043"
+    },
+    {
+      "claimId": "LM-c0012-03",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md",
+      "present": true,
+      "locator": "c0012:p27\u201348"
+    },
+    {
+      "claimId": "LM-c0012-04",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md",
+      "present": true,
+      "locator": "c0012:p50\u201359"
+    },
+    {
+      "claimId": "LM-c0077-02",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "present": true,
+      "locator": "c0077:p19\u201343"
+    },
+    {
+      "claimId": "LM-c0078-02",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "present": true,
+      "locator": "c0078:p19\u201345"
+    },
+    {
+      "claimId": "LM-c0041-01",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0026-0045/NOTES.md",
+      "present": true,
+      "locator": "c0041:p1\u201321,30\u201346"
+    },
+    {
+      "claimId": "LM-c0069-03",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "present": true,
+      "locator": "c0069:p51\u201377"
+    },
+    {
+      "claimId": "LM-c0067-02",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "present": true,
+      "locator": "c0067:p15\u201352"
+    },
+    {
+      "claimId": "LM-c0068-02",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0066-0085/NOTES.md",
+      "present": true,
+      "locator": "c0068:p14\u201335"
+    },
+    {
+      "claimId": "LM-c0006-02",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0006-0025/NOTES.md",
+      "present": true,
+      "locator": "c0006:p12\u201332"
+    },
+    {
+      "claimId": "LM-c0027-03",
+      "file": "docs/research/novels/full-book/legendary-mechanic/readers/0026-0045/NOTES.md",
+      "present": true,
+      "locator": "c0027:p20\u201347,48\u201364"
+    },
+    {
+      "claimId": "B03-C04",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md",
+      "present": true,
+      "locator": "ch43 OEBPS/c2KT.xhtml b22\u201335; ch44 OEBPS/c2N7.xhtml b11\u201318"
+    },
+    {
+      "claimId": "B03-C05",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md",
+      "present": true,
+      "locator": "ch44 OEBPS/c2N7.xhtml b3\u20137,19,32\u201334"
+    },
+    {
+      "claimId": "R03-C13",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R03_NOTES.md",
+      "present": true,
+      "locator": "ch30 b19\u201327"
+    },
+    {
+      "claimId": "R03-C14",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R03_NOTES.md",
+      "present": true,
+      "locator": "ch30 b25\u201328"
+    },
+    {
+      "claimId": "R06-C18",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R06_NOTES.md",
+      "present": true,
+      "locator": "ch95 OEBPS/c4UD.xhtml b19\u201326"
+    },
+    {
+      "claimId": "B03-C22",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md",
+      "present": true,
+      "locator": "ch51 OEBPS/c30T.xhtml b17\u201324; ch52 OEBPS/c31T.xhtml b3\u20137"
+    },
+    {
+      "claimId": "B03-C23",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-1/workers/b03/NOTES.md",
+      "present": true,
+      "locator": "ch55 OEBPS/c353.xhtml b21\u201327; ch56 OEBPS/c366.xhtml b4\u201323"
+    },
+    {
+      "claimId": "R05-C32",
+      "file": "docs/research/novels/full-book/labyrinth-mad-god-2/readers/R05_NOTES.md",
+      "present": true,
+      "locator": "ch81 b21\u201338"
+    }
+  ],
+  "checks": {
+    "sourceHashes": "5/5match",
+    "dossierLinks": "all declared paths exist",
+    "claimIds": "all exact per-claim markers found in their existing analytical note files",
+    "limits": "Topology facet links are qualified authoring evidence pointers; not a new semantic full-book coverage claim. No raw prose stored."
+  }
+}

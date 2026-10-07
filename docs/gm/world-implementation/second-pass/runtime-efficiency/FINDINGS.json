@@ -1,0 +1,1134 @@
+{
+  "schema": 1,
+  "role": "Runtime efficiency GM",
+  "date": "2026-10-04",
+  "thread_id": "01a10997-a4c6-7402-8281-997f8f5ca597",
+  "parent_coordinator": "01a10933-feaf-7503-878e-49a6d5ad113f",
+  "state": "planning-complete-checked",
+  "base": {
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "branch": "codex/gameplay-foundations",
+    "dirty": true
+  },
+  "authority": "Role-directory reports/checkpoint only; no runtime/schema/native/source/library/private-save mutation or game/build/browser/profile execution. Canonical merge by assigning master; runtime held for director review.",
+  "inspection_coverage": "Targeted functions/ranges and relevant rg hits only; hashes identify complete files but do not claim every source line or world/book was semantically audited. Profiler sources were read, never executed. Saved result JSON summaries were read without opening generated save payloads.",
+  "measurement_status": "Historical saved measurements only. No new runtime/token/price/allowance measurement or claimed optimization saving. Complexity statements are labelled static inferences.",
+  "source_coverage": "Macro/micro are prior qualified planning inputs; no source-library/full-book reads or new canon claims. Current source outranks memory pointers.",
+  "inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+    "docs/gm/world-implementation/RUN.json": "a368ccfb04c217522393c7dde60d4db370fe8d61a4a70b62d5ad11a20035fa1f",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+    "docs/gm/world-implementation/second-pass/README.md": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+    "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/ASSIGNMENT.md": "e80836ada4261d9fc6bd17a621127d68ce44f9d70fc5a7deaa619f00720a50b0",
+    "docs/gm/world-implementation/second-pass/receipts/runtime-efficiency.json": "9384393d332a21f71dd4650d136595e212e8af72a0ee5ed19fc4cfeef9323de1",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/display.js": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+    "docs/PLAYTEST.md": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/native_gameplay_adapter.js": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+    "src/expedition_ui.js": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+    "src/simulation_ui.js": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+    "src/people_ui.js": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+    "src/promise_ui.js": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+    "src/event_feed_ui.js": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+    "src/character_bio_ui.js": "0c6fb45a782c1699f59e1fb7ca4c26b99c40edaf8de51f302a535f4a00dacb28",
+    "src/adventure_notebook.js": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+    "src/save_files.js": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+    "scripts/engine_profile.cjs": "01241fc1c23f00004b547471a3c7c4e768266b8360d11960bd92b1cc5e44a2df",
+    "scripts/scheduler_profile.mjs": "96f592a0fa859f9e468ba1bc31e328b1c1ee4217c3aa38ee209f9ab25c30d06a",
+    "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+    "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md": "768037784d4bcea012566d96401912a97cc4359d3b5369fa9a15c0b4b9e105bd",
+    "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787"
+  },
+  "historical_artifacts": {
+    "/Users/weiwei/.codex/visualizations/2026/10/04/01a1056b-d82c-7ef2-babb-d8316c45f396/scheduler-before.json": "68a94cd3b22f9e2d9e7d55ac1bba0e93984689e2f37a90207b1b609709d6fb35",
+    "/Users/weiwei/.codex/visualizations/2026/10/04/01a1056b-d82c-7ef2-babb-d8316c45f396/scheduler-after.json": "0cb52b625c6ecce61aca46e343a4d7870e69883071ae04eb12262c32d590a01b",
+    "/Users/weiwei/.codex/visualizations/2026/10/04/01a1056b-d82c-7ef2-babb-d8316c45f396/engine-profile/result.json": "eaed93637b5ff6ca3229b269b900faa1995cd6f2a4da01d072ad9a138b697cfc"
+  },
+  "findings": [
+    {
+      "id": "RTE-01",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Reduce whole-state candidate work through an exact mutation and validation closure",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            15,
+            15
+          ],
+          "claim": "Planning clones state plus native/external domains.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            49,
+            103
+          ],
+          "claim": "Eligible previews clone a cost plan and each positive-weight outcome, then validate the full simulation.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            108,
+            162
+          ],
+          "claim": "Commitment retains synchronous preview reuse, freezes outcomes/templates, constructs more candidates and validates.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            308,
+            325
+          ],
+          "claim": "Pending commitment reward preflight advances the common scheduler before native reward staging.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            85,
+            159
+          ],
+          "claim": "Full-state validator covers domains, sources, commitments, opportunities, history and checkpoints.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            195,
+            237
+          ],
+          "claim": "Full JSON walk plus cross-owner/participant/site validation, including repeated lookup scans.",
+          "basis": "static-source"
+        }
+      ],
+      "current_player_behavior": "A paid helper or learned-method start safely checks outcomes and future native rewards, but candidate work includes unrelated retained people/history. Actual phase cost is not isolated.",
+      "proposed_player_behavior": "Keep identical legal options and safe reward acceptance while using transaction-local fact reuse, branch-local drafts and affected-invariant validation; preserve full validation on untrusted load/import and conservative unknown-dependency fallback.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-09 profiling attribution",
+        "RTE-02 derived participant/site indexes",
+        "Foundations: typed mutations, original-state immutability and cross-domain invariant closure",
+        "Authoring: frozen definition revision and positive-outcome metadata"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original paid-helper and bracing-method content; optimization proposed",
+          "case": "Starting one paid kit order after many retained helpers must still reserve the real log/coin and reject unsupported native XP unlocks before acceptance."
+        }
+      ],
+      "acceptance_cases": [
+        "Later compare full old/new normalized plans for every positive-weight branch, native milestone crossing, spawn/template changes and shared claim/site conflicts.",
+        "Change a source, target body, clock or native inventory between player quote and click; commitment rejects or recomputes. Failed save publishes no draft mutation."
+      ],
+      "cost_basis": "Static inference: with C previews, O positive outcomes and state volume S, candidate copying/full traversal contributes terms proportional to C*(1+O)*S; invariant scans can add nested costs. This is not a total runtime bound or attribution of the recorded 115.4 ms handler.",
+      "cheaper_alternatives": [
+        "First reuse facts/indexes only within one unmutated call while retaining whole-state copies and validators.",
+        "Do not remove native future-reward preflight until a frozen-job/native-dependency replacement proves equivalent supported rewards and unlocks."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "Pre-cost preview and post-cost commitment candidates use distinct causes/mutations; they are not assumed redundant.",
+        "No speculative percent speedup or proof of safe structural sharing.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-02",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Derive exact scheduling and occupancy indexes; pre-sort immutable controller priorities",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            41,
+            47
+          ],
+          "claim": "Occupancy/waiting-choice queries scan sessions, jobs and events.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            317,
+            324
+          ],
+          "claim": "Next-boundary selection scans all job/check/controller/event/condition/life records.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            330,
+            331
+          ],
+          "claim": "Each due simulation job removes itself with another filter over the jobs array.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            351,
+            404
+          ],
+          "claim": "Boundary handling repeatedly sorts events, checks, controllers, action definitions and programs; candidate facts and previews are recomputed.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            21,
+            56
+          ],
+          "claim": "Per-candidate facts enumerate actor data plus global custody, claims and situations.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            86,
+            99
+          ],
+          "claim": "Definition entries are copied, validated and frozen during registry construction.",
+          "basis": "static-source"
+        }
+      ],
+      "current_player_behavior": "Residents choose stable priority actions and paid work settles in deterministic order, but most due/occupancy queries inspect whole collections even when a small subset changes.",
+      "proposed_player_behavior": "Derive actor-to-work/site/open-event indexes and ordered due buckets or minima; compute immutable priority/JSON tie order once. Update/rebuild only at actual mutations/import without saving redundant indexes.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-09 due/scan counters",
+        "Foundations: identity and mutation notifications; authoritative boundary phases"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original helper workload; proposed index",
+          "case": "Sixty-four paid helpers due together still produce sixty-four separately owned kits, with the same job sequence and controller tie decisions."
+        }
+      ],
+      "acceptance_cases": [
+        "Later compare dense tied deadlines and sparse idle actors against the current scheduler for exact sequence/RNG/stock/output order.",
+        "Cancel, spawn, incapacitate, import or transfer a participant/site claim and verify every derived occupancy/open-event lookup matches a direct scan."
+      ],
+      "cost_basis": "Static inference: boundary selection is at least a collection scan; repeated due-job filters can be quadratic in a dense due-job batch; sorting adds collection-dependent work. No measured per-index saving.",
+      "cheaper_alternatives": [
+        "Use pre-sorted immutable actions plus temporary lookup maps first.",
+        "Use a heap only if large sparse due sets justify maintenance and stale-entry complexity; preserve original tie semantics regardless of container."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "Current effects may alter dependent collections; an index requires complete invalidation, not a once-per-save cache.",
+        "No claim that every collection needs a permanent index.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-03",
+      "priority": "P1",
+      "kind": "underexplored",
+      "title": "Schedule by actual world/instance clock activation instead of visiting all dormant controllers",
+      "evidence": [
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            90,
+            97
+          ],
+          "claim": "Local instance clock reconciliation respects visits and exact activity support.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/realm_state.js",
+          "lines": [
+            124,
+            143
+          ],
+          "claim": "Lease/observation expiry supplies boundaries; caretaker context marks unsupported new work busy.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/realm_clock_leases.js",
+          "lines": [
+            179,
+            226
+          ],
+          "claim": "Supported intervals and expiry are admitted by exact lease/endpoint proofs; activation grants scheduling only.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            317,
+            324
+          ],
+          "claim": "Joined boundary selection includes all alive controllers and timed conditions/life records.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            373,
+            393
+          ],
+          "claim": "Controller due time advances and candidates are checked even if context rejects unsupported local work.",
+          "basis": "static-source"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md",
+          "lines": [
+            9,
+            10
+          ],
+          "claim": "Macro already records absence rules and specialized clock support as foundation gaps.",
+          "basis": "planning-input"
+        }
+      ],
+      "current_player_behavior": "Glasshouse elapsed time/new caretaker work respects presence or actual viewing support. Paid jobs retain joined-clock commitments. The inspected scheduler still visits alive caretaker/controller due records; it is not a generic many-world activation partition.",
+      "proposed_player_behavior": "Give each clock-bound subsystem an authoritative active/frozen/supported/selected-aggregate policy and derived wake boundary. Exclude truly dormant local decisions only under that policy, while retaining paid commitments and external/body clocks independently.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-02 due indexes",
+        "Foundations and Timelines: actual clock domain and activation laws",
+        "Regions/Bases/Powers: selected absence obligations"
+      ],
+      "world_examples": [
+        {
+          "world": "Folded Glasshouse",
+          "status": "Existing original implementation is built-unverified; new scheduling proposal",
+          "case": "Leaving with a funded repair differs from closing an unfunded viewing slit. Repair completes under its frozen contract; new unfunded local decisions do not gain absent time."
+        }
+      ],
+      "acceptance_cases": [
+        "Later compare presence, live support, lease expiry, shutter close and return with selected paid-work semantics; body/outside clocks stay distinct.",
+        "A dormant world with no authorized work performs no controller candidate preview; wakeup resumes exact declared local due phase without missed-attempt fabrication."
+      ],
+      "cost_basis": "Static inference: current joined scans/due evaluation scale with enrolled controller count even where context rejects work. No many-dormant-world timing or current absence defect was demonstrated.",
+      "cheaper_alternatives": [
+        "Use one activation table and freeze unsupported absence initially.",
+        "Do not serialize complete dormant instances to worker threads or invent demographic catch-up merely to avoid scans."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "The present realm binding is intentionally specialized; this finding does not approve a general clock schema or new enrollment.",
+        "A due check cannot be skipped when authored outside-clock obligations or stochastic attempt histories require it.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-04",
+      "priority": "P1",
+      "kind": "missing",
+      "title": "Define cooperative workload budgets and deterministic continuation",
+      "evidence": [
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            491,
+            529
+          ],
+          "claim": "The common scheduler counts at most 512 causal boundaries and returns remaining time/budgetExhausted.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            326,
+            404
+          ],
+          "claim": "One boundary can settle many jobs and evaluate many actor/outcome candidates.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            519,
+            525
+          ],
+          "claim": "Native calendar advancement uses consumed simulation time.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            5790,
+            5812
+          ],
+          "claim": "Joined native timer publishes the plan and returns consumed time.",
+          "basis": "static-source"
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "lines": [
+            520,
+            522
+          ],
+          "claim": "Historical pathological request is bounded but active crowded tick remains expensive.",
+          "basis": "planning-input"
+        }
+      ],
+      "current_player_behavior": "A long advance retains unspent time in its plan, so causal work is not skipped. The cap bounds boundary count, while one timestamp can still block the synchronous caller for substantial work.",
+      "proposed_player_behavior": "Expose phase/due/clone/validation work and distinguish budget pause from decision/life ending. Yield after complete timestamps and retain driver-owned unspent time. Select an explicit phase cursor only if strict inside-timestamp yielding is necessary.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-09 phase telemetry",
+        "RTE-02 stable order",
+        "RTE-03 clock domains",
+        "Foundations/Timelines: cursor/revision/remaining-time compatibility"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original scheduler proxy; budget extension proposed",
+          "case": "An advance with sixty-four concurrent helper jobs must remain cancellable/readable across UI turns and deliver each funded output once, without adding offline catch-up."
+        }
+      ],
+      "acceptance_cases": [
+        "Later split the same request into cooperative chunks and compare exact state/clock/RNG/claims/outputs/unspent minutes with one permitted reference advance.",
+        "Stop on a newly observed decision or save failure; no queued interval advances time past the real stop or publishes a partial invalid timestamp."
+      ],
+      "cost_basis": "Measured historical scheduler-after pathological 10000-minute request took 850.217 ms and returned 9488 minutes. That single measurement is not a per-frame guarantee. Work per boundary is a static variable not bounded by 512.",
+      "cheaper_alternatives": [
+        "Begin with soft measured budgets between complete timestamps; disclose that a large timestamp can still overrun.",
+        "Keep execution on the current main-thread host initially. A pure-worker proposal must first measure message cloning, one-writer ownership and command invalidation cost."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "No proven host lost-time bug is asserted; current native code already uses consumed time.",
+        "No hard CPU budget, actor cap or release threshold is chosen.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-05",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Track touched native owners and skill dependencies within publication",
+      "evidence": [
+        {
+          "path": "src/gameplay_publication.js",
+          "lines": [
+            3,
+            11
+          ],
+          "claim": "Each native actor snapshot enumerates inventory and every skill definition, including context-sensitive eligibility.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "lines": [
+            15,
+            60
+          ],
+          "claim": "Publication reconstructs saved item maps for every actor, stages changed XP/unlocks, then clears/reassigns inventory mappings.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/native_gameplay_adapter.js",
+          "lines": [
+            7,
+            30
+          ],
+          "claim": "Host snapshots/contexts enumerate all bound native actors and equipment.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            283,
+            358
+          ],
+          "claim": "One transaction stages native rewards, equipment, ownership and future rewards before durable write and live publication.",
+          "basis": "static-source"
+        }
+      ],
+      "current_player_behavior": "Each successful joined advance preserves real native owners and unlock calculations, but unchanged owners/items can be scanned and republished alongside a clock-only change.",
+      "proposed_player_behavior": "Carry an unsaved authoritative touched-owner/item/skill/equipment/reputation set in the plan; stage/publish only affected mappings while propagating native skill milestone and XP-multiplier dependencies. Build one read snapshot per transaction, not one per panel.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-01 typed mutation/validation closure",
+        "Authoring: effect ownership and native dependency declarations",
+        "Player Experience: targeted native refresh contract"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original native chest/helper/skill behavior; delta proposal",
+          "case": "A craftsman completing a reserved kit changes his stock and the appropriate receipt; unrelated player equipment/skills and sixty-four returned-helper inventories retain identity and values."
+        }
+      ],
+      "acceptance_cases": [
+        "Later compare clock-only, remote-owner item completion, native XP milestone unlock and equipped-spare transfer against full publication.",
+        "Native inventory mutation, skill eligibility change, equipment loan or failed write invalidates/rejects a stale delta; unlock/stat recomputation is neither skipped nor repeated."
+      ],
+      "cost_basis": "Static inference: snapshots scan bound native actors and skill catalogue; publication scans saved actors/item keys. No independent snapshot/publication timing was exposed.",
+      "cheaper_alternatives": [
+        "First share the full transaction snapshot and skip provably unchanged owner publication; retain full snapshot validation.",
+        "For dynamic native predicates use conservative context invalidation rather than guessing a narrow dependency."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "Counts/identity equality must come from future behavior proof, not matching definition IDs alone.",
+        "No second native inventory, saved cache or schema change is proposed as already accepted.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-06",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Invalidate derived projections by their actual dependencies and separate countdowns",
+      "evidence": [
+        {
+          "path": "src/main.js",
+          "lines": [
+            359,
+            397
+          ],
+          "claim": "Successful publication refreshes inventory, many panels, notebook, Bio and event feed.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            474,
+            497
+          ],
+          "claim": "Timer path requests a range of projection renders.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/expedition_ui.js",
+          "lines": [
+            58,
+            90
+          ],
+          "claim": "Panel signature JSON-serializes full state/context before action preview loop.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_ui.js",
+          "lines": [
+            27,
+            67
+          ],
+          "claim": "Workshop render previews controls and helper actions even after hiding the panel.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/promise_ui.js",
+          "lines": [
+            26,
+            49
+          ],
+          "claim": "Promise render computes command previews; record details have a smaller existing signature.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/character_bio_ui.js",
+          "lines": [
+            15,
+            40
+          ],
+          "claim": "Bio already preserves keyed rows while recomputing its projection.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/event_feed_ui.js",
+          "lines": [
+            34,
+            42
+          ],
+          "claim": "Event controls stay mounted during countdown updates; history tail uses a smaller signature.",
+          "basis": "static-source"
+        }
+      ],
+      "current_player_behavior": "Stable keyed controls and observer-aware views already protect focus/disclosure. Repeated host renders still rebuild facts/previews or full signatures, including some hidden panels and unchanged native inventories.",
+      "proposed_player_behavior": "Use shared read snapshots and unsaved domain revision/change sets; update countdown text at its own cadence, compute expensive eligibility only when dependencies or exposure change, and batch affected render calls after durable publication.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-05 change sets and shared native read snapshot",
+        "RTE-01 read dependencies",
+        "Player Experience: focus, unread changes and disclosure behavior"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original Notebook/Bio/People content; invalidation proposal",
+          "case": "Watching a running promise-method order while People is selected updates its remaining minutes without rebuilding every closed practice panel or revealing a private helper result."
+        }
+      ],
+      "acceptance_cases": [
+        "Later change time alone, body condition, learned knowledge, source expiry, location, native stock/XP and write-error state independently; every affected control/view updates and unrelated records remain hidden.",
+        "Keyboard-selected controls stay mounted; expiry/completion uses existing supported focus recovery and player tab choice is respected."
+      ],
+      "cost_basis": "Historical crowded browser inventory render n=40 median 13.3/p95 14.7 ms. This measures native inventory refresh, not each extension projection. Full-state signature/hidden-preview costs are static observations, unmeasured individually.",
+      "cheaper_alternatives": [
+        "Start with domain-wide revision invalidation plus full-refresh fallback, rather than a complete predicate compiler.",
+        "Lazy hidden-panel previews still update discovered-record badges and deadline summaries; hiding must not stop simulation."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "A cache keyed only by sequence misses clock/native/context changes.",
+        "No general renderer rewrite or sustained active frame proof ran.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-07",
+      "priority": "P2",
+      "kind": "underexplored",
+      "title": "Resolve selected continuous and aggregate flows exactly between meaningful boundaries",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            319,
+            323
+          ],
+          "claim": "Ticking conditions contribute per-interval boundaries.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            333,
+            339
+          ],
+          "claim": "Each due condition tick advances its interval and applies ordered effects.",
+          "basis": "static-source"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            40,
+            52
+          ],
+          "claim": "Micro distinguishes operative source contributions, upkeep/recovery and proposed continuing-effect order; current scaffolding is not complete host-burden support.",
+          "basis": "planning-input"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+          "lines": [
+            54,
+            58
+          ],
+          "claim": "Finite node/aggregate promotion needs actual stable people/stock, not replacement names.",
+          "basis": "planning-input"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/macro/REPORT.md",
+          "lines": [
+            18,
+            21
+          ],
+          "claim": "Macro already proposes meaningful-boundary distant aggregates and dedicated local source policies.",
+          "basis": "planning-input"
+        }
+      ],
+      "current_player_behavior": "Selected existing conditions tick discretely. Macro/micro request recovery/upkeep and aggregate populations, but current source does not establish an exact general resolver or its workload/observer contract.",
+      "proposed_player_behavior": "Opt in only selected linear recover/use/upkeep/production rules with exact rounding/residuals; solve to first cap, exhaustion, source/contact/life/choice/conflict boundary. Preserve source-specific superiority and every supported exception. Promote actual named participants once before individual interaction.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-03 chosen clock activation",
+        "RTE-04 continuation",
+        "Powers: effect/energy phase policy and unknown source costs",
+        "Regions/Bases/Timelines: finite populations/lots/promotion/reversal rules"
+      ],
+      "world_examples": [
+        {
+          "world": "Naruto fan-setting River Clinic",
+          "status": "Micro original planning fixture; source penalties remain unknown/proposal, not verified canon",
+          "case": "The selected original graft fixture has distinct startup/use and four recovery/upkeep minutes. A resolver must preserve that ledger and interruption before exhaustion rather than invent one universal eye-drain rule."
+        }
+      ],
+      "acceptance_cases": [
+        "Later compare interval resolution with explicit small-step reference at cap/depletion, suppression/removal, shared-stock competition, lease loss and consent/contact interruption.",
+        "Aggregate-to-person promotion conserves population/equipment once; returning captain/unique organ stays the same identity. Stochastic attempts retain exact seed/miss/guarantee progression or stay discrete."
+      ],
+      "cost_basis": "Static proposal: an eligible interval resolver can reduce work from every selected tick to relevant boundaries, but no eligible rule, benchmark or savings factor has been approved/measured.",
+      "cheaper_alternatives": [
+        "Retain authored discrete ticks for unknown/nonlinear/stochastic or source-sensitive behavior.",
+        "Use a fixed bounded ordinary production aggregate initially; do not build a general physiology or demographic simulation for unselected content."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "No numerical drain/recovery/capacity is sourced or selected here.",
+        "Order-sensitive rates, private observations and genuine inexhaustibility cannot be averaged away.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-08",
+      "priority": "P2",
+      "kind": "risk",
+      "title": "Separate display tails from durable causes and control retained lookup/cache cost",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            11,
+            15
+          ],
+          "claim": "Log tail is bounded to 100 but full state is copied.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            260,
+            272
+          ],
+          "claim": "Terminal display events can be pruned while permanent claims/causes survive.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            172,
+            187
+          ],
+          "claim": "Relationship memories are capped at 32; distinct causal dedup receipts and settled claims persist.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            32,
+            56
+          ],
+          "claim": "Facts repeatedly enumerate global custody, claims and situations.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "lines": [
+            195,
+            224
+          ],
+          "claim": "Full JSON validation traverses retained causes/claims/relationships and other records.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            457,
+            458
+          ],
+          "claim": "Transition display history is bounded to 32.",
+          "basis": "static-source"
+        }
+      ],
+      "current_player_behavior": "Old helper identity, directed relationships and unique reward protection survive. Short display tails do not bound permanent claims/causes or all actor/knowledge/progression growth, so old history participates in future clones/fact builds.",
+      "proposed_player_behavior": "Derive active/settled indexes, keep compact exact idempotency evidence and explicitly declare which later return/reset references require full detail. Bound unsaved preview/index caches by active scope. Archive only with a reviewed replay/reference horizon and retained observable consequences.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "RTE-09 retained-volume counters",
+        "Timelines: reset/return/replay horizons and branch references",
+        "Society/Authoring: persistent consequential memories/knowledge",
+        "Foundations: tombstones and compatibility"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier",
+          "status": "Existing original helper returns and directed memories; archive policy proposed",
+          "case": "A helper remembered from an old expedition is still the same person, and an old collection cannot be rewarded again even after its display row leaves the short feed."
+        }
+      ],
+      "acceptance_cases": [
+        "Later grow settled claims and old helper histories independently from active work; inspect scan/copy/validation cost and cache cardinality.",
+        "After display pruning or a permitted archive operation, repeat/import/return cannot duplicate stock/rewards or erase known obligations; any selected reversal still has its required exact causes."
+      ],
+      "cost_basis": "Static growth risk, not a demonstrated memory leak. Historical crowded post-GC heap rose 9303400 to 9608944 bytes with 16635 nodes/562 listeners stable across three samples; synthetic claims are a bounded proxy.",
+      "cheaper_alternatives": [
+        "Index/query exact settled records without deleting them before an archive policy exists.",
+        "Do not replace known actors or unique specimens with anonymous counts; aggregate only previously declared background participants."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "No archive horizon, count ceiling, eviction schema or memory leak conclusion is adopted.",
+        "Existing relationship-tail semantics are not declared sufficient for a future all-history reversal.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-09",
+      "priority": "P1",
+      "kind": "simplify",
+      "title": "Use phase-attributed evidence and defer storage/worker rewrites until a real bottleneck",
+      "evidence": [
+        {
+          "path": "src/expansion_persistence.js",
+          "lines": [
+            7,
+            49
+          ],
+          "claim": "One transaction validates state, serializes/parses the native envelope, stages domains and validates/stringifies/writes once before live publication.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            3666,
+            3676
+          ],
+          "claim": "Native save construction includes unrelated native state and save timestamps.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            3911,
+            3911
+          ],
+          "claim": "Native create_save returns serialized retained content.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/save_files.js",
+          "lines": [
+            17,
+            31
+          ],
+          "claim": "Envelope validation retains compatibility/retirement and validates expansion again.",
+          "basis": "static-source"
+        },
+        {
+          "path": "scripts/engine_profile.cjs",
+          "lines": [
+            50,
+            53
+          ],
+          "claim": "Serialization instrumentation measures only full-envelope JSON.stringify calls.",
+          "basis": "planning-input"
+        },
+        {
+          "path": "scripts/engine_profile.cjs",
+          "lines": [
+            76,
+            104
+          ],
+          "claim": "Inventory/input/command samples and later frame sampling are separate bounded workloads.",
+          "basis": "planning-input"
+        },
+        {
+          "path": "scripts/engine_profile.cjs",
+          "lines": [
+            123,
+            125
+          ],
+          "claim": "Pure validateAndHydrate block combines two parses, envelope validation and expansion load.",
+          "basis": "planning-input"
+        },
+        {
+          "path": "/Users/weiwei/.codex/visualizations/2026/10/04/01a1056b-d82c-7ef2-babb-d8316c45f396/engine-profile/result.json",
+          "json_pointer": "/browser/2",
+          "claim": "Historical crowded result records start p95 115.4 ms, render p95 14.7 ms, save-write p95 0.3 ms and whole-envelope serialization p95 0.4 ms.",
+          "basis": "historical-measurement"
+        }
+      ],
+      "current_player_behavior": "Atomic save-before-publish protects every owner and dormant/retired content. Saved profiles show a large synchronous command handler but small write/stringify samples; they do not isolate draft, future preflight, snapshot, envelope assembly or every renderer.",
+      "proposed_player_behavior": "Retain immediate one-envelope durability. Add optional sampled phase/counter evidence and independent workload axes. If envelope assembly/round trips matter, consider an internal object-producing save builder; adopt a backend/worker only with measured benefit and one-writer compatibility/recovery proof.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [
+        "Director review before implementation and later permitted performance/behavior checks",
+        "Foundations: durable transaction and schema/migration ownership"
+      ],
+      "world_examples": [
+        {
+          "world": "Original Frontier with proposed many-world growth",
+          "status": "Historical generated proxy, not a canonical academy or multi-world benchmark",
+          "case": "The saved crowded fixture combines retained helper returns, 170 registered inventory keys and 512 synthetic settled claims. It cannot stand in for many active worlds or sustained magical upkeep."
+        }
+      ],
+      "acceptance_cases": [
+        "Later identify actual source/bundle, sample counts and per-stage cost for due actors versus dormant worlds, branching candidates, native actors/skills, open/closed panels and retained histories.",
+        "Candidate object save-builder or backend preserves native/dormant/retired domains and failed-write live/durable equality; measure complete transaction and input latency, not stringify alone."
+      ],
+      "cost_basis": "Historical browser write/serialize samples are submillisecond at about 258 KB; pure combined validate/load median is 82.596 ms. Timing is fixture/host-specific; no current speedup, product price, token usage or allowance evidence exists.",
+      "cheaper_alternatives": [
+        "Collect optional sampled counters and keep the current localStorage envelope before introducing another backend, command log or worker.",
+        "Reduce duplicate full round trips only after proving exact save preservation; never debounce authoritative acceptance to hide latency."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "Recorded p95 on five commands is the maximum sample, not a reliable long-tail bound.",
+        "Artifact scheduler repetition (121.63 ms median) differs from scheduler-after.json (128.68 ms); keep runs separate.",
+        "Small stringify/write costs do not measure total persistence cost.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    },
+    {
+      "id": "RTE-10",
+      "priority": "P1",
+      "kind": "already-covered",
+      "title": "Retain existing cheap rejection, immediate preview reuse, deterministic freezing and durability",
+      "evidence": [
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            75,
+            79
+          ],
+          "claim": "Hidden/rejected/busy/completed command previews return before expensive counterfactual cloning.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            108,
+            140
+          ],
+          "claim": "Scheduler preview is reused synchronously before mutation; positive outcomes and supported templates still freeze/check.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "lines": [
+            9,
+            32
+          ],
+          "claim": "Spawn aliases and participant/template/body bindings freeze once per cause.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lines": [
+            98,
+            107
+          ],
+          "claim": "Spawn settlement creates the actual stable actor, resources, simulation-owned inventory binding and saved vitals/body/life policy from the frozen template; duplicate/native-bound spawn is rejected.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "lines": [
+            523,
+            529
+          ],
+          "claim": "Causal work returns remaining time at the boundary cap.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "lines": [
+            13,
+            16
+          ],
+          "claim": "Native publication is staged before saving; rendering follows.",
+          "basis": "static-source"
+        },
+        {
+          "path": "src/main.js",
+          "lines": [
+            327,
+            359
+          ],
+          "claim": "Durable write precedes live state, vitals, inventory and equipment publication.",
+          "basis": "static-source"
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "lines": [
+            520,
+            522
+          ],
+          "claim": "Historical scheduler improvement preserved output/order and documents active-crowded limitations.",
+          "basis": "planning-input"
+        }
+      ],
+      "current_player_behavior": "The prior runtime pass already avoids redundant immediate scheduler preview work and rejects impossible controls cheaply. It retains paid inputs, actor identity, frozen results, deterministic RNG and durable atomic ownership.",
+      "proposed_player_behavior": "Carry these as explicit retention constraints into every optimized packet; use original behavior as an equivalence baseline rather than redesigning its positive functions.",
+      "authoritative_owner": "Shared Engine sole runtime/native/save writer after director review; assigning master owns canonical plan/RUN merge.",
+      "dependencies": [],
+      "world_examples": [
+        {
+          "world": "Original Frontier and Folded Glasshouse",
+          "status": "Existing original foundations; current Glasshouse behavior remains built-unverified",
+          "case": "A paid helper output keeps its actual owner, and a separately supported observation clock does not grant a copied body, inventory, source or free NPC action."
+        }
+      ],
+      "acceptance_cases": [
+        "Future optimization preserves early hidden-action rejection, exact paid helper plans, output ownership, stale rejection, failure atomicity and no render RNG draws.",
+        "Observation/arrival/current support retain their distinct physical reach and clock meanings; full-world/source isolation is not inferred from imported modules."
+      ],
+      "cost_basis": "Historical scheduler-before/after n=5 tick median 209.90 to 128.68 ms and jump median 743.70 to 549.19 ms. No further savings calculated or inferred.",
+      "cheaper_alternatives": [
+        "Keep current code when a proposed optimization adds complexity without a measured material cost.",
+        "Keep genuine powerful/conditionally inexhaustible source functions and use workload resolution, not invented nerfs, to bound CPU."
+      ],
+      "source_status": {
+        "current_support": "Inspected static code or qualified prior planning input, as marked per evidence. This audit executed no gameplay.",
+        "proposal": "Original runtime design proposal for master/director review. World examples are original fixtures unless expressly described as existing original content.",
+        "canon": "No new novel/franchise mechanism or numerical penalty is asserted; prior macro/micro source qualifiers remain authoritative.",
+        "uncertainty": "Runtime and token savings are unmeasured; exact contracts and implementation approval remain open."
+      },
+      "verification_limits": [
+        "Earlier proof covers its named historical slice; it does not prove current changed code or future organ/loop/battlefield families.",
+        "All behavior/performance acceptance cases below are proposed and deferred, not executed in this audit."
+      ]
+    }
+  ],
+  "input_drift_note": "Initial inspected plan matched frozen input; plan later added a separate planning-only integration-strategy lane. RUN changed from assignment-ready to this role planning-active-observed and records other planning dispatches. Runtime/Ability/Original hold still confirmed. Source hashes remained unchanged at readback; exact initial/final values retained in CHECKPOINT.",
+  "initial_inspected_inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+    "docs/gm/world-implementation/RUN.json": "848d1f984185d5dbd42ce51d00c504929aca667ee30d5737a32e2ac1e6d5d50c",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+    "docs/gm/world-implementation/second-pass/README.md": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+    "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/ASSIGNMENT.md": "e80836ada4261d9fc6bd17a621127d68ce44f9d70fc5a7deaa619f00720a50b0",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/display.js": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+    "docs/PLAYTEST.md": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6"
+  },
+  "readback_inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "5f2cdab47c320548d49be6eed6f31ddb538cbf4da277099ea9b62702e05e393c",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69",
+    "docs/gm/world-implementation/RUN.json": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4",
+    "docs/gm/world-implementation/depth/macro/REPORT.md": "1c5d46a3085edaff1669d2e336fa2b3ca24dbbc5090dab4e66401d7f1445eeef",
+    "docs/gm/world-implementation/depth/micro/REPORT.md": "2752af143ae5ba536c6b850bd33857942ec31358405101aebcc18c074c566f02",
+    "docs/gm/world-implementation/second-pass/README.md": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430",
+    "docs/gm/world-implementation/second-pass/INPUT_SNAPSHOT.json": "d7f3ad72548b519cdfa945bff8a7408b72503e0a7aa03884e400c83a049591dd",
+    "docs/gm/world-implementation/second-pass/runtime-efficiency/ASSIGNMENT.md": "e80836ada4261d9fc6bd17a621127d68ce44f9d70fc5a7deaa619f00720a50b0",
+    "docs/gm/world-implementation/second-pass/receipts/runtime-efficiency.json": "9384393d332a21f71dd4650d136595e212e8af72a0ee5ed19fc4cfeef9323de1",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/expansion_engine.js": "d8a6ca2d241cb4fd1bd2a9e82701146b188563b96e2ce309fbe1d1daea17388f",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/display.js": "72d4ee27e5ca7b072f7985eff87df0ca5ed4b818d1ab13528d4ef1adb72ee781",
+    "docs/PLAYTEST.md": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/realm_state.js": "cf3e0436ab669df71a7373190a3ff2015fec9801177073750d029715e4ca0846",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/native_gameplay_adapter.js": "41900a2254f3db55fdf9ca8d59c6125ae2797947521756f319fe993f1b7ea8ad",
+    "src/expedition_ui.js": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de",
+    "src/simulation_ui.js": "fbc735d3bb83d78366f29b0a0320dd51c4a79da05193667b1098a5d8022ffb5b",
+    "src/people_ui.js": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+    "src/promise_ui.js": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+    "src/event_feed_ui.js": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+    "src/character_bio_ui.js": "0c6fb45a782c1699f59e1fb7ca4c26b99c40edaf8de51f302a535f4a00dacb28",
+    "src/adventure_notebook.js": "1898dead04d06e9fc98591712551f2e4bb7d33d5c4b487698a90b342edea2365",
+    "src/save_files.js": "c194581e1e8aec1896ccc4ddc709f799537ea71bc60a92046bd6ede2548f4a34",
+    "scripts/engine_profile.cjs": "01241fc1c23f00004b547471a3c7c4e768266b8360d11960bd92b1cc5e44a2df",
+    "scripts/scheduler_profile.mjs": "96f592a0fa859f9e468ba1bc31e328b1c1ee4217c3aa38ee209f9ab25c30d06a",
+    "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md": "2523b91d260e3097dcc2655b5ebdae35024f24148a67d5473684f596c5bd5fb1",
+    "docs/gm/world-implementation/depth/macro/ENGINE_REQUIREMENTS.md": "768037784d4bcea012566d96401912a97cc4359d3b5369fa9a15c0b4b9e105bd",
+    "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md": "27f97e98a2c047b022ca82cc1b22cf64666660d407f98e3c9e4a2acbf81d7787"
+  },
+  "drift": {
+    "from_read_time_inputs": [
+      "docs/gm/world-implementation/RUN.json"
+    ],
+    "from_initial_checkpoint": {
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": {
+        "initial": "0ea8fe5f68ae8f4636cb4b914f2bba9e4701ce1984271ca7a1c359484d311b1a",
+        "readback": "953dea0e831910c520110e1a57d37bb4cab9c81cb38518c59870f42b3993ed69"
+      },
+      "docs/gm/world-implementation/RUN.json": {
+        "initial": "848d1f984185d5dbd42ce51d00c504929aca667ee30d5737a32e2ac1e6d5d50c",
+        "readback": "239209a9ff2b26a47b5604048b19fc3bab0cee046233c53c472933913d8e13f4"
+      },
+      "docs/gm/world-implementation/second-pass/README.md": {
+        "initial": "be1f7e9f2503fd660e5c6d02413edeabb54f04e54d7b08800843ae6bafeec806",
+        "readback": "faf026c3dcae55262ae301ce1759138200aab908b47bfbcf3eefa8de276e6430"
+      }
+    },
+    "from_master_frozen_snapshot": [
+      "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "docs/gm/world-implementation/RUN.json"
+    ],
+    "reconciliation": "Current canonical plan adds a planning-only integration-strategy role. Current RUN names this chat planning-active-observed; Engine/Ability/Original remain held-confirmed. No inspected runtime/profiler/artifact hash changed. Coordinator changes remain read-only; no authority expanded."
+  },
+  "checks": {
+    "required_fields_and_unique_ids": "passed 10 findings",
+    "evidence_line_ranges": "passed 60",
+    "historical_artifact_json_pointer": "passed 1",
+    "markdown_local_targets_and_anchors": "passed 19 links",
+    "whitespace_newlines_git_diff_check": "passed four owned outputs",
+    "report_word_count": 534,
+    "source_artifact_drift": "none",
+    "coordinator_drift": "read-only plan/RUN reconciled; implementation holds confirmed",
+    "readback": "all four owned outputs checked",
+    "writer_process_closeout": "sole /root in this role thread; no child ever spawned, no owned session or process pending",
+    "runtime_build_browser_game_save_profile": "not run; held/deferred",
+    "token_measurements": "not exposed; no savings claim"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "capturedAt": "2026-10-06T19:43:58.583766+00:00",
+  "status": "implemented-unverified; permitted source checks pass",
+  "behaviorSuitesRun": false,
+  "buildRun": false,
+  "privateSavesRead": false,
+  "workerOutputHashes": {
+    "src/audit_remainder_consequences_content.js": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+    "src/audit_remainder_consequences_facts.js": "63722f676dea471cfe8a99217a9d472e7ea5d235c0b0a56ac672c0be565c41fe",
+    "src/audit_remainder_consequences_host.js": "77e20f77de30d7653e18bc2125a0446d7fd08983b974d56a0717faeb5698d45d"
+  },
+  "currentRelevantInputHashes": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md": "e4aa57bac67c9be5cf2d23f5c1335bbb2084cd3975cc27fdbe91fdcf1b1c1bcd",
+    "docs/research/rimworld/IMPLEMENTATION_PACKETS.md": "43d6c48e12dc7f26b56793ddadc0b0a2f1e377f34705cbc18558ccaba9e1f3c7",
+    "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md": "f2811fc9ed00a044eb8a4edb106e776d10a660443d14d4105e71c1a3831b276c",
+    "src/exchange_content.js": "7bef23a86877a384c438f15b26de22acf79d84d9012dccdfd17f0eb4aca08bef",
+    "src/exchange.js": "bc5210b4c341b70398a50051307d31b9c24e333dc963fd83f122fab6cabeaf38",
+    "src/people_knowledge.js": "93b47e911c66490e80390d4ba52b7a8047edacc096d6bd97285cb4a270987766",
+    "src/promise_content.js": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/simulation.js": "ee17940b0b020e45aa600f31792e0919dcd2d3bb702d66ac97f7e79d790b387d",
+    "src/simulation_contracts.js": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836",
+    "src/simulation_effects.js": "eb5075bd3e38f65bb09a089170a0b0d7a28695ce7d40339e251e99553654a145",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/world_rhythm.js": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/feature_expansion_nested_host.js": "248d949b2a801bb064765ccca60b149bce2c150d1fc573d485eee8dd836b3046",
+    "src/feature_expansion_nested_chains.js": "8bdd597dd4336787fcc62fa7663dc8f99b62237bd9093787fcb381874daf5170",
+    "src/feature_expansion_nested_chains_host.js": "2dfb3f0d195bebf0cc2a7c4d9a729e6c0bf107ad246ff1b268c6a972e678c4b6",
+    "src/feature_expansion_nested_life.js": "1a6a4ca26c9ad888e675d674151185c465086207270f359f92712d130a9c2bdb",
+    "src/realm_clock_leases.js": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+    "src/repository_absorption_facts.js": "50bd04decc56587e2fe63562163a085957b261eddc6023cb5646a8830933fc86",
+    "src/items.js": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5"
+  },
+  "inputSnapshotNote": "Shared inputs are parent-owned and may continue changing; these hashes identify the final leaf check inputs, not an assertion that all assignment-baseline hashes remain unchanged.",
+  "checks": [
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_consequences_content.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_consequences_facts.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "syntax",
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_consequences_host.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "kind": "module imports and compatible definition-family construction only",
+      "argv": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import * as c from './src/audit_remainder_consequences_content.js';\nimport * as f from './src/audit_remainder_consequences_facts.js';\nimport * as h from './src/audit_remainder_consequences_host.js';\nimport {createSimulationRegistry} from './src/simulation_contracts.js';\nimport {exchangeDefinitions} from './src/exchange_content.js';\nimport {nestedDefinitions} from './src/feature_expansion_nested_content.js';\nconst families=['people','commands','powers','advancements','sites','events','controllers','transitions','origins','conditions','encounters','energies','pursuits','situations'];\nconst merged=Object.fromEntries(families.map(k=>[k,[...(exchangeDefinitions[k]||[]),...(nestedDefinitions[k]||[]),...(c.remainderConsequencesDefinitions[k]||[])]]));\nconst registry=createSimulationRegistry(merged);\nconsole.log(JSON.stringify({laneCounts:Object.fromEntries(Object.entries(c.remainderConsequencesDefinitions).map(([k,v])=>[k,v.length])),combinedCommands:registry.commands.size,nativeItems:c.remainderConsequencesItemSpecifications.map(d=>d.id),factsExports:Object.keys(f),hostExports:Object.keys(h)}));"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"laneCounts\":{\"people\":2,\"sites\":1,\"conditions\":1,\"situations\":2,\"commands\":18,\"events\":4,\"controllers\":2},\"combinedCommands\":77,\"nativeItems\":[\"Association herb seed packet\"],\"factsExports\":[\"planRemainderConsequencesReconciliation\",\"pruneRemainderConsequencesChecks\",\"remainderConsequencesExistingCommandGate\",\"remainderConsequencesFacts\",\"remainderConsequencesSeizure\",\"retainRemainderConsequencesWindows\",\"validateRemainderConsequences\"],\"hostExports\":[\"commitRemainderConsequencesCommand\",\"reconcileRemainderConsequences\",\"remainderConsequencesContext\",\"remainderConsequencesPeopleView\",\"remainderConsequencesPresentation\",\"remainderConsequencesPublicCommandIds\",\"remainderConsequencesSimulationContexts\"]}\n",
+      "stderr": ""
+    },
+    {
+      "kind": "candidate coverage/source links",
+      "rows": [
+        "rimworld:P2",
+        "rimworld:P3",
+        "keeperrl:P4"
+      ],
+      "exitCode": 0
+    },
+    {
+      "kind": "full relevant exchange+nested+retained grievance definition construction",
+      "argv": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {createSimulationRegistry} from './src/simulation_contracts.js';\nimport {exchangeDefinitions} from './src/exchange_content.js';\nimport {nestedDefinitions} from './src/feature_expansion_nested_content.js';\nimport {nestedChainDefinitions} from './src/feature_expansion_nested_chains.js';\nimport {remainderConsequencesDefinitions} from './src/audit_remainder_consequences_content.js';\nconst families=['people','commands','powers','advancements','sites','events','controllers','transitions','origins','conditions','encounters','energies','pursuits','situations'];\nconst sources=[exchangeDefinitions,nestedDefinitions,nestedChainDefinitions,remainderConsequencesDefinitions];\nconst merged=Object.fromEntries(families.map(k=>[k,sources.flatMap(d=>d[k]||[])]));\nconst registry=createSimulationRegistry(merged);\nconsole.log(JSON.stringify({commands:registry.commands.size,controllers:registry.controllers.size,situations:registry.situations.size,events:registry.events.size}));"
+      ],
+      "exitCode": 0,
+      "stdout": "{\"commands\":139,\"controllers\":9,\"situations\":6,\"events\":4}\n",
+      "stderr": ""
+    }
+  ]
+}

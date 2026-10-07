@@ -1,0 +1,846 @@
+{
+  "schema": 1,
+  "role": "bounded remaining-games semantic reconciliation",
+  "capturedAt": "2026-10-07",
+  "scope": "Remaining source-owner dossiers, current ALL22 audit queue, five finite Steam source receipts, active home/social and Factorio retort/native returns, genre-open scouts, and repository/fork findings. GD-01, GD-02 and five discovery deeper rows are cross-referenced, not duplicated.",
+  "qualification": {
+    "researchOnly": true,
+    "wholeGameOrDlcCoverageClaimed": false,
+    "sourceReadyMeansImplemented": false,
+    "packetMeansHumanSelection": false,
+    "behaviorVerified": false,
+    "prohibitedChecksRun": [],
+    "writes": [
+      "docs/gm/audit-absorption-2026-10-07/reconciliation/remaining-games.md",
+      "docs/gm/audit-absorption-2026-10-07/reconciliation/remaining-games.json"
+    ]
+  },
+  "intakeManifestQuery": {
+    "owner": "docs/gm/audit-absorption-2026-10-07/intake/SOURCES.json",
+    "filter": "Remaining named game dossiers, game-source/deeper and idle-social scout owners, repository/fork owners, current audit queue, home-social and Steam wave/native owners.",
+    "matchedMetadataRows": 349,
+    "intakeSnapshotStateCounts": {
+      "actually_read": 2,
+      "metadata_only": 347
+    },
+    "qualification": "This dated manifest snapshot originally reports 11 actually-read and 2,363 metadata-only of 2,374 paths. Our targeted owner-document reads do not rewrite/promote those historical manifest states or make source exports/indexes semantic coverage."
+  },
+  "queueAndLiveOwners": {
+    "all22": {
+      "owner": "docs/gm/audit-implementation/QUEUE.json",
+      "candidateCount": 22,
+      "remainingLatestCandidates": [],
+      "status": "All 22 named candidates delivered source/native/UI/compatible-state/current-build; implemented-unverified.",
+      "sourceGroups": {
+        "elin": [
+          "P1",
+          "P2",
+          "P3",
+          "P4",
+          "P5"
+        ],
+        "idling-to-rule-the-gods": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "keeperrl": [
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ],
+        "rimworld": [
+          "P1",
+          "P2",
+          "P3"
+        ],
+        "rogue-legacy": [
+          "P1",
+          "P2",
+          "P3",
+          "P4"
+        ],
+        "tales-of-maj-eyal": [
+          "P1",
+          "P2",
+          "P3"
+        ]
+      },
+      "delivery": "docs/gm/audit-implementation/remainder/DELIVERY.md",
+      "build": "docs/gm/audit-implementation/remainder/BUILD.json",
+      "laterAcceptance": "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md",
+      "limit": "The older delivery prose saying 19 candidates remain queued is historical; the current queue and revision-6 checkpoint supersede it. No playable, save, failure, keyboard, regression or director gate was promoted."
+    },
+    "homeSocial": {
+      "thread": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+      "owner": "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+      "state": "Final finite source/native/UI/current build cc3798910c48 acquired; explicit shared writer release to audit root.",
+      "selected": [
+        "CC-P01",
+        "CC-P02",
+        "CC-P03",
+        "CC-P05"
+      ],
+      "unselected": [
+        {
+          "id": "CC-P04",
+          "reason": "Its personal Ink note needs a separate retained hash/cursor slice and is outside the finite active selection."
+        }
+      ],
+      "leafState": "All source/review children complete and released; combined home/retort build and exact acquired50path hashes retained."
+    },
+    "steamWave": {
+      "owner": "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "state": "All five finite source GMs and cleanup audit completed/released.",
+      "completedSourceGMs": [
+        "dwarf_fortress_gm",
+        "book_of_hours_gm",
+        "factorio_gm finite installed-source lane",
+        "oxygen_gm",
+        "lamb_gm"
+      ],
+      "factorioNative": {
+        "owner": "docs/research/factorio/native/CHECKPOINT.md",
+        "state": "Separate active full two-architecture native recovery goal.",
+        "currentEvidence": "A saved-inspection snapshot reports 9,232,817 decoded instructions and active arm64 analysis; full exports/repairs, x86_64 analysis and full semantic/DLC coverage remain incomplete.",
+        "qualification": "Function-manager identities/candidates/instruction counts are not successful C exports or complete native semantic coverage."
+      },
+      "factorioRetort": {
+        "owner": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+        "currentSharedOwner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+        "transfer": "Latest ACQUISITION.json records explicit shared-source/canonical/build transfer; source leaves and refreshed facts/host interfaces were reviewed/released.",
+        "deliveredBuild": true,
+        "openJoins": [],
+        "qualification": "Finite installed Lua/API findings and the retort are distinct from the active full native recovery goal.",
+        "currentReceipt": "docs/gm/home-social-base-2026-10-07/BUILD.json"
+      }
+    }
+  },
+  "families": [
+    {
+      "id": "amazing-cultivation-simulator",
+      "owner": "docs/research/amazing-cultivation-simulator/",
+      "pin": "Steam 955900 build 17074448; installed DLL hashes pinned in INTAKE.json.",
+      "coverage": "Five base source families, 31 findings, 15 finite traces, selected spans in 124 nonempty files; first-pass recovered-but-unread source stays excluded. DLC adds two selected traces only.",
+      "evidence": [
+        "FINDINGS.json:C03-C06",
+        "traces/cultivation.json",
+        "traces/dlc.json",
+        "DLC_COVERAGE.json",
+        "DEEPER_RESEARCH.md"
+      ],
+      "mechanicsAndException": "Chance trial consumes configured resource/items on toil entry and normal failure has no refund; Golden-core formation is a distinct Ling/quality accumulation and inspected leave may bank accumulated quality on interruption. Wudang Yin/Yang affect later costs/modifiers/artifact power; Bamboo fishing has equipment/environment pool, speed-adjusted catch window, escape/catch/danger.",
+      "currentConsumerOrGap": "Selected ACS-P01/P02/P03 actual source/native/UI/controller/reader/compatible-state/current-build connections delivered; exact broader source/DLC exclusions retained.",
+      "packets": [
+        "ACS-P01",
+        "ACS-P02",
+        "ACS-P03"
+      ],
+      "packetDisposition": "Root selected all three as necessary, bounded original adaptations outside ALL22. Separate source leaves are active under contextual_balm_*, cooling_refinement_* and agreed_duty_* with their own role directories. Shared effect/controller/registry/publisher integration requires an explicit later root lease. Five ACS deeper paths remain distinct parked research, not blockers.",
+      "limits": "No whole base game/DLC, live entitlement, scene/run, balance or gameplay proof. Full Wudang routes/quests/high stages, pet diplomacy, most DLC catalogue, formations, tribulation and ecology remain unread."
+    },
+    {
+      "id": "crush-crush",
+      "owner": "docs/research/crush-crush/",
+      "pin": "Steam build 25589052; Assembly-CSharp SHA-256 in INTAKE.json.",
+      "coverage": "38 findings with selected family spans/data; bundles, prose/media/art/audio and full recovered universe remain explicitly bounded.",
+      "evidence": [
+        "FINDINGS.json:CC-F01,CC-R01-R14",
+        "COVERAGE.json",
+        "PACKETS.json",
+        "DLC_COVERAGE.json"
+      ],
+      "mechanicsAndException": "Advance requires current hearts plus every remaining requirement and a two-part acknowledgement; only flagged requirements consume resource. Stage-ready display and friendship/kiss/lover album scene have distinct consumers. Job/hobby/date/time and recipient-specific exception rules do not establish generic reciprocity or consent.",
+      "currentConsumerOrGap": "Selected CC-P01/P02/P03/P05 actual native/reader/publisher/UI/controller/plans and acquired matching home build delivered, retained in audit build. CC-P04 retained Ink note remains separate unselected slice.",
+      "packets": [
+        "CC-P01",
+        "CC-P02",
+        "CC-P03",
+        "CC-P04",
+        "CC-P05"
+      ],
+      "packetDisposition": "P01/P02/P03/P05 delivered, implemented-unverified; P04 unselected with separate retained-Ink source/state requirement.",
+      "limits": "Selected source/data review, not all universe bundles or all character prose/art/audio; not runtime behavior or a universal relationship/agency model."
+    },
+    {
+      "id": "orb-of-creation",
+      "owner": "docs/research/orb-of-creation/",
+      "pin": "Steam 1910680 build 24426975/internal 1.0.5-2; main assembly hash in INTAKE.json.",
+      "coverage": "100 findings, 23 dependency edges; spans in 139 C# files and selected asset fields in 291 objects; selected 8/65 spells and 4/47 glyphs.",
+      "evidence": [
+        "FINDINGS.json:OOC-SPELL-001..008",
+        "COVERAGE.json",
+        "PACKETS.json",
+        "DLC_COVERAGE.json"
+      ],
+      "mechanicsAndException": "Discovery/use/cast gate/resource-capacity/payment/preparation/cast time/effect consumer/upkeep differ. Undertraining may impose penalty or reject; channel/aura upkeep has stop paths. Source-visible ritual full-fill/five-wave and treasure reporting anomalies are not runtime-reproduced failures.",
+      "currentConsumerOrGap": "ORB-P01 records current mastered-cast validator receipt gap. Other packet proposals reuse current Eda/Vela/stock/crop/research owners; they do not establish those owners are absent.",
+      "packets": [
+        "ORB-P01",
+        "ORB-P02",
+        "ORB-P03",
+        "ORB-P04"
+      ],
+      "packetDisposition": "Unselected original proposals. None is part of ALL22 or active home/social/Proto23/retort scope; P01 needs an explicitly leased cast/receipt consumer, and others require distinct production/crop/lead decision selection.",
+      "limits": "Soundtrack-only catalog, no mechanical DLC advertised. Four parse errors repaired; export/asset inventory is not whole-game read or runtime behavior. Five targeted deeper queries remain."
+    },
+    {
+      "id": "melvor-idle",
+      "owner": "docs/research/melvor-idle/",
+      "pin": "Hosted v1.3.1 / script query 12097 / data 528 / Steam launcher 13311431 / package 1.2.2.",
+      "coverage": "39 findings across production/combat/expansion reader passes; exact source refs and hashes live in FINDINGS.json and reader files.",
+      "evidence": [
+        "FINDINGS.json:OFF01,OFF02,DATA01,MOD01,SHOP01,MEL-PROD-C01-C07",
+        "COVERAGE.json",
+        "DLC_COVERAGE.json",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "Offline catch-up repeats ordinary tick/death checks with a 24-hour processed cap and real costs/failure. Production can spend ingredients before output insertion rejects on full bank; default stops, explicit continueIfBankFull repeats loss; existing stacks can grow while a new identity needs a slot.",
+      "currentConsumerOrGap": "Current YAIR stock/jobs/native storage transaction/publisher owns different conserved-batch and offline semantics. MEL-P02/P03 touch active bench/survey consumers; P04 native battle; P01 finite plan report.",
+      "packets": [
+        "MEL-P02",
+        "MEL-P03",
+        "MEL-P04",
+        "MEL-P01"
+      ],
+      "packetDisposition": "Original proposals unselected. Require a named consumer after active home/source owners release and refresh hashes; do not import Melvor slot-loss/offline policy as generic YAIR policy.",
+      "limits": "Hosted/source query and selected DLC/reader maps only. No YAIR offline policy or new scheduler selected."
+    },
+    {
+      "id": "your-chronicle",
+      "owner": "docs/research/your-chronicle/",
+      "pin": "Steam 1546320 build 25001959; Unity 6000.0.58f2.",
+      "coverage": "16 selected causal traces, six Help findings, 27 primary publisher claims, eight ending guide/terminal predicates; native result is disassembly/lossy ISIL, not recovered CIL.",
+      "evidence": [
+        "FINDINGS.json",
+        "COVERAGE.json",
+        "traces/RETENTION.md",
+        "traces/NARRATIVE.md",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "Class proficiency/class sums are SaveR and lost at Reincarnation; permanent routine completion and inherited access are separate. Static full-capacity shard loss is untested. Eleven-thousand+ method headers are inventory, not behavior read.",
+      "currentConsumerOrGap": "Current YAIR has one optional Field apprenticeship renewal. Full-life reincarnation/reset retention is not its consumer and has no accepted reset authority.",
+      "packets": [
+        "YC-P1",
+        "YC-P2",
+        "YC-P3",
+        "YC-P4"
+      ],
+      "packetDisposition": "Unselected proposals. Any later selection first specifies reset/retention domain and visible losses; distinct from current craft/work-plan candidates.",
+      "limits": "No full-game story/source coverage, recovered CIL, runtime or save proof."
+    },
+    {
+      "id": "book-of-hours",
+      "owner": "docs/research/book-of-hours/",
+      "pin": "Steam build 22091683 / game 2026.1.f.3; private input/export hashes in INTAKE.json.",
+      "coverage": "17 connected chains; 179 definition rows in 62 core files (56 DLC_HOL) and 17 method ranges in 16 exported Main files. Seven-thousand-plus raw parsed entries and 735/20 C# exports do not mean read coverage.",
+      "evidence": [
+        "FINDINGS.json:BOH-F01..F08 and subsequent finding IDs",
+        "COVERAGE.json",
+        "DLC_COVERAGE.json",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "Physical condition/cataloguing/learned content differ; a hard reading gate has an under-strength rescue path; mastery changes the particular book and rereading output; failure has fatigue/consolation/soul-specific risk; soul merge exhausts a particular attunement. Selected House of Light casket chain only; soundtrack separate.",
+      "currentConsumerOrGap": "Existing Eda/Neri lessons, room care, stamped products, attributed accounts already supply portions; packet extensions require a named manual/recipient/case/host/office consumer after current home/social build readback.",
+      "packets": [
+        "BOH-P01",
+        "BOH-P02",
+        "BOH-P03",
+        "BOH-P04",
+        "BOH-P05"
+      ],
+      "packetDisposition": "Unselected original proposals. Their manual/specific knowledge and institution states are not duplicates of all work, but no current selected acceptance journey requires them; reconcile active home/Ink/social writer output first.",
+      "limits": "House of Light is selected DLC source; not full game/DLC/engine. No independent live entitlement query."
+    },
+    {
+      "id": "oxygen-not-included",
+      "owner": "docs/research/oxygen-not-included/",
+      "pin": "Steam 457140 build 24423041; Unity managed assemblies and native interface pinned by INTAKE.json.",
+      "coverage": "23 representative dependency paths, 39 findings, 62 evidence locators; complete managed exports 4,337 + 2,447 C# files. Native SimDLL interface only; native solver not read.",
+      "evidence": [
+        "FINDINGS.json",
+        "COVERAGE.json",
+        "DLC_COVERAGE.json",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "Source/managed interface evidence cannot establish native solver semantics. Five gameplay expansions are catalogued with per-content inspected/unread/documented/entitlement bounds; named payload presence does not establish enabled DLC.",
+      "currentConsumerOrGap": "The five original packets introduce temperature/material, body/expedition, borrowed competence, habitat/biology, or simultaneous operator/work-location contracts; no one is a blocker to the current queue.",
+      "packets": [
+        "ONI-P01",
+        "ONI-P02",
+        "ONI-P03",
+        "ONI-P04",
+        "ONI-P05"
+      ],
+      "packetDisposition": "Unselected proposals. Distinct temperature/body/biology/parallel-work consumers require a named current owner and scope; no runtime authority was granted by source research.",
+      "limits": "No whole game/DLC, native solver semantic review, runtime, game launch or gameplay acceptance."
+    },
+    {
+      "id": "dwarf-fortress",
+      "owner": "docs/research/dwarf-fortress/",
+      "pin": "Steam 975370 build 24557528; procedural data 53.16; entity mod 53.01; source/file pins in INTAKE/HASHES.",
+      "coverage": "33 findings/17 connected paths across 29 reviewed source/data files and 4,951 selected lines; 19 Lua/374 TXT files retained. Original C++ engine unrecovered.",
+      "evidence": [
+        "FINDINGS.json:DF-G01..DF-M04 and related body/social/time findings",
+        "COVERAGE.json",
+        "DLC_COVERAGE.json",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "A TODO for generate_random_items coexists with a distinct entity-driven guardian-equipment path. Material sale value/use legality/density/thermal/mechanical response differ; reaction inputs distinguish consumed matter from retained tools/containers.",
+      "currentConsumerOrGap": "Current YAIR native item/material/job/body/site owners are potential consumers; no new procedural economy is selected. DF-P03 overlaps Book-of-Hours/repository-bank physical notes and requires a selected transfer/tutoring consumer.",
+      "packets": [
+        "DF-P01",
+        "DF-P02",
+        "DF-P03",
+        "DF-P04",
+        "DF-P05"
+      ],
+      "packetDisposition": "Adapt-later proposals. None is required by ALL22 or current active home-social/retort wave; each adds an exact object, injury, record, stale report or danger consumer.",
+      "limits": "Native C++/AI/labor/combat/world/offscreen/pathfinding/save transaction and most data remain uncovered; Steam catalog reports two music IDs, no declared gameplay DLC."
+    },
+    {
+      "id": "factorio-finite-and-native",
+      "owner": "docs/research/factorio/ and docs/research/factorio/native/",
+      "pin": "Installed 2.0.77 / Steam 427520 build 23347942; experimental public comparator 2.1.21 commit 374934f81f82b09ec9fc459f92a316bd642ddd82.",
+      "coverage": "Finite installed source: 14 chains/25 files, 1,877 private Lua/JSON files retained. Native trace: 38 early C-like bodies, 19 source findings/33 locators; active full architecture recovery is not a completion receipt.",
+      "evidence": [
+        "factorio/FINDINGS.json:FAC-01..FAC-08",
+        "factorio/INSTALLED_REVIEW.json",
+        "factorio/native/NATIVE_PRODUCTION_TRACE.md",
+        "factorio/native/CHECKPOINT.md",
+        "steam-wave/native-usage/RETORT_INTERFACE.md"
+      ],
+      "mechanicsAndException": "Stable versus experimental differences include stable Recycler under Quality, per-product scrap, recipe freshness exceptions, no experimental train quality multiplier and distinct platform-drag expressions. Native producer canGiveProducts guards completed-output admission, not every incomplete-progress branch; output eligibility, insertion and custody differ.",
+      "currentConsumerOrGap": "Original retort reuses native storage/body/clock/job/publisher and survey-kit owners but needs reader/registry/main/UI/build joins plus merchant refresh conservation of five exact tray/residue keys.",
+      "packets": [
+        "FAC-P01",
+        "FAC-P02",
+        "FAC-P03",
+        "FAC-P04",
+        "FAC-P05"
+      ],
+      "packetDisposition": "Retort is selected active source/native/UI integration, transferred to home/social root; not yet built/delivered. Other four source packets remain proposals. Factorio whole-native recovery stays a separate active goal and does not block this bounded retort/source reconciliation.",
+      "limits": "Native C export/repairs both architectures and full semantic/DLC read remain underway. Experimental source is not installed evidence. No gameplay/save proof."
+    },
+    {
+      "id": "elin",
+      "owner": "docs/research/elin/",
+      "pin": "Elin-Decompiled commit 6713f0656491f73f79068454dc3cd938b3a74c10; declared EA 23.352, installed build equivalence not checked.",
+      "coverage": "Five bounded progression/craft/resident/amenity/reward families; 2,535 C# files in repo are not read coverage; exact family spans are in COVERAGE.json.",
+      "evidence": [
+        "FINDINGS.json:M1-M5",
+        "COVERAGE.json",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "mechanicsAndException": "Separate access, potential, XP, body support, inputs, quality/material function, amenities and executable project rewards; do not infer whole opportunities/offline progression from one capacity function.",
+      "currentConsumerOrGap": "P1\u2013P5 are the five ALL22 delivered rows, mapped in remainder coverage; behavior acceptance stays deferred.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "idling-to-rule-the-gods",
+      "owner": "docs/research/idling-to-rule-the-gods/",
+      "pin": "Steam build 25514347; Assembly-CSharp SHA-256 11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c.",
+      "coverage": "Five assigned selected paths through 149 assemblies; exact hashes/line spans are attached to ITR-01\u201305.",
+      "evidence": [
+        "FINDINGS.json:ITR-01..ITR-05",
+        "COVERAGE.json",
+        "PACKETS.json"
+      ],
+      "mechanicsAndException": "Clones are shared scarce allocation; eligibility can require predecessor level strictly greater than 500, shortage/loss affects actual total, and allocation below one rejects. NTC completion waits for actual god counter >20. Rebirth eligibility/confirmation/reset and offline challenge skip are separate states.",
+      "currentConsumerOrGap": "P1\u2013P3 are delivered ALL22 flows; they do not authorize generic clone counters/rebirth or offline catch-up.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "keeperrl",
+      "owner": "docs/research/keeperrl/",
+      "pin": "Published original C++ repo commit 95d2be4e97db2243210a71918e36a533ad94dcd1; commercial build equivalence unestablished.",
+      "coverage": "Five bounded paths and interacting joins; exact span/hash references in K1\u2013K5. Not whole game or commercial-build proof.",
+      "evidence": [
+        "FINDINGS.json:K1-K5",
+        "COVERAGE.json",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "mechanicsAndException": "Actual individual needs/work eligibility/task ownership; owned inputs/payments and usable output; separate resident recruitment/training and world-consequence routes.",
+      "currentConsumerOrGap": "P1\u2013P4 delivered ALL22 native/UI/state mappings; no KeeperRL AI/colony parity claim.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "rimworld",
+      "owner": "docs/research/rimworld/",
+      "pin": "Supplied 1.6.9676.17433 assembly SHA-256 3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050; payload 1.6.4871 rev573/filename rev588; runtime not run.",
+      "coverage": "12 selected findings across task, production/material, body/social, storyteller and crop paths; five supplied expansion installers not expanded or activated.",
+      "evidence": [
+        "FINDINGS.json:RW-JOB-01..03,RW-MATERIAL-01..02,RW-STORY-01..05",
+        "COVERAGE.json"
+      ],
+      "mechanicsAndException": "ColdSnap worker requires seasonal temperature strictly >0 C and <15 C; a second eligibility check occurs before firing, and the incident may be absent below the band. Crop growth depends on cell/species/stage/season; no general crop death/yield result follows.",
+      "currentConsumerOrGap": "P1\u2013P3 delivered ALL22; native body/job/site/weather/crop owners are separate; no Randy scheduler or farm parity added.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "rogue-legacy",
+      "owner": "docs/research/rogue-legacy/",
+      "pin": "Published Rogue Legacy 1 original C# FNA source commit b41c17888a91100bbf8f1febecaa636a1b421f5b.",
+      "coverage": "Five selected paths; exact file/range/hash entries in FINDINGS.json and COVERAGE.json.",
+      "evidence": [
+        "FINDINGS.json:P1-P5",
+        "COVERAGE.json",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "mechanicsAndException": "Death creates eligibility-filtered/frozen successor offers; paid manor/services and actual selection drive inherited function. Skills/wealth do not transfer as one undifferentiated reset pool.",
+      "currentConsumerOrGap": "P1\u2013P4 delivered ALL22; one local preparation/aptitude/offer/objective slice is not Rogue Legacy parity or authorization for full-life reset.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3",
+        "P4"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "tales-of-maj-eyal",
+      "owner": "docs/research/tales-of-maj-eyal/",
+      "pin": "Official ToME 1.7.6 source archive SHA-256 e88084a4da4dc2ef1576f01b721ee57ab7643f4e7324072fe887c9c45bde0871.",
+      "coverage": "Five finite findings with exact archive path/file spans in FINDINGS.json/COVERAGE; no source commit exists for that release archive.",
+      "evidence": [
+        "FINDINGS.json:T1-T5",
+        "COVERAGE.json",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "mechanicsAndException": "Pummel missing shield/target returns before normal resources/cooldown; a legal action pays even if its second hit misses/resists. Talent prerequisites/effective rank, AI choice and shield material/ego are separate joins.",
+      "currentConsumerOrGap": "P1\u2013P3 delivered ALL22; current native combat/harness/condition owners are reused, without copying ToME values or universalizing its use lifecycle.",
+      "packets": [
+        "P1",
+        "P2",
+        "P3"
+      ],
+      "packetDisposition": "Already represented in ALL22; no duplicate work."
+    },
+    {
+      "id": "streets-of-rogue",
+      "owner": "docs/research/streets-of-rogue/",
+      "pin": "RogueLibs commit d76523acb484168f4d2d1d7bc0fce0d2c5d263f1; original gameplay source not obtained.",
+      "coverage": "Five requested original gameplay paths unmet; reviewed code is RogueLibs compatibility/mod material. Evidence includes Door.cs 8-175, separate item-use/combine/target hooks and Wizard mod cooldown/attribution.",
+      "evidence": [
+        "COVERAGE.json:required_original_gameplay_paths",
+        "FINDINGS.json:RL-01..RL-07,MOD-01..MOD-02",
+        "IMPLEMENTATION_PACKETS.md"
+      ],
+      "mechanicsAndException": "Door approaches depend on distance/state/tools/hoisting/key location, but this is library reimplementation, not recovered Streets Door.cs. Fizzle/caught spell errors keep the four-second cooldown; neutralization consumes qualifying attribution once.",
+      "currentConsumerOrGap": "Zero new packets because original gameplay-source gate failed and the owner mapped all five journeys to existing YAIR consumers without a found system gap.",
+      "packets": [],
+      "packetDisposition": "Source-unavailable exclusion; do not label existing YAIR scenes as Streets-derived proof.",
+      "limits": "No original gameplay source or game assembly decompilation."
+    },
+    {
+      "id": "cult-of-the-lamb",
+      "owner": "docs/research/cult-of-the-lamb/",
+      "pin": "Revision-3 Steam Mono build 25223484/version 1.5.26; Assembly-CSharp SHA-256 cebab7cf18ec3efd2b4ae08e46c584b3e3f5c7242de0450929ad1efdf535b154; firstpass SHA-256 59a55b5f6444d6a60794dde51aa27d8f995e384aa84be6b3cda2269c900c649d.",
+      "coverage": "47 findings/16 finite paths/68 source files/9,324 selected union lines. Export includes 3,967 C# files, but 5,403 of 5,676 MonoBehaviour asset records failed decode, 273 were metadata-only, zero serialized defaults semantically reviewed.",
+      "evidence": [
+        "FINDINGS.json:F45-F47 and finding-specific spans",
+        "COVERAGE.json:16 paths and 68 source_records",
+        "DLC_COVERAGE.json:seven declared products",
+        "INTAKE.json:revision3"
+      ],
+      "mechanicsAndException": "Follower state precedence precedes tasks; mission departure/result/return changes task, custody and possible death; source names can be dormant (GetXP empty, devotion generation zero, fixed happiness, required follower level always true). Normal Woolhaven activation is Steam-subscription gated for app 3840050.",
+      "currentConsumerOrGap": "Funded residents/controllers and current home/social are incumbents; LAMB-P01 adds group charter membership/duties, P02 adds office-based access/service, P03 adds mission commitments/return settlement. Each needs its own selected optional state and later gate.",
+      "packets": [
+        "LAMB-P01",
+        "LAMB-P02",
+        "LAMB-P03"
+      ],
+      "packetDisposition": "Three research-selected original proposals, unimplemented/unselected by ALL22. Keep separate until home/social returns and a concrete group/office/mission gap is chosen.",
+      "limits": "Finite managed-source/DLC subset only; actual entitlement/activation unknown; most assets and unread DLC/runtime remain outside."
+    },
+    {
+      "id": "caves-of-qud",
+      "owner": "docs/research/caves-of-qud/ plus docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md",
+      "pin": "2.0.211.56; Assembly-CSharp SHA-256 2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589.",
+      "coverage": "Original export selected findings plus later root review of 18 original evidence records, 19-file liquid trace and 15 records/14-file body trace; full export, complete liquids/bodies/campaigns/latest edition/Pets remain unread.",
+      "evidence": [
+        "FINDINGS.json:QUDB-01,QUDC-01,QUDA-01",
+        "NPC_FINDINGS.json",
+        "QUD_REAUDIT.md/JSON",
+        "traces/QUD_LIQUIDS.md",
+        "traces/QUD_BODY.md"
+      ],
+      "mechanicsAndException": "Blueprint inheritance/mixins must construct actual registered parts; unknown part fails construction. Ordinary Cryokinesis.Cast does not set optional CryoZone support dependency; attributed source is not persistent fuel/support. Freeze/frozen thresholds, effect dedupe/thaw and contact-supported exemptions are distinct.",
+      "currentConsumerOrGap": "Existing paid sources, timed conditions, body requirements, material variants and combat are current consumers. A temperature/material-specific interaction is a potential new selected consumer; full spatial field simulation is not required.",
+      "packets": [
+        "QUDC-01 follow-up proposals in report"
+      ],
+      "packetDisposition": "Focused re-audit completed, not a new dispatch. New cooling/material/attunement proposals unselected; source coverage remains finite.",
+      "limits": "No full game, full DLC/Pets, all resistance/phases, runtime, or complete current-edition equivalence."
+    },
+    {
+      "id": "dcss-dda-depth",
+      "owner": "docs/research/dcss-dda-depth/",
+      "pin": "DCSS b005dc6fb05073307685cbb4d3ccec29962e6c2c; DDA a68ad093f6f89f3e7d29ad62cbb7fcde46acfd25.",
+      "coverage": "3 DCSS + 4 DDA paths; 28 exact evidence records. Reuses earlier repository-bank claims with newer pins/traced subsystems; neither game was run.",
+      "evidence": [
+        "FINDINGS.json:C-RUNE,C-ACCESS,C-END,C-SCORE,C-HOLD,C-SKILL,D-ACH-DATA and related IDs",
+        "CHECKPOINT.md",
+        "REPORT.md"
+      ],
+      "mechanicsAndException": "DCSS distinguishes rune collection/access/Orb winning/score-log and constriction eligibility/lifecycle/save. DDA achievement and conduct share event attribution/stat infrastructure; martial block has actual eligibility/timed cost; practice may produce no product.",
+      "currentConsumerOrGap": "Existing YAIR achievements/skills/combat/practice are covered foundations, not automatic need for new indicators. Four recommendations remain unselected proposals.",
+      "packets": [
+        "earned-feat receipts",
+        "voluntary local conduct challenge",
+        "actual-defense retreat opportunity",
+        "functional practice stopping"
+      ],
+      "packetDisposition": "Completed bounded review and source-ready ideas remain on owner report; no current finite queue requirement and no duplicate DDA/conduct engine.",
+      "limits": "Seven source paths only, no whole-repository/game or source/content reuse; LICENSE terms retained in FINDINGS."
+    },
+    {
+      "id": "repository-bank",
+      "owner": "docs/gm/world-implementation/second-pass/repository-bank-absorption/",
+      "pin": "30 mirror HEADs/root/branch refs checked; exact selected roots and per-finding spans/hashes are in SOURCES.json, FINDINGS.json and appendices.",
+      "coverage": "30 repository rows, nine reference works, 22 targeted mechanism reviews, five reused qualified reviews, one historical comparator, two benchmark non-fits; 20 stable findings.",
+      "evidence": [
+        "REPORT.md",
+        "COVERAGE.json",
+        "FINDINGS.json",
+        "ABSORPTION_PACKETS.md",
+        "appendix-current-engine.json"
+      ],
+      "mechanicsAndException": "Means-aware object discovery, function-changing mastery/effects, readable finite work, retained campaign consequences, and distinct physical body/source routes. Existing shared systems generally fit; copied libraries/runtime/task owners would duplicate them. Teaching negative debit without named teacher credit is not a complete paid transfer; source/event fields alone do not bind body/stock.",
+      "currentConsumerOrGap": "RB-P1 original witnessed item use has a specific item/condition/observation consumer gap; RB-P5 specimen\u2192installed body/source\u2192native projection remains a larger state gap. The authoring packets name exact consumers and costs.",
+      "packets": [
+        "RB-P1",
+        "RB-P2",
+        "RB-P3",
+        "RB-P4",
+        "RB-P5"
+      ],
+      "packetDisposition": "Original proposals, not automatic selection. The selective fork imports below are already delivered; larger work needs a named player journey and exact source/native owner.",
+      "limits": "No dependencies/code/assets selected; source/license distinctions remain in report. Not full repo feature or runtime coverage."
+    },
+    {
+      "id": "fork-network-absorption",
+      "owner": "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+      "pin": "Adoption source receipt and matched build 27acfe9c3c70 in ADOPTION_BUILD.json.",
+      "coverage": "Five narrow native behaviors across 153 bundled local source contents; source syntax/import/build/source maps/static served bytes checked.",
+      "evidence": [
+        "ADOPTION.md",
+        "ADOPTION_INPUTS.json",
+        "ADOPTION_BUILD.json"
+      ],
+      "mechanicsAndException": "Authored labels, fail-closed component/cape material/result validation, copied/clamped grouped trades, complete XP target labels, default-off read-only Makeable now recipe view, fail-closed build stamp.",
+      "currentConsumerOrGap": "Uses existing native recipe/material/stock/custody/gate owners; checkbox is view-only and defaults off; no new save schema/ID/reward.",
+      "packets": [],
+      "packetDisposition": "Implemented/rebuilt baseline; do not reopen as pending adoption. Gameplay/keyboard/save/failure/regression/director acceptance remains in its exact backlog.",
+      "limits": "No browser/gameplay behavior proof; the immutable code/build checks apply to the recorded files only."
+    },
+    {
+      "id": "game-discovery",
+      "owner": "docs/research/game-discovery-2026-10-06/",
+      "pin": "Prior GD-01/GD-02 pins and five deeper rows in DEEPER_QUEUE.json; this artifact does not duplicate GD-01/02.",
+      "coverage": "Original finite two packets remain complete; five additional deeper source questions remain parked/unassigned with sourceReady:false.",
+      "evidence": [
+        "DEEPER_QUEUE.json",
+        "DEEPER_RESEARCH.md",
+        "CHECKPOINT.md"
+      ],
+      "mechanicsAndException": "D01 Brogue key/machine custody/access; D02 Brogue body/status/environment ordering; D03 Shattered toolkit/recycling/competing outputs; D04 Shattered blacksmith admission/equipment commitment; D05 Sil-Q song/ward continuity. Exact scopes are not yet read and are not findings.",
+      "currentConsumerOrGap": "Existing native item/equipment/status/door owners may be consumers only after a specific source path is traced; no packet is ready now.",
+      "packets": [
+        "GD-D01-KEY-EXPLORATION",
+        "GD-D02-STATUS-ENVIRONMENT",
+        "GD-D03-ALCHEMY-RESOURCE-CHAIN",
+        "GD-D04-EQUIPMENT-COMMITMENTS",
+        "GD-D05-SONG-WARD-CONTINUITY"
+      ],
+      "packetDisposition": "Excluded from semantic claims and implementation because rows are unassigned/sourceReady:false; no dispatch or source re-read here."
+    },
+    {
+      "id": "cross-game-source-dispatch-and-idle-social-scout",
+      "owner": "docs/gm/dispatch/game-source-research-2026-10-06/ and docs/research/idle-social-engine-scout-2026-10-06/",
+      "pin": "Per-game pins remain their cited source dossier; this routing owner is not a substitute pin.",
+      "coverage": "Depth queue routes nine dossier/deeper families; idle/social scout reuses source traces and documented-only comparators (including Ensemble, CK3, Unciv, Papers Please, Baba Is You, Factorio).",
+      "evidence": [
+        "DEEPER_RESEARCH.md",
+        "DEPTH_QUEUE.json",
+        "DLC_COVERAGE.json",
+        "idle-social-engine-scout/CHECKPOINT.md",
+        "REPORT.md",
+        "FOLLOW_UP_REFERENCES.md"
+      ],
+      "mechanicsAndException": "Character retained history, meaningful production/externalities, body/materials/time, institution/consent, and simulation/authoring methods. Evidence levels vary: some are source traces; some are creator/store descriptions only. Streets original gameplay source remains missing.",
+      "currentConsumerOrGap": "Route existing dossiers rather than creating duplicate readers. Game/genre names alone do not provide mechanic or code coverage.",
+      "packets": [],
+      "packetDisposition": "Follow-up questions remain in finite queues; no new source dispatch, purchase, runtime, or tool selected."
+    }
+  ],
+  "actionableGaps": [
+    {
+      "id": "ACS-P01",
+      "gap": "Add paid/prepared cooling refinement and retry-weighted attempt receipt to the current learned-method/trial and cool_hook use path.",
+      "ownerPathBeforeWork": "Source leaf assigned to cooling_refinement_*; shared controller/effect/registry/native publisher join remains with root pending explicit lease.",
+      "whyUseful": "Preparation and a paid failed attempt change a later useful function while retaining actual salt, stamina, source/body/tool and played-time support.",
+      "gate": "Packet contract requires ordinary/prepared quote, paid success/failure, retry weight, once-earned application, both existing/new hook times, expiry and cancel/lost-support/save/reload cases.",
+      "currentDisposition": "Selected actual source/native/UI/compatible-state/current-build delivered, implemented-unverified; later gameplay/save/director acceptance deferred.",
+      "currentOwner": "Audit root exact acquired shared scope; all source/native/current-build joins complete. BeforeWork field is historical; gameplay/save acceptance deferred."
+    },
+    {
+      "id": "ACS-P02",
+      "gap": "Existing native Healing balm consumption has no contextual SCRAPED_HANDS treatment and active-effect addition needs staged native publication.",
+      "ownerPathBeforeWork": "Source leaf assigned to contextual_balm_*; shared effect/native publisher paths remain with root pending explicit lease.",
+      "whyUseful": "One existing item, condition, and real packing/bench eligibility become causally connected; preserves the same stock and avoids generic consumable rewrite.",
+      "gate": "Only after shared lease; generated play shows craft/own, injury, contextual choice, one balm spent, scrape removed but soreness retained, ordinary job changed, and atomic save/reload/cancel/stronger-effect cases in the later phase.",
+      "currentDisposition": "Selected actual source/native/UI/compatible-state/current-build delivered, implemented-unverified; later gameplay/save/director acceptance deferred.",
+      "currentOwner": "Audit root exact acquired shared scope; all source/native/current-build joins complete. BeforeWork field is historical; gameplay/save acceptance deferred."
+    },
+    {
+      "id": "ACS-P03",
+      "gap": "Current Orr controller has fixed repair2/teaching1 ordering; no optional agreed-next-duty discriminator plus durable attributable completion account.",
+      "ownerPathBeforeWork": "Source leaf assigned to agreed_duty_*; shared controller/reader joins remain with root pending explicit lease.",
+      "whyUseful": "A genuine accepted duty changes later choice without cancelling accepted work or losing the witnessed agreement when temporary prose memory expires.",
+      "gate": "Generated funded offers/refusal/shortage/busy site/lost consent/reload/save failure; preserve escrow and accepted jobs.",
+      "currentDisposition": "Selected actual source/native/UI/compatible-state/current-build delivered, implemented-unverified; later gameplay/save/director acceptance deferred.",
+      "currentOwner": "Audit root exact acquired shared scope; all source/native/current-build joins complete. BeforeWork field is historical; gameplay/save acceptance deferred."
+    },
+    {
+      "id": "Factorio-retort",
+      "gap": "One optional original retort needs shared registration/readers/UI/build and conservation of the exact five native tray/residue keys through merchant refresh.",
+      "ownerPathBeforeWork": "Home/social root 01a114a8 after explicit shared transfer.",
+      "whyUseful": "Connects a source-inspired process to actual sap/log/stamina, receiver custody, separate resin/residue, and existing survey kit use.",
+      "gate": "Use retort interface plus native binding, rebuild exact integrated source; behavioral/save gates remain later.",
+      "currentDisposition": "Selected actual source/native/UI/compatible-state/current-build delivered, implemented-unverified; later gameplay/save/director acceptance deferred.",
+      "currentOwner": "Audit root exact acquired shared scope; all source/native/current-build joins complete. BeforeWork field is historical; gameplay/save acceptance deferred."
+    },
+    {
+      "id": "Known-route-overview",
+      "gap": "Original gap: missing projection/Here/current native dispatcher consumer. Three released modules and actual integration now delivered in audit build.",
+      "ownerPathBeforeWork": "Existing audit-absorption root route reservation only.",
+      "whyUseful": "Clarifies current costs/blockers/onward and return routes without creating travel or state.",
+      "gate": "Root integration/review and source/build receipt; never count a source-only leaf as delivered gameplay.",
+      "currentDisposition": "Selected actual source/native/UI/compatible-state/current-build delivered, implemented-unverified; later gameplay/save/director acceptance deferred.",
+      "currentOwner": "Audit root exact acquired shared scope; all source/native/current-build joins complete. BeforeWork field is historical; gameplay/save acceptance deferred."
+    }
+  ],
+  "unselectedPacketReasons": [
+    {
+      "family": "Crush Crush",
+      "reason": "P01/P02/P03/P05 already active leaves; P04 requires separate retained Ink hash/cursor and is explicitly out of this wave."
+    },
+    {
+      "family": "Melvor/Orb",
+      "reason": "Unique recipe-stock reserve, survey recovery, combat policy, cast receipt, transformed crop and lead consumers are not required by ALL22/current home-social build; packets remain distinct rather than declaring generic systems done."
+    },
+    {
+      "family": "Your Chronicle",
+      "reason": "Packets depend on reincarnation/class/shard-retention choices that differ from the selected single local field renewal; no reset policy was selected."
+    },
+    {
+      "family": "Book of Hours/DF",
+      "reason": "Manual/skill-attunement/institution and physical record/provenance ideas overlap some active home/shop/Ink consumers but add different retained states; wait for active home readback and a named consumer."
+    },
+    {
+      "family": "ONI",
+      "reason": "Temperature/body/biology/parallel-work packets require separate selected consumer/schema contracts; native solver remains unread and no such journey blocks current delivery."
+    },
+    {
+      "family": "Cult of the Lamb",
+      "reason": "Charter membership, office access/service, and expedition mission/return are three distinct optional saved domains; home-social is already in its shared join/build wave. Select only after its return and an explicit bounded packet choice."
+    },
+    {
+      "family": "DCSS/DDA/ToME/RL/Keeper/Elin/ITRTG/RimWorld",
+      "reason": "The named queue candidates already have ALL22 delivery receipts. Their source exceptions remain qualifications/acceptance references, not reasons to duplicate current implementation."
+    },
+    {
+      "family": "Streets of Rogue",
+      "reason": "Five original game-source paths remain unmet; available compatibility/mod code does not establish original gameplay. Owner identifies no missing YAIR consumer and supplies zero implementation packets."
+    },
+    {
+      "family": "Factorio native",
+      "reason": "Explicit full native recovery remains its own active goal; native export is not needed to complete the finite Lua/API/retort receipt and cannot replace retort's matching integration build."
+    }
+  ],
+  "laterAcceptance": "Each existing owner backlog remains authoritative. This documentation-only reconciliation does not authorize or complete deferred gameplay, save/reload/failure, browser, keyboard, regression, or creative-director acceptance.",
+  "pathsRead": [
+    "AGENTS.md",
+    "PROJECT.md#Expansion-design-proposal",
+    "docs/GAME_MASTER_PROMPT.md#context-pressure-and-refresh",
+    "docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md",
+    "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+    "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.md",
+    "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.json",
+    "docs/gm/audit-absorption-2026-10-07/reconciliation/game-findings.md",
+    "docs/gm/audit-absorption-2026-10-07/reconciliation/game-findings.json",
+    "docs/gm/audit-absorption-2026-10-07/ownership/OWNERS.json",
+    "docs/gm/audit-absorption-2026-10-07/intake/INTAKE.md",
+    "docs/gm/audit-absorption-2026-10-07/intake/SOURCES.json",
+    "docs/gm/audit-implementation/QUEUE.json",
+    "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+    "docs/gm/audit-implementation/remainder/DELIVERY.md",
+    "docs/gm/audit-implementation/remainder/COVERAGE.json",
+    "docs/gm/audit-implementation/remainder/BUILD.json",
+    "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md",
+    "docs/gm/home-social-base-2026-10-07/CHECKPOINT.md",
+    "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+    "docs/gm/dispatch/steam-wave-2026-10-06/DISPATCH.json",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACQUISITION.json",
+    "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/RETORT_INTERFACE.md",
+    "docs/research/factorio/native/CHECKPOINT.md",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+    "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+    "docs/gm/dispatch/idle-social-gms-2026-10-06/DEPTH_QUEUE.json",
+    "docs/research/amazing-cultivation-simulator/CHECKPOINT.md",
+    "docs/research/amazing-cultivation-simulator/COVERAGE.json",
+    "docs/research/amazing-cultivation-simulator/FINDINGS.json",
+    "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+    "docs/research/amazing-cultivation-simulator/PACKETS.json",
+    "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json",
+    "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+    "docs/research/amazing-cultivation-simulator/traces/cultivation.json",
+    "docs/research/amazing-cultivation-simulator/traces/dlc.json",
+    "docs/research/crush-crush/CHECKPOINT.md",
+    "docs/research/crush-crush/COVERAGE.json",
+    "docs/research/crush-crush/FINDINGS.json",
+    "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+    "docs/research/crush-crush/PACKETS.json",
+    "docs/research/orb-of-creation/CHECKPOINT.md",
+    "docs/research/orb-of-creation/COVERAGE.json",
+    "docs/research/orb-of-creation/FINDINGS.json",
+    "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+    "docs/research/orb-of-creation/PACKETS.json",
+    "docs/research/orb-of-creation/INTAKE.json",
+    "docs/research/orb-of-creation/DLC_COVERAGE.json",
+    "docs/research/melvor-idle/CHECKPOINT.md",
+    "docs/research/melvor-idle/COVERAGE.json",
+    "docs/research/melvor-idle/FINDINGS.json",
+    "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+    "docs/research/melvor-idle/PACKETS.json",
+    "docs/research/your-chronicle/CHECKPOINT.md",
+    "docs/research/your-chronicle/COVERAGE.json",
+    "docs/research/your-chronicle/FINDINGS.json",
+    "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+    "docs/research/your-chronicle/PACKETS.json",
+    "docs/research/your-chronicle/traces/RETENTION.md",
+    "docs/research/your-chronicle/traces/NARRATIVE.md",
+    "docs/research/book-of-hours/CHECKPOINT.md",
+    "docs/research/book-of-hours/COVERAGE.json",
+    "docs/research/book-of-hours/FINDINGS.json",
+    "docs/research/book-of-hours/IMPLEMENTATION_PACKETS.md",
+    "docs/research/book-of-hours/PACKETS.json",
+    "docs/research/book-of-hours/DLC_COVERAGE.json",
+    "docs/research/oxygen-not-included/CHECKPOINT.md",
+    "docs/research/oxygen-not-included/COVERAGE.json",
+    "docs/research/oxygen-not-included/FINDINGS.json",
+    "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+    "docs/research/oxygen-not-included/PACKETS.json",
+    "docs/research/oxygen-not-included/DLC_COVERAGE.json",
+    "docs/research/dwarf-fortress/CHECKPOINT.md",
+    "docs/research/dwarf-fortress/COVERAGE.json",
+    "docs/research/dwarf-fortress/FINDINGS.json",
+    "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+    "docs/research/dwarf-fortress/PACKETS.json",
+    "docs/research/dwarf-fortress/DLC_COVERAGE.json",
+    "docs/research/factorio/CHECKPOINT.md",
+    "docs/research/factorio/COVERAGE.json",
+    "docs/research/factorio/FINDINGS.json",
+    "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+    "docs/research/factorio/PACKETS.json",
+    "docs/research/factorio/DLC_COVERAGE.json",
+    "docs/research/factorio/INSTALLED_REVIEW.json",
+    "docs/research/factorio/native/NATIVE_PRODUCTION_TRACE.md",
+    "docs/research/factorio/native/SOURCE_BINDING.json",
+    "docs/research/elin/CHECKPOINT.md",
+    "docs/research/elin/COVERAGE.json",
+    "docs/research/elin/FINDINGS.json",
+    "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+    "docs/research/elin/ASSIGNMENT.md",
+    "docs/research/idling-to-rule-the-gods/CHECKPOINT.md",
+    "docs/research/idling-to-rule-the-gods/COVERAGE.json",
+    "docs/research/idling-to-rule-the-gods/FINDINGS.json",
+    "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+    "docs/research/idling-to-rule-the-gods/PACKETS.json",
+    "docs/research/keeperrl/CHECKPOINT.md",
+    "docs/research/keeperrl/COVERAGE.json",
+    "docs/research/keeperrl/FINDINGS.json",
+    "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+    "docs/research/rimworld/CHECKPOINT.md",
+    "docs/research/rimworld/COVERAGE.json",
+    "docs/research/rimworld/FINDINGS.json",
+    "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+    "docs/research/rogue-legacy/CHECKPOINT.md",
+    "docs/research/rogue-legacy/COVERAGE.json",
+    "docs/research/rogue-legacy/FINDINGS.json",
+    "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+    "docs/research/tales-of-maj-eyal/CHECKPOINT.md",
+    "docs/research/tales-of-maj-eyal/COVERAGE.json",
+    "docs/research/tales-of-maj-eyal/FINDINGS.json",
+    "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+    "docs/research/streets-of-rogue/CHECKPOINT.md",
+    "docs/research/streets-of-rogue/COVERAGE.json",
+    "docs/research/streets-of-rogue/FINDINGS.json",
+    "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+    "docs/research/cult-of-the-lamb/CHECKPOINT.md",
+    "docs/research/cult-of-the-lamb/INTAKE.json",
+    "docs/research/cult-of-the-lamb/COVERAGE.json",
+    "docs/research/cult-of-the-lamb/FINDINGS.json",
+    "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+    "docs/research/cult-of-the-lamb/PACKETS.json",
+    "docs/research/cult-of-the-lamb/DLC_COVERAGE.json",
+    "docs/research/caves-of-qud/INTAKE.json",
+    "docs/research/caves-of-qud/FINDINGS.json",
+    "docs/research/caves-of-qud/NPC_FINDINGS.json",
+    "docs/research/dcss-dda-depth/CHECKPOINT.md",
+    "docs/research/dcss-dda-depth/FINDINGS.json",
+    "docs/research/dcss-dda-depth/REPORT.md",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/REPORT.md",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/COVERAGE.json",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/FINDINGS.json",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/ABSORPTION_PACKETS.md",
+    "docs/gm/world-implementation/second-pass/repository-bank-absorption/appendix-current-engine.json",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION.md",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_INPUTS.json",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/ADOPTION_BUILD.json",
+    "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+    "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+    "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+    "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/REPORT.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.json",
+    "docs/research/idle-social-engine-scout-2026-10-06/traces/QUD_LIQUIDS.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/traces/QUD_BODY.md",
+    "docs/research/idle-social-engine-scout-2026-10-06/FOLLOW_UP_REFERENCES.md",
+    "docs/gm/audit-absorption-2026-10-07/intake/SOURCES.json"
+  ],
+  "integrationUpdate": {
+    "at": "2026-10-07T06:16:22.379640+00:00",
+    "owner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+    "status": "Selected source/native/UI/compatible-state/current-build delivered, implemented-unverified",
+    "receipt": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.json"
+  },
+  "currentBuild": "docs/gm/audit-absorption-2026-10-07/BUILD.json"
+}

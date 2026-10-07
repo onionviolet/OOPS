@@ -1,0 +1,29 @@
+{
+  "observed_utc": "2026-10-07T13:12:25.701387+00:00",
+  "scope": "Rootmatched actual savedpostcancel and distinct readOnlyreopeninspection; notwholeanalysis/C success claim",
+  "evidence": [
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/x86-analyzed-inspection2.json",
+      "sha256": "ff62b74479f52a51eda551cc7cd69d01839b067c9b85def81667cfd9a0be7f68",
+      "observed_at": "2026-10-07T13:04:50.663918Z",
+      "nonexternal": 182398,
+      "decoded": 9869783,
+      "candidate_matches": 178145,
+      "missing": 0,
+      "input": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/x86-analysis2-reopened-inspection.json",
+      "sha256": "0c576a863a3011689678da02dbbc17c39ff5a8e3ec92fc921b44725b482d9ee8",
+      "observed_at": "2026-10-07T13:06:50.336613Z",
+      "nonexternal": 182398,
+      "decoded": 9869783,
+      "candidate_matches": 178145,
+      "missing": 0,
+      "input": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26"
+    }
+  ],
+  "whole_analysis_complete": false,
+  "qualified_profile": "512M/CPU1;SharedReturnCalls=false/x86ConstantReferenceAnalyzer=false;actualFidAnalyzer monitorcancellation13:04:46Z,saved13:04:52Z;actual803s notautomatic900s expiry",
+  "full_export": "Current41973/PID46960 followsactualreopen54899; fullnonexternal/callableexport required"
+}

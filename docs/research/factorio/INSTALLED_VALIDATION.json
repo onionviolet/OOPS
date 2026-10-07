@@ -1,0 +1,17 @@
+{
+  "observed_at_utc": "2026-10-07T03:58:04.549578+00:00",
+  "status": "passed",
+  "installed_version": "2.0.77",
+  "steam_buildid": "23347942",
+  "preserved_snapshot_hashes_checked": 1877,
+  "reviewed_paths_checked": 14,
+  "reviewed_source_bounds_files": 25,
+  "api_versions_hashes_and_named_members": "passed",
+  "live_manifest_and_no_staging": "passed",
+  "errors": [],
+  "not_run": [
+    "game launch/native implementation disassembly",
+    "YAIR gameplay/build/save/regression suites",
+    "director acceptance"
+  ]
+}

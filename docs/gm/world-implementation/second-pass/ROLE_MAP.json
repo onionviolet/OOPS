@@ -1,0 +1,220 @@
+{
+  "date": "2026-10-04",
+  "mode": "planning-only",
+  "roles": [
+    {
+      "slug": "foundations",
+      "requestedTitle": "Engine foundations GM",
+      "assignment": "docs/gm/world-implementation/second-pass/foundations/ASSIGNMENT.md",
+      "readRoots": [
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/simulation_contracts.js",
+        "src/simulation_effects.js",
+        "src/realm_state.js",
+        "src/world_instances.js"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/foundations/reports and checkpoint only"
+      ],
+      "scopeBoundary": "State/semantics/correctness architecture; runtime optimization belongs to runtime-efficiency, author ergonomics to authoring. No implementation."
+    },
+    {
+      "slug": "runtime-efficiency",
+      "requestedTitle": "Runtime efficiency GM",
+      "assignment": "docs/gm/world-implementation/second-pass/runtime-efficiency/ASSIGNMENT.md",
+      "readRoots": [
+        "src/simulation.js",
+        "src/simulation_resolution.js",
+        "src/expansion_engine.js",
+        "src/gameplay_publication.js",
+        "src/expansion_persistence.js",
+        "src/display.js",
+        "docs/PLAYTEST.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/runtime-efficiency/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Runtime algorithm/cost/observability only. No new game benchmarks/suites/browser/build or speculative speedup claims; plan needed measurements."
+    },
+    {
+      "slug": "token-efficiency",
+      "requestedTitle": "Token and workflow efficiency GM",
+      "assignment": "docs/gm/world-implementation/second-pass/token-efficiency/ASSIGNMENT.md",
+      "readRoots": [
+        "docs/gm/world-implementation/RUN.json",
+        "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md",
+        "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md",
+        "docs/GAME_MASTER_PROMPT.md",
+        "docs/research/novels/full-book/README.md",
+        "docs/research/novels/GM_RUN_QUEUE.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/token-efficiency/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Agent/research/authoring process efficiency, not runtime optimization or global config/model changes. No renewed full-book goal or usage-savings invention."
+    },
+    {
+      "slug": "authoring",
+      "requestedTitle": "World authoring and integration GM",
+      "assignment": "docs/gm/world-implementation/second-pass/authoring/ASSIGNMENT.md",
+      "readRoots": [
+        "docs/ENGINE_AUTHORING.md",
+        "src/expansion_engine.js",
+        "src/simulation_contracts.js",
+        "src/site_projects.js",
+        "src/scene_definitions.js",
+        "src/expedition_content.js",
+        "src/simulation_content.js"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/authoring/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Content production/compiler/validation/integration workflow. Foundations owns runtime identity/transaction semantics; do not reserve its code or edit world packs."
+    },
+    {
+      "slug": "regions",
+      "requestedTitle": "Regions ecology and harvesting GM",
+      "assignment": "docs/gm/world-implementation/second-pass/regions/ASSIGNMENT.md",
+      "readRoots": [
+        "docs/GATHERING_AND_RESOURCE_USES.md",
+        "docs/WANDERING_ZONES_AND_INSIGHT.md",
+        "docs/gm/world-implementation/depth/macro/SYSTEM_GRAPH.md",
+        "src/data/locations.js",
+        "src/world_instances.js",
+        "src/everyday_life.js"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/regions/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Regional/environment/resource-node ecology and harvesting. Items owns output object/recipe mechanics; combat owns tactical encounters; bases owns structures."
+    },
+    {
+      "slug": "items",
+      "requestedTitle": "Items crafting and refinement GM",
+      "assignment": "docs/gm/world-implementation/second-pass/items/ASSIGNMENT.md",
+      "readRoots": [
+        "src/items.js",
+        "src/acquisition.js",
+        "src/native_equipment_transaction.js",
+        "src/native_storage_transaction.js",
+        "src/simulation_effects.js",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/items/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Objects/lots/recipes/operating equipment and production chains. Regions owns node ecology, powers owns biological/authority execution, bases owns collective production."
+    },
+    {
+      "slug": "powers",
+      "requestedTitle": "Bodies powers and interactions GM",
+      "assignment": "docs/gm/world-implementation/second-pass/powers/ASSIGNMENT.md",
+      "readRoots": [
+        "src/body_progression.js",
+        "src/energy_resources.js",
+        "src/power_models.js",
+        "src/realm_traveler_profiles.js",
+        "src/realm_boundary_rules.js",
+        "docs/worlds/ABILITY_AUTHORING.md",
+        "docs/gm/world-implementation/depth/micro/WORKED_CASES.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/powers/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Executable body/source/function semantics and missed special interactions; do not repeat the micro organ report or implement native damage/time/schema changes."
+    },
+    {
+      "slug": "combat",
+      "requestedTitle": "Combat encounters and AI GM",
+      "assignment": "docs/gm/world-implementation/second-pass/combat/ASSIGNMENT.md",
+      "readRoots": [
+        "src/party_battle.js",
+        "src/native_battle.js",
+        "src/native_battle_contracts.js",
+        "src/native_battle_host.js",
+        "src/pursuit.js",
+        "src/simulation_resolution.js",
+        "docs/ENCOUNTERS_AND_PURSUIT.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/combat/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Encounter/combat/tactical AI. Regions owns population ecology, society owns noncombat agency, foundations owns shared effect/publication semantics."
+    },
+    {
+      "slug": "society",
+      "requestedTitle": "Society relationships and dialogue GM",
+      "assignment": "docs/gm/world-implementation/second-pass/society/ASSIGNMENT.md",
+      "readRoots": [
+        "src/people_knowledge.js",
+        "src/causal_situations.js",
+        "src/simulation_effects.js",
+        "src/pocket_realm_scenes.js",
+        "docs/CHARACTERS_AND_WORLD_EVENTS.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/gm/world-implementation/depth/micro/WORKED_CASES.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/society/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Directed personal/social/narrative dialogue state. Bases owns collective structures/logistics, timelines owns plot/era causality; no live LLM runtime assumed."
+    },
+    {
+      "slug": "bases",
+      "requestedTitle": "Bases institutions and economy GM",
+      "assignment": "docs/gm/world-implementation/second-pass/bases/ASSIGNMENT.md",
+      "readRoots": [
+        "src/site_projects.js",
+        "src/field_workshop.js",
+        "src/frontier_campaign.js",
+        "src/everyday_life.js",
+        "src/world_rhythm.js",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/bases/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Collective site/institution/economy/production/logistics. Society owns directed individual relationships, regions owns environment, items owns recipe/object semantics."
+    },
+    {
+      "slug": "timelines",
+      "requestedTitle": "Timelines progression and campaign GM",
+      "assignment": "docs/gm/world-implementation/second-pass/timelines/ASSIGNMENT.md",
+      "readRoots": [
+        "src/chronicle.js",
+        "src/world_instances.js",
+        "src/realm_clock_leases.js",
+        "src/simulation.js",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "docs/gm/world-implementation/depth/macro/WORLD_LOOP_MATRIX.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/timelines/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Temporal/campaign/progression causality and underexplored long paths. Foundations owns clock mechanics, society owns character state, authoring owns compilers."
+    },
+    {
+      "slug": "experience",
+      "requestedTitle": "Player experience and discoverability GM",
+      "assignment": "docs/gm/world-implementation/second-pass/experience/ASSIGNMENT.md",
+      "readRoots": [
+        "src/adventure_notebook.js",
+        "src/expedition_ui.js",
+        "src/people_ui.js",
+        "src/body_ui.js",
+        "src/pocket_realm_ui.js",
+        "docs/PLAYTEST.md",
+        "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md"
+      ],
+      "writes": [
+        "docs/gm/world-implementation/second-pass/experience/reports and checkpoint only"
+      ],
+      "scopeBoundary": "Player-facing usability/pacing/feedback/choice design. Do not redefine source mechanics or claim unrun visual/performance checks."
+    }
+  ]
+}
+

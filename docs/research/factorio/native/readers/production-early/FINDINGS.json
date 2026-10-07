@@ -1,0 +1,1149 @@
+{
+  "schema": 1,
+  "reviewed_at_utc": "2026-10-07T05:01:07.360623+00:00",
+  "role": "/root/factorio_gm/native_production_trace",
+  "ownership": "docs/research/factorio/native/readers/production-early/ only",
+  "assignment": "Bounded actual semantic production review for full native recovery parent; no cap or completion claim for wider recovery",
+  "input": {
+    "version": "2.0.77",
+    "steam_buildid": "23347942",
+    "architecture": "arm64",
+    "slice": "/Users/weiwei/.codex/research/factorio/native-23347942/input/factorio-arm64.macho",
+    "sha256_verified_this_review": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+    "private_priority_directory": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64",
+    "source_form": "Ghidra C-like pseudocode plus byte-hashed disassembly; inferred types/signatures are not original C++ source"
+  },
+  "coverage": {
+    "requested_entries_full_C_reviewed": 6,
+    "extra_helper_entries_full_C_reviewed": 3,
+    "supporting_entries_full_C_reviewed": 6,
+    "scoped_auxiliary_entries": 4,
+    "whole_game_semantic_coverage": "not claimed",
+    "x86_64_review": "not performed by this leaf",
+    "native_execution": "none",
+    "runtime_change": "none",
+    "raw_recovered_source_in_git": "none"
+  },
+  "functions": [
+    {
+      "entry": "0x10073e2e4",
+      "symbol": "__ZN15CraftingMachine22craftWithCurrentRecipeEv",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 130,
+      "json_sha256": "7839ecee54976aa9f0a49efea035b2ce18dc6d335fe430480ab28c77e593e49a",
+      "c_like_sha256": "2e955ca5b43b7369f18451e5e770eb384a76c3f2687dfb8830078494ce280bd8",
+      "body_sha256": "bec6e55ea0dfd85108e3dd64575fe0a415bc3883ff6ede637a68d36b764f5833",
+      "body_ranges": [
+        {
+          "min": "10073e2e4",
+          "max": "10073e697"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine22craftWithCurrentRecipeEv()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073e6b8",
+      "symbol": "__ZN15CraftingMachine20tryToProduceAndEjectERK15RecipePrototyped",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e6b8.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e6b8.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 77,
+      "json_sha256": "7260a2fa8fddbe957eec711a7110b892bb38edabd17df88ff15dba402cc023f0",
+      "c_like_sha256": "ed0abd376f89de3532e8b5e72ff3e0d87c24a795e0f5cc58b740fd42b0e3431c",
+      "body_sha256": "84c96bd8732c402a743296cf9d24415c936862b223ecc795910ed0c5ef2311b0",
+      "body_ranges": [
+        {
+          "min": "10073e6b8",
+          "max": "10073e8a7"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine20tryToProduceAndEjectERK15RecipePrototyped()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073e99c",
+      "symbol": "__ZN15CraftingMachine18consumeIngredientsERK15RecipePrototypeR15InventoryBuffer",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e99c.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e99c.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 115,
+      "json_sha256": "8a2a9066e949b05b6c38e327e3650dc35431ab815ef9d89ea114f7d5bf464224",
+      "c_like_sha256": "53669e4187ed66bf4c924b96e6f9776f18178b99d31165ed6aa14d98102533a9",
+      "body_sha256": "40749f161db4347fbd1402cf7a2dcdc0370464d6701377cb77d10a8a03994ce0",
+      "body_ranges": [
+        {
+          "min": "10073e99c",
+          "max": "10073eb57"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine18consumeIngredientsERK15RecipePrototypeR15InventoryBuffer()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073f37c",
+      "symbol": "__ZN15CraftingMachine18canTakeIngredientsERK15RecipePrototype2IDI16QualityPrototypehE",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f37c.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f37c.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 74,
+      "json_sha256": "55ba32434a00313963ae8a0161f56c113ad8735e2a434bf57a4b67ff1f6d9954",
+      "c_like_sha256": "caab68c27e03362ed682cd9e0e68d0f2f9bcddc3d85a06df7c037331b7550fb7",
+      "body_sha256": "6d88bf29defddfadfc86c0544aca76ea6a5f249fe68b455a9df8f1736adf0b89",
+      "body_ranges": [
+        {
+          "min": "10073f37c",
+          "max": "10073f397"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine18canTakeIngredientsERK15RecipePrototype2IDI16QualityPrototypehE()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x100741a98",
+      "symbol": "__ZNK15CraftingMachine15canGiveProductsERK15RecipePrototype",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100741a98.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100741a98.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 78,
+      "json_sha256": "106e978901b595fad9f151371e10f4de6cf2ab7e4963c0d469e46f769598a44f",
+      "c_like_sha256": "da97ba39ed4f70463d366fb3ba22afc5bb152ec8f5f10078465022886dc893f7",
+      "body_sha256": "749a133e7e5ddba85f7711b11e5afe9c94fc83ebd76a23c77671fe60f4de82e6",
+      "body_ranges": [
+        {
+          "min": "100741a98",
+          "max": "100741c4b"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZNK15CraftingMachine15canGiveProductsERK15RecipePrototype()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10065ed00",
+      "symbol": "__ZN15CraftingMachine12giveProductsERK15RecipePrototype2IDI16QualityPrototypehES5_d7MapTick9NamedBoolI19FromProductivityTagE",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10065ed00.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10065ed00.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 16,
+      "json_sha256": "5b9368d8c5f8e95cb12afbbe600ee1415532f3778a8612bf8bb8f8e095b63886",
+      "c_like_sha256": "78f31fd4400a12f09192a73bca8d916f7a8d2427c5a30f32c540460bbd2b2bad",
+      "body_sha256": "7cfaba2778605aa68d30a79b1bd87e34f0ff10821ecbeb6b2e32ede7f3941f45",
+      "body_ranges": [
+        {
+          "min": "10065ed00",
+          "max": "10065ed4f"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine12giveProductsERK15RecipePrototype2IDI16QualityPrototypehES5_d7MapTick9NamedBoolI19FromProductivityTagE()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073ec44",
+      "symbol": "__ZN16ProductionHelper12giveProductsER15CraftingMachineRK15RecipePrototype2IDI16QualityPrototypehES7_d7MapTick9NamedBoolI19FromProductivityTagES9_I27IgnoreProductionOverloadTagEb",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 277,
+      "json_sha256": "c1be304a8c1cbf0a683f09bf4b656d7c91e385d6986782f6d3e8b1d86703c4db",
+      "c_like_sha256": "71ab79bb9ad02cb8b1c4080301e7210fcc1a6790b1c0bb01c0452052d242753f",
+      "body_sha256": "20e959c0c100bfd4d61a8d19a2a07b9521872ece27a175888236759c28c4f1d6",
+      "body_ranges": [
+        {
+          "min": "10073ec44",
+          "max": "10073f327"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN16ProductionHelper12giveProductsER15CraftingMachineRK15RecipePrototype2IDI16QualityPrototypehES7_d7MapTick9NamedBoolI19FromProductivityTagES9_I27IgnoreProductionOverloadTagEb()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073f398",
+      "symbol": "__ZN16ProductionHelper15takeIngredientsER9InventoryP15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehER9ForceData12SurfaceIndexR15InventoryBuffer",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 296,
+      "json_sha256": "1628808339dd54ce25cb9dc017cdcb2fd93242c75a7e5f7a4139d75a93378ba3",
+      "c_like_sha256": "84a43915a333f7900bd13a66849d0004109c2d109375a9f2290af09637a038ed",
+      "body_sha256": "038dbf82a89e6fa68db52e8d68e4ce8782ae32a9d53b7184175491dae17a7219",
+      "body_ranges": [
+        {
+          "min": "10073f398",
+          "max": "10073f977"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN16ProductionHelper15takeIngredientsER9InventoryP15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehER9ForceData12SurfaceIndexR15InventoryBuffer()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x101559374",
+      "symbol": "__ZN16ProductionHelper18canGiveItemProductERK9ItemStackRK20ItemProductPrototype2IDI16QualityPrototypehERK3Mapd7MapTick9NamedBoolI17EnableSpoilingTagE",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/101559374.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/101559374.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 124,
+      "json_sha256": "ecfd95fd09312a346f6c60187572fc90185fe38501eb0e99635155784eb80a15",
+      "c_like_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+      "body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+      "body_ranges": [
+        {
+          "min": "101559374",
+          "max": "101559577"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN16ProductionHelper18canGiveItemProductERK9ItemStackRK20ItemProductPrototype2IDI16QualityPrototypehERK3Mapd7MapTick9NamedBoolI17EnableSpoilingTagE()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073e93c",
+      "symbol": "__ZN15CraftingMachine10canConsumeERK15RecipePrototype",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e93c.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e93c.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 18,
+      "json_sha256": "b51c0b231282a966df712485f412f7756f5944bccc60c4185c4b121cc6150d43",
+      "c_like_sha256": "aaabb39422ffe14e39b93704d99a9acb7879807351521898c3cad1227a78c9e7",
+      "body_sha256": "c5624485f49ab359c6e03c92ef958d5c6900af23462ca1dd8920a040b642e6dc",
+      "body_ranges": [
+        {
+          "min": "10073e93c",
+          "max": "10073e99b"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine10canConsumeERK15RecipePrototype()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073eb6c",
+      "symbol": "__ZN15CraftingMachine15takeIngredientsERK15RecipePrototype2IDI16QualityPrototypehER15InventoryBuffer",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073eb6c.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073eb6c.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 301,
+      "json_sha256": "7c44e8aa9bc957cff6e25ffe950c1c55ab54ac375c0132de9670e592b2729f60",
+      "c_like_sha256": "db1133228f49c1523a376c2a7f300ba0e08e44d0bce1949049c2d012854a0da4",
+      "body_sha256": "f1c4568c01dee928348749b7316a918a152a32cfcb0a2567a231c834bbdc6752",
+      "body_ranges": [
+        {
+          "min": "10073eb6c",
+          "max": "10073eb97"
+        },
+        {
+          "min": "10073f398",
+          "max": "10073f977"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine15takeIngredientsERK15RecipePrototype2IDI16QualityPrototypehER15InventoryBuffer()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073c154",
+      "symbol": "__ZN15CraftingMachine14onStackSpoiledERK16NotificationData",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073c154.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073c154.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 52,
+      "json_sha256": "4c1a7e5462520c9340e5e42fb4a923a425e1d93d82ec9d8ed89743fbf3c45a02",
+      "c_like_sha256": "e39d92656c176ca01d6aecb41272f689a6597fbd8b02ea3dc375568b29660828",
+      "body_sha256": "f54020238ab6a55bfaadb8ea7269f6b7a5ab7ea8812a15db9a6ba620c7b33f61",
+      "body_ranges": [
+        {
+          "min": "10073c154",
+          "max": "10073c277"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine14onStackSpoiledERK16NotificationData()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073e1a0",
+      "symbol": "__ZNK15CraftingMachine22getIngredientSpoilTickE2IDI13ItemPrototypetE",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e1a0.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e1a0.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 31,
+      "json_sha256": "ed8aee29eec20134665fa67a7dece1da96da6f3617808b35e12eb74ae220bb54",
+      "c_like_sha256": "53eb9b47e6ac9cc80fb8b9714ac5eed3919e1a03200fd7ff1164828b73442122",
+      "body_sha256": "1cb2ccf5c7bcf1f9cd10a4fb8ed0eef25c2c934c6d4a19607319b8c9b7a97565",
+      "body_ranges": [
+        {
+          "min": "10073e1a0",
+          "max": "10073e1f7"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZNK15CraftingMachine22getIngredientSpoilTickE2IDI13ItemPrototypetE()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x1007418a0",
+      "symbol": "__ZNK15CraftingMachine18hasProductOverloadERK15RecipePrototype",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/1007418a0.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/1007418a0.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 89,
+      "json_sha256": "a0af87536c34eaff20e3baeba8e2362be180a193cc8ac6065e38cb4d7b333fbc",
+      "c_like_sha256": "5a3050d330e87a878f6ce30c63c9fd9f8b8c3f9d95f7db4c7326a970b1b8a856",
+      "body_sha256": "a7c5c5453024325b8e3217cbe225df73761eac69171036e048ccad6cd6b6362b",
+      "body_ranges": [
+        {
+          "min": "1007418a0",
+          "max": "100741a97"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZNK15CraftingMachine18hasProductOverloadERK15RecipePrototype()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073b678",
+      "symbol": "__ZNK15CraftingMachine18hasProductOverloadEv",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073b678.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073b678.c",
+      "review": "full C body and JSON evidence",
+      "c_lines": 17,
+      "json_sha256": "a177e678c7caaed08c9dfb3c0f1aa7bde5967b647810e98fbbc3dd42738f7918",
+      "c_like_sha256": "125b6a0a96305a479510225e0da02d12ba56404c1e5fbb16346f5830b4a954e1",
+      "body_sha256": "ca9768426c8ede1ec97db821f5be6f2a6c8252f295fc0eef166340320dca5ae9",
+      "body_ranges": [
+        {
+          "min": "10073b678",
+          "max": "10073b6bf"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZNK15CraftingMachine18hasProductOverloadEv()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x100738da0",
+      "symbol": "__ZNK15CraftingMachine9getStatusEv",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100738da0.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100738da0.c",
+      "review": "scoped inspection; contaminated or supporting branches excluded from full review",
+      "c_lines": 273,
+      "json_sha256": "23b6e5879802e5575cc8d5dc669ecec3342a7d904e3c220239a904b8df88ab29",
+      "c_like_sha256": "3fc19448edcd07662be61f0a474ed7c0a5a1efabf9a538bd78301b72ff44a925",
+      "body_sha256": "e47dde886a1e002016f63b633cfe8cb3aa6345fdca0a11dcaa689f3406668c13",
+      "body_ranges": [
+        {
+          "min": "100738da0",
+          "max": "100738edf"
+        },
+        {
+          "min": "100738ee8",
+          "max": "100738f17"
+        },
+        {
+          "min": "100738f84",
+          "max": "10073933f"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZNK15CraftingMachine9getStatusEv()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x100739184",
+      "symbol": "__ZN15CraftingMachine24productionResultToStatusE16ProductionResult",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100739184.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100739184.c",
+      "review": "scoped inspection; contaminated or supporting branches excluded from full review",
+      "c_lines": 81,
+      "json_sha256": "25ffe936394fd34bb26b8599ae9b1d98898b9bf8d1ceb961161a4181c4bd11e2",
+      "c_like_sha256": "64133b1ec164ecf1c3460e5d64d73e6218928e4300dd029e296c335b93a9e714",
+      "body_sha256": "9263ec831f0e6a97c4a238542c11d50293e328b29f6521049e4abc4d3809fe93",
+      "body_ranges": [
+        {
+          "min": "100739184",
+          "max": "10073933f"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine24productionResultToStatusE16ProductionResult()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073ebd8",
+      "symbol": "__ZN15CraftingMachine23extractEnergyAndPolluteEv",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ebd8.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ebd8.c",
+      "review": "scoped inspection; contaminated or supporting branches excluded from full review",
+      "c_lines": 588,
+      "json_sha256": "451cf578ac9f57d2cab6fb01005203f61812eb9af53a7c706018c5f7718e4aa6",
+      "c_like_sha256": "e38bffbe507c82fef2282f3086bb24859a890b260a5e3aa5f24834cde0c91c92",
+      "body_sha256": "a084c590cda35a13083844b9f5933991f985527318dc9f51b05f99626ae373ca",
+      "body_ranges": [
+        {
+          "min": "10073ebd8",
+          "max": "10073ec07"
+        },
+        {
+          "min": "10073ec30",
+          "max": "10073f327"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine23extractEnergyAndPolluteEv()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    },
+    {
+      "entry": "0x10073ce00",
+      "symbol": "__ZN15CraftingMachine6updateEv",
+      "private_json": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ce00.json",
+      "private_c": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ce00.c",
+      "review": "scoped inspection; contaminated or supporting branches excluded from full review",
+      "c_lines": 239,
+      "json_sha256": "05f1719628ccb0a060b1641b97e2f7246c6e8ff525998633802d7ef6a39be718",
+      "c_like_sha256": "ce4629d1092b2add0f74aef4d94d0b5e17b8c5d907f7e1b3e14d2690b0976288",
+      "body_sha256": "1832a52592fb66a76cb7cbaca45328f9e437c980ff00626fa86aee08c0206b76",
+      "body_ranges": [
+        {
+          "min": "10073ce00",
+          "max": "10073d007"
+        },
+        {
+          "min": "10073d018",
+          "max": "10073d203"
+        },
+        {
+          "min": "10073d26c",
+          "max": "10073d2bb"
+        }
+      ],
+      "export_status": "success",
+      "signature": "undefined __ZN15CraftingMachine6updateEv()",
+      "signature_source": "DEFAULT",
+      "call_graph_scope": "Discovered direct function references. Indirect/virtual targets may remain unresolved."
+    }
+  ],
+  "mapped_helper_symbols": [
+    {
+      "entry": "0x100153cc4",
+      "nm_symbol": "__Z19ReleaseAssertFailedPKcjS0_"
+    },
+    {
+      "entry": "0x100219260",
+      "nm_symbol": "__ZN7Surface20dropItemStacksAroundER15InventoryBufferRK11MapPosition9NamedBoolI13DropAsLootTagE7ForceIDbS5_I16DropFullStackTagE"
+    },
+    {
+      "entry": "0x10022f960",
+      "nm_symbol": "__ZNK8FluidBox18getFluidForDisplayEv"
+    },
+    {
+      "entry": "0x1007391d4",
+      "nm_symbol": "__ZN16ProductionHelper18canTakeIngredientsERK9InventoryPK15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehE"
+    },
+    {
+      "entry": "0x1007395ac",
+      "nm_symbol": "__ZN15CraftingMachine23ejectOutputToDropTargetEv"
+    },
+    {
+      "entry": "0x10073ec44",
+      "nm_symbol": "__ZN16ProductionHelper12giveProductsER15CraftingMachineRK15RecipePrototype2IDI16QualityPrototypehES7_d7MapTick9NamedBoolI19FromProductivityTagES9_I27IgnoreProductionOverloadTagEb"
+    },
+    {
+      "entry": "0x10073f398",
+      "nm_symbol": "__ZN16ProductionHelper15takeIngredientsER9InventoryP15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehER9ForceData12SurfaceIndexR15InventoryBuffer"
+    },
+    {
+      "entry": "0x101559374",
+      "nm_symbol": "__ZN16ProductionHelper18canGiveItemProductERK9ItemStackRK20ItemProductPrototype2IDI16QualityPrototypehERK3Mapd7MapTick9NamedBoolI17EnableSpoilingTagE"
+    },
+    {
+      "entry": "0x1001aec74",
+      "nm_symbol": "__ZN9ItemStack6removeEjP14FlowStatisticsI13IDWithQualityI2IDI13ItemPrototypetEEyvEjb"
+    },
+    {
+      "entry": "0x10083b770",
+      "nm_symbol": "__ZN9ItemStack12transferRealERS_jj"
+    },
+    {
+      "entry": "0x101558e8c",
+      "nm_symbol": "__ZNK20ItemProductPrototype11collectItemER3Map2IDI16QualityPrototypehE9NamedBoolI19FromProductivityTagES5_I17EnableSpoilingTagEfdd"
+    },
+    {
+      "entry": "0x1015591d4",
+      "nm_symbol": "__ZNK21FluidProductPrototype12collectFluidER3Map9NamedBoolI19FromProductivityTagEdd"
+    },
+    {
+      "entry": "0x1005f74d8",
+      "nm_symbol": "__ZN7Logging22logEnumAndAbortOrThrowI16EnergySourceTypeEEvPKcj8LogLevelT_"
+    },
+    {
+      "entry": "0x10073b6c0",
+      "nm_symbol": "__ZN7Logging22logEnumAndAbortOrThrowI16ProductionResultEEvPKcj8LogLevelT_"
+    }
+  ],
+  "vtable_resolution": [
+    {
+      "class": "CraftingMachine",
+      "symbol_address": "0x102da5218",
+      "object_address_point": "0x102da5228",
+      "header_offset_to_top": "0x0",
+      "header_rtti": "0x102f88868",
+      "header_rtti_nm_symbol": "__ZTI15CraftingMachine",
+      "first_virtual_target": "0x100762f10",
+      "slots": [
+        {
+          "object_vptr_slot_offset": "0x12e8",
+          "pointer_storage_address": "0x102da6510",
+          "file_offset": 47867152,
+          "target_entry": "0x10073b600",
+          "nm_symbol": "__ZNK15CraftingMachine16getCraftingSpeedEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1340",
+          "pointer_storage_address": "0x102da6568",
+          "file_offset": 47867240,
+          "target_entry": "0x101b08160",
+          "nm_symbol": "__ZNK15CraftingMachine22shouldContinueCraftingEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1348",
+          "pointer_storage_address": "0x102da6570",
+          "file_offset": 47867248,
+          "target_entry": "0x10073e2d4",
+          "nm_symbol": "__ZN15CraftingMachine17useRecipeOnSourceEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1350",
+          "pointer_storage_address": "0x102da6578",
+          "file_offset": 47867256,
+          "target_entry": "0x10073f37c",
+          "nm_symbol": "__ZN15CraftingMachine18canTakeIngredientsERK15RecipePrototype2IDI16QualityPrototypehE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1358",
+          "pointer_storage_address": "0x102da6580",
+          "file_offset": 47867264,
+          "target_entry": "0x10065ed00",
+          "nm_symbol": "__ZN15CraftingMachine12giveProductsERK15RecipePrototype2IDI16QualityPrototypehES5_d7MapTick9NamedBoolI19FromProductivityTagE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1360",
+          "pointer_storage_address": "0x102da6588",
+          "file_offset": 47867272,
+          "target_entry": "0x1007418a0",
+          "nm_symbol": "__ZNK15CraftingMachine18hasProductOverloadERK15RecipePrototype"
+        },
+        {
+          "object_vptr_slot_offset": "0x1368",
+          "pointer_storage_address": "0x102da6590",
+          "file_offset": 47867280,
+          "target_entry": "0x100741a98",
+          "nm_symbol": "__ZNK15CraftingMachine15canGiveProductsERK15RecipePrototype"
+        },
+        {
+          "object_vptr_slot_offset": "0x1378",
+          "pointer_storage_address": "0x102da65a0",
+          "file_offset": 47867296,
+          "target_entry": "0x101b0a858",
+          "nm_symbol": "__ZN15CraftingMachine40checkChangeRecipeAfterFinishingLastCycleE13IDWithQualityI2IDI15RecipePrototypetEE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1380",
+          "pointer_storage_address": "0x102da65a8",
+          "file_offset": 47867304,
+          "target_entry": "0x100740170",
+          "nm_symbol": "__ZN15CraftingMachine20updateAnimationStateEd"
+        }
+      ],
+      "method": "Read qwords from frozen arm64 Mach-O LC_SEGMENT_64 virtual/file mapping; resolve values against compressed nm inventory. Header zero plus matching RTTI verifies the +16 Itanium address point. This establishes these static class tables; other subclass overrides remain open."
+    },
+    {
+      "class": "AssemblingMachine",
+      "symbol_address": "0x102d7d350",
+      "object_address_point": "0x102d7d360",
+      "header_offset_to_top": "0x0",
+      "header_rtti": "0x102f888d0",
+      "header_rtti_nm_symbol": "__ZTI17AssemblingMachine",
+      "first_virtual_target": "0x100762f10",
+      "slots": [
+        {
+          "object_vptr_slot_offset": "0x12e8",
+          "pointer_storage_address": "0x102d7e648",
+          "file_offset": 47703624,
+          "target_entry": "0x10073b600",
+          "nm_symbol": "__ZNK15CraftingMachine16getCraftingSpeedEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1340",
+          "pointer_storage_address": "0x102d7e6a0",
+          "file_offset": 47703712,
+          "target_entry": "0x101b08160",
+          "nm_symbol": "__ZNK15CraftingMachine22shouldContinueCraftingEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1348",
+          "pointer_storage_address": "0x102d7e6a8",
+          "file_offset": 47703720,
+          "target_entry": "0x10073e2d4",
+          "nm_symbol": "__ZN15CraftingMachine17useRecipeOnSourceEv"
+        },
+        {
+          "object_vptr_slot_offset": "0x1350",
+          "pointer_storage_address": "0x102d7e6b0",
+          "file_offset": 47703728,
+          "target_entry": "0x10073f37c",
+          "nm_symbol": "__ZN15CraftingMachine18canTakeIngredientsERK15RecipePrototype2IDI16QualityPrototypehE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1358",
+          "pointer_storage_address": "0x102d7e6b8",
+          "file_offset": 47703736,
+          "target_entry": "0x10065ec9c",
+          "nm_symbol": "__ZN17AssemblingMachine12giveProductsERK15RecipePrototype2IDI16QualityPrototypehES5_d7MapTick9NamedBoolI19FromProductivityTagE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1360",
+          "pointer_storage_address": "0x102d7e6c0",
+          "file_offset": 47703744,
+          "target_entry": "0x1007418a0",
+          "nm_symbol": "__ZNK15CraftingMachine18hasProductOverloadERK15RecipePrototype"
+        },
+        {
+          "object_vptr_slot_offset": "0x1368",
+          "pointer_storage_address": "0x102d7e6c8",
+          "file_offset": 47703752,
+          "target_entry": "0x100741a98",
+          "nm_symbol": "__ZNK15CraftingMachine15canGiveProductsERK15RecipePrototype"
+        },
+        {
+          "object_vptr_slot_offset": "0x1378",
+          "pointer_storage_address": "0x102d7e6d8",
+          "file_offset": 47703768,
+          "target_entry": "0x100659984",
+          "nm_symbol": "__ZN17AssemblingMachine40checkChangeRecipeAfterFinishingLastCycleE13IDWithQualityI2IDI15RecipePrototypetEE"
+        },
+        {
+          "object_vptr_slot_offset": "0x1380",
+          "pointer_storage_address": "0x102d7e6e0",
+          "file_offset": 47703776,
+          "target_entry": "0x100740170",
+          "nm_symbol": "__ZN15CraftingMachine20updateAnimationStateEd"
+        }
+      ],
+      "method": "Read qwords from frozen arm64 Mach-O LC_SEGMENT_64 virtual/file mapping; resolve values against compressed nm inventory. Header zero plus matching RTTI verifies the +16 Itanium address point. This establishes these static class tables; other subclass overrides remain open."
+    }
+  ],
+  "claims": [
+    {
+      "id": "P01",
+      "claim": "A selected recipe and stable recipe/quality identity gate the next ingredient-taking step. Item inputs are tested for prototype identity, sufficient count and requested quality; fluid inputs for identity, amount and temperature bounds.",
+      "certainty": "Selected-recipe/identity order is directly observed in craftWithCurrentRecipe and canConsume; ingredient tests are recovered shared helper logic tail-reached by canTakeIngredients. Exact structure member names are not recovered.",
+      "before": "Recipe id absent, or ingredient mismatch/shortage/quality mismatch, or recipe/quality changed during check.",
+      "after": "Absent recipe returns3; item rejection returns8; fluid rejection returns9; successful ingredient eligibility returns1. No input-removal call occurs before the craft caller checks result/identity.",
+      "prerequisites": [
+        "Configured recipe and paired input slots",
+        "Stable recipe and quality identity"
+      ],
+      "costs": "Eligibility itself contains comparisons, not material removal.",
+      "state": "Read-only eligibility with caller identity recheck.",
+      "time_support": "New-batch check occurs when stored progress is zero; it is repeated if remaining tick work can begin another batch.",
+      "failure_interruption": "Rejected eligibility exits before energy extraction and ingredient consumption in this caller.",
+      "downstream_consumer": "consumeIngredients, then ProductionHelper::takeIngredients.",
+      "evidence": [
+        {
+          "entry": "0x10073e2e4",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+          "c_line_start": 21,
+          "c_line_end": 40,
+          "instruction_addresses": [
+            "0x10073e334",
+            "0x10073e374",
+            "0x10073e39c",
+            "0x10073e3a4"
+          ]
+        },
+        {
+          "entry": "0x10073e2e4",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+          "c_line_start": 84,
+          "c_line_end": 88
+        },
+        {
+          "entry": "0x10073f37c",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f37c.c",
+          "c_line_start": 18,
+          "c_line_end": 72,
+          "instruction_addresses": [
+            "0x10073f394 -> 0x1007391d4"
+          ]
+        },
+        {
+          "entry": "0x10073e93c",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e93c.c",
+          "c_line_start": 9,
+          "c_line_end": 16
+        }
+      ],
+      "limits": [
+        "Wrapper body-byte hash only covers0x10073f37c\u201310073f397; recovered C continues through the tail target0x1007391d4, so that helper needs an independent bounded export."
+      ]
+    },
+    {
+      "id": "P02",
+      "claim": "Starting a craft performs real material expenditure and captures ingredient-derived quality/spoil information. Item removal is delegated to named ItemStack::remove; fluid quantities are subtracted and empty identities cleared.",
+      "certainty": "Native direct calls, arithmetic writes and mapped helper names are verified. The input quality accumulator/minimum and weighted spoil-age interpretation are analyst inferences corroborated by QualityPrototype/spoil metadata joins.",
+      "before": "Eligible input inventory/fluid state and zero progress.",
+      "after": "Recipe item quantities passed to ItemStack::remove; paired fluid quantity becomes old minus min(required,old). Returned consumption summary is stored by consumeIngredients; result quality is selected and required nonzero.",
+      "prerequisites": [
+        "P01 eligibility",
+        "Positive extractEnergyAndPollute result in craft caller"
+      ],
+      "costs": "Actual item quantity removal and fluid depletion. No YAIR sap/fuel/stamina recipe or quantity appears here.",
+      "state": "Consumes inputs; stores consumption summary and a per-item tick map; updates result quality.",
+      "time_support": "consumeIngredients is called once on zero-progress batch start, then again only when starting another completed-cycle follow-on.",
+      "failure_interruption": "These methods do not implement a refund policy. The assertion that result quality is nonzero is an invariant, not a user-facing failure branch.",
+      "downstream_consumer": "giveProducts reads stored spoil summary/tick and result quality; getIngredientSpoilTick retrieves captured per-item ticks.",
+      "evidence": [
+        {
+          "entry": "0x10073e2e4",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+          "c_line_start": 36,
+          "c_line_end": 49,
+          "instruction_addresses": [
+            "0x10073e3a4",
+            "0x10073e3f0"
+          ]
+        },
+        {
+          "entry": "0x10073f398",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.c",
+          "c_line_start": 65,
+          "c_line_end": 81
+        },
+        {
+          "entry": "0x10073f398",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.c",
+          "c_line_start": 130,
+          "c_line_end": 198,
+          "instruction_addresses": [
+            "0x10073f718 -> 0x1001aec74"
+          ]
+        },
+        {
+          "entry": "0x10073f398",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.c",
+          "c_line_start": 242,
+          "c_line_end": 257
+        },
+        {
+          "entry": "0x10073f398",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073f398.c",
+          "c_line_start": 273,
+          "c_line_end": 292
+        },
+        {
+          "entry": "0x10073e99c",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e99c.c",
+          "c_line_start": 33,
+          "c_line_end": 44
+        },
+        {
+          "entry": "0x10073e99c",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e99c.c",
+          "c_line_start": 83,
+          "c_line_end": 113
+        }
+      ],
+      "limits": [
+        "ItemStack::remove internals and optional metadata-object callback remain unreviewed. Quality upgrade chance details and exact original field names remain unverified."
+      ]
+    },
+    {
+      "id": "P03",
+      "claim": "Production carries fractional progress, consumes a positive energy/speed result, converts it by60, and can finish several cycles in one update while rechecking eligibility between cycles.",
+      "certainty": "Arithmetic/control order verified in C and arm64 floating-point instructions. The speed/tick interpretation is corroborated by getCraftingSpeed in both static vtables;60does not establish YAIR minute pacing.",
+      "before": "Progress below recipe threshold, eligible inputs for a new zero-progress batch, and positive energy extraction result.",
+      "after": "Progress increases by the converted work budget; a threshold crossing calls tryToProduceAndEject and either stops or uses remaining budget to start another cycle. A separate productivity accumulator grows by a clamped multiplier.",
+      "prerequisites": [
+        "Recipe selected",
+        "P01 passes on new batch",
+        "Energy result greater than zero"
+      ],
+      "costs": "Energy extraction precedes input consumption; exact fuel units/source-family costs need separate helper review.",
+      "state": "Stores progress at machine+0x1e8 and separate productivity progress at+0x1b8; these are inferred labels corroborated by floating-point loads/stores.",
+      "time_support": "Recipe threshold from recipe+0x238; returned energy/speed divided by60; no offline/player clock policy established.",
+      "failure_interruption": "Nonpositive extraction returns2 before consumeIngredients; failed output production stops the remaining-cycle loop.",
+      "downstream_consumer": "tryToProduceAndEject and its product-admission helper.",
+      "evidence": [
+        {
+          "entry": "0x10073e2e4",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+          "c_line_start": 36,
+          "c_line_end": 49,
+          "instruction_addresses": [
+            "0x10073e3a4",
+            "0x10073e3a8",
+            "0x10073e3ac"
+          ]
+        },
+        {
+          "entry": "0x10073e2e4",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+          "c_line_start": 65,
+          "c_line_end": 111,
+          "instruction_addresses": [
+            "0x10073e4c0",
+            "0x10073e4d8",
+            "0x10073e584",
+            "0x10073e5a4",
+            "0x10073e61c"
+          ]
+        }
+      ],
+      "limits": [
+        "extractEnergyAndPollute priority C is contaminated after a logging default branch; no fuel/pollution formula is promoted from that region."
+      ]
+    },
+    {
+      "id": "P04",
+      "claim": "Ordinary product delivery first checks all paired output slots. A rejected item product returns6; incompatible or overcapacity fluid output returns7; only success admits material generation/insertion.",
+      "certainty": "Native helper gate, item slot loop and fluid comparisons verified. Mapped canGiveItemProduct body supports identity, quality and finite stack capacity. The fluid helper return x1 interpretation as current amount is strongly inferred from its use; independent getFluidForDisplay body remains a gap.",
+      "before": "A completed production request with output slots containing existing material, requested quality, spoil state and capacity.",
+      "after": "Gate rejection exits before product collect/transfer/fluid-add; success continues. canGiveItemProduct accepts empty slots, otherwise checks item/quality compatibility and requested count plus existing count against chosen limit; extra object compatibility is a virtual tail call.",
+      "prerequisites": [
+        "ProductionHelper::giveProducts IgnoreProductionOverload argument false",
+        "Paired output-slot/recipe layout valid"
+      ],
+      "costs": "Admission comparison itself has no product insertion. Inputs may already have been spent earlier in the craft cycle.",
+      "state": "Reads output custody; rejected ordinary output request does not enter product mutation branch.",
+      "time_support": "Checked when giveProducts is requested, including complete ordinary/productivity cycles; no global pre-batch reservation is established.",
+      "failure_interruption": "One rejected paired output prevents the ordinary helper from entering any product generation branch. Bypass flag and special product modes mean this is not an unconditional whole-game guarantee.",
+      "downstream_consumer": "P05 giveProducts product collection, transferReal and fluid addition.",
+      "evidence": [
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 36,
+          "c_line_end": 75,
+          "instruction_addresses": [
+            "0x10073ecdc -> 0x100741abc"
+          ]
+        },
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 274,
+          "c_line_end": 275
+        },
+        {
+          "entry": "0x100741a98",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100741a98.c",
+          "c_line_start": 28,
+          "c_line_end": 76,
+          "instruction_addresses": [
+            "0x100741b48",
+            "0x100741b4c",
+            "0x100741bc8",
+            "0x100741c14",
+            "0x100741c24"
+          ]
+        },
+        {
+          "entry": "0x101559374",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/101559374.c",
+          "c_line_start": 20,
+          "c_line_end": 28
+        },
+        {
+          "entry": "0x101559374",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/101559374.c",
+          "c_line_start": 89,
+          "c_line_end": 122
+        }
+      ],
+      "limits": [
+        "canGiveProducts wrapper enters shared code at0x100741abc, with matching recovered logic; standalone helper export still useful. Precise probabilistic upper-bound count calculation and virtual metadata compatibility are not fully decoded. Native preflight is not a durable save transaction."
+      ]
+    },
+    {
+      "id": "P05",
+      "claim": "After admission, generated products enter real item/fluid custody; a failed completion keeps its stored completion progress and result quality for a later attempt. Successful completion resets them before optional ejection and recipe-change handling.",
+      "certainty": "Mapped product generation/transfer functions, arithmetic writes and completion reset order verified. Both CraftingMachine and AssemblingMachine static tables resolve product-give slots; the assembling override body is still unreviewed.",
+      "before": "Complete progress with valid result quality; ordinary admission may fail.",
+      "after": "Normal helper collects items, sets applicable spoil ticks, invokes ItemStack::transferReal, and adds compatible generated fluid quantity with weighted temperature mixing. CraftingMachine wrapper increments+0x21c on helper success. tryToProduceAndEject clears+0x1e8/+0x214 only after result1, optionally calls ejectOutputToDropTarget, then checks continuation/recipe change.",
+      "prerequisites": [
+        "P04 or explicitly allowed bypass mode",
+        "Product generator returns a nonempty item/fluid product"
+      ],
+      "costs": "No fresh ingredient removal in ordinary product insertion; extra productivity outputs draw from separate accumulated productivity progress.",
+      "state": "Moves output ownership into output slots/FluidBox; successful ordinary cycle resets completion state; blocked cycle retains that state.",
+      "time_support": "Product spoil ticks use MapTick and ingredient-derived age; productivity subtracts recipe threshold only after successful product give.",
+      "failure_interruption": "On product give result!=1, reset/ejection/continuation steps are skipped. There is no proved refund, offline replay or save-failure recovery policy.",
+      "downstream_consumer": "Output inventory, optional drop target, later insertion/transport and status display. Conveyor/inserter end-to-end consumer chain remains outside this review.",
+      "evidence": [
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 73,
+          "c_line_end": 81
+        },
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 98,
+          "c_line_end": 156,
+          "instruction_addresses": [
+            "0x10073efbc",
+            "0x10073f038 -> 0x10083b770"
+          ]
+        },
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 199,
+          "c_line_end": 243
+        },
+        {
+          "entry": "0x10065ed00",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10065ed00.c",
+          "c_line_start": 9,
+          "c_line_end": 13,
+          "instruction_addresses": [
+            "0x10065ed2c"
+          ]
+        },
+        {
+          "entry": "0x10073e6b8",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e6b8.c",
+          "c_line_start": 33,
+          "c_line_end": 48,
+          "instruction_addresses": [
+            "0x10073e818",
+            "0x10073e820",
+            "0x10073e824",
+            "0x10073e828",
+            "0x10073e840"
+          ]
+        },
+        {
+          "entry": "0x10073e6b8",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e6b8.c",
+          "c_line_start": 58,
+          "c_line_end": 75
+        }
+      ],
+      "limits": [
+        "collectItem,collectFluid,transferReal and drop-target internals are mapped but not semantically reviewed; special param9 path skips material transfer while retaining generator/statistics work. Completion count label for+0x21c is inferred, not an original recovered member name."
+      ]
+    },
+    {
+      "id": "P06",
+      "claim": "Output compatibility accounts for quality and spoilage, and input spoil notifications can route remaining material to output or auxiliary inventory rather than awarding arbitrary new progress.",
+      "certainty": "Quality-id checks, spoil-deadline arithmetic, captured tick lookup and notification routing verified. Physical destination labels are inferred from inventory offsets and corroborating getOutputInventories/source names; unreviewed virtual transfer behavior remains open.",
+      "before": "Existing output stack or captured consumed input with spoil tick; input spoil notification points to the machine input inventory.",
+      "after": "Product admission may test the spoiled target item when its derived deadline has passed; output creation calls setSpoilTick. getIngredientSpoilTick returns captured per-item tick or0. onStackSpoiled attempts output then auxiliary transfer and marks remaining work bit0x20 when material remains.",
+      "prerequisites": [
+        "Spoiling enabled for product and appropriate prototype metadata",
+        "Notification belongs to input inventory for input routing"
+      ],
+      "costs": "No stamina or new recipe resource here; spoilage can change compatible output identity/remaining lifetime.",
+      "state": "Preserves ingredient tick provenance, routes material and marks pending remainder.",
+      "time_support": "Uses real MapTick and quality-scaled spoil duration; exact freshness semantic label is inferred.",
+      "failure_interruption": "Metadata-object tail compatibility and transfer results are unresolved; do not promise universal salvage or a specific resulting spoil item.",
+      "downstream_consumer": "P04 capacity/identity admission, P05 output tick assignment, later inventory/spoil processing.",
+      "evidence": [
+        {
+          "entry": "0x101559374",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/101559374.c",
+          "c_line_start": 29,
+          "c_line_end": 87
+        },
+        {
+          "entry": "0x10073ec44",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ec44.c",
+          "c_line_start": 98,
+          "c_line_end": 135
+        },
+        {
+          "entry": "0x10073e1a0",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e1a0.c",
+          "c_line_start": 11,
+          "c_line_end": 29
+        },
+        {
+          "entry": "0x10073c154",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073c154.c",
+          "c_line_start": 11,
+          "c_line_end": 48
+        }
+      ],
+      "limits": [
+        "No DLC-wide spoilage/quality coverage; these installed core helper branches demonstrate hooks only."
+      ]
+    },
+    {
+      "id": "P07",
+      "claim": "Output overload and output admission are distinct checks. The overload check can stop at a recipe-configured or speed/time-derived threshold below maximum physical capacity.",
+      "certainty": "hasProductOverload recovered comparisons and its resolved virtual slot verified; exact global setting names remain unreviewed.",
+      "before": "Existing product counts/fluid quantity and recipe count limit or zero fallback field.",
+      "after": "Configured threshold or a bounded speed/recipe-time-derived multiplier is chosen; mismatching item or threshold reached returns6, fluid threshold reached returns7, otherwise1. Boolean overload wrapper reports result!=1.",
+      "prerequisites": [
+        "Selected recipe",
+        "Paired output layout"
+      ],
+      "costs": "Read-only threshold check.",
+      "state": "No direct material expenditure or insertion in these methods.",
+      "time_support": "Zero configured recipe field uses crafting speed divided by recipe threshold plus bounds.",
+      "failure_interruption": "Not evidence that every new batch reserves every output or that all subclasses gate on physical capacity before taking inputs.",
+      "downstream_consumer": "getStatus/update overload consumers and source-specific production controllers.",
+      "evidence": [
+        {
+          "entry": "0x1007418a0",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/1007418a0.c",
+          "c_line_start": 23,
+          "c_line_end": 87
+        },
+        {
+          "entry": "0x10073b678",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073b678.c",
+          "c_line_start": 7,
+          "c_line_end": 15
+        },
+        {
+          "entry": "0x100738da0",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100738da0.c",
+          "c_line_start": 61,
+          "c_line_end": 88
+        },
+        {
+          "entry": "0x100738da0",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/100738da0.c",
+          "c_line_start": 186,
+          "c_line_end": 208
+        },
+        {
+          "entry": "0x10073ce00",
+          "c_file": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073ce00.c",
+          "c_line_start": 204,
+          "c_line_end": 212
+        }
+      ],
+      "limits": [
+        "Status table labels not recovered; getStatus after assertion and its merged ingredient-helper path excluded. shouldContinueCrafting and assembling production override still require actual bodies."
+      ]
+    }
+  ],
+  "original_yair_use": {
+    "verdict": "Supported original design use; specific two-tray resin/residue production is not literal Factorio behavior.",
+    "native_design_foundation": [
+      "Real input custody and item/fluid expenditure",
+      "Finite compatible output custody, gated before ordinary output mutations",
+      "Completed production retained under output denial",
+      "Fractional work and repeated production admit only after checks",
+      "Quality/spoil metadata remain attached to production and output compatibility"
+    ],
+    "original_choices": [
+      "Exactly two physical trays with separately held resin and residue",
+      "Concrete sap and fuel recipe, stamina expense, YAIR clock duration and balances",
+      "Pre-batch refusal/reservation before spending fresh inputs when either tray has insufficient capacity",
+      "Tray collection/disposal/reuse and residue downstream crafting uses",
+      "Durable staging in YAIR one publisher/body/inventory/clock with save compatibility"
+    ],
+    "recommended_chain": "Inspect both owned output trays and reserve their concrete outputs; if either cannot accept its assigned material, deny before spending any sap/fuel/stamina or clock time. Otherwise debit actual existing inputs/body resources once, advance the actual YAIR clock through the normal durable publisher, materialize resin and residue separately in those trays, and require collection/reuse/disposal to make room before another batch. Label exact amounts, timers, contents and pre-batch reservation as original proposals.",
+    "native_ordering_limit": "Factorio helper checks completed-output admission. craftWithCurrentRecipe does not establish every new batch reserving output capacity before input consumption; root pre-batch policy deliberately prevents stranded YAIR inputs and is stricter.",
+    "acceptance_status": "Design evidence reviewed; root runtime implementation and build qualification owned elsewhere. Current project wave defers gameplay/browser/save/failure/regression checks; delivered gameplay must remain implemented-unverified.",
+    "later_acceptance": [
+      "Either full tray blocks next batch without input/body/time charge",
+      "A paid batch produces both outputs in separate owned custody exactly once",
+      "Collection/reuse/disposal actually frees correct capacity and consumes correct material",
+      "Old absent state initializes inertly; batch/tray custody survives later save/reload",
+      "Persistence failure does not publish partial costs or one of two outputs"
+    ]
+  },
+  "remaining_helper_gaps": [
+    {
+      "family": "Clean function boundaries",
+      "entries": [
+        "0x1007391d4",
+        "0x100741abc",
+        "0x10073ebd8",
+        "0x100739184",
+        "0x100738da0"
+      ],
+      "need": "Export standalone ingredient/output shared helpers and mark logging/assertion non-return paths; exclude unrelated post-abort bodies from status/energy semantics."
+    },
+    {
+      "family": "Subclass and continuation policy",
+      "entries": [
+        "0x10065ec9c",
+        "0x101b08160",
+        "0x101b0a858",
+        "0x100659984"
+      ],
+      "need": "Read actual assembling giveProducts/continuation/change-recipe bodies; resolved vtable pointers alone are not semantics."
+    },
+    {
+      "family": "Material primitives and generators",
+      "entries": [
+        "0x1001aec74",
+        "0x10083b770",
+        "0x101558e8c",
+        "0x1015591d4",
+        "0x10022f960"
+      ],
+      "need": "Review removal/transfer, probabilistic product generation, fluid display amount, metadata compatibility and subtype overrides."
+    },
+    {
+      "family": "Energy/time and consumer lifecycle",
+      "entries": [
+        "0x10073f9bc",
+        "0x10073fb40",
+        "0x10073fcec",
+        "0x10073fe68",
+        "0x10073ffd4",
+        "0x1007395ac"
+      ],
+      "need": "Review source-family expenditure and continuation/scheduling, ejection/drop target, conveyors/inserters; do not infer full transport/offline/durable failure behavior from this chain."
+    },
+    {
+      "family": "Coverage beyond this leaf",
+      "need": "Whole-program analysis, both-architecture exports, function inventory/failure repair and wider base/DLC semantics remain parent work;15full-read entries do not constitute full native semantic coverage."
+    }
+  ],
+  "verification": {
+    "all_referenced_C_files_match_JSON_code_and_C_SHA256": true,
+    "input_slice_sha256_matches_intake": true,
+    "read_only_binary_vtable_mapping": true,
+    "instruction_flow_targets_inspected": true,
+    "export_calls_array_treated_as_incomplete": true,
+    "no_game_launch_or_recovered_code_execution": true,
+    "no_saves_profiles_entitlements_source_library_or_runtime_writes": true,
+    "no_commit_push_publication": true
+  }
+}

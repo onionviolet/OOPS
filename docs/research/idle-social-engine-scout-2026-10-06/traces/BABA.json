@@ -1,0 +1,320 @@
+{
+  "schema": 1,
+  "candidate": "Baba Is You",
+  "candidateId": "baba",
+  "asOf": "2026-10-06",
+  "disposition": "adapt",
+  "scope": "Bounded physical-rule configuration lens; no retail clone/engine swap",
+  "sourcePin": {
+    "creatorUrl": "https://hempuli.itch.io/baba-is-you",
+    "uploadId": "455758",
+    "archiveSha256": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+    "archiveBytes": 2935521,
+    "creditedEdition": "Baba Is You2017 jam; precise executable build date unknown",
+    "sourceFile": "syntax.lua",
+    "sourceSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+    "sourceLines": 557,
+    "manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/baba/JAM_ACCESS.json"
+  },
+  "evidence": [
+    {
+      "id": "B01",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        1,
+        18
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Defines finite material/property vocabulary and mutable global feature list; clear discards current parsed features."
+    },
+    {
+      "id": "B02",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        164,
+        219
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Reads physical word neighbors through MF_code, follows two directions or a supplied direction, collects multiword feature candidates; host enumeration/call schedule outside Lua."
+    },
+    {
+      "id": "B03",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        439,
+        484
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Uses first three words to match property/verb phrase and returns matching subjects; this is not retail full NOT/AND/conditional grammar."
+    },
+    {
+      "id": "B04",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        20,
+        56
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Queries controlled subjects and applies movement to actual host-returned actor IDs; slipping checks can alter command response."
+    },
+    {
+      "id": "B05",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        59,
+        115
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Recursively pushes obstacles/text and calls MF_update only on unobstructed branch; no item/currency/stamina debit in this visible Lua path."
+    },
+    {
+      "id": "B06",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        117,
+        162
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Stops or pushes according to current parsed subject properties; text defaults to push through nonnil branch; boundaries from host obstacle query."
+    },
+    {
+      "id": "B07",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        221,
+        297
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Autonomous move/slip, push and sink consumers; sink removes both object and contacting sink through host callbacks."
+    },
+    {
+      "id": "B08",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        298,
+        372
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Control/win/kill and hot/melt contact paths call actual host win/remove functions; exact engine scheduling/transaction semantics not present."
+    },
+    {
+      "id": "B09",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        382,
+        437
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Three-word noun identity rule validates material names then calls MF_convert; persistent mutation/rollback/equipment behavior outside visible Lua."
+    },
+    {
+      "id": "B10",
+      "status": "source-demonstrated-not-executed",
+      "archivePin": "782fa1b2debd74f002abf674e2f35844403a4b0b609a61a00f02a72a70410409",
+      "path": "syntax.lua",
+      "lines": [
+        486,
+        557
+      ],
+      "fileSha256": "268654fc7782c29839a3ccf7f68f90694e8385e74cb7b5cb69609f1b47fb4fd9",
+      "sourceOwner": "https://hempuli.itch.io/baba-is-you",
+      "claim": "Direction rotation, tile vocabulary and identity matching helpers; includes a NOT tile but not a demonstrated retail negation parser."
+    }
+  ],
+  "primaryDocumentation": [
+    {
+      "id": "BD01",
+      "url": "https://hempuli.com/baba/",
+      "status": "creator-description-only",
+      "claim": "Rules are physical objects whose manipulation changes interactions; no algorithm/runtime claim."
+    },
+    {
+      "id": "BD02",
+      "url": "https://hempuli.itch.io/baba-is-you",
+      "status": "creator-public-source-delivery",
+      "claim": "Free2017 jam build; Windows archive455758 used for text inspection, no executable extraction/install/run."
+    },
+    {
+      "id": "BD03",
+      "url": "https://hempuli.itch.io/baba/devlog/315102/official-level-editor-releasing-on-november-17th",
+      "status": "publisher-update-description-only",
+      "claim": "2021 editor/share/curation update and new/cut level packs with rules; not reviewed level content."
+    },
+    {
+      "id": "BD04",
+      "url": "https://hempuli.itch.io/baba/devlog/315522/editor-update-is-live",
+      "status": "publisher-update-description-only",
+      "claim": "2021 editor update release notice."
+    },
+    {
+      "id": "BD05",
+      "url": "https://hempuli.itch.io/baba/devlog/1285463/version-481d",
+      "status": "publisher-patch-documentation-only",
+      "claim": "2026-01-02 retail481d adds five words and modhooks, custom undo events, transitions and MF documentation; those source files were not acquired."
+    },
+    {
+      "id": "BD06",
+      "url": "https://store.steampowered.com/app/736260/Baba_Is_You/",
+      "status": "primary-store/API-metadata-only",
+      "claim": "US API2026-10-06 base14.99USD; sole listed DLC955710 soundtrack2.99USD; no paid gameplay DLC enumerated. Ownership/installation not established."
+    }
+  ],
+  "traces": [
+    {
+      "id": "BABA-T1",
+      "status": "connected-Lua-functions-read-host-loop-unavailable",
+      "prerequisite": "Physical word positions produce a parsed feature list through opaque host word/position callbacks.",
+      "decision": "Manipulate word objects or move a controlled actor; configuration can make an object blocking/pushable, lethal/melting or a goal. The local rule-rebuild call schedule is not in Lua.",
+      "cost": "Input moves/opportunity and board constraints; no currency/material/stamina cost or native paid duration in selected Lua. Do not infer whole-game zero cost or undo semantics.",
+      "mutation": "MF_update positional movement; MF_remove and MF_win requested at contacts after selected property tests.",
+      "consumer": "Parsed rule lookup feeds movement obstruction, control and contact effect functions.",
+      "failureAfternath": "Blocking prevents movement; sink requests removal of both contacts, hot/melt removal of affected object, kill removes player, goal callback. Actual host callback lifecycle/save/undo/order unknown.",
+      "evidence": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08"
+      ]
+    },
+    {
+      "id": "BABA-T2",
+      "status": "source-entry-to-opaque-transformation-callback",
+      "prerequisite": "First three parsed words contain IS and recognised source/target material.",
+      "decision": "Arrange identity transformation rather than change a property; both are different code consumers.",
+      "cost": "Board-word availability/arrangement, no stock ledger or current retail entitlement inferred.",
+      "mutation": "rules calls MF_convert(source,target).",
+      "consumer": "Object identity conversion dispatched to host; implementation and later object properties/ownership uninspected.",
+      "failureAfternath": "Unknown material/type does not reach conversion callback; no rollback/irreversibility/persistence claim.",
+      "evidence": [
+        "B02",
+        "B09"
+      ]
+    }
+  ],
+  "coverage": {
+    "sourceReviewed": "Entire557-line syntax.lua and16-line credits.txt read; selected semantic anchors above.",
+    "sourceNotReviewed": [
+      "Opaque jam executable MF callbacks",
+      "Fourteen level payloads",
+      "Full retail481d source/assets/level packs",
+      "Retail MF_documentation/modsupport/values",
+      "Editor beta payload",
+      "Modern NOT/AND/condition/meta/undo algorithms",
+      "Community mods/clones/recreations"
+    ],
+    "runtime": "not-run",
+    "build": "not-run",
+    "sourceAssetCopyIntoGame": false,
+    "sourceAccessLimitation": "Public jam Lua accessible, host loop/callbacks opaque; current commercial source not installed/acquired. No original source licensing for redistribution established."
+  },
+  "dlcAndEditions": [
+    {
+      "edition": "2017 creator jam",
+      "status": "source-text-inspected",
+      "cost": "public free archive; no install/run",
+      "limits": "Not current retail source."
+    },
+    {
+      "edition": "Retail desktop481d",
+      "status": "primary-update/store-documentation-only",
+      "cost": "14.99USD regular US observation2026-10-06",
+      "limits": "No ownership/installation/whole-content reading."
+    },
+    {
+      "edition": "Baba Make Level/New Adventures/Museum2021 update",
+      "status": "documented-only-content-unread",
+      "cost": "Base update described by creator, no separate paid gameplay DLC in observed API",
+      "limits": "No level-by-level or modern rule reading."
+    },
+    {
+      "edition": "Editor beta",
+      "status": "creator-page-only-payload-unread",
+      "cost": "Public beta not installed",
+      "limits": "Page text says obsolete after official release; recent page metadata does not prove fresh engine parity."
+    },
+    {
+      "edition": "Soundtrack955710",
+      "status": "metadata-only-nongameplay",
+      "cost": "2.99USD regular US observation",
+      "limits": "Music not read/listened or counted as gameplay coverage."
+    },
+    {
+      "edition": "Board game/merch",
+      "status": "excluded-nonsoftware-product",
+      "cost": "No purchase/entitlement inquiry",
+      "limits": "Not gameplay DLC; unreviewed."
+    }
+  ],
+  "incumbent": {
+    "existing": [
+      "power_models practice/design/investment/authority/hybrid cost/scope",
+      "world/instance/condition/site/claim/custody owners",
+      "paid sequenced commands and completion-support",
+      "typed effects and one publisher/clock"
+    ],
+    "missingProposedConsumer": "One locally installed clause arrangement with conserved physical means that changes two actual environmental action options. A menu-only function label or general rule parser is not selected.",
+    "prototypeOnlyOwner": "realm_boundary_rules.js explicitly declares detached prototypes; do not claim its general boundary rules are all native behavior."
+  },
+  "adaptation": {
+    "id": "BABA-A1",
+    "status": "original-unimplemented",
+    "name": "One local formation with physical clauses",
+    "flow": "Acquire owned reusable plates/site permission -> pay setup/effort -> select one bounded supported arrangement -> derived local environment/access function -> actual useful paid action -> break/rearrange/expiry with retained material and consequence.",
+    "cost": "Author finite real means; no general free semantic effect strings.",
+    "constraints": [
+      "Same character/world/native stock",
+      "Only declared local targets/properties",
+      "No changing custody/ownership or redefining victory",
+      "Reserved setup cannot change during dependent accepted work",
+      "Actual clock/source/support and recovery",
+      "Versioned arrangement and current definition identity",
+      "No global grammar/engine/publisher"
+    ],
+    "observableGate": [
+      "Two configurations alter a supported useful action/risk using same conserved plates",
+      "Removing one physical clause removes future support without undoing completed output",
+      "Unknown clause/object/context cannot execute effects",
+      "Observer sees learned clause and reported effect, not hidden world truth",
+      "Later authorised generated-fixture save/failure gate preserves exact setup and paid costs"
+    ]
+  },
+  "largerImplications": [
+    "Discovery of permitted interactions can change the rules available to the same character, rather than only numerical stats.",
+    "Spatial word placement is functional in Baba; a native command/table can demonstrate YAIRPG clause choices before a renderer.",
+    "World-scoped authoring can permit local laws/formation exceptions while keeping identity, knowledge and custody global owners.",
+    "Property configuration and identity transformation need different conservation/removal policies.",
+    "Local reversible experimentation is not general historical rewind or save rollback."
+  ],
+  "effort": "medium-to-high new arrangement/consumer/validation/observer binding; bounded typed mappings easier than importing grammar/host engine",
+  "license": "Credits identify Arvi Teikari/Clickteam/plugins; no redistribution license established in selected archive. Original design only; no code/assets/levels copied into game."
+}

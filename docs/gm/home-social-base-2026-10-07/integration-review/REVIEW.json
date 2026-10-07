@@ -1,0 +1,130 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-07T05:43:34.562600+00:00",
+  "worker": "/root/crush_social_resume",
+  "parent": "/root",
+  "status": "finite-read-only-review-complete-findings-returned-root-owns-repairs",
+  "sourceSnapshot": "READ_INPUTS.json",
+  "report": "REVIEW.md",
+  "sourceWrites": false,
+  "findings": [
+    {
+      "id": "IR-01",
+      "priority": 1,
+      "file": "src/proto23_world_host.js",
+      "line": 49,
+      "related": [
+        {
+          "file": "src/simulation.js",
+          "line": 76
+        }
+      ],
+      "title": "Trusted Proto23 preview flag omitted",
+      "fix": "Bind proto23Host true inside the host preview with the authored target."
+    },
+    {
+      "id": "IR-02",
+      "priority": 1,
+      "file": "src/audit_remainder_state.js",
+      "line": 43,
+      "related": [
+        {
+          "file": "src/reference_gameplay_state.js",
+          "line": 66
+        },
+        {
+          "file": "src/feature_expansion_nested_life.js",
+          "line": 109
+        },
+        {
+          "file": "src/feature_expansion_nested_host.js",
+          "line": 237
+        },
+        {
+          "file": "src/book_world_paradise_host.js",
+          "line": 68
+        }
+      ],
+      "title": "Proto23-first optional enrollment is rejected or stages a lower schema",
+      "fix": "Admit proto23Village as an actual schema11 owner and retain schema11 in optional staged helpers."
+    },
+    {
+      "id": "IR-03",
+      "priority": 1,
+      "file": "src/realm_state.js",
+      "line": 34,
+      "related": [
+        {
+          "file": "src/expansion_engine.js",
+          "line": 153
+        }
+      ],
+      "title": "Retained inactive Glasshouse rejects actual Proto23 body presence",
+      "fix": "Recognize the actual matching active Proto23 visit as a foreign source visit."
+    },
+    {
+      "id": "IR-04",
+      "priority": 1,
+      "file": "src/main.js",
+      "line": 1668,
+      "related": [
+        {
+          "file": "src/proto23_world_actions.js",
+          "line": 16
+        },
+        {
+          "file": "src/simulation.js",
+          "line": 155
+        }
+      ],
+      "title": "Ordinary Shack travel does not sync the Proto23-only player body location",
+      "fix": "Join Proto23 to durable native body-location movement while retaining real travel time."
+    },
+    {
+      "id": "IR-05",
+      "priority": 1,
+      "file": "src/components/trader_component.js",
+      "line": 69,
+      "related": [
+        {
+          "file": "src/proto23_world_native.js",
+          "line": 34
+        },
+        {
+          "file": "src/proto23_world_content.js",
+          "line": 145
+        }
+      ],
+      "title": "Merchant refresh discards exactly conserved Proto23 furnishings and notebook",
+      "fix": "Preserve the four exact physical keys across merchant refresh, rejecting alias/template duplication, or reject sale before commit."
+    }
+  ],
+  "checks": [
+    {
+      "kind": "syntax",
+      "result": "passed",
+      "modules": 14
+    },
+    {
+      "kind": "cold-import-and-declarative-registry-inspection",
+      "result": "passed",
+      "proto23Commands": 29,
+      "retortCommands": 6,
+      "retortPlans": 1,
+      "constructorsExecuted": false,
+      "commandsExecuted": false
+    }
+  ],
+  "limits": [
+    "no suites",
+    "no model/state fixtures",
+    "no DOM/browser",
+    "no command execution",
+    "no save/reload/import/failure journey",
+    "no final repair verification",
+    "no private saves/source libraries"
+  ],
+  "releasedTo": "/root",
+  "pendingTools": [],
+  "children": []
+}

@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "owner": "game-absorption-2026-10-06",
+  "integrator": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "selected": [
+    {
+      "id": "GD-01-EVIDENCE-ASSAY",
+      "source": "docs/research/game-discovery-2026-10-06/PACKETS.json",
+      "sourcePin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+      "evidence": [
+        "BG-E1",
+        "BG-E2",
+        "BG-E3",
+        "BG-E4"
+      ],
+      "disposition": "Actual receiver source/native/UI/compatible-state/current-build delivered, implemented-unverified",
+      "implementation": "src/game_absorption_assay_*.js",
+      "owner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+      "consumerNeeds": "No selected source/native join pending. Exact later five behavioral/save/failure/keyboard/director gates remain deferred.",
+      "adaptation": "Two disclosed candidates; existing acquired reed-oil control; paid failed unchanged-knife trial and retained negative evidence; infer after control before or after failure; useful rinse/direct sample/ordinary scraping -> existing native pin and existing resin kit.",
+      "currentBuild": "docs/gm/audit-absorption-2026-10-07/BUILD.json"
+    }
+  ],
+  "reservedElsewhere": [],
+  "alreadyCovered": [
+    {
+      "id": "existing:ordinary-fixture-and-kit-stock",
+      "source": [
+        "src/audited_workshop_fixture.js",
+        "src/audited_kit_reserve_content.js"
+      ],
+      "consumer": "Actual existing fixture construction, two-kit recipe and finite reserve work plan; not selected as new absorption."
+    },
+    {
+      "id": "existing:cooling-and-vial-identification",
+      "source": [
+        "src/reference_gameplay_content.js",
+        "src/nethack_fieldcraft_content.js",
+        "src/nethack_fieldcraft_facts.js"
+      ],
+      "consumer": "Actual finite cooling source/tool and performed-use identification; new packet must be distinct."
+    },
+    {
+      "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "ids": [
+        "elin:P1",
+        "elin:P2",
+        "elin:P3",
+        "elin:P4",
+        "elin:P5",
+        "idling-to-rule-the-gods:P1",
+        "idling-to-rule-the-gods:P3",
+        "keeperrl:P1",
+        "keeperrl:P2",
+        "keeperrl:P3",
+        "keeperrl:P4",
+        "rimworld:P2",
+        "rimworld:P3",
+        "rogue-legacy:P1",
+        "rogue-legacy:P2",
+        "rogue-legacy:P3",
+        "rogue-legacy:P4",
+        "tales-of-maj-eyal:P1",
+        "tales-of-maj-eyal:P2"
+      ],
+      "source": "docs/gm/audit-implementation/remainder/ASSIGNMENT.json",
+      "needs": "Sole native/state/UI/save/build integration for ALL19 and causal/artifact/missed-audit returns.",
+      "disposition": "historical reservations superseded by completed ALL19/artifact/causal delivery and explicit remainder release",
+      "release": "docs/gm/audit-implementation/remainder/RELEASE.json"
+    },
+    {
+      "owner": "01a10fa6-d749-70a1-882b-eae0fd454060",
+      "ids": [
+        "causal:P1-P5"
+      ],
+      "source": "docs/gm/causal-endings/",
+      "needs": "Retain causal_story_* exclusive writes; returned packet goes to current integrator.",
+      "disposition": "historical reservations superseded by completed ALL19/artifact/causal delivery and explicit remainder release",
+      "release": "docs/gm/audit-implementation/remainder/RELEASE.json"
+    },
+    {
+      "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "ids": [
+        "artifact:collection"
+      ],
+      "source": "docs/gm/artifact-collection/",
+      "needs": "Released only to current integrator; no duplicate artifact work.",
+      "disposition": "historical reservations superseded by completed ALL19/artifact/causal delivery and explicit remainder release",
+      "release": "docs/gm/audit-implementation/remainder/RELEASE.json"
+    }
+  ],
+  "sourceBlocked": [],
+  "updatedAt": "2026-10-06T20:02:13.473110+00:00",
+  "notSelected": [
+    {
+      "id": "GD-02-SITE-TRANSFORMATION",
+      "sourceReady": true,
+      "source": "docs/research/game-discovery-2026-10-06/PACKETS.json",
+      "disposition": "distinct source-ready follow-on; not selected in current concrete feature",
+      "reason": "Distinct retained substrate/hazard/custody feature outside the finite selected assay/ACS/routes objective; a future selection needs exact typed state and compatibility consumer, not automatic absorption."
+    }
+  ],
+  "currentSharedLeaseOwner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "sourcePacketHandoff": "RELEASE.json",
+  "updatedAtUtc": "2026-10-07T06:21:46.171508+00:00"
+}

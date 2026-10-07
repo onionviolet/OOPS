@@ -1,0 +1,724 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-05",
+  "role": "society-branching",
+  "status": "planning-complete-checked-awaiting-coordinator-integration",
+  "rows": [
+    {
+      "id": "UVS01",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 549,
+        "lineEnd": 549,
+        "quote": "more considerations to take into consideration? and then this can be a feature as well? people with their own techniques and more? \"Incomplete\" Skills? We can be inspired by all those kind of books and stuff like shadow slave and more? More to consider?",
+        "heading": "Personal techniques, incomplete skills and broader book inspiration, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 52,
+          "lineEnd": 61,
+          "claim": "Real original description/practice/body-source-use distinction exists."
+        },
+        {
+          "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+          "lineStart": 23,
+          "lineEnd": 24,
+          "claim": "E08 still requires actual willing learner/handoff."
+        }
+      ],
+      "currentStatus": "Implemented source subset: Tamsin teaching; held Frontier tally; family/general reciprocal teaching proposed.",
+      "missingDecisionOrConsumer": "Actual learner-owned procedure, teaching eligibility/costs, attribution and NPC paid use after handoff.",
+      "connectedPlayerExample": "SB01 F3/F7 learns then teaches; SB02 H1/H3/H5 preserves teacher and apprentice competence.",
+      "engineDependencies": [
+        "existing sources/powers/jobs",
+        "E08 NPC consumer",
+        "SBR04"
+      ],
+      "deliveryScope": "Required narrow teaching/handoff in selected Frontier; broad method genealogies optional there, required if a teaching-family world selects them.",
+      "acceptance": "A willing NPC actually uses one learned procedure; no source/bag/mastery from a title or greeting."
+    },
+    {
+      "id": "UVS02",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 559,
+        "lineEnd": 559,
+        "quote": "extending existing comprehensiveness and more? stuff that can be gathered? Character interactions and mroe?",
+        "heading": "Broader gathering and character interactions, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 153,
+          "lineEnd": 180,
+          "claim": "Actual transfer/custody/knowledge/directed receipts."
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+          "lineStart": 1,
+          "lineEnd": 12,
+          "claim": "Completed broader audit is a planning baseline, not implementation."
+        }
+      ],
+      "currentStatus": "Reusable staged ownership and directed-history code; contract branches/provenance/succession consumers proposed.",
+      "missingDecisionOrConsumer": "Specific accepted terms, property/role closure and retained causal effects across reconvergence.",
+      "connectedPlayerExample": "SB01 audit vs supply changes stock/wages; SB02 a tool, bench right and learned method can go to different recipients.",
+      "engineDependencies": [
+        "SOC02/05",
+        "custody/claims",
+        "SBR01/03"
+      ],
+      "deliveryScope": "Required scoped commitments and aftermath for Frontier; generic family/property architecture only where selected.",
+      "acceptance": "Reconvergence retains spent goods, payer budgets and distinct promises; apology does not settle every debt."
+    },
+    {
+      "id": "UVS03",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 583,
+        "lineEnd": 583,
+        "quote": "how can things be really test based but also have live events ahpenning beyond our control and more? we can be inspired by the various games like a dark room and level 13 and more?",
+        "heading": "Text-based play and independent live events, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 39,
+          "lineEnd": 67,
+          "claim": "Refusal/silence lead to independent funded repair and later distinct replies."
+        },
+        {
+          "path": "src/original_frontier_campaign_content.js",
+          "lineStart": 91,
+          "lineEnd": 110,
+          "claim": "Held funded correction and dispatch controllers."
+        }
+      ],
+      "currentStatus": "Implemented source subset: original visitor autonomous choices; held Frontier controllers; broad regional life remains proposed.",
+      "missingDecisionOrConsumer": "Exact native-compatible travel/stock; funded independent decisions observed through reports; meaningful offer expiration.",
+      "connectedPlayerExample": "SB01 F1/F2 silence causes Mira-funded correction; SB02 missed appointment permits an actual independent lesson.",
+      "engineDependencies": [
+        "existing controller/jobs",
+        "E02 travel",
+        "actual played intervals",
+        "SBR02"
+      ],
+      "deliveryScope": "Required funded local participants and refusal/delay outcomes; broad population/offline simulation optional.",
+      "acceptance": "No menu-click dependence, free NPC means or browser-closed punishment; reports arrive only when heard."
+    },
+    {
+      "id": "UVS04",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 607,
+        "lineEnd": 607,
+        "quote": "open world options like the option to choose to attack certain people and more? karma system?Reputation and more> other stuff to consider?",
+        "heading": "Open-world actions, karma and reputation, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 167,
+          "lineEnd": 180,
+          "claim": "Regional reputation effect consumer and private directed relationships are separate."
+        },
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "lineStart": 105,
+          "lineEnd": 115,
+          "claim": "Public/private service and explicitly witnessed reputation remain separate."
+        }
+      ],
+      "currentStatus": "Native regional reputation and private relationship source effects exist; full law/faction/issuer enforcement is not established by these.",
+      "missingDecisionOrConsumer": "Choose narrow charter/site jurisdiction and public witness/recognition terms; no universal good/evil or ancestry-guilt score.",
+      "connectedPlayerExample": "SB01 public/private work alters one service; SB02 Rell may recognize a school only through its actual evidence/authority.",
+      "engineDependencies": [
+        "native reputation owner",
+        "Bases rights/jurisdiction",
+        "SOC01/02",
+        "SBR03"
+      ],
+      "deliveryScope": "Required declared local agreements/access and known public aftermath; general crime/karma/enforcement/faction systems optional unless selected.",
+      "acceptance": "Private negotiation has no global reputational update; striking a buyer does not void a contract."
+    },
+    {
+      "id": "UVS05",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 639,
+        "lineEnd": 639,
+        "quote": "Is there even a party system currently? other stuff to consider?",
+        "heading": "Party readiness and other companion considerations, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/party_content.js",
+          "lineStart": 8,
+          "lineEnd": 20,
+          "claim": "Lio has owned body/source, finite effort and paid rest/peaceful kit alternative."
+        },
+        {
+          "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+          "lineStart": 19,
+          "lineEnd": 24,
+          "claim": "Selected support/handoff consumer, not generic convoy host."
+        }
+      ],
+      "currentStatus": "Current Lio source-backed fixed support subset supersedes dated USER_VISION no-party wording; general recruitable traveling party remains unproven/proposed.",
+      "missingDecisionOrConsumer": "New work asks current actual support, occupation, stock and terms; do not assume a contest partner is a free courier or heir.",
+      "connectedPlayerExample": "SB01 willing operator uses own means; qualified Lio help must be a separately agreed supported job.",
+      "engineDependencies": [
+        "actual participants/occupancy",
+        "existing battle host",
+        "SBR02/04"
+      ],
+      "deliveryScope": "Required willing collaborator/local handoff in Frontier; general companion travel/convoys/romantic companion routes optional.",
+      "acceptance": "Declined help leaves other ordinary approaches; current wounds/reservations do not vanish on a new request."
+    },
+    {
+      "id": "UVS06",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 749,
+        "lineEnd": 749,
+        "quote": "implement accordingly and account for any thing else as well, leave trust/ relationship open to other possibilities and more, from inheritence and more? make time have meaning in game? The MC might die from Old age if he takes to long or events happen in certain time and more? and 'missing events' can have a line or two saying hearing about so and so event happening in so and so place...",
+        "heading": "Implementing events, relationships, inheritance, time and age, 2026-10-02"
+      },
+      "ownerEvidence": [
+        {
+          "path": "src/chronicle.js",
+          "lineStart": 159,
+          "lineEnd": 178,
+          "claim": "Bounded archive-duty succession and distinct settlement already implemented in source."
+        },
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 24,
+          "lineEnd": 31,
+          "claim": "Caused deadlines/phase receipts are actual groundwork."
+        }
+      ],
+      "currentStatus": "Existing chronicle subset includes timed offers/missed reports and manual succession; general estate/life transitions proposed.",
+      "missingDecisionOrConsumer": "Scope arc/career/retirement endings independently from death/reset; retained duties/stock and new offer windows.",
+      "connectedPlayerExample": "SB01 closure/handoff stops future promises; SB02 retired Ena remains alive with competence.",
+      "engineDependencies": [
+        "chronicle/situation owners",
+        "SOC13",
+        "SBR02/03"
+      ],
+      "deliveryScope": "Required played-time consequences/retained closure for Frontier; new old-age/death/life reset policy is not required.",
+      "acceptance": "Missed invitation has a later known report, not unpaid rewards or forced death; completed phases persist."
+    },
+    {
+      "id": "UVS07",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 771,
+        "lineEnd": 771,
+        "quote": "Lets do that accordingly, I just dont want to lose the 'vanilla' experience",
+        "heading": "Proceeding while preserving vanilla, 2026-10-03"
+      },
+      "ownerEvidence": [
+        {
+          "path": "PROJECT.md",
+          "lineStart": 3,
+          "lineEnd": 13,
+          "claim": "Current scope preserves existing native access/one prestige; only bounded skill/discovery wave authorized."
+        },
+        {
+          "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+          "lineStart": 17,
+          "lineEnd": 22,
+          "claim": "Finite preservation/places scope."
+        }
+      ],
+      "currentStatus": "Preservation is current constraint; optional native town/skills have distinct owners. New cases are planning only.",
+      "missingDecisionOrConsumer": "Only explicit discovered entry; no assumed Town access, kinship, imported source or retroactive reward.",
+      "connectedPlayerExample": "SB01 requires actual Town availability; SB02 is an optional original case, not a forced replacement opening.",
+      "engineDependencies": [
+        "native availability",
+        "opt-in publisher",
+        "SBR05"
+      ],
+      "deliveryScope": "Required preservation in every chosen delivered world; family/child starts optional modes.",
+      "acceptance": "Unjoined old saves keep native work/quests and expose no new actor/debt/timer or empty family menu."
+    },
+    {
+      "id": "UVS08",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 923,
+        "lineEnd": 923,
+        "quote": "why not flesh out into entirety? consider also different paths of progression, from training, to technology, to building a suit and adding things to it, something similar woth magical crafting, other sort of crafting and more? Makine each world in depth? consider Naruto, Bleach, and others as well? Following the lore? parallel worlds? Other ideas and more?",
+        "heading": "Full-depth campaigns and parallel specialist GMs, 2026-10-03"
+      },
+      "ownerEvidence": [
+        {
+          "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+          "lineStart": 7,
+          "lineEnd": 11,
+          "claim": "Player ending differs from finite full-world delivery."
+        },
+        {
+          "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+          "lineStart": 24,
+          "lineEnd": 32,
+          "claim": "Four careers and five arcs have concrete existing required IDs."
+        },
+        {
+          "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+          "lineStart": 69,
+          "lineEnd": 81,
+          "claim": "Seven actual selected cumulative endings, including small counter without full-charter requirement."
+        }
+      ],
+      "currentStatus": "Live Frontier revision2 completion ledger now exists:33 parent IDs,15 strand steps,7 ending cases, all planning-only. Initial missing-ledger observation is historical, resolved by its sole writer.",
+      "missingDecisionOrConsumer": "Deliver all7 selected alternate ending cases and useful aftermath under actual native/state adapters; do not replace them with this report's four worked outcome groups.",
+      "connectedPlayerExample": "SB01 traverses work/material/contract/handoff with4 distinct outcomes; SB02 alternative school/household careers.",
+      "engineDependencies": [
+        "Frontier existing IDs",
+        "world registry/native consumers",
+        "SBR01-05"
+      ],
+      "deliveryScope": "SB01 alternatives belong inside existing Frontier selected arcs; SB02 requires reviewed family-world IDs, not automatic addition to Frontier33.",
+      "acceptance": "World completion remains open until required content/native behavior/director gates; one player need not play every branch."
+    },
+    {
+      "id": "UVS09",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 945,
+        "lineEnd": 945,
+        "quote": "what about dialogue and reactions and interactions and more? I suppose another game master can work on that and have lesser agents write those accordingly in the future?",
+        "heading": "Dialogue, reactions and future smaller scene writers, 2026-10-03"
+      },
+      "ownerEvidence": [
+        {
+          "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+          "lineStart": 36,
+          "lineEnd": 68,
+          "claim": "Actual speaker/context and observation/report boundaries are proposed."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 168,
+          "lineEnd": 180,
+          "claim": "Current scalar knowledge and capped display history have known limits."
+        }
+      ],
+      "currentStatus": "Original conditional scenes and privacy projections exist; universal native observer-aware sessions and richer conflicting evidence remain missing.",
+      "missingDecisionOrConsumer": "Read-only context/voice selection from actual known evidence and durable current commitment/closure; source-era voice only after named contemporary scenes.",
+      "connectedPlayerExample": "SB01 Wen vs Mira vs Iven know different things; SB02 Pera private receipt does not become Rell's corrected belief.",
+      "engineDependencies": [
+        "SOC01/05",
+        "D1-D6",
+        "SBR01/05"
+      ],
+      "deliveryScope": "Required known context/refusal/return in chosen Frontier; exact broader voice/romance/recognition features where selected.",
+      "acceptance": "No private motive/source/body/unknown future leak through greeting, reasons, counts, tooltips or recap."
+    },
+    {
+      "id": "UVS10",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 963,
+        "lineEnd": 963,
+        "quote": "Different scenarios, start from scratch, start from reincarnating in a random family? Start as baby? start as tree? Other stuff and more? Reincarnating but without the power of the original person? other tropes? other stuff and more? overarching timeline on worlds with those and more? harry potter? other stuff to consider? little stuff? more to consider?",
+        "heading": "Origins, childhood, nonhuman lives and overarching timelines, 2026-10-03"
+      },
+      "ownerEvidence": [
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 54,
+          "lineEnd": 72,
+          "claim": "Family/child/chapter transitions proposed; no automatic years."
+        },
+        {
+          "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+          "lineStart": 100,
+          "lineEnd": 108,
+          "claim": "Actual origin service is not full initializer/family/native body/time-jump engine."
+        }
+      ],
+      "currentStatus": "Original origin contracts and broad family audit are proposals; birth/household/chapter/native body adapters missing.",
+      "missingDecisionOrConsumer": "Choose chaptered career versus actual life-stage origins; kinship/upbringing/source retention and currently eligible independent personal choices.",
+      "connectedPlayerExample": "SB02 adopts existing family history without silently aging bodies; a childhood mode needs its own reviewed transitions.",
+      "engineDependencies": [
+        "Origins/Timelines/Bodies",
+        "SOC11-15",
+        "SBR04"
+      ],
+      "deliveryScope": "Optional for present-era Frontier; required finite origin/life/kinship functions if a household-origin complete world is selected.",
+      "acceptance": "A surname or former adult memory grants no actual faculty/property/romantic eligibility; no automatic childhood wait or absent loss."
+    },
+    {
+      "id": "UVS11",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 19,
+        "lineEnd": 19,
+        "quote": "we should send out GM to plan accordingly, but then also, send out GM to implement more types of skills and more? hiden Ui until unlocked? other stuff and more? Also need to consider what makes a world complete and more?",
+        "heading": "Complete scoped worlds, useful skills and discovery UI, 2026-10-05"
+      },
+      "ownerEvidence": [
+        {
+          "path": "docs/gm/world-implementation/INTERFACE.md",
+          "lineStart": 17,
+          "lineEnd": 31,
+          "claim": "Current S2 actual bounded skill/discovery caller contract, not social-world registration."
+        },
+        {
+          "path": "src/skill_expansion_content.js",
+          "lineStart": 159,
+          "lineEnd": 172,
+          "claim": "Actual new inquiry definitions use paid participant attention and existing observed field-result owners."
+        }
+      ],
+      "currentStatus": "Separate useful-skill/discovery source modules/caller work exists; current case/world native integration is not verified here.",
+      "missingDecisionOrConsumer": "Bind demand-specific social consumers after actual current interface, preserve knowledge/loss/recovery UI, do not reopen the whole skill audit.",
+      "connectedPlayerExample": "Actual inquiry can support a bounded report; SB01 Iven's stock test needs its own declared function, not a renamed shared-inquiry label.",
+      "engineDependencies": [
+        "Engine S2",
+        "actual paid inquiry/report owners",
+        "SBR05"
+      ],
+      "deliveryScope": "Preserve current authorized wave; integrate only separately selected social-world consumers.",
+      "acceptance": "An imported method/discovery card alone does not establish household rights, true genealogy, an ending or new appraisal power."
+    },
+    {
+      "id": "UVS12",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 7,
+        "lineEnd": 7,
+        "quote": "timeline style? choices that lead to different endings? more to consider? GM analyze accordingly, GM analyze other aspects accordingly to uservision accordingly for wider and deeper scope?",
+        "qualification": "Latest original wording now landed by canonical coordinator; dispatch also retains authority."
+      },
+      "ownerEvidence": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+          "lineStart": 1,
+          "lineEnd": 7,
+          "claim": "Prior directly requested family/history analysis is reused."
+        },
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "lineStart": 175,
+          "lineEnd": 181,
+          "claim": "Actual proposed stay/succession/departure career endings."
+        }
+      ],
+      "currentStatus": "Current planning-only assignment; this report is a concrete new analysis, not implementation. Direct earlier family/genealogy/history wording remains in the trusted chat; broad origins/inheritance wording is traced in UVS06/10.",
+      "missingDecisionOrConsumer": "Freeze state-qualified endings and exact finite world IDs; coordinator reconciles latest ending/family request provenance and definitions. Earliest U01 choice/time-chain and U05 journey-ending-loop requests remain expandable directions: this report selects no historical reversal or automatic reset loop.",
+      "connectedPlayerExample": "SB01 persistent service chronology versus SB02 chaptered family-school chronology, both with material post-arc play.",
+      "engineDependencies": [
+        "SBR01-05",
+        "current actual Frontier completion owner",
+        "Origins/Timelines only where new life-stage selected"
+      ],
+      "deliveryScope": "Required SB01 outcomes/return for selected Frontier; family-school alternative requires separately selected complete-world scope; optional new romance/death/loops not gates.",
+      "acceptance": "Ending classification distinguishes arc/career/institution/retirement/departure from death/world destruction and extraction.",
+      "earliestOriginalRequests": [
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 145,
+          "lineEnd": 145,
+          "quote": "reconcilliate all the research and things to create a possible direction for my game? Maybe it can be a story and choice driven, with chances to go back in time,  or sometthing else accordingly to move up and down the story chain? Also consider difficulty scaling, wether if it will be numbers based or mechanics based or both, other stuff and more? Is this a good enough foundation to buil all of this? more to cnsider?",
+          "heading": "U01"
+        },
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 177,
+          "lineEnd": 177,
+          "quote": "what about implementing random events and more? if its a time based event I guess scripted events can come out an dmore? more to consider? We can have journey ending be part of the loop as well? This can be a really grindy game? mroe to consider?",
+          "heading": "U05"
+        }
+      ]
+    },
+    {
+      "id": "UVS13",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 185,
+        "lineEnd": 185,
+        "quote": "scripted events wirth different outcomes depending on stats and knowledge and more? a peer or a different character who dies unless you know certain skill and more? more to conisder? Is this YAIR a good way to represent such a story? More ot consider? subtle things? things that require granularity?",
+        "heading": "U06"
+      },
+      "additionalOriginalRequests": [
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 193,
+          "lineEnd": 193,
+          "quote": "Things like require chance, like chance of successfully saving, other stuff, and more? more to consider? subtler details too? Make more things percent based?",
+          "heading": "U07"
+        }
+      ],
+      "ownerEvidence": [
+        {
+          "path": "src/simulation.js",
+          "lineStart": 122,
+          "lineEnd": 142,
+          "claim": "Actual weighted outcome draw and frozen committed job outcome/roll."
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "lineStart": 4,
+          "lineEnd": 11,
+          "claim": "Actual seed derivation/effect preparation, not an arbitrary narrator roll."
+        }
+      ],
+      "currentStatus": "Current deterministic/frozen weighted-outcome support exists in source. No new probability, rescue/lethal policy or social RNG is selected by these worked cases.",
+      "missingDecisionOrConsumer": "For a selected risky trial/aid, declare legal eligible branches, actual preparation-dependent weights and paid failure aftermath. Fixed facts/consent/ancestry are not rerolled; show only known risk rather than future outcome.",
+      "connectedPlayerExample": "SB01 F4 can be a declared paid uncertain fit trial with ordinary preparation and saved failure; SB02 an attempt cannot change actual parentage or purchase another person's choice.",
+      "engineDependencies": [
+        "existing outcome/seed/commitment",
+        "actual source/body/preparation and failed-result consumer",
+        "SBR01/02/05"
+      ],
+      "deliveryScope": "Required distinct paid failure/known preparation in selected Frontier; precise probabilistic rescue/death or loop variants optional unless a complete world selects them.",
+      "acceptance": "Preview/reload consumes no new result, published outcome settles once, failed storage advances no live means/RNG; different actual prep can genuinely improve a supported chance."
+    },
+    {
+      "id": "UVS14",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 233,
+        "lineEnd": 233,
+        "quote": "alot of complex things are built from a set of simple rules, what are the simple things we can implement now to help implement everything else in the future?",
+        "heading": "U12"
+      },
+      "additionalOriginalRequests": [
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 217,
+          "lineEnd": 217,
+          "quote": "consider accordingly how to expand on the engine of YAIR so that all of the ideas have a chance of coming to fuitition",
+          "heading": "U10"
+        },
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 225,
+          "lineEnd": 225,
+          "quote": "subtle and granular stuff too?",
+          "heading": "U11"
+        }
+      ],
+      "ownerEvidence": [
+        {
+          "path": "src/causal_situations.js",
+          "lineStart": 24,
+          "lineEnd": 31,
+          "claim": "Existing caused contexts/phases/receipts."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "lineStart": 153,
+          "lineEnd": 180,
+          "claim": "Existing typed material/knowledge/directed effect owners."
+        }
+      ],
+      "currentStatus": "Simple reusable ownership/effect/command/causal primitives exist; social record/rights/chapter consumers are demand-specific gaps, not a reason to rebuild all engines.",
+      "missingDecisionOrConsumer": "Compose actual accepted terms, evidence, live participants and ending projection under the sole publisher; scope a permanent closure/known-history read model rather than another bag/clock/reward ledger.",
+      "connectedPlayerExample": "Both cases reuse one tool/stock/job owner and per-observer reports; an accumulated ending changes later useful commands without a universal favor or history engine.",
+      "engineDependencies": [
+        "existing owner services",
+        "frozen actual demanded interface",
+        "SBR01-05"
+      ],
+      "deliveryScope": "Required reusable demanded contracts; unused global psychology/genealogy/economy taxonomy remains optional.",
+      "acceptance": "Two different chronologies compose the same material/receipt rules while retaining genuinely different world/role behavior."
+    },
+    {
+      "id": "UVS15",
+      "originalRequest": {
+        "path": "docs/USER_VISION.md",
+        "lineStart": 247,
+        "lineEnd": 247,
+        "quote": "look into implementation of certain types of enenmies following tropes? from young masters and those kind of chains, and then stuff like heavens chosen, other types of 'identities' and more? Identity stealing or luck stealing gameplay for the Subgenre of the villian MC and more? there is so much possibilities and we can audit and wirte about all of them for potential implementation in the future?",
+        "heading": "U14"
+      },
+      "additionalOriginalRequests": [
+        {
+          "path": "docs/USER_VISION.md",
+          "lineStart": 249,
+          "lineEnd": 249,
+          "quote": "Nemesis system?",
+          "heading": "U14 second direct follow-up"
+        }
+      ],
+      "ownerEvidence": [
+        {
+          "path": "src/promise_content.js",
+          "lineStart": 24,
+          "lineEnd": 49,
+          "claim": "Mistaken identity, evidence, independent paid verification and correction exist in the original case."
+        },
+        {
+          "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+          "lineStart": 128,
+          "lineEnd": 131,
+          "claim": "Proposed examiner/buyer have particular means/private motives; not automatic omniscient villains."
+        }
+      ],
+      "currentStatus": "Narrow independent rivals/identity beliefs have existing source owners; general nemesis/identity/luck theft remains a broader proposal with missing selected mechanisms.",
+      "missingDecisionOrConsumer": "If selected, trace rival/family/teacher retaliation or reconciliation through actual known deed, motive, means, access and history. Identity/role/ancestry/source change requires actual mechanism and recognition, not a swapped label.",
+      "connectedPlayerExample": "SB02 an archive allegation can motivate a particular informed guild/relative action, while unaware kin remain unaware; SB01 a lawful exclusive buyer is not retroactively the source of Mira's error.",
+      "engineDependencies": [
+        "actual private belief and disclosure",
+        "independent funded controller/action",
+        "body/source/identity/continuity owner if changed",
+        "SBR01/03/04"
+      ],
+      "deliveryScope": "Optional later nemesis/identity/luck families in Frontier; required concrete functions only if reviewed world selects those systems.",
+      "acceptance": "No universal hostile family chain, forced villain identity or luck/consent theft by an affection flag; a genuinely superior supported power can still act through its actual scope."
+    }
+  ],
+  "qualification": "Original requests quoted from live USER_VISION, not paraphrased as user decisions. Existing owner prose can be dated; current source/PROJECT/actual receipts outrank it. Required/optional classes are proposals for coordinator/world GM review. No new global requirement IDs are accepted.",
+  "earlierDirectFamilyRequest": {
+    "quote": "audit family, genaulogy, history, and more? like amazing cultivation sim and more? More to consider?",
+    "source": "Trusted direct user message in this chat, 2026-10-04; no fabricated USER_VISION line locator.",
+    "provenanceOwner": "Canonical coordinator may land original wording if still absent."
+  },
+  "reconciliation": "Latest timeline quote now in USER_VISION; each verbatim quote locator refreshed against current live file. Frontier ledger absence resolved, and33/15/7 planning scope confirmed. Original source/role authority unchanged.",
+  "originalBlockReview": "U01-U14 actual quoted request blocks read. U01/U05 timeline and loop breadth, U06/U07 knowledge/preparation/chance, U10-U12 reused foundations and U14 identity/nemesis are traced explicitly in addition to later social request clauses.",
+  "inspectedInputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "6b5e3ad78ea25a5d771a1b6664257b10d54a0348da752b41e1ba0b18b480caa5",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "03388099af6bc03e4c9012c11c9f800510cc092924ae68f536e3f60a902fade5",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+      "sha256": "0a4743f06fa2b1185786379d17fce052723a07d30078aac91629c5e1732625c2",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "053e4fdc779e430a58e22578383175212201d44cb19a8878808c663e78bf427d",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "b1668786dbe2948167ab686fe4ed2d02691ba6b6a21243c1b315a40d6cbceab5",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/INTERFACE.md",
+      "sha256": "4735d8fa42efe3677c6fef02a519c8139f86425f1968cb457d6334c2c7a518e5",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "sha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+      "sha256": "1e4f818350376de03a6c8d440dd2cf6df665cf39140474e6e998ea1345685b92",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+      "sha256": "539fc4ccce03a88b053fe3481480e4473a333d851301ace769837f26a44272ce",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "sha256": "29b5cc2e045177049570ed00ac142a487f2c3a0c163bc651a01e866f26a0a14a",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/original-frontier/IMPLEMENTATION_PACKET.md",
+      "sha256": "a1a2ec4435aae468061568e702b474609bb06b4551bb8b56f9c2a00cd60b0dc8",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_COMPLETION.md",
+      "sha256": "bca7ca25c481269f53ab46c2b96f970ca82de83877f2759203af4909e9f6729e",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "sha256": "4f6302604c75d4718dc3504d0d4c467b010f63424a882d8b5f1e0878a611756a",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/original-frontier/COMPLETION_LEDGER.json",
+      "sha256": "ee49092c3cbd5a10e7f5a2cf7f1b5aff42cdfd8d8932c2ffd4d2ebeb9bbce53e",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "b79d8587f5af8596a710658f3d41336f21e5b3bb19998839f38efa097142d936",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "sha256": "3c8d7022035683d1cab2259a697b2dad2df76c2e0fb8c1266ae09580a34ab0a7",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/original_frontier_campaign_content.js",
+      "sha256": "f637af631674d5d7622c8789d5b8c83557a82bfc92bac37849d8844d9be2f19d",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/skill_expansion_content.js",
+      "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "coverage": "Targeted named declarations/sections/owner evidence only; hashing is not whole-file semantic coverage."
+    }
+  ],
+  "checks": "Final graph/quote/locator/link/JSON/whitespace/prototype arithmetic receipt will be in CHECKPOINT.md; no game/runtime test or build.",
+  "documentCheckReceipt": "CHECKPOINT.md final static receipt; no runtime/gameplay acceptance."
+}

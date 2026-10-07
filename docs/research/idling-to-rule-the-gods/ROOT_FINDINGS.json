@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "source_revision": {
+    "steam_build_id": "25514347",
+    "assembly_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+  },
+  "findings": [
+    {
+      "id": "ITR-01",
+      "path": "Clone allocation -> competing physical/skill/combat work -> target handoff or real fight result",
+      "source_observed": [
+        {
+          "file": "Assets.Scripts.Gui/Gui.cs",
+          "symbol": "Gui.OnGUI",
+          "spans": [
+            [
+              360,
+              450
+            ]
+          ],
+          "sha256": "efad0fc9fef4675623cadbad900f2812f89cc1fb23a5f5142e8e7917d7e022bb",
+          "observed_rule": "Unity entry delegates drawing to JENBACKJIFC.GNNIGBPCCIN after null checks."
+        },
+        {
+          "file": "JENBACKJIFC.cs",
+          "symbol": "JENBACKJIFC.GNNIGBPCCIN selected dispatch",
+          "spans": [
+            [
+              9383,
+              9423
+            ]
+          ],
+          "sha256": "423b4df0e5951f1bd95fc47bf54c2cd8e2d104ecdad9ee0d318cd1fba1a35384",
+          "observed_rule": "Physical, Skills and Monster tabs dispatch to JPEAGOOGACM, BGNBDKAGCBE and APIDLGCJPAK originals."
+        },
+        {
+          "file": "CGHIMMOIAEG.cs",
+          "symbol": "CGHIMMOIAEG.GNNIGBPCCIN(bool)",
+          "spans": [
+            [
+              960,
+              999
+            ]
+          ],
+          "sha256": "02ef330d18154d918a2463f7b90253d5b9c9878dcdec45f62cfa9b36fbb486c2",
+          "observed_rule": "Common tab renderer invokes virtual HAHDGEAMOII; physical implementation is reached through inherited overload."
+        },
+        {
+          "file": "JPEAGOOGACM.cs",
+          "symbol": "JPEAGOOGACM.HAHDGEAMOII selected allocation controls",
+          "spans": [
+            [
+              88,
+              194
+            ]
+          ],
+          "sha256": "1aa44b48318946ee675421637db90ef2d9c730fdcbab4273579aee04f449aad6",
+          "observed_rule": "Only unlocked trainings expose plus/minus/CAP. Allocation may mirror the paired skill and divide available clones between them. CAP removes the old allocations then selects a bounded affordable allocation derived from NPMDEBILFLE(1)/30+1."
+        },
+        {
+          "file": "GJCHKFMAMOI.cs",
+          "symbol": "GJCHKFMAMOI.FLGLHGGDMPM",
+          "spans": [
+            [
+              48,
+              67
+            ]
+          ],
+          "sha256": "fdff89126cdbe5f311a4d6aed2d7108a885e300a39cb7ccf0de41e0439158132",
+          "observed_rule": "First physical training is available unless global training limit disables it; later eligibility requires indexed predecessor level strictly greater than500 and within allowed training limit. Tooltip wording is not a substitute for this strict comparison."
+        },
+        {
+          "file": "PAEGJEDFFEH.cs",
+          "symbol": "PAEGJEDFFEH.JGAHPKHPONJ",
+          "spans": [
+            [
+              138,
+              146
+            ]
+          ],
+          "sha256": "5fb94e77a4f4d67a87531893c5b6d592ebf0e577ab9afdab64769d579c3f9e5a",
+          "observed_rule": "Idle clone getter returns rounded total IJIGGBLLOFN minus allocated NICKCGEBHFG; a negative value is logged rather than clamped here. PFBFLAJEGBI.OAOKMIKKBLJ separately clamps allocatable results to zero."
+        },
+        {
+          "file": "PFBFLAJEGBI.cs",
+          "symbol": "PFBFLAJEGBI.OAOKMIKKBLJ",
+          "spans": [
+            [
+              1637,
+              1685
+            ]
+          ],
+          "sha256": "5d28327b96ef81d81cd632e10a23e3135142b7b98dc082eadffc2889ef494206",
+          "observed_rule": "Computes allocatable pool from idle clones, reserve policy, combat and pet assignments and total maximum. Combat requests use the boolean exception. Shared capacity is not per-tab independent supply."
+        },
+        {
+          "file": "NLHFJIOHPDO.cs",
+          "symbol": "NLHFJIOHPDO.OABMDOMFLJF",
+          "spans": [
+            [
+              446,
+              460
+            ]
+          ],
+          "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+          "observed_rule": "Rounds/clamps requested allocation to available pool, checks shared usage acceptance and total capacity, then increments this work allocation. Failure gives no new assignment."
+        },
+        {
+          "file": "PAEGJEDFFEH.cs",
+          "symbol": "PAEGJEDFFEH.EPIOCFNDLFL and OPPJIHNKGNF",
+          "spans": [
+            [
+              299,
+              318
+            ],
+            [
+              477,
+              486
+            ]
+          ],
+          "sha256": "5fb94e77a4f4d67a87531893c5b6d592ebf0e577ab9afdab64769d579c3f9e5a",
+          "observed_rule": "Allocation increments used pool if total can cover requested+used; shortfall derives remaining idle amount and rejects below1. Removal only debits a supported used count; separate removal method477\u2013486 inspected."
+        },
+        {
+          "file": "NLHFJIOHPDO.cs",
+          "symbol": "NLHFJIOHPDO.NFBCIBACPJA",
+          "spans": [
+            [
+              158,
+              175
+            ]
+          ],
+          "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+          "observed_rule": "Rounds and bounds release to current assigned workers, subtracts assigned workers and removes shared usage."
+        },
+        {
+          "file": "Assets.Scripts/UpdateStats.cs",
+          "symbol": "UpdateStats.Start and FBFIMEDNKLP selected dispatch",
+          "spans": [
+            [
+              2035,
+              2047
+            ],
+            [
+              4885,
+              4952
+            ]
+          ],
+          "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+          "observed_rule": "Schedules active0.029-second work callback,0.5-second stats callback and60-second allocator. FBFIMEDNKLP4885\u20134960 inspected: consumes30ms accumulated time and invokes physical/skill/combat originals unless offline calculation or blocking state."
+        },
+        {
+          "file": "NLHFJIOHPDO.cs",
+          "symbol": "NLHFJIOHPDO.AKIDPCMILEA and NPMDEBILFLE",
+          "spans": [
+            [
+              229,
+              367
+            ]
+          ],
+          "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+          "observed_rule": "Per-level worker-time base begins5000 and increases by index. Paired skill use reduces requirement; floor29 sets capped flag. NPMDEBILFLE returns29 when capped, otherwise cached base divided by worker count."
+        },
+        {
+          "file": "NLHFJIOHPDO.cs",
+          "symbol": "NLHFJIOHPDO.BPMABPHBKOP",
+          "spans": [
+            [
+              766,
+              853
+            ]
+          ],
+          "sha256": "d7d1f77e2419fbbed6bf5367237ed5984d5a318b61cb6bb3f9dec66e41cb9812",
+          "observed_rule": "No allocation or activeNTC returns. Accumulates milliseconds times assigned workers; strictly crossing cost clears accumulator. Either target policy transfers excess to next unlocked training/skill and releases original workers, or level increments once and adds physical or skill-derived stat plus counters. Surplus accumulated work is discarded by the inspected online step."
+        },
+        {
+          "file": "MAACACACGCC.cs",
+          "symbol": "MAACACACGCC.BPMABPHBKOP",
+          "spans": [
+            [
+              5004,
+              5072
+            ]
+          ],
+          "sha256": "35e2cb9813f2edb40d8eb07fe5887b67301926297a3b84e16ba6a588abec4373",
+          "observed_rule": "Combat clones contribute attack. Incoming threat may remove one assigned clone and one total clone, record losses and optionally auto-replace from real shared supply. Eligible power threshold may hand excess allocation to next monster. No combat growth from zero workers."
+        },
+        {
+          "file": "MAACACACGCC.cs",
+          "symbol": "MAACACACGCC.ONKEEDFFNNI",
+          "spans": [
+            [
+              5209,
+              5254
+            ]
+          ],
+          "sha256": "35e2cb9813f2edb40d8eb07fe5887b67301926297a3b84e16ba6a588abec4373",
+          "observed_rule": "Actual monster health reacheszero before kill counter, battle stat and conditional divinity gain are committed; then monster health resets. Read field modifiers rather than claiming rewards on assignment."
+        },
+        {
+          "file": "EANFJBBJCEN.cs",
+          "symbol": "selected numeric operator implementations",
+          "spans": [
+            [
+              164,
+              167
+            ],
+            [
+              363,
+              366
+            ],
+            [
+              704,
+              716
+            ],
+            [
+              753,
+              766
+            ],
+            [
+              885,
+              895
+            ],
+            [
+              945,
+              957
+            ],
+            [
+              998,
+              1013
+            ],
+            [
+              1037,
+              1040
+            ],
+            [
+              1083,
+              1095
+            ],
+            [
+              1132,
+              1135
+            ],
+            [
+              95,
+              95
+            ]
+          ],
+          "sha256": "b3bdb464a5aa2e8f4bc4c89b250c0facba02117b00a008e4fa2d367ed9f436bf",
+          "observed_rule": "Recovered arithmetic implementations confirm + (NOEAHHEHPPE), - (PPHIFHEDNIE), multiplication(IEKGDCAOGAG), division(HDFLFAJBKLC with zero/null denominator error), > (BNCIODJLNON), < (JIJACEFENDN), equality(HIHOLHBPLAA), <= (MGCLPDEKGJG), >= (LIMGHELDDHC) and Math.Round(EEIKLJOINHN)."
+        }
+      ],
+      "failure": "Shortage prevents allocation; absent workers/NTC prevents training; combat losses reduce actual total supply.",
+      "inference": "Shared opportunity cost and released target allocations support meaningful staffing choices; rate/balance/runtime quality unverified.",
+      "original_transfer": "Offer one finite crew assignment with mutually exclusive personal practice/project support and actual occupation release; use existing actor/job owners.",
+      "limits": [
+        "Full numeric growth, special challenge exceptions and every late-game allocation target unread.",
+        "Duplicate obfuscated decoy methods were not treated as active callers.",
+        "No game/runtime performed.",
+        "This selected allocation trace does not prove a global conservation invariant; idle getter can log negative stock. No exploit or invariant suite ran."
+      ]
+    },
+    {
+      "id": "ITR-05",
+      "path": "Clock/elapsed eligibility -> offline batch progress -> capped targets/summary -> platform milestone",
+      "source_observed": [
+        {
+          "file": "Assets.Scripts.Helper/OfflineCalc.cs",
+          "symbol": "OfflineCalc.Update",
+          "spans": [
+            [
+              14759,
+              14814
+            ]
+          ],
+          "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+          "observed_rule": "Disabled offline flag sets completion flag. Null/uninitialized/calculating/processed/dialog-pending guards block reentry. Negative elapsed clampszero. More than1800seconds in a timed challenge offers accept/skip; accepted positive elapsed sets calculating flag, clears supplied elapsed and snapshots timestamps before coroutine. Nonpositive elapsed marks processed without progression."
+        },
+        {
+          "file": "Assets.Scripts.Helper/OfflineCalc.cs",
+          "symbol": "OfflineCalc.KENPGCBGALK",
+          "spans": [
+            [
+              17214,
+              17253
+            ]
+          ],
+          "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+          "observed_rule": "Prefers explicitly supplied TimeOffline, then differing positive server timestamps minus10sec. Android-only local fallback computes wall-time elapsed with anomaly guard, caps259200sec then subtracts20sec. No universal72h Steam offline cap is established by this method; no usable timestamp returnszero."
+        },
+        {
+          "file": "Assets.Scripts.Helper/OfflineCalc.cs",
+          "symbol": "OfflineCalc.JPOBDONHNLJ selected setup/calls",
+          "spans": [
+            [
+              856,
+              977
+            ]
+          ],
+          "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+          "observed_rule": "Positive elapsed converts seconds to milliseconds and advances inspected counters. One selected challenge counter is independently clamped43200000ms, not all gameplay. Rested creating boost increases by elapsed/6 up to10800000ms. Delegates physical and skill progress to DHMAIHJDJBF and separate combat/creation functions. Middle pet/equipment/village systems not comprehensively read."
+        },
+        {
+          "file": "Assets.Scripts.Helper/OfflineCalc.cs",
+          "symbol": "OfflineCalc.DHMAIHJDJBF<T>",
+          "spans": [
+            [
+              23453,
+              23672
+            ]
+          ],
+          "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+          "observed_rule": "NTC suppresses physical/skill offline progress. Existing assigned workers and actual unlock eligibility determine progression. Per-level interval is at least30ms; skill use decrement is bounded with10000uses times3. Configured target moves workers and remaining time to next eligible work. Gain updates real level, corresponding stat and lifetime counters; summary reports actual range gained."
+        },
+        {
+          "file": "Assets.Scripts.Helper/OfflineCalc.cs",
+          "symbol": "OfflineCalc.JPOBDONHNLJ selected completion",
+          "spans": [
+            [
+              1318,
+              1377
+            ]
+          ],
+          "sha256": "050de6d8c85380f0a4938f0a400b9d9e645d6073eb042640c1a7f0089a50ecee",
+          "observed_rule": "Aggregates inspected gains, advances active challenge elapsed, refreshes timestamps/state, clears calculating and marks processed, and clears calculation state. Detailed summary is displayed above300seconds. This is in-memory publication, not audited durable-save failure atomicity."
+        },
+        {
+          "file": "Assets.Scripts/UpdateStats.cs",
+          "symbol": "UpdateStats.UpdateMinutely",
+          "spans": [
+            [
+              3999,
+              4087
+            ]
+          ],
+          "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+          "observed_rule": "Scheduled allocator counts enabled categories and divides currently allocatable clones by category count. Each category rechecks relevant unlocked system and invokes its real assigner. Disabled or unavailable systems receive no category allocation; ordering can matter. This is bounded sharing, not a general optimal scheduler."
+        },
+        {
+          "file": "Assets.Scripts/UpdateStats.cs",
+          "symbol": "UpdateStats.GLODOBLAJCO selected achievement dispatch",
+          "spans": [
+            [
+              4140,
+              4182
+            ]
+          ],
+          "sha256": "da78d894fd7e2442f78764b95a82094b24d59a0bb8f0353fd2cf52c596072327",
+          "observed_rule": "Active0.5-second callback stops during offline calculation and calls Steam achievement checks only in Steam platform branch after enough accumulated time."
+        },
+        {
+          "file": "Assets.Scripts.Helper/SteamHelper.cs",
+          "symbol": "SteamHelper.CheckAchievements selected gates",
+          "spans": [
+            [
+              1434,
+              1503
+            ]
+          ],
+          "sha256": "d5a01759b156c7646250ab25ebef8efdb1c0f9f9e1f84f7750bace72b3f006c0",
+          "observed_rule": "Null/quitting/uninitialized Steam guards return. Already-marked achievement skips. Light/universe/first-monument/monster achievements inspect actual counters or owned creation state before completion helper. Full achievement catalogue not semantically reviewed."
+        },
+        {
+          "file": "Assets.Scripts.Helper/SteamHelper.cs",
+          "symbol": "SteamHelper.FJKOKAHCJJA",
+          "spans": [
+            [
+              1948,
+              1956
+            ]
+          ],
+          "sha256": "d5a01759b156c7646250ab25ebef8efdb1c0f9f9e1f84f7750bace72b3f006c0",
+          "observed_rule": "If initialized, sets local completion boolean then requests Steam SetAchievement and StoreStats. Return success/error is not audited here, so cannot claim reliable server completion or transactional award."
+        }
+      ],
+      "failure": "Offline disabled, pending calculation or missing/nonpositive timestamp yields no catch-up; timed-challenge skip records no inferred progress.",
+      "inference": "Time admission, result aggregation and resource stopping should be explicit; online and offline are separate implementations, not assumed equivalent.",
+      "original_transfer": "Use committed itinerary/job receipts to show elapsed work, actual gains and blocked reason; retain current freeze policy. Any offline catch-up remains a separate future decision.",
+      "limits": [
+        "No whole-game offline equivalence, performance, exploit or save-failure proof.",
+        "Android-only cap cannot be generalized to Steam.",
+        "Server time, Steam result and external content unavailable/not executed."
+      ]
+    }
+  ]
+}

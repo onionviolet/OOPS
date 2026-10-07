@@ -1,0 +1,98 @@
+{
+  "captured_at": "2026-10-07T05:17:37.281479+00:00",
+  "worker": "/root/crush_social_resume",
+  "parent": "/root",
+  "state": "recovered-existing-partial-source",
+  "files": [
+    {
+      "path": "src/crush_social_content.js",
+      "sha256": "3bdc1d927c3e5c7f3c722643343190bc822f17e283ad8269ae6b624160ebb36d",
+      "bytes": 11284,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/crush_social_host.js",
+      "sha256": "edbcdc57a7182fa6bbc2a2a4205dae125ea27a8c43fc41b55e88820553e559b0",
+      "bytes": 10509,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/crush_social_views.js",
+      "sha256": "aaae6e478ae1961833d923bc8b2ebe5f232896e02f999c481750ba8f2a067932",
+      "bytes": 19107,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/promise_ui.js",
+      "sha256": "d5cc2dcaf7fc815cfecc0066e9d0666e2dc023495c711b04bc33419c1cbfa1ce",
+      "bytes": 6648,
+      "ownership": "social-leaf"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+      "bytes": 11954,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+      "bytes": 2866,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/party_battle.js",
+      "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+      "bytes": 10714,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "bytes": 20506,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "bytes": 24899,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "bytes": 28799,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+      "bytes": 38737,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "ec5663efc6be2cde9ab8841c7e5ad6d227cb830e0fd652533871c51a7dbb3074",
+      "bytes": 56839,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "4b27b6f5141bbfb4687c5b2d97f20f483df8e9f2065ab9d4510d4b7cbb9eb9a6",
+      "bytes": 29683,
+      "ownership": "read-only-shared-input"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "bytes": 33625,
+      "ownership": "read-only-shared-input"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-03",
+  "tests": {
+    "passed": 106,
+    "failed": 0
+  },
+  "build": "success",
+  "fingerprint": "v0.6-c3c43070a3a0",
+  "cssFingerprint": "v0.6-612f4995a49d",
+  "savedWorldId": "base.frontier",
+  "workingWorldLabel": "YAIRPG: Parallel Frontier",
+  "visibleNote": "YAIRPG \u00b7 Branch dimension",
+  "sourceHashes": {
+    "src/expedition_content.js": "85e2969cb044ba66dc648af77eb66edf644e76e976a7e5ef26da973ae1131add",
+    "src/main.js": "8a787e509697a104e0d3c1db8df8333490dd1e16afa9fbf7ecd676422ee236b3",
+    "index.html": "0526ac950df3ee45e33db0b16ff60aa307f9305913a0ce9353b779f268bfd2b3",
+    "style.css": "612f4995a49d8b22a232676b21d031cd5dbaadd6112d9ac0e7600c2cf49fefcc",
+    "dist/bundle.js": "c3c43070a3a0e96573fc7b2247bec34620b4c32a102d5bd689676b71ca181ad9"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:18514/",
+    "generatedFixtureOnly": true,
+    "loaderReportedNoIssues": true,
+    "checks": [
+      "Header note at Town square",
+      "Native travel to Town outskirts with same note",
+      "Native Save/reload retaining location, character, inventory, money and original quest",
+      "Tooltip source/branch wording",
+      "Empty warning/error log"
+    ],
+    "screenshot": "/Users/weiwei/.codex/visualizations/2026/10/03/01a10034-a55a-7643-b09e-e504af3f2b38/town-review/branch-dimension.jpg"
+  },
+  "limits": [
+    "One existing playable dimension; no original counterpart or world travel shipped.",
+    "Continuity metadata does not isolate two native registries or restore exact vanilla balance.",
+    "Working name and copy await human review."
+  ],
+  "personalSavesTouched": false
+}

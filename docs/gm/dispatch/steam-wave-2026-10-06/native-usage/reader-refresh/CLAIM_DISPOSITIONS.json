@@ -1,0 +1,1931 @@
+{
+  "observed_utc": "2026-10-07T13:09:11.368044+00:00",
+  "scope": "Finite static reader refresh only; old notes private frozenrecords retained; no native/Ghidra/game/recoveredcode execution",
+  "claims": [
+    {
+      "id": "QS-01",
+      "role": "quality-spoilage",
+      "title": "One quality draw traverses an unlocked linked chain",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Zero effect bypasses RNG; one sampled value is reused while the next-ID/unlock/threshold/global-cap chain advances. Signed16-bit scaling by100 appears in C and instructions; loader encoding/inlined copies remain unreviewed.",
+      "native_bindings": [
+        {
+          "entry": "100354a90",
+          "old_c_sha256": "cb65fe4853cc2b5aaa8ee0d0cefa596f15eabd6700e1c2142495069302b34584",
+          "old_body_sha256": "69ca7a6dba67d58481fe3111038b155e30e4b4decbb23fef32f27388e2749826",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 54,
+          "latest_c_sha256": "cb65fe4853cc2b5aaa8ee0d0cefa596f15eabd6700e1c2142495069302b34584",
+          "latest_body_sha256": "69ca7a6dba67d58481fe3111038b155e30e4b4decbb23fef32f27388e2749826",
+          "old_C_bounds": [
+            [
+              25,
+              30
+            ],
+            [
+              61,
+              78
+            ]
+          ],
+          "original_disassembly_locators": [
+            "100354a90",
+            "100354a94",
+            "100354b10",
+            "100354b1c",
+            "100354b20",
+            "100354b30",
+            "100354b4c",
+            "100354b50",
+            "100354b58",
+            "100354b60",
+            "100354b68",
+            "100354b6c",
+            "100354b7c",
+            "100354b84",
+            "100354b88"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "No independent RNG draw per later tier is present in this standalone body. Inlined copies/callers and full RNG distribution proof are unreviewed.",
+        "Do not infer exact per-tier runtime rates without actual effect encoding, enabled tiers and global cap."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/base/prototypes/categories/quality.lua",
+          "lines_inclusive": [
+            [
+              4,
+              13
+            ]
+          ],
+          "fields_or_symbols": [
+            "normal",
+            "level0",
+            "next_probability0.1"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/quality/prototypes/base-data-updates.lua",
+          "lines_inclusive": [
+            [
+              1,
+              6
+            ]
+          ],
+          "fields_or_symbols": [
+            "normal.next=uncommon",
+            "allow_quality=false oil exceptions"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/quality/prototypes/quality.lua",
+          "lines_inclusive": [
+            [
+              4,
+              55
+            ]
+          ],
+          "fields_or_symbols": [
+            "uncommon\u2192rare\u2192epic\u2192legendary",
+            "next_probability0.1",
+            "levels1/2/3/5"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/quality/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              6,
+              20
+            ],
+            [
+              24,
+              37
+            ],
+            [
+              41,
+              54
+            ]
+          ],
+          "fields_or_symbols": [
+            "quality effects0.1/0.2/0.25",
+            "speed-0.05"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/quality/prototypes/technology.lua",
+          "lines_inclusive": [
+            [
+              4,
+              34
+            ],
+            [
+              119,
+              144
+            ]
+          ],
+          "fields_or_symbols": [
+            "unlock-quality",
+            "science expenditure"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/space-age/base-data-updates.lua",
+          "lines_inclusive": [
+            [
+              831,
+              895
+            ]
+          ],
+          "fields_or_symbols": [
+            "Quality technology prerequisites and science requirements patched"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "QualityPrototype.next",
+        "QualityPrototype.next_probability",
+        "QualityPrototype.level",
+        "LuaQualityPrototype.next",
+        "LuaQualityPrototype.next_probability",
+        "LuaQualityPrototype.level",
+        "RecipePrototype.allow_quality"
+      ]
+    },
+    {
+      "id": "QS-02",
+      "role": "quality-spoilage",
+      "title": "Quality setup has structural checks beyond the roll",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Reverse-link write and conflicting-predecessor logging path remain; named cycle check is called. Its algorithm and log failure policy remain external to these bodies.",
+      "native_bindings": [
+        {
+          "entry": "1003587ac",
+          "old_c_sha256": "7ed32c3da3a3b9bae6f6debc58ee541a7d8ab42f6da59b6af41731fdf636260e",
+          "old_body_sha256": "b4787ed6ab899bf6d3a0f30a82c67c451d7150ffb1506b15d91d993e1284a466",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 71,
+          "latest_c_sha256": "7ed32c3da3a3b9bae6f6debc58ee541a7d8ab42f6da59b6af41731fdf636260e",
+          "latest_body_sha256": "b4787ed6ab899bf6d3a0f30a82c67c451d7150ffb1506b15d91d993e1284a466",
+          "old_C_bounds": [
+            [
+              42,
+              57
+            ]
+          ],
+          "original_disassembly_locators": [
+            "100358858",
+            "100358874",
+            "1003588d0",
+            "1003588d8",
+            "1003588dc",
+            "1003588e4"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "The logging branch alone does not establish rejection behavior or severity. No complete cycle-check helper claim."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/quality/prototypes/quality.lua",
+          "lines_inclusive": [
+            [
+              9,
+              10
+            ],
+            [
+              23,
+              24
+            ],
+            [
+              37,
+              38
+            ]
+          ],
+          "fields_or_symbols": [
+            "next links"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "QualityPrototype.next"
+      ]
+    },
+    {
+      "id": "QS-03",
+      "role": "quality-spoilage",
+      "title": "Effective spoil lifetime is distinct from an absolute deadline",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Zero nonperishable duration, map-bypass flag, quality multiplier, unsigned FCVTZU truncation/minimum1/saturation and current-tick addition remain. Deadline saturation wraps to currentTick-1; APIuint32 is not a proof of internal64-bit edge policy.",
+      "native_bindings": [
+        {
+          "entry": "1001ae42c",
+          "old_c_sha256": "56fafe975d5c65d1273f817a8f0e3ba70bfbc4809ae4d93dd2e7c3d9ff0f2daf",
+          "old_body_sha256": "c8565136bdb586939528cd5f4c648c2f8fcf19c0730f6081444b45222f6421cc",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 40,
+          "latest_c_sha256": "56fafe975d5c65d1273f817a8f0e3ba70bfbc4809ae4d93dd2e7c3d9ff0f2daf",
+          "latest_body_sha256": "c8565136bdb586939528cd5f4c648c2f8fcf19c0730f6081444b45222f6421cc",
+          "old_C_bounds": [
+            [
+              11,
+              34
+            ]
+          ],
+          "original_disassembly_locators": [
+            "1001ae42c",
+            "1001ae430",
+            "1001ae440",
+            "1001ae468",
+            "1001ae478",
+            "1001ae488",
+            "1001ae490",
+            "1001ae49c"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "101420cdc",
+          "old_c_sha256": "16d75f52f12389cb0e723e7711c4e339264e6bea23526b87a4f95cd8af7ca3e7",
+          "old_body_sha256": "102059c9219a1be46d11c62eced05fe568cc24a438bd1320e064825749fea11f",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 41,
+          "latest_c_sha256": "16d75f52f12389cb0e723e7711c4e339264e6bea23526b87a4f95cd8af7ca3e7",
+          "latest_body_sha256": "102059c9219a1be46d11c62eced05fe568cc24a438bd1320e064825749fea11f",
+          "old_C_bounds": [
+            [
+              11,
+              34
+            ]
+          ],
+          "original_disassembly_locators": [
+            "101420cdc",
+            "101420d18",
+            "101420d4c",
+            "101420d58",
+            "101420d60",
+            "101420d80"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "Generated C inferred integer types cannot replace instruction-level unsigned conversion. API uint32 return type and internal uint64 arithmetic are different views.",
+        "No extreme-value runtime experiment or full loader-field binding was performed."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              79,
+              88
+            ],
+            [
+              798,
+              804
+            ],
+            [
+              819,
+              820
+            ],
+            [
+              837,
+              838
+            ],
+            [
+              855,
+              856
+            ]
+          ],
+          "fields_or_symbols": [
+            "science1hour",
+            "nutrients5minute",
+            "mash3minute",
+            "jelly4minute",
+            "bioflux2hour"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        },
+        {
+          "file": "data/core/lualib/util.lua",
+          "lines_inclusive": [
+            [
+              883,
+              885
+            ]
+          ],
+          "fields_or_symbols": [
+            "second60ticks",
+            "minute3600ticks",
+            "hour216000ticks"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemPrototype.spoil_ticks",
+        "LuaItemPrototype.get_spoil_ticks",
+        "DifficultySettings.spoil_time_modifier",
+        "ItemPrototypeFlags.ignore-spoil-time-modifier"
+      ]
+    },
+    {
+      "id": "QS-04",
+      "role": "quality-spoilage",
+      "title": "Input freshness comes from the material amounts actually taken",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Perishable-only recipe-count weighted input fraction, nonzero deadline bookkeeping and actual remove invocation remain; fluids subtract bounded amounts and clear exhausted identity. No lower/upper fraction normalization or remove/callback implementation is claimed.",
+      "native_bindings": [
+        {
+          "entry": "10073f398",
+          "old_c_sha256": "aa367937030455bcc45a26c9b9524e42c812e6cb3b7158992b59ca24ebed248f",
+          "old_body_sha256": "768c74965e8c096910af4bd8f64a724efcd80528c64aed640f5a25b3c91842e3",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 37,
+          "latest_c_sha256": "aa367937030455bcc45a26c9b9524e42c812e6cb3b7158992b59ca24ebed248f",
+          "latest_body_sha256": "768c74965e8c096910af4bd8f64a724efcd80528c64aed640f5a25b3c91842e3",
+          "old_C_bounds": [
+            [
+              41,
+              46
+            ],
+            [
+              74,
+              133
+            ],
+            [
+              134,
+              200
+            ],
+            [
+              225,
+              294
+            ]
+          ],
+          "original_disassembly_locators": [
+            "10073f4a4",
+            "10073f4ac",
+            "10073f5a4",
+            "10073f5b4",
+            "10073f5b8",
+            "10073f5c8",
+            "10073f5cc",
+            "10073f5d4",
+            "10073f6fc",
+            "10073f718",
+            "10073f768",
+            "10073f76c",
+            "10073f950"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "Eligibility/energy ordering is parent-owned caller work. ItemStack::remove internals and virtual callback+0x1b8 are not fully read here.",
+        "Nonperishable ingredients are excluded rather than counted as pristine contributors; do not average all recipe inputs blindly."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/recipe.lua",
+          "lines_inclusive": [
+            [
+              333,
+              334
+            ],
+            [
+              350,
+              352
+            ],
+            [
+              369,
+              370
+            ],
+            [
+              399,
+              407
+            ],
+            [
+              797,
+              804
+            ]
+          ],
+          "fields_or_symbols": [
+            "actual ingredient amounts",
+            "nutrient bootstrap",
+            "egg and science consumers"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemPrototype.spoil_ticks",
+        "ItemProductPrototype.percent_spoiled"
+      ]
+    },
+    {
+      "id": "QS-05",
+      "role": "quality-spoilage",
+      "title": "Item output admission checks resulting identity and bounded capacity",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Empty slot early success; expiry can change prospective identity or eliminate output; requested quality0 bypasses matching; maximum count+extra-fraction bound and unresolved metadata tailcall remain.",
+      "native_bindings": [
+        {
+          "entry": "101559374",
+          "old_c_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+          "old_body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 38,
+          "latest_c_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+          "latest_body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+          "old_C_bounds": [
+            [
+              20,
+              28
+            ],
+            [
+              31,
+              87
+            ],
+            [
+              89,
+              122
+            ]
+          ],
+          "original_disassembly_locators": [
+            "101559378",
+            "101559430",
+            "101559438",
+            "101559440",
+            "101559448",
+            "1015594a4",
+            "1015594a8",
+            "101559474",
+            "1015594d0",
+            "101559500",
+            "101559518",
+            "101559560"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "Actual random yield and ItemProductPrototype::collectItem body remain unreviewed. This is admission using a bound, not guaranteed yield.",
+        "Tail target at101559560 remains indirect and unresolved. Do not claim all metadata can stack or every consumer handles spoilage identically."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              800,
+              804
+            ],
+            [
+              1613,
+              1616
+            ]
+          ],
+          "fields_or_symbols": [
+            "nutrient stack100",
+            "spoilage stack200",
+            "spoilagelevel1"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemPrototype.spoil_result",
+        "ItemProductPrototype.amount_max",
+        "ItemProductPrototype.extra_count_fraction",
+        "LuaItemPrototype.spoil_result"
+      ]
+    },
+    {
+      "id": "QS-06",
+      "role": "quality-spoilage",
+      "title": "Product creation applies spoil offset and a conditional refresh",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Admission/bypass precedes product collect; offset is added then capped using unchanged FMINNM; unsigned remaining-duration conversion and reset>=currentTick boundary precede setter and actual transfer call. No universal generator/transfer/NaN semantics claimed.",
+      "native_bindings": [
+        {
+          "entry": "10073ec44",
+          "old_c_sha256": "816503ce075059d4d18710742c1dc8eeb7224236b0bda12b8a2c69a7b62f2074",
+          "old_body_sha256": "5ae373904717193990a58cc396f217244809a921c631de7ef97f53fdd96e6e73",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 36,
+          "latest_c_sha256": "816503ce075059d4d18710742c1dc8eeb7224236b0bda12b8a2c69a7b62f2074",
+          "latest_body_sha256": "5ae373904717193990a58cc396f217244809a921c631de7ef97f53fdd96e6e73",
+          "old_C_bounds": [
+            [
+              36,
+              45
+            ],
+            [
+              73,
+              77
+            ],
+            [
+              100,
+              138
+            ],
+            [
+              139,
+              167
+            ]
+          ],
+          "original_disassembly_locators": [
+            "10073ecbc",
+            "10073ecdc",
+            "10073ece4",
+            "10073ed08",
+            "10073edfc",
+            "10073ef78",
+            "10073ef80",
+            "10073ef84",
+            "10073ef94",
+            "10073ef9c",
+            "10073efa0",
+            "10073efb4",
+            "10073efbc",
+            "10073f038"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "The refresh equality boundary differs from the normal deadline<=currentTick instant-spoil boundary. Its exact field-name binding remains an API-supported inference, not recovered member declarations.",
+        "Product generator and transfer primitive bodies, probabilistic zero products, subclass policies and productivity/bonus details are not fully read here."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/recipe.lua",
+          "lines_inclusive": [
+            [
+              323,
+              340
+            ],
+            [
+              378,
+              414
+            ]
+          ],
+          "fields_or_symbols": [
+            "nutrients bootstrappercent_spoiled0.5",
+            "egg reset_freshness_on_craft=true"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemProductPrototype.percent_spoiled",
+        "RecipePrototype.reset_freshness_on_craft",
+        "RecipePrototype.result_is_always_fresh",
+        "RecipePrototype.preserve_products_in_machine_output"
+      ]
+    },
+    {
+      "id": "QS-07",
+      "role": "quality-spoilage",
+      "title": "Admission and creation do not use identical spoil offsets",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Additional helperD0save/restore and full129instruction item guard still omit product-offset addition; product creation still adds it. Arithmetic asymmetry remains local evidence, not a runtime bug or universal failed-output claim.",
+      "native_bindings": [
+        {
+          "entry": "100741abc",
+          "old_c_sha256": "7e4553857c040144671b5493d4d4fea482c8fb340a4d857d04e4b29fdf27a753",
+          "old_body_sha256": "2f0ca7315045545a0bf9450233ffb84b417a47ff5542df0149c8247c5d419970",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000007.jsonl.gz",
+          "latest_line": 78,
+          "latest_c_sha256": "7e4553857c040144671b5493d4d4fea482c8fb340a4d857d04e4b29fdf27a753",
+          "latest_body_sha256": "2f0ca7315045545a0bf9450233ffb84b417a47ff5542df0149c8247c5d419970",
+          "latest_generated_C_full_read": false,
+          "scoped_read": "C21-37 and instructions100741afc-100741b50; parent fullreview retained"
+        },
+        {
+          "entry": "101559374",
+          "old_c_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+          "old_body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 38,
+          "latest_c_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+          "latest_body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+          "old_C_bounds": [
+            [
+              31,
+              54
+            ]
+          ],
+          "original_disassembly_locators": [
+            "101559430",
+            "101559434",
+            "101559438",
+            "101559440",
+            "101559448"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10073ec44",
+          "old_c_sha256": "816503ce075059d4d18710742c1dc8eeb7224236b0bda12b8a2c69a7b62f2074",
+          "old_body_sha256": "5ae373904717193990a58cc396f217244809a921c631de7ef97f53fdd96e6e73",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 36,
+          "latest_c_sha256": "816503ce075059d4d18710742c1dc8eeb7224236b0bda12b8a2c69a7b62f2074",
+          "latest_body_sha256": "5ae373904717193990a58cc396f217244809a921c631de7ef97f53fdd96e6e73",
+          "old_C_bounds": [
+            [
+              130,
+              136
+            ]
+          ],
+          "original_disassembly_locators": [
+            "10073ef78",
+            "10073ef80",
+            "10073ef84",
+            "10073efb4"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "No runtime bug, exploit or universal capacity failure is asserted. Parent caller review owns input parameters and broader recipe policy.",
+        "The scoped parent helper is excluded from the11 complete-body count."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/recipe.lua",
+          "lines_inclusive": [
+            [
+              332,
+              334
+            ]
+          ],
+          "fields_or_symbols": [
+            "nonzero nutrient outputpercent_spoiled0.5"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemProductPrototype.percent_spoiled",
+        "RecipePrototype.reset_freshness_on_craft"
+      ]
+    },
+    {
+      "id": "QS-08",
+      "role": "quality-spoilage",
+      "title": "Setting a deadline can convert immediately or enqueue future spoilage",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Past deadline catch-up rechecks changed material; <=currentTick spoils immediately; future stores/enqueues. Item::spoil, queue callbacks and extreme unsigned wrap policy remain unreviewed.",
+      "native_bindings": [
+        {
+          "entry": "1001aed64",
+          "old_c_sha256": "f8272d5d425bf353cb5d8ae4f438ff9a7b787763f695a57cf4dda47bca06fb68",
+          "old_body_sha256": "c1a2e686e63f92083056d574b255c57d78cab963e08c8fd82955b3086a3add1e",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 1,
+          "latest_c_sha256": "f8272d5d425bf353cb5d8ae4f438ff9a7b787763f695a57cf4dda47bca06fb68",
+          "latest_body_sha256": "c1a2e686e63f92083056d574b255c57d78cab963e08c8fd82955b3086a3add1e",
+          "old_C_bounds": [
+            [
+              19,
+              59
+            ],
+            [
+              61,
+              95
+            ]
+          ],
+          "original_disassembly_locators": [
+            "1001aed94",
+            "1001aedcc",
+            "1001aee54",
+            "1001aee64",
+            "1001aee84",
+            "1001aef24",
+            "1001aef4c"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "Item::spoil body is not fully read. Its recorded direct call at10141f470\u2192ItemStack::spoil is reference evidence only. Queue callback type3 semantics and queue-processing algorithm are unreviewed.",
+        "Unsigned deadline addition can wrap under extremes; no runtime edge-value policy is claimed."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              802,
+              803
+            ],
+            [
+              1168,
+              1212
+            ]
+          ],
+          "fields_or_symbols": [
+            "nutrient spoilresult",
+            "eggtrigger"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "LuaItemStack.spoil_tick",
+        "ItemPrototype.spoil_to_trigger_result"
+      ]
+    },
+    {
+      "id": "QS-09",
+      "role": "quality-spoilage",
+      "title": "Stack spoilage can trigger a consequence, replace material or remove it",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Trigger dispatch precedes prototype reread; absent result clears custody; replacement keeps quality/count except flag0x80count1 and notifies owners. Spawn success, constructor/deadline internals and callbacks remain unknown.",
+      "native_bindings": [
+        {
+          "entry": "10141f538",
+          "old_c_sha256": "a84b0af883962f1ac66aa28c8721d99b1aa1fcf408b67887edb1249308269ee1",
+          "old_body_sha256": "32d12a3456f832ec8ba35b244a9b49a9808f1dd964635079e35d4375564196e4",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 39,
+          "latest_c_sha256": "a84b0af883962f1ac66aa28c8721d99b1aa1fcf408b67887edb1249308269ee1",
+          "latest_body_sha256": "32d12a3456f832ec8ba35b244a9b49a9808f1dd964635079e35d4375564196e4",
+          "old_C_bounds": [
+            [
+              44,
+              61
+            ],
+            [
+              73,
+              106
+            ],
+            [
+              108,
+              119
+            ],
+            [
+              152,
+              194
+            ]
+          ],
+          "original_disassembly_locators": [
+            "10141f588",
+            "10141f598",
+            "10141f5a8",
+            "10141f5ac",
+            "10141f5c8",
+            "10141f5d0",
+            "10141f5f8",
+            "10141f6f8",
+            "10141f760",
+            "10141f778"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "No claim every egg successfully creates a unit, no whole ecology review, and no runtime trigger observation. SpoilToTriggerResult and ItemCreationParameters constructor bodies are not semantically read.",
+        "Owner callbacks at vptr+0x28/+0xa8 remain unresolved."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              802,
+              803
+            ],
+            [
+              1148,
+              1212
+            ]
+          ],
+          "fields_or_symbols": [
+            "ordinary spoilage",
+            "pentapod eggs15minute",
+            "items_per_trigger1",
+            "enemy create-entity and fallback"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemPrototype.spoil_result",
+        "ItemPrototype.spoil_to_trigger_result",
+        "SpoilToTriggerResult.items_per_trigger",
+        "SpoilToTriggerResult.trigger",
+        "ItemPrototypeFlags.not-stackable"
+      ]
+    },
+    {
+      "id": "QS-10",
+      "role": "quality-spoilage",
+      "title": "Spoil priority compares class level before deadline",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Different spoil-level bytes rank before deadline; equal levels use persistent nonzero deadline/unsigned comparison. Shared inserter policy body remains separately qualified for missing comparison cases.",
+      "native_bindings": [
+        {
+          "entry": "1007f784c",
+          "old_c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+          "old_body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 8,
+          "latest_c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+          "latest_body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+          "old_C_bounds": [
+            [
+              12,
+              40
+            ]
+          ],
+          "original_disassembly_locators": [
+            "1007f7858",
+            "1007f7860",
+            "1007f787c",
+            "1007f7884",
+            "1007f7890",
+            "1007f78a8",
+            "1007f78b0",
+            "1007f78b8",
+            "1007f78ec",
+            "1007f7904"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "No current direct caller was discovered in this record; imported data reference is not a runtime call. Full inserter sorting/priority is other reader work.",
+        "Unsigned zero/deadline edge semantics and dynamic metadata compatibility are not broadly generalized."
+      ],
+      "installed_evidence": [
+        {
+          "file": "data/space-age/prototypes/item.lua",
+          "lines_inclusive": [
+            [
+              1595,
+              1616
+            ]
+          ],
+          "fields_or_symbols": [
+            "spoilagelevel1",
+            "stack200"
+          ],
+          "version": "2.0.77",
+          "steam_buildid": "23347942",
+          "hash_source": "installed_sources keyed by relative_path"
+        }
+      ],
+      "api_contract_ids": [
+        "ItemPrototype.spoil_level"
+      ]
+    },
+    {
+      "id": "QS-11",
+      "role": "quality-spoilage",
+      "title": "The spoil-percent setter has an exact terminal branch",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "No persistent metadata returns; exact double1 directly spoils; other values delegate. Delegated clamp/range policy remains unreviewed.",
+      "native_bindings": [
+        {
+          "entry": "101429ea4",
+          "old_c_sha256": "a3b5c7fb39094de441bb0df142f614b0c39528f372b03ecd516fd46a7af1f6f6",
+          "old_body_sha256": "ebfdda8908cc15a6920aecac2c148d54192bb09132af86d2c8aca2007d246dd8",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 44,
+          "latest_c_sha256": "a3b5c7fb39094de441bb0df142f614b0c39528f372b03ecd516fd46a7af1f6f6",
+          "latest_body_sha256": "ebfdda8908cc15a6920aecac2c148d54192bb09132af86d2c8aca2007d246dd8",
+          "old_C_bounds": [
+            [
+              5,
+              13
+            ]
+          ],
+          "original_disassembly_locators": [
+            "101429ea8",
+            "101429eb0",
+            "101429eb4",
+            "101429eb8",
+            "101429ec0"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": [
+        "The delegated Item setter body is unreviewed, so range clamping or behavior for values greater than1 is not established here."
+      ],
+      "installed_evidence": [],
+      "api_contract_ids": [
+        "LuaItemStack.spoil_percent"
+      ]
+    },
+    {
+      "id": "NLH-01",
+      "role": "logistics-heat",
+      "title": "Inventory admission includes stack identity, quality, metadata and owner rules",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Boolean opportunity to insert remains conditional on one admitted compatible/empty slot and optional owner specification. It never establishes total-batch capacity or future reservation.",
+      "native_bindings": [
+        {
+          "entry": "1005217e4",
+          "old_c_sha256": "fb73ab931844e95d7c21f928d6f7e3fbcb8d2d0a0e16c65cbce5debf01201020",
+          "old_body_sha256": "0810a37090db13aa317e5f621c1f18db45ecb5641b78b1f61ca7a95b68f110c9",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 69,
+          "latest_c_sha256": "fb73ab931844e95d7c21f928d6f7e3fbcb8d2d0a0e16c65cbce5debf01201020",
+          "latest_body_sha256": "0810a37090db13aa317e5f621c1f18db45ecb5641b78b1f61ca7a95b68f110c9",
+          "old_C_bounds": [
+            19,
+            94
+          ],
+          "original_disassembly_locators": [
+            "100521810: virtual offset0x170",
+            "100521820: virtual offset0x120",
+            "100521898: call101416074",
+            "1005218f8/10052196c: metadata virtual offset0x40"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "Exact meaning of virtual limits and special item metadata requires their implementations. No inventory batch reservation or concurrency guarantee is established.",
+      "installed_evidence": [
+        "LuaTransportLine boolean insertion contract is also capacity-sensitive; distinct native inventory path",
+        "Quality prototype identities exist in installed quality-levels; no quality creation here"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-02",
+      "role": "logistics-heat",
+      "title": "Inventory pickup separates receiver eligibility, selection, hand limits and transfer",
+      "disposition": "needs-qualification",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Receiver0x188admission, filter/identity/quality checks, bounded hand transfer and tick stamp remain. FullC is unchanged, but actual six filter-comparison case entries and64bytes are outside the retained function body/ASM; row coverage needs faithful refresh.",
+      "native_bindings": [
+        {
+          "entry": "1007f6d50",
+          "old_c_sha256": "b4d608c0f04398a21b5c39c74b748dcc4585a6734de85648c40bcbbc8de1fe31",
+          "old_body_sha256": "aec1f254089b68044e8d36c9efddc39b94f9b1a79e7ea9119b254a772615bf5c",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 4,
+          "latest_c_sha256": "b4d608c0f04398a21b5c39c74b748dcc4585a6734de85648c40bcbbc8de1fe31",
+          "latest_body_sha256": "aec1f254089b68044e8d36c9efddc39b94f9b1a79e7ea9119b254a772615bf5c",
+          "old_C_bounds": [
+            21,
+            152
+          ],
+          "original_disassembly_locators": [
+            "1007f6d50..1007f70c0: complete bounded body"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f74a0",
+          "old_c_sha256": "a6b92fc320268ac44371ae6e42bdd2c1c5d32478e427ea1d49ecd13cbee5bdff",
+          "old_body_sha256": "2d731077a4d0f03fbb1106fe4fd33a119688b5b85542b068e2fc5f8cbf26892d",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 6,
+          "latest_c_sha256": "a6b92fc320268ac44371ae6e42bdd2c1c5d32478e427ea1d49ecd13cbee5bdff",
+          "latest_body_sha256": "2d731077a4d0f03fbb1106fe4fd33a119688b5b85542b068e2fc5f8cbf26892d",
+          "old_C_bounds": [
+            39,
+            112
+          ],
+          "original_disassembly_locators": [
+            "receiver virtual0x188; direct transferReal target10083b770"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f70c4",
+          "old_c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "old_body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 5,
+          "latest_c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "latest_body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "old_C_bounds": [
+            42,
+            204
+          ],
+          "original_disassembly_locators": [
+            "1007f730c: receiver blr",
+            "1007f73cc/1007f73f0: transferReal10083b770"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f6c24",
+          "old_c_sha256": "ed6972ae3a6ef7ca0829168201c44a6a9d1ca7cc3f2aa315028513c5db8eb987",
+          "old_body_sha256": "cf42116940764424c9fcdce424b55675e3a6029aed643f6513425de460f3e921",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 3,
+          "latest_c_sha256": "ed6972ae3a6ef7ca0829168201c44a6a9d1ca7cc3f2aa315028513c5db8eb987",
+          "latest_body_sha256": "cf42116940764424c9fcdce424b55675e3a6029aed643f6513425de460f3e921",
+          "old_C_bounds": [
+            19,
+            52
+          ],
+          "original_disassembly_locators": [
+            "1007f6cc4/1007f6d18: transferReal10083b770"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "Numeric pickup result values0/1/2 are not assigned original enum names; receiver admission is not an irrevocable later-delivery promise.",
+      "installed_evidence": [
+        "space-age-entities stack-inserter grab_less_to_match_belt_stack/wait_for_full_hand/max_belt_stack_size4",
+        "runtime LuaEntity held_stack and inserter_target_pickup_count"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-03",
+      "role": "logistics-heat",
+      "title": "Spoil priority is explicit selection policy with invalid-input exceptions",
+      "disposition": "needs-qualification",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "none0/fresh1/spoiled2 mapping and invalid-input throw remain; spoil-level/deadline orientation remains. Six comparison filter cases are visible inC and actual original table but absent savedbody/ASM; native enum interpretation/full-flow claim remains qualified.",
+      "native_bindings": [
+        {
+          "entry": "1007f827c",
+          "old_c_sha256": "22c59e5fb682b75668d6fd61bf78b7235126ba8018388e3a2f3c0fdfeefff28d",
+          "old_body_sha256": "3a897af8c5cf8f72f501d78d44c586b70f4d051162c16f812ef2ad3ea0f3d9ee",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 9,
+          "latest_c_sha256": "22c59e5fb682b75668d6fd61bf78b7235126ba8018388e3a2f3c0fdfeefff28d",
+          "latest_body_sha256": "3a897af8c5cf8f72f501d78d44c586b70f4d051162c16f812ef2ad3ea0f3d9ee",
+          "old_C_bounds": [
+            16,
+            39
+          ],
+          "original_disassembly_locators": [
+            "1007f827c..1007f83e4: bounded parse body"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f7728",
+          "old_c_sha256": "414b5be4139a0ea2b824f68682683803ab37808ab2c9e5d4001e7c725dec1d52",
+          "old_body_sha256": "be1e77f121880765baf40a25a496286da2dbd9fbe2fc6b0e7ac8ab93a92b4dd2",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 7,
+          "latest_c_sha256": "414b5be4139a0ea2b824f68682683803ab37808ab2c9e5d4001e7c725dec1d52",
+          "latest_body_sha256": "be1e77f121880765baf40a25a496286da2dbd9fbe2fc6b0e7ac8ab93a92b4dd2",
+          "old_C_bounds": [
+            12,
+            70
+          ],
+          "original_disassembly_locators": [
+            "1007f7830/1007f7848: assertion calls100153cc4"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f784c",
+          "old_c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+          "old_body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 8,
+          "latest_c_sha256": "f77c4d66d35e98c573cc6bd0f69d0d0262171311593c2d85cf73e102751b0f30",
+          "latest_body_sha256": "8afc06115f8b5bd1520bed395c6d87fe022accb19cc361cc2fea2febc4b90591",
+          "old_C_bounds": [
+            12,
+            40
+          ],
+          "original_disassembly_locators": [
+            "1007f784c..1007f7904: bounded comparator body"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f70c4",
+          "old_c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "old_body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 5,
+          "latest_c_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+          "latest_body_sha256": "58b1becc1d7dc9fb8543d0b4dfbf67c88d53e441f7bc939ecb088fcc7cfbafef",
+          "old_C_bounds": [
+            105,
+            145
+          ],
+          "original_disassembly_locators": [
+            "comparison branches within body"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "Prototype byte0x431 and metadata0x40 are not given original member names; no global freshness algorithm, preserved deadline transfer or enabled DLC state is proved.",
+      "installed_evidence": [
+        "runtime API SpoilPriority concept exactly lists the same3strings",
+        "space-age-spoil nutrients5*minute and yumako-mash3*minute both produce spoilage"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-04",
+      "role": "logistics-heat",
+      "title": "Blocked delivery preserves held material and registers a wake dependency",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Distinct machine/belt/ground/space branches, remaining held custody, dependency registration and deactivation remain; only empty-held ordinary path marks dropped. Callee transfer/surface/space/wake behavior remains external.",
+      "native_bindings": [
+        {
+          "entry": "1007f8448",
+          "old_c_sha256": "badc3c579df2d9115a31eadd552f3831a6af054a5bebd76fb991c9dd6e385796",
+          "old_body_sha256": "50dca7e614bf16284b397e555a1547980d75d7af82edc0536c59a13141c47481",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 11,
+          "latest_c_sha256": "badc3c579df2d9115a31eadd552f3831a6af054a5bebd76fb991c9dd6e385796",
+          "latest_body_sha256": "50dca7e614bf16284b397e555a1547980d75d7af82edc0536c59a13141c47481",
+          "old_C_bounds": [
+            26,
+            155
+          ],
+          "original_disassembly_locators": [
+            "1007f8510: tryToInsert100401454",
+            "1007f85c4: receiver offset0x1c0",
+            "1007f85e8: receiver offset0xc8",
+            "1007f85a0/1007f8604/1007f877c: deactivate1006176f4",
+            "1007f884c: wake-list capacity error1000f1948"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f8a4c",
+          "old_c_sha256": "5bbb67211089db447ef135f0c639b379ad547d6f4aa10eac65dea4afc2f879a5",
+          "old_body_sha256": "74e3e4961c76811ab5c10bf36e61df8e262231d06d178d3e3e137ba207be55a5",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 14,
+          "latest_c_sha256": "5bbb67211089db447ef135f0c639b379ad547d6f4aa10eac65dea4afc2f879a5",
+          "latest_body_sha256": "74e3e4961c76811ab5c10bf36e61df8e262231d06d178d3e3e137ba207be55a5",
+          "old_C_bounds": [
+            80,
+            163
+          ],
+          "original_disassembly_locators": [
+            "1007f8bbc/1007f8e30: dropHeldItem1007f8448"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "Machine transfer, surface createItemEntity, dropItemIntoSpace and actual wake callback implementations remain callees; no launch/runtime observation.",
+      "installed_evidence": [
+        "LuaEntity held_stack; LuaTransportLine insert_at returns success boolean",
+        "Space Age introduces a distinct dropItemIntoSpace path, but its internals were not read"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-05",
+      "role": "logistics-heat",
+      "title": "Transport insertion is spatial admission before item construction",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Spatial and neighbor-gap guards precede construction/emplacement; null payload can probe admission. Constructor custody and numeric API conversion/whole throughput remain unreviewed; one existing32byte raw listing gap retains classification limit.",
+      "native_bindings": [
+        {
+          "entry": "100401454",
+          "old_c_sha256": "39fd486a3d232e7985928e93c729e2cd1f66c3ac83f307ee51d7811d8919b36d",
+          "old_body_sha256": "77b9682639c5ff27e3d05f523f7938de55ed1cd556fa751d8d8899e73f849634",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 58,
+          "latest_c_sha256": "39fd486a3d232e7985928e93c729e2cd1f66c3ac83f307ee51d7811d8919b36d",
+          "latest_body_sha256": "77b9682639c5ff27e3d05f523f7938de55ed1cd556fa751d8d8899e73f849634",
+          "old_C_bounds": [
+            30,
+            280
+          ],
+          "original_disassembly_locators": [
+            "100401454..1004019e7: complete body",
+            "tryToInsertAtBack direct target1004011e0"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1004011e0",
+          "old_c_sha256": "3443117270b194779789bec50e13e9ed89161d71c6f1324b20850993a1a98a6a",
+          "old_body_sha256": "27d174a064d798a632a901a8583878af6530487640b4824414ff8994ec149b66",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 57,
+          "latest_c_sha256": "3443117270b194779789bec50e13e9ed89161d71c6f1324b20850993a1a98a6a",
+          "latest_body_sha256": "27d174a064d798a632a901a8583878af6530487640b4824414ff8994ec149b66",
+          "old_C_bounds": [
+            19,
+            126
+          ],
+          "original_disassembly_locators": [
+            "1004012e4: CompactDeque grow101e946f0",
+            "10040131c: ItemOnTransportLine constructor1004091d8"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "FixedPointNumberTemplate with8fractional bits is in the symbol, but complete geometric conversion, constructor custody and API-wrapper call graph are not read. No direct count throughput claim.",
+      "installed_evidence": [
+        "base-belt speed0.03125",
+        "LuaTransportLine can_insert_at_back/insert_at/insert_at_back and belt_stack_size parameter"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-06",
+      "role": "logistics-heat",
+      "title": "Conveyor scheduling and spoil notifications react to concrete state",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Depth999/fulltick checks, splitter dispatch, recursion-before-move, active-list changes and spoil/wake callbacks remain. Final BR is vptr-loaded unresolved callback, not proven omitted byte-table cases.",
+      "native_bindings": [
+        {
+          "entry": "1003fde70",
+          "old_c_sha256": "67c7d53d2eab4c1d9e7e689971af49e389707ea9e73f18b535dba7715701b253",
+          "old_body_sha256": "9a50fe549d22374d02090f80b0e17516e5874234a06801e722de5d0e03112ed9",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 55,
+          "latest_c_sha256": "67c7d53d2eab4c1d9e7e689971af49e389707ea9e73f18b535dba7715701b253",
+          "latest_body_sha256": "9a50fe549d22374d02090f80b0e17516e5874234a06801e722de5d0e03112ed9",
+          "old_C_bounds": [
+            19,
+            125
+          ],
+          "original_disassembly_locators": [
+            "1003fdee8: splitter update1003fd9cc",
+            "1003fdf10: recursive update",
+            "1003fdf34: move1003fd4b4",
+            "1003fe19c: unresolved indirect callback"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1004087b0",
+          "old_c_sha256": "f788b807704c49c6d14e5550b787bd39d7c227de06d04aabde98c4d8b00eb17c",
+          "old_body_sha256": "05ae6d125c4dfb07ae8fc0acc5245a49bab28055d31295801239acd1ce8b954e",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 64,
+          "latest_c_sha256": "f788b807704c49c6d14e5550b787bd39d7c227de06d04aabde98c4d8b00eb17c",
+          "latest_body_sha256": "05ae6d125c4dfb07ae8fc0acc5245a49bab28055d31295801239acd1ce8b954e",
+          "old_C_bounds": [
+            16,
+            65
+          ],
+          "original_disassembly_locators": [
+            "1004088f8: remove1003ff7ec"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1004080f8",
+          "old_c_sha256": "9287c047650ab8edc6384213c8909582b2c761f0b49f510382f57df5d118d830",
+          "old_body_sha256": "5d9fd55825046ab9ff6cbbe890474e5778602e83077968196b98f24fda013ae4",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 63,
+          "latest_c_sha256": "9287c047650ab8edc6384213c8909582b2c761f0b49f510382f57df5d118d830",
+          "latest_body_sha256": "5d9fd55825046ab9ff6cbbe890474e5778602e83077968196b98f24fda013ae4",
+          "old_C_bounds": [
+            9,
+            33
+          ],
+          "original_disassembly_locators": [
+            "WakeUpList::updateTransportBeltWakeables calls"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10040ace0",
+          "old_c_sha256": "0f98e6f6d5d7596fb30b08e3db5eca4101a709bf418838658c21da8f1caac4dc",
+          "old_body_sha256": "7b2d7cf108ef1d871b0c7640b58eeea3f6ebb5bc3d062d675895a01fc9c1da62",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 68,
+          "latest_c_sha256": "0f98e6f6d5d7596fb30b08e3db5eca4101a709bf418838658c21da8f1caac4dc",
+          "latest_body_sha256": "7b2d7cf108ef1d871b0c7640b58eeea3f6ebb5bc3d062d675895a01fc9c1da62",
+          "old_C_bounds": [
+            5,
+            7
+          ],
+          "original_disassembly_locators": [
+            "BeltReaderState::add direct downstream instrumentation"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "move, splitter, remove and WakeUpList callback internals are not semantically read. No all-network deadlock or ordering guarantee.",
+      "installed_evidence": [
+        "installed Space Age spoil-result item definitions",
+        "base-belt speed and optional circuit reader consumer"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-07",
+      "role": "logistics-heat",
+      "title": "Wake registrations are rebuilt when belt dependencies change; spoiled hand has its own notification",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Old type4/5 wake registrations are removed and geometry lists rebuilt with3slot failure; spoil notification updates held-stack bit9. Type propagation warning, enum names and virtual geometry/wake consumers remain qualified.",
+      "native_bindings": [
+        {
+          "entry": "1007fc1c4",
+          "old_c_sha256": "1c99f44a0f9d9f59cabcf95915bcf4d87c4ff6c695d9741b6ba15e4b96386774",
+          "old_body_sha256": "607d4e9d4aa066d0f06c1bdd14cfbb484a75ad6dfe29bc76607c0da82def7cc6",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 25,
+          "latest_c_sha256": "1c99f44a0f9d9f59cabcf95915bcf4d87c4ff6c695d9741b6ba15e4b96386774",
+          "latest_body_sha256": "607d4e9d4aa066d0f06c1bdd14cfbb484a75ad6dfe29bc76607c0da82def7cc6",
+          "old_C_bounds": [
+            24,
+            263
+          ],
+          "original_disassembly_locators": [
+            "1007fc650/1007fc6d8/1007fc76c: wakeable push1003817f8",
+            "1007fc5c0/1007fc79c: alarm1004c64c8",
+            "1007fc7d8: logging1000f1948"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007fddd4",
+          "old_c_sha256": "6cdb510d8697d749fd70024b1381769dbf542760bdb6c63a2a43086467ece00b",
+          "old_body_sha256": "669fbc1c55bd54a7e163c219401f6437d5bd559b7ce9843da5647de609b779d6",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 30,
+          "latest_c_sha256": "6cdb510d8697d749fd70024b1381769dbf542760bdb6c63a2a43086467ece00b",
+          "latest_body_sha256": "669fbc1c55bd54a7e163c219401f6437d5bd559b7ce9843da5647de609b779d6",
+          "old_C_bounds": [
+            5,
+            10
+          ],
+          "original_disassembly_locators": [
+            "1007fddec..1007fde20: held identity and flag update"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f8850",
+          "old_c_sha256": "8b69732e5dd13e5a14dc1bc06a62ef7334cc35ccad1f8c742b90d48ef11cd70e",
+          "old_body_sha256": "cc29f81c8eb7300bf937940b9cc24427177941bb622dfeb01277394b2bdac03b",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 12,
+          "latest_c_sha256": "8b69732e5dd13e5a14dc1bc06a62ef7334cc35ccad1f8c742b90d48ef11cd70e",
+          "latest_body_sha256": "cc29f81c8eb7300bf937940b9cc24427177941bb622dfeb01277394b2bdac03b",
+          "old_C_bounds": [
+            14,
+            48
+          ],
+          "original_disassembly_locators": [
+            "drop target geometry refresh"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1007f8960",
+          "old_c_sha256": "cdad338426d40a870279143016f15963cfcefb6eb7fbfb5e2c0f9a845b4bfc65",
+          "old_body_sha256": "4332ff4abbd0074ff0461deae1b796c062e1dc19a0a77386a6c29718c55e9824",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000005.jsonl.gz",
+          "latest_line": 13,
+          "latest_c_sha256": "cdad338426d40a870279143016f15963cfcefb6eb7fbfb5e2c0f9a845b4bfc65",
+          "latest_body_sha256": "4332ff4abbd0074ff0461deae1b796c062e1dc19a0a77386a6c29718c55e9824",
+          "old_C_bounds": [
+            13,
+            41
+          ],
+          "original_disassembly_locators": [
+            "pickup target geometry refresh"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "List type values4/5 are not assigned original enum names; bit9 does not alone prove the complete drop-mode transition consumer. Alarm/virtual target callbacks unreviewed.",
+      "installed_evidence": [
+        "space-age stack-inserter enter_drop_mode_if_held_stack_spoiled=true",
+        "prototype API explains spoiled full-hand wait exception"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-08",
+      "role": "logistics-heat",
+      "title": "Temperature is derived from a stored double, not integer energy",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Dregister loads/stores confirm floating storage despite long/castC. Temperature E/coefficient+baseline and bounded setters/capacity addition remain. Member-name/unit mapping remains loader/API structural inference.",
+      "native_bindings": [
+        {
+          "entry": "1001e8af4",
+          "old_c_sha256": "686c8ab0d8853fad1c888dbe1ea6c954747449a743987657c209bd3fa9e3efbc",
+          "old_body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 41,
+          "latest_c_sha256": "686c8ab0d8853fad1c888dbe1ea6c954747449a743987657c209bd3fa9e3efbc",
+          "latest_body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+          "old_C_bounds": [
+            7,
+            9
+          ],
+          "original_disassembly_locators": [
+            "1001e8af4..1001e8b08: floating temperature"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029a590",
+          "old_c_sha256": "f1bf21a0623b0f2043e28109c48dc6e6580ac81051f3729201eca66d7fac0df3",
+          "old_body_sha256": "a87c3a48588e222cdd1c12ecb8712062c6f112b5f0df117f65f9f71cf0060e91",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 45,
+          "latest_c_sha256": "f1bf21a0623b0f2043e28109c48dc6e6580ac81051f3729201eca66d7fac0df3",
+          "latest_body_sha256": "a87c3a48588e222cdd1c12ecb8712062c6f112b5f0df117f65f9f71cf0060e91",
+          "old_C_bounds": [
+            8,
+            16
+          ],
+          "original_disassembly_locators": [
+            "10029a598: ldp d2,d3 baseline/coefficient",
+            "10029a5b4: str d0,[x0,#0x60]"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029a42c",
+          "old_c_sha256": "7f14a5144a8778775ee6108d5d9e5fe5845f220cf67c3d4ecd1305b9ea47ccbf",
+          "old_body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 42,
+          "latest_c_sha256": "7f14a5144a8778775ee6108d5d9e5fe5845f220cf67c3d4ecd1305b9ea47ccbf",
+          "latest_body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+          "old_C_bounds": [
+            10,
+            21
+          ],
+          "original_disassembly_locators": [
+            "10029a42c..10029a45c: floating capacity/add"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029bccc",
+          "old_c_sha256": "7358f36b55f76bbc1ab75f8589171b8613966af960e39e9ade25f22289394f7f",
+          "old_body_sha256": "f9beb77d1be80833dfca2d994a8c7e6371511ccd5e45d0b987ac49a1ff7c51bf",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 8,
+          "latest_c_sha256": "7358f36b55f76bbc1ab75f8589171b8613966af960e39e9ade25f22289394f7f",
+          "latest_body_sha256": "f9beb77d1be80833dfca2d994a8c7e6371511ccd5e45d0b987ac49a1ff7c51bf",
+          "old_C_bounds": [
+            5,
+            11
+          ],
+          "original_disassembly_locators": [
+            "10029bcd8: fmaxnm",
+            "10029bce4: str d0"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "Generated C wrongly models some energy fields as long with casts; LDR/STR d and arithmetic prove floating storage. Named field mapping is structural inference without prototype loader read; set/getAvailableEnergy are not assumed mathematical inverses.",
+      "installed_evidence": [
+        "HeatBuffer/HeatEnergySource API default_temperature15, max_temperature, specific_heat",
+        "base reactor1000/10MJ, heat-pipe1000/1MJ; heating tower1000/5MJ"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-09",
+      "role": "logistics-heat",
+      "title": "Usable heat has a reserve and a per-call extraction cap; full requests fail atomically",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Finite valid request admits min(request,max(E-reserve,0),cap), conditional requires full nonzero amount before store; heat source uses source+0x18. All eight selected FMAXNM helpers retain sameC under repairedSLA; D0/W0physical evidence overrides default signatures.",
+      "native_bindings": [
+        {
+          "entry": "10029bc88",
+          "old_c_sha256": "e543da1093d2ae6cc1ce82a6f801aa21b5a8ab4a97aeb5285c05defd716d41ff",
+          "old_body_sha256": "6c5457ac805758affb373f561a82221d34f48ac8eefc19cbecc30f51ed6cd021",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 7,
+          "latest_c_sha256": "e543da1093d2ae6cc1ce82a6f801aa21b5a8ab4a97aeb5285c05defd716d41ff",
+          "latest_body_sha256": "6c5457ac805758affb373f561a82221d34f48ac8eefc19cbecc30f51ed6cd021",
+          "old_C_bounds": [
+            8,
+            13
+          ],
+          "original_disassembly_locators": [
+            "10029bc94/10029bc9c: fsub/fmaxnm"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029bcec",
+          "old_c_sha256": "1c24c03ac2fa4fe8dc5c33c6710e06b20e01f2717d02911d26532bb8ece23c0d",
+          "old_body_sha256": "1b84ff2da876b67e140eb6799bef41dce7c612f0655b4a2cb03e5ac44f367a71",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 9,
+          "latest_c_sha256": "1c24c03ac2fa4fe8dc5c33c6710e06b20e01f2717d02911d26532bb8ece23c0d",
+          "latest_body_sha256": "1b84ff2da876b67e140eb6799bef41dce7c612f0655b4a2cb03e5ac44f367a71",
+          "old_C_bounds": [
+            9,
+            25
+          ],
+          "original_disassembly_locators": [
+            "10029bd10: cap load",
+            "10029bd28..10029bd30: subtract/store/result"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029bd38",
+          "old_c_sha256": "ecb9e4f3353f96aadde496cce1cb8ef3a7049206e62c8abbdac6105e496757b2",
+          "old_body_sha256": "ae582de9b48aa8a228ff623f2894bb07350aeb0a8c41da8eaf11da408babbe7b",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 10,
+          "latest_c_sha256": "ecb9e4f3353f96aadde496cce1cb8ef3a7049206e62c8abbdac6105e496757b2",
+          "latest_body_sha256": "ae582de9b48aa8a228ff623f2894bb07350aeb0a8c41da8eaf11da408babbe7b",
+          "old_C_bounds": [
+            9,
+            24
+          ],
+          "original_disassembly_locators": [
+            "10029bd74..10029bd84: conditional store"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005fce08",
+          "old_c_sha256": "004d5aa8ad22b27477c9fdd30cb2831e9b71831829c39dea50d8872033d61198",
+          "old_body_sha256": "9a68c3690494e5710335205c86beab10649027bd5b718b045fa104505ebea5e3",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 13,
+          "latest_c_sha256": "004d5aa8ad22b27477c9fdd30cb2831e9b71831829c39dea50d8872033d61198",
+          "latest_body_sha256": "9a68c3690494e5710335205c86beab10649027bd5b718b045fa104505ebea5e3",
+          "old_C_bounds": [
+            10,
+            27
+          ],
+          "original_disassembly_locators": [
+            "1005fce30: cap load",
+            "1005fce4c: conditional store"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005fcf68",
+          "old_c_sha256": "e812294eee3c191b55bf6eb6b989d3e3df523b0187c45c6b90de47592999add2",
+          "old_body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 15,
+          "latest_c_sha256": "e812294eee3c191b55bf6eb6b989d3e3df523b0187c45c6b90de47592999add2",
+          "latest_body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+          "old_C_bounds": [
+            9,
+            23
+          ],
+          "original_disassembly_locators": [
+            "1005fcfa4: boolean result w0 despite void C signature",
+            "1005fcfb4: guarded store"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005fcfbc",
+          "old_c_sha256": "2fa3b10502ef114e3ac2fe053218b9e1bfe704bf10fbdd28e743bcbe017e22ae",
+          "old_body_sha256": "f5ec1ece49d4b00ae5b409a35fc1506f6f961ad14b483041b99b73a4ac5857e5",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 16,
+          "latest_c_sha256": "2fa3b10502ef114e3ac2fe053218b9e1bfe704bf10fbdd28e743bcbe017e22ae",
+          "latest_body_sha256": "f5ec1ece49d4b00ae5b409a35fc1506f6f961ad14b483041b99b73a4ac5857e5",
+          "old_C_bounds": [
+            8,
+            14
+          ],
+          "original_disassembly_locators": [
+            "buffer surplus"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005fd680",
+          "old_c_sha256": "4ac5394c4c80afe3338732e6a175f312faa7d6921eb065b01a6eb4824826e760",
+          "old_body_sha256": "a6d588adfafd8a7fee321b4de69c4febd895942619cb9d63d12ad512347cca30",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 83,
+          "latest_c_sha256": "4ac5394c4c80afe3338732e6a175f312faa7d6921eb065b01a6eb4824826e760",
+          "latest_body_sha256": "a6d588adfafd8a7fee321b4de69c4febd895942619cb9d63d12ad512347cca30",
+          "old_C_bounds": [
+            7,
+            10
+          ],
+          "original_disassembly_locators": [
+            "1005fd698..1005fd6a0: strict temperature comparison"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "No NaN/negative-input contract is claimed. Original names/units for offsets are inferred from helpers plus API; no loader-derived rate conversion or global per-tick sum proof.",
+      "installed_evidence": [
+        "HeatEnergySource min_working_temperature/max_transfer/specific_heat API",
+        "base heat-exchanger working500, specific_heat1MJ, max_transfer2GW"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-10",
+      "role": "logistics-heat",
+      "title": "Heat transfer is constrained equalization with separate consumer reserves",
+      "disposition": "unchanged",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Positive paired transfers still bound donorE, recipientheadroom and donorcap; sameprototype0.2gradient and differentprototype/2.5 arithmetic remain, without consumerreserve0xb0. No ambient loss model/full network or numerical global conservation proof.",
+      "native_bindings": [
+        {
+          "entry": "10029a460",
+          "old_c_sha256": "b7e9d1434709ffc58215780b256274e54a3cc2f8e21c788d9e6df1153f19034b",
+          "old_body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 43,
+          "latest_c_sha256": "b7e9d1434709ffc58215780b256274e54a3cc2f8e21c788d9e6df1153f19034b",
+          "latest_body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+          "old_C_bounds": [
+            8,
+            22
+          ],
+          "original_disassembly_locators": [
+            "10029a49c..10029a4ac: paired receiver/source mutations"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029a4b4",
+          "old_c_sha256": "fa60179f3e112371ed188e2ec3455acbe64cb18c632ce37cbaf2eabedf275c11",
+          "old_body_sha256": "35b4ca5726f42c2e7ef589a6d0a1f1496181e4a222fc8347202788e7198ff645",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 44,
+          "latest_c_sha256": "fa60179f3e112371ed188e2ec3455acbe64cb18c632ce37cbaf2eabedf275c11",
+          "latest_body_sha256": "35b4ca5726f42c2e7ef589a6d0a1f1496181e4a222fc8347202788e7198ff645",
+          "old_C_bounds": [
+            12,
+            50
+          ],
+          "original_disassembly_locators": [
+            "10029a4c4..10029a510: different-prototype arithmetic",
+            "10029a51c..10029a548: same-prototype coefficient",
+            "10029a578..10029a588: paired stores"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "0.2/2.5 are observed native constants, not YAIR balance recommendations. Full physical conservation/float error and global ordering are untested.",
+      "installed_evidence": [
+        "HeatBuffer min_temperature_gradient/default_temperature/specific_heat/max_transfer/connections API",
+        "base reactor/heat pipe and Space Age heating tower have different coefficients"
+      ],
+      "api_contract_ids": null
+    },
+    {
+      "id": "NLH-11",
+      "role": "logistics-heat",
+      "title": "Heat scheduling guards recursion and keeps smoothed display separate from usable energy",
+      "disposition": "strengthened",
+      "semantic_core_contradicted": false,
+      "reread_disposition": "Electric preflight/extract now return doubleD0 from physically qualified X0/D0signature. ExtractionCnow explicitly stores max(E-request,0), matching unchanged eightinstructions and returning min(request,E) for finite nonnegative state/request. Old missing-clampC warning is historical; heat conditionalvoid/W0boolean remains. Tick smoothing is display accumulator/32, not a dispatch-rate guarantee.",
+      "native_bindings": [
+        {
+          "entry": "10029b984",
+          "old_c_sha256": "2ea06c67f0a5097f02ee3e09cdc23f5788473693ea3c8410219fb610ca2e2e79",
+          "old_body_sha256": "849dd747409200fc8fb67d186e686df85ffe6b46641d855a114735bf237d79f8",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 46,
+          "latest_c_sha256": "2ea06c67f0a5097f02ee3e09cdc23f5788473693ea3c8410219fb610ca2e2e79",
+          "latest_body_sha256": "849dd747409200fc8fb67d186e686df85ffe6b46641d855a114735bf237d79f8",
+          "old_C_bounds": [
+            11,
+            32
+          ],
+          "original_disassembly_locators": [
+            "10029b99c/10029b9a8: lowbyte guard/mark",
+            "10029ba00/10029ba0c: recursion/transfer",
+            "10029ba1c..10029ba4c: float aggregate"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029ba64",
+          "old_c_sha256": "bfeca643d7e041e1f1df94edb174d6d3425eaa801a3883787d4eb61ec1f67c73",
+          "old_body_sha256": "5d05325db7e958b7589699208c4a2526fd52c18554cf407d84831f919b160b1d",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 47,
+          "latest_c_sha256": "bfeca643d7e041e1f1df94edb174d6d3425eaa801a3883787d4eb61ec1f67c73",
+          "latest_body_sha256": "5d05325db7e958b7589699208c4a2526fd52c18554cf407d84831f919b160b1d",
+          "old_C_bounds": [
+            7,
+            13
+          ],
+          "original_disassembly_locators": [
+            "10029ba78..10029ba90:32boundary average/reset"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "10029ba98",
+          "old_c_sha256": "4475d2dd89e904ea012ef6175d3a978c9989b63c54cd5d0310efae00908c75f1",
+          "old_body_sha256": "bd18fe1d3496d32ec4fc15a32ac70797db4c5efae6ba9f0852711707e88420fa",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 48,
+          "latest_c_sha256": "4475d2dd89e904ea012ef6175d3a978c9989b63c54cd5d0310efae00908c75f1",
+          "latest_body_sha256": "bd18fe1d3496d32ec4fc15a32ac70797db4c5efae6ba9f0852711707e88420fa",
+          "old_C_bounds": [
+            21,
+            88
+          ],
+          "original_disassembly_locators": [
+            "vector append, allocation guards, recursion/transfer"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005fd074",
+          "old_c_sha256": "2d371ba32b115d0428c8c67a41b72108a86edb5af630c7d714722a95dcd071e1",
+          "old_body_sha256": "63fc64f16ee30fcf27d381369698f71780f1fbed190a393c48ccaefeaddf86e5",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001838.jsonl.gz",
+          "latest_line": 18,
+          "latest_c_sha256": "2d371ba32b115d0428c8c67a41b72108a86edb5af630c7d714722a95dcd071e1",
+          "latest_body_sha256": "63fc64f16ee30fcf27d381369698f71780f1fbed190a393c48ccaefeaddf86e5",
+          "old_C_bounds": [
+            9,
+            18
+          ],
+          "original_disassembly_locators": [
+            "1005fd074..1005fd098: surplus-only preflight; no0x90read"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005df238",
+          "old_c_sha256": "d4b2b993d319ebb2fe5931623ae1669dc6f4940901aae8160fc8477f8621fd86",
+          "old_body_sha256": "88a91c152db719d52d039d7534e82cbb7e3fa982d3b4611f2d7f86a371cfea4c",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001849.jsonl.gz",
+          "latest_line": 3,
+          "latest_c_sha256": "60289ed70d1efcbe4f283e1d60d977e115095b0d8a3eb0d08c801fe17bfb9bd6",
+          "latest_body_sha256": "88a91c152db719d52d039d7534e82cbb7e3fa982d3b4611f2d7f86a371cfea4c",
+          "old_C_bounds": [
+            8,
+            12
+          ],
+          "original_disassembly_locators": [
+            "electric preflight"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005df250",
+          "old_c_sha256": "63739a9b5aa5287027bf51584efde5ae6fcd2bc9a2307da5f273c65dcebb43d3",
+          "old_body_sha256": "921d6e40743f3ef4461ec504a0577f05604a27ced9fd67eb2a24cd8682fa3911",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-001849.jsonl.gz",
+          "latest_line": 5,
+          "latest_c_sha256": "5797f6d7a718f4b9ffcacb6083c63b88c7f7b538fb2d2af03c066eeba2a05dbe",
+          "latest_body_sha256": "921d6e40743f3ef4461ec504a0577f05604a27ced9fd67eb2a24cd8682fa3911",
+          "old_C_bounds": [
+            9,
+            16
+          ],
+          "original_disassembly_locators": [
+            "1005df25c: fmax d3,d2,0",
+            "1005df268: str d3 clamped result"
+          ],
+          "latest_generated_C_full_read": true
+        },
+        {
+          "entry": "1005df350",
+          "old_c_sha256": "3028dc65909c562e7d811dc6b59c9ffbd831dfeb2cc1b75ff480ebd99e06501d",
+          "old_body_sha256": "468198457a2c8a0b75efb4f78eef5d6767613b8dbcb22f27b0849366221195bf",
+          "latest_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+          "latest_line": 76,
+          "latest_c_sha256": "3028dc65909c562e7d811dc6b59c9ffbd831dfeb2cc1b75ff480ebd99e06501d",
+          "latest_body_sha256": "468198457a2c8a0b75efb4f78eef5d6767613b8dbcb22f27b0849366221195bf",
+          "old_C_bounds": [
+            5,
+            9
+          ],
+          "original_disassembly_locators": [
+            "1005df35c: failed conditional request skips store"
+          ],
+          "latest_generated_C_full_read": true
+        }
+      ],
+      "prior_limits_retained": "The32boundary output is accumulator/32, not proof of32actual samples if caller skips updates. Ghidra C for electric extract omits the fmax store source; instruction evidence wins. HeatEnergySource conditional C signature says void but arm64 sets w0 boolean. Electric zero request can succeed while heat zero request fails. No full heat/freezing simulation coverage.",
+      "installed_evidence": [
+        "runtime LuaEntity energy and temperature are separate properties",
+        "Space Age Aquilo entities_require_heating plus explicit entity heating_energy; freeze engine not recovered"
+      ],
+      "api_contract_ids": null
+    }
+  ],
+  "claim_disposition_counts": {
+    "unchanged": 19,
+    "needs-qualification": 2,
+    "strengthened": 1
+  },
+  "generated_C_dispositions": "19unchanged,1strengthened,2requiresbody/flowqualification; no old bounded semantic core contradicted",
+  "new_flow_gap": {
+    "entry": "1007f70c4",
+    "status": "original-byte/table/guard qualified; native Program repair/export pending",
+    "latest_C_unchanged": true,
+    "branch": "1007f72ac",
+    "guard_cmp": "1007f7298",
+    "guard_unsigned_greater": "1007f729c",
+    "index_domain": "0..5 accepted, >5 rejection path1007f748c",
+    "adr_base": "1007f725c",
+    "byte_table": "10296cf39",
+    "original_table_bytes": [
+      0,
+      21,
+      24,
+      27,
+      30,
+      33
+    ],
+    "original_targets": [
+      "1007f725c",
+      "1007f72b0",
+      "1007f72bc",
+      "1007f72c8",
+      "1007f72d4",
+      "1007f72e0"
+    ],
+    "targets_in_saved_body": 0,
+    "targets_in_saved_disassembly": 0,
+    "missing_case_ranges": [
+      {
+        "min": "1007f725c",
+        "max": "1007f7263",
+        "bytes": 8
+      },
+      {
+        "min": "1007f72b0",
+        "max": "1007f72e7",
+        "bytes": 56
+      }
+    ],
+    "method": "Read-only originalARMgzip LC_SEGMENT_64mapping; table bytes + retainedguard/ADR/LDRB/BRinstructions. No source/library/tool/nativeProgram mutation.",
+    "next_required": "Sole nativewriter qualify dedicated jump override/full reachable decode, expand actual body toinclude caseblocks, export complete raw/C/ASM/xref row, retain oldrow and compare semantics/hashes."
+  },
+  "physical_limits": [
+    "NaN/FPCR/signaling/signedzero behavior unqualified; scalar variant qualifiesfiniteonly",
+    "Heat fields printedlong inC are physicallydouble at+0x60; D0returns/W0booleans win over defaultundefined/void signatures",
+    "Unknown original structfields/source types remain structural interpretations",
+    "Incomplete saved body/ASM and external/virtual targets do not become fullcore/botharchitecture semantics from Csuccess or metadata count"
+  ],
+  "execution": "none"
+}

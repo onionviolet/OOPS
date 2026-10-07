@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "date": "2026-10-04",
+  "recorded_at_utc": "2026-10-04T23:14:00.293528+00:00",
+  "sender_chat": "01a1092c-fc9b-7de1-93cf-9ab9508800c1",
+  "owner_chat": "01a10931-9c16-79d0-bb0f-e2e4e6b8752e",
+  "host_id": "local",
+  "title": "Book GM: Circle of Inevitability",
+  "project_id": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "state": "native chat created; GM assignment dispatched; actual progress belongs to receiving checkpoint",
+  "source_path": "/Users/weiwei/Downloads/Circle Of Inevitability (Cuttlefish That Loves Diving) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+  "source_sha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f",
+  "brief": "../../../research/novels/full-book/circle-of-inevitability/BRIEF.md",
+  "prepared_brief_sha256": "073823441207fdbc7ea9697d0b07f1ee3e7eaad1a65f36ef0bb15d1110904314",
+  "writer_transfer": {
+    "scope": "docs/research/novels/full-book/circle-of-inevitability/",
+    "predecessor": "01a1092c-fc9b-7de1-93cf-9ab9508800c1",
+    "successor": "01a10931-9c16-79d0-bb0f-e2e4e6b8752e",
+    "state": "sender released all slug writes in dispatched prompt"
+  },
+  "checks": {
+    "local_source_readable": true,
+    "sha256_verified": true,
+    "structural_manifest_members": 1180,
+    "missing_printed_chapter_labels": [
+      1026
+    ],
+    "brief_links_whitespace_receipt_manifest": "passed before dispatch",
+    "semantic_reading_credited_at_dispatch": 0
+  },
+  "routing": {
+    "coordinating_gm": "configured defaults retained; no model override in create_thread",
+    "bounded_readers": "gpt-6-luna medium required by current project policy",
+    "existing_lotm1_chat": "01a1080f-7157-7892-bcd9-11e0f3b51154",
+    "implementation_integrator_chat": "01a1056b-d82c-7ef2-babb-d8316c45f396"
+  },
+  "shared_registry_note": "Dispatcher-owned full-book/DISPATCH.json and README/GM_RUN_QUEUE remain untouched because another active dispatcher owns them; this separate receipt records the added lane for integration."
+}

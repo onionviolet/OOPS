@@ -1,0 +1,182 @@
+--- a/src/feature_expansion_content.js
++++ b/src/feature_expansion_content.js
+@@ -4,8 +4,9 @@
+ import {societyDefinitions,societySources} from './feature_expansion_society.js';
+ import {tidemarkDefinitions} from './feature_expansion_destination.js';
+ import {referenceGameplayDefinitions,referenceGameplaySources} from './reference_gameplay_content.js';
++import {nethackFieldcraftDefinitions} from './nethack_fieldcraft_content.js';
+ 
+ const keys=['people','sites','conditions','powers','advancements','encounters','commands','controllers','events','transitions','origins','energies','pursuits','situations'];
+-const families=[featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions];
++const families=[featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions,nethackFieldcraftDefinitions];
+ export const featureExpansionDefinitions=Object.fromEntries(keys.map(key=>[key,families.flatMap(d=>d[key]||[])]));
+ export const featureExpansionSources=[...featureObjectSources,...societySources,...referenceGameplaySources];
+--- a/src/data/expedition_items.js
++++ b/src/data/expedition_items.js
+@@ -4,6 +4,7 @@
+ import {registerFeatureObjectItems} from '../feature_expansion_objects.js';
+ import {FEATURE_POWER_ITEMS} from '../feature_expansion_powers.js';
+ import {registerReferenceGameplayItems} from '../reference_gameplay_content.js';
++import {registerNethackFieldcraftItems} from '../nethack_fieldcraft_content.js';
+ import {item_templates, OtherItem} from "../items.js";
+ 
+ // Original provisional supplies, registered through the existing item model.
+@@ -24,6 +25,7 @@
+ 
+ registerFeatureObjectItems({itemTemplates:item_templates,OtherItem});
+ registerReferenceGameplayItems({itemTemplates:item_templates,OtherItem});
++registerNethackFieldcraftItems({itemTemplates:item_templates,OtherItem});
+ for(const spec of FEATURE_POWER_ITEMS) {if(!item_templates[spec.id]) item_templates[spec.id]=new OtherItem(spec);}
+ 
+ for(const spec of [...backlogItemDefinitions,...repositoryAbsorptionItemSpecifications]){if(!item_templates[spec.id])item_templates[spec.id]=new OtherItem({...spec,tags:{expedition:true,...spec.tags}});}
+--- a/src/simulation_effects.js
++++ b/src/simulation_effects.js
+@@ -7,6 +7,7 @@
+ import {societyFacts} from './feature_expansion_society.js';
+ import {featureObjectFacts} from './feature_expansion_objects_host.js';
+ import {referenceGameplayFacts} from './reference_gameplay_host.js';
++import {nethackFieldcraftFacts} from './nethack_fieldcraft_facts.js';
+ import {featurePowerFacts} from './feature_expansion_powers.js';
+ import {featureBattleFacts} from './feature_expansion_battle.js';
+ import {tidemarkContext} from './feature_expansion_destination_host.js';
+@@ -34,7 +35,7 @@
+ export function simulationFacts(state, context, registry) {
+     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
+     assert(s && a, "Enroll the living-world services first.");
+-    const facts = {...context.facts,...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceGameplayFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
++    const facts = {...context.facts,...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceGameplayFacts(state,context,registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+     const owned = s.people[actor]?.inventory === "native" ? context.gameplay?.[actor]?.inventory : s.owners[actor];
+     for(const [key,count] of Object.entries(owned || {})) facts[`item.${key}`] = count;
+     facts["actor.busyOrder"] = !!a.facts["work.order"];
+--- a/src/simulation.js
++++ b/src/simulation.js
+@@ -154,7 +154,7 @@
+     const job = {id: cause, sequence: state.sequence, commandId: d.id, revision: d.revision, actorId: context.actorId, targetId: context.targetId || null,
+         due: state.clock + (d.duration || 0), effects, costs: copy(preview.costs), cancellation: d.cancellation || "none", siteId: d.siteId || null,
+         claim: d.claim || null, label: d.label, roll, outcomeId, context: frozenContext, participants: commandParticipants(d,context,s)};
+-    if(["original_frontier","repositories","feature_objects","feature_society","tidemark","subtlety_relay","nested_campaign","nested_chains","nested_life","reference_gameplay"].includes(d.group)) {s.schema=Math.max(s.schema,4);job.reservationReturns = 1;}
++    if(["original_frontier","repositories","feature_objects","feature_society","tidemark","subtlety_relay","nested_campaign","nested_chains","nested_life","reference_gameplay","nethack_fieldcraft"].includes(d.group)) {s.schema=Math.max(s.schema,4);job.reservationReturns = 1;}
+     if(d.completionRequires || d.completionCoLocated != null) {
+         s.schema = Math.max(s.schema, 4);
+         job.completionSupport = {schema: 1, requires: copy(d.completionRequires || null), coLocated: !!d.completionCoLocated,
+--- a/src/reference_gameplay_state.js
++++ b/src/reference_gameplay_state.js
+@@ -3,6 +3,7 @@
+ import {createReferenceFeats,validateReferenceFeats,advanceReferenceFeats,referenceFeatsPresentation} from './reference_gameplay_feats.js';
+ import {featurePowerFacts,FEATURE_HARNESS} from './feature_expansion_powers.js';
+ import {validateReferenceGameplayWorkshop} from './reference_gameplay_host.js';
++import {validateNethackFieldcraft} from './nethack_fieldcraft_facts.js';
+ 
+ export const REFERENCE_ENGINE_SCHEMA = 9;
+ const method = 'reference_gameplay.cooling', conditionId = 'reference_gameplay.hook_cooled';
+@@ -40,6 +41,7 @@
+ 
+ export function validateReferenceGameplay(state,registry) {
+     const r=root(state);
++    validateNethackFieldcraft(state,registry);
+     if(r==null) {
+         const s=state.simulation;
+         assert(!Object.keys(facts(state)).some(k=>k.startsWith('reference.')||k.startsWith('reference_gameplay.'))&&
+@@ -48,7 +50,7 @@
+             'Reference gameplay activation requires its optional expansion9 receipt. Preserve the original save.');
+         return;
+     }
+-    keys(r,['schema','enrolledAt','enrolledSequence','feats','conduct','prepared','ordinary','workshop']);
++    keys(r,['schema','enrolledAt','enrolledSequence','feats','conduct','prepared','ordinary','workshop','fieldcraft']);
+     assert(state.schema===REFERENCE_ENGINE_SCHEMA&&r.schema===1&&state.simulation&&natural(r.enrolledAt)&&r.enrolledAt<=state.clock&&natural(r.enrolledSequence)&&r.enrolledSequence<=state.sequence,'Reference gameplay requires expansion9.');
+     validateReferenceFeats(r.feats,state,registry);
+     validateAttempts(r.conduct,state,'conduct'); validateAttempts(r.prepared,state,'prepared');
+--- a/src/feature_expansion_wave_host.js
++++ b/src/feature_expansion_wave_host.js
+@@ -6,6 +6,7 @@
+ import {projectFeatureCommands,featureWorkControls,featureRecordedKnowledge} from './feature_expansion_host.js';
+ import {referenceControlPresentation} from './reference_gameplay_state.js';
+ import {referenceGameplayPresentation,referenceGameplayContext} from './reference_gameplay_host.js';
++import {nethackFieldcraftPresentation} from './nethack_fieldcraft_host.js';
+ import {workPlanView} from './feature_expansion_work_plan.js';
+ import {REFERENCE_GAMEPLAY_IDS} from './reference_gameplay_content.js';
+ import {simulationFacts,simulationOccupiesActor} from './simulation.js';
+@@ -58,6 +59,7 @@
+         sections.push({id:'reference.cooling',label:cooling.label,description:cooling.mastery==null?'Ordinary cooling and separate paid instruction use Eda’s finite stock.':`Measured cooling mastery ${cooling.mastery}/3. ${cooling.practiceGoalReached?'The hook-control function is available.':'Practice produces mastery; ordinary work produces real materials.'}`,
+             work:[work.work,cursor?.definitionId===REFERENCE_GAMEPLAY_IDS.plan?`${cursor.label}: ${cursor.status}. ${cursor.reason||''}`:''].filter(Boolean).join(' '),actions:[...actions,...work.actions],records:cooling.records.map(r=>({id:r.id,text:`${r.basis?.attributedTo===REFERENCE_GAMEPLAY_IDS.teacher?'Eda’s account':'Your observation'}: ${r.text} · minute ${r.at}`}))});
+     }
++    sections.push(...nethackFieldcraftPresentation(state,registry,context).sections);
+     for(const section of sections)for(const action of section.actions||[])if(!action.legibility){
+         const reasons=(action.reasons||[]).map(reason=>typeof reason==='string'?reason:reason?.text||'').filter(Boolean);
+         action.legibility=projectActionLegibility({id:action.id,label:action.label,description:action.description,discovered:true,
+--- a/src/main.js
++++ b/src/main.js
+@@ -23,6 +23,7 @@
+ import {featureBattleToken} from './feature_expansion_battle.js';
+ import {advanceReferenceGameplay,commitReferenceControl} from './reference_gameplay_state.js';
+ import {referenceGameplayContext,commitReferenceGameplayCommand} from './reference_gameplay_host.js';
++import {nethackFieldcraftContext,commitNethackFieldcraftCommand} from './nethack_fieldcraft_host.js';
+ import {startWorkPlan,controlWorkPlan} from './feature_expansion_work_plan.js';
+ import {backlogNativeContext,commitBacklogAction,assertBacklogPublication,backlogNativeClockPaused,backlogNativeActionReasons,backlogActions,previewBacklogAction} from './backlog_expansion_host.js';
+ import {createBacklogExpansionPanel} from './backlog_expansion_ui.js';
+@@ -751,7 +752,8 @@
+     persistExpansion(plan);
+ }
+ function featureWaveContext(){
+-    return referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext())))))))));
++    const current=referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext())))))))));
++    return nethackFieldcraftContext(expansionState,expeditionRegistry,current);
+ }
+ function actFeatureExpansion(command){
+     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+@@ -765,6 +767,7 @@
+     }
+     if(command.type==='reference_control')plan=commitReferenceControl(expansionState,expeditionRegistry,command,context,sequence);
+     else if(command.type==='reference_workshop')plan=commitReferenceGameplayCommand(expansionState,expeditionRegistry,command,context,sequence);
++    else if(command.type==='nethack_fieldcraft')plan=commitNethackFieldcraftCommand(expansionState,expeditionRegistry,command,context,sequence);
+     else if(command.type==='reference_plan_start') {
+         if(command.id!=='reference_gameplay.cooling_plan')throw new Error('Unknown cooling practice plan.');
+         plan=startWorkPlan(expansionState,expeditionRegistry,expeditionRegistry.workPlans,command.id,context,sequence);
+@@ -788,7 +791,7 @@
+         else throw new Error('Unsupported feature action.');
+     }else if(command.type==='cancel'){
+         const job=expansionState.simulation?.jobs.find(j=>j.id===command.id&&j.actorId==='player');
+-        if(!job||!['feature_objects','feature_society','feature_powers','tidemark','reference_gameplay'].includes(expeditionRegistry.simulation.commands.get(job.commandId)?.group))throw new Error('This accepted work changed.');
++        if(!job||!['feature_objects','feature_society','feature_powers','tidemark','reference_gameplay','nethack_fieldcraft'].includes(expeditionRegistry.simulation.commands.get(job.commandId)?.group))throw new Error('This accepted work changed.');
+         plan=cancelSimulationJob(expansionState,expeditionRegistry,job.id,context,sequence);
+     }else throw new Error('Unsupported feature control.');
+     persistExpansion(plan);
+--- a/src/reference_gameplay_feats.js
++++ b/src/reference_gameplay_feats.js
+@@ -1,6 +1,8 @@
+ // Persistent, character-local recognition for the reference gameplay wave.
+ // This module only advances over a parent-published staged result; it owns no
+ // command, reward, save boundary, or UI side effect.
++
++import {fieldcraftFeatDefinitions,fieldcraftFeatEvidence,visibleFieldcraftFeats} from './nethack_fieldcraft_feats.js';
+ 
+ const SCHEMA = 1;
+ const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+@@ -25,7 +27,7 @@
+ 
+ const allFeats = new Set([...BASIC_FEATS, ...EXCEPTIONAL].map(feat => feat.id).concat([
+     'three_methods','adaptable_at_the_gate','win_the_claim','cooling_function_ready',
+-]));
++],fieldcraftFeatDefinitions.map(row=>row.id)));
+ const APPROACH_TYPES = new Set(['guard','interpose','redirect','lash','track','read','wedge','signal','objective','escape','strike']);
+ const emptyProgress = () => ({schema:SCHEMA, earned:[], methods:[], approaches:[], battleCursor:null});
+ 
+@@ -224,6 +226,8 @@
+ 
+     learnMethods(feats, out, registry, deltas);
+     observeBattleActions(feats, before, out, stagedOut);
++    for(const receipt of fieldcraftFeatEvidence(before,stagedOut,context))
++        earn(feats,receipt.id,out.sequence,out.clock,'committed-completion',receipt.ids);
+ 
+     for(const feat of BASIC_FEATS) {
+         const evidence = feat.commands.filter(id => deltas.includes(id));
+@@ -345,6 +349,9 @@
+     ];
+     const sections = [{id:'reference-feats',label:'Field feats',description:'Recognition for work completed in this character’s own recorded history.',records:basic},
+         {id:'reference-feat-sets',label:'Mastery and combinations',description:'Distinct trained methods and actual committed approaches accumulate across this character’s career.',records:setRows}];
++    const fieldcraft=visibleFieldcraftFeats(state);
++    if(fieldcraft.length)sections.push({id:'reference-fieldcraft-feats',label:'Fieldcraft discoveries',description:'Useful discoveries and help recorded from completed work.',
++        records:fieldcraft.map(row=>({id:row.id,text:`${row.label} · ${earned.has(row.id)?countText(state,{id:row.id,commands:[]}):'Not yet earned'}. ${row.description}`}))});
+     if(exceptional.length) sections.push({id:'reference-feat-challenges',label:'Known optional accomplishments',description:'Optional accomplishments with their own recorded attempt boundary.',records:exceptional});
+     return {visible:true,sections};
+ }

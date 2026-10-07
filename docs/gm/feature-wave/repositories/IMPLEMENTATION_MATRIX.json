@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "state": "all9mechanism-admission-families-native-ui-save-current-build-admitted; gameplay-unverified",
+  "mechanisms": [
+    {
+      "id": "RBA-MIRI-01",
+      "patterns": [
+        "means-aware owned item use",
+        "direct witness vs attributed return",
+        "finite funded reciprocal repair and teaching",
+        "finite private controller duties",
+        "same actor/stock retained branch-specific meeting"
+      ],
+      "modules": [
+        "src/repository_absorption_content.js",
+        "src/repository_absorption_facts.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "native": "typed stock/purse/vital effects and one existing native publisher",
+      "activation": "repositories.begin explicit",
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-MIRI-01"
+    },
+    {
+      "id": "RBA-MIRI-02",
+      "patterns": [
+        "material-specific splash/protection and recovery",
+        "functional mastery-three paired batch",
+        "once-only pump choices with ordinary bypass",
+        "finite native stamina recovery"
+      ],
+      "modules": [
+        "src/repository_absorption_content.js",
+        "src/repository_absorption_host.js"
+      ],
+      "native": "3 native item templates and actual native kit/stamina/currency",
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-MIRI-02"
+    },
+    {
+      "id": "RBA-WORK-01",
+      "patterns": [
+        "immutable finite distinct-step itinerary",
+        "pin current participant/command revision",
+        "pause on blocked next step",
+        "conditional work-only total",
+        "one next job quote/commit"
+      ],
+      "modules": [
+        "src/repository_absorption_workplan.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "native": "existing commitSimulationCommand; Features remains sole durable mixed workPlans owner",
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-WORK-01"
+    },
+    {
+      "id": "RBA-STOCK-01",
+      "patterns": [
+        "bounded stock shortage band",
+        "count actual owned/reserved stock",
+        "max6 projection starts",
+        "one supported direct deterministic producer",
+        "explicit manual current shortage suggestion"
+      ],
+      "modules": [
+        "src/repository_absorption_workplan.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "native": "player native bag and existing sealing job; no saved latch or timer",
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-STOCK-01"
+    },
+    {
+      "id": "RBA-POWER-01",
+      "owner": "Features powers/battle",
+      "patterns": [
+        "Freeze actual mature battle actions/targets/counters/objective IDs; bind saved native session/RNG/sequence and actual per-fighter native stats/vitals through Combat/rollCombatStrike/mitigateCombatDamage. Register nativeBattle optional version and continuation. Source definitions alone do not close the native hostile/ally/objective gap."
+      ],
+      "modules": [
+        "src/feature_expansion_powers.js",
+        "src/feature_expansion_battle.js",
+        "src/feature_expansion_battle_host.js"
+      ],
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-POWER-01"
+    },
+    {
+      "id": "RBA-BODY-01",
+      "owner": "Backlog then Features",
+      "patterns": [
+        "Freeze Backlog body/device/consenting-host action IDs and actual native embodiment/equipment/fuel effects. Ensure brass-lung physical installation/removal and clay-host enter/return preserve actual body/source/inventory ownership with optional missing-by-default record and common publication. Detached alternate_body intents do not satisfy this requirement."
+      ],
+      "modules": [
+        "src/backlog_expansion_host.js",
+        "src/backlog_expansion_body.js"
+      ],
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-BODY-01"
+    },
+    {
+      "id": "RBA-INK-01",
+      "owner": "Ink then Features",
+      "patterns": [
+        "Read Ink INTEGRATION actual scene/action IDs, pinned compiler/runtime/package/content identities and compiled JSON. Integrate pure observer snapshot functions and full versioned cursor validators. Stable host choices preflight then settle cursor plus existing native consequences once in the common save; original story UI enters/resumes through actual host commits. Final bundle must contain matching runtime/story source."
+      ],
+      "modules": [
+        "src/ink_narrative.js",
+        "src/ink_scene_content.js",
+        "src/ink_narrative_ui.js"
+      ],
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "admissionEvidence": "ADMISSION.json#RBA-INK-01"
+    },
+    {
+      "id": "RBA-SUBTLETY-01",
+      "patterns": [
+        "inspection without ownership transfer",
+        "source-qualified material substitute accepted by actual work owner",
+        "exact native kit and finite wage conservation",
+        "incomplete interpreted notes remain distinct from learned executable source",
+        "same actor remembered settlement with no repeat gift"
+      ],
+      "modules": [
+        "src/repository_absorption_substitutions.js",
+        "src/repository_absorption_content.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "source": "BOOK_SUBTLETY_JOINS.json",
+      "worldBoundary": "original base.frontier prototype; Features book roster index and Backlog replacement carriers remain their owners",
+      "admissionEvidence": "ADMISSION.json#RBA-SUBTLETY-01"
+    },
+    {
+      "id": "RBA-CHAIN-01",
+      "patterns": [
+        "real kit/pellet/stamina debit and typed soaked-kit transformation",
+        "actual paired protected-kit outputs",
+        "Miri stamina used to attend; no copied source/mastery/fuel",
+        "directed observed knowledge and local esteem from a real demonstration",
+        "existing pump world/situation branch, finite resident/water/wage/claim owners"
+      ],
+      "modules": [
+        "src/repository_absorption_chains.js",
+        "src/repository_absorption_content.js",
+        "src/repository_absorption_host.js",
+        "src/repository_absorption_ui.js"
+      ],
+      "state": "source-native-ui-save-current-build-admitted; gameplay-unverified",
+      "source": "NESTED_CHAIN_JOINS.json",
+      "boundary": "RB-CAM-03 sampled Wesnoth linear scenario gives retained named actors/once-only effects, not generic branching-runtime evidence. Independent original continuation uses current situation/frozen job/source/native owners. Qualified audit retained, no repeated30-row review.",
+      "admissionEvidence": "ADMISSION.json#RBA-CHAIN-01"
+    }
+  ],
+  "rule": "No selected mechanism closes until actual owner source/native/ui/save/current-build coverage is inspected; all gameplay unverified.",
+  "currentBuild": "11aaa9cbfc69"
+}

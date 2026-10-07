@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "state": "reviewable-implementation-patch-not-applied",
+  "sharedWriter": "Features/Book-world GM 01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "files": [
+    {
+      "file": "src/feature_expansion_content.js",
+      "beforeSha256": "500cce49b89308d317a804913662271b0aa4e365c5b2cb5af72119710cea92b0",
+      "afterSha256": "0ed51ba7d1d78e2d8c3115f31cdc46873d2116c1c2d73e2c67e994cc763bd53c"
+    },
+    {
+      "file": "src/data/expedition_items.js",
+      "beforeSha256": "c0809133d349d3321afec0b4d3d38a39e87886e1f86cf8418cfda3645cc9a0cb",
+      "afterSha256": "11f287c9f7c180589a32564d01559ea031d1f5a22b441911cd632d3a0a778767"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "beforeSha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+      "afterSha256": "410f39ae7753f0af11030dce39abb0f8ac6523932c8cd8cf1497f8963e7e4429"
+    },
+    {
+      "file": "src/simulation.js",
+      "beforeSha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "afterSha256": "d8edf6fb3c16235af04347c9a86029a0053abbd8d548ceb7c01cd6cc4710186f"
+    },
+    {
+      "file": "src/reference_gameplay_state.js",
+      "beforeSha256": "728d06d199fbe1c831d9083c08af3d1c28fd1b4f372f9c66450dcb5910beb808",
+      "afterSha256": "42a64d76d5d45420f7aeefe7266573410572337351762f7ea67a115f28404869"
+    },
+    {
+      "file": "src/feature_expansion_wave_host.js",
+      "beforeSha256": "a27849a35739b4c8d7effaa020682412bd4ed60662b8d6ae60436cb0be556eb2",
+      "afterSha256": "33a08f6473c90b63c8fa969df480a26ff0b309c4122106aae754a1c7f4845992"
+    },
+    {
+      "file": "src/main.js",
+      "beforeSha256": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "afterSha256": "4d918c63df8048fd03cbfc8287c822623fcd2417f2594d0596b49e2ba3c0c558"
+    },
+    {
+      "file": "src/reference_gameplay_feats.js",
+      "beforeSha256": "64297b4574266dece9c0d9e4be598c7845af25f86864fc359b7fa952f5d9e3d3",
+      "afterSha256": "34e939e59fa4dc53981d1621eea3932613d8786cd9d6d66aa52d5d906ae68a79"
+    }
+  ],
+  "nativeCommands": 14,
+  "nativeItems": 4,
+  "newLocalActors": 1,
+  "newConditions": 1,
+  "newFeats": 3,
+  "behavior": "implemented-unverified; behavioral suites deferred"
+}

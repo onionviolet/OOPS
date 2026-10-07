@@ -1,0 +1,36 @@
+{
+  "releasedAt": "2026-10-06T19:36:16.923784+00:00",
+  "worker": "/root/causal_core",
+  "status": "finite-module-complete-released-to-root",
+  "releasedSource": [
+    "src/causal_story_core.js"
+  ],
+  "sourceHashes": {
+    "src/causal_story_core.js": "0cb14a7db0d7514837e366080a4122f6f3b5111d0b2534812bdeb980a72d3bd3",
+    "src/causal_story_ids.js": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+    "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+    "docs/gm/causal-endings/INTERFACE.md": "853bc1fa355232fa96ed6c11463abbfcb79100886553cfa38960a1c27b59c4bb",
+    "docs/gm/causal-endings/implementation/core/CONTRACT.md": "04f0c755a357ceed31e417c16b0cdc3a2890a7ab2007c898ef8b5ac0bc1bf948",
+    "src/causal_story_content.js": "89dd7840aacbd7bb5851aaa3d77281ad2dcea96c38d474e35bf76282fe842606",
+    "src/causal_story_actors.js": "6a61aca4cd1e6af4fcb1bffa53295491e332c996cf6c9f14edea05bff72a0cb9"
+  },
+  "exports": [
+    "appendCausalStoryReceipt",
+    "beginCausalStoryProof",
+    "causalStoryOccupiesActor",
+    "createCausalStoryState",
+    "evaluateCausalClosure",
+    "resolveCausalProtection",
+    "resolveCausalStrike",
+    "stageCausalClosure",
+    "validateCausalStories"
+  ],
+  "checks": "docs/gm/causal-endings/implementation/core/CHECKS.json",
+  "contract": "docs/gm/causal-endings/implementation/core/CONTRACT.md",
+  "liveProcesses": "none started or pending in worker",
+  "behavioralAcceptance": "deferred/unrun",
+  "gameplayStatus": "implemented-unverified",
+  "nextOwner": "/root (causal host/IDs/interface/integration)",
+  "writesOutsideReservation": false,
+  "privateSaveOrLibraryMutation": false
+}

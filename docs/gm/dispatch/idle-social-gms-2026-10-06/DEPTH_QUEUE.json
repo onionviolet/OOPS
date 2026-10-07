@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-06",
+  "owner": "idle-social research dispatcher",
+  "source_owner": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+  "discovery_direction": {
+    "principle": "Genre-open scouting of interesting transferable systems and authoring/implementation methods; similarity to YAIRPG/idle/RPG is no eligibility requirement.",
+    "verified_human_source": {
+      "thread_id": "01a112b9-410a-7da2-9182-392141662439",
+      "turn_id": "01a112f4-826c-7172-a8dc-eb2a2934dd28"
+    },
+    "source_owner": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+    "example_status": "Cross-genre lenses in the source owner are examples with qualified evidence, not source-ready selections or purchases.",
+    "scope": "Current named-game reviews and completed source coverage remain intact; parked queues are subsets rather than the full ambition."
+  },
+  "related_queues": [
+    {
+      "owner": "01a10f82-f847-7440-9ca2-88348b857382",
+      "queue": "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+      "context": "docs/gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+      "dlc_coverage": "docs/gm/dispatch/game-source-research-2026-10-06/DLC_COVERAGE.json",
+      "status": "Broader source dispatcher routes nine completed scoped dossiers or source gaps to concrete deeper questions. Its DLC inventory is an official declared-product metadata snapshot, not entitlement, installation or semantic coverage.",
+      "selection": "Use the existing cross-game routing and original report/coverage owners in later authorized assignments. Preserve Streets of Rogue's source gap and framework fallback distinction. No automatic rereading, re-export, source acquisition or runtime assignment follows."
+    },
+    {
+      "owner": "01a112b9-410a-7da2-9182-392141662439",
+      "queue": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "context": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+      "status": "Five parked, unassigned questions; all sourceReady false. Original GD-01/GD-02 research stays complete.",
+      "families": ["Brogue key/machine exploration", "Brogue status/body/equipment/environment ordering", "Shattered toolkit/recycling/competing alchemy resources", "Shattered earned blacksmith equipment/service commitments", "Sil-Q song/ward/resistance/removal/passage/persistence"],
+      "selection": "Reuse existing source pins and reviewed coverage. Select a named unresolved path separately; no new source pass or gameplay follows from this link."
+    }
+  ],
+  "shared_writer_observation": {
+    "date": "2026-10-06",
+    "thread_id": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "observed_thread_state": "idle; selected turn completed",
+    "release_owner": "docs/gm/audit-implementation/remainder/RELEASE.json",
+    "release_file_exists": true,
+    "release_file_status": "Completed selected source reservation explicitly released after final readback; new gameplay implemented-unverified.",
+    "prior_discrepancy": "Discovery's earlier missing-release-file observation is a historical snapshot; the referenced file is now present and read back.",
+    "next_shared_writer_assigned_by_this_queue": false
+  },
+  "authorization": {
+    "source_thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+    "verified_human_turn_id": "01a112e4-319f-7dd0-902d-8c903b40eab1",
+    "scope": "save broader research questions and notify relevant existing chats"
+  },
+  "qualification": "Retained unselected source-research questions. Completed scoped research remains complete. This queue does not dispatch new source passes or select gameplay.",
+  "priorities": [
+    {
+      "id": "ACS-DEPTH-01",
+      "family": "Distinct law/body/God/FuPractice routes and ascension",
+      "question": "Which acquired and retained body, energy, comprehension and route commitments change later functions, high-stage transitions and adverse outcomes?",
+      "source_join": "Extend selected Wudang dual-component evidence into actual acquisition/high-stage consumers when selected.",
+      "status": "retained-open-question",
+      "selected": false
+    },
+    {
+      "id": "ACS-DEPTH-02",
+      "family": "Formations, fengshui and spatial energy",
+      "question": "How do placement, materials, adjacency and live energy change training/refining/hazards/combat, and what are the costs and consequences of different layouts?",
+      "status": "retained-open-question",
+      "selected": false
+    },
+    {
+      "id": "ACS-DEPTH-03",
+      "family": "Tribulation defense and advanced artifacts",
+      "question": "How does scheduled danger reach shields, artifact deployment, energy, bodies, failure and lasting aftermath; how do advanced sacrifice/refinement functions differ?",
+      "status": "retained-open-question",
+      "selected": false
+    },
+    {
+      "id": "ACS-DEPTH-04",
+      "family": "Alchemy, ecology and material chains",
+      "question": "Which gathering/processing/medicine/body-compatible chains have actual later consumers, shortage and failure, including the selected fishing path's useful output?",
+      "status": "retained-open-question",
+      "selected": false
+    },
+    {
+      "id": "ACS-DEPTH-05",
+      "family": "Sect institutions, diplomacy, people and exploration",
+      "question": "How do shared knowledge, facilities, economic pressure, funded actors, personal/institutional relations, transmitted information and retained world access interact?",
+      "source_join": "DLC pet diplomacy/symbiosis and Wudang quests remain separate unread questions; generic relationships do not prove romance.",
+      "status": "retained-open-question",
+      "selected": false
+    }
+  ],
+  "gameplay_checks": "Deferred under current project policy; no runtime implementation or acceptance is implied."
+}

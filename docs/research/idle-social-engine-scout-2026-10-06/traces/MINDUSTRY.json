@@ -1,0 +1,1788 @@
+{
+  "candidate_id": "mindustry",
+  "name": "Mindustry",
+  "as_of": "2026-10-06",
+  "decision": "trial",
+  "decision_status": "research-recommendation-not-accepted",
+  "reason": "A retained site startup reserve and shared shortage/partial-progress consumer adds a real decision beyond current finite paid jobs. Trial an original fixed-minute site model; do not adopt the Java graph/runtime or turn the character-centered campaign into factory management.",
+  "source_pin": {
+    "repository": "Anuken/Mindustry",
+    "url": "https://github.com/Anuken/Mindustry",
+    "release": "v160.5",
+    "sha": "067c720a8817c1c9fb586c03898a7d948caaed56",
+    "commit_date": "2026-09-20T13:22:06Z",
+    "released_at": "2026-09-20T13:56:41Z",
+    "latest_release_url": "https://github.com/Anuken/Mindustry/releases/tag/v160.5",
+    "initial_default_head": "ca55a494abfe66165f5f0c072adeb414c99de3ae",
+    "initial_default_date": "2026-10-06T16:46:45-04:00",
+    "pin_choice": "Current stable release instead of newer default v9-backport state",
+    "default_branch": "master",
+    "archived": false
+  },
+  "evidence": [
+    {
+      "id": "M01",
+      "status": "source-demonstrated",
+      "claim": "Impact reactor building requirements, peak130 power/tick, itemDuration140, upkeep25 power/tick, one blast compound and cryofluid0.25 per scaled efficiency tick. These are source constants, not YAIRPG tuning.",
+      "path": "core/src/mindustry/content/Blocks.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        2650,
+        2663
+      ],
+      "input_sha256": "27c59d95bc5cc7c82fc1dc20c7feee0db914014866e67e7ef990b9ccb3007d8b",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/content/Blocks.java#L2650-L2663"
+    },
+    {
+      "id": "M02",
+      "status": "source-demonstrated",
+      "claim": "Impact startup requires efficiency>=0.9999 and supply status>=0.99. Warmup lerps upward only then and fuel triggers on a timer; otherwise warmup decays. Output efficiency is warmup^5.",
+      "path": "core/src/mindustry/world/blocks/power/ImpactReactor.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        83,
+        110
+      ],
+      "input_sha256": "d112c08f232d3b1ab0f29679ba20f77e5dea3b0aaf321695bcbdaee873dde2a0",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/ImpactReactor.java#L83-L110"
+    },
+    {
+      "id": "M03",
+      "status": "source-demonstrated",
+      "claim": "Graph aggregates actual production and active demand with each building delta; enabled batteries store capacity*status.",
+      "path": "core/src/mindustry/world/blocks/power/PowerGraph.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        95,
+        151
+      ],
+      "input_sha256": "10eedb99f7fca04edae28e8bf808632eed46fb0d1c29b122ddcbf5036bf952e5",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerGraph.java#L95-L151"
+    },
+    {
+      "id": "M04",
+      "status": "source-demonstrated",
+      "claim": "Graph spends available batteries on production deficits and charges spare capacity on surplus before distributing coverage. Batteries are capped, not generators.",
+      "path": "core/src/mindustry/world/blocks/power/PowerGraph.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        154,
+        256
+      ],
+      "input_sha256": "10eedb99f7fca04edae28e8bf808632eed46fb0d1c29b122ddcbf5036bf952e5",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerGraph.java#L154-L256"
+    },
+    {
+      "id": "M05",
+      "status": "source-demonstrated",
+      "claim": "Consumer power efficiency is supply status. Buffered request is remaining capacity; ordinary request depends on shouldConsume.",
+      "path": "core/src/mindustry/world/consumers/ConsumePower.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        26,
+        59
+      ],
+      "input_sha256": "a4029de6853e7a8109c192035f4a8e4d604c227cfd1e786862f33bb6e9fbd121",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/consumers/ConsumePower.java#L26-L59"
+    },
+    {
+      "id": "M06",
+      "status": "source-demonstrated",
+      "claim": "Building efficiency is minimum mandatory-consumer efficiency. Missing non-power input removes active power demand; disabled/output-invalid work zeroes efficiency. Continuous input consumers update with resulting efficiency.",
+      "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        1950,
+        2010
+      ],
+      "input_sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/BuildingComp.java#L1950-L2010"
+    },
+    {
+      "id": "M07",
+      "status": "source-demonstrated",
+      "claim": "Smelter consumes coal1+sand2 per silicon1 and power0.5/tick, craftTime40; building costs copper30+lead25 under normal cost multiplier.",
+      "path": "core/src/mindustry/content/Blocks.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        1070,
+        1084
+      ],
+      "input_sha256": "27c59d95bc5cc7c82fc1dc20c7feee0db914014866e67e7ef990b9ccb3007d8b",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/content/Blocks.java#L1070-L1084"
+    },
+    {
+      "id": "M08",
+      "status": "source-demonstrated",
+      "claim": "Crafter output-full/enabled checks gate work; efficient progress advances while starvation cools visual warmup without resetting progress; completed craft consumes inputs and offloads output.",
+      "path": "core/src/mindustry/world/blocks/production/GenericCrafter.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        204,
+        333
+      ],
+      "input_sha256": "cf90cda813388c097276e86cd06c6138c430d02c5b2a0c7b8cc8dc2cb6b26540",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/production/GenericCrafter.java#L204-L333"
+    },
+    {
+      "id": "M09",
+      "status": "source-demonstrated",
+      "claim": "ConsumeItems checks stored availability and removes actual stacks only on trigger. Liquid inputs drain scaled-efficiency volume continuously.",
+      "path": "core/src/mindustry/world/consumers/ConsumeItems.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        43,
+        53
+      ],
+      "input_sha256": "9b80fabe56c1f3508e7aac189fdd25e75c9278d09d4c3350d25c9eb92a07bab9",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/consumers/ConsumeItems.java#L43-L53"
+    },
+    {
+      "id": "M10",
+      "status": "source-demonstrated",
+      "claim": "ConsumeLiquid drains amount*edelta and computes current-liquid availability against the required scaled amount.",
+      "path": "core/src/mindustry/world/consumers/ConsumeLiquid.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        36,
+        47
+      ],
+      "input_sha256": "ea195708b3a080f5fc498d90819e1bfb9923105711abf81e385d08ef8a4fb5c2",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/consumers/ConsumeLiquid.java#L36-L47"
+    },
+    {
+      "id": "M11",
+      "status": "source-demonstrated",
+      "claim": "Large battery construction needs titanium20+lead50+silicon30 and admits50000 energy capacity; small battery needs copper5+lead20 and admits4000.",
+      "path": "core/src/mindustry/content/Blocks.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        2510,
+        2521
+      ],
+      "input_sha256": "27c59d95bc5cc7c82fc1dc20c7feee0db914014866e67e7ef990b9ccb3007d8b",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/content/Blocks.java#L2510-L2521"
+    },
+    {
+      "id": "M12",
+      "status": "source-demonstrated",
+      "claim": "Construction progress checks and removes actual core inventory, scales costs by game rule, and delays completion for missing residual materials. Infinite-resource rules are separate.",
+      "path": "core/src/mindustry/world/blocks/ConstructBlock.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        278,
+        332
+      ],
+      "input_sha256": "a0c3cbef44e47df4a987280b47873bfe10afcc9c9c70cb5cc930711b45916f9a",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/ConstructBlock.java#L278-L332"
+    },
+    {
+      "id": "M13",
+      "status": "source-demonstrated",
+      "claim": "Required construction inputs are removed from inventory and tracked in itemsLeft rather than creating a free unlocked machine.",
+      "path": "core/src/mindustry/world/blocks/ConstructBlock.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        400,
+        458
+      ],
+      "input_sha256": "a0c3cbef44e47df4a987280b47873bfe10afcc9c9c70cb5cc930711b45916f9a",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/ConstructBlock.java#L400-L458"
+    },
+    {
+      "id": "M14",
+      "status": "source-demonstrated",
+      "claim": "Player placement first validates the actual target site and rejects invalid placement before constructing a block.",
+      "path": "core/src/mindustry/world/Build.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        69,
+        74
+      ],
+      "input_sha256": "32706ca2e107cb060077f4e3c7519df8f1c4acc658f309048943dbdbb6274761",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/Build.java#L69-L74"
+    },
+    {
+      "id": "M15",
+      "status": "source-demonstrated",
+      "claim": "Node configuration links/unlinks actual buildings and merges/reflows graphs. UI taps call configuration; links require team/range/node limits.",
+      "path": "core/src/mindustry/world/blocks/power/PowerNode.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        60,
+        109
+      ],
+      "input_sha256": "183c5328ea9c6d6671dce4793f8c79580c5f476736a101d8afa00134b1ef84c5",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerNode.java#L60-L109"
+    },
+    {
+      "id": "M16",
+      "status": "source-demonstrated",
+      "claim": "Graph removal rebuilds disconnected components and immediately updates consumers to lose disconnected power.",
+      "path": "core/src/mindustry/world/blocks/power/PowerGraph.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        316,
+        376
+      ],
+      "input_sha256": "10eedb99f7fca04edae28e8bf808632eed46fb0d1c29b122ddcbf5036bf952e5",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerGraph.java#L316-L376"
+    },
+    {
+      "id": "M17",
+      "status": "source-demonstrated",
+      "claim": "Building IO persists health/team/enabled plus item/power/liquid modules and timescale; writeAll/readAll dispatch both base and subclass state.",
+      "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        185,
+        291
+      ],
+      "input_sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/BuildingComp.java#L185-L291"
+    },
+    {
+      "id": "M18",
+      "status": "source-demonstrated",
+      "claim": "Power module writes explicit links/status and validates NaN/infinite status on reading.",
+      "path": "core/src/mindustry/world/modules/PowerModule.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        18,
+        35
+      ],
+      "input_sha256": "1cea7e7cd227c928e8682446da3fd013b33e79ae20e31c4e5feb27945e369015",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/modules/PowerModule.java#L18-L35"
+    },
+    {
+      "id": "M19",
+      "status": "source-demonstrated",
+      "claim": "Impact reactor writes/reads warmup; inherited generator also writes productionEfficiency and generateTime.",
+      "path": "core/src/mindustry/world/blocks/power/ImpactReactor.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        133,
+        143
+      ],
+      "input_sha256": "d112c08f232d3b1ab0f29679ba20f77e5dea3b0aaf321695bcbdaee873dde2a0",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/ImpactReactor.java#L133-L143",
+      "supporting_locators": [
+        {
+          "path": "core/src/mindustry/world/blocks/power/PowerGenerator.java",
+          "lines": [
+            217,
+            230
+          ],
+          "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerGenerator.java#L217-L230"
+        }
+      ]
+    },
+    {
+      "id": "M20",
+      "status": "source-demonstrated",
+      "claim": "Crafter writes/reads progress and warmup, so ordinary shortage need not delete paid infrastructure or partial recipe work. This is serializer source, not roundtrip proof.",
+      "path": "core/src/mindustry/world/blocks/production/GenericCrafter.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        377,
+        390
+      ],
+      "input_sha256": "cf90cda813388c097276e86cd06c6138c430d02c5b2a0c7b8cc8dc2cb6b26540",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/production/GenericCrafter.java#L377-L390"
+    },
+    {
+      "id": "M21",
+      "status": "source-demonstrated",
+      "claim": "World save code writes each center building once via writeAll and reads its versioned entity via readAll. Atomic/installed save recovery is not audited.",
+      "path": "core/src/mindustry/io/SaveVersion.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        261,
+        270
+      ],
+      "input_sha256": "5011c105ffb86a44ac52e286e7f3db9fbef13cc5f152b007a53668cefa3273f9",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/io/SaveVersion.java#L261-L270"
+    },
+    {
+      "id": "M22",
+      "status": "source-demonstrated",
+      "claim": "World load dispatches versioned readAll, wrapping failing building reads with an IOException.",
+      "path": "core/src/mindustry/io/SaveVersion.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        365,
+        381
+      ],
+      "input_sha256": "5011c105ffb86a44ac52e286e7f3db9fbef13cc5f152b007a53668cefa3273f9",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/io/SaveVersion.java#L365-L381"
+    },
+    {
+      "id": "M23",
+      "status": "source-demonstrated",
+      "claim": "Thorium reactor heat increases with stored fuel fullness while enabled and consumes fuel faster while heated; missing coolant does not gate this loop. Manual coolant removes heat, and heat>=0.999 kills the reactor.",
+      "path": "core/src/mindustry/world/blocks/power/NuclearReactor.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        114,
+        150
+      ],
+      "input_sha256": "74827c55652b705f69d31b11120a135cea50844915014c4436023ce9011a1af0",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/NuclearReactor.java#L114-L150"
+    },
+    {
+      "id": "M24",
+      "status": "source-demonstrated",
+      "claim": "Nuclear explosion eligibility needs at least5 fuel or heat>=0.5 in addition to inherited conditions. Fuel/heat and meltdown are distinct from ordinary impact starvation.",
+      "path": "core/src/mindustry/world/blocks/power/NuclearReactor.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        169,
+        172
+      ],
+      "input_sha256": "74827c55652b705f69d31b11120a135cea50844915014c4436023ce9011a1af0",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/NuclearReactor.java#L169-L172"
+    },
+    {
+      "id": "M25",
+      "status": "source-demonstrated",
+      "claim": "Generator onDestroyed optionally creates a rule-gated explosion with real area damage; shouldExplode checks minimum warmup. Impact starvation itself has no kill call.",
+      "path": "core/src/mindustry/world/blocks/power/PowerGenerator.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        123,
+        145
+      ],
+      "input_sha256": "6b895da574cbf8b65fe45856b4ba4ed6f9ef3e4a049c13f4ce2b29e92e7e13a0",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/PowerGenerator.java#L123-L145"
+    },
+    {
+      "id": "M26",
+      "status": "source-demonstrated",
+      "claim": "Stored battery energy and combustible inventories contribute to destruction effects under damageExplosions.",
+      "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        1490,
+        1518
+      ],
+      "input_sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/BuildingComp.java#L1490-L1518"
+    },
+    {
+      "id": "M27",
+      "status": "source-demonstrated",
+      "claim": "Battery replacement transfers previous stored energy but clamps to replacement capacity, so it is not a lossless capacity downgrade.",
+      "path": "core/src/mindustry/world/blocks/power/Battery.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        88,
+        95
+      ],
+      "input_sha256": "dfffc2f448d0cb9a645f7620b3ccfe69d961546fc2b20ff228308245da116664",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/power/Battery.java#L88-L95"
+    },
+    {
+      "id": "M28",
+      "status": "source-demonstrated",
+      "claim": "Crafter offload sends an output to an accepting nearby container or adds it to local stock; dump removes actual moved inventory. Production is not automatically a global construction balance.",
+      "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        1002,
+        1019
+      ],
+      "input_sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/BuildingComp.java#L1002-L1019"
+    },
+    {
+      "id": "M29",
+      "status": "source-demonstrated",
+      "claim": "Core accepts/caps actual received items and deposits buildable items; full/core-incineration conditions can discard output instead.",
+      "path": "core/src/mindustry/world/blocks/storage/CoreBlock.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        886,
+        911
+      ],
+      "input_sha256": "fb8d2c1f1ca37c7ba352b0442d78e3913f54ca5e2789edc4e80577d454ca6bbe",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/storage/CoreBlock.java#L886-L911"
+    },
+    {
+      "id": "M30",
+      "status": "source-demonstrated",
+      "claim": "Graph updater invokes graph.update each update and is not directly serialized. Per-building saved links/status are separate from derived graph topology.",
+      "path": "core/src/mindustry/entities/comp/PowerGraphUpdaterComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        7,
+        15
+      ],
+      "input_sha256": "a19e41badc76531d21143ff03b25a070accb6f2cbeddbde281a02ed0fac98c2e",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/PowerGraphUpdaterComp.java#L7-L15"
+    },
+    {
+      "id": "M31",
+      "status": "source-demonstrated",
+      "claim": "GPLv3 section5 applies conditions to distribution of modified source and a work based on the program. Original conceptual adaptation is chosen rather than a code dependency.",
+      "path": "LICENSE",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        208,
+        242
+      ],
+      "input_sha256": "963392e038d7bea128e55cc67dd691c204593db3527060667f0c82f0f0a1be64",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/LICENSE#L208-L242"
+    },
+    {
+      "id": "M32",
+      "claim": "Construction finish installs the real block/team and applies prior state or configuration; this is a retained building, not a consumed recipe object.",
+      "status": "source-demonstrated",
+      "path": "core/src/mindustry/world/blocks/ConstructBlock.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        72,
+        109
+      ],
+      "input_sha256": "a0c3cbef44e47df4a987280b47873bfe10afcc9c9c70cb5cc930711b45916f9a",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/ConstructBlock.java#L72-L109"
+    },
+    {
+      "id": "M33",
+      "claim": "Successful construction calls the generated finish and then building.placed(), which can establish actual power connections.",
+      "status": "source-demonstrated",
+      "path": "core/src/mindustry/world/blocks/ConstructBlock.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        151,
+        155
+      ],
+      "input_sha256": "a0c3cbef44e47df4a987280b47873bfe10afcc9c9c70cb5cc930711b45916f9a",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/world/blocks/ConstructBlock.java#L151-L155"
+    },
+    {
+      "id": "M34",
+      "claim": "Killed building invokes onDestroyed then removes its tile and entity, connecting reactor overheat to destruction aftermath.",
+      "status": "source-demonstrated",
+      "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+      "revision": "067c720a8817c1c9fb586c03898a7d948caaed56",
+      "lines": [
+        2249,
+        2258
+      ],
+      "input_sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+      "url": "https://github.com/Anuken/Mindustry/blob/067c720a8817c1c9fb586c03898a7d948caaed56/core/src/mindustry/entities/comp/BuildingComp.java#L2249-L2258"
+    }
+  ],
+  "incumbent": [
+    {
+      "id": "Y01",
+      "claim": "Personal energy is per-actor integer reserve/output/control/strain, not continuous grid power",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/energy_resources.js",
+      "lines": [
+        5,
+        43
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/energy_resources.js"
+    },
+    {
+      "id": "Y02",
+      "claim": "Power models validate authored source capacity/cost, not network distribution",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/power_models.js",
+      "lines": [
+        5,
+        43
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/power_models.js"
+    },
+    {
+      "id": "Y03",
+      "claim": "Current paid job freezes effects/costs and completion due",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        129,
+        205
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y04",
+      "claim": "Current loss-of-support policy refunds or forfeits a whole frozen job",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        207,
+        235
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y05",
+      "claim": "Owned sites, physical inputs, native/simulation inventories and transfers",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation_effects.js",
+      "lines": [
+        139,
+        191
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation_effects.js"
+    },
+    {
+      "id": "Y06",
+      "claim": "One integer common clock with causal boundaries and512-boundary budget",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/expansion_engine.js",
+      "lines": [
+        542,
+        577
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/expansion_engine.js"
+    },
+    {
+      "id": "Y07",
+      "claim": "Existing site projects compile to paid phases and retained world facts",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/site_projects.js",
+      "lines": [
+        1,
+        29
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/site_projects.js"
+    },
+    {
+      "id": "Y08",
+      "claim": "Existing current native cooling products and real useful consumer",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/reference_gameplay_content.js",
+      "lines": [
+        61,
+        72
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/reference_gameplay_content.js"
+    },
+    {
+      "id": "Y09",
+      "claim": "Current teacher has willingness, body, source, stock and support",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/reference_gameplay_host.js",
+      "lines": [
+        12,
+        31
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/reference_gameplay_host.js"
+    },
+    {
+      "id": "Y10",
+      "claim": "Current envelope save succeeds before native publication",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/expansion_persistence.js",
+      "lines": [
+        7,
+        49
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/expansion_persistence.js"
+    },
+    {
+      "id": "Y11",
+      "claim": "Native publication follows durable save",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/main.js",
+      "lines": [
+        526,
+        557
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/main.js"
+    },
+    {
+      "id": "Y12",
+      "claim": "Independent actor controllers choose one registered paid action per boundary",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation.js",
+      "lines": [
+        451,
+        471
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation.js"
+    },
+    {
+      "id": "Y13",
+      "claim": "Actual legality includes global truths; observed motive evidence remains separate",
+      "status": "source-demonstrated-not-runtime-verified",
+      "path": "src/simulation_effects.js",
+      "lines": [
+        47,
+        84
+      ],
+      "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+      "dirty_input_sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "snapshot": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation_effects.js"
+    }
+  ],
+  "access_scope": {
+    "installed": "No matching Steam installation reported by root; this lane did not inspect private Steam trees or saves.",
+    "public_source": "Stable v160.5 source checkout, official wiki/Javadoc and public store/release metadata. No binary downloaded or executed.",
+    "dlc_inventory": {
+      "official_store_url": "https://store.steampowered.com/app/1127400/Mindustry/",
+      "app_id": 1127400,
+      "appdetails_dlc_field_present": false,
+      "dlc_ids_returned": [],
+      "disposition": "No DLC IDs/content panel identified in inspected official store response. This is a bounded public inventory, not an account-entitlement claim.",
+      "base_updates": "Current source includes Serpulo and Erekir content in the same release. Store documents two planetary campaigns. Selected Serpulo production/power path is source-inspected; Erekir/planet/campaign topology and most updates remain unread.",
+      "cosmetics_soundtrack_artbooks": "No separate official DLC entry identified in inspected response; assets/music/licenses were not audited and nothing was purchased."
+    }
+  },
+  "mechanism_trace": {
+    "id": "impact-startup-buffer-silicon-retained-battery",
+    "status": "source-traced-not-executed",
+    "prerequisite": "Build actual impact reactor, supply blast compound/cryofluid, connect a startup supply and batteries, and provide coal/sand/output room for smelter. Technology unlock acquisition and campaign prerequisites were not traced. All quoted build costs assume ordinary multiplier1, non-infinite-resource rules.",
+    "choice": "Player configures actual node links to attach/isolate loads or disconnect a branch; current topology determines who shares generation/batteries. Start supply/reserve must support near-full reactor uptake before net production. This is a source mechanic, not observed installed play.",
+    "cost": "Reactor construction spends source-listed materials; startup/maintenance requests25 power/tick and cryofluid0.25 per scaled efficiency tick; blast compound is consumed only on its140/timeScale timer inside valid warmup branch. Smelter consumes coal1+sand2 per silicon and power0.5/tick. Battery charge is an energy buffer, not generation or material payment.",
+    "state_mutation": "Power graph updates production/demand and charge fraction; impact warmup changes and output becomes130*warmup^5 when enabled. Crafter efficiency advances partial progress; trigger consumption removes actual items and offloads real silicon.",
+    "useful_consumer": "Delivered silicon reaches actual core stock, then30 silicon plus50 lead and20 titanium are removed through construction to install a large50000-capacity battery. Increased retained reserve changes later startup/outage choices. No free material transfer or automatic global-stock conversion is implied.",
+    "time_and_persistence": "Per-update graph/consumer work uses Time.delta/timeScale/efficiency. Building module status/links/items/liquids and subclass warmup/progress are serialized and SaveVersion invokes their reads. Source path establishes intended retained state only; no save roundtrip/runtime/absence simulation was run.",
+    "ordinary_interruption": "Loss of power or a mandatory input lowers impact warmup, potentially leaving a decaying generation tail. Ordinary crafter progress does not reset at zero efficiency; full outputs/disabled machines stop demand. Disconnecting graph components removes unavailable power. Costs already spent on construction/fuel/coolant are not rolled back by shortage.",
+    "separate_hazard": "Impact starvation alone does not explode. Destruction of a warm impact reactor can explode under reactorExplosions. Thorium reactor shortage of coolant instead permits rising heat, faster fuel consumption and eventual kill/area explosion under applicable rules. The source has no inspected radiation mechanic.",
+    "refs": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M12",
+      "M13",
+      "M14",
+      "M15",
+      "M16",
+      "M17",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M22",
+      "M23",
+      "M24",
+      "M25",
+      "M26",
+      "M27",
+      "M28",
+      "M29",
+      "M30",
+      "M32",
+      "M33",
+      "M34"
+    ]
+  },
+  "network_kernel_boundary": {
+    "mandatory_for_graph_parity": [
+      "Producer/consumer/battery membership including producer-consumer sources",
+      "Topology merge/reflow/split, team/link/range rules and building removal",
+      "Per-building fractional delta, input efficiency and active-demand calculation",
+      "Aggregate battery charge/discharge and consumer coverage",
+      "Persistent per-building modules/status/links plus warmup/progress, reconstructed graph and rule-specific hazard behavior"
+    ],
+    "original_finite_alternative": "One fixed site bus with explicit linked/unlinked source+recharger and an optional versioned integer buffer/startup/partial-progress record, evaluated only at existing played-minute boundaries. Preserve actual item ownership and costs. It does not port arbitrary topology, continuous ticks, exponential curves, generic routing, team stock or threat simulation.",
+    "why_incumbent_finite_jobs_are_not_enough": "Current jobs prepay costs, freeze effects and due time, then award/refund at completion. Actor energy is an integer reserve per person with output/control/strain limits. Neither inspected owner aggregates changing site supply/demand/storage or advances/retains one work order proportionally through a mid-run shortage. Keep them as command/ownership/legal/publishing owners and add only the demanded site consumer."
+  },
+  "depth_map": [
+    {
+      "id": "D1",
+      "source_fact": "A connected grid pools producer output, active consumer requests and enabled battery state. The impact source is simultaneously producer+consumer while batteries are classified separately. Disconnected pieces reflow into different derived graphs.",
+      "refs": [
+        "M03",
+        "M04",
+        "M15",
+        "M16"
+      ],
+      "implication": "A powerful source can fail to start because of concurrent loads; startup isolation and reserve capacity are decisions. In YAIRPG, deliberate paid site access/ownership is required instead of a team-global free utility balance."
+    },
+    {
+      "id": "D2",
+      "source_fact": "Ordinary power consumers can work proportionally to coverage; other mandatory inputs use minimum efficiency, and unavailable items remove demand. Impact warmup is almost-full-supply gated, not proportional.",
+      "refs": [
+        "M02",
+        "M05",
+        "M06",
+        "M08",
+        "M09",
+        "M10"
+      ],
+      "implication": "Different work should respond differently to shortage. Refill, storage, input routing and output backpressure are independent needs; a generic finish-time/refund job cannot establish these semantics."
+    },
+    {
+      "id": "D3",
+      "source_fact": "Output is locally offloaded/stored and actual core delivery allows paid construction. Recipe completion consumes items; infrastructure is retained, and replacement battery storage is clamped to the new capacity.",
+      "refs": [
+        "M07",
+        "M08",
+        "M11",
+        "M12",
+        "M13",
+        "M27",
+        "M28",
+        "M29"
+      ],
+      "implication": "Production can create infrastructure that changes future choices, not just earn stock/XP. Item transport/title/custody and site utility remain distinct. No line losses, general transport network or capacity-loss refund is inferred."
+    },
+    {
+      "id": "D4",
+      "source_fact": "Impact failure decays warmup; disabling loses output. Thorium update directly heats while fuel remains, manually drains coolant and kills on heat threshold; generator destruction and battery-energy destruction effects are separately rule-gated.",
+      "refs": [
+        "M02",
+        "M23",
+        "M24",
+        "M25",
+        "M26"
+      ],
+      "implication": "Input shortage is not universally safe. Preserve ordinary pause/restart, dangerous heat, declared shutdown and actual destruction as different routes. No radiation mechanism or inevitable raid is inferred."
+    },
+    {
+      "id": "D5",
+      "source_fact": "Graph uses floating per-building delta/efficiency, while warmup/progress/modules are written to versioned building saves. Derived graph updater itself is unserialized. Source exposes rule multipliers, infinite-resource mode and subclass timing exceptions.",
+      "refs": [
+        "M03",
+        "M17",
+        "M18",
+        "M19",
+        "M20",
+        "M21",
+        "M22",
+        "M30"
+      ],
+      "implication": "A saveable field is not validated recovery or offline/campaign equivalence. YAIRPG integer minutes require an explicit original minute model or later event-boundary approximation; never silently rescale tick rates/curves. Broader heat/Erekir, remote-sector production, campaign transport and rebuild behavior stay bounded unread."
+    }
+  ],
+  "trial": {
+    "id": "mindustry-retained-cooling-drive",
+    "title": "Eda’s optional shared cooling drive",
+    "status": "original-bounded-proposal-not-implemented",
+    "scope": "One optional retained installation at existing feature_objects.fitting_bench in base.frontier, owned by existing Eda actor feature_objects.miri; one source, one utility buffer, one link/isolation choice and one physical sleeve recharger. No factory map, imported assets, extra realm, prestige or personal-mana conversion.",
+    "existing_input_output_keys": [
+      "Sound repair stave",
+      "Tree sap",
+      "Cooling salt packet",
+      "Empty cooling sleeve",
+      "Charged cooling sleeve",
+      "Set repair resin",
+      "Prepared survey kit"
+    ],
+    "construction": "Proposed paid5-minute build consuming2 actual Sound repair staves and5 native coins under an explicit agreement that Eda owns the retained installation. Existing site project/job/native budget paths handle this work; it is not the new mechanism.",
+    "funding": "Prime with2 stamina and2 played minutes for4 site utility units. Fund a maximum4 played-minute source window by transferring4 actual Tree sap to Eda for explicitly disclosed burner use; no automatic replenishment or appropriation of her other stock. Numbers and thermal-drive fiction are reversible tuning proposals.",
+    "original_minute_kernel": {
+      "clock": "Exactly one evaluation per existing integer played-minute boundary, using state before the boundary for available generation. Returned unspent time/processing budget is respected. No real-time timer or browser-closed evolution.",
+      "buffer_capacity": 4,
+      "startup_stages": [
+        0,
+        1,
+        2
+      ],
+      "source_upkeep_per_minute": 2,
+      "source_generation": "0 until pre-boundary stage2; then4 if running and actual funded fuel/support remain valid. These integers deliberately replace the source tick curve; no130/25 scaling or equivalence claim.",
+      "startup": "Full coverage raises stage by1; shortage lowers it by1 toward0. A connected available recharger adds2 draw; isolate it during the two startup boundaries. Fuel is disclosed as spent for an enabled funded boundary even if starvation prevents useful progress.",
+      "consumer": "Recharger asks for2 utility/minute only with an owned reserved empty sleeve+salt, output room, supported contact/permission and no completed cycle. Full coverage adds1 of2 recipe stages; zero/partial coverage pauses this bounded model. It is not the source’s proportional crafter curve.",
+      "reservation": "Reserve actual player-owned empty sleeve and salt through existing staged item/job-cost ownership, retaining their cause, payer and progress. Completion replaces one empty with one charged sleeve exactly once; unused held inputs return on cancellation. Already burned sap, stamina and elapsed priming do not refund.",
+      "output": "The existing set_resin route consumes charged sleeve+Tree sap, returns the empty sleeve and makes Set repair resin; resin_kits consumes that resin+two Sound repair staves to make the current real survey kits. No new stat bar or fictional product ledger.",
+      "stop": "Explicit stop/window exhaustion disables generation and fuel draw. Installation, buffer and held partial work remain; source stage decays once per supported played-minute boundary until0, then requests no further cooling boundary. Unsupported clock freezes. This is an original endpoint policy, not source timing parity."
+    },
+    "choices": [
+      "Connect the recharger immediately and risk spending the small startup buffer before the source is ready.",
+      "Isolate it during startup, then connect once the source’s observed stage/reserve support the load.",
+      "Keep the original manual recharge route, shut down for an input shortage, or recharge/refuel later without rebuilding the installation."
+    ],
+    "actor_site_ownership": "Eda can accept, defer or refuse a funded service on her existing controller/availability path. Machine utility is site-owned state, not Eda’s learned cooling reserve. Her purse/body/stock/consent and the player’s sleeve/title remain distinct. Only reported or locally observed rig state becomes other actors’ knowledge; simulationFacts true stock/clock/support stays authoritative for legality rather than omniscient motives.",
+    "ordinary_failure": "Cold start with consumer attached can deplete reserve before stage2; missing fuel/salt/contact/output space pauses the relevant consumer, retaining infrastructure and partial work. An exact cause/stock/support gate rejects stale/replayed/borrowed-input attempts. Leaving unsupported local clock contact freezes the unspent window; no unseen debt or losses are invented.",
+    "hazard_policy": "First trial is ordinary restart/shortage only. No thorium heat, radiation or explosion is copied. A later separately selected hazardous installation would need actual heat/body/location/damage consumers and disclosed shutdown/recovery, with source-specific distinctions.",
+    "missing_consumers": [
+      "A validated optional retained site-flow record binding installation/source stage/buffer/reserved inputs/partial consumer progress and owner, separate from actor energy.",
+      "One deterministic fixed-minute site balance boundary inside the current scheduler, plus legal connect/isolate/fund/stop commands; no arbitrary graph topology is required.",
+      "A native observed readout of demand/generation/reserve/startup/input/output stop reason and actual charged-sleeve publication through the same envelope."
+    ],
+    "compatibility": "Explicit opt-in optional versioned state; old absence remains inert, old frozen jobs preserve their meanings and manual commands. No save schema number is selected by research. Preserve actor energies, native item IDs, custody and existing one publisher. Shared integrator owns any registry/clock/state/native/UI changes and later generated-save verification.",
+    "effort": "Moderate shared-interface work rather than content-only authoring: source/consumer/buffer state, boundary ordering, support/cancellation and native UI/publication. Generic graph portability would be high effort; authoring-speed/runtime performance remain unmeasured.",
+    "acceptance_criteria": [
+      {
+        "id": "A1",
+        "check": "At the proposed minute kernel, compare consumer-connected and isolated startup using identical real fuel and4-unit initial reserve.",
+        "pass": "Immediate connection can exhaust reserve before generation; isolated startup reaches stage2 then supplies the recharger. UI explains actual demand/stage/buffer; no power appears from time alone.",
+        "status": "not-run"
+      },
+      {
+        "id": "A2",
+        "check": "Remove fuel, salt, contact or output room mid-window; refill/reconnect later and cancel at partial progress.",
+        "pass": "Correct component stops, installation and partial recipe survive; actual burned fuel stays spent and unused reserved inputs return once. Ordinary shortage never creates an explosion or duplicate charged sleeve.",
+        "status": "not-run"
+      },
+      {
+        "id": "A3",
+        "check": "Complete one recharge then actually use set_resin and resin_kits; let Eda accept a funded service while the player takes another eligible activity.",
+        "pass": "Sleeve conserved; actual salt/sap/staves and payer/recipient inventories balance; current kits have their actual native consumers. Eda’s own priorities/means/consent remain authoritative, with no hidden knowledge leak.",
+        "status": "not-run"
+      },
+      {
+        "id": "A4",
+        "check": "Compare split/common-clock advances and later generated reload/export/import/failing-write cases under an authorized gate.",
+        "pass": "Stage, charge, partially reserved input ownership and progress retain exact totals; cause replay cannot re-award; failed durable save publishes nothing. Existing boundary budget returns unspent time.",
+        "status": "deferred-not-run"
+      },
+      {
+        "id": "A5",
+        "check": "Open old unenrolled and current opt-in generated states and verify manual recharge and unrelated native/actor energy jobs.",
+        "pass": "No forced enrollment/history, personal-energy conversion, changed old commitment meaning, offline losses, second inventory, scheduler or publisher. Director reviews the character-centered service choice and tuning.",
+        "status": "deferred-not-run"
+      }
+    ],
+    "static_walkthrough": {
+      "status": "static-derivation-of-original-proposal-not-runtime-tested",
+      "assumptions": "Initial reserve4, source stage0, fuel4, recharger has actual reserved sleeve+salt and output room; each row uses pre-boundary generation, then assigns coverage and changes stage/progress.",
+      "isolated_then_connected": [
+        {
+          "minute": 1,
+          "connected": false,
+          "pre_generation": 0,
+          "demand": 2,
+          "reserve_after": 2,
+          "source_stage_after": 1,
+          "consumer_work_after": 0
+        },
+        {
+          "minute": 2,
+          "connected": false,
+          "pre_generation": 0,
+          "demand": 2,
+          "reserve_after": 0,
+          "source_stage_after": 2,
+          "consumer_work_after": 0
+        },
+        {
+          "minute": 3,
+          "connected": true,
+          "pre_generation": 4,
+          "demand": 4,
+          "reserve_after": 0,
+          "source_stage_after": 2,
+          "consumer_work_after": 1
+        },
+        {
+          "minute": 4,
+          "connected": true,
+          "pre_generation": 4,
+          "demand": 4,
+          "reserve_after": 0,
+          "source_stage_after": 2,
+          "consumer_work_after": 2,
+          "new_charged_sleeves": 1
+        }
+      ],
+      "connected_from_start": [
+        {
+          "minute": 1,
+          "pre_generation": 0,
+          "demand": 4,
+          "reserve_after": 0,
+          "source_stage_after": 1,
+          "consumer_work_after": 1
+        },
+        {
+          "minute": 2,
+          "pre_generation": 0,
+          "demand": 4,
+          "reserve_after": 0,
+          "source_stage_after": 0,
+          "consumer_work_after": 1,
+          "status": "stalled, partial work retained"
+        }
+      ]
+    }
+  },
+  "license_cost": {
+    "source": "GPL-3.0 text in repository LICENSE, source sections1–40 and208–242 inspected; GitHub labels GPL3.0.",
+    "incumbent": "YAIRPG MIT license and upstream attribution remain.",
+    "adoption_cost": "Copying/porting covered code into a distributed combined work needs GPL-compatible licensing/notices/source obligations assessed; the Java/Arc/generated entity/runtime bridge also has high technical integration cost. No legal conclusion about a hypothetical distribution is promised.",
+    "proposed_route": "Original design-level adaptation copies no code, game data fiction, formulas as tuning, assets or names. Preserve source attribution in research. Asset/dependency licenses remain unread, so none is selected."
+  },
+  "coverage": {
+    "inputs": [
+      {
+        "kind": "pinned-public-source",
+        "path": "README.md",
+        "sha256": "081a1768fef37945f4925a147ce271e45ad797c3b8d42991129fbd2f37eed8a5",
+        "bytes": 4770,
+        "line_count": 80,
+        "semantic_read_ranges": [
+          [
+            1,
+            36
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "LICENSE",
+        "sha256": "963392e038d7bea128e55cc67dd691c204593db3527060667f0c82f0f0a1be64",
+        "bytes": 32422,
+        "line_count": 619,
+        "semantic_read_ranges": [
+          [
+            1,
+            40
+          ],
+          [
+            200,
+            242
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/content/Blocks.java",
+        "sha256": "27c59d95bc5cc7c82fc1dc20c7feee0db914014866e67e7ef990b9ccb3007d8b",
+        "bytes": 258361,
+        "line_count": 7036,
+        "semantic_read_ranges": [
+          [
+            1060,
+            1094
+          ],
+          [
+            1300,
+            1330
+          ],
+          [
+            1380,
+            1427
+          ],
+          [
+            2477,
+            2545
+          ],
+          [
+            2630,
+            2678
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/PowerGraph.java",
+        "sha256": "10eedb99f7fca04edae28e8bf808632eed46fb0d1c29b122ddcbf5036bf952e5",
+        "bytes": 13260,
+        "line_count": 389,
+        "semantic_read_ranges": [
+          [
+            1,
+            389
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/ImpactReactor.java",
+        "sha256": "d112c08f232d3b1ab0f29679ba20f77e5dea3b0aaf321695bcbdaee873dde2a0",
+        "bytes": 4523,
+        "line_count": 145,
+        "semantic_read_ranges": [
+          [
+            1,
+            145
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/PowerGenerator.java",
+        "sha256": "6b895da574cbf8b65fe45856b4ba4ed6f9ef3e4a049c13f4ce2b29e92e7e13a0",
+        "bytes": 7173,
+        "line_count": 233,
+        "semantic_read_ranges": [
+          [
+            1,
+            233
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/NuclearReactor.java",
+        "sha256": "74827c55652b705f69d31b11120a135cea50844915014c4436023ce9011a1af0",
+        "bytes": 7430,
+        "line_count": 214,
+        "semantic_read_ranges": [
+          [
+            1,
+            214
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/Battery.java",
+        "sha256": "dfffc2f448d0cb9a645f7620b3ccfe69d961546fc2b20ff228308245da116664",
+        "bytes": 2828,
+        "line_count": 105,
+        "semantic_read_ranges": [
+          [
+            1,
+            105
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/production/GenericCrafter.java",
+        "sha256": "cf90cda813388c097276e86cd06c6138c430d02c5b2a0c7b8cc8dc2cb6b26540",
+        "bytes": 12574,
+        "line_count": 393,
+        "semantic_read_ranges": [
+          [
+            1,
+            393
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/consumers/ConsumePower.java",
+        "sha256": "a4029de6853e7a8109c192035f4a8e4d604c227cfd1e786862f33bb6e9fbd121",
+        "bytes": 1784,
+        "line_count": 63,
+        "semantic_read_ranges": [
+          [
+            1,
+            63
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/consumers/ConsumeItems.java",
+        "sha256": "9b80fabe56c1f3508e7aac189fdd25e75c9278d09d4c3350d25c9eb92a07bab9",
+        "bytes": 1739,
+        "line_count": 59,
+        "semantic_read_ranges": [
+          [
+            1,
+            59
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/consumers/ConsumeLiquid.java",
+        "sha256": "ea195708b3a080f5fc498d90819e1bfb9923105711abf81e385d08ef8a4fb5c2",
+        "bytes": 1609,
+        "line_count": 58,
+        "semantic_read_ranges": [
+          [
+            1,
+            58
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/ConsumeGenerator.java",
+        "sha256": "4a759aae7d07e79aa72d86c08d91841085e26092e035b9397a3597579eedde4e",
+        "bytes": 5977,
+        "line_count": 174,
+        "semantic_read_ranges": [
+          [
+            23,
+            174
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/power/PowerNode.java",
+        "sha256": "183c5328ea9c6d6671dce4793f8c79580c5f476736a101d8afa00134b1ef84c5",
+        "bytes": 19608,
+        "line_count": 528,
+        "semantic_read_ranges": [
+          [
+            20,
+            177
+          ],
+          [
+            230,
+            260
+          ],
+          [
+            346,
+            476
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/modules/PowerModule.java",
+        "sha256": "1cea7e7cd227c928e8682446da3fd013b33e79ae20e31c4e5feb27945e369015",
+        "bytes": 1137,
+        "line_count": 37,
+        "semantic_read_ranges": [
+          [
+            1,
+            37
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/entities/comp/PowerGraphUpdaterComp.java",
+        "sha256": "a19e41badc76531d21143ff03b25a070accb6f2cbeddbde281a02ed0fac98c2e",
+        "bytes": 401,
+        "line_count": 16,
+        "semantic_read_ranges": [
+          [
+            1,
+            16
+          ]
+        ],
+        "coverage": "complete"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/entities/comp/BuildingComp.java",
+        "sha256": "08c24985718c083b7c66d280f940f759227fb383ad6acd5bc28afbb0d8fadbb6",
+        "bytes": 77348,
+        "line_count": 2317,
+        "semantic_read_ranges": [
+          [
+            165,
+            308
+          ],
+          [
+            857,
+            876
+          ],
+          [
+            1000,
+            1139
+          ],
+          [
+            1152,
+            1220
+          ],
+          [
+            1355,
+            1417
+          ],
+          [
+            1480,
+            1522
+          ],
+          [
+            1914,
+            2021
+          ],
+          [
+            2062,
+            2089
+          ],
+          [
+            2248,
+            2289
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/Build.java",
+        "sha256": "32706ca2e107cb060077f4e3c7519df8f1c4acc658f309048943dbdbb6274761",
+        "bytes": 14258,
+        "line_count": 321,
+        "semantic_read_ranges": [
+          [
+            62,
+            117
+          ],
+          [
+            136,
+            165
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/ConstructBlock.java",
+        "sha256": "a0c3cbef44e47df4a987280b47873bfe10afcc9c9c70cb5cc930711b45916f9a",
+        "bytes": 20347,
+        "line_count": 532,
+        "semantic_read_ranges": [
+          [
+            58,
+            120
+          ],
+          [
+            147,
+            168
+          ],
+          [
+            278,
+            334
+          ],
+          [
+            400,
+            464
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/world/blocks/storage/CoreBlock.java",
+        "sha256": "fb8d2c1f1ca37c7ba352b0442d78e3913f54ca5e2789edc4e80577d454ca6bbe",
+        "bytes": 33658,
+        "line_count": 933,
+        "semantic_read_ranges": [
+          [
+            630,
+            709
+          ],
+          [
+            738,
+            756
+          ],
+          [
+            880,
+            915
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/io/SaveVersion.java",
+        "sha256": "5011c105ffb86a44ac52e286e7f3db9fbef13cc5f152b007a53668cefa3273f9",
+        "bytes": 25716,
+        "line_count": 677,
+        "semantic_read_ranges": [
+          [
+            244,
+            280
+          ],
+          [
+            350,
+            383
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "pinned-public-source",
+        "path": "core/src/mindustry/game/Rules.java",
+        "sha256": "d4512d36606bcc86a88c04695f48cc6dea2aa365cdf3f310a4062a462a3b264b",
+        "bytes": 21085,
+        "line_count": 443,
+        "semantic_read_ranges": [
+          [
+            27,
+            27
+          ],
+          [
+            61,
+            61
+          ],
+          [
+            67,
+            67
+          ],
+          [
+            117,
+            117
+          ],
+          [
+            347,
+            347
+          ]
+        ],
+        "coverage": "bounded"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170,
+        "line_count": 23,
+        "semantic_read_ranges": [],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/AGENTS.md",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "PROJECT.md",
+        "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+        "bytes": 144593,
+        "line_count": 528,
+        "semantic_read_ranges": [
+          [
+            3,
+            13
+          ],
+          [
+            137,
+            141
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/PROJECT.md"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md",
+        "sha256": "dc31ff5420ff02516a4fef8141278eaaa990b06ff2ae3af2863a671037c5aaec",
+        "bytes": 2742,
+        "line_count": 13,
+        "semantic_read_ranges": [],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/energy_resources.js",
+        "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+        "bytes": 4384,
+        "line_count": 60,
+        "semantic_read_ranges": [
+          [
+            1,
+            60
+          ]
+        ],
+        "coverage": "complete",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/energy_resources.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/power_models.js",
+        "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+        "bytes": 4477,
+        "line_count": 55,
+        "semantic_read_ranges": [
+          [
+            1,
+            55
+          ]
+        ],
+        "coverage": "complete",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/power_models.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/site_projects.js",
+        "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+        "bytes": 2927,
+        "line_count": 32,
+        "semantic_read_ranges": [
+          [
+            1,
+            31
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/site_projects.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/simulation_effects.js",
+        "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "bytes": 27572,
+        "line_count": 303,
+        "semantic_read_ranges": [
+          [
+            32,
+            42
+          ],
+          [
+            47,
+            61
+          ],
+          [
+            78,
+            84
+          ],
+          [
+            139,
+            145
+          ],
+          [
+            156,
+            191
+          ],
+          [
+            285,
+            303
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation_effects.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/simulation.js",
+        "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "bytes": 51840,
+        "line_count": 566,
+        "semantic_read_ranges": [
+          [
+            67,
+            99
+          ],
+          [
+            129,
+            144
+          ],
+          [
+            175,
+            236
+          ],
+          [
+            390,
+            411
+          ],
+          [
+            451,
+            471
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/simulation.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/expansion_engine.js",
+        "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+        "bytes": 45034,
+        "line_count": 629,
+        "semantic_read_ranges": [
+          [
+            542,
+            578
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/expansion_engine.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/expansion_persistence.js",
+        "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "bytes": 3191,
+        "line_count": 51,
+        "semantic_read_ranges": [
+          [
+            1,
+            51
+          ]
+        ],
+        "coverage": "complete",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/expansion_persistence.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/gameplay_publication.js",
+        "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+        "bytes": 3711,
+        "line_count": 62,
+        "semantic_read_ranges": [
+          [
+            1,
+            62
+          ]
+        ],
+        "coverage": "complete",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/gameplay_publication.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "bytes": 387376,
+        "line_count": 7386,
+        "semantic_read_ranges": [
+          [
+            483,
+            557
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/main.js",
+        "reader_note": "Same bytes as this worker’s earlier bounded Ensemble owner read; source ranges can be reused in this conversation."
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/reference_gameplay_content.js",
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "bytes": 13705,
+        "line_count": 105,
+        "semantic_read_ranges": [
+          [
+            1,
+            60
+          ],
+          [
+            61,
+            72
+          ],
+          [
+            73,
+            95
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/reference_gameplay_content.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/reference_gameplay_host.js",
+        "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+        "bytes": 9008,
+        "line_count": 99,
+        "semantic_read_ranges": [
+          [
+            12,
+            35
+          ],
+          [
+            77,
+            99
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/reference_gameplay_host.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "src/feature_expansion_objects.js",
+        "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+        "bytes": 27136,
+        "line_count": 193,
+        "semantic_read_ranges": [
+          [
+            1,
+            24
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/src/feature_expansion_objects.js"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "docs/ENGINE_AUTHORING.md",
+        "sha256": "ced41fb6d3f3e21aa59e1f2b70e32a05add474f6c4b2a922e0c9ecf7a7faba53",
+        "bytes": 59822,
+        "line_count": 242,
+        "semantic_read_ranges": [
+          [
+            134,
+            138
+          ],
+          [
+            175,
+            179
+          ],
+          [
+            225,
+            236
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/docs/ENGINE_AUTHORING.md"
+      },
+      {
+        "kind": "dirty-incumbent",
+        "path": "LICENSE",
+        "sha256": "bcbd8e7e33ff3f7c3be9fe0d82f29957ae2fe9bebb09055463c2a2a34b59b0f0",
+        "bytes": 1064,
+        "line_count": 21,
+        "semantic_read_ranges": [
+          [
+            1,
+            13
+          ]
+        ],
+        "coverage": "bounded",
+        "preserved_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/yairpg-inputs/LICENSE"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "latest-release.json",
+        "sha256": "247d693a5816df2b62283da54e7ad6e108b956f1eb80415668e349e54ea52152",
+        "bytes": 11116,
+        "line_count": 199,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "repository-metadata.json",
+        "sha256": "628a8aee8668835cf7c1708c0273b788d95500bebb4c0985ef2a903922665bb0",
+        "bytes": 5277,
+        "line_count": 1,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "steam-appdetails.json",
+        "sha256": "26581754dc9a090172d1352c3326a254ae8d461e7b0553d8d0dc4cd0aa444324",
+        "bytes": 20311,
+        "line_count": 1,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "PUBLIC_FETCH.json",
+        "sha256": "aa6e7091330c5e3c4d642de210c1b55e2360fd261032968810e67de7ab8367cc",
+        "bytes": 1072,
+        "line_count": 38,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "official-wiki.html",
+        "sha256": "93c34e5df52f07705122abfb5d388db46b75fd86c07134e628355754fe3c605c",
+        "bytes": 407068,
+        "line_count": 25405,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "impact-reactor-doc.html",
+        "sha256": "39feb385d3686e7831d36a40a7f7dcc66a1302c6a59ab8593bff11c501bbfa20",
+        "bytes": 404260,
+        "line_count": 25336,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "silicon-smelter-doc.html",
+        "sha256": "e3c7d75343dffcdd7430a4f4f04c03b9868d0f7e36e56fee9a8f9f6f63bc5db5",
+        "bytes": 403457,
+        "line_count": 25332,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      },
+      {
+        "kind": "public-metadata-document",
+        "path": "battery-large-doc.html",
+        "sha256": "af65ed299a7757e0833aea95c48cca3dab781da9d88df7c2d9ca6e3b77b066a1",
+        "bytes": 403084,
+        "line_count": 25296,
+        "semantic_read_ranges": [],
+        "coverage": "fetched-bounded-review-not-full-html-semantic-read"
+      }
+    ],
+    "manifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/mindustry/INPUTS.json",
+    "manifest_sha256": "b2aac6eb24c6e06699bd15bbd41c6353e03454e0209cb51e4c6e63631d418adc",
+    "complete_selected_modules": [
+      "core/src/mindustry/world/blocks/power/PowerGraph.java",
+      "core/src/mindustry/world/blocks/power/ImpactReactor.java",
+      "core/src/mindustry/world/blocks/power/PowerGenerator.java",
+      "core/src/mindustry/world/blocks/power/NuclearReactor.java",
+      "core/src/mindustry/world/blocks/power/Battery.java",
+      "core/src/mindustry/world/blocks/production/GenericCrafter.java",
+      "core/src/mindustry/world/consumers/ConsumePower.java",
+      "core/src/mindustry/world/consumers/ConsumeItems.java",
+      "core/src/mindustry/world/consumers/ConsumeLiquid.java",
+      "core/src/mindustry/world/modules/PowerModule.java",
+      "core/src/mindustry/entities/comp/PowerGraphUpdaterComp.java"
+    ],
+    "bounded_read": "Selected construction/configuration/serialization/core transfer/current interface fragments only; full game/planet/DLC coverage is not claimed.",
+    "unread": [
+      "Technology acquisition/campaign gates for impact, silicon and batteries",
+      "Fuel/coolant acquisition/drills/mining/chemical recipe/transport routing; selected source starts with actual supplied inputs",
+      "Arc math/Time implementation and precise update order/performance/frame limits; actual nonlinear startup/outage timing",
+      "Most BuildingComp/Build/ConstructBlock/CoreBlock/SaveVersion and generated classes; full file save/autosave/crash/rollback guarantees",
+      "Planet/sector/offline/remote production/raids/launch/research/RTS/unit-control systems",
+      "Erekir heat networks, beams, advanced reactors and most late-game block/content families; only selected declarations/exception NuclearReactor reviewed",
+      "Tests, release binaries, installed/browser gameplay, rendering/assets/audio, mods, other branches/forks and DLC entitlement/account data"
+    ],
+    "checks": {
+      "source_review": "complete-for-bounded-mechanism",
+      "json_locators_hashes": "passed: JSON parse,34 public exact SHA/path/ranges and13 dirty-owner snapshots, all manifest ranges within EOF and SHA256 hashes checked; local artifact link resolves",
+      "runtime": "not-run",
+      "build": "not-run",
+      "benchmark": "not-run",
+      "browser": "not-run",
+      "save_roundtrip": "not-run",
+      "YAIRPG_unit_browser_save_regression_director": "deferred-not-run",
+      "live_input_drift": [
+        "docs/research/idle-social-engine-scout-2026-10-06/CHECKPOINT.md"
+      ]
+    },
+    "source_review_note": "Source path complete for startup/storage/input/output/build consumer/ordinary interruption and separate thorium hazard. Unlock/acquisition, arbitrary transport/core system, full save guarantees and overall campaign remain bounded unread.",
+    "live_document_note": "Only root CHECKPOINT.md changed after snapshot; all inspected runtime inputs remained unchanged. Root owns current routing."
+  },
+  "scope_limits": [
+    "Only MINDUSTRY.md and MINDUSTRY.json repository writes",
+    "No ENSEMBLE/root/shared source edits",
+    "Public code/docs/metadata and task-specific current-source snapshots outside Git",
+    "No install/execution/test/build/private game/save/account/library mutation/purchase/commit/other-chat message/publication/automation"
+  ],
+  "memory_use": {
+    "path": "MEMORY.md",
+    "lines": [
+      519,
+      519
+    ],
+    "purpose": "Dated pointer to preserving character/world/energy owner constraints; current implementation claims refreshed from source."
+  }
+}

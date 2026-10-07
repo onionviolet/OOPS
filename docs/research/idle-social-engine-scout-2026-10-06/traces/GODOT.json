@@ -1,0 +1,113 @@
+{
+  "candidate": "GODOT",
+  "version": "4.7.2-stable",
+  "sourcePin": "ed1daf0bf001b61586d9930840f2f1394092c079",
+  "repository": "https://github.com/godotengine/godot",
+  "disposition": "park",
+  "decisionStatus": "research recommendation, not adopted",
+  "sourceManifest": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/godot/ed1daf0bf001b61586d9930840f2f1394092c079/INPUT_MANIFEST.json",
+  "evidence": [
+    {
+      "id": "godot-1",
+      "status": "source-demonstrated",
+      "path": "platform/web/js/libs/library_godot_javascript_singleton.js",
+      "lines": [
+        136,
+        207
+      ],
+      "sha256": "d65c74d148ca2f9bc33644cc6f6330c85f28c8803416951ac31865195f22296d",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/js/libs/library_godot_javascript_singleton.js#L136",
+      "claim": "Window interface proxy and method invocation with sentinel error results."
+    },
+    {
+      "id": "godot-2",
+      "status": "source-demonstrated",
+      "path": "platform/web/js/libs/library_godot_javascript_singleton.js",
+      "lines": [
+        217,
+        245
+      ],
+      "sha256": "d65c74d148ca2f9bc33644cc6f6330c85f28c8803416951ac31865195f22296d",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/js/libs/library_godot_javascript_singleton.js#L217",
+      "claim": "Callback proxy lifecycle."
+    },
+    {
+      "id": "godot-3",
+      "status": "source-demonstrated",
+      "path": "platform/web/js/libs/library_godot_javascript_singleton.js",
+      "lines": [
+        344,
+        392
+      ],
+      "sha256": "d65c74d148ca2f9bc33644cc6f6330c85f28c8803416951ac31865195f22296d",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/js/libs/library_godot_javascript_singleton.js#L344",
+      "claim": "Eval return conversion boundary."
+    },
+    {
+      "id": "godot-4",
+      "status": "source-demonstrated",
+      "path": "platform/web/js/libs/library_godot_os.js",
+      "lines": [
+        112,
+        171
+      ],
+      "sha256": "211dfb5520e9dd1381e3c379b4d9486420a02d9f3f72c40b912e3b2a5e7daaa9",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/js/libs/library_godot_os.js#L112",
+      "claim": "Asynchronous IDBFS mount and initial synchronization."
+    },
+    {
+      "id": "godot-5",
+      "status": "source-demonstrated",
+      "path": "platform/web/js/libs/library_godot_os.js",
+      "lines": [
+        191,
+        205
+      ],
+      "sha256": "211dfb5520e9dd1381e3c379b4d9486420a02d9f3f72c40b912e3b2a5e7daaa9",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/js/libs/library_godot_os.js#L191",
+      "claim": "Flush resolves error value; fulfilled promise is not success alone."
+    },
+    {
+      "id": "godot-6",
+      "status": "source-demonstrated",
+      "path": "platform/web/javascript_bridge_singleton.cpp",
+      "lines": [
+        399,
+        412
+      ],
+      "sha256": "0ca5d3366e740ba5ef6470fb68e6eb75708b813284912ce1506bdc2c5da66146",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/javascript_bridge_singleton.cpp#L399",
+      "claim": "Download and sync delegate to browser/web OS."
+    },
+    {
+      "id": "godot-7",
+      "status": "source-demonstrated",
+      "path": "platform/web/export/export_plugin.cpp",
+      "lines": [
+        357,
+        396
+      ],
+      "sha256": "6f7e056683d5f1d30b1fc9aa5b94518af0dcb83841a2978dc756dc2d5d39d088",
+      "url": "https://github.com/godotengine/godot/blob/ed1daf0bf001b61586d9930840f2f1394092c079/platform/web/export/export_plugin.cpp#L357",
+      "claim": "Thread support default off; export options explicit."
+    }
+  ],
+  "runtimeExecution": "not-run",
+  "integration": "unimplemented original trial / parked alternative",
+  "unread": [
+    "Scene/editor/resource internals",
+    "Physics/navigation",
+    "Native/mobile packaging",
+    "Accessibility",
+    "Full web filesystem lifecycle",
+    "Custom templates",
+    "Performance"
+  ],
+  "license": "MIT",
+  "sourceAccessErrors": [
+    {
+      "path": "platform/web/js/libs/library_godot.js",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ]
+}

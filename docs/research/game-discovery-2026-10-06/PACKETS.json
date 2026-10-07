@@ -1,0 +1,1186 @@
+{
+  "schema": 1,
+  "owner": "01a112b9-410a-7da2-9182-392141662439",
+  "dateLocal": "2026-10-06",
+  "status": "complete-finite-source-research",
+  "qualification": "Source readiness is a research gate only; refresh actual shared writer and moving input hashes before binding.",
+  "packets": [
+    {
+      "id": "GD-01-EVIDENCE-ASSAY",
+      "rank": 1,
+      "title": "An inconclusive paid assay can still support a useful deduction",
+      "sourceReady": true,
+      "status": "source-ready-original-proposal",
+      "firstPublished": "2026-10-06",
+      "source": {
+        "game": "Brogue Community Edition",
+        "repository": "https://github.com/tmewett/BrogueCE",
+        "pin": "104a20fedbe7d9360d2dfc8ff665571694212ad8",
+        "version": "main CE 1.15.1; current master snapshot, not a claimed release tag",
+        "access": "original public C source, not decompiled",
+        "localPath": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/BrogueCE",
+        "reviewedCoverage": "Parent directly reviewed the eight initial Items.c anchors and representative status/targeting joins; final leaf reports19exact semantic evidence anchors and source hashes. Whole-game/source/runtime unreviewed.",
+        "evidence": [
+          {
+            "id": "BG-E1",
+            "path": "src/brogue/Items.c",
+            "start": 5844,
+            "end": 5927,
+            "symbol": "tryGetLastUnidentifiedItemKind / magicPolarityRevealedItemKindCount / tryIdentifyLastItemKind",
+            "fact": "Elimination requires a unique remaining kind, with polarity revealed or opposite partition exhausted.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5844-L5927",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "fe60cf58c9ef3359471a32a5ffe0000dfc6c01575de186ef2a2545a57c61f998",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E2",
+            "path": "src/brogue/Items.c",
+            "start": 5929,
+            "end": 5976,
+            "symbol": "tryIdentifyLastItemKinds / identifyItemKind",
+            "fact": "Kind identity is table-level and can propagate across matching items.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L5929-L5976",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "2397c27752c0060b8bc498f1a96b003eec2b637a10d7c5f98aedd64c5340d7fe",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E3",
+            "path": "src/brogue/Items.c",
+            "start": 6202,
+            "end": 6273,
+            "symbol": "throwItem potion impact",
+            "fact": "Normally harmless splash does not identify; hallucination has an evidence-qualified exception.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6202-L6273",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "6fc50cdc8630fb718076538a34fc5d758a26782c8e655a15db73a6d1e069f19d",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E4",
+            "path": "src/brogue/Items.c",
+            "start": 6337,
+            "end": 6392,
+            "symbol": "throwCommand",
+            "fact": "Target cancellation precedes spend; accepted throw clones one unit, destroys/decrements one original and ends turn.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6337-L6392",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "0af31af6c37b79903cf9e217cf2d28f39531656afcb0b700512e411d989e942c",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E5",
+            "path": "src/brogue/Items.c",
+            "start": 7231,
+            "end": 7284,
+            "symbol": "detectMagicOnItem / drinkPotion",
+            "fact": "Detection exposes polarity, while known adverse drinking requests confirmation; hallucination changes status.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7231-L7284",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "cb28bb4bfe22838dab771096856005d05e62711a252e712441db65195c93654e",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E6",
+            "path": "src/brogue/Items.c",
+            "start": 7341,
+            "end": 7387,
+            "symbol": "drinkPotion detect-magic branch",
+            "fact": "Detection iterates eligible floor, carried and pack items and attempts evidence-qualified elimination.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7341-L7387",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "3749f05e8849d779f8e601fdcd651b1e4787f545b1f5a61d3bd2a31880f715ab",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E7",
+            "path": "src/brogue/Items.c",
+            "start": 7407,
+            "end": 7412,
+            "symbol": "drinkPotion aftermath",
+            "fact": "Unknown drinking identifies then consumes an actual pack item.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L7407-L7412",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "3f34c7b79d93d670b2f4ce7ac12f9956db9e687d40db8ed94d31ac1eefbc05bf",
+            "review": "parent semantically reviewed actual pinned span"
+          },
+          {
+            "id": "BG-E8",
+            "path": "src/brogue/Items.c",
+            "start": 6803,
+            "end": 6852,
+            "symbol": "apply",
+            "fact": "Successful drinking ends a turn; a rejected application returns beforehand.",
+            "url": "https://github.com/tmewett/BrogueCE/blob/104a20fedbe7d9360d2dfc8ff665571694212ad8/src/brogue/Items.c#L6803-L6852",
+            "fileSha256": "cf2d43c2af89777d047cd7e4c5fbf6e4a4cd2039fef65fb1169e6a8f7ba21a30",
+            "spanSha256": "98aff083177c324c3fa990c0388c978f7ca5748a5ca3df4fad28cb09dbf6c4d8",
+            "review": "parent semantically reviewed actual pinned span"
+          }
+        ],
+        "licenseRoute": "GNU AGPL v3 or later in Items.c header; LICENSE.txt supplies AGPL v3 text; independent original implementation only, preserve YAIR license/upstream attribution.",
+        "finalLeafEvidence": "source-traces/BROGUE.json"
+      },
+      "playerDecision": "Spend a finite reagent and sample on classification, spend a sample on an external reaction test, risk applying an uncertain remaining wash, or keep the fragile survey rubbing and decline. Prior negative evidence must alter which choices are supported.",
+      "distinctDelta": {
+        "existing": "Current nethack_fieldcraft.assay and trial identify one fixed reed oil from a successful useful observation; typed inference knowledge and hidden situation truth already exist.",
+        "missing": "A committed inconclusive observation plus independently earned classification/catalogue evidence constrains the remaining identities and changes a later use/avoidance decision. Current knowledge storage alone does not implement that inference consumer.",
+        "reservationExclusions": "ALL19 work, artifact/causal-story modules, existing fieldcraft vial/dog/knife IDs, Eda lessons and all shared integration remain reserved to their actual owners."
+      },
+      "causalPath": [
+        {
+          "stage": "prerequisite",
+          "source": "An owned unknown potion and previously exposed polarity/known kinds support the exception.",
+          "proposal": "One explicitly accepted finite survey-sample situation declares a closed four-wash catalogue, two conserving and two stripping kinds. Four generic sample labels have a stable private mapping; each has two real doses. The player obtains one actual fragile charcoal rubbing through paid local exploration. No stock on reopen."
+        },
+        {
+          "stage": "decision",
+          "source": "Throw, drink, detect, cancel or retain stock are distinct paid/risky choices.",
+          "proposal": "Classify a chosen sample using a real assay slip and effort, or spend one dose on a glazed chip. An inconclusive harmless release alone leaves several identities possible. Stripping classification plus harmless release singles out bleaching wash in the declared closed catalogue."
+        },
+        {
+          "stage": "expenditure",
+          "source": "Accepted throw deletes one potion and ends a turn; accepted detection/drinking consumes another actual potion.",
+          "proposal": "Classification spends one owned diagnostic slip, one native stamina and two played minutes. A chip test spends one dose, one native stamina and one played minute. Cancel before commitment spends nothing; cancelled supported timed work returns exact reservations. A completed inconclusive test keeps the paid costs spent."
+        },
+        {
+          "stage": "mutation/consumer",
+          "source": "Evidence-qualified identification sets the kind table even though the thrown sample is destroyed. Bad identity then reaches drink confirmation; dangerous drinking instead applies its status.",
+          "proposal": "Store the actual negative test and classification as separate caused observations, then derive only player-supported candidates. Write interpreted/understood knowledge with inference attribution only when unique. The public quote shows evidence and candidate labels, never private truth."
+        },
+        {
+          "stage": "result/aftermath",
+          "source": "The consumed sample stays consumed; known kind information changes later named use and avoidance.",
+          "proposal": "One remaining fixative dose plus the unique rubbing becomes one preserved native rubbing. A separate delivery transfers that exact product to the existing local buyer and five actual buyer coins to the player. Applying bleaching wash to the rubbing instead spends both and leaves a spoiled rubbing with no payout. Read-only deduction preserves remaining doses; no free re-test, reroll, recipe reward or duplicate receipt."
+        }
+      ],
+      "proposalCosts": {
+        "classification": "1 actual diagnostic slip +1 native stamina +2 played min",
+        "chipTest": "1 actual wash dose +1 native stamina +1 played min",
+        "preservation": "1 actual fixative dose +1 unique fragile rubbing +1 native stamina +2 played min",
+        "delivery": "transfer 1 actual preserved rubbing; debit buyer 5 actual coins, credit player 5 native coins",
+        "qualification": "All YAIR fiction, amounts, catalogue and outputs are reversible original choices. Builder must declare supply origin/owner and reuse current buyer purse; never mint payment or overwrite earlier stock."
+      },
+      "meaningfulFailures": [
+        "Target/action cancelled before accepted spend leaves stock and sequence intact.",
+        "Inconclusive test without class evidence spends its sample and grants no identity.",
+        "More than one supported candidate grants no unique identity.",
+        "A guessed wrong wash can spoil the one rubbing without payment; the spent doses remain spent.",
+        "Missing actual buyer funds, wrong owner/loan/equipment state, unavailable site/body or stale sequence rejects the relevant command."
+      ],
+      "nativeOwnerReuse": [
+        {
+          "path": "src/causal_situations.js",
+          "symbols": [
+            "applySituationEffect",
+            "validateKnowledgeBasis"
+          ],
+          "use": "Existing finite situation/privateTruth and observed/inferred provenance; no rival truth owner."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "symbols": [
+            "simulationFacts",
+            "applySimulationEffects",
+            "refundCosts"
+          ],
+          "use": "Actor/world facts, knowledge stages, native item/vital/resource/transfer effects and conserved reservation returns."
+        },
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "commitSimulationCommand",
+            "advanceSimulationBoundary"
+          ],
+          "use": "Pure quotes, expected-sequence paid jobs, actual site/body/contact support and completion."
+        },
+        {
+          "path": "src/gameplay_publication.js",
+          "symbols": [
+            "prepareGameplayPublication"
+          ],
+          "use": "Native item reconstruction; generic sample identity must not leak through item names/descriptions."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "symbols": [
+            "persistExpansionPlan"
+          ],
+          "use": "Existing durable envelope before live publication, with shared integrator retaining authority."
+        },
+        {
+          "path": "src/nethack_fieldcraft_content.js",
+          "symbols": [
+            "nethackFieldcraftDefinitions"
+          ],
+          "use": "Prior fixed useful assay comparison only; preserve earlier vials/dog/knife stock and commands."
+        }
+      ],
+      "exactMissingConsumer": "A bounded pure candidate reducer over the four declared kinds and actual caused test/classification facts, joined to new typed command consequences and a qualified public identity/avoidance display. It must not read private truth to grant player knowledge.",
+      "implementationBoundary": {
+        "builderOwned": [
+          "new src/game_absorption_*.js",
+          "docs/gm/game-absorption-2026-10-06/"
+        ],
+        "sharedJoins": [
+          "registry/source/item registration",
+          "fresh facts at admission and completion",
+          "native command routing and Notebook display",
+          "reservationReturns1 admission for new group if timed jobs are used",
+          "shared optional readers/validation and durable publisher",
+          "current rebuild by actual shared integrator"
+        ],
+        "handoff": "Prepare exact binding instructions while 01a10fe7 owns shared source. Acquire shared files only on a live explicit release. No new engine/inventory/publisher/world/prestige."
+      },
+      "compatibility": {
+        "preferred": "Use existing typed situation/actor facts/knowledge with additive stable IDs and old absence inert; avoid new global schema if current readers safely support the new definitions.",
+        "ifStructuredRecordsNeeded": "Builder/integrator must specify optional version, bounded catalogue/evidence records, support/receipt validation and old-save omission. New fields require explicit reader compatibility, retained old frozen jobs and later generated-save reload/import verification.",
+        "sourceExtension": "Durable negative observations, candidate display and recomputation after later classification are original extensions. Brogue evaluates the evidence at splash/identify time; this is not a claim that it stores/replays a negative-test ledger."
+      },
+      "laterPlayableGate": [
+        "On a fresh generated save, unknown chip test spends one dose but grants no identity; then classification permits the exact deduction and preserves the remaining dose.",
+        "Run classification-before-test and test-before-classification, ambiguous evidence, refusal and mistaken application; inspect actual native counts/product/coins and show changed later choice.",
+        "Finish preservation and one actual stocked-buyer delivery once; reopen/revisit cannot restore sample stock, rubbing or payout.",
+        "Reload/import partial evidence, paid jobs, spoiled/preserved stock and final deduction; reject stale/forged/unsupported evidence and failed persistence without partial publication.",
+        "Rebuilt UI must show candidate/evidence/cost/risk without hidden truth, be keyboard usable, preserve vanilla and receive director review."
+      ],
+      "checkStatus": {
+        "research": "Source consumer spans reviewed; no guest runtime run.",
+        "gameplay": "Not implemented by this research. Unit/browser/gameplay/save/failure/keyboard/regression/director gates deferred."
+      },
+      "revision": 1,
+      "proposalAuthority": "Root packet prices/times/existing-buyer preference are the builder contract; the leaf original steward/price/time variant is an alternative, not a second selected specification."
+    },
+    {
+      "id": "GD-02-SITE-TRANSFORMATION",
+      "rank": 2,
+      "revision": 1,
+      "title": "Refining a traversal brew changes a retained site and a later charged action",
+      "sourceReady": true,
+      "status": "source-ready-original-proposal",
+      "firstPublished": "2026-10-06",
+      "source": {
+        "game": "Shattered Pixel Dungeon",
+        "repository": "https://github.com/00-Evan/shattered-pixel-dungeon",
+        "pin": "e9defd0444c96d2fce3de5ec297c3398be8b7c55",
+        "version": "4.0.1 / code920, master snapshot committed2026-10-02; not a claimed release tag or installed build",
+        "access": "Original public Java source; no decompiler needed",
+        "localPath": "/Users/weiwei/.codex/research/game-discovery-2026-10-06/shattered-pixel-dungeon",
+        "licenseRoute": "GPL-3.0 license text; reviewed Java headers GPL-3.0-or-later; independent original behavior design only, no guest code/data/assets/setting copied",
+        "reviewedCoverage": {
+          "mode": "Named function/range semantic trace with bounded caller/callee and persistence checks",
+          "whole_game_or_source": false,
+          "unreviewed": [
+            "All seed acquisition/generation balance",
+            "Other recipes/potions/class/talent interactions",
+            "Runtime/source save success/failure"
+          ],
+          "optional_connected_not_selected": [
+            "SPD-E17",
+            "SPD-E18",
+            "SPD-E20"
+          ]
+        },
+        "evidence": [
+          {
+            "id": "SPD-E01",
+            "path": "build.gradle",
+            "reviewed_ranges": [
+              [
+                13,
+                22
+              ]
+            ],
+            "functions": [
+              "version declarations"
+            ],
+            "semantic_scope": "4.0.1; app code 920",
+            "sha256": "a7e305d7182bf394f83c155c8d5b87eda58fc7fc27b0132b165f9da1b4ae8115",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/build.gradle#L13-L22",
+            "fileSha256": "a7e305d7182bf394f83c155c8d5b87eda58fc7fc27b0132b165f9da1b4ae8115",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 13,
+                "end": 22,
+                "sha256": "12ac0afe73b57e989d04732cb47e2d8191e9b8c9b8cee6e33f0d4cee1c3b7c81"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E02",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java",
+            "reviewed_ranges": [
+              [
+                1084,
+                1108
+              ]
+            ],
+            "functions": [
+              "actAlchemy"
+            ],
+            "semantic_scope": "Physical station access; cursed toolkit rejection",
+            "sha256": "1c70b2cc337f2235dd46c62b02b02d051052b2676587a9e166f5b729d797dd9d",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/hero/Hero.java#L1084-L1108",
+            "fileSha256": "1c70b2cc337f2235dd46c62b02b02d051052b2676587a9e166f5b729d797dd9d",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 1084,
+                "end": 1108,
+                "sha256": "eb1f6ca944810a459dc3fcb1a28a68af991c7110c580522e7fcfd2bf77fafdc5"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E03",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java",
+            "reviewed_ranges": [
+              [
+                468,
+                565
+              ],
+              [
+                308,
+                334
+              ],
+              [
+                349,
+                374
+              ],
+              [
+                159,
+                182
+              ],
+              [
+                108,
+                122
+              ]
+            ],
+            "functions": [
+              "SeedToPotion.testIngredients",
+              "SeedToPotion.cost",
+              "SeedToPotion.brew",
+              "SeedToPotion.sampleOutput",
+              "onThrow",
+              "isKnown",
+              "setKnown",
+              "identify",
+              "save",
+              "restore"
+            ],
+            "semantic_scope": "3 Stormvine seeds -> identified Levitation at 0 energy; mixed species can fail intended output; rain does not press target trap",
+            "sha256": "2db6babc02d0140451779ba9a8ba99fee5c5efe78a33eb3c0c9ff7c672ded719",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/Potion.java#L468-L565",
+            "fileSha256": "2db6babc02d0140451779ba9a8ba99fee5c5efe78a33eb3c0c9ff7c672ded719",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 468,
+                "end": 565,
+                "sha256": "fb2a1ba3fdf2b110d6004d0cb07ec1c7e3ae143d096eb0cf963cafe40edb0ecf"
+              },
+              {
+                "start": 308,
+                "end": 334,
+                "sha256": "0cd64776664742a1580a5be0f043e5e48a40a80cfd56bd8d9a8eb656c01eb2fb"
+              },
+              {
+                "start": 349,
+                "end": 374,
+                "sha256": "32e9a42b96f4d713437e664e5fc8b2e1b82c1a601c6b4388f6ed033e55440c17"
+              },
+              {
+                "start": 159,
+                "end": 182,
+                "sha256": "59584d64f39fd0a6dbdd7de864f23e994ae8d54ff50d33f100418c9082ebc26c"
+              },
+              {
+                "start": 108,
+                "end": 122,
+                "sha256": "df122d936da32f26d6f651078f8eb36d4edcaa4ef7eff2c7cbb111cbf832c96c"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E04",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/exotic/ExoticPotion.java",
+            "reviewed_ranges": [
+              [
+                50,
+                102
+              ],
+              [
+                125,
+                154
+              ]
+            ],
+            "functions": [
+              "regToExo",
+              "isKnown",
+              "setKnown",
+              "PotionToExotic.testIngredients",
+              "PotionToExotic.cost",
+              "PotionToExotic.brew",
+              "PotionToExotic.sampleOutput"
+            ],
+            "semantic_scope": "Consume 1 Levitation +4 energy ->1 StormClouds; linked identification",
+            "sha256": "977c6f9e32b3fa7920a47f3181757ef6f2bfc0a877ba80d56065ba5a2773affe",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/exotic/ExoticPotion.java#L50-L102",
+            "fileSha256": "977c6f9e32b3fa7920a47f3181757ef6f2bfc0a877ba80d56065ba5a2773affe",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 50,
+                "end": 102,
+                "sha256": "79093b965854f7a3a28cdf973eaada00e342d96ba9126d83878b1717a8cc9d0e"
+              },
+              {
+                "start": 125,
+                "end": 154,
+                "sha256": "885e5000f5f7d9a566054aea322a81131a8040187fb9b7db2efff270d66e31fe"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E05",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AlchemyScene.java",
+            "reviewed_ranges": [
+              [
+                610,
+                725
+              ],
+              [
+                754,
+                774
+              ]
+            ],
+            "functions": [
+              "recipe preview",
+              "combine",
+              "craftItem"
+            ],
+            "semantic_scope": "Preview output/cost; disable unaffordable option; debit energy; collect/drop result; save requested",
+            "sha256": "480f3e0d82f09e40c75d8d2ec989658bde7d40480af46942b462f8313456c66e",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/scenes/AlchemyScene.java#L610-L725",
+            "fileSha256": "480f3e0d82f09e40c75d8d2ec989658bde7d40480af46942b462f8313456c66e",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 610,
+                "end": 725,
+                "sha256": "a7cd3092bad47999b3c97f69eee7dd490c0fcc9803db0c375c0f6da98e26f328"
+              },
+              {
+                "start": 754,
+                "end": 774,
+                "sha256": "9c74cfb401fb056439a2a27678ce94de332950aacfadf5c389ddd56eb6fef8f4"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E06",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/exotic/PotionOfStormClouds.java",
+            "reviewed_ranges": [
+              [
+                33,
+                61
+              ]
+            ],
+            "functions": [
+              "shatter"
+            ],
+            "semantic_scope": "Seed finite rain at impact/neighbor cells",
+            "sha256": "84b1459c60f2f7a252a4d70616bd6a44542653406105465a4aed41c2b1d023e2",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/exotic/PotionOfStormClouds.java#L33-L61",
+            "fileSha256": "84b1459c60f2f7a252a4d70616bd6a44542653406105465a4aed41c2b1d023e2",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 33,
+                "end": 61,
+                "sha256": "07753b7e548498f6e50544b79774780401beede5117810e1b8a96eda9800faf5"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E07",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/StormCloud.java",
+            "reviewed_ranges": [
+              [
+                31,
+                59
+              ]
+            ],
+            "functions": [
+              "evolve"
+            ],
+            "semantic_scope": "Attempt water with traps included; clear fire; damage nonimmune FIERY actors",
+            "sha256": "c8c2a34dcda76c21d763016fbbbf0feebcce141bf9ac8dbb6c257563a8eb980c",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/StormCloud.java#L31-L59",
+            "fileSha256": "c8c2a34dcda76c21d763016fbbbf0feebcce141bf9ac8dbb6c257563a8eb980c",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 31,
+                "end": 59,
+                "sha256": "0ecc53a8591f1a9a6df1e02b5606fa571784f8a5a644f7fc8037a3d5d08322e7"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E08",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java",
+            "reviewed_ranges": [
+              [
+                1116,
+                1149
+              ],
+              [
+                370,
+                394
+              ],
+              [
+                439,
+                505
+              ],
+              [
+                976,
+                999
+              ],
+              [
+                409,
+                419
+              ]
+            ],
+            "functions": [
+              "setCellToWater",
+              "restoreFromBundle",
+              "storeInBundle",
+              "updateCellFlags"
+            ],
+            "semantic_scope": "Enumerated convertible ground/traps only; custom terrain veto; real trap record removed; map/traps/blobs save state",
+            "sha256": "a59601a3e6be51f71f5ce139548d4645536eb889a97377af8139f9bccab9a707",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/Level.java#L1116-L1149",
+            "fileSha256": "a59601a3e6be51f71f5ce139548d4645536eb889a97377af8139f9bccab9a707",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 1116,
+                "end": 1149,
+                "sha256": "9915e71d93789da5873d69bf5c7d6166c27df77d98bc12bf4c3eb0ac2dcdcd61"
+              },
+              {
+                "start": 370,
+                "end": 394,
+                "sha256": "c6db8d0dc322c056cfcb9bb9ea49b11fb6e4de8b7c40d56b37dda5e458cbb53b"
+              },
+              {
+                "start": 439,
+                "end": 505,
+                "sha256": "f2a871b44383c99db80b6156bdbee1a7787be50bd4b34351fe657ee4f41d1e79"
+              },
+              {
+                "start": 976,
+                "end": 999,
+                "sha256": "7e6b808c94d5fa413feb9d30348ee415f9dc9ed2867ae47dbab3dc8e5caf3c09"
+              },
+              {
+                "start": 409,
+                "end": 419,
+                "sha256": "9fe2cafc652b7a98962077c45c38b9fd5baff26abf02fe75dd54830f624a8487"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E09",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/WandOfLightning.java",
+            "reviewed_ranges": [
+              [
+                62,
+                103
+              ],
+              [
+                143,
+                198
+              ]
+            ],
+            "functions": [
+              "min",
+              "max",
+              "onZap",
+              "arc",
+              "fx"
+            ],
+            "semantic_scope": "Water changes arc distance/damage; adjacent caster half damage can be fatal",
+            "sha256": "ba454f18cc5a128c4f968419ab346b3ccd14e60d13ebed9ccd6f2ce6cf54e5ab",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/WandOfLightning.java#L62-L103",
+            "fileSha256": "ba454f18cc5a128c4f968419ab346b3ccd14e60d13ebed9ccd6f2ce6cf54e5ab",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 62,
+                "end": 103,
+                "sha256": "5f0f9e584258cf5ada73ecdcb7bac53d07a3682fc82d967e380c4dc22c136d72"
+              },
+              {
+                "start": 143,
+                "end": 198,
+                "sha256": "b1b08b4d1a8422c94f812237c0270f01934c8b7225abfebd15b92c7add663b5f"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E10",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/PotionOfLevitation.java",
+            "reviewed_ranges": [
+              [
+                43,
+                62
+              ]
+            ],
+            "functions": [
+              "shatter",
+              "apply"
+            ],
+            "semantic_scope": "Unconverted alternative gives Levitation; thrown version confusion gas",
+            "sha256": "0f702ccc50e3055e639f83f719e308c0eb9c1b4cecb36cac59658a98f6e9ace4",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/PotionOfLevitation.java#L43-L62",
+            "fileSha256": "0f702ccc50e3055e639f83f719e308c0eb9c1b4cecb36cac59658a98f6e9ace4",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 43,
+                "end": 62,
+                "sha256": "f591573b1fe12a60e4f109ee3d66c3c66f0af2508b61b2996e1c9151b6e42dc4"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E11",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Levitation.java",
+            "reviewed_ranges": [
+              [
+                34,
+                61
+              ]
+            ],
+            "functions": [
+              "DURATION",
+              "attachTo",
+              "detach"
+            ],
+            "semantic_scope": "20 duration; flying flag; detach occupies actual cell",
+            "sha256": "eaeda5ee4db98f6b5e05f89f080929b793b9746657639c732d8266bceab462a4",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/buffs/Levitation.java#L34-L61",
+            "fileSha256": "eaeda5ee4db98f6b5e05f89f080929b793b9746657639c732d8266bceab462a4",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 34,
+                "end": 61,
+                "sha256": "ebedf0eb1a8673f8450e8af72987ce4c02718fd657100dac0e822833a6d5c530"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E12",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Item.java",
+            "reviewed_ranges": [
+              [
+                641,
+                702
+              ],
+              [
+                66,
+                66
+              ]
+            ],
+            "functions": [
+              "cast",
+              "castDelay",
+              "TIME_TO_THROW"
+            ],
+            "semantic_scope": "Detach 1 dose; trajectory impact; ordinary 1-turn delay",
+            "sha256": "f849cab7f08f3ea9ae2eb8d706445f048d09e691061da108046ff2e45fd77bce",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/Item.java#L641-L702",
+            "fileSha256": "f849cab7f08f3ea9ae2eb8d706445f048d09e691061da108046ff2e45fd77bce",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 641,
+                "end": 702,
+                "sha256": "2467f18205e5f19f8fdbe05b72166b6d841ca4ff3492c2711fcc7eb873e767d6"
+              },
+              {
+                "start": 66,
+                "end": 66,
+                "sha256": "295d18fc480043d4b392d5d549128cb81285d8d59b2fc7d1f36f05c25961e264"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E13",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/EnergyCrystal.java",
+            "reviewed_ranges": [
+              [
+                43,
+                73
+              ]
+            ],
+            "functions": [
+              "constructor",
+              "doPickUp"
+            ],
+            "semantic_scope": "Actual picked-up crystal quantity -> Dungeon.energy",
+            "sha256": "63a7b31a76ff62470e9a3aa84b0aebd00b26078bda9bda4b52359eb6b23188ee",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/EnergyCrystal.java#L43-L73",
+            "fileSha256": "63a7b31a76ff62470e9a3aa84b0aebd00b26078bda9bda4b52359eb6b23188ee",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 43,
+                "end": 73,
+                "sha256": "e1634805842f23e9463218db31faad3b311c5c84a4775ae60b26249c33b07fa3"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E14",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndEnergizeItem.java",
+            "reviewed_ranges": [
+              [
+                134,
+                173
+              ]
+            ],
+            "functions": [
+              "energizeAll",
+              "energizeOne",
+              "energize"
+            ],
+            "semantic_scope": "Remove actual item to create energy",
+            "sha256": "940845af8eb4f9b2df24e6d206325e212e60a4c9e256605421725f986110c7a0",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/windows/WndEnergizeItem.java#L134-L173",
+            "fileSha256": "940845af8eb4f9b2df24e6d206325e212e60a4c9e256605421725f986110c7a0",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 134,
+                "end": 173,
+                "sha256": "4e1e75f2a798fbcb7b5774a24e9c7b090a475ee34c72e01275fcccf8b40c1f16"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E15",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java",
+            "reviewed_ranges": [
+              [
+                638,
+                642
+              ],
+              [
+                699,
+                713
+              ],
+              [
+                682,
+                682
+              ]
+            ],
+            "functions": [
+              "saveGame energy field",
+              "saveLevel",
+              "saveAll",
+              "Potion.save call"
+            ],
+            "semantic_scope": "Energy/level actual persistence route; not live save verification",
+            "sha256": "c0e17cfad60900c5e56ca8da25e47271a358cd56409a37c9de52bf941b4ae9bc",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/Dungeon.java#L638-L642",
+            "fileSha256": "c0e17cfad60900c5e56ca8da25e47271a358cd56409a37c9de52bf941b4ae9bc",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 638,
+                "end": 642,
+                "sha256": "d3fff40f33bdc7e5d7f759280b799dc7eaf637363606901d93fd9076c2de772a"
+              },
+              {
+                "start": 699,
+                "end": 713,
+                "sha256": "5870c2b6787cbdb41fc1f05e9567c816671734d777424fea0eda0b4097a2ec56"
+              },
+              {
+                "start": 682,
+                "end": 682,
+                "sha256": "a34e245438200ea4ae45fbf106244faee3c507c572618c325e36b106a586eab7"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E16",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/Wand.java",
+            "reviewed_ranges": [
+              [
+                150,
+                164
+              ],
+              [
+                433,
+                439
+              ],
+              [
+                489,
+                503
+              ],
+              [
+                719,
+                782
+              ],
+              [
+                543,
+                543
+              ],
+              [
+                80,
+                80
+              ]
+            ],
+            "functions": [
+              "tryToZap",
+              "initialCharges",
+              "chargesPerCast",
+              "wandUsed debit",
+              "zapper callback fx ->onZap ->wandUsed",
+              "TIME_TO_ZAP"
+            ],
+            "semantic_scope": "Normal uncursed zap needs/spends1charge and1turn; actual callback invokes onZap then wandUsed; magic-immunity/charge refusals",
+            "sha256": "a45841efaa22f836e91f07ed5f1558e3f601c7f4013664ed34e23a4975a05490",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/wands/Wand.java#L150-L164",
+            "fileSha256": "a45841efaa22f836e91f07ed5f1558e3f601c7f4013664ed34e23a4975a05490",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 150,
+                "end": 164,
+                "sha256": "54e68ef572b37c16dbbb478da85c32f3490fe7100e50f32bbe378dd43e022bca"
+              },
+              {
+                "start": 433,
+                "end": 439,
+                "sha256": "8c173d9c0c23f9feb198a9880392889fdbc9c89a8fe94dd26df709bbba7b5e88"
+              },
+              {
+                "start": 489,
+                "end": 503,
+                "sha256": "2bf205338f20522ddba03e276571580ab4e249866a31f224d89b7f9983f87c8f"
+              },
+              {
+                "start": 719,
+                "end": 782,
+                "sha256": "45f06cc5b195795322da0a1a6b227407e269f1aee7ed70cf7ddf270977025699"
+              },
+              {
+                "start": 543,
+                "end": 543,
+                "sha256": "3cd04e9e799bb0ce8d997cb627699b30012cc0e63c3825bb98fcd3553506ccc3"
+              },
+              {
+                "start": 80,
+                "end": 80,
+                "sha256": "87903e3087de5a790be7067ce2c5f6a3eef1ed7e8c943373c015bcfa3f3afaa2"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E17",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/brews/AquaBrew.java",
+            "reviewed_ranges": [
+              [
+                29,
+                77
+              ]
+            ],
+            "functions": [
+              "shatter",
+              "Recipe"
+            ],
+            "semantic_scope": "Optional connected form: 1 StormClouds +8 energy ->8 AquaBrew doses",
+            "sha256": "00f63ce9106f9fda5af7f7d87a4635a56cad0f3c643786308fddf909ffd6e03e",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/items/potions/brews/AquaBrew.java#L29-L77",
+            "fileSha256": "00f63ce9106f9fda5af7f7d87a4635a56cad0f3c643786308fddf909ffd6e03e",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 29,
+                "end": 77,
+                "sha256": "181e867b701d0f8616f4df979f8482ecb573f31524e94a081dc6e45a6b4c1728"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E18",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/traps/GeyserTrap.java",
+            "reviewed_ranges": [
+              [
+                44,
+                150
+              ]
+            ],
+            "functions": [
+              "activate"
+            ],
+            "semantic_scope": "Inner water guaranteed; distance-2 water 2/3; fire clear; 2-cell knockback; FIERY-only direct damage",
+            "sha256": "f669485490fde27ea0787c6116dcd14fad76d802e50273d0eb7e7507ed43825d",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/levels/traps/GeyserTrap.java#L44-L150",
+            "fileSha256": "f669485490fde27ea0787c6116dcd14fad76d802e50273d0eb7e7507ed43825d",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 44,
+                "end": 150,
+                "sha256": "94da5a2866cb7b291a53644d66e2270ca7f6169b8b4458425911318a330f737b"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E19",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/Blob.java",
+            "reviewed_ranges": [
+              [
+                156,
+                222
+              ]
+            ],
+            "functions": [
+              "evolve",
+              "seed",
+              "clear"
+            ],
+            "semantic_scope": "Temporary diffusion/volume depletion distinct from map mutation",
+            "sha256": "10f3dd43c38bbfa93d5799cc5af5b8fd6f40be39eb73548a0b77c1d3737f63d1",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/actors/blobs/Blob.java#L156-L222",
+            "fileSha256": "10f3dd43c38bbfa93d5799cc5af5b8fd6f40be39eb73548a0b77c1d3737f63d1",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 156,
+                "end": 222,
+                "sha256": "025798b179b238548a6222b39347fe256a4cf41bf27c869ccd6f765ec7dbb1de"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E20",
+            "path": "core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/plants/Stormvine.java",
+            "reviewed_ranges": [
+              [
+                42,
+                63
+              ]
+            ],
+            "functions": [
+              "activate",
+              "Seed"
+            ],
+            "semantic_scope": "Seed identity; plant has separate normal/Warden effect, not pursued",
+            "sha256": "52f1742354e1ad2614f8410fd20a782c8a788de1ae2083b2b09641fdc38495a1",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/core/src/main/java/com/shatteredpixel/shatteredpixeldungeon/plants/Stormvine.java#L42-L63",
+            "fileSha256": "52f1742354e1ad2614f8410fd20a782c8a788de1ae2083b2b09641fdc38495a1",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 42,
+                "end": 63,
+                "sha256": "c6d31b9a1ba4642e1a2ffca1962b6bc5a9a2364741161a84670ae3eacea1811b"
+              }
+            ]
+          },
+          {
+            "id": "SPD-E21",
+            "path": "LICENSE.txt",
+            "reviewed_ranges": [
+              [
+                1,
+                5
+              ]
+            ],
+            "functions": [
+              "license heading"
+            ],
+            "semantic_scope": "GPL v3 text; reviewed Java source headers GPL v3 or later",
+            "sha256": "d0495053051967ebe76fb1facd287d79d1ed800da1be75cf501a556bc39a0472",
+            "url": "https://github.com/00-Evan/shattered-pixel-dungeon/blob/e9defd0444c96d2fce3de5ec297c3398be8b7c55/LICENSE.txt#L1-L5",
+            "fileSha256": "d0495053051967ebe76fb1facd287d79d1ed800da1be75cf501a556bc39a0472",
+            "review": "leaf semantic review, parent representative causal-join review; immutable anchors/hash readback",
+            "spanHashes": [
+              {
+                "start": 1,
+                "end": 5,
+                "sha256": "179f7e915718b1e9acfe271e688353acc8709a57c70348437ca36b048e81712a"
+              }
+            ]
+          }
+        ]
+      },
+      "playerDecision": "Keep the actual precursor for a finite personal crossing that leaves the hazard intact, or spend it plus acquired energy to flood the allowed site and remove its trap. Later choose dry/wet target and remote/adjacent use of a real charged tool.",
+      "distinctDelta": {
+        "existing": "Current wet Village bench, cooling conditions, sealed/soaked kit, drying, field.focus, actual paid jobs, site/world facts and sluice bypass are already supported or actively reserved.",
+        "missing": "A material transformation removes one actual local hazard and leaves a persistent substrate that changes the reach/result/self-risk of a later paid action. No inspected current native liquid/conduction action provides that chain.",
+        "reservationExclusions": "No ALL19 livelihood bench drying, planted frost work, old floodline pump, cooling lesson, artifact/causal modules, or battle3/4/5 modification. Keep existing sluice choices and source-owned native routing intact."
+      },
+      "causalPath": [
+        {
+          "stage": "prerequisite",
+          "source": "Recipe accepts exactly three declared seed inputs; same-species Stormvine yields an identified Levitation potion at zero alchemy energy. Mixed species can produce a different potion after all three seeds are spent.",
+          "proposal": "Opt into one finite original side-culvert scene in the existing home realm. Declare three supported local nodes and an actual trap, two latch states and one owner-held cache parcel. Obtain three finite authored reed seeds and an existing owned Empty bench vial, plus the already acquired field.focus method. No free energy or menu provisioning."
+        },
+        {
+          "stage": "decision",
+          "source": "One Levitation potion can provide20 temporary flight or be consumed in the4-energy exotic conversion to StormClouds.",
+          "proposal": "Brew one base infusion (three seeds+one empty vial, one stamina, three played minutes). Use it for one actual personal-bypass condition consumed by crossing, leaving the trap for later visitors; or refine it into one rain-wash vial."
+        },
+        {
+          "stage": "actual expenditure",
+          "source": "AlchemyScene displays energy affordability, then actual combine consumes toolkit/global energy before brew; PotionToExotic spends one base potion. Rain throwing spends a real item and time. Wand casting requires charge and normally later debits one charge after effect. These source sequences do not prove durable atomicity.",
+          "proposal": "Refine spends the actual base vial and field.focus use{output:1,control:1}: with the current policy this is two reserve and one strain, plus three played minutes. Rain use spends one vial, one stamina and one minute, returning only one empty container. A charged-tool attempt consumes one actual induction-charge item or exact device charge once, whether its supported effect succeeds or causes self-injury."
+        },
+        {
+          "stage": "mutation/consumer",
+          "source": "Rain creates finite clouds. On allowed terrain setCellToWater(true,cell) changes terrain and removes the trap record; custom terrain can veto, and pits/wells take another throw path. Lightning later reads actual water: arc distance2 instead of1, wet main target removes multi-target dilution, and adjacent caster can take half damage.",
+          "proposal": "Rain permanently sets the declared local ground to wet and the same trap to broken, never a temporary actor cooling flag. A bounded node/circuit resolver consumes those facts: dry contact reaches only the first latch; wet supported contact reaches the connected second latch. A caster at the adjacent node suffers two actual native HP loss; at the declared remote stand no self-hit. This finite graph/health rule is original, not a generic grid/thermal/combat replacement."
+        },
+        {
+          "stage": "aftermath",
+          "source": "Cloud volume can expire while changed terrain/trap state remains in the serialized Level map/traps; later water flags rebuild from terrain. Charge and injury remain spent.",
+          "proposal": "One supported crossing and actually opened cache transfer the one real owner-held parcel to native player inventory; later visitors see the same wet/broken/open site. A source-supported personal bypass can cross while its condition is live but does not remove the trap or open an untouched second latch. Deliberate drying reverses wetness only, never reconstructs the destroyed trap or replenishes charge/cache. No copied source reward, new prestige or automatic refill."
+        }
+      ],
+      "proposalCosts": {
+        "baseBrew": "3 actual finite Culvert-reed seeds +1 owned Empty bench vial +1 native stamina +3 played min ->1 base infusion vial",
+        "refine": "1 actual base vial +field.focus use output1/control1 +3 played min ->1 rain-wash vial; policy is frozen and revalidated",
+        "rainUse": "1 rain-wash vial +1 stamina +1 played min ->1 empty vial, same eligible ground wet/trap broken",
+        "personalBypass": "1 base vial +1 stamina ->one explicitly bounded buoyancy/bypass condition; crossing must consume/support it and leave the actual hazard intact",
+        "chargedAction": "1 actual owned induction-charge unit; wet/dry reach and adjacent2HP cost resolved from current site/body/position; refuse unsupported lethal/body cases before admission",
+        "retrieval": "Transfer1 actual cache-owner parcel only after its actual latch and declared arrival conditions; finite once-only stock",
+        "qualification": "All YAIR names, graph/positions, durations, vitality and energy mapping are original reversible proposals. Original SPD4energy is not automatically YAIR2reserve. If a device rather than item charge is selected, declare exact saved charge/custody owner and compatibility."
+      },
+      "meaningfulFailures": [
+        "Wrong/mixed ingredients can be refused before spend in the original finite recipe; source mixed-seed lottery is a separately unselected option.",
+        "Insufficient acquired focus/reserve/control, strained source, missing/borrowed/equipped materials, occupied actor or unavailable site rejects admission.",
+        "Unsupported terrain must use a declared policy: reject before reserving, or clearly paid ineffective completion that leaves target unchanged. Source conversion is not universal terrain editing.",
+        "Dry contact cannot reach the second latch even after a paid charge; knowledge of rain grants no water.",
+        "Wet contact while adjacent consumes its charge and injures the actual native body; label current risk and preserve nonlethal boundaries.",
+        "Expired precursor condition loses personal bypass eligibility; the underlying trap remains unless actually destroyed.",
+        "Leaving/reopening cannot dry/fix/restock the site; a second claimant cannot retrieve the same parcel."
+      ],
+      "nativeOwnerReuse": [
+        {
+          "path": "src/simulation.js",
+          "symbols": [
+            "previewSimulationCommand",
+            "commitSimulationCommand",
+            "advanceSimulationBoundary"
+          ],
+          "use": "Paid finite commands, actual shared clock/reservations, once claims and support rechecks."
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "symbols": [
+            "simulationFacts",
+            "applySimulationEffects",
+            "refundCosts"
+          ],
+          "use": "Existing world/actor facts, item/transfer/vital/condition/energy consequences and cause receipts."
+        },
+        {
+          "path": "src/field_workshop.js",
+          "symbols": [
+            "fieldDefinitions"
+          ],
+          "use": "Existing learned field.focus and recovery; no new alchemy energy account."
+        },
+        {
+          "path": "src/energy_resources.js",
+          "symbols": [
+            "energyCharge",
+            "applyEnergyEffect",
+            "validateEnergyState"
+          ],
+          "use": "Actual frozen reserve/strain policy and output/control validation."
+        },
+        {
+          "path": "src/world_instances.js",
+          "symbols": [
+            "planWorldInstanceUpdate"
+          ],
+          "use": "Only if the declared scene needs typed retained instance/site facts. Current home-world facts are preferred; no additional world."
+        },
+        {
+          "path": "src/repository_absorption_content.js",
+          "symbols": [
+            "repositoryAbsorptionDefinitions"
+          ],
+          "use": "Optional existing sealed/soaked kit and dry_kit recovery, without replacing the distinctive conductor consumer or touching old pump."
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "symbols": [
+            "persistExpansionPlan"
+          ],
+          "use": "Same durable native envelope/publisher. Guest imperative energy-debit sequence is not imported."
+        }
+      ],
+      "exactMissingConsumer": "New finite culvert node/hazard/substrate definitions plus a bounded resolver joined to actual charged native item/vital effects, personal-bypass action, retained latch state and exact owned-cache transfer. A recipe, water label, calculator or old routeCleared flag alone is incomplete.",
+      "implementationBoundary": {
+        "builderOwned": [
+          "new src/game_absorption_*.js",
+          "docs/gm/game-absorption-2026-10-06/"
+        ],
+        "sharedJoins": [
+          "current registry/items/energy/condition registration",
+          "fresh native world/site/body/position and custody facts",
+          "real action plan/effect application and admission/completion support",
+          "new group native command and Notebook projection",
+          "reservationReturns1 and compatible saved readers if needed",
+          "one durable publisher and current rebuild"
+        ],
+        "scope": "One optional local side-culvert puzzle with discrete scene nodes, not a new native map/location/world or battle engine. Existing main location remains owned by the current native adapter; do not claim relocation from a route fact. Shared joins stay reserved to01a10fe7 until actual release."
+      },
+      "compatibility": {
+        "preferred": "Existing typed namespaced world/actor facts, declared conditions/knowledge/claims and native item stock; explicit opt-in and old absence inert.",
+        "ifNewDomain": "Declare optional version and bounded node/trap/latch/cause/charge records, exact validation and old-reader rejection. Native device charge/custody cannot be mirrored in a second ledger. Preserve old expansion5–11, job snapshots and battle3/4/new reserved5.",
+        "returnPolicy": "Returned container/tool keeps native identity and declared reservationReturn semantics; no acquisition-log farming. Generated save/reload/import/failure gates remain deferred.",
+        "sourceLimits": [
+          "SPD lightning reads actual water cells; no grounded/flying immunity check was found in the reviewed arc. Any such exclusion would be original.",
+          "Source Level serialization is static persistence evidence, not a verified successful save/reload or atomic failure contract.",
+          "The local graph, induction tool, latch puzzle, cache,2HP risk and earned field.focus conversion are original. Full alchemy/random generation/spell catalogue and game balance remain unreviewed."
+        ]
+      },
+      "laterPlayableGate": [
+        "Brew/refine one actual conserved batch on generated stock; test every displayed choice has a real source/body/energy/output and target action, including personal bypass.",
+        "Flood the same allowed node, verify the actual trap disappears and later unenhanced crossing changes; refuse or pay an explicitly ineffective unsupported target without fake water.",
+        "Compare dry/wet charged reach and remote/adjacent current-body outcomes, consume each charge once, deliver the one actual cache parcel and retain the changed site on revisit.",
+        "Reload/import partial batches, condition expiry, wet/broken/latch state, charge/custody, injuries and cache owners; reject stale/forged jobs and failed save before partial native publication.",
+        "Matching rebuild, keyboard-readable costs/position/risk/aftermath, unchanged earlier sluice/floodline/bench choices and director review."
+      ],
+      "checkStatus": {
+        "research": "Selected source functions/caller/consumer/serialization reviewed; original adaptation qualified.",
+        "gameplay": "No implementation by this lane. Unit/browser/gameplay/save/failure/regression/director gates deferred."
+      },
+      "leafProposalQualification": "Leaf initially offered a kit-wetting/old-route-flag alternative. Root final packet requires the distinct actual conductor/latch/custody result and explicitly excludes claiming native relocation from a route flag."
+    }
+  ],
+  "coverageOwner": "FINDINGS.json",
+  "inputSnapshot": "INPUT_SNAPSHOT.json",
+  "validation": "VALIDATION.json",
+  "implementationAuthority": "docs/gm/game-absorption-2026-10-06/ plus otherwise-unreserved src/game_absorption_*.js initially; shared01a10fe7 release required",
+  "deeperResearchFollowUp": {
+    "owner": "DEEPER_RESEARCH.md",
+    "queue": "DEEPER_QUEUE.json",
+    "selectionCoordinator": "Assess deep idea implementation /01a112a5-ae6f-7a71-81a9-2788f1ca13ba",
+    "qualification": "Original finite research still complete; five new parked questions are not sourceReady packets. Published ownership text is a dated snapshot; refresh latest project/source writer before integration."
+  }
+}

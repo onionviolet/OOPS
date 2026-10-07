@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "successor": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+  "predecessor": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "authority": "Direct user continue interrupted work; existing feature-wave scope retained",
+  "observedAtUtc": "2026-10-05T21:29:40.853540+00:00",
+  "predecessorTurn": "interrupted",
+  "peerTurns": "Backlog, Legibility, Ink and Repositories interrupted/notLoaded",
+  "children": "Objects and Society completed; Powers and Destination interrupted/notLoaded",
+  "hostAgents": "Only current root active before new reservations",
+  "processes": "No competing local source/build/compiler/npm writer observed",
+  "reservation": "Current root succeeds Features sole shared/canonical integrator and interrupted reserved role scopes; exact bounded child reservations will be listed in checkpoint",
+  "checks": "Source/syntax/import/registration/link/compiler/build only; gameplay/save/failure/keyboard/regression/director deferred",
+  "inputHashes": {
+    "src/main.js": "bfff457447eb4ca2c0e5712f44b68df8e15192c1bff4df0fb608210f74f6bd1a",
+    "src/simulation_content.js": "c0f8ead106d753ecd5ba8a826313230fff0f6c4364c0a2a5642bcc9d983ca0e4",
+    "src/expansion_engine.js": "d69ca17a7533f2588ad10990942f2931938db356fed3733b44b04f91ba1eb6b7",
+    "src/save_files.js": "3254f46b12f4336e66bedd453561ae17948239aa1ecac4f72fc9e096effc8b26",
+    "src/feature_expansion_wave_host.js": "da601507843714bf58f872e50fd0095874972770c42d34bebef85e6b130fafc2",
+    "src/feature_expansion_ui.js": "ac70aed3044335d4c3fec15e00cc7d6a526916ff403210cf1ae78f8779238b3d",
+    "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97"
+  }
+}

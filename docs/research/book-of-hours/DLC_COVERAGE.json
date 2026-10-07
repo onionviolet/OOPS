@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "date_utc": "2026-10-07T03:50:53.993278+00:00",
+  "catalog_scope": "Steam official US-English base app API declared list plus installed depot manifest, not every historical/regional/bundled product",
+  "items": [
+    {
+      "app_id": 2834350,
+      "name": "BOOK OF HOURS: HOUSE OF LIGHT",
+      "classification": "gameplay expansion",
+      "official_url": "https://store.steampowered.com/app/2834350/BOOK_OF_HOURS_HOUSE_OF_LIGHT/",
+      "catalogued": true,
+      "owned": "user supplied; separate live entitlement not queried",
+      "installed": true,
+      "depot_id": 2834354,
+      "manifest": "8932121340669376391",
+      "raw_retained": true,
+      "source_accessible": true,
+      "semantic_coverage": "selected-source-inspected; BH10-BH15 and related base joins; whole expansion unread",
+      "prefixed_raw_records": 2005,
+      "selected_prefixed_mechanical_rows": 56
+    },
+    {
+      "app_id": 2340780,
+      "name": "BOOK OF HOURS: Original Soundtrack",
+      "classification": "music/non-gameplay",
+      "official_url": "https://store.steampowered.com/app/2340780/BOOK_OF_HOURS_Original_Soundtrack/",
+      "catalogued": true,
+      "owned": "not queried",
+      "installed": "not present in this base-app manifest; standalone soundtrack app status not inspected",
+      "source_accessible": "official descriptive metadata only",
+      "raw_retained": false,
+      "semantic_coverage": "not a selected gameplay-source question"
+    },
+    {
+      "app_id": 2500320,
+      "name": "Installed edition/bonus aspect payload",
+      "classification": "edition marker and bonus documents/cosmetics; not another established gameplay expansion",
+      "catalogued": false,
+      "official_api_success": false,
+      "owned": "not separately queried",
+      "installed": true,
+      "depot_id": 2500321,
+      "manifest": "5066086410321832442",
+      "local_evidence": [
+        "edition/semper.txt",
+        "edition/sempr.txt",
+        "further/*.pdf",
+        "BOOK OF HOURS Perpetual Edition wallpapers.zip (not retained)"
+      ],
+      "raw_retained": "edition markers and useful further PDFs retained; wallpaper audiovisual payload excluded",
+      "semantic_coverage": "marker code read; bonus narrative PDFs retained-unread",
+      "identity_limit": "local watermark mechanism establishes Perpetual presentation; no official public app metadata resolved for this hidden app"
+    }
+  ],
+  "official_snapshots": "/Users/weiwei/.codex/research/book-of-hours/22091683/official",
+  "entitlement_or_library_changes": false,
+  "purchases": false
+}

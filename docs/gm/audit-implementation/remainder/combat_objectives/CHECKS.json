@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-10-06T19:37:39.606627+00:00",
+  "checks": [
+    {
+      "kind": "syntax",
+      "command": [
+        "node",
+        "--check",
+        "src/audit_remainder_combat_objectives_host.js"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "kind": "syntax",
+      "command": [
+        "node",
+        "--check",
+        "src/audit_remainder_combat_objectives_battle.js"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "kind": "syntax",
+      "command": [
+        "node",
+        "--check",
+        "src/audit_remainder_combat_objectives_state.js"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "kind": "syntax",
+      "command": [
+        "node",
+        "--check",
+        "src/audit_remainder_combat_objectives_content.js"
+      ],
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "kind": "import-and-definition",
+      "command": [
+        "node",
+        "--input-type=module"
+      ],
+      "source": "const {remainderCombatObjectivesDefinitions:d}=await import('./src/audit_remainder_combat_objectives_content.js');\nconst {featureObjectDefinitions:base}=await import('./src/feature_expansion_objects.js');\nconst {createSimulationRegistry}=await import('./src/simulation_contracts.js');\nconst r=createSimulationRegistry({...d,sites:base.sites});\nconsole.log('Definition check: '+r.commands.size+' commands using the existing fitting site.');\nfor(const name of ['content','state','battle','host']){const m=await import(`./src/audit_remainder_combat_objectives_${name}.js`);console.log('Import '+name+': '+Object.keys(m).length+' exports.');}\n",
+      "exitCode": 0,
+      "output": "Definition check: 10 commands using the existing fitting site.\nImport content: 13 exports.\nImport state: 7 exports.\nImport battle: 10 exports.\nImport host: 3 exports.\n"
+    }
+  ],
+  "notRun": [
+    "build",
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload/import",
+    "failure",
+    "regression",
+    "keyboard",
+    "director"
+  ]
+}

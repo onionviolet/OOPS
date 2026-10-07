@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-03",
+  "timezone": "America/New_York",
+  "scope": "Read-only gameplay-source inspection for proposed parallel engine packets; documentation edits only",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "dirty_worktree": true,
+  "sha256": {
+    "src/simulation.js": "805817ffa27f121c02a552f844711a7e831a809cebaa7da1339c65a2869c7013",
+    "src/simulation_contracts.js": "91240bce07ab7f037145064dccd145114f911c794129aa3820e10ce58a9c48c0",
+    "src/simulation_effects.js": "de319a24c3f3ed4e4b6fa3b4f87776ef30bd14b81b8b6490390a6e6a24396ea6",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/main.js": "673d1836f5641d9e009c25c1b965f3671350f9c72581dacfab668e4530a1cdde",
+    "src/expansion_persistence.js": "57cb4f38c8023dbb796ab23ae4a790e01d3a0ca12a2863c9c7fe3cc87060b2e0",
+    "src/game_time.js": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c"
+  },
+  "runtime_checks_this_pass": {
+    "tests": "not run; no runtime edits",
+    "build": "not run; no runtime edits",
+    "browser": "not run; no runtime edits",
+    "personal_saves": "not accessed"
+  },
+  "dispatch": "No subagents or user-owned chats created"
+}

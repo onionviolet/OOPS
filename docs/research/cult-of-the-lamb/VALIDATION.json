@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T04:11:21.150219+00:00",
+  "status": "pass",
+  "checks": [
+    {
+      "check": "required:INTAKE.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:REPORT.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:FINDINGS.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:COVERAGE.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:DLC_COVERAGE.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:IMPLEMENTATION_PACKETS.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:PACKETS.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "required:CHECKPOINT.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "parse_all_public_json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "47_unique_findings",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "16_paths",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "selected_packets_at_most_five",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "7_declared_dlc",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no_runtime_or_entitlement_claim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "source_files_and_union_lines",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "finding_hashes_and_read_spans",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "path_gates_and_ids",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "proposal_sources_and_incumbent_paths",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "local_markdown_links",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "raw_snapshot_hashes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "export_manifest_hashes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "export_exit_codes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no_raw_code_in_public_dossier",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "source_or_docs_only": true,
+  "unrun": "Game, browser, unit/regression, save/reload/import/rollback, keyboard and director acceptance remain deferred. These structural checks do not verify gameplay."
+}

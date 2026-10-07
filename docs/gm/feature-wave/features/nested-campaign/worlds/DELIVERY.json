@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "worker": "/root/nested_worlds",
+  "deliveredAt": "2026-10-05T22:50:49.457441+00:00",
+  "status": "released_for_root_integration",
+  "gameplayStatus": "implemented-unverified",
+  "exclusiveWritersReleased": true,
+  "sources": [
+    {
+      "path": "src/feature_expansion_nested_content.js",
+      "sha256": "5bde2696f089f608f339abdf59d081d210da3e6ae9b6ad157c004e7e87cd653d",
+      "bytes": 26006
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "sha256": "28a1cd1373b4a8f8101dcd77cb28643ad2ea33a0c16cb0f62ace91c6579c5f33",
+      "bytes": 43828
+    },
+    {
+      "path": "src/feature_expansion_nested_native.js",
+      "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+      "bytes": 19930
+    },
+    {
+      "path": "docs/gm/feature-wave/features/nested-campaign/worlds/INTEGRATION.md",
+      "sha256": "b7601809b894852aadd5da3c15c05c645de7e2a929cb7698c676ae666accf74c",
+      "bytes": 15082
+    }
+  ],
+  "exports": {
+    "content": [
+      "NESTED_SCHEMA",
+      "NESTED_NATIVE_DOMAIN",
+      "NESTED_IDS",
+      "NESTED_LOCATIONS",
+      "NESTED_KEYS",
+      "NESTED_INITIAL_FACTS",
+      "NESTED_FOOTPRINTS",
+      "NESTED_MISSIONS",
+      "NESTED_NATIVE_PEOPLE",
+      "NESTED_NATIVE_STOCK",
+      "nestedWorlds",
+      "nestedSources",
+      "nestedDefinitions",
+      "nestedActions"
+    ],
+    "host": [
+      "activeNestedVisit",
+      "createNestedConnections",
+      "validateNestedCampaignState",
+      "syncNestedCampaignClock",
+      "nextNestedCampaignBoundary",
+      "nestedFacts",
+      "nestedContext",
+      "nestedSimulationContexts",
+      "previewNestedCommand",
+      "commitNestedCommand",
+      "prepareNestedArrival",
+      "nestedPresentation"
+    ],
+    "native": [
+      "createNestedNativeBindings",
+      "nestedCalendarAt",
+      "nestedQuestProjection",
+      "validateNestedNativeMetadata",
+      "validateNestedEnvelope"
+    ]
+  },
+  "counts": {
+    "worlds": 3,
+    "nativeResidents": 8,
+    "nativeLocations": 6,
+    "nativeStockOwners": 3,
+    "nativeShops": 3,
+    "nativeQuests": 3,
+    "nativeCalendars": 3,
+    "nativeSourcePower": 1,
+    "ownRegisteredCommands": 36,
+    "ownPublicActions": 63,
+    "finiteMissionDefinitions": 4
+  },
+  "observedMergedRegistration": {
+    "worldsIncludingFrontier": 4,
+    "sources": 1,
+    "people": 8,
+    "commands": 98,
+    "controllers": 6,
+    "situations": 3
+  },
+  "checks": [
+    {
+      "kind": "syntax",
+      "result": "pass",
+      "command": "node --check each of the three worker JS modules"
+    },
+    {
+      "kind": "import",
+      "result": "pass",
+      "note": "Host/native exact exported symbol inventory imported in Node ESM."
+    },
+    {
+      "kind": "content_registration",
+      "result": "pass",
+      "note": "createContentRegistry composed own worlds/source/definitions and current chain worker definitions; no gameplay command executed."
+    },
+    {
+      "kind": "build_link",
+      "result": "pass",
+      "note": "esbuild browser ESM bundle, write:false, host/native entry points; current output bytes 1322518/1068332. Parent shared source was evolving; this is static link evidence, not final game build."
+    }
+  ],
+  "deferred": [
+    "gameplay",
+    "browser",
+    "save/reload",
+    "save failure",
+    "keyboard",
+    "regression",
+    "director fiction/pacing",
+    "final integrated current game build by root"
+  ],
+  "nativeSeams": [
+    "register before native load",
+    "read into each actual actor context",
+    "stage before durable write",
+    "write same full envelope",
+    "publish after durable save",
+    "snapshot normal serializer",
+    "validateEnvelope import/load",
+    "restore after native load"
+  ],
+  "save": {
+    "expansionAdmission": 7,
+    "optionalField": "nestedCampaign",
+    "optionalSchema": 1,
+    "nativeDomain": "nested_campaign_native",
+    "nativeSchema": 1,
+    "absentDefault": true,
+    "enrollmentOnly": true,
+    "oldSaveMutation": false
+  },
+  "rootRemaining": [
+    "shared registry/source/native/UI/save/clock joins",
+    "joined advanceChroniclePlan for exact nestedAdvanceBy before one publication",
+    "explicit extraction.arrive only native move",
+    "final source-matched bundle/build receipt",
+    "deferred played acceptance gates"
+  ],
+  "protected": [
+    "private saves",
+    "source library and completed Paradise dossier",
+    "repository bank",
+    "existing Tidemark and Glasshouse owners/history",
+    "one existing prestige",
+    "upstream attribution/license",
+    "no commit/push/publication/automation"
+  ],
+  "visitRetention": {
+    "endedVisitPruning": false,
+    "capacity": 96,
+    "explicitPassageBlocker": true,
+    "acceptanceAndDestinationDepartureReserveReturnCapacity": true,
+    "prepareArrivalChecksCapacity": true,
+    "frontierReturnCreatesNoNewVisit": true
+  }
+}

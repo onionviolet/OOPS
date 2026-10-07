@@ -1,0 +1,832 @@
+{
+  "inkVersion": 21,
+  "listDefs": {},
+  "root": [
+    [
+      {
+        "->": "meeting"
+      },
+      [
+        "done",
+        {
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "coin_acceptance": [
+        "^Venn records the agreed payment and hands over one real log from the local shop stock.",
+        "\n",
+        "^\"That one is yours,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"Buying timber and agreeing to repair the sluice are separate things.\"",
+        "\n",
+        "^The log joins your actual bag. Another purchase needs another payment and available stock.",
+        "\n",
+        "end",
+        null
+      ],
+      "global decl": [
+        "ev",
+        "str",
+        "^the bench keeper",
+        "/str",
+        {
+          "VAR=": "keeper_name"
+        },
+        "str",
+        "^the terrace",
+        "/str",
+        {
+          "VAR=": "place_name"
+        },
+        false,
+        {
+          "VAR=": "terms_known"
+        },
+        false,
+        {
+          "VAR=": "material_known"
+        },
+        false,
+        {
+          "VAR=": "tool_known"
+        },
+        false,
+        {
+          "VAR=": "lesson_known"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "prior_agreement"
+        },
+        false,
+        {
+          "VAR=": "lesson_done"
+        },
+        false,
+        {
+          "VAR=": "tool_held"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "inspection": [
+        "^You reserve a supported work period to inspect the linked floats with the actual reusable kit.",
+        "\n",
+        "^The finding arrives after that inspection finishes. The kit still has its owner and return duty.",
+        "\n",
+        "end",
+        null
+      ],
+      "leaving": [
+        "^You step away from the pump bench without accepting an arrangement.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ returns to the stock book. The local work goes on under its own supported clock; this conversation makes no new reservation.",
+        "\n",
+        "end",
+        null
+      ],
+      "lesson_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ agrees to the funded instruction and records the commitment.",
+        "\n",
+        "^\"We'll work through it with the right tool and time,\" they say. \"An agreement to teach isn't the completed lesson.\"",
+        "\n",
+        "^The actual teaching and learned result stay in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "loan_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the agreed purpose before handing over the available tool.",
+        "\n",
+        "^\"Use it to inspect the floats and return it. It's reusable, and it's still mine between visits.\"",
+        "\n",
+        "^The tool and its return duty remain in your actual belongings and loan record.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "material_acceptance": [
+        "^The agreed timber is reserved for the accepted repair. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ enters the commitment in the stock book.",
+        "\n",
+        "^\"That's material set aside for this work now,\" they say. \"We can do the job we actually have supplies and time for.\"",
+        "\n",
+        "^The repair and any later result remain in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "meeting": [
+        "^The pump bench stands above the wet steps at ",
+        "ev",
+        {
+          "VAR?": "place_name"
+        },
+        "out",
+        "/ev",
+        "^. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ keeps one hand on the stock book and the other on the unfinished repair.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "prior_agreement"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "prior_agreement"
+              },
+              "/ev",
+              [
+                "du",
+                "ev",
+                "str",
+                "^material",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"I remember the timber,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"It went into our working stock. It wasn't a gift back to you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^coin",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"Venn sold you a real log last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"A new purchase needs new stock and payment.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^loan",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"That tool still has an owner,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"Bring it back before arranging another loan.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^returned",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You brought the inspection kit back,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember that too.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^lesson",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "lesson_done"
+                    },
+                    "/ev",
+                    [
+                      {
+                        "->": ".^.b",
+                        "c": true
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"You've put the method to work since we spoke,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"Knowing it and having a sound pump are still different things.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "->": ".^.b"
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"We agreed to instruction,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"The actual lesson still has to fit our time and means.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    "nop",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^refused",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You declined last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember. It didn't turn the whole town against you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "pop",
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^\"The tide won't argue,\" ",
+              "ev",
+              {
+                "VAR?": "keeper_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"We still can. Before you offer anything, ask what it is meant to do.\"",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "options": [
+        [
+          "ev",
+          "str",
+          "^Ask what is being offered, and on whose terms. ",
+          "#",
+          "^response:ask_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Offer timber for the agreed local repair. ",
+          "#",
+          "^response:material ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "material_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Buy one actual local log from Venn. ",
+          "#",
+          "^response:coin ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for a purpose-bound tool loan. ",
+          "#",
+          "^response:borrow_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Return the borrowed tool to its owner. ",
+          "#",
+          "^response:return_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Use the reusable kit to inspect the linked floats. ",
+          "#",
+          "^response:use_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for the agreed instruction. ",
+          "#",
+          "^response:teach ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "lesson_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Decline the proposed arrangement. ",
+          "#",
+          "^response:refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave the discussion open for another visit. ",
+          "#",
+          "^response:leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "material_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "coin_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "loan_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "returned"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "inspection"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "lesson_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "refusal"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "leaving"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "refusal": [
+        "^\"All right,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"I'll use the means we have.\"",
+        "\n",
+        "^The refusal stays a remembered exchange. It spends no repair payment and creates no loan or taught method.",
+        "\n",
+        "end",
+        null
+      ],
+      "returned": [
+        "^The borrowed tool passes back to its owner with its current condition intact.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the record and closes this return. \"Good. Any next loan is a new agreement.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "terms": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ turns the stock book so you can read the offered terms.",
+        "\n",
+        "^\"A repair uses real supplies. A loan leaves the tool mine. Instruction needs my assent and a funded work period. You can take an ordinary work route, or leave us to it.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "material_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ A suitable timber contribution is an offered alternative to payment.",
+              {
+                "->": "terms.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "tool_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The available loan states its purpose, owner and return duty.",
+              {
+                "->": "terms.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "lesson_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The offered method has a separate teaching commitment; conversation alone does not teach it.",
+              {
+                "->": "terms.24"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^The offered costs and conditions sit beside your responses. A promise is only accepted when those conditions still hold.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ]
+    }
+  ],
+  "yairpgInk": {
+    "schemaVersion": 1,
+    "storyId": "feature-wave-negotiation",
+    "storyRevision": 1,
+    "compilerPackage": "inkjs",
+    "compilerVersion": "2.4.0",
+    "sourceSha256": "4d4a7be449589255ca9620833fc469da73f095b5dcad14716bad3915c8ef9a6f",
+    "compiledSha256": "d37584206c4b341ca749f162ed179096fc78e9e7e4163d61f7deace7e78bc3a2",
+    "contentHash": "sha256:ae0be8ab54ef5d062fb651cd7cd070b122ecaf9f79fc9f9ac00cf730a72a6a1f"
+  }
+}

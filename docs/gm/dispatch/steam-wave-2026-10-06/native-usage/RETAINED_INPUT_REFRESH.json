@@ -1,0 +1,51 @@
+{
+  "observed_utc": "2026-10-07T12:37:11.248792+00:00",
+  "scope": "Read-only retained source and actual installed version/build/native input integrity refresh during full native work",
+  "preserved_text_hash_count": 1877,
+  "preserved_text_projection_sha256": "d5ef68b7809ae9e07e0d5991f13be905879c38cd5a3bd04a565a7fad8237cb07",
+  "API": [
+    {
+      "name": "runtime-api.json",
+      "bytes": 1878804,
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578"
+    },
+    {
+      "name": "prototype-api.json",
+      "bytes": 1739413,
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756"
+    }
+  ],
+  "installed_version": "2.0.77",
+  "manifest_fields": {
+    "buildid": "23347942",
+    "StateFlags": "4",
+    "BytesDownloaded": "4379026224",
+    "BytesToDownload": "4379026224",
+    "BytesStaged": "5392464225",
+    "BytesToStage": "5392464225"
+  },
+  "manifest_sha256": "f059b74bf6f3914b428bf0e966f0db8d2995c6f7c5a13f050a8d10bb73ea61bb",
+  "staging_exists": false,
+  "installed_native_bytes": 207914304,
+  "installed_native_sha256": "90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820",
+  "native_inputs": [
+    {
+      "name": "factorio-universal.macho.gz",
+      "bytes": 207914304,
+      "sha256": "90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820"
+    },
+    {
+      "name": "factorio-arm64.macho.gz",
+      "bytes": 101254464,
+      "sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93"
+    },
+    {
+      "name": "factorio-x86_64.macho",
+      "bytes": 106627632,
+      "sha256": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26"
+    }
+  ],
+  "private_saves_profiles_entitlements_accessed": false,
+  "install_changed": false,
+  "limits": "Hash retention/version confirmation, not semantic allsource reading or DLC activation/entitlement evidence."
+}

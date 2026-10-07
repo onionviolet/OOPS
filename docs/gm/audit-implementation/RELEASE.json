@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T06:48:42.837648+00:00",
+  "owner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "state": "finite first-wave source/native/state/UI/build complete and released; implemented-unverified",
+  "canonicalRevision": 20,
+  "bundleFingerprint": "0365f6afe27c",
+  "build": "docs/gm/audit-implementation/BUILD.json",
+  "delivery": "docs/gm/audit-implementation/DELIVERY.md",
+  "queue": "docs/gm/audit-implementation/QUEUE.json",
+  "remainingLatestCandidates": 19,
+  "children": {
+    "kit_reserve": "completed/released",
+    "clamping_frame": "completed/released",
+    "earned_lesson": "completed/released",
+    "integration_review": "completed/released; no open source findings"
+  },
+  "workerSourceHashesMatched": {
+    "clamping_frame": "f79d4ef5f10ad26d0f293bc76592782fbe885725e5ea416354ae74f8f295adab",
+    "earned_lesson": "27909cfa8d2aae9e7b6f03e6d590179ec15d6cb06379ac923c6af50fb30d52cd",
+    "kit_reserve": "cab76b71c5ad9e976116720ff367594929d7a58fe70797def72471fa0b398db2"
+  },
+  "pendingProcess": false,
+  "unknownMutation": false,
+  "deferred": [
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload/import",
+    "failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "privateSavesTouched": false,
+  "sourceLibrariesTouched": false,
+  "publication": "none",
+  "receiptHashes": {
+    "docs/gm/audit-implementation/BUILD.json": "b6cec12537a77daec5e73673a11e502e4fadd9ee501322925460be054ecd7cf1",
+    "docs/gm/audit-implementation/DELIVERY.md": "67e7e2c8953fe0a190af9ded52c040b736a758a83d4e3f756dd1fad3d0dc021e",
+    "docs/gm/audit-implementation/CHECKPOINT.md": "c3639f6f28945cc9f29afca0ca5487494782601257d89b31866b6ed6b4072767",
+    "docs/gm/audit-implementation/QUEUE.json": "1cde6b712c9733fdb9a551c1f638842e3df1613e2dcad71e5c92245b86047f22",
+    "docs/gm/audit-implementation/ACCEPTANCE_BACKLOG.md": "242fc4d948be4932cfcefc3ce483c34c536fc0a43ff3dcbcb1dcbd2e4f9a8311",
+    "PROJECT.md": "e6f849266c57f0b36c46cdfa9db9a100ffac2f68668d0a10d550f1d078523855",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "123245a8cd4f3829f6b69d08aebd9c3f56bf9aa1cd0ce19887cc4a9fbbc3d1a2",
+    "docs/gm/world-implementation/RUN.json": "807efb5f345f2e3cbe1a21f44a90e9db7f999ac5073a891da62a2f768b16ac2b",
+    "docs/gm/world-implementation/CHECKPOINT.md": "a6c3d64595050b4cb62e23c456322076e55b6f1c1fc9118bf587068f85fe923d",
+    "docs/gm/README.md": "51ab96c93a6917601b9dead713e1a7cc9027d14dab479a59f363243b2c001257"
+  }
+}

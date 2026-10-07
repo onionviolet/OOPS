@@ -1,0 +1,1017 @@
+{
+  "schema": 1,
+  "game": "Oxygen Not Included",
+  "build": "24423041",
+  "status": "finite_representative_source_analysis_complete",
+  "source_facts": [
+    {
+      "id": "ONI-F01",
+      "path_id": "ONI-01",
+      "title": "Material properties enter a solver interface",
+      "classification": "source_fact",
+      "fact": "YAML properties include heat capacity, conductivity, phase thresholds/targets and fractional secondary products. ElementLoader filters by mounted DLC substance tables and manifests them into elements; SimMessages builds the native table. Brine specifies a steam transition plus30percent salt.",
+      "evidence": [
+        "E01",
+        "E02",
+        "E03",
+        "E04"
+      ],
+      "original_yair_implication": "Original materials can distinguish retained quantity, state and usable function; a named material bonus is less expressive than a rule reaching a later process.",
+      "bound": "Native pressure, heat diffusion and phase solver equations were not recovered or semantically read."
+    },
+    {
+      "id": "ONI-F02",
+      "path_id": "ONI-02",
+      "title": "One limiting recipe input scales real conversion",
+      "classification": "source_fact",
+      "fact": "ConvertMass computes a common available-input factor, removes actual storage mass, carries disease proportions and derives heat-capacity-weighted input temperature before creating stored or emitted outputs.",
+      "evidence": [
+        "E06",
+        "E61"
+      ],
+      "original_yair_implication": "Commit a frozen owned batch once, including useful output, residue and its physical consequences.",
+      "bound": "Selected converter methods; not every recipe, mod or machine."
+    },
+    {
+      "id": "ONI-F03",
+      "path_id": "ONI-02",
+      "title": "Oxygen production is also heat and power",
+      "classification": "source_fact",
+      "fact": "Electrolyzer config consumes 1 kg/s water, emits 0.888 kg/s oxygen and 0.112 kg/s hydrogen with 343.15 K minimum output, requires 120 W and sets a 1.8 kg per-cell mass ceiling. Its pressure check searches a bounded neighboring region; overpressure deactivates operation until support returns.",
+      "evidence": [
+        "E05",
+        "E06",
+        "E62"
+      ],
+      "original_yair_implication": "Preparation can choose fuel, ventilation and useful byproduct custody rather than only a success percentage.",
+      "bound": "Numbers describe this pinned config; no game run or heat-equilibrium proof."
+    },
+    {
+      "id": "ONI-F04",
+      "path_id": "ONI-03",
+      "title": "Pipes keep material identity and payload",
+      "classification": "source_fact",
+      "fact": "ConduitFlow.AddElement rejects an occupied segment containing another element, limits admitted mass, blends temperature and disease; RemoveElement returns a proportional payload and leaves the rest. Versioned contents migrate and invalid temperature resets on load.",
+      "evidence": [
+        "E07"
+      ],
+      "original_yair_implication": "Carried fluids and cargo must retain exact owners, amounts and relevant quality through transfer and load.",
+      "bound": "Selected admission/removal/load branches; routing and phase rupture not exhaustively traced."
+    },
+    {
+      "id": "ONI-F05",
+      "path_id": "ONI-04",
+      "title": "Power converts owned fuel into work and waste",
+      "classification": "source_fact",
+      "fact": "EnergyGenerator validates all recipe fuel for the tick, consumes it, emits outputs and generates joules. CircuitManager allocates generator/battery energy to actual consumers and connection status.",
+      "evidence": [
+        "E08",
+        "E09"
+      ],
+      "original_yair_implication": "Shared facilities can compete for an actual finite energy owner without a second resource bar.",
+      "bound": "All circuits and power-building formulas not read; battery threshold delivery is not claimed to halt every generator."
+    },
+    {
+      "id": "ONI-F06",
+      "path_id": "ONI-04",
+      "title": "Overload has accumulated failure and recovery",
+      "classification": "source_fact",
+      "fact": "ElectricalUtilityNetwork accumulates overload time above supported wire capacity, damages a wire after6seconds, shows a notification and decays overload time below the threshold.",
+      "evidence": [
+        "E10"
+      ],
+      "original_yair_implication": "Allow an original prepared system to fail through disclosed capacity strain and leave repairable aftermath.",
+      "bound": "Selected overload function; complete repair/destruction process unread."
+    },
+    {
+      "id": "ONI-F07",
+      "path_id": "ONI-05",
+      "title": "Breathing chooses a provider, not a body-wide immunity",
+      "classification": "source_fact",
+      "fact": "OxygenBreather chooses a usable provider, consumes according to actual air rate and dt, emits/stores CO2 according to provider and reports actual consumption. World gas provider samples nearby breathable cells and submits native consumption with a result callback.",
+      "evidence": [
+        "E11",
+        "E12"
+      ],
+      "original_yair_implication": "Separate environmental availability, reserve ownership and usable support in an expedition.",
+      "bound": "Native exact gas-flow solver remains opaque; suit provider internals not fully read."
+    },
+    {
+      "id": "ONI-F08",
+      "path_id": "ONI-06",
+      "title": "Oxygen shortage interrupts work before death",
+      "classification": "source_fact",
+      "fact": "BreathMonitor changes urge and recovery chores, including reserved underwater breathing locations. SuffocationMonitor drains breath, moves to incapacity with a120second default countdown and permits recovery before its DeathMonitor kill call.",
+      "evidence": [
+        "E13",
+        "E14"
+      ],
+      "original_yair_implication": "A source-specific warning, retreat and rescue window can be meaningful without adopting lethal background loss.",
+      "bound": "DeathMonitor and all rescue chores not completely traced; source countdown is not a YAIR balance choice."
+    },
+    {
+      "id": "ONI-F09",
+      "path_id": "ONI-07",
+      "title": "Body temperature differs from ambient comfort",
+      "classification": "source_fact",
+      "fact": "WarmBlooded has simple production, homeostasis and homeostasis-without-calorie-impact modes using body mass and heat capacity. TemperatureMonitor smooths actual body temperature and drives warm/cool urges from thresholds.",
+      "evidence": [
+        "E15",
+        "E16"
+      ],
+      "original_yair_implication": "Body support profiles should declare conversion and recovery costs separately from weather labels.",
+      "bound": "Environment exposure/damage and every body species were not fully reviewed."
+    },
+    {
+      "id": "ONI-F10",
+      "path_id": "ONI-08",
+      "title": "Hunger is a scheduled physiological urge",
+      "classification": "source_fact",
+      "fact": "CalorieMonitor distinguishes hungry/starving/depleted values; meal schedule controls ordinary hunger urges while starvation/depletion escalates. Depleted sets a body tag.",
+      "evidence": [
+        "E17"
+      ],
+      "original_yair_implication": "Ordinary rest/work conflicts can be modeled from actual condition and timing rather than a universal labor tick.",
+      "bound": "Final calorie-depleted DeathMonitor consumer unread; no full starvation death claim for duplicants."
+    },
+    {
+      "id": "ONI-F11",
+      "path_id": "ONI-09",
+      "title": "Aptitude, mastery and trainable attributes differ",
+      "classification": "source_fact",
+      "fact": "MinionResume separately persists aptitude, learned/granted skills and experience. AttributeLevels separately saves per-attribute level/XP and refuses gain when maxAttributeLevel is0; BionicMinion config uses that0cap.",
+      "evidence": [
+        "E18",
+        "E19",
+        "E45"
+      ],
+      "original_yair_implication": "Distinguish an innate aptitude, training, granted tool competence and retained learning.",
+      "bound": "All trainable attributes/perks and formulas unread; not evidence of a universal talent system."
+    },
+    {
+      "id": "ONI-F12",
+      "path_id": "ONI-09",
+      "title": "Morale is a warning rather than a mastery veto",
+      "classification": "source_fact",
+      "fact": "Mastery conditions include stress warning, aptitude, inability, points and prior skill. CanMasterSkill vetoes inability/points/prior skill, not stress warning. Learned non-granted skills add expectation by tier; aptitude adds morale.",
+      "evidence": [
+        "E18"
+      ],
+      "original_yair_implication": "Expose consequential soft warnings separately from hard action requirements.",
+      "bound": "Selected predicate/expectation methods; no claim that all UI warning behavior was exercised."
+    },
+    {
+      "id": "ONI-F13",
+      "path_id": "ONI-10",
+      "title": "Eligible labor depends on people and reach",
+      "classification": "source_fact",
+      "fact": "ChorePreconditions consults permission/assignment, learned perks, schedule, navigation, pickup privacy and priorities. Red alert can override the schedule predicate; reach contributes cost.",
+      "evidence": [
+        "E20"
+      ],
+      "original_yair_implication": "Reserve actual consenting workers, attention and sites, with explicit emergency policy and no magical global queue.",
+      "bound": "Consent is an original YAIR requirement; source permission is not a claim of human consent."
+    },
+    {
+      "id": "ONI-F14",
+      "path_id": "ONI-11",
+      "title": "Research spends material during real labor",
+      "classification": "source_fact",
+      "fact": "ResearchCenter subscribes to ElementConverter consumed mass, keeps fractional-point remainder and adds typed points; active work sets speed, while stop deactivates work. Faster qualified workers can preempt before completion.",
+      "evidence": [
+        "E21",
+        "E06"
+      ],
+      "original_yair_implication": "A research job can consume owned samples in stages, leave progress and compete for a qualified worker.",
+      "bound": "Partial progress cancellation is source-specific; do not impose its policy on YAIR frozen refund jobs."
+    },
+    {
+      "id": "ONI-F15",
+      "path_id": "ONI-11",
+      "title": "Research branches share explicit point domains",
+      "classification": "source_fact",
+      "fact": "Research queues prerequisites, selects active tech, warns about missing advanced/space/nuclear/orbital researcher perks, purchases only after affording all typed costs and records progress/POI unlocks. Missing point types are added on deserialize.",
+      "evidence": [
+        "E22",
+        "E23",
+        "E24"
+      ],
+      "original_yair_implication": "Acquisition, learned theory, practical facility access and usable unlocks can remain distinct domains.",
+      "bound": "All tech definitions/build-menu unlock consumers and research types are source-accessible unread."
+    },
+    {
+      "id": "ONI-F16",
+      "path_id": "ONI-12",
+      "title": "Specialization has a welfare cost downstream",
+      "classification": "source_fact",
+      "fact": "QualityOfLifeNeed computes difficulty-dependent stress penalties or relief from morale versus expectation. StressMonitor crosses60/100 tiers subject to stress-break setting; StressBehaviourMonitor substitutes response chores and reprieve states.",
+      "evidence": [
+        "E18",
+        "E25",
+        "E26",
+        "E27"
+      ],
+      "original_yair_implication": "An original worker may accept a specialty yet require a funded rest/support plan; temporary stress does not rewrite lasting willingness.",
+      "bound": "Concrete destructive/eating/crying stress chores and social relationship systems unread."
+    },
+    {
+      "id": "ONI-F17",
+      "path_id": "ONI-13",
+      "title": "Plant habitat and inputs gate growth",
+      "classification": "source_fact",
+      "fact": "Mealwood config has temperature/atmosphere/pressure/drowning rules and dirt consumption. WiltCondition enumerates environmental/nutritional conditions; Growing stalls on wilt/custom condition and separates wild/planted rates.",
+      "evidence": [
+        "E28",
+        "E30",
+        "E31"
+      ],
+      "original_yair_implication": "An optional original crop can use current habitat and paid husbandry to determine practical yield.",
+      "bound": "Not a full plant catalogue, complete wilt-delay review or ecosystem solver."
+    },
+    {
+      "id": "ONI-F18",
+      "path_id": "ONI-13",
+      "title": "Plant nutrients may be alternatives",
+      "classification": "source_fact",
+      "fact": "PlantElementAbsorber.PlanConsume with an array returns after the first consumable tag succeeds, clearing commands between choices. ElementConverter instead checks every active required input.",
+      "evidence": [
+        "E29",
+        "E06"
+      ],
+      "original_yair_implication": "Content must say whether feedstocks are alternatives or jointly required; one recipe abstraction cannot silently choose.",
+      "bound": "Selected helper semantics, not every plant absorber caller."
+    },
+    {
+      "id": "ONI-F19",
+      "path_id": "ONI-13",
+      "title": "Harvest produces a physical output",
+      "classification": "source_fact",
+      "fact": "Crop spawns a configured output with actual yield and plant temperature, may roll a mutation through SeedProducer, and records created calories. Growing can auto-harvest an aging ready crop before resetting maturity.",
+      "evidence": [
+        "E31",
+        "E32"
+      ],
+      "original_yair_implication": "Keep output, seed/renewal and one-shot story completion separate; never auto-replant the existing finite YAIR crop.",
+      "bound": "Mutation-roll implementation and complete crop renewable catalogue unread."
+    },
+    {
+      "id": "ONI-F20",
+      "path_id": "ONI-14",
+      "title": "Ecological output depends on actual diet",
+      "classification": "source_fact",
+      "fact": "CreatureCalorieMonitor stores diet-qualified consumed calories and converts them to species-specific material output and optional disease/solid tiles. Tame out-of-calorie state can kill after its timer; wild hungry state differs.",
+      "evidence": [
+        "E33"
+      ],
+      "original_yair_implication": "Biological production can consume real feed and produce useful, possibly contaminated material rather than generic income.",
+      "bound": "Diet definition catalogue, predators and population-wide ecology unread."
+    },
+    {
+      "id": "ONI-F21",
+      "path_id": "ONI-14",
+      "title": "Hunger pause is a defined exception",
+      "classification": "source_fact",
+      "fact": "Creature hunger can be paused; starvation start time is recalculated on unpause. Starvation uses GameClock while minimum meal-to-poop delay uses Unity Time.time.",
+      "evidence": [
+        "E33",
+        "E35"
+      ],
+      "original_yair_implication": "Name each clock and exception explicitly; region absence, pause, render time and physiology cannot be treated as one policy.",
+      "bound": "These functions do not establish browser-closed, offline or every offscreen-world behavior."
+    },
+    {
+      "id": "ONI-F22",
+      "path_id": "ONI-15",
+      "title": "Reproduction is not a fixed free spawn",
+      "classification": "source_fact",
+      "fact": "Fertility depends on paused/blocked tags, saved normalized breeding weights and cycle-based fertility. Laying resets fertility and creates an actual egg, copying wildness; modifier functions can change breeding chances.",
+      "evidence": [
+        "E34"
+      ],
+      "original_yair_implication": "Distinguish lifecycle, inherited tendency, habitat support and born output custody in original ecology.",
+      "bound": "Modifier catalogue, egg incubation and all species/late-game variants unread."
+    },
+    {
+      "id": "ONI-F23",
+      "path_id": "ONI-16",
+      "title": "Colony cycle and played time are separate",
+      "classification": "source_fact",
+      "fact": "GameClock adds simulation dt, carries each600seconds into a cycle, emits cycle events/autosaves and separately counts render-played time. Old time can be migrated into cycle/time components.",
+      "evidence": [
+        "E35"
+      ],
+      "original_yair_implication": "YAIR should keep one authoritative played clock and explicit region leases, never infer offline hazards from this source clock.",
+      "bound": "No closed-game or global time-control inspection."
+    },
+    {
+      "id": "ONI-F24",
+      "path_id": "ONI-17",
+      "title": "Save contains native cells and managed objects",
+      "classification": "source_fact",
+      "fact": "SaveLoader serializes root/settings, native Sim save bytes, SaveManager and Game state. Load rebuilds element tables, validates native world load and reads managed state; active DLC checks use the save context.",
+      "evidence": [
+        "E36",
+        "E04"
+      ],
+      "original_yair_implication": "Persist rules/state independently of graphical nodes while keeping definitions/version and DLC capability gates explicit.",
+      "bound": "Source code inspected only; no actual save/profile read or save/reload run."
+    },
+    {
+      "id": "ONI-F25",
+      "path_id": "ONI-17",
+      "title": "A save API is not an atomic durability proof",
+      "classification": "source_fact",
+      "fact": "SaveLoader first constructs memory contents, then opens the target with FileMode.Create and writes headers/compressed data; permission/IO failure reports a dialog and returns the active save path. No temp-file atomic replace appears in the inspected method.",
+      "evidence": [
+        "E36"
+      ],
+      "original_yair_implication": "Retain YAIR durable publication and failure handling rather than copying this source write pattern.",
+      "bound": "Selected file-writing method, not a platform-wide storage reliability claim."
+    },
+    {
+      "id": "ONI-F26",
+      "path_id": "ONI-18",
+      "title": "DLC access has distinct gates",
+      "classification": "source_fact",
+      "fact": "DlcManager maps five gameplay packs plus cosmetic pack, checks subscription and content settings; prefab requirements/forbidden lists and SaveLoader active-save restrictions are separate. Element loading also needs a mounted substance table.",
+      "evidence": [
+        "E37",
+        "E36",
+        "E02"
+      ],
+      "original_yair_implication": "Author capability availability, current-world rules and ownership separately.",
+      "bound": "No subscription/setting API called; installed depots do not verify account ownership or enabled saves."
+    },
+    {
+      "id": "ONI-F27",
+      "path_id": "ONI-19",
+      "title": "Interworld travel pays from real tanks",
+      "classification": "source_fact",
+      "fact": "Clustercraft travel depends on rocket-space/resource checks. BurnFuelForTravel withdraws tank fuel and qualified oxidizer per traveled step, and consumes robot-pilot databanks where present. ClusterTraveler stops if unable to travel, validates steps and reveals fog.",
+      "evidence": [
+        "E38",
+        "E39"
+      ],
+      "original_yair_implication": "A journey should bind cargo, range, pilot/control, reachable destination and changed arrival conditions.",
+      "bound": "Launch-readiness delegates, all engine modules, landing/support and rocket-interior physiology are not fully traced."
+    },
+    {
+      "id": "ONI-F28",
+      "path_id": "ONI-20",
+      "title": "Cold feedstock changes the heating cost",
+      "classification": "source_fact",
+      "fact": "IceKettle gates batch mass, output capacity and fuel. Its equation uses solid mass, heat capacity and initial-to-target temperature difference; completion removes ice/fuel, emits water and exhaust. Collection transfers actual liquid through a separate workable.",
+      "evidence": [
+        "E40",
+        "E41",
+        "E42"
+      ],
+      "original_yair_implication": "Current batch condition can alter exact process costs and leave a usable output and byproduct.",
+      "bound": "This simplified game formula is not physical latent-heat science; recipe balance is not a YAIR default."
+    },
+    {
+      "id": "ONI-F29",
+      "path_id": "ONI-20",
+      "title": "Restored infrastructure has discovery and real throughput",
+      "classification": "source_fact",
+      "fact": "Geothermal repair fetches1200kg steel and a reconnect chore consumes stored repair inputs. Heat-weighted feedstock outputs include92percent passthrough, temperature-qualified impurities and recursive phase/byproduct splitting; vents receive divided output then input storage is cleared. Discovery/repair/vent aftermath is retained.",
+      "evidence": [
+        "E43",
+        "E44"
+      ],
+      "original_yair_implication": "A found facility can become a genuine material service with repair rights, throughput and later failure rather than an achievement-only toggle.",
+      "bound": "Full geothermal vent damage/pipe failure, all impurities and discovery UI sequence unread."
+    },
+    {
+      "id": "ONI-F30",
+      "path_id": "ONI-21",
+      "title": "Bionic bodies replace several ordinary needs",
+      "classification": "source_fact",
+      "fact": "Bionic prefab adds actual battery/upgrade/oxygen storage and separate battery/oil/gunk/tank/water monitors, has no normal breath-recovery ability and uses calorie-free homeostasis. Tank consumes actual breathable material and seeks refill under safe/low/critical states.",
+      "evidence": [
+        "E45",
+        "E46",
+        "E15"
+      ],
+      "original_yair_implication": "A future original vessel needs its own sustain and recovery functions; mechanical body is not blanket hazard immunity.",
+      "bound": "All bionic baseline traits/gunk/disease/resurrection edge cases unread."
+    },
+    {
+      "id": "ONI-F31",
+      "path_id": "ONI-21",
+      "title": "Battery depletion creates a rescue dependency",
+      "classification": "source_fact",
+      "fact": "BionicBatteryMonitor tracks real internal/bank charge; offline toggles incapacity, enables delivery and invokes reanimation work once charged banks arrive. Oil depletion chooses different penalty according to EfficientBionicGears perk.",
+      "evidence": [
+        "E47",
+        "E48"
+      ],
+      "original_yair_implication": "Fuel supply, immobilization, maintenance skill and willing repair help can form separate practical choices.",
+      "bound": "Exact full recharge economy and all station/portable-bank definitions unread."
+    },
+    {
+      "id": "ONI-F32",
+      "path_id": "ONI-21",
+      "title": "Water protection is conditional",
+      "classification": "source_fact",
+      "fact": "Bionic water stress tests AnyWater liquids, airtight suit protection and feet protection/depth exceptions. It applies a stress effect and reaction, not generic immunity/death in this monitor.",
+      "evidence": [
+        "E49"
+      ],
+      "original_yair_implication": "State precisely what a boot/lining protects, which depths exceed it and which body function remains vulnerable.",
+      "bound": "All liquids/body effects and downstream stress definitions unread."
+    },
+    {
+      "id": "ONI-F33",
+      "path_id": "ONI-21",
+      "title": "Installed competence can be reversible and powered",
+      "classification": "source_fact",
+      "fact": "Bionic upgrades distinguish assigned versus installed slots, lock/uninstall behavior and wattage modifiers. BionicUpgrade_Skill grants a skill on enter and ungrants on exit; MinionResume treats granted skills separately in morale expectation.",
+      "evidence": [
+        "E50",
+        "E51",
+        "E18"
+      ],
+      "original_yair_implication": "An equipped borrowed tool can grant execution while retained practice remains earned history; return/removal should remove only support.",
+      "bound": "Not every booster/slot unlock or stacked skill-grant edge case."
+    },
+    {
+      "id": "ONI-F34",
+      "path_id": "ONI-21",
+      "title": "Remote work retains a real operator",
+      "classification": "source_fact",
+      "fact": "RemoteWorker resolves attributes/converters from the terminal worker. Its state machine separates controlled work, uncontrolled docking/maintenance, unreachable-depot incapacity and missing-depot destruction.",
+      "evidence": [
+        "E52",
+        "E53"
+      ],
+      "original_yair_implication": "Remote operation should spend an actual operator and target support, not clone a mind or grant free autonomous work.",
+      "bound": "Full terminal operator reservations, remote power/gunk/oil spending and network topology unread."
+    },
+    {
+      "id": "ONI-F35",
+      "path_id": "ONI-22",
+      "title": "Impactor failure and victory leave different worlds",
+      "classification": "source_fact",
+      "fact": "LargeImpactorEvent creates or restores an event target, follows arrival or death, records landed cycle versus defeated state, and can trigger an iridium shower after interception. Target destination/arrival are serialized.",
+      "evidence": [
+        "E54",
+        "E55"
+      ],
+      "original_yair_implication": "An authored environmental crisis can have warning, paid defense, failed impact and continuing-life aftermath, without erasing the world.",
+      "bound": "Impact damage/crater sequence, all generation conditions and weapon damage statistics unread."
+    },
+    {
+      "id": "ONI-F36",
+      "path_id": "ONI-22",
+      "title": "Defense spends an actual ammunition entity",
+      "classification": "source_fact",
+      "fact": "MissileLauncher separates local and long-range stores, finds the active impactor target and launches a detached stored projectile, clearing the long-range target after the shot. Peat generator joins another real fuel/power/dirty-water/CO2 recipe.",
+      "evidence": [
+        "E56",
+        "E57",
+        "E08"
+      ],
+      "original_yair_implication": "Defense must compete with useful industrial resources and reserve a actual action, not just set a protection flag.",
+      "bound": "Projectile travel/damage and every defense recipe unread."
+    },
+    {
+      "id": "ONI-F37",
+      "path_id": "ONI-23",
+      "title": "Swimming ability reaches navigation and recovery",
+      "classification": "source_fact",
+      "fact": "SwimMonitor reads the CanSwim perk on role changes, alters relevant stamina modifiers and suit penalties. BreathMonitor can reserve a reachable underwater breathing station and perform a recovery chore.",
+      "evidence": [
+        "E58",
+        "E13"
+      ],
+      "original_yair_implication": "Learning a capability should unlock a concrete path/action while retaining air/recovery needs and equipment costs.",
+      "bound": "Nav-grid construction, complete swimming damage and marine creature breathing capacity unread."
+    },
+    {
+      "id": "ONI-F38",
+      "path_id": "ONI-23",
+      "title": "Environmental power is coupled to a source cycle",
+      "classification": "source_fact",
+      "fact": "ReefGenerator config requires DLC5, a gasket material and geyser attachment. Its operational states link to that geyser and enable wattage during exhale, disable it during inhale.",
+      "evidence": [
+        "E59",
+        "E60"
+      ],
+      "original_yair_implication": "A renewable service can depend on a current source cycle and actual site support rather than infinite automatic production.",
+      "bound": "All aquatic recipes, geyser ecology, solitary recruit and rubber production are source-accessible unread."
+    },
+    {
+      "id": "ONI-F39",
+      "path_id": "ONI-21",
+      "title": "Grant removal shares the mastery mutation",
+      "classification": "source_fact",
+      "fact": "MinionResume.GrantSkill records the skill in both mastery and GrantedSkillIDs; UngrantSkill removes the granted IDs and calls UnmasterSkill. This inspected branch is not proof that removing a booster preserves a separately learned copy.",
+      "evidence": [
+        "E18",
+        "E51"
+      ],
+      "original_yair_implication": "Keep earned competence and borrowed execution support in separate owners; removing equipment must remove its contribution without erasing earned learning.",
+      "bound": "This direct branch was read; complete multi-grant and previously mastered scenarios were not exercised."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "path": "inputs/StreamingAssets/elements/liquid.yaml",
+      "symbol_or_marker": "elementId: Brine",
+      "line": 3,
+      "sha256": "f5f992109f2348b8cf1cd90cd61eb91d6927d8470379e0d665597c4ba3c31654",
+      "inspection": "Brine and MurkyBrine definition rows; remaining liquid catalogue not exhaustively read"
+    },
+    {
+      "id": "E02",
+      "path": "selected/ElementLoader.cs",
+      "symbol_or_marker": "public static void Load",
+      "line": 69,
+      "sha256": "174e0dd90b0530f96596ab1a0544698affb51994c5c0e65d45c9e48023c760a4",
+      "inspection": "CollectElementsFromYAML, Load, CopyEntryToElement; finalization cross-references inspected"
+    },
+    {
+      "id": "E03",
+      "path": "selected/SimMessages.cs",
+      "symbol_or_marker": "public unsafe static void CreateSimElementsTable",
+      "line": 1054,
+      "sha256": "fc0681f81d4843cf753c73f35b2fb750861dc68dfcc22c2c77b71230c91ffe47",
+      "inspection": "CreateSimElementsTable; ConsumeMass, AddRemoveSubstance and native message call sites"
+    },
+    {
+      "id": "E04",
+      "path": "selected/Sim.cs",
+      "symbol_or_marker": "[DllImport(\"SimDLL\")]",
+      "line": 1001,
+      "sha256": "398b29de11c8655800a2808b5f652bfad585ee2a689f195275e7a5ba37b18f46",
+      "inspection": "DllImport/native message/save/load interface; native implementation remains opaque"
+    },
+    {
+      "id": "E05",
+      "path": "decompiled/ElectrolyzerConfig.cs",
+      "symbol_or_marker": "public override void ConfigureBuildingTemplate",
+      "line": 31,
+      "sha256": "3359c6c5236be2ecefab69b11fa771960a0a527b9d0654111adffb0cedd00f79",
+      "inspection": "Entire building config"
+    },
+    {
+      "id": "E06",
+      "path": "selected/ElementConverter.cs",
+      "symbol_or_marker": "private void ConvertMass",
+      "line": 434,
+      "sha256": "63e970f81c6f5cdf733660126f5749b7e3f54b8bbb6fad5a981868b3925e57ad",
+      "inspection": "ConvertMass, input availability methods and output descriptor/statistics joins"
+    },
+    {
+      "id": "E07",
+      "path": "selected/ConduitFlow.cs",
+      "symbol_or_marker": "public float AddElement",
+      "line": 2210,
+      "sha256": "db16f5ff75706bffbe1df861ac662730d752bac4bd7d2259381e1173decf563b",
+      "inspection": "AddElement, RemoveElement and serialization/deserialization; flow-routing call sites, not whole routing algorithm"
+    },
+    {
+      "id": "E08",
+      "path": "selected/EnergyGenerator.cs",
+      "symbol_or_marker": "public override void EnergySim200ms",
+      "line": 197,
+      "sha256": "4b9c657c4b00b72c66f0da84a3e5ed72a77902122b391a41d896170c20aef0b2",
+      "inspection": "IsConvertible, EnergySim200ms and Emit call sites"
+    },
+    {
+      "id": "E09",
+      "path": "selected/CircuitManager.cs",
+      "symbol_or_marker": "public void Sim200msLast",
+      "line": 275,
+      "sha256": "25c3488e494136b5672f2c6fd12dbe18c191338b97c64fb183085ced3045a4c2",
+      "inspection": "Consumption allocation and CheckCircuitOverloaded; routing construction not exhaustively read"
+    },
+    {
+      "id": "E10",
+      "path": "selected/ElectricalUtilityNetwork.cs",
+      "symbol_or_marker": "public void UpdateOverloadTime",
+      "line": 69,
+      "sha256": "adaa1af25616517dffa853e3c48819fcbe95ab86da2b4ddf166629efcbd14f90",
+      "inspection": "UpdateOverloadTime damage and decay branches"
+    },
+    {
+      "id": "E11",
+      "path": "selected/OxygenBreather.cs",
+      "symbol_or_marker": "public void Sim200ms",
+      "line": 177,
+      "sha256": "d293c2672d8cd702e027c2bcf1ddd31ad3ded2b2a9e2dca578ff4facee8a861c",
+      "inspection": "GetCurrentGasProvider, Sim200ms, callback and death cleanup"
+    },
+    {
+      "id": "E12",
+      "path": "selected/GasBreatherFromWorldProvider.cs",
+      "symbol_or_marker": "public bool ConsumeGas",
+      "line": 135,
+      "sha256": "b315b2ca105b35d12acd0b04c57ad98b0257d42469e926865edc990ab34c093a",
+      "inspection": "Entire provider"
+    },
+    {
+      "id": "E13",
+      "path": "selected/BreathMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 75,
+      "sha256": "d5cc55818fc3772871c77598fd6f2f148995d9482ff9a4cc2fac46725a849df3",
+      "inspection": "Recovery state machine, scheduling and station reservation methods"
+    },
+    {
+      "id": "E14",
+      "path": "selected/SuffocationMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 103,
+      "sha256": "4ef1a2f701807243849aee0d823dc3d135e67abb306016092e9d0e967c9110f6",
+      "inspection": "Entire monitor; holds breath, rescue and death chain"
+    },
+    {
+      "id": "E15",
+      "path": "selected/WarmBlooded.cs",
+      "symbol_or_marker": "public static bool IsCold",
+      "line": 154,
+      "sha256": "7ba21908b4f4081f7ed1e847372805d0f192bdf776dd4a345fe983bb771f0aa8",
+      "inspection": "Homeostasis mode declarations, alive states and CoolingRegulator/WarmingRegulator calls"
+    },
+    {
+      "id": "E16",
+      "path": "selected/TemperatureMonitor.cs",
+      "symbol_or_marker": "public void UpdateTemperature",
+      "line": 34,
+      "sha256": "5b3ccf6ff3c33e13607b599e1c34a8ea39af4b124256f43202a19d131e3a11b0",
+      "inspection": "Body-temperature averaging, thresholds, safety queries and urge states"
+    },
+    {
+      "id": "E17",
+      "path": "selected/CalorieMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 89,
+      "sha256": "6b4f179fac09736f6e20aa19769d11cca4e7c92c3b397d3bcdebb9433ef018e1",
+      "inspection": "Threshold/meal-schedule predicates and depleted state; final DeathMonitor calorie consumer not read"
+    },
+    {
+      "id": "E18",
+      "path": "selected/MinionResume.cs",
+      "symbol_or_marker": "public SkillMasteryConditions[] GetSkillMasteryConditions",
+      "line": 478,
+      "sha256": "36e56a352be7f7fa975ea2e4a407a7cf41b86e8c0e5664c3a350e2ac83efc584",
+      "inspection": "Mastery predicates, grant/remove/perk/XP declarations and UpdateExpectations/UpdateMorale, selected load repair"
+    },
+    {
+      "id": "E19",
+      "path": "selected/Klei.AI.AttributeLevels.cs",
+      "symbol_or_marker": "public bool AddExperience",
+      "line": 110,
+      "sha256": "7c6e2c68d668424eff10c7efa133233564b3256b19b303c17c9ba5b4c0b5899c",
+      "inspection": "Attribute initialization, save/load and AddExperience gates"
+    },
+    {
+      "id": "E20",
+      "path": "selected/ChorePreconditions.cs",
+      "symbol_or_marker": "public Chore.Precondition HasSkillPerk",
+      "line": 190,
+      "sha256": "4fa0b8fab38821b0c04d03bb7418dbf00661d5d9d6de135df7bb605f4bff93c1",
+      "inspection": "HasSkillPerk, schedule/red-alert, permission/assignment, reach and pickup predicates plus priority comparisons"
+    },
+    {
+      "id": "E21",
+      "path": "selected/ResearchCenter.cs",
+      "symbol_or_marker": "private void ConvertMassToResearchPoints",
+      "line": 71,
+      "sha256": "633678a28166d257de603bb9deec5eb3c60599ca51c8dbc1ddd6eb023bd5cedd",
+      "inspection": "Work start/stop/tick, conversion callback, worker preemption and typed progress"
+    },
+    {
+      "id": "E22",
+      "path": "selected/Research.cs",
+      "symbol_or_marker": "private void CheckBuyResearch",
+      "line": 281,
+      "sha256": "67dd6f34602578a240a7cd2323d4178baffc768064837706fcccdbe104609e22",
+      "inspection": "Prerequisite queue, role warnings, AddResearchPoints, CheckBuyResearch and serialization"
+    },
+    {
+      "id": "E23",
+      "path": "selected/TechInstance.cs",
+      "symbol_or_marker": "public SaveData Save",
+      "line": 83,
+      "sha256": "ab18ea91d8c862de028e9ae1739a6482a42db75a01df6284457d839a7edeb316",
+      "inspection": "Entire class"
+    },
+    {
+      "id": "E24",
+      "path": "selected/ResearchPointInventory.cs",
+      "symbol_or_marker": "private void OnDeserialized",
+      "line": 34,
+      "sha256": "178b75e73bcd0233cab5f6f5370be3779f3037dd6d3de6a6530957fbf7de3ebe",
+      "inspection": "Entire class"
+    },
+    {
+      "id": "E25",
+      "path": "selected/QualityOfLifeNeed.cs",
+      "symbol_or_marker": "public void Sim4000ms",
+      "line": 36,
+      "sha256": "7750b22b493bc28093ff9d7fb8d3c08e323c47ba781516a72f79a29ea52d990a",
+      "inspection": "Entire need: difficulty-dependent morale deficit/surplus stress modifiers"
+    },
+    {
+      "id": "E26",
+      "path": "selected/StressMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 66,
+      "sha256": "bca7cca63f53fc2fab3c1e8e6a7ebf414caec7cbb26fd308b1808fae8d771a31",
+      "inspection": "Entire monitor"
+    },
+    {
+      "id": "E27",
+      "path": "selected/StressBehaviourMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 70,
+      "sha256": "3e8c5701f6e8493c7f9810209ab654e3697ebff7922bc037582f23481c555c88",
+      "inspection": "Entire behavior monitor; concrete destructive stress chore implementations unread"
+    },
+    {
+      "id": "E28",
+      "path": "decompiled/BasicSingleHarvestPlantConfig.cs",
+      "symbol_or_marker": "public GameObject CreatePrefab",
+      "line": 16,
+      "sha256": "869a73362c80e9699d59b3ef4546de1393523c475fe6e23568134f8f7e8391a8",
+      "inspection": "Entire mealwood prefab config"
+    },
+    {
+      "id": "E29",
+      "path": "selected/PlantElementAbsorber.cs",
+      "symbol_or_marker": "public static bool PlanConsume(Storage storage, ConsumeInfo[]",
+      "line": 139,
+      "sha256": "9a2cce1d860762d0b165b69fc0b4b975df8f95782c948f711ea68c92afb851c3",
+      "inspection": "Planner and PlanConsume alternatives; applies no universal all-input assumption"
+    },
+    {
+      "id": "E30",
+      "path": "selected/WiltCondition.cs",
+      "symbol_or_marker": "public enum Condition",
+      "line": 8,
+      "sha256": "ea9d7af4104561e793a2a689a01857d2355a78c35c5124e723b4118cc56a7cba",
+      "inspection": "Condition catalogue and event mappings; selected condition/state call sites"
+    },
+    {
+      "id": "E31",
+      "path": "selected/Growing.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 108,
+      "sha256": "00d8ed5b164b7c9fbb0df759d2ab8ca8a22b7b3b00a04422e9d7b0566c3c1354",
+      "inspection": "Growing/stalled/grown states and growth/old-age rates"
+    },
+    {
+      "id": "E32",
+      "path": "selected/Crop.cs",
+      "symbol_or_marker": "public GameObject SpawnAndGetSomeFruit",
+      "line": 114,
+      "sha256": "f1ab81bfd67219698482efff1f9f30363b3d9828c1696d76e1908121f1598589",
+      "inspection": "Output spawn, yield, temperature, mutation and calorie reporting"
+    },
+    {
+      "id": "E33",
+      "path": "selected/CreatureCalorieMonitor.cs",
+      "symbol_or_marker": "public void PoopInStorage",
+      "line": 198,
+      "sha256": "554217fb8c2e216f6fe5b3608785257d9d39b74c463257b19357d109d76ad50d",
+      "inspection": "Diet-based output methods, OnCaloriesConsumed, tame/wild starvation and pause/recovery states"
+    },
+    {
+      "id": "E34",
+      "path": "selected/FertilityMonitor.cs",
+      "symbol_or_marker": "public void LayEgg",
+      "line": 124,
+      "sha256": "1c1d2294f0de9ab494bddb82e4b9ba20f4ff6a2c3e86ed2adab0414545d36849",
+      "inspection": "Entire fertility monitor"
+    },
+    {
+      "id": "E35",
+      "path": "selected/GameClock.cs",
+      "symbol_or_marker": "private void AddTime",
+      "line": 78,
+      "sha256": "2d6e3fee5065d27814a15f146ae051582abc2a7d8c4dcb355a2620124b28d006",
+      "inspection": "Sim33ms, render-played time, cycle/autosave and load repair"
+    },
+    {
+      "id": "E36",
+      "path": "selected/SaveLoader.cs",
+      "symbol_or_marker": "private void Save(BinaryWriter writer)",
+      "line": 336,
+      "sha256": "3f478c43a7bf4fda235c8323889df79d225dc7a70734d333e8314340a63208fd",
+      "inspection": "Save/load orchestration, file writing failure branches, active DLC predicates; no actual saves read"
+    },
+    {
+      "id": "E37",
+      "path": "selected/DlcManager.cs",
+      "symbol_or_marker": "public static bool IsCorrectDlcSubscribed",
+      "line": 446,
+      "sha256": "6a871ace0993c6291fd4aa11ea5dd1b8437a28d141c9b6d10ab889ff77a828f6",
+      "inspection": "DLC product mapping, subscription, enablement, content-directory and restriction APIs; none invoked"
+    },
+    {
+      "id": "E38",
+      "path": "selected/Clustercraft.cs",
+      "symbol_or_marker": "private void BurnFuelForTravel",
+      "line": 488,
+      "sha256": "906a4ecddd55a0eda082ecc8db3dfb2487109bcb0252325531d797f70ea7d695",
+      "inspection": "Resource/travel gates, per-step fuel/oxidizer consumption, destination handling and destruction call sites"
+    },
+    {
+      "id": "E39",
+      "path": "selected/ClusterTraveler.cs",
+      "symbol_or_marker": "public void Sim200ms",
+      "line": 233,
+      "sha256": "4ff20beb562284812c1dd330324367e87145ed36cc05fb6eca4af5fd3fd6993f",
+      "inspection": "Progress, stopped travel, validated path step and fog reveal"
+    },
+    {
+      "id": "E40",
+      "path": "decompiled/IceKettleConfig.cs",
+      "symbol_or_marker": "public const float MASS_KG_PER_BATCH",
+      "line": 11,
+      "sha256": "192640d04be3916456885335023692f9d9fbf026ff13e7a72a7c39163cc00da9",
+      "inspection": "Entire ice kettle config"
+    },
+    {
+      "id": "E41",
+      "path": "selected/IceKettle.cs",
+      "symbol_or_marker": "public void MeltNextBatch",
+      "line": 151,
+      "sha256": "edecfb108ae0b56e0dc98811e5159f6db86afc86c98721440df4d18fb5dd726c",
+      "inspection": "Batch resource/capacity gates, timer states, MeltNextBatch and fuel equation"
+    },
+    {
+      "id": "E42",
+      "path": "selected/IceKettleWorkable.cs",
+      "symbol_or_marker": "protected override void OnCompleteWork",
+      "line": 50,
+      "sha256": "3cb8eb026b1a01aabc68ca95e93b4ba5ea8ee00b6fc12d28348bdb66c13b4166",
+      "inspection": "Entire collection workable"
+    },
+    {
+      "id": "E43",
+      "path": "selected/GeothermalController.cs",
+      "symbol_or_marker": "public List<GeothermalVent.ElementInfo> ComputeOutputs",
+      "line": 526,
+      "sha256": "109d2f99906fde0aaa7722e26b28b5badde659db39e9278a72f864ea46d76c7d",
+      "inspection": "Repair fetch/work states, heat-weighted content, phase splitting, output routing, input consumption"
+    },
+    {
+      "id": "E44",
+      "path": "selected/GeothermalPlantComponent.cs",
+      "symbol_or_marker": "public static void OnVentingHotMaterial",
+      "line": 114,
+      "sha256": "363363f0138e4365b256457f508eeebb848c656dd5a7c1734ff64740713e7b67",
+      "inspection": "Discovery, scoped vent/controller relation and retained achievement aftermath"
+    },
+    {
+      "id": "E45",
+      "path": "decompiled/BionicMinionConfig.cs",
+      "symbol_or_marker": "public static Tag MODEL",
+      "line": 9,
+      "sha256": "f5ce05650a801e0ca384d27dbb3314424dfdd8b334fc42e4b71894210d983f58",
+      "inspection": "Entire body prefab"
+    },
+    {
+      "id": "E46",
+      "path": "selected/BionicOxygenTankMonitor.cs",
+      "symbol_or_marker": "public bool ConsumeGas",
+      "line": 269,
+      "sha256": "790ed901e0897aec58594fed699543fb8f9560df33e9fe597c68c6ef0db7272c",
+      "inspection": "Actual tank inventory, consume/callback and safe/low/critical refill states"
+    },
+    {
+      "id": "E47",
+      "path": "selected/BionicBatteryMonitor.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 574,
+      "sha256": "8fc66c4cbc8d6bb69f7a8dfb59f9db542f7efdb0f54ddc6ad3a4a3a61bf11ea4",
+      "inspection": "Charge declarations/transfer and online/critical/offline/reanimation state branches"
+    },
+    {
+      "id": "E48",
+      "path": "selected/BionicOilMonitor.cs",
+      "symbol_or_marker": "public string GetEffect",
+      "line": 92,
+      "sha256": "29434b96096ab1ec9567e8b8c035daeee2c8b7416f54dc9c91d08ae035b8fc9e",
+      "inspection": "Resource drain, online predicate and skill-qualified lubrication effect"
+    },
+    {
+      "id": "E49",
+      "path": "selected/BionicWaterDamageMonitor.cs",
+      "symbol_or_marker": "private static bool IsFloorWetWithIntolerantSubstance",
+      "line": 64,
+      "sha256": "f07073c41371b6ff0b34174e9616542ae1babe28e06faeec8f0ecadba7fedb4f",
+      "inspection": "Water intolerance, protection/depth exceptions and stress effect"
+    },
+    {
+      "id": "E50",
+      "path": "selected/BionicUpgradesMonitor.cs",
+      "symbol_or_marker": "public void InstallUpgrade",
+      "line": 184,
+      "sha256": "84447900a1474b11858eee39479d201079c9a032e1941d2f67026802f36d724e",
+      "inspection": "Installed versus assigned slots, lock/uninstall and energy modifier refresh"
+    },
+    {
+      "id": "E51",
+      "path": "selected/BionicUpgrade_Skill.cs",
+      "symbol_or_marker": "public void ApplySkill",
+      "line": 18,
+      "sha256": "ca85f968ad05664f0fd98d9171eb6d43c9868b3cb3125624874deed256000d71",
+      "inspection": "Entire grant/remove skill bridge"
+    },
+    {
+      "id": "E52",
+      "path": "selected/RemoteWorker.cs",
+      "symbol_or_marker": "public class RemoteWorker",
+      "line": 4,
+      "sha256": "ef41ff338e10818a021ad874c2f52e579a6ac7cffefc570b68b885b1bc749e75",
+      "inspection": "Entire proxy worker"
+    },
+    {
+      "id": "E53",
+      "path": "selected/RemoteWorkerSM.cs",
+      "symbol_or_marker": "public static bool HasRemoteOperator",
+      "line": 202,
+      "sha256": "14708c480a926b07f4daa8a3552366de544d4d4464caed39ccb0215f7dae7bcf",
+      "inspection": "Controlled/uncontrolled/lost/die branches, maintenance and operator/depot predicates"
+    },
+    {
+      "id": "E54",
+      "path": "selected/LargeImpactorEvent.cs",
+      "symbol_or_marker": "public override void InitializeStates",
+      "line": 27,
+      "sha256": "24481cc3d500380ff0a6c73514ee02475581b2aca0500a259977f5f42f263fd8",
+      "inspection": "Event create/travel/impact/defeat aftermath, retained landing cycle and reward event"
+    },
+    {
+      "id": "E55",
+      "path": "selected/ClusterMapLargeImpactor.cs",
+      "symbol_or_marker": "public void Setup",
+      "line": 96,
+      "sha256": "a3d887b25bc233ac5ca4be9454ac7269c0160a6d47514567153e1242c4da1abf",
+      "inspection": "Serialized destination/arrival, reveal/status and travel state declarations"
+    },
+    {
+      "id": "E56",
+      "path": "selected/MissileLauncher.cs",
+      "symbol_or_marker": "public void LaunchLongRangeMissile",
+      "line": 363,
+      "sha256": "400b282216b2ae1403eaee87baf7fdde9c4d59e52c7375f5af2075b160d854e5",
+      "inspection": "Ammunition storage, target finding, long-range shot detachment and target clearing"
+    },
+    {
+      "id": "E57",
+      "path": "decompiled/PeatGeneratorConfig.cs",
+      "symbol_or_marker": "public override string[] GetRequiredDlcIds",
+      "line": 21,
+      "sha256": "0a66295e862ae1e6db1c4601a136016acd18cdfd0d586358975d03e4091c320f",
+      "inspection": "Entire peat fuel/power/byproduct config"
+    },
+    {
+      "id": "E58",
+      "path": "selected/SwimMonitor.cs",
+      "symbol_or_marker": "public static void CheckSwimSkill",
+      "line": 213,
+      "sha256": "8f899b31d540c1a55fcb125c52bffe2be3cac70ae494de77ac520a44f1838cc1",
+      "inspection": "Skill-dependent navigation/roles updated, stamina and suit penalty joins; animation tables only structural"
+    },
+    {
+      "id": "E59",
+      "path": "decompiled/ReefGeneratorConfig.cs",
+      "symbol_or_marker": "public override string[] GetRequiredDlcIds",
+      "line": 13,
+      "sha256": "92e509baceee51c1e03df9f49fd068b6cdfc30e6d0ee85c5621d373cddc2b111",
+      "inspection": "Entire geyser-attached DLC power-building config"
+    },
+    {
+      "id": "E60",
+      "path": "selected/ReefGenerator.cs",
+      "symbol_or_marker": "private static void EnableWattage",
+      "line": 166,
+      "sha256": "694f6842f8cb1d79e80ea70ffd80d1900e5682a2c74b9a5cc7f51c88fd20c675",
+      "inspection": "Geyser link and inhale/exhale operational transitions"
+    },
+    {
+      "id": "E61",
+      "path": "selected/PrimaryElement.cs",
+      "symbol_or_marker": "public float Mass",
+      "line": 59,
+      "sha256": "a66d2d39865108ac58a99cdd3262aaed5237c941873ad673ac1c6642bb57a35b",
+      "inspection": "Serialized units/temperature/disease declarations and selected serialization/sanitization"
+    },
+    {
+      "id": "E62",
+      "path": "selected/Electrolyzer.cs",
+      "symbol_or_marker": "public Electrolyzer()",
+      "line": 81,
+      "sha256": "bd68eb712e555ad734dbf5c97a68a57e5dbde157325af9a2954589e39d931b2e",
+      "inspection": "InitializeStates, RoomForPressure and per-cell overPressure mass predicate; native pressure solver remains opaque"
+    }
+  ],
+  "not_gameplay_implementation": true
+}

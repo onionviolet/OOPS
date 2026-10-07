@@ -1,0 +1,28 @@
+{
+  "captured": "2026-10-04",
+  "base": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "source_sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "352eecdc2984d5f5d28fdb03648db243d1d49ddd1aa1bc5efb6efb47e601f7f6",
+    "docs/GAME_MASTER_PROMPT.md": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+    "docs/ENGINE_AUTHORING.md": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+    "docs/PLAYTEST.md": "1ce1a789689689049cba504eaa6e57d252b929164ecd676c9394ad81b5fd34d6",
+    "docs/worlds/original-frontier/ASSIGNMENT.md": "7e5177be22f7c4f21b2be8ed545eb2d62815c48a2301636e35953c487b9d57d6",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/causal_situations.js": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+    "src/simulation_content.js": "06f8e0551222bae5b337147e12c192293f0cbc9b3b471d229d911e46245178f7",
+    "src/expedition_content.js": "a571296c7e15d12d292bfa6fb691bfa4ed9f1524dd9192a391d91d21b314d36a",
+    "src/main.js": "7bc12629e2cb057905b56a3ff4d377b2c175ca33d7b3b0c4affc5a01ddda3203",
+    "src/frontier_campaign.js": "f1e08ded56a03ab38feec3004ca1f88b06accaa7cd1c9393cdd1a91e31806012",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/everyday_life.js": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+    "src/town_content.js": "8f225e2795d366f835b282c008171380a4cfd299223893d15e465c9fed5eae06",
+    "src/village_content.js": "0a8a4a250e97091ccf92bcaae138a5f071e6dba673ea462a31fe9b8e868b4e15",
+    "src/data/locations.js": "370d1281cb28180b7c897d9e2a503779d3fdc6599872f97459fd8e4ab31d1c8f",
+    "src/promise_content.js": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+    "src/helper_content.js": "f376719a1e31d491fce43f2166bc521a7149f14db01e7c4c875cf65bae3d7c4d"
+  },
+  "scope": "Read-only original-frontier authoring inputs; shared engine work may drift."
+}

@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-07T04:05:50.085840+00:00",
+  "lane": "paradise_depth",
+  "status": "leaf implemented-unverified; exclusive source released to root; root build/canonical delivery pending",
+  "sourceFiles": [
+    {
+      "path": "src/book_world_paradise_campaign_content.js",
+      "sha256": "59d2262e96fd9836dc0a3ad8281de122920d77d43dd901bbe53c9ca9dc8ebbb8",
+      "lines": 244
+    },
+    {
+      "path": "src/book_world_paradise_campaign_facts.js",
+      "sha256": "9a95999bda36cdf4854c1a0a0b625d3f81513601f30b911b44fc098e84b563e2",
+      "lines": 196
+    },
+    {
+      "path": "src/book_world_paradise_campaign_host.js",
+      "sha256": "4f76fcd0a1e52acbd6add2d89179b721329673d4972d280c09a45fd0218af905",
+      "lines": 70
+    },
+    {
+      "path": "src/book_world_paradise_campaign_runtime.js",
+      "sha256": "2bb2692c043253f8422d5c257d9b77f265a8ce49dfaad6235056cab4f61e0787",
+      "lines": 48
+    }
+  ],
+  "definitions": {
+    "commands": 35,
+    "controllers": 2,
+    "conditions": 3,
+    "sites": 2,
+    "powers": 1,
+    "sources": 1,
+    "encounters": 1,
+    "turns": 3
+  },
+  "checks": {
+    "syntax": "pass",
+    "leafImports": "pass",
+    "combinedOldAndNewParadiseDefinitions": "pass",
+    "sourceConsumerReview": "root integrated reviewer findings closed",
+    "jsonLinksWhitespace": "pass"
+  },
+  "reviewRepairs": [
+    "Same current-epoch first-admission host/publisher controller reconciliation exact and idempotent",
+    "Cross-world situation initialization removed; existing attributed account basis reused",
+    "Hero projection reads exact minimal native-body callback",
+    "Timed source/tools/stamina predicates do not require already reserved means",
+    "Shared alternative claims validate actual selected command",
+    "Mastery equals actual practice plus protected lift and source grant matches instruction cause",
+    "Withdrawal after a completed lift retains rescued outcome and real wounds",
+    "Current-place command visibility and current-outcome account only"
+  ],
+  "notRun": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "import behavior",
+    "failure injection",
+    "regression",
+    "keyboard",
+    "director acceptance"
+  ],
+  "preserved": [
+    "private saves",
+    "read-only source dossiers/libraries",
+    "vanilla opening",
+    "upstream attribution/LICENSE",
+    "one prestige",
+    "unrelated dirty work",
+    "reserved game_absorption_assay leaves",
+    "prior static preview"
+  ],
+  "ownership": {
+    "sourceIntegrator": "root",
+    "leafReleased": true,
+    "runningChildren": 0,
+    "toolSessionsPending": false,
+    "commitPushPublication": false
+  }
+}

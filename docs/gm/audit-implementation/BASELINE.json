@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T06:32:48.623625+00:00",
+  "parent": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "sharedPredecessor": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "predecessorState": "completed/idle; explicit finite scope release; no pending build/children",
+  "release": "docs/gm/book-world-player-agency/RELEASE.json",
+  "inputs": {
+    "src/feature_expansion_work_plan.js": "318a8974527949a4c0235ea79903f2012e9074342a1f1ee63917c8f062e2e924",
+    "src/feature_expansion_content.js": "0ed51ba7d1d78e2d8c3115f31cdc46873d2116c1c2d73e2c67e994cc763bd53c",
+    "src/feature_expansion_wave_host.js": "33a08f6473c90b63c8fa969df480a26ff0b309c4122106aae754a1c7f4845992",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/expedition_content.js": "c3c4e21e575b43c517fb7b3c39665ee8360ebdd987202e31a44abf7d88ab5f0a",
+    "src/simulation_effects.js": "552fa02e9a99a808f840d9d1f139b1819889cd8c3b4c60495d47d86ea369654c",
+    "src/expansion_engine.js": "a345ad0f45bf2d6243be219818ec0764469c8518494cb237f5bf8a5362fcb3d1",
+    "src/main.js": "627f5e41eead6cf1bebed22bf21290f72d8d8a08292ce229efb25a6ffe4d4eba",
+    "src/adventure_notebook.js": "477b74d7655c1ed758455b653d1cfa115c3235ceb4389a43eb0f5b7a5a09af2f",
+    "PROJECT.md": "cdc0b490f5f524d01753143181e2f1c99b804fd52529e59bba16f22d9dd65a52"
+  }
+}

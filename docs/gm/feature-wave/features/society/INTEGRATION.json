@@ -1,0 +1,252 @@
+{
+  "schema": 1,
+  "lane": "society",
+  "worker": "/root/society",
+  "status": "admitted-implemented-unverified",
+  "integrator": "Features GM /root",
+  "release": true,
+  "modules": {
+    "src/feature_expansion_society.js": {
+      "exports": [
+        "SOCIETY_IDS",
+        "SOCIETY_ITEMS",
+        "societyFacts",
+        "societySources",
+        "societyDefinitions",
+        "societyWorkPlans"
+      ],
+      "families": [
+        "people",
+        "sites",
+        "powers",
+        "commands",
+        "controllers",
+        "situations"
+      ]
+    },
+    "src/feature_expansion_society_host.js": {
+      "exports": [
+        "societyFacts",
+        "createSocietyWorkPlanRegistry",
+        "societyContext",
+        "beginSociety",
+        "commitSocietyAction",
+        "societyPeopleView",
+        "societyPresentation",
+        "createSocietyPanel"
+      ]
+    },
+    "src/feature_expansion_work_plan.js": {
+      "exports": [
+        "WORK_PLAN_SCHEMA",
+        "createWorkPlanRegistry",
+        "validateWorkPlans",
+        "workPlanNextBoundary",
+        "advanceWorkPlansBoundary",
+        "startWorkPlan",
+        "controlWorkPlan",
+        "workPlanView"
+      ]
+    }
+  },
+  "activation": {
+    "entry": "explicit beginSociety through feature_society.begin at Village after village.elderMet",
+    "load": "no enrollment, stocks, rewards or cursor",
+    "peopleProvision": false,
+    "initialFiniteMeans": {
+      "hessa": {
+        "coins": 8,
+        "roughLogs": 1,
+        "repairDemand": 1,
+        "apprenticeDemand": 1
+      },
+      "orr": {
+        "coins": 0,
+        "rope": 1,
+        "surveyKit": 1,
+        "attention": 3,
+        "stamina": 12,
+        "ownTrainedMethod": true
+      },
+      "vale": {
+        "coins": 0,
+        "attention": 2,
+        "stamina": 8,
+        "methodOrKit": "none before consented teaching/physical transfer"
+      }
+    },
+    "provenance": "Original reversible names, amounts and local fiction; existing Rough wood log, Prepared survey kit and Survey rope owners. No external prose/assets/dependency copied."
+  },
+  "versions": {
+    "definitionRevision": 1,
+    "expansion": "retain current integrator schema; optional field is explicitly validated and old omission is inert",
+    "simulation": "existing simulation3 caused situation on opt-in; live-support jobs use existing simulation4",
+    "optionalCursor": {
+      "path": "state.simulation.workPlans",
+      "schema": 1,
+      "missing": "inert, no implicit enrollment",
+      "payload": "IDs, retained step references/revisions, progress/status and exact single accepted job receipt; no native context, output, stock, private actor snapshot or independent clock",
+      "changedDefinition": "retain authored revision1; incompatible optional cursor has explicit recoverable rejection, never silently reset the main save"
+    }
+  },
+  "publication": "Every host returns a staged state/external/gameplay/vitals/equipment/acquisition/unlock plan. Only main persistExpansion/persistExpansionPlan writes and publishes native coins/XP/inventory. No independent timer, save, payout or XP owner.",
+  "clock": {
+    "owner": "existing advanceSimulation common played game minutes",
+    "absence": "New unaccepted local work requires player base.frontier and no realmPrototype active visit; no unsupported absence simulation. Selected accepted live-support jobs revalidate consent/contact/source under existing refund policy. Legacy jobs untouched.",
+    "boundary": "workPlanNextBoundary joins Math.min in expansion_engine advanceSimulation; advanceWorkPlansBoundary runs after native jobs/controllers/programs at the existing simulation boundary. Only the next step gets reservation; native travel is manual and pauses cursor."
+  },
+  "joins": [
+    {
+      "file": "src/feature_expansion_content.js / src/simulation_content.js",
+      "join": "Import societyDefinitions and societySources; concatenate people/sites/powers/commands/controllers/situations into the existing definition registry and sources once. Currently observed through featureExpansionDefinitions/featureExpansionSources; do not add twice."
+    },
+    {
+      "file": "src/expedition_content.js",
+      "join": "Import societyWorkPlans and createWorkPlanRegistry; after expeditionRegistry is created assign expeditionRegistry.workPlans = createWorkPlanRegistry(societyWorkPlans, expeditionRegistry.simulation). Currently observed."
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "join": "Import societyFacts from feature_expansion_society.js. Spread societyFacts(state,context) into simulationFacts for player, NPC controller, preview and live completion callers. Currently observed."
+    },
+    {
+      "file": "src/simulation.js",
+      "join": "Import advanceWorkPlansBoundary; after completing jobs and running controllers/programs call work += advanceWorkPlansBoundary(out,registry,contexts). Cursor function uses existing commitSimulationCommand only; no alternate queue. Currently observed."
+    },
+    {
+      "file": "src/expansion_engine.js",
+      "join": "Import validateWorkPlans and workPlanNextBoundary. validateExpansionState calls validateWorkPlans(state.simulation?.workPlans,state,registry?.simulation,registry?.workPlans). Existing advanceSimulation Math.min includes workPlanNextBoundary(next). Currently observed."
+    },
+    {
+      "file": "src/simulation.js startCommand/cancellation",
+      "join": "Society return effects explicitly mark reusable kit reservationReturn:true. For complete cancellation acquisition accounting, extend the existing original_frontier reservationReturns accounting branch to feature_society accepted jobs, retaining schema4 and unchanged historical job semantics. No gameplay grant should be claimed for a refunded/returned tool."
+    },
+    {
+      "file": "src/main.js",
+      "join": "Use live expeditionContext/campaignContext with grouped vitals/equipment, native money and gameplay snapshots. Route society scoped commands to commitSocietyAction(state,registry,command,context,command.sequence); explicit begin route calls beginSociety. Pass resulting plan to the single persistExpansion. Do not call commitSimulationCommand directly for plan_start/plan_control. Ensure generated save retains optional workPlans alongside existing simulation and validates before publisher."
+    },
+    {
+      "file": "src/feature_expansion_wave_host.js / src/feature_expansion_ui.js",
+      "join": "Map societyPresentation(state,registry,context) to society section. It supplies canBegin/actions/records/people/plans/plan/job. Include start controls type plan_start,id; controls type plan_control,action pause/resume/cancel/forget,cursorId; accepted job cancellation type cancel_job,id. Alternative ready-made createSocietyPanel factory returns {element,panel,render} for Notebook parent. Render itself never mutates or enrolls."
+    },
+    {
+      "file": "src/adventure_notebook.js",
+      "join": "Add selected society panel to Notebook People or integrated feature panel. Waiting player society job and paused/next itinerary attention must point to the actual chosen panel. Do not duplicate controls if integrated generic feature panel is used."
+    },
+    {
+      "file": "src/people_knowledge.js",
+      "join": "Append societyPeopleView(state) rows to knownPeopleView after explicit society introduction. Rows contain only player-directed dated knowledge; location text is Last met: Village. No NPC purse, hidden mastery, controllers or live remote observations."
+    },
+    {
+      "file": "src/main.js / current native gameplay publication",
+      "join": "Three new residents remain simulation inventory actors, so their resources/stock/vitals persist under simulation. Player money effects native:true and Perception XP use the existing actual player native snapshot/publisher; no new NPC native registry is demanded."
+    }
+  ],
+  "commandProtocol": {
+    "begin": {
+      "type": "begin"
+    },
+    "ordinary": {
+      "type": "command",
+      "id": "feature_society.* player command",
+      "targetId": "declared ID only"
+    },
+    "planStart": {
+      "type": "plan_start",
+      "id": "feature_society.household_itinerary or feature_society.apprentice_itinerary"
+    },
+    "planControl": {
+      "type": "plan_control",
+      "action": "pause/resume/cancel/forget",
+      "cursorId": "current cursor ID",
+      "cancelCurrent": "optional explicit true invokes existing refund job cancellation; default cancellation stops future steps only"
+    },
+    "cancelAccepted": {
+      "type": "cancel_job",
+      "id": "actual player society job ID"
+    },
+    "sequence": "expected current render sequence required at host"
+  },
+  "coverage": {
+    "commands": 26,
+    "people": [
+      "feature_society.hessa",
+      "feature_society.orr",
+      "feature_society.vale"
+    ],
+    "controllers": [
+      "feature_society.orr_controller",
+      "feature_society.vale_controller"
+    ],
+    "method": "feature_society.ordinary_join",
+    "sites": [
+      "feature_society.home",
+      "feature_society.bench"
+    ],
+    "situation": "feature_society.home_agreement",
+    "rights": [
+      "feature_society.home_work_right",
+      "feature_society.bench_right"
+    ],
+    "itineraries": [
+      {
+        "id": "feature_society.household_itinerary",
+        "steps": 7
+      },
+      {
+        "id": "feature_society.apprentice_itinerary",
+        "steps": 9
+      }
+    ],
+    "families": [
+      "funded actual paired pay and finite demand",
+      "actual log supply into retained household repair/shelf",
+      "independent apprentice refusal and corrected bounded request",
+      "willing separately funded teaching with zero initial copied mastery",
+      "own body/tools/funds and demonstrated result",
+      "separate temporary subcontract and willingly transferred permanent limited rights",
+      "retained useful personal route after household refusal/closure",
+      "actual later meeting reports and useful revisit",
+      "manual native travel and one-step-only reservations",
+      "pause/resume/cancel plus exact accepted job receipts"
+    ]
+  },
+  "checks": {
+    "performed": [
+      "node --check on all three modules",
+      "dynamic imports without executing game actions",
+      "createSimulationRegistry ordinary definitions",
+      "createWorkPlanRegistry on both plan definitions",
+      "live expeditionRegistry source import with all 26 society command IDs registered"
+    ],
+    "notPerformed": [
+      "unit",
+      "browser",
+      "gameplay",
+      "save/reload",
+      "failure",
+      "keyboard",
+      "regression",
+      "director balance/pacing/fiction",
+      "final bundle correspondence: Features owner"
+    ]
+  },
+  "remaining": "Features GM must finish selected shared UI/native/persistence/cancellation-accounting joins and final matching bundle. Source static import registration was observed; no gameplay acceptance claimed.",
+  "resumeReview": {
+    "receipt": "docs/gm/feature-wave/features/society/RESUME_DELIVERY.json",
+    "released": true,
+    "status": "implemented-unverified",
+    "repairs": [
+      "Work-plan command merging preserves the state/external/gameplay/vitals/equipment containers and acquisition/unlock arrays captured by the common scheduler, so chained commits survive the returned staged plan."
+    ]
+  },
+  "parentAdmission": {
+    "status": "source-native-ui-save-build-admitted; implemented-unverified",
+    "integrator": "01a10df7-41b1-7810-89c8-083d8fefd5f5",
+    "build": "docs/gm/feature-wave/features/BUILD.json",
+    "coverage": "docs/gm/feature-wave/features/COVERAGE.json",
+    "bundleFingerprint": "dbd0224cf6dd",
+    "gameplayChecks": "deferred",
+    "sourceStageHashes": "Historical worker hashes retained; BUILD inputHashes own current combined source including parent repairs."
+  },
+  "sourceStageStatus": "source-delivered-implemented-unverified"
+}

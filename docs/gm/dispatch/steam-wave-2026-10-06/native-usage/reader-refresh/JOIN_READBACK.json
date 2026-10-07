@@ -1,0 +1,741 @@
+{
+  "source_bindings": [
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/categories/quality.lua",
+      "sha256": "fe3774f59d8bb408effeca2525f2d986e91eff5232bc87de05508a5c73462775",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/categories/quality.lua",
+      "live_match": true,
+      "source_id": "data/base/prototypes/categories/quality.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/quality.lua",
+      "sha256": "5db9b95306d12f796e384eb44f6d2e4584aff57cde579f8b763ad62a012fa75d",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/quality.lua",
+      "live_match": true,
+      "source_id": "data/quality/prototypes/quality.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/base-data-updates.lua",
+      "sha256": "fa08ec48b2d517a265cc1e7ab164e38cb9dd53450322c1289ae837f1584a3640",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/base-data-updates.lua",
+      "live_match": true,
+      "source_id": "data/quality/prototypes/base-data-updates.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/item.lua",
+      "sha256": "05b20aee997abdd8b5a89099ab8b7562db779e63d11f5ddabdb2c3365351b5b4",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/item.lua",
+      "live_match": true,
+      "source_id": "data/quality/prototypes/item.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/technology.lua",
+      "sha256": "e9bee4ea6c81befabc5642a27f3b88b79838951dff7020df63b1b75939c231ec",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/technology.lua",
+      "live_match": true,
+      "source_id": "data/quality/prototypes/technology.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/base-data-updates.lua",
+      "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/base-data-updates.lua",
+      "live_match": true,
+      "source_id": "data/space-age/base-data-updates.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+      "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/item.lua",
+      "live_match": true,
+      "source_id": "data/space-age/prototypes/item.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/recipe.lua",
+      "sha256": "b391d2397be18ea29dd535fe2e0bc97ed42687267a7cb22e39774c5f5a4b71eb",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/recipe.lua",
+      "live_match": true,
+      "source_id": "data/space-age/prototypes/recipe.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+      "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+      "live_match": true,
+      "source_id": "data/space-age/prototypes/entity/entities.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/core/lualib/util.lua",
+      "sha256": "2abc4d4ec3e8cd47cee197231ce45b7bc34cf7a1aaa841cdfe3b776d67094a1f",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/core/lualib/util.lua",
+      "live_match": true,
+      "source_id": "data/core/lualib/util.lua",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/info.json",
+      "sha256": "2c2578fd84cc2e920c944c90047eaa5a1f6984a1ce07c246fc1906d90c5505ad",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/info.json",
+      "live_match": true,
+      "source_id": "data/quality/info.json",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/info.json",
+      "sha256": "f8957fc975949bb647b64ca246a4de7f981232c4ab47c4db4f60ccea6aef5e1a",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/info.json",
+      "live_match": true,
+      "source_id": "data/space-age/info.json",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/prototype-api.json",
+      "live_match": true,
+      "source_id": "doc-html/prototype-api.json",
+      "selected_bounds": []
+    },
+    {
+      "role": "quality-spoilage",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/runtime-api.json",
+      "live_match": true,
+      "source_id": "doc-html/runtime-api.json",
+      "selected_bounds": []
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/info.json",
+      "sha256": "fe566a0b08b331d7cfbd13a5857d7f6f2414591efa26723a6f8dbd3781ac4786",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/info.json",
+      "live_match": true,
+      "source_id": "base-info",
+      "selected_bounds": [
+        [
+          1,
+          9
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/info.json",
+      "sha256": "f8957fc975949bb647b64ca246a4de7f981232c4ab47c4db4f60ccea6aef5e1a",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/info.json",
+      "live_match": true,
+      "source_id": "space-age-info",
+      "selected_bounds": [
+        [
+          1,
+          16
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/info.json",
+      "sha256": "2c2578fd84cc2e920c944c90047eaa5a1f6984a1ce07c246fc1906d90c5505ad",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/info.json",
+      "live_match": true,
+      "source_id": "quality-info",
+      "selected_bounds": [
+        [
+          1,
+          11
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/entities.lua",
+      "sha256": "26d738a076608130081d8cfa4a0d36dc39d2f98d40abb45735930b41841d06e4",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/entities.lua",
+      "live_match": true,
+      "source_id": "base-entities",
+      "selected_bounds": [
+        [
+          5487,
+          5520
+        ],
+        [
+          8647,
+          8659
+        ],
+        [
+          9045,
+          9059
+        ],
+        [
+          9427,
+          9438
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/base/prototypes/entity/transport-belts.lua",
+      "sha256": "46cec8476aa185d82f4a40de4e8ff5852538447a4f4b8115ba6e97533b51bf6f",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/base/prototypes/entity/transport-belts.lua",
+      "live_match": true,
+      "source_id": "base-belt",
+      "selected_bounds": [
+        [
+          149,
+          184
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/entity/entities.lua",
+      "sha256": "7825fcb0ef10bd5112a0018bbc67cd134dd9cbdb766bc1e612f1901045bb2dcc",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/entity/entities.lua",
+      "live_match": true,
+      "source_id": "space-age-entities",
+      "selected_bounds": [
+        [
+          2138,
+          2148
+        ],
+        [
+          2521,
+          2561
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/base-data-updates.lua",
+      "sha256": "574a7fb8d083eef5183bbf913f445457d75be59d4c871205d6239d485e5fcad3",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/base-data-updates.lua",
+      "live_match": true,
+      "source_id": "space-age-updates",
+      "selected_bounds": [
+        [
+          85,
+          130
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/quality/prototypes/quality.lua",
+      "sha256": "5db9b95306d12f796e384eb44f6d2e4584aff57cde579f8b763ad62a012fa75d",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/quality/prototypes/quality.lua",
+      "live_match": true,
+      "source_id": "quality-levels",
+      "selected_bounds": [
+        [
+          1,
+          58
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/item.lua",
+      "sha256": "09b025f12a1bd608ead0f05e4fa1718dc2202e72319aae0ede26478121f78e51",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/item.lua",
+      "live_match": true,
+      "source_id": "space-age-spoil",
+      "selected_bounds": [
+        [
+          791,
+          822
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/data/space-age/prototypes/planet/planet.lua",
+      "sha256": "e4714d8e3f18cd629b31d5925d2bd69745e509b673c432a39b27ff31ea8a5bba",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/data/space-age/prototypes/planet/planet.lua",
+      "live_match": true,
+      "source_id": "aquilo",
+      "selected_bounds": [
+        [
+          599,
+          633
+        ],
+        [
+          660,
+          673
+        ]
+      ]
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/runtime-api.json",
+      "sha256": "594b4ec98cc5fbee322d7380db49a388ab38b0d69c06f00ead877cffbb37f578",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/runtime-api.json",
+      "live_match": true,
+      "source_id": "runtime-api",
+      "selected_bounds": []
+    },
+    {
+      "role": "logistics-heat",
+      "path": "/Users/weiwei/.codex/research/factorio/installed/2.0.77-steam-23347942/doc-html/prototype-api.json",
+      "sha256": "29772ece6140b515d295a504c6f9ac5bc9e653d8b1470e8cd6db825f93fcc756",
+      "live_path": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Factorio/factorio.app/Contents/doc-html/prototype-api.json",
+      "live_match": true,
+      "source_id": "prototype-api",
+      "selected_bounds": []
+    }
+  ],
+  "source_role_binding_count": 26,
+  "unique_source_files": 18,
+  "contracts": [
+    {
+      "role": "quality-spoilage",
+      "id": "QualityPrototype.level",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/190/properties/24",
+      "name": "level"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "QualityPrototype.next",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/190/properties/31",
+      "name": "next"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "QualityPrototype.next_probability",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/190/properties/32",
+      "name": "next_probability"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototype.spoil_level",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/132/properties/37",
+      "name": "spoil_level"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototype.spoil_result",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/132/properties/38",
+      "name": "spoil_result"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototype.spoil_ticks",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/132/properties/39",
+      "name": "spoil_ticks"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototype.spoil_to_trigger_result",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/132/properties/40",
+      "name": "spoil_to_trigger_result"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "RecipePrototype.allow_quality",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/202/properties/11",
+      "name": "allow_quality"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "RecipePrototype.preserve_products_in_machine_output",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/202/properties/37",
+      "name": "preserve_products_in_machine_output"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "RecipePrototype.reset_freshness_on_craft",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/202/properties/39",
+      "name": "reset_freshness_on_craft"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "RecipePrototype.result_is_always_fresh",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/prototypes/202/properties/40",
+      "name": "result_is_always_fresh"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "DifficultySettings.spoil_time_modifier",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/183/properties/0",
+      "name": "spoil_time_modifier"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemProductPrototype.amount_max",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/295/properties/1",
+      "name": "amount_max"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemProductPrototype.extra_count_fraction",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/295/properties/3",
+      "name": "extra_count_fraction"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemProductPrototype.percent_spoiled",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/295/properties/7",
+      "name": "percent_spoiled"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "SpoilToTriggerResult.items_per_trigger",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/530/properties/0",
+      "name": "items_per_trigger"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "SpoilToTriggerResult.trigger",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/530/properties/1",
+      "name": "trigger"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaItemStack.spoil_percent",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/67/attributes/8",
+      "name": "spoil_percent"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaItemStack.spoil_tick",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/67/attributes/9",
+      "name": "spoil_tick"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaItemPrototype.spoil_result",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/66/attributes/58",
+      "name": "spoil_result"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaItemPrototype.spoil_to_trigger_result",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/66/attributes/59",
+      "name": "spoil_to_trigger_result"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaItemPrototype.get_spoil_ticks",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/66/methods/10",
+      "name": "get_spoil_ticks"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaQualityPrototype.level",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/96/attributes/21",
+      "name": "level"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaQualityPrototype.next",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/96/attributes/27",
+      "name": "next"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "LuaQualityPrototype.next_probability",
+      "file": "doc-html/runtime-api.json",
+      "pointer": "/classes/96/attributes/28",
+      "name": "next_probability"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototypeFlags.not-stackable",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/296/type/value/options/5",
+      "name": "not-stackable"
+    },
+    {
+      "role": "quality-spoilage",
+      "id": "ItemPrototypeFlags.ignore-spoil-time-modifier",
+      "file": "doc-html/prototype-api.json",
+      "pointer": "/types/296/type/value/options/11",
+      "name": "ignore-spoil-time-modifier"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.energy",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/77",
+      "name": "energy"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.held_stack",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/98",
+      "name": "held_stack"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.inserter_spoil_priority",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/107",
+      "name": "inserter_spoil_priority"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.inserter_stack_size_override",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/108",
+      "name": "inserter_stack_size_override"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.inserter_target_pickup_count",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/109",
+      "name": "inserter_target_pickup_count"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaEntity.temperature",
+      "file": "runtime-api.json",
+      "pointer": "/classes/38/attributes/208",
+      "name": "temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaTransportLine.can_insert_at_back",
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/1",
+      "name": "can_insert_at_back"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaTransportLine.insert_at",
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/8",
+      "name": "insert_at"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "LuaTransportLine.insert_at_back",
+      "file": "runtime-api.json",
+      "pointer": "/classes/140/methods/9",
+      "name": "insert_at_back"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "SpoilPriority",
+      "file": "runtime-api.json",
+      "pointer": "/concepts/343",
+      "name": "SpoilPriority"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.connections",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/0",
+      "name": "connections"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.default_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/1",
+      "name": "default_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.max_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/5",
+      "name": "max_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.max_transfer",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/6",
+      "name": "max_transfer"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.min_temperature_gradient",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/7",
+      "name": "min_temperature_gradient"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.min_working_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/8",
+      "name": "min_working_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatBuffer.specific_heat",
+      "file": "prototype-api.json",
+      "pointer": "/types/272/properties/11",
+      "name": "specific_heat"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.connections",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/0",
+      "name": "connections"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.default_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/1",
+      "name": "default_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.max_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/6",
+      "name": "max_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.max_transfer",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/7",
+      "name": "max_transfer"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.min_temperature_gradient",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/8",
+      "name": "min_temperature_gradient"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.min_working_temperature",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/9",
+      "name": "min_working_temperature"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "HeatEnergySource.specific_heat",
+      "file": "prototype-api.json",
+      "pointer": "/types/274/properties/12",
+      "name": "specific_heat"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.chases_belt_items",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/3",
+      "name": "chases_belt_items"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.energy_per_movement",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/11",
+      "name": "energy_per_movement"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.energy_per_rotation",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/12",
+      "name": "energy_per_rotation"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.enter_drop_mode_if_held_stack_spoiled",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/14",
+      "name": "enter_drop_mode_if_held_stack_spoiled"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.grab_less_to_match_belt_stack",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/17",
+      "name": "grab_less_to_match_belt_stack"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.hand_size",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/27",
+      "name": "hand_size"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.max_belt_stack_size",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/29",
+      "name": "max_belt_stack_size"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.stack_size_bonus",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/34",
+      "name": "stack_size_bonus"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "InserterPrototype.wait_for_full_hand",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/128/properties/38",
+      "name": "wait_for_full_hand"
+    },
+    {
+      "role": "logistics-heat",
+      "id": "EntityPrototype.heating_energy",
+      "file": "prototype-api.json",
+      "pointer": "/prototypes/92/properties/24",
+      "name": "heating_energy"
+    }
+  ],
+  "contract_role_bindings": 61,
+  "unique_contract_pointers": 61
+}

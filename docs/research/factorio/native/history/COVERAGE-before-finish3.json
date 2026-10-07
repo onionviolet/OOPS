@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T05:24:35.136894+00:00",
+  "status": "active whole both-slice recovery, incomplete",
+  "source_version": "Factorio2.0.77/build23347942",
+  "generated_export_semantic_reading_separate": true,
+  "arm64": {
+    "nm_text_unique_entries": 178809,
+    "lc_function_starts": 178879,
+    "anonymous_lc_starts_added": 71,
+    "callable_union_candidates": 178879,
+    "noncallable_header_entries": 1,
+    "saved_nonexternal_function_entries": 183200,
+    "saved_thunks": 4321,
+    "all_callable_candidates_seeded_and_saved": true,
+    "saved_map_reopened_and_confirmed": true,
+    "prior_nonempty_c_like_records": 38,
+    "whole_analyzed_export_complete": false,
+    "analysis_session": 17038,
+    "analysis_pid": 59653
+  },
+  "x86_64": {
+    "nm_text_unique_entries": 178146,
+    "lc_function_starts": 178145,
+    "anonymous_lc_starts_added": 0,
+    "callable_union_candidates": 178145,
+    "noncallable_header_entries": 1,
+    "whole_analyzed_export_complete": false,
+    "queued_sequentially_after_arm64": true
+  },
+  "reviewed_semantic_scope": "Early production/helper trace only;38records are generated evidence, not a claim of complete reading. New broader native families will receive source-qualified review after analyzed exports.",
+  "evidence": [
+    "PIPELINE.json",
+    "CHECKPOINT.md",
+    "SOURCE_BINDING.json",
+    "NATIVE_PRODUCTION_TRACE.md",
+    "readers/production-early/REPORT.md"
+  ],
+  "private_saved_db_inspection": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/arm64-seeded-reopened-inspection.json",
+  "remaining": [
+    "Save and inspect arm64wholeanalysis; repair undecoded entries or body/no-return issues if found.",
+    "Attempt C-like/disassembly/bytes/name/signature/calls/xrefs for everyarm64nonexternalfunction with classified failures and retries.",
+    "Run x86_64slice sequentially to the same coverage/failure gate.",
+    "Build final callable/function/thunk/external/alias/header coverage reconciliation and reviewed native/DLC findings."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "status": "qualified",
+  "drift": [
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+      "path": "PROJECT.md",
+      "expected": "85910d75bd6d479f4cb8bbf3e708de30d12ad840a67853e53b7eb5bc1ec40fa2",
+      "actual": "a178be8b427538f51aeab077aa0d2a3c63da94abf6b1fec863d661d1d88392a3"
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+      "path": "docs/USER_VISION.md",
+      "expected": "d9c2958c13d580ef65947408f80deeb30b29833a1142a2b0307b91d4afc231b9",
+      "actual": "6ecbc88fa2e03bf02e95b5e98c4c92199bcbc965a814cf217d548c22765ba63a"
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "expected": "545e7464ca1603bf88cad479914cbf48a6cd368b49b5ade04ba6480f3e7a8b7b",
+      "actual": "95107492e7967b7a3425a007540304ee464013a5ac1810300b1c234a4692e57a"
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+      "path": "src/main.js",
+      "expected": "4e26a58a645592480d1ed5496e99cebef4e9361fc6147c8ac3c700dea38143ba",
+      "actual": "aea78c17a0c3e740252389dbd012f5138c005942496d802bb35c85d36be80fd5"
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/upstream-native-feasibility/INPUT_SNAPSHOT.json",
+      "path": "src/crafting_recipes.js",
+      "expected": "649a1b0b8cd04536f493fa51e213923f37a744c952241c5cc476bd68a4daa3ba",
+      "actual": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d"
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "PROJECT.md",
+      "expected": "f9c61aadcaffe966c47bb1c988cfd2fe6db12094fb07e5d684f468b40604e6bc",
+      "actual": "a178be8b427538f51aeab077aa0d2a3c63da94abf6b1fec863d661d1d88392a3",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "docs/ENGINE_AUTHORING.md",
+      "expected": "c5446e948517561469bed8e2c00ea13817b8a46cf418aea238c9cc5698d07a40",
+      "actual": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "docs/ENGINE_EXPANSION.md",
+      "expected": "3dbae588a3a0945094c6b4af9a62159d24eed5a1e299e7235476cc2cbba36575",
+      "actual": "ae453f3c6ea3e26a7a3abc0b84f43b49024859689d5de8896ae4470821b6d0da",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "expected": "23103b0f023a0013b2e8499b542f3d8ab48e0309ca46f75f0ef9f9cdcdb69a71",
+      "actual": "95107492e7967b7a3425a007540304ee464013a5ac1810300b1c234a4692e57a",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "docs/gm/world-implementation/RUN.json",
+      "expected": "3c8f63b43391a8252a44b552b1074335205910733e65d726611c991321ec7da2",
+      "actual": "cf336340e8a9ec182af67ba4d4ece412e2da3824c987c88573414a023b3d7bc6",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    },
+    {
+      "snapshot": "docs/gm/world-implementation/second-pass/engine-absorption/INPUT_SNAPSHOT.json",
+      "path": "dist/bundle.js",
+      "expected": "b265cccda4c001ac29c2918e0546a95e526dd3cedd8242bf85f918a55c0f1c1a",
+      "actual": "27acfe9c3c70293559bf1b75e3c01b529b278bbe0395bdcea7eee884688ccfc8",
+      "qualification": "Current adoption and canonical evidence supersedes original input identity; relevant selected native seams refreshed, planning recommendations remain qualified."
+    }
+  ],
+  "scope": "old report input fingerprints, not new full source audit",
+  "currentIdentity": "ADOPTION_BUILD/current canonical six owners; source/library/old reports unchanged"
+}

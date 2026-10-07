@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "status": "finite-source-native-ui-save-build-delivered-implemented-unverified",
+  "writer": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "capturedAtUtc": "2026-10-06T01:02:07.625999+00:00",
+  "packet": "docs/gm/feature-wave/features/nested-campaign/continued-life/ASSIGNMENT.md",
+  "bundleFingerprint": "1ca667dd9eef",
+  "build": "docs/gm/feature-wave/features/BUILD.json",
+  "buildSha256": "5d9ea9a7ce3a63fc5bfe3b79b2218959ae5e0ece2543112697f706a3f991675e",
+  "review": "docs/gm/feature-wave/features/nested-campaign/continued-life/review/REVIEW.json",
+  "openSourceFindings": 0,
+  "commands": [
+    "nested.life.lin.open",
+    "nested.life.lin.work",
+    "nested.life.lin.refuse",
+    "nested.life.lin.texture",
+    "nested.life.lin.account",
+    "nested.life.brin.open",
+    "nested.life.brin.work",
+    "nested.life.brin.refuse",
+    "nested.life.brin.texture",
+    "nested.life.brin.account",
+    "nested.life.ivo.open",
+    "nested.life.ivo.work",
+    "nested.life.ivo.refuse",
+    "nested.life.ivo.texture",
+    "nested.life.ivo.account",
+    "nested.life.brin.buy_spare",
+    "nested.life.ivo.shelf_exchange"
+  ],
+  "personalPassages": [
+    "nested.personal.saltworks",
+    "nested.personal.archive",
+    "nested.personal.return"
+  ],
+  "versions": {
+    "expansion": 8,
+    "personalPolicy": 1,
+    "lifePolicy": 1,
+    "nestedCampaign": 1,
+    "nativeDomain": 1
+  },
+  "sourceHashes": {
+    "src/adventure_notebook.js": "8869a1e24c056706690c236fe0935108e462c91dee4b4e5faa4f2ff387ef658d",
+    "src/simulation.js": "fadc10da27b1a86997857fffb54efe5ed4d91f18887e4838ec53c435c78f4971",
+    "src/expansion_engine.js": "8593baf5b1e54844160548b6674f9279c0ea75dd2720d520914ea0a64a47cfc7",
+    "src/feature_expansion_refinements_host.js": "6cc5540dd9f4695a90362878b15d6af406143a7c021bd322594040d7874186e5",
+    "src/backlog_expansion_host.js": "ca2da3efc3021c560ab15d9966b00fa778152f90c1bcec6a4d2b0fdcd26227b0",
+    "src/main.js": "11e73ba5a492ef04dd20284121895dc02c2c9a595c280356c5297589e26505f7",
+    "src/feature_expansion_nested_host.js": "925a21cf39e3a55bb41e30e67f2f43d58cf02f2e42cc30361ca19baecf146bf2",
+    "src/simulation_content.js": "c36b749cf8d069158469c655e2ecbcdb8b8453004cca624e778f3a6557eb284f",
+    "src/simulation_effects.js": "043244d8032c6e02719b5e37cf8439d34df2e6f4bcf9bb7def09e01d247a6343",
+    "src/feature_expansion_nested_life.js": "96f8c861818c00c85c2ff1a477e60cfb1598c2f33a1891398bc796914399b4d8",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/people_knowledge.js": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496"
+  },
+  "performed": [
+    "source syntax",
+    "cold canonical imports/actual registry definition compilation",
+    "in-memory ESM browser link with zero warnings",
+    "npm run build with exact compiler freshness/structural stable response tags",
+    "all222local source-map contents matched;37vendor mappings separately qualified",
+    "bundle/style/legibility index fingerprints and exact notice bytes",
+    "bounded read-only native/UI/source-fit review; all reported integration findings resolved",
+    "continued-life definition/native/schema/UI admission; review CL-NR-01 resolved by lexical source readback"
+  ],
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import roundtrip",
+    "save failure",
+    "keyboard",
+    "regression",
+    "director fiction/balance/pacing"
+  ],
+  "allWorkersReleased": true,
+  "privateSaves": "untouched",
+  "sourceLibraries": "untouched",
+  "publication": "none"
+}

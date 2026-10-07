@@ -1,0 +1,290 @@
+{
+  "schema": 1,
+  "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "capturedAtUtc": "2026-10-06T23:34:12.051981+00:00",
+  "status": "source/native/UI/current-build delivered, implemented-unverified",
+  "goalScope": "Finite optional status care:5conditions/11commands, actual native stats/weather/effects UI/materials/kit consumers and single publisher",
+  "originalAuthoring": "Fiction/fees/durations/modifiers/procedures are reversible proposals, not director accepted or source-book canon",
+  "files": {
+    "new": [
+      {
+        "path": "src/status_care_content.js",
+        "sha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93"
+      },
+      {
+        "path": "src/status_care_facts.js",
+        "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49"
+      },
+      {
+        "path": "src/status_care_host.js",
+        "sha256": "0eb35a71fd5c6dc463a255b76d0009b481d9a403b0a4502193c9839954d85992"
+      }
+    ],
+    "sharedJoins": [
+      {
+        "path": "src/main.js",
+        "beforeSha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "afterSha256": "9699473984245b908771bd704447af3dd4ae7324c1140043358414dfdd1549de"
+      },
+      {
+        "path": "src/models/hero.js",
+        "beforeSha256": "b37a64228a72deeb4a7b68313bfc39f4e2698b12faddc12a6f28d80b127aacb5",
+        "afterSha256": "ed5fc03f42906b14b901c34eab426a6824f539dd64d061c9985f8964f8cd6624"
+      },
+      {
+        "path": "src/display.js",
+        "beforeSha256": "3e398a42e48a90ee9349aff61331f306d01313600d039c940adb4c790f1bdaf1",
+        "afterSha256": "dd39d18f25e53b0e7e98275761ff6f88e915921b8d6b18f5d7623cd1319583d5"
+      },
+      {
+        "path": "src/simulation.js",
+        "beforeSha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "afterSha256": "ef9912716c05a7c4298a474504b15f597e5df21f5e91942e8905e3cd6050a26a"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "beforeSha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "afterSha256": "acd52c5601e7c8c700f16509a65e3a06a02f5ccf14d96e33a4def288c9f08c9e"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "beforeSha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+        "afterSha256": "61f892ae5a5dbdeb71a515d058a99145ead2d9a09749450ef431d716a5fc1877"
+      },
+      {
+        "path": "src/expansion_engine.js",
+        "beforeSha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+        "afterSha256": "f86ba6573074bcbdd284453c62db067f296da5722d8cdb65136440c87c641625"
+      },
+      {
+        "path": "src/feature_expansion_wave_host.js",
+        "beforeSha256": "17daef9e75cfe9b73d86500a548c84e7dcc5b8f94a886fb6d3e0a1dfd5d728c2",
+        "afterSha256": "fd2d9f5da8a4dc7915cea0250d356a61cafa98a9f861c671f8e5f5f4888f0136"
+      },
+      {
+        "path": "src/simulation_ui.js",
+        "beforeSha256": "4e26017e16eb2cdb8b64e1a59553b6fc4b8d9ca7346ba7fd28adad4d08240b13",
+        "afterSha256": "23b82917810d559993a2549849bc80ebad323190e10fa049d83cebe49108d99f"
+      }
+    ],
+    "generated": [
+      {
+        "path": "index.html",
+        "sha256": "44586594dd5ac4636b9f5d1097bb13c0a81aeae14ad845e9bbacf68927ef7d38"
+      },
+      {
+        "path": "dist/bundle.js",
+        "sha256": "2410d9f0ff702fda9347a28aeb5f915f607dd0266edca2ba95a991839b4444b9"
+      },
+      {
+        "path": "dist/bundle.js.map",
+        "sha256": "1dca2125ca26843467d8b4c7f075c5072639fd03d1fd25566b5046539935afc1"
+      }
+    ],
+    "canonical": [
+      {
+        "path": "PROJECT.md",
+        "sha256": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9"
+      },
+      {
+        "path": "docs/ENGINE_AUTHORING.md",
+        "sha256": "49fbe02dfb50f5c2ac3a4a36adc5fff2d5e4ef02ec13f3da62ddd3237d413468"
+      }
+    ],
+    "verifiedUnchangedOwners": [
+      {
+        "path": "src/simulation_contracts.js",
+        "before": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+        "after": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292",
+        "matches": true
+      },
+      {
+        "path": "src/expansion_persistence.js",
+        "before": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "after": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+        "matches": true
+      },
+      {
+        "path": "src/save_files.js",
+        "before": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+        "after": "3fff4bafa0a1c68f0ca21b7e66bf642f57f80ad648c99ce03103b34318670e2d",
+        "matches": true
+      }
+    ]
+  },
+  "registry": {
+    "commands": 943,
+    "careCommands": 11,
+    "conditions": 14,
+    "careConditions": 5,
+    "controllers": 41,
+    "worlds": 8,
+    "workPlans": 4,
+    "sources": 50,
+    "newItemIds": 0,
+    "newWorlds": 0,
+    "newPrestige": 0,
+    "newSources": 0,
+    "newInventoryClockPublisher": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "exitCode": 0,
+    "bundleFingerprint": "2410d9f0ff70",
+    "bundleSha256": "2410d9f0ff702fda9347a28aeb5f915f607dd0266edca2ba95a991839b4444b9",
+    "mapSha256": "1dca2125ca26843467d8b4c7f075c5072639fd03d1fd25566b5046539935afc1",
+    "localSourceContentsMatched": 285,
+    "vendorSourceEntries": 37,
+    "mismatches": [],
+    "indexFingerprintMatches": true,
+    "newMappedModules": [
+      "src/status_care_content.js",
+      "src/status_care_facts.js",
+      "src/status_care_host.js"
+    ],
+    "inkCompiler": {
+      "version": "2.4.0",
+      "diagnostics": 0,
+      "check": "passed through build"
+    }
+  },
+  "checks": {
+    "syntax": {
+      "status": "passed",
+      "paths": [
+        "src/status_care_content.js",
+        "src/status_care_facts.js",
+        "src/status_care_host.js",
+        "src/main.js",
+        "src/models/hero.js",
+        "src/display.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/simulation_content.js",
+        "src/expansion_engine.js",
+        "src/feature_expansion_wave_host.js",
+        "src/simulation_ui.js"
+      ]
+    },
+    "coldImports": {
+      "status": "passed",
+      "modules": [
+        "src/expedition_content.js",
+        "src/status_care_content.js",
+        "src/status_care_facts.js",
+        "src/status_care_host.js"
+      ],
+      "scope": "Source registry/definition import only; no actions/state/gameplay executed"
+    },
+    "definitionAndNativeKeys": {
+      "status": "passed",
+      "careCommandsRegistered": 11,
+      "carePoliciesMatched": 5,
+      "knownItemKeys": [
+        "Rough wood log",
+        "Rat pelt",
+        "Survey rope",
+        "Prepared survey kit"
+      ],
+      "allConditionReferencesRegistered": true,
+      "hostExportsResolved": true
+    },
+    "sourceReview": {
+      "status": "no open actionable reviewed issue",
+      "reviewers": [
+        "/root/native_joins",
+        "/root/status_content"
+      ],
+      "method": "Actual source/interface/held cost/effect/refund/stat/UI/load/publication readback, no game execution",
+      "issuesRepaired": [
+        "Tender-hand rest must not require hand-work readiness",
+        "Focused break explicit no-native-battle predicate",
+        "Wet is admission-only for3minute drying; natural Wet expiry must still permit rain-counter reset"
+      ],
+      "deltasAccepted": [
+        "Inspection teaches lining knowledge consumed by actual lining preparation",
+        "Craftsman shared grip respects existing irritation/current orders",
+        "Generic workshop hides care commands/cancellation; no care automation",
+        "Only final publisher reconciles new dry completion after native decay"
+      ]
+    },
+    "whitespace": {
+      "authoredTrackedDiff": "passed",
+      "newLeafAndLaneFiles": "9 files passed",
+      "generatedBundle": "3 trailing spaces within generated multiline template literals; retained exact build output",
+      "generatedDiagnostics": [
+        "dist/bundle.js:1",
+        "dist/bundle.js:122",
+        "dist/bundle.js:644"
+      ]
+    },
+    "links": {
+      "status": "passed",
+      "localLinksChecked": 18,
+      "scope": "Status care lane plus current PROJECT/ENGINE_AUTHORING sections; targets and Markdown anchors"
+    },
+    "finalReadback": {
+      "jsonFilesParsed": 3,
+      "sourceGeneratedCanonicalAndUnchangedFingerprintsMatched": 20,
+      "localSourceMapContentsMatched": 285,
+      "vendorEntries": 37,
+      "indexFingerprintMatches": true,
+      "errors": []
+    }
+  },
+  "compatibility": {
+    "schema": "Existing5-11, explicit optional actor facts/knowledge/completion/simulation.conditions/jobs; no new top-level domain",
+    "absence": "inert",
+    "oldJobs": "unchanged meanings",
+    "newIds": "Matching updated fork required once new condition/command/job IDs are used",
+    "scope": "Supported human current body in base.frontier; actual conditions expire on common played clock while benefits may be suppressed elsewhere",
+    "nativeOwnership": "Existing Wet/cold/native active_effects untouched except completed drying; synthetic care descriptors never serialized into native active_effects",
+    "heldTools": "Actual native equipment/custody checked; marked return is not a new acquisition"
+  },
+  "reviewsAndChildren": [
+    {
+      "id": "/root/status_content",
+      "route": "gpt-6-luna high",
+      "assignment": "exclusive new content, then read-only costs/facts/refund review",
+      "state": "completed/released",
+      "writerAdoptedByRoot": true
+    },
+    {
+      "id": "/root/native_joins",
+      "route": "inherited coordinator settings",
+      "assignment": "bounded native bridge review, then only drying repaired readback",
+      "state": "completed/released",
+      "writeScope": "none"
+    }
+  ],
+  "deferred": [
+    "unit",
+    "browser/gameplay",
+    "save/reload/import",
+    "storage failure/stale/cancellation behavior",
+    "keyboard/regression",
+    "director fiction/prices/pacing"
+  ],
+  "privateSavesTouched": false,
+  "sourceLibrariesTouched": false,
+  "upstreamLicenseAttributionPreserved": true,
+  "dependenciesChanged": false,
+  "commitsPushPublicationAutomationExternalMessages": false,
+  "priorSynthesis": "docs/gm/book-lore-to-gameplay-2026-10-06 remains completed and unchanged",
+  "before": "BEFORE.json",
+  "currentOwner": "PROJECT.md current native status care section",
+  "acceptanceBacklog": "ACCEPTANCE_BACKLOG.md",
+  "finalReadbackAtUtc": "2026-10-06T23:37:08.929711+00:00",
+  "release": {
+    "state": "completed/released",
+    "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+    "sharedScope": "Only necessary status-care joins and current build/canonical surfaces",
+    "children": "All actual children completed at live inspection",
+    "processes": "No task-owned build/server/compiler process",
+    "toolSessions": [],
+    "unknownMutationOutcomes": [],
+    "unsavedDeltas": [],
+    "requiredImplementationRemaining": false,
+    "nextGate": "Declared deferred playable/save/director acceptance on isolated fixtures and exact current build"
+  }
+}

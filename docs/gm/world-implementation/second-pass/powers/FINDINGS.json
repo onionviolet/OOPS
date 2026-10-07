@@ -1,0 +1,508 @@
+{
+  "schema": 1,
+  "role": "Bodies powers and interactions GM",
+  "date": "2026-10-04",
+  "status": "planning-complete-runtime-held",
+  "base": {
+    "branch": "codex/gameplay-foundations",
+    "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirty": true,
+    "input_fingerprints": "CHECKPOINT.md"
+  },
+  "authority": {
+    "writer": "01a10998-0eb6-7c12-8574-bc60c1173dd0",
+    "exclusive_directory": "docs/gm/world-implementation/second-pass/powers/",
+    "canonical_plan_and_RUN_owner": "assigning master 01a10933-feaf-7503-878e-49a6d5ad113f",
+    "runtime": "held for human review"
+  },
+  "measured_cost": {
+    "game_runtime": null,
+    "billed_tokens": null,
+    "statement": "No game benchmark or token meter was available or run. Lower-cost alternatives are static design inferences, not measured savings."
+  },
+  "source_qualification": "Consequential MoL and Shadow claims were checked against targeted paragraphs in supplied EPUBs whose hashes match their existing dossiers. Supplied-edition provenance remains qualified; no live primary-authenticity or whole-book reread was performed. O denotes original proposal; U denotes unknown.",
+  "findings": [
+    {
+      "id": "POW01",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Form, lasting growth, lineage and body/source anchors need different functional transitions",
+      "evidence": [
+        {
+          "path": "src/body_progression.js",
+          "line_start": 15,
+          "line_end": 23,
+          "claim": "Current episode distinguishes inherited/trained/acquired sources and temporary hand conditions; inheritance origin is a label, not a species/genealogy/evolution engine.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 118,
+          "line_end": 123,
+          "claim": "Generic body effect writes a scalar body property. Authored predicates can use facts; this does not itself implement temporary-form restoration or carrier-aware physiology.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "line_start": 55,
+          "line_end": 78,
+          "claim": "Read snapshots identify forms, functions, pools and independent condition owners; this is reusable support information.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+          "line_start": 83,
+          "line_end": 105,
+          "claim": "Organ/cost/carrier foundations are already planned. Extend selected functional changes rather than redo the transplant audit.",
+          "verification": "planning baseline read"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+          "claim": "MOL-C031-04: Lukav differentiates removable transformation shell and direct flesh alteration; MOL-C062-03: Zorian describes magical enhancements and potentially inheritable integration; MOL-C092-01: old-body enhancement unravels after soul exit.",
+          "locator": "ch31 p63-72; ch62 p46-61; ch92 p2-12",
+          "verification": "direct supplied paragraphs read; first two are character explanations, last is narrated outcome"
+        }
+      ],
+      "current_player_behavior": "Body training records calluses, soreness, learned grip and visible marks. Generic body facts can gate authored actions. Current inspected sources do not establish a native form/lasting-evolution/lineage transition with actual body-function and anchor retention.",
+      "proposed_player_behavior": "An actor changes form or achieves selected structural growth, gains the supported verbs and loses only incompatible execution while retaining learned information. A temporary overlay, injury and lasting change restore differently. Species/ancestry, acquired hereditary potential and actual descendant support remain separate.",
+      "authoritative_owner": {
+        "body_rules": "Bodies/identity/lifecycle specialist and selected local world policy",
+        "native_binding": "Shared Engine",
+        "plan_merge": "assigning master"
+      },
+      "dependencies": [
+        "Actual body/source/anchor identities and definition revisions",
+        "Native body-function projection and transactional publication",
+        "Selected retention/compatibility rule; inheritance/offspring and reset policies remain unselected"
+      ],
+      "world_examples": [
+        {
+          "world": "Mother of Learning supplied snapshot",
+          "case": "Returning in soul form preserves competence but loses the toad enhancement anchored to the abandoned body; one copy stabilizes remaining shared mana.",
+          "status": "source outcome at ch92 p2-12; do not generalize to all soul travel"
+        },
+        {
+          "world": "Original Frontier",
+          "case": "O fixture: a reversible bird-form episode enables flight, changes reach/manipulation and restores the same body with any separately authored lasting injury. A separate trained growth step improves an actual craft verb.",
+          "status": "original proposal, not new native content"
+        },
+        {
+          "world": "Original nonhuman start",
+          "case": "O sapling has rooted shelter/growth actions and supported perception; a species label alone grants neither hands nor an inherited magical faculty.",
+          "status": "original proposal; no biological simulation or start approved"
+        }
+      ],
+      "acceptance_case": {
+        "setup": "One actor, recorded method, separate temporary form and persistent body change, and one explicitly body-bound source.",
+        "actions": [
+          "Enter and leave the form; exercise its real supported action and reject an incompatible action.",
+          "Change the body carrier and retain only declared source/learning domains."
+        ],
+        "pass": "Identity/custody remain singular; form removal does not erase lasting training or invent a new source; old-body support is not silently installed on a new body; explicit source exceptions remain possible.",
+        "state": "future native gate, unrun and deferred"
+      },
+      "source_status": "Source-qualified examples plus O representation; precise form costs, evolution paths, inherited chance and cross-world rules U/unselected.",
+      "simplify_retain": {
+        "retain": "Existing simple body facts, useful native grip progression and Micro conserved-component contract.",
+        "cheaper_correct_form": "Selected body-function profiles with explicit transitions and anchor references.",
+        "defer": "Exhaustive anatomy, universal metabolic simulation and procedural heredity until a required campaign needs them."
+      },
+      "verification_limits": "Static source/API reading only; no new body record/schema or native gameplay tested."
+    },
+    {
+      "id": "POW02",
+      "priority": 1,
+      "kind": "missing",
+      "title": "Multiple bodies need source-specific controller, soul and shared-resource execution",
+      "evidence": [
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "line_start": 63,
+          "line_end": 115,
+          "claim": "Traveler is explicitly a read snapshot; bodies share one identity/mind in this scoped profile, have independent condition owners, and can reference declared pools.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "line_start": 231,
+          "line_end": 259,
+          "claim": "Preview lists required native body/pool bindings and returns nativeExecutable:false; intrinsic execution guidance is already supported.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "line_start": 317,
+          "line_end": 348,
+          "claim": "Shared faculties and aggregate setup/sustain costs are guarded, but this is a travel-source quote, not ongoing multi-body action enforcement.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 64,
+          "line_end": 68,
+          "claim": "Current command availability is actor/participant-based; native concurrent bodies require a selected occupancy/control bridge.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "claim": "OE16: one direct consciousness and soul/essence pool, command-following avatars, distinct held equipment, Attribute armor manifestations.",
+          "locator": "ch1584 p1-44, especially p9-20 and p28",
+          "verification": "direct supplied full chapter read; bounded focal experiments/account"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+          "claim": "MOL-C062-06/07 and MOL-C074-01: autonomous experience without an independent soul/mana reserve; matter body improves durability/upkeep while retaining physical constraints.",
+          "locator": "ch62 p138-159; ch74 p2-6",
+          "verification": "direct supplied paragraphs read; spell description/advice distinguished from copy viewpoint"
+        }
+      ],
+      "current_player_behavior": "Physical same-body passage is the current native direction in PROJECT. Detached traveler previews can describe shared/exclusive bodies and pool costs; they explicitly require native body bindings. Several body's ongoing actions and controller experience are not proved by those previews.",
+      "proposed_player_behavior": "Material bodies act at their own positions and hold their own actual equipment while resolving against the declared shared or independent pool. Shadow direct control and MoL autonomous copies use different attention/decision/knowledge policies. Possession and incarnation are distinct host/controller transitions, not travel-mode aliases.",
+      "authoritative_owner": {
+        "body_and_controller": "Bodies/lifecycle",
+        "source_manifestation": "Abilities",
+        "pools_position_occupancy_save": "Shared Engine",
+        "item_custody": "Items through Engine"
+      },
+      "dependencies": [
+        "POW01 actual bodies and carriers",
+        "Native per-body position/vitals/action bridge",
+        "Canonical shared pool debit and singular cargo/source reservations",
+        "Selected independent-controller versus shared-consciousness policy; soul destruction/possession/reset remains separate"
+      ],
+      "world_examples": [
+        {
+          "world": "Shadow Slave supplied snapshot",
+          "case": "Two avatars cooperate while the same single Memory weapon moves between holders; Attribute armor may manifest on both. Direct control consumes its actual mental support.",
+          "status": "source-qualified sharing distinction; two-body qualification size is O"
+        },
+        {
+          "world": "Mother of Learning supplied snapshot",
+          "case": "A matter-bodied copy works using the original's fuel but has its own anxious experience and communicates through a soul conduit.",
+          "status": "ch74 p2-6; use source-specific agency rather than one generic clone flag"
+        }
+      ],
+      "acceptance_case": {
+        "setup": "Two material bodies, one declared fuel pool, one held weapon and a source-specific controller rule.",
+        "actions": [
+          "Reserve two simultaneous actions whose combined costs exceed the pool; reject aggregate overspend.",
+          "Move the weapon, suppress the embodiment support and attempt ongoing work under the selected termination rule."
+        ],
+        "pass": "No extra weapon/reserve/soul is minted by body count. Positions and conditions stay distinct. Controller experience follows the selected policy; support loss and paid aftermath follow declared rules. A valid genuinely powerful shared-source function still works.",
+        "state": "future native gate, unrun and deferred"
+      },
+      "source_status": "Two directly inspected supplied examples; distinction is verified within those windows. Universal clone, possession, counterpart or soul ontology remains U.",
+      "simplify_retain": {
+        "retain": "Scoped traveler modes, actual-owner guards, intrinsic guidance, shared pool references and source-output versus held-stock distinction.",
+        "cheaper_correct_form": "Qualify two bodies and one policy with a native executor; leave the existing same-mind travel validator scoped.",
+        "defer": "General possession, independent incarnated people and arbitrary collective consciousness."
+      },
+      "verification_limits": "Preview/metadata is not native execution. No claim that travel definitions cover every source controller; no multi-body game/browser/save check run."
+    },
+    {
+      "id": "POW03",
+      "priority": 1,
+      "kind": "underexplored",
+      "title": "Acquisition and synthesis should settle explicit output kinds and real donor/constituent outcomes",
+      "evidence": [
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 207,
+          "line_end": 219,
+          "claim": "Source/faculty grant, suppression and development are separate from executable power ownership.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 221,
+          "line_end": 239,
+          "claim": "Power learn/copy/transfer/remove/fragment/refine exist; copy can include mastery, transfer clears donor power ownership, fusion consumes constituent owned flags. These do not by themselves move source/body/item owners.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/power_models.js",
+          "line_start": 37,
+          "line_end": 39,
+          "claim": "Hybrid checks lineage and retained constituent ownership except in explicit fusion; it does not prove a new constituent source/body function was synthesized.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/realm_traveler_profiles.js",
+          "line_start": 288,
+          "line_end": 296,
+          "claim": "Acquired sources may legitimately supply intrinsic guidance instead of a learned method.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "docs/worlds/ABILITY_AUTHORING.md",
+          "line_start": 13,
+          "line_end": 22,
+          "claim": "Observation, reconstruction, temporary imitation and transfer already have different proposed outputs, including real superior copying.",
+          "verification": "planning owner read"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+          "claim": "MOL-C089-04: life-force integration can convey base-creature instinctive understanding and potential inherited faculty; ordinary enhancement does not convey the same instinctive affinity.",
+          "locator": "ch89 p70-78",
+          "verification": "direct supplied paragraphs read; narration distinguishes procedures and their specific risks"
+        }
+      ],
+      "current_player_behavior": "Useful generic acquisition effects mutate power ownership/mastery/fragments and source faculties. Authors can combine effects and execution predicates. No generic transaction classification establishes a taught record versus temporary supplied execution versus conserved source transfer or created organism.",
+      "proposed_player_behavior": "A taught or reconstructed method yields learning/evidence; a temporary imitation or loan grants exactly its selected execution and termination; theft/transfer changes the actual source/custody and donor support; fusion consumes only declared inputs and creates its selected new function. Inherited/created faculties receive genuine support and source-provided control where applicable.",
+      "authoritative_owner": {
+        "acquisition_function": "Abilities specialist",
+        "host_or_created_organism": "Bodies/lifecycle",
+        "physical_or_living_inputs": "Items",
+        "atomic_native_publication": "Shared Engine"
+      },
+      "dependencies": [
+        "POW01 support/carrier resolution",
+        "Identity foundation's actual source-instance and receipt references",
+        "Selected donor, lease, fusion and created-organism rules",
+        "Definitions and target revisions with declared acquisition output kinds"
+      ],
+      "world_examples": [
+        {
+          "world": "Mother of Learning supplied snapshot",
+          "case": "An enhancement procedure supplies a creature-derived faculty; one integration route also supplies instinctive affinity. A manual describing that ritual is not the faculty.",
+          "status": "ch89 p70-78; recipe and numbers are not universal"
+        },
+        {
+          "world": "Original Frontier",
+          "case": "O demonstration teaches a bracing procedure; a separate loaned control source permits a supported task until expiration. Fuse two actual supported devices only if the chosen recipe consumes them, producing one new working device.",
+          "status": "original proposed contract fixtures; no loan/fusion gameplay selected"
+        }
+      ],
+      "acceptance_case": {
+        "setup": "An observed method, a donor's owned power plus separately owned source, a temporary loan and two actual constituent inputs.",
+        "actions": [
+          "Teach/copy the declared information output and attempt use with and without support.",
+          "Settle loan expiry or source transfer and an explicit fusion recipe; retry the receipt."
+        ],
+        "pass": "Donor changes match the selected route, consumed constituents cannot still execute through stale support, temporary execution ends without erasing retained learning, intrinsic control works where supplied, and no second output/source is created on retry.",
+        "state": "future selected acquisition gates, unrun and deferred"
+      },
+      "source_status": "Existing routes and source-intrinsic guidance are inspected support. Loan/created-organism/fusion recipes are O until selected and source-qualified. No automatic donor memories, identity, ancestry or whole arsenal is inferred.",
+      "simplify_retain": {
+        "retain": "Current typed power/source effects, optional copyMastery, fragments, definition revisions and explicit fusion consumption.",
+        "cheaper_correct_form": "A small acquisition-output contract plus concrete recipes using existing planners/effects and actual owners; execution predicates can express simple supported gates.",
+        "defer": "A universal stealing system, unconstrained source mixing and another ability inventory."
+      },
+      "verification_limits": "Do not call current transfer erroneous merely because it does not implement physical source theft; these are different selected operations. No specific world route implemented or exercised."
+    },
+    {
+      "id": "POW04",
+      "priority": 1,
+      "kind": "missing",
+      "title": "Maintained channels, permanent anchors and suppression require dependency-aware continuation",
+      "evidence": [
+        {
+          "path": "src/energy_resources.js",
+          "line_start": 21,
+          "line_end": 44,
+          "claim": "Learn stores a policy; recover fills reserve/cools strain; use pays conversion with output/control/strain checks. This preserves independent dimensions but does not derive body/source modifiers or continuous upkeep automatically.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "line_start": 189,
+          "line_end": 219,
+          "claim": "Conditions store expiry/onTick; faculty suppression toggles suppression without deleting ownership. Generic suppression does not automatically reconcile separate jobs/conditions.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 164,
+          "line_end": 172,
+          "claim": "completeJob applies frozen effects without general continuation/support revalidation.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/simulation.js",
+          "line_start": 324,
+          "line_end": 337,
+          "claim": "Jobs settle before condition expiration/ticks. This concrete ordering must be reconciled for a selected channel/expiry boundary, not silently generalized.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "docs/gm/world-implementation/depth/micro/WORKED_CASES.md",
+          "line_start": 38,
+          "line_end": 53,
+          "claim": "Independent upkeep, recovery, capacity, startup/use and strain channels are already covered; do not repeat or stack original hypotheses as canon.",
+          "verification": "planning baseline read"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+          "claim": "MOL-C089-04 and MOL-C092-01: a reserve anchor ties up capacity; losing the old body/life-force anchor unravels the enhancement. One simulacrum continually stabilizes usable reserves.",
+          "locator": "ch89 p70-78; ch92 p2-12",
+          "verification": "direct supplied paragraphs read"
+        },
+        {
+          "path": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "claim": "OE16: environmental replenishment and Soul Weave can balance sustain for some avatars indefinitely. OE07: missing True Name prevents Shadow Bond's condition without deleting the held faculty.",
+          "locator": "ch1584 p12-20; ch1589 p40-54",
+          "verification": "direct supplied paragraphs read; bound to Sunny's stage and focal account"
+        }
+      ],
+      "current_player_behavior": "Paid frozen jobs, condition ticks, reserve recovery and faculty suppression operate as distinct mechanisms. Current inspected generic paths do not automatically terminate an effect when its live support disappears or restore only the same dependent continuation.",
+      "proposed_player_behavior": "A supported channel starts, sustains and ends against its actual source/body/pool/target/clock. Capacity anchoring differs from fuel spent per minute. Suppression, missing identity key, removal, service loss and exhaustion have distinct outcomes. Restoration returns eligible execution without regranting ownership or undoing paid aftermath.",
+      "authoritative_owner": {
+        "support_policy_and_termination": "Abilities",
+        "body_anchor": "Bodies/lifecycle",
+        "clock_resolver_and_publication": "Shared Engine",
+        "scheduling_advice": "runtime-efficiency audit lane"
+      },
+      "dependencies": [
+        "POW01 actual body/source carriers; POW02 when several bodies share a channel",
+        "Canonical pool/source/support revisions",
+        "Selected boundary ordering, interruption, escrow and clock policy",
+        "Micro C3/C4/C7; no new absence or death policy implied"
+      ],
+      "world_examples": [
+        {
+          "world": "Shadow Slave supplied snapshot",
+          "case": "An eligible low-use avatar set can remain sustained indefinitely while supported replenishment balances upkeep; stronger simultaneous use can exhaust the same pool.",
+          "status": "source-conditioned advantage retained; no new global duration cap"
+        },
+        {
+          "world": "Mother of Learning supplied snapshot",
+          "case": "The toad enhancement loses its old-body anchor; a different simulacrum stabilization service makes turbulent shared mana usable while maintained.",
+          "status": "direct ch92 p2-12; no claim all body swaps have that cost"
+        },
+        {
+          "world": "Original Glasshouse-derived fixture",
+          "case": "O maintained listener stops only when its named channel loses support. Reopening support doesn't repay startup or replay heard evidence unless the selected restart rule requires new paid startup.",
+          "status": "original later fixture, not a change to current Glasshouse rules"
+        }
+      ],
+      "acceptance_case": {
+        "setup": "One live channel, one capacity anchor, one shared fuel reserve and one permanent learned record.",
+        "actions": [
+          "Remove/suppress the support exactly at a completion/expiry boundary; resolve the declared order and preserve paid physical aftermath.",
+          "Restore legal support and compare startup/use/upkeep/recovery/capacity/output/strain independently."
+        ],
+        "pass": "No orphan output or double debit/refund; restored ownership/learning is not reacquired; only actual dependent effects stop or resume. If recovery equals upkeep indefinitely under a supported rule, no invented timer forces termination.",
+        "state": "future native continuation and retention gate, unrun and deferred"
+      },
+      "source_status": "Source examples are narrowly qualified; channel accounting/order/restart/remedy are O policies until selected. A missing cost is U, never silently zero.",
+      "simplify_retain": {
+        "retain": "Integer reserve/control/output/strain accounting, shared clock, suppression flags and paid job receipts.",
+        "cheaper_correct_form": "Explicit channel/anchor dependencies recomputed at support changes and authorized clock boundaries; independent prepaid work retains current frozen completion where correct.",
+        "defer": "Per-frame organ physiology and mandatory ticking of every permanent source; cost reduction remains unmeasured."
+      },
+      "verification_limits": "No changed source policy, drain scheduler, failure policy or save schema approved. Existing ticks can express fixed authored effects but not automatically prove live-channel semantics."
+    },
+    {
+      "id": "POW05",
+      "priority": 2,
+      "kind": "underexplored",
+      "title": "Functional counters and combinations need domain-specific scope and retained aftermath",
+      "evidence": [
+        {
+          "path": "src/power_models.js",
+          "line_start": 13,
+          "line_end": 43,
+          "claim": "Design/investment/authority/hybrid calculate scope/cost. Authority explicitly avoids made-up damage capacity; finite default sentinel/output validation is implementation arithmetic, not proof of cosmic source limits.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/power_models.js",
+          "line_start": 46,
+          "line_end": 55,
+          "claim": "Typed effect formulas resolve numeric facts; neither formula nor family/model labels implement an arbitrary conceptual interaction.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "src/realm_boundary_rules.js",
+          "line_start": 100,
+          "line_end": 122,
+          "claim": "Named explicit exceptions check actual source/method/body support and bypass only selected conditions; retain this pattern instead of generic rank conversion.",
+          "verification": "read-only code inspection"
+        },
+        {
+          "path": "docs/worlds/ABILITY_AUTHORING.md",
+          "line_start": 42,
+          "line_end": 52,
+          "claim": "Ordering, target support, suppression and explicit fusion/independent refinement already have proposed questions.",
+          "verification": "planning owner read"
+        },
+        {
+          "path": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+          "claim": "MOL-C002-06/07: dispelling levitation drops the bowl; ignition leaves ordinary fuel-burning fire which the same disruptor does not extinguish.",
+          "locator": "ch2 p146-160",
+          "verification": "direct supplied paragraphs read; demonstrations distinguished from Ilsa's broader explanations"
+        },
+        {
+          "path": "docs/research/novels/shadow-slave/observation-emergence/SOURCE_NOTES.md",
+          "claim": "OE16: remaining natural shadows can augment self/avatars in different proportions while manifested bodies use actual abilities and common means.",
+          "locator": "ch1584 p19-21",
+          "verification": "direct supplied paragraphs read; numerical augmentation formula not inferred"
+        }
+      ],
+      "current_player_behavior": "Typed model/effect and boundary exceptions give useful authoring foundations. Current inspected scope/cost calculators do not establish a general dispel/reflect/repair/domain counter or arbitrary combined output executor.",
+      "proposed_player_behavior": "A counter targets the actual continuing construct/support/authority or physical aftermath for which it has a valid function. A combination allocates real constituent support to its selected task. Strong force can defeat an ordinary obstacle; neither family tags nor relative ranks manufacture immunity or mandatory tradeoffs.",
+      "authoritative_owner": {
+        "scope_counter_and_combination": "Abilities specialist plus selected source/world rule",
+        "delivery_and_impact": "Combat/encounter specialist",
+        "physical_aftermath": "Items/Regions actual owners",
+        "ordering_native_damage_time": "Shared Engine"
+      },
+      "dependencies": [
+        "POW03 constituent/output provenance and POW04 continuation",
+        "Actual effect/target/domain/contact identity",
+        "Selected conflict/exception/priority policy; bounded concrete rules rather than unconstrained concepts"
+      ],
+      "world_examples": [
+        {
+          "world": "Mother of Learning supplied snapshot",
+          "case": "The same classroom disruptor ends levitation but cannot erase burning paper. Falling/impact and ongoing fuel burn remain real outcomes.",
+          "status": "direct demonstrations ch2 p146-160; don't infer immunity to every non-magical interaction"
+        },
+        {
+          "world": "Shadow Slave supplied snapshot",
+          "case": "Choose which shadows manifest and which augment a supported body; one common essence pool and singular held stock still apply.",
+          "status": "source-supported allocation flexibility; exact proposed UI/numbers O"
+        },
+        {
+          "world": "Original Frontier",
+          "case": "O worksite shield stops a declared projectile; extinguishing real burning timber requires a different supported action. A superior supplied repair method may simply outperform ordinary repair.",
+          "status": "original local counter/positive-function fixture"
+        }
+      ],
+      "acceptance_case": {
+        "setup": "Continuing levitation, already ignited real fuel, one matching dispel, a real physical remedy and one explicit combined-function recipe.",
+        "actions": [
+          "Apply the dispel to both targets and inspect unchanged physical fuel/aftermath.",
+          "Use the correct physical remedy or paid combination; compare superior supported and unsupported variants."
+        ],
+        "pass": "Only valid domains change; impact/burning survives loss of the initiating magic where declared; actual constituent/equipment/fuel is conserved. No invented universal immunity, equalizing weakness, rank matching or source ceiling.",
+        "state": "future local functional-counter gate, unrun and deferred"
+      },
+      "source_status": "Counter demonstration and Shadow allocation are supplied evidence. Generic reflection/repair/conceptual limits stay source-local or U. Universal interaction algebra is not claimed.",
+      "simplify_retain": {
+        "retain": "Numeric force where meaningful, genuine superiority, explicit boundary bypass scopes, typed formulas and source/model distinctions.",
+        "cheaper_correct_form": "Explicit local intercept/exception policies and authored combination recipes with positive and mismatch cases; omit numeric output for genuinely rule-based effects where supported.",
+        "defer": "Universal element/rank table, every-power pair graph and saved Infinity; no performance/token savings asserted."
+      },
+      "verification_limits": "No native combat/time/schema change or exhaustive conceptual-power/source audit. Existing selected commands can already implement simple counters; generic automatic coverage is the missing qualification."
+    }
+  ],
+  "already_covered": [
+    {
+      "scope": "Unique organ custody, donor/recipient and lineage separation",
+      "owner": "depth/micro/WORKED_CASES.md MC01",
+      "action": "Retain baseline; no repeat organ procedure or Naruto penalty audit."
+    },
+    {
+      "scope": "Independent capacity, recovery, upkeep, startup/use, output and strain",
+      "owner": "canonical plan lines87 and103; Micro MC01 channels",
+      "action": "Retain dimensions; new work is executable channel/anchor composition."
+    },
+    {
+      "scope": "Intrinsic source guidance, singular held gear and scoped boundary exceptions",
+      "owner": "realm_traveler_profiles.js and realm_boundary_rules.js",
+      "action": "Reuse positive functions/guards; do not relabel previews as native gameplay."
+    }
+  ],
+  "next_gate": "Assigning master reconciles the five proposals for Weibao's review. Implementation and native acceptance require reviewed policies and separately released hold. No dependency requires a nineteen-world launch."
+}

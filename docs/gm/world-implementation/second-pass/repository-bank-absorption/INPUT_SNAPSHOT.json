@@ -1,0 +1,21 @@
+{
+  "captured_at_utc": "2026-10-05T16:08:33.963626+00:00",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "branch": "codex/gameplay-foundations",
+  "inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "85910d75bd6d479f4cb8bbf3e708de30d12ad840a67853e53b7eb5bc1ec40fa2",
+    "docs/USER_VISION.md": "d9c2958c13d580ef65947408f80deeb30b29833a1142a2b0307b91d4afc231b9",
+    "docs/ENGINE_AUTHORING.md": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "545e7464ca1603bf88cad479914cbf48a6cd368b49b5ade04ba6480f3e7a8b7b",
+    "docs/gm/world-implementation/second-pass/engine-absorption/REPORT.md": "e101b1fb4fe4c30f52f6950b284271f2a6a78479d7899a6c5c59cfa3beeb9066",
+    "docs/gm/world-implementation/second-pass/fork-network-absorption/REPORT.md": "46cadedfddb7ee31f6909c148108feb23b841a69e51e3a20e75a2b71c43d1726",
+    "src/simulation_contracts.js": "c198470a5290963c1bd3492042b112084daa0cb53f22bd5b2f960de4720d3052",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/capabilities.js": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35",
+    "src/power_models.js": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+    "src/gameplay_publication.js": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+    "src/world_instances.js": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+  },
+  "note": "Dirty input fingerprints, not a claim of a committed or behaviorally verified build."
+}

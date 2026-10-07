@@ -1,0 +1,731 @@
+{
+  "status": "scoped_source_review_complete",
+  "date": "2026-10-06",
+  "commit": "6713f0656491f73f79068454dc3cd938b3a74c10",
+  "runtime_validation": "not_performed",
+  "source_vs_inference_vs_design": "observed_rules are recovered-code semantics; inference and original_packets remain separate",
+  "mechanics": [
+    {
+      "id": "M1",
+      "title": "Skill access, potential, XP and functional body progression",
+      "evidence": [
+        {
+          "path": "Elin/TraitTrainer.cs",
+          "symbol": "IDTrainer",
+          "lines": [
+            1,
+            8
+          ],
+          "sha256": "5cf3698e0bef57c33f76813519b6c149dc7d2e57d0efe4bdb1ef53dd9faf6461",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/TraitTrainer.cs#L1-L8"
+        },
+        {
+          "path": "Elin/DramaCustomSequence.cs",
+          "symbol": "trainer purchase callback/category filter",
+          "lines": [
+            1356,
+            1444
+          ],
+          "sha256": "b034bdb9f0ff2fb44c429c751da8f95d2f13bf9a8adc9542a5beb46a09f31d82",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/DramaCustomSequence.cs#L1356-L1444"
+        },
+        {
+          "path": "Elin/CalcPlat.cs",
+          "symbol": "Learn/Train",
+          "lines": [
+            5,
+            28
+          ],
+          "sha256": "3b501f1d161f9fa91cb0cdd04252f4b49bb26521a5005833c4f0d9bfc6fb686d",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/CalcPlat.cs#L5-L28"
+        },
+        {
+          "path": "Elin/Card.cs",
+          "symbol": "TryPay",
+          "lines": [
+            4106,
+            4123
+          ],
+          "sha256": "8390224ebb1a997fea994c94258a3b423c1ecfc60bfdb52a1f1458221191b558",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Card.cs#L4106-L4123"
+        },
+        {
+          "path": "Elin/ElementContainer.cs",
+          "symbol": "Learn/Train/ModExp",
+          "lines": [
+            265,
+            344
+          ],
+          "sha256": "41dd2f66aa630a571848ae5f4e651e03c516802651bc6e8ce4edc5156a7146a8",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/ElementContainer.cs#L265-L344"
+        },
+        {
+          "path": "Elin/TraitGeneMachine.cs",
+          "symbol": "CanUse/OnUse",
+          "lines": [
+            59,
+            141
+          ],
+          "sha256": "1eb0d4f7de8010bf3cd6d3a2f313baf80836d69ae532713f5fde77ea3604113a",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/TraitGeneMachine.cs#L59-L141"
+        },
+        {
+          "path": "Elin/InvOwnerGene.cs",
+          "symbol": "_OnProcess",
+          "lines": [
+            25,
+            82
+          ],
+          "sha256": "5475cf9524115e9df6432c99c54011cfc2e61d4ee7e57de4be6456f3782718ac",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/InvOwnerGene.cs#L25-L82"
+        },
+        {
+          "path": "Elin/DNA.cs",
+          "symbol": "Apply",
+          "lines": [
+            169,
+            258
+          ],
+          "sha256": "d4a3e8770b46c6a3dc21a200aae802383663e7e00e77bbacdbd461b802812f5d",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/DNA.cs#L169-L258"
+        },
+        {
+          "path": "Elin/CharaBody.cs",
+          "symbol": "GetSlot",
+          "lines": [
+            398,
+            426
+          ],
+          "sha256": "68703cd0f211785b47f4645fceb30c9cea122782bbec5397f7fb6afe3bf80279",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/CharaBody.cs#L398-L426"
+        }
+      ],
+      "observed_rules": [
+        "Paid learning creates base ownership; training temporary potential and XP leveling are distinct operations. Max train potential and affordability are checked before mutation.",
+        "Gene process is for eligible non-player members, needs installed powered machine and legal slot/conflict checks, stores the gene under target with a completion date, then validates root-card identity before applying.",
+        "DNA body slots have equipment lookup/eligibility consumers, feats and abilities have separate mutations; cost is charged in Apply and reversal returns declared feat cost."
+      ],
+      "failure_path": "Insufficient platinum/max potential returns without skill mutation; invalid gene/slots refuse transfer; wrong root-card skips mutation but removes suspension.",
+      "external_content_limits": [
+        "Skill category/tags/costs, DNA element meanings and body slot rows depend on absent source data.",
+        "Guide affordability is not independently demonstrated here to be a complete executor-level transactional guard for all DNA transfers."
+      ],
+      "inference": [
+        "Useful progression should distinguish known/acquired, trained quality and executable bodily support."
+      ],
+      "yair_support": [
+        "native Skill XP/visibility; skill_discovery/skill_discovery_native",
+        "body_progression conditioning with actual support",
+        "power_models and simulation progression branches/costs/receipts"
+      ],
+      "bounded_gap": "One original branch and its real consumers, not general learning/body/gene plumbing.",
+      "original_packets": [
+        "ELIN-P4"
+      ],
+      "notes": [
+        "readers/PROGRESSION.json",
+        "readers/PROGRESSION.md"
+      ]
+    },
+    {
+      "id": "M2",
+      "title": "Selected inputs become quality/material output with a function",
+      "evidence": [
+        {
+          "path": "Elin/RecipeManager.cs",
+          "symbol": "BuildList/Create",
+          "lines": [
+            40,
+            129
+          ],
+          "sha256": "5c1910fd981ca9856407d05cba7193a74c05c8fbf98996d0ff0fbd616b7f7fa4",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/RecipeManager.cs#L40-L129"
+        },
+        {
+          "path": "Elin/Recipe.cs",
+          "symbol": "Ingredient validation",
+          "lines": [
+            91,
+            164
+          ],
+          "sha256": "6003dd230d560fe0271b6e8978199711ee2c0d65585e0e1fe4e359ad49116478",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Recipe.cs#L91-L164"
+        },
+        {
+          "path": "Elin/Recipe.cs",
+          "symbol": "GetQualityBonus",
+          "lines": [
+            397,
+            419
+          ],
+          "sha256": "6003dd230d560fe0271b6e8978199711ee2c0d65585e0e1fe4e359ad49116478",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Recipe.cs#L397-L419"
+        },
+        {
+          "path": "Elin/TaskCraft.cs",
+          "symbol": "OnProgress/IsIngredientsValid/OnProgressComplete",
+          "lines": [
+            81,
+            166
+          ],
+          "sha256": "9fc4ff33e930dbb08a51c6314febc95286723e3f34ec6b32e79f2f4fbfe19171",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/TaskCraft.cs#L81-L166"
+        },
+        {
+          "path": "Elin/TaskCraft.cs",
+          "symbol": "PutOutResources",
+          "lines": [
+            168,
+            175
+          ],
+          "sha256": "9fc4ff33e930dbb08a51c6314febc95286723e3f34ec6b32e79f2f4fbfe19171",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/TaskCraft.cs#L168-L175"
+        },
+        {
+          "path": "Elin/RecipeCard.cs",
+          "symbol": "Craft blueprint/output/mix/callback/holding",
+          "lines": [
+            154,
+            331
+          ],
+          "sha256": "d03152686d73b2753f6ea7d112c878aa95e80ebf0ad418c00286f49d85b43e89",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/RecipeCard.cs#L154-L331"
+        },
+        {
+          "path": "Elin/Thing.cs",
+          "symbol": "ApplyMaterial",
+          "lines": [
+            362,
+            496
+          ],
+          "sha256": "a2e2b86e992d5d3e730961ad767bc61c52dff2de1e22d1ecc6d7ccacb37f041a",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Thing.cs#L362-L496"
+        },
+        {
+          "path": "Elin/Card.cs",
+          "symbol": "Power",
+          "lines": [
+            2365,
+            2365
+          ],
+          "sha256": "8390224ebb1a997fea994c94258a3b423c1ecfc60bfdb52a1f1458221191b558",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Card.cs#L2365-L2365"
+        },
+        {
+          "path": "Elin/Card.cs",
+          "symbol": "GetTotalQuality",
+          "lines": [
+            4017,
+            4024
+          ],
+          "sha256": "8390224ebb1a997fea994c94258a3b423c1ecfc60bfdb52a1f1458221191b558",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Card.cs#L4017-L4024"
+        },
+        {
+          "path": "Elin/CraftUtil.cs",
+          "symbol": "MixIngredients map hardness consumer",
+          "lines": [
+            469,
+            490
+          ],
+          "sha256": "11de04fb38bd67dc4af5ef2235401b4d1f45c5997be09981808b679f88de0ac8",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/CraftUtil.cs#L469-L490"
+        }
+      ],
+      "observed_rules": [
+        "Recipe requirements and selected concrete things are distinct; generated source rows feed recipe creation and malformed recipes are removed independently.",
+        "Selected material/skill deficit/headroom affects generated output; material equipment stats and quality feed mechanical consumers. A map output stores range affected by gem hardness.",
+        "Task progress awards20XP; each successful crafted output awards200XP; final stamina charge occurs after the loop. Input revalidation and staging precede crafting."
+      ],
+      "failure_path": "Earlier ingredients are split into resources as checks proceed; a later invalid ingredient returns before destruction and before final stamina charge. PutOutResources exists but no symbol-search caller was found. Runtime cleanup/partial-spend outcome is unresolved, not established loss or atomicity.",
+      "external_content_limits": [
+        "Actual recipes, material stats/tags and assets omitted.",
+        "Generated code does not establish current assembly runtime or recovered-project buildability."
+      ],
+      "inference": [
+        "The useful transfer is a declared ingredient/tool function and a precise failure/cost rule; existing quality bars are insufficient evidence of product legibility."
+      ],
+      "yair_support": [
+        "ComponentRecipe/EquipmentRecipe and main assembly settlement",
+        "Weapon.calculateAttackPower already uses component/quality/rarity",
+        "new reference-gameplay cooling/resin/sleeve conservation exists in live dirty source, implemented-unverified"
+      ],
+      "bounded_gap": "A selected new jig/offcut purpose and later preview/behavior acceptance; no missing generic crafting or cooling engine.",
+      "original_packets": [
+        "ELIN-P3"
+      ],
+      "notes": [
+        "readers/CRAFT.json",
+        "readers/CRAFT.md"
+      ]
+    },
+    {
+      "id": "M3",
+      "title": "Resident schedule, practical needs, relation and shared stock",
+      "evidence": [
+        {
+          "path": "Elin/Chara.cs",
+          "symbol": "GetGoal/GetGoalWork/GetGoalHobby",
+          "lines": [
+            9401,
+            9450
+          ],
+          "sha256": "eac788c29629078eb8adcba84067bbe04c6ede9a50351235be553bf5f2d7b495",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Chara.cs#L9401-L9450"
+        },
+        {
+          "path": "Elin/GoalWork.cs",
+          "symbol": "Run/FindWork/TryWork",
+          "lines": [
+            12,
+            134
+          ],
+          "sha256": "32e483227c51eebb23c7f189c5f4fe7ac95d5deadcf4e984e7dc764ce8d6c2f9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/GoalWork.cs#L12-L134"
+        },
+        {
+          "path": "Elin/AIWork.cs",
+          "symbol": "Run/SetDestination/GetSession",
+          "lines": [
+            29,
+            143
+          ],
+          "sha256": "4221047998f067fd56a25e3821be392ae6f75bc82880ab5ead362a5e1781008b",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/AIWork.cs#L29-L143"
+        },
+        {
+          "path": "Elin/Hobby.cs",
+          "symbol": "GetEfficiency",
+          "lines": [
+            31,
+            73
+          ],
+          "sha256": "7c06a85c8fd4a2bf12095788e83ec38cd1e06904690e29e06894eb8c99456484",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Hobby.cs#L31-L73"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "OnSimulateHour daily output call",
+          "lines": [
+            449,
+            468
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L449-L468"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "DailyOutcome livestock and commodity stock",
+          "lines": [
+            819,
+            977
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L819-L977"
+        },
+        {
+          "path": "Elin/Chara.cs",
+          "symbol": "TryPutShared",
+          "lines": [
+            4742,
+            4748
+          ],
+          "sha256": "eac788c29629078eb8adcba84067bbe04c6ede9a50351235be553bf5f2d7b495",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Chara.cs#L4742-L4748"
+        },
+        {
+          "path": "Elin/Affinity.cs",
+          "symbol": "Get/CanInvite",
+          "lines": [
+            38,
+            62
+          ],
+          "sha256": "752257fd089902d887ea26955e62d7be959d2afd82273ccbb55437f3a59890d7",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Affinity.cs#L38-L62"
+        },
+        {
+          "path": "Elin/DramaCustomSequence.cs",
+          "symbol": "invite/bout choice guards",
+          "lines": [
+            79,
+            90
+          ],
+          "sha256": "b034bdb9f0ff2fb44c429c751da8f95d2f13bf9a8adc9542a5beb46a09f31d82",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/DramaCustomSequence.cs#L79-L90"
+        },
+        {
+          "path": "Elin/Chara.cs",
+          "symbol": "work summary accumulation",
+          "lines": [
+            9774,
+            9840
+          ],
+          "sha256": "eac788c29629078eb8adcba84067bbe04c6ede9a50351235be553bf5f2d7b495",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Chara.cs#L9774-L9840"
+        }
+      ],
+      "observed_rules": [
+        "Timetable/role chooses work goals; available home/site/target governs work selection. Needs tick separately; inspected core work selection has no stamina prerequisite.",
+        "Hobby efficiency uses actual home, destination, skill, bed quality and negative affinity.",
+        "Physical daily production is a distinct5am call, doubled in lucky month. Goods enter shared storage or position fallback; absent pasture stops that livestock production, consuming pasture when produced.",
+        "Stored affinity has an invitation/bout dialogue consumer. Tick-level WorkSummary resources are separate from physical DailyOutcome stock."
+      ],
+      "failure_path": "Missing work target idles or yields zero efficiency; no pasture skips that production; shared stock insertion falls back to local placement.",
+      "external_content_limits": [
+        "Job/product/needs tables and assets omitted.",
+        "No aggregate WorkSummary payout or things-list consumer was found by bounded source search; reset on hobby reroll is not payout.",
+        "Daily commodity output is repeatable; its generic ingredients are not demonstrated to be a conserved funded recipe. YAIR should retain its own real input accounting."
+      ],
+      "inference": [
+        "Amenities and relationship state can matter through one practical work consumer without a compulsory universal needs meter."
+      ],
+      "yair_support": [
+        "society finite independently funded workers, actual rights and payment",
+        "everyday_life mood/busy/teaching alternatives",
+        "simulation controllers, native/simulation stock, completion support/refunds",
+        "nested-life retained material jobs already exist"
+      ],
+      "bounded_gap": "Finite schedule/amenity/stock content binding, not missing NPC persistence or inventory.",
+      "original_packets": [
+        "ELIN-P1",
+        "ELIN-P2"
+      ],
+      "notes": [
+        "readers/RESIDENT.json",
+        "readers/RESIDENT.md"
+      ]
+    },
+    {
+      "id": "M4",
+      "title": "Home growth and concrete research rewards",
+      "evidence": [
+        {
+          "path": "Elin/GameDate.cs",
+          "symbol": "AdvanceDay faction call",
+          "lines": [
+            194,
+            198
+          ],
+          "sha256": "e7cf3af896c604deb866cbe1fbe3fcb52db4517adecabe0fcbf77c7db130c56e",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/GameDate.cs#L194-L198"
+        },
+        {
+          "path": "Elin/Faction.cs",
+          "symbol": "OnAdvanceDay",
+          "lines": [
+            379,
+            385
+          ],
+          "sha256": "c37885d2eeed7170d95a8d4cb6610e9b2ff54cb1c96a5b74523ccb2deac808e8",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Faction.cs#L379-L385"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "OnAdvanceDay/ModExp/Upgrade",
+          "lines": [
+            652,
+            679
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L652-L679"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "Upgrade",
+          "lines": [
+            1373,
+            1435
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L1373-L1435"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "CanUpgrade/ModExp",
+          "lines": [
+            1446,
+            1487
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L1446-L1487"
+        },
+        {
+          "path": "Elin/FactionBranch.cs",
+          "symbol": "Evalue/GetProductBonus/capacity getters",
+          "lines": [
+            128,
+            189
+          ],
+          "sha256": "a26b532aa40d12acf8a61157007b8d9f678e052ae80dd4b25d6017d22f2d7fb9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/FactionBranch.cs#L128-L189"
+        },
+        {
+          "path": "Elin/ItemResearch.cs",
+          "symbol": "SetPlan purchase",
+          "lines": [
+            11,
+            45
+          ],
+          "sha256": "c3830d02e5e0ca289c6f15dc253dc5d348092e9a7201a11bbf0461ec48928168",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/ItemResearch.cs#L11-L45"
+        },
+        {
+          "path": "Elin/ResearchManager.cs",
+          "symbol": "CanCompletePlan/CompletePlan",
+          "lines": [
+            105,
+            136
+          ],
+          "sha256": "694351f31c9dd1a631ad4a0ec1c90d08e4616d1e9dccb3fcd150cf52b3d54907",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/ResearchManager.cs#L105-L136"
+        },
+        {
+          "path": "Elin/ResearchPlan.cs",
+          "symbol": "ParseReward",
+          "lines": [
+            65,
+            128
+          ],
+          "sha256": "019c4ae7b9c3da05c9888a7791533a70a52a716ff04bb52703da655215b1210c",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/ResearchPlan.cs#L65-L128"
+        },
+        {
+          "path": "Elin/RecipeManager.cs",
+          "symbol": "Add guards/known recipe mutation",
+          "lines": [
+            141,
+            179
+          ],
+          "sha256": "5c1910fd981ca9856407d05cba7193a74c05c8fbf98996d0ff0fbd616b7f7fa4",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/RecipeManager.cs#L141-L179"
+        }
+      ],
+      "observed_rules": [
+        "OnAdvanceDay increments days together only for co-present/party members, then earns probabilistic branch XP from default residents and extra Pioneer work.",
+        "ModExp is stopped by policy2515, modified by2516 and invokes Upgrade only after GetNextExp and CanUpgrade. MaxLv7, demo stops growth at3.",
+        "Upgrade writes policy capacity and population elements, validates unlock policies and promotes network-tagged feats into faction scope at lv5. Evalue reads policy activity or shared network values, MaxPopulation and GetProductBonus actually consume them.",
+        "Separate research path: ItemResearch.SetPlan quotes shared knowledge, refuses insufficient knowledge, debits knowledge then calls CompletePlan. It does not gate by ResearchPlan.IsComplete/exp.",
+        "CompletePlan applies row-declared recipes/policies/feats and advances/reset rank or moves plan to finished. RecipeManager.Add ignores unknown recipe IDs; no inference of guaranteed unlock if rows are missing."
+      ],
+      "failure_path": "Disabled XP policy, max-level/demo bounds, insufficient knowledge, and unknown recipe guard. Source does not establish atomic debit/reward failure behavior.",
+      "external_content_limits": [
+        "External research/policy/element rows absent; exact branch catalogue/effects unknown.",
+        "WorkSummary.knowledge was seen accumulating; an actual transfer from that summary to branch knowledge was not found by the reader. Do not fabricate it.",
+        "RefreshEfficiency tests the old efficiency field before assigning num, so its apparent zero clamp does not establish correct nonnegative resulting efficiency."
+      ],
+      "inference": [
+        "A project reward should enable a usable recipe/site action, rather than depend on a field name implying a functioning research production loop."
+      ],
+      "yair_support": [
+        "site_projects compile to same world facts/claims/jobs/costs",
+        "field_workshop real paid multiperson construction and later kit activity",
+        "society legal site rights and funded repair, source unlock adapters"
+      ],
+      "bounded_gap": "One earned research/fixture payoff over these owners; branch levels and generalized home-resource production are not needed.",
+      "original_packets": [
+        "ELIN-P2",
+        "ELIN-P3"
+      ],
+      "notes": [
+        "ROOT_REVIEW.json"
+      ]
+    },
+    {
+      "id": "M5",
+      "title": "Clock-scoped opportunity creation and retained settlement",
+      "evidence": [
+        {
+          "path": "Elin/GameUpdater.cs",
+          "symbol": "minute timer pause/update",
+          "lines": [
+            523,
+            539
+          ],
+          "sha256": "9e83ac35e625e1024b274537638d15c9da1fb416f8972fd8d47e1b0b2950682e",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/GameUpdater.cs#L523-L539"
+        },
+        {
+          "path": "Elin/GameDate.cs",
+          "symbol": "AdvanceMin/AdvanceHour/AdvanceDay",
+          "lines": [
+            24,
+            198
+          ],
+          "sha256": "e7cf3af896c604deb866cbe1fbe3fcb52db4517adecabe0fcbf77c7db130c56e",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/GameDate.cs#L24-L198"
+        },
+        {
+          "path": "Elin/VirtualDate.cs",
+          "symbol": "SimulateHour/Day/Month",
+          "lines": [
+            66,
+            97
+          ],
+          "sha256": "599ece573bc1dd583ad5d953ab377bb729bf1b8c3c0b27f87fe1b87214716b4b",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/VirtualDate.cs#L66-L97"
+        },
+        {
+          "path": "Elin/Zone.cs",
+          "symbol": "Simulate elapsed hours/caps/exceptions",
+          "lines": [
+            1347,
+            1421
+          ],
+          "sha256": "393af2166534ba12f35dfd96c501d56da441326e2aa5091ecd2632cf693c93c6",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Zone.cs#L1347-L1421"
+        },
+        {
+          "path": "Elin/Zone.cs",
+          "symbol": "OnSimulateHour/Day",
+          "lines": [
+            3629,
+            3650
+          ],
+          "sha256": "393af2166534ba12f35dfd96c501d56da441326e2aa5091ecd2632cf693c93c6",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Zone.cs#L3629-L3650"
+        },
+        {
+          "path": "Elin/LayerQuestBoard.cs",
+          "symbol": "paid reroll/RefreshQuest",
+          "lines": [
+            68,
+            126
+          ],
+          "sha256": "13a5e35c419b9ab8a562d74b77a72280cc3f7422555633cd9fc7160a9ead519b",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/LayerQuestBoard.cs#L68-L126"
+        },
+        {
+          "path": "Elin/Zone.cs",
+          "symbol": "UpdateQuests",
+          "lines": [
+            3935,
+            4020
+          ],
+          "sha256": "393af2166534ba12f35dfd96c501d56da441326e2aa5091ecd2632cf693c93c6",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Zone.cs#L3935-L4020"
+        },
+        {
+          "path": "Elin/Quest.cs",
+          "symbol": "Create client/UID/deadline",
+          "lines": [
+            241,
+            256
+          ],
+          "sha256": "5d0a152a57d08f03bd031ce00f117229594f0e1e39591b857b7a187f291b5d00",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Quest.cs#L241-L256"
+        },
+        {
+          "path": "Elin/Quest.cs",
+          "symbol": "Init deadline",
+          "lines": [
+            335,
+            365
+          ],
+          "sha256": "5d0a152a57d08f03bd031ce00f117229594f0e1e39591b857b7a187f291b5d00",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Quest.cs#L335-L365"
+        },
+        {
+          "path": "Elin/QuestManager.cs",
+          "symbol": "Start/OnAdvanceHour",
+          "lines": [
+            52,
+            65
+          ],
+          "sha256": "0f3836cd8a1429d04f814f90ec0a6e0f373dbd7a5e1bf9bba4f99999773d33b9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/QuestManager.cs#L52-L65"
+        },
+        {
+          "path": "Elin/QuestManager.cs",
+          "symbol": "OnAdvanceHour",
+          "lines": [
+            120,
+            130
+          ],
+          "sha256": "0f3836cd8a1429d04f814f90ec0a6e0f373dbd7a5e1bf9bba4f99999773d33b9",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/QuestManager.cs#L120-L130"
+        },
+        {
+          "path": "Elin/Quest.cs",
+          "symbol": "IsExpired/Hours",
+          "lines": [
+            111,
+            132
+          ],
+          "sha256": "5d0a152a57d08f03bd031ce00f117229594f0e1e39591b857b7a187f291b5d00",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Quest.cs#L111-L132"
+        },
+        {
+          "path": "Elin/Quest.cs",
+          "symbol": "Fail/Complete aftermath",
+          "lines": [
+            443,
+            501
+          ],
+          "sha256": "5d0a152a57d08f03bd031ce00f117229594f0e1e39591b857b7a187f291b5d00",
+          "permalink": "https://github.com/Elin-Modding-Resources/Elin-Decompiled/blob/6713f0656491f73f79068454dc3cd938b3a74c10/Elin/Quest.cs#L443-L501"
+        }
+      ],
+      "observed_rules": [
+        "GameUpdater returns while paused or rendering extra-time; its date timer advances one game minute after threshold.",
+        "AdvanceHour first runs VirtualDate with IsRealTime=true; VirtualDate increments copied date and dispatches zone simulation. Actual date then advances and calls weather/player/quests/zone/global goals.",
+        "Zone.Simulate on reentry uses saved lastActive and pending hours, configurable caps/skipped intervals; unknown/region/no-meaningful-elapsed zones return, per-hour exceptions are logged then continued. This is game-calendar zone absence, not proof of wall-clock offline progression.",
+        "Quest board refresh invokes Zone.UpdateQuests, which cleans expired unaccepted offers, gates regeneration by dateQuest1440minutes, seeds weekly max-offer capacity, weights missing external rows and restricts clients/destinations/fame. Paid force reroll bypasses the date guard for one local influence.",
+        "Quest.Create assigns client and date/unique UID. Init computes deadlines. Accepted quests are held by QuestManager.list; hourly expiry calls Fail, removes accepted record/clears client, records consumed uid in ClientZone and changes fame/karma. Complete separately records global completion IDs/types, rewards, relation change and local consumed uid."
+      ],
+      "failure_path": "No legal client/destination/fame excludes offers; insufficient reroll influence rejects; expired accepted quest goes through explicit Fail rather than a hidden UI discard.",
+      "external_content_limits": [
+        "Only offer capacity is explicitly reseeded by uid/week here, not all generated quest outcomes.",
+        "No complete random quest catalogue, supplied source rows, actual quest completion playthrough, or save/reload evidence.",
+        "Source-mutating board refresh must not be copied into YAIR read-only rendering. Existing unsupported realm absence remains frozen."
+      ],
+      "inference": [
+        "Do not infer an entire deterministic opportunity from one seeded capacity calculation, or wall-clock offline progression from in-game zone catchup."
+      ],
+      "yair_support": [
+        "simulation seeded checks/guarantee/max-occurrence/expiry",
+        "causal_situations explicit phase receipts and observation ownership",
+        "world_rhythm saved-calendar schedule; read-only disclosure/feed",
+        "original_frontier_facts freezes unsupported unaccepted absence window; accepted prepaid jobs retain declared clock semantics"
+      ],
+      "bounded_gap": "One funded eligible local request and observer-qualified retained aftermath, not generalized procedural quest generation or another scheduler.",
+      "original_packets": [
+        "ELIN-P5"
+      ],
+      "notes": [
+        "ROOT_REVIEW.json"
+      ]
+    }
+  ],
+  "comparison_inputs": "COVERAGE.json",
+  "reused_completed_reviews": [
+    "../caves-of-qud/REPORT.md",
+    "../dcss-dda-depth/REPORT.md"
+  ],
+  "packets": [
+    {
+      "id": "ELIN-P1",
+      "rank": 1,
+      "status": "original_proposal_only"
+    },
+    {
+      "id": "ELIN-P2",
+      "rank": 2,
+      "status": "original_proposal_only"
+    },
+    {
+      "id": "ELIN-P3",
+      "rank": 3,
+      "status": "original_proposal_only"
+    },
+    {
+      "id": "ELIN-P4",
+      "rank": 4,
+      "status": "original_proposal_only"
+    },
+    {
+      "id": "ELIN-P5",
+      "rank": 5,
+      "status": "original_proposal_only"
+    }
+  ]
+}

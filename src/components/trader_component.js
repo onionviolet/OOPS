@@ -7,6 +7,12 @@ import { getItem, item_templates } from "../items.js";
 import InventoryComponent, { inventories } from "./inventory_component.js";
 import AvailabilityComponent from "./availability_component.js";
 import { availabilities, availability_havers } from "../data/component_references.js";
+import {factorioRetortItemSpecifications} from '../factorio_retort_content.js';
+import {proto23ItemSpecifications} from '../proto23_world_content.js';
+
+const conservedCampaignItems = [...factorioRetortItemSpecifications,...proto23ItemSpecifications];
+const conservedCampaignKeys = new Set(conservedCampaignItems.map(spec => JSON.stringify({id:spec.id})));
+const conservedCampaignIds = conservedCampaignItems.map(spec => spec.id);
 
 inventories["trader"] = {};
 availabilities["trader"] = {};
@@ -62,8 +68,19 @@ class TraderComponent {
     refresh(context) {
         if(this.can_refresh()) {
             //refresh inventory
+            const retained = {};
+            for(const [key, entry] of Object.entries(this.#inventory.getItems())) {
+                if(conservedCampaignKeys.has(key)) {
+                    if(!entry?.item || !Number.isSafeInteger(entry.count) || entry.count <= 0) throw new Error('Invalid conserved campaign merchant stock.');
+                    retained[key] = entry;
+                } else if(conservedCampaignIds.some(id => key.includes(id))) throw new Error('Malformed conserved campaign merchant key.');
+            }
             this.emptyInventory();
             this.fillInventoryFromTemplate(context);
+            for(const [key, entry] of Object.entries(retained)) {
+                if(this.#inventory.getItems()[key]) throw new Error('Merchant templates cannot create conserved campaign stock.');
+                this.#inventory.getItems()[key] = entry;
+            }
 
             this.last_refresh = (current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time);
             return true;

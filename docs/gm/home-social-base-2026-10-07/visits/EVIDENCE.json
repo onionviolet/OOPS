@@ -1,0 +1,60 @@
+{
+  "capturedAtUtc": "2026-10-07T05:09:18.472984+00:00",
+  "status": "implemented-unverified",
+  "owner": "/root/visit_compaction",
+  "integrator": "/root",
+  "inputHashes": {
+    "src/world_visit_history.js": null,
+    "src/book_world_mol_host.js": "bff62276ab5177013c83c515e24693f119f8b6066c8970c05598f3bea7ced657",
+    "src/book_world_mol_state.js": "75543dab270539f5c57045c8481a1a89351e0a16b9045fb603a7ad8387d4ddc8",
+    "src/book_world_paradise_host.js": "758913d57d105c23b0908d3765b035e9947240fbf21e0644d7d629d6d7a2018f",
+    "src/book_world_paradise_state.js": "32e951fccf9925b68118938d33222200b2ca08010dbe4853b12ba01c9f8299f5",
+    "src/feature_expansion_nested_host.js": "ea461d24e53078667f78b026e57c1ebb121c04090f79f955324fb5617207cef9"
+  },
+  "outputHashes": {
+    "src/world_visit_history.js": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+    "src/book_world_mol_host.js": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879",
+    "src/book_world_mol_state.js": "6d67e9b60ccb6f057bf56faf25d98e6475f47463f43daa5fe9ade8a883cdc651",
+    "src/book_world_paradise_host.js": "8b59589d68248a12f60385b4aa632730547a8cda2cb6b6406a94baa1ef316d5e",
+    "src/book_world_paradise_state.js": "45a2f45e01298ef412b23b6ef114338d2b0cc9ca73afb66605d20634d363724b",
+    "src/feature_expansion_nested_host.js": "9d814bfe228ef9533d62cb3cebf0c0c7c16c194d982347a63d226b3584fe899e"
+  },
+  "checks": [
+    {
+      "type": "syntax",
+      "command": "node --check <each of the six output source paths>",
+      "result": "passed; syntax only"
+    },
+    {
+      "type": "cold-import",
+      "command": "node --input-type=module; import each of the six output source modules",
+      "result": "passed",
+      "exports": {
+        "world_visit_history": 2,
+        "book_world_mol_host": 10,
+        "book_world_mol_state": 9,
+        "book_world_paradise_host": 8,
+        "book_world_paradise_state": 12,
+        "feature_expansion_nested_host": 12
+      }
+    },
+    {
+      "type": "static-source-and-doc-links",
+      "command": "Python: compare final six hashes; resolve relative imports and worker Markdown links",
+      "result": "passed"
+    }
+  ],
+  "deferred": [
+    "unit",
+    "model",
+    "browser",
+    "gameplay",
+    "save",
+    "reload",
+    "import roundtrip",
+    "failed-save",
+    "regression"
+  ],
+  "schemaDecision": "No shape/schema bump, counter, parallel history store or migration. Existing elapsed/observedAt clock owner supplies reconciled history; retained visits keep exact original shape. Optional earlier expansion5-11 readers remain admitted by their unchanged owners.",
+  "rootBinding": "Rebuild/serve modified source through root-owned build. No registry, main/native publisher, save reader, carrier guard or generated asset edit is required. Later acceptance routes remain unrun."
+}

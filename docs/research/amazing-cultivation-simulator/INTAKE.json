@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "steam_app_id": 955900,
+  "steam_build_id": "17074448",
+  "installed_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/AmazingCultivationSimulator",
+  "state_flags": 4,
+  "private_workspace": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "copied_files": 2188,
+  "copied_dlls": 86,
+  "assemblies": [
+    {
+      "path": "Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll",
+      "bytes": 7948800,
+      "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902"
+    },
+    {
+      "path": "Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp-firstpass.dll",
+      "bytes": 2471424,
+      "sha256": "c9763f9dc8779990ce52f87b355910e4a96a8c3cc6b65ca9367338e300b7f2ad"
+    }
+  ],
+  "tool": {
+    "command": [
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+      "--version"
+    ],
+    "version": "ilspycmd: 9.1.0.7988\nICSharpCode.Decompiler: 9.1.0.7988\n",
+    "exit_code": 0,
+    "hashes": {
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet": "81925e68da4f4ebcd8edd72a952e2a7f3ca64e90d9df0ff0be5c697c41fec473",
+      "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll": "58ef1a86bea09f2e5a114720b607dd0bdaaf91cfe498c6b7a3412bd960d0f57d"
+    }
+  },
+  "runtime": "Microsoft.NETCore.App 8.0.31 [/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/shared/Microsoft.NETCore.App]",
+  "exports": [
+    {
+      "assembly": "Assembly-CSharp",
+      "command": [
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+        "--disable-updatecheck",
+        "-p",
+        "-o",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/decompiled/Assembly-CSharp",
+        "-r",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-10-06T19:58:04.995382+00:00"
+    },
+    {
+      "assembly": "Assembly-CSharp-firstpass",
+      "command": [
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet/dotnet",
+        "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/ilspycmd/ilspycmd.dll",
+        "--disable-updatecheck",
+        "-p",
+        "-o",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/decompiled/Assembly-CSharp-firstpass",
+        "-r",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed",
+        "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp-firstpass.dll"
+      ],
+      "exit_code": 0,
+      "finished_utc": "2026-10-06T19:58:18.058081+00:00"
+    }
+  ],
+  "export_files": 4583,
+  "csharp_files": 4581,
+  "inline_diagnostics": 0,
+  "private_manifests": {
+    "INPUT_MANIFEST.json": "e55a1a196968e7f97df6aebfb2709a22bdee755956454362935317cc18ff57ca",
+    "DECOMPILATION_MANIFEST.json": "fbd58982909457e5cf5618898e2ecd0349dfad90e09822fdc9fb47f38063f834",
+    "DECOMPILER_DIAGNOSTICS.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "DECOMPILATION_RUN.json": "48b857e7dd87649868565d0791632c90c22cd4972715356589603b49f5cd2af1",
+    "TOOLS.json": "18b81f2e77bad4976b843de2747750993cbfe08b1310e77a9175de6fa8ebb9d1"
+  },
+  "qualification": "Two gameplay assemblies exported, dependencies only resolver inputs. Generated project not compiled/run. Semantic coverage is selected paths only. All raw binaries/source/logs private. Personal saves/profiles not read.",
+  "game_launched": false,
+  "profiles_or_saves_read": false,
+  "raw_source_in_git": false
+}

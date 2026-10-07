@@ -1,0 +1,384 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "date": "2026-10-06",
+  "role": "01a10fa6-d749-70a1-882b-eae0fd454060",
+  "integrator": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "status": "source-ready-implemented-unverified",
+  "writerTransfer": "Causal root and children released seven new source modules to sole shared integrator; no pending process or competing source reservation",
+  "authority": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+  "integration": "docs/gm/causal-endings/INTEGRATION.md",
+  "sources": [
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "exports": [
+        "CAUSAL_STORY_DEFINITION_REVISION",
+        "CAUSAL_STORY_ENGINE_SCHEMA",
+        "CAUSAL_STORY_ITEMS",
+        "CAUSAL_STORY_LIMITS",
+        "CAUSAL_STORY_LOCATION",
+        "CAUSAL_STORY_NATIVE_DOMAIN",
+        "CAUSAL_STORY_PEOPLE",
+        "CAUSAL_STORY_PREFIX",
+        "CAUSAL_STORY_PROFILES",
+        "CAUSAL_STORY_PROOFS",
+        "CAUSAL_STORY_SCHEMA",
+        "CAUSAL_STORY_SOURCES",
+        "CAUSAL_STORY_WORLD",
+        "causalStoryId",
+        "causalStoryPersonIds"
+      ],
+      "lines": 20
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "exports": [
+        "CAUSAL_STORY_NATIVE_PEOPLE",
+        "causalStoryActorFacts",
+        "causalStoryNativeStats",
+        "causalStoryPeople",
+        "causalStorySeedEffects",
+        "freezeCausalStoryContent"
+      ],
+      "lines": 163
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "exports": [
+        "appendCausalStoryReceipt",
+        "beginCausalStoryProof",
+        "causalStoryOccupiesActor",
+        "createCausalStoryState",
+        "evaluateCausalClosure",
+        "resolveCausalProtection",
+        "resolveCausalStrike",
+        "stageCausalClosure",
+        "validateCausalStories"
+      ],
+      "lines": 433
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "exports": [
+        "CAUSAL_STORY_NATIVE_PEOPLE",
+        "CAUSAL_STORY_SITES",
+        "causalStoryDefinitions",
+        "causalStoryFacts",
+        "causalStoryNativeStats",
+        "causalStorySeedEffects",
+        "causalStorySources"
+      ],
+      "lines": 222
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7",
+      "exports": [
+        "causalStoryQuestProjection",
+        "createCausalStoryNativeBindings",
+        "validateCausalStoryEnvelope",
+        "validateCausalStoryNativeMetadata"
+      ],
+      "lines": 464
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "a9eb61d3ddc32072344b9a0d05d482cf2954af9e1d983889e9ba60cde7fe7c15",
+      "exports": [
+        "advanceCausalStoryBoundary",
+        "causalStoryContext",
+        "causalStoryPresentation",
+        "causalStorySimulationContexts",
+        "causalStoryTravelReasons",
+        "commitCausalStoryCommand",
+        "completeCausalStoryJob",
+        "invalidateCausalStorySupport",
+        "nextCausalStoryBoundary",
+        "previewCausalStoryCommand",
+        "reconcileCausalStoryPlan",
+        "recordCausalStoryJobCompletion",
+        "validateCausalStoryJob"
+      ],
+      "lines": 494
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "exports": [
+        "createCausalStoryUI"
+      ],
+      "lines": 313
+    }
+  ],
+  "ids": {
+    "people": [
+      "causal.story.tarin",
+      "causal.story.asha",
+      "causal.story.orin",
+      "causal.story.roe",
+      "causal.story.nell"
+    ],
+    "sources": [
+      "causal.story.measured_release",
+      "causal.story.survival_covenant",
+      "causal.story.established_future",
+      "causal.story.courier_guard"
+    ],
+    "commands": [
+      "causal.story.mortal.cooperate",
+      "causal.story.mortal.refuse_cooperation",
+      "causal.story.mortal.deliver",
+      "causal.story.mortal.request_care",
+      "causal.story.mortal.prepare_guard",
+      "causal.story.mortal.copy_warning",
+      "causal.story.mortal.notice_interruption",
+      "causal.story.mortal.deliver_warning",
+      "causal.story.mortal.hear_source_evidence",
+      "causal.story.mortal.request_research",
+      "causal.story.mortal.research",
+      "causal.story.mortal.hear_research",
+      "causal.story.mortal.learn_method",
+      "causal.story.mortal.adapt_method",
+      "causal.story.mortal.care",
+      "causal.story.mortal.hear_delivery",
+      "causal.story.mortal.ordinary_followup",
+      "causal.story.mortal.witness_followup",
+      "causal.story.mortal.keeper_followup",
+      "causal.story.covenant.cooperate",
+      "causal.story.covenant.refuse_cooperation",
+      "causal.story.covenant.deliver",
+      "causal.story.covenant.request_care",
+      "causal.story.covenant.prepare_guard",
+      "causal.story.covenant.copy_warning",
+      "causal.story.covenant.notice_interruption",
+      "causal.story.covenant.deliver_warning",
+      "causal.story.covenant.hear_source_evidence",
+      "causal.story.covenant.request_research",
+      "causal.story.covenant.research",
+      "causal.story.covenant.hear_research",
+      "causal.story.covenant.learn_method",
+      "causal.story.covenant.adapt_method",
+      "causal.story.covenant.authorize_release",
+      "causal.story.covenant.request_source_release",
+      "causal.story.covenant.sever_job",
+      "causal.story.covenant.care",
+      "causal.story.covenant.hear_delivery",
+      "causal.story.covenant.ordinary_followup",
+      "causal.story.covenant.witness_followup",
+      "causal.story.covenant.keeper_followup",
+      "causal.story.anchor.cooperate",
+      "causal.story.anchor.refuse_cooperation",
+      "causal.story.anchor.deliver",
+      "causal.story.anchor.request_care",
+      "causal.story.anchor.prepare_guard",
+      "causal.story.anchor.copy_warning",
+      "causal.story.anchor.notice_interruption",
+      "causal.story.anchor.deliver_warning",
+      "causal.story.anchor.hear_source_evidence",
+      "causal.story.anchor.request_research",
+      "causal.story.anchor.research",
+      "causal.story.anchor.hear_research",
+      "causal.story.anchor.learn_method",
+      "causal.story.anchor.adapt_method",
+      "causal.story.anchor.authorize_release",
+      "causal.story.anchor.request_source_release",
+      "causal.story.anchor.sever_job",
+      "causal.story.anchor.care",
+      "causal.story.anchor.hear_delivery",
+      "causal.story.anchor.ordinary_followup",
+      "causal.story.anchor.witness_followup",
+      "causal.story.anchor.keeper_followup"
+    ],
+    "controllers": [
+      "causal.story.mortal.courier_controller",
+      "causal.story.covenant.courier_controller",
+      "causal.story.anchor.courier_controller",
+      "causal.story.witness_controller",
+      "causal.story.keeper_controller"
+    ],
+    "sites": [
+      "causal.story.delivery.mortal",
+      "causal.story.delivery.covenant",
+      "causal.story.delivery.anchor",
+      "causal.story.research",
+      "causal.story.care",
+      "causal.story.ordinary"
+    ],
+    "situations": [
+      "causal.story.mortal.situation",
+      "causal.story.covenant.situation",
+      "causal.story.anchor.situation"
+    ],
+    "quests": [
+      "causal.story.mortal.quest",
+      "causal.story.covenant.quest",
+      "causal.story.anchor.quest"
+    ],
+    "enrollment": "causal.story.enroll",
+    "hostPerProof": [
+      "begin",
+      "strike",
+      "subdue",
+      "capture",
+      "release",
+      "withdraw",
+      "report"
+    ],
+    "hostProtected": [
+      "sever",
+      "release_source"
+    ],
+    "cancel": "causal.story.cancel"
+  },
+  "counts": {
+    "people": 5,
+    "commands": 63,
+    "controllers": 5,
+    "sites": 6,
+    "powers": 2,
+    "situations": 3,
+    "sources": 4,
+    "seedEffects": 97
+  },
+  "compatibility": {
+    "expansion": 11,
+    "domain": "causalStories",
+    "schema": 1,
+    "nativeDomain": "causal_story_native",
+    "nativeSchema": 1,
+    "simulation": 4,
+    "owners": "auditRemainder OR causalStories; validate both if present; absent inert",
+    "oldSchemas": "5-10 meanings preserved, causal optional enrollment required; older engines reject opted-in11",
+    "frozenJobs": "old groups unchanged; current descriptor only new selected original counter"
+  },
+  "consumers": [
+    "expedition_content registry",
+    "expansion_engine schema/boundary/current contexts",
+    "simulation controller/completion/current-support joins",
+    "simulation_contracts job descriptor",
+    "simulation_effects fresh causal facts",
+    "main command/native/body/UI/publication/current reconciliation",
+    "save_files envelope/save/load",
+    "old domain/schema-normalizer coexistence",
+    "actual travel current restrained body",
+    "final matching build by sole integrator"
+  ],
+  "packets": {
+    "P1": {
+      "source": "implemented-unverified",
+      "sharedIntegration": "pending",
+      "playableAcceptance": "deferred"
+    },
+    "P2": {
+      "source": "implemented-unverified",
+      "sharedIntegration": "pending",
+      "playableAcceptance": "deferred"
+    },
+    "P3": {
+      "source": "implemented-unverified",
+      "sharedIntegration": "pending",
+      "playableAcceptance": "deferred"
+    },
+    "P4": {
+      "source": "implemented-unverified",
+      "sharedIntegration": "pending",
+      "playableAcceptance": "deferred"
+    },
+    "P5": {
+      "source": "implemented-unverified",
+      "sharedIntegration": "pending",
+      "playableAcceptance": "deferred"
+    }
+  },
+  "deferred": [
+    "actual initial owners/native custody/stock/XP",
+    "current mortal/protected/severed/anchor physical results",
+    "support/deadline/continued NPC work/body-contact changes",
+    "observer attribution/known report/quest/UI keyboard-menu",
+    "generated old-absent-enrolled-frozen save-reload-import and failure rollback"
+  ],
+  "exclusions": [
+    "shared source/package/build/test/canonical writes",
+    "private save/library/source-text mutation",
+    "game/unit/browser/save/failure/regression/director suites",
+    "commit/push/publish/automation/dependency installation"
+  ],
+  "movingInputs": [
+    {
+      "path": "src/main.js",
+      "sha256": "c8dc3b2d13930c293cdb166dd67160061fa6aca67a114223119a66431c36eef8"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "dd52f305db21849739b3065113aa833119d2d5f71e4c1e92dbc52f951a678089"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "cfbdad697848f1d30032f3fdfebb67c9f7e46f0150ba912439f5fd406f400f60"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "28f6581da2d67df291ef4a3354a7f44625071f9618769d035311430a86bcc836"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "c2f7a47556521629d9c98eb79cfaf4b0643bcd88554e0fac9591129ed8e3c5a8"
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "sha256": "65af7158d4a66ff429ecd299fc9acee1932ee074fac7908c9e5568f07eca132f"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "sha256": "d1dc7bc89e0abb81784a4bf90dc9c5fe0ac200e46ff6873b241baf4ab47b8ca5"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "b32cb56b079d2f13a12e0717640f55dcc48bc39a62948472408f5553e5800ec6"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "sha256": "acff0556bcd18d85a7fc1deb4d651ee4dc0759a0844da454ccde2dcedf990a32"
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "sha256": "f810ceae7a1d5e7b1fedf0734c7238a80f1b520e2b4e5e5ee8f59d9b6d6ffb0f"
+    },
+    {
+      "path": "src/native_battle.js",
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0"
+    },
+    {
+      "path": "src/combat_math.js",
+      "sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+    }
+  ]
+}

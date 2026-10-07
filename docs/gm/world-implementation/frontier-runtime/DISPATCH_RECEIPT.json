@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-10-05 19:51:15 UTC",
+  "assigningThreadId": "01a10d43-b542-7630-a102-cb11c8d94763",
+  "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+  "hostId": "local",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "requestedTitle": "GM: implement Frontier campaign",
+  "authority": "Direct current human request: send out GM to begin implkementing",
+  "selectedPacket": "INC-P1",
+  "goal": {
+    "parentIds": 33,
+    "masterySteps": 15,
+    "endingCases": 7,
+    "requiredAdapters": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09"
+    ]
+  },
+  "scope": "Selected finite Frontier and necessary source/native/UI/save/build integration only; other packets/options remain unselected",
+  "previousEngine": {
+    "timedOut": false,
+    "wake": {
+      "reason": "inactiveStatus",
+      "threadId": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+      "hostId": "local"
+    },
+    "polls": [
+      {
+        "schemaVersion": 1,
+        "cursor": "24c8c52e-2e4b-4413-84b0-22a32110e147:25",
+        "revision": 25,
+        "changed": true,
+        "thread": {
+          "id": "01a1056b-d82c-7ef2-babb-d8316c45f396",
+          "hostId": "local",
+          "status": {
+            "type": "notLoaded"
+          }
+        },
+        "latestTurn": {
+          "id": "01a10c52-1c20-7950-b530-dc89d0de7aa1",
+          "status": "completed",
+          "error": null,
+          "startedAt": 1791208070,
+          "completedAt": 1791210468,
+          "durationMs": 2398747
+        },
+        "latestAssistantMessageId": "msg_0a2687c485813a73016ac3b3df976887d2acaffb98d53cdaa3",
+        "latestAssistantMessage": {
+          "id": "msg_0a2687c485813a73016ac3b3df976887d2acaffb98d53cdaa3",
+          "turnId": "01a10c52-1c20-7950-b530-dc89d0de7aa1",
+          "phase": "final_answer",
+          "text": "Added two more internal Engine GMs: Practice UI and skill authoring, with separate file ownership. Both finished, and their work is integrated. The current build includes four useful skill families with progressive discovery. Build and source checks pass; gameplay and save checks remain deferred. Each GM can use its own available subagent pool as useful work comes up."
+        },
+        "latestToolMarkerId": "exec-4c219df2-604d-4878-80f6-45dd4184d011",
+        "latestToolMarker": {
+          "id": "exec-4c219df2-604d-4878-80f6-45dd4184d011",
+          "turnId": "01a10c52-1c20-7950-b530-dc89d0de7aa1",
+          "type": "commandExecution",
+          "name": "commandExecution",
+          "status": "failed"
+        }
+      }
+    ]
+  },
+  "previousFrontier": {
+    "timedOut": false,
+    "wake": {
+      "reason": "inactiveStatus",
+      "threadId": "01a10945-010b-7a91-844a-d6d3024c6f35",
+      "hostId": "local"
+    },
+    "polls": [
+      {
+        "schemaVersion": 1,
+        "cursor": "022fcba0-145f-469a-bf22-6d45d46d306e:12",
+        "revision": 12,
+        "changed": true,
+        "thread": {
+          "id": "01a10945-010b-7a91-844a-d6d3024c6f35",
+          "hostId": "local",
+          "status": {
+            "type": "notLoaded"
+          }
+        },
+        "latestTurn": {
+          "id": "01a10c52-165b-76f2-a9de-5d641c366054",
+          "status": "completed",
+          "error": null,
+          "startedAt": 1791208068,
+          "completedAt": 1791208976,
+          "durationMs": 908183
+        },
+        "latestAssistantMessageId": "msg_0883c48fda0d6008016ac3ae0a44a087d29ca3deb77f7efd53",
+        "latestAssistantMessage": {
+          "id": "msg_0883c48fda0d6008016ac3ae0a44a087d29ca3deb77f7efd53",
+          "turnId": "01a10c52-165b-76f2-a9de-5d641c366054",
+          "phase": "final_answer",
+          "text": "The Frontier plan is ready: four careers, five arcs, 15 exploration/control/mastery steps and seven cumulative ending cases. Completion checklist: 33 requirements with native dependencies and acceptance gates. Timeline and endings: persistent history where earlier evidence, skills and commitments shape later outcomes. Implementation packet: required versus optional adapters. Document checks passed. The source module remains unchanged and held; native implementation and gameplay/save acceptance remain open."
+        },
+        "latestToolMarkerId": "exec-50fa7156-4007-44e7-9987-f84937405c7a",
+        "latestToolMarker": {
+          "id": "exec-50fa7156-4007-44e7-9987-f84937405c7a",
+          "turnId": "01a10c52-165b-76f2-a9de-5d641c366054",
+          "type": "mcpToolCall",
+          "name": "open_in_codex",
+          "status": "completed"
+        }
+      }
+    ]
+  },
+  "peerAuditAtDispatch": {
+    "timedOut": true,
+    "wake": null,
+    "polls": [
+      {
+        "schemaVersion": 1,
+        "cursor": "bd8b94f7-3eb5-44a7-ab70-4e833ee724ea:25",
+        "revision": 25,
+        "changed": true,
+        "thread": {
+          "id": "01a10d44-0649-7932-9869-32f293ed898a",
+          "hostId": "local",
+          "status": {
+            "type": "active",
+            "activeFlags": []
+          }
+        },
+        "latestTurn": {
+          "id": "01a10d99-2e8f-73f2-8f10-472ba1c018ce",
+          "status": "inProgress",
+          "error": null,
+          "startedAt": 1791229505,
+          "completedAt": null,
+          "durationMs": null
+        },
+        "latestAssistantMessageId": "msg_016b60e04acaf558016ac3fe9da31487d2b0efc9733fddb2f3",
+        "latestAssistantMessage": {
+          "id": "msg_016b60e04acaf558016ac3fe9da31487d2b0efc9733fddb2f3",
+          "turnId": "01a10d99-2e8f-73f2-8f10-472ba1c018ce",
+          "phase": "commentary",
+          "text": "The incorporation GM received the same request and is already preparing the Frontier dispatch. I\u2019m checking its actual creation and writer handoff so this produces one implementation writer."
+        },
+        "latestToolMarkerId": "exec-c4bec9a8-639d-4c4d-9355-d9468e22300d",
+        "latestToolMarker": {
+          "id": "exec-c4bec9a8-639d-4c4d-9355-d9468e22300d",
+          "turnId": "01a10d99-2e8f-73f2-8f10-472ba1c018ce",
+          "type": "mcpToolCall",
+          "name": "wait_threads",
+          "status": "completed"
+        }
+      }
+    ]
+  },
+  "settings": "Model/thinking omitted; configured defaults retained. Existing local dirty checkout reused; no new worktree.",
+  "runtimeWriterReleasedToNewGM": true,
+  "canonicalWriterReleasedToNewGM": true,
+  "canonicalReleaseNote": "Dispatcher finished six canonical status writes and517link/JSON/ID/ownership readback; new GM is now the sole narrow current-progress writer. Dispatcher retains assignment/input/dispatch records only.",
+  "progressState": "active/inProgress observed; runtime release confirmed, implementation starting",
+  "checks": "Build/syntax/import/registration/link/readback allowed; gameplay/save/failure/keyboard/regression/director deferred",
+  "noCodeChangesByDispatcher": true,
+  "assignment": "docs/gm/world-implementation/frontier-runtime/ASSIGNMENT.md",
+  "inputSnapshot": "docs/gm/world-implementation/frontier-runtime/INPUT_SNAPSHOT.json",
+  "canonicalDispatchChecks": {
+    "date": "2026-10-05",
+    "planRevision": 13,
+    "status": "passed",
+    "scope": "actual one-GM selected INC-P1 dispatch and ownership only",
+    "canonicalFiles": 6,
+    "dispatchFiles": 3,
+    "localLinksAndAnchors": 517,
+    "actualCreatedGMs": 1,
+    "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "observedStart": "active/inProgress; runtime handoff acknowledged",
+    "requiredCounts": [
+      33,
+      15,
+      7
+    ],
+    "requiredAdapters": 9,
+    "otherPacketsOptionalAdaptersSelected": false,
+    "sourceEditsOrTestsByDispatcher": false,
+    "testDeferralPreserved": true,
+    "noGameplayCompletionClaim": true,
+    "historicalRevision12": "preserved dated closeout; later authority/status edits are expected drift"
+  },
+  "canonicalBeforeReleaseHashes": {
+    "PROJECT.md": "5a4b99b113514abdc8cee54b41aeb9056579479a814a7ed8087ff4cc15f088dc",
+    "docs/USER_VISION.md": "325465aeb69ae5b183048855756f2071f490d2603975fd11e59ee8f61a92b4eb",
+    "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md": "3ed3b79696b1e6624810a16e13bb5fce1fe017b6b92616e2ef7a092fcae3c200",
+    "docs/gm/world-implementation/RUN.json": "10b414652a3614eeeda08f6d422187e6c4a8f446df5f8444a9dd7225e5fd9d62",
+    "docs/gm/world-implementation/README.md": "7cd7fe0cba13132a77732e8dafd1fcb05be46b595fa057bab4c66e6204c4c2ea",
+    "docs/gm/world-implementation/CHECKPOINT.md": "7315a32d3389ab7a52d28015902abbbf95b27c76a0acb9f1a3180c98edb6ceb8"
+  },
+  "initialObservation": {
+    "threadId": "01a10d9d-fd4a-7b62-8a41-a3c93cc97711",
+    "hostId": "local",
+    "observedState": "active",
+    "latestTurn": "inProgress",
+    "cursor": "4f5ec92d-46bc-49da-aba3-5db4f01aea73:3",
+    "latestTurnId": "01a10d9e-095f-7140-b4a4-2e8d825df4aa",
+    "initialProgress": "The runtime release is confirmed. I\u2019m taking the shared native integration and assigning two disjoint content workers to careers/endings and field/mastery work, plus one worker for the campaign panel.",
+    "observedAtUtc": "2026-10-05 19:53:35 UTC"
+  },
+  "canonicalReleasedAtUtc": "2026-10-05T19:54:47.491006+00:00",
+  "assignmentSha256": "8e9a3d61f0061da42033820afc82451e2c14ac35e583a26d7750acd2987ea4b7",
+  "inputSnapshotSha256": "6d05edae2b378d09bf6a70485548b59a0934319d0a830b555a010999a0c3e0d3"
+}

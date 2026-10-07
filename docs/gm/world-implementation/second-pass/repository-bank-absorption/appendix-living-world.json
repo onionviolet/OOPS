@@ -1,0 +1,1145 @@
+{
+  "schema": "repository-bank-absorption-living-world-appendix-v1",
+  "qualification": {
+    "purpose": "A bounded review of six pinned living-world, teaching, profession, work, and authoring sources, mapped to current YAIR owners.",
+    "source_manifest": "docs/research/repository-bank/SOURCES.json",
+    "cache_root": "~/.cache/yairpg-repository-bank/2026-10-05/",
+    "retrieval": "Read-only Git object inspection with git show/grep/ls-tree at each manifest pin; public lazy blob reads only. No checkout, upstream instructions, hooks, setup, package, build, supplied script, game test, or private save was run or read.",
+    "working_tree": "Dirty at review start; left untouched except for this assigned appendix. HEAD was 97c28efece4fd6248b6f075ad0c6927c3d0432df on codex/gameplay-foundations; source identity here is the dirty checkout documented by INPUT_SNAPSHOT, not that HEAD alone.",
+    "review_limit": "Partial subsystem review of six repositories, not repository-wide coverage, all branches/releases, a complete source mirror, or execution evidence. Current YAIR gameplay referenced below is built but remains implemented-unverified under the active test deferral.",
+    "source_identity_check": "All six source IDs, root URLs, cache keys, branch labels, and pinned revisions below match SOURCES.json. The Cataclysm pin 09a75ac is newer than the 6c506a pin used by the earlier engine-absorption review; that earlier review covered conditions, effects, magic and persistence, not this appendix's proficiency/job path. This appendix adds that path without restating the older findings."
+  },
+  "repositories": [
+    {
+      "id": "coffeemud",
+      "title": "CoffeeMUD",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/bozimmerman/CoffeeMud",
+        "revision": "720aec631f799662ad00ef1b52443f8f8bbbbaf4",
+        "branch": "master",
+        "cache_key": "coffeemud.git",
+        "cache_limit": "Pinned partial mirror; this review inspected the README, root license and notice, and one teacher behavior, not the full MUD, content set, or all notices for bundled dependencies.",
+        "files": [
+          {
+            "path": "README",
+            "sha256": "e8b2c19867f2b7893798d332b87650e8b7987aeb8eed543bb7d6f40ef4736d04",
+            "lines": "1-8"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "85e647ae967241c7cd42e90f35b06473458181a12c6b20b34d36c42b68f0952a",
+            "lines": "1-6"
+          },
+          {
+            "path": "NOTICE",
+            "sha256": "28926548263523e21126d2d7623240038485cea578a5efe46e125b3484cefbdc",
+            "lines": "1-23"
+          },
+          {
+            "path": "com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java",
+            "sha256": "3d29441fc9e7c0a7d6fc0818d5ab42eb6265e740fd15497ccbce4d99f2c51eae",
+            "symbols": [
+              "ensureCharClass",
+              "executeMsg",
+              "postTeach"
+            ],
+            "lines": "40-61, 214-334, 337-458, 517-558"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "README identifies CoffeeMud as an MUD and directs operators to separate LICENSE and NOTICE files. LICENSE is Apache-2.0. NOTICE names CoffeeMud contributors and third-party components including JZLIB, Rhino, CodeMirror and NicEdit.",
+        "reuse_boundary": "No code, prose, assets, or third-party dependencies were copied. Any later code reuse must retain applicable Apache notices and review each dependency's separate terms; inspiration alone needs no copied-file attribution."
+      },
+      "reviewed_mechanism": "MOBTeacher is a configurable MOB behavior. It can seed abilities/classes/expertise; when a visible human student speaks a teach/gain request, it parses one requested ability or expertise, checks student qualification/known state and routes teaching through the engine's postTeach service. It has explicit rejection/report paths for invisible parties and the broad 'ALL' request. This is a dialogue affordance over CoffeeMud's own class/ability mapper, not a stand-alone student-teacher economy. The behavior also has broad setup modes, including periodic expertise provisioning, which should not be mistaken for a bounded per-lesson model.",
+      "fit": "Selective pattern only. YAIR already has explicit knowledge, acquisition, practice, actual power/source effects, native skill consumers, NPC schedules and directed memory. The useful narrow seam is letting an eligible instructor expose a finite known method after observed evidence and a direct request. No whole CoffeeMud behavior or dependency is warranted.",
+      "code_backed_no_fit": "The source depends directly on CoffeeMud MOB, char-class, ability-mapper, command, and expertise services; those types cannot serve as a drop-in YAIR runtime. Its ability-to-student postTeach call also does not prove what costs or saved state a future YAIR lesson should use.",
+      "partial_coverage": "One MOB teaching behavior and repository-level rights files only.",
+      "notice_and_content_limits": "The NOTICE lists bundled third-party projects with separate licenses. Repository Apache-2.0 status does not by itself clear game world text, art, or each bundled library for YAIR."
+    },
+    {
+      "id": "opennefia",
+      "title": "OpenNefia current C# source",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/OpenNefia/OpenNefia",
+        "revision": "d8410b3e59845312d557c321d3752531519e14f6",
+        "branch": "develop",
+        "cache_key": "opennefia.git",
+        "cache_limit": "Pinned partial mirror; inspected project README/license, TrainerSystem, and VanillaAISystem excerpts only.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "10ca6d320111887553b2c4f3ee97f6eda39b305224b65be1639f4ad3b479514c",
+            "lines": "5-18"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "a876c87fce0e4cbdb5bb9af48f49f614387a873edbda978e7a68c3071af1c181",
+            "lines": "1-10"
+          },
+          {
+            "path": "OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs",
+            "sha256": "f29e6dce17c133e3adc752c39f80c7e3b64d752744842860041e1250ed745eb0",
+            "symbols": [
+              "ITrainerSystem",
+              "TrainerSystem.CalcTrainSkillCost",
+              "TrainerSystem.CalcLearnSkillCost",
+              "TrainerSystem.CalcTrainPotentialAmount",
+              "TrainerSystem.CalcLearnableSkills"
+            ],
+            "lines": "26-76"
+          },
+          {
+            "path": "OpenNefia.Content/VanillaAI/VanillaAISystem.cs",
+            "sha256": "617bc397b9a520e01d2e3f2206f1213df169a62fd2ae956c2451400783789076",
+            "symbols": [
+              "VanillaAISystem.Initialize",
+              "HandleNPCTurnStarted",
+              "TryToUseItem",
+              "RunVanillaAI",
+              "DoAICalmAction"
+            ],
+            "lines": "33-85, 111-166, 188-256, 417-437"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "README describes a work-in-progress, moddable engine reimplementation of Elona requiring .NET 8. LICENSE is MIT and names Noa and Ruin0x11.",
+        "reuse_boundary": "No code or assets were copied. The code license does not establish permission to copy Elona's original game content; any future content reuse needs a separate provenance review."
+      },
+      "reviewed_mechanism": "TrainerSystem exposes a default learnable-skill list plus per-map trainer additions, computes training cost from the learner's current skill level, scales new-skill cost by a saved total-skills-learned counter, and computes potential gain from current potential. The interface does not make these costs payments to the trainer or consume trainer-owned inventory/time. Separately, VanillaAISystem documents that the default entity system can be replaced per NPC, handles NPC turn events and evaluates help, item verbs, combat, search, and calm actions in an ordered sequence; calm behavior is explicitly not yet implemented in this pin.",
+      "fit": "Selective authoring pattern. A trainer's finite per-location allow-list and visible formula are useful for original YAIR profession content. Its global saved count is a tuning choice, not a required shared economy or a reason to add a new trainer engine. The AI replaceability seam is architecturally interesting but YAIR already supplies typed controllers that choose legal command/response paths.",
+      "code_backed_no_fit": "EntityUid, EntitySystem, map components, turn events, .NET service dependencies and the tile-oriented tactical AI do not match YAIR's synchronous browser-game executor. The TrainerSystem has no teacher resource reservation or directed lesson memory in the inspected subsystem.",
+      "partial_coverage": "Trainer calculations/allow-list and selected default AI action order only; no full entity-component or Elona content review.",
+      "maintenance_and_fallback": "If later content needs a trainer roster, define it in existing simulation content and use current command eligibility and acquisition effects. Drop the roster data without migrating runtime state if that content is removed; preserve already learned powers and knowledge. Adding a saved per-teacher counter would need a migration decision, and is not justified by this code alone."
+    },
+    {
+      "id": "opennefia-archived",
+      "title": "OpenNefia archived Lua prototype",
+      "status": "historical/duplicate",
+      "source": {
+        "url": "https://github.com/Ruin0x11/OpenNefia",
+        "revision": "dbe3eaa38fb8730bc74007bf9734a54376429490",
+        "branch": "develop",
+        "cache_key": "opennefia-archived.git",
+        "cache_limit": "Pinned partial mirror; inspected archived README/license, Lua trainer dialog and the compact NpcMemory API only.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "df80db351831239e63fdbfed6db8d69f8179f57a53b5135d815484871eaa5eeb",
+            "lines": "1-17"
+          },
+          {
+            "path": "LICENSE",
+            "sha256": "be312e1b2d70820400c8435ebf5fe7e4b2849234d99f653f49e394e7e1564140",
+            "lines": "1-10"
+          },
+          {
+            "path": "src/mod/elona/data/dialog/role/trainer.lua",
+            "sha256": "c364113dc92a5615ef44d43f221b801b514df399a27e436161d4118a70352297",
+            "symbols": [
+              "train_skill",
+              "learn_skill",
+              "train_confirm",
+              "learn_confirm",
+              "train_accept",
+              "learn_accept"
+            ],
+            "lines": "8-24, 26-105"
+          },
+          {
+            "path": "src/mod/elona_sys/api/NpcMemory.lua",
+            "sha256": "7ad115f01bf38d1e910cbc58b298f3fb7d4f048c2c43b5098774b7e53452a2db",
+            "symbols": [
+              "NpcMemory.on_killed",
+              "NpcMemory.on_generated",
+              "NpcMemory.forget_generated",
+              "NpcMemory.killed",
+              "NpcMemory.generated"
+            ],
+            "lines": "1-52"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "Its README explicitly says development moved to the current OpenNefia repository and calls this an older Lua prototype. It describes a ground-up moddable Elona reimplementation. LICENSE is MIT with Noa and Ruin0x11 named.",
+        "reuse_boundary": "No Lua source, game content or assets were copied. Original Elona provenance is separately relevant to content."
+      },
+      "reviewed_mechanism": "The Lua trainer dialog asks for one selected skill, calculates a cost, presents a confirmation only when the player has enough platinum, and then trains or learns through the skill API. NpcMemory keeps saved killed/generated counters keyed by NPC definition ID; it is population/template history rather than a person's directed beliefs or relationship memory.",
+      "disposition_reason": "Historical evidence for the lineage of current TrainerSystem, not a second independent framework candidate. The trainer interaction is superseded by the current C# source review; the definition-level count memory is too coarse to substitute for YAIR's per-person knowledge and directed relationships.",
+      "partial_coverage": "One trainer dialogue and one small memory module; no prototype-wide comparison.",
+      "maintenance_and_fallback": "Do not make new YAIR code depend on this retired Lua API. If a simple confirm-and-pay dialogue is later needed, express it using the current native interaction and simulation command contracts; remove the authored trainer option without deleting existing actor-specific memory."
+    },
+    {
+      "id": "cataclysm-dda",
+      "title": "Cataclysm: Dark Days Ahead",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA",
+        "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+        "branch": "master",
+        "cache_key": "cataclysm-dda.git",
+        "cache_limit": "Pinned partial mirror; this lane inspected proficiency definitions/runtime persistence, a consumer surface, and faction mission definition loading. Earlier audit evidence at 6c506a remains authoritative for its named EOC/condition/save paths only.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "9bd90745df78314fa649f415dc025137c9d459a6ef0e803c7e3834b613731b3e",
+            "lines": "1-14"
+          },
+          {
+            "path": "LICENSE.txt",
+            "sha256": "6e3d17bae7a8f0dee4b0d0c6af5bdf4396a0e685455efa8c2ad4ce52acdd99e2",
+            "lines": "1-24"
+          },
+          {
+            "path": "src/proficiency.cpp",
+            "sha256": "28c319b93d23869f7c52afb0d312aa38d3b0d41d3e764b99156d8c79bd39f443",
+            "symbols": [
+              "proficiency::load",
+              "proficiency::can_learn",
+              "proficiency::is_teachable",
+              "proficiency::time_to_learn",
+              "book_proficiency_bonuses",
+              "proficiency_set::migrate_proficiencies"
+            ],
+            "lines": "73-134, 152-170, 192-220, 611-660, 702-727"
+          },
+          {
+            "path": "src/character_proficiency.cpp",
+            "sha256": "a7a203dc096251ca441e8f91f1d801fd05c2d9f10d2bcd7de7390eec027a5045",
+            "symbols": [
+              "Character::practice_proficiency",
+              "Character::proficiencies_offered_to"
+            ],
+            "lines": "18-55, 71-135"
+          },
+          {
+            "path": "src/activity_actor.cpp",
+            "sha256": "7668d1550d7341db690ca5562794cc0d1e6005c3609e5ec54f4f91d82b3b8788",
+            "symbols": [
+              "lockpick_activity_actor::lockpicking_moves",
+              "lockpick_activity_actor::finish"
+            ],
+            "lines": "3342-3353, 3532-3539"
+          },
+          {
+            "path": "src/proficiency_ui.cpp",
+            "sha256": "b269db2ff80ae37468a4d930375c4066158dee77d5379d8a527e528c9928e388",
+            "symbols": [
+              "prof_window::draw_details",
+              "prof_window::run"
+            ],
+            "lines": "30-47, 157-219, 333-398"
+          },
+          {
+            "path": "src/faction_mission.cpp",
+            "sha256": "5f543ef3ce00866b8bdcfe514431aeb57afff608a4c228b21ca81c4541a5b273",
+            "symbols": [
+              "faction_mission::load",
+              "faction_mission::describe",
+              "faction_mission::check"
+            ],
+            "lines": "41-64, 127-192"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "README identifies a turn-based survival game. LICENSE.txt declares CC BY-SA 3.0 for Cataclysm and lists separate licenses for fonts and other components.",
+        "reuse_boundary": "Pattern-only recommendation. Do not copy code, JSON, dialogue, assets, or documentation into YAIR from this source. Any later content or code reuse needs a fresh rights and attribution review for the exact files and distribution."
+      },
+      "reviewed_mechanism": "Proficiency definitions carry learnability, category, practice timing/penalty/bonus, prerequisites, teachability, and bonuses. Character practice advances saved time-based learning with focus adjustment; a completed method emits an event and is separately queryable as known or in-progress. proficiencies_offered_to exposes only teachable proficiencies known by the teacher and missing from the student. A native window makes learning time, prerequisite links and progress inspectable. In the pinned lockpick activity, missing lockpicking proficiency multiplies action duration, and completing the activity advances the relevant proficiency practice. Faction mission definitions load authored skill, difficulty/risk/activity, time, positions, item alternatives, effects and footer fields. These are separate mechanisms, not proof of a single universal profession simulation.",
+      "fit": "Strong independent design pattern for distinguishing learned method, active practice, prerequisites, eligible teachers and a real downstream use from a label-only skill. YAIR already has simulation power mastery, acquired sources, explicit observation/knowledge, paid practice jobs, real material effects and native skill/function consumers. The gap is selective content joining an actual NPC as an authorized teacher to one method and presenting prerequisites/time transparently, not a second skill ledger.",
+      "current_pin_refresh": "New pin 09a75ac was checked for the added proficiency and faction mission scope. Prior selected pin 6c506a in the engine-absorption appendix established other condition/effect/magic mechanics. This lane does not claim that old source paths are unchanged or that the new pin refreshes every old finding.",
+      "partial_coverage": "Proficiency definition/practice/offer/display path and faction mission definition loader only; not all crafting consumers, NPC dialogues, assets, or save serialization.",
+      "maintenance_and_fallback": "Use existing YAIR power/mastery, knowledge and native ability consumers; if no qualifying concrete world lesson is selected, retain the current explicit player practice and acquisition routes. Do not port their broad proficiency vocabulary or faction data. New durable teaching records, if truly needed, require an explicit compatibility/migration design."
+    },
+    {
+      "id": "dfhack",
+      "title": "DFHack",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/DFHack/dfhack",
+        "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+        "branch": "develop",
+        "cache_key": "dfhack.git",
+        "cache_limit": "Pinned partial mirror; reviewed README, license documentation, workflow documentation/implementation entry, and autolabor documentation/implementation entry only. The manifest's root LICENSE seed is unavailable at this pin; LICENSE.rst is present and documents core/plugin/script licensing and exceptions.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "6d7cf7e796e538b1c244836de89ad4113082584447f196144c85e97c6b9b15af",
+            "lines": "1-15"
+          },
+          {
+            "path": "LICENSE.rst",
+            "sha256": "089647581e7ea97ade9df974317da4a7ae74d3ad14672ca02f65ad8e2b976f46",
+            "lines": "7-19"
+          },
+          {
+            "path": "docs/plugins/workflow.rst",
+            "sha256": "51f3367f4b228015a93b7caed62232b5eb5dc921462de2bebc7ea6e6725b333e",
+            "lines": "8-27, 39-48, 60-106"
+          },
+          {
+            "path": "plugins/workflow.cpp",
+            "sha256": "86ecbd162ba9fb9748e84cda2b35c102162af641f35bd322857e81e4884d18b8",
+            "symbols": [
+              "workflow_cmd",
+              "ProtectedJob",
+              "plugin_init",
+              "plugin_onstatechange"
+            ],
+            "lines": "50-104, 106-160"
+          },
+          {
+            "path": "docs/plugins/autolabor.rst",
+            "sha256": "68b71980ae186802e3640d91764046d933476f14ff721f54e9465bbf2fccce48",
+            "lines": "8-52, 61-87, 92-127"
+          },
+          {
+            "path": "plugins/autolabor/autolabor.cpp",
+            "sha256": "a3b4760a4cf01f7c21e7ac70a1b53e4c8310a8fe225752c74c34892a7186cd50",
+            "symbols": [
+              "LegacyEngine",
+              "ModernEngine",
+              "MonitorEngine",
+              "mode_engine"
+            ],
+            "lines": "1-50"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "README describes a Dwarf Fortress memory-access library distributed with plugins and scripts. LICENSE.rst says core/plugins/scripts normally use Zlib, notes MIT/BSD components and says some graphics derive from vanilla DF assets with permission from Bay12.",
+        "reuse_boundary": "No implementation or art was copied. Even when a code file is under Zlib, the README purpose, DFHack interface and asset notices do not make DF-specific content or private game memory portable. Exact-file review remains necessary before any reuse."
+      },
+      "reviewed_mechanism": "workflow protects repeat jobs against removal and automatically suspends/resumes output jobs around authored target/gap stock constraints. It supports exact item/material/quality categories and exposes active jobs and constraints. autolabor offers legacy direct assignment, modern work-detail-based assignment, and monitor-only modes; it ranks eligible workers with skill/preferences/capacity and saves the chosen mode per fortress. The docs disclose overlap with native workorders and warn that the legacy selector may make harmful assignments.",
+      "fit": "Adapt only the authored stock-band/hysteresis and inspectable-commitment idea for a concrete local workshop. YAIR already has timed jobs, exact owned-item effects, inventory custody, site reservations, finite programs and one-shot phased site projects. It does not have a persistent rule that maintains min/max output stock or a general labor auction; neither is needed for the current first realm.",
+      "code_backed_no_fit": "DFHack reads and mutates Dwarf Fortress's native memory structures, job linked lists, reactions, items, workshop IDs and fortress labor details. That plugin cannot run as a YAIR framework or replace YAIR's save/publish boundary. Automatic workforce assignment also creates consequences beyond a selected authored local activity.",
+      "partial_coverage": "One repeat-production workflow and one labor allocation mode family only.",
+      "maintenance_and_fallback": "If a selected realm needs limited resupply, author a small rule using existing simulation/site owners and preserve a visible pause reason. Deleting that authored policy should stop new jobs while leaving already-paid jobs to their saved due time. A broad policy engine would need a distinct design and save migration; do not import the plugin or its DF job state."
+    },
+    {
+      "id": "evennia",
+      "title": "Evennia",
+      "status": "mechanism-reviewed",
+      "source": {
+        "url": "https://github.com/evennia/evennia",
+        "revision": "a89a9b94e4d7ed0acfee86def533b77bf6baa512",
+        "branch": "main",
+        "cache_key": "evennia.git",
+        "cache_limit": "Pinned partial mirror; inspected README, BSD license, and the core Script timer/persistence module only.",
+        "files": [
+          {
+            "path": "README.md",
+            "sha256": "9adec77ac824519679bf443677a900a20548d3f9bb206829a76176ab5ee6303f",
+            "lines": "1-18"
+          },
+          {
+            "path": "LICENSE.txt",
+            "sha256": "792408eb4a3857fd7581eefabd229c67035cc20ea53080b38459dd69d369759a",
+            "lines": "1-19"
+          },
+          {
+            "path": "evennia/scripts/scripts.py",
+            "sha256": "5812ab6407de9e7fabebec43c2ceb1fe8bed586fe3e85630f1fe16150d9146ab",
+            "symbols": [
+              "ExtendedLoopingCall.start",
+              "ScriptBase.start",
+              "ScriptBase.at_repeat",
+              "ScriptBase.stop"
+            ],
+            "lines": "1-70, 135-251, 278-385, 526-616, 702-749"
+          }
+        ]
+      },
+      "purpose_and_rights": {
+        "observed": "README describes a Python framework for online multiplayer text games that supplies networking/server basics while leaving game mechanics to creators. LICENSE.txt is BSD-3-Clause.",
+        "reuse_boundary": "No code was copied. Future reuse must preserve BSD notices and check the dependencies and exact source distribution."
+      },
+      "reviewed_mechanism": "ScriptBase stores script data on database-backed ScriptDB objects and uses Twisted LoopingCall for intervals, repeat counts, pause/resume alignment, persistence across restart, and stop hooks. This is a server-clock entity-service mechanism, not itself an economy or NPC profession model.",
+      "fit": "Pattern-only for named recurring commitments with an explicit next due time, pause state, and bounded repeat count. YAIR already stores job/program state and advances through its common played-time scheduler. Adding a second timer/database framework would duplicate ownership and alter browser-closed/offline behavior.",
+      "code_backed_no_fit": "Evennia's implementation requires its Python/Django/Twisted online server and wall-clock task lifecycle. YAIR is a local browser game whose current work joins the deterministic simulation clock and staged native save publication; no multiplayer server capability is selected.",
+      "partial_coverage": "Core recurring Script implementation and repository purpose/license only.",
+      "maintenance_and_fallback": "Keep any accepted recurring rule in the current simulation program/job format. Retire authored timer definitions without removing already committed effects; no new server dependency or save namespace is proposed."
+    }
+  ],
+  "findings": [
+    {
+      "id": "RB-LIV-01",
+      "title": "Teach a finite known method through an eligible person",
+      "sources": [
+        "coffeemud",
+        "opennefia",
+        "opennefia-archived",
+        "cataclysm-dda"
+      ],
+      "upstream_observation": "CoffeeMUD resolves a human learner's explicit requested skill against qualification and known state before calling its teaching service (MOBTeacher.java 337-458, 517-558). Current OpenNefia keeps a default and per-map allow-list and calculates distinct costs from current skill level and saved total lessons learned (TrainerSystem.cs 26-75). Its archived Lua trainer separately selects a skill, shows a price, checks funds before confirmation, and invokes either training or learning (trainer.lua 32-99). New-pin CDDA offers only teacher-known methods marked teachable and absent from the learner, while practice state has its own path (character_proficiency.cpp 71-135).",
+      "inference_and_novelty": "YAIR already implements this core pattern for its current skill slice: timber method is observed from the named craftsman, instruction is separately acquired through a finite co-located timed lesson, actual teacher focus and a material are spent, directed knowledge records the teacher, practice uses a separate timed job, and mastery changes actual kit output. Lio's lesson similarly charges the target's own stamina. These repositories confirm choices already in code and do not justify another teacher system. A finite authored teacher offer-list abstraction might help future content, but the four selected skills bind their teachers directly and no shared roster contract is currently missing. The player's native money fee remains a sink, with no instructor income implied.",
+      "original_yair_example": "The existing Village example already joins two actual logs, one player-side coin sink, one craftsman focus, co-location, a dry workbench, a three-minute lesson, directed observation/instruction, later separate practice and a native kit-output use. This connected implementation is present in src/skill_expansion_content.js and src/simulation_content.js; its current gameplay gate remains implemented-unverified. It is not a new lesson proposal.",
+      "current_yair_owner_and_missing_consumer": {
+        "existing": [
+          {
+            "path": "src/skill_expansion_content.js",
+            "symbols": [
+              "SKILL_IDS",
+              "lesson",
+              "lessons",
+              "practice",
+              "skillDefinitions"
+            ],
+            "lines": "3-10, 100-125, 142-170"
+          },
+          {
+            "path": "src/simulation_content.js",
+            "symbols": [
+              "simulationDefinitions",
+              "oldCraftsman",
+              "village.craftsman_work",
+              "village.craftsman_controller"
+            ],
+            "lines": "28-42, 51-74"
+          },
+          {
+            "path": "src/simulation_effects.js",
+            "symbols": [
+              "applySimulationEffects",
+              "e.type === \"resource\"",
+              "e.type === \"item\"",
+              "e.type === \"transfer\""
+            ],
+            "lines": "137-149"
+          },
+          {
+            "path": "docs/ENGINE_AUTHORING.md",
+            "symbols": [
+              "Skills and discovery native bindings",
+              "Caused situations, attributed knowledge and ordinary control"
+            ],
+            "lines": "21-37, 205-217"
+          }
+        ],
+        "missing": "No general trainer roster/interface is shared across authored methods; selected skill definitions directly bind named teachers. That is an authoring abstraction question, not a missing playable teacher behavior for the current four skills. NPC resources are actor-owned; native money applies only to the player, so payer cost does not credit an instructor."
+      },
+      "route": "No new feature is recommended from this finding. Preserve current named-teacher bindings. If several future worlds establish a shared need for data-driven teacher rosters, consider a small authoring-only helper over existing rules and effects. Reuse no source code or runtime dependency.",
+      "joins": {
+        "required": [
+          "existing player and teacher actor identities",
+          "current location/co-location and teacher life/eligibility",
+          "directed player knowledge with basis/attribution",
+          "existing method power/source and actual native consumer",
+          "real skill/mastery effects and costs",
+          "a reserved response if the encounter becomes timed or asynchronous",
+          "existing durable simulation/native publication"
+        ],
+        "optional": [
+          "teacher-owned local resource debit/credit",
+          "social relationship receipt",
+          "site capacity or material sample for a practical lesson"
+        ],
+        "rng": "No draw on quote, render, refusal-free observation, or offer listing. If success has chance, consume the existing committed command stream only after validation.",
+        "save": "Prefer current definitions and existing actor knowledge/power/resource owners. Any new durable per-teacher offer, lesson history, or reservation needs explicit schema compatibility and save/reload review before implementation.",
+        "time": "Use the existing played-time lesson job and participant reservation; source game realtime/tile ticks are not imported.",
+        "stock": "Use the real teacher focus, lesson material, student/native fee sink and current inventory owners. Credit a recipient only with an explicit paired effect.",
+        "publication": "Publish teacher/student resources, item stock, learned power/source and knowledge together through the current staged save boundary."
+      },
+      "effort": "No implementation effort for the present skills. A future authoring helper is small; new saved instructor ledgers or a reciprocal settlement policy are medium and need separate scope.",
+      "confidence": "High for the source mechanisms and current YAIR overlap; medium for whether this is a worthwhile next content slice.",
+      "provenance_and_maintenance": "Pattern only. CoffeeMUD is Apache-2.0 with separate NOTICE-listed dependencies; both OpenNefia snapshots are MIT code but draw on Elona provenance; Cataclysm is CC BY-SA 3.0. Do not copy code, prose or content. Maintain a short explicit offer list and use the existing UI/authoring registries; removing an offer must not erase a previously learned method or memory.",
+      "upstream_evidence": [
+        {
+          "repository_id": "coffeemud",
+          "repository_url": "https://github.com/bozimmerman/CoffeeMud",
+          "revision": "720aec631f799662ad00ef1b52443f8f8bbbbaf4",
+          "branch": "master",
+          "path": "com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java",
+          "source_url": "https://github.com/bozimmerman/CoffeeMud/blob/720aec631f799662ad00ef1b52443f8f8bbbbaf4/com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java#L40",
+          "sha256": "3d29441fc9e7c0a7d6fc0818d5ab42eb6265e740fd15497ccbce4d99f2c51eae",
+          "symbols": [
+            "ensureCharClass",
+            "executeMsg",
+            "postTeach"
+          ],
+          "line_spans": "40-61, 214-334, 337-458, 517-558"
+        },
+        {
+          "repository_id": "opennefia",
+          "repository_url": "https://github.com/OpenNefia/OpenNefia",
+          "revision": "d8410b3e59845312d557c321d3752531519e14f6",
+          "branch": "develop",
+          "path": "OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs",
+          "source_url": "https://github.com/OpenNefia/OpenNefia/blob/d8410b3e59845312d557c321d3752531519e14f6/OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs#L26",
+          "sha256": "f29e6dce17c133e3adc752c39f80c7e3b64d752744842860041e1250ed745eb0",
+          "symbols": [
+            "ITrainerSystem",
+            "TrainerSystem.CalcTrainSkillCost",
+            "TrainerSystem.CalcLearnSkillCost",
+            "TrainerSystem.CalcTrainPotentialAmount",
+            "TrainerSystem.CalcLearnableSkills"
+          ],
+          "line_spans": "26-76"
+        },
+        {
+          "repository_id": "opennefia-archived",
+          "repository_url": "https://github.com/Ruin0x11/OpenNefia",
+          "revision": "dbe3eaa38fb8730bc74007bf9734a54376429490",
+          "branch": "develop",
+          "path": "src/mod/elona/data/dialog/role/trainer.lua",
+          "source_url": "https://github.com/Ruin0x11/OpenNefia/blob/dbe3eaa38fb8730bc74007bf9734a54376429490/src/mod/elona/data/dialog/role/trainer.lua#L8",
+          "sha256": "c364113dc92a5615ef44d43f221b801b514df399a27e436161d4118a70352297",
+          "symbols": [
+            "train_skill",
+            "learn_skill",
+            "train_confirm",
+            "learn_confirm",
+            "train_accept",
+            "learn_accept"
+          ],
+          "line_spans": "8-24, 26-105"
+        },
+        {
+          "repository_id": "opennefia-archived",
+          "repository_url": "https://github.com/Ruin0x11/OpenNefia",
+          "revision": "dbe3eaa38fb8730bc74007bf9734a54376429490",
+          "branch": "develop",
+          "path": "src/mod/elona_sys/api/NpcMemory.lua",
+          "source_url": "https://github.com/Ruin0x11/OpenNefia/blob/dbe3eaa38fb8730bc74007bf9734a54376429490/src/mod/elona_sys/api/NpcMemory.lua#L1",
+          "sha256": "7ad115f01bf38d1e910cbc58b298f3fb7d4f048c2c43b5098774b7e53452a2db",
+          "symbols": [
+            "NpcMemory.on_killed",
+            "NpcMemory.on_generated",
+            "NpcMemory.forget_generated",
+            "NpcMemory.killed",
+            "NpcMemory.generated"
+          ],
+          "line_spans": "1-52"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/proficiency.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/proficiency.cpp#L73",
+          "sha256": "28c319b93d23869f7c52afb0d312aa38d3b0d41d3e764b99156d8c79bd39f443",
+          "symbols": [
+            "proficiency::load",
+            "proficiency::can_learn",
+            "proficiency::is_teachable",
+            "proficiency::time_to_learn",
+            "book_proficiency_bonuses",
+            "proficiency_set::migrate_proficiencies"
+          ],
+          "line_spans": "73-134, 152-170, 192-220, 611-660, 702-727"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/character_proficiency.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/character_proficiency.cpp#L18",
+          "sha256": "a7a203dc096251ca441e8f91f1d801fd05c2d9f10d2bcd7de7390eec027a5045",
+          "symbols": [
+            "Character::practice_proficiency",
+            "Character::proficiencies_offered_to"
+          ],
+          "line_spans": "18-55, 71-135"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/activity_actor.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/activity_actor.cpp#L3342",
+          "sha256": "7668d1550d7341db690ca5562794cc0d1e6005c3609e5ec54f4f91d82b3b8788",
+          "symbols": [
+            "lockpick_activity_actor::lockpicking_moves",
+            "lockpick_activity_actor::finish"
+          ],
+          "line_spans": "3342-3353, 3532-3539"
+        }
+      ],
+      "dependency": {
+        "required": [],
+        "optional": [],
+        "decision": "No external runtime dependency or copied code; follow only existing YAIR contracts."
+      }
+    },
+    {
+      "id": "RB-LIV-02",
+      "title": "Keep method understanding, practice, and functional benefit separate",
+      "sources": [
+        "cataclysm-dda",
+        "opennefia",
+        "coffeemud"
+      ],
+      "upstream_observation": "CDDA proficiency definitions expose prerequisites, teachability, training duration, focus handling, and typed bonuses, while Character::practice_proficiency advances a separate saved learning state and emits a completion event. Its UI shows learning time, progress, prerequisite and downstream links. OpenNefia's trainer methods distinguish a known-skill increase from potential on a learned-but-untrained skill. CoffeeMUD maps teaching to an actual ability/expertise learner state after qualification rather than presenting a teacher label alone.",
+      "inference_and_novelty": "A useful method can have evidence/understanding, acquisition, gradual practice, and a bounded functional consumer as separate facts. Current YAIR already has those owners for its selected four skills, including native XP and competence, so a parallel proficiency graph would duplicate progression. Remaining value is content authorship that uses real prerequisites and downstream outcomes, not copying the subsystem.",
+      "original_yair_example": "The current workbench path is a connected YAIR example: a commission transfers two actual logs and records that the craftsman has the material; his scheduled controller reserves the workbench and consumes his owned wood to produce the actual survey kit; collection records interpreted knowledge; the player can separately study the method and use measured packing; timber judgment's chosen consumer changes actual kit output. A future teacher offer can point to these existing phases, with the existing discovery/practice/consumer chain. It must not grant stock, mastery or XP merely because a UI row was rendered.",
+      "current_yair_owner_and_missing_consumer": {
+        "existing": [
+          {
+            "path": "src/simulation_content.js",
+            "symbols": [
+              "simulationDefinitions",
+              "oldCraftsman",
+              "village.craftsman_work",
+              "village.craftsman_controller"
+            ],
+            "lines": "36-42, 51-70"
+          },
+          {
+            "path": "src/skill_expansion_content.js",
+            "symbols": [
+              "SKILL_IDS",
+              "lesson",
+              "lessons",
+              "practice",
+              "skillDefinitions"
+            ],
+            "lines": "3-10, 100-125, 142-170"
+          },
+          {
+            "path": "src/simulation.js",
+            "symbols": [
+              "previewSimulationCommand",
+              "startCommand",
+              "completeJob",
+              "advanceSimulation"
+            ],
+            "lines": "49-105, 108-170, 373-403"
+          },
+          {
+            "path": "src/simulation_contracts.js",
+            "symbols": [
+              "validateSimulationEffect"
+            ],
+            "lines": "37-78"
+          }
+        ],
+        "missing": "A generic content schema for declaring prerequisite graphs/skill offer links may help only if several actual realm methods need it. The present YAIR skill catalog already has authored observation/acquisition/practice/use bindings; no missing global method engine is established."
+      },
+      "route": "Keep current typed contracts and author a data-only connection for each selected method. No external dependency. Later widen catalog schema only when more than one independent world needs a genuinely common new field.",
+      "joins": {
+        "required": [
+          "attributed evidence",
+          "method ownership and its existing source/power",
+          "job costs/site reservation and cancellation rule",
+          "native XP or mastery owner, not both without explicit intent",
+          "actual inventory/material consumer",
+          "single saved schedule and staged publication"
+        ],
+        "optional": [
+          "visible prerequisite/progress browser",
+          "teacher method grant",
+          "authored category grouping"
+        ],
+        "rng": "Practice completion and outcome chance must stay in the current committed operation stream; previews remain draw-free.",
+        "time": "Keep discovery, acquisition, practice and consumers on distinct existing commands and the common played clock.",
+        "save": "Existing power/catalog content can use the current schema. A new saved acquisition/proficiency ledger duplicates owner state and requires migration, so abstain.",
+        "stock": "Practice and functional uses consume actual owned inputs and write outputs through the current inventory owner.",
+        "publication": "Stage power/source/knowledge/XP/item deltas through existing simulation and native publication adapters."
+      },
+      "effort": "Small for content wired to current contracts; medium for a truly novel mastery-to-consumer adapter; large for a second cross-world skill/proficiency framework.",
+      "confidence": "High.",
+      "provenance_and_maintenance": "Independent pattern only. CDDA content/code is CC BY-SA 3.0; CoffeeMUD Apache-2.0 with NOTICE; OpenNefia repository code MIT with Elona content provenance limits. Preserve YAIR original names, descriptions and source labels. If a method is removed from a content pack, retain known history and fail closed for unavailable consumers until a deliberate migration is authored.",
+      "upstream_evidence": [
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/proficiency.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/proficiency.cpp#L73",
+          "sha256": "28c319b93d23869f7c52afb0d312aa38d3b0d41d3e764b99156d8c79bd39f443",
+          "symbols": [
+            "proficiency::load",
+            "proficiency::can_learn",
+            "proficiency::is_teachable",
+            "proficiency::time_to_learn",
+            "book_proficiency_bonuses",
+            "proficiency_set::migrate_proficiencies"
+          ],
+          "line_spans": "73-134, 152-170, 192-220, 611-660, 702-727"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/character_proficiency.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/character_proficiency.cpp#L18",
+          "sha256": "a7a203dc096251ca441e8f91f1d801fd05c2d9f10d2bcd7de7390eec027a5045",
+          "symbols": [
+            "Character::practice_proficiency",
+            "Character::proficiencies_offered_to"
+          ],
+          "line_spans": "18-55, 71-135"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/proficiency_ui.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/proficiency_ui.cpp#L30",
+          "sha256": "b269db2ff80ae37468a4d930375c4066158dee77d5379d8a527e528c9928e388",
+          "symbols": [
+            "prof_window::draw_details",
+            "prof_window::run"
+          ],
+          "line_spans": "30-47, 157-219, 333-398"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/activity_actor.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/activity_actor.cpp#L3342",
+          "sha256": "7668d1550d7341db690ca5562794cc0d1e6005c3609e5ec54f4f91d82b3b8788",
+          "symbols": [
+            "lockpick_activity_actor::lockpicking_moves",
+            "lockpick_activity_actor::finish"
+          ],
+          "line_spans": "3342-3353, 3532-3539"
+        },
+        {
+          "repository_id": "opennefia",
+          "repository_url": "https://github.com/OpenNefia/OpenNefia",
+          "revision": "d8410b3e59845312d557c321d3752531519e14f6",
+          "branch": "develop",
+          "path": "OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs",
+          "source_url": "https://github.com/OpenNefia/OpenNefia/blob/d8410b3e59845312d557c321d3752531519e14f6/OpenNefia.Content/GameObjects/EntitySystems/TrainerSystem.cs#L26",
+          "sha256": "f29e6dce17c133e3adc752c39f80c7e3b64d752744842860041e1250ed745eb0",
+          "symbols": [
+            "ITrainerSystem",
+            "TrainerSystem.CalcTrainSkillCost",
+            "TrainerSystem.CalcLearnSkillCost",
+            "TrainerSystem.CalcTrainPotentialAmount",
+            "TrainerSystem.CalcLearnableSkills"
+          ],
+          "line_spans": "26-76"
+        },
+        {
+          "repository_id": "coffeemud",
+          "repository_url": "https://github.com/bozimmerman/CoffeeMud",
+          "revision": "720aec631f799662ad00ef1b52443f8f8bbbbaf4",
+          "branch": "master",
+          "path": "com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java",
+          "source_url": "https://github.com/bozimmerman/CoffeeMud/blob/720aec631f799662ad00ef1b52443f8f8bbbbaf4/com/planet_ink/coffee_mud/Behaviors/MOBTeacher.java#L40",
+          "sha256": "3d29441fc9e7c0a7d6fc0818d5ab42eb6265e740fd15497ccbce4d99f2c51eae",
+          "symbols": [
+            "ensureCharClass",
+            "executeMsg",
+            "postTeach"
+          ],
+          "line_spans": "40-61, 214-334, 337-458, 517-558"
+        }
+      ],
+      "dependency": {
+        "required": [],
+        "optional": [],
+        "decision": "No external runtime dependency or copied code; follow only existing YAIR contracts."
+      }
+    },
+    {
+      "id": "RB-LIV-03",
+      "title": "Bound stock-aware work and profession decisions to an authored local policy",
+      "sources": [
+        "dfhack",
+        "cataclysm-dda",
+        "evennia"
+      ],
+      "upstream_observation": "DFHack workflow protects repeat jobs and suspends/resumes production around per-item target/gap rules; its docs distinguish this convenience from more expressive native workorders. Autolabor presents three explicit assignment modes, ranks eligible workers by skill and policy, keeps upper/lower worker bounds, saves mode, and warns the legacy approach may disable modern work detail behavior or produce poor assignments. CDDA faction_mission's definition loader exposes an authored set of skill/risk/time/position/item alternatives/effects for specific mission types. Evennia's ScriptBase persists timed repeats as part of its always-running multiplayer server.",
+      "inference_and_novelty": "These are three different layers: production stock maintenance, workforce routing, and authored mission data. YAIR has finite one-off site phases, exact inventory/job effects and repeat programs, but no min/max stock-band consumer and no general labor-auction consumer. It should add only an explicitly selected local stock policy; automatic whole-cast job assignment would be a new system and is not implied by current foundations.",
+      "original_yair_example": "Second connected proposal: an optional Village workshop policy can keep a small band of Prepared survey kits by asking the named craftsman to repeat one eligible, already-authored recipe only below its lower target and pause above its upper target. A policy preview names exact wood/tool costs, existing workbench reservation and teacher/worker eligibility; each paid job still uses current schedule, material ownership, claims and real output publication. The notebook can report observed shortage or blocked inputs with who noticed them. Disablement stops starting work, leaves a paid job's frozen due time and materials intact, and records no free stock. This would add bounded stock-band selection to the existing finite program/site-project paths, not generic worker reassignment. It remains a proposal, not playable behavior.",
+      "current_yair_owner_and_missing_consumer": {
+        "existing": [
+          {
+            "path": "src/simulation.js",
+            "symbols": [
+              "setSimulationProgram",
+              "resumeSimulationProgram",
+              "advanceSimulation"
+            ],
+            "lines": "189-205, 350-405"
+          },
+          {
+            "path": "src/site_projects.js",
+            "symbols": [
+              "compileSiteProject",
+              "projectView"
+            ],
+            "lines": "1-30"
+          },
+          {
+            "path": "src/simulation_content.js",
+            "symbols": [
+              "simulationDefinitions",
+              "oldCraftsman",
+              "village.craftsman_work",
+              "village.craftsman_controller"
+            ],
+            "lines": "31-36, 56-58, 73-74"
+          },
+          {
+            "path": "src/simulation_effects.js",
+            "symbols": [
+              "applySimulationEffects",
+              "e.type === \"resource\"",
+              "e.type === \"item\"",
+              "e.type === \"transfer\""
+            ],
+            "lines": "137-149"
+          }
+        ],
+        "missing": "No simulation command currently wakes from a saved min/max inventory target, has stock gap/hysteresis, or explains one persistent stock policy's status. Existing automatable programs have a finite count and pause when the next costs/access are unavailable; site projects are one-shot phases."
+      },
+      "route": "Prototype one opt-in local authored policy in the existing simulation scheduler only if a selected playable campaign needs it. Do not use DFHack or Evennia as dependencies. A local proposal should read exact current stock and work through existing previews/claims/jobs; do not add general labor autonomy.",
+      "joins": {
+        "required": [
+          "current exact stock owner/custody and material identity",
+          "existing eligible worker/controller decision",
+          "current site capacity/reservation",
+          "frozen cost/effects and specific cancellation semantics",
+          "played-time due and native/offline policy",
+          "visible player-facing observed versus private facts",
+          "durable job/program publication"
+        ],
+        "optional": [
+          "min/max hysteresis values",
+          "skill-based eligible worker ordering",
+          "small explicit producer priority list",
+          "mission-like per-job risk/time metadata"
+        ],
+        "rng": "No randomness for stock quote or idle policy evaluation; any authored stochastic recipe draws only after commitment and persists with the job.",
+        "time": "Do not port wall-clock Evennia timers. Reuse the current common played clock and its turn-work bound; whether browser-closed elapsed work is allowed remains governed by the frozen policy.",
+        "stock": "No target count may grant or duplicate goods. Consume actual owned inputs and stage the exact output once.",
+        "save": "Additional target/gap counters or producer policy need explicit schema/version decision and generated save/reload check before acceptance. No migration is selected here; retain current jobs/programs and private save contents.",
+        "publication": "Apply policy decisions and job commitments through the existing staged durability boundary; notices must follow successful publication."
+      },
+      "effort": "Medium for one local stock-band command/controller adapter using current owners; high for global workforce assignment or real-time server scheduling because each needs broad policy, UI, save, compatibility, and acceptance work.",
+      "confidence": "High on source mechanisms and ownership difference; medium on future desirability because the proposal needs a demonstrated world/campaign need.",
+      "provenance_and_maintenance": "Pattern only. DFHack's primary code is documented Zlib with some MIT/BSD components and separately permitted DF-derived graphics; CDDA is CC BY-SA 3.0; Evennia is BSD-3-Clause. No source or asset reuse proposed. Preserve current authoring fallback: one-shot project phases or finite programs, with visible pause reason. Remove a policy by stopping future starts while retaining already-paid job settlement.",
+      "upstream_evidence": [
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "docs/plugins/workflow.rst",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/docs/plugins/workflow.rst#L8",
+          "sha256": "51f3367f4b228015a93b7caed62232b5eb5dc921462de2bebc7ea6e6725b333e",
+          "symbols": [],
+          "line_spans": "8-27, 39-48, 60-106"
+        },
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "plugins/workflow.cpp",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/plugins/workflow.cpp#L50",
+          "sha256": "86ecbd162ba9fb9748e84cda2b35c102162af641f35bd322857e81e4884d18b8",
+          "symbols": [
+            "workflow_cmd",
+            "ProtectedJob",
+            "plugin_init",
+            "plugin_onstatechange"
+          ],
+          "line_spans": "50-104, 106-160"
+        },
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "docs/plugins/autolabor.rst",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/docs/plugins/autolabor.rst#L8",
+          "sha256": "68b71980ae186802e3640d91764046d933476f14ff721f54e9465bbf2fccce48",
+          "symbols": [],
+          "line_spans": "8-52, 61-87, 92-127"
+        },
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "plugins/autolabor/autolabor.cpp",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/plugins/autolabor/autolabor.cpp#L1",
+          "sha256": "a3b4760a4cf01f7c21e7ac70a1b53e4c8310a8fe225752c74c34892a7186cd50",
+          "symbols": [
+            "LegacyEngine",
+            "ModernEngine",
+            "MonitorEngine",
+            "mode_engine"
+          ],
+          "line_spans": "1-50"
+        },
+        {
+          "repository_id": "cataclysm-dda",
+          "repository_url": "https://github.com/CleverRaven/Cataclysm-DDA",
+          "revision": "09a75ac67df6043f831ca41753f7cc5fe1545244",
+          "branch": "master",
+          "path": "src/faction_mission.cpp",
+          "source_url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/09a75ac67df6043f831ca41753f7cc5fe1545244/src/faction_mission.cpp#L41",
+          "sha256": "5f543ef3ce00866b8bdcfe514431aeb57afff608a4c228b21ca81c4541a5b273",
+          "symbols": [
+            "faction_mission::load",
+            "faction_mission::describe",
+            "faction_mission::check"
+          ],
+          "line_spans": "41-64, 127-192"
+        },
+        {
+          "repository_id": "evennia",
+          "repository_url": "https://github.com/evennia/evennia",
+          "revision": "a89a9b94e4d7ed0acfee86def533b77bf6baa512",
+          "branch": "main",
+          "path": "evennia/scripts/scripts.py",
+          "source_url": "https://github.com/evennia/evennia/blob/a89a9b94e4d7ed0acfee86def533b77bf6baa512/evennia/scripts/scripts.py#L1",
+          "sha256": "5812ab6407de9e7fabebec43c2ceb1fe8bed586fe3e85630f1fe16150d9146ab",
+          "symbols": [
+            "ExtendedLoopingCall.start",
+            "ScriptBase.start",
+            "ScriptBase.at_repeat",
+            "ScriptBase.stop"
+          ],
+          "line_spans": "1-70, 135-251, 278-385, 526-616, 702-749"
+        }
+      ],
+      "dependency": {
+        "required": [],
+        "optional": [],
+        "decision": "No external runtime dependency or copied code; follow only existing YAIR contracts."
+      }
+    },
+    {
+      "id": "RB-LIV-04",
+      "title": "Choose the existing simulation seam over an imported actor or timer framework",
+      "sources": [
+        "opennefia",
+        "evennia",
+        "dfhack"
+      ],
+      "upstream_observation": "Current OpenNefia documents replacing its VanillaAIComponent-backed entity system by another entity system responding to NPC turn events. Evennia Scripts provide persistent server objects and Twisted real-time timers. DFHack plugins operate against Dwarf Fortress's process-owned structs and native job state.",
+      "inference_and_novelty": "A seam is useful when it keeps a real authority boundary visible: OpenNefia's event extension point, Evennia's durable timer object, and DFHack's native state coupling each belong to their host architecture. YAIR's typed simulation controllers, scheduler, owned effects, existing source/body models and durable publication already provide corresponding seams. Importing any full framework would add a second actor/timer/save authority and complicate single-realm compatibility without supplying a currently missing consumer.",
+      "original_yair_example": "The current craftsman controller selects among actual command previews by authored priority, while each job deducts its authored costs from the specified owner, consumes real logs, reserves the shared bench, completes on the existing clock, writes attributed results and publishes through the one save boundary. A new behavior should register a legal command or narrowly extend that controller, not independently tick an NPC or mutate native inventory.",
+      "current_yair_owner_and_missing_consumer": {
+        "existing": [
+          {
+            "path": "src/simulation.js",
+            "symbols": [
+              "startCommand",
+              "commitSimulationCommand",
+              "advanceSimulation"
+            ],
+            "lines": "108-170, 373-405"
+          },
+          {
+            "path": "src/simulation_contracts.js",
+            "symbols": [
+              "validateSimulationEffect",
+              "createSimulationRegistry"
+            ],
+            "lines": "37-78"
+          },
+          {
+            "path": "src/simulation_effects.js",
+            "symbols": [
+              "applySimulationEffects",
+              "e.type === \"resource\"",
+              "e.type === \"item\"",
+              "e.type === \"transfer\""
+            ],
+            "lines": "128-150"
+          },
+          {
+            "path": "src/gameplay_publication.js",
+            "symbols": [
+              "readGameplayActor",
+              "prepareGameplayPublication"
+            ],
+            "lines": "1-48"
+          },
+          {
+            "path": "docs/ENGINE_AUTHORING.md",
+            "symbols": [
+              "Skills and discovery native bindings",
+              "Caused situations, attributed knowledge and ordinary control"
+            ],
+            "lines": "21-37, 205-217"
+          }
+        ],
+        "missing": "No observed requirement currently needs a multiplayer network server, wall-clock scheduler, memory-reading plugin, or replacement ECS. A distinct future requirement may need a selected integration adapter, but none is identified by these sources."
+      },
+      "route": "Abstain from framework adoption. Extend current command/controller/effect contracts only for a demonstrated consumer; use existing typed boundary adapters for native systems.",
+      "joins": {
+        "required": [
+          "one scheduler authority",
+          "validated pure plan before mutation",
+          "existing actor/body/source/stock owners",
+          "single durable-before-render publication"
+        ],
+        "optional": [
+          "host-specific adapter at an actual native boundary"
+        ],
+        "rng": "Current deterministic stream only.",
+        "time": "Current played clock only until a separate human decision changes the policy.",
+        "save": "No new schema or runtime dependency needed for this pattern; any new persistent state must follow current compatibility rules.",
+        "stock": "Current item ownership/custody remains authoritative; each effect names its actual source and recipient.",
+        "publication": "Keep a single validate, persist, then publish path. No imported framework may write live inventory or DOM around it."
+      },
+      "effort": "Small to preserve the current seam; high and cross-cutting to adopt another engine framework.",
+      "confidence": "High.",
+      "provenance_and_maintenance": "No code reuse recommended. Keep upstream attribution and licenses as reviewed per source row. If a future framework is selected, first state its exact necessary feature and boundary; absent that requirement, current contracts are the fallback.",
+      "upstream_evidence": [
+        {
+          "repository_id": "opennefia",
+          "repository_url": "https://github.com/OpenNefia/OpenNefia",
+          "revision": "d8410b3e59845312d557c321d3752531519e14f6",
+          "branch": "develop",
+          "path": "OpenNefia.Content/VanillaAI/VanillaAISystem.cs",
+          "source_url": "https://github.com/OpenNefia/OpenNefia/blob/d8410b3e59845312d557c321d3752531519e14f6/OpenNefia.Content/VanillaAI/VanillaAISystem.cs#L33",
+          "sha256": "617bc397b9a520e01d2e3f2206f1213df169a62fd2ae956c2451400783789076",
+          "symbols": [
+            "VanillaAISystem.Initialize",
+            "HandleNPCTurnStarted",
+            "TryToUseItem",
+            "RunVanillaAI",
+            "DoAICalmAction"
+          ],
+          "line_spans": "33-85, 111-166, 188-256, 417-437"
+        },
+        {
+          "repository_id": "evennia",
+          "repository_url": "https://github.com/evennia/evennia",
+          "revision": "a89a9b94e4d7ed0acfee86def533b77bf6baa512",
+          "branch": "main",
+          "path": "evennia/scripts/scripts.py",
+          "source_url": "https://github.com/evennia/evennia/blob/a89a9b94e4d7ed0acfee86def533b77bf6baa512/evennia/scripts/scripts.py#L1",
+          "sha256": "5812ab6407de9e7fabebec43c2ceb1fe8bed586fe3e85630f1fe16150d9146ab",
+          "symbols": [
+            "ExtendedLoopingCall.start",
+            "ScriptBase.start",
+            "ScriptBase.at_repeat",
+            "ScriptBase.stop"
+          ],
+          "line_spans": "1-70, 135-251, 278-385, 526-616, 702-749"
+        },
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "plugins/workflow.cpp",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/plugins/workflow.cpp#L50",
+          "sha256": "86ecbd162ba9fb9748e84cda2b35c102162af641f35bd322857e81e4884d18b8",
+          "symbols": [
+            "workflow_cmd",
+            "ProtectedJob",
+            "plugin_init",
+            "plugin_onstatechange"
+          ],
+          "line_spans": "50-104, 106-160"
+        },
+        {
+          "repository_id": "dfhack",
+          "repository_url": "https://github.com/DFHack/dfhack",
+          "revision": "c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4",
+          "branch": "develop",
+          "path": "plugins/autolabor/autolabor.cpp",
+          "source_url": "https://github.com/DFHack/dfhack/blob/c872dc4c64c586fe1d320230dfb09d0b3cc7d9d4/plugins/autolabor/autolabor.cpp#L1",
+          "sha256": "a3b4760a4cf01f7c21e7ac70a1b53e4c8310a8fe225752c74c34892a7186cd50",
+          "symbols": [
+            "LegacyEngine",
+            "ModernEngine",
+            "MonitorEngine",
+            "mode_engine"
+          ],
+          "line_spans": "1-50"
+        }
+      ],
+      "dependency": {
+        "required": [],
+        "optional": [],
+        "decision": "No external runtime dependency or copied code; follow only existing YAIR contracts."
+      }
+    }
+  ],
+  "worked_cases": [
+    {
+      "id": "YAIR-LIV-CASE-01",
+      "title": "The craftsman's finite lesson and real kit order",
+      "status": "connected current implementation, built but implemented-unverified",
+      "existing_path": "village.commission transfers two actual logs and a coin, notes the taught/workbench clue, and stores trust; the craftsman controller chooses village.craftsman_work when the order exists; the job reserves village.workbench, consumes his two owned logs and creates the actual kit; collection transfers that actual kit and records interpreted knowledge. The separate measured-packing study and the named-craftsman timber lesson acquire the method through distinct authored paths; the timber skill has its own practice and functional producer binding. skills.timber.observe records the craftsman demonstration; skills.timber.learn then charges the player's fee and spends the named teacher focus/log while participant and bench are reserved. Lesson knowledge names the instructor in its value, not structured KnowledgeBasis metadata. skills.timber.observe records the craftsman demonstration; skills.timber.learn then charges the player's fee and spends the named teacher focus/log while participant and bench are reserved. Lesson knowledge names the instructor in its value, not structured KnowledgeBasis metadata.",
+      "proposal": "This behavior is already authored. The current lesson charges the player one native coin, consumes the instructor's own focus and one actual log, reserves the named participant and bench, and stores instructor-attributed knowledge. The native coin spend is a sink; it does not credit the instructor. Any future design that gives him revenue must pair an NPC-resource credit or reservation/settlement explicitly.",
+      "supported_now": [
+        "co-location and actor availability rules",
+        "lesson knowledge names instructor; no structured KnowledgeBasis on ordinary lesson records",
+        "NPC-owned simulation resources/items",
+        "NPC controllers and scheduled commands",
+        "sites, capacity, job reservations and frozen costs",
+        "claims and exact item custody/transfers",
+        "current skill/mastery and actual native outcome consumers"
+      ],
+      "missing_or_open": [
+        "no reusable teacher roster schema across skill definitions",
+        "no instructor coin income from the player's fee",
+        "no separate lesson history beyond existing knowledge and completion facts",
+        "current source slice remains implemented-unverified",
+        "no instructor coin income is credited by the native player fee"
+      ],
+      "compatibility": "No migration proposed while the example compiles into existing definitions/effects. If persistent teacher-specific lesson or offer state is introduced, version and migration must preserve existing saves; verify save/reload before accepting it.",
+      "later_acceptance_gate": "Build and exercise in browser: discover the eligible offer, inspect its true prerequisites/means, accept once, verify teacher/player resource conservation and directed memory, practice to a real kit-output change, then reload and recheck both inventories and knowledge. This gate is deferred, not satisfied by this source review."
+    },
+    {
+      "id": "YAIR-LIV-CASE-02",
+      "title": "A local workshop that keeps a small useful stock",
+      "status": "original absorption proposal only; not currently playable",
+      "proposal": "For a selected local campaign only, maintain a small band of actual Prepared survey kits by authoring one lower/upper stock target and one eligible named producer. The rule wakes a legal existing craft command below the lower target and pauses above the upper target or on missing real wood, site access, or worker means. It leaves the existing job due time and paid material settlement intact if the policy is disabled.",
+      "supported_now": [
+        "finite programs with saved remaining count/status",
+        "preview-based eligibility with real material costs",
+        "NPC actor resources and item stock",
+        "site reservation and one-shot phases",
+        "played-time scheduler and single save publication",
+        "visible knowledge/reporting and private audience on selected NPC jobs"
+      ],
+      "missing_or_open": [
+        "no persisted min/max stock target/gap consumer",
+        "no common producer/job policy API",
+        "no decision that this stock loop belongs in the first playable realm",
+        "any stored target/gap format would need schema and migration review"
+      ],
+      "compatibility": "Prefer encoding a finite, current-schema prototype first. If persistence needs target/gap fields in simulation.programs, make an explicit optional-schema migration decision before writing saves; never recreate inputs or outputs on import.",
+      "later_acceptance_gate": "After authoring is selected and built, exercise below-target start, exact input debit/output credit, above-target pause, stock depletion, missing-input/status explanation, disable during paid work, and save/reload. These later behavioral/save checks are deferred."
+    }
+  ],
+  "ranked_routes": [
+    {
+      "rank": 1,
+      "route": "Retain the current named-teacher lesson content and costs; do not add a shared teacher runtime from these sources.",
+      "basis": "CoffeeMUD, OpenNefia and CDDA support mechanisms already joined by YAIR's current skill definitions; their current behavior remains implemented-unverified."
+    },
+    {
+      "rank": 2,
+      "route": "If a selected world needs ongoing workshop availability, prototype one authored stock band and named producer using current scheduler/job/site/inventory owners.",
+      "basis": "DFHack proves a useful stock target/gap policy but its native workflow and labor manager are host-specific and overbroad for YAIR."
+    },
+    {
+      "rank": 3,
+      "route": "Keep current typed scheduler/controllers/publication as the integration point; abstain from CoffeeMUD/OpenNefia/DFHack/Evennia runtime adoption.",
+      "basis": "All four depend on different Java/C#/Lua engine ECS, live Dwarf Fortress memory, or real-time server authorities; YAIR has local legal command and save owners."
+    }
+  ],
+  "director_decisions": [
+    "Whether any future campaign needs instructor coin income in addition to the current player's lesson sink and the craftsman's actual focus/material costs.",
+    "Whether one authored stock-band craft policy has a concrete first-realm need; no general workforce autonomy is selected.",
+    "If any new durable offer/stock-policy state is selected later, choose its optional schema and migration before implementation; no new field or dependency is selected in this appendix."
+  ]
+}

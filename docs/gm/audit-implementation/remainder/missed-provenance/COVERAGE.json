@@ -1,0 +1,409 @@
+{
+  "schema": 1,
+  "scope": "MW-03 ALL19 unactivated contracts",
+  "source": {
+    "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+    "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7"
+  },
+  "rows": [
+    {
+      "id": "original-frontier",
+      "ordinal": 1,
+      "sourceClass": "original",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "original-frontier",
+        "rowPointer": "/rows/0",
+        "sourcePointer": "/rows/0/source"
+      },
+      "editionPins": 1,
+      "citations": 5,
+      "reviewedSourceRefs": 6,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "reincarnation-paradise",
+      "ordinal": 2,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "reincarnation-paradise",
+        "rowPointer": "/rows/1",
+        "sourcePointer": "/rows/1/source"
+      },
+      "editionPins": 1,
+      "citations": 7,
+      "reviewedSourceRefs": 8,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "fated-villain",
+      "ordinal": 3,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "fated-villain",
+        "rowPointer": "/rows/2",
+        "sourcePointer": "/rows/2/source"
+      },
+      "editionPins": 1,
+      "citations": 12,
+      "reviewedSourceRefs": 8,
+      "memberPins": 11,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "reverend-insanity",
+      "ordinal": 4,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "reverend-insanity",
+        "rowPointer": "/rows/3",
+        "sourcePointer": "/rows/3/source"
+      },
+      "editionPins": 1,
+      "citations": 15,
+      "reviewedSourceRefs": 4,
+      "memberPins": 14,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "shadow-slave",
+      "ordinal": 5,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "shadow-slave",
+        "rowPointer": "/rows/4",
+        "sourcePointer": "/rows/4/source"
+      },
+      "editionPins": 1,
+      "citations": 15,
+      "reviewedSourceRefs": 6,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "regressors-tale",
+      "ordinal": 6,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "regressors-tale",
+        "rowPointer": "/rows/5",
+        "sourcePointer": "/rows/5/source"
+      },
+      "editionPins": 1,
+      "citations": 13,
+      "reviewedSourceRefs": 8,
+      "memberPins": 14,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "omniscient-reader",
+      "ordinal": 7,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "omniscient-reader",
+        "rowPointer": "/rows/6",
+        "sourcePointer": "/rows/6/source"
+      },
+      "editionPins": 1,
+      "citations": 7,
+      "reviewedSourceRefs": 6,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "labyrinth-mad-god",
+      "ordinal": 8,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "labyrinth-mad-god",
+        "rowPointer": "/rows/7",
+        "sourcePointer": "/rows/7/source"
+      },
+      "editionPins": 2,
+      "citations": 12,
+      "reviewedSourceRefs": 10,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "mother-of-learning",
+      "ordinal": 9,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "mother-of-learning",
+        "rowPointer": "/rows/8",
+        "sourcePointer": "/rows/8/source"
+      },
+      "editionPins": 1,
+      "citations": 17,
+      "reviewedSourceRefs": 8,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "lord-of-mysteries",
+      "ordinal": 10,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "lord-of-mysteries",
+        "rowPointer": "/rows/9",
+        "sourcePointer": "/rows/9/source"
+      },
+      "editionPins": 1,
+      "citations": 17,
+      "reviewedSourceRefs": 11,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "circle-of-inevitability",
+      "ordinal": 11,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "circle-of-inevitability",
+        "rowPointer": "/rows/10",
+        "sourcePointer": "/rows/10/source"
+      },
+      "editionPins": 1,
+      "citations": 14,
+      "reviewedSourceRefs": 12,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "worm",
+      "ordinal": 12,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "worm",
+        "rowPointer": "/rows/11",
+        "sourcePointer": "/rows/11/source"
+      },
+      "editionPins": 1,
+      "citations": 5,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "legendary-mechanic",
+      "ordinal": 13,
+      "sourceClass": "supplied-novel",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "legendary-mechanic",
+        "rowPointer": "/rows/12",
+        "sourcePointer": "/rows/12/source"
+      },
+      "editionPins": 1,
+      "citations": 11,
+      "reviewedSourceRefs": 6,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "skyrim",
+      "ordinal": 14,
+      "sourceClass": "game-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "skyrim",
+        "rowPointer": "/rows/13",
+        "sourcePointer": "/rows/13/source"
+      },
+      "editionPins": 1,
+      "citations": 4,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "fallout4",
+      "ordinal": 15,
+      "sourceClass": "game-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "fallout4",
+        "rowPointer": "/rows/14",
+        "sourcePointer": "/rows/14/source"
+      },
+      "editionPins": 1,
+      "citations": 4,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "elden-ring",
+      "ordinal": 16,
+      "sourceClass": "game-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "elden-ring",
+        "rowPointer": "/rows/15",
+        "sourcePointer": "/rows/15/source"
+      },
+      "editionPins": 1,
+      "citations": 4,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "naruto",
+      "ordinal": 17,
+      "sourceClass": "manga-anime-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "naruto",
+        "rowPointer": "/rows/16",
+        "sourcePointer": "/rows/16/source"
+      },
+      "editionPins": 1,
+      "citations": 4,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "bleach",
+      "ordinal": 18,
+      "sourceClass": "manga-anime-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "bleach",
+        "rowPointer": "/rows/17",
+        "sourcePointer": "/rows/17/source"
+      },
+      "editionPins": 1,
+      "citations": 4,
+      "reviewedSourceRefs": 5,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    },
+    {
+      "id": "harry-potter",
+      "ordinal": 19,
+      "sourceClass": "bounded-publisher-reference",
+      "retrieval": {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/source-reconciliation/ASSEMBLED_ROWS.json",
+        "sha256": "d0441921690298e0b9958798a6a2e40dd010e575885c082cd93fcec52ca481a7",
+        "canonicalRowId": "harry-potter",
+        "rowPointer": "/rows/18",
+        "sourcePointer": "/rows/18/source"
+      },
+      "editionPins": 1,
+      "citations": 2,
+      "reviewedSourceRefs": 3,
+      "memberPins": 0,
+      "originalSourceFieldsRetained": true,
+      "nonSourceContractUnchanged": true,
+      "activation": false,
+      "originalAuxiliarySourceFieldsRetained": true,
+      "retrievalResolvesExactRow": true
+    }
+  ]
+}

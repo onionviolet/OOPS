@@ -1,0 +1,31 @@
+# Branching timeline final checkpoint
+
+2026-10-05. Status: completed planning deliverable, pending coordinator/director integration/review. Existing Timeline writer chat `01a10998-5d20-7480-83c3-eba338d63d08`; dispatcher `01a10a5f-186a-7420-b02f-7ef1c4880d68`; canonical coordinator `01a1074b-e2ed-7523-a0cd-56de915fbcd9`. [Authority](../../../../dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md). Sole new scope: this branching directory. Old Timeline audit is completed read-only input.
+
+## Result and current authority
+
+Delivered [REPORT](REPORT.md), [TIMELINE_STYLES](TIMELINE_STYLES.md), [CHOICE_GRAPH](CHOICE_GRAPH.json), [CASES](CASES.md), [VISION_COVERAGE](VISION_COVERAGE.json), [DEPENDENCIES](DEPENDENCIES.md), [FRONTIER_RECONCILIATION](FRONTIER_RECONCILIATION.md), [INPUTS](INPUTS.json), [REVIEW](REVIEW.md), [CHECKS](CHECKS.json) and this checkpoint. Frontier has 18 nodes/31 edges/five ending signatures/five conditional traces; original Stillwater has 17 nodes/19 edges/four ending signatures/four traces. Twelve request rows, seven style comparisons and eight distinct ending domains preserve wider vision without a new universal class/morality/clock/ending system.
+
+Current revision7 authority remains separate: skill/discovery/Engine implementation is independently authorized; this Timeline role is planning-only. Broader Frontier/destination/temporal/death/world runtime remains proposed. No skill pause, new time/death/reset/source enrollment, shared-owner write or current-save rule change occurred here. Head at read time: `97c28efece4fd6248b6f075ad0c6927c3d0432df`; dirty user/shared work preserved.
+
+## Input drift and source qualification
+
+[INPUTS](INPUTS.json) keeps 29 initial targeted fingerprints, with partial read/reuse rather than claimed full-file semantic coverage. Coordinator PROJECT/USER_VISION/plan/RUN changed; the current top request/resume was reread and exact request headings reconciled. Frontier CAMPAIGN/checkpoint advanced to completed revision-2 local planning with 33 parent IDs/15 strand steps/seven composable endings. Its actual TIMELINE_AND_ENDINGS/WORLD_COMPLETION were read for reconciliation; completion-ledger hash is structural receipt, not a repeated full audit. The 1440-minute local window/resident-sponsored four-coin control are not silently replaced by our alternative 2160-minute/player-paid two-coin fixtures. Our graph does not remove its required resilient-public/specialist alternatives. Current/source/old-Timeline code-bearing inputs were unchanged at document check; no own write outside this scope.
+
+MoL exact supplied WebToEpub hash `e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf` and ch84/ch91/epilogue member hashes matched live manifest. Reused old checked semantic windows: ch84:p2-18, ch91:p219-223 and epilogue:p125-136, plus qualified reviewed aftermath claims. No new full-book read, primary authenticity certificate, raw prose corpus or library mutation. Stillwater entirety/reset recipe is original/unregistered; the source only informs bounded distinctions and positive functions.
+
+## Review, repairs and actual limits
+
+One child `/root/branch_graph_review`, explicitly selected GPT-6 Luna medium with no full-history fork, owned only REVIEW.md. Its initial independent review found impossible coil spending, vague Mira shipment and missing later funding. One focused repair round verified those corrections and identified remaining FW3 teacher/payer naming. Root inspected held `original_frontier.learn_tally` lines132-138, added once-only F.lesson, teacher/player acquisition from Wen, learner/payee Mira, player two-coin receipt and prior work settlement. Root also made ordinary support a named paid static fixture, retained safe-limit evidence, counted only actual early-reset elapsed time and added explicit accepted-work/arrival failure exits. Historical reviewer findings remain readable; final graph has these root repairs rather than an undocumented claim that the child rechecked later edits.
+
+Live collaboration inventory showed root running and only that child completed. No descendants or owned background shell/process/session/pending mutation; all calls returned terminal completion. Worker reservation released; final return releases root's report-writing reservation. No visible chat/message, watcher, automation, commit, publication, global model/config change or private-save read.
+
+Executed: JSON/schema/reference/unique-node-edge/outcome checks; all nine conditional document traces connect; current request/source pointers; two Mermaid projections reference the 35 actual graph nodes; local Markdown targets, whitespace/newline/readback; source/member fingerprints; input drift and invoice/coil/teacher/route ledger reasoning. These are document/source consistency checks, not executing a game rule engine or proving pacing/consumer behavior. CHECKS owns final exact counts and final output hashes. Native build/unit/browser/gameplay/save/failure/keyboard/benchmark checks were not run here. BG01-BG05 and director game-feel/source-rule selection remain later gates. No performance/token-saving comparison is claimed.
+
+## Completion usage
+
+At the first completed-goal snapshot, the host reported 279928 tokens and 2145 seconds (35 minutes 45 seconds). No token budget was requested. This is the cumulative host goal counter at that snapshot, not a benchmark, API-price/allowance claim or savings comparison; worker usage was not separately exposed. Subsequent final metadata edits are outside that receipt. Final document check passed: 2 graphs, 35 nodes, 50 edges, 9 distinct ending signatures, 9 connected hypothetical traces, 12 request rows, 2 diagrams and 31 local Markdown targets. All acceptance cases remain unexecuted.
+
+## Resume
+
+Next action belongs to coordinator: consume this return with completed Frontier and society/granularity returns, preserve seven local required cases, choose window/sponsorship variants and finite required IDs, then merge canonical owners once. Engine and other authorized runtime roles continue their existing narrow goals; no new runtime task was dispatched by this audit. If actual implementation later selects a temporal profile, freeze its source/carrier/clock/claim/arrival recipe first. This finite planning objective has no further source-reading task or watcher.

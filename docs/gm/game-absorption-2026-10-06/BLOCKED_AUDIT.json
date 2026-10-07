@@ -1,0 +1,28 @@
+{
+  "capturedAt": "2026-10-06T20:08:07.137951+00:00",
+  "goalTurn": 3,
+  "previousGoalTurn": "verified wait on live thread/turn01a10fe7/01a112a4, afterCursor advanced to revision11",
+  "consecutiveSameBlockerTurns": 3,
+  "liveOwner": {
+    "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+    "title": "Implement audited RPG features",
+    "status": "active",
+    "turnId": "01a112a4-ed73-72b0-8061-698b23671664",
+    "turnStatus": "inProgress",
+    "cursor": "6fcf131b-0ff9-4279-a401-e08c1ba43667:12"
+  },
+  "explicitSharedReleaseFound": false,
+  "completionAudit": {
+    "connectedLeafSource": "complete, current four module hashes match EVIDENCE.json",
+    "sourceSyntaxImportsDefinitionsLinks": "passed at recorded exact hashes; no changed leaf inputs",
+    "nativeStateSaveCommandUIConsumers": "incomplete; zero game_absorption_assay binding mentions in six actual shared consumers",
+    "matchingNativeBuild": "not run; ownership reserved",
+    "laterBehavioralSuites": "explicitly deferred by current policy, not a pass or current blocker",
+    "preservation": "only owned prefix modules/docs changed by this builder; no shared/private-save/library writes"
+  },
+  "blockedAuditPassed": true,
+  "reason": "All useful work inside this builder reservation is finished. Native/state/UI/save/registry/build files remain exclusively held by the active integrator, and the task expressly requires live explicit release before editing them. This same external ownership condition occurred in all three consecutive goal turns.",
+  "requiredExternalChange": "Explicit live release of shared integration/build ownership by01a10fe7, followed by source refresh, real consumers and matching build.",
+  "nextActionAfterRelease": "Read current CHECKPOINT and owner release/build/process status, record transfer, refresh/reconcile INTEGRATION.patch, integrate nine shared bindings, build and verify source-map correspondence under tests-deferred policy.",
+  "notAuthorized": "Taking shared files early, messaging other chats, creating a workaround application/build or starting unrelated packets."
+}

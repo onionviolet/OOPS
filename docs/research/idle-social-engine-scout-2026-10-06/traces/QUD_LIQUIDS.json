@@ -1,0 +1,1197 @@
+{
+  "schema": 1,
+  "state": "complete-source-reviewed-supporting-proposal",
+  "as_of": "2026-10-06",
+  "source_version": "2.0.211.56",
+  "source_assembly_sha256": "2cc28fba5a86221e27bfdcaa5f5a91a2e249fd474814dce7cff25a9a649b8589",
+  "source_root": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/decompiled",
+  "authority": "Human requested deeper reuse/re-audit of existing Qud source; parent exclusive liquid-trace reservation.",
+  "decision": "retain supporting research; original adaptation only, unselected and unimplemented",
+  "active_ranking_change": false,
+  "selected_packet_added": false,
+  "source_qualification": {
+    "decompiler": "ilspycmd 9.1.0.7988",
+    "runtime": "Microsoft.NETCore.App 8.0.31 osx-arm64",
+    "exported_csharp_files": 5437,
+    "reused_export": true,
+    "repeated_export_or_tool_install": false,
+    "latest_retail_claim": false,
+    "runtime_execution": false,
+    "dlc": "Supplied base assembly and copied base declarations only. Earlier Pets Pack installer remains unextracted/unread; no entitlement/current store/full DLC claim.",
+    "original_decompilation_manifest_sha256": "760cc1b3e17fcc08ba1ac1a0ba9c8cf6b4b332157e05361f0e75f2e41a5f58e1",
+    "original_input_manifest_sha256": "b78dcdaa5350f811f6a70ef77ee721eb1c8cff1af52a6010a9f36eb873e93e96"
+  },
+  "original_review_inputs": [
+    {
+      "file": "docs/research/caves-of-qud/REPORT.md",
+      "sha256": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "read": "Existing bounded five-path dossier reviewed for deduplication; its source coverage remains historical and separately owned."
+    },
+    {
+      "file": "docs/research/caves-of-qud/FINDINGS.json",
+      "sha256": "092c11e3750426a8d600f4145f80f95cc305d3311ab1c6c552143f2db42b75f1",
+      "read": "Existing bounded five-path dossier reviewed for deduplication; its source coverage remains historical and separately owned."
+    },
+    {
+      "file": "docs/research/caves-of-qud/NPC_FINDINGS.json",
+      "sha256": "c56e65efca86692ea92549d173f672620a9656571428f1017a8089a9a05232c9",
+      "read": "Existing bounded five-path dossier reviewed for deduplication; its source coverage remains historical and separately owned."
+    },
+    {
+      "file": "docs/research/caves-of-qud/INTAKE.json",
+      "sha256": "004eee9d6804803ae93cbfb9e2f35ce0a4a58742bc7e03a87f3424461337dba9",
+      "read": "Existing bounded five-path dossier reviewed for deduplication; its source coverage remains historical and separately owned."
+    }
+  ],
+  "mechanism": {
+    "name": "Measured composition -> physical liquid-fueled cell -> socket -> Gaslight penetration event -> powered weapon state and independently charge-gated light",
+    "prerequisite": "Actual positive compatible liquid volume, supported collector/slot, access/ownership/physical gates and operational powered parts.",
+    "player_choice": "Drain existing content or mix a measured dose; place a physical compatible cell; perform the actual charged item action or preserve remaining fuel.",
+    "cost": "Source material leaves its collector on split; empty-slot insertion pays actor energy1000 by default before possible later refusal. Gaslight configured draw100 is an event cost in a selected hit path, not every attack. Selected pour/fill turn cost unknown.",
+    "mutation": "Weighted component proportions and quantity; socket item/back-reference; retained ChargeCounter; whole-dram depletion; actual weapon fields and local zone light.",
+    "useful_consumer": "Charged/uncharged melee profile plus LightSource actual radius4 zone light gated by charge1. Other generic ActiveLightSource can consume by local tick but positive draw must be configured.",
+    "failure_aftermath": "Dilution rejects usable charge without removing material; inventory removal can fail after energy cost; unavailable requests can partially drain; powered profile and light can have different readiness; final depleted cell notifies, closed vessel remains empty, open puddle can be destroyed.",
+    "time": "Gaslight TurnTick refreshes status, selected combat penetration event consumes. Concrete passive light does not consume on radiation. Separate active-light local tick excludes world map. No YAIR minute equivalence assumed.",
+    "persistence": "Explicit LiquidVolume Write/Read covers quantity/composition. Same-instance partial counter and SameAs demonstrated. Generic counter/socket serialization, derived-state restore and full save/failure remain unread."
+  },
+  "evidence": [
+    {
+      "id": "QL01",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/LiquidVolume.cs",
+      "line_spans": [
+        [
+          65,
+          93
+        ],
+        [
+          362,
+          396
+        ],
+        [
+          946,
+          1015
+        ],
+        [
+          1230,
+          1588
+        ],
+        [
+          1664,
+          1733
+        ],
+        [
+          4283,
+          4335
+        ],
+        [
+          4719,
+          4792
+        ],
+        [
+          5790,
+          5814
+        ],
+        [
+          5938,
+          5957
+        ],
+        [
+          6162,
+          6218
+        ],
+        [
+          6333,
+          6345
+        ],
+        [
+          6509,
+          6645
+        ]
+      ],
+      "symbols": [
+        "ComponentLiquids",
+        "MixWith",
+        "NormalizeProportions",
+        "TempSplit",
+        "Split",
+        "IsPureLiquid",
+        "Empty",
+        "UseDram",
+        "MixInto",
+        "PerformFill"
+      ],
+      "sha256": "859029231d579af851a8e9eb65c955a95d82071045c026f7a3e1750920cf6761",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 6765,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          64
+        ],
+        [
+          94,
+          361
+        ],
+        [
+          397,
+          945
+        ],
+        [
+          1016,
+          1229
+        ],
+        [
+          1589,
+          1663
+        ],
+        [
+          1734,
+          4282
+        ],
+        [
+          4336,
+          4718
+        ],
+        [
+          4793,
+          5789
+        ],
+        [
+          5815,
+          5937
+        ],
+        [
+          5958,
+          6161
+        ],
+        [
+          6219,
+          6332
+        ],
+        [
+          6346,
+          6508
+        ],
+        [
+          6646,
+          6765
+        ]
+      ],
+      "claim": "Physical amount, weighted thousandth composition, exact mixture recipe exception, selected transfer/custody/frozen gates, callbacks, component persistence, scalar depletion and open-puddle versus closed-vessel emptying. No universal atomic fill or turn-cost guarantee."
+    },
+    {
+      "id": "QL02",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/LiquidFueledEnergyCell.cs",
+      "line_spans": [
+        [
+          1,
+          335
+        ]
+      ],
+      "symbols": [
+        "EnergyLiquid",
+        "GetCharge",
+        "ChargeCounter",
+        "UseCharge",
+        "SameAs",
+        "HandleEvent",
+        "CanBeRecharged"
+      ],
+      "sha256": "ebe561fe7fe3a4ff96d7c291742c4be53e14ae265b283fac953c241d3e1a9f7d",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 335,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Positive matching composition supplies volume*ChargePerDram-ChargeCounter. Pure single-fuel gate rejects dilution; partial draws retain counter and consume whole drams at threshold. Pass-two insufficient request may spend available charge; depletion notification and no positive electrical recharge."
+    },
+    {
+      "id": "QL03",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/EnergyCellSocket.cs",
+      "line_spans": [
+        [
+          1,
+          63
+        ],
+        [
+          155,
+          180
+        ],
+        [
+          335,
+          500
+        ],
+        [
+          576,
+          624
+        ],
+        [
+          630,
+          691
+        ],
+        [
+          698,
+          740
+        ]
+      ],
+      "symbols": [
+        "HandleEvent",
+        "SetCell",
+        "AttemptRemoveCell",
+        "CompatibleCell",
+        "SlottedIn"
+      ],
+      "sha256": "f9aad52276de7481c8df9ad19bf6626c21ac7f124d64d303b4dc44a47064d13a",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 796,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          64,
+          154
+        ],
+        [
+          181,
+          334
+        ],
+        [
+          501,
+          575
+        ],
+        [
+          625,
+          629
+        ],
+        [
+          692,
+          697
+        ],
+        [
+          741,
+          796
+        ]
+      ],
+      "claim": "Physical cell forwarding/back-reference, removal/replacement/slot compatibility and inventory gates. Empty insertion energy is paid before possible inventory-removal refusal. Selected AI selection and holder/custody handling, not full socket serialization."
+    },
+    {
+      "id": "QL04",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/Gaslight.cs",
+      "line_spans": [
+        [
+          1,
+          251
+        ]
+      ],
+      "symbols": [
+        "Gaslight",
+        "HandleEvent",
+        "GetWeaponMeleePenetrationEvent",
+        "Activate",
+        "Deactivate",
+        "SyncActiveState"
+      ],
+      "sha256": "8e42d2e92bb61090adf283d401681bf4e903bc08443f66dcd41d34f9eca52322",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 251,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Penetration event attempts charge use without checking its boolean, then recomputes actual weapon damage/skill/penetration powered state. Turn tick refreshes state without a per-turn draw in this part."
+    },
+    {
+      "id": "QL05",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/ActiveLightSource.cs",
+      "line_spans": [
+        [
+          1,
+          172
+        ]
+      ],
+      "symbols": [
+        "ActiveLightSource",
+        "TurnTick",
+        "RadiateLight",
+        "GetEffectiveRadius"
+      ],
+      "sha256": "166220e8d9bd16e6ff9ef1796d4d36c2c5615a133bb9f3bd04cafda7621abb52",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 172,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Separate active-light consumer calls operational consumption outside world map and adds actual zone light while ready. Constructor does not specify positive ChargeUse; do not apply continuous drain to all lights."
+    },
+    {
+      "id": "QL06",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/LightSource.cs",
+      "line_spans": [
+        [
+          1,
+          107
+        ]
+      ],
+      "symbols": [
+        "RadiateLight",
+        "OnlyIfCharged",
+        "TestCharge",
+        "AddLight"
+      ],
+      "sha256": "6e4ee876b9b8039b02b9d917f8afbea0a1a480caa31f2f3d2dd5cee3d81a4176",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 107,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Concrete passive light checks charge1 and broken/rusted before actual local radiation; no use-charge call in that radiation path. Small positive charge can light while larger weapon-readiness draw fails."
+    },
+    {
+      "id": "QL07",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/IActivePart.cs",
+      "line_spans": [
+        [
+          1951,
+          2017
+        ],
+        [
+          2040,
+          2093
+        ],
+        [
+          2175,
+          2205
+        ]
+      ],
+      "symbols": [
+        "GetActiveChargeUse",
+        "TestCharge",
+        "UseCharge",
+        "ConsumeChargeIfOperational",
+        "ConsumesLiquid"
+      ],
+      "sha256": "4e59de07090260b8bb8e8fd5673e7cad065232910c9d15441eec9c0936058049",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 2426,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          1950
+        ],
+        [
+          2018,
+          2039
+        ],
+        [
+          2094,
+          2174
+        ],
+        [
+          2206,
+          2426
+        ]
+      ],
+      "claim": "Selected disabled/readiness/charge/minimum/liquid/world-map gates and bulk-failure repeated-use branch; not complete powered-part framework or all providers."
+    },
+    {
+      "id": "QL08",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/IPoweredPart.cs",
+      "line_spans": [
+        [
+          1,
+          16
+        ]
+      ],
+      "symbols": [
+        "IPoweredPart",
+        "ChargeUse"
+      ],
+      "sha256": "4706faf2d04d377efc3fca274688a89d363e00fbe079ba82ab1a52fe3180a314",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 16,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Powered-part defaults; individual declaration/constructor configuration determines cost."
+    },
+    {
+      "id": "QL09",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World/GameObject.cs",
+      "line_spans": [
+        [
+          10647,
+          10679
+        ]
+      ],
+      "symbols": [
+        "QueryCharge",
+        "TestCharge",
+        "UseCharge"
+      ],
+      "sha256": "b00d7a22f93adb47c05b39f170ae1c1ec23bd112210da69f77a074d6b4588133",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 19304,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          10646
+        ],
+        [
+          10680,
+          19304
+        ]
+      ],
+      "claim": "Object wrappers route pooled query/test/use charge events and equipped actor charge event. Not full object serialization or all event handlers."
+    },
+    {
+      "id": "QL10",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World/UseChargeEvent.cs",
+      "line_spans": [
+        [
+          1,
+          106
+        ]
+      ],
+      "symbols": [
+        "Check",
+        "Process",
+        "ChargeUsedEvent",
+        "Pass"
+      ],
+      "sha256": "a07e1ec0c4bad8f52619e0cedf7da529c6bc31a41c05a721f913c064fb8512b7",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 106,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Registered event plus two-pass handlers; completion convention and charge-used notification do not establish rollback of failed partial requests."
+    },
+    {
+      "id": "QL11",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World/CellDepletedEvent.cs",
+      "line_spans": [
+        [
+          1,
+          49
+        ]
+      ],
+      "symbols": [
+        "Send",
+        "SlottedIn"
+      ],
+      "sha256": "ce8493697fbcf6f31a8cf46f7e6edcc2e7f211426870fb1c100c76798e6a4157",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 49,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Depleted event notifies cell and slotted holder; no automatic refill/destruction or whole-save proof."
+    },
+    {
+      "id": "QL12",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World/GetWeaponMeleePenetrationEvent.cs",
+      "line_spans": [
+        [
+          1,
+          67
+        ]
+      ],
+      "symbols": [
+        "Process",
+        "Weapon",
+        "IMeleePenetrationEvent"
+      ],
+      "sha256": "809856713eb0deac6cbfa5e92eb4dc4b04911657bdab78ad53a43fa0fdd6d224",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 67,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Weapon-targeted event entry point used by real combat and selected conditional score caller."
+    },
+    {
+      "id": "QL13",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World/IMeleePenetrationEvent.cs",
+      "line_spans": [
+        [
+          1,
+          109
+        ]
+      ],
+      "symbols": [
+        "Process",
+        "Target",
+        "HandleEvent"
+      ],
+      "sha256": "b8116993e4701a66d05660a7f01dd74c80e0f8a8a5f2f8b60dab8fe6434b59a6",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 109,
+      "semantic_coverage": "complete file",
+      "semantic_unread_line_spans": [],
+      "claim": "Legacy and typed dispatch target actual weapon and can invoke its mutating part; no preview-only flag is established here."
+    },
+    {
+      "id": "QL14",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/Combat.cs",
+      "line_spans": [
+        [
+          1074,
+          1124
+        ]
+      ],
+      "symbols": [
+        "GetWeaponMeleePenetrationEvent",
+        "DefenderAttackHit",
+        "AV"
+      ],
+      "sha256": "1a3bc3e4779f45644eb1ed21dd39837dbf98c597ebd0d2677afbe86979a54861",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 1760,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          1073
+        ],
+        [
+          1125,
+          1760
+        ]
+      ],
+      "claim": "Actual penetration event follows hit branch and armor-value support. Not every swing/miss, full combat resolution or last-fuel damage proof."
+    },
+    {
+      "id": "QL15",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.World.Parts/Brain.cs",
+      "line_spans": [
+        [
+          3231,
+          3272
+        ]
+      ],
+      "symbols": [
+        "PreciseWeaponScore",
+        "IsAdaptivePenetrationActiveEvent",
+        "GetWeaponMeleePenetrationEvent"
+      ],
+      "sha256": "21b30f39cd8eb8ebcedf170e718e1083e0da66335530824325154f91aeb97f91",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 4427,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          3230
+        ],
+        [
+          3273,
+          4427
+        ]
+      ],
+      "claim": "Conditional adaptive-penetration score path dispatches same event. Activation condition, all callers and whether ordinary Gaslight can reach it remain unread; do not claim universal AI score fuel loss."
+    },
+    {
+      "id": "QL16",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.Liquids/BaseLiquid.cs",
+      "line_spans": [
+        [
+          346,
+          376
+        ]
+      ],
+      "symbols": [
+        "MixingWith",
+        "MixedWith"
+      ],
+      "sha256": "41da9eb5a0ed9640b37883f4e50c881be509140298eb625648a360b2e7cfb62f",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 709,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          345
+        ],
+        [
+          377,
+          709
+        ]
+      ],
+      "claim": "Base callback defaults allow mixing and add no post-mix behavior, while specialized overrides remain separate dependencies."
+    },
+    {
+      "id": "QL17",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.Liquids/LiquidOil.cs",
+      "line_spans": [
+        [
+          1,
+          65
+        ]
+      ],
+      "symbols": [
+        "LiquidOil",
+        "Combustibility",
+        "MixedElectricalConductivity",
+        "SlipperyWhenWet"
+      ],
+      "sha256": "abdb7990907363a222bd4e70a9f6bf4cfabd5a5f8aece30bf80b3b34d180807b",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 170,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          66,
+          170
+        ]
+      ],
+      "claim": "Oil identity and selected physical-property declarations. Whole fire/slip/contact consumers unreviewed."
+    },
+    {
+      "id": "QL18",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.Liquids/LiquidWater.cs",
+      "line_spans": [
+        [
+          16,
+          39
+        ],
+        [
+          104,
+          146
+        ]
+      ],
+      "symbols": [
+        "LiquidWater",
+        "PureElectricalConductivity",
+        "MixedElectricalConductivity",
+        "Drank",
+        "SmearOn"
+      ],
+      "sha256": "4253f33c0b8c2982668d00249df8d6eb06b74cbf635e98404e79c752edf64889",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 305,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          15
+        ],
+        [
+          40,
+          103
+        ],
+        [
+          147,
+          305
+        ]
+      ],
+      "claim": "Selected pure/mixed conductivity and actual weighted hydration/amphibious smear hook; drink dispatcher/time/consumption path not completely traced."
+    },
+    {
+      "id": "QL19",
+      "status": "source-demonstrated-selected-export",
+      "file": "XRL.Liquids/LiquidAcid.cs",
+      "line_spans": [
+        [
+          1,
+          41
+        ],
+        [
+          170,
+          215
+        ]
+      ],
+      "symbols": [
+        "LiquidAcid",
+        "ApplyAcid",
+        "SmearOn",
+        "SmearOnTick"
+      ],
+      "sha256": "e1ec8c78693a04672c6a6d0cb0f800eb07a1a66ec980997bf33b5e77c72794a8",
+      "manifest": "DECOMPILATION_MANIFEST.json",
+      "line_count": 237,
+      "semantic_coverage": "selected windows only",
+      "semantic_unread_line_spans": [
+        [
+          42,
+          169
+        ],
+        [
+          216,
+          237
+        ]
+      ],
+      "claim": "Exposure-weighted immediate and ongoing damage hooks demonstrate a deeper physical-coating consumer. Coating creation/depletion/scheduler/protection remain unread; not a second full path."
+    }
+  ],
+  "definition_evidence": [
+    {
+      "id": "QLD01",
+      "status": "copied-base-declaration-text-not-runtime-loader-proof",
+      "file": "StreamingAssets/Base/ObjectBlueprints/Items.xml",
+      "line_spans": [
+        [
+          865,
+          933
+        ],
+        [
+          10516,
+          10592
+        ]
+      ],
+      "symbols": [
+        "Gaslight Dagger",
+        "Gaslight Sword",
+        "Combustion Cell",
+        "EnergyCellSocket",
+        "LightSource",
+        "Gaslight",
+        "LiquidFueledEnergyCell"
+      ],
+      "sha256": "49aa1ed76bae9eb03231fb486ccaaeee3bdb4412e7a64e6d5ea3425ef0dbe2ec",
+      "manifest": "INPUT_MANIFEST.json",
+      "line_count": 12692,
+      "claim": "Concrete oil cell750 charge/dram max8; Gaslight weapons socket plus charged-only radius4 passive light and configured consuming draw100. Other nearby fuel declarations are context, not audited consumers.",
+      "unread_limits": "Whole XML parse, inheritance/modifier precedence, loader execution, spawned distribution and remaining item declarations. Earlier intake records XML1.0 control-character parse failure; this review reads target declaration windows."
+    }
+  ],
+  "static_derivation": {
+    "status": "source-arithmetic-only-not-executed",
+    "assumptions": "Direct LiquidFueledEnergyCell helper, valid two oil drams,750 charge/dram,counter0; no event overhead/modifiers/providers.",
+    "before": {
+      "volume_drams": 2,
+      "counter": 0,
+      "charge": 1500
+    },
+    "after_direct_helper_draw100": {
+      "volume_drams": 2,
+      "counter": 100,
+      "charge": 1400
+    },
+    "limits": "Not an attack count, protocol run, benchmark, configured item construction or combat outcome."
+  },
+  "depth_map": [
+    {
+      "family": "mixture and exact recipes",
+      "supported_by": [
+        "QL01",
+        "QL02",
+        "QL16"
+      ],
+      "implication": "Composition, trace rounding and authored exact recipe can change a consumer despite equal volume.",
+      "unread": "Every specialized callback/exact recipe, component withdrawal and full fill/pour safety."
+    },
+    {
+      "family": "physical/material world",
+      "supported_by": [
+        "QL01",
+        "QL17",
+        "QL18",
+        "QL19"
+      ],
+      "implication": "Open-volume properties and selected repeated acid damage can connect composition to environment/body consequences.",
+      "unread": "Whole fire/freezing/slip/coating/contact/dose dispatcher and zones."
+    },
+    {
+      "family": "action and query interruption",
+      "supported_by": [
+        "QL04",
+        "QL07",
+        "QL10",
+        "QL12",
+        "QL13",
+        "QL14",
+        "QL15"
+      ],
+      "implication": "Use event can consume a partial remainder; combat hit/AV gates and a conditional adaptive score caller prevent a simple universal attacks-per-charge story.",
+      "unread": "Adaptive-penetration activation, all AI/event callers, exact final attack resolution and alternate charge providers."
+    },
+    {
+      "family": "ongoing time and light",
+      "supported_by": [
+        "QL04",
+        "QL05",
+        "QL06"
+      ],
+      "implication": "Passive light, local consuming tick and readiness refresh are distinct mechanisms with different costs/thresholds.",
+      "unread": "Other configured active lamps, world-map/zone scheduler, full visibility and stealth consequences."
+    },
+    {
+      "family": "ownership, relation and campaign",
+      "supported_by": [
+        "QL01",
+        "QL03"
+      ],
+      "implication": "Physical carrier identity, source amount, another owner and help events preserve more than item labels. An adaptation must respect actor knowledge, custody and consent.",
+      "unread": "Faction reaction, all observer propagation, reputation/theft/trading/campaign outcomes and arbitrary ownership rules."
+    },
+    {
+      "family": "retained infrastructure and persistence",
+      "supported_by": [
+        "QL01",
+        "QL02",
+        "QL03",
+        "QL11"
+      ],
+      "implication": "Container/slot survives normal emptying; quantity/components have explicit source writer and partial counter affects sameness.",
+      "unread": "Generic counter serializer, socket identity restore, external drain/refill debt policy, whole save/load/failure/migration."
+    }
+  ],
+  "current_yair_sources": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "line_spans": [
+        [
+          1,
+          23
+        ]
+      ],
+      "line_count": 23,
+      "qualification": "Live instructions",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/AGENTS.md",
+      "semantic_unread_line_spans": []
+    },
+    {
+      "file": "PROJECT.md",
+      "sha256": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9",
+      "line_spans": [
+        [
+          1,
+          44
+        ]
+      ],
+      "line_count": 538,
+      "qualification": "Fresh status-care delivery and qualified earlier implementation status",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/PROJECT.md",
+      "semantic_unread_line_spans": [
+        [
+          45,
+          538
+        ]
+      ]
+    },
+    {
+      "file": "src/status_care_content.js",
+      "sha256": "535c8db612974411a6bfaf4a22b279ae5717dfd8a1960f1de87097990e6f5d93",
+      "line_spans": [
+        [
+          1,
+          167
+        ]
+      ],
+      "line_count": 167,
+      "qualification": "Five conditions and11 paid/native optional care/work paths",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/status_care_content.js",
+      "semantic_unread_line_spans": []
+    },
+    {
+      "file": "src/status_care_facts.js",
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+      "line_spans": [
+        [
+          1,
+          104
+        ]
+      ],
+      "line_count": 104,
+      "qualification": "Actual native frame, pure status projections, common played clock expiry, rain multiplier and exact validators",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/status_care_facts.js",
+      "semantic_unread_line_spans": []
+    },
+    {
+      "file": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641",
+      "line_spans": [
+        [
+          8,
+          19
+        ],
+        [
+          26,
+          44
+        ],
+        [
+          64,
+          77
+        ]
+      ],
+      "line_count": 121,
+      "qualification": "Single full-to-empty oil vial, ownership/support/knowledge, actual edge transformation and timed scent",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/nethack_fieldcraft_content.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          7
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          45,
+          63
+        ],
+        [
+          78,
+          121
+        ]
+      ]
+    },
+    {
+      "file": "src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+      "line_spans": [
+        [
+          14,
+          21
+        ],
+        [
+          44,
+          58
+        ],
+        [
+          85,
+          105
+        ]
+      ],
+      "line_count": 113,
+      "qualification": "Two-only batch identity, full-to-empty charge, actual gummed-pin rinse and ordinary scrape",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/game_absorption_assay_content.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          13
+        ],
+        [
+          22,
+          43
+        ],
+        [
+          59,
+          84
+        ],
+        [
+          106,
+          113
+        ]
+      ]
+    },
+    {
+      "file": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "line_spans": [
+        [
+          8,
+          15
+        ],
+        [
+          61,
+          100
+        ]
+      ],
+      "line_count": 105,
+      "qualification": "Sleeve recharge/discharge, resin/native kit consumer and funded Eda lesson/practice",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/reference_gameplay_content.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          7
+        ],
+        [
+          16,
+          60
+        ],
+        [
+          101,
+          105
+        ]
+      ]
+    },
+    {
+      "file": "src/simulation.js",
+      "sha256": "bf45629aa2b91bff5f2ce6f1821e1f5315c0bc9d4d2664e703f151297b39710e",
+      "line_spans": [
+        [
+          554,
+          568
+        ]
+      ],
+      "line_count": 569,
+      "qualification": "Actor knowledge/action view and registered legal proposal gate",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/simulation.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          553
+        ],
+        [
+          569,
+          569
+        ]
+      ]
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "sha256": "3daa13c230f48045beacdff434e5739d53fe7e08a1ec3e0265872633f4452976",
+      "line_spans": [
+        [
+          45,
+          95
+        ],
+        [
+          196,
+          209
+        ]
+      ],
+      "line_count": 306,
+      "qualification": "Authoritative truth aggregation versus actor-known basis/cause, directed cause-scoped relationship memories",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/simulation_effects.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          44
+        ],
+        [
+          96,
+          195
+        ],
+        [
+          210,
+          306
+        ]
+      ]
+    },
+    {
+      "file": "src/expansion_engine.js",
+      "sha256": "5fca4f32083e0627c84b20d3baaa55a943443a80f11d4344c9c166b8ecbb0e26",
+      "line_spans": [
+        [
+          44,
+          51
+        ],
+        [
+          114,
+          115
+        ],
+        [
+          544,
+          586
+        ]
+      ],
+      "line_count": 637,
+      "qualification": "Nonnegative integer time and shared causal boundary scheduler",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/expansion_engine.js",
+      "semantic_unread_line_spans": [
+        [
+          1,
+          43
+        ],
+        [
+          52,
+          113
+        ],
+        [
+          116,
+          543
+        ],
+        [
+          587,
+          637
+        ]
+      ]
+    },
+    {
+      "file": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "line_spans": [
+        [
+          1,
+          62
+        ]
+      ],
+      "line_count": 62,
+      "qualification": "Native snapshot staging and publication with actual item reconstruction",
+      "snapshot_path": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/current-yair/src/gameplay_publication.js",
+      "semantic_unread_line_spans": []
+    }
+  ],
+  "incumbent": {
+    "verified_selected_source": "Actual status-care native modifiers/wet/rain, sleeve/resin/kit and paid training, full-to-empty single-dose oil and closed two-substance batch assay already exist. PROJECT labels gameplay implemented-unverified.",
+    "stale_claims_retired": "No-feat/no-physical-outcome and cooling/status-only missing-feature premises from an old context are not current.",
+    "remaining_question": "One retained multi-dose carrier whose composition and partial use change an actual tool function across uses; not another recipe, status buff or universal energy graph.",
+    "scope_limit": "Selected overlap interfaces only; all nested carriers/item serializers were not audited."
+  },
+  "original_proposal": {
+    "state": "unselected-original-proposal-no-implementation",
+    "name": "Metered inspection fuel and one physical cavity retrieval",
+    "player_loop": "Transfer a measured dose to one owned lamp reservoir; preserve pure fuel or deliberately mix contaminants; complete a paid lamp-guided inspection of a permitted dark cavity; learn only its real fitting position; separately extract the one actual fitting and use the existing fitting/resin/stave kit route.",
+    "distinct_consumer": "Lamp readiness gates real observation, then conserved once-only physical extraction. New cavity stock is separate from Eda existing pin stock. A slower consented dismantling route reaches the same physical fitting without fuel.",
+    "original_values": "Names, stock, amounts, durations and thresholds require an original reversible authoring decision; no Qud actor-energy/tick/constants port or new packet is selected.",
+    "missing_joins": [
+      "Native per-carrier quantity/composition and partial-use persistence with stacking/custody validation.",
+      "Scoped lamp-readiness/paid-inspection consumer; no existing spatial-light engine is assumed.",
+      "Once-only extraction stock and actor-known observation feeding existing fitting/resin/stave kit work."
+    ],
+    "owner_fit": "Use actual native inventory/body/job/site/knowledge owners, registered stale-command gate, common integer played-minute boundary scheduler and durable publisher. Authoritative composition checks legality; motives/reports use only actor-known evidence or attributed testimony. simulationFacts is broader truth, not a universally safe observer projection.",
+    "time_policy": "Explicit command-completion dose events. Passive light views/rendering/previews/AI score consume nothing. Ongoing minute burn would need a separate explicit event-boundary approximation and interruption order; no tick-to-minute equivalence.",
+    "effort": "Medium: native carrier reconstruction/validation/save join, conservation/reservations, visible consumer and save compatibility. No measured time estimate.",
+    "maintenance": "Keep finite components/capacity and one consumer instead of porting Qud event/component runtime. Avoid reusing current single-charge item IDs for a changed meaning.",
+    "compatibility": "Old absent-carrier saves inert; old full/empty vials and frozen jobs retain meaning. New field/ID admission, conservation/stacking/cancellation policy and later save/reload/failure gate required. Exact serializer/key encoding unreviewed; not migration-ready.",
+    "license": "Supplied decompilation is evidence, not an open-source dependency/license grant. Adapt original mechanism/code/content; do not distribute proprietary code/prose/assets.",
+    "later_observe_gate": [
+      "Metered transfer conserves real stock and custody; rendering/canceling cannot grant fuel.",
+      "Contamination retains volume/material but refuses powered inspection; draining/replacing fuel has disclosed cost and no auto purification.",
+      "Two inspections spend distinct portions of same carrier; composition/remaining fuel survive later save/reload without refresh or duplicate inventory.",
+      "Only inspector learns actual fitting position; extraction spends real effort and removes one cavity stock once; fitting feeds existing kit route and manual dismantling is actual alternative.",
+      "Lost permission/body/site/realm support, stale proposal and publication failure follow explicit cancellation/refund/knowledge policy; no silent duplicated or forgiven partial spend."
+    ],
+    "gates_status": "All gameplay/save/browser/failure/director gates unrun; proposal remains research only."
+  },
+  "semantic_coverage": {
+    "csharp_files_selected": 19,
+    "csharp_files_complete": 9,
+    "csharp_files_windowed": 10,
+    "copied_definition_files_windowed": 1,
+    "whole_export_semantic_read": false,
+    "unread_families": [
+      "Whole liquid engine/all mixtures/drinking/cooking/trading/collection",
+      "All light/zone/visibility and combat resolution",
+      "Generic field/save serializer and save-failure/migration",
+      "All coatings/hazards/fire/freezing/movement and environmental transitions",
+      "All faction/ownership/campaign/observer propagation",
+      "DLC/patch changes and generated/spawned item distribution"
+    ],
+    "readiness": "Useful complete selected causal trace; stop broader source expansion."
+  },
+  "checks": {
+    "status": "completed-document-source-self-review",
+    "json_parse": true,
+    "source_hashes_original_decompilation_manifest": 19,
+    "definition_hashes_original_input_manifest": 1,
+    "inclusive_ranges_within_eof": true,
+    "current_snapshot_hashes_match": true,
+    "local_markdown_links": true,
+    "runtime_proof": false,
+    "unit_browser_gameplay_save_reload_import_failure_regression_build_unrun": true
+  },
+  "scope_exclusions": [
+    "Runtime/native/save/UI/build edits",
+    "New active rank/selected implementation packet",
+    "Game/decompiler execution, dependency install or export rerun",
+    "Private save/library/account reads or source/library mutation",
+    "Purchase, commit/push/publication/automation, messages to other chats"
+  ],
+  "raw_receipt": "/Users/weiwei/.codex/research/idle-social-engine-scout-2026-10-06/qud-reaudit-2026-10-06/liquids/RECEIPT.json",
+  "writer_release": "Complete and released to parent /root; only QUD_LIQUIDS.md/.json written in repository."
+}

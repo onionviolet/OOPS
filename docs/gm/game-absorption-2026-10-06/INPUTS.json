@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-10-06T19:40:52.278522+00:00",
+  "qualification": "Read-only relevant dirty interface snapshot, not a clean revision or current bundle claim. Refresh shared inputs before integration.",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+    "docs/gm/dispatch/game-discovery-and-absorption-2026-10-06/ASSIGNMENT.md": "2ebce21fcb0f16b34adae55c3f036cfa001ab5efa484c0bd52821c49a4d54e4d",
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+    "src/simulation.js": "434e2b29214edbdaf7b1f751b7007ed1c1cf9c0ba0f24c9a5a386742214892fb",
+    "src/simulation_effects.js": "eb5075bd3e38f65bb09a089170a0b0d7a28695ce7d40339e251e99553654a145",
+    "src/simulation_contracts.js": "fc777eeb90d597dfa4715d9dac320e888b1b7389aedfc54393092daa78c907f3",
+    "src/simulation_content.js": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+    "src/expansion_engine.js": "f5c22c562b355e962ccea1d8e129263406660b9b62f7a62ee4172486b05da370",
+    "src/feature_expansion_host.js": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467",
+    "src/feature_expansion_ui.js": "c5da0de03fa470c8f96b7a475b57581b66396c361c0e7498fd4c9f94c75cace0",
+    "src/reference_gameplay_host.js": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+    "src/feature_expansion_objects_host.js": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+    "src/audited_workshop_host.js": "ec6afefc5cf09e96592caf1db801f6ea8933cca8319da74ee1e9bc13d637d976",
+    "src/main.js": "66116e57353857f1c03a9fc769ae2fc08aa26cc3ea48bd22072943be8718feda",
+    "src/expedition_content.js": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+  }
+}

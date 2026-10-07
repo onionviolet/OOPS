@@ -1,0 +1,205 @@
+{
+  "capturedAt": "2026-10-06T20:05:27.602120+00:00",
+  "files": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    "PROJECT.md": {
+      "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+      "bytes": 142209
+    },
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": {
+      "sha256": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+      "bytes": 5201
+    },
+    "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md": {
+      "sha256": "e77b72d9c79058f721b49dfed3bc1220ccdf926c0983d3d6b86ad6e6af2babee",
+      "bytes": 15281
+    },
+    "docs/gm/audit-implementation/remainder/combat_objectives/ROOT_PATCH_MAP.md": {
+      "sha256": "8f71d6f7565cd9ec488353d1ae657ae7396e8fbaffc69992f2442ca099cfb351",
+      "bytes": 14843
+    },
+    "src/feature_expansion_battle.js": {
+      "sha256": "6e45102aa96c2ca1f4158ddee5b2667d0ff9c615ae821578be365e7254980c5f",
+      "bytes": 56205
+    },
+    "src/feature_expansion_battle_host.js": {
+      "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7",
+      "bytes": 7667
+    },
+    "src/feature_expansion_powers_host.js": {
+      "sha256": "8f58b5480035905f8c722ff0348f10ef4091e4852666f94cace78a9f30123e24",
+      "bytes": 9747
+    },
+    "src/audit_remainder_combat_fit_content.js": {
+      "sha256": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+      "bytes": 11624
+    },
+    "src/audit_remainder_combat_fit_facts.js": {
+      "sha256": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+      "bytes": 19378
+    },
+    "src/audit_remainder_combat_fit_hooks.js": {
+      "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+      "bytes": 22799
+    },
+    "src/audit_remainder_combat_fit_host.js": {
+      "sha256": "f308e3303b991bfe972aa6adc04173cf7e5a3d1ab17df9e5a5589937ebb2e462",
+      "bytes": 7876
+    },
+    "src/audit_remainder_combat_objectives_content.js": {
+      "sha256": "be3467c78a0593b7d7dc06d742f48b9c34e2fd87621bdbe588443c2545efdf05",
+      "bytes": 16306
+    },
+    "src/audit_remainder_combat_objectives_state.js": {
+      "sha256": "d3ec46789b721f7d8487d3c3744ec17bf97f662d202e3d4ebf07de81439b62c7",
+      "bytes": 16147
+    },
+    "src/audit_remainder_combat_objectives_battle.js": {
+      "sha256": "1b992b44062fd53398e25567ffb541f98a6796d21ebc11152164f50b3ca4e4f3",
+      "bytes": 18330
+    },
+    "src/audit_remainder_combat_objectives_host.js": {
+      "sha256": "68f8eaab76fd9702b5f2571ac60829acc04e0649d5f952d3523fe4103a963494",
+      "bytes": 6362
+    },
+    "src/native_battle.js": {
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "bytes": 5961
+    },
+    "src/feature_expansion_powers.js": {
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "bytes": 10418
+    },
+    "src/combat_math.js": {
+      "sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+      "bytes": 2560
+    },
+    "src/native_battle_contracts.js": {
+      "sha256": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8",
+      "bytes": 2285
+    },
+    "src/audit_remainder_state.js": {
+      "sha256": "65af7158d4a66ff429ecd299fc9acee1932ee074fac7908c9e5568f07eca132f",
+      "bytes": 5410
+    }
+  },
+  "sealedAt": "2026-10-06T20:19:28.592139+00:00",
+  "finalFiles": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    "PROJECT.md": {
+      "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+      "bytes": 142209
+    },
+    "docs/gm/audit-implementation/remainder/INTERFACE.md": {
+      "sha256": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+      "bytes": 5201
+    },
+    "docs/gm/audit-implementation/remainder/combat_fit/PATCH_MAP.md": {
+      "sha256": "e77b72d9c79058f721b49dfed3bc1220ccdf926c0983d3d6b86ad6e6af2babee",
+      "bytes": 15281
+    },
+    "docs/gm/audit-implementation/remainder/combat_objectives/ROOT_PATCH_MAP.md": {
+      "sha256": "8f71d6f7565cd9ec488353d1ae657ae7396e8fbaffc69992f2442ca099cfb351",
+      "bytes": 14843
+    },
+    "src/feature_expansion_battle.js": {
+      "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+      "bytes": 56316
+    },
+    "src/feature_expansion_battle_host.js": {
+      "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7",
+      "bytes": 7667
+    },
+    "src/feature_expansion_powers_host.js": {
+      "sha256": "8f58b5480035905f8c722ff0348f10ef4091e4852666f94cace78a9f30123e24",
+      "bytes": 9747
+    },
+    "src/audit_remainder_combat_fit_content.js": {
+      "sha256": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+      "bytes": 11624
+    },
+    "src/audit_remainder_combat_fit_facts.js": {
+      "sha256": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+      "bytes": 19378
+    },
+    "src/audit_remainder_combat_fit_hooks.js": {
+      "sha256": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+      "bytes": 22799
+    },
+    "src/audit_remainder_combat_fit_host.js": {
+      "sha256": "f308e3303b991bfe972aa6adc04173cf7e5a3d1ab17df9e5a5589937ebb2e462",
+      "bytes": 7876
+    },
+    "src/audit_remainder_combat_objectives_content.js": {
+      "sha256": "579fc855d3eeac9c72b33d48738cfbe660bebaf51b7cba7180e4d9de0ccc3685",
+      "bytes": 16375
+    },
+    "src/audit_remainder_combat_objectives_state.js": {
+      "sha256": "d3ec46789b721f7d8487d3c3744ec17bf97f662d202e3d4ebf07de81439b62c7",
+      "bytes": 16147
+    },
+    "src/audit_remainder_combat_objectives_battle.js": {
+      "sha256": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83",
+      "bytes": 18454
+    },
+    "src/audit_remainder_combat_objectives_host.js": {
+      "sha256": "68f8eaab76fd9702b5f2571ac60829acc04e0649d5f952d3523fe4103a963494",
+      "bytes": 6362
+    },
+    "src/native_battle.js": {
+      "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+      "bytes": 5961
+    },
+    "src/feature_expansion_powers.js": {
+      "sha256": "e0ab1a805429047e7109f8fa77d6b6b45421f48ddb85de89bc3171e914d6859a",
+      "bytes": 10418
+    },
+    "src/combat_math.js": {
+      "sha256": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+      "bytes": 2560
+    },
+    "src/native_battle_contracts.js": {
+      "sha256": "4ffffe59e23539fd540477680cb0213dee624137748282568d46e9cd4a7f4de8",
+      "bytes": 2285
+    },
+    "src/audit_remainder_state.js": {
+      "sha256": "8df750a318f6e720c3be0daef1602846c2c18684a77a40246d34d8873b51872e",
+      "bytes": 5465
+    },
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json": {
+      "sha256": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+      "bytes": 34951
+    },
+    "dist/bundle.js.map": {
+      "sha256": "7ae6fd8c1d9e7f9783976c4c3cb9de3c3d084edcdb0407c24d8bd02a6b0b45f0",
+      "bytes": 8301588
+    },
+    "src/expedition_content.js": {
+      "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763",
+      "bytes": 14697
+    },
+    "src/feature_expansion_content.js": {
+      "sha256": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+      "bytes": 2618
+    }
+  },
+  "finalOnlySupportingInputs": [
+    "docs/gm/audit-implementation/remainder/ASSIGNMENT.json",
+    "dist/bundle.js.map",
+    "src/expedition_content.js",
+    "src/feature_expansion_content.js"
+  ],
+  "changedSinceStart": [
+    "src/feature_expansion_battle.js",
+    "src/audit_remainder_combat_objectives_content.js",
+    "src/audit_remainder_combat_objectives_battle.js",
+    "src/audit_remainder_state.js"
+  ],
+  "priorSeal": "2026-10-06T20:15:36.648066+00:00"
+}

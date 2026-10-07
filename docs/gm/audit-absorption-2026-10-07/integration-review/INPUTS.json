@@ -1,0 +1,435 @@
+{
+  "reviewer": "/root/audit_join_review",
+  "at": "2026-10-07T06:10:46.619935+00:00",
+  "method": "static source only; no behavioral suites or build",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170,
+      "reviewEndSha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "e828420c908f0d05d03ce0676c58278ebcc54044c7c89aa417305b3ebc56f278",
+      "bytes": 164985,
+      "reviewEndSha256": "e828420c908f0d05d03ce0676c58278ebcc54044c7c89aa417305b3ebc56f278",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/active_effects.js",
+      "sha256": "f189344314508739f54d697e66d383e907d09a9c00948a2e3981337babd9ec7a",
+      "bytes": 16832,
+      "reviewEndSha256": "f189344314508739f54d697e66d383e907d09a9c00948a2e3981337babd9ec7a",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "c1dc672110b42e1e41dbd9a2900a403aae00ca387cbd03abb7b8576100333386",
+      "bytes": 12590,
+      "reviewEndSha256": "c1dc672110b42e1e41dbd9a2900a403aae00ca387cbd03abb7b8576100333386",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/agreed_duty_content.js",
+      "sha256": "d3dfb920a82b4462d183e213c023662648e387337f505fe9df627858c3ff4512",
+      "bytes": 12899,
+      "reviewEndSha256": "2364e9abf895cf36001dcf542a0213ca3c7fc0c4143d6b65906aab6fa1bbf91f",
+      "driftedDuringReview": true
+    },
+    {
+      "path": "src/agreed_duty_facts.js",
+      "sha256": "365e97051d4dda64e670152f2aca1b8de4edffd64f55819f0b9de3c5ba844354",
+      "bytes": 16344,
+      "reviewEndSha256": "365e97051d4dda64e670152f2aca1b8de4edffd64f55819f0b9de3c5ba844354",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/agreed_duty_host.js",
+      "sha256": "d9a685655a57e84641580c094c9a88f075ad4eb710de0f4afd65864a7665d9f0",
+      "bytes": 9311,
+      "reviewEndSha256": "d9a685655a57e84641580c094c9a88f075ad4eb710de0f4afd65864a7665d9f0",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "bytes": 9050,
+      "reviewEndSha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/contextual_balm_content.js",
+      "sha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+      "bytes": 3421,
+      "reviewEndSha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/contextual_balm_facts.js",
+      "sha256": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f",
+      "bytes": 7197,
+      "reviewEndSha256": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/contextual_balm_host.js",
+      "sha256": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e",
+      "bytes": 6891,
+      "reviewEndSha256": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/contextual_balm_native.js",
+      "sha256": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476",
+      "bytes": 3907,
+      "reviewEndSha256": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/cooling_refinement_content.js",
+      "sha256": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4",
+      "bytes": 8602,
+      "reviewEndSha256": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/cooling_refinement_facts.js",
+      "sha256": "507d964a364900881e271cd4f68b7370d81979537afcc10a69c5f52e64d1e521",
+      "bytes": 17388,
+      "reviewEndSha256": "507d964a364900881e271cd4f68b7370d81979537afcc10a69c5f52e64d1e521",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/cooling_refinement_host.js",
+      "sha256": "11b379c4ee6bca0072a226e11e50e1321795281c2aa9e9ba5758134aaa8cc3fa",
+      "bytes": 9962,
+      "reviewEndSha256": "11b379c4ee6bca0072a226e11e50e1321795281c2aa9e9ba5758134aaa8cc3fa",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/display.js",
+      "sha256": "b2ace3fe933a30f680948fa2408275fdf53909a87c4bbee31f67616d47ef8558",
+      "bytes": 258472,
+      "reviewEndSha256": "b2ace3fe933a30f680948fa2408275fdf53909a87c4bbee31f67616d47ef8558",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "7df709c4729e6c38b5195929c0e970d7bc44c77568b61285d84e9a2b58ff3caf",
+      "bytes": 49670,
+      "reviewEndSha256": "7df709c4729e6c38b5195929c0e970d7bc44c77568b61285d84e9a2b58ff3caf",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "bytes": 3191,
+      "reviewEndSha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_society_host.js",
+      "sha256": "7e313f7dc2ce6ac2f2f7e7a08a49c207e43949ea71de08c4e85f6809cff610be",
+      "bytes": 13921,
+      "reviewEndSha256": "7e313f7dc2ce6ac2f2f7e7a08a49c207e43949ea71de08c4e85f6809cff610be",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "4cbcf34419e34a95032a2d2267f3bbd8540e2b994cf913b3d7f1974a0f41253d",
+      "bytes": 10917,
+      "reviewEndSha256": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66",
+      "driftedDuringReview": true
+    },
+    {
+      "path": "src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+      "bytes": 13895,
+      "reviewEndSha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/game_absorption_assay_facts.js",
+      "sha256": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6",
+      "bytes": 20678,
+      "reviewEndSha256": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/game_absorption_assay_host.js",
+      "sha256": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea",
+      "bytes": 4974,
+      "reviewEndSha256": "5d5f1093ea32ee9829b79769938dae67a394b178a85a8b2abc87675f9326e5ea",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/game_absorption_assay_item_view.js",
+      "sha256": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101",
+      "bytes": 1499,
+      "reviewEndSha256": "e1789dd116405b742402a79eec6cdeb0a262dcb207f642239956ace328a11101",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/gameplay_publication.js",
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "bytes": 3711,
+      "reviewEndSha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "10b02fdcf0d07e75fb906d06b177b4782a4c05fd4e32fd3d83610c00c2684f71",
+      "bytes": 164190,
+      "reviewEndSha256": "10b02fdcf0d07e75fb906d06b177b4782a4c05fd4e32fd3d83610c00c2684f71",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/known_routes.js",
+      "sha256": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd",
+      "bytes": 3631,
+      "reviewEndSha256": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/known_routes_host.js",
+      "sha256": "51594e3efd498309b442218577cac79d5cfba8adfff80945c1f77a500482592f",
+      "bytes": 13371,
+      "reviewEndSha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f",
+      "driftedDuringReview": true,
+      "reviewHistory": [
+        {
+          "at": "2026-10-07T06:14:59.584420+00:00",
+          "sha256": "51594e3efd498309b442218577cac79d5cfba8adfff80945c1f77a500482592f",
+          "status": "IR-01 source finding"
+        }
+      ]
+    },
+    {
+      "path": "src/known_routes_ui.js",
+      "sha256": "5952627e2eb0ab5fd5418db44343978b2c590152b31dabc99d17a485b7c69896",
+      "bytes": 6069,
+      "reviewEndSha256": "5952627e2eb0ab5fd5418db44343978b2c590152b31dabc99d17a485b7c69896",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "1d05142ad9e62ee28067ba1bc5c272f7411d3acfdfc12469f6c1e7af85f89ef7",
+      "bytes": 404390,
+      "reviewEndSha256": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150",
+      "driftedDuringReview": true
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "bytes": 3036,
+      "reviewEndSha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982",
+      "bytes": 10107,
+      "reviewEndSha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "driftedDuringReview": true
+    },
+    {
+      "path": "src/realm_cargo.js",
+      "sha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+      "bytes": 20386,
+      "reviewEndSha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "e8414aa1d5ac4184b0b9bdd701f094adb8a20615eff74e1151afe6847dce168b",
+      "bytes": 9232,
+      "reviewEndSha256": "e8414aa1d5ac4184b0b9bdd701f094adb8a20615eff74e1151afe6847dce168b",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "sha256": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9",
+      "bytes": 17009,
+      "reviewEndSha256": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "27fcf48dca5b1219efd2572f397993996517aff7db90959caa36764ebe18599c",
+      "bytes": 58216,
+      "reviewEndSha256": "27fcf48dca5b1219efd2572f397993996517aff7db90959caa36764ebe18599c",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce",
+      "bytes": 14399,
+      "reviewEndSha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "bytes": 33625,
+      "reviewEndSha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "60a72e9d1ea7408790b2661dd6b6cd72b0316e58b84586a8037cd286ea7485c3",
+      "bytes": 30538,
+      "reviewEndSha256": "60a72e9d1ea7408790b2661dd6b6cd72b0316e58b84586a8037cd286ea7485c3",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "bytes": 2314,
+      "reviewEndSha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "f1c086d2dc01eb2c40049c766e2862cc8af2b6eec5092c41c7029b319c618c6c",
+      "bytes": 11100,
+      "reviewEndSha256": "f1c086d2dc01eb2c40049c766e2862cc8af2b6eec5092c41c7029b319c618c6c",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "sha256": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+      "bytes": 9234,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "sha256": "702d983d11899483bc9cb1d41dd037b02d7aa714105edf07757e5e0e545e729e",
+      "bytes": 5495,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "702d983d11899483bc9cb1d41dd037b02d7aa714105edf07757e5e0e545e729e",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "bytes": 28799,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/status_care_facts.js",
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+      "bytes": 8037,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "sha256": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8",
+      "bytes": 18849,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/proto23_world_content.js",
+      "sha256": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+      "bytes": 22080,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/proto23_world_state.js",
+      "sha256": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524",
+      "bytes": 15503,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "8211ea775c51d067e7db9c565d72105740307f0a9f15b0acbb756797240d9570",
+      "bytes": 3892,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "8211ea775c51d067e7db9c565d72105740307f0a9f15b0acbb756797240d9570",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/ASSIGNMENT.md",
+      "sha256": "fd10b2f7fe252c523d14d6ae5592814450795f4e3c8a22c81317149b01a431b8",
+      "bytes": 8131,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "fd10b2f7fe252c523d14d6ae5592814450795f4e3c8a22c81317149b01a431b8",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md",
+      "sha256": "ee2d40c49e4bb4e1ea80d883903f5419d651f6269d7027f8e883b37a9b0dbe56",
+      "bytes": 2571,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "ee2d40c49e4bb4e1ea80d883903f5419d651f6269d7027f8e883b37a9b0dbe56",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/ACQUISITION.json",
+      "sha256": "1e98157ce964d529df906cdaaadd2cf202a1caba5c288332dfa2e6c1a008bbb2",
+      "bytes": 13781,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "1e98157ce964d529df906cdaaadd2cf202a1caba5c288332dfa2e6c1a008bbb2",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/RECONCILIATION.md",
+      "sha256": "0b7b84b428d7220c83546367bfde7c2e4ea36d0b23e79ff856dcd780175d5e0b",
+      "bytes": 1050,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "0b7b84b428d7220c83546367bfde7c2e4ea36d0b23e79ff856dcd780175d5e0b",
+      "driftedDuringReview": false
+    },
+    {
+      "path": "docs/gm/audit-absorption-2026-10-07/INTEGRATION_REPAIRS.json",
+      "sha256": "30c6ecc2faeb7360641a89c373598e5e1fc15cde2345db50363c3d07aec07a45",
+      "bytes": 1401,
+      "pinnedAfterTargetedRead": true,
+      "reviewEndSha256": "30c6ecc2faeb7360641a89c373598e5e1fc15cde2345db50363c3d07aec07a45",
+      "driftedDuringReview": false
+    }
+  ],
+  "completedAt": "2026-10-07T06:14:59.584420+00:00",
+  "checks": {
+    "syntaxOnlyFiles": 48,
+    "syntaxFailures": [],
+    "staticRelativeLinkFailures": [],
+    "coldImportsExecuted": false,
+    "buildExecuted": false,
+    "behaviorSuitesExecuted": false,
+    "nativeConstructorsExecuted": false
+  },
+  "notes": [
+    "Hashes pin actual initial/final source bytes; hashes and file count are not semantic or gameplay coverage.",
+    "Root mutations during review were reread at their actual changed seam; reviewer wrote only integration-review outputs."
+  ],
+  "repairFollowup": {
+    "at": "2026-10-07T06:17:58.137584+00:00",
+    "scope": "IR-01 only; current known_routes_host.js:193,196-203",
+    "sourceSha256": "76eb92d3d5f0fe948b09af531c3b056374bd10ee91ddb332e132c40647814c7f",
+    "pureCompositorSha256": "9464fe731285c7d175945f5bb5d87a6be9b938c52e3fb7c12dfea771dfe92efd",
+    "syntaxOnly": "node --check src/known_routes_host.js passed",
+    "noBehaviorSuitesOrBuild": true
+  }
+}

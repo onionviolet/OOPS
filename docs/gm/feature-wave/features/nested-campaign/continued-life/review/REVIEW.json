@@ -1,0 +1,374 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T00:57:13.722511+00:00",
+  "writer": "recognition_subtleties",
+  "scope": "continued-life source integration only",
+  "status": "complete-released; CL-NR-01 resolved by finite lexical source readback",
+  "sharedWriter": "Features root",
+  "sourceSha256": {
+    "src/feature_expansion_nested_life.js": "96f8c861818c00c85c2ff1a477e60cfb1598c2f33a1891398bc796914399b4d8",
+    "src/feature_expansion_nested_host.js": "7e3534d7c1077effeede029d75fde360e6d8d49776f8750b5b3f26b948102ad3",
+    "src/feature_expansion_nested_carriers.js": "d835d655e236892a01cdf4f72eb96d2a1a47bf35b39aa161a1fee8bd1b7bf89c",
+    "src/feature_expansion_nested_native.js": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/expansion_engine.js": "8593baf5b1e54844160548b6674f9279c0ea75dd2720d520914ea0a64a47cfc7",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/backlog_expansion_host.js": "ca2da3efc3021c560ab15d9966b00fa778152f90c1bcec6a4d2b0fdcd26227b0",
+    "src/main.js": "11e73ba5a492ef04dd20284121895dc02c2c9a595c280356c5297589e26505f7",
+    "src/simulation.js": "fadc10da27b1a86997857fffb54efe5ed4d91f18887e4838ec53c435c78f4971",
+    "src/simulation_effects.js": "043244d8032c6e02719b5e37cf8439d34df2e6f4bcf9bb7def09e01d247a6343",
+    "src/simulation_content.js": "c36b749cf8d069158469c655e2ecbcdb8b8453004cca624e778f3a6557eb284f",
+    "src/feature_expansion_refinements_host.js": "6cc5540dd9f4695a90362878b15d6af406143a7c021bd322594040d7874186e5",
+    "src/feature_expansion_ui.js": "34408429a036d6ea72a3cb803d2a0befb12364912216cc63a1b28f93634766a4",
+    "src/save_files.js": "195323b7194e41171a9d6ef04f368747e9ae5b69ff8a981dfce13377e260bd1f",
+    "src/feature_expansion_presentation_costs.js": "a195808796a447ab8c17d1027f2d757a8ae528723dd0babf05169891cc137a13"
+  },
+  "findings": [
+    {
+      "id": "CL-NR-01",
+      "priority": 1,
+      "severity": "high",
+      "status": "resolved-in-current-source",
+      "confidence": "high; exact lexical/control-flow defect derived from current source without calling an action",
+      "title": "Copied preview fragment breaks the actual personal return commit",
+      "primaryLocation": {
+        "path": "src/feature_expansion_nested_host.js",
+        "start": 248,
+        "end": 251,
+        "purpose": "Second personal-return block executes after the actual staged return"
+      },
+      "trigger": "An otherwise eligible nested.personal.return command with an active personal Saltworks or Archive visit and no active mission.",
+      "sourceChain": [
+        "commitNestedCommand first enters its real personal move branch at230\u2013237 and stages the return on a detached plan.",
+        "Execution continues into the separate if(id===nested.personal.return) at248 rather than returning immediately.",
+        "This second block uses visible/world/location/reasons from the other function\u2019s preview scope. No such bindings are declared in commitNestedCommand.",
+        "With an enrolled campaign and no mission, evaluating the world reference or assigning visible raises a ReferenceError before receipt/validation/return at278.",
+        "main.js routes this command through planNestedAction and only publishes after that planner returns. Thus the staged clone is not durably published and the intended personal return control cannot complete."
+      ],
+      "impact": "The intended sole personal return path is blocked in the current source. The personal visit preserves the actual destination body; it creates no mission/extraction alternative. This is not a claim that a private save or running user session was exercised.",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 151,
+          "end": 175,
+          "purpose": "Preview function owns world/location/reasons/visible and the proper return eligibility checks"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 209,
+          "end": 237,
+          "purpose": "Commit scope and actual personal return stage"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 244,
+          "end": 252,
+          "purpose": "Copied preview fragment and reachable second return if"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 278,
+          "end": 278,
+          "purpose": "Commit would otherwise record/validate and return plan"
+        },
+        {
+          "path": "src/main.js",
+          "start": 764,
+          "end": 765,
+          "purpose": "Actual panel command router calls the nested campaign planner"
+        },
+        {
+          "path": "src/main.js",
+          "start": 817,
+          "end": 822,
+          "purpose": "Nested action planning must return a plan before publication"
+        }
+      ],
+      "suggestedRepair": "Remove the accidentally copied preview fragment at244\u2013251. Keep actual personal passage at230\u2013237 and restore the direct else-if continuation to mission arrival. Root owns the source fix and later static readback/build.",
+      "verificationPerformed": "Read-only lexical/control-flow review; node --check and import pass because unresolved runtime identifiers inside this branch are syntactically valid. No command/preview/evaluator was executed.",
+      "originalEvidenceStatus": "Historical pre-repair source at the retained sourceSha256 snapshot; original lines are not current defect locations.",
+      "resolution": "Features root deleted both copied preview fragments from commitNestedCommand and restored direct else-if mission-arrival continuation. The real personal movement branch remains at230\u2013237 and the continuation is now at244. Finite lexical readback confirms the previously reachable preview-only variable block is absent. No action/preview/evaluator/test was called."
+    }
+  ],
+  "inspectedJoins": [
+    {
+      "area": "earned personal route qualification and version",
+      "status": "source joined; return finding remains open",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 62,
+          "end": 66,
+          "purpose": "Explicit personal version1/schema8 and actual mission/body policy"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 145,
+          "end": 146,
+          "purpose": "Destination map and settled same-world history"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 169,
+          "end": 175,
+          "purpose": "Current contractor, no contract, actual landing and same existing passage"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 188,
+          "end": 190,
+          "purpose": "Reserved resident work and outward/return historical visit capacity"
+        },
+        {
+          "path": "src/feature_expansion_nested_host.js",
+          "start": 230,
+          "end": 237,
+          "purpose": "Original personal move has no contract/payout/reset"
+        },
+        {
+          "path": "src/feature_expansion_nested_content.js",
+          "start": 113,
+          "end": 113,
+          "purpose": "Three personal-route controls registered in existing nested action family"
+        }
+      ]
+    },
+    {
+      "area": "life command registration, actual stock and refunds",
+      "status": "no additional concrete defect identified in inspected source",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_life.js",
+          "start": 21,
+          "end": 42,
+          "purpose": "Three finite original requests use existing actors/worlds/materials/wages"
+        },
+        {
+          "path": "src/feature_expansion_nested_life.js",
+          "start": 47,
+          "end": 81,
+          "purpose": "Once-only opening/work/refusal/texture/account and two retained-output consumers"
+        },
+        {
+          "path": "src/simulation_content.js",
+          "start": 98,
+          "end": 98,
+          "purpose": "Life commands joined into existing simulation definition registry"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 122,
+          "end": 157,
+          "purpose": "Actual cost reservation, unique claim and life group reservation-return policy"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 186,
+          "end": 207,
+          "purpose": "Completion support/refund and once-only work settlement"
+        },
+        {
+          "path": "src/simulation.js",
+          "start": 212,
+          "end": 228,
+          "purpose": "Existing cancellation refund reverses transfers and releases actual claim/site"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 286,
+          "end": 288,
+          "purpose": "Resource/vital/item/transfer reservations use existing inverse refund codec"
+        }
+      ]
+    },
+    {
+      "area": "body/schema/facts/known UI/token",
+      "status": "latest root joins read back; no further concrete defect identified",
+      "evidence": [
+        {
+          "path": "src/feature_expansion_nested_life.js",
+          "start": 86,
+          "end": 105,
+          "purpose": "Actual native metadata/body/id/owner/controller/vitals and finite support facts"
+        },
+        {
+          "path": "src/feature_expansion_nested_life.js",
+          "start": 118,
+          "end": 130,
+          "purpose": "Current actor/sequence/declared target and precise refundable-job routing"
+        },
+        {
+          "path": "src/feature_expansion_nested_life.js",
+          "start": 132,
+          "end": 169,
+          "purpose": "Local actions/player-directed records and explicit schema8/version1 saved meaning"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "start": 24,
+          "end": 28,
+          "purpose": "Optional expansion8 constant preserves prior5/6/7 readers"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "start": 103,
+          "end": 119,
+          "purpose": "Common state admits8 then validates campaign/chains/life"
+        },
+        {
+          "path": "src/backlog_expansion_host.js",
+          "start": 27,
+          "end": 35,
+          "purpose": "Existing optional Backlog state admits6/7/8"
+        },
+        {
+          "path": "src/main.js",
+          "start": 351,
+          "end": 359,
+          "purpose": "Live scheduler contexts receive life facts"
+        },
+        {
+          "path": "src/main.js",
+          "start": 398,
+          "end": 407,
+          "purpose": "Durable publisher preserves8 only when explicit personal/life marker is present"
+        },
+        {
+          "path": "src/main.js",
+          "start": 744,
+          "end": 766,
+          "purpose": "Manual feature context and actual life router"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "start": 32,
+          "end": 44,
+          "purpose": "Current observed/executable fact projection reuses actual vitals and life facts"
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "start": 29,
+          "end": 35,
+          "purpose": "Life sections joined; reported records originate from player knowledge"
+        },
+        {
+          "path": "src/feature_expansion_ui.js",
+          "start": 50,
+          "end": 60,
+          "purpose": "Existing UI stamps displayed command snapshot sequence"
+        },
+        {
+          "path": "src/feature_expansion_refinements_host.js",
+          "start": 72,
+          "end": 75,
+          "purpose": "All life actions receive existing known quote costs/refunds and frozen sequence legibility"
+        },
+        {
+          "path": "src/feature_expansion_presentation_costs.js",
+          "start": 4,
+          "end": 19,
+          "purpose": "Quoted player costs preserve stated wage/material terms while private participant support stays generic"
+        }
+      ]
+    }
+  ],
+  "existingSeams": "Existing nativeCampaign1/native-domain1, native body/full cargo, retained world visit/calendars, finite NPC/material owners, shared simulation refund and durable publisher remain the consumers. No new native owner, world, mission, clock or publisher was introduced by this slice.",
+  "checks": {
+    "syntax": {
+      "kind": "node --check",
+      "paths": [
+        "src/feature_expansion_nested_life.js",
+        "src/feature_expansion_nested_host.js",
+        "src/feature_expansion_nested_carriers.js",
+        "src/feature_expansion_nested_native.js",
+        "src/feature_expansion_nested_content.js",
+        "src/expansion_engine.js",
+        "src/expansion_persistence.js",
+        "src/backlog_expansion_host.js",
+        "src/main.js",
+        "src/simulation.js",
+        "src/simulation_effects.js",
+        "src/simulation_content.js",
+        "src/feature_expansion_refinements_host.js",
+        "src/feature_expansion_ui.js",
+        "src/save_files.js",
+        "src/feature_expansion_presentation_costs.js"
+      ],
+      "result": "passed for all sixteen; changed refinements source rechecked"
+    },
+    "imports": {
+      "kind": "ESM namespace only; no exported planner/evaluator called",
+      "paths": [
+        "src/feature_expansion_nested_life.js",
+        "src/feature_expansion_nested_host.js",
+        "src/feature_expansion_nested_carriers.js",
+        "src/feature_expansion_nested_native.js",
+        "src/expansion_engine.js",
+        "src/simulation_effects.js",
+        "src/simulation_content.js",
+        "src/backlog_expansion_host.js"
+      ],
+      "result": "passed; export counts9/12/6/5/16/7/2/11"
+    },
+    "mainImport": "not performed; syntax only",
+    "rootReportedFullLink": "652 commands/6 worlds/zero warnings, reported by root; not independently reproduced here"
+  },
+  "writes": [
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/review/CHECKPOINT.md",
+    "docs/gm/feature-wave/features/nested-campaign/continued-life/review/REVIEW.json"
+  ],
+  "peerMessagesSent": false,
+  "sourceEdited": false,
+  "sourceLibrariesChanged": false,
+  "privateSavesOpened": false,
+  "prohibitedChecksPerformed": [],
+  "build": "root-owned final matched build pending",
+  "gameplayStatus": "implemented-unverified",
+  "deferred": [
+    "personal departure/return/changed revisit conservation",
+    "work/refusal/refund and actual native stock/funding",
+    "schema8 save/reload/failure",
+    "keyboard/regression",
+    "director acceptance"
+  ],
+  "limits": "Source-only bounded conclusion; syntax/import cannot exercise the reported return defect. No runtime or private-save compatibility proof.",
+  "concurrentRootReadback": {
+    "path": "src/feature_expansion_refinements_host.js",
+    "earlierSha256": "ac6cb78c52df76439c32009497139db0416e85d0b7a18f769b69e1eaa69ea49a",
+    "currentSha256": "6cc5540dd9f4695a90362878b15d6af406143a7c021bd322594040d7874186e5",
+    "readBack": "Root excluded nested.life player records from duplicate common campaign accounts at34. Final72\u201375 loop still supplies known cost/refund/sequence legibility to the new life actions. Current source and syntax were read back."
+  },
+  "sourceSha256SnapshotStatus": "Historical pre-repair bounded audit. Existing sourceSha256 and finding line references remain historical; repairReadback owns current host hash.",
+  "openFindingCount": 0,
+  "resolvedFindingCount": 1,
+  "repairReadback": {
+    "findingId": "CL-NR-01",
+    "capturedAtUtc": "2026-10-06T01:00:19.060281+00:00",
+    "sourcePath": "src/feature_expansion_nested_host.js",
+    "currentSourceSha256": "925a21cf39e3a55bb41e30e67f2f43d58cf02f2e42cc30361ca19baecf146bf2",
+    "kind": "bounded lexical readback only",
+    "currentEvidence": [
+      {
+        "path": "src/feature_expansion_nested_host.js",
+        "start": 230,
+        "end": 237,
+        "purpose": "Real personal departure/return carrier move and active-policy closure retained"
+      },
+      {
+        "path": "src/feature_expansion_nested_host.js",
+        "start": 241,
+        "end": 247,
+        "purpose": "Direct else-if mission-arrival continuation follows acceptance; no copied preview block remains"
+      }
+    ],
+    "finiteScopeChecks": [
+      "Copied personal-return visible/world/location/reasons block absent from commitNestedCommand.",
+      "Copied duplicate personal-destination preview block absent from commitNestedCommand.",
+      "Actual personal move branch retained.",
+      "Direct else-if mission-arrival branch restored at244."
+    ],
+    "result": "resolved-source-readback; no behavioral acceptance",
+    "testsOrActionsCalled": false,
+    "scopeReleased": true
+  }
+}

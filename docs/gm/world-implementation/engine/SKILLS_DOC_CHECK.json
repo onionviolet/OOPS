@@ -1,0 +1,24 @@
+{
+  "documents": 10,
+  "localLinks": 224,
+  "anchors": 112,
+  "errors": [],
+  "sourceDriftSinceBuild": [],
+  "documentHashes": {
+    "docs/ENGINE_AUTHORING.md": "526993d41939da42d1573975f5a17bbb9e597567e62b56a0e23dd4655a783069",
+    "docs/ENGINE_EXPANSION.md": "ae453f3c6ea3e26a7a3abc0b84f43b49024859689d5de8896ae4470821b6d0da",
+    "docs/PLAYTEST.md": "0eb13399b13926e31a389e07d589ee4b09095da4f9e9a8004117959c4948269a",
+    "docs/ENGINE_GM_NEXT_CHECKPOINT.md": "cccde245cb81a8543c8390bef8163c46d6b0a1b1def2b7f41705b070f69a5209",
+    "docs/gm/dispatch/ENGINE_SPECIALISTS.md": "2ed259fc440560ef5815b526b754ca70362c1e90c2493eaada4eafae744ea706",
+    "docs/gm/world-implementation/INTERFACE.md": "4735d8fa42efe3677c6fef02a519c8139f86425f1968cb457d6334c2c7a518e5",
+    "docs/gm/world-implementation/engine/CHECKPOINT.md": "e2631a1fd55ed24f099b9e35c07dfad4d0f50996f885ee7c8d3ef51379dbdeb9",
+    "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md": "799b01826c2f39f9cfd0de60295c0ce5de4003f691105c0f242b0e15d2e7d028",
+    "docs/gm/world-implementation/engine/PRACTICE_GM_RETURN.md": "4a24f5cb8fb28a880c8c73c825fd3499a8ba0c1244ac8a3ee6aafcee52f01472",
+    "docs/gm/world-implementation/engine/AUTHORING_GM_RETURN.md": "c378b6039cd23780aa2d5e148d5ec4a72f864bf59ce1e330f9087eaba2c19edc"
+  },
+  "postCheckStatusUpdate": {
+    "path": "docs/gm/world-implementation/engine/CHECKPOINT.md",
+    "localLinksRechecked": 2,
+    "errors": []
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "schema": 1,
+  "at": "2026-10-06T19:57:05.323795+00:00",
+  "syntax": [
+    {
+      "path": "src/audit_remainder_combat_fit_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_hooks.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_battle.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_consequences_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_livelihood_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_runtime.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/simulation.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/main.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_content.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/backlog_expansion_core.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_workshop_fixture.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audited_workshop_lesson.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_nested_chains.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_subtlety_host.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_reference_desk.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/realm_state.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/feature_expansion_destination_host.js",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "coldRegistry": {
+    "exitCode": 0,
+    "result": {
+      "commands": 853,
+      "controllers": 36,
+      "worlds": 8,
+      "plans": 4,
+      "lanes": {
+        "remainder_livelihood": 28,
+        "remainder_home": 25,
+        "remainder_offers": 26,
+        "remainder_consequences": 18,
+        "remainder_combat_fit": 10,
+        "remainder_combat_objectives": 10
+      },
+      "items": [
+        "Reusable measuring jig",
+        "Green repair offcut",
+        "Compatible repair offcut",
+        "Association herb seed packet",
+        "Rigid reinforced field harness",
+        "Flexible lashed field harness",
+        "Kit brace pad",
+        "Sluice traversal lashing",
+        "Marked sluice fitting",
+        "Learned brace wrap"
+      ],
+      "uniqueItems": true,
+      "sources": [
+        "remainder_home.kit_binding"
+      ],
+      "definitionMismatches": []
+    },
+    "error": ""
+  },
+  "itemEvidence": "Static registration import and call in src/data/expedition_items.js:1,38; specification IDs only. No native item module import or DOM substitute.",
+  "changedDuringChecks": [],
+  "excluded": [
+    "build",
+    "native battle5 integration",
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload/import",
+    "failure",
+    "regression"
+  ],
+  "finalRepairSyntax": [
+    {
+      "path": "src/audit_remainder_facts.js",
+      "exitCode": 0,
+      "output": ""
+    },
+    {
+      "path": "src/audit_remainder_offers_state.js",
+      "exitCode": 0,
+      "output": ""
+    }
+  ],
+  "finalColdRegistry": {
+    "exitCode": 0,
+    "result": {
+      "commands": 853,
+      "controllers": 36,
+      "worlds": 8,
+      "plans": 4,
+      "definitionsExact": true,
+      "items": [
+        "Reusable measuring jig",
+        "Green repair offcut",
+        "Compatible repair offcut",
+        "Association herb seed packet",
+        "Rigid reinforced field harness",
+        "Flexible lashed field harness",
+        "Kit brace pad",
+        "Sluice traversal lashing",
+        "Marked sluice fitting",
+        "Learned brace wrap"
+      ],
+      "uniqueItems": true
+    },
+    "error": ""
+  },
+  "sealedAt": "2026-10-06T19:58:50.651376+00:00",
+  "changedDuringFinalSeal": []
+}

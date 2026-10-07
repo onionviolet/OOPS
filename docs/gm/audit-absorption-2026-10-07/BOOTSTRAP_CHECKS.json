@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "checkedAtUtc": "2026-10-07T05:25:10.483435+00:00",
+  "scope": "new GM bootstrap artifacts only",
+  "json": "pass",
+  "localLinks": "pass",
+  "localLinkCount": 27,
+  "sourceInventory": {
+    "files": 2374,
+    "actually_read": 11,
+    "metadata_only": 2363
+  },
+  "sourceManifestUniquePathsExistingAndHashFormat": "pass",
+  "bootstrapWorkers": "both completed/released",
+  "artifactHashes": {
+    "ASSIGNMENT.md": "fd10b2f7fe252c523d14d6ae5592814450795f4e3c8a22c81317149b01a431b8",
+    "intake/INTAKE.md": "3670b4691ff7e5afd83fc4e84bd03328ef8337d54c09527b27de1d33eb99d256",
+    "intake/SOURCES.json": "3f40e9dc5ddb3a3de105068545325ae89028aecab7cc7909c3b67d936dafede4",
+    "ownership/HANDOFF.md": "b7be38744e43603338357bfa0e9d733b82d3fb35339310d7c339a92e813df2e3",
+    "ownership/OWNERS.json": "67b62a9945e677dafb7d0f8436471648d8c9fd990cd4e1594bf5921ececfce2d",
+    "LAUNCH.json": "85b8e53131edc0a20d148f8ef8272e1b927958a81f9c112a0e011214dd3f789a"
+  },
+  "sourceSemanticCoverage": "11 actually read by intake; 2363 metadata-only; not complete reconciliation",
+  "gameplayUnitBrowserSaveRegression": "deferred and unrun",
+  "sharedSourceBuildCanonicalWrites": "none by dispatcher; active peer conflict is unresolved and handed to new GM",
+  "dedicatedGMThreadId": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+  "startup": "pass: thread active, matching host goal recorded in current GM commentary/checkpoint, concrete coordination sent, disjoint qualification child started",
+  "startupVerifiedAtUtc": "2026-10-07T05:27:15.488527+00:00",
+  "startupEvidence": {
+    "threadStatus": "active",
+    "latestTurnStatus": "inProgress",
+    "goal": "matching active host goal reported by GM commentary and saved CHECKPOINT startup revision3; no token budget",
+    "goalCommentary": "The host goal is active. The intake indexed 2,374 paths but read only 11, so I\u2019ll verify the meaningful owner files directly. The first blocker is two active GMs claiming the same integration files and build.",
+    "checkpoint": "docs/gm/audit-absorption-2026-10-07/CHECKPOINT.md#dedicated-gm-startup-revision-3",
+    "coordination": "Both active roots received concrete proposed shared-file/build serialization; proposal is not a confirmed transfer",
+    "newGMChild": {
+      "agentPath": "/root/qualify_game_findings",
+      "agentThreadId": "01a114d3-7fb1-7193-8fb6-610093bef4d1",
+      "state": "started"
+    },
+    "waitCursor": "605e4c1a-4a9a-41b3-956c-cb376971c1cd:4"
+  },
+  "dispatcherWriterState": "fully released to dedicated GM; no bootstrap worker remains active"
+}

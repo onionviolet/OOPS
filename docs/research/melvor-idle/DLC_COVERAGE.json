@@ -1,0 +1,418 @@
+{
+  "status": "completed-inventory-and-selected-source-review",
+  "catalog": {
+    "url": "https://store.steampowered.com/dlc/1267910/Melvor_Idle/",
+    "checked_client_date": "2026-10-06",
+    "observed": "Showing1-3of3:Throne of the Herald,Atlas of Discovery,Into the Abyss",
+    "qualification": "Official current Steam catalog,not account ownership or exhaustive off-store merchandise inventory."
+  },
+  "shared_version": {
+    "hosted_version": "v1.3.1",
+    "script_query": "12097",
+    "data_version": 528,
+    "steam_launcher_build": "13311431",
+    "launcher_package_version": "1.2.2",
+    "checked_at": "2026-10-06T20:33:30.639507+00:00"
+  },
+  "installed_mechanics": "Hosted wrapper only; no local skill/combat JSON packages.3 native bridge binaries differ between app variants. Artwork/media installed-unread,not evidence of DLC entitlement.",
+  "base": {
+    "name": "Base edition(Demo+Full)",
+    "disposition": "source-inspected",
+    "public_packages": [
+      {
+        "url": "https://steam.melvoridle.com/assets/data/melvorDemo.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorDemo.json",
+        "namespace": "melvorD",
+        "bytes": 1738799,
+        "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "pages",
+          "gamemodes",
+          "equipmentSlots",
+          "items",
+          "attackStyles",
+          "combatEffectGroups",
+          "combatEffectTemplates",
+          "combatEffects",
+          "attacks",
+          "combatPassives",
+          "monsters",
+          "combatAreas",
+          "dungeons",
+          "combatAreaCategories",
+          "combatAreaCategoryOrder",
+          "attackSpellbooks",
+          "attackSpells",
+          "pets",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "shopUpgradeChains",
+          "itemUpgrades",
+          "tutorialStages",
+          "tutorialStageOrder",
+          "randomGems",
+          "skillData",
+          "bankSortOrder",
+          "lore",
+          "golbinRaid",
+          "modifiers"
+        ]
+      },
+      {
+        "url": "https://steam.melvoridle.com/assets/data/melvorFull.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorFull.json",
+        "namespace": "melvorF",
+        "bytes": 2527657,
+        "sha256": "aa3d0babaaa5ef1bde4f0c0d6b5c50ae5d5db88b042684762cc97f50f24263f8",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "damageTypes",
+          "gamemodes",
+          "items",
+          "attacks",
+          "combatPassives",
+          "monsters",
+          "itmMonsters",
+          "slayerAreas",
+          "dungeons",
+          "combatEvents",
+          "slayerTaskCategories",
+          "prayers",
+          "attackSpellbooks",
+          "attackSpells",
+          "curseSpells",
+          "auroraSpells",
+          "pets",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "itemUpgrades",
+          "itemSynergies",
+          "strongholds",
+          "combatAreaCategories",
+          "combatAreaCategoryOrder",
+          "tutorialStages",
+          "tutorialStageOrder",
+          "steamAchievements",
+          "skillData",
+          "bankSortOrder",
+          "lore",
+          "golbinRaid",
+          "combatEffects",
+          "combatEffectTables"
+        ]
+      }
+    ],
+    "reviewed_paths": [
+      "PROD-C01",
+      "PROD-C02",
+      "PROD-C03",
+      "PROD-C04",
+      "PROD-C05",
+      "PROD-C06",
+      "PROD-C07",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C7",
+      "OFF01",
+      "OFF02",
+      "SHOP01",
+      "DATA01",
+      "MOD01"
+    ],
+    "unread": "Every recipe,monster,quest,mode,task and full balance is not reviewed. Golbin Raid,full thieving,all Slayer/task/stronghold routes explicitly remain partial/unread.",
+    "installed_access": "StateFlags4base launcher verified. Active save/mod/DLC entitlement not inspected."
+  },
+  "expansions": [
+    {
+      "steam_app": 2055140,
+      "name": "Throne of the Herald",
+      "disposition": "source-inspected",
+      "coverage_qualification": "Representative exact paths and meaningful base/DLC joins; acquired remainder unread; runtime-unverified.",
+      "public_payload": {
+        "url": "https://steam.melvoridle.com/assets/data/melvorTotH.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorTotH.json",
+        "namespace": "melvorTotH",
+        "bytes": 1677580,
+        "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "skillLevelCapIncreases",
+          "items",
+          "attacks",
+          "combatPassives",
+          "monsters",
+          "slayerAreas",
+          "dungeons",
+          "slayerTaskCategories",
+          "prayers",
+          "curseSpells",
+          "auroraSpells",
+          "attackSpellbooks",
+          "attackSpells",
+          "pets",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "itemUpgrades",
+          "itemSynergies",
+          "bankSortOrder",
+          "randomSuperiorGems",
+          "spiderLairMonsters",
+          "lore",
+          "skillData",
+          "golbinRaid",
+          "combatEffects"
+        ]
+      },
+      "installed_mechanics": "Not separately present in these launcher payloads; installed art is not entitlement.",
+      "account_playable_access": "uninspected/unknown",
+      "reviewed": [
+        "standard level-120 cap",
+        "Astrology -> finite Meteorite HP -> Mining -> Smithing -> actual equipment",
+        "physical clues -> access purchase -> Sanctuary entry",
+        "physical Golden Key -> durable final access",
+        "Ancient Relics post-99 integration"
+      ],
+      "other_reviewed_lanes": [],
+      "documentation_only": [
+        "Full advertised level-100\u2013120 content and feature totals are product claims, not semantic coverage."
+      ],
+      "official_product_url": "https://store.steampowered.com/app/2055140/Melvor_Idle_Throne_of_the_Herald/",
+      "remaining_unread": "Representative Meteorite production and Sanctuary/final-key access. Complete clue drop sources, final boss phases, every level-100\u2013120 recipe and lived balance were not reviewed. This is the ordinary timed route; Instant Actions modes were not exercised."
+    },
+    {
+      "steam_app": 2492940,
+      "name": "Atlas of Discovery",
+      "disposition": "source-inspected",
+      "coverage_qualification": "Representative exact paths and meaningful base/DLC joins; acquired remainder unread; runtime-unverified.",
+      "public_payload": {
+        "url": "https://steam.melvoridle.com/assets/data/melvorExpansion2.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorExpansion2.json",
+        "namespace": "melvorAoD",
+        "bytes": 2471662,
+        "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "skillLevelCapIncreases",
+          "gamemodes",
+          "pages",
+          "items",
+          "attacks",
+          "combatPassives",
+          "curseSpells",
+          "auroraSpells",
+          "attackSpells",
+          "monsters",
+          "combatAreas",
+          "slayerAreas",
+          "dungeons",
+          "prayers",
+          "pets",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "shopUpgradeChains",
+          "itemUpgrades",
+          "itemSynergies",
+          "bankSortOrder",
+          "skillData",
+          "ancientRelics",
+          "ancientRelicsDisplayOrder",
+          "combatEffects",
+          "modifiers"
+        ]
+      },
+      "installed_mechanics": "Not separately present in these launcher payloads; installed art is not entitlement.",
+      "account_playable_access": "uninspected/unknown",
+      "reviewed": [
+        "Cartography queue, survey, paid travel and discovery",
+        "dig-site maps, upgrades and charge use",
+        "Old Village Torn Map -> hidden Ancient Market",
+        "physical museum donation -> actual stat modifiers",
+        "Ancient Relics dungeon-cap mode"
+      ],
+      "other_reviewed_lanes": [
+        "Barrier, Unholy Prayer and Gem-slot combat belong to the combat reader."
+      ],
+      "documentation_only": [],
+      "official_product_url": "https://store.steampowered.com/app/2492940/Melvor_Idle_Atlas_of_Discovery/",
+      "remaining_unread": "Representative OldVillage/AncientMarket and museum path; not all map hexes, hidden puzzles, artifacts, tool upgrade chains or museum rewards."
+    },
+    {
+      "steam_app": 2860590,
+      "name": "Into the Abyss",
+      "disposition": "source-inspected",
+      "coverage_qualification": "Representative exact paths and meaningful base/DLC joins; acquired remainder unread; runtime-unverified.",
+      "public_payload": {
+        "url": "https://steam.melvoridle.com/assets/data/melvorItA.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorItA.json",
+        "namespace": "melvorItA",
+        "bytes": 3470080,
+        "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "skillLevelCapIncreases",
+          "damageTypes",
+          "combatEffectGroups",
+          "combatEffectTemplates",
+          "combatEffects",
+          "attacks",
+          "realms",
+          "combatTriangleSets",
+          "pages",
+          "skillData",
+          "items",
+          "bankSortOrder",
+          "monsters",
+          "combatAreas",
+          "slayerAreas",
+          "dungeons",
+          "combatAreaCategories",
+          "combatAreaCategoryOrder",
+          "combatPassives",
+          "prayers",
+          "attackSpellbooks",
+          "attackSpells",
+          "randomAbyssalGems",
+          "randomFragments",
+          "randomFiremakingOils",
+          "itemUpgrades",
+          "itemSynergies",
+          "strongholds",
+          "abyssDepths",
+          "slayerTaskCategories",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopUpgradeChains",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "pets",
+          "ancientRelics",
+          "modifiers",
+          "skillTreesDisplayOrder"
+        ]
+      },
+      "installed_mechanics": "Not separately present in these launcher payloads; installed art is not entitlement.",
+      "account_playable_access": "uninspected/unknown",
+      "reviewed": [
+        "base gate, earned Strange Sword and realm access",
+        "separate AXP, currency and damage",
+        "Harvesting intensity, charged gloves, permanent upgrade and craft consumers",
+        "Corruption exposure, kill discovery and paid toggle",
+        "skill points, parent-gated choice and persistent quantity benefit",
+        "Township manual waves, upkeep and storage",
+        "Ancient Relics depth-cap integration"
+      ],
+      "other_reviewed_lanes": [],
+      "documentation_only": [
+        "Bane story framing and full feature totals. Exact base Bane fight identity is delegated to the combat reader."
+      ],
+      "official_product_url": "https://store.steampowered.com/app/2860590/Melvor_Idle_Into_the_Abyss/",
+      "remaining_unread": "Representative Gateway, manual wave, upkeep and storage. All biomes, building chains, trader conversions, casual tasks and dynamic mod overrides were not reviewed."
+    }
+  ],
+  "updates_and_other_content": [
+    {
+      "name": "melvorBirthday2023.json",
+      "kind": "past free event",
+      "disposition": "source-inspected",
+      "public_payload": {
+        "url": "https://steam.melvoridle.com/assets/data/melvorBirthday2023.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorBirthday2023.json",
+        "namespace": "melvorBirthday2023",
+        "bytes": 10848,
+        "sha256": "16db00c2af0282766a0fa6eed540b709d5b99bebef0438492ed0df340f3075a3",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "gamemodes",
+          "pages",
+          "skillData"
+        ]
+      },
+      "reviewed": "Loader activation predicates and gamemode metadata only.",
+      "qualification": "cloudManager228-230currentlyreturnsfalse; selectedmode data ends2023. Reachable payload does not mean active event."
+    },
+    {
+      "name": "melvorAprilFools2024.json",
+      "kind": "past free event",
+      "disposition": "source-inspected",
+      "public_payload": {
+        "url": "https://steam.melvoridle.com/assets/data/melvorAprilFools2024.json?528",
+        "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorAprilFools2024.json",
+        "namespace": "melvorAprilFools2024",
+        "bytes": 69223,
+        "sha256": "a26405d1e47fe925f47ba0862c27caf70810c63b38929682d38ff41719a2cae3",
+        "headers": {
+          "Content-Type": "application/json",
+          "Last-Modified": "Fri, 29 Aug 2025 01:45:01 GMT"
+        },
+        "keys": [
+          "gamemodes",
+          "items",
+          "shopCategories",
+          "shopCategoryOrder",
+          "shopPurchases",
+          "shopDisplayOrder",
+          "dungeons",
+          "dungeonDisplayOrder"
+        ]
+      },
+      "reviewed": "Loader activation predicates and gamemode metadata only.",
+      "qualification": "cloudManager231-234checks currentDate<eventEnd plusfull; mode end2024. Inactive on2026-10-06; all content/runtime remains unread."
+    },
+    {
+      "name": "Offline Client Beta",
+      "disposition": "primary-documentation-only",
+      "qualification": "Official2024-11-19/2025-01-22news documents a separate cached offline client. Supplied build13311431 is the hosted wrapper. Beta payload not installed or reviewed; no branch/update/entitlement change requested.",
+      "primary_source_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/published-docs/manifest.json",
+      "official_announcement_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1783238125358755"
+    },
+    {
+      "name": "Melvor Idle2",
+      "disposition": "primary-documentation-only",
+      "qualification": "Separate sequel Steamapp3218350,announced2025-04-23; not DLC of1267910. No sequel source/gameplay/installation audit in this scope.",
+      "primary_source_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/published-docs/manifest.json",
+      "official_announcement_url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1797820624421753"
+    },
+    {
+      "name": "v1.3/v1.3.1free updates",
+      "disposition": "primary-documentation-only",
+      "qualification": "Official news documents Strongholds/free changes and realm UI/bank/recipe balance. Selected current executable/data paths govern mechanics; announcement totals are not semantic coverage.",
+      "primary_source_manifest": "/Users/weiwei/.codex/research/melvor-idle/13311431/published-docs/manifest.json"
+    }
+  ],
+  "non_gameplay": {
+    "disposition": "installed-unread",
+    "facts": "4117app.nw files pervariant include media/UI and bridges; no separate artbook/cosmetic/soundtrack DLC listed in the inspected3-entry official catalog. Art/media was inventoried by path/hash,not semantically reviewed or copied into repository."
+  },
+  "ownership_changes": false,
+  "purchases": false
+}

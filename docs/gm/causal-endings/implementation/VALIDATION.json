@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "status": "passed-static-source-only",
+  "sourceHashes": [
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5"
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2"
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "a9eb61d3ddc32072344b9a0d05d482cf2954af9e1d983889e9ba60cde7fe7c15"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65"
+    }
+  ],
+  "checks": {
+    "syntaxModules": 7,
+    "realModuleImports": 7,
+    "localImportLinks": 22,
+    "combinedContentRegistry": "passed",
+    "declaredControllerTargets": "passed",
+    "counts": {
+      "people": 5,
+      "commands": 63,
+      "controllers": 5,
+      "sites": 6,
+      "powers": 2,
+      "situations": 3,
+      "sources": 4,
+      "seedEffects": 97
+    },
+    "rootDocumentLinks": 41,
+    "roleJsonSyntax": "passed",
+    "finalSevenHashes": "matched"
+  },
+  "notRun": [
+    "shared source/package/build/test/canonical writes",
+    "private save/library/source-text mutation",
+    "game/unit/browser/save/failure/regression/director suites",
+    "commit/push/publish/automation/dependency installation"
+  ],
+  "behaviorStatus": "implemented-unverified",
+  "sharedIntegration": "pending",
+  "build": "sole integrator pending"
+}

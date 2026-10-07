@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "state": "four existing GM roles resumed; six disjoint remainder workers running; delivery remains in progress",
+  "humanInstruction": "implement the rest in parallel, and consider stuff we havent considered? Continue with relevant game masters",
+  "dispatcher": "01a112a0-3a0c-72c3-8976-492b2d043a4e",
+  "assignment": "docs/gm/dispatch/AUDIT_REMAINDER_2026_10_06.md",
+  "baseline": {
+    "bundle": "0365f6afe27c",
+    "planRevision": 20,
+    "remainingCandidates": 19
+  },
+  "roles": [
+    {
+      "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "hostId": "local",
+      "status": "active",
+      "turnId": "01a112a4-ed73-72b0-8061-698b23671664",
+      "cursor": "6fcf131b-0ff9-4279-a401-e08c1ba43667:4"
+    },
+    {
+      "threadId": "01a10fa6-d749-70a1-882b-eae0fd454060",
+      "hostId": "local",
+      "status": "active",
+      "turnId": "01a112a3-ea18-76b3-a699-034784783f00",
+      "cursor": "c530d906-7b60-413c-9ec6-66f49e6ef0ad:8"
+    },
+    {
+      "threadId": "01a112a2-633a-7293-b600-3c6d13bcdfaf",
+      "hostId": "local",
+      "status": "active",
+      "turnId": "01a112a3-e675-7fc3-b63d-e8ee4617a684",
+      "cursor": "c2ea63e3-f59f-4a7a-a582-8a0c67727227:9"
+    },
+    {
+      "threadId": "01a10faa-2aec-7771-9c0d-c15475d394fc",
+      "hostId": "local",
+      "status": "active",
+      "turnId": "01a112a7-a14d-7661-b871-33289a96652b",
+      "cursor": "4e87888b-2284-4209-9dd3-2ddbcef87d20:4"
+    }
+  ],
+  "integrationOwner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload/import",
+    "storage failure",
+    "regression",
+    "director acceptance"
+  ],
+  "privateSavesTouched": false,
+  "sourceLibrariesTouched": false,
+  "updatedAtUtc": "2026-10-06T19:22:48.168506+00:00",
+  "observedWorkers": [
+    "remainder_livelihood",
+    "remainder_home",
+    "remainder_offers",
+    "remainder_consequences",
+    "remainder_combat_fit",
+    "remainder_combat_objectives"
+  ],
+  "additionalAdmittedWork": [
+    "artifact assembly/disassembly/item-bound utility integration after source-owner release",
+    "causal P1-P5 returned native/state/UI integration",
+    "lost edition/citation provenance in reusable world profiles",
+    "Hank route knowledge acquisition in current Goa case"
+  ],
+  "completionOwner": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd continues until all assigned remainder and connected returns are integrated and rebuilt"
+}

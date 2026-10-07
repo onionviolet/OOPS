@@ -1,0 +1,574 @@
+{
+  "status": "complete_bounded_reader_trace",
+  "captured_at": "2026-10-06",
+  "scope": "One base-game storyteller -> cold snap incident -> condition -> ambient temperature/plant-growth path, including eligibility failure and persistence. This is static source reading only.",
+  "source": {
+    "route": "supplied local DMG, privately expanded base game assembly",
+    "assembly_sha256": "3e6dff19784a4c6e8e8d03e28e415ab6f39a583546c54c3584858854d681d050",
+    "assembly_version": "1.6.9676.17433",
+    "payload_version": "1.6.4871 rev573",
+    "package_filename_version": "1.6.4871 rev588",
+    "qualification": "Version disagreement retained as supplied. Decompilation is an inspectable reference; game source was not executed. Definitions remain in the private research workspace."
+  },
+  "findings": [
+    {
+      "id": "RW-STORY-01",
+      "kind": "observed_source_rule",
+      "claim": "Randy checks on 1,000-tick boundaries, iterates eligible targets and enabled storyteller components, and uses RandomMain's 1.35-day mean-time-between-events component for player-home maps. A category is chosen by configured weights unless ThreatBig has exceeded its max interval. RandomMain then filters category candidates through each worker's CanFireNow before weighted incident selection. Candidate selection is category-level and eligible-set-level, not a direct scheduled promise that ColdSnap will occur.",
+      "limit": "Randy can choose other Misc incidents. Random timing, category weights, incident weights, current state, difficulty, and other storyteller components affect the result.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.StorytellerTick; MakeIncidentsForInterval",
+          "span": [
+            213,
+            224
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.MakeIncidentsForInterval(StorytellerComp,List<IIncidentTarget>)",
+          "span": [
+            271,
+            305
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp_RandomMain.cs",
+          "symbol": "StorytellerComp_RandomMain.MakeIntervalIncidents; ChooseRandomCategory",
+          "span": [
+            11,
+            48
+          ],
+          "sha256": "75d25e9c331b55670fc4bb519af762f42f80ff97a161015e883c14e273d223b8"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.UsableIncidentsInCategory; TrySelectRandomIncident; IncidentChanceFinal",
+          "span": [
+            39,
+            68
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.TrySelectRandomIncident; IncidentChanceFinal",
+          "span": [
+            96,
+            132
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Storytellers.xml",
+          "symbol": "StorytellerDef Randy / RandomMain properties",
+          "span": [
+            665,
+            695
+          ],
+          "sha256": "def397844c6f02595c447ad0f60f19edebecb84a6398e54e871a38b6fe8be0c5"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-02",
+      "kind": "observed_source_rule",
+      "claim": "ColdSnap is a Misc incident targeting Map_PlayerHome. Its worker delegates general game-condition eligibility, then requires seasonal temperature strictly above 0 C and below 15 C. The condition definition excludes coexistence with HeatWave, and the worker rejects an already active same condition or any active condition that cannot coexist. A target without a condition manager also fails closed.",
+      "limit": "The worker's temperature test is for candidate eligibility, not the final local outdoor or room temperature. Other general IncidentWorker restrictions also apply, including target, earliest day, difficulty/scenario, refire, population, active prevent-incidents conditions and game-ending restrictions.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker.cs",
+          "symbol": "IncidentWorker.CanFireNow; FiredTooRecently",
+          "span": [
+            35,
+            175
+          ],
+          "sha256": "53d212411187e72b25e593ca6fe235b032152e156bfa6276828b0d5eeffcdade"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker.cs",
+          "symbol": "IncidentWorker.TryExecute",
+          "span": [
+            183,
+            230
+          ],
+          "sha256": "53d212411187e72b25e593ca6fe235b032152e156bfa6276828b0d5eeffcdade"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_MakeGameCondition.cs",
+          "symbol": "IncidentWorker_MakeGameCondition.CanFireNowSub",
+          "span": [
+            14,
+            54
+          ],
+          "sha256": "467f183b609a8b7cd22a398bf1e635d966ab1ab8263379358649173963693b0a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_ColdSnap.cs",
+          "symbol": "IncidentWorker_ColdSnap.CanFireNowSub; IsTemperatureAppropriate",
+          "span": [
+            5,
+            24
+          ],
+          "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+          "symbol": "IncidentDef ColdSnap",
+          "span": [
+            259,
+            273
+          ],
+          "sha256": "39ecee17f87e429af68adf7e76523f4d34e79afbf6105c8a2df54894a4419dd5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+          "symbol": "GameConditionDef ColdSnap",
+          "span": [
+            118,
+            131
+          ],
+          "sha256": "0f5e7d6100893d811e6757f3693e192e7e10f892213c7a2050aa276b9707efb2"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-03",
+      "kind": "observed_source_rule",
+      "claim": "The selected FiringIncident is fired only after a second CanFireNow check; success executes the worker and records the incident in target story state. The condition worker chooses the incident's gameCondition def, rolls its configured 1.5-3.5 day duration, creates/registers the condition, and may send a letter if visible/applicable. ColdSnap adds a -20 C temperature offset ramped over 12,000 ticks. The manager aggregates applicable condition offsets (including parent/world conditions), and TileTemperaturesComp adds that offset to cached outdoor temperature. Plant.GrowthRateFactor_Temperature reads actual cell temperature and passes it to plant temperature growth rules. The condition manager serializes active conditions, reconnects their manager on load, ticks them, and ends expired conditions.",
+      "limit": "This trace establishes a seasonal crop-growth consequence through the plant temperature multiplier; it does not establish that every crop dies or quantify yield loss. Crop stage, cell/room temperature, plant definition, and duration matter. Letter generation has visibility/applicability gates.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.TryFire",
+          "span": [
+            226,
+            235
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_MakeGameCondition.cs",
+          "symbol": "IncidentWorker_MakeGameCondition.TryExecuteWorker; TryFireLetter",
+          "span": [
+            56,
+            87
+          ],
+          "sha256": "467f183b609a8b7cd22a398bf1e635d966ab1ab8263379358649173963693b0a"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameCondition_ColdSnap.cs",
+          "symbol": "GameCondition_ColdSnap.TemperatureOffset",
+          "span": [
+            3,
+            13
+          ],
+          "sha256": "e41cd28d5814d804e120bd53a0ce5ef634bec1030b46284f2e6871078fb581cc"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameConditionManager.cs",
+          "symbol": "RegisterCondition; ExposeData; GameConditionManagerTick; AggregateTemperatureOffset",
+          "span": [
+            167,
+            231
+          ],
+          "sha256": "9a601f4a316c21d64bbd6a40eddb99998241dcf3ce98c0f760f06a5dd4bcd0e4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/GameConditionManager.cs",
+          "symbol": "GameConditionManager.AggregateTemperatureOffset",
+          "span": [
+            404,
+            419
+          ],
+          "sha256": "9a601f4a316c21d64bbd6a40eddb99998241dcf3ce98c0f760f06a5dd4bcd0e4"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld.Planet/TileTemperaturesComp.cs",
+          "symbol": "TileTemperaturesComp.CheckCache",
+          "span": [
+            63,
+            75
+          ],
+          "sha256": "ffb14aaab6ce9a0c7fb7174d8bb2d3383ac86da138efe31bd53c14e1da6c59c1"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "Plant.GrowthRateFactor_Temperature",
+          "span": [
+            361,
+            370
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "Plant inspect-pane temperature consequence",
+          "span": [
+            1070,
+            1101
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+          "symbol": "IncidentDef ColdSnap duration/letter",
+          "span": [
+            259,
+            273
+          ],
+          "sha256": "39ecee17f87e429af68adf7e76523f4d34e79afbf6105c8a2df54894a4419dd5"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/input/Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+          "symbol": "GameConditionDef ColdSnap consequence prose and end message",
+          "span": [
+            118,
+            131
+          ],
+          "sha256": "0f5e7d6100893d811e6757f3693e192e7e10f892213c7a2050aa276b9707efb2"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-04",
+      "kind": "observed_failure_path",
+      "claim": "In a home map whose seasonal temperature is 0 C or lower, ColdSnap fails IsTemperatureAppropriate and is removed from UsableIncidentsInCategory. Randy may still choose another eligible Misc incident; this is a candidate rejection, not a queued cold snap waiting for temperatures to change. A second execution-time eligibility check can also fail after selection if conditions change.",
+      "limit": "The exact distribution and whether any other candidate remains depend on game state and other installed incident definitions.",
+      "refs": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/IncidentWorker_ColdSnap.cs",
+          "symbol": "IncidentWorker_ColdSnap.IsTemperatureAppropriate",
+          "span": [
+            16,
+            23
+          ],
+          "sha256": "c73ff870e80d84060bc41e624a30db738ba57e916e6c4dcec12e83eac4bc6d10"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/StorytellerComp.cs",
+          "symbol": "StorytellerComp.UsableIncidentsInCategory",
+          "span": [
+            45,
+            67
+          ],
+          "sha256": "eeec614866a65115734800a3e6cc7bd18e064a67b21073faeaba4da78c0ef89d"
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Storyteller.cs",
+          "symbol": "Storyteller.TryFire",
+          "span": [
+            226,
+            235
+          ],
+          "sha256": "2d252032a7e13b250c72bc97e0514c4441174ce9e895f28b6db8b986daf17297"
+        }
+      ]
+    },
+    {
+      "id": "RW-STORY-05",
+      "kind": "observed_source_rule",
+      "title": "Temperature factor changes growth state, subject to plant eligibility",
+      "observed_rule": "Plant.GrowthRate multiplies temperature with fertility/light and applicable hazard factors, but blight or a closed growth season yields zero. GrowthPerTick additionally requires a growing, nonresting plant and its vacuum rule, then scales GrowthRate by species growDays. TickLong increments growthInt by GrowthPerTick * 2000 only during growth season and caps it at one. This closes the condition-temperature-property path into a concrete stored growth change.",
+      "limit": "No crop-death, harvest-yield or exact output-loss claim. Growth can already be zero for other reasons; frost effect depends on species, cell temperature, stage and timing.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/rimworld/1.6.4871/decompiled/RimWorld/Plant.cs",
+          "symbol": "GrowthRate; GrowthPerTick; TickLong",
+          "spans": [
+            [
+              289,
+              303
+            ],
+            [
+              334,
+              347
+            ],
+            [
+              810,
+              831
+            ]
+          ],
+          "sha256": "81df3036222fd50648c5c2e11955ee31d2fa742d9356968d75223d5f2fde7e83"
+        }
+      ]
+    }
+  ],
+  "semantic_coverage": [
+    {
+      "path": "RimWorld/Storyteller.cs",
+      "spans": [
+        [
+          213,
+          235
+        ],
+        [
+          237,
+          269
+        ],
+        [
+          271,
+          305
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/StorytellerComp_RandomMain.cs",
+      "spans": [
+        [
+          11,
+          59
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/StorytellerComp.cs",
+      "spans": [
+        [
+          39,
+          68
+        ],
+        [
+          96,
+          132
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/IncidentWorker.cs",
+      "spans": [
+        [
+          35,
+          175
+        ],
+        [
+          183,
+          230
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/IncidentWorker_MakeGameCondition.cs",
+      "spans": [
+        [
+          7,
+          87
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/IncidentWorker_ColdSnap.cs",
+      "spans": [
+        [
+          5,
+          24
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/GameCondition_ColdSnap.cs",
+      "spans": [
+        [
+          3,
+          13
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/GameConditionManager.cs",
+      "spans": [
+        [
+          167,
+          231
+        ],
+        [
+          404,
+          419
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/GameCondition.cs",
+      "spans": [
+        [
+          306,
+          309
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld.Planet/TileTemperaturesComp.cs",
+      "spans": [
+        [
+          63,
+          90
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/Plant.cs",
+      "spans": [
+        [
+          361,
+          370
+        ],
+        [
+          1070,
+          1101
+        ]
+      ]
+    },
+    {
+      "path": "Core/Defs/Storyteller/Storytellers.xml",
+      "spans": [
+        [
+          665,
+          695
+        ]
+      ]
+    },
+    {
+      "path": "Core/Defs/Storyteller/Incidents_Map_Misc.xml",
+      "spans": [
+        [
+          259,
+          273
+        ]
+      ]
+    },
+    {
+      "path": "Core/Defs/GameConditionDefs/GameConditions_Misc.xml",
+      "spans": [
+        [
+          98,
+          131
+        ]
+      ]
+    },
+    {
+      "path": "RimWorld/Plant.cs",
+      "spans": [
+        [
+          289,
+          303
+        ],
+        [
+          334,
+          347
+        ],
+        [
+          810,
+          831
+        ]
+      ],
+      "read_by": "parent",
+      "purpose": "Close actual growth mutation after reviewer identified property-only consumer boundary."
+    }
+  ],
+  "decompiler_notes": "These are ILSpy-generated C# files from the identified local assembly, not original source. No anomaly affecting the traced selected spans was observed during this read. Semantics are not runtime-validated.",
+  "yair_comparison": {
+    "kind": "source comparison and original adaptation proposal",
+    "fingerprinted_files": [
+      {
+        "path": "src/simulation.js",
+        "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+        "spans": [
+          [
+            35,
+            36
+          ],
+          [
+            302,
+            345
+          ],
+          [
+            359,
+            380
+          ]
+        ]
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "19857973f84085eba9904cd3c9d6fb07ba704735a465a6e040d124c5591eabe5",
+        "spans": [
+          [
+            37,
+            80
+          ],
+          [
+            81,
+            103
+          ],
+          [
+            127,
+            157
+          ],
+          [
+            193,
+            228
+          ]
+        ]
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "3099c4c5d87f513e43aec366cfd5ee3cba039cc4e864396bba163b58b342a657",
+        "spans": [
+          [
+            55,
+            62
+          ],
+          [
+            202,
+            214
+          ],
+          [
+            274,
+            279
+          ]
+        ]
+      },
+      {
+        "path": "src/field_workshop.js",
+        "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+        "spans": [
+          [
+            25,
+            41
+          ],
+          [
+            42,
+            50
+          ],
+          [
+            83,
+            96
+          ]
+        ]
+      }
+    ],
+    "observed_reuse": "YAIR already has scheduled authored event checks and deterministic event occurrences; saved decision/offer events with expiry and response eligibility; finite costs/effects and explicit world facts; actor-attached timed/interval conditions; saveable conditions/events/checks; a common-clock boundary that expires conditions and applies condition ticks; and a concrete field workshop project plus road-situation response pattern.",
+    "missing_consumer": "The current simulation condition schema is attached to actors and exposes condition facts; no temperature, season, plot, crop-growth, harvest-yield, or field-condition consumer was found in the inspected simulation/effect/field-workshop path. It cannot make an environmental event change an actual crop outcome without authored state and a consumer for that state.",
+    "packet": {
+      "id": "YAIR-STORY-01",
+      "status": "original_proposal_only",
+      "pitch": "A brief early frost threatens a small, explicitly cultivated herb plot connected to the existing field-workshop association. The player can spend one real workshop kit to cover it, spend time to harvest early for reduced yield, or leave the association to handle the loss. The next report names the saved outcome and actual transferred harvest.",
+      "player_interaction": "Discover the frost report, inspect the threatened plot, then choose cover, early harvest, or defer before its short response window closes.",
+      "reuse": "Reuse the simulation event scheduler, discovered player response/expiry records, response requirements and cost settlement, world facts, field-workshop association/report UI patterns, world event logging, and common-clock persistence.",
+      "exact_missing_consumer": "An authored plot/standing-crop state whose clock-bound frost resolver consumes covered/uncovered status and turns the result into concrete harvested inventory; neither a crop plot model nor this environmental-to-yield consumer exists in the inspected owners.",
+      "save_implications": "Persist plot stage, frost exposure/deadline, response state, coverage reservation/settlement and final harvest receipt in the enrolled simulation schema. Needs additive migration/explicit compatibility and save/reload check; do not touch personal saves.",
+      "later_playable_acceptance_gate": "On a rebuilt browser build, establish the plot; trigger or author the bounded frost case; verify each of three responses changes actual harvest and association report; verify deadline/defer path; save/reload mid-window and after settlement without duplicate costs or harvest. This is deferred and unverified.",
+      "source_vs_adaptation": "The cold-front/crop-threat relationship is inspiration from the traced base-game condition path. Plot, association, choices, names, costs, timing and results are original YAIR proposals, not copied RimWorld content."
+    }
+  },
+  "validation": {
+    "source_read": "completed for listed semantic spans",
+    "game_executed": false,
+    "tests_or_playable_checks": false,
+    "repository_source_modified": false,
+    "personal_saves_accessed": false,
+    "runtime_not_run": true
+  }
+}

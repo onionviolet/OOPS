@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "released": true,
+  "releasedAt": "2026-10-06T19:38:50.954Z",
+  "status": "source-delivered-implemented-unverified",
+  "files": [
+    "src/causal_story_actors.js",
+    "src/causal_story_content.js"
+  ],
+  "exclusiveScope": [
+    "src/causal_story_content.js",
+    "src/causal_story_actors.js",
+    "docs/gm/causal-endings/implementation/content/"
+  ],
+  "hashes": {
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_content.js": "89dd7840aacbd7bb5851aaa3d77281ad2dcea96c38d474e35bf76282fe842606"
+  },
+  "exports": [
+    "causalStorySources",
+    "causalStoryDefinitions",
+    "CAUSAL_STORY_NATIVE_PEOPLE",
+    "causalStoryFacts",
+    "causalStorySeedEffects",
+    "causalStoryNativeStats",
+    "CAUSAL_STORY_SITES"
+  ],
+  "counts": {
+    "people": 5,
+    "commands": 63,
+    "controllers": 5,
+    "sites": 6,
+    "situations": 3,
+    "sources": 4,
+    "seedEffects": 97
+  },
+  "activeContentProcesses": [],
+  "nextOwner": "causal-root-host-integrator",
+  "laterGate": "Shared native/UI/save/build admission, followed by explicitly deferred gameplay and director acceptance",
+  "compatibilityNote": "Courier goal deadline does not end current-source study/teaching/consent/severance in an already-begun closed proof; historical closure is retained."
+}

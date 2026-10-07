@@ -1,0 +1,4352 @@
+{
+  "schema_version": 1,
+  "status": "complete-finite-assigned-source-review",
+  "steam_build": "25589052",
+  "assembly_sha256": "7205b130274facea0c4af1605c0116a4890c39fdb04852542d292ec777845ddd",
+  "source_facts_vs_proposals": "CC-E/CC-S are static traced chains; CC-X05 and packets are original design inference. No observed runtime claim.",
+  "findings": [
+    {
+      "id": "CC-F01",
+      "status": "source-inspected",
+      "claim": "A relationship advance checks the current configured hearts plus all remaining requirements, asks for a two-part acknowledgement, consumes only explicitly consuming resource requirements and changes the stage. Stage-ready text and friendship/kiss/lover album scenes are separate consumers.",
+      "evidence": [
+        {
+          "file": "Girl.cs",
+          "lines": [
+            1054,
+            1148
+          ]
+        },
+        {
+          "file": "Girl.cs",
+          "lines": [
+            2239,
+            2315
+          ]
+        },
+        {
+          "file": "Girls.cs",
+          "lines": [
+            1408,
+            1508
+          ]
+        }
+      ],
+      "chain": {
+        "prerequisite": "current stage hearts and all cached requirement checks pass",
+        "decision": "accept first response and follow-up",
+        "cost": "flagged MoneyConsume/DiamondConsume/PrestigeConsume; generic amounts come from installed config",
+        "mutation": "stage changes, hearts reset; finite rewards and special finale path apply",
+        "consumer": "stage text selector, album/finale, phone unlock checks",
+        "failure": "failed gates prevent stage advance; threshold checks and consuming gates have different economic consequences"
+      },
+      "limit": "Actual per-character quantities and dialogue selectors still being extracted; no runtime observation."
+    },
+    {
+      "id": "CC-E01",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Ordinary job availability is gated by the serialized UnlockHobby resource IDs and required skill counts; Digger/Planter/Zamphoney/Mech have explicit item unlock exceptions, including prior level/experience retention.",
+      "decision": "Click an unlocked inactive job to reserve the current job state's TimeBlocks, or click an active job to stop it.",
+      "real_cost_time": "No cash activation fee. Reserved blocks compete with hobbies, dates, event allocations and main QPiddy deductions. Active dt completes cycles; state supplies cycle duration, income and cycles to promotion. Job gilding multiplies cash output, not cycle/experience speed.",
+      "mutation": "Completed cycles add income to Cash and TotalIncome, and add experience until promotion. Promotion increments Level, clears experience, switches salary/duration and attempts to replace the job's prior allocation with the next level's allocation.",
+      "downstream_consumer": "The larger cash pool pays gifts/dates; job level can satisfy relationship requirements. TotalIncome and job changes feed achievements.",
+      "failure_aftermath": "Insufficient initial blocks opens the time-block dialog and leaves the job inactive. Generic promotion allocation failure keeps the earned promotion but disables the job and releases its allocation. Actual supplied main jobs have equal or decreasing block costs, so a rising-cost promotion is not a supplied main-table case. The PerformUpdate while loop does not recheck IsActive after DisableJob, so an allocation failure does not clearly stop remaining dt within that already-running call. Pausing retains currentTime; state stores level/experience/partial time/active/gilding.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/JobModel.cs:58-96",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:214-295",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:547-571",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:673-760",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:782-817",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs:68-82",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs:233-248",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:140-153",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:864-916",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:1-221"
+      ],
+      "concrete_rows": [
+        {
+          "case": "Burger first promotion",
+          "data": "Burger has no hobby unlock; Burger Flipper pays 10 per 5 game seconds, reserves 3 blocks, promotes after 24 cycles to Bun Toaster paying 12 per 5 seconds with 3 blocks. At base multiplier, uninterrupted fresh state takes 120 seconds and earns 240 before promotion. Final Beef Chief pays30 per5s and uses2 blocks.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:2-12"
+          ]
+        },
+        {
+          "case": "Restaurant access",
+          "data": "Funny2 AND Suave2 unlock Restaurant. Busser reserves4 blocks, pays24 per8s and needs75 cycles. Work-at-Restaurant level0 requirement means some earned experience or higher level, not mere unlocking or toggling.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:13-23",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:350-413"
+          ]
+        },
+        {
+          "case": "Hunting efficiency progression",
+          "data": "Buff16 AND Badass16; Bounty Hunter starts20 blocks, 2000/1000s,30 cycles. Promotion to Mercenary reduces blocks18 and raises pay10000/1000s; later ends6 blocks and300000/1000s. This is earned relief of capacity pressure.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:79-89"
+          ]
+        },
+        {
+          "case": "Art payoff",
+          "data": "Angst20 AND Wisdom20; Artist starts7 blocks,30/60s,144 cycles. Iconoclast final uses1 block and15000/60s.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:46-56"
+          ]
+        },
+        {
+          "case": "Planter high entry capacity",
+          "data": "Suzu unlock exception; Seed Sower requires35 blocks and pays55555/333s. LoadStates copies TimeBlocks as a field initializer, so JobState optional constructor Min25 does not cap this actual35-block value.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:189-199",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:20-27",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:214-226",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:248-254"
+          ]
+        },
+        {
+          "case": "Wizard nontrivial durations",
+          "data": "Wisdom42 AND Lucky42 unlock Wizard and therefore special wizard gifts. Initial Wizard uses25 blocks, pays1 per315360s and needs69 cycles; final Sorcerer Supremo uses5 blocks, pays serialized381469726.5625/16146.432s, cast to381469726 by runtime. Gilding raises money but does not reduce these durations.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:167-177",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:214-226",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Balance.cs:117-123"
+          ]
+        }
+      ],
+      "source_chain_id": "job-capacity-promotion"
+    },
+    {
+      "id": "CC-E02",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "A hobby becomes unlocked through requirement construction raising GameState.UnlockedHobbies, then SafeUpdate unlocking that prefix of hobby UI; prior positive skill level also restores unlock during LoadState. Normal toggle requires fewer than75 levels and Free >= Data.TimeBlocks.",
+      "decision": "Reserve Data.TimeBlocks to train, or stop to release that capacity while retaining partial progress.",
+      "real_cost_time": "All12 recovered main hobbies have InitialTime30, IncreasePerLevel1.425, TimeBlocks3. Base duration for level i is30*1.425^i; first two levels total72.75 game seconds per hobby. Global update dt uses wall elapsed * TimeMultiplier * PurchasedAdMultiplier, and gilding multiplies hobby dt16.",
+      "mutation": "Time crossing BaseTime increments hobby Level, retaining residual dt across multiple levels. At 75 it disables and frees blocks. Level listener writes Skills.SkillLevel and its saved state.",
+      "downstream_consumer": "Job unlock evaluator maps required resource IDs back to hobby IDs and checks Skills.SkillLevel. Relationship requirements and achievements also consume skills.",
+      "failure_aftermath": "Normal toggle rejects insufficient blocks via purchase dialog. Pause does not erase partial currentTime. EnableHobby itself ignores allocation's Boolean result, so safety is in inspected callers rather than a universal allocator guarantee.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/HobbyModel.cs:21-45",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:139-147",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:285-319",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:371-449",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:451-524",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:280-295",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:262-334",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:350-361",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1507-1539",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1914-1921",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Hobbies.txt:1-13"
+      ],
+      "concrete_capacity_example": {
+        "classification": "Derived arithmetic from verified static code/rows; no live observation",
+        "facts": "At initial6 blocks without achievement/purchased bonuses or other deductions, Burger3 + one hobby3 fills capacity. Two hobbies3+3 fill capacity and prevent Burger income. Funny2 and Suave2 can therefore be trained concurrently while earning no Burger cash, or one at a time alongside Burger. Restaurant then requires4 blocks, leaving2 insufficient for a3-block hobby or Moonlight Stroll.",
+        "evidence": [
+          "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:53-53",
+          "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1168-1171",
+          "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Hobbies.txt:2-3",
+          "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:2-4",
+          "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:13-14",
+          "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Dates.txt:2-2"
+        ]
+      },
+      "source_chain_id": "hobby-skill-job-dependency"
+    },
+    {
+      "id": "CC-E03",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Free = slots+purchased-job-hobby-date-event-(main QPiddy blocks); each allocation must be positive and fit Free.",
+      "decision": "Allocate particular jobs/hobbies or temporarily stop them to make room for a date, unused-block requirement or other work.",
+      "real_cost_time": "Time blocks are concurrency capacity, not seconds spent or a consumable meter. Allocation replaces that job/hobby prior allocation before affordability check. Release restores capacity. Main initial slots6+floor(savedAchievementCount/4); paid blocks separately saved. Achievements can grant a block per4. PES initialization omits the main achievement addend and main QPiddy deductions.",
+      "mutation": "Job/hobby per-ID allocations and aggregate totals; dates accumulate an integer reserved total; changed allocations notify downstream listeners.",
+      "downstream_consumer": "Hobby/job start buttons, date affordability, TimeBlockConsume and FreeTimeBlock evaluators. Purchased capacity grants go through SetPurchasedTime.",
+      "failure_aftermath": "AllocateJobTime and AllocateHobbyTime zero the old allocation before rejecting a new one. Allocation API is not atomic rollback; callers must account for failure. AllocateDateTime rejects0 but Date.OnDate(0) ignores that false result, deliberately allowing a diamond date without blocks. Main QPiddy deduction grows from0 to1/2/3 at Love1/4/7, computed by achievements rather than a generic Time requirement debit.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs:68-82",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs:233-323",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/FreeTime.cs:335-373",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1168-1171",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs:592-627",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:587-597",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs:107-131",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs:1695-1699",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:182-190"
+      ],
+      "source_chain_id": "shared-capacity-and-relationship-deduction"
+    },
+    {
+      "id": "CC-E04",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Selected job/hobby not already gilded and enough currency; confirmation verifies current session and rechecks balance on final pay click.",
+      "decision": "Pay to gild one chosen job or hobby.",
+      "real_cost_time": "Main job/hobby costs default10 diamonds but Store2 overwrites each from live catalog .jobgild/.hobbygild price. Therefore10 is a source default, not a verified current store price. PES costs3 event currency. Hobby speed x16; main job cash x5, PES job cash x16. Job cycle experience itself remains one per completed cycle.",
+      "mutation": "ConfirmPurchase deducts diamonds/event currency before callback. AddMultiplier saves the selected Gilded flag. Job payout uses5/16; hobby dt uses16.",
+      "downstream_consumer": "Faster training unlocks jobs and required skill levels; extra salary pays requirements. Gild counts satisfy Darya stages. Normal soft Prestige clears skill/job progression but keeps gild flags; PES TimeWarp resets similarly keep gilding.",
+      "failure_aftermath": "Insufficient currency opens currency purchase prompt and does not invoke success. Already gilded selection does not open new gild dialog. Gilding does not lower allocated block cost. Main price may differ from defaults because network catalog is outside this trace.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/HobbyGild.cs:11-102",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs:291-293",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs:371-373",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Store2.cs:479-485",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Utilities.cs:1230-1318",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:267-319",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:140-153",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:574-591",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:709-715",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:339-378",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs:90-132",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:274-303",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:415-443",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:192-200"
+      ],
+      "source_chain_id": "gilding-paid-specialization"
+    },
+    {
+      "id": "CC-E05",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Current girl selected; normal gift interaction unlocked at Love>=2, except girl enum>=Charlotte or PES permits earlier gift interaction; GiftCooldown<=0. Available gift list assembled by Balance, not simply every GiftModel field.",
+      "decision": "Choose gift and quantity, pay cash or configured diamond category quantity price, give to current recipient.",
+      "real_cost_time": "Cash = serializedPrice * quantity. Main manual quantity choices1,5,10,25,50,100,1000,10000,100000,1000000. Diamond category multiplier is1..10 for those choices. Main USB/Potion restricted to quantity1. No time-block reservation for ordinary gift; after giving, normal gift cooldown30 boosted game seconds, PES15.",
+      "mutation": "SubtractCash first, then Gift.OnGift computes payout; GiveGift stages selected gift/quantity; Girls.GiftGirl triggers Girl.Gift, which increments matching current-stage GiftCount and stores. InteractionBox credits hearts capped to remaining stage requirement; global GiftCount increases by quantity. These are recipient/stage counters, no reusable player gift inventory created in these paths.",
+      "downstream_consumer": "NewGiftRequirement checks recipient counter at requirement index; TotalGifts checks global count; relationship advancement clears stage counters; gifts also grant hearts. Wizard availability adds special gift types26-29. Actual override names/icons can rename same underlying gift ID without altering its cost.",
+      "failure_aftermath": "Cash affordance requires>=cost and nonzero for button; callback rechecks cash. No refund/undo present after successful debit. Missing cooldown/state invariants on inner purchase methods can produce different behavior from visible normal UI, so no universal atomicity claim. Extra gift quantity can be paid even after stage hearts cap, and a wrong gift does not satisfy the required ID. Explora IDs5/8 have negative heart payout and normal list removes them only after Lover.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:833-841",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1708-1724",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:40-43",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:57-102",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:134-166",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:185-217",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:224-342",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs:35-111",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Gift.cs:165-190",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1937-1941",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1984-2092",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1638-1658",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:897-903",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/InteractionBox.cs:191-209",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:445-464",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Balance.cs:117-205",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:2-19",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:25-30"
+      ],
+      "concrete_rows": [
+        {
+          "gift": "Shell1",
+          "cost": 350,
+          "hearts": 26,
+          "diamondCategory": 1,
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:2-2"
+          ]
+        },
+        {
+          "gift": "HandLotion3",
+          "cost": 2300,
+          "hearts": 139,
+          "diamondCategory": 1,
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:4-4"
+          ]
+        },
+        {
+          "gift": "USB24",
+          "cost": 5,
+          "hearts_default": 29792984159,
+          "limit": "OnlyWhenRequired true in row, but read consumers are explicit Balance cases. Mallory hearts overridden to2835000000000000000; same ID renamed Medicine for Mallory and Glass Slipper for Lydia.",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:25-25",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs:35-45",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Balance.cs:160-172"
+          ]
+        }
+      ],
+      "source_chain_id": "gift-cash-to-stage-counter"
+    },
+    {
+      "id": "CC-E06",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Normal date interaction unlocked at Love>=4 and DateCooldown<=0; cash path needs Free>=serializedTimeBlocks and Cash>=serializedPrice.",
+      "decision": "Pay for one date, wait until completion, then Complete or Again. Diamond path pays Date.DiamondCost and calls OnDate(0).",
+      "real_cost_time": "Main MoonlightStroll costs1000,3 blocks,20 game seconds and gives600 hearts. Beach10000/4 blocks/40s/5000 hearts; Sightseeing100000/5/80s/40000; Movie1000000/6/160s/300000. All4 have DiamondCost1. Cash is debited upfront. Diamond path bypasses cash/block cost but still runs date timer. Explora imposes minimum5 wall seconds through duration Max(5*globalBoost, Data.Time).",
+      "mutation": "OnDate sets dateTimeCost, allocates blocks and registers updater. Timer exposes Complete/Again controls. OnClose resets timer, records date type in album/ReceivedDates/LifetimeDates, increments matching stage DateCount and global DateCount, applies date hearts through DateGirl/InteractionBox, releases reserved blocks and unregisters. Again first settles prior date, then checks free blocks/cash, pays again and restarts.",
+      "downstream_consumer": "Stage date counts satisfy NewDateRequirement; lifetime date flags feed memory album/full album requirement; global count satisfies TotalDates/achievements; hearts feed advancement.",
+      "failure_aftermath": "No blocks opens purchase-time dialog, no cash debit at that gate. Cash path ignores OnDate return after debit; OnDate requires currentTime==0, so source does not establish rollback if that start fails. OnClose itself contains no time-completion guard; no claim of a visible early-cancel control or refund. Date.SaveCurrentTime is empty, unlike job/hobby persistence. No saved in-flight date replay is established.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DateModel.cs:34-54",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:105-166",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:196-217",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs:55-134",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs:170-253",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs:268-277",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:833-841",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1661-1668",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1943-1959",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:466-476",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:532-578",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Dates.txt:1-5"
+      ],
+      "source_chain_id": "date-cash-capacity-and-time"
+    },
+    {
+      "id": "CC-E07",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Stage cached model builds requirement types from serialized rows; Money and MoneyConsume both evaluate Cash>=quantity; all nonheart requirements and stage Heart requirement must be met.",
+      "decision": "After meeting stage requirements, accept followup/advance relationship.",
+      "real_cost_time": "Money is a retained balance threshold. MoneyConsume is deducted at relationship advancement using original cachedLevel.Requirements, not the generic display requirement Type. DiamondConsume similarly deducts; MultiplierConsume deducts TimeMultiplier after requiring>=quantity+1, leaving at least1.",
+      "mutation": "AdvanceRelationship debits consuming rows then increments Love; Love setter clears ReceivedDates and creates fresh GiftCount/DateCount arrays, increases PendingPrestige using Stats.PrestigePerLevel, stores. Caller zeros hearts for new stage. Purchased gifts/date counters do not automatically carry to the next stage.",
+      "downstream_consumer": "New stage requirements/actions, potential unlocks and pending reset reward; remaining money continues funding gifts/dates and other thresholds. Non-consumed cash/diamond requirements remain available.",
+      "failure_aftermath": "Evaluator merely>=quantity does not reserve money; subsequent spending can invalidate another threshold. Generic NewMoneyRequirement returns RequirementType.Money even consume=true, so consumers must use original serialized type to charge correctly. UI rechecks requirements on advance. No general sum-of-all-consumption validation or atomic rollback is present in this code path.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs:148-189",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs:258-331",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1054-1147",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:337-348",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:484-494",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:245-251",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1393-1417",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1408-1418",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1447-1471",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:2239-2272",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:302-322",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:2-10"
+      ],
+      "concrete_rows": [
+        {
+          "case": "Cassie stage1 versus2",
+          "data": "Serialized stage1 (Love0) requiresHeart50 and MoneyConsume35. At base multipliers Burger needs4 complete cycles/20s to earn40 from0, so debit leaves5, assuming other heart gates already met. Next stage2 (Love1) requiresHeart100, Money100 andSuave1; advancement does not debit that100.",
+          "classification": "Rows/code verified, example arithmetic inferred with stated assumptions",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:2-3",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:3-3",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Hobbies.txt:2-2"
+          ]
+        },
+        {
+          "case": "Cassie stage4 cash tradeoff",
+          "data": "Stage4 requiresHeart1000, Money500, Restaurant0 and Shell2. With0 prior shells and1000 cash, paying700 for2 shells leaves300, so gift counter meets but Money500 fails. Required initial balance to keep500 after gifting is1200 (before other costs). If Speed Dating available, its arbitrary count2 shortcut permits exact700; manual quantity UI has1/5 rather than2, so buy1 twice or overbuy5 for1750.",
+          "classification": "Derived decision consequence from exact rows and code, not live play",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:5-5",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:2-2",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1046-1054",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1099-1115",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftPurchase.cs:254-297"
+          ]
+        },
+        {
+          "case": "Cassie stage6 multiple consumers",
+          "data": "Heart17016, Donut1, MoonlightStroll3, Lifeguard0. Donut costs6000/gives329;3 strolls cost3000/give1800, take3*20 game seconds using reusable3-block reservations. Purchasing required gift/date totals2129 hearts, below17016, so favorite-skill idle hearts/talk/clicks or additional gifts/dates still matter. Lifeguard unlock requiresBuff4 andMotivation4 and needs actual earned work experience for level0 gate.",
+          "classification": "Exact config + derived arithmetic; boosters and already-earned hearts/counters change observed time/cost",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:7-7",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:5-5",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Dates.txt:2-2",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:35-36",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:350-413"
+          ]
+        }
+      ],
+      "source_chain_id": "money-threshold-versus-consumption"
+    },
+    {
+      "id": "CC-E08",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "UI requires Catara unlocked, or DebugSpeedDating. In PES without debug, Catara if found must have Love+Hearts>0. CurrentGirl and CachedLevel required. Actual main Catara row UnlockRequirement=Store, rather than a free ordinary skill unlock. Feature is attached to per-requirement button; debug auto-affection is a separate debug facility.",
+      "decision": "Click Speed beside a gift/date requirement to buy exactly the remaining count.",
+      "real_cost_time": "Missing = Max(0,target-stageCounter); cash cost missing*actualPrice; heart payout missing*gift/dateHearts. UI requires Cash>cost (strict), cost>0; date UI also requires Free>=one date TimeBlocks, independent of missing quantity. Inner completion method does not repeat those cash/free/PES-Love checks. No block allocation or elapsed date timer in completion.",
+      "mutation": "Subtracts total cash, increments global count by remaining amount, directly sets stage count to target, calls GiveDate(type,0)/GiveGift(model,0) for record/UI side effects, applies aggregate hearts, stores state/queues save, disables button. Dates also mark lifetime album, FinishDate and optional album popup. Desdemona FakeGift remaps to misleading and real requirement phases.",
+      "downstream_consumer": "Stage gift/date requirements become satisfied while other money/skill/job/hearts/boost requirements remain; money spending can invalidate a retained balance threshold.",
+      "failure_aftermath": "UI blocks exact-balance spending, although ordinary cash path allows equality. A date shortcut requires spare capacity in UI but does not occupy it or run time in the action. This is deterministic paid repetition compression, not a saved policy that autonomously chooses jobs/hobbies or repeats future stages. Source method assumes valid UI affordance; Cash setter clamps negative totals0 if invoked otherwise, so internal guard completeness is limited.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:245-253",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1007-1118",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerResources.cs:185-207",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/PlayerResources.cs:227-238",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs:556-588",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs:604-614",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs:1096-1138",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/DebugCanvasController.cs:1376-1408",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:282-290"
+      ],
+      "concrete_rows": [
+        {
+          "case": "Catara stage5 date requirement",
+          "data": "FruitBasket25000000, TechSavvy50, MoonlightStroll10000, Heart120000000000. From0 strolls speed cost10000000 cash; aggregate6000000 hearts; UI needs>=3 unused blocks andCash>10000000, no date timer or reservation in completion method. Required fruits separately cost375000000000 cash before other conditions.",
+          "classification": "Main rows plus arithmetic, no evidence of actual ownership/current event availability",
+          "evidence": [
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:286-286",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Gifts.txt:6-6",
+            "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Dates.txt:2-2"
+          ]
+        }
+      ],
+      "source_chain_id": "speed-dating-explicit-paid-completion"
+    },
+    {
+      "id": "CC-E09",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Initialization restores jobs then hobbies and their active allocations if enough blocks; unlocks girls and registers them; saved GameStateDate yields a delta. Main uses local DateTime.Now. PES first requires cached server-time validation.",
+      "decision": "Leave active allocations set before closing; return and allow catch-up of the existing registered update list.",
+      "real_cost_time": "Wall delta limited7 days/604800seconds; negative becomes0; absent/malformed timestamp no invented elapsed gain. GetBoosts multiplies wall dt by purchasedMultiplier. UpdateProgress then multiplies reset TimeMultiplier and, in PES when appropriate, TimeWarp multiplier; it avoids applying purchasedMultiplier twice for ordinary Offline reason. Main live SafeUpdate uses reset*purchased*Time.timeScale. Hobby gild16 and job payout5/16 are applied inside respective owners.",
+      "mutation": "Calls the same PerformUpdate owners with elapsed dt: active jobs generate money and promotions; active hobbies gain levels; registered unlocked girls consume current favorite-skill level for idle hearts and reduce cooldowns. Offline popup reports actual before/after Cash, SumOfSkills and aggregateHearts, not an independently minted reward.",
+      "downstream_consumer": "Returned cash funds gifts/dates; skill gains alter job eligibility when UpdatePanels runs; capacity reductions from promotion can release blocks, but no automatic new job/hobby activation is implemented here. Passive hearts help current stage but do not auto-advance relationships or meet all other gates.",
+      "failure_aftermath": "PES invalid server time marks Initialized=false and shows offline prompt. More than7 days lost beyond cap. Catch-up is a list pass of whole-interval updates, not a demonstrated chronological event simulation; job unlock checks are queued after pass. Paused jobs/hobbies not registered produce no accrual. Promotion DisableJob does not break its existing while loop; current invocation caveat retained above. Date has empty SaveCurrentTime and no restored in-flight date established. Main-only data does not establish actual PES event rates.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1168-1198",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1910-1922",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:732-745",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:819-861",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Hobby2.cs:451-493",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1460-1521",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:1935-2009",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:2078-2154",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GameState.cs:231-241",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/TimeWarp.cs:15-39",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1173-1249",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/OfflineProgress.cs:48-65",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Date.cs:268-270"
+      ],
+      "source_chain_id": "offline-active-production-coupling"
+    },
+    {
+      "id": "CC-E10",
+      "status": "source-inspected-static",
+      "family": "economy/time",
+      "classification": "Static source/config facts; explicit arithmetic examples are inference.",
+      "prerequisite": "Girl is registered/unlocked, already has hearts or Love>0, and its favorite skill level>0. FavoriteSkill is Stats.FavouriteSkill.Id-1.",
+      "decision": "Train useful skill to improve passive relationship gain, or use talk/click/gifts/dates while working toward all stage gates.",
+      "real_cost_time": "Main idle rate FavoriteSkillLevel/30 hearts per boosted second, PES/3, emitted in integer chunks once currentTime>1. Main DarkOne is exceptional: amount*50000 drains hearts rather than gaining, with floor safeguards. Talk cooldown10 boosted seconds; payout (20+favoriteSkillLevel^2)^(1+girlsAtLover/6.5), doubledPES. Manual click adds TotalUnlockedGirlCount up to cap.",
+      "mutation": "Passive/talk/click payout mutates bounded stage Hearts and state; talk/gift/date hearts route through InteractionBox. At Love9 ordinary hearts do not grow. Required gift/date counters remain separate from hearts.",
+      "downstream_consumer": "Heart readiness combines with other requirements for explicit advance. Higher hobby skill serves production access and relationship hearts; existing Lovers improve later talk payoff.",
+      "failure_aftermath": "Gifts/date bulk payout can cap early; excess buys no carryover stage hearts. DarkOne can erode progress while waiting. Favorite-skill gain from an offline hobby is consumed according to registered-list execution order, not proven chronological trajectory.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:377-396",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1173-1249",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:878-895",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1602-1612",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girls.cs:1742-1764",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/InteractionBox.cs:191-209",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:325-363",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Stats.txt:2-5"
+      ],
+      "source_chain_id": "skill-idle-hearts-and-negative-aftermath"
+    },
+    {
+      "id": "CC-S01",
+      "status": "source-inspected-static",
+      "family": "reset",
+      "semantic_scope": "complete_static_trace",
+      "caller_consumer_chain": [
+        {
+          "file": "Girl.cs",
+          "start": 302,
+          "end": 323,
+          "symbol": "Love.set"
+        },
+        {
+          "file": "StatsModel.cs",
+          "start": 44,
+          "end": 110,
+          "symbol": "StatsModel CSV constructor"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 523,
+          "end": 586,
+          "symbol": "ForceAchievement/TriggerAchievement"
+        },
+        {
+          "file": "ResetPage.cs",
+          "start": 12,
+          "end": 60,
+          "symbol": "Start/UpdateSpeedBoost"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 339,
+          "end": 379,
+          "symbol": "Prestige"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 2218,
+          "end": 2253,
+          "symbol": "PrepareReset"
+        },
+        {
+          "file": "Girl.cs",
+          "start": 1010,
+          "end": 1033,
+          "symbol": "ClearState"
+        },
+        {
+          "file": "Job2.cs",
+          "start": 890,
+          "end": 902,
+          "symbol": "ClearState"
+        },
+        {
+          "file": "Hobby2.cs",
+          "start": 516,
+          "end": 524,
+          "symbol": "ClearState"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 1168,
+          "end": 1199,
+          "symbol": "Init load cap"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 1674,
+          "end": 1699,
+          "symbol": "OnConfirmDiamond"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 1845,
+          "end": 1853,
+          "symbol": "PurchaseItem"
+        },
+        {
+          "file": "Utilities.cs",
+          "start": 1230,
+          "end": 1319,
+          "symbol": "ConfirmPurchase overloads"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 462,
+          "end": 474,
+          "symbol": "SetBlayFapPricingOverrides"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 381,
+          "end": 418,
+          "symbol": "ResetAll"
+        },
+        {
+          "file": "PlayerPrefs.cs",
+          "start": 248,
+          "end": 319,
+          "symbol": "DeleteAll/Save"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 1224,
+          "end": 1227,
+          "symbol": "HandleReset"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 834,
+          "end": 840,
+          "symbol": "PendingPrestige Changed listener",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 1306,
+          "end": 1308,
+          "symbol": "PendingPrestige/TimeMultiplier Changed listener bindings",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 1576,
+          "end": 1580,
+          "symbol": "UpdateSkipResetText",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 1879,
+          "end": 1883,
+          "symbol": "LoadState pending boost",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        }
+      ],
+      "facts": [
+        "Increasing relationship Love adds (clamped target level + 1) * per-girl StatsModel.PrestigePerLevel to PendingPrestige; resets current date/gift counters. PrestigePerLevel is parsed from CSV column 11.",
+        "Base achievements add 0.05 pending prestige and optional diamonds; PES skips these achievement grants.",
+        "Reset UI displays pending gain at least zero and clipped to total 2048; soft Prestige writes max(old boost, old boost + pending), clears pending and resets runtime/current progress, then saves and reloads scene 0. It does not cap this write locally; Init caps loaded boost to 2048.",
+        "Soft reset deletes current money, hobby-unlock mask, girls-unlocked mask, current girl, 12 skill prefs; every loaded girl loses Love/hearts/current dates/gifts and selected outfit plus lifetime dates/gifts. LifetimeOutfits is retained. Jobs lose active/time/lock/XP/level while retaining Gilded; hobbies lose active/time while retaining gild multiplier count. Achievement, diamonds, purchased boost/time and inventory prefs are not deleted by this soft reset body.",
+        "Paid SkipReset applies min(2048,current + pending), invokes HandleReset and writes boost without clearing relationship/job/hobby progress. No pending-clear appears in this consumer; HandleReset only dispatches Reset achievement check. Record this observed difference without asserting bug or intent.",
+        "SkipReset default cost is 30, overridden by catalog item ending .skipreset. Purchase goes through current-session verification and user confirmation; affordability is rechecked on Pay before subtracting premium currency and calling consumer. Insufficient balance opens currency purchase and does not call success. PES default purchase overload selects event currency.",
+        "Hard ResetAll resets lifetime counters/diamonds/purchased boost/reset boost/achievements, calls global DeleteAll, then restores settings, owned inventory bitmask/awarded flags, saved NutakuItems2019, CompletedEvents, GameStateIds; Darya ownership initializes 50 diamonds. Current entitlement inventory is reapplied instead of erased.",
+        "Selected installed per-level factors: Cassie0.01, Mio0.02, Quill0.03; Darya2.5, Charlotte0.27, Catara0.45, Suzu0.27, Kaiju each0.05, Lumi0.12. These scale pending reset gain per actual relationship advance rather than immediate purchased speed boost.",
+        "A whole decompiled-tree symbol search found the only gameplay PendingPrestige clear in GameState.Prestige349; reviewed Changed listeners only display tutorial/store text. Paid SkipReset consumer1686\u20131689 does not clear pending, and Save/Load preserve pending via GameStatePendingMultiplier. This is static evidence only, not a repeated-purchase test or exploit instruction."
+      ],
+      "failure_aftermath": [
+        "Reset bodies mutate/delete prefs before final Save and scene reload; no rollback/transaction boundary is visible in these methods. PlayerPrefs.Save attempts Steam export, writes dirty values to Unity PlayerPrefs, saves and clears dirty; Steam export catches/logs exceptions, while these reset callers contain no failure recovery.",
+        "No live save, transaction or failure behavior was exercised."
+      ],
+      "configuration": [
+        {
+          "file": "gamedata/Stats.txt",
+          "start": 1,
+          "end": 27,
+          "subject": "base reset factors including Cassie .01 to Darya 2.5",
+          "file_sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53"
+        },
+        {
+          "file": "gamedata/Stats.txt",
+          "start": 27,
+          "end": 31,
+          "subject": "Charlotte .27 and Catara .45 reset factors",
+          "file_sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53"
+        },
+        {
+          "file": "gamedata/Stats.txt",
+          "start": 42,
+          "end": 42,
+          "subject": "Suzu .27 reset factor",
+          "file_sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53"
+        },
+        {
+          "file": "gamedata/Stats.txt",
+          "start": 74,
+          "end": 76,
+          "subject": "Kaiju each .05 reset factor",
+          "file_sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53"
+        },
+        {
+          "file": "gamedata/Stats.txt",
+          "start": 87,
+          "end": 87,
+          "subject": "Lumi .12 reset factor",
+          "file_sha256": "9001b96b55c340d6b5932b040ec2bde452352c0d7c100183ab051c4657aa8e53"
+        }
+      ]
+    },
+    {
+      "id": "CC-S02",
+      "status": "source-inspected-static",
+      "family": "offline",
+      "semantic_scope": "complete_static_trace",
+      "caller_consumer_chain": [
+        {
+          "file": "GameState.cs",
+          "start": 1790,
+          "end": 1825,
+          "symbol": "StoreState time fields"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 1935,
+          "end": 2010,
+          "symbol": "CalculateOfflineProgress/SafeCalculateOfflineProgress/GetBoosts"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 2078,
+          "end": 2155,
+          "symbol": "UpdateProgress/UpdateOfflineProgress"
+        },
+        {
+          "file": "Utilities.cs",
+          "start": 308,
+          "end": 332,
+          "symbol": "ServerTime/TimeOffset"
+        },
+        {
+          "file": "Utilities.cs",
+          "start": 370,
+          "end": 459,
+          "symbol": "CheckCachedServerTime/UpdateServerTime"
+        },
+        {
+          "file": "OfflineProgress.cs",
+          "start": 48,
+          "end": 103,
+          "symbol": "Init/report/OnClose"
+        }
+      ],
+      "facts": [
+        "Base uses DateTime.Now. PES requires cached server-time validity and uses DateTime.Now minus server offset. PES invalid time marks Initialized=false and shows PES Offline popup. Server cache refreshes when missing or more than 15 minutes old; remote GetTime failure stores default DateTime.",
+        "Saved GameStateDate is local now in base, lastTime in PES. Invalid/zero saved binary timestamp falls back to now. Elapsed wall seconds clamp negative to 0 and durations of 7 days or more to 604800 seconds; TotalTime adds floored minutes.",
+        "GetBoosts returns wall seconds * purchasedMultiplier and deletes stale GameStateBoost2EndTime for positive seconds. Offline UpdateProgress adds reset TimeMultiplier but suppresses PurchasedAdMultiplier to avoid multiplying purchased boost twice. PES with Timeline>0 also applies TimeWarp.GetMultiplier in that suppressed branch.",
+        "All current FrameUpdates receive PerformUpdate; cash/skill/hearts deltas are measured for popup. No earnings delta means base promotion rather than earnings popup. Popup describes 7-day base bank cap."
+      ],
+      "limits": [
+        "Consumer-specific job/hobby/heart/date behavior is not reviewed by this family; those current FrameUpdates are independent mechanics.",
+        "Server connection/config availability and actual elapsed/save results remain untested."
+      ]
+    },
+    {
+      "id": "CC-S03",
+      "status": "source-inspected-static",
+      "family": "lte",
+      "semantic_scope": "complete_static_caller_consumer_trace_with_selected_installed_config",
+      "caller_consumer_chain": [
+        {
+          "file": "EventData.cs",
+          "start": 71,
+          "end": 184,
+          "symbol": "EventData constructor/Validate/LoadAssociatedItems",
+          "file_sha256": "9e67ee91d0d0909c9bbe495e15f442339412c878ef9b969dee495e57389e3a9c"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 275,
+          "end": 335,
+          "symbol": "CheckEvent/GetGlobalEventID/CheckEventCallback",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 675,
+          "end": 735,
+          "symbol": "UpdateDayIcons",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 886,
+          "end": 915,
+          "symbol": "UpdateTask",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 1006,
+          "end": 1131,
+          "symbol": "PurchaseTask/EnableTask/CompleteTask/ClaimTask/ClaimTaskUI",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 1389,
+          "end": 1535,
+          "symbol": "Claim event/Claim task",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 1554,
+          "end": 1611,
+          "symbol": "UpdateTimeBlockRequirement/StoreEventDiscount/StoreState",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 1674,
+          "end": 1714,
+          "symbol": "Prestige/LoadState",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "TaskManager.cs",
+          "start": 1832,
+          "end": 1847,
+          "symbol": "LoadCompletedEvents/SetCompletedEvents",
+          "file_sha256": "cdd29cd93de6819c5492e38c1c854a54ac2b657970514cd9590db5ae61b85946"
+        },
+        {
+          "file": "Task.cs",
+          "start": 16,
+          "end": 28,
+          "symbol": "StoreState/LoadState",
+          "file_sha256": "b7a72a8cd3229f6e973fb478930db242f6007235c060030c96b9bb015fc7b38d"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 770,
+          "end": 814,
+          "symbol": "MarkLTEComplete",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        }
+      ],
+      "configuration": [
+        {
+          "file": "gamedata/LTE_Tasks.txt",
+          "start": 1,
+          "end": 23,
+          "subject": "installed daily task costs and timed rewards",
+          "file_sha256": "acc8fe42a824602db6abaed6c345dab3fa7c3dd3e6eb90b348ac5515a52130d3"
+        },
+        {
+          "file": "gamedata/LTE_Events.txt",
+          "start": 314,
+          "end": 319,
+          "subject": "selected Sep-Nov2026 installed LTE schedule rows",
+          "file_sha256": "aa168a9f89dc743eafaaae975a3f12ba092b5640d48b2d1894e86c00be0f91aa"
+        }
+      ],
+      "facts": [
+        "LTE CheckEvent runs only in base game, gates on valid cached server time and loaded Universe, then picks event where server-adjusted UTC is strictly between configured start and end. These installed rows are config evidence, not a confirmed live schedule.",
+        "Daily tasks save server-adjusted start ticks, Complete and Claimed separately. Start checks free time blocks; incomplete started tasks reserve their configured blocks. Their timer uses real server-adjusted time instead of purchased/reset speed. Backward time moves DateStart to current ticks. Completion releases the time block requirement; claim sets Claimed before dispatching rewards and updates UI in a Save callback.",
+        "The first of three tasks per day is the event-token task; UpdateDayIcons counts claimed day tokens. Reaching TokenRequirement claims main reward. Pay-to-finish costs max(0,FinishCost-CostPerToken*tokens), disabled if equivalent reward is already owned; confirmed purchase marks enough daily token tasks complete/claimed, claims event and saves.",
+        "Installed daily examples: token task0 is1second with0blocks; task3 grants1diamond for4blocks/20min; task5 grants+3reset for4blocks/20min; task8 advances hobbies60min for5blocks/10min; task14 advances jobs60min for3blocks/10min; task11 grants1purchased block for12blocks/1hour.",
+        "Task reward consumers grant mapped cash amounts, diamonds, event tokens, hobby/job skips, capped additive reset boost, full progress timeskips or purchased time blocks. Cash table indexes2/3/4/5/7 ->500/7500/1500000/750000000/15000000000.",
+        "Event claim marks CompletedEvents bitmap globally with ignorePes=true, queues save, sends merged LTE completion bitmap to server, then applies outfits/new-girl unlock/associated inventory locally. LTE completion and daily task keys are not deleted by base soft-reset body. NewGirl entitlement can be inferred by GirlModel.StoreLTE from completed LTE data.",
+        "CompletedEvents is merged with server cached bitmap by separate reconciliation; local completed bits are retained even when MarkLTEComplete server call fails. MarkLTEComplete only updates its server cache on success and catches exceptions."
+      ],
+      "failure_aftermath": [
+        "Invalid server time returns without starting/selecting LTE; lack of free blocks opens timeblock purchase rather than starting.",
+        "LTE reward/state mutation precedes async server synchronization; no rollback is visible for sync failure.",
+        "ClaimTask stores Claimed before local reward and Save callback; no task-specific transaction rollback is present. Save callbacks depend on dirty Save reaching completion."
+      ]
+    },
+    {
+      "id": "CC-S04",
+      "status": "source-inspected-static",
+      "family": "pes_isolation_and_return",
+      "semantic_scope": "complete_static_trace",
+      "caller_consumer_chain": [
+        {
+          "file": "GameState.cs",
+          "start": 908,
+          "end": 1000,
+          "symbol": "EnablePES/SwitchToPes/DisablePES/ResetActivePES",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        },
+        {
+          "file": "PlayerPrefs.cs",
+          "start": 335,
+          "end": 386,
+          "symbol": "GetPesPrefix/CleanUpActivePes",
+          "file_sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed"
+        },
+        {
+          "file": "PlayerPrefs.cs",
+          "start": 388,
+          "end": 435,
+          "symbol": "GetFloat/SetFloat",
+          "file_sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed"
+        },
+        {
+          "file": "PlayerPrefs.cs",
+          "start": 619,
+          "end": 656,
+          "symbol": "DeleteKey/HasKey/GetPesKeys",
+          "file_sha256": "df16f0f0c4baa4541eb2e36be0516101d1d6ee51729c178176994fc99a1f22ed"
+        },
+        {
+          "file": "Universe.cs",
+          "start": 173,
+          "end": 209,
+          "symbol": "InitPes",
+          "file_sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23"
+        },
+        {
+          "file": "Universe.cs",
+          "start": 238,
+          "end": 265,
+          "symbol": "LoadPesData",
+          "file_sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23"
+        },
+        {
+          "file": "Universe.cs",
+          "start": 574,
+          "end": 586,
+          "symbol": "LoadGoals",
+          "file_sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23"
+        },
+        {
+          "file": "Pes/PesManager.cs",
+          "start": 399,
+          "end": 425,
+          "symbol": "GoalsVersion/GoalsInfoText",
+          "file_sha256": "a42c148f59344d41a458365eca5355d3601765b59e211bb8d36899d8d333661e"
+        },
+        {
+          "file": "Pes/PesManager.cs",
+          "start": 594,
+          "end": 699,
+          "symbol": "LoadPes overloads",
+          "file_sha256": "a42c148f59344d41a458365eca5355d3601765b59e211bb8d36899d8d333661e"
+        },
+        {
+          "file": "PESData.cs",
+          "start": 1,
+          "end": 29,
+          "symbol": "runtime event instance schema",
+          "file_sha256": "5c2cf1c7e41736f49940af09c39c851f06d67d3c58acebccfdaed40f300fce68"
+        },
+        {
+          "file": "Pes/PesData.cs",
+          "start": 1,
+          "end": 98,
+          "symbol": "local event theme/config schema",
+          "file_sha256": "bd354d28c140733a5333e733dc62e2c5778144ca943bfd541239a406a1b3b0ca"
+        },
+        {
+          "file": "Goals.cs",
+          "start": 131,
+          "end": 196,
+          "symbol": "LoadBlayFapGoals/GetNextGoal/HasGoal",
+          "file_sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770"
+        },
+        {
+          "file": "Goals.cs",
+          "start": 220,
+          "end": 329,
+          "symbol": "CheckGoals/UpdateClaim",
+          "file_sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770"
+        },
+        {
+          "file": "Goals.cs",
+          "start": 331,
+          "end": 524,
+          "symbol": "StoreToBlayfap/RewardRequiresServerGrant/Claim/ProcessClaim",
+          "file_sha256": "cfd59eb663bfbbee40b691402972d11671297315fb40d483292857a526fe6770"
+        },
+        {
+          "file": "GoalModel.cs",
+          "start": 39,
+          "end": 112,
+          "symbol": "constructor/RefreshReward/LockReward/UnlockReward/InitGoal",
+          "file_sha256": "e2b88dc8fa3289266bdc768db31596f866fd2bdc1b4c97e88d8f62e94e9fa40f"
+        },
+        {
+          "file": "BlayFapInventory.cs",
+          "start": 249,
+          "end": 265,
+          "symbol": "AwardItem",
+          "file_sha256": "1a2636d93736488d4ef381acb6ef340417c4b4397904958760b08d5d1a91a360"
+        },
+        {
+          "file": "BlayFapInventory.cs",
+          "start": 418,
+          "end": 480,
+          "symbol": "LoadAwardedItems/SetAwardedItems",
+          "file_sha256": "1a2636d93736488d4ef381acb6ef340417c4b4397904958760b08d5d1a91a360"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 1452,
+          "end": 1546,
+          "symbol": "AddToInventoryCache/ConsumeBlayFapItem prefix paths",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "PesEventCenterManager.cs",
+          "start": 228,
+          "end": 245,
+          "symbol": "SetupEventCenterButton expiration",
+          "file_sha256": "758209b1a261b7c4d7f25e1af025bec44d9cbc99c3c2c8011e43a051b0c9f94a"
+        }
+      ],
+      "facts": [
+        "SwitchToPes loads a separate ParallelUniverse of event resources/gifts/hobbies/dates/jobs/stats/girls/goals; saves base StoreState before setting Universe.PES=true, resets runtime collections and loads portal/party-selection scene. DisablePES saves the event state before switching flag/prefix back to base and rebuilding portal. Returning is separate from prestige.",
+        "PES PlayerPrefs writes/reads/deletes are prefixed by ActivePES.Id unless ignorePes=true; null active fallback is pes30. This separates money, event diamonds/currency, skills, girl progress, jobs, purchased boost and time blocks. Global BlayfapAwardedItems, participation and CompletedEvents explicitly ignore PES.",
+        "Goals are sorted and checked sequentially using the first missing bitmap bit; only its satisfied requirement becomes _pendingClaim. Claim refuses a set bit. Money/timeblocks/eventcurrency/goal-speedboost/timeskip consumers modify active event state. Goal speedboost multiplies event TimeMultiplier and writes it.",
+        "girl/ticket/deluxewedding/animated/bunnyoutfit/valentine/unique rewards require UpdateEventBitmap server grant. It locks reward choice, waits for response, caches returned inventory ItemIDs/Items, then sets local Goals bitmap and processes claim. Failure unlocks choice and shows Reward Claim Error without setting local goal bit. Achievement participation writes global PlayfabParticipation.",
+        "An already-owned Girl reward becomes100Tickets using a saved per-event per-goal payout decision. GingerWasabi is explicitly excluded from this swap. Ticket rewards require server inventory consumption; they are not simply a local event-currency add.",
+        "Durable awarded item ids serialize globally as a sorted base64 string and SaveFileVersion1; loading supports older bitarray save format. Main-game outfit detection uses ignorePes reads; event reward grants return through shared inventory/base consumers rather than copying event money/skills/jobs to base.",
+        "An event countdown at EndTime invokes DisablePES. CleanUpActivePes retains loaded/last10 event IDs and recently seen event namespaces (<10days by absolute time), deletes other loaded pref keys starting pes except Goals. It does not prove all old Unity persisted keys were loaded or removed.",
+        "Event schedule/start/end/starter/finish IDs/goals version and ticket-booth policy use PESData supplied to LoadPes; local PesData config defines assets/theme/currency/text. GoalsVersion defaults to Goals.csv but may be overridden remotely. Installed payload does not establish an active event or entitlement."
+      ],
+      "failure_aftermath": [
+        "Missing root bundle throws or yields early; missing PesData.json or shared asset bundle yields with IsPesLoaded false. SwitchToPes has no visible rollback of its initialization guard after an exception.",
+        "Server-granted goal failure leaves claim bit unset and permits retry. Pure local goal consumers set bitmap before payout and queue save afterwards, with no transaction rollback visible.",
+        "Actual return/save/cache/server reconciliation was not executed."
+      ]
+    },
+    {
+      "id": "CC-S05",
+      "status": "source-inspected-static",
+      "family": "fuzzy_replay",
+      "semantic_scope": "complete_static_trace_with_installed_goal_table",
+      "caller_consumer_chain": [
+        {
+          "file": "PesStoreBundleUi.cs",
+          "start": 52,
+          "end": 129,
+          "symbol": "Init/SetCurrentState",
+          "file_sha256": "075fb97ed3bb06c886ae80cf63e50fc0daf423eac14acb983ea14dfb5d10befa"
+        },
+        {
+          "file": "PesStoreBundleUi.cs",
+          "start": 161,
+          "end": 215,
+          "symbol": "countdown/state/purchase consumers",
+          "file_sha256": "075fb97ed3bb06c886ae80cf63e50fc0daf423eac14acb983ea14dfb5d10befa"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 474,
+          "end": 544,
+          "symbol": "StartPurchasedPesEvent/EnterPurchasedPesEvent/MaybeAddFuzzyPES",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 156,
+          "end": 176,
+          "symbol": "PES reset preference list",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 2255,
+          "end": 2293,
+          "symbol": "GetPrefKeysByPesId/ResetPesById/ResetPesGirls",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 816,
+          "end": 903,
+          "symbol": "Steam DLC entitlement consumer paths",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 2170,
+          "end": 2179,
+          "symbol": "pes27_storebundle inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 2189,
+          "end": 2197,
+          "symbol": "OnReceiptVerificationComplete fuzzy branch",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        }
+      ],
+      "configuration": [
+        {
+          "file": "fuzzy_gingerwasabi/PesData.txt",
+          "start": 1,
+          "end": 30,
+          "subject": "runtime replay root theme and data bundle",
+          "file_sha256": "51243097f6775d101e168d7123e57f38d9dafa93a87a46e824ced614a4cc22e1"
+        },
+        {
+          "file": "fuzzy_gingerwasabi/Goals.txt",
+          "start": 1,
+          "end": 25,
+          "subject": "complete24goals",
+          "file_sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f"
+        },
+        {
+          "file": "2025_fuzzy/PesData.txt",
+          "start": 1,
+          "end": 60,
+          "subject": "installed event theme and assets",
+          "file_sha256": "cb4628d48bb151b1ae4ba9f265daffd2ab1eb848208d99c0c2f429f8b34f51f0"
+        },
+        {
+          "file": "2025_fuzzy/Goals.txt",
+          "start": 1,
+          "end": 25,
+          "subject": "complete24goals same bytes as replay root",
+          "file_sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f"
+        },
+        {
+          "file": "2025_fuzzy/Stats.txt",
+          "start": 1,
+          "end": 8,
+          "subject": "event character reset factor0.01",
+          "file_sha256": "3ef3ec41a83494f6a3c54a6d0fb2230107ddbe546c00b0e3e8c7a909bb2a65bc"
+        },
+        {
+          "file": "2025_fuzzy/Girls.txt",
+          "start": 1,
+          "end": 13,
+          "subject": "selected opening and Quill unlock",
+          "file_sha256": "5f17ba724b91539d2a770363bae38f6c26657b3bff98c7ad84457b26f7116d98"
+        }
+      ],
+      "facts": [
+        "Steam DLC3950240 maps to pes27_storebundle and Fuzzy promotion; external-purchase confirmation shown once in base; GingerWasabi existing object receives All outfits. This does not grant GingerWasabi girl item in the DLC branch.",
+        "UI requires purchase, owned idle or running states. Start opens confirmation; OK calls StartPurchasedPesEvent. A valid server-time start resets the finite pes27 pref list including Goals, money, boost, blocks, skill/job/hobby fields, clears15per-girl progress/outfit keys, stores global Pes27Start binary UTC-adjusted time and queues quick save. It requires CurrentState and catalog PesStoreBundleItem, not just installed asset data.",
+        "MaybeAddFuzzyPES replaces event27 with universe/pes/fuzzy_gingerwasabi for14days from user start, starter availability ending24hours before expiry, starter/finish IDs pes27_starterpack and pes27_finishpack. Expired local start no longer adds it; before any start, installed DLC filters fuzzy events from supplied active list.",
+        "Installed replay root and2025_fuzzy tables contain24ordered goals. Goal24 is GingerWasabi Love9->GingerWasabi unlock; it relies on all earlier claim bits due to sequential goal check. Carry-back outfits: Amelia DX wedding at goal8, Quill Unique16, Tessa DX wedding19, Quill Animated23. Local money, timeblocks, YarnBalls, speed boosts and time skips support progression only inside PES.",
+        "Goal boosts2,2,4 multiply cumulatively to16; time blocks5+10+15+15+20=65; explicit timeskips2+4+4=10hours; explicit goal YarnBalls15+15+20+30=80 excluding separate relationship level payouts. Same table digest between the two selected payloads.",
+        "Opening Amelia requires50hearts, DogWalker1, Focus1 and15money; Quill unlock needs Charisma2. This is a distinct event loop with local roles/resources, not an automatic final-duo entitlement."
+      ],
+      "limits": [
+        "The installed root does not prove server replay reward regrant/idempotency policy after local Goals reset; server-side cc_pes27 completion may persist.",
+        "Actual active remote override, replay start, entitlement and rewards were not inspected or exercised."
+      ]
+    },
+    {
+      "id": "CC-S06",
+      "status": "source-inspected-static",
+      "family": "timewarp_event",
+      "semantic_scope": "complete_bounded_timeline_trace",
+      "caller_consumer_chain": [
+        {
+          "file": "TimeWarp.cs",
+          "start": 15,
+          "end": 73,
+          "symbol": "crystal costs/multipliers/Start",
+          "file_sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9"
+        },
+        {
+          "file": "TimeWarp.cs",
+          "start": 90,
+          "end": 161,
+          "symbol": "SwitchTimeline/UpdateUI",
+          "file_sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9"
+        },
+        {
+          "file": "TimeWarp.cs",
+          "start": 200,
+          "end": 231,
+          "symbol": "SetTimeLineState UI affordability",
+          "file_sha256": "dedf25b3630e040472b45d7a594f607504f777b1b2d4ac280d8d3dc5034754d9"
+        },
+        {
+          "file": "Girl.cs",
+          "start": 2239,
+          "end": 2334,
+          "symbol": "AdvanceRelationship/AwardDiamonds high mark",
+          "file_sha256": "c7d7aa9f7805b12720e8ac1a68827d5ab2a624ced01ce9461b593772a296a836"
+        },
+        {
+          "file": "GameState.cs",
+          "start": 218,
+          "end": 241,
+          "symbol": "PurchasedMultiplier/PurchasedAdMultiplier",
+          "file_sha256": "46ec936fb09432f3e46bc3b1540c1336904c4aa999706eedebd1c1774ceae665"
+        }
+      ],
+      "configuration": [
+        {
+          "file": "timewarp_polly/PesData.txt",
+          "start": 1,
+          "end": 35,
+          "subject": "timewarp theme and hourglass currency",
+          "file_sha256": "7cd4031bca8b40a68ffd1ab2689759d2417b6327372d8feb1bb728f2f0cab904"
+        },
+        {
+          "file": "timewarp_polly/Goals.txt",
+          "start": 1,
+          "end": 25,
+          "subject": "complete24goal requirements/rewards",
+          "file_sha256": "edc61cdfff2f44d514ff4ff9492b8a4b90e818aa26e37c966d99875c68d8b148"
+        },
+        {
+          "file": "timewarp_polly/Girls.txt",
+          "start": 21,
+          "end": 44,
+          "subject": "Vellatrix/Shibuki/Honey timeline unlock metadata",
+          "file_sha256": "65e5e48ab2a974e2b318fc7fcaf916709f7ce0a18fd3fe2ae2bfab187f1150a5"
+        }
+      ],
+      "facts": [
+        "Timewarp timelines use multipliers1,2,5,10 and UI crystal thresholds7,7,11,20. First3thresholds buy transitions; final20marks GameStateTimelineComplete without another reset. SwitchTimeline consumer itself clamps crystal remainder>=0 and timeline<=3 but has no explicit affordability check; UI enforces threshold.",
+        "PES relationship advances grant1eventcurrency per new love level and3at Lover. In events named Time Warp, per-girl LoveHighMark suppresses duplicate level payouts after timeline resets; first new high mark also earns1crystal. Mark key and crystals remain because clear-current progress does not delete them.",
+        "A transition saves chosen timeline and remaining crystals, saves runtime state, resets current money/girl/hearts/date/gift/jobXP/jobLevels/skills/unlocks; retains lifetime clothing entitlement, job/hobby gilding, goal bitmap, purchased blocks/boost/eventcurrency and high marks. It writes initial current girl/1heart markers for early characters; starter ownership initializes1Mmoney. Save and Portal reload follow mutation.",
+        "Installed Polly event unlock metadata requires Timeline1for Vellatrix,2for Shibuki,3for Honey. Sequential goals finally require Honey9to grant Polly main-game item. Already-owned Polly maps to100tickets through generic Girl reward swap.",
+        "Installed24goal table grants150explicit tickets in five30ticket goals,63goal eventcurrency,50purchased blocks, three x2goals (8total goal boost),18hours explicit skips. These are local/config counts, exclude relationship payouts and final duplicate-girl tickets. Timeline multiplier additionally combines with purchased/goal boost."
+      ],
+      "failure_aftermath": [
+        "No reset transaction or rollback exists in SwitchTimeline; invalid multiplier lookup logs and returns1.",
+        "Timeline/high-mark behavior was statically traced, not played."
+      ]
+    },
+    {
+      "id": "CC-S07",
+      "status": "source-inspected-static",
+      "family": "premium_character_bundles",
+      "semantic_scope": "complete_assigned_static_trace_and_numeric_config",
+      "caller_consumer_chain": [
+        {
+          "file": "Store/BundleBuilder.cs",
+          "start": 45,
+          "end": 93,
+          "symbol": "purchase wiring/SteamDlcPurchase",
+          "file_sha256": "68709d35891d839f4e986b11b3d557dafe2fcc70be5ebee0c2ccdbd0ac0de73a"
+        },
+        {
+          "file": "Store/BundleBuilder.cs",
+          "start": 172,
+          "end": 176,
+          "symbol": "OnPurchaseWithMoney",
+          "file_sha256": "68709d35891d839f4e986b11b3d557dafe2fcc70be5ebee0c2ccdbd0ac0de73a"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 1867,
+          "end": 1919,
+          "symbol": "PurchaseDiamonds",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "Store/SteamEcommerceBackend.cs",
+          "start": 13,
+          "end": 102,
+          "symbol": "Purchase/OnMtxAuth",
+          "file_sha256": "a8dc9afddc8754cd653fcb569a8cac74c83c940d94159ed5710e1b7a18d70d90"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 2097,
+          "end": 2118,
+          "symbol": "OnReceiptVerificationComplete entry",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 2138,
+          "end": 2188,
+          "symbol": "PES starter/finish grant branches",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "Store2.cs",
+          "start": 2208,
+          "end": 2371,
+          "symbol": "Kaiju/generic girl/store grant branches",
+          "file_sha256": "5c9dd0501d886b439fcb5729a67e8d8beca8e2c29b380f6afe35652c4c03bc57"
+        },
+        {
+          "file": "GirlModel.cs",
+          "start": 103,
+          "end": 138,
+          "symbol": "StoreInfo CSV schema",
+          "file_sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b"
+        },
+        {
+          "file": "AchievementModel.cs",
+          "start": 45,
+          "end": 96,
+          "symbol": "Achievement CSV parser",
+          "file_sha256": "c1330a50ed6e00ee382e12814dc446c0a025052485feb201d790ae9f36dfdf93"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 132,
+          "end": 154,
+          "symbol": "Achievement reward->Diamonds",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 291,
+          "end": 297,
+          "symbol": "CreateLoveAchievement",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 362,
+          "end": 370,
+          "symbol": "GirlLevel category binding",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 1194,
+          "end": 1197,
+          "symbol": "TriggerLoveAchievement",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "Job2.cs",
+          "start": 234,
+          "end": 271,
+          "symbol": "Digger/Planter/Mech entitlement guards",
+          "file_sha256": "b9503182f09bc8236d36cc1b69d6ad725b34bfb56bc111be132e25cf5a9ccf4f"
+        },
+        {
+          "file": "Girls.cs",
+          "start": 237,
+          "end": 255,
+          "symbol": "speed requirement UI callback",
+          "file_sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131"
+        },
+        {
+          "file": "Girls.cs",
+          "start": 1007,
+          "end": 1118,
+          "symbol": "UpdateSpeedRequirements/CompleteSpeedRequirement",
+          "file_sha256": "ae3f826d7cc703b8e9b161e9c88e5fa88e5cc8fb4c73884d500322f1ac1c6131"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 1680,
+          "end": 1698,
+          "symbol": "Charlotte inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 1732,
+          "end": 1742,
+          "symbol": "Catara inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 1842,
+          "end": 1855,
+          "symbol": "Suzu inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "GirlModel.cs",
+          "start": 557,
+          "end": 688,
+          "symbol": "IsUnlocked/GirlIsOwnedOnBlayfap/HasJobLevel",
+          "file_sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 2134,
+          "end": 2165,
+          "symbol": "Kaiju inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 2244,
+          "end": 2254,
+          "symbol": "Lumi inventory consumer",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        },
+        {
+          "file": "StrongFinish.cs",
+          "start": 49,
+          "end": 93,
+          "symbol": "UpdateState/UseSkip",
+          "file_sha256": "2403428e0b6ffc461110d3454b6677843eaa665b17632755e08859c0ce8b202d"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 165,
+          "end": 176,
+          "symbol": "Achievement.Complete",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "Achievements.cs",
+          "start": 244,
+          "end": 276,
+          "symbol": "AddAchievement/StoreState",
+          "file_sha256": "c9b2e8b9f38080990e2bcdb563051468af981cf65ff22851d60a8a423cbb2fe2"
+        },
+        {
+          "file": "JobModel.cs",
+          "start": 18,
+          "end": 97,
+          "symbol": "JobState/JobModel CSV schema",
+          "file_sha256": "c2f4b68eba1d12e0668fee67eee9579d2dded2b971848a675447a2fd1a85ae71"
+        }
+      ],
+      "configuration": [
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 192,
+          "end": 200,
+          "subject": "Darya requirements and StoreData50diamonds5blocks",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Achievements.txt",
+          "start": 173,
+          "end": 181,
+          "subject": "Darya Love1to9rewards20to100",
+          "file_sha256": "0adea1d23fec944a9f5fcf33c9a87854c1fc0aad3f17d159a3f043d41b910e90"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 242,
+          "end": 247,
+          "subject": "Charlotte StoreDataDigger flag",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 282,
+          "end": 288,
+          "subject": "Catara StoreData no direct currency/job/time grant",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 392,
+          "end": 400,
+          "subject": "Suzu StoreDataPlanter flag",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Jobs.txt",
+          "start": 178,
+          "end": 199,
+          "subject": "Digger/Planter full10states",
+          "file_sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519"
+        },
+        {
+          "file": "gamedata/Jobs.txt",
+          "start": 211,
+          "end": 221,
+          "subject": "Mecha Pilot full10states",
+          "file_sha256": "51eae01a328aff1c460721c67dff2b6ff49d516b98a4e96a3fa801ca4a23f519"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 712,
+          "end": 740,
+          "subject": "Kaiju three9level requirement tables and cross unlocks",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 842,
+          "end": 850,
+          "subject": "Lumi9levels",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        }
+      ],
+      "facts": [
+        "In-app character bundles are catalog driven and separate from Steam DLC inventory. BundleBuilder uses real-money PurchaseDiamonds path or premium-currency PurchaseItem; SteamDlcPurchase instead deep-links a store page. Current real prices are remote/localized catalog fields, not fixed in generic source. No purchase was made.",
+        "Steam in-app path checks overlay, starts server purchase, waits Steam authorization then calls FinishPurchase and OnReceiptVerificationComplete with matching catalog item (falls back to original item if response ItemID not found). Overlay-disabled/start-error/unauthorized paths do not call the grant consumer. Finish callback does not inspect Error in its body before dispatch.",
+        "Generic girl receipt consumer refuses already-owned enum item, reads StoreData grant fields, applies diamonds/purchased blocks, owned girl id, job lock checks and LTE outfit entitlement, resets affected achievement categories to0, rebuilds achievements and queues quick save. StoreInfo schema contains sale flags, AwardDiamonds, AwardJob bitflags, AwardTime and optional PhoneFlingId.",
+        "Darya purchase grant:50diamonds+5purchased blocks. GirlLevel achievements at Love1..9grant20,30,40,50,60,70,80,90,100diamonds via ordinary one-time active achievement removal/persistence; total540category diamonds,590including the immediate50. Generic other achievement rewards are additional independent facts. Darya requirement examples explicitly require all hobbies and gilded job/hobby counts, creating spending gates rather than free payout.",
+        "Charlotte sets Digger flag65536; Suzu Planter131072. Job unlock guards permit those jobs only with girl ownership unless existing job Level/XP already exceeds zero. Charlotte Digger first state cycle66sec,6blocks,payout1; max payout10077696percycle at same66sec/6blocks. Suzu Planter first333sec/35blocks/payout55555; max333sec/20blocks/payout62990298. Exact balance comes from installed Jobs config, with separate gilding/multiplier consumers.",
+        "Catara gives Speed controls once unlocked. PES additionally requires nonzero Catara Love/hearts for displaying Speed requirements. Bulk date/gift controls calculate outstanding quantity*actual configured price; dates require enough free timeblocks in UI and cash strictly greater than cost. Consumer subtracts cash, advances quantity counters to requirement, finishes instant date/gift and issues corresponding hearts with long-max cap, then stores/queues save. It contains ownership/current-girl guards but no independent affordability recheck. It accelerates required actions rather than bypassing hobby/job/heart requirements.",
+        "Steam Kaiju3630990 awards Liz/Mortha/Sephia owned items; generic inventory and receipt consumers add LTE+Animated outfits. Installed base unlock metadata still gates Sephia on Mortha4 and Liz on Sephia4 alongside Store ownership. Mortha unlocks MechaPilot, which features throughout three9level requirement tables. First job state54sec/9blocks/8100payout and max9999sec/9blocks/499950000payout are numeric config, not a constant multiplier feature.",
+        "Steam Lumi4820740 uses BIsSubscribedApp while Kaiju/Fuzzy use BIsDlcInstalled in the reviewed path. It awards Lumi item when BIsSubscribedApp flag is0. Inventory consumer adds LTE+Animated+DeluxeWedding+Unique outfit flags and unlocks girls. Installed Lumi9level table uses normal hearts/gifts/hobbies/job/date requirements; final777600000000000000hearts,100000Roses,40MysticSlippers,Funny75. The repeated gift sprite emission is presentation only, not a new progression system.",
+        "PES starter grant multiplies purchased boost by4(at least4,capped64),adds1Mmoney,10blocks,20eventcurrency. PES finish adds5blocks,gilds current active jobs/hobbies and sets StrongFinish bitmap15. Four one-use skips are1h,1h,4h,12h. Consumer clears its bit before applying skip. These special bundles stay inside active event and are distinct from durable main-game girls.",
+        "Darya category diamond rewards are once-only while achievement category flags are retained through ordinary soft resets. Legitimate first purchase AwardGirlStore explicitly sets affected ACH category keys to0 and rebuilds; therefore this retained-state once-only claim must not be generalized to hypothetical repeated regrants. Generic receipt guard avoids granting an already-owned girl. No hypothetical regrant was tested."
+      ],
+      "failure_aftermath": [
+        "Generic receipt consumer catches exceptions silently around grant dispatch; mutations already applied have no rollback shown. Later additional-item processing/cache refresh occur outside that catch. Catalog may add metadata AdditionalItems beyond generic branch, so absence from direct branch does not prove absent bundle extra.",
+        "Premium currency confirm rechecks balance before dispatch; real-money success relies on platform/server paths. No actual validation or failure was exercised.",
+        "No entitlement inventory or private save was read. Installed code/payload existence establishes supported mechanics only."
+      ]
+    },
+    {
+      "id": "CC-S08",
+      "status": "source-inspected-static",
+      "family": "brie_lotus_phone_crossgate",
+      "semantic_scope": "complete_bounded_premium_dependency_trace",
+      "caller_consumer_chain": [
+        {
+          "file": "GirlModel.cs",
+          "start": 579,
+          "end": 593,
+          "symbol": "StorePhoneFling and LTEStorePhoneFling unlock branches",
+          "file_sha256": "839d947674def83de9f62ca37b84b23862b97931b79d6b1dba0005ab5e41ca0b"
+        },
+        {
+          "file": "Universe.cs",
+          "start": 296,
+          "end": 347,
+          "symbol": "IsPhoneFlingCompleted",
+          "file_sha256": "a80f22f0f7d33e2e4a3f7fb6c13758bf56cffa68ecf87028b05725f9a4e58e23"
+        },
+        {
+          "file": "PhoneModel.cs",
+          "start": 170,
+          "end": 181,
+          "symbol": "PhonePathPref.GetString",
+          "file_sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a"
+        },
+        {
+          "file": "PhoneModel.cs",
+          "start": 270,
+          "end": 284,
+          "symbol": "PhoneMessage.Time Lotus owner cap",
+          "file_sha256": "d12df029ab9503f3c6ce9de29059de4133df0b839d37f20b069ad8a2a57a208a"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 546,
+          "end": 567,
+          "symbol": "IsUnlocked",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 600,
+          "end": 608,
+          "symbol": "MeetsRequirements Lotus contact",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 827,
+          "end": 828,
+          "symbol": "MeetsRequirements Brie contact",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 933,
+          "end": 948,
+          "symbol": "HasConversation entry",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 977,
+          "end": 1009,
+          "symbol": "HasConversation Lotus blocks",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "Cellphone.cs",
+          "start": 2562,
+          "end": 2594,
+          "symbol": "YieldReply timer consumer",
+          "file_sha256": "0e03e36bc4e6a51473e3dc62fdb3ef0ad10118e16a797f613c672f0d6a4b5a04"
+        },
+        {
+          "file": "BlayFapIntegration.cs",
+          "start": 1951,
+          "end": 1972,
+          "symbol": "Brie/Lotus inventory consumers",
+          "file_sha256": "0dfc609bfe71552f1ea6b6ed441da8df98e698674c4da39e6db3d7cc9413b603"
+        }
+      ],
+      "configuration": [
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 472,
+          "end": 480,
+          "subject": "Brie StorePhoneFling35",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Girls.txt",
+          "start": 492,
+          "end": 500,
+          "subject": "Lotus StorePhoneFling4",
+          "file_sha256": "a53792ca71dbaecb9d0b28ba91f64c55f9b4617f13a5724da197051e2292a963"
+        },
+        {
+          "file": "gamedata/Cellphone.txt",
+          "start": 1,
+          "end": 5,
+          "subject": "Lotus metadata contact4",
+          "file_sha256": "c1f4cb269b079511d2aa969c901af08c5a114ca194103bc0f9913ea9cfb6ad2a"
+        },
+        {
+          "file": "gamedata/Cellphone.txt",
+          "start": 36,
+          "end": 36,
+          "subject": "Brie metadata contact35",
+          "file_sha256": "c1f4cb269b079511d2aa969c901af08c5a114ca194103bc0f9913ea9cfb6ad2a"
+        }
+      ],
+      "facts": [
+        "Installed Brie StorePhoneFling requires owned Brie AND completion of PhoneFling35. StoreData has0directdiamond/job/time grants and PhoneFlingId35. Cellphone.MeetsRequirements35 permits contact when Brie item owned. Buying unlocks conversation opportunity rather than automatically finishing it or meeting relationship requirements.",
+        "Installed Lotus StorePhoneFling requires owned Lotus AND completion of PhoneFling4. StoreData has0directdiamond/job/time grants and PhoneFlingId4. Contact opens at MioLove9; later conversations require Quill9,Elle9,Iro9. These are literal consumers of corresponding Cellphone config fields in this build.",
+        "Lotus ownership caps each PhoneMessage.Time to min(30sec,rawTime). YieldReply reads that property into currentTime, giving a concrete purchased timing benefit without bypassing gated conversation completion.",
+        "Universe.IsPhoneFlingCompleted reconstructs cached saved path, stops on positive timer or EOF -4, and declares complete when it reaches a message with NextMessage=null. Blank path returnsfalse; bad phone ID/path throws. No private path was read.",
+        "Inventory consumers apply LTE+Animated+Unique outfits for Brie/Lotus; regular main-game nine relationship requirements still apply after both ownership and phone completion."
+      ],
+      "limits": [
+        "No actual phone conversation prose, branching outcomes, timed play or save was semantically reviewed in this family. This is a crossdependency gate trace only."
+      ]
+    },
+    {
+      "id": "CC-X01",
+      "title": "Installed data consumer pin",
+      "status": "source-inspected-static",
+      "claim": "The embedded osx_manifest maps universe/gamedata to built-in build hash394c51a3727878f446e80252799f797b. Universe loads backtick-delimited Resources/Gifts/Hobbies/Dates/Jobs/Stats/Girls, then lazily loads each character NameFull-or-Name sheet. Cached/downloaded manifest and remote goals overrides can differ, so this is a pinned installed data review, not a live-server assertion.",
+      "evidence": [
+        "Universe.cs:173-265",
+        "Universe.cs:973-993",
+        "GirlModel.cs:1010-1149",
+        "AssetBundles/AssetBundleManager.cs:210-271"
+      ]
+    },
+    {
+      "id": "CC-X02",
+      "title": "Monster pair content has real unlock alternatives",
+      "status": "source-inspected-static",
+      "claim": "Store2 awards paired monster items and calls UnlockGirls. Girls has explicit Jelle/Quillzone and Bonchovy/Spectrum unlocks from pair ownership, original-person Monster outfits or configured LTE completion bits. Four nine-stage tables have distinct requirements and ordinary job/hobby/boost gates. They are character-content additions, with full prose/art/audio unread.",
+      "evidence": [
+        "Store2.cs:1700-1711",
+        "Girls.cs:484-501",
+        "textassets/gamedata/Girls.txt:202-240"
+      ]
+    },
+    {
+      "id": "CC-X03",
+      "title": "Naughty mode presentation/scene boundary",
+      "status": "source-inspected-static",
+      "claim": "Installed DLC948680 enables NSFWAllowed and two outfit flags. GirlModel substitutes supported NSFW text types and Girls routes certain finales differently. This establishes scene/text/outfit variants, not a new numerical progression layer or relationship-agency system. Raw visual/audio/prose content remains unread.",
+      "evidence": [
+        "GameState.cs:1234-1241",
+        "GirlModel.cs:35-43",
+        "GirlModel.cs:862-869",
+        "Girls.cs:1408-1508"
+      ]
+    },
+    {
+      "id": "CC-X04",
+      "title": "Local payload accessibility",
+      "status": "source-inspected-static",
+      "claim": "Five official Steam DLC appIDs and seven artbook PDFs are inventoried. Selected Fuzzy/Kaiju/Lumi/base and in-app mechanic chains are reviewed;57universe bundles were recovered but only selected declared data spans count semantically. Artbooks provide no gameplay proof.",
+      "evidence": [
+        "DLC_COVERAGE.json",
+        "INTAKE.json"
+      ]
+    },
+    {
+      "id": "CC-X05",
+      "title": "Broader original social-depth implication",
+      "status": "original-design-inference",
+      "claim": "Timers, affordability, heart accumulation, stage consumption, selected dialogue response, witnessed conduct, willing participation, friendship, explicit commitment and independent NPC goals have different owners. Crush Crush provides useful readiness/economy/scene evidence and selected persistent exceptions. YAIRPG already supplies memory/agency/independent response foundations; richer original relationships require authored reciprocal goal/compatibility/commitment consumers, not importing monetization.",
+      "evidence": [
+        "src/promise_content.js:16-67",
+        "src/chronicle.js:48-56",
+        "src/party_content.js:7-21",
+        "src/ink_narrative.js:253-302"
+      ]
+    },
+    {
+      "title": "ordinary gate and two-click progression",
+      "prerequisite": "Cassie unlocks at Suave 0; target 1 requires 50 hearts and $35 MoneyConsume. Mio unlocks at TechSavvy 1; target 1 requires 150 hearts and Suave 3. All nine target rows for both were read.",
+      "decision": "Meet all AND gates and the heart threshold. The first accept displays the follow-up; the second advances. These stage lines confirm a linear transition, rather than offer answer branches.",
+      "cost_and_time": "Advance spends only MoneyConsume, DiamondConsume and PrestigeConsume. Cassie spends her initial $35; her next $100 requirement is a retained balance check.",
+      "mutation": "Love increments, resets ReceivedDates and four gift/date stage counters, and adds (new Love + 1) times PrestigePerLevel to pending prestige. OnClickAccept clears hearts below Lover. Follow-up is temporary and clears on selection/load.",
+      "consumer": "The next target row changes requirements and stage dialogue. Ordinary gifts open at Love 2 and dates at Love 4. Album milestones occur at Love 4/7/9; Cassie advances the tutorial and the game checks phone unlocks.",
+      "failure_interruption_aftermath": "No requirements means false except the selected Eva case; no current selection also returns false. OnClickAccept reaches its unconditional heart-clearing block even after a failed gate recheck. This is an unexercised source edge.",
+      "evidence": [
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            302,
+            322
+          ],
+          "purpose": "stage resets and pending prestige"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1054,
+            1148
+          ],
+          "purpose": "full requirement dispatch"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1337,
+            1417
+          ],
+          "purpose": "stage text and AND gates"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            783,
+            954
+          ],
+          "purpose": "UI access and stage-ready  consumer"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1408,
+            1508
+          ],
+          "purpose": "full accept handler"
+        },
+        {
+          "file": "decompiled/InteractionBox.cs",
+          "lines": [
+            128,
+            245
+          ],
+          "purpose": "accept callback/payout"
+        },
+        {
+          "file": "textassets/gamedata/Cassie.txt",
+          "lines": [
+            11,
+            28
+          ],
+          "purpose": "stage narrative progression"
+        },
+        {
+          "file": "textassets/gamedata/Mio.txt",
+          "lines": [
+            22,
+            39
+          ],
+          "purpose": "stage selectors"
+        }
+      ],
+      "source_chain_id": "R01",
+      "id": "CC-R01",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "favorite training and other Lovers feed affection",
+      "prerequisite": "The girl has been met and her favorite skill is above 0. Actual favorites are Cassie Buff, Mio TechSavvy, Pamu Badass, Dark One Angst, and QPernikiss Tenderness.",
+      "decision": "Train that skill or talk, gift, or date while meeting the separate stage requirements.",
+      "cost_and_time": "Passive gain is dt times skill level divided by 30, or by 3 in PES. Talk pays floor((20 + favorite level squared)^(1 + Lover count / 6.5)), doubled in PES. Cooldowns are talk 10, poke 3, and gift 30 simulation seconds, or 15 for PES gifts.",
+      "mutation": "InteractionBox pays hearts immediately and caps them to the remaining target. Overflow fills the threshold and negative underflow floors to 1. Lover receives 0 hearts.",
+      "consumer": "Favorite training improves passive and talk payoff; other Lovers increase the talk exponent. Unused hearts do not carry into the next stage.",
+      "failure_interruption_aftermath": "Phone waits use unscaled real time while GameState.UpdateProgress boosts simulation dt. Passive SetHearts differs from the Hearts property in lifetime HeartCount accounting.",
+      "evidence": [
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1156,
+            1248
+          ],
+          "purpose": "passive/cooldowns"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            878,
+            895
+          ],
+          "purpose": "talk formula"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1602,
+            1668
+          ],
+          "purpose": "interaction initiation"
+        },
+        {
+          "file": "decompiled/InteractionBox.cs",
+          "lines": [
+            191,
+            210
+          ],
+          "purpose": "payout caps"
+        },
+        {
+          "file": "decompiled/GameState.cs",
+          "lines": [
+            2078,
+            2103
+          ],
+          "purpose": "boosted dt"
+        },
+        {
+          "file": "textassets/gamedata/Stats.txt",
+          "lines": [
+            2,
+            3
+          ],
+          "purpose": "Cassie/Mio skill and prestige"
+        },
+        {
+          "file": "textassets/gamedata/Stats.txt",
+          "lines": [
+            15,
+            21
+          ],
+          "purpose": "later selected skills/factors"
+        },
+        {
+          "file": "decompiled/StatsModel.cs",
+          "lines": [
+            85,
+            94
+          ],
+          "purpose": "Trait column -> FavoriteSkill"
+        }
+      ],
+      "source_chain_id": "R02",
+      "id": "CC-R02",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "gifts/dates feed matching stage counts and remembered album",
+      "prerequisite": "Ordinary gifts require Love 2 and dates Love 4. Cassie target 5 requires 3000 hearts, HandLotion 1, Motivation 5, and MoonlightStroll 1.",
+      "decision": "Buy with cash or confirm the diamond alternative. Closing a date records its type; a gift updates counts only for matching current-stage requirements.",
+      "cost_and_time": "Moonlight costs $1000, gives 600 hearts, reserves 3 blocks, and lasts 20 simulation seconds. Movie: $1m, 300000 hearts, 6 blocks, 160 seconds. Sightseeing: $100k, 40000 hearts, 5 blocks, 80 seconds. Beach: $10000, 5000 hearts, 4 blocks, 40 seconds. A 1-diamond date calls OnDate(0), avoiding block reservation while retaining duration. Shell costs $350 for 26 hearts; HandLotion costs $2300 for 139.",
+      "mutation": "GiveDate records album, ReceivedDates, LifetimeDates and matching DateCount. OnClose increases global DateCount, pays hearts and frees reservation. Gifts update matching stage counters and global GiftCount.",
+      "consumer": "The same specific count evaluators gate the next stage. Full Memory Album later requires earlier existing girls at Lover with all four LifetimeDates flags. Advancing resets stage counters but retains the ordinary lifetime date flags.",
+      "failure_interruption_aftermath": "Cash shortage blocks purchase; free-block shortage offers a time purchase. OnDate rejects a busy date or insufficient blocks, but cash was already deducted before checking its return value. OnClose lacks an elapsed-time guard; normal UI waits for completion. Missing portrait hides the image while the timer remains. No runtime failure reproduction.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/Dates.txt",
+          "lines": [
+            1,
+            5
+          ],
+          "purpose": "exact costs"
+        },
+        {
+          "file": "textassets/gamedata/Gifts.txt",
+          "lines": [
+            2,
+            4
+          ],
+          "purpose": "selected gifts"
+        },
+        {
+          "file": "decompiled/GiftPurchase.cs",
+          "lines": [
+            105,
+            166
+          ],
+          "purpose": "cash/date purchase"
+        },
+        {
+          "file": "decompiled/GiftPurchase.cs",
+          "lines": [
+            185,
+            217
+          ],
+          "purpose": "diamond route"
+        },
+        {
+          "file": "decompiled/Gift.cs",
+          "lines": [
+            165,
+            190
+          ],
+          "purpose": "gift action"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1937,
+            1966
+          ],
+          "purpose": "matching date mutation"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1984,
+            2093
+          ],
+          "purpose": "gift counters/reactions"
+        },
+        {
+          "file": "decompiled/Date.cs",
+          "lines": [
+            55,
+            134
+          ],
+          "purpose": "allocation"
+        },
+        {
+          "file": "decompiled/Date.cs",
+          "lines": [
+            170,
+            277
+          ],
+          "purpose": "timer/close"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            445,
+            475
+          ],
+          "purpose": "counter gates"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            532,
+            572
+          ],
+          "purpose": "album  consumer"
+        }
+      ],
+      "source_chain_id": "R03",
+      "id": "CC-R03",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "Pamu fake threat differs from actual requirement semantics",
+      "prerequisite": "Pamu requires Lucky 28 and Alpha met/unlocked. Targets 3, 5 and 9 require 2, 1 and 10 diamonds respectively.",
+      "decision": "Use the ordinary two-click handshake. Target 3 says diamonds stayed, target 5 claims one was taken, target 7 threatens then retracts locking out other girls, and target 9 lets diamonds remain.",
+      "cost_and_time": "Target 6 asks for 100 NewCars at $15bn each if cash bought, totaling $1.5tn, plus 50 Beach dates and Buff 43. Later stages require 50 specific dates and 50000 gift items.",
+      "mutation": "Every configured diamond row is Diamond, not DiamondConsume. Its evaluator reads balance; the advancement loop only deducts consume tags. This trace supports no Pamu diamond deduction or other-girl lockout.",
+      "consumer": "Ordinary Love, counter resets, pending prestige and milestones change. Meeting Pamu opens Sawyer phone 10; Pamu Lover plus purchase entitlement opens phone 33.",
+      "failure_interruption_aftermath": "The target-5 diamond-taking line conflicts with this recovered build evaluator. The exclusivity threat is retracted prose. These findings are source inspected, without live gameplay verification.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            122,
+            130
+          ],
+          "purpose": "full stage/unlock config"
+        },
+        {
+          "file": "textassets/gamedata/Pamu.txt",
+          "lines": [
+            10,
+            27
+          ],
+          "purpose": "fake consequence selectors"
+        },
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            269,
+            275
+          ],
+          "purpose": "Diamond builder"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            484,
+            494
+          ],
+          "purpose": "balance evaluator"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            2239,
+            2260
+          ],
+          "purpose": "consume-only spend"
+        },
+        {
+          "file": "textassets/gamedata/Gifts.txt",
+          "lines": [
+            19,
+            19
+          ],
+          "purpose": "car price"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            640,
+            652
+          ],
+          "purpose": "Sawyer unlock"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            809,
+            817
+          ],
+          "purpose": "Pamu phone gate"
+        }
+      ],
+      "source_chain_id": "R04",
+      "id": "CC-R04",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "Dark One is a reset-speed sink with negative passive affection",
+      "prerequisite": "Karma and Sutra must both be Lovers. Targets 1 through 9 require 1e15 through 9e15 hearts. The first eight require distinct level-75 skills; the last needs 1 diamond.",
+      "decision": "Fill the positive heart threshold despite passive drain, acquire the goods/dates and sufficient reset boost, then accept the stage.",
+      "cost_and_time": "Boost spends are 10, 20, 30, 40, 50, 60, 70, 80, 80, totaling 440. A spend N requires N + 1 available. Goods include 1/2 MysticSlippers at $1.6e17 each; dates increase through 250 moonlight, 500 beach, 750 sightseeing and 1000 movies. Passive skill units subtract 50000 hearts each, with a floor of 1.",
+      "mutation": "Final advancement spends 80 then writes TimeMultiplier 2048 and reaches Love 9. Icon changes and normal reselection is blocked.",
+      "consumer": "The changed reset speed affects common boosted simulation. Dark One completion opens QPernikiss. SFW/disabled-popup completion redirects to Sutra immediately; enabled NSFW does so after its finale. Later phone 21 opens through QPernikiss Love 2 and describes banishment.",
+      "failure_interruption_aftermath": "The drain is an obstacle to filling a positive threshold, not a negative-heart objective. Float/overflow handling can set hearts to 1. The final boost restoration is outside PES only. Disappearance does not delete the runtime actor.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            172,
+            182
+          ],
+          "purpose": "gates/unlock"
+        },
+        {
+          "file": "textassets/gamedata/DarkOne.txt",
+          "lines": [
+            11,
+            28
+          ],
+          "purpose": "stage framing"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            245,
+            252
+          ],
+          "purpose": "boost remainder"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1191,
+            1248
+          ],
+          "purpose": "drain"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            2239,
+            2288
+          ],
+          "purpose": "spend andrestore"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            354,
+            366
+          ],
+          "purpose": "reselect block"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1487,
+            1490
+          ],
+          "purpose": "redirect"
+        },
+        {
+          "file": "decompiled/FinalInteraction.cs",
+          "lines": [
+            100,
+            107
+          ],
+          "purpose": "finale redirect"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            708,
+            718
+          ],
+          "purpose": "laterphone"
+        },
+        {
+          "file": "textassets/gamedata/TheDarkOne.txt",
+          "lines": [
+            2,
+            8
+          ],
+          "purpose": "banishment continuation"
+        }
+      ],
+      "source_chain_id": "R05",
+      "id": "CC-R05",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "QPernikiss consumes derived scheduling capacity and global completion",
+      "prerequisite": "QPernikiss requires Dark One Lover. Target 1 requires 1e16 hearts, TimeBlockConsume 1 and AllJobs. Target 3 requires 2.25e16 hearts, 1 diamond and Full Memory Album. Target 5 requires 20000 lifetime dates plus gifts/date. Final target requires 256289062500000000 hearts, 1 diamond, 380 achievements and 10 MysticSlippers.",
+      "decision": "Build global history as well as affection. Have an unused time block for targets 1, 4 and 7.",
+      "cost_and_time": "Love thresholds 1/4/7 each add a QPiddyBlock reservation, up to 3; FreeTime.Free subtracts it. Advance does not spend Time directly. Ten slippers cost $1.6e18 if cash bought. AllJobs excludes Digger, Planter, Zamphoney and Mech.",
+      "mutation": "Achievements.UpdateFreeTime derives QPiddyBlocks from Love; its setter changes real scheduling capacity.",
+      "consumer": "Jobs, hobbies and dates compete for free blocks. Full Album checks earlier Lovers with four date types; lifetime totals remain separate from stage counters.",
+      "failure_interruption_aftermath": "The TimeBlockConsume label alone does not prove a direct resource subtraction. A separate derived occupancy consumer supplies the actual loss. Prestige clears Love and reservations. Final Love 8 takes the ending diversion.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/Girls.txt",
+          "lines": [
+            182,
+            190
+          ],
+          "purpose": "all stages"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            496,
+            597
+          ],
+          "purpose": "global evaluators"
+        },
+        {
+          "file": "decompiled/Achievements.cs",
+          "lines": [
+            592,
+            620
+          ],
+          "purpose": "derivedQPcapacity"
+        },
+        {
+          "file": "decompiled/FreeTime.cs",
+          "lines": [
+            68,
+            82
+          ],
+          "purpose": "free consumer"
+        },
+        {
+          "file": "decompiled/FreeTime.cs",
+          "lines": [
+            361,
+            384
+          ],
+          "purpose": "setter/reset"
+        }
+      ],
+      "source_chain_id": "R06",
+      "id": "CC-R06",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "self-sacrifice versus QPernikiss sacrifice changes reset and aftermath",
+      "prerequisite": "QPernikiss Love 8 meets the final gates and heart threshold and has shown both stage lines.",
+      "decision": "Accept diverts before normal advancement into finale/outro. The left option shows a prestige warning before self-sacrifice; the right chooses QPernikiss sacrifice.",
+      "cost_and_time": "QPernikiss final does not run the ordinary Advance cost loop. Self-sacrifice invokes ordinary prestige after credits; companion sacrifice retains the current run.",
+      "mutation": "Companion initialization forces achievement 473, sets QPernikiss Love 9, triggers the Love achievement, saves and selects Cassie. Self credits force 472, set Love 9, trigger the Love achievement, then prestige.",
+      "consumer": "The authored self-ending describes remembered hero/economic fallout; the companion ending preserves the surviving player and memories. Actual consumers are achievements, Love, reset, and later phone 22. The reviewed code does not simulate the narrative economic collapse.",
+      "failure_interruption_aftermath": "Natural GenericIntroduction completion calls Skip(provider), and natural credit completion calls Skip as well. Ending skip UI is hidden. Disabled popups still launch the outro choice. The self branch subsequently clears QPernikiss Love 9 through prestige while retaining its achievement.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/QPernikiss.txt",
+          "lines": [
+            27,
+            28
+          ],
+          "purpose": "finalselector"
+        },
+        {
+          "file": "textassets/gamedata/QPernikiss.txt",
+          "lines": [
+            84,
+            102
+          ],
+          "purpose": "authoredforks"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1419,
+            1445
+          ],
+          "purpose": "diversion"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            505,
+            522
+          ],
+          "purpose": "finalecallback"
+        },
+        {
+          "file": "decompiled/QPiddyModel.cs",
+          "lines": [
+            23,
+            41
+          ],
+          "purpose": "separatepayloads"
+        },
+        {
+          "file": "decompiled/IntroProvider.cs",
+          "lines": [
+            341,
+            414
+          ],
+          "purpose": "credits/choices"
+        },
+        {
+          "file": "decompiled/EndingCutScene.cs",
+          "lines": [
+            45,
+            78
+          ],
+          "purpose": "companionmutation"
+        },
+        {
+          "file": "decompiled/GenericIntroduction.cs",
+          "lines": [
+            99,
+            128
+          ],
+          "purpose": "naturalcompletion"
+        },
+        {
+          "file": "decompiled/CreditsMobile.cs",
+          "lines": [
+            197,
+            246
+          ],
+          "purpose": "credits/selfreset"
+        },
+        {
+          "file": "decompiled/GameState.cs",
+          "lines": [
+            339,
+            379
+          ],
+          "purpose": "softreset"
+        }
+      ],
+      "source_chain_id": "R07",
+      "id": "CC-R07",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "companion-sacrifice opens latched afterlife phone continuation",
+      "prerequisite": "Phone 21 requires QPernikiss Love 2. Phone 22 requires completed achievement 473. ActiveAchievements is the unearned set: completion removes its object; lookup then returns null and the negated membership test passes.",
+      "decision": "Open QPernikiss phone after the companion ending and wait, or buy a wait skip.",
+      "cost_and_time": "The first message is instant; the next waits 604800 seconds, seven days, followed by an 8-second message. Phone time is unscaled real time; replay subtracts elapsed offline time. Skip costs min(50, 5 * ceil(seconds / 21600)).",
+      "mutation": "IsUnlocked latches UnlockedPFS; nonzero DatePref also guarantees access. Compact C{id}P stores progress/choices/time and C{id}D stores the timestamp. Prestige leaves these keys.",
+      "consumer": "QPernikiss describes surviving in an intermediate world; Dark One describes banishment. This opens authored continuation without restoring ordinary Lover selection. Completed fling can also gate full-character acquisition.",
+      "failure_interruption_aftermath": "Do not invert the unearned achievement set. Cellphone row 23 GirlLevel 9 metadata differs from the special code evaluator. Required downloads block conversation boundaries. Once latched, a contact survives later gate loss/reset. No timer or save test.",
+      "evidence": [
+        {
+          "file": "decompiled/Achievements.cs",
+          "lines": [
+            511,
+            545
+          ],
+          "purpose": "unearnedset"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            546,
+            567
+          ],
+          "purpose": "latch"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            708,
+            718
+          ],
+          "purpose": "actual gates"
+        },
+        {
+          "file": "textassets/gamedata/Cellphone.txt",
+          "lines": [
+            22,
+            23
+          ],
+          "purpose": "metadata"
+        },
+        {
+          "file": "textassets/gamedata/Qpernikiss_PF.txt",
+          "lines": [
+            2,
+            13
+          ],
+          "purpose": "continuation7days"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            1836,
+            1953
+          ],
+          "purpose": "replay"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2196,
+            2253
+          ],
+          "purpose": "save/timeskip"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2682,
+            2711
+          ],
+          "purpose": "skipcost/refund"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2786,
+            2902
+          ],
+          "purpose": "unscaledupdate"
+        },
+        {
+          "file": "decompiled/PhoneModel.cs",
+          "lines": [
+            9,
+            243
+          ],
+          "purpose": "compactsave"
+        },
+        {
+          "file": "decompiled/Universe.cs",
+          "lines": [
+            296,
+            344
+          ],
+          "purpose": "completion consumer"
+        },
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            585,
+            593
+          ],
+          "purpose": "acquisition consumer"
+        }
+      ],
+      "source_chain_id": "R08",
+      "id": "CC-R08",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "phone choices select presentation along a common message chain",
+      "prerequisite": "Cassie, Mio and Pamu phones 23/24/33 require current Lover and their purchase bit before the unlock latch; the purchase control costs 10 diamonds.",
+      "decision": "Mio first-response variants acknowledge initiation or pretend to be a dog; three immediate replies differ before the common continuation. Pamu impatience versus an ice-cream lure produces a fake death joke or flavor reply.",
+      "cost_and_time": "Both choices share configured waits. Mio uses 5 + 5 + 5 seconds then a common 9-second line; Pamu uses 10 + 5 then a common 10-second line. Pamu row 86 later waits 1200 seconds.",
+      "mutation": "Save -1/-2; alternate text and images scan the last nonzero choice. Both callbacks pass response.NextMessage to YieldReply. Phone answers do not select different next-node graphs.",
+      "consumer": "Replay preserves selected presentation and gallery images. Separate conversation gates require skills/jobs/other phone paths/relationships, such as Peanut conversation 1 requiring Desiree path length 27, Wendy conversation 1 requiring Iro Sweetheart, and later Lotus boundaries requiring Quill/Elle/Iro Lover.",
+      "failure_interruption_aftermath": "No actor death, affection loss or exclusivity follows from those phone lines. Missing image logs and yield-breaks. ResetCurrentGirl clears the phone choice list and replays it without resetting relationship stage.",
+      "evidence": [
+        {
+          "file": "textassets/gamedata/Mio_PF.txt",
+          "lines": [
+            2,
+            15
+          ],
+          "purpose": "actual choice"
+        },
+        {
+          "file": "textassets/gamedata/Pamu_PF.txt",
+          "lines": [
+            37,
+            44
+          ],
+          "purpose": "fakeconsequence"
+        },
+        {
+          "file": "textassets/gamedata/Pamu_PF.txt",
+          "lines": [
+            86,
+            86
+          ],
+          "purpose": "wait"
+        },
+        {
+          "file": "decompiled/PhoneModel.cs",
+          "lines": [
+            578,
+            753
+          ],
+          "purpose": "linearchain"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2506,
+            2594
+          ],
+          "purpose": "bothcallbacks"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2305,
+            2354
+          ],
+          "purpose": "textselector"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2426,
+            2504
+          ],
+          "purpose": "imageselector"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            933,
+            1009
+          ],
+          "purpose": "boundarygates"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            1615,
+            1658
+          ],
+          "purpose": "purchase"
+        },
+        {
+          "file": "decompiled/Cellphone.cs",
+          "lines": [
+            2196,
+            2210
+          ],
+          "purpose": "reset"
+        }
+      ],
+      "source_chain_id": "R09",
+      "id": "CC-R09",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "soft reset erases relationship progress but retains outfit/phone/achievement owners",
+      "prerequisite": "Ordinary stage gain adds (new Love + 1) * PrestigePerLevel. Selected factors are Cassie 0.01, Mio 0.02, Pamu 0.4, Dark One 0 and QPernikiss 0.",
+      "decision": "Prestige saves, moves pending boost into reset multiplier, clears the current run and reloads.",
+      "cost_and_time": "Cash, skill/job/hobby progression, Love, hearts, stage counters, date flags and LifeDates are erased. Current clothing choice is erased while LifetimeOutfits survives keepClothing=true.",
+      "mutation": "ClearState deletes Love, Hearts, GiftCount1..4, DateCount1..4, Dates, Clothing, LifeDates and legacy LifeGifts; it leaves LifeOutfits. Prestige does not delete phone C{id}P/D, UnlockedPFS or completed-achievement storage.",
+      "consumer": "Full Memory Album must be earned again through current Lovers and four dates despite the LifeDates name. Owned outfits and phone continuation can outlast lost relationship stages.",
+      "failure_interruption_aftermath": "Hard ResetAll is separate: it deletes all preferences and resets diamonds, achievements and phone purchase bits. Method reading proves explicit key policy, not live import/restore behavior. Private saves remained untouched.",
+      "evidence": [
+        {
+          "file": "decompiled/GameState.cs",
+          "lines": [
+            339,
+            405
+          ],
+          "purpose": "soft/hard"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            302,
+            322
+          ],
+          "purpose": "pendingboost"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            841,
+            1008
+          ],
+          "purpose": "load/store/album"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1010,
+            1033
+          ],
+          "purpose": "clearpolicy"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            532,
+            572
+          ],
+          "purpose": "album consumer"
+        },
+        {
+          "file": "decompiled/PhoneModel.cs",
+          "lines": [
+            183,
+            243
+          ],
+          "purpose": "separatekeys"
+        }
+      ],
+      "source_chain_id": "R10",
+      "id": "CC-R10",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "specific greeting/gift selectors change bounded UI state",
+      "prerequisite": "GirlModel loads NameFull with Name fallback; selectors receive type, stage and timeline. LastGirl and greeting count are temporary.",
+      "decision": "Select from the eligible random pool. Lover can greet the prior character positively; repeated pre-Lover greetings can use a negative line, potentially overridden by idle-character text, Ayano fallback or ordinary outfit greeting.",
+      "cost_and_time": "Selector choice itself has no payment. Specific gifts follow the normal purchase.",
+      "mutation": "Expressions, text and audio change. Explora Apple/Magnet gifts have negative hearts and fixed reactions. Mallory medicine has a special huge heart value. Desdemona decoy gift counts reveal the real required gift.",
+      "consumer": "Desdemona retains the original required gift as an extra AND gate, using fake count slot 1. UI hides the actual requirement until the decoy succeeds. GiftFail means the decoy completed; bought counts persist.",
+      "failure_interruption_aftermath": "Greeting text alone does not prove jealousy damage. Unknown requirement cache types fall back to $10. Missing text returns null while some callers assume nonnull, an unexercised failure edge. The full character dialogue corpus remains unread.",
+      "evidence": [
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            9,
+            73
+          ],
+          "purpose": "match"
+        },
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            183,
+            256
+          ],
+          "purpose": "decoyconfiguration"
+        },
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            850,
+            901
+          ],
+          "purpose": "randomselector"
+        },
+        {
+          "file": "decompiled/GirlModel.cs",
+          "lines": [
+            1010,
+            1149
+          ],
+          "purpose": "dataloader"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1984,
+            2093
+          ],
+          "purpose": "giftbranches"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            2150,
+            2237
+          ],
+          "purpose": "greetingpriority"
+        },
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1125,
+            1193
+          ],
+          "purpose": "decoyUI"
+        },
+        {
+          "file": "decompiled/GiftModel.cs",
+          "lines": [
+            35,
+            46
+          ],
+          "purpose": "specialheartvalues"
+        }
+      ],
+      "source_chain_id": "R11",
+      "id": "CC-R11",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "Catara speed completion purchases exact deficits",
+      "prerequisite": "Catara is unlocked or debug speed dating is active; PES additionally needs Catara met. Current requirement is Date, Gift or FakeGift.",
+      "decision": "Buy the entire remaining deficit at once. Desdemona first fills the decoy, then the revealed actual gift.",
+      "cost_and_time": "UI requires cash strictly greater than deficit * price, plus enough free blocks for a date. Completion pays cash but does not allocate date blocks or run the ordinary date timer.",
+      "mutation": "Global count increases by the deficit, stage count becomes target, GiveDate(0)/GiveGift(0) handles memory/reaction, and payout/save follow. A date may show its album image.",
+      "consumer": "The same count evaluator accepts manual and bulk progress. GiveDate(0) still records lifetime and album state. Character-derived automation reduces repetition.",
+      "failure_interruption_aftermath": "The handler rechecks entitlement/current girl but relies on UI cash/free availability; it does not freshly recheck resources or implement a tested refund. Catara acquisition is outside this review.",
+      "evidence": [
+        {
+          "file": "decompiled/Girls.cs",
+          "lines": [
+            1007,
+            1118
+          ],
+          "purpose": "speedbodies"
+        },
+        {
+          "file": "decompiled/Girl.cs",
+          "lines": [
+            1943,
+            1959
+          ],
+          "purpose": "date0"
+        },
+        {
+          "file": "decompiled/Requirement.cs",
+          "lines": [
+            445,
+            475
+          ],
+          "purpose": "samegates"
+        }
+      ],
+      "source_chain_id": "R12",
+      "id": "CC-R12",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "Peanut Deluxe Date is actual branching with mood and persistent award",
+      "prerequisite": "DateDlcDisplay accepts only peanutdlc. DeluxeDateButton requires owned PeanutDate plus Love 9 outside PES.",
+      "decision": "The two selected SFW routes use actual response-child and label jumps. DLC-A starts a thesis and ends at closing time; DLC-B chooses the secret topic, its second nested reply, earns 802 and leaves together. END terminates. Multiselect removes chosen topics, but the secret branch jumps out.",
+      "cost_and_time": "No ordinary date cash/block cost appears in these DLC entry methods. Raw mood changes sum to 22 for A and 20 for B before the unknown scene cap. Rank and tracker time are separate from ordinary date counts.",
+      "mutation": "Metadata changes mood, node and animation. Secret line 810 queues achievement 802. Completion records AwardedAffection/AwardGirlName; the return consumer forces any available active awards and queues a save.",
+      "consumer": "Achievement 802 is the actual secret discovery. Rank compares mood to MaxMood. Tracker stores DateUid-scoped count and total time and checks serialized thresholds. A positive affection bridge targets Girl.Hearts on return.",
+      "failure_interruption_aftermath": "MaxMood, AchievementPaths, DateUid and AchievementUnlocks were not recovered. No MaxAffection setter call was found in exported source; actual award is unknown, and Lover Hearts rejects changes. No numeric rank or achievement 801 claim for route A. Manager does not serialize variables, mood or chosen nodes. No runtime verification.",
+      "evidence": [
+        {
+          "file": "decompiled/DateDlcDisplay.cs",
+          "lines": [
+            64,
+            135
+          ],
+          "purpose": "ownedDLCdisplay"
+        },
+        {
+          "file": "decompiled/DeluxeDateButton.cs",
+          "lines": [
+            19,
+            44
+          ],
+          "purpose": "Lovergate"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/SFW_Script_Template.txt",
+          "lines": [
+            1,
+            278
+          ],
+          "purpose": "commonbranchprefix"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/SFW_Script_Template.txt",
+          "lines": [
+            527,
+            658
+          ],
+          "purpose": "thesisbranch"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/SFW_Script_Template.txt",
+          "lines": [
+            660,
+            886
+          ],
+          "purpose": "multiselectsecretaward"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/SFW_Script_Template.txt",
+          "lines": [
+            847,
+            972
+          ],
+          "purpose": "lateoutcomes"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueParser.cs",
+          "lines": [
+            25,
+            64
+          ],
+          "purpose": "labelENDresolution"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueParser.cs",
+          "lines": [
+            95,
+            249
+          ],
+          "purpose": "responsechildgraph"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueManager.cs",
+          "lines": [
+            362,
+            522
+          ],
+          "purpose": "mood/award/response/terminal consumer"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueManager.cs",
+          "lines": [
+            555,
+            577
+          ],
+          "purpose": "serializedachievementpaths"
+        },
+        {
+          "file": "decompiled/DialogueSystem/AchievementStatTracker.cs",
+          "lines": [
+            73,
+            164
+          ],
+          "purpose": "retainedcounttimeandchecks"
+        },
+        {
+          "file": "decompiled/DialogueSystem/PostDateAffectionAward.cs",
+          "lines": [
+            9,
+            48
+          ],
+          "purpose": "returnmutation"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DateEndPopup.cs",
+          "lines": [
+            14,
+            58
+          ],
+          "purpose": "rank consumer"
+        },
+        {
+          "file": "textassets/gamedata/Achievements.txt",
+          "lines": [
+            799,
+            806
+          ],
+          "purpose": "DLCawarddefinitions"
+        }
+      ],
+      "source_chain_id": "R13",
+      "id": "CC-R13",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    },
+    {
+      "title": "DLC mode can select animation and achievement consequences",
+      "prerequisite": "NSFW is enabled and an NSFW template exists; DLC ownership and Lover entry still apply.",
+      "decision": "Selected branches set peanut_nsfw_animation to string 2 or 3 and reach node 15. One answer returns to node 16 with -5 mood; the other adds 7, transitions to Peanut NSFW, queues 804 and jumps to 19. Later go-home paths queue 805.",
+      "cost_and_time": "Response mood differs by -5 versus +7. No ordinary gift/date price is imposed in these graph methods.",
+      "mutation": "The set metadata adds a string dictionary entry. SpineAnimationInitializer.UseVariable reads it and chooses an animation; transition changes scene container/resources; 804/805 enter the award set.",
+      "consumer": "These have actual visual and persistent award consumers, exceeding ordinary phone flavor changes. Awards must exist in the current owned-DLC/NSFW active achievement set.",
+      "failure_interruption_aftermath": "Manager clears variables at dialogue start and does not persist them. Wrong variable type logs and returns. SFW script has no set metadata. Only selected NSFW metadata/consumer spans were read, not a full NSFW route or runtime acceptance.",
+      "evidence": [
+        {
+          "file": "textassets/embedded/sharedassets3.assets/NSFW_Script_Template.txt",
+          "lines": [
+            395,
+            407
+          ],
+          "purpose": "set2"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/NSFW_Script_Template.txt",
+          "lines": [
+            630,
+            647
+          ],
+          "purpose": "set3"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/NSFW_Script_Template.txt",
+          "lines": [
+            877,
+            902
+          ],
+          "purpose": "branchmoodtransition804"
+        },
+        {
+          "file": "textassets/embedded/sharedassets3.assets/NSFW_Script_Template.txt",
+          "lines": [
+            1026,
+            1077
+          ],
+          "purpose": "805endings"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueVariable.cs",
+          "lines": [
+            56,
+            74
+          ],
+          "purpose": "stringparse"
+        },
+        {
+          "file": "decompiled/DialogueSystem/SpineAnimationInitializer.cs",
+          "lines": [
+            19,
+            47
+          ],
+          "purpose": "actual animation consumer"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueManager.cs",
+          "lines": [
+            199,
+            201
+          ],
+          "purpose": "modeselection"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueManager.cs",
+          "lines": [
+            403,
+            408
+          ],
+          "purpose": "varmutation"
+        },
+        {
+          "file": "decompiled/DialogueSystem/DialogueManager.cs",
+          "lines": [
+            504,
+            552
+          ],
+          "purpose": "clear/transition"
+        },
+        {
+          "file": "decompiled/Achievements.cs",
+          "lines": [
+            454,
+            463
+          ],
+          "purpose": "modeawardavailability"
+        }
+      ],
+      "source_chain_id": "R14",
+      "id": "CC-R14",
+      "status": "source-inspected-static",
+      "family": "relationship/dialogue"
+    }
+  ],
+  "economy_exceptions": [
+    {
+      "issue": "No rising promotion block cost in recovered main table",
+      "meaning": "Generic reallocation failure branch exists; all20 supplied main job families reviewed have non-increasing block requirements. Do not sell rising promotion cost as an observed/main-content mechanic.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:729-740",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:1-221"
+      ]
+    },
+    {
+      "issue": "Unused blocks versus nominal consuming blocks",
+      "meaning": "Both NewTimeBlockRequirement and NewFreeTimeBlockRequirement test Free>=count and return generic RequirementType.Time. AdvanceRelationship has no Time debit. Actual main QPernikiss stage1/4/7 requests TimeBlockConsume1, with actual loss1/2/3 derived separately from QPiddy Love by Achievements.UpdateFreeTime. Polly nominal FreeTimeBlock stages request10/30 without that QPiddy deduction.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Requirement.cs:587-597",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:2239-2261",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Achievements.cs:592-627",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:182-190",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:742-750"
+      ]
+    },
+    {
+      "issue": "Polly main data/resource mismatch",
+      "meaning": "Recovered main Resources.txt has no FreeTimeBlock resource, yet Girls.txt:743/747 requests it. BuildRequirement dictionary lookup would throw if that table is used unchanged; GirlLevel catches and retains already-added requirements. This is a static consistency gap, not observed live bug or proof of any updated/downloaded/PES table.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Resources.txt:1-36",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:743-743",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Girls.txt:747-747",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs:311-317",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GirlModel.cs:148-189",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Universe.cs:366-378",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1054-1066",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Girl.cs:1393-1417"
+      ],
+      "conditional_aftermath": "If the recovered main resource table is used unchanged, each affected Polly stage adds its first Heart row, then throws on FreeTimeBlock; the catch ends further requirement construction. Cached nonheart requirements then have length0, and MeetsRequirements rejects that for non-Eva, so the stage could become unadvanceable. This is a qualified static inference, not an observed live failure."
+    },
+    {
+      "issue": "OnlyWhenRequired/Legacy do not themselves gate gift availability",
+      "meaning": "Both properties are parsed but no other consumers found in exported C#. Actual main Balance list uses ID ranges and named per-girl special cases; use those executable paths instead of inferring flag enforcement.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs:27-29",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/GiftModel.cs:84-111",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Balance.cs:131-205"
+      ]
+    },
+    {
+      "issue": "JobState constructor block cap bypass",
+      "meaning": "Optional parameter constructor clamps25; actual LoadStates field initializer copies raw configured block count including Planter35.",
+      "evidence": [
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:20-27",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/decompiled/Job2.cs:214-226",
+        "/Users/weiwei/.codex/research/crush-crush/25589052/textassets/gamedata/Jobs.txt:190-199"
+      ]
+    }
+  ],
+  "selected_goal_totals": {
+    "fuzzy_gingerwasabi": {
+      "counts": {
+        "TimeBlocks": 65.0,
+        "Money": 501005000.0,
+        "Diamond": 80.0,
+        "SpeedBoost": 16,
+        "TimeSkip": 10.0
+      },
+      "method": "summed numeric reward amounts from all24table rows; SpeedBoost product; excludes relationship payouts and duplicate-girl swap",
+      "sha256": "0b40b6295db9f999062767ec0f5e0962c08c9d1c56dc6b41dc00c32075e25c9f"
+    },
+    "timewarp_polly": {
+      "counts": {
+        "TimeBlocks": 50.0,
+        "Money": 50005000.0,
+        "Diamond": 63.0,
+        "Ticket": 150.0,
+        "SpeedBoost": 8,
+        "TimeSkip": 18.0
+      },
+      "method": "summed numeric reward amounts from all24table rows; SpeedBoost product; excludes relationship payouts and duplicate-girl swap",
+      "sha256": "edc61cdfff2f44d514ff4ff9492b8a4b90e818aa26e37c966d99875c68d8b148"
+    }
+  },
+  "source_limits": [
+    "Static facts and arithmetic examples are distinguished. No launched/played/purchased/tested/save-verified behavior is claimed.",
+    "Main TextAsset row values apply to this extracted bundle; not independently verified as the active latest loaded bundle or a live Parallel Event dataset.",
+    "Actual currency shop prices may be supplied by network catalog and were not queried. Numeric defaults cannot stand in for current prices.",
+    "No user-save contents were inspected; save API names are code-only traces.",
+    "UI gating and internal mutation differ in several places; do not promote valid normal UI paths to universal atomic/failure-proof contracts.",
+    "Private researched code/config were read only. Only notes/economy.json output was changed; YAIRPG repository and installed sources were untouched.",
+    "Static semantic inspection only; no execution, purchases, entitlement changes or save reads.",
+    "Installed TextAsset parameters have now been traced for selected base, Darya, Charlotte, Suzu, Catara, Kaiju, Lumi, Fuzzy and Timewarp families. Live server catalog, actual entitlements, active schedules and remote award mappings remain unknown.",
+    "No live game, timer, purchase, save/reload, reset, or ending exercise. Evidence is static source and recovered configuration.",
+    "Other characters complete stage configs and full dialogue corpus remain unread. Selected hardcoded gift reactions and Desdemona decoy mechanics are not complete character dossiers.",
+    "Whole phone corpus and galleries remain unread. Selected Mio/Pamu/Peanut/Dark One/QPernikiss rows plus full gate and linear-consumer methods were reviewed.",
+    "PES all timelines and DLC entitlement/installed media coverage were not exhaustively audited. Explicit source branches are qualified.",
+    "Peanut scene fields MaxMood, AchievementPaths, DateUid and AchievementUnlocks could not be recovered by the root type-tree probe. MaxAffection initialization was not found; no positive numeric award is assumed.",
+    "Peanut selected common prefix, two paths, secret topic, late endings and mode-specific variable/award spans were read. This is not whole-scene coverage of the 972-line SFW script. Other movie/documentary branches at 384-526, topic branches at 671-763 and NSFW full paths remain partial/unread.",
+    "All findings belong to the pinned assembly/config input. The Pamu prose/spend discrepancy may differ in other builds.",
+    "Economy producer acquisition, Catara acquisition, asset-download retry behavior and hard-reset/cloud restoration remain outside the assigned family."
+  ],
+  "finite_unresolved_questions": [
+    "Server policy for repeated Fuzzy run rewards with the same pes27 id after local Goals reset is absent from client body; local resets do not establish new server entitlement rewards.",
+    "Generic metadata AdditionalItems may add bundle content not in direct receipt branch; live catalog was not queried.",
+    "Static SkipReset consumer does not clear pending; root may inspect IL/high-consequence behaviour independently, but no gameplay claim about repeated use is established."
+  ],
+  "current_yairpg": {
+    "already_present": [
+      "Directed relationship axes and remembered deeds; no need for universal affection.",
+      "Paid shared participation and independently owned NPC tools/body/funds.",
+      "Real NPC local daytime scheduling and Lio work/contest occupancy.",
+      "Finite mixed work plans, goal stopping, stock hold and real accepted-job receipts.",
+      "Saved Ink choice boundaries/scopes/content identities and native host effect publication.",
+      "Existing physically supported return reply plus read-only stored reply.",
+      "Nested authored return accounts, finite persistent stock/calendars and reset/retain transition preview."
+    ],
+    "evidence": [
+      {
+        "file": "PROJECT.md",
+        "lines": [
+          3,
+          14
+        ],
+        "symbol": "Current full audited remainder delivery",
+        "claim": "Latest native/state/UI delivery is implemented-unverified; all later gameplay/save/player gates remain deferred."
+      },
+      {
+        "file": "PROJECT.md",
+        "lines": [
+          199,
+          215
+        ],
+        "symbol": "Agreed direction",
+        "claim": "Familiar inherited opening, optional additions and one-realm/one-prestige first milestone are authoritative."
+      },
+      {
+        "file": "PROJECT.md",
+        "lines": [
+          371,
+          415
+        ],
+        "symbol": "Expansion design proposal",
+        "claim": "Observable choices, practical useful combinations and explicit reset/retention costs guide fit."
+      },
+      {
+        "file": "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+        "lines": [
+          1,
+          13
+        ],
+        "symbol": "Deferred playable acceptance",
+        "claim": "Current source/static delivery does not certify player behavior; later generated-save and privacy gates remain."
+      }
+    ],
+    "source_catalog": {
+      "AGENTS.md": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+        "bytes": 3170,
+        "line_count": 23
+      },
+      "PROJECT.md": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/PROJECT.md",
+        "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69",
+        "bytes": 144593,
+        "line_count": 528
+      },
+      "src/promise_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_content.js",
+        "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec",
+        "bytes": 11954,
+        "line_count": 80
+      },
+      "src/promise_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/promise_ui.js",
+        "sha256": "06aa141cf6e83c5b7b2a5ee973f2fdb1f6f28d16808261c17a66642ee5b9c327",
+        "bytes": 4964,
+        "line_count": 53
+      },
+      "src/party_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_content.js",
+        "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491",
+        "bytes": 2866,
+        "line_count": 22
+      },
+      "src/party_battle.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_battle.js",
+        "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+        "bytes": 10714,
+        "line_count": 103
+      },
+      "src/party_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_ui.js",
+        "sha256": "75669280c54cf77275c7789c41c83f74b4694ba60d607d87c681b26cbf272f19",
+        "bytes": 5293,
+        "line_count": 43
+      },
+      "src/simulation.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation.js",
+        "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+        "bytes": 51840,
+        "line_count": 566
+      },
+      "src/simulation_effects.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/simulation_effects.js",
+        "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+        "bytes": 27572,
+        "line_count": 303
+      },
+      "src/everyday_life.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/everyday_life.js",
+        "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+        "bytes": 7642,
+        "line_count": 96
+      },
+      "src/feature_expansion_work_plan.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_work_plan.js",
+        "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+        "bytes": 28771,
+        "line_count": 356
+      },
+      "src/feature_expansion_society.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society.js",
+        "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+        "bytes": 30667,
+        "line_count": 246
+      },
+      "src/feature_expansion_society_host.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_society_host.js",
+        "sha256": "ae887b2a58a0997145c023d59c3f6b81ee816b0ca6e9b6f96ffbd0187b396824",
+        "bytes": 13634,
+        "line_count": 157
+      },
+      "src/audit_remainder_livelihood_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_content.js",
+        "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+        "bytes": 20506,
+        "line_count": 169
+      },
+      "src/audit_remainder_livelihood_facts.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_livelihood_facts.js",
+        "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+        "bytes": 24899,
+        "line_count": 276
+      },
+      "src/reference_gameplay_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/reference_gameplay_content.js",
+        "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+        "bytes": 13705,
+        "line_count": 105
+      },
+      "src/ink_narrative.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative.js",
+        "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+        "bytes": 26405,
+        "line_count": 354
+      },
+      "src/ink_scene_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_scene_content.js",
+        "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+        "bytes": 41500,
+        "line_count": 386
+      },
+      "src/ink_narrative_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/ink_narrative_ui.js",
+        "sha256": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+        "bytes": 7403,
+        "line_count": 141
+      },
+      "stories/feature_wave.ink": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.ink",
+        "sha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+        "bytes": 29309,
+        "line_count": 599
+      },
+      "stories/feature_wave.json": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/stories/feature_wave.json",
+        "sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+        "bytes": 124528,
+        "line_count": 5853
+      },
+      "src/chronicle.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/chronicle.js",
+        "sha256": "c8f932b5fabc96a3628a7948ff76ddfcb3ffeb2cee40271ce3e7ee3f2ff5bb31",
+        "bytes": 22410,
+        "line_count": 242
+      },
+      "src/action_legibility.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility.js",
+        "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+        "bytes": 38737,
+        "line_count": 520
+      },
+      "src/action_legibility_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/action_legibility_ui.js",
+        "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+        "bytes": 20496,
+        "line_count": 378
+      },
+      "src/people_knowledge.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_knowledge.js",
+        "sha256": "88291b04e46a47ac555cfaa3fb2a708b08e45ee7eef46e6f4689a7a6ea64d731",
+        "bytes": 9482,
+        "line_count": 97
+      },
+      "src/people_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/people_ui.js",
+        "sha256": "92bb362de3212d6ac6288c91c1db0b97a51c289ce916b365af2870c3d11d7f59",
+        "bytes": 1852,
+        "line_count": 30
+      },
+      "src/pocket_realm_scenes.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/pocket_realm_scenes.js",
+        "sha256": "3cd0be10996073938c2642c95a04def0aebeceecad6ac27916cc78cb6181cfc1",
+        "bytes": 35693,
+        "line_count": 365
+      },
+      "src/feature_expansion_nested_content.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_content.js",
+        "sha256": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+        "bytes": 26965,
+        "line_count": 118
+      },
+      "src/feature_expansion_nested_native.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_native.js",
+        "sha256": "9406b3c5222f49a73bb8287bced8cc5d32da916cad8e1cf54f816454ebedd640",
+        "bytes": 19930,
+        "line_count": 123
+      },
+      "src/feature_expansion_destination_native.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_destination_native.js",
+        "sha256": "8b60fc635680a75088036846a468fd25f2eee4c24040066a80640d14ecaef9e9",
+        "bytes": 17253,
+        "line_count": 135
+      },
+      "src/feature_expansion_nested_ink_ui.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_nested_ink_ui.js",
+        "sha256": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+        "bytes": 2965,
+        "line_count": 40
+      },
+      "docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+        "sha256": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+        "bytes": 5632,
+        "line_count": 13
+      },
+      "src/main.js": {
+        "absolute_path": "/Users/weiwei/code/yet-another-idle-rpg/src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+        "bytes": 387376,
+        "line_count": 7386
+      }
+    }
+  },
+  "selection_layer": "The5ranked packets are a subset, not a cap on findings or future original system implications.",
+  "relationship_mechanic_map": [
+    {
+      "owner": "GirlModel.GirlLevel and Girl.CheckCachedRequirements",
+      "state": "ordered target row; hearts separate from AND-evaluated other gates",
+      "dependencies": [
+        "cash/diamonds",
+        "skills/jobs",
+        "stage gift/date counters",
+        "reset boost",
+        "lifetime totals/album",
+        "other characters/achievements"
+      ]
+    },
+    {
+      "owner": "Girl/Girls/InteractionBox",
+      "state": "stage,hearts,temporary follow-up,cooldowns",
+      "dependencies": [
+        "two-click stage lines",
+        "spend and pending prestige",
+        "gift/date access",
+        "milestone art and phone unlock"
+      ]
+    },
+    {
+      "owner": "GirlModel.GetText and Girl.Greeting",
+      "state": "type,stage,timeline,outfit,previous character,greeting count",
+      "dependencies": [
+        "random eligible text",
+        "specific gift reactions",
+        "expression and audio"
+      ]
+    },
+    {
+      "owner": "Date/GiftPurchase/Gift/Girl",
+      "state": "purchased actions,time reservation,stage counters,lifetime date flags",
+      "dependencies": [
+        "boosted training time",
+        "Catara batch completion",
+        "FullMemoryAlbum"
+      ]
+    },
+    {
+      "owner": "IntroProvider/EndingCutScene/CreditsMobile",
+      "state": "ending choice and achievements472/473",
+      "dependencies": [
+        "run prestige versus continued run",
+        "appearance/disappearance",
+        "afterlife phone continuation"
+      ]
+    },
+    {
+      "owner": "PhoneModel/Cellphone",
+      "state": "linear messages,reply choices,unscaled wait,boundary gates,gallery",
+      "dependencies": [
+        "relationships/skills/jobs/boost",
+        "other phone paths",
+        "entitlement",
+        "full character acquisition"
+      ]
+    },
+    {
+      "owner": "DialogueSystem manager/tracker",
+      "state": "Peanut branching graph,session mood,temporary vars,retained date-count/time,award IDs",
+      "dependencies": [
+        "DLC+Lover access",
+        "animation",
+        "rank",
+        "achievement return consumer",
+        "conditional affection bridge"
+      ]
+    }
+  ],
+  "configured_stage_profiles": [
+    {
+      "character": "Cassie",
+      "file": "textassets/gamedata/Girls.txt",
+      "lines": [
+        2,
+        10
+      ],
+      "stages": [
+        {
+          "target_love": 1,
+          "current_love": 0,
+          "hearts": 50,
+          "gates": [
+            {
+              "kind": "MoneyConsume",
+              "quantity": 35
+            }
+          ],
+          "line": 2
+        },
+        {
+          "target_love": 2,
+          "current_love": 1,
+          "hearts": 100,
+          "gates": [
+            {
+              "kind": "Money",
+              "quantity": 100
+            },
+            {
+              "kind": "Suave",
+              "quantity": 1
+            }
+          ],
+          "line": 3
+        },
+        {
+          "target_love": 3,
+          "current_love": 2,
+          "hearts": 400,
+          "gates": [
+            {
+              "kind": "TechSavvy",
+              "quantity": 2
+            },
+            {
+              "kind": "Buff",
+              "quantity": 2
+            },
+            {
+              "kind": "Shell",
+              "quantity": 1
+            }
+          ],
+          "line": 4
+        },
+        {
+          "target_love": 4,
+          "current_love": 3,
+          "hearts": 1000,
+          "gates": [
+            {
+              "kind": "Money",
+              "quantity": 500
+            },
+            {
+              "kind": "Restaurant",
+              "quantity": 0
+            },
+            {
+              "kind": "Shell",
+              "quantity": 2
+            }
+          ],
+          "line": 5
+        },
+        {
+          "target_love": 5,
+          "current_love": 4,
+          "hearts": 3000,
+          "gates": [
+            {
+              "kind": "HandLotion",
+              "quantity": 1
+            },
+            {
+              "kind": "Motivation",
+              "quantity": 5
+            },
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 1
+            }
+          ],
+          "line": 6
+        },
+        {
+          "target_love": 6,
+          "current_love": 5,
+          "hearts": 17016,
+          "gates": [
+            {
+              "kind": "Donut",
+              "quantity": 1
+            },
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 3
+            },
+            {
+              "kind": "Lifeguard",
+              "quantity": 0
+            }
+          ],
+          "line": 7
+        },
+        {
+          "target_love": 7,
+          "current_love": 6,
+          "hearts": 51047,
+          "gates": [
+            {
+              "kind": "Badass",
+              "quantity": 7
+            },
+            {
+              "kind": "FruitBasket",
+              "quantity": 1
+            },
+            {
+              "kind": "Beach",
+              "quantity": 1
+            }
+          ],
+          "line": 8
+        },
+        {
+          "target_love": 8,
+          "current_love": 7,
+          "hearts": 102094,
+          "gates": [
+            {
+              "kind": "Chocolates",
+              "quantity": 1
+            },
+            {
+              "kind": "Beach",
+              "quantity": 3
+            },
+            {
+              "kind": "Lifeguard",
+              "quantity": 1
+            }
+          ],
+          "line": 9
+        },
+        {
+          "target_love": 9,
+          "current_love": 8,
+          "hearts": 204188,
+          "gates": [
+            {
+              "kind": "Buff",
+              "quantity": 10
+            },
+            {
+              "kind": "Book",
+              "quantity": 1
+            },
+            {
+              "kind": "Lifeguard",
+              "quantity": 2
+            }
+          ],
+          "line": 10
+        }
+      ]
+    },
+    {
+      "character": "Mio",
+      "file": "textassets/gamedata/Girls.txt",
+      "lines": [
+        12,
+        20
+      ],
+      "stages": [
+        {
+          "target_love": 1,
+          "current_love": 0,
+          "hearts": 150,
+          "gates": [
+            {
+              "kind": "Suave",
+              "quantity": 3
+            }
+          ],
+          "line": 12
+        },
+        {
+          "target_love": 2,
+          "current_love": 1,
+          "hearts": 560,
+          "gates": [
+            {
+              "kind": "Motivation",
+              "quantity": 3
+            },
+            {
+              "kind": "Money",
+              "quantity": 1337
+            }
+          ],
+          "line": 13
+        },
+        {
+          "target_love": 3,
+          "current_love": 2,
+          "hearts": 1708,
+          "gates": [
+            {
+              "kind": "Funny",
+              "quantity": 5
+            },
+            {
+              "kind": "Rose",
+              "quantity": 1
+            },
+            {
+              "kind": "Burger",
+              "quantity": 2
+            }
+          ],
+          "line": 14
+        },
+        {
+          "target_love": 4,
+          "current_love": 3,
+          "hearts": 5209,
+          "gates": [
+            {
+              "kind": "Tenderness",
+              "quantity": 7
+            },
+            {
+              "kind": "HandLotion",
+              "quantity": 1
+            },
+            {
+              "kind": "Restaurant",
+              "quantity": 3
+            }
+          ],
+          "line": 15
+        },
+        {
+          "target_love": 5,
+          "current_love": 4,
+          "hearts": 17191,
+          "gates": [
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 2
+            },
+            {
+              "kind": "Donut",
+              "quantity": 1
+            },
+            {
+              "kind": "Funny",
+              "quantity": 9
+            }
+          ],
+          "line": 16
+        },
+        {
+          "target_love": 6,
+          "current_love": 5,
+          "hearts": 56730,
+          "gates": [
+            {
+              "kind": "Beach",
+              "quantity": 2
+            },
+            {
+              "kind": "Book",
+              "quantity": 1
+            },
+            {
+              "kind": "Zoo",
+              "quantity": 0
+            }
+          ],
+          "line": 17
+        },
+        {
+          "target_love": 7,
+          "current_love": 6,
+          "hearts": 187210,
+          "gates": [
+            {
+              "kind": "Sightseeing",
+              "quantity": 1
+            },
+            {
+              "kind": "Drink",
+              "quantity": 1
+            },
+            {
+              "kind": "Smart",
+              "quantity": 12
+            }
+          ],
+          "line": 18
+        },
+        {
+          "target_love": 8,
+          "current_love": 7,
+          "hearts": 617794,
+          "gates": [
+            {
+              "kind": "Flowers",
+              "quantity": 1
+            },
+            {
+              "kind": "MovieTheater",
+              "quantity": 1
+            },
+            {
+              "kind": "TechSavvy",
+              "quantity": 14
+            }
+          ],
+          "line": 19
+        },
+        {
+          "target_love": 9,
+          "current_love": 8,
+          "hearts": 2038719,
+          "gates": [
+            {
+              "kind": "Cake",
+              "quantity": 1
+            },
+            {
+              "kind": "Computers",
+              "quantity": 4
+            },
+            {
+              "kind": "Funny",
+              "quantity": 18
+            }
+          ],
+          "line": 20
+        }
+      ]
+    },
+    {
+      "character": "Pamu",
+      "file": "textassets/gamedata/Girls.txt",
+      "lines": [
+        122,
+        130
+      ],
+      "stages": [
+        {
+          "target_love": 1,
+          "current_love": 0,
+          "hearts": 5000,
+          "gates": [
+            {
+              "kind": "Buff",
+              "quantity": 40
+            }
+          ],
+          "line": 122
+        },
+        {
+          "target_love": 2,
+          "current_love": 1,
+          "hearts": 50000,
+          "gates": [
+            {
+              "kind": "Badass",
+              "quantity": 42
+            }
+          ],
+          "line": 123
+        },
+        {
+          "target_love": 3,
+          "current_love": 2,
+          "hearts": 512500,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 2
+            },
+            {
+              "kind": "HandLotion",
+              "quantity": 5000
+            },
+            {
+              "kind": "Suave",
+              "quantity": 44
+            }
+          ],
+          "line": 124
+        },
+        {
+          "target_love": 4,
+          "current_love": 3,
+          "hearts": 5253125,
+          "gates": [
+            {
+              "kind": "Angst",
+              "quantity": 46
+            },
+            {
+              "kind": "Drink",
+              "quantity": 5000
+            }
+          ],
+          "line": 125
+        },
+        {
+          "target_love": 5,
+          "current_love": 4,
+          "hearts": 55157813,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 1
+            },
+            {
+              "kind": "HandLotion",
+              "quantity": 10000
+            },
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 50
+            }
+          ],
+          "line": 126
+        },
+        {
+          "target_love": 6,
+          "current_love": 5,
+          "hearts": 579157031,
+          "gates": [
+            {
+              "kind": "Beach",
+              "quantity": 50
+            },
+            {
+              "kind": "NewCar",
+              "quantity": 100
+            },
+            {
+              "kind": "Buff",
+              "quantity": 43
+            }
+          ],
+          "line": 127
+        },
+        {
+          "target_love": 7,
+          "current_love": 6,
+          "hearts": 6081148828,
+          "gates": [
+            {
+              "kind": "Sightseeing",
+              "quantity": 50
+            },
+            {
+              "kind": "HandLotion",
+              "quantity": 50000
+            },
+            {
+              "kind": "Slayer",
+              "quantity": 1
+            }
+          ],
+          "line": 128
+        },
+        {
+          "target_love": 8,
+          "current_love": 7,
+          "hearts": 63852062695,
+          "gates": [
+            {
+              "kind": "MovieTheater",
+              "quantity": 50
+            },
+            {
+              "kind": "Drink",
+              "quantity": 50000
+            },
+            {
+              "kind": "Slayer",
+              "quantity": 2
+            }
+          ],
+          "line": 129
+        },
+        {
+          "target_love": 9,
+          "current_love": 8,
+          "hearts": 670446658301,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 10
+            },
+            {
+              "kind": "Badass",
+              "quantity": 53
+            },
+            {
+              "kind": "Buff",
+              "quantity": 60
+            }
+          ],
+          "line": 130
+        }
+      ]
+    },
+    {
+      "character": "Dark One",
+      "file": "textassets/gamedata/Girls.txt",
+      "lines": [
+        172,
+        180
+      ],
+      "stages": [
+        {
+          "target_love": 1,
+          "current_love": 0,
+          "hearts": 1000000000000000,
+          "gates": [
+            {
+              "kind": "Badass",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 10
+            }
+          ],
+          "line": 172
+        },
+        {
+          "target_love": 2,
+          "current_love": 1,
+          "hearts": 2000000000000000,
+          "gates": [
+            {
+              "kind": "Smart",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 20
+            }
+          ],
+          "line": 173
+        },
+        {
+          "target_love": 3,
+          "current_love": 2,
+          "hearts": 3000000000000000,
+          "gates": [
+            {
+              "kind": "Mysterious",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 30
+            },
+            {
+              "kind": "MysticSlippers",
+              "quantity": 1
+            }
+          ],
+          "line": 174
+        },
+        {
+          "target_love": 4,
+          "current_love": 3,
+          "hearts": 4000000000000000,
+          "gates": [
+            {
+              "kind": "Motivation",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 40
+            },
+            {
+              "kind": "MysticSlippers",
+              "quantity": 2
+            }
+          ],
+          "line": 175
+        },
+        {
+          "target_love": 5,
+          "current_love": 4,
+          "hearts": 5000000000000000,
+          "gates": [
+            {
+              "kind": "Suave",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 50
+            },
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 250
+            }
+          ],
+          "line": 176
+        },
+        {
+          "target_love": 6,
+          "current_love": 5,
+          "hearts": 6000000000000000,
+          "gates": [
+            {
+              "kind": "TechSavvy",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 60
+            },
+            {
+              "kind": "Beach",
+              "quantity": 500
+            }
+          ],
+          "line": 177
+        },
+        {
+          "target_love": 7,
+          "current_love": 6,
+          "hearts": 7000000000000000,
+          "gates": [
+            {
+              "kind": "Funny",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 70
+            },
+            {
+              "kind": "Sightseeing",
+              "quantity": 750
+            }
+          ],
+          "line": 178
+        },
+        {
+          "target_love": 8,
+          "current_love": 7,
+          "hearts": 8000000000000000,
+          "gates": [
+            {
+              "kind": "Tenderness",
+              "quantity": 75
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 80
+            },
+            {
+              "kind": "MovieTheater",
+              "quantity": 1000
+            }
+          ],
+          "line": 179
+        },
+        {
+          "target_love": 9,
+          "current_love": 8,
+          "hearts": 9000000000000000,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 1
+            },
+            {
+              "kind": "MultiplierConsume",
+              "quantity": 80
+            }
+          ],
+          "line": 180
+        }
+      ]
+    },
+    {
+      "character": "QPernikiss",
+      "file": "textassets/gamedata/Girls.txt",
+      "lines": [
+        182,
+        190
+      ],
+      "stages": [
+        {
+          "target_love": 1,
+          "current_love": 0,
+          "hearts": 10000000000000000,
+          "gates": [
+            {
+              "kind": "TimeBlockConsume",
+              "quantity": 1
+            },
+            {
+              "kind": "AllJobs",
+              "quantity": 0
+            }
+          ],
+          "line": 182
+        },
+        {
+          "target_love": 2,
+          "current_love": 1,
+          "hearts": 15000000000000000,
+          "gates": [
+            {
+              "kind": "TotalGifts",
+              "quantity": 1000000
+            },
+            {
+              "kind": "Money",
+              "quantity": 100000000000000000
+            }
+          ],
+          "line": 183
+        },
+        {
+          "target_love": 3,
+          "current_love": 2,
+          "hearts": 22500000000000000,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 1
+            },
+            {
+              "kind": "MemoryAlbum",
+              "quantity": 0
+            }
+          ],
+          "line": 184
+        },
+        {
+          "target_love": 4,
+          "current_love": 3,
+          "hearts": 33750000000000000,
+          "gates": [
+            {
+              "kind": "TimeBlockConsume",
+              "quantity": 1
+            },
+            {
+              "kind": "Shell",
+              "quantity": 1
+            }
+          ],
+          "line": 185
+        },
+        {
+          "target_love": 5,
+          "current_love": 4,
+          "hearts": 50625000000000000,
+          "gates": [
+            {
+              "kind": "TotalDates",
+              "quantity": 20000
+            },
+            {
+              "kind": "MoonlightStroll",
+              "quantity": 1
+            },
+            {
+              "kind": "Chocolates",
+              "quantity": 100
+            }
+          ],
+          "line": 186
+        },
+        {
+          "target_love": 6,
+          "current_love": 5,
+          "hearts": 75937500000000000,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 1
+            },
+            {
+              "kind": "Flowers",
+              "quantity": 1000
+            },
+            {
+              "kind": "Beach",
+              "quantity": 1
+            }
+          ],
+          "line": 187
+        },
+        {
+          "target_love": 7,
+          "current_love": 6,
+          "hearts": 113906250000000000,
+          "gates": [
+            {
+              "kind": "TimeBlockConsume",
+              "quantity": 1
+            },
+            {
+              "kind": "Sightseeing",
+              "quantity": 1
+            },
+            {
+              "kind": "CutePuppy",
+              "quantity": 10000
+            }
+          ],
+          "line": 188
+        },
+        {
+          "target_love": 8,
+          "current_love": 7,
+          "hearts": 170859375000000000,
+          "gates": [
+            {
+              "kind": "MovieTheater",
+              "quantity": 1
+            },
+            {
+              "kind": "NewCar",
+              "quantity": 100000
+            }
+          ],
+          "line": 189
+        },
+        {
+          "target_love": 9,
+          "current_love": 8,
+          "hearts": 256289062500000000,
+          "gates": [
+            {
+              "kind": "Diamond",
+              "quantity": 1
+            },
+            {
+              "kind": "Achievements",
+              "quantity": 380
+            },
+            {
+              "kind": "MysticSlippers",
+              "quantity": 10
+            }
+          ],
+          "line": 190
+        }
+      ]
+    }
+  ],
+  "dialogue_code_discrepancies": [
+    {
+      "fact": "Pamu target-5 prose claims a diamond is taken; configuration uses Diamond and the reviewed consumers do not deduct it.",
+      "evidence": [
+        "textassets/gamedata/Pamu.txt18-19",
+        "textassets/gamedata/Girls.txt126",
+        "decompiled/Requirement.cs484-494",
+        "decompiled/Girl.cs2239-2260"
+      ]
+    },
+    {
+      "fact": "QPernikiss phone-22 metadata says GirlLevel 9; the actual evaluator checks completed achievement 473 through absence from the unearned ActiveAchievements set.",
+      "evidence": [
+        "textassets/gamedata/Cellphone.txt23",
+        "decompiled/Cellphone.cs717-718",
+        "decompiled/Achievements.cs511-545"
+      ]
+    },
+    {
+      "fact": "Resolving SFW_Script_Template with embedded English differs from readable SFW_Script in only one of 972 lines, choice 115. Selected graph metadata matches; the template is the actual manager input.",
+      "evidence": [
+        "textassets/embedded/sharedassets3.assets/SFW_Script_Template.txt115",
+        "textassets/embedded/sharedassets3.assets/English.txt",
+        "textassets/embedded/sharedassets3.assets/SFW_Script.txt115",
+        "decompiled/DialogueSystem/DialogueManager.cs199-201"
+      ]
+    }
+  ],
+  "peanut_selected_routes": [
+    {
+      "id": "DLC-A",
+      "semantic_outcome": "Common supportive prefix, then return to the topic, propose a simple thesis start, and leave after library close. Peanut begins the thesis instead of postponing work.",
+      "path": [
+        {
+          "node": 1,
+          "choice_line": 7,
+          "mood": [
+            3
+          ],
+          "next": 2
+        },
+        {
+          "node": 2,
+          "choice_line": 53,
+          "mood": [
+            2
+          ],
+          "next": 3
+        },
+        {
+          "node": 3,
+          "choice_line": 76,
+          "mood": [
+            1
+          ],
+          "next": 4
+        },
+        {
+          "node": 4,
+          "choice_line": 101,
+          "nested_choice_line": 115,
+          "mood": [
+            1,
+            4
+          ],
+          "next": 5
+        },
+        {
+          "node": 5,
+          "choice_line": 198,
+          "mood": [
+            2
+          ],
+          "next": 6
+        },
+        {
+          "node": 6,
+          "choice_line": 257,
+          "nested_choice_line": 261,
+          "mood": [
+            1
+          ],
+          "next": 10
+        },
+        {
+          "node": 10,
+          "choice_line": 545,
+          "mood": [
+            3
+          ],
+          "next": 13
+        },
+        {
+          "node": 13,
+          "choice_line": 632,
+          "nested_choice_line": 640,
+          "mood": [
+            -1
+          ],
+          "next": 17
+        },
+        {
+          "node": 17,
+          "choice_line": 854,
+          "mood": [
+            3
+          ],
+          "next": 22
+        },
+        {
+          "node": 22,
+          "choice_line": 956,
+          "mood": [
+            3
+          ],
+          "next": "END"
+        }
+      ],
+      "uncapped_mood_sum": 22,
+      "direct_script_awards": []
+    },
+    {
+      "id": "DLC-B",
+      "semantic_outcome": "Common prefix, then personal topics. Choose the dark-secret topic and its second nested reply, learn the borrowed and broken rollerblades secret, earn 802, discuss childhood, and leave together. This jumps out of the multiselect.",
+      "path": [
+        {
+          "node": 1,
+          "choice_line": 7,
+          "mood": [
+            3
+          ],
+          "next": 2
+        },
+        {
+          "node": 2,
+          "choice_line": 53,
+          "mood": [
+            2
+          ],
+          "next": 3
+        },
+        {
+          "node": 3,
+          "choice_line": 76,
+          "mood": [
+            1
+          ],
+          "next": 4
+        },
+        {
+          "node": 4,
+          "choice_line": 101,
+          "nested_choice_line": 115,
+          "mood": [
+            1,
+            4
+          ],
+          "next": 5
+        },
+        {
+          "node": 5,
+          "choice_line": 198,
+          "mood": [
+            2
+          ],
+          "next": 6
+        },
+        {
+          "node": 6,
+          "choice_line": 257,
+          "nested_choice_line": 261,
+          "mood": [
+            1
+          ],
+          "next": 10
+        },
+        {
+          "node": 10,
+          "choice_line": 536,
+          "mood": [
+            2
+          ],
+          "next": 11
+        },
+        {
+          "node": 11,
+          "choice_line": 568,
+          "mood": [],
+          "next": 14
+        },
+        {
+          "node": 14,
+          "choice_line": 764,
+          "nested_choice_line": 792,
+          "mood": [
+            -3
+          ],
+          "award": 802,
+          "next": 18
+        },
+        {
+          "node": 18,
+          "choice_line": 875,
+          "mood": [
+            1
+          ],
+          "next": 20
+        },
+        {
+          "node": 20,
+          "choice_line": 904,
+          "mood": [
+            1
+          ],
+          "next": 22
+        },
+        {
+          "node": 22,
+          "choice_line": 966,
+          "mood": [
+            5
+          ],
+          "next": "END"
+        }
+      ],
+      "uncapped_mood_sum": 20,
+      "direct_script_awards": [
+        802
+      ]
+    }
+  ],
+  "broader_original_implications": [
+    "Keep eligibility, affection, willingness, access, spending, remembered interaction and world aftermath as separate state owners.",
+    "Mixed social gates can give ordinary professions, goods, training and history actual downstream uses.",
+    "Character capacity and boost costs need visible before/after consumers; dialogue alone does not establish mechanical agency.",
+    "Distinguish shared-continuation flavor from actual graph branches, terminal state, and persistent unlocks.",
+    "Later messages can revisit apparent death through earned content while retaining different reset policies."
+  ],
+  "coverage_qualification": "10economy causal chains,8reset/event/premium families and14relationship/dialogue chains plus5coordinator findings. Overlap is intentional; no unique whole-game percentage is inferred."
+}

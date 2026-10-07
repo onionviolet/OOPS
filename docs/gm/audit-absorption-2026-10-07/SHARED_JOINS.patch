@@ -1,0 +1,359 @@
+--- a/src/simulation_content.js
++++ b/src/simulation_content.js
+@@ -1,3 +1,6 @@
++import {CONTEXTUAL_BALM_DEFINITIONS} from './contextual_balm_content.js';
++import {coolingRefinementDefinitions} from './cooling_refinement_content.js';
++import {agreedDutyDefinitions,agreedDutyFollowupDefinitions,agreedDutyController} from './agreed_duty_content.js';
+ import {gameAbsorptionAssayDefinitions} from './game_absorption_assay_content.js';
+ import {homeFurnishingDefinitions} from './home_furnishing_content.js';
+ import {factorioRetortDefinitions} from './factorio_retort_content.js';
+@@ -112,3 +115,6 @@
+ for(const family of [worldCompletionDefinitions,lorePracticeDefinitions,bookCareDefinitions,backlogSimulationDefinitions,repositoryAbsorptionDefinitions,inkSceneDefinitions,inkRelayDefinitions,inkNestedDefinitions,relayDefinitions,referenceDeskDefinitions,nestedDefinitions,nestedChainDefinitions,nestedLifeDefinitions])for(const [key,rows] of Object.entries(family)){simulationDefinitions[key] ||= [];simulationDefinitions[key].push(...rows);}
+ 
+ simulationDefinitions.commands.push(...gameAbsorptionAssayDefinitions.commands);
++
++simulationDefinitions.commands.push(...CONTEXTUAL_BALM_DEFINITIONS.commands,...coolingRefinementDefinitions.commands,...agreedDutyDefinitions.commands,...agreedDutyFollowupDefinitions.commands);
++simulationDefinitions.controllers=simulationDefinitions.controllers.map(agreedDutyController);
+--- a/src/simulation_effects.js
++++ b/src/simulation_effects.js
+@@ -1,3 +1,6 @@
++import {contextualBalmFacts} from './contextual_balm_facts.js';
++import {coolingRefinementFacts} from './cooling_refinement_facts.js';
++import {agreedDutyFacts} from './agreed_duty_facts.js';
+ import {gameAbsorptionAssayFacts} from './game_absorption_assay_facts.js';
+ import {homeFurnishingFacts} from './home_furnishing_facts.js';
+ import {factorioRetortFacts} from './factorio_retort_facts.js';
+@@ -62,6 +65,7 @@
+     const facts = {...context.facts,...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+     const owned = s.people[actor]?.inventory === "native" ? context.gameplay?.[actor]?.inventory : s.owners[actor];
+     Object.assign(facts,homeFurnishingFacts(state,context),crushSocialFacts(state,context),factorioRetortFacts(state,context,registry),proto23Facts(state,context));
++    Object.assign(facts,contextualBalmFacts(state,context),coolingRefinementFacts(state,context),agreedDutyFacts(state,context));
+     for(const [key,count] of Object.entries(owned || {})) facts[`item.${key}`] = count;
+     facts["actor.busyOrder"] = !!a.facts["work.order"];
+     for(const [k,v] of Object.entries(a.facts)) facts[`actor.${k}`] = v;
+--- a/src/expansion_engine.js
++++ b/src/expansion_engine.js
+@@ -1,3 +1,6 @@
++import {validateContextualBalmState} from './contextual_balm_facts.js';
++import {validateCoolingRefinement} from './cooling_refinement_facts.js';
++import {validateAgreedDutyState} from './agreed_duty_facts.js';
+ import {validateGameAbsorptionAssay} from './game_absorption_assay_facts.js';
+ import {validateHomeFurnishings} from './home_furnishing_facts.js';
+ import {validateCrushSocial} from './crush_social_host.js';
+@@ -171,6 +174,9 @@
+     validateReferenceGameplay(state,registry);
+     validateAuditedWorkshop(state,registry);
+     validateGameAbsorptionAssay(state,registry);
++    validateContextualBalmState(state,registry);
++    validateCoolingRefinement(state,registry);
++    validateAgreedDutyState(state);
+     check(state.schema !== REFERENCE_ENGINE_SCHEMA || state.referenceGameplay?.schema === 1, 'Expansion9 requires its optional reference gameplay owner.');
+     check(state.schema !== BOOK_WORLD_ENGINE_SCHEMA || state.bookWorldCampaign?.schema === 1, 'Expansion10 requires its explicit source-world campaign owner.');
+     validateDomain(state.campaign); validateDomain(state.journey);
+--- a/src/simulation.js
++++ b/src/simulation.js
+@@ -1,3 +1,5 @@
++import {agreedDutyCompletionEffects,agreedDutyCancellationEffects,agreedDutyStoppedEffects,agreedDutyRefusalEffects} from './agreed_duty_host.js';
++import {agreedDutySelectedCommand} from './agreed_duty_facts.js';
+ import {paradiseCampaignControllerAllowed} from './book_world_paradise_campaign_runtime.js';
+ import {paradiseCampaignExistingCommandGate} from './book_world_paradise_campaign_facts.js';
+ import {worldCompletionJobContext,stampWorldCompletionAcceptedJob,recordWorldCompletionJobCompletion,worldCompletionTimersSupported,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
+@@ -232,6 +234,7 @@
+             ...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
+             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),
+             ...(registry.simulation.commands.get(job.commandId)?.group === 'audit_lesson' ? {auditWorkshopReservation: job} : {}),
++            ...(job.commandId.startsWith('feature_society.duty.') ? {agreedDutyReservation:job} : {}),
+             ...(registry.simulation.commands.get(job.commandId)?.group === 'game_absorption_assay' ? {gameAbsorptionReservation: job} : {}),
+             ...(registry.simulation.commands.get(job.commandId)?.group === 'remainder_livelihood' ? {remainderLivelihoodReservation: job} : {}),
+             ...(registry.simulation.commands.get(job.commandId)?.group === 'remainder_home' ? {auditRemainderHomeReservation: job} : {}),
+@@ -249,6 +252,7 @@
+             const program = s.programs[job.actorId];
+             if(program?.commandId === job.commandId) {program.status = "paused"; program.reason = support.failure === 'refund' ? "Accepted work lost its required source, contact or consent; reserved inputs returned." : "Accepted work lost its required support; the disclosed paid effort remains spent."; if(support.failure === 'refund') program.remaining++;}
+             if(["original_frontier.work_cave_protected","original_frontier.work_forest_protected"].includes(job.commandId)) state.actors.player.facts["original_frontier.control.encounterConsumed"] = false;
++            applySimulationEffects(out,agreedDutyStoppedEffects(state,job),job.context,registry,failureCause);
+             log(s, state.clock, `${job.label} stopped: required support was lost; ${support.failure === 'refund' ? 'reserved inputs returned' : 'disclosed paid costs remain spent'} and no result awarded.`, job.id);
+             s.log.at(-1).audience = copy(job.audience || [job.actorId]);
+             return;
+@@ -263,6 +267,8 @@
+     recordWorldCompletionJobCompletion(beforeJob,out,job,registry,wcContext||{},applySimulationEffects);
+     if(job.commandId === 'remainder_combat_fit.grip_practice') {const module = syncRemainderCombatFitCompletion(state); if(module != null) state.auditRemainder.modules.combat_fit = module;}
+     if(job.siteId) delete s.sites[job.siteId].reservations[job.id];
++    applySimulationEffects(out,agreedDutyCompletionEffects(state,job),job.context,registry,job.id);
++    if(job.commandId==='feature_society.stop_future'&&!s.jobs.some(j=>j.commandId===agreedDutySelectedCommand(state)))applySimulationEffects(out,agreedDutyRefusalEffects(state),job.context,registry,job.id);
+     log(s, state.clock, `${job.label} completed.`, job.id);
+     if(job.audience) s.log.at(-1).audience = copy(job.audience);
+     else if(["field","promise"].includes(registry.simulation.commands.get(job.commandId)?.group) && job.actorId !== "player") s.log.at(-1).audience = [job.actorId];
+@@ -278,6 +284,7 @@
+     if(job.claim) {assert(s.claims[job.claim]?.status === "held", "Missing job claim."); delete s.claims[job.claim];}
+     s.jobs = s.jobs.filter(j => j !== job);
+     recordLorePracticeCancellation(out,job);
++    applySimulationEffects(out,agreedDutyCancellationEffects(out.state,job),job.context,registry,`cancel:${out.state.sequence}`);
+     if(s.programs[context.actorId]) {
+         const program=s.programs[context.actorId]; program.status = "paused";
+         if(registry.simulation.commands.get(job.commandId)?.group === "original_frontier" && program.commandId === job.commandId)program.remaining++;
+--- a/src/feature_expansion_wave_host.js
++++ b/src/feature_expansion_wave_host.js
+@@ -1,3 +1,6 @@
++import {contextualBalmPresentation} from './contextual_balm_host.js';
++import {coolingRefinementPresentation} from './cooling_refinement_host.js';
++import {agreedDutyPresentation} from './agreed_duty_host.js';
+ import {gameAbsorptionAssayPresentation} from './game_absorption_assay_host.js';
+ import {homeFurnishingPresentation} from './home_furnishing_host.js';
+ import {factorioRetortPresentation} from './factorio_retort_host.js';
+@@ -30,6 +33,10 @@
+ 
+ export function featureWavePresentation(snapshot,registry) {
+     const {state,context}=snapshot,sections=[];
++    sections.push(...contextualBalmPresentation(state,registry,context).sections);
++    sections.push(...coolingRefinementPresentation(state,registry,context).sections);
++    const duty=agreedDutyPresentation(state,registry,context);
++    if(duty.visible)sections.push({id:'agreed_duty',label:'A jointly agreed next duty',description:'An optional actual joint booking; original duties keep their finite stock, wages and participant consent.',actions:duty.actions.map(a=>({...a,command:{...a.command,type:'agreed_duty',sequence:state.sequence}})),records:[...(duty.agreement?[{id:'duty.agreement',text:duty.agreement.value}]:[]),...(duty.result?[{id:'duty.result',text:duty.result.note}]:[]),...(duty.paused?[{id:'duty.paused',text:duty.pauseReason}]:[])]});
+     sections.push(...worldCompletionPresentation(state,registry,context).sections);
+     sections.push(...statusCarePresentation(state,registry,context).sections);
+     sections.push(...fieldCarePresentation(state,registry,context).sections);
+--- a/src/simulation_ui.js
++++ b/src/simulation_ui.js
+@@ -15,7 +15,7 @@
+     const button = (label, id, c) => {const b = node("button", label); b.type = "button"; b.dataset.simulation = id; b.addEventListener("click", () => run(c)); return b;};
+     const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); buttons.append(enroll);
+     const controls = new Map();
+-    for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && !["home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
++    for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && !["game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
+         const b = button(d.label, d.id, {type: "command", id: d.id, targetId: d.targetId});
+         (d.group === "social" ? conversations : buttons).append(b); controls.set(d.id, b);
+     }
+@@ -45,7 +45,7 @@
+         pause.hidden = s?.programs.player?.status !== "running"; pause.disabled = !!error;
+         resume.hidden = s?.programs.player?.status !== "paused" || !s?.programs.player?.remaining; resume.disabled = !!error || !enabled;
+         // These hosts own their exact scene/descriptor cancellation controls.
+-        const job = s?.jobs.find(j => j.actorId === "player" && !["home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(registry.simulation.commands.get(j.commandId)?.group)); cancel.hidden = !job || job.cancellation === "none"; cancel.disabled = !!error;
++        const job = s?.jobs.find(j => j.actorId === "player" && !["game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(registry.simulation.commands.get(j.commandId)?.group)); cancel.hidden = !job || job.cancellation === "none"; cancel.disabled = !!error;
+         const work = s?.jobs.filter(j => j.actorId === "player" || j.actorId === "oldCraftsman").map(j => `${j.actorId === "player" ? "You" : "Old craftsman"}: ${j.label}, ${j.due - state.clock} game minutes left.`).join(" ") || "No reserved workshop work.";
+         const practice = state.actors.player.resources.practice || 0;
+         status.textContent = error || `${notice ? notice + " " : ""}${work} Completed packing practice: ${practice}.`;
+--- a/src/adventure_notebook.js
++++ b/src/adventure_notebook.js
+@@ -5,7 +5,7 @@
+ const views = [["here", "Here"], ["practice", "Practice"], ["people", "People"]];
+ const panels = [
+     ["replacement_recognition_panel","people"], ["nested_ink_panel","here"],
+-    ["feature_expansion_panel","here"],
++    ["feature_expansion_panel","here"], ["known_routes_panel","here"],
+     ["crush_social_panel","people"],
+     ["causal_story_panel","here"],
+     ["repository_absorption_panel","here"], ["backlog_expansion_panel","here"], ["ink_narrative_panel","here"],
+@@ -34,7 +34,7 @@
+     const work = state.simulation?.jobs.find(j => j.actorId === "player");
+     if(work){const group=registry.simulation.commands.get(work.commandId)?.group;
+         if(group==='causal_story'||group==='causal_story_npc')return {id:work.id,view:'here',panel:'causal_story_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
+-        if(['feature_objects','feature_society','feature_powers','feature_battle','tidemark','repositories','subtlety_relay','nested_campaign','nested_chains','nested_life','book_paradise','book_mol','book_paradise_campaign','home_furnishings','proto23','factorio_retort','reference_gameplay','nethack_fieldcraft','game_absorption_assay','audit_fixture','audit_lesson','artifact_collection','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(group))return {id:work.id,view:'here',panel:group==='repositories'?'repository_absorption_panel':'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
++        if(['feature_objects','feature_society','feature_powers','feature_battle','tidemark','repositories','subtlety_relay','nested_campaign','nested_chains','nested_life','book_paradise','book_mol','book_paradise_campaign','home_furnishings','proto23','factorio_retort','reference_gameplay','nethack_fieldcraft','contextual_balm','cooling_refinement','game_absorption_assay','audit_fixture','audit_lesson','artifact_collection','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(group))return {id:work.id,view:'here',panel:group==='repositories'?'repository_absorption_panel':'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
+     if(state.actors.player.facts["original_frontier.travel.remaining"]>0)return {id:"frontier-travel",view:"here",panel:"original_frontier_panel",text:`Native journey: ${state.actors.player.facts["original_frontier.travel.remaining"]} min remain. Continue played time or cancel the remaining journey.`};
+     if(work&&registry.simulation.commands.get(work.commandId)?.group?.startsWith('world_completion_'))return {id:work.id,view:'here',panel:'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
+     if(work) {const group=registry.simulation.commands.get(work.commandId)?.group;return {id:work.id,view:group === "original_frontier" ? "here" : group === "field" ? "here" : ["body","skills","glasshouse"].includes(group)?group==="glasshouse"?"here":"practice" : "people",panel:group==="original_frontier"?"original_frontier_panel":group==="skills"?"skills_panel":group === "field" ? "field_panel" : group === "body" ? "body_panel" : group === "pursuit" ? "pursuit_panel" : group === "rival" ? "frontier_campaign_panel" : group === "promise" ? "promise_panel" : group === "party" ? "party_panel" : group === "exchange" ? "exchange_panel" : group === "glasshouse" ? "pocket_realm_panel" : "simulation_panel",text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
+@@ -78,7 +78,7 @@
+         if(control) control.hidden = !familiar;
+         for(const [id] of panels) {
+             const panel = document.getElementById(id), wrap=wrappers.get(id);
+-            wrap.hidden=!!state.realmPrototype?.activeVisitId&&id!=="pocket_realm_panel";
++            wrap.hidden=!!state.realmPrototype?.activeVisitId&&id!=="pocket_realm_panel"&&id!=="known_routes_panel";
+             if(panel && panel.parentElement !== wrap) wrap.append(panel);
+         }
+         wrappers.get("expedition_panel").hidden = location !== "Village" && active?.panel !== "expedition_panel";
+--- a/src/feature_expansion_society_host.js
++++ b/src/feature_expansion_society_host.js
+@@ -1,3 +1,4 @@
++import {assertAgreedDutySocietyCommandAdmission,agreedDutySocietyCommandAdmission,agreedDutyFilterSocietyActions} from './agreed_duty_host.js';
+ import {SOCIETY_IDS, societyDefinitions, societyFacts, societyWorkPlans} from './feature_expansion_society.js';
+ import {enrollSimulation, commitSimulationCommand, previewSimulationCommand, cancelSimulationJob, simulationFacts,simulationOccupiesActor} from './simulation.js';
+ import {activePractice} from './techniques.js';
+@@ -34,6 +35,7 @@
+         return cancelSimulationJob(state,registry,job.id,context,expectedSequence);
+     }
+     assert(command.type === 'command', 'Unsupported household action.');
++    assertAgreedDutySocietyCommandAdmission(state,command.id);
+     const d = registry.simulation.commands.get(command.id);
+     assert(d?.group === 'feature_society' && d.actorId === 'player' && d.id !== SOCIETY_IDS.begin, 'Unsupported household command.');
+     assert(command.targetId == null || command.targetId === d.targetId, 'Choose the actual declared participant.');
+@@ -60,6 +62,7 @@
+     if(introduced) {
+         const facts = simulationFacts(state,context,registry);
+         for(const d of societyDefinitions.commands) {
++            if(!agreedDutySocietyCommandAdmission(state,d.id).allowed)continue;
+             if(d.actorId !== 'player' || d.id === SOCIETY_IDS.begin || d.once && state.actors.player.completed[d.id] || !meets(d.visibleWhen,facts)) continue;
+             const p = previewSimulationCommand(state,registry,d.id,societyContext(state,{...context,targetId:d.targetId || null}));
+             if(!p.visible) continue;
+--- a/src/reference_gameplay_host.js
++++ b/src/reference_gameplay_host.js
+@@ -66,10 +66,11 @@
+     if(registry) assert(registry.simulation?.commands?.get(I.open)?.revision === 1 && registry.simulation.powers.has(I.cooling) && registry.simulation.conditions.has(I.field), 'Cooling content is unavailable.');
+     const field = state.simulation?.conditions?.[I.hook]?.[I.field];
+     if(field) {
+-        const receipt = state.simulation.knowledge.player?.['reference_gameplay.hook'];
+-        assert(natural(field.expiresAt) && field.expiresAt <= state.clock + 4 && field.intensity === 1 &&
+-            state.actors.player.completed['reference_gameplay.cool_hook'] > 0 && receipt?.cause === field.cause &&
+-            receipt.at + 4 === field.expiresAt && receipt.basis?.attributedTo === 'player', 'Unsupported cooling field lifetime, strength or paid attribution.');
++        const ordinary = state.simulation.knowledge.player?.['reference_gameplay.hook'];
++        const refined = state.simulation.knowledge.player?.['reference.coolingRefinement.steady_hook'];
++        const supported=(receipt,command,duration)=>state.actors.player.completed[command]>0&&receipt?.cause===field.cause&&receipt.at+duration===field.expiresAt&&receipt.basis?.attributedTo==='player';
++        assert(natural(field.expiresAt) && field.expiresAt <= state.clock + 5 && field.intensity === 1 &&
++            (supported(ordinary,'reference_gameplay.cool_hook',4)||supported(refined,'reference_gameplay.steady_hook',5)), 'Unsupported cooling field lifetime, strength or paid attribution.');
+     }
+ }
+ // Common conditions already supply the expiry boundary and remove this field.
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,3 +1,11 @@
++import {contextualBalmContext,commitContextualBalmCommand,stageContextualBalmEffectRequest} from './contextual_balm_host.js';
++import {prepareContextualBalmNative} from './contextual_balm_native.js';
++import {coolingRefinementContext,commitCoolingRefinementCommand} from './cooling_refinement_host.js';
++import {commitAgreedDutyAction} from './agreed_duty_host.js';
++import {createKnownRoutesPanel} from './known_routes_ui.js';
++import {knownRoutesPresentation} from './known_routes_host.js';
++import {pocketRealmView,pocketRealmActions,previewPocketRealmAction} from './pocket_realm_host.js';
++import {proto23Presentation} from './proto23_world_host.js';
+ import {gameAbsorptionAssayContext,commitGameAbsorptionAssayCommand,cancelGameAbsorptionAssayJob} from './game_absorption_assay_host.js';
+ import {validateGameAbsorptionAssay} from './game_absorption_assay_facts.js';
+ import {commitParadiseCampaignDepthCommand} from './book_world_paradise_campaign_host.js';
+@@ -308,6 +316,7 @@
+ let pursuitPanel;
+ let townPanel;
+ let adventureNotebook;
++let knownRoutesPanel;
+ let expansionQuests;
+ let characterBio;
+ let bodyPanel;
+@@ -550,6 +559,7 @@
+     validateFeatureObjectState(plan.state,expeditionRegistry,plan);
+     reconcileStatusCareNative(expansionState,plan,expeditionContext());
+     reconcileFieldCareNative(expansionState,plan,expeditionContext());
++    stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
+     reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
+     const previousNight = is_night(current_game_time);
+     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
+@@ -587,7 +597,7 @@
+         applyGameplayEffect(future, {type: "xp", skill: p.xpSkill, amount: Math.max(...p.rewards) * p.xpPerPoint}, "player");
+         prepareGameplayPublication(future, {actors: actorBindings, skills, getItemFromKey, unlockAdapter});
+     }
+-    const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan)];
++    const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
+     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
+     try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
+         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
+@@ -660,7 +670,7 @@
+         frontierCampaignPanel?.render();
+         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
+         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
+-        adventureNotebook?.render();
++        knownRoutesPanel?.render();adventureNotebook?.render();
+         expansionQuests?.render();
+         characterBio?.render();
+         worldEventFeed?.render();
+@@ -773,7 +783,7 @@
+     pursuitPanel?.render();
+     bodyPanel?.render();
+     fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render();
+-    adventureNotebook?.render();
++    knownRoutesPanel?.render();adventureNotebook?.render();
+     expansionQuests?.render();
+     characterBio?.render();
+     worldEventFeed?.render();
+@@ -833,6 +843,10 @@
+     return result.minutes ? advanceChroniclePlan(plan, result.minutes) : plan;
+ }
+ function actSimulation(command) {
++    const hostedId=id=>['game_absorption_assay','contextual_balm','cooling_refinement'].includes(expeditionRegistry.simulation.commands.get(id)?.group)||id?.startsWith('feature_society.duty.');
++    if(command.id&&hostedId(command.id))throw new Error('Choose this action in its current Here project controls.');
++    if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&hostedId(j.commandId)))throw new Error('Cancel this exact job through its Here project controls.');
++    if(['program','pause','resume'].includes(command.type)&&hostedId(expansionState.simulation?.programs.player?.commandId))throw new Error('No automatic program is registered for these project choices.');
+     const equippedActors = {player: character};
+     for(const [id,p] of Object.entries(expansionState.simulation?.people || {})) if(id !== "player" && p.inventory === "native") equippedActors[id] = NPCRegistry.get(id);
+     const context = {...expeditionContext(), equipment: readNativeEquipment(equippedActors), targetId: command.targetId || null,
+@@ -900,7 +914,7 @@
+ function featureWaveContext(){
+     const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext()))))))))));
+     const current=paradiseCampaignContext(expansionState,molContext(expansionState,bookCurrent));
+-    return gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))));
++    return coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
+ }
+ function actFeatureExpansion(command){
+     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+@@ -912,7 +926,10 @@
+         if(context.busy)throw new Error('Finish the current native activity first.');
+         featureBattleHost.resume(command);return;
+     }
+-    if(command.type==='world_completion')plan=commitWorldCompletionCommand(expansionState,expeditionRegistry,command,context,sequence);
++    if(command.type==='contextual_balm')plan=commitContextualBalmCommand(expansionState,expeditionRegistry,command,context,sequence);
++    else if(command.type==='cooling_refinement')plan=commitCoolingRefinementCommand(expansionState,expeditionRegistry,command,context,sequence);
++    else if(command.type==='agreed_duty')plan=commitAgreedDutyAction(expansionState,expeditionRegistry,context,command.id,sequence);
++    else if(command.type==='world_completion')plan=commitWorldCompletionCommand(expansionState,expeditionRegistry,command,context,sequence);
+     else if(command.type==='lore_practice')plan=commitLorePracticeCommand(expansionState,expeditionRegistry,command.operation?{...command,type:command.operation}:command,context,sequence);
+     else if(command.type==='book_care')plan=commitBookCareCommand(expansionState,expeditionRegistry,command,context,sequence);
+     else if(command.type==='field_care')plan=commitFieldCareCommand(expansionState,expeditionRegistry,command,context,sequence);
+@@ -2979,7 +2996,7 @@
+         if(expeditionOccupiesPlayer())return;
+         set_new_combat();
+         pursuitPanel?.render();
+-        adventureNotebook?.render();
++        knownRoutesPanel?.render();adventureNotebook?.render();
+     }
+ }
+ 
+@@ -6347,13 +6364,13 @@
+ 
+ //update game time
+ function update_timer(time_in_minutes, source = null) {
+-    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();adventureNotebook?.render();return 0;}
++    if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
+     const was_night = is_night(current_game_time);
+     const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
+     if(minutes === 0) return 0;
+     if(usesJoinedClock()) {
+         if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
+-        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); adventureNotebook?.render(); return 0;}
++        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
+         if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
+         try {
+             const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
+@@ -7003,7 +7020,7 @@
+     villagePanel?.render(true);
+     simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); bodyPanel?.render(); townPanel?.render();
+     frontierCampaignPanel?.render();
+-    adventureNotebook?.render(); worldEventFeed?.render();
++    knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
+ });
+ 
+ //Verify_Game_Objects();
+@@ -7314,12 +7331,12 @@
+     nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,
+         getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
+         refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
+-        render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();adventureNotebook?.render();}});
++        render:error=>{if(error)nativeBattlePauseReason=error;frontierCampaignPanel?.render();partyPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+     featureBattleHost=createFeatureBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:featureWaveContext,persist:persistExpansion,
+         getCombat:()=>current_combat,setCombat:c=>{current_combat=c;},endCombat:end_combat,
+         attackersSlot:()=>document.getElementById('feature_battle_attackers'),defendersSlot:()=>document.getElementById('feature_battle_defenders'),
+         refresh:()=>{for(const [is_attacker,list] of [[true,current_combat?.attackers||[]],[false,current_combat?.defenders||[]]])for(let i=0;i<list.length;i++)update_displayed_health_of_fighter({fighter_index:i,is_attacker});},
+-        render:()=>{featureExpansionPanel?.render();causalStoryPanel?.render();adventureNotebook?.render();}});
++        render:()=>{featureExpansionPanel?.render();causalStoryPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();}});
+     frontierCampaignPanel=createFrontierCampaignPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),
+         error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,inCombat:!!current_combat,battleRunning:!!current_combat?.actionAdapter,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actFrontierCampaign});
+     partyPanel=createPartyPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),error:expansionError || nativeBattlePauseReason,inDialogue:!!current_dialogue,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actParty});
+@@ -7357,6 +7374,17 @@
+         command: actChronicle, duty: () => startExpedition("chronicle.archive_duty", expansionState.sequence),
+         cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
+         exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset});
++    knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
++        read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
++        present:snapshot=>{
++            if(snapshot.inDialogue||snapshot.inCombat)return {visible:false,section:null};
++            const pocketView=pocketRealmView(snapshot.state),pocketCurrent=pocketContext(snapshot.state,snapshot.context);
++            const pocketActions=pocketView.discovered?['pocket.open','pocket.enter','pocket.exit'].flatMap(id=>{
++                const action=pocketRealmActions.find(a=>a.id===id),quote=previewPocketRealmAction(snapshot.state,expeditionRegistry,id,pocketCurrent);
++                return quote.visible?[{...action,...quote,command:{id,sequence:snapshot.state.sequence}}]:[];
++            }):[];
++            return knownRoutesPresentation(snapshot,{refinement:refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext}),proto23:proto23Presentation(snapshot.state,expeditionRegistry,snapshot.context),pocket:{view:pocketView,actions:pocketActions}});
++        },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
+         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
+     worldEventFeed = createEventFeed({registry: expeditionRegistry,

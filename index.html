@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <HTML lang="en">
     <head>
-        <link rel = "stylesheet" href = "style.css?version=v0.6-e1a949f9b8d9">
+        <link rel = "stylesheet" href = "style.css?version=v0.6-587ed1bb38f1">
+        <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-4ad406701929"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-e77080593d4b"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -216,6 +217,7 @@
                     <div id = "location_name_div">
                         <span id = "location_icon_span"></span>
                         <span id = "location_name_span"></span>
+                        <span id = "world_identity_note" hidden></span>
                         <span id = "location_name_tooltip"></span>
                     </div>
                     <div id = "location_types_div">
@@ -351,6 +353,10 @@
                             <div class="crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</div>
                             <div class="crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</div>
                         </div>
+                        <label class="crafting_filter">
+                            <input id="crafting_makeable_filter" type="checkbox"> Makeable now
+                        </label>
+                        <p id="crafting_filter_empty" hidden>No known recipes can be made with your available materials. Turn off Makeable now to review requirements.</p>
                         <div id="recipe_categories" class="crafting_category"></div>
                         <div id="exit_crafting_button" onclick="closeCraftingWindow()">
                             Exit
@@ -407,8 +413,12 @@
                         <div id = "journal_show_bestiary" class = "journal_control_button" onclick = "showBestiary()"> Bestiary </div>
                         <div id = "journal_show_books" class = "journal_control_button" onclick = "showReadBooks()"> Anthology </div>
                         <div id = "journal_show_data" class = "journal_control_button" onclick = "showData()"> Data </div>
+                        <button id="journal_show_notebook" type="button" class="journal_control_button" onclick="showNotebook()" hidden>Notebook</button>
                     </div>
                     <div id = "journal_content_div">
+                        <div id="notebook_box_div" style="display: none">
+                            <p id="notebook_empty" hidden>No local notes are available here.</p>
+                        </div>
                         <div id = "quests_box_div">
                             <div id = "quests_header">
                                 = Quests =
@@ -579,6 +589,7 @@
                         </div>
 
                         <div id = "character_bio_div">
+                            <div id="character_bio_profile">
                             <div id="character_age_div" class="character_bio_entry">
 
                             </div>
@@ -590,6 +601,7 @@
                             </div>
                             <div id = "character_race_div" class = "character_bio_entry">
 
+                            </div>
                             </div>
                         </div>
                         
@@ -627,7 +639,7 @@
                     </div>
                     <div id = "character_control_div" class="activable_buttons flex_wrap">
                         <div id = "character_show_stats" class = "character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats"></div>
-                        <div id = "character_show_stats" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div>
+                        <div id = "character_show_bio" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div>
                         <div id = "character_show_equipment" class = "character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment"></div>
                         <div id = "character_show_tools" class = "character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools"></div>
                     </div>
@@ -919,6 +931,15 @@
             }
             function showReadBooks() {
                 changeTab(document.getElementById("books_box_div"));
+            }
+            function showNotebook() {
+                changeTab(document.getElementById("notebook_box_div"));
+                // Saved work can open this view before the native click listener
+                // is installed. Keep its selected state correct during loading.
+                const control = document.getElementById("journal_show_notebook");
+                for(const button of control.parentNode.children) {
+                    button.classList.toggle("active_selection_button", button === control);
+                }
             }
 
             function showCharacterStats() {
@@ -1684,14 +1705,16 @@
 
                     if(target==="character") {
                         const selected_item = clicked_element.getAttribute("data-character_item");
-                        move_item_to_storage({item_key: selected_item, count: number_to_move});
+                        move_item_to_storage({item_key: selected_item, count: number_to_move,
+                            expectedCount: Number(clicked_element.getAttribute("data-item_count")),
+                            sequence: Number(clicked_element.getAttribute("data-storage-sequence"))});
                     }  else if(target==="storage") {
                         const selected_item = clicked_element.getAttribute("data-storage_item");
-                        remove_item_from_storage({item_key: selected_item, count: number_to_move});
+                        remove_item_from_storage({item_key: selected_item, count: number_to_move,
+                            expectedCount: Number(clicked_element.getAttribute("data-item_count")),
+                            sequence: Number(clicked_element.getAttribute("data-storage-sequence"))});
                     }
 
-                    update_displayed_storage_inventory();
-                    update_displayed_character_inventory();
                 }
 
                 //set colors for active selection buttons

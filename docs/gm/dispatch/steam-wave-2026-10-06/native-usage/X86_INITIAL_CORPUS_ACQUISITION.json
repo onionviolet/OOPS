@@ -1,0 +1,97 @@
+{
+  "observed_utc": "2026-10-07T13:11:43.593740+00:00",
+  "scope": "Read-only root verification of closed snapshot. Full machine export is not full semantic reading.",
+  "architecture": "x86_64",
+  "through_chunk": 84,
+  "input_bytes": 106627632,
+  "input_sha256": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26",
+  "closed_chunk_receipt_projection_sha256": "680fdbe11d344956876c7a637cf2b8b4c093da166e9bfd25b393039811bac6fb",
+  "retained_attempt_records": 8400,
+  "schema_counts": {
+    "2": 8400
+  },
+  "attempt_status_counts": {
+    "success": 8399,
+    "decompiler-failure": 1
+  },
+  "latest_unique": 8400,
+  "latest_status_counts": {
+    "success": 8399,
+    "decompiler-failure": 1
+  },
+  "latest_function_classifications": {
+    "nonexternal-code-function": 8400
+  },
+  "latest_body_bytes": 1322241,
+  "latest_decoded_instructions": 297568,
+  "inventory_entries": 182398,
+  "candidate_count": 178146,
+  "classified_noncallable_header": "100000000",
+  "failures": [
+    {
+      "entry": "100153880",
+      "name": "ClientDragBuildingContext::onBuildAttemptPerformed",
+      "status": "decompiler-failure",
+      "error": "\nLow-level Error: Cannot properly adjust input varnodes",
+      "chunk": 84,
+      "line": 83,
+      "body_sha256": "f7d63bc47d95f689b265c36d9ae90dd791d3784a1e0a14d4e677f6d31f2e1b41",
+      "c_like_sha256": null,
+      "body_bytes": 375,
+      "instruction_count": 91,
+      "thunk": false,
+      "schema": 2,
+      "class": "nonexternal-code-function",
+      "scalar_instructions": 0,
+      "second_source_aliases": 0,
+      "scalar_SLA": null,
+      "input_sha256": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26"
+    }
+  ],
+  "raw_or_instruction_vs_original_diagnostics": {},
+  "diagnostic_examples": [],
+  "C_body_chunk_hash_and_count_verification": "pass",
+  "latest_scalar_affected_methods": 0,
+  "latest_scalar_instructions": 0,
+  "latest_scalar_second_source_aliases": 0,
+  "latest_scalar_without_repaired_SLA": [],
+  "record_tool_SLA_counts": {
+    "original-or-not-explicit": 8400
+  },
+  "limits": [
+    "Schema1 historical rows lack full raw body pieces.",
+    "Loader changes to noninstruction memory must be qualified separately if present.",
+    "Successful generated C retains optimization, ABI, type, indirect-flow and analyzer limits."
+  ],
+  "missing_inventory_entries_count": 173998,
+  "missing_inventory_entries_examples": [
+    "100154e20",
+    "1001552c0",
+    "100155350",
+    "100155430",
+    "100155480",
+    "1001555a0",
+    "100155620",
+    "1001558b0",
+    "100155e00",
+    "100155e10"
+  ],
+  "missing_callable_candidates_count": 169745,
+  "missing_callable_candidates_examples": [
+    "100154e20",
+    "1001552c0",
+    "100155350",
+    "100155430",
+    "100155480",
+    "1001555a0",
+    "100155620",
+    "1001558b0",
+    "100155e00",
+    "100155e10"
+  ],
+  "private_full_initial_projection": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-usage-audit/X86_INITIAL_CORPUS_ACQUISITION-through84.json",
+    "bytes": 5846032,
+    "sha256": "82a6238bc40201de7d73755b3907b8b87d9b2bb4840b4fc228472ecf24f39b0e"
+  }
+}

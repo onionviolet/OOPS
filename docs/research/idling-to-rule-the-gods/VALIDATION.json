@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "validated_at_utc": "2026-10-06T05:46:23.180594+00:00",
+  "scope": "Research artifact checks only. No game/YAIR runtime or test-suite acceptance.",
+  "checks": {
+    "json_parse": {
+      "passed": true,
+      "files": [
+        "COVERAGE.json",
+        "CREATION_FINDINGS.json",
+        "FINDINGS.json",
+        "INTAKE.json",
+        "INTAKE_SEED.json",
+        "PACKETS.json",
+        "PET_FINDINGS.json",
+        "REBIRTH_FINDINGS.json",
+        "ROOT_FINDINGS.json",
+        "ROOT_SUPPLEMENTS.json",
+        "VALIDATION.json",
+        "YAIR_AUDIT.json"
+      ]
+    },
+    "installed_input_and_copy_hash_readback": {
+      "passed": true,
+      "dll_files": 149,
+      "main_sha256": "11a75901cbf0f7fd3abf8ab54186206ed1d74281f616482d1d8e098c93d5004c"
+    },
+    "export_manifest_hash_readback": {
+      "passed": true,
+      "files": 388,
+      "csharp_files": 387,
+      "manifest_sha256": "9499692c424094d206daafff556e84ec57e442be2688481da396a641d49bfac3"
+    },
+    "evidence_spans_and_file_hashes": {
+      "passed": true,
+      "anchors": 52,
+      "finding_ids": [
+        "ITR-01",
+        "ITR-02",
+        "ITR-03",
+        "ITR-04",
+        "ITR-05"
+      ]
+    },
+    "markdown_links": {
+      "passed": true,
+      "checked": 20,
+      "links": [
+        {
+          "file": "REPORT.md",
+          "target": "IMPLEMENTATION_PACKETS.md",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "INTAKE.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "/Users/weiwei/.codex/research/idling-to-rule-the-gods/25514347/DECOMPILATION_MANIFEST.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "FINDINGS.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "COVERAGE.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "YAIR_AUDIT.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "../caves-of-qud/REPORT.md",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "../dcss-dda-depth/REPORT.md",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "VALIDATION.json",
+          "exists": true
+        },
+        {
+          "file": "REPORT.md",
+          "target": "IMPLEMENTATION_PACKETS.md",
+          "exists": true
+        },
+        {
+          "file": "IMPLEMENTATION_PACKETS.md",
+          "target": "YAIR_AUDIT.json",
+          "exists": true
+        },
+        {
+          "file": "IMPLEMENTATION_PACKETS.md",
+          "target": "FINDINGS.json",
+          "exists": true
+        },
+        {
+          "file": "IMPLEMENTATION_PACKETS.md",
+          "target": "PACKETS.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "INTAKE.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "FINDINGS.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "COVERAGE.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "YAIR_AUDIT.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "IMPLEMENTATION_PACKETS.md",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "PACKETS.json",
+          "exists": true
+        },
+        {
+          "file": "CHECKPOINT.md",
+          "target": "VALIDATION.json",
+          "exists": true
+        }
+      ]
+    },
+    "original_handoff_structure": {
+      "passed": true,
+      "ranked_packets": 3,
+      "all_have_choice_cost_aftermath_owner_gap_compatibility_later_gate": true
+    },
+    "worker_status": {
+      "passed": true,
+      "observed": "creation_reader, rebirth_reader, pet_reader all completed/released from actual live list_agents snapshot; root export session finished, no pending subprocess."
+    },
+    "artifact_hash_readback": {
+      "passed": true,
+      "files": 15
+    }
+  },
+  "yair_interface_refresh": {
+    "observed_at_utc": "2026-10-06T05:45:14.902474+00:00",
+    "changed_inputs": [
+      "src/simulation.js",
+      "src/feature_expansion_work_plan.js",
+      "src/reference_gameplay_state.js",
+      "src/reference_gameplay_feats.js",
+      "src/main.js"
+    ],
+    "review": "Active parallel work added book-world schema10/publication integration. Rechecked occupation, paid completion, existing finite goals, scoped attempts/feats and sole durable publisher; proposed consumers still fit. No runtime edit or schema-selection authority transferred to this research lane.",
+    "implementation_gate": "Future implementing owner must preserve current optional book-world and reference state readers and refresh live interface versions.",
+    "full_current_file_audit": false
+  },
+  "post_refresh_input_drift": [
+    {
+      "path": "src/main.js",
+      "last_reviewed_sha256": "cabfa80da10f399def1c7f0ebdf35fac661d2b6344619e52718900550c5685d4",
+      "final_observed_sha256": "157d1758abc9fb8e3ac5dc6b67d7b0f12109d783e401abdd17c1b4a2af90ae37",
+      "qualification": "Parallel input drift after interface review; no new proposal fact inferred. Implementer must refresh this affected owner."
+    }
+  ],
+  "source_coverage_limits": "Selected spans and five connected traces only; nested/other systems in COVERAGE.json remain unread/unperformed.",
+  "not_run": [
+    "Second independent export",
+    "Recovered C# compilation",
+    "Game launch/play/Steam/network execution",
+    "YAIR build/unit/browser/save/reload/failure/keyboard/regression/director gates"
+  ],
+  "writer_boundary": "New documents here only except dispatcher-owned input files; raw copies/export/log/manifests private outside Git. No src/dist/native/canonical/other lane mutation by this lane. Shared checkout remains dirty with other active owners.",
+  "errors": [],
+  "artifact_hashes_excluding_self": [
+    {
+      "path": "ASSIGNMENT.md",
+      "bytes": 5362,
+      "sha256": "3c3d3aba5bd1ec1bcbd84806af9751d0809382e7ef75ec487f212bbd7574220c",
+      "ownership": "dispatcher input, read only"
+    },
+    {
+      "path": "CHECKPOINT.md",
+      "bytes": 3033,
+      "sha256": "04ffba122960c4787557f175de5a3a0494d5e3836c499aa94786a315b8961dc2",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "COVERAGE.json",
+      "bytes": 16442,
+      "sha256": "3d8abc444fe4d4e046eaffd2f63e3b122600a53e778981a0f1cd211c57e697c6",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "CREATION_FINDINGS.json",
+      "bytes": 11461,
+      "sha256": "73dc7d751e2f1379f62eccfeecbe13f8a2033437a860af0581f59e42830abcc5",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "FINDINGS.json",
+      "bytes": 41463,
+      "sha256": "1b7054c14b15995b6a638a31073a73add38f4239bdf2736053316906b2a6e54b",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "IMPLEMENTATION_PACKETS.md",
+      "bytes": 9402,
+      "sha256": "b8620a735d205fb7c9e85b5f8b42f439994553aa0275c9195e32a85308911c51",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "INTAKE.json",
+      "bytes": 1980,
+      "sha256": "ced29b7ac889d0c76686e956f9354a3e9344273ff31f9aadb1b36913a7e064d4",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "INTAKE_SEED.json",
+      "bytes": 1119,
+      "sha256": "d232f3f6c58f0af14bc771d9867f65e83b0b7cb81e2f651cca20aa6ee67c6bb8",
+      "ownership": "dispatcher input, read only"
+    },
+    {
+      "path": "PACKETS.json",
+      "bytes": 13782,
+      "sha256": "64723267d3bf03e4af3910e4cbb67637963cb7883bfdf603d1f45c04d9358b87",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "PET_FINDINGS.json",
+      "bytes": 11691,
+      "sha256": "9a6fa90581b9de5ee672fb74f95acf37bb2c7a8ffa1ec5b8848dcff87b432552",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "REBIRTH_FINDINGS.json",
+      "bytes": 12018,
+      "sha256": "cae27c066cb599b9e6784e2c73c8ec74da833cc10dcd5d1679ad9bfcb91fa2b8",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "REPORT.md",
+      "bytes": 7638,
+      "sha256": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "ROOT_FINDINGS.json",
+      "bytes": 17488,
+      "sha256": "2741ac3daa501bd0b828ba4f3db3177124682d3b13d795fc3ba963310ec15d0e",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "ROOT_SUPPLEMENTS.json",
+      "bytes": 23737,
+      "sha256": "0b9d3f82c678c7526f04ef6ee3237ac7ddefe4b6e59156dd1ded68f188de72ab",
+      "ownership": "this source research lane"
+    },
+    {
+      "path": "YAIR_AUDIT.json",
+      "bytes": 14470,
+      "sha256": "b15499b03e52e23b05b4a5506dc92cc1cbb5afc9f738ce5854ee2f9da691b1b2",
+      "ownership": "this source research lane"
+    }
+  ],
+  "self_hash_policy": "VALIDATION.json excludes its own recursive hash; its final hash is read back in tool output.",
+  "checker_repair": "The first link pass ran before writing VALIDATION.json itself. After that file was saved, both self-referencing document links were rechecked successfully."
+}

@@ -1,0 +1,14 @@
+{
+  "capturedAtUTC": "2026-10-07T01:18:18.699776+00:00",
+  "qualification": "Mutable dispatch snapshot; refresh current source/build/writers before integration",
+  "sha256": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "f9e419faac288c1b5e474f724bcd9f6e8edfe5c722caa9b06847513d28aa91f9",
+    "docs/gm/status-care-2026-10-06/CHECKPOINT.md": "cab73ee5ea6b16be9f455e3651759602883b3d9113557f26e2a193e4156567b0",
+    "docs/gm/status-care-2026-10-06/EVIDENCE.json": "fc0650141317114a48b3673bf1c53c388525af95b3ae78eff9e19d89158e22c0",
+    "docs/gm/book-lore-to-gameplay-2026-10-06/PACKETS.json": "d9e1b165c37f2aa42704490801731a691da8f599815773dd9ddcbf978a4a3883",
+    "docs/gm/world-implementation/frontier-runtime/CHECKPOINT.md": "951f8981f7786f6a1865c9a677fc8b05c35f4d3eba04c8e42ac4ba1bc53245b6",
+    "docs/gm/world-implementation/second-pass/missing-feature-audit/FINDINGS.json": "b6eadbdc0c3987d675b9af46672535ccc203142fc66232f68f79835c0bdd23ca",
+    "docs/gm/world-implementation/second-pass/absorption-incorporation/ENGINE_PACKETS.md": "e1aac545779661d22f0a6c134bd2f5b0df333896bb67922ed1f8b52751934878"
+  }
+}

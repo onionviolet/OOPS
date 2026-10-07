@@ -1,0 +1,62 @@
+{
+  "observed_utc": "2026-10-07T13:06:42.886427+00:00",
+  "scope": "Narrowrootacquisition of explicitlyreleased parent source dossier currentrouting only",
+  "authorization": "Originalfactorio_gmCHECKPOINT finitegoalcomplete/writerreservationreleased; authoritative oldagent absent, no native/private overlap",
+  "before": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "bytes": 12714,
+      "sha256": "2408480851bcbc55ab3acf9534aff0143648415004e4a7fe5afd80717e90cfbb",
+      "archive": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/REPORT.md"
+    },
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "bytes": 4524,
+      "sha256": "ca8844bd0a9ffad9aeba78b2cece9ae06d5ec50954d546c3123770cbec9a1110",
+      "archive": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/CHECKPOINT.md"
+    },
+    {
+      "path": "docs/research/factorio/COVERAGE.json",
+      "bytes": 159997,
+      "sha256": "ebcfc31e4de9e79eb9d2a843126ddf26d59c2e24ff3d242b99a40e3d40ac17f9",
+      "archive": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/COVERAGE.json"
+    },
+    {
+      "path": "docs/research/factorio/INTAKE.json",
+      "bytes": 68845,
+      "sha256": "25f50bbd39c1f14e9d55f7f25cc3244e257f0906ebd3884f4749511f78f87e42",
+      "archive": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/INTAKE.json"
+    },
+    {
+      "path": "docs/research/factorio/DLC_COVERAGE.json",
+      "bytes": 11959,
+      "sha256": "ffdb7ad3591a7c70710947eacacb349e8a99266a25517a852d15dadf39d1bb6d",
+      "archive": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/history/2026-10-07-parent-source-routing/DLC_COVERAGE.json"
+    }
+  ],
+  "after": [
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "sha256": "e92e2efc95516531c06da2237a85a43799c228040e81dcd6224df84545dd286b"
+    },
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "sha256": "9adb1920ad298d7a0cbf00284070b6acdb47e242cd25f8f551481fc73f1db85f"
+    },
+    {
+      "path": "docs/research/factorio/COVERAGE.json",
+      "sha256": "c157970350c24562fa1833fd0532ca21201fdf369e0b9aa1a68360840211ee49"
+    },
+    {
+      "path": "docs/research/factorio/INTAKE.json",
+      "sha256": "b298e50fd5ebcc4393adc220dccaa4baf8235cdb7d59ad783a727f08cd9666c4"
+    },
+    {
+      "path": "docs/research/factorio/DLC_COVERAGE.json",
+      "sha256": "8c5301a985e1c08edfb57f122ea178d1539e379f785274152648befc37fab3f0"
+    }
+  ],
+  "oldclaims_preserved": "AlloriginalfiniteJSONfields retained andsnapshotdated; REPORToldtext remains andentirebefore archivedverbatim; oldcheckpointarchivedverbatim",
+  "current_owner": "Rootparentrouting/nativeusage; nativefinish3 nativefolderexceptassignment andprivatecorpus",
+  "no_runtime_private_install_save_mutation": true
+}

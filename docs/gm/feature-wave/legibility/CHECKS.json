@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "dateLocal": "2026-10-05",
+  "status": "source-static-checked-consumer-admission-pending",
+  "outputs": {
+    "src/action_legibility.js": {
+      "sha256": "a5d7a8cfaa37ab728f7694ce6baf451ab4a675ca36adab62945b73f8c6325e9a",
+      "bytes": 21995,
+      "whitespace": "pass",
+      "localImportLinks": "pass"
+    },
+    "src/action_legibility_ui.js": {
+      "sha256": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+      "bytes": 20496,
+      "whitespace": "pass",
+      "localImportLinks": "pass"
+    },
+    "styles/action_legibility.css": {
+      "sha256": "721590da18e74e257aa7758db98b3b69871291e52f4b6d3a653278086ee25c3d",
+      "bytes": 2694,
+      "whitespace": "pass",
+      "localImportLinks": "pass"
+    }
+  },
+  "inputs": {
+    "AGENTS.md": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+    "PROJECT.md": "dd5d628c6e2aac3ae26f9f565a6656284367d773ad737eac240d7191066afd97",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.md": "a7c70774ed2958419c2a8d8ec702cb6915f8edde0360b41400301d3c1e779edf",
+    "docs/gm/dispatch/FEATURE_IMPLEMENTATION_WAVE_2026_10_05.json": "653f52ffe716f8716c6971e31912ad54d58e19ab1b73153c553aed520581565d",
+    "docs/gm/feature-wave/legibility/ASSIGNMENT.md": "60d8887e2e082fc132d7cc4b4df5e296038b68a0cd2bd8121f9d4cc35f27faef",
+    "docs/gm/feature-wave/features/INTERFACE.md": "764b12915648619a84cc86f6907806b340190f42a9549ca1bde20021f2fd472d",
+    "src/simulation.js": "7e96a16a8bf161b483c3b34aa26001be4180adba141f0c7293f39cfee701546a",
+    "src/simulation_effects.js": "e427b62ca926b4d73e8b337c0cbea1da244e0bb2033bf8ee6ddf9a5abfb5d856",
+    "src/rules.js": "3f20c44464efa945d35e5c42bdfccf27df7e2846acc2b314b07c22074a6e9c9a",
+    "src/energy_resources.js": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef"
+  },
+  "performed": {
+    "javaScriptSyntax": "node --check passed for both new modules",
+    "moduleImportsExports": "dynamic imports loaded all nine projection exports and both UI factories without DOM instantiation",
+    "cssSyntax": "esbuild 0.25.10 transform loader css; pass, zero warnings",
+    "localImportLinks": "each relative import exists",
+    "whitespace": "direct checks include untracked source/CSS; pass",
+    "sourceReview": "projection privacy/valueKnown/partial OR/negation; frozen work; retained observer account; UI stale removal/focus/keyed order/error guards/async destroy reviewed"
+  },
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director"
+  ],
+  "limitations": "No DOM instantiation, action evaluation, private save access or gameplay execution. No final current bundle correspondence yet."
+}

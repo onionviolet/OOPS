@@ -1,0 +1,1127 @@
+{
+  "schema": 1,
+  "family": "discovery_automation_pacing",
+  "date": "2026-10-06",
+  "writer": "/root/pacing",
+  "status": "selected_source_trace_complete",
+  "private_root": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448",
+  "source_edition": "Steamapp955900build17074448",
+  "checked_utc": "2026-10-06T20:10:33.968404+00:00",
+  "assembly_pin": {
+    "path": "input/Amazing Cultivation Simulator_Data/Managed/Assembly-CSharp.dll",
+    "sha256": "d225481851ee2c0111971eab98dadd00488aea4a2b0982226b38534cc3bb7902"
+  },
+  "sources": {
+    "mod_docs": {
+      "path": "input/Mods/Readme_EN.txt",
+      "sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+      "read_spans": [
+        [
+          17,
+          23
+        ],
+        [
+          41,
+          48
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Configuration loading/duplicate ordering and readable script API route; not a gameplay authority",
+      "line_count": 216,
+      "installed_sha256": "435bf056864a094b2c7eef4f4c7fd9f9e8f70f72b5045be7e017fa61a2abcf07",
+      "matches_installed": true
+    },
+    "help_controls": {
+      "path": "input/Settings/Language/OfficialEnglish/Settings/Ui/Help/Help.xml",
+      "sha256": "8f7f141d4258a5e2a5bcaedde31fec374c1f4a0819bcd69d73850fde2977400b",
+      "read_spans": [
+        [
+          66,
+          85
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Readable control description; compared with current speed handler",
+      "line_count": 1381,
+      "installed_sha256": "8f7f141d4258a5e2a5bcaedde31fec374c1f4a0819bcd69d73850fde2977400b",
+      "matches_installed": true
+    },
+    "handbook_defs": {
+      "path": "input/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+      "sha256": "1d260dc5f2877e7aa37d604ba69ca6ccc69f04e34aa8ecda06c633a60d6caf6e",
+      "read_spans": [
+        [
+          1,
+          17
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Event handbook table; no full event semantics asserted",
+      "line_count": 17,
+      "installed_sha256": "1d260dc5f2877e7aa37d604ba69ca6ccc69f04e34aa8ecda06c633a60d6caf6e",
+      "matches_installed": true
+    },
+    "handbook_defs_en": {
+      "path": "input/Settings/Language/OfficialEnglish/Settings/IllustratedHand/IHMapStories/IHMapStories.txt",
+      "sha256": "5ab7dc25cbfc68311380a1c0e64541ddda8e7ff004b3c7aa7e1a962ce6b8d13f",
+      "read_spans": [
+        [
+          1,
+          17
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "English labels for event catalogue; labels are not proof of event unlock",
+      "line_count": 17,
+      "installed_sha256": "5ab7dc25cbfc68311380a1c0e64541ddda8e7ff004b3c7aa7e1a962ce6b8d13f",
+      "matches_installed": true
+    },
+    "notice_defs": {
+      "path": "input/Settings/Ui/NpcUIEvent/NewNpcUIEvent.txt",
+      "sha256": "d0647ee4c8bd47c44f68318e0651df211d914d22420844a2a3f91e111d6ed38c",
+      "read_spans": [
+        [
+          1,
+          86
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "WorldSpeed and importance policy; finite selected rows parsed by column",
+      "line_count": 158,
+      "installed_sha256": "d0647ee4c8bd47c44f68318e0651df211d914d22420844a2a3f91e111d6ed38c",
+      "matches_installed": true
+    },
+    "time_script": {
+      "path": "input/Scripts/Misc/timescript.lua",
+      "sha256": "8b7bd00b40c7584cb780c118286f98aa595d539fa435afa7a1435578cea8a2e2",
+      "read_spans": [
+        [
+          1,
+          170
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Played-time wait/file scripts, one-shot marker, mode exclusion, saved timer state, D270/D277 definitions",
+      "line_count": 235,
+      "installed_sha256": "8b7bd00b40c7584cb780c118286f98aa595d539fa435afa7a1435578cea8a2e2",
+      "matches_installed": true
+    },
+    "lua_main": {
+      "path": "input/Scripts/main.lua",
+      "sha256": "58a27d2b542e074ea957c5f1528518e711547d61967682df2fcb36d1fcc82d18",
+      "read_spans": [
+        [
+          11,
+          90
+        ],
+        [
+          113,
+          141
+        ],
+        [
+          194,
+          217
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Manager globals, Step dispatch, mod save/load, GetNow",
+      "line_count": 243,
+      "installed_sha256": "58a27d2b542e074ea957c5f1528518e711547d61967682df2fcb36d1fcc82d18",
+      "matches_installed": true
+    },
+    "mod_base": {
+      "path": "input/Scripts/modbase.lua",
+      "sha256": "675e113e910293696e111c0cd50eadcfe2c9de97e6aa264950d1dc6bbee3b6ef",
+      "read_spans": [
+        [
+          1,
+          119
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "OnStep and OnSave/OnLoad wrappers",
+      "line_count": 135,
+      "installed_sha256": "675e113e910293696e111c0cd50eadcfe2c9de97e6aa264950d1dc6bbee3b6ef",
+      "matches_installed": true
+    },
+    "lua_error": {
+      "path": "input/Scripts/lib.lua",
+      "sha256": "219088958b6adad269a98a71736c730b81d0a6f1bb5fe90567dc81dab0d153fb",
+      "read_spans": [
+        [
+          366,
+          383
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Outer callback xpcall failure boundary",
+      "line_count": 384,
+      "installed_sha256": "219088958b6adad269a98a71736c730b81d0a6f1bb5fe90567dc81dab0d153fb",
+      "matches_installed": true
+    },
+    "wood_recipe": {
+      "path": "input/Settings/ThingDef/Item/Item_Material_2_WoodBlock.xml",
+      "sha256": "d156c0d684af32eaba0acf8cec95a05f4ab7fd768762ca2eb1c44169e886f2a8",
+      "read_spans": [
+        [
+          1,
+          104
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Rough wood block cost one wood, 30 work, inherited WoodBlock label",
+      "line_count": 324,
+      "installed_sha256": "d156c0d684af32eaba0acf8cec95a05f4ab7fd768762ca2eb1c44169e886f2a8",
+      "matches_installed": true
+    },
+    "material_station": {
+      "path": "input/Settings/ThingDef/Building/Building_Production.xml",
+      "sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+      "read_spans": [
+        [
+          175,
+          230
+        ]
+      ],
+      "kind": "readable_configuration_or_script",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "MaterialWorkPlace, Handwork menu, batch count three",
+      "line_count": 1621,
+      "installed_sha256": "1286516f74595578672527f40f22d695d7f111bf0795e44af1c3cebdb9a2e520",
+      "matches_installed": true
+    },
+    "handbook_mgr": {
+      "path": "decompiled/Assembly-CSharp/AllIllustratedHandMgr.cs",
+      "sha256": "ef1623d941f273556369e83844d16f6cd1ec06aa6b8fdb1d7aa0afe57857c4c5",
+      "read_spans": [
+        [
+          1,
+          324
+        ],
+        [
+          525,
+          894
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Catalogue membership, found mark, global ledger save/load, UI data access and autosave timer",
+      "line_count": 894
+    },
+    "handbook_ui": {
+      "path": "decompiled/Assembly-CSharp/Wnd_AllIllustratedHandWindow.cs",
+      "sha256": "24651e8b3bf5b91cc3e500b5922256e8ce4eef630dd3f7cafb192cbc88ab5bcf",
+      "read_spans": [
+        [
+          83,
+          152
+        ],
+        [
+          168,
+          232
+        ],
+        [
+          514,
+          561
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Catalogue totals, search/display, locked generic tooltip versus unlocked detail",
+      "line_count": 562
+    },
+    "thing_catalogue": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingMgr.cs",
+      "sha256": "94f127577c827c7251a1e617ef29c2cc25c3a9080ad96fe37307ab71aef06d21",
+      "read_spans": [
+        [
+          376,
+          409
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Registers item/building/plant/rock definitions into collection catalogue",
+      "line_count": 3321
+    },
+    "item_discovery": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemThing.cs",
+      "sha256": "b35f48a2de59ecda0434982bdbf35a9bc32f02806601938fb1b35d747fdeacf3",
+      "read_spans": [
+        [
+          968,
+          979
+        ],
+        [
+          1214,
+          1237
+        ],
+        [
+          1502,
+          1513
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Actionability -> FoundMe -> warehouse/handbook mark; reinitialization checks BeFound",
+      "line_count": 1774
+    },
+    "map_drop": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/Map.cs",
+      "sha256": "4cec258d3f3fb207a4c1d915718196c80d850eb7f8c24018a0cfd5adbf8e6018",
+      "read_spans": [
+        [
+          2109,
+          2147
+        ],
+        [
+          2625,
+          2650
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Actual spawned enemy message and produced beFound item path",
+      "line_count": 3232
+    },
+    "main_time": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MainManager.cs",
+      "sha256": "df3f72c9e7ce829c07d95aafec8c3c3ae400fbf7399b9fbc931c2903aab7a854",
+      "read_spans": [
+        [
+          76,
+          115
+        ],
+        [
+          353,
+          448
+        ],
+        [
+          855,
+          964
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Manager ordering, running gate, player/system pauses, autosave resume, speed",
+      "line_count": 1013
+    },
+    "game_tick": {
+      "path": "decompiled/Assembly-CSharp/GameMain.cs",
+      "sha256": "142d99cd40e192ade1780d358268788e5474da61904f5bbc85f573f16a516f73",
+      "read_spans": [
+        [
+          555,
+          585
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "FixedUpdate calls manager Step, Update renders",
+      "line_count": 606
+    },
+    "world_tick": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/World.cs",
+      "sha256": "c052c0cda54b6680df68b552857a6d8890068a7ab90def49e5375029ad8044a7",
+      "read_spans": [
+        [
+          63,
+          140
+        ],
+        [
+          888,
+          935
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Saved calendar/elapsed fields and live dt advancement",
+      "line_count": 1087
+    },
+    "world_manager": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/WorldMgr.cs",
+      "sha256": "a6e98a42f6fdddf09f6fdf5c0105a94b4d3253954110cb8a29a18ff2633af190",
+      "read_spans": [
+        [
+          1,
+          20
+        ],
+        [
+          148,
+          151
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Manager delegation to curWorld.Step; no PauseUpdate override found",
+      "line_count": 166
+    },
+    "manager_base": {
+      "path": "decompiled/Assembly-CSharp/IManagerModule.cs",
+      "sha256": "0ead3d3ae9a82e8d23c44d6a984bf1a39d04f6669ed15ed8da344a04f754b446",
+      "read_spans": [
+        [
+          1,
+          54
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Default PauseUpdate false",
+      "line_count": 54
+    },
+    "lua_manager": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/LuaMgr.cs",
+      "sha256": "5a759731d06f93634a6c633202e2f9c3922e41111fb3c628c492dc27e7fad0b1",
+      "read_spans": [
+        [
+          59,
+          114
+        ],
+        [
+          175,
+          183
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Readable scripts loading, Step bridge",
+      "line_count": 288
+    },
+    "speed_ui": {
+      "path": "decompiled/Assembly-CSharp/Wnd_GameMain.cs",
+      "sha256": "b3853d3a2bdcac1ec59e00df644fc7ad094baecc1b579926e3a6c0c93634b2d4",
+      "read_spans": [
+        [
+          290,
+          311
+        ],
+        [
+          2257,
+          2295
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Player speed controls and optional top speed15 gate",
+      "line_count": 4397
+    },
+    "speed_hotkey": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/UILogicMode_Global.cs",
+      "sha256": "22e8419d643010b854031e43956d29add3487479039df5b3c7f55ac23b00c8c3",
+      "read_spans": [
+        [
+          310,
+          335
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Pause/play and speed hotkey handling; excludes RPG",
+      "line_count": 558
+    },
+    "notice_mgr": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/MessageMgr.cs",
+      "sha256": "495ccb3cad9850639b2dec03f85f993c2457da3e5f18011e7eb57acc786654f2",
+      "read_spans": [
+        [
+          333,
+          349
+        ],
+        [
+          484,
+          526
+        ],
+        [
+          583,
+          613
+        ],
+        [
+          619,
+          666
+        ],
+        [
+          791,
+          851
+        ],
+        [
+          1107,
+          1132
+        ],
+        [
+          1395,
+          1415
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Current queued alerts, table policy, auto pause/slow, removal driven by world time",
+      "line_count": 1655
+    },
+    "focus": {
+      "path": "decompiled/Assembly-CSharp/GameWatch.cs",
+      "sha256": "2dfc8a74dd8c852c1c9ed7913079a5b6883f0875fb6b1161cab4c4795cf7e1db",
+      "read_spans": [
+        [
+          1725,
+          1743
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Focus handler only audio/mouse; does not prove closed/offline advancement",
+      "line_count": 1866
+    },
+    "loop_ui": {
+      "path": "decompiled/Assembly-CSharp/Panel_BuildingProduceList.cs",
+      "sha256": "ef856afb5a5b51e53640805fd6977ce8cc49f92d619a69b01be187f07bedf411",
+      "read_spans": [
+        [
+          1,
+          40
+        ],
+        [
+          42,
+          125
+        ],
+        [
+          145,
+          177
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Finite10/50/infinite/cancel loop decision; loop and removal handlers",
+      "line_count": 215
+    },
+    "produce_queue": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingProduce.cs",
+      "sha256": "90206a90b335820e300e435009adafed3cecdd4b87a92bc6eaccb44041bf2f1d",
+      "read_spans": [
+        [
+          1,
+          83
+        ],
+        [
+          115,
+          238
+        ],
+        [
+          264,
+          327
+        ],
+        [
+          330,
+          417
+        ],
+        [
+          493,
+          623
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Queue/material requests, locks/spending, progress, requeue, cancellation and shortage",
+      "line_count": 624
+    },
+    "produce_worker": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ToilMakeItem.cs",
+      "sha256": "3f129c67974759e44fd634105313dd10cfa283e021c269349aa71e366170ea04",
+      "read_spans": [
+        [
+          1,
+          258
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Actual work effort dt, change-of-job interruption, completion and failure consumers",
+      "line_count": 354
+    },
+    "produce_job": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/JobMakeItem.cs",
+      "sha256": "fe555918f4328eab69780cc5d770b3c24a69a16c06b3dc6104092287ad679307",
+      "read_spans": [
+        [
+          1,
+          45
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Workspace lock, travel, work toil and command cleanup",
+      "line_count": 45
+    },
+    "produce_command": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/CommandMakeItem.cs",
+      "sha256": "238de0545a48cdf96f9f32a084bb8cc04b222435b2a0d03a23aa2dd322852ddc",
+      "read_spans": [
+        [
+          1,
+          53
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Workspace, path, driver and designated-maker gates",
+      "line_count": 53
+    },
+    "item_cost": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ItemCostData.cs",
+      "sha256": "f30f62782b21be009b30e11b8dbbb6d10f412691f4ab6e8bee39c1b02210aab7",
+      "read_spans": [
+        [
+          1,
+          44
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Actual cost uses ceil(count*countscale), defaultscale1",
+      "line_count": 44
+    },
+    "made_data": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/ThingBeMadeData.cs",
+      "sha256": "d8a92ffebd74db16b570d55351a08ffd2c415c545fc218dde58cf76a17d3d1d7",
+      "read_spans": [
+        [
+          1,
+          61
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "CostStuff scaling data owner",
+      "line_count": 61
+    },
+    "difficulty_scaling": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/DifficultyMgr.cs",
+      "sha256": "360689020d3426ac4564cb243515da912fdf53531db3ebe22528c1a67cba23f7",
+      "read_spans": [
+        [
+          510,
+          550
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Elixir item cost and building material scaling, does not scale ordinary wood-block item in shown loops",
+      "line_count": 1199
+    },
+    "building_tick": {
+      "path": "decompiled/Assembly-CSharp/XiaWorld/BuildingThing.cs",
+      "sha256": "be2ba58ac8f2cc0125d331b846f1a3f4ff9a7482e4f56199be05dab434b3c555",
+      "read_spans": [
+        [
+          1730,
+          1745
+        ]
+      ],
+      "kind": "decompiled_managed_code",
+      "review": "pacing worker semantic read of listed spans only",
+      "role": "Working building drives production queue Step",
+      "line_count": 1895
+    }
+  },
+  "claims": [
+    {
+      "id": "ACS-P01",
+      "kind": "code_established",
+      "claim": "The current collection catalogue has global definition data and a separate lit-state ledger. Registered material definitions are categorized; produced found items call FoundMe, become actionable/enter warehouse when needed, and mark the catalogue without a second resource charge. A collection mark grants neither method mastery nor actor execution rights.",
+      "sources": [
+        "wood_recipe",
+        "material_station",
+        "thing_catalogue",
+        "handbook_mgr",
+        "produce_queue",
+        "map_drop",
+        "item_discovery"
+      ]
+    },
+    {
+      "id": "ACS-P02",
+      "kind": "code_established",
+      "claim": "The collection window displays catalogue names and totals, greys unlit entries, disables their button and shows category/kind unlock text. Lit entries enable detailed tips. Therefore this is a collection metaprogression surface, not evidence of actor-scoped knowledge or spoiler-free discovery.",
+      "sources": [
+        "handbook_ui",
+        "handbook_mgr"
+      ]
+    },
+    {
+      "id": "ACS-P03",
+      "kind": "code_established",
+      "claim": "Collection data loads from a shared /saves/IllHandData.info path and writes its lit/data dictionaries there. Change sets needsave; selected Step flushes after timer>300 dt or fight-map mode, and SaveData supports explicit flush. Personal data was not opened.",
+      "sources": [
+        "handbook_mgr"
+      ]
+    },
+    {
+      "id": "ACS-P04",
+      "kind": "code_established",
+      "claim": "A production loop is10,50,-1infinite or0cancel. The queue owns the current batch, asks for real materials, locks them, and removes their counts on first actual Making progress. MaterialWorkPlace turns one Item_Wood into a nominal3Item_RoughWoodBlock per30work, subject to actual worker efficiency; this is30work, not30wall seconds.",
+      "sources": [
+        "wood_recipe",
+        "material_station",
+        "loop_ui",
+        "produce_queue",
+        "produce_command",
+        "produce_job",
+        "produce_worker",
+        "item_cost",
+        "difficulty_scaling"
+      ]
+    },
+    {
+      "id": "ACS-P05",
+      "kind": "code_established",
+      "claim": "At completion, the batch is removed and a remaining finite/infinite batch is queued before the success roll. Thus retry count follows completed attempts, not guaranteed successes. Shortage leaves head work waiting without a MakeItem command, while partial gathered locks are released; removing an unstarted task unlocks gathered items, but removing progressed work does not restore already consumed material in this path.",
+      "sources": [
+        "produce_queue",
+        "loop_ui",
+        "produce_worker"
+      ]
+    },
+    {
+      "id": "ACS-P06",
+      "kind": "code_established",
+      "claim": "Current NewNpcUIEvent table WorldSpeed controls current MessageMgr alerts:1calls player Pause;2/3/4requests1/2/3speed. Enemy message6 is warning+WorldSpeed2; Map actual enemy spawn emits it, reducing speed to1. Warning insertion in enabled selected15x mode also pauses. Alerts change attention/time policy, not enemy existence or spent work.",
+      "sources": [
+        "notice_defs",
+        "map_drop",
+        "notice_mgr",
+        "main_time",
+        "speed_ui"
+      ]
+    },
+    {
+      "id": "ACS-P07",
+      "kind": "code_established",
+      "claim": "Pause records playerpause or increments nested syspause, sets Runing false, and leaves Unity timeScale1. Step continues only managers with PauseUpdate while not running. System Play decrements its hold and refuses resume while another hold or playerpause remains. Playing scales dt and changes fixedDeltaTime above1x.",
+      "sources": [
+        "main_time",
+        "manager_base",
+        "world_manager",
+        "game_tick",
+        "world_tick"
+      ]
+    },
+    {
+      "id": "ACS-P08",
+      "kind": "code_established",
+      "claim": "Readable timed scripts schedule by World day/second and GameMain.GetNow, execute only after strictgreater-than deadlines, remove waits before callback, and mark file scripts alreadyRun before callback. AlreadyRun/waits are saved through mod callbacks. Lib.Call catches callback errors; no rollback/retry of the removed/marked entry is present in the inspected runner.",
+      "sources": [
+        "time_script",
+        "lua_main",
+        "mod_base",
+        "lua_error",
+        "lua_manager",
+        "main_time",
+        "world_tick"
+      ]
+    },
+    {
+      "id": "ACS-P09",
+      "kind": "source_definition_vs_code_reconciled",
+      "claim": "English help says fast2is3x. Current handler calls configured MaxSpeed+3, default5x when MaxSpeed2 and ReplaceSpeed3 is not positive; a gated optional top control calls15x. Stored user settings were not inspected, so actual selected runtime speed remains unknown.",
+      "sources": [
+        "help_controls",
+        "speed_ui"
+      ]
+    },
+    {
+      "id": "ACS-P10",
+      "kind": "bounded_negative",
+      "claim": "Inspected code establishes running live dt calendar advancement. Focus handler adjusts audio/mouse only. This is insufficient to establish closed-game/offline catch-up, background scheduling, or any full ACS offline policy; no such policy is imported into YAIRPG.",
+      "sources": [
+        "game_tick",
+        "main_time",
+        "world_tick",
+        "focus"
+      ]
+    }
+  ],
+  "traces": [
+    {
+      "id": "ACS-P-DISCOVERY",
+      "name": "Produced material discovery -> global collection detail",
+      "prerequisites": [
+        "Actual material output created as beFound, or existing ItemThing becomes actionable",
+        "Definition is present in collection catalogue with a nondeleted/nonmissing label",
+        "Normal collection path is not Build/Create/Fight/RPG/EditorRPG unless caller explicitly bypasses mode"
+      ],
+      "decision": "Player accepts actual material production; discovery itself is automatic FoundMe. Separate manual catalogue inspection reads the result.",
+      "actual_expenditures": [
+        "No additional currency/item/knowledge cost in SetLighten",
+        "This selected preceding craft spends one actual wood at first Making progress and30effort per batch; nominal output3blocks"
+      ],
+      "state_changes": [
+        "BeFound=true and SetActable(true); add to map warehouse once",
+        "m_LightenIll[type][label][key]=1; needsave=true"
+      ],
+      "downstream_consumers": [
+        "Global collection UI counts/filter/greying and detailed tooltips",
+        "Collection global data serializer; not current actor learning/permissions"
+      ],
+      "time_policy": "Immediate mark on discovery; shared collection flush Step timer>300dt or explicit SaveData. This is separate from the live world calendar save.",
+      "failure": [
+        "Excluded mode returns",
+        "Uncatalogued key with a resolved label does not write; unresolved-label lookup presumes category exists",
+        "Load exception logs then initializes missing lit dictionary; not a guaranteed recoverable save transaction"
+      ],
+      "aftermath": "Global discovery survives through its shared ledger; no actor mastery/material access/resource reward is created by lighting the entry.",
+      "sources": [
+        "handbook_mgr",
+        "handbook_ui",
+        "item_discovery",
+        "map_drop",
+        "produce_queue",
+        "wood_recipe",
+        "material_station"
+      ]
+    },
+    {
+      "id": "ACS-P-AUTOMATION",
+      "name": "Actual batch queue with repeat count",
+      "prerequisites": [
+        "MaterialWorkPlace working with its defined output menu",
+        "Head batch can obtain actual required inputs; command has available workspace/path and powered driver if applicable",
+        "Selected worker supplies actual effort and behavior priority"
+      ],
+      "decision": "Select material task, loop10or50attempts, infinite loop, cancel looping, reorder, remove or choose another allowed material.",
+      "actual_expenditures": [
+        "On first work, unlock and subtract each selected ItemPackage.Count exactly once, replacing retained item reference with definition name",
+        "Nominal one wood ->3woodblocks and30effort; actual elapsed simulation time depends on work efficiency/HandworkSpeed/fengshui",
+        "No intrinsic fee charged simply to choose a loop menu"
+      ],
+      "state_changes": [
+        "Queue batch ID/increments and input requests",
+        "getting/material locks ->makecmd ->value/progress",
+        "Completed attempt removes head and requeues Loop-1 or-1before success roll; output appears only on success"
+      ],
+      "downstream_consumers": [
+        "MakeItem command -> Job workspace/travel -> Toil worker -> Making",
+        "Output becomes found/warehouse-visible, supports collection detail and future real material use",
+        "MakeItemFinish/NpcStory/failure-specific consumers after toil completion"
+      ],
+      "time_policy": "Working building Step prepares eligible head; worker OnStepToil contributes efficiency*dt. Live manager/world time gate applies. After48toil seconds, each5worldseconds may interrupt for a higher-priority job. Loop is an instruction to attempt more batches, not offline production.",
+      "failure": [
+        "Missing material keeps queued head, releases partial locks, adds no MakeItem command",
+        "Worker priority interruption ends current toil without a fabricated completed batch",
+        "Generic failed success roll returns-1after spent material and requeue; cooking can create badmeal+fire and alchemy fail items. Ordinary selected wood case initializes success rate1, so random failure is not claimed for it"
+      ],
+      "aftermath": "Each already-produced item/used input remains real. Removing an unstarted batch unlocks gathered inputs; removing progressed work does not refund consumed materials in the inspected path. Queued repetition is saved in SL_BuildingProduce.",
+      "sources": [
+        "wood_recipe",
+        "material_station",
+        "loop_ui",
+        "produce_queue",
+        "produce_command",
+        "produce_job",
+        "produce_worker",
+        "building_tick",
+        "item_cost",
+        "difficulty_scaling"
+      ]
+    },
+    {
+      "id": "ACS-P-PACING",
+      "name": "Known alert -> lower speed or held pause -> deliberate resume",
+      "prerequisites": [
+        "Actual event emits registered message ID",
+        "Current mode/message insertion gate permits it",
+        "For extra warning pause, top mode is enabled, selected15and currently running"
+      ],
+      "decision": "Player can select pause/normal/fast/top; definition policy interrupts pacing when a real alert is admitted; player deliberately resumes after manual pause.",
+      "actual_expenditures": [
+        "No additional material/currency cost for pause or speed",
+        "Previously elapsed world time and spent materials are not undone"
+      ],
+      "state_changes": [
+        "Current message ID/data/time enters current message collection",
+        "WorldSpeed1sets playerpause/Runing false; higher policy changes gamespeed",
+        "Nested system hold count tracks save/modal pauses separately from playerpause"
+      ],
+      "downstream_consumers": [
+        "MainManager running gate controls manager Steps",
+        "WorldMgr->World.Step advances saved calendar/warehouse/weather",
+        "UI speed indicators/animations and alert lifetime consume current time/policy"
+      ],
+      "time_policy": "GameMain FixedUpdate supplies scaled dt; World day length600simulation seconds. A paused world does not step through its default PauseUpdatefalse owner. UI/other PauseUpdate managers can still step. No closed/offline policy established.",
+      "failure": [
+        "Message insertion is dropped in excluded mode/no active World",
+        "Ordinary player Play is refused during outstanding system pause",
+        "System resume is refused while another system hold/playerpause persists"
+      ],
+      "aftermath": "Enemy/condition continues to exist; alert pausing changes remaining attention and future elapsed time. Removing a message has no automatic Play in the inspected OnAdd/remove path.",
+      "sources": [
+        "notice_defs",
+        "notice_mgr",
+        "map_drop",
+        "main_time",
+        "speed_ui",
+        "speed_hotkey",
+        "game_tick",
+        "world_tick",
+        "world_manager",
+        "manager_base"
+      ]
+    },
+    {
+      "id": "ACS-P-TIMED",
+      "name": "Saved simulation deadline -> one-shot scripted occurrence",
+      "prerequisites": [
+        "Normal relevant game mode, not selected tutorial mode",
+        "Registered file script deadline after map-secret difficulty factor, or saved waitscript with current GetNow+delay"
+      ],
+      "decision": "Author/mod registers occurrence; selected player control is whether simulation time runs or pauses. Event contents may later present choices but are not semantically reviewed here.",
+      "actual_expenditures": [
+        "Only elapsed simulation time in runner",
+        "No generic currency/input charge in timing wrapper; downstream occurrence may have costs outside this trace"
+      ],
+      "state_changes": [
+        "Wait entry removed before invocation",
+        "File entry removed and alreadyRun[key]=truebefore callback",
+        "OnSave returns marker/wait table; load restores them"
+      ],
+      "downstream_consumers": [
+        "Selected D270GameEvent10065 plus chain notice10027",
+        "Selected D277story-selectionSecrets_BanBenKaiQi3, chain notice10028 and worldDaNeng_Begin flag"
+      ],
+      "time_policy": "Strictlygreater than deadline; manager LuaStep reads world time. File scheduling excludes Fight/Create/Build/RPG/EditorRPG and TeachMode. Saved deadlines do not establish offline catch-up.",
+      "failure": [
+        "Outer xpcall logs failed mod Step",
+        "Entry/marker mutation occurs before callback and no local rollback or retry is implemented"
+      ],
+      "aftermath": "Completed marker prevents scheduled callback replay in runner; malformed/failing callback can remain consumed by this inspected design. Adaptation should use YAIRPG existing staged publication rather than copying this failure policy.",
+      "sources": [
+        "time_script",
+        "lua_main",
+        "mod_base",
+        "lua_error",
+        "lua_manager",
+        "main_time",
+        "world_tick"
+      ]
+    }
+  ],
+  "yair_sources": {
+    "discovery": {
+      "path": "src/skill_discovery.js",
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "read_spans": [
+        [
+          1,
+          143
+        ]
+      ],
+      "role": "Already delivered known-only projection separates discovered/unlocked/eligible; no new ledger needed",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    },
+    "native_discovery": {
+      "path": "src/skill_discovery_native.js",
+      "sha256": "b2e258f504610da9c904e7bc567ee69c47dc6eb1b0bc046aa1d5f361680759a5",
+      "read_spans": [
+        [
+          1,
+          10
+        ]
+      ],
+      "role": "Native threshold/name projection remains existing owner",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    },
+    "plans": {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "243a867f5475eb69b78ed922cd302ef335276e5c651318a248311e4f96a3d1f1",
+      "read_spans": [
+        [
+          1,
+          356
+        ]
+      ],
+      "role": "Existing finite command/travel/wait cursor, actual accepted-job receipt, goal/stock pauses, fresh preview and controls",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    },
+    "simulation": {
+      "path": "src/simulation.js",
+      "sha256": "de23b77c114e3ea34acbf6459f16e9e502b5f98ba176dd7db413214a239b70ff",
+      "read_spans": [
+        [
+          42,
+          100
+        ],
+        [
+          208,
+          247
+        ],
+        [
+          261,
+          278
+        ],
+        [
+          332,
+          375
+        ],
+        [
+          398,
+          422
+        ],
+        [
+          472,
+          485
+        ]
+      ],
+      "role": "Existing routines, event knowledge, mandatory decision stop, boundary settlement and next reservation",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation",
+      "prior_snapshot_sha256": "d2641ee534354424afe644b044a4b8c9a69c96abcd33a815bc23d8e39fdbd491",
+      "refresh": "Narrow semantic refresh after live integrator edits: relevant routine, player knowledge, mandatory-choice and shared-clock behavior retained; causal-story hooks now present. Broader new causal behavior is not covered by this worker."
+    },
+    "clock": {
+      "path": "src/expansion_engine.js",
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "read_spans": [
+        [
+          542,
+          583
+        ]
+      ],
+      "role": "Existing common calendar causal boundary loop; no replacement scheduler",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation",
+      "prior_snapshot_sha256": "dd52f305db21849739b3065113aa833119d2d5f71e4c1e92dbc52f951a678089",
+      "refresh": "Narrow semantic refresh after live integrator edits: relevant routine, player knowledge, mandatory-choice and shared-clock behavior retained; causal-story hooks now present. Broader new causal behavior is not covered by this worker."
+    },
+    "main": {
+      "path": "src/main.js",
+      "sha256": "dfa74761dfb3381fd6d64c99e972093935a6cf2e848645e7b919ed63e8ffe05d",
+      "read_spans": [
+        [
+          6234,
+          6271
+        ],
+        [
+          6896,
+          6916
+        ]
+      ],
+      "role": "Joined-time stop and existing native speed remains dev-only",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation",
+      "prior_snapshot_sha256": "e4795e0998dfb13a73adc2b4b3a7477d618de5c53cb0b455e9c798431d927c1f",
+      "refresh": "Narrow semantic refresh after live integrator edits: relevant routine, player knowledge, mandatory-choice and shared-clock behavior retained; causal-story hooks now present. Broader new causal behavior is not covered by this worker."
+    },
+    "content": {
+      "path": "src/simulation_content.js",
+      "sha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+      "read_spans": [
+        [
+          1,
+          99
+        ]
+      ],
+      "role": "Actual measured-pack1log/2coin/3min and public8min shower offer, no new content selected",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    },
+    "feed": {
+      "path": "src/event_feed.js",
+      "sha256": "a2c067fe27239a89b276aa860dbc974ab2cc514745fa24acb4c7873fae98334f",
+      "read_spans": [
+        [
+          1,
+          79
+        ]
+      ],
+      "role": "Player-known event/aftermath projection already exists",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    },
+    "feed_ui": {
+      "path": "src/event_feed_ui.js",
+      "sha256": "3166ac8f63659581dcbbeba1fac4fb03336081ba71133f5f142bff85e96eee35",
+      "read_spans": [
+        [
+          1,
+          42
+        ]
+      ],
+      "role": "Existing focus-preserving known-event navigation",
+      "status": "live dirty source snapshot; recheck with sole integrator before implementation"
+    }
+  },
+  "original_proposal": {
+    "status": "original_unselected_candidate_for_root_integration",
+    "candidate": "Receipt-bound manual preparation review inside an existing finite work plan",
+    "journey": "Player accepts a finite known preparation plan. After a real preparation job settles and its own player-known receipt exists, the cursor pauses future reservations and shows the current known readiness/condition quote. Player continues, changes their preparation, or cancels future steps; finished preparation and the ordinary accepted job keep their real terms.",
+    "prototype_anchor": "One ordinary existing village.measured_pack step spends1ownedlog+2nativecoins over3playedminutes and yields1real surveykit. Review at its actual completion before a second optional batch illustrates the consumer; root may bind a cultivation preparation plan instead. No new native recipe or method selected.",
+    "reuse_owners": [
+      "src/feature_expansion_work_plan.js:146settleAccepted and179advanceOne",
+      "src/simulation.js:206completeJob plus398advanceSimulationBoundary",
+      "src/expansion_engine.js:542advanceSimulation",
+      "src/skill_discovery.js:54known-onlyprojector",
+      "src/event_feed.js:player-qualifiedleads/news",
+      "src/gameplay_publication.js:existingsolepublisher"
+    ],
+    "already_delivered": [
+      "Bounded repeated simulation programs with fresh input previews",
+      "Finite command/travel/wait cursors with actual accepted-job receipt",
+      "Goal termination and stock reserve hysteresis/batch limit",
+      "Mandatory known decision pauses and known information UI"
+    ],
+    "missing_consumers": [
+      "A retained plan-specific review/acknowledgement step after actual successful settlement; current validateStep only accepts command/travel/wait",
+      "A player-qualified receipt guard tied to the accepted job/cause, not a historical completion count or unobserved global log",
+      "A fresh continue command that consumes acknowledgement once and re-previews/re-reserves the next existing command only if still eligible",
+      "A narrow current-known readiness/condition projection and paused reason/control on existing plan surface"
+    ],
+    "cost_result_consequences": [
+      "Review/attention pause charges no new resources or game minutes",
+      "Every actual prep job uses existing reservations/costs/results; review creates no mastery/material/restock",
+      "A later failed job/cancel uses its current declared refund/forfeit policy; no successful-reviewreceipt if actual completion failed",
+      "If a condition/offer was already observed before enrollment, it cannot spuriously trigger another new receipt watch",
+      "Future step cancellation retains completed preparation; optional cancelling of current work remains existing controlWorkPlan terms",
+      "Pause future cursor reservations only; retain the current shared-clock, event-deadline and accepted-job policies. This review must not silently freeze unrelated world time."
+    ],
+    "compatibility": "Keep workPlans1/2and existing absent-state inert. A new step/policy requires an explicit supported schema/revision and validated fields; never append it to already-frozen cursors. No parallel inventory/clock/RNG/save publisher, no new realm/prestige. Sole integrator owns runtime admission.",
+    "later_playable_gate": [
+      "Observe actual paid preparation and one current-job receipt, then manual stop before the next reservation",
+      "Unobserved NPC/private notices and old receipts do not reveal labels or fire watch",
+      "Continue/cancel/changed eligibility honor current stock/body/conditions and once-only cost/result",
+      "Save/reload retains same paused cursor and accepted-job ownership; legacy absence remains inert; save-failure publication retains prior durable state"
+    ],
+    "not_run": "No unit/browser/gameplay/save-failure/regression/director suites; no runtime implementation assigned.",
+    "disposition": "Qualified optional manual review candidate only. Existing wet-condition rejection, stock stop and goal stop are already delivered, so this family need not force an additional implementation packet."
+  },
+  "coverage": {
+    "semantic_scope": "Listed source spans and4finite subtraces only; no whole-game, whole-assembly or whole-scheduler coverage claim.",
+    "searched_not_semantically_covered": [
+      "Other collection calls for races/weather/formations/methods",
+      "Legacy MsgMgr speed path not selected as current behavior",
+      "Other production recipes/automation facilities and other delayed occurrence contents"
+    ],
+    "unread_or_uncertain": [
+      "ACSclosed/offlinecatch-up and enginebackgroundsettings",
+      "Stored actual MaxSpeed/OpenTopSpeedMode user settings",
+      "Whole raw profile/save collection data",
+      "Complete callback contents behind timedD270/D277occurrences",
+      "Behavior/balance observed in a running game",
+      "All item inheritance/mod override combinations"
+    ],
+    "observed_gameplay": false,
+    "decompiled_source_only": true,
+    "personal_files_accessed": false,
+    "runtime_tests": "not_run_deferred",
+    "mutation_scope": [
+      "docs/research/amazing-cultivation-simulator/traces/pacing.json",
+      "docs/research/amazing-cultivation-simulator/traces/pacing.md"
+    ]
+  },
+  "inspection_order": "Read mod documentation, readable timing script, controls and handbook table first; traced matching managed paths next. Queue/alert searches then located exact wood recipe/station and notice columns, reread with managed consumers. This does not claim that every production definition preceded every queue read.",
+  "ownership": "Only traces/pacing.json and traces/pacing.md; completed and released to root after analytical readback; no pending child/process.",
+  "yair_refreshed_utc": "2026-10-06T20:14:37.396394+00:00"
+}

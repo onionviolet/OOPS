@@ -12,9 +12,9 @@ export function readGameplayActor(actor, skills, context) {
 
 // Stage native item reconstruction and XP calculation BEFORE saving. The
 // returned publication only assigns validated values; rendering is a later step.
-export function prepareGameplayPublication(snapshot, {actors, skills, getItemFromKey}) {
+export function prepareGameplayPublication(snapshot, {actors, skills, getItemFromKey, unlockAdapter}) {
     validateGameplaySnapshot(snapshot);
-    const staged = [];
+    const staged = [], unlocks = [];
     for(const [actorId, saved] of Object.entries(snapshot)) {
         const actor = actors[actorId];
         if(!actor) throw new Error(`No live actor binding for ${actorId}.`);
@@ -35,13 +35,15 @@ export function prepareGameplayPublication(snapshot, {actors, skills, getItemFro
             const result = skill.add_xp({skillXP: next, xp_to_add: delta, track_dependencies: false});
             if(next.total_xp !== target.xp) throw new Error(`Skill ${id} rejected the planned XP.`);
             if(Object.values(result.unlocks || {}).some(entries => entries.length)) {
-                throw new Error(`Skill ${id} crosses a content unlock; that reward needs an unlock transaction adapter.`);
+                if(!unlockAdapter) throw new Error(`Skill ${id} crosses a content unlock; that reward needs an unlock transaction adapter.`);
+                unlocks.push(...unlockAdapter(result.unlocks));
             }
             progress[id] = {next, gains: result.gains};
         }
         staged.push({actor, levelable, items, nextItems, progress, reputation: {...saved.reputation}});
     }
     return {
+        unlocks,
         changes: staged.flatMap(s => Object.keys(s.progress)),
         dependencies: staged.flatMap(s => Object.entries(s.progress).flatMap(([id, value]) =>
             Object.keys(value.gains?.xp_multipliers || {}).map(target => ({id, target})))),

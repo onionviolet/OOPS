@@ -1,0 +1,94 @@
+{
+  "observed_utc": "2026-10-07T13:46:33.254532+00:00",
+  "status": "NOT COMPLETE",
+  "original_objective_preserved": true,
+  "requirements": [
+    {
+      "requirement": "Pin actual installed version/platform/native input and retain original Lua/API/DLC/dependencies privately",
+      "state": "proved for retained input snapshot",
+      "evidence": [
+        "docs/research/factorio/INTAKE.json",
+        "docs/research/factorio/native/INTAKE.json",
+        "FACTORIO_COMPLETION.json",
+        "RETAINED_INPUT_REFRESH.json",
+        "DEPENDENCY_ACQUISITION.json"
+      ],
+      "limit": "Live2.0.77/build23347942/nativeinputs/1877texts/twoAPIs rootrefreshed; usefulbundledSteamAPI610496B/twolicensefiles nowexactcopied+rootverifiedwithmainLCdependencydisposition. Systemframeworks externalmetadataonly; noenabledDLC/profile/entitlement claim."
+    },
+    {
+      "requirement": "Recover both architecture full function pseudocode/disassembly sets with exact provenance/coverage/failures",
+      "state": "ARMfullattempts acquired; Intelwholeexportlive with saved/reopen proof; incomplete",
+      "evidence": [
+        "private exports/arm64/progress.json",
+        "private native-index.sqlite",
+        "docs/research/factorio/native/PIPELINE.json",
+        "ARM_CORPUS_ACQUISITION.json",
+        "X86_SAVED_REOPEN_ACQUISITION.json",
+        "X86_INITIAL_CORPUS_ACQUISITION.json"
+      ],
+      "limit": "Intel182398savednativefunctions/178145callables/9869783instructions actualreopenmatch; fullC/ASMstream41973live. Rootfirst8400hashes/body/ASM/Cpass. WholeIntel/fullbotharchitecturefailure+flow reconciliation pending."
+    },
+    {
+      "requirement": "Make meaningful changed repairs for failed functions and qualify native ABI/field limits",
+      "state": "incomplete",
+      "evidence": [
+        "private immutable failure records",
+        "NATIVE_PROGRESS.json",
+        "native readers/logistics-heat/REPORT.md",
+        "ARM_CORPUS_ACQUISITION.json",
+        "BACKEND_REVIEW_ACQUISITION.json",
+        "ARM_FLOW_READBACK.json"
+      ],
+      "limit": "Scalarfix all1105affectedmethods qualified;14Splitter+6Insertercaseguard/targets identified and64omittedcasebytes independentlyverified, canonicalrepairs queued. Instrumentedseparateofficialbackendcompile99410 actual, zero/merge/signal mechanismprobes andselectedHeatphysicalABI repairs pending. Newcapacity allowsfiniteguardedlargemethod retry afterfullstream, noautomaticCclaim."
+    },
+    {
+      "requirement": "Review consequential native production/inventory/quality/spoilage/logistics/heat/DLC joins against actual shipped Lua/API",
+      "state": "Currentboundedreader/source/APIrefresh acquired; knownInserterclosure repair andfinalcorpus qualification pending",
+      "evidence": [
+        "docs/research/factorio/native/readers/quality-spoilage/REPORT.md",
+        "docs/research/factorio/native/readers/logistics-heat/REPORT.md",
+        "docs/research/factorio/native/SOURCE_BINDING.json",
+        "SOURCE_BINDING_ACQUISITION.json",
+        "LATEST_BINDING_READBACK.json",
+        "READER_REFRESH_ACQUISITION.json"
+      ],
+      "limit": "53distinctcurrentCviews/54bindings reread androotC/body/hashchecked;26sourcebindings/61APIpointers actualverified.19claims unchanged/1strengthened/2needphysicalcaseclosure. Six knowncaseentries/64bytes outsideInserterbody/ASM queued repair; allsemantic/virtual/nonfinite/DLCactivation limits explicit."
+    },
+    {
+      "requirement": "Use recovered methods in one concrete original YAIR behavior through existing inventory/body/clock/publisher/engine/UI",
+      "state": "proved source/build delivery; implemented-unverified",
+      "evidence": [
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md",
+        "RETORT_INTERFACE.md",
+        "NATIVE_VALIDATOR_INTERFACE.md",
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md"
+      ],
+      "limit": "ConcreteRetort4exactleaves/typednativeUI/readers retained370-sourcebuild; latestfreshbinding13records acquired. Gameplay/saveacceptedphase remainsdeferred."
+    },
+    {
+      "requirement": "Appropriate build/import/definition/link checks and matching source/current preview; explicitly deferred playable acceptance",
+      "state": "proved within authorized phase",
+      "evidence": [
+        "docs/gm/home-social-base-2026-10-07/FINAL_CHECKS.json",
+        "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md"
+      ],
+      "limit": "370local source-map contents and current bundle/map/index hashes matched. No game/browser/save/failure/regression/director suite is claimed."
+    },
+    {
+      "requirement": "Preserve saves/attribution/unrelated dirty work/exclusive writers; retain raw code privately and avoid publication/install mutation",
+      "state": "proved actions within current scope; final recheck pending",
+      "evidence": [
+        "ACQUISITION.json",
+        "INTEGRATION_PACKET.md",
+        "private tool receipts",
+        "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+        "ARM_ARCHIVE_ACQUISITION.json"
+      ],
+      "limit": "Exactinputs/chunks/archivednormalproject/packedDB/restorehelpers preserved and acquired; only previouslyproved redundantowned copies removed. No privateusercode/saves/install touched. Finalallcorpus preservation recheck remains."
+    }
+  ],
+  "decision": "Keepfullobjectiveactive. Currentturnprogress:actualIntelanalysis saved/reopened+fullC/ASMstream, initial8400exactbyte/C acquisition,53bodysemantic/source/APIrefreshwithreal64bytecasegap, releasedparentrouting correction,usefulDLL/licensepreservation,andindependentguardedbackendcompile. Bothfullcorpora/failure/CFG/ABI repairs/finalaudit remain; healthyjobs continue."
+}

@@ -1,0 +1,985 @@
+{
+  "schema": 1,
+  "capturedAtUtc": "2026-10-06T21:11:49.662322+00:00",
+  "owner": "01a112fe-13f6-7493-89c7-db0f42123ff6",
+  "status": "source-grounded synthesis; original proposals only",
+  "selectedForImplementation": false,
+  "sourceReviewMethod": "Targeted existing accepted claim/notes/manifest/coverage retrieval. No blanket reread, raw prose export, new chapter semantic credit or library mutation. Worker claims were checked by parent against actual entries.",
+  "sources": [
+    {
+      "id": "mol",
+      "title": "Mother of Learning",
+      "epubSha256": "e53f95695730fd58b70c9676f03cd2ee457521c60210515cea38c1a514aa2fcf",
+      "dossier": "docs/research/novels/full-book/mother-of-learning",
+      "coveragePath": "docs/research/novels/full-book/mother-of-learning/coverage.json",
+      "status": "complete supplied compilation",
+      "included": 107,
+      "reviewedIntegrated": 107,
+      "cutoff": "chapters1-106 plus epilogue, 107 story items",
+      "qualification": "WebToEpub compilation; publication authenticity/full publication coverage unverified",
+      "coverageSha256": "4fe9eb7c4a823d6f099f5b7302eb15a8b965d5e00fd0f9321a958f75b33219ea"
+    },
+    {
+      "id": "worm",
+      "title": "Worm",
+      "epubSha256": "5eb58f982c240739ac639de456c858e394c3ea787b21a901e63b0c95eaad2936",
+      "dossier": "docs/research/novels/full-book/worm",
+      "coveragePath": "docs/research/novels/full-book/worm/COVERAGE.json",
+      "status": "complete supplied compilation",
+      "included": 304,
+      "reviewedIntegrated": 304,
+      "cutoff": "304 supplied story/interlude/epilogue entries",
+      "qualification": "Exact supplied compilation; not authenticated against every author-hosted paragraph; selective consequence indexes",
+      "coverageSha256": "68f10303585f33b72b0af19c42a9f91da1b29a46622ff7808343aad2aab885b0"
+    },
+    {
+      "id": "paradise",
+      "title": "Reincarnation Paradise",
+      "epubSha256": "67f15d112389a7e4a1218a9f0888b358c5c8f8bd6ab339d9df4ede50c76636e6",
+      "dossier": "docs/research/novels/trailblaze-reading/paradise-depth",
+      "coveragePath": "docs/research/novels/trailblaze-reading/paradise-depth/AGGREGATE_COVERAGE.json",
+      "status": "complete supplied text, worker-attested/root-sampled review",
+      "included": 4656,
+      "distinctBodies": 4505,
+      "reviewedIntegratedDistinct": 4505,
+      "duplicateRepresentatives": 151,
+      "cutoff": "all supplied spine1-4656; selected packet era sid6 and post-return26-28",
+      "qualification": "English MTL labelled Gemini2.5Flash; U for original primary canon, translation authenticity/publication completeness unverified; franchise scenes qualify novel-presented fiction only",
+      "coverageSha256": "149b643f9bc4cc64870bd42d3b7bf1eec9381c17064a349a30f580bebe5865a1"
+    },
+    {
+      "id": "ri",
+      "title": "Reverend Insanity",
+      "epubSha256": "981c313a5f122272c0f6656df0071bfb43d37715e6ca20c10813a6341833e562",
+      "dossier": "docs/research/novels/full-book/reverend-insanity",
+      "coveragePath": "docs/research/novels/full-book/reverend-insanity/coverage.json",
+      "status": "incomplete parent reconciliation",
+      "included": 2334,
+      "readerReportedRead": 2334,
+      "reviewedIntegrated": 590,
+      "readReportedNotIntegrated": 1744,
+      "cutoff": "current accepted chapters1-590; chosen claims508/545 are within cutoff",
+      "qualification": "Supplied edition ends active battle; no ending/victor or accepted later chapter evidence inferred",
+      "coverageSha256": "268e9fbf9bc0a4a2a25d8b7bb43bcdbddb80ca8d82728ef7bf5092ee2152cc81"
+    },
+    {
+      "id": "rt",
+      "title": "A Regressor's Tale of Cultivation",
+      "epubSha256": "798bfee32222c8b67131266f43ea58a39875b110b06dd0810f0b35e162ad71e1",
+      "dossier": "docs/research/novels/full-book/regressors-tale",
+      "coveragePath": "docs/research/novels/full-book/regressors-tale/COVERAGE.json",
+      "status": "complete supplied compilation",
+      "included": 644,
+      "reviewedIntegrated": 644,
+      "cutoff": "644 supplied members, last label Chapter640 part2",
+      "qualification": "Supplied compilation only; translation/publication authentication not established; event/reveal/dream scopes retained",
+      "coverageSha256": "406a32fd6c89d94360eb55ef3de5f5c80614b8c8be5508119ee509ed4550462b"
+    },
+    {
+      "id": "coi",
+      "title": "Circle of Inevitability",
+      "epubSha256": "e7d156a15f97b207c141a347a4e048e0db176a7ee3cd9bd3be49d5963621805f",
+      "dossier": "docs/research/novels/full-book/circle-of-inevitability",
+      "coveragePath": "docs/research/novels/full-book/circle-of-inevitability/PROGRESS_READBACK.json",
+      "status": "incomplete; reserved source owner notLoaded after failed compaction turn",
+      "narrativeIncluded": 1178,
+      "readerReportedNarrativeRead": 1178,
+      "reviewedIntegratedNarrative": 1170,
+      "unreviewedNarrative": 8,
+      "afterwordRead": 1,
+      "afterwordReviewedIntegrated": 0,
+      "acceptedInformationMember": 1,
+      "cutoff": "accepted narrative1-1170; missing printed label1026 remains qualified",
+      "qualification": "No final dossier or full sequel completion inferred; no selected source claim in this synthesis",
+      "coverageSha256": "5c033b636097402e5b788030394b77ec4a43eb4d4d0ab3b29918d36e799fc63d"
+    },
+    {
+      "id": "lotm1",
+      "title": "Lord of the Mysteries, first novel Chinese EPUB",
+      "epubSha256": "6126274478a95dbe03eb904bc35c409067c7022563e52997a46e98be07b2d70d",
+      "dossier": "docs/research/novels/full-book/lord-of-mysteries",
+      "coveragePath": "docs/research/novels/full-book/lord-of-mysteries/coverage.json",
+      "status": "incomplete review/integration, checkpoint61",
+      "storySupplementIncluded": 1402,
+      "readerReportedRead": 1402,
+      "reviewedIntegrated": 363,
+      "cutoff": "all213PartOne plus PartTwo1-150",
+      "qualification": "Not full-book reviewed; no later first-novel mechanics or sequel substitutions imported here",
+      "coverageSha256": "8415e48aa675020b2a2aba7c1e2b1ba3c45370011505e2f1764ddd5a688d5a12"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "S01",
+      "sourceId": "mol",
+      "claimId": "MOL-C001-03",
+      "evidencePath": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "jsonPointer": "source_claims[id=MOL-C001-03]",
+      "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/mother-of-learning/REVIEW.md",
+      "locators": [
+        {
+          "chapter": 1,
+          "member": "OEBPS/Text/0001_1_Good_Morning_Brother.xhtml",
+          "paragraphStart": 27,
+          "paragraphEnd": 59
+        }
+      ],
+      "fact": "Mother says family status as a “pillar” of Cirin makes appearances important and asks Zorian to house Kirielle during a six-month parental trip to Koth to visit eldest son Daimen. Zorian interprets the request as dumping care/monitoring on him after Fortov declined; this is his suspicion, not confirmed parental intent.",
+      "evidenceKind": "C; mother’s stated rationale, Zorian’s interpretation",
+      "limits": "Stated request/appearance concern versus Zorian suspicion; no guaranteed care-to-trust law.",
+      "usedBy": [
+        "P1",
+        "map.work"
+      ],
+      "review": "Parent inspected exact complete analytical claim object and accepted coverage row; prior book GM semantic review reused, no fresh full chapter reread",
+      "evidenceContainerSha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+    },
+    {
+      "id": "S02",
+      "sourceId": "mol",
+      "claimId": "MOL-C005-07",
+      "evidencePath": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "jsonPointer": "source_claims[id=MOL-C005-07]",
+      "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/mother-of-learning/REVIEW.md",
+      "locators": [
+        {
+          "chapter": 5,
+          "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+          "paragraphStart": 107,
+          "paragraphEnd": 108
+        },
+        {
+          "chapter": 5,
+          "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+          "paragraphStart": 131,
+          "paragraphEnd": 159
+        }
+      ],
+      "fact": "Zorian uses remembered answers to ace surprise tests and maintain a notebook, but faces the unresolved coming attack without Zach. He develops a cautious anonymous-warning plan, buys generic supplies, avoids fingerprints/biological traces, writes in a changed hand, destroys materials and mails letters from public boxes a week before the festival. He leaves Cyoria by train the night before the dance/attack; no response is seen before departure.",
+      "evidenceKind": "W; outcomes altered by retained preparation",
+      "limits": "Sender performance is seen; recipient response is not. Later knowledge cannot certify early transmission outcome.",
+      "usedBy": [
+        "P2",
+        "map.knowledge"
+      ],
+      "review": "Parent inspected exact complete analytical claim object and accepted coverage row; prior book GM semantic review reused, no fresh full chapter reread",
+      "evidenceContainerSha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+    },
+    {
+      "id": "S03",
+      "sourceId": "worm",
+      "claimId": "W007-C04",
+      "evidencePath": "docs/research/novels/full-book/worm/readers/001-007/NOTES.json",
+      "reviewPath": "docs/research/novels/full-book/worm/REVIEWS.json",
+      "locators": [
+        {
+          "entry": "W007",
+          "title": "Interlude 1",
+          "member": "index_split_007.html",
+          "paragraphStart": 24,
+          "paragraphEnd": 26
+        }
+      ],
+      "fact": "After Taylor's January hospitalization, Danny learned she was being bullied; the school board settled hospital costs and promised prevention, while a transfer to Arcadia was blocked by travel-time rules and overcrowding.",
+      "evidenceKind": "narrated",
+      "limits": "Danny knows only one incident and Taylor has not named the bullies; the school's promise is described as feeble, not proof of later action.",
+      "knowledge": "Danny's account of earlier institutional responses to bullying.",
+      "usedBy": [
+        "P1",
+        "map.institutions"
+      ],
+      "review": "Parent inspected complete original claim object; coverage binds exact reader notes and prior review receipt. W227 initial worker21.5 heading corrected to manifest Imago21.7.",
+      "evidenceContainerSha256": "f87c59383f83271a26ef945d8f4b32181e00123a1ef9f0105ededa3e210c46a0"
+    },
+    {
+      "id": "S04",
+      "sourceId": "paradise",
+      "claimId": "PR04",
+      "evidencePath": "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json",
+      "reviewPath": "docs/gm/book-world-player-agency/SOURCE_QUALIFICATION_READBACK.json",
+      "locators": [
+        {
+          "sid": 26,
+          "member": "EPUB/Chapter 25 Various Classes_25.xhtml",
+          "memberSha256": "4bd1509955be80ae848d612c5b0aad5d56325e88bb8e00151a372673632acd89",
+          "paragraphs": "25-65"
+        }
+      ],
+      "fact": "A post-return employee account presents paid service/shops, personal concerns and institutional guidance.",
+      "evidenceKind": "supplied MTL event/testimony; U for original primary canon",
+      "limits": "Worker/tablet assertions attributed; not universal safety proof or Goa-time knowledge.",
+      "usedBy": [
+        "P1",
+        "P3",
+        "map.work"
+      ],
+      "review": "Parent inspected exact qualified evidence rows and aggregate measured coverage; existing root-sampled source readback reused.",
+      "evidenceContainerSha256": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70"
+    },
+    {
+      "id": "S05",
+      "sourceId": "paradise",
+      "claimId": "sourceFit.sid[6]",
+      "evidencePath": "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json",
+      "reviewPath": "docs/gm/book-world-player-agency/SOURCE_QUALIFICATION_READBACK.json",
+      "locators": [
+        {
+          "sid": 6,
+          "member": "EPUB/Chapter 5 The Shot!_5.xhtml",
+          "memberSha256": "af482e231318c23858d59e58d27cff01406c5eef5cae555446c0ef2ebccdcb31",
+          "paragraphs": "20-43"
+        }
+      ],
+      "fact": "Dump/exile/fire/pollution, food/doctor scarcity, cookie exchange, guarded boundary and garbage-cart access are presented in the supplied novel.",
+      "evidenceKind": "supplied MTL event/testimony; U for original primary canon",
+      "limits": "MTL primary-canon U; does not authenticate underlying One Piece canon.",
+      "usedBy": [
+        "map.geography"
+      ],
+      "review": "Parent inspected exact qualified evidence rows and aggregate measured coverage; existing root-sampled source readback reused.",
+      "evidenceContainerSha256": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70"
+    },
+    {
+      "id": "S06",
+      "sourceId": "worm",
+      "claimId": "W227-C03",
+      "evidencePath": "docs/research/novels/full-book/worm/readers/223-227/NOTES.json",
+      "reviewPath": "docs/research/novels/full-book/worm/REVIEWS.json",
+      "locators": [
+        {
+          "entry": "W227",
+          "title": "Imago 21.7",
+          "member": "index_split_227.html",
+          "paragraphStart": 41,
+          "paragraphEnd": 48
+        }
+      ],
+      "fact": "Tattletale’s mostly empty “End of the World” board tracks Jack’s route, recruitment and killings after he left Brockton Bay. A note records limits to Dinah’s forecasts: less accurate at interactions with power-immune capes, precogs or situational-change Thinkers, and limited visibility beyond such “stoppers”; it lists several towns without known stoppers and Boston/Charlestown with some but no known direct Nine interaction. Taylor understands the board as using forecast blind spots to narrow Jack’s possible location.",
+      "evidenceKind": "narrated",
+      "limits": "The board contains little beyond Jack’s trail and a single Dinah-limits card; Taylor’s interpretation is a reconstruction, and the Boston/Charlestown note calls for double-checking with “Still.” It does not establish Jack’s current location.",
+      "knowledge": "Taylor reads Lisa’s private notes; she has not independently verified each town’s status or the completeness of the route.",
+      "usedBy": [
+        "P2",
+        "map.knowledge"
+      ],
+      "review": "Parent inspected complete original claim object; coverage binds exact reader notes and prior review receipt. W227 initial worker21.5 heading corrected to manifest Imago21.7.",
+      "evidenceContainerSha256": "77945348b9dce29a9f1d8487970a0ee6b8af942f3038615a14a7014fa7ef76b2"
+    },
+    {
+      "id": "S07",
+      "sourceId": "mol",
+      "claimId": "MOL-C035-02",
+      "evidencePath": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "jsonPointer": "source_claims[id=MOL-C035-02]",
+      "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/021-035_NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/mother-of-learning/REVIEW.md",
+      "locators": [
+        {
+          "chapter": 35,
+          "member": "OEBPS/Text/0035_35_Mistakes_Have_Been_Made.xhtml",
+          "paragraphStart": 19,
+          "paragraphEnd": 28
+        }
+      ],
+      "fact": "Zorian gathers all mapped Knyazov mana crystals in one trip and cannot sell them to one underfunded shop without drawing attention: delvers, opportunists and spies target him, attack or try burglary. Anti-divination works against many but eavesdropper moths and repeated probes show unseen surveillance. An attempted intruder is shocked; local law enforcement reprimands him for excessive lethal security. He abandons town and learns to sell in distributed larger markets.",
+      "evidenceKind": "W; Zorian, city economy",
+      "limits": "One underfunded shop/local law and particular surveillance exceptions; no general sale algorithm/cure.",
+      "usedBy": [
+        "P2",
+        "P3",
+        "map.economy"
+      ],
+      "review": "Parent inspected exact complete analytical claim object and accepted coverage row; prior book GM semantic review reused, no fresh full chapter reread",
+      "evidenceContainerSha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+    },
+    {
+      "id": "S08",
+      "sourceId": "ri",
+      "claimId": "RI-c0508-02",
+      "evidencePath": "docs/research/novels/full-book/reverend-insanity/INDEXES.json",
+      "reviewPath": "docs/research/novels/full-book/reverend-insanity/reviews/R0501-0515.json",
+      "locators": [
+        {
+          "chapter": 508,
+          "member": "EPUB/chapter_508.xhtml",
+          "blockStart": 36,
+          "blockEnd": 53
+        }
+      ],
+      "fact": "Air-bubble fish help triple the firefly scale and yield50–60 more firefly Gu than estimated, easing earlier Stargate depletion. Rabbit overbreeding continues despite water-wolf relocation, prompting sale listings. Fang backs hairy men against rockmen and captives are sold to Immortal Crane; Guts trade and Fang Zheng visits remain refused.",
+      "evidenceKind": "N",
+      "limits": "Scale growth and additional Gu differ; relocation is not complete ecological control. Listed rabbits are not confirmed sold; eleven-stone recipe resale is separate from captive/material sales.",
+      "scaling": null,
+      "usedBy": [
+        "P5",
+        "map.ecology"
+      ],
+      "review": "Parent inspected exact complete claim object; claims within live590chapter integrated cutoff, later1744reader returns unaccepted here.",
+      "evidenceContainerSha256": "710551416c50b1cd964333c3f5eca27bfdf9fb2dfa41731ba4656b059d1636c7"
+    },
+    {
+      "id": "S09",
+      "sourceId": "ri",
+      "claimId": "RI-c0545-03",
+      "evidencePath": "docs/research/novels/full-book/reverend-insanity/INDEXES.json",
+      "reviewPath": "docs/research/novels/full-book/reverend-insanity/reviews/R0531-0545.json",
+      "locators": [
+        {
+          "chapter": 545,
+          "member": "EPUB/chapter_545.xhtml",
+          "blockStart": 48,
+          "blockEnd": 77
+        }
+      ],
+      "fact": "Fei accidentally moves a rock on a gentle slope and reveals a new spring stronger than A; Ma actually renames him Fei Hong Yun. Seven days later Hei surrounds the valley, and Gu pollution blackens all three springs overnight. Ma proposes giving outsiders the Ma surname to prevent wholesale absorption.",
+      "evidenceKind": "W",
+      "limits": "Fei Hong Yun is the performed new name; Ma Hong Yun is not yet granted. Ancestor blessing and feared outsider bans are Ma’s interpretations. The surname plan is still proposed, not implemented, and neither cure nor pollution caster/mechanism is identified.",
+      "scaling": {
+        "scene": "Warm Pond Valley after defeat",
+        "actor_stage": "Ma Ying Jie remnant leader; Hei Lou Lan surrounds",
+        "target": "springs and tribe survival",
+        "effect": "rock reveals new spring; later contamination disables all three",
+        "magnitude": "New spring exceeds A and expels over a hundred primeval stones; all three later cease useful production, existing stocks remain",
+        "speed_latency_reach_duration": "Natural gush at discovery; seven days later encirclement, then overnight blackening; valley resource scope",
+        "perception": "Ma sees flow and blackening",
+        "body_source_fuel_support": "Natural spring uncovered by moving a covering rock, not newly conjured by Fei; Gu contamination unspecified; stored stones remain finite",
+        "control_authority_resistance_preparation_order": "Ma names Fei Hong Yun after discovery; Hei demands surrender; Ma then proposes outsiders adopting Ma surname",
+        "counters_failures_exceptions": "No cure or performed surname grant; usable spring flow does not ensure military independence or change blood ancestry"
+      },
+      "usedBy": [
+        "P5",
+        "map.ecology",
+        "map.chronology"
+      ],
+      "review": "Parent inspected exact complete claim object; claims within live590chapter integrated cutoff, later1744reader returns unaccepted here.",
+      "evidenceContainerSha256": "710551416c50b1cd964333c3f5eca27bfdf9fb2dfa41731ba4656b059d1636c7"
+    },
+    {
+      "id": "S10",
+      "sourceId": "rt",
+      "claimId": "RT-0511-0518-C07",
+      "evidencePath": "docs/research/novels/full-book/regressors-tale/workers/0511-0518/NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/regressors-tale/REVIEW.md",
+      "locators": [
+        {
+          "ordinal": 514,
+          "title": "Chapter 510: Seo Ran's Family (5)",
+          "member": "OEBPS/chapter513.html",
+          "memberSha256": "1933f33751d598dcf355b87484415cacf778e31efd2fa1aa2330d7a342c7d422",
+          "paragraphStart": 10,
+          "paragraphEnd": 70
+        },
+        {
+          "ordinal": 514,
+          "title": "Chapter 510: Seo Ran's Family (5)",
+          "member": "OEBPS/chapter513.html",
+          "memberSha256": "1933f33751d598dcf355b87484415cacf778e31efd2fa1aa2330d7a342c7d422",
+          "paragraphStart": 93,
+          "paragraphEnd": 100
+        },
+        {
+          "ordinal": 515,
+          "title": "Chapter 511: Seo Ran's Family (6)",
+          "member": "OEBPS/chapter514.html",
+          "memberSha256": "1daa11ccf40634b9f94f47d66ad0310ce9243faea766ef8d6ed729917e320168",
+          "paragraphStart": 1,
+          "paragraphEnd": 21
+        },
+        {
+          "ordinal": 515,
+          "title": "Chapter 511: Seo Ran's Family (6)",
+          "member": "OEBPS/chapter514.html",
+          "memberSha256": "1daa11ccf40634b9f94f47d66ad0310ce9243faea766ef8d6ed729917e320168",
+          "paragraphStart": 23,
+          "paragraphEnd": 58
+        }
+      ],
+      "fact": "Candle Dragon children periodically suffer half-day heat/pain/loss of reason; Seo Ran restrains them with a reduced Pearl and heals himself. Safe home/purified energy is not the miraculous cultivation aid they credit to Seo Eun-hyun.",
+      "evidenceKind": "direct event/narration with separately labelled inference/reveal",
+      "limits": "Lifespan-shortening methods are Seo Ran inference, not child confirmation; scales do not remove own pain; no universal curse rule.",
+      "usedBy": [
+        "P1",
+        "P4",
+        "map.body"
+      ],
+      "review": "Parent read complete analytical C07/C09 passage in existing notes and manifest locators; prior supplied-edition accepted review reused.",
+      "evidenceContainerSha256": "e077f0160a228664a16e08ab491ed863faa1365d1a6e7bc9434dfdf3239baa04"
+    },
+    {
+      "id": "S11",
+      "sourceId": "rt",
+      "claimId": "RT-0511-0518-C09",
+      "evidencePath": "docs/research/novels/full-book/regressors-tale/workers/0511-0518/NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/regressors-tale/REVIEW.md",
+      "locators": [
+        {
+          "ordinal": 516,
+          "title": "Chapter 512: Seo Ran's Family (7)",
+          "member": "OEBPS/chapter515.html",
+          "memberSha256": "baf00941fdeb98e600b3e98b7234066e01e53083679f4c067cb5751be353421a",
+          "paragraphStart": 142,
+          "paragraphEnd": 180
+        },
+        {
+          "ordinal": 516,
+          "title": "Chapter 512: Seo Ran's Family (7)",
+          "member": "OEBPS/chapter515.html",
+          "memberSha256": "baf00941fdeb98e600b3e98b7234066e01e53083679f4c067cb5751be353421a",
+          "paragraphStart": 217,
+          "paragraphEnd": 303
+        },
+        {
+          "ordinal": 517,
+          "title": "Chapter 513: God of Cedarwood Painting",
+          "member": "OEBPS/chapter516.html",
+          "memberSha256": "4946f55ba4dd65bee6f6f91f7b0108fcd6cd62388d73c784b11f025c9ab53e58",
+          "paragraphStart": 59,
+          "paragraphEnd": 71
+        },
+        {
+          "ordinal": 517,
+          "title": "Chapter 513: God of Cedarwood Painting",
+          "member": "OEBPS/chapter516.html",
+          "memberSha256": "4946f55ba4dd65bee6f6f91f7b0108fcd6cd62388d73c784b11f025c9ab53e58",
+          "paragraphStart": 94,
+          "paragraphEnd": 105
+        },
+        {
+          "ordinal": 518,
+          "title": "Chapter 514: Go (古)",
+          "member": "OEBPS/chapter517.html",
+          "memberSha256": "082b57ffcb09c2fdc5a27cb19106affc1cd6a16fc5206654c76039de6a49630d",
+          "paragraphStart": 18,
+          "paragraphEnd": 34
+        }
+      ],
+      "fact": "Apparent massacre/Seo Ran defeat/death/return belongs to a dream-world containment distinct from actual Cedarwood Painting; most scene people are constructs/Heart Demons, with named exceptions.",
+      "evidenceKind": "direct event/narration with separately labelled inference/reveal",
+      "limits": "No real Cedarwood death/revival established; long imprisonment duration is prospective, external time/aging mechanics unmeasured.",
+      "usedBy": [
+        "map.chronology"
+      ],
+      "review": "Parent read complete analytical C07/C09 passage in existing notes and manifest locators; prior supplied-edition accepted review reused.",
+      "evidenceContainerSha256": "e077f0160a228664a16e08ab491ed863faa1365d1a6e7bc9434dfdf3239baa04"
+    },
+    {
+      "id": "S12",
+      "sourceId": "paradise",
+      "claimId": "sourceFit.sid[27, 28]",
+      "evidencePath": "docs/gm/book-world-player-agency/source-fit/OPENING_AND_GOA.json",
+      "reviewPath": "docs/gm/book-world-player-agency/SOURCE_QUALIFICATION_READBACK.json",
+      "locators": [
+        {
+          "sid": 27,
+          "member": "EPUB/Chapter 26 Growth_26.xhtml",
+          "memberSha256": "e12ecc997b6a76186b50406a10cf07002340aea8bab116873efb4658c0d2ae0a",
+          "paragraphs": "1-32"
+        },
+        {
+          "sid": 28,
+          "member": "EPUB/Chapter 27 Training!_27.xhtml",
+          "memberSha256": "68defc7d65b4d16fe6b0e631c8a2628417f453741f46911a978d320121b0145c",
+          "paragraphs": "1-45"
+        }
+      ],
+      "fact": "Then-held8400coins, paid named allocation facility, rest/meals/room furnishings and paid illusory training.",
+      "evidenceKind": "supplied MTL event/testimony; U for original primary canon",
+      "limits": "Rewards/allocation/instruction are distinct; no generic XP law or player future Hunter entitlement.",
+      "usedBy": [
+        "P3",
+        "P4",
+        "map.progression"
+      ],
+      "review": "Parent inspected exact qualified evidence rows and aggregate measured coverage; existing root-sampled source readback reused.",
+      "evidenceContainerSha256": "3161bb68318e80d6c16b95afa7bd83bd60cd6dc5f2c106b0dd4763fab1bf1b70"
+    },
+    {
+      "id": "S13",
+      "sourceId": "mol",
+      "claimId": "MOL-C005-08",
+      "evidencePath": "docs/research/novels/full-book/mother-of-learning/CLAIM_INDEX.json",
+      "jsonPointer": "source_claims[id=MOL-C005-08]",
+      "notesPath": "docs/research/novels/full-book/mother-of-learning/readers/001-005_NOTES.md",
+      "reviewPath": "docs/research/novels/full-book/mother-of-learning/REVIEW.md",
+      "locators": [
+        {
+          "chapter": 5,
+          "member": "OEBPS/Text/0005_5_Start_Over.xhtml",
+          "paragraphStart": 157,
+          "paragraphEnd": 166
+        }
+      ],
+      "fact": "After leaving Cyoria, sleeping uneasily on the train and dreaming of the attack, Zorian wakes again in Cirin to Kirielle’s familiar greeting. He calls it another recurrence but does not know whether it was caused by dying, passage of time, a fixed reset date, or something else. At the chapter end he has not established reset count or duration.",
+      "evidenceKind": "W; second return; unresolved reset trigger",
+      "limits": "Recurrence observed at this cutoff; trigger/duration/count unknown. No reset feature follows.",
+      "usedBy": [
+        "P2",
+        "map.chronology"
+      ],
+      "review": "Parent inspected exact complete analytical claim object and accepted coverage row; prior book GM semantic review reused, no fresh full chapter reread",
+      "evidenceContainerSha256": "a33bc88c855a4afadd709b5375b5a6a184922def0c9dfa9c188267bb01f2c8f1"
+    }
+  ],
+  "interfaces": [
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "actualExports": [
+        "REMAINDER_HOME_IDS",
+        "REMAINDER_HOME_KEYS",
+        "remainderHomeDefinitions"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "sha256": "4818ad05de29aff6e415730894181ca55dae1258634ec0efc82f240b237857f8",
+      "actualExports": [
+        "remainderHomeFacts",
+        "validateRemainderHome"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "sha256": "9a8e93f77a8b1373d0be5eed1edd694501aab969cfea603635e3de7b17dcd387",
+      "actualExports": [
+        "commitRemainderHomeCommand",
+        "remainderHomePresentation",
+        "remainderHomeSimulationContexts"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae",
+      "actualExports": [
+        "REMAINDER_LIVELIHOOD_IDS",
+        "remainderLivelihoodDefinitions"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_facts.js",
+      "sha256": "6ab8f0fd98f5d9cea213b3cb239df564d66dabe09312b935e6d19a344dedc6c1",
+      "actualExports": [
+        "remainderLivelihoodFacts",
+        "remainderLivelihoodWindow",
+        "remainderLivelihoodWorkerFree"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_host.js",
+      "sha256": "785b6a7f50f5ce5a293e1b37de28690dc6dff3d68c637a2c639a5706ec6c0063",
+      "actualExports": [
+        "commitRemainderLivelihoodCommand"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_offers_content.js",
+      "sha256": "0513318f63a127ae71be958afbd861746e41ce1ef2474e8ae634a31c4aca118e",
+      "actualExports": [
+        "REMAINDER_SUPPLY",
+        "remainderOffersDefinitions"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_offers_host.js",
+      "sha256": "263942b055657ec2ff70abd4032f1736fdb9a1428c2821e8b8f7609c0ce255fc",
+      "actualExports": [
+        "commitRemainderOffersCommand"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_consequences_content.js",
+      "sha256": "0f521dbcb0931f60344acd80335c7eaa79fdc71a1204df7fd0f58450cfb19926",
+      "actualExports": [
+        "remainderConsequencesDefinitions",
+        "REMAINDER_CONSEQUENCES_IDS"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_consequences_facts.js",
+      "sha256": "63722f676dea471cfe8a99217a9d472e7ea5d235c0b0a56ac672c0be565c41fe",
+      "actualExports": [
+        "remainderConsequencesFacts",
+        "retainRemainderConsequencesWindows"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_consequences_host.js",
+      "sha256": "77e20f77de30d7653e18bc2125a0446d7fd08983b974d56a0717faeb5698d45d",
+      "actualExports": [
+        "commitRemainderConsequencesCommand",
+        "reconcileRemainderConsequences"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/artifact_collection.js",
+      "sha256": "8347e9dcbe396bc1211d167773abfcfd9d0312729a4385e2cfb13e60eb033a82",
+      "actualExports": [
+        "compileArtifactCollection",
+        "compileItemEncounter",
+        "artifactEquipmentReasons"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/artifact_workshop_content.js",
+      "sha256": "9762a78c1f3c9a8273beecd944e959f57c62dee623db340c26ee9911c6831d65",
+      "actualExports": [
+        "ARTIFACT_WORKSHOP_IDS",
+        "ARTIFACT_WORKSHOP_KEYS",
+        "artifactWorkshopDefinitions"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "sha256": "8d40ef61c0896c80e8b7b75e482740034093d717c46a448b016b57185fcde64f",
+      "actualExports": [
+        "commitArtifactWorkshopCommand",
+        "artifactWorkshopPresentation"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "actualExports": [
+        "validateSituationDefinition",
+        "applySituationEffect",
+        "validateSituations",
+        "validateKnowledgeBasis"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "actualExports": [
+        "evaluateCausalClosure"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "7b4a019a11c54de061afc2ade1194fe155632d78022bd30ff69a7be3183ce5f6",
+      "actualExports": [
+        "commitSimulationCommand",
+        "cancelSimulationJob",
+        "simulationOccupiesActor"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "5f8ba3331b6f3224ca37b4fbb6bc26a8876097c19943aaf67ebf12c86dc3a888",
+      "actualExports": [
+        "applySimulationEffects",
+        "simulationFacts"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/feature_expansion_content.js",
+      "sha256": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10",
+      "actualExports": [
+        "featureExpansionDefinitions",
+        "featureExpansionSources"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_runtime.js",
+      "sha256": "ad875c2fc89af1703b53e34f7897680d1878ebb0161375e395ba112e4c3c7154",
+      "actualExports": [
+        "advanceAuditRemainder",
+        "auditRemainderSimulationContexts"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "sha256": "8df750a318f6e720c3be0daef1602846c2c18684a77a40246d34d8873b51872e",
+      "actualExports": [
+        "installAuditRemainderControllers"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "actualExports": [
+        "persistExpansionPlan"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/feature_expansion_book_catalogue.js",
+      "sha256": "6702347d008d1294cf213ccbb3da0838e68780faa46c5ae732efe2cf846712dd",
+      "actualExports": [
+        "bindBookSubtletyWorld",
+        "evaluateBoundBookSubtlety"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/book_world_player_agency_contracts.js",
+      "sha256": "c284122946a91d5d8946a6a548cd74a598fe52e57a1a27e3de0b606701195af0",
+      "actualExports": [
+        "BOOK_WORLD_AGENCY_CONTRACTS",
+        "getBookWorldAgencyContract"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "actualExports": [
+        "bodyFacts",
+        "CONDITIONED_GRIP"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified",
+      "exportInspectionNote": "CONDITIONED_GRIP is exported in the same const statement as NATURAL_BALANCE; declaration inspected."
+    },
+    {
+      "path": "src/energy_resources.js",
+      "sha256": "cc619def4c618a7b7128c43c499864a4ccc306d5f54dc20660f15004bbbb55ef",
+      "actualExports": [
+        "energyCharge",
+        "energyView"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c5360ab3418a76ff9e3e7706be963b8a23621242129037379a2d229b5df6aadd",
+      "actualExports": [
+        "rewindScenario"
+      ],
+      "requestedNamesNotDirectlyDeclared": [],
+      "status": "inspected source; delivered implemented-unverified"
+    }
+  ],
+  "inputSnapshot": {
+    "gitHead": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+    "dirtySource": true,
+    "currentReleasedBundle": "c12c1524b341",
+    "matchingBuildNotRerunByThisGM": true,
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957"
+      },
+      {
+        "path": "PROJECT.md",
+        "sha256": "0f696adb765df5fe3edf8e7044ecf9356207cbc9bbfda159441eeb5f1b716f69"
+      },
+      {
+        "path": "src/main.js",
+        "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82"
+      },
+      {
+        "path": "src/simulation_contracts.js",
+        "sha256": "8ed20594552d021a11d5ed0a9f3fc90162a08b62bbb5dba1edd6eb21b40c4292"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "sha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed"
+      },
+      {
+        "path": "src/expedition_content.js",
+        "sha256": "f231b47edd09e06c3aaa6c7a4b7c2977026c207576c516f949cf010f4c984763"
+      },
+      {
+        "path": "src/expedition_ui.js",
+        "sha256": "f6235c37afefc069a59b089d09538f0520e07766bba8d76bb0701c15ac64d2de"
+      },
+      {
+        "path": "src/crafting_recipes.js",
+        "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d"
+      },
+      {
+        "path": "src/feature_expansion_objects.js",
+        "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+      },
+      {
+        "path": "docs/gm/audit-implementation/remainder/RELEASE.json",
+        "sha256": "d208e4066d61d3149f5c479320aeae3ba5123b4fa06b8893d14dc21f28a512aa"
+      },
+      {
+        "path": "docs/gm/book-world-player-agency/PLAYER_CONTRACT.md",
+        "sha256": "e83818b7195b73e31f540f8712e85ba4b9ae1a8cefce6e8bb3f6719c45699769"
+      },
+      {
+        "path": "docs/gm/feature-wave/features/book-world-subtleties/INTERFACE.md",
+        "sha256": "51384c10d48855a1d43709f1ffdfd12c5bbe81d6b76d88e1271ae6ef805b61c1"
+      },
+      {
+        "path": "docs/gm/causal-endings/INTERFACE.md",
+        "sha256": "5fe1ecf05a9dd37e5bd8c272755c96147ca4092f9870662994550fc434706ae9"
+      },
+      {
+        "path": "docs/gm/dispatch/game-source-research-2026-10-06/DEEPER_RESEARCH.md",
+        "sha256": "0f84afe95dc057686bc49156515d20bade9340b8ef5b1cbf0cdb87bba82e0666"
+      },
+      {
+        "path": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+        "sha256": "e59e353fc6abbdc5aa5b473ab01592161315711bbf39f3947181be5b70411ad6"
+      }
+    ]
+  },
+  "liveOwnership": {
+    "checkedAtUtc": "2026-10-06T20:56:33Z",
+    "sharedIntegrator": {
+      "threadId": "01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd",
+      "title": "Implement audited RPG features",
+      "appStatus": "idle",
+      "lastTurn": "completed",
+      "reservation": "release file explicitly releases shared source, checked against completed final turn"
+    },
+    "pendingAssay": {
+      "threadId": "01a112b9-ea83-7b71-8ab1-85ec49b6b530",
+      "title": "Implement new game systems in YAIRPG",
+      "appStatus": "notLoaded",
+      "lastTurn": "completed blocked",
+      "note": "Latest turn predates observed final release; no transfer/resume inferred by this GM"
+    },
+    "coi": {
+      "threadId": "01a10931-9c16-79d0-bb0f-e2e4e6b8752e",
+      "title": "Book GM: Circle of Inevitability",
+      "appStatus": "notLoaded",
+      "lastTurn": "failed remote compact/network",
+      "reservation": "its source slug remains reserved; no takeover"
+    },
+    "ourSharedSourceReservation": false,
+    "integrationRule": "Actual future integrator must recheck live writers/releases, latest source hashes and acquire exclusive writes; released delivery does not assign ownership to this consideration task.",
+    "finalListCheckedAtUtc": "2026-10-06T21:18:20.441751+00:00",
+    "finalListDisposition": "Shared audited integrator still idle; assay still notLoaded; additional scout active in docs-only lane. No source ownership assigned to this GM."
+  },
+  "broaderMap": "LORE_TO_PLAY.md",
+  "packets": "PACKETS.json",
+  "knownMissingJoins": [
+    "No new lore.work/warning/instrument/learning/material family, public route/controller install, exposure-job hook or native strip exists.",
+    "Borrowed artifact reservation currently rejects consumption, even returned carrier use; narrow custody-safe consumer required.",
+    "Home exact prefix validator and modules.home prohibition prevent blind new fields.",
+    "Causal fixed3proof evaluator and scenario-only rewind are not generic all-book fate/history engines.",
+    "Current19 source profiles/agency contracts do not activate19native worlds.",
+    "New P1/P2 supported-time retention before generic absolute deadline/job/event scheduler checks.",
+    "P2 exact positive remaining-window duration admission for exposure; Ressa responses finish first.",
+    "Explicit post-trial Ressa material buyback/transfer before player native drying; no NPC method assumed."
+  ],
+  "uncertainties": [
+    "Source authenticity/translation/source edition completeness retain dossier qualifications.",
+    "Warning receipt/persuasion, MoL early loop cause, Worm current Jack location and RI contamination culprit/cure are unestablished.",
+    "RT dream events must not become actual-world death; external dream clock unmeasured.",
+    "Lore proportions/prices/clocks/text/weather/material damage/teaching/relationships remain original unbalanced proposals.",
+    "General rumor network, arbitrary NPC control/death/replacement/rewind, whole ecology/economy and full distinct book worlds remain unselected."
+  ],
+  "deferred": [
+    "implementation",
+    "new build",
+    "unit tests",
+    "browser/gameplay",
+    "save/reload/import",
+    "failed save/stale/cancellation behavior",
+    "regression/keyboard",
+    "director acceptance"
+  ],
+  "checks": {
+    "status": "all scoped documentation/source gates passed",
+    "artifactFiles": 6,
+    "jsonDocuments": 2,
+    "embeddedJsonSnippets": 2,
+    "sourceEvidenceEntries": 13,
+    "actualExportDeclarationsVerified": 56,
+    "inputFingerprintsMatched": 42,
+    "sourceCoverageCountsAndPinnedHashes": "pass for inspected source rows",
+    "localLinksAndAnchors": {
+      "status": "pass",
+      "count": 29
+    },
+    "behavioralChecks": "not run/deferred",
+    "newBuild": "not run, no source implementation in this task",
+    "scopedReview": {
+      "reviewer": "/root/native_joins",
+      "scope": "P1/P2 current executor contracts; P3/P5 API/output skim; only repaired paragraphs rechecked",
+      "findings": [
+        "Ressa exposure occupancy could block later response",
+        "Generic absolute deadlines require supported-time retention before scheduler checks",
+        "No established personal-player attention supply"
+      ],
+      "repairs": [
+        "Pre-response actions finish before exposure; exact remaining-duration host-only admission/validation named",
+        "retainLorePracticeWindows explicitly required before scheduler/expiry including new situation deadlines/exposure due and pause accounting",
+        "Attention charge only Neri; player stamina/time only"
+      ],
+      "disposition": "all3 closed in narrow returned readback; no game behavior claim"
+    },
+    "checkedAtUtc": "2026-10-06T21:20:40.810519+00:00",
+    "authoredWhitespace": "pass",
+    "requiredPacketFieldGate": "pass",
+    "latestInputEvidenceCoverageFingerprints": "all matched",
+    "failures": []
+  },
+  "workers": [
+    {
+      "task": "/root/lore_evidence",
+      "route": "gpt-6-luna medium",
+      "scope": "read-only MoL/Worm retrieval",
+      "status": "completed",
+      "repair": "Initial W22721.5 title corrected to manifest21.7; exact claim/member binding requested and checked"
+    },
+    {
+      "task": "/root/world_rules",
+      "route": "gpt-6-luna medium",
+      "scope": "read-only RI/Regressor retrieval",
+      "status": "completed",
+      "repair": "No worker repair; parent read RI complete claim objects and RT notes/manifest"
+    },
+    {
+      "task": "/root/native_joins",
+      "route": "inherited coordinator settings",
+      "scope": "read-only current source consumers",
+      "status": "completed",
+      "repair": "Scoped final review returned3material issues; parent repaired all3, reviewer readback closed them."
+    }
+  ],
+  "outputState": "Six artifact files complete; docs reservation released; no runtime selected."
+}

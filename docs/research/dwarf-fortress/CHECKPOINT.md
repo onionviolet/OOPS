@@ -1,0 +1,17 @@
+# Dwarf Fortress source GM checkpoint
+
+Completed 2026-10-07 UTC, local assignment date2026-10-06. Role `/root/dwarf_fortress_gm`; parent `/root`. Sole writer released after final validation.
+
+Objective complete for the finite selected source/data pass:33findings/17connected paths across simulation/authoring, bodies/progression, materials/production, people/institutions/information and ecology/time/persistence. Five original implementation proposals are a selection from wider findings, not whole-game semantic completion or an instruction to implement. [REPORT.md](REPORT.md), [FINDINGS.json](FINDINGS.json), [COVERAGE.json](COVERAGE.json), [INTAKE.json](INTAKE.json), [DLC_COVERAGE.json](DLC_COVERAGE.json), [IMPLEMENTATION_PACKETS.md](IMPLEMENTATION_PACKETS.md) and [PACKETS.json](PACKETS.json) own delivery; [VALIDATION.json](VALIDATION.json) and [HASHES.json](HASHES.json) own evidence.
+
+Exclusive writes were this directory and `/Users/weiwei/.codex/research/dwarf-fortress/`. Runtime/canonical/other game owners and Steam source were untouched. No children, launch, purchase, entitlement inspection, user-save access, uninstall, publication, chat or automation. Research followed PROJECT/shared GM refresh/capacity/iteration/depth instructions and the reference-scout skill. Memory was used only as a vanilla-preservation history pointer; live project/source took precedence.
+
+Steam app975370 reached StateFlags4/build24557528 on2026-10-07T03:37:45Z, staging0 and exact complete counters. Two matching file-metadata inventories preceded the private snapshot. Copy session97289 completed on03:39:46Z; verification session69800 completed with2749/2749destination hashes matching,1139421922bytes. No pending process/unknown mutation. Retained root: `/Users/weiwei/.codex/research/dwarf-fortress/24557528/retained/`; complete private FILE_MANIFEST/RETENTION_VERIFICATION/NATIVE_BOUNDARY receipts remain beside it. Do not remove these retained inputs with a later Steam uninstall.
+
+Native Windows PE32+x86-64 executable has CLR/export directories(0,0), SHA256205770918fd54c96cbbcf89223ebd449e2e113c7c873ed81177c4511a3450db7. All19Lua/374txtfiles retained;29files/4951selected lines received semantic review. Original C++ engine was not recovered/disassembled. Core AI/labor scheduling/combat equations/world history/offscreen policy/pathfinding/save transactions and most data tables remain uncovered. Dormant flags/comments/TODOs are qualified; no grammar/native runtime pass is claimed.
+
+Official US-English Steam base declared catalog has ids2232370/2937200, both type=music. No gameplay DLC declared in this snapshot. Ownership and standalone soundtrack payloads were not inspected. Base sound assets, Workshop mods and Classic alternative distributions are separate axes. Procedural mod pins53.16; entity mod53.01; bundled release notes stop53.15.
+
+JSON parse,33unique findings/17paths/exact coverage, five packet references,102source/reuse locator bounds/current hashes and local document links passed. YAIR code/build unchanged; all gameplay/unit/browser/save/reload/import/failure/regression/keyboard/director checks remain deferred/unrun. No actual played acceptance claim.
+
+Resume only for a specific parent review defect or authorized named unread/native question. Recheck moving YAIR hashes before implementing any proposed packet. Root owns integration and any canonical indexing. Finite task complete; no generic watcher or repeat source scan remains.

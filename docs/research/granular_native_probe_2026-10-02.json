@@ -1,0 +1,116 @@
+{
+  "kind": "research-probe",
+  "sourceSha256": "19e251ba3603e5981e486dd807fb9562a05fb695265caabdf21b1f16adcbc38c",
+  "records": [
+    {
+      "id": "calendar-bulk-boundary",
+      "expected": {
+        "month": 5,
+        "day": 30
+      },
+      "observed": {
+        "month": 6,
+        "day": 0
+      },
+      "limit": "Actual Game_Time import; does not establish every calendar or weather path."
+    },
+    {
+      "id": "forecast-year-wrap",
+      "expected": "Spring",
+      "observed": "Winter",
+      "limit": "Actual getSeason(1) import."
+    },
+    {
+      "id": "night-definition",
+      "expected": {
+        "night": true,
+        "label": "Night"
+      },
+      "observed": {
+        "night": true,
+        "label": "Day"
+      },
+      "limit": "Different native time-of-day consumers; no chosen replacement boundary."
+    },
+    {
+      "id": "overnight-work",
+      "expected": [
+        true,
+        false,
+        true
+      ],
+      "observed": [
+        {
+          "hour": 2,
+          "allowed": false
+        },
+        {
+          "hour": 12,
+          "allowed": true
+        },
+        {
+          "hour": 22,
+          "allowed": false
+        }
+      ],
+      "limit": "Synthetic overnight activity; native content prevalence not asserted."
+    },
+    {
+      "id": "sleep-expiry-order",
+      "expected": "Identical durations independent of insertion order",
+      "observed": {
+        "debuffFirst": {
+          "debuff": 94,
+          "buff": 94
+        },
+        "buffFirst": {
+          "debuff": 94,
+          "buff": 99
+        }
+      },
+      "limit": "Actual function body with inert display/stat stubs."
+    },
+    {
+      "id": "shorter-effect-refresh",
+      "expected": "No silent shortening paired with a false changed result",
+      "observed": {
+        "changed": false,
+        "remaining": 30
+      },
+      "limit": "Actual refresh body; use_item uses this return value to decide consumption."
+    },
+    {
+      "id": "multi-group-rejected-effect",
+      "expected": [
+        "weaker",
+        "stronger"
+      ],
+      "observed": [
+        "stronger"
+      ],
+      "limit": "Synthetic multi-group content; future authoring hazard, not a claim of a current player encounter."
+    },
+    {
+      "id": "zero-time-jump",
+      "expected": [
+        0
+      ],
+      "observed": [
+        1
+      ],
+      "limit": "Actual update_timer body; progress_time passes default zero to it."
+    },
+    {
+      "id": "locked-recipe-command",
+      "expected": {
+        "removed": 0,
+        "granted": 0
+      },
+      "observed": {
+        "removed": 5,
+        "granted": 1
+      },
+      "limit": "Actual use_recipe body with synthetic recipe/DOM/skill bindings; proves absent command gate, not ordinary UI reachability."
+    }
+  ]
+}

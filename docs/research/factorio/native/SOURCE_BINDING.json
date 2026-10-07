@@ -1,0 +1,321 @@
+{
+  "schema": 2,
+  "observed_at_utc": "2026-10-07T06:54:55.713548+00:00",
+  "status": "fresh ARM64 production wrapper/helper and Lua API joins; historical merged initial38 superseded; full both-slice export/repairs continue",
+  "installed_pin": "Factorio2.0.77/Steam23347942/universal90e2ebfdb5fd8b3966915f704a0ae99177c2af64ed9267c634ced42bff36d820",
+  "arch_pin": "arm64/9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "bindings": [
+    {
+      "architecture": "arm64",
+      "entry": "0x10065ed00",
+      "name": "__ZN15CraftingMachine12giveProductsERK15RecipePrototype2IDI16QualityPrototypehES5_d7MapTick9NamedBoolI19FromProductivityTagE",
+      "status": "success",
+      "body_sha256": "7cfaba2778605aa68d30a79b1bd87e34f0ff10821ecbeb6b2e32ede7f3941f45",
+      "c_like_sha256": "ce270e540a602a6ae18f41a5e3f8d53fecd6e65f8f595a03b6e63b42ec9d064c",
+      "c_lines": 17,
+      "body_bytes": 80,
+      "instruction_count": 20,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 9,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10065ed00/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10065ed00/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073e2e4",
+      "name": "__ZN15CraftingMachine22craftWithCurrentRecipeEv",
+      "status": "success",
+      "body_sha256": "466283f8bc426ba86b4b9def360fe6f485cc168ddcaa2927311a84b4c309ef93",
+      "c_like_sha256": "f32ffba7d73f8cef82721f6bb519a9271bda27f0b5ccc8420f0f0549168b7a29",
+      "c_lines": 135,
+      "body_bytes": 980,
+      "instruction_count": 237,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 19,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e2e4/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e2e4/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073e6b8",
+      "name": "__ZN15CraftingMachine20tryToProduceAndEjectERK15RecipePrototyped",
+      "status": "success",
+      "body_sha256": "84c96bd8732c402a743296cf9d24415c936862b223ecc795910ed0c5ef2311b0",
+      "c_like_sha256": "80227805be6665eaae93bf46c5fccf75ca6fe9422aad8a9243222822c0d157c6",
+      "c_lines": 76,
+      "body_bytes": 496,
+      "instruction_count": 124,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 20,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e6b8/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e6b8/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073e99c",
+      "name": "__ZN15CraftingMachine18consumeIngredientsERK15RecipePrototypeR15InventoryBuffer",
+      "status": "success",
+      "body_sha256": "e5770753278bbf77097c048eb5afa55bc14aa25177268c293681857f33b3e16b",
+      "c_like_sha256": "cc31d58b459b17f9aa8f4bbbf1e64c81028eb1ac92854f0da6037fb6bb765ac8",
+      "c_lines": 114,
+      "body_bytes": 440,
+      "instruction_count": 110,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 24,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e99c/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073e99c/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073f37c",
+      "name": "__ZN15CraftingMachine18canTakeIngredientsERK15RecipePrototype2IDI16QualityPrototypehE",
+      "status": "success",
+      "body_sha256": "6d88bf29defddfadfc86c0544aca76ea6a5f249fe68b455a9df8f1736adf0b89",
+      "c_like_sha256": "389aaf50b327344a9c75bab8d044c4f8b76d4f6b684488298fe750f15eb2ec35",
+      "c_lines": 10,
+      "body_bytes": 28,
+      "instruction_count": 7,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 27,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073f37c/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073f37c/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x100741a98",
+      "name": "__ZNK15CraftingMachine15canGiveProductsERK15RecipePrototype",
+      "status": "success",
+      "body_sha256": "e14960777d73f6a670c0047c77ccb1d4af519c72868006d032a25f2273628862",
+      "c_like_sha256": "f8daf6a2640b465531424b8bc79fb382a4c30c0079934bde73db47e85f823c15",
+      "c_lines": 11,
+      "body_bytes": 36,
+      "instruction_count": 9,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 34,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/100741a98/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/100741a98/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073ec44",
+      "name": "__ZN16ProductionHelper12giveProductsER15CraftingMachineRK15RecipePrototype2IDI16QualityPrototypehES7_d7MapTick9NamedBoolI19FromProductivityTagES9_I27IgnoreProductionOverloadTagEb",
+      "status": "success",
+      "body_sha256": "5ae373904717193990a58cc396f217244809a921c631de7ef97f53fdd96e6e73",
+      "c_like_sha256": "816503ce075059d4d18710742c1dc8eeb7224236b0bda12b8a2c69a7b62f2074",
+      "c_lines": 281,
+      "body_bytes": 1848,
+      "instruction_count": 441,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 36,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073ec44/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073ec44/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10073f398",
+      "name": "__ZN16ProductionHelper15takeIngredientsER9InventoryP15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehER9ForceData12SurfaceIndexR15InventoryBuffer",
+      "status": "success",
+      "body_sha256": "768c74965e8c096910af4bd8f64a724efcd80528c64aed640f5a25b3c91842e3",
+      "c_like_sha256": "aa367937030455bcc45a26c9b9524e42c812e6cb3b7158992b59ca24ebed248f",
+      "c_lines": 297,
+      "body_bytes": 1572,
+      "instruction_count": 376,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 37,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073f398/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10073f398/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x101559374",
+      "name": "__ZN16ProductionHelper18canGiveItemProductERK9ItemStackRK20ItemProductPrototype2IDI16QualityPrototypehERK3Mapd7MapTick9NamedBoolI17EnableSpoilingTagE",
+      "status": "success",
+      "body_sha256": "e8305babd082d66d65458392cc3bf7cd64aba80bec9f521790addd6d39daf240",
+      "c_like_sha256": "c9aa4c87a7bad5e84a386c1385a0750346afb01e50f18e89bed358c27ab623f4",
+      "c_lines": 124,
+      "body_bytes": 516,
+      "instruction_count": 129,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000004.jsonl.gz",
+      "private_chunk_line": 38,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000004.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/101559374/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/101559374/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x100741abc",
+      "name": "__ZN16ProductionHelper15canGiveProductsERK9InventoryPK15FluidBoxManagerRK15RecipePrototypeRK3Map2IDI16QualityPrototypehEd7MapTick",
+      "status": "success",
+      "body_sha256": "2f0ca7315045545a0bf9450233ffb84b417a47ff5542df0149c8247c5d419970",
+      "c_like_sha256": "7e4553857c040144671b5493d4d4fea482c8fb340a4d857d04e4b29fdf27a753",
+      "c_lines": 72,
+      "body_bytes": 400,
+      "instruction_count": 100,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000007.jsonl.gz",
+      "private_chunk_line": 78,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000007.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/100741abc/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/100741abc/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x1007391d4",
+      "name": "__ZN16ProductionHelper18canTakeIngredientsERK9InventoryPK15FluidBoxManagerRK15RecipePrototype2IDI16QualityPrototypehE",
+      "status": "success",
+      "body_sha256": "115df99b623ff251da4768a8d3697bfac61d9f66bed3878e6816018702a59635",
+      "c_like_sha256": "9bba329d7108572279ad2b924539f4868896615ad96c3a126006139cde8c9336",
+      "c_lines": 73,
+      "body_bytes": 364,
+      "instruction_count": 91,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000007.jsonl.gz",
+      "private_chunk_line": 8,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000007.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/1007391d4/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/1007391d4/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x10180563c",
+      "name": "__ZN18LuaRecipePrototype26luaReadResultIsAlwaysFreshEP9lua_State",
+      "status": "success",
+      "body_sha256": "32c89a360f7aecfcb97d91c9eebca32167aa88876bc32f9bd7c3469be80d089e",
+      "c_like_sha256": "545e49e8b6df7c73af585fc57e38136bb711bf58880560cda449dab63a162454",
+      "c_lines": 9,
+      "body_bytes": 40,
+      "instruction_count": 10,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000787.jsonl.gz",
+      "private_chunk_line": 75,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000787.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10180563c/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/10180563c/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    },
+    {
+      "architecture": "arm64",
+      "entry": "0x101805664",
+      "name": "__ZN18LuaRecipePrototype28luaReadResetFreshnessOnCraftEP9lua_State",
+      "status": "success",
+      "body_sha256": "efc9e100760def2125d7dc493f70aca3754c4063836344c55211dd0fd0e57b38",
+      "c_like_sha256": "d7c9c7d81d073bb2b1afddbd9460260d381645fe14da6f81a48d62fb428f3141",
+      "c_lines": 9,
+      "body_bytes": 40,
+      "instruction_count": 10,
+      "private_chunk": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/functions-000787.jsonl.gz",
+      "private_chunk_line": 76,
+      "private_chunk_receipt": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/arm64/chunk-000787.json",
+      "private_extracted_record": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/101805664/record.json",
+      "private_extracted_c_like": "/Users/weiwei/.codex/research/factorio/native-23347942/fresh-qualified/arm64/101805664/recovered.c",
+      "scope": "Fresh saved partially analyzed function boundary; nonempty generated C is qualified by bytes and ARM64 assembly, with explicit ABI limits."
+    }
+  ],
+  "superseded_binding": "history/SOURCE_BINDING-initial38.json",
+  "historical_reader": "readers/production-early/REPORT.md",
+  "fresh_bounded_readers": [
+    "readers/quality-spoilage/REPORT.md",
+    "readers/logistics-heat/REPORT.md"
+  ],
+  "source_qualified_usage": [
+    "Separate actual input eligibility/consumption, supported progress and completed-output admission.",
+    "A failed item-output admission check blocks the native product return; fluid product identity/capacity has a distinct failed code.",
+    "Reuse the retained partial/completed commitment concept; do not grant products from request/eligibility alone."
+  ],
+  "original_yair_choices": [
+    "Two physical retort tray variants and separate resin/residue receivers.",
+    "Actual sap/fuel/stamina finite job, declared prices/durations/outputs.",
+    "Pre-batch capacity denial/reservation is deliberately stricter original custody policy; native fresh-cycle output ordering is not claimed identical."
+  ],
+  "boundary_corrections": [
+    {
+      "wrapper": "0x100741a98",
+      "wrapper_bytes": 36,
+      "wrapper_instructions": 9,
+      "tail_branch": "0x100741ab8",
+      "actual_helper": "0x100741abc",
+      "item_helper_call": "0x100741b48 -> 0x101559374",
+      "effect": "Item/fluid admission loops belong to ProductionHelper helper, not CraftingMachine wrapper."
+    },
+    {
+      "wrapper": "0x10073f37c",
+      "wrapper_bytes": 28,
+      "wrapper_instructions": 7,
+      "actual_helper": "0x1007391d4",
+      "effect": "Input item/fluid identity/count/quality/temperature guards belong to ProductionHelper helper."
+    }
+  ],
+  "physical_ABI_qualifications": [
+    {
+      "entry": "0x100741abc",
+      "evidence": [
+        "0x100741b00 captures incoming D0 in D8",
+        "0x100741b3c restores D8 to D0 before 0x100741b48 call"
+      ],
+      "claim": "Actual admission forwards incoming double fraction; generated signature omits or misassigns scalar arguments."
+    },
+    {
+      "entry": "0x10073f398",
+      "evidence": [
+        "Caller 0x10073e9d4 sets X8=sp+8",
+        "Caller 0x10073e9d8 BL takes ingredients",
+        "Callee 0x10073f76c writes D0 to captured X8 result buffer",
+        "Caller 0x10073e9dc loads fraction D0 from sp+8 and 0x10073e9e0 stores this+0x1f0"
+      ],
+      "claim": "Aggregate return uses hidden X8 buffer, not a double function return. Result also includes quality byte and opaque 64-bit field; original type/layout names unknown."
+    },
+    {
+      "entry": "0x10073ec44",
+      "evidence": [
+        "0x10073ef78 loads product float offset",
+        "0x10073ef7c converts S0 to D0",
+        "0x10073ef80 adds D8 fraction",
+        "0x10073ef84 clamps via FMINNM",
+        "0x10073efa0 reads RecipePrototype+0x26f"
+      ],
+      "claim": "Creation adds product fraction offset and handles reset-freshness flag; admission helper has no equivalent offset addition."
+    }
+  ],
+  "native_API_field_joins": [
+    {
+      "API": "RecipePrototype.result_is_always_fresh",
+      "getter": "0x10180563c",
+      "field_read": "0x10180564c",
+      "RecipePrototype_offset": "0x26e"
+    },
+    {
+      "API": "RecipePrototype.reset_freshness_on_craft",
+      "getter": "0x101805664",
+      "field_read": "0x101805674",
+      "RecipePrototype_offset": "0x26f",
+      "creation_flag_read": "0x10073efa0"
+    }
+  ],
+  "limitations": [
+    "Full ARM and x86 exports and failure repair remain separate ongoing gates.",
+    "Generated types, hidden argument slots and floating storage/return semantics need instruction qualification; targeted official GNU/scalar signature repair remains pending.",
+    "Fresh body boundaries supersede old merged tails; old reader remains historical, not current signature/body proof.",
+    "Numeric input/output result codes observed, original enum identities not yet proven.",
+    "Reviewed consequential native/DLC joins are bounded, not complete semantic reading.",
+    "Installed DLC payload does not establish enabled profile/entitlement; no game/save/profile runtime inspected.",
+    "YAIR retort is original; stronger pre-batch capacity reservation does not claim literal Factorio ordering.",
+    "Gameplay/browser/save/failure/regression/director checks deferred; root owns implementation acceptance."
+  ],
+  "raw_code_in_git": false
+}

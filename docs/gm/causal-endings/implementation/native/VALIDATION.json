@@ -1,0 +1,72 @@
+{
+  "at": "2026-10-06T19:39:47.821848+00:00",
+  "status": "source-delivered-implemented-unverified",
+  "source": {
+    "path": "src/causal_story_native.js",
+    "sha256": "bcabbdc656318cff8b2653c818f60cffe35c6fed259030722ea3eb58f06261d7",
+    "lines": 464
+  },
+  "exports": [
+    "causalStoryQuestProjection",
+    "createCausalStoryNativeBindings",
+    "validateCausalStoryEnvelope",
+    "validateCausalStoryNativeMetadata"
+  ],
+  "checks": {
+    "syntax": {
+      "command": "node --check src/causal_story_native.js",
+      "exit": 0
+    },
+    "real_module_import": {
+      "module": "src/causal_story_native.js",
+      "exit": 0
+    },
+    "static_definitions": {
+      "exports_exact": true,
+      "local_import_links": 7,
+      "native_people": 5,
+      "person_order_matches_frozen_ids": true,
+      "initial_native_provision_false_Village_owners": true,
+      "authored_base_vitals_match": true,
+      "initial_skill_and_equipment_seeds_empty": true,
+      "quest_ids": [
+        "causal.story.mortal.quest",
+        "causal.story.covenant.quest",
+        "causal.story.anchor.quest"
+      ],
+      "required_engine_schema": 11
+    }
+  },
+  "observed_dependency_hashes": {
+    "src/causal_story_ids.js": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+    "src/causal_story_core.js": "0cb14a7db0d7514837e366080a4122f6f3b5111d0b2534812bdeb980a72d3bd3",
+    "src/causal_story_content.js": "89dd7840aacbd7bb5851aaa3d77281ad2dcea96c38d474e35bf76282fe842606",
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+  },
+  "dependency_hash_scope": "Observed static-check inputs only; other workers own and release their files independently.",
+  "native_read_evidence": [
+    "src/native_battle.js:16 readNativeFighter uses actual native actor stat methods",
+    "src/components/levelable_component.js getSkillXPObject lazily creates missing zero-XP skill records",
+    "src/causal_story_native.js fighter wrapper removes only new zero-XP reader records"
+  ],
+  "deferred": [
+    "one-time enrollment and native custody/XP",
+    "named strike/capture/severance and body identity",
+    "support invalidation/vitality/location",
+    "observer knowledge/quest/closure",
+    "save/reload/import/failure rollback and unrelated owner preservation"
+  ],
+  "not_run": [
+    "native constructor/game fixtures",
+    "build",
+    "unit",
+    "gameplay",
+    "browser",
+    "save",
+    "failure",
+    "regression",
+    "dependency installation"
+  ],
+  "private_save_or_library_access": false,
+  "shared_source_or_packaged_output_mutation": false
+}

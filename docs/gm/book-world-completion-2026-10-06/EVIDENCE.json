@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "owner": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "capturedAtUtc": "2026-10-07T04:30:24.805741+00:00",
+  "status": "source/native/UI/compatible-state/current-build complete; implemented-unverified; canonical closeout complete; ownership released",
+  "acquisition": "ACQUISITION.json;24/24pinned baseline inputs matched actual released home-world",
+  "sourceSyntax": "SYNTAX_CHECK.json;33owned source paths parse",
+  "definitions": "DEFINITION_CHECK.json;9worlds/56sources/1153commands/52controllers/23conditions/13encounters;647declared effects and17static item locators",
+  "sourceReview": "SOURCE_REVIEW_MOL + SOURCE_REVIEW_INTEGRATED; all actionable findings repaired/readback; current reviewed source hashes match",
+  "reviewSourceDrift": [],
+  "compiler": "npm run build;inkjs2.4.0 check0diagnostics; esbuild pass",
+  "build": "BUILD.json;ebf951d62861;335matching local map contents/37vendors; servedindex/bundlematch",
+  "actualModelImportLimitation": "Actual native item module import requires document via display.js47; no fake browser/native fixture was constructed. Static item locators checked instead; native constructor/model gameplay proof remains deferred.",
+  "deferred": [
+    "unit",
+    "browser",
+    "gameplay",
+    "native constructor/model execution",
+    "save/reload/export/import",
+    "failed save",
+    "regression",
+    "keyboard/focus",
+    "director acceptance"
+  ],
+  "workers": {
+    "mol_campaign": "source complete/released",
+    "paradise_depth": "source complete/released",
+    "integration_map": "source reviews and exact authoring recovery complete/released"
+  },
+  "runtimeFiles": [
+    {
+      "path": "src/main.js",
+      "sha256": "99f4ece298c84ddb02c0ea3d21db3c8a54845d011f9b82ac3a4613bda08dc32b"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "ebcfe158a68f1356e04cb9b8e034a27f0c184efef6b94cf1ae39dc232b122fd2"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "bb2f1800a9c8940c28cc20c45b33384dddd52ff8da6aa9060a16342996305465"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "fedb961f3003abd4eb907f94c17579e1e2959a8632709cac217a915c69d05bf2"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "4b27b6f5141bbfb4687c5b2d97f20f483df8e9f2065ab9d4510d4b7cbb9eb9a6"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "496452a527441bddb1bd686e9febf4f768c99325c18ccb0ec659c05270e0e8eb"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "aa6c57853a8f1813bda1b1a1f5c3fe282c441359942a09a6fa113738c1e40c6f"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "sha256": "9745c16f1e12469481aae52ed676e745a890de73a435d3208317e8304137d5d3"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "9ecd4feeb21ab31b6065ffa262ccd033a5d07304907f4aadd2c3ad3bb87e01e6"
+    },
+    {
+      "path": "src/realm_state.js",
+      "sha256": "8277dee8c60f052b8554077244f3cc57f490a018f2cc26d065157dd166030956"
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "sha256": "32e951fccf9925b68118938d33222200b2ca08010dbe4853b12ba01c9f8299f5"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "sha256": "758913d57d105c23b0908d3765b035e9947240fbf21e0644d7d629d6d7a2018f"
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "sha256": "ea461d24e53078667f78b026e57c1ebb121c04090f79f955324fb5617207cef9"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "84c44d1583227bd05d250eed2c31dcf1c994b4adf5e778ec5531c93d6865b886"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "sha256": "fe883ef6b25900283988a71f06b40c104bd2c90ae2632f83d92bc2c7ab689572"
+    },
+    {
+      "path": "src/audit_remainder_state.js",
+      "sha256": "6993015fc74723d4e35c118da718a6cef1a5c8c0aec1701ef8223a2cf056f98a"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "sha256": "12932680c7dd05b8dca359dc9305aea51c24162ad5132f2ffc4f75d3974a8d68"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "5b0f28658fdba23f3cd8b1d14a3e13e5245dbf6e961e461c63925676622b2982"
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "99cf8a4cfdabde4ae4f820ba0ffe4fe855bb8e48b055d3994a65b8ff720386f6"
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "sha256": "702d983d11899483bc9cb1d41dd037b02d7aa714105edf07757e5e0e545e729e"
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "sha256": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c"
+    },
+    {
+      "path": "src/book_world_effects.js",
+      "sha256": "18d1598256fd12d6269126384d32f758bd802041e9f811a9f02e6b1ba9455bd1"
+    },
+    {
+      "path": "src/book_world_mol_actions.js",
+      "sha256": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d"
+    },
+    {
+      "path": "src/book_world_mol_content.js",
+      "sha256": "6033a10b6845e0529e9109be1e351f75846b6655b091f142fd0a424b04360280"
+    },
+    {
+      "path": "src/book_world_mol_host.js",
+      "sha256": "bff62276ab5177013c83c515e24693f119f8b6066c8970c05598f3bea7ced657"
+    },
+    {
+      "path": "src/book_world_mol_ids.js",
+      "sha256": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195"
+    },
+    {
+      "path": "src/book_world_mol_native.js",
+      "sha256": "afa9e225d96af65729048f756e9413190b1347aaf6a3297208f797ed8a69ebe5"
+    },
+    {
+      "path": "src/book_world_mol_state.js",
+      "sha256": "75543dab270539f5c57045c8481a1a89351e0a16b9045fb603a7ad8387d4ddc8"
+    },
+    {
+      "path": "src/book_world_paradise_campaign_content.js",
+      "sha256": "59d2262e96fd9836dc0a3ad8281de122920d77d43dd901bbe53c9ca9dc8ebbb8"
+    },
+    {
+      "path": "src/book_world_paradise_campaign_facts.js",
+      "sha256": "9a95999bda36cdf4854c1a0a0b625d3f81513601f30b911b44fc098e84b563e2"
+    },
+    {
+      "path": "src/book_world_paradise_campaign_host.js",
+      "sha256": "4f76fcd0a1e52acbd6add2d89179b721329673d4972d280c09a45fd0218af905"
+    },
+    {
+      "path": "src/book_world_paradise_campaign_runtime.js",
+      "sha256": "2bb2692c043253f8422d5c257d9b77f265a8ce49dfaad6235056cab4f61e0787"
+    }
+  ],
+  "publicPreviews": {
+    "prior": "18194/session64842 immutable d405; deliberately retained",
+    "current": "18195/session13400 immutable ebf951d62861; deliberately retained",
+    "nativePanel": "queued to this chat; no controls exercised"
+  },
+  "preserved": "Private saves/read-only dossiers/libraries/vanilla/home-world/oneprestige/LICENSE/unrelateddirty/reservedassay untouched",
+  "canonicalRecovery": "AUTHORING_RECOVERY + AUTHORING_RESTORE; original68278-byte guide restored byte-exact to7dd0cfb6dc68, pre-home381654 alsomatches; current book-world interfaces appended; priorbadJSONpreserved",
+  "forbiddenActionsPerformed": [],
+  "finalReadback": "FINAL_READBACK.json;637localtargets/155anchors/JSON/source-map/bundle pass; plan23",
+  "canonicalFiles": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "ec17bbf8cf69908f2859ee68d608672107dfb6f225e69471055e481a26a42a64"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "sha256": "37201c35f58ed43acb2acd2d3a2bf6e556e307c6ef159dd25d057dc02d176951"
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "sha256": "9c3cee92c95e92194927de1ad388158ffef49087647a016bcd033e19a23ceec8"
+    },
+    {
+      "path": "docs/worlds/mother-of-learning/WORLD_BRIEF.md",
+      "sha256": "efbddc496490bc7e15681f5ac4bde4b4f2c83fd7924d4a683b826d78141dc2ea"
+    },
+    {
+      "path": "docs/gm/world-implementation/IMPLEMENTATION_PLAN.md",
+      "sha256": "3ad4e18644aabd4a0d0bbee648b1cc4ae4ac42e53ad6a3b9405927735d0867fa"
+    },
+    {
+      "path": "docs/gm/world-implementation/RUN.json",
+      "sha256": "9b1677f8ce71aef39f473eb2b49084d8e172769100af1aae9f43bfe42ae744ef"
+    }
+  ],
+  "ownershipReleased": "Root source/shared/canonical scope released; all internal workers/reviews completed; only two explicitly retained public static preview servers remain."
+}

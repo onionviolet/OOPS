@@ -1,0 +1,397 @@
+{
+  "reader": "craft",
+  "source": {
+    "repository": "Elin-Modding-Resources/Elin-Decompiled",
+    "commit": "6713f0656491f73f79068454dc3cd938b3a74c10",
+    "label": "EA23.352 Stable",
+    "provenance": "Community dnSpy recovery from Elin.dll; this reader did not perform a local decompilation.",
+    "limits": [
+      "External source rows, material/card tables and assets are not present in this repository, so exact recipe row values and all material definitions are not verified here.",
+      "Generated C# code is evidence of decompiled control flow, not a guarantee of original names/comments or runtime behavior.",
+      "No installed game, runtime, personal profile or save was inspected."
+    ]
+  },
+  "path": [
+    {
+      "finding": "RecipeManager.BuildList iterates source card/block/floor/deco/object/effect rows, constructs RecipeSource records, and asks Recipe.Create(...).BuildIngredientList() to materialize recipe requirements. Creation exceptions are caught per source row, which is removed from list/dict and logged; this is a fail-closed recipe availability path.",
+      "anchors": [
+        {
+          "path": "Elin/RecipeManager.cs",
+          "symbol": "RecipeManager.BuildList, RecipeManager.Create",
+          "lines": [
+            28,
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "finding": "A Recipe ingredient records requirement count and matching constraints (id/category/tag/material/ref/uid). IsValidIngredient enforces material tag plus category or id/origin membership. The source-row-derived recipe requirement list is therefore distinct from the chosen concrete inventory Thing.",
+      "anchors": [
+        {
+          "path": "Elin/Recipe.cs",
+          "symbol": "Recipe.Ingredient.IsValidIngredient, Recipe.Ingredient.SetThing",
+          "lines": [
+            91,
+            164
+          ]
+        },
+        {
+          "path": "Elin/Recipe.cs",
+          "symbol": "Recipe.BuildIngredientList",
+          "lines": [
+            539,
+            565
+          ]
+        }
+      ]
+    },
+    {
+      "finding": "RecipeCard.Craft obtains main material, required skill deficit, and GetQualityBonus. Excess skill requirement can produce a crude/failed dish; recipe quality bonus increases with skill headroom and recipe level. It sets a CardBlueprint then creates the output with selected material and level/quality inputs, mixes ingredient effects, calls the product trait OnCrafted callback, and holds the resulting item. Equipment rune ingredients can be transferred when valid.",
+      "anchors": [
+        {
+          "path": "Elin/RecipeCard.cs",
+          "symbol": "RecipeCard.Craft",
+          "lines": [
+            154,
+            331
+          ]
+        },
+        {
+          "path": "Elin/Recipe.cs",
+          "symbol": "Recipe.GetQualityBonus",
+          "lines": [
+            397,
+            425
+          ]
+        }
+      ]
+    },
+    {
+      "finding": "TaskCraft is the queued-work caller. Each progress tick grants 20 skill XP. At completion, each craft resets requirements, checks ingredients, splits/destroys required inputs, calls Recipe.Craft, then grants 200 skill XP. If ingredient validation fails, it reports invalidCraftResource and returns before later crafts, end effects, and stamina cost. IsIngredientsValid stages each split as it checks; if a later ingredient fails, earlier splits remain in the resources list because cleanup occurs only after all checks pass. PutOutResources can put staged resources on the zone, but repository-wide symbol search found no caller; their subsequent fate is unresolved from this trace.",
+      "anchors": [
+        {
+          "path": "Elin/TaskCraft.cs",
+          "symbol": "TaskCraft.OnProgress",
+          "lines": [
+            81,
+            86
+          ]
+        },
+        {
+          "path": "Elin/TaskCraft.cs",
+          "symbol": "TaskCraft.IsIngredientsValid",
+          "lines": [
+            111,
+            140
+          ]
+        },
+        {
+          "path": "Elin/TaskCraft.cs",
+          "symbol": "TaskCraft.OnProgressComplete, TaskCraft.PutOutResources",
+          "lines": [
+            142,
+            176
+          ]
+        }
+      ]
+    },
+    {
+      "finding": "Material is consequential beyond appearance: Thing.ApplyMaterial uses the selected material row's dice/atk/dmg/dv/pv values to set equipment dice, hit, damage and defense elements. Equipped material element maps are also applied. Card.GetTotalQuality combines level and material quality, then applies item quality percentage; these values feed Power and displayed total quality.",
+      "anchors": [
+        {
+          "path": "Elin/Thing.cs",
+          "symbol": "Thing.ApplyMaterialElements, Thing.ApplyMaterial",
+          "lines": [
+            341,
+            496
+          ]
+        },
+        {
+          "path": "Elin/Card.cs",
+          "symbol": "Card.GetTotalQuality, Card.Power",
+          "lines": [
+            2365,
+            2365
+          ]
+        },
+        {
+          "path": "Elin/Card.cs",
+          "symbol": "Card.GetTotalQuality",
+          "lines": [
+            4017,
+            4024
+          ]
+        }
+      ]
+    },
+    {
+      "finding": "CraftUtil.MixIngredients is a downstream consumer for ingredient material: for a map product it starts from product quality/effect, multiplies by each gem's material hardness-derived factor, caps by fame, and writes map range/int value. This demonstrates a meaningful non-equipment output function as well.",
+      "anchors": [
+        {
+          "path": "Elin/CraftUtil.cs",
+          "symbol": "CraftUtil.MixIngredients",
+          "lines": [
+            375,
+            500
+          ]
+        }
+      ]
+    }
+  ],
+  "ya_ir_inputs": [
+    {
+      "path": "src/crafting_recipes.js",
+      "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+      "read_ranges": [
+        [
+          1,
+          100
+        ],
+        [
+          142,
+          310
+        ],
+        [
+          310,
+          390
+        ],
+        [
+          467,
+          565
+        ],
+        [
+          763,
+          790
+        ],
+        [
+          1508,
+          1530
+        ],
+        [
+          2030,
+          2054
+        ]
+      ]
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "read_ranges": [
+        [
+          139,
+          160
+        ],
+        [
+          314,
+          455
+        ],
+        [
+          520,
+          630
+        ],
+        [
+          970,
+          1005
+        ],
+        [
+          2088,
+          2110
+        ],
+        [
+          3748,
+          3772
+        ]
+      ]
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "read_ranges": [
+        [
+          50,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "06b83be0fa2fc30c9c0465507bec8ebe0d021659ad01aa2e6d28496ce88332f5",
+      "read_ranges": [
+        [
+          3252,
+          3668
+        ]
+      ]
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "read_ranges": [
+        [
+          1,
+          105
+        ]
+      ]
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "read_ranges": [
+        [
+          1,
+          99
+        ]
+      ]
+    }
+  ],
+  "ya_ir_comparison": {
+    "existing": [
+      "ItemRecipe calculates inventory availability by ingredient counts and success chance by skill/station; item results spend actual inventory, award crafting XP, record attempts/successes, and produce the defined item.",
+      "ComponentRecipe creates a typed component with skill/station-derived quality. EquipmentRecipe combines selected compatible components, uses tier-weighted component quality to roll final quality, creates a computed Weapon/Armor/Shield item, and removes the selected components from inventory.",
+      "Weapon quality and rarity feed computed attack; head and handle contribute attack values/multipliers and component-specific bonuses. Iron axe head and medium handle illustrate distinct choices. Forging recipes include Iron chopping axe and Steel chopping axe.",
+      "The current reference gameplay working tree already includes a conserved cooling sleeve loop with a real material effect and a paid field consumer, plus quality-aware crafted equipment. Current AGENTS states this new gameplay is implemented-unverified; this reader does not claim browser or persistence validation."
+    ],
+    "gaps": [
+      "This source read establishes the component/equipment branch settlement code but not its exercised browser behavior, quality math correctness under all combinations, or save/reload roundtrip.",
+      "The inspected recipes, components and their quantities are YAIR original content. Elin source rows/assets are absent, so no exact named material values or one-to-one content mapping is established.",
+      "The code trace does not prove the game UI clearly previews all chosen component modifiers and final derived attack before commitment; verify that concrete player-facing behavior before proposing any additional feature."
+    ]
+  },
+  "rules": [
+    "Do not equate recipe unlock/visibility with owning or consuming a requirement; source predicates and concrete selected inventory must both be traced.",
+    "Preserve each component's mechanical role when combining it into equipment. Quality alone is not a substitute for material/component function.",
+    "A failure rule should state whether input costs, skill gain, output, and task/stamina effects happen; Elin's task code exposes ordering that matters when later craft attempts become invalid."
+  ],
+  "original_candidate": {
+    "player_action": "Use the existing Shack/Village crafting route to forge a steel axe head, pair it with the intended handle in the Axe equipment recipe, inspect the resulting name/quality/attack, equip it, then use it in a normal expedition encounter.",
+    "design_status": "Original YAIR playable acceptance candidate for existing crafting content; it does not authorize a new cooling or item-function system.",
+    "prerequisites_cost_aftermath": "Acquire listed forging inputs and skills, craft the component, then spend one compatible head and handle on one axe assembly. The durable result should be the computed owned/equipped weapon with its actual component-derived attack.",
+    "existing_owners": [
+      "src/crafting_recipes.js",
+      "src/items.js",
+      "src/main.js",
+      "native inventory/equipment transaction owners"
+    ],
+    "remaining_question": "Confirm from the full visible UI whether the selected components and resulting calculated attack are legible before the irreversible component spend. Do not call the existing source gap-free without this check.",
+    "acceptance": "Browser acceptance: verify recipe availability and material selection; forge components; assemble with compatible types; confirm each selected component is consumed once and one weapon inventory item is added with rolled quality; equip it; use it in combat; verify insufficient/missing parts leave inventory untouched. This is a later gate, not performed by this source reader."
+  },
+  "coverage": {
+    "reviewed_sources": [
+      "RecipeManager.cs: recipe list creation and row-local exception.",
+      "Recipe.cs: ingredient identity/constraints and skill-derived quality bonus.",
+      "RecipeCard.cs: selected material, quality/failure logic, output creation, ingredient mixing, callback and inventory handoff.",
+      "TaskCraft.cs: progress, resource splitting/destruction, revalidation, XP and stamina order.",
+      "Thing.cs and Card.cs: material stat application and quality consumer.",
+      "CraftUtil.cs: material hardness downstream map range consumer.",
+      "YAIR crafting recipe/item/field activity source excerpts listed above."
+    ],
+    "not_reviewed": [
+      "External source data rows and actual Elin runtime values.",
+      "YAIR recipe UI preview legibility, actual browser behavior and persistence roundtrip.",
+      "Runtime correctness and gameplay acceptance for current changed source."
+    ]
+  },
+  "source_files": [
+    {
+      "path": "Elin/RecipeManager.cs",
+      "sha256": "5c1910fd981ca9856407d05cba7193a74c05c8fbf98996d0ff0fbd616b7f7fa4",
+      "read_ranges": [
+        [
+          40,
+          129
+        ]
+      ]
+    },
+    {
+      "path": "Elin/Recipe.cs",
+      "sha256": "6003dd230d560fe0271b6e8978199711ee2c0d65585e0e1fe4e359ad49116478",
+      "read_ranges": [
+        [
+          1,
+          165
+        ],
+        [
+          397,
+          425
+        ],
+        [
+          539,
+          565
+        ]
+      ]
+    },
+    {
+      "path": "Elin/RecipeCard.cs",
+      "sha256": "d03152686d73b2753f6ea7d112c878aa95e80ebf0ad418c00286f49d85b43e89",
+      "read_ranges": [
+        [
+          154,
+          331
+        ]
+      ]
+    },
+    {
+      "path": "Elin/TaskCraft.cs",
+      "sha256": "9fc4ff33e930dbb08a51c6314febc95286723e3f34ec6b32e79f2f4fbfe19171",
+      "read_ranges": [
+        [
+          1,
+          176
+        ]
+      ]
+    },
+    {
+      "path": "Elin/Thing.cs",
+      "sha256": "a2e2b86e992d5d3e730961ad767bc61c52dff2de1e22d1ecc6d7ccacb37f041a",
+      "read_ranges": [
+        [
+          341,
+          440
+        ]
+      ]
+    },
+    {
+      "path": "Elin/Card.cs",
+      "sha256": "8390224ebb1a997fea994c94258a3b423c1ecfc60bfdb52a1f1458221191b558",
+      "read_ranges": [
+        [
+          2365,
+          2365
+        ],
+        [
+          4017,
+          4024
+        ]
+      ]
+    },
+    {
+      "path": "Elin/CraftUtil.cs",
+      "sha256": "11de04fb38bd67dc4af5ef2235401b4d1f45c5997be09981808b679f88de0ac8",
+      "read_ranges": [
+        [
+          375,
+          500
+        ]
+      ]
+    },
+    {
+      "path": "Elin/SourceMaterial.cs",
+      "sha256": "62f5c261e7f3b7588dacf5e4728d963b75160ad43004b7b3d3158b684814c79f",
+      "read_ranges": [
+        [
+          47,
+          73
+        ],
+        [
+          340,
+          395
+        ],
+        [
+          433,
+          489
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "date": "2026-10-06",
+  "senderThreadId": "01a10f95-ec79-7422-9567-8439615f8b91",
+  "recipientThreadId": "01a10dc5-ac2c-72e2-98fa-61b297638709",
+  "recipientTitle": "GM: implement items, powers, society…",
+  "humanAuthority": "continue accordingly? Or send off to the active accordingly? is there even an active one for this right now? Consider unimplemented stuff and more?",
+  "dispatch": "send_message_to_thread succeeded; active integrator acknowledged adoption and native identity follow-through",
+  "writerTransfer": "four completed fieldcraft modules released for recipient source review and adoption; this chat retains only its nethack docs and new follow-up research scope",
+  "files": [
+    {
+      "file": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "file": "src/nethack_fieldcraft_facts.js",
+      "sha256": "5e95f308f65c12841d21ee45c3b82462eba853d90f5a05e02d2cacc445a7d46b"
+    },
+    {
+      "file": "src/nethack_fieldcraft_host.js",
+      "sha256": "9df201aecf21327dcc69ea3c31cc7d89e98d9ca09bf911b223b6a14e52484b03"
+    },
+    {
+      "file": "src/nethack_fieldcraft_feats.js",
+      "sha256": "a7fbd3f7a175c7cb631ad9faf2c70d1251d56926f0a3d6b5a5e0a00092db5392"
+    }
+  ],
+  "sharedPatch": "INTEGRATION.patch targets prior expansion9 baseline; adapt to live expansion10 coexistence and current hashes",
+  "referenceBuild": "e1aaca74683b isolated preview/230source-map inputs; not main-bundle proof",
+  "newModuleCounts": {
+    "commands": 14,
+    "nativeItems": 4,
+    "localPeople": 1,
+    "conditions": 1,
+    "feats": 3
+  },
+  "behavior": "implemented-unverified; tests/browser/save/failure/regression/director deferred",
+  "privateSaves": "not accessed",
+  "noPendingModuleWriter": true,
+  "followupReader": "/root/nethack_source completed/released; source audit corrected; remaining queue forwarded",
+  "supersededModuleHashes": "BOOK_WORLD_HANDOFF.json records final compatibility repair and exact four-module release"
+}

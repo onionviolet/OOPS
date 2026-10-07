@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-04T18:06:11.909553+00:00",
+  "hashes": {
+    "src/pocket_realm_scenes.js": "518181a5081c1504f3996c4c5cab0385fb06ea45805a14371304d20fe5215aa2",
+    "src/pocket_realm_host.js": "06b31ac0ac0cd6c084bb8a3c9bf4add0e81d262652a97553836f86c7470d8ff9",
+    "src/realm_state.js": "5a2eb8ff8a9343c8d9fd7f9c3fd754fad345504329280e12bce798b37c5aa364",
+    "src/pocket_realm_content.js": "38711055eac43d19905642ce1d2a45beff04740dffd66d72700c8f23b4580243",
+    "src/simulation_effects.js": "c55ed82c5db30d4ca92eab298cbc6114c818fbcc7794b78705d84a37b43889cb",
+    "src/simulation.js": "834d8bc9ed18f53b6df7f229987725b2db8f9eeebf33022fb53abe43734d7ae0",
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": "2295419d8cde35d9f50fde0024fff26da64f8a25daa9bb8650ffd34b07fbc6c6",
+    "docs/gm/trailblaze/dialogue/LOCAL_SCENE_BRIEF.md": "5781926304fe9130f91123339f507e3edc62aa72010adc11ac163f81640b2a39"
+  },
+  "status": "active goal, awaiting shared-owner source reservation response; five scene commands registered in direct import snapshot; no suites executed"
+}

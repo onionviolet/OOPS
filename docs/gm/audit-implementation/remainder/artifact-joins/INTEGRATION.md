@@ -1,0 +1,35 @@
+# Artifact and Causal aggregate joins
+
+Root `/root` leased five shared source files exclusively to `/root/remainder_consequences` for this slice, 2026-10-06. Artifact revision2/release and Causal revision6/integration were read against ten matching released source hashes before edits. No artifact or Causal source module was changed by this worker. Root’s subsequent Causal host repair and Home import-cycle repairs remain root-owned; root’s `EXTERNAL_ADOPTION.json` owns their current adoption.
+
+**Implemented-unverified.** Source syntax, module/actual full registry construction, native-ID declaration and source-link checks are the permitted gates. All gameplay/browser/save/reload/import/failure/keyboard/regression/director gates remain deferred; the root owns the final build and one durable publisher.
+
+## Delivered joins
+
+`src/feature_expansion_content.js` appends the exact artifact family and Causal family while preserving every previous/remainder family. Artifact adds fifteen commands, one optional person, one situation and one carried-item scene. Causal adds sixty-three commands, five `provision:false` native people, six sites, two powers, five controllers, three situations and four registered sources. Only the artifact’s new `artifact_collection.open` entry gains an additive requirement and visibility predicate for fresh actual `auditRemainder.enrolled`; costs/effects/identity/revision and the other fourteen recipes/uses remain unchanged. Its raw released source stays untouched. No Causal seed effects are placed in a registry/onEnroll path.
+
+The aggregate flows through the existing `simulation_content.js` families/sources into `expedition_content.js`. **Do not append Causal again directly in expedition_content:** every ID is already registered once through this path. The final permitted import captured 328 feature commands and eight feature sources; full current registry 932 commands, 41 controllers, eight worlds, 50 sources. Artifact fifteen/Causal sixty-three commands and four sources are present. The existing one generic onEnroll effect is retained; none of the 97 Causal seed effects or artifact stock grants enters it. Live root changes after this snapshot may change combined counts; `VALIDATION.json` fingerprints this exact check.
+
+`src/data/expedition_items.js` imports/calls `registerArtifactWorkshopItems` exactly once after the existing `registerAuditRemainderItems` call. Six native apparatus IDs register through existing `OtherItem`: Empty resonance frame, Amber measuring prism, Blue aligning prism, Single-prism resonance frame, Paired resonance frame, Fine alignment pin. The ten existing remainder specifications and every earlier registrar remain. Six plus ten IDs are unique. Registration creates catalog definitions, never inventory. This browser/native catalog depends on DOM-owned baseline modules, so it was inspected statically rather than supplied a fake DOM or run as gameplay.
+
+`src/feature_expansion_wave_host.js` appends `artifactWorkshopPresentation` exactly once, only after `auditRemainderFacts(state)` confirms the actual enrollment receipt. Existing feature cards, cost/blocker legibility and current `featureWaveContext` continue to own it. Causal presentation is not duplicated here; root owns its standalone actual `causal_story_panel` and native/commit context.
+
+`src/simulation_ui.js` excludes artifact/Causal commands, their optional people and their sessions from generic Workshop/People projection. Their own hosts retain the exact scene/descriptor response, withdrawal and cancellation controls. Generic cancellation also excludes their accepted jobs, preventing a second descriptor/scene cancellation owner. Root’s follow-up also excludes the `audit_remainder` root and all six `remainder_*` command/cancel groups, plus `remainder_`/`remainder.` created-person prefixes: their dedicated lane transactions own structured state and observation instead of a generic bypass. Existing unrelated families remain unchanged.
+
+`src/adventure_notebook.js` directs the artifact’s waiting carried-item encounter and accepted work to Here/`feature_expansion_panel`. It gives the existing Causal standalone panel a Here wrapper and directs actual accepted Causal player work there. No new tab, stylesheet, scheduler or UI renderer is introduced.
+
+## Root joins retained
+
+1. Route intact `artifact_collection` commands, scoped cancel/response/withdraw actions and current sequence through `commitArtifactWorkshopCommand`, then exactly one `persistExpansion`. New artifact entry must have actual audit enrollment, not merely a namespace object. The source-adapted entry predicate and presenter already enforce the witnessed enrollment receipt.
+
+2. Supply fresh current `featureWaveContext`: actor/world/location/busy/native body, external money, gameplay for player and seller, actual vitals, and actual native equipment by owner. Artifact’s source blocker rejects missing native equipment or equipped inputs. Current root `campaignContext` already supplies the equipment map; preserve it through subsequent wrappers.
+
+3. Admit the declared `reservationReturns:1` command marker and copy it into new frozen simulation4 jobs, while preserving all prior group/old-job behavior. Root already owns the common executor and native acquisition bookkeeping. Returned tools, exact disassembled constituents and refunded transfers must not be new loot.
+
+4. Causal definitions/sources are aggregated once, but its five native owners,97explicit seed effects, state/schema coexistence, jobs/current support/travel/boundaries, native save/publication/restore, main route and `createCausalStoryUI`/render remain root-owned under the exact Causal packet. Do not eagerly seed or use the generic simulation route for its private sever job or player operations. Its standalone panel ID is verified as `causal_story_panel`; Notebook uses that exact ID.
+
+5. Root must finalize matching bundle/source maps and whole-envelope/native/UI/save integration. Preserve old frozen payloads, private saves/libraries and attribution. Later gates cover physical assembly/disassembly/stock/equipment conservation; sole carried-scene controls and ordinary useful pin; enrollment/old absence/current Causal source-body outcomes; durable generated save/import/failure behavior; and keyboard/menu/director/combined regression review. None was run here.
+
+## Source-check repairs outside the lease
+
+The first cold aggregate import stopped at `audit_remainder_home_facts.js`’s eager definition-map initialization. After root’s lazy-access repair, the next cold aggregate/catalog import stopped at the eager unused `remainderHomePublicCommandIds` export in `audit_remainder_home_host.js`. Root changed that export to deferred access; the exact aggregate-first full registry import then passed. The failures and repair ownership are retained in the evidence, rather than labeled behavioral passes. This worker changed only its five leased files and new artifact-joins evidence directory.

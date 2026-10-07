@@ -1,0 +1,93 @@
+{
+  "captured_at": "2026-10-06T05:06:01.393989+00:00",
+  "project_root": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+  "branch": "codex/gameplay-foundations",
+  "inputs": {
+    "AGENTS.md": {
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    "PROJECT.md": {
+      "sha256": "77958b38b64aafd751cf254503f8f9a40b74578aba0ee85ee2c4f7841bf7b429",
+      "bytes": 134353
+    },
+    "docs/GAME_MASTER_PROMPT.md": {
+      "sha256": "1e4ce5fbcdae4210e877c8a9b51b2c7356457db496d6c52aa2475780637e5b16",
+      "bytes": 37026
+    },
+    "docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md": {
+      "sha256": "ffadaa6dd51a9928cabcfaeb85a0e5442cc9a3c4f28be4ffce6fd05eb663fb11",
+      "bytes": 10439
+    },
+    "docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md": {
+      "sha256": "4bc482242d0dc4c834b0f0a80b063f0cfaffdf5fa3f3cf79b8220e8eaae6bc31",
+      "bytes": 14280
+    },
+    "docs/ENGINE_EXPANSION.md": {
+      "sha256": "90d53346df0a536d73017d180518c845bdeb6d2194966b9dbde74cb789d493f6",
+      "bytes": 283336
+    },
+    "docs/research/caves-of-qud/REPORT.md": {
+      "sha256": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "bytes": 6520
+    },
+    "docs/research/dcss-dda-depth/REPORT.md": {
+      "sha256": "387886a3a5b5c966049cc48fc5994b85d5e3208f0ab26a3c1c53f56cb53edba6",
+      "bytes": 15340
+    },
+    "src/simulation.js": {
+      "sha256": "3f8544881c8b759b476a5c0650bb6ab80e8cee55823376a5494ba3420f10c536",
+      "bytes": 47628
+    },
+    "src/expansion_engine.js": {
+      "sha256": "b43d2e58958a696e42eeb88cd26770f3a107193c2811dec724efe1653f3a4a37",
+      "bytes": 42672
+    },
+    "src/expansion_persistence.js": {
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "bytes": 3191
+    },
+    "src/gameplay_publication.js": {
+      "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+      "bytes": 3711
+    },
+    "src/people_knowledge.js": {
+      "sha256": "80a709cfb056b3edd8998a0e9786beaf729c1d4ab16bf94ec5df4c081e68f496",
+      "bytes": 8785
+    },
+    "src/power_models.js": {
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "bytes": 4477
+    },
+    "src/items.js": {
+      "sha256": "f210513d733bd6335a6d01dc5794a456090d436d160b07875e25f358d6cd01c5",
+      "bytes": 164071
+    },
+    "src/crafting_recipes.js": {
+      "sha256": "d5e6d381563bdf61dd212291db6bfabf0a4d1c8a56a0b3dd6dcd2e1d898f999d",
+      "bytes": 84012
+    },
+    "src/skill_discovery.js": {
+      "sha256": "131020574b6e1029c9665d675f33e4e9f01c849efe5dd56806c028a12872558f",
+      "bytes": 7369
+    },
+    "docs/research/rimworld/ASSIGNMENT.md": {
+      "sha256": "f3b3ec3f4bdecdff0800005be74100881b3386caae11ce4cb64187719e2b6dde",
+      "bytes": 4150
+    },
+    "docs/research/tales-of-maj-eyal/ASSIGNMENT.md": {
+      "sha256": "24a160545a6ccca3c8d01456b9b261fb1706ae46b565d216ec024290834aaaed",
+      "bytes": 3395
+    },
+    "docs/research/elin/ASSIGNMENT.md": {
+      "sha256": "b2876304d859b18e5fd9a7edbc2c12539c6041519838769945a4bd518b0c1d64",
+      "bytes": 3599
+    }
+  },
+  "limits": [
+    "The shared checkout is dirty with active implementation owners.",
+    "These fingerprints identify dispatch inputs only; GMs must refresh actual files before drawing YAIR conclusions.",
+    "No runtime, save, browser, build, or game-behavior checks were performed for this research dispatch."
+  ]
+}

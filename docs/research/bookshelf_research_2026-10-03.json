@@ -1,0 +1,842 @@
+{
+  "schema_version": 1,
+  "research_date": "2026-10-03",
+  "timezone": "America/New_York",
+  "kind": "derived_documentation_index",
+  "authoritative_owner": "docs/BOOKSHELF_INSPIRATION.md",
+  "owner_sha256": "1515b57571e5d1a302ea83e16a5e0c3f72d49ed62c58a17e106e0c24da47d42a",
+  "capture_note": "Derived from the saved synthesis of browser observations. This file is not a raw browser capture or a new source verification. Source content is paraphrased; original proposals remain separate.",
+  "counts": {
+    "ttks_twkan_shared_titles": 56,
+    "69shuba_additional_titles": 18,
+    "distinct_titles": 74,
+    "inspected_synopses": 21,
+    "targeted_chapters": 2,
+    "additional_comparisons": 3,
+    "scenario_cards": 5
+  },
+  "requested_shelves": [
+    "https://ttks.tw/novel/user/bookshelf_direct",
+    "https://www.69shuba.com/modules/article/bookcase.php",
+    "https://twkan.com/bookcase"
+  ],
+  "evidence_legend": {
+    "P": "Author/publication-platform premise inspected",
+    "M": "Supplied-mirror synopsis inspected",
+    "C": "Bounded supplied-mirror chapter scene inspected",
+    "T": "Title inspected only"
+  },
+  "case_records": [
+    {
+      "id": "B01",
+      "title": "無限魔神：我加載了下載面板",
+      "evidence_levels": [
+        "M",
+        "C"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/99756.html"
+        },
+        {
+          "label": "Chapter 5",
+          "url": "https://twkan.com/txt/99756/53532259"
+        },
+        {
+          "label": "Chapter 6",
+          "url": "https://twkan.com/txt/99756/53532260"
+        }
+      ],
+      "summary_in_owner": "M+C. [Synopsis](https://twkan.com/book/99756.html) moves from an apparently ordinary world to hidden martial/occult systems and cosmic scope. [Chapter 5](https://twkan.com/txt/99756/53532259) shows contact exposing named skills and download sizes. [Chapter 6](https://twkan.com/txt/99756/53532260) shows sunlight-derived fuel, weather interrupting its collection, and immediate acquisition of a physical metabolism talent. The protagonist infers that the donor retains it; this is his early conclusion, not proof of every later case.",
+      "original_proposal_in_owner": "Distinguish copying a learned method, copying mastery and acquiring a bodily faculty. A powerful acquisition route can bypass ordinary training when authored that way. Late limits, repeats and donor consequences remain unverified."
+    },
+    {
+      "id": "B02",
+      "title": "火影：我的攻略對象全是忍術",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/100773.html"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://twkan.com/book/100773.html) personifies techniques and ties improvement to interaction, gifts and special events.",
+      "original_proposal_in_owner": "A living spell or artifact can have preferences, memories and functional responses. Establish whether it is actually a person; merely renaming an XP meter as affection would miss the premise's distinctive interaction. Exact technique autonomy is unverified."
+    },
+    {
+      "id": "B03",
+      "title": "御獸，但是系統搞錯時間線",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/94633.html"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://twkan.com/book/94633.html) pairs an ordinary young trainer's animals with a system describing a different age and apparently extraordinary identities. The mismatch can expose unexpected potential.",
+      "original_proposal_in_owner": "Conflicting observations become investigable leads. Keep observed ability, predicted potential and unsupported system claims distinct. The synopsis does not establish that every forecast is correct or how time changes rewards."
+    },
+    {
+      "id": "B04",
+      "title": "我的文字修仙遊戲",
+      "evidence_levels": [
+        "P",
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "publication-platform synopsis",
+          "url": "https://fanqienovel.com/page/7477554232099343384"
+        }
+      ],
+      "summary_in_owner": "P+M. The [publication-platform synopsis](https://fanqienovel.com/page/7477554232099343384) confirms a text-game life becoming consequential outside the game, and a reborn empress whose memories of the protagonist conflict with his present behavior.",
+      "original_proposal_in_owner": "Give an NPC their own remembered history and reasons for mistrust. Current actions can alter the relationship without deleting that memory. Which histories and powers actually cross boundaries needs chapter evidence."
+    },
+    {
+      "id": "B05",
+      "title": "我的人生模擬器建議我重開",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": true,
+      "public_sources": [
+        {
+          "label": "Visible synopsis",
+          "url": "https://twkan.com/book/103848.html"
+        }
+      ],
+      "summary_in_owner": "M, partial. [Visible synopsis](https://twkan.com/book/103848.html) establishes an apparently happy ordinary life in a world with powers. The visible excerpt ends before explaining the simulator.",
+      "original_proposal_in_owner": "Useful contrast between an apparent stable life and a title suggesting restart. No forecast accuracy, reset rule, family secret or simulation reward is established by this pass."
+    },
+    {
+      "id": "B06",
+      "title": "還能保送怪物職業學院？",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/94961.html"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://twkan.com/book/94961.html) combines failed expectations after rebirth, a buggy beta system, monster vocational schooling and being recognized as talented.",
+      "original_proposal_in_owner": "Institutions can teach distinct practical roles and produce relationships, exams and ambitions. Membership should open concrete work or knowledge. Exact species, admission and curriculum rules remain unverified."
+    },
+    {
+      "id": "B07",
+      "title": "維度魔神的聊天群",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": true,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/79851.html"
+        }
+      ],
+      "summary_in_owner": "M, partial. [Synopsis](https://twkan.com/book/79851.html) makes the protagonist a young world-bound entity, initially geographically constrained, with an incoming cross-world chat group.",
+      "original_proposal_in_owner": "An optional domain origin and contact network can change access, trade and information. Contact need not immediately grant travel. Full chat-group privileges, member list and domain growth are unverified."
+    },
+    {
+      "id": "B08",
+      "title": "這個武聖太謹慎了",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": true,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/106266.html"
+        }
+      ],
+      "summary_in_owner": "M, partial. [Synopsis](https://twkan.com/book/106266.html) mixes a martial-tree advantage, lack of backing and preventive aggression framed as caution.",
+      "original_proposal_in_owner": "Separate a character's self-description from what witnesses experienced. Prepared overwhelming victory is a valid payoff; political or personal aftermath need not be an endless stronger-relative chain. Tree arithmetic is unverified."
+    },
+    {
+      "id": "B09",
+      "title": "廢土邊境檢查官",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": true,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/83197.html"
+        }
+      ],
+      "summary_in_owner": "M, partial. [Synopsis](https://twkan.com/book/83197.html) combines screening dangerous arrivals, strange organism-specific functions and a civilization collector that can copy different kinds of assets when cooperation is sufficient.",
+      "original_proposal_in_owner": "Investigation and cooperation can create acquisition opportunities beyond combat loot. Creature signals can matter to diagnosis, access or containment. Copied items, information, faculties and facilities need different ownership rules; quantities and failure outcomes are unverified."
+    },
+    {
+      "id": "B10",
+      "title": "我的超能力愈發抽象",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": true,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/93548.html"
+        }
+      ],
+      "summary_in_owner": "M, partial. [Synopsis](https://twkan.com/book/93548.html) presents randomly received, peculiar conditional powers amid ordinary-life goals and larger threats.",
+      "original_proposal_in_owner": "A disclosed predicate can create an unusual field or combat solution. Test literal edge cases and combinations. Random acquisition need not mean unpredictable execution; the exact duration and stacking rules are unverified."
+    },
+    {
+      "id": "B11",
+      "title": "神祇時代：歡迎加入光榮的進化",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://twkan.com/book/90547.html"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://twkan.com/book/90547.html) combines rebirth, divine authority conflict and evolution of several kinds of followers.",
+      "original_proposal_in_owner": "Local divine authority, followers and development can form a distinct late campaign. Conceptual uniqueness is an optional world law, not a global restriction on every power. This does not supply real biology or a transferable divine rulebook."
+    },
+    {
+      "id": "B12",
+      "title": "一万个我纵横诸天",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/44437.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/44437.htm) explicitly uses many selves for different specialties, cooperation, shared strength and civilization-scale work across settings.",
+      "original_proposal_in_owner": "Specialization and cooperation can outgrow personal damage. Begin with a few durable actors and real bottlenecks; clone trust, memory sharing and pooled mastery are source-specific questions. The primary listing could not be fetched in this pass."
+    },
+    {
+      "id": "B13",
+      "title": "我的弟子全是大帝之资",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/44309.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/44309.htm) presents students with different exceptional identities under one teacher.",
+      "original_proposal_in_owner": "Teacher, student and institution progression can differ. Students can pursue their own achievements and obligations. A guaranteed teaching-rebate system is not established by the synopsis."
+    },
+    {
+      "id": "B14",
+      "title": "没钱修什么仙？",
+      "evidence_levels": [
+        "P",
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Primary synopsis",
+          "url": "https://www.qidian.com/book/1042256511/"
+        },
+        {
+          "label": "mirror",
+          "url": "https://www.69shuba.com/book/85122.htm"
+        }
+      ],
+      "summary_in_owner": "P+M. [Primary synopsis](https://www.qidian.com/book/1042256511/) turns an apparent inheritance offer into a cultivation-power loan advertisement. The [mirror](https://www.69shuba.com/book/85122.htm) also labels academy and cyberpunk motifs.",
+      "original_proposal_in_owner": "Financialized cultivation is a candidate world's social structure. Funding, work, patronage and credentials can affect access to methods. Debt is one optional authored route; no exact interest or foreclosure simulation is selected."
+    },
+    {
+      "id": "B15",
+      "title": "苟在初圣魔门当人材",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/88724.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/88724.htm) establishes a dangerous sect and a finite-life restart artifact with several possible retained benefits.",
+      "original_proposal_in_owner": "A finite legacy source differs from both ordinary defeat and unlimited rewind. It belongs in the existing transition-policy work. Precise retained assets and which world events rewind need verification. Dark tone is a separate choice from the reset mechanism."
+    },
+    {
+      "id": "B16",
+      "title": "诸天模拟：从莽荒纪开始",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/89535.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/89535.htm) links simulation opportunities to kills and successful simulations to real bodies and rewards across named settings.",
+      "original_proposal_in_owner": "Forecast, actual alternate life, surviving copy and transferred reward need explicit boundaries. A reward without the represented history is different gameplay from a living participant. Cross-world reward and history rules remain unverified."
+    },
+    {
+      "id": "B17",
+      "title": "死灵法师在末世疯狂屯兵",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/55603.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/55603.htm) uses a two-way portal between fantasy and a zombie world, with skill learning/living on one side, unit supply on the other and modern equipment on undead.",
+      "original_proposal_in_owner": "Worlds can complement one another without being equal-power reskins. A route can connect supply, knowledge and equipment into a working strategy. Unit command, logistics, legal discovery and portal capacity still require chapter evidence."
+    },
+    {
+      "id": "B18",
+      "title": "穿越成为失落文明的监护AI",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/45672.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/45672.htm) establishes an AI controlling an unusual inherited planet, production, exploration and civilization-scale threats.",
+      "original_proposal_in_owner": "Base projects can lead to expeditions and later regional influence. This is a possible different protagonist/campaign scale, not a requirement to make every character manage a planet. Detailed research, production and resource rules are unverified."
+    },
+    {
+      "id": "B19",
+      "title": "绍宋",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/30929.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/30929.htm) establishes an inherited ruler's role in a crisis and the need to find allies and redirect institutions.",
+      "original_proposal_in_owner": "An inherited position carries access, mistaken expectations and obligations. Civic and command success can depend on allies, logistics and institutions. This is adjacent historical inspiration, not evidence of magical personal progression."
+    },
+    {
+      "id": "B20",
+      "title": "什么叫一流救世主啊",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/45201.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/45201.htm) emphasizes preempting catastrophe, agency, preserving lives and earning benefits.",
+      "original_proposal_in_owner": "Prevention and rescue can be explicit mission objectives alongside victory. The title/premise does not establish an exact simulation or rewind mechanism."
+    },
+    {
+      "id": "B21",
+      "title": "人在卡玛泰姬，无数天赋词条",
+      "evidence_levels": [
+        "M"
+      ],
+      "partial_synopsis": false,
+      "public_sources": [
+        {
+          "label": "Synopsis",
+          "url": "https://www.69shuba.com/book/55381.htm"
+        }
+      ],
+      "summary_in_owner": "M. [Synopsis](https://www.69shuba.com/book/55381.htm) combines periodic presence in another dangerous world with stealing others' luck to improve talent descriptors.",
+      "original_proposal_in_owner": "Functional talent evolution and a distinct theft route can be authored. Retained labels need actual effects. Luck theft is a reference idea, not an implemented change to our RNG or a verified Marvel canon rule."
+    }
+  ],
+  "discovery_inventory": [
+    {
+      "title": "無限魔神：我加載了下載面板",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B01",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "詭異遊戲：我的天賦有億點強",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "美漫超人：從黑袍開始",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "在童話世界當霸王怎麼了？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "維度魔神的聊天群",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B07",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "美漫：死靈法師才不想當英雄",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "咒回：特級的我去死滅打宿儺了！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "混在美劇里的小牧師",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "從火影開始，靠自己變強",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "還能保送怪物職業學院？",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B06",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "火影：我的攻略對象全是忍術",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B02",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "這個武聖太謹慎了",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B08",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "從廢土崛起橫掃諸天！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "從火影聊天群開始征服諸天",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "火影：我的寫輪眼成寶可夢了",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "火影之這個忍者不科學",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "火影：三代？我背後可是三巨頭！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "精靈：誰讓他當搜查官的！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我家大門通綜漫",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我都成霍格沃茲教授了，系統才來",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "賽博朋克：2075",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "全人類的繼承者",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我的超能力愈發抽象",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B10",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "我在希臘當先知",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "霍格沃茨的雷古勒斯：星空之主",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "坦坦蕩蕩真君子",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "什麼叫你進化成了金角巨獸？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "魔法學院的狂信徒",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "神祇時代：歡迎加入光榮的進化",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B11",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "廢土邊境檢查官",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B09",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "輪迴萬界，億萬神話詞條加身！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "家父人類議長，你要與我拼背景？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "轉生蚊子，吸哭的校花是女帝重生",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "火影：助斑返老，反攻木葉",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "御獸，但是系統搞錯時間線",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B03",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "戰錘：哥們的秘密太多了！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我的人生模擬器建議我重開",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B05",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "英靈模擬，開局成為暴虐的騎士王",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "什麼？她們都是真實存在的？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "一年抽取一詞條，模擬的也可以？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我一條惡龍，你讓我善墮？",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "從木葉開始解析忍界",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "我的文字修仙遊戲",
+      "shelf_group": "ttks_twkan",
+      "case_id": "B04",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "我真不是亡靈聖法師啊！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "火影：無數個我同時疊加！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "什麼反派男配，明明是暖心師兄！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "高武：我的時停不太對勁",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "忍界程式設計師",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "惟有我能讓木葉村再次偉大",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "極致錘鍊，肉身成聖",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "Re0：從零開始的童話英雄",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "星戰：忠誠高於一切",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "殺穿忍界，從被二代收養開始！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "聖女小姐，我真得操作你了！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "種道長生，我窮的只剩壽命！",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "穿越大乘期，卻發現是末法時代",
+      "shelf_group": "ttks_twkan",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "一万个我纵横诸天",
+      "shelf_group": "69shuba",
+      "case_id": "B12",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "我的弟子全是大帝之资",
+      "shelf_group": "69shuba",
+      "case_id": "B13",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "没钱修什么仙？",
+      "shelf_group": "69shuba",
+      "case_id": "B14",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "苟在初圣魔门当人材",
+      "shelf_group": "69shuba",
+      "case_id": "B15",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "火影：我在暗部苟成超影",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "流窜诸天的恶势力",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "白手起家，蝙蝠侠干碎我的致富梦",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "诸天模拟：从莽荒纪开始",
+      "shelf_group": "69shuba",
+      "case_id": "B16",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "死灵法师在末世疯狂屯兵",
+      "shelf_group": "69shuba",
+      "case_id": "B17",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "人在赛博，系统叫我搞治安？",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "别再催眠我了，反派皇女！",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "人在卡玛泰姬，无数天赋词条",
+      "shelf_group": "69shuba",
+      "case_id": "B21",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "绍宋",
+      "shelf_group": "69shuba",
+      "case_id": "B19",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "美漫丧钟",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "什么叫一流救世主啊",
+      "shelf_group": "69shuba",
+      "case_id": "B20",
+      "evidence_level": "see_case"
+    },
+    {
+      "title": "从杀手开始的美漫人生",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "美漫：我在大萧条画超人",
+      "shelf_group": "69shuba",
+      "case_id": null,
+      "evidence_level": "T"
+    },
+    {
+      "title": "穿越成为失落文明的监护AI",
+      "shelf_group": "69shuba",
+      "case_id": "B18",
+      "evidence_level": "see_case"
+    }
+  ],
+  "status": {
+    "source_roster_selected": false,
+    "gameplay_changed_by_this_saving_pass": false,
+    "exact_source_gaps": "See owner section Source questions and implementation boundaries",
+    "playable_acceptance": "See owner scenario cards and existing docs/PLAYTEST.md"
+  },
+  "excluded_fields": [
+    "account identifiers",
+    "bookmark positions",
+    "shelf identifiers",
+    "authentication tokens",
+    "copied chapter text",
+    "personal save data"
+  ]
+}

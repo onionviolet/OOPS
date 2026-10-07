@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "lane": "society",
+  "worker": "/root/society",
+  "status": "source-delivered-implemented-unverified",
+  "released": true,
+  "children": [],
+  "processSessions": [],
+  "outputs": {
+    "src/feature_expansion_society.js": {
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667
+    },
+    "src/feature_expansion_society_host.js": {
+      "sha256": "7eed44e5d84b583ab96312743e2d9cee06943bb2bc4577460bf396d45b81efbe",
+      "bytes": 12877
+    },
+    "src/feature_expansion_work_plan.js": {
+      "sha256": "a7cb5c8170c46452df831f8634fe5f022b86a9fbfab989a3f81884def5d58899",
+      "bytes": 19107
+    },
+    "docs/gm/feature-wave/features/society/CHECKPOINT.md": {
+      "sha256": "b38cedfd4f95452a7f685b6b9c5cbcb99a44842ce45c457ad9e451e5677e42ff",
+      "bytes": 3973
+    },
+    "docs/gm/feature-wave/features/society/INTEGRATION.json": {
+      "sha256": "e75863e507919ca47bc24dabda60382c0721f61ac14ec793a307fa2a86564211",
+      "bytes": 10938
+    },
+    "docs/gm/feature-wave/features/society/INPUTS.json": {
+      "sha256": "23bd470809ab73c460e07dc9c4fe65827a7134c9210b1de87409911cead35207",
+      "bytes": 1902
+    },
+    "docs/gm/feature-wave/features/society/DELIVERY.md": {
+      "sha256": "9afe89798236c31a6641e899fb19b0b411fd21850ae706bc25415e31ac72e5d9",
+      "bytes": 3459
+    }
+  },
+  "performedChecks": [
+    {
+      "check": "node --check src/feature_expansion_society.js",
+      "result": "pass"
+    },
+    {
+      "check": "node --check src/feature_expansion_society_host.js",
+      "result": "pass"
+    },
+    {
+      "check": "node --check src/feature_expansion_work_plan.js",
+      "result": "pass"
+    },
+    {
+      "check": "createSimulationRegistry(societyDefinitions), without state/gameplay execution",
+      "result": "pass",
+      "commands": 26,
+      "people": 3,
+      "controllers": 2,
+      "situations": 1
+    },
+    {
+      "check": "live expeditionRegistry import and createWorkPlanRegistry(societyWorkPlans,registry.simulation), without state/gameplay execution",
+      "result": "pass",
+      "registeredCommands": 26,
+      "expectedCommands": 26,
+      "itineraryStepCounts": [
+        7,
+        9
+      ]
+    }
+  ],
+  "deferredChecks": [
+    "unit",
+    "browser",
+    "gameplay",
+    "save/reload",
+    "failure",
+    "keyboard",
+    "regression",
+    "director balance/pacing/fiction",
+    "final matching bundle owned by Features GM"
+  ],
+  "privateSavesTouched": false,
+  "sourceLibraryTouched": false,
+  "existingFilesEdited": false,
+  "commitsPushPublicationAutomation": false,
+  "boundary": "This lane releases callable modules and precise shared joins. Features owns whole-wave UI/native/save/build integration; its final source hashes and compiled correspondence supersede this static source receipt when it makes named repairs."
+}

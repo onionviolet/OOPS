@@ -1,0 +1,3662 @@
+{
+  "status": "completed-assigned-finite-research",
+  "qualification": "Acquired files/record counts are not semantic coverage. Selected gameplay paths complete through reviewed consumers; all runtime behavior unverified.",
+  "families": [
+    {
+      "family": "production/dependencies/mastery",
+      "paths": [
+        "PROD-C01",
+        "PROD-C02",
+        "PROD-C03",
+        "PROD-C04",
+        "PROD-C05",
+        "PROD-C06",
+        "PROD-C07"
+      ],
+      "supplemental_findings": [
+        "PROD-F01",
+        "PROD-F02",
+        "PROD-F03",
+        "PROD-F04",
+        "PROD-F05",
+        "PROD-F06"
+      ],
+      "broader_edges": 15,
+      "exact_reviewed_spans": [
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            176,
+            218
+          ],
+          "function_chain": "isTreeUnlocked -> selectTree -> actionInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            301,
+            368
+          ],
+          "function_chain": "actionRewards -> bank Rewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            126,
+            160
+          ],
+          "function_chain": "Mining base interval and quantity",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            214,
+            224
+          ],
+          "function_chain": "canMineOre -> passiveTick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            416,
+            431
+          ],
+          "function_chain": "onRockClick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            595,
+            604
+          ],
+          "function_chain": "actionRewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            670,
+            704
+          ],
+          "function_chain": "postAction -> node depletion -> timer pause",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            740,
+            766
+          ],
+          "function_chain": "startRespawningRock -> respawnRock",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "smithing.js",
+          "lines": [
+            147,
+            173
+          ],
+          "function_chain": "actionRewards -> postAction",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fletching.js",
+          "lines": [
+            29,
+            46
+          ],
+          "function_chain": "alternative quantity and mastery interval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fletching.js",
+          "lines": [
+            119,
+            138
+          ],
+          "function_chain": "getRecipeCosts -> selectAltRecipeOnClick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fletching.js",
+          "lines": [
+            172,
+            213
+          ],
+          "function_chain": "actionRewards -> postAction",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1484,
+            1529
+          ],
+          "function_chain": "equipItem -> remove bank stock -> equip stack",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            736,
+            807
+          ],
+          "function_chain": "attack -> ammo check -> consumeAmmo",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1068,
+            1077
+          ],
+          "function_chain": "removeFromQuiver -> consumeAmmo",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "equipment.js",
+          "lines": [
+            322,
+            329
+          ],
+          "function_chain": "removeQuantityFromSlot -> unequipItem",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            720,
+            730
+          ],
+          "function_chain": "onRangedAttackFailure",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fishing.js",
+          "lines": [
+            93,
+            114
+          ],
+          "function_chain": "actionInterval -> activeFish",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fishing.js",
+          "lines": [
+            193,
+            320
+          ],
+          "function_chain": "getAreaChances -> actionRewards -> rewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fishing.js",
+          "lines": [
+            399,
+            445
+          ],
+          "function_chain": "start area and choose fish",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            231,
+            292
+          ],
+          "function_chain": "interval/success/perfect/costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            311,
+            437
+          ],
+          "function_chain": "active success/failure -> common rewards; passive stockpile/costs; onStop",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            439,
+            493
+          ],
+          "function_chain": "active/passive/recipe choices",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            545,
+            554
+          ],
+          "function_chain": "onCollectStockpileClick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            940,
+            940
+          ],
+          "function_chain": "baseSuccessChance",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1682,
+            1701
+          ],
+          "function_chain": "equipFood",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1744,
+            1790
+          ],
+          "function_chain": "eatFood -> getFoodHealing -> current cooking modifier",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2736,
+            2748
+          ],
+          "function_chain": "addCommonRewards -> rollMarksForSkill",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            8,
+            22
+          ],
+          "function_chain": "recipe source/material/tier/skill registration",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            318,
+            367
+          ],
+          "function_chain": "non-shard/shard cost reductions -> min-sale-value alternative cost",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            396,
+            413
+          ],
+          "function_chain": "getAltRecipeCosts -> choice -> stop",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            529,
+            556
+          ],
+          "function_chain": "tablet actionRewards -> postAction",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            650,
+            778
+          ],
+          "function_chain": "marks -> synergy unlock -> probability -> future-mark gate",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            270,
+            285
+          ],
+          "function_chain": "addXPForTabletConsumption",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            823,
+            852
+          ],
+          "function_chain": "tablet XP formulas and recipe/mark constants",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "production/summoningMenus.js",
+          "lines": [
+            26,
+            90
+          ],
+          "function_chain": "discovery state -> quick-create selection",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1024,
+            1046
+          ],
+          "function_chain": "own equipment event -> removeSummonCharge",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1061,
+            1067
+          ],
+          "function_chain": "synergy event -> both slots",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1630,
+            1657
+          ],
+          "function_chain": "own/synergy matcher registration",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            2442,
+            2505
+          ],
+          "function_chain": "unlock -> modifiers -> preservation -> charge depletion",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1296,
+            1299
+          ],
+          "function_chain": "depletion -> computeAllStats and matcher reassignment",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "bank2.js",
+          "lines": [
+            636,
+            690
+          ],
+          "function_chain": "bank success -> TimesFound",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            2,
+            18
+          ],
+          "function_chain": "FarmingRecipe baseQuantity",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            190,
+            204
+          ],
+          "function_chain": "FarmingGrowthTimer callback",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            358,
+            431
+          ],
+          "function_chain": "growth outcome and seed/time/chance costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            445,
+            601
+          ],
+          "function_chain": "harvest -> bank -> rewards -> reset; plant -> actual costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            651,
+            659
+          ],
+          "function_chain": "passiveTick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            1116,
+            1136
+          ],
+          "function_chain": "plantRecipe -> createGrowthTimer",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "herblore.js",
+          "lines": [
+            69,
+            81
+          ],
+          "function_chain": "current-tier actionItem and base quantity",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "herblore.js",
+          "lines": [
+            106,
+            145
+          ],
+          "function_chain": "3-to-1 bank upgrades -> getPotionTier",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "herblore.js",
+          "lines": [
+            178,
+            211
+          ],
+          "function_chain": "potion actionRewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "herblore.js",
+          "lines": [
+            260,
+            260
+          ],
+          "function_chain": "tierMasteryLevels",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "potionManager.js",
+          "lines": [
+            27,
+            135
+          ],
+          "function_chain": "charges -> stock use -> matcher -> depletion/auto-reuse -> provider stats",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            272,
+            287
+          ],
+          "function_chain": "getRandomProductInfo",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            341,
+            365
+          ],
+          "function_chain": "nest/random product reward",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            1971,
+            2014
+          ],
+          "function_chain": "levelUpMasteryWithPoolXP -> warning -> exchange -> action/pool XP",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2021,
+            2068
+          ],
+          "function_chain": "recipe levels -> bonus stats",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2109,
+            2162
+          ],
+          "function_chain": "cap/progress -> addMasteryPoolXP -> checkpoint recalculation",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2276,
+            2317
+          ],
+          "function_chain": "mastery formula -> level99 pool fraction -> current modifiers",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2513,
+            2553
+          ],
+          "function_chain": "action/pool modifiers into providedStats",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            358,
+            364
+          ],
+          "function_chain": "growth completion evaluates safety",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            419,
+            424
+          ],
+          "function_chain": "getPlotGrowthChance",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1781,
+            1790
+          ],
+          "function_chain": "getFoodHealing -> current scoped modifier",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            2,
+            38
+          ],
+          "function_chain": "AstrologyModifier costs/count/requirements",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            74,
+            104
+          ],
+          "function_chain": "recipe standard/unique/abyssal dust carriers",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            298,
+            306
+          ],
+          "function_chain": "isModifierUnlocked",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            356,
+            416
+          ],
+          "function_chain": "study reward chance -> addProvidedStats",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            437,
+            518
+          ],
+          "function_chain": "cost quote -> consumption -> upgrade state",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            866,
+            874
+          ],
+          "function_chain": "studyConstellationOnClick",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "astrology.js",
+          "lines": [
+            1077,
+            1077
+          ],
+          "function_chain": "baseInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "game.js",
+          "lines": [
+            1038,
+            1056
+          ],
+          "function_chain": "registerSkill -> stat provider",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "baseManager.js",
+          "lines": [
+            197,
+            213
+          ],
+          "function_chain": "provider registration -> computeAllStats",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            2393,
+            2397
+          ],
+          "function_chain": "addProviderModifiers",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "game.js",
+          "lines": [
+            532,
+            534
+          ],
+          "function_chain": "game.modifiers aliases player modifiers",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2276,
+            2317
+          ],
+          "function_chain": "current mastery XP consumer",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            1718,
+            1727
+          ],
+          "function_chain": "mode-qualified hasMasterRelic",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "agility.js",
+          "lines": [
+            417,
+            434
+          ],
+          "function_chain": "quote construction costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "agility.js",
+          "lines": [
+            460,
+            536
+          ],
+          "function_chain": "interval -> negative multiplier -> build cost",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "agility.js",
+          "lines": [
+            539,
+            598
+          ],
+          "function_chain": "actionRewards -> cycle next built obstacle",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "agility.js",
+          "lines": [
+            1168,
+            1225
+          ],
+          "function_chain": "contiguous active course -> passive stats -> destroy/build",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "agility.js",
+          "lines": [
+            1292,
+            1310
+          ],
+          "function_chain": "build choice eligibility -> confirmed build",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            1149,
+            1167
+          ],
+          "function_chain": "preservation chance/cap consumer",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            984,
+            1017
+          ],
+          "function_chain": "cost reduction -> modified item/currency costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            1149,
+            1167
+          ],
+          "function_chain": "preservation chance/cap",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2787,
+            2815
+          ],
+          "function_chain": "current and next stock gates",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "smithing.js",
+          "lines": [
+            103,
+            122
+          ],
+          "function_chain": "Coal cost exception",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            1046,
+            1054
+          ],
+          "function_chain": "modifyInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fletching.js",
+          "lines": [
+            45,
+            46
+          ],
+          "function_chain": "masteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "smithing.js",
+          "lines": [
+            43,
+            44
+          ],
+          "function_chain": "masteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "herblore.js",
+          "lines": [
+            80,
+            81
+          ],
+          "function_chain": "masteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            231,
+            232
+          ],
+          "function_chain": "getRecipeMasteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            269,
+            270
+          ],
+          "function_chain": "masteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            158,
+            159
+          ],
+          "function_chain": "masteryModifiedInterval",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "firemakingTicks.js",
+          "lines": [
+            3,
+            24
+          ],
+          "function_chain": "default bonfireCost10",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "firemakingTicks.js",
+          "lines": [
+            328,
+            332
+          ],
+          "function_chain": "one-log burn costs",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "firemakingTicks.js",
+          "lines": [
+            394,
+            437
+          ],
+          "function_chain": "XP and product rewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "firemakingTicks.js",
+          "lines": [
+            455,
+            515
+          ],
+          "function_chain": "expiry -> relight -> stock costs; Abyssal exemption",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "rockTicking.js",
+          "lines": [
+            595,
+            604
+          ],
+          "function_chain": "material rewards",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "runecrafting.js",
+          "lines": [
+            2,
+            6
+          ],
+          "function_chain": "base2s",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "runecrafting.js",
+          "lines": [
+            170,
+            205
+          ],
+          "function_chain": "actual Rune reward",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            736,
+            788
+          ],
+          "function_chain": "attack -> rune ownership/cost; aura cost/failure",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1008,
+            1015
+          ],
+          "function_chain": "consumeRunes",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            152,
+            218
+          ],
+          "function_chain": "tree multiplier -> selection limit/realm -> slowest timer",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            288,
+            298
+          ],
+          "function_chain": "Fletching Arrow Shafts material match",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            309,
+            340
+          ],
+          "function_chain": "per-tree quantity -> optional shaft reward",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "artisanSkill.js",
+          "lines": [
+            29,
+            49
+          ],
+          "function_chain": "create -> current cost; changing recipe stops",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2692,
+            2734
+          ],
+          "function_chain": "stop/action/giveRewards continuation",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "cooking.js",
+          "lines": [
+            413,
+            437
+          ],
+          "function_chain": "passive cost stop -> onStop",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            456,
+            470
+          ],
+          "function_chain": "grown harvest -> full-bank return",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "farming2.js",
+          "lines": [
+            651,
+            659
+          ],
+          "function_chain": "passive growth timers",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "fletching.js",
+          "lines": [
+            295,
+            337
+          ],
+          "function_chain": "recipe alternatives -> append modification",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "woodcutting.js",
+          "lines": [
+            288,
+            298
+          ],
+          "function_chain": "same real recipe material match",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "artisanSkill.js",
+          "lines": [
+            146,
+            164
+          ],
+          "function_chain": "bundle construction",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2247,
+            2249
+          ],
+          "function_chain": "level gate",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "skill.js",
+          "lines": [
+            2787,
+            2815
+          ],
+          "function_chain": "actual bundled stock consumer",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            675,
+            724
+          ],
+          "function_chain": "tier reciprocal marks/gate",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            8,
+            22
+          ],
+          "function_chain": "maxMarkLevel/realm/action data",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "item.js",
+          "lines": [
+            5,
+            42
+          ],
+          "function_chain": "item sale currency defaults/explicit AP value",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            362,
+            367
+          ],
+          "function_chain": "sale currency selects AP cost",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            696,
+            778
+          ],
+          "function_chain": "tier unlock -> current realm mark gate",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            848,
+            852
+          ],
+          "function_chain": "1000GP/5000AP constants",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1630,
+            1657
+          ],
+          "function_chain": "own versus synergy consumesOn scopes",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            1490,
+            1503
+          ],
+          "function_chain": "cantEquipWith",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "player.js",
+          "lines": [
+            2480,
+            2505
+          ],
+          "function_chain": "100% named bypass; Eternal XP exception",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "summoning.js",
+          "lines": [
+            824,
+            830
+          ],
+          "function_chain": "ordinary versus Abyssal consumption XP",
+          "disposition": "targeted_semantic_function_chain"
+        },
+        {
+          "source": "firemakingTicks.js",
+          "lines": [
+            394,
+            421
+          ],
+          "function_chain": "primaryProduct output",
+          "disposition": "targeted_semantic_function_chain"
+        }
+      ],
+      "json_bindings": [
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/0/data/trees/0",
+          "sha256_of_canonical_object": "b3f18b8a76ebe68fb3c4bf5a7e53f513406d07b03e4f276185057cabe690d1a8",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/4/data/rockData/1",
+          "sha256_of_canonical_object": "aa242023fc491d951aa94292c7f5bf6cf45d3e515e4af4a39ad9c3d7f0c1e572",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/4/data/rockData/2",
+          "sha256_of_canonical_object": "1a4c4bef2c7cec0abeb320a2366beec1f1a872958bc32bf8a12fa00044c3e7c0",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/5/data/recipes/0",
+          "sha256_of_canonical_object": "1d6235d18fdfd0b5119fb17b8500f9d3f40c663a35ac8675d59ab84663edd771",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/5/data/recipes/72",
+          "sha256_of_canonical_object": "35d0150b81514d5380e682ad8940994599f4b7edf79d1b159336a80ccb000f8b",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/8/data/recipes/0",
+          "sha256_of_canonical_object": "2486bf6a118026a913e140a1332deb58ab674ab9b929df8b41d2dc03a1788e3f",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/8/data/recipes/1",
+          "sha256_of_canonical_object": "f19fecc4dd09a059c3c7cdcdfcafba4ffbd985159c323faf15dbe826688c95ec",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/8/data/recipes/2",
+          "sha256_of_canonical_object": "6fa7705bfe850351289b345c23520b661352f22fdb0492221f6d2a8efa45d2bf",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/items/255",
+          "sha256_of_canonical_object": "acf2b2d2084592ec11ad9539f09c5724862ada05d77042729978ae0db7e22df8",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/shopPurchases/63",
+          "sha256_of_canonical_object": "b451ab4e1dae1d22622cfb263157990e4cbefbb5885377346ab3d25c8c13cd29",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/1/data/fish/0",
+          "sha256_of_canonical_object": "c2dabf53a4f648b9533c71d7ed3ef37c615e7d89204161cacccfe20d1e637c29",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/1/data/areas/0",
+          "sha256_of_canonical_object": "76d0fe8f68460124045e820820aee2713c7dfb1eae000cc89f92e1f52c3f48f1",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/3/data/recipes/0",
+          "sha256_of_canonical_object": "f5109901977be25f9602a66f530b69d44c774bf151f13ce3d5e2b30eef989889",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/3/data/masteryLevelBonuses",
+          "sha256_of_canonical_object": "bdc5a54cb55a84f830ecef95366244308823f93cc874ab104e0f9efb93f3a04b",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/items/21",
+          "sha256_of_canonical_object": "c8eeb46965bdb09734795075f883c544f32a7367391861e5bd2888cc913144b7",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/13/data/recipes/3",
+          "sha256_of_canonical_object": "d7edf8a61cec6cf0eb93c6f2a88f2d672d174e8b6bbe569ca8dc76e98cd94cfb",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/13/data/recipes/5",
+          "sha256_of_canonical_object": "b7b3bf4f895b803e339012a917ba21b2b961ae25f4a8e9784eba52a3c38d946a",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/13/data/synergies/25",
+          "sha256_of_canonical_object": "059f48db11edf04da737220458a5650825a49c4c6ce440c42a2b78eb84ffb315",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/items/416",
+          "sha256_of_canonical_object": "96c8b8d5f20128c0a68c9a9bcb71323617fa384d95d851e1a2deeb7c579ea785",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/items/418",
+          "sha256_of_canonical_object": "9b555d99b04d7fb391bc197670bf25c22260e280a1268f5853a3a6c7a247b5b0",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/shopPurchases/56",
+          "sha256_of_canonical_object": "636d8a3cf533c6c6434b185aae780a955742392102d8070ada509665e1b2ddbb",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/items/0",
+          "sha256_of_canonical_object": "5cfc97a5754921f3816ad19229c3e998d2b2020e64abaa28cd7a12c2aa9c6505",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/items/9",
+          "sha256_of_canonical_object": "bfafb9532cbcd45c0882f6b0f54aec6fb2227654dcbd480c5acaa371a8c4da93",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/6/data/recipes/14",
+          "sha256_of_canonical_object": "b1704f1800a2c62ba5046ba1897a3ef6366c17d822e9fbd7a58de88db6ad5379",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/6/data/categories/1",
+          "sha256_of_canonical_object": "8260eaa75740e705870dd28a31c9d604075bdc8f2773e70088dca8afccdfb867",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/11/data/recipes/7",
+          "sha256_of_canonical_object": "026742a955429a9aa89ad3a0524afb5b9d13b21274f3869c08883a205ab2f507",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/items/126",
+          "sha256_of_canonical_object": "af989604b1ae24f6fee9d2e2419fa63743436981a5c9fe1fd1d87e7fc5463e78",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/6/data/masteryPoolBonuses/1",
+          "sha256_of_canonical_object": "b348c9f858380dff1bf1b6919a259a270bbfe793a24e6de419db5c4d8edcc752",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/3/data/masteryPoolBonuses/3",
+          "sha256_of_canonical_object": "0663d43f1ebc61c325fea8d437942797fafa25c12b3653259a31361a9103eefb",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/2/data/masteryPoolBonuses/3",
+          "sha256_of_canonical_object": "b6bb9a2baecae1356e2d8e85f05143e863890fe721cae6693eba1255215d1ae8",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/14/data/recipes/0/standardModifiers/1",
+          "sha256_of_canonical_object": "c303dd17e9c9d3dfdab58972fa483e4a05a812230c7c150abf7a81550ba22353",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/14/data/baseRandomItemChances",
+          "sha256_of_canonical_object": "b217b16faf2dd5841c7f0ef346054349b6a10ae1dd8c3426aee0bab3ace5d2a6",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/12/data/obstacles/0",
+          "sha256_of_canonical_object": "eebd83bf9c442fa15bbe974111cebc184bb0961e5bac7ece1fff341dbe85de87",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/12/data/obstacles/16",
+          "sha256_of_canonical_object": "f256ff7d8830b957f954f2c16ab4117fa16cc54260ebab4810ff363e8ca06ccf",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/2/data/logs/0",
+          "sha256_of_canonical_object": "e55db4cde7225456b03359f312fde90ae2e771ada93083184552250a97e70a02",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/2/data/primaryProducts/0",
+          "sha256_of_canonical_object": "ee53a750367cec9c4109099f89566ed331d70b0afd713064a15828a9defcc6b5",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/2/data/defaultPrimaryProducts",
+          "sha256_of_canonical_object": "291c4a237c96f5d52071fbed75df199c594b11f1de95412057fd372c5251255e",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/skillData/4/data/rockData/0",
+          "sha256_of_canonical_object": "466cf80326d3b4999b28e4ae6564521550890049d63c81530ce4f6af176f2b13",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/10/data/recipes/0",
+          "sha256_of_canonical_object": "52108bcc0d5353409d999b1d34edc29698552ab2ef9e87d5e58b579b4f42960c",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/10/data/recipes/1",
+          "sha256_of_canonical_object": "32d5b320220f7931e38c4fb35371093629878bf2840357020911adc905428dd9",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorDemo.json",
+          "pointer": "/data/attackSpells/0",
+          "sha256_of_canonical_object": "608f0a22d44db47ec691a41938348ff53e1079d49a7790fe7ad5cfa709260864",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorTotH.json",
+          "pointer": "/modifications/fletchingRecipes/0",
+          "sha256_of_canonical_object": "ef72fecb624922d47607408bee66895ae2104ca6704ceac93752a09c7473b8f0",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorTotH.json",
+          "pointer": "/data/skillData/10/data/recipes/0",
+          "sha256_of_canonical_object": "020284e3df6df09a96d234fa123e2d8e80d0405f19a9320dbce4fc9fc1e12ff1",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorTotH.json",
+          "pointer": "/data/skillData/13/data/recipes/0",
+          "sha256_of_canonical_object": "a10cb75e604b651fd21cc25b80b57bcf383ab7121a9ab8529eacfe2a84e3df12",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorExpansion2.json",
+          "pointer": "/data/skillData/3/data/recipes/0",
+          "sha256_of_canonical_object": "515b4c9533d99b1995c531da09824c66a15beb907836c9c7e838a74b1e602f2f",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorExpansion2.json",
+          "pointer": "/data/skillData/5/data/recipes/0",
+          "sha256_of_canonical_object": "4941225a404c231b43cb714cd62e44cb98ccf23753542bda35ff5f81a85cf4d2",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorExpansion2.json",
+          "pointer": "/data/skillData/13/data/obstacles/0",
+          "sha256_of_canonical_object": "e55646c9e545617a78595fdecd173a703f1403d9e1a1fd5df6fd5e5caaec5c8b",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorExpansion2.json",
+          "pointer": "/data/skillData/14/data/recipes/0",
+          "sha256_of_canonical_object": "95cb03ca48575f449494be57cc5235b18ddb2fdb2b80bed2f8b535291f5c9e40",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorItA.json",
+          "pointer": "/data/skillData/25/data/recipes/3",
+          "sha256_of_canonical_object": "d52090267c3a40872239b33300db45130cf152443bfbc9caefc0569a6d227032",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorItA.json",
+          "pointer": "/data/skillData/25/data/recipes/7",
+          "sha256_of_canonical_object": "6365afcd1858ad8a8742de5e5f8c039f860a7a43f76e9c62482b312368333874",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorItA.json",
+          "pointer": "/data/skillData/25/data/synergies/1",
+          "sha256_of_canonical_object": "5689ec2b2a18825ff399effd1ce2d12319dcceb4b614dda9accf415f55fa52ae",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorItA.json",
+          "pointer": "/data/items/160",
+          "sha256_of_canonical_object": "7b5006688a300663a1b37badc1adbf111640d0bd7d7d8e13749682067a2522a8",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorItA.json",
+          "pointer": "/data/items/799",
+          "sha256_of_canonical_object": "cb763f6531f7bb31ebe560b02a375ef6b3b90f1ad6608c02f85a7390205fef98",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorTotH.json",
+          "pointer": "/modifications/skillData/0",
+          "sha256_of_canonical_object": "2340b9ae2b72f77f507d62f9f92bfd491d1cadfac98898c03a58c4e2284d1798",
+          "disposition": "targeted_semantic_fields_and_join"
+        },
+        {
+          "source": "data/melvorFull.json",
+          "pointer": "/data/skillData/13/data/recipes/9",
+          "sha256_of_canonical_object": "b401acc17cab55ecbd57ee1eceb3037270c4bae582158ebfb28cb375d9d6ab30",
+          "disposition": "targeted_semantic_fields_and_join"
+        }
+      ],
+      "whole_file_claim": false,
+      "unread": [
+        "No runtime UI, action replay, saved-state, offline simulation, entitlement, production balance or director acceptance was verified. Public source/data were reviewed only at exact pins.",
+        "Other recipe tab discovery gates, complete prerequisite shop/access paths, later spellbook/Alt Magic consumers, all event matcher internals, final-charge ordering and external mods remain unread. Named shop prices here are declared data, not tested transactions.",
+        "Selected DLC/base production joins are bounded. No whole TotH/AoD/ItA gameplay/content coverage. Nysa/River Crossing and Barrier modifiers are declared consumers with explicit downstream limits; parent readers may close those traces.",
+        "Birthday2023/AprilFools2024 packages were not semantically reviewed by this reader; parent owns edition/event disposition. Supplemental artisanMenu.js was acquired to locate selection code but not semantically reviewed; acquisition is not coverage.",
+        "Implementation proposals are original and unselected. Current shared source writers/integrator own any runtime/canonical/publisher adoption; private saves/accounts/source libraries remain untouched."
+      ]
+    },
+    {
+      "family": "combat/preparation/equipment/consumption",
+      "paths": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7"
+      ],
+      "exact_reviewed_spans_by_source": {
+        "player": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/player.js",
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "line_count": 3455,
+          "semantic_reviewed_spans": [
+            [
+              50,
+              88
+            ],
+            [
+              100,
+              123
+            ],
+            [
+              133,
+              207
+            ],
+            [
+              233,
+              245
+            ],
+            [
+              268,
+              305
+            ],
+            [
+              336,
+              406
+            ],
+            [
+              540,
+              575
+            ],
+            [
+              605,
+              815
+            ],
+            [
+              831,
+              935
+            ],
+            [
+              1008,
+              1101
+            ],
+            [
+              1296,
+              1318
+            ],
+            [
+              1337,
+              1366
+            ],
+            [
+              1456,
+              1538
+            ],
+            [
+              1630,
+              1663
+            ],
+            [
+              1682,
+              2017
+            ],
+            [
+              2046,
+              2078
+            ],
+            [
+              2144,
+              2175
+            ],
+            [
+              2222,
+              2331
+            ],
+            [
+              2370,
+              2468
+            ],
+            [
+              2487,
+              2517
+            ],
+            [
+              2569,
+              2671
+            ],
+            [
+              2691,
+              2715
+            ],
+            [
+              3210,
+              3255
+            ],
+            [
+              1241,
+              1261
+            ],
+            [
+              1428,
+              1455
+            ]
+          ],
+          "reviewed_scope": "Equipment/bank conservation and restrictions; food/manual and automatic consumption; attack/ammo/rune/prayer/summon cadence; modifiers and damage types; death; serialization.",
+          "complete_file_review": false
+        },
+        "character": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/character.js",
+          "sha256": "6fbf32388217e80ac4a61f91f20f02bac453c14046318cc98516a00a85df3701",
+          "line_count": 2233,
+          "semantic_reviewed_spans": [
+            [
+              150,
+              170
+            ],
+            [
+              226,
+              230
+            ],
+            [
+              682,
+              783
+            ],
+            [
+              965,
+              1070
+            ],
+            [
+              1100,
+              1155
+            ],
+            [
+              1178,
+              1193
+            ],
+            [
+              1372,
+              1485
+            ],
+            [
+              1648,
+              1701
+            ]
+          ],
+          "reviewed_scope": "HP/barrier/immunity dispatch; attack damage and events; timer queue; saved combat action.",
+          "complete_file_review": false
+        },
+        "equipment": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/equipment.js",
+          "sha256": "727a15e6d8846fae363714c49138d6fbae6aa062be24597dc0a00cee802fda4c",
+          "line_count": 1053,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              65
+            ],
+            [
+              188,
+              438
+            ]
+          ],
+          "reviewed_scope": "Slot requirements; item versus occupied slot ownership; conserved equip/unequip; quantity depletion; stat contribution; serialization/load compatibility.",
+          "complete_file_review": false
+        },
+        "food": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/equippedFood.js",
+          "sha256": "62541eea540ab6c3a5bd7a0bdf04378b22835560168a3209f7d1ceba15dbd232",
+          "line_count": 264,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              264
+            ]
+          ],
+          "reviewed_scope": "Full EquippedFood owner and UI selection/eat callbacks; selected quantities, consume/empty, save/load. This file was read completely.",
+          "complete_file_review": true
+        },
+        "base": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/baseManager.js",
+          "sha256": "ba1db6605148a0eb1d7c20adafd43a322c24d17ace0104cb8489a1ba312745a8",
+          "line_count": 748,
+          "semantic_reviewed_spans": [
+            [
+              95,
+              114
+            ],
+            [
+              501,
+              654
+            ]
+          ],
+          "reviewed_scope": "Death resolution/stop, enemy turnover, spawn HP/barrier, timer entry and exit, auto-food UI.",
+          "complete_file_review": false
+        },
+        "combat": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatManager.js",
+          "sha256": "0ab7c443acdfcb26141a60d3c60393b6ae708f42d5f449d6ae55494671a773a6",
+          "line_count": 1911,
+          "semantic_reviewed_spans": [
+            [
+              123,
+              141
+            ],
+            [
+              230,
+              301
+            ],
+            [
+              497,
+              707
+            ],
+            [
+              836,
+              978
+            ],
+            [
+              1183,
+              1340
+            ],
+            [
+              1363,
+              1437
+            ],
+            [
+              1494,
+              1522
+            ],
+            [
+              1530,
+              1574
+            ],
+            [
+              967,
+              1024
+            ],
+            [
+              1438,
+              1478
+            ]
+          ],
+          "reviewed_scope": "Entry/weapon type restrictions, stats at active cadence, drops and task/dungeon consumers, dungeon repeat/pause, death modes, corruption cost.",
+          "complete_file_review": false
+        },
+        "areas": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/combatAreas.js",
+          "sha256": "6a9e765446247578144a23e7fde6d6377bb8f81a9377c32815b78bd973fd9ae3",
+          "line_count": 1983,
+          "semantic_reviewed_spans": [
+            [
+              619,
+              680
+            ],
+            [
+              974,
+              1006
+            ],
+            [
+              1193,
+              1284
+            ],
+            [
+              1418,
+              1419
+            ]
+          ],
+          "reviewed_scope": "UI unlock versus runtime entry, selection callbacks, area allowed damage types/override and entry requirements.",
+          "complete_file_review": false
+        },
+        "slayer": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/slayer.js",
+          "sha256": "a96b2edf7c6a0732bb67e01ed9305f0f1e5f059a69de71533ecaa3b575262405",
+          "line_count": 733,
+          "semantic_reviewed_spans": [
+            [
+              140,
+              158
+            ],
+            [
+              207,
+              330
+            ],
+            [
+              336,
+              408
+            ]
+          ],
+          "reviewed_scope": "Manual/automatic task filtering, paid roll/extend, delayed activation, actual task kill/downstream completion, persisted task owner.",
+          "complete_file_review": false
+        },
+        "prayer": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/prayer.js",
+          "sha256": "be9b2c75c4cf592a440d2fbe2eb56e291d6ae77261d7f14c8a9b145e27643384",
+          "line_count": 329,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              88
+            ],
+            [
+              168,
+              230
+            ],
+            [
+              246,
+              298
+            ]
+          ],
+          "reviewed_scope": "Data-backed prayer books/types, UI level lock callbacks and unlock consumers.",
+          "complete_file_review": false
+        },
+        "potion": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/potionManager.js",
+          "sha256": "d52b9de5545ad64a283298fe4be903d97b08fe06f3731fde2056868798b7ed6f",
+          "line_count": 290,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              210
+            ]
+          ],
+          "reviewed_scope": "Owned bottle to active charges; event matching, per-proc exceptions, auto reuse and expiry; stat recomputation; serialization.",
+          "complete_file_review": false
+        },
+        "summon": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/summoning.js",
+          "sha256": "b4f23b5388142176324d63e4a4f104b0abb7cb2f5117a82d7af251a3e237a78d",
+          "line_count": 871,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              80
+            ],
+            [
+              133,
+              161
+            ],
+            [
+              266,
+              286
+            ],
+            [
+              314,
+              368
+            ],
+            [
+              395,
+              440
+            ],
+            [
+              464,
+              656
+            ],
+            [
+              651,
+              726
+            ],
+            [
+              848,
+              855
+            ]
+          ],
+          "reviewed_scope": "Tablet consumption XP, selected material alternatives/costs, recipe production result, mark and synergy consumer gates.",
+          "complete_file_review": false
+        },
+        "melvorMain": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/main.js",
+          "sha256": "da2b00d1dc192b51775e1c3eaa7b5d3431afe4d446f7da5d213b842807e9d2cb",
+          "line_count": 996,
+          "semantic_reviewed_spans": [
+            [
+              583,
+              594
+            ]
+          ],
+          "reviewed_scope": "Current character local save deletion plus optional signed-in PlayFab character-save deletion and index reload; no cloud account deletion.",
+          "complete_file_review": false
+        },
+        "bank": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/bank2.js",
+          "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+          "line_count": 1780,
+          "semantic_reviewed_spans": [
+            [
+              1212,
+              1264
+            ]
+          ],
+          "reviewed_scope": "Prayer/soul point creation consumes existing bank bones/souls.",
+          "complete_file_review": false
+        },
+        "game": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/game.js",
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "line_count": 3859,
+          "semantic_reviewed_spans": [
+            [
+              152,
+              152
+            ],
+            [
+              481,
+              481
+            ],
+            [
+              1778,
+              1801
+            ],
+            [
+              2074,
+              2168
+            ],
+            [
+              2198,
+              2226
+            ]
+          ],
+          "reviewed_scope": "Potion stat-provider binding, online/offline same tick and death consumer, offline admission and error-stop. Coordinator independently owns the larger offline review.",
+          "complete_file_review": false
+        },
+        "requirements": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/requirements.js",
+          "sha256": "65538d0e720cc1d6d83c9082696f7f425a2afb7ba123dbfcced40f6f7c50a1df",
+          "line_count": 881,
+          "semantic_reviewed_spans": [
+            [
+              291,
+              315
+            ],
+            [
+              404,
+              441
+            ],
+            [
+              460,
+              488
+            ],
+            [
+              544,
+              566
+            ]
+          ],
+          "reviewed_scope": "Dungeon completion, persistent shop purchase, actually equipped SlayerItem, lifetime ItemFound distinction.",
+          "complete_file_review": false
+        },
+        "demo": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorDemo.json",
+          "sha256": "ba3832348dc252c925c7ea5c7560d23bb58c1f49effe41cb0fc5ce229c0d1a06",
+          "line_count": 63673,
+          "semantic_reviewed_spans": [
+            [
+              14362,
+              14388
+            ],
+            [
+              32515,
+              32547
+            ],
+            [
+              33620,
+              33737
+            ]
+          ],
+          "reviewed_scope": "Representative one-point bones, Wind Strike rune recipe and complete auto-eat three-tier data.",
+          "complete_file_review": false
+        },
+        "full": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorFull.json",
+          "sha256": "aa3d0babaaa5ef1bde4f0c0d6b5c50ae5d5db88b042684762cc97f50f24263f8",
+          "line_count": 90062,
+          "semantic_reviewed_spans": [
+            [
+              40144,
+              40181
+            ],
+            [
+              48427,
+              48595
+            ]
+          ],
+          "reviewed_scope": "Protect Item prayer versus ordinary Hawk Eye stat modifier.",
+          "complete_file_review": false
+        },
+        "aod": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorExpansion2.json",
+          "sha256": "ce577cfed388c4460cd6a40acbf951dd7fbb656e92beb485a171e5c2a40722c5",
+          "line_count": 85817,
+          "semantic_reviewed_spans": [
+            [
+              10032,
+              10121
+            ],
+            [
+              31832,
+              31940
+            ],
+            [
+              35505,
+              35589
+            ],
+            [
+              48076,
+              48138
+            ],
+            [
+              48420,
+              48482
+            ]
+          ],
+          "reviewed_scope": "Tortoise summon/Barrier Touch potion event/cost data, Granite Golem barrier, Golem Territory entry/normal-type/sequence; Barrier recipe and downstream dust craft.",
+          "complete_file_review": false
+        },
+        "ita": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorItA.json",
+          "sha256": "5738029b8c3dc6aa087ceafbc3c015879419ad531198f34f7a685c9d2c3b5f78",
+          "line_count": 120307,
+          "semantic_reviewed_spans": [
+            [
+              512,
+              571
+            ],
+            [
+              11055,
+              11082
+            ],
+            [
+              47422,
+              47525
+            ],
+            [
+              52944,
+              53030
+            ],
+            [
+              105648,
+              105705
+            ],
+            [
+              117785,
+              117832
+            ]
+          ],
+          "reviewed_scope": "Abyssal/Eternal immunities; realm requirement data; Strange Sword functional damage type; selected soup damage-type healing; Into the Abyss progression; cooking relic modifier.",
+          "complete_file_review": false
+        },
+        "toth": {
+          "path": "/Users/weiwei/.codex/research/melvor-idle/13311431/hosted/data/melvorTotH.json",
+          "sha256": "48db245f3e41010cae7903e6030fd49b982455098e4619c0c0fe169c9f24062f",
+          "line_count": 59230,
+          "semantic_reviewed_spans": [
+            [
+              27700,
+              27765
+            ],
+            [
+              34302,
+              34396
+            ],
+            [
+              36735,
+              36806
+            ]
+          ],
+          "reviewed_scope": "Late multi-hit special; Herald dungeon pause/requirements and paid access item data; task category representative. No complete TotH encounter/reward audit.",
+          "complete_file_review": false
+        },
+        "y.native": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_battle.js",
+          "sha256": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+          "line_count": 68,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              68
+            ]
+          ],
+          "reviewed_scope": "Complete current two-person staged native nonlethal encounter and finish.",
+          "complete_file_review": true
+        },
+        "y.party": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/party_battle.js",
+          "sha256": "443b965cb757ade93c8d1c8a8ca9da7391117697cbaf8cf139b97a43daecf295",
+          "line_count": 103,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              103
+            ]
+          ],
+          "reviewed_scope": "Complete current party consent/source/owned means, per-guard cost, helper exit and nonlethal aftermath.",
+          "complete_file_review": true
+        },
+        "y.objectives": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_objectives_battle.js",
+          "sha256": "96e75571642e9e91fddeb745f904e2e29f24f7a0f3f525adac2f24a32bc95d83",
+          "line_count": 167,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              167
+            ]
+          ],
+          "reviewed_scope": "Complete schema5 physical reservation, paid guard upkeep, recovery objective, exact returns and native policy hook.",
+          "complete_file_review": true
+        },
+        "y.fit": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audit_remainder_combat_fit_host.js",
+          "sha256": "0883c135c06c956afcbc924ea470fad7eede0fdd993a82f763d47543db8c2f87",
+          "line_count": 78,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              78
+            ]
+          ],
+          "reviewed_scope": "Visible native fit/preparation context and host preview/admission read.",
+          "complete_file_review": false
+        },
+        "y.battle": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_battle.js",
+          "sha256": "979ed697bfb40700b7ce8672362003958386c644c4069ebb26dc3af712188fb7",
+          "line_count": 473,
+          "semantic_reviewed_spans": [
+            [
+              225,
+              255
+            ],
+            [
+              314,
+              457
+            ]
+          ],
+          "reviewed_scope": "Current authoritative action quote/commit/receipt/settlement and automatic choice. Earlier admission/validation lines located by search only.",
+          "complete_file_review": false
+        },
+        "y.host": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/feature_expansion_battle_host.js",
+          "sha256": "eaef12fe69872b47bf40bdcc2aa415b08e652af7d1f87a7cfe8adef86fb17cb7",
+          "line_count": 84,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              84
+            ]
+          ],
+          "reviewed_scope": "Current native actionAdapter invokes shared persist per cadence; no separate timer/publication owner.",
+          "complete_file_review": false
+        },
+        "y.storage": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_storage_transaction.js",
+          "sha256": "d64686b370f0239e6148d68c765e012d2dd3d95f34fc810371941fec3bb3826f",
+          "line_count": 33,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              33
+            ]
+          ],
+          "reviewed_scope": "Complete current stock/equipment exclusion and stale count/custody-aware staged chest transfer.",
+          "complete_file_review": true
+        },
+        "y.gear": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/native_equipment_transaction.js",
+          "sha256": "573dde38ee5bdaa572c95637a35fede1b461f1caf5fa3078e09c93786d73ed02",
+          "line_count": 29,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              29
+            ]
+          ],
+          "reviewed_scope": "Complete native saved equipment staging then publication.",
+          "complete_file_review": true
+        },
+        "y.reserve": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audited_kit_reserve_content.js",
+          "sha256": "cd0f8796dd57e14c154d2db682366214edead5bcbe06b83b8166d37a246a2d99",
+          "line_count": 23,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              23
+            ]
+          ],
+          "reviewed_scope": "Complete current finite stock thresholds and batch material/stamina/time costs.",
+          "complete_file_review": true
+        },
+        "y.reserveHost": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/audited_kit_reserve_host.js",
+          "sha256": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+          "line_count": 77,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              77
+            ]
+          ],
+          "reviewed_scope": "Existing reserve controller/presentation distinguishing carried/chest/custody/equipped stock.",
+          "complete_file_review": false
+        },
+        "y.publisher": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/gameplay_publication.js",
+          "sha256": "4f81c5c65c9496943e68f35e0eed11b5472e2ae34fce5f7fa3f16a293fe6e5c1",
+          "line_count": 62,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              62
+            ]
+          ],
+          "reviewed_scope": "Existing native inventory/XP stage and post-save publish owner.",
+          "complete_file_review": true
+        },
+        "y.main": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/src/main.js",
+          "sha256": "9cc37ba0b6b69e06fb96d542bdae890a4952be07446cf7afcde4e42565081c82",
+          "line_count": 7386,
+          "semantic_reviewed_spans": [
+            [
+              2948,
+              2984
+            ],
+            [
+              3835,
+              3909
+            ],
+            [
+              6470,
+              6502
+            ],
+            [
+              6640,
+              6690
+            ]
+          ],
+          "reviewed_scope": "Existing native unconsciousness/recovery, manual/favourite effect consumable loop, shared regeneration. Not full main.js audit.",
+          "complete_file_review": false
+        },
+        "y.checkpoint": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+          "sha256": "001d8df683e01543ba2d5eefbd72c930ac1a87b0e4aa3b493854d8ffeb994c13",
+          "line_count": 13,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              13
+            ]
+          ],
+          "reviewed_scope": "Current finite source-delivery phase is implemented-unverified; actual native/current acceptance gates remain deferred.",
+          "complete_file_review": false
+        },
+        "y.backlog": {
+          "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md",
+          "sha256": "d0088c1c535b6df4f7b9e146e08f79ccefb138ddb4faf593b6f441712a6d2bec",
+          "line_count": 13,
+          "semantic_reviewed_spans": [
+            [
+              1,
+              13
+            ]
+          ],
+          "reviewed_scope": "Existing five later gate families including combat, compatibility and durable publication.",
+          "complete_file_review": false
+        }
+      },
+      "whole_file_claim": false,
+      "unread": [
+        "Reviewed exact selected spans and complete small owners, not all13,859combat-family script lines or whole game.",
+        "No installed game launch, account/private-save/cloud/login/profile inspection, DLC entitlement change or source-library mutation.",
+        "Only selected public Demo/Full/AoD/ItA/TotH content windows were semantically reviewed. Birthday/AprilFools packages were not semantically reviewed in this combat leaf.",
+        "All spell/weapon/prayer/synergy/monster/dungeon/drop tables and special-effect balance remain incomplete; full TotH Herald, Ancient Relics, ItA depth/Eternal campaign and Golbin Raid implementation are outside this finite leaf.",
+        "Summoning production cost/data reviewed but complete artisan action/mark-to-craft UI execution belongs to production reader; dust-crafting recipe data not complete craft runtime proof.",
+        "Golden Key and auto-eat purchase costs are data-inspected; shop purchase mutation absent from provided selected scripts, not claimed complete.",
+        "Realm activation, loot-chest opening and Corruption effects beyond the reviewed auto-cost branch belong to expansion/other lanes.",
+        "Current YAIR source fit is exact hash-pinned. No new tests, builds, browser/play/save/import/failure/regression/director checks ran; prior counts/bundles are not proof of changed code."
+      ]
+    },
+    {
+      "family": "discovery/expansion progression",
+      "paths": [
+        "EXP01",
+        "EXP02",
+        "EXP03",
+        "EXP04",
+        "EXP05",
+        "EXP06",
+        "EXP07",
+        "EXP08"
+      ],
+      "exact_reviewed_spans": [
+        {
+          "id": "C_SURVEY",
+          "source": "hosted/cartography.js",
+          "start_line": 1118,
+          "end_line": 1237,
+          "semantic_review": "Autosurvey eligibility, timed survey settlement, surveyed hex versus undiscovered POI lead."
+        },
+        {
+          "id": "C_TRAVEL",
+          "source": "hosted/cartography.js",
+          "start_line": 750,
+          "end_line": 861,
+          "semantic_review": "Path currency/item costs, hidden worn-item and requirement checks, move, discovery, transient modifiers and stopping surveying."
+        },
+        {
+          "id": "C_DISCOVER",
+          "source": "hosted/cartography.js",
+          "start_line": 1393,
+          "end_line": 1447,
+          "semantic_review": "Retained discovery, modifier recomputation, rewards and free initial DigSiteMap; Archaeology renders and requirement event."
+        },
+        {
+          "id": "C_MAPS",
+          "source": "hosted/cartography.js",
+          "start_line": 1708,
+          "end_line": 1899,
+          "semantic_review": "Paid timed map upgrade, finite upgrade tiers, blank-map creation and charge decrement."
+        },
+        {
+          "id": "C_MASTERY",
+          "source": "hosted/cartography.js",
+          "start_line": 1238,
+          "end_line": 1268,
+          "semantic_review": "Map mastery bonuses unlock on real mastered-hex thresholds."
+        },
+        {
+          "id": "C_BONUSES",
+          "source": "hosted/cartography.js",
+          "start_line": 1329,
+          "end_line": 1340,
+          "semantic_review": "One awarded marker plus currency/item/pet consumer for map mastery."
+        },
+        {
+          "id": "C_STATS",
+          "source": "hosted/cartography.js",
+          "start_line": 2602,
+          "end_line": 2629,
+          "semantic_review": "Current discovery modifiers, map mastery and current-position POI stats feed Cartography provided stats."
+        },
+        {
+          "id": "A_SITE",
+          "source": "hosted/archaeology.js",
+          "start_line": 118,
+          "end_line": 176,
+          "semantic_review": "Discovered POI owner, selected map and saved site/map/tool binding."
+        },
+        {
+          "id": "A_VIS",
+          "source": "hosted/archaeology.js",
+          "start_line": 411,
+          "end_line": 429,
+          "semantic_review": "Only discovered sites at sufficient Archaeology level become dig-site UI."
+        },
+        {
+          "id": "A_REWARDS",
+          "source": "hosted/archaeology.js",
+          "start_line": 589,
+          "end_line": 798,
+          "semantic_review": "Map and selected-tool eligibility, timed excavation, size-specific reward table, failed result, charge preservation/consumption, finite stop."
+        },
+        {
+          "id": "A_TOOLS",
+          "source": "hosted/archaeology.js",
+          "start_line": 825,
+          "end_line": 843,
+          "semantic_review": "Tool selection changes artifact-size mix; no tools stops active excavation."
+        },
+        {
+          "id": "A_MUSEUM",
+          "source": "hosted/archaeology.js",
+          "start_line": 1097,
+          "end_line": 1162,
+          "semantic_review": "One owned artifact consumed into distinct-donation set, threshold reward once and stat recomputation."
+        },
+        {
+          "id": "A_STATS",
+          "source": "hosted/archaeology.js",
+          "start_line": 577,
+          "end_line": 587,
+          "semantic_review": "Awarded museum stats and active-map refinements become actual provided stats."
+        },
+        {
+          "id": "R_ITEM_FOUND",
+          "source": "hosted/requirements.js",
+          "start_line": 544,
+          "end_line": 572,
+          "semantic_review": "ItemFound means historical item-find count, not present possession; bank event triggers reevaluation."
+        },
+        {
+          "id": "R_DUNGEON",
+          "source": "hosted/requirements.js",
+          "start_line": 291,
+          "end_line": 327,
+          "semantic_review": "Dungeon requirement reads actual completion count and subscribes to completion event."
+        },
+        {
+          "id": "R_POI",
+          "source": "hosted/requirements.js",
+          "start_line": 747,
+          "end_line": 785,
+          "semantic_review": "Cartography requirement consumes actual discovered POI records and events."
+        },
+        {
+          "id": "G_CAP_LISTEN",
+          "source": "hosted/game.js",
+          "start_line": 1685,
+          "end_line": 1758,
+          "semantic_review": "Mode initializes skill caps and binds requirement handlers for dungeon/depth/stronghold earned cap rewards."
+        },
+        {
+          "id": "G_CAP_REWARD",
+          "source": "hosted/game.js",
+          "start_line": 2895,
+          "end_line": 2929,
+          "semantic_review": "Fixed and selected cap rewards, one given receipt, pending choices and auto-restart interruption."
+        },
+        {
+          "id": "G_CAP_CHOICE",
+          "source": "hosted/game.js",
+          "start_line": 2986,
+          "end_line": 3008,
+          "semantic_review": "Chosen skill cap advances, pending count decrements and next choice appears."
+        },
+        {
+          "id": "MODE_CAP",
+          "source": "hosted/gameMode.js",
+          "start_line": 265,
+          "end_line": 290,
+          "semantic_review": "Cap reward definition, default two presented choices and data-supplied reward count."
+        },
+        {
+          "id": "MODE_SELECTION",
+          "source": "hosted/gameMode.js",
+          "start_line": 374,
+          "end_line": 404,
+          "semantic_review": "Capped skills excluded from random candidate selection; invalid choices rerolled."
+        },
+        {
+          "id": "S_CAP",
+          "source": "hosted/skill.js",
+          "start_line": 201,
+          "end_line": 227,
+          "semantic_review": "Standard max 99/120 and separate Abyssal max 1/60 depend on enabled-entitlement predicate; no account inspection performed."
+        },
+        {
+          "id": "S_XP",
+          "source": "hosted/skill.js",
+          "start_line": 677,
+          "end_line": 725,
+          "semantic_review": "Separate standard and Abyssal XP mutation, caps, events and level-up consumers."
+        },
+        {
+          "id": "S_CAP_APPLY",
+          "source": "hosted/skill.js",
+          "start_line": 776,
+          "end_line": 797,
+          "semantic_review": "Cap application may admit already held XP up to new current cap."
+        },
+        {
+          "id": "S_RELIC",
+          "source": "hosted/skill.js",
+          "start_line": 1393,
+          "end_line": 1452,
+          "semantic_review": "Mode-gated eligible relic drops and level-up threshold unlocks; at most one random relic per action."
+        },
+        {
+          "id": "S_RELIC_SETTLE",
+          "source": "hosted/skill.js",
+          "start_line": 1711,
+          "end_line": 1728,
+          "semantic_review": "Located relic state feeds provided stats and completed-set bonus; recompute combat stats."
+        },
+        {
+          "id": "S_STATS",
+          "source": "hosted/skill.js",
+          "start_line": 369,
+          "end_line": 388,
+          "semantic_review": "Found relics, completed relic set and unlocked skill-tree nodes contribute stats."
+        },
+        {
+          "id": "S_TREE_POINTS",
+          "source": "hosted/skill.js",
+          "start_line": 1298,
+          "end_line": 1318,
+          "semantic_review": "Actual Abyssal level increase awards the level delta to skill trees."
+        },
+        {
+          "id": "S_PRODUCT",
+          "source": "hosted/skill.js",
+          "start_line": 1094,
+          "end_line": 1136,
+          "semantic_review": "Flat additional primary product quantity is added after multipliers, then reward minimum."
+        },
+        {
+          "id": "S_CRAFT",
+          "source": "hosted/skill.js",
+          "start_line": 2786,
+          "end_line": 2815,
+          "semantic_review": "Artisan cycle checks costs, consumes or preserves actual stock, grants product and stops when next input unavailable."
+        },
+        {
+          "id": "D_COMPLETE",
+          "source": "hosted/combatManager.js",
+          "start_line": 866,
+          "end_line": 918,
+          "semantic_review": "Dungeon final-monster completion increments counter, awards loot, emits event and respects cap-selection stop."
+        },
+        {
+          "id": "D_DEPTH",
+          "source": "hosted/combatManager.js",
+          "start_line": 920,
+          "end_line": 968,
+          "semantic_review": "Depth counter/rewards/event and auto-restart stop reuse cap reward handlers."
+        },
+        {
+          "id": "D_GATE",
+          "source": "hosted/combatManager.js",
+          "start_line": 1190,
+          "end_line": 1216,
+          "semantic_review": "Entry requirements and real equipped damage-type compatibility."
+        },
+        {
+          "id": "D_SELECT",
+          "source": "hosted/combatManager.js",
+          "start_line": 1293,
+          "end_line": 1308,
+          "semantic_review": "SelectDungeon consumes actual entry and damage checks before combat area setup."
+        },
+        {
+          "id": "D_HINT",
+          "source": "hosted/combatManager.js",
+          "start_line": 1240,
+          "end_line": 1248,
+          "semantic_review": "Into the Abyss entry UI specifically suggests the earned Strange Sword when damage type is wrong."
+        },
+        {
+          "id": "D_CORRUPTION_XP",
+          "source": "hosted/combatManager.js",
+          "start_line": 623,
+          "end_line": 631,
+          "semantic_review": "Corrupted kill gives Corruption AXP; Eternal damage excludes this reward."
+        },
+        {
+          "id": "D_AUTOCORRUPT",
+          "source": "hosted/combatManager.js",
+          "start_line": 1492,
+          "end_line": 1517,
+          "semantic_review": "Saved optional toggle, positive monster corruption and actual soul-point cost enable saved permanent-corruption passive at spawn."
+        },
+        {
+          "id": "REALM",
+          "source": "hosted/realms.js",
+          "start_line": 28,
+          "end_line": 95,
+          "semantic_review": "Realm unlock predicates and listeners reveal eligible realm/skill UI only after actual requirements."
+        },
+        {
+          "id": "REALM_SELECT",
+          "source": "hosted/realms.js",
+          "start_line": 348,
+          "end_line": 375,
+          "semantic_review": "Realm selection callback runs only for unlocked realm."
+        },
+        {
+          "id": "G_COMBAT_LEVELS",
+          "source": "hosted/game.js",
+          "start_line": 494,
+          "end_line": 521,
+          "semantic_review": "Abyssal combat level uses standard plus Abyssal skill levels; separate progression is not a reset."
+        },
+        {
+          "id": "H_ELIGIBLE",
+          "source": "hosted/harvesting.js",
+          "start_line": 79,
+          "end_line": 103,
+          "semantic_review": "Three-second base interval, initial intensity capacity28800,20-second decay timer and0.1-percent unique chance."
+        },
+        {
+          "id": "H_GATE",
+          "source": "hosted/harvesting.js",
+          "start_line": 146,
+          "end_line": 153,
+          "semantic_review": "Skill levels and optional purchased tool gate harvest target; passive timer owns decay."
+        },
+        {
+          "id": "H_ACTION",
+          "source": "hosted/harvesting.js",
+          "start_line": 371,
+          "end_line": 448,
+          "semantic_review": "Weighted product draw checked against existing intensity; successful product/XP then intensity growth; full-intensity unique drop."
+        },
+        {
+          "id": "H_DECAY",
+          "source": "hosted/harvesting.js",
+          "start_line": 452,
+          "end_line": 485,
+          "semantic_review": "Inactive sites lose intensity on timer subject to minimum/no-decay modifiers; max capacity clamps actual intensity."
+        },
+        {
+          "id": "H_TIERS",
+          "source": "hosted/harvesting.js",
+          "start_line": 511,
+          "end_line": 518,
+          "semantic_review": "0/40/80/100-percent intensity yields base quantity1/2/3/4."
+        },
+        {
+          "id": "CRAFT_COST",
+          "source": "hosted/artisanSkill.js",
+          "start_line": 28,
+          "end_line": 40,
+          "semantic_review": "Create button requires actual current recipe inputs before starting."
+        },
+        {
+          "id": "CRAFT_RECIPE",
+          "source": "hosted/artisanSkill.js",
+          "start_line": 147,
+          "end_line": 164,
+          "semantic_review": "Recipe item/currency inputs become authoritative Costs."
+        },
+        {
+          "id": "CRAFT_RESULT",
+          "source": "hosted/smithing.js",
+          "start_line": 148,
+          "end_line": 172,
+          "semantic_review": "Smithing recipe product reaches bank Rewards and standard/AXP consumers."
+        },
+        {
+          "id": "SHOP_BUY",
+          "source": "hosted/shop.js",
+          "start_line": 445,
+          "end_line": 551,
+          "semantic_review": "Purchase costs and requirements, bank capacity, cost consumption, upgrade count/charge grant and downstream refresh."
+        },
+        {
+          "id": "SHOP_STATS",
+          "source": "hosted/shop.js",
+          "start_line": 579,
+          "end_line": 595,
+          "semantic_review": "Bought upgrade stats become actual provided modifiers."
+        },
+        {
+          "id": "SHOP_GLOVE_COST",
+          "source": "hosted/shop.js",
+          "start_line": 597,
+          "end_line": 620,
+          "semantic_review": "Glove cost scales with chosen quantity and existing merchant permit; Fixed uses stated per-purchase cost."
+        },
+        {
+          "id": "E_EQUIP",
+          "source": "hosted/player.js",
+          "start_line": 1456,
+          "end_line": 1534,
+          "semantic_review": "Owned stock, equip requirements, conflicts/bank space and conserved equip transition."
+        },
+        {
+          "id": "E_CHARGE",
+          "source": "hosted/player.js",
+          "start_line": 1017,
+          "end_line": 1022,
+          "semantic_review": "Matched action decrements real item charge."
+        },
+        {
+          "id": "E_LISTEN",
+          "source": "hosted/player.js",
+          "start_line": 1630,
+          "end_line": 1649,
+          "semantic_review": "Only stat-providing equipped items bind consumesChargesOn matchers."
+        },
+        {
+          "id": "CHARGES",
+          "source": "hosted/itemCharges.js",
+          "start_line": 39,
+          "end_line": 76,
+          "semantic_review": "Charge additions/removal and changed event; depletion deletes balance and reports it."
+        },
+        {
+          "id": "CHARGE_CONDITION",
+          "source": "hosted/conditionalModifiers.js",
+          "start_line": 122,
+          "end_line": 148,
+          "semantic_review": "ItemCharge conditional modifiers subscribe to actual charge changes and read current charge balance."
+        },
+        {
+          "id": "TREE",
+          "source": "hosted/skillTree.js",
+          "start_line": 62,
+          "end_line": 75,
+          "semantic_review": "All parents unlocked plus node-specific requirements permit node."
+        },
+        {
+          "id": "TREE_BUY",
+          "source": "hosted/skillTree.js",
+          "start_line": 162,
+          "end_line": 218,
+          "semantic_review": "Player chooses node, real points/item/currency checked and consumed, unlocked node retained, skill stats recomputed."
+        },
+        {
+          "id": "TREE_SAVE",
+          "source": "hosted/skillTree.js",
+          "start_line": 140,
+          "end_line": 160,
+          "semantic_review": "Node booleans and points are encoded and decoded; runtime reload not exercised."
+        },
+        {
+          "id": "CORR_TABLE",
+          "source": "hosted/corruption.js",
+          "start_line": 20,
+          "end_line": 68,
+          "semantic_review": "Unknown effect sampling uses enemy level,0.2-percent chance per requested slot, live pending effect tracking and dead-enemy removal unlock."
+        },
+        {
+          "id": "CORR_STATS",
+          "source": "hosted/corruption.js",
+          "start_line": 155,
+          "end_line": 175,
+          "semantic_review": "Corruption skill provides enemy/player applicators; player side depends on actual skill unlock."
+        },
+        {
+          "id": "CORR_APPLY",
+          "source": "hosted/combatEffects.js",
+          "start_line": 791,
+          "end_line": 812,
+          "semantic_review": "Corruption behaviour samples applicators and runs them on actual combat character."
+        },
+        {
+          "id": "CORR_TOGGLE",
+          "source": "hosted/settings.js",
+          "start_line": 747,
+          "end_line": 754,
+          "semantic_review": "Permanent-corruption toggle defaultsfalse and saves on change."
+        },
+        {
+          "id": "CHAR_ACCURACY",
+          "source": "hosted/character.js",
+          "start_line": 398,
+          "end_line": 426,
+          "semantic_review": "Accuracy modifier alters actual computed accuracy."
+        },
+        {
+          "id": "CHAR_IMMUNE",
+          "source": "hosted/character.js",
+          "start_line": 766,
+          "end_line": 773,
+          "semantic_review": "Damage-type immunity affects actual attacks/effects."
+        },
+        {
+          "id": "MINE_GATE",
+          "source": "hosted/rockTicking.js",
+          "start_line": 214,
+          "end_line": 218,
+          "semantic_review": "Mining level/mastery/tool purchase predicates."
+        },
+        {
+          "id": "MINE_CHOICE",
+          "source": "hosted/rockTicking.js",
+          "start_line": 415,
+          "end_line": 435,
+          "semantic_review": "Empty rock refuses mining; selected supported rock starts real action."
+        },
+        {
+          "id": "MINE_PRODUCT",
+          "source": "hosted/rockTicking.js",
+          "start_line": 595,
+          "end_line": 638,
+          "semantic_review": "Mining emits item Rewards, XP/AXP and optional gems from real rock definition."
+        },
+        {
+          "id": "MINE_HP",
+          "source": "hosted/rockTicking.js",
+          "start_line": 670,
+          "end_line": 695,
+          "semantic_review": "Mining action spends rock HP unless preservation; depletion updates respawn state."
+        },
+        {
+          "id": "MINE_METEOR",
+          "source": "hosted/rockTicking.js",
+          "start_line": 778,
+          "end_line": 786,
+          "semantic_review": "Astrology consumer adds 5\u201324 Meteorite HP to the finite vein."
+        },
+        {
+          "id": "ASTRO",
+          "source": "hosted/astrology.js",
+          "start_line": 241,
+          "end_line": 247,
+          "semantic_review": "Meteorite discovery chance depends on studied constellation and modifier."
+        },
+        {
+          "id": "ASTRO_CALL",
+          "source": "hosted/astrology.js",
+          "start_line": 409,
+          "end_line": 414,
+          "semantic_review": "Actual Astrology postAction rolls meteorite and starfall."
+        },
+        {
+          "id": "ASTRO_ROLL",
+          "source": "hosted/astrology.js",
+          "start_line": 1028,
+          "end_line": 1031,
+          "semantic_review": "Meteorite roll calls native Mining vein mutation."
+        },
+        {
+          "id": "BANK_OPEN",
+          "source": "hosted/bank2.js",
+          "start_line": 1261,
+          "end_line": 1359,
+          "semantic_review": "Chest opening consumes only completed openings, retains pending random drop on full bank and grants real item stock."
+        },
+        {
+          "id": "T_GATE",
+          "source": "hosted/township.js",
+          "start_line": 630,
+          "end_line": 662,
+          "semantic_review": "Actual gateway, enabled predicate, armor stock/health threshold and wave size."
+        },
+        {
+          "id": "T_ARMOR",
+          "source": "hosted/township.js",
+          "start_line": 710,
+          "end_line": 719,
+          "semantic_review": "Read actual ArmourWeaponry amount and health-scaled readiness."
+        },
+        {
+          "id": "T_WAVE",
+          "source": "hosted/township.js",
+          "start_line": 1775,
+          "end_line": 1831,
+          "semantic_review": "Player button2-second timer -> AXP/currency reward and actual armor consumption; no damage path here."
+        },
+        {
+          "id": "T_WAVE_CURRENCIES",
+          "source": "hosted/township.js",
+          "start_line": 2449,
+          "end_line": 2461,
+          "semantic_review": "Wave AP and ASC gains use modifiers/currency multipliers."
+        },
+        {
+          "id": "T_BUILD",
+          "source": "hosted/township.js",
+          "start_line": 2277,
+          "end_line": 2328,
+          "semantic_review": "Paid native build and repair; efficiency restored through actual costs."
+        },
+        {
+          "id": "T_TICK",
+          "source": "hosted/township.js",
+          "start_line": 1697,
+          "end_line": 1727,
+          "semantic_review": "Town tick adds resources/XP then randomly degrades eligible buildings and health."
+        },
+        {
+          "id": "T_EFF",
+          "source": "hosted/township.js",
+          "start_line": 76,
+          "end_line": 85,
+          "semantic_review": "Building efficiency floors at20 plus modifier; repair writes100."
+        },
+        {
+          "id": "T_DECAY",
+          "source": "hosted/township.js",
+          "start_line": 786,
+          "end_line": 804,
+          "semantic_review": "Generic degradation is called by tick; separate Abyssal-only helper exists but no invocation from wave."
+        },
+        {
+          "id": "T_PRODUCE",
+          "source": "hosted/township.js",
+          "start_line": 2490,
+          "end_line": 2527,
+          "semantic_review": "Building resource generation uses efficiency and distinct Normal/Soul storage capacity."
+        },
+        {
+          "id": "T_REPAIR_COST",
+          "source": "hosted/township.js",
+          "start_line": 2154,
+          "end_line": 2190,
+          "semantic_review": "AP,GP or local resources pay repair costs."
+        },
+        {
+          "id": "AO_MODE",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 780,
+          "end_line": 921,
+          "semantic_review": "Ancient Relics initial caps10, no XP overflow/doubling/preservation, Fishing/Cooking gated by Impending Darkness.",
+          "json_pointer": "/data/gamemodes/0"
+        },
+        {
+          "id": "AO_CAP",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 7,
+          "end_line": 346,
+          "semantic_review": "Pre99 dungeon predicates, automatic combat caps+5 to99, other skills+15 and five earned choices.",
+          "json_pointer": "/data/skillLevelCapIncreases/0"
+        },
+        {
+          "id": "AO_DROP_MAP",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 50514,
+          "end_line": 50661,
+          "semantic_review": "OldVillage artifact size tables include Torn_Map and100Paper blank-map cost.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "AO_HIDDEN",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 53398,
+          "end_line": 53429,
+          "semantic_review": "AncientMarket hidden ItemFound Torn_Map; OldVillage ordinary dig-site POI.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "AO_TOOLS",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 53124,
+          "end_line": 53164,
+          "semantic_review": "Sieve/Trowel/Brush/Shovel target tiny/small/medium/large artifact tables.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "AO_DEP_TOTH",
+          "source": "hosted/data/melvorExpansion2.json",
+          "start_line": 85782,
+          "end_line": 85803,
+          "semantic_review": "When TotH dependency present, AncientRelics receives Post99Dungeons and Herald cap rewards.",
+          "json_pointer": "/dependentData/0/modifications/gamemodes"
+        },
+        {
+          "id": "TOTH_CAP",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 7,
+          "end_line": 240,
+          "semantic_review": "Post99 dungeon cap rewards and Herald set120 extend Ancient Relic mode.",
+          "json_pointer": "/data/skillLevelCapIncreases"
+        },
+        {
+          "id": "TOTH_METEORITE",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 42824,
+          "end_line": 42838,
+          "semantic_review": "Mining112 and Augite pickaxe for nonregenerating Meteorite ore.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "TOTH_BAR",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 42969,
+          "end_line": 42983,
+          "semantic_review": "Smithing110 consumes2MeteoriteOre per bar.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "TOTH_SWORD_RECIPE",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 43459,
+          "end_line": 43473,
+          "semantic_review": "Smithing115 consumes3bars per Meteorite2HSword.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "TOTH_SWORD",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 2265,
+          "end_line": 2327,
+          "semantic_review": "Meteorite sword equip gateAttack108 plus ImpendingDarkness; weapon also occupiesShield slot.",
+          "json_pointer": "/data/items"
+        },
+        {
+          "id": "TOTH_SOLUTION",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 36662,
+          "end_line": 36703,
+          "semantic_review": "Five actual labyrinth clue objects pay for one durable access purchase.",
+          "json_pointer": "/data/shopPurchases"
+        },
+        {
+          "id": "TOTH_SANCTUARY",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 34011,
+          "end_line": 34068,
+          "semantic_review": "Ancient Sanctuary access purchase, base completion unlock and Normal damage gate.",
+          "json_pointer": "/data/dungeons/0"
+        },
+        {
+          "id": "TOTH_KEY",
+          "source": "hosted/data/melvorTotH.json",
+          "start_line": 36779,
+          "end_line": 36803,
+          "semantic_review": "Final throne access purchase consumes actual GoldenKey item.",
+          "json_pointer": "/data/shopPurchases"
+        },
+        {
+          "id": "ITA_DAMAGE",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 518,
+          "end_line": 541,
+          "semantic_review": "Abyssal and Eternal damage immunities and resistance caps.",
+          "json_pointer": "/data/damageTypes"
+        },
+        {
+          "id": "ITA_REALM",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 11058,
+          "end_line": 11085,
+          "semantic_review": "Abyssal opens after IntoTheAbyss; Eternal hidden until historical EternityMitt find and ignored completion.",
+          "json_pointer": "/data/realms"
+        },
+        {
+          "id": "ITA_APPROACH",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 105596,
+          "end_line": 105653,
+          "semantic_review": "Base ImpendingDarkness completion unlocks Approach, normal damage allowed, StrangeSword reward.",
+          "json_pointer": "/data/dungeons"
+        },
+        {
+          "id": "ITA_ENTRY",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 105654,
+          "end_line": 105703,
+          "semantic_review": "Into the Abyss requires Attack 99 and Abyssal damage; Approach completion unlocks entry.",
+          "json_pointer": "/data/dungeons"
+        },
+        {
+          "id": "ITA_SWORD",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 47429,
+          "end_line": 47481,
+          "semantic_review": "Strange Sword earned weapon has Abyssal damage.",
+          "json_pointer": "/data/items"
+        },
+        {
+          "id": "ITA_VEIN",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 23638,
+          "end_line": 23679,
+          "semantic_review": "Harvesting realm gate; first vein stones0%,bark40%,quartz80%,seed100%,HarvestingChest unique.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_STONE_USE",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 11760,
+          "end_line": 11782,
+          "semantic_review": "AbyssiumBar requiresSmithing99/AXPlevel1,4ore plus4harvested stone.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_BARK_USE",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 12938,
+          "end_line": 12958,
+          "semantic_review": "AzurianBar uses10fragments plus5harvested bark atAXPlevel12.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_QUARTZ_USE",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 15012,
+          "end_line": 15037,
+          "semantic_review": "Crafting ring uses2AzurianBar,2Nightopal and2harvested quartz atAXPlevel1.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_RING",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 58576,
+          "end_line": 58616,
+          "semantic_review": "Crafted ring real melee stats and1Abyssal resistance.",
+          "json_pointer": "/data/items"
+        },
+        {
+          "id": "ITA_HARVEST_GLOVES",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 91689,
+          "end_line": 91738,
+          "semantic_review": "Equipped charged gloves change intensity/AXP/interval and consume charge each HarvestingAction.",
+          "json_pointer": "/data/items"
+        },
+        {
+          "id": "ITA_HARVEST_BUY",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 115033,
+          "end_line": 115066,
+          "semantic_review": "Buy500HarvestingGlove charges for100000AP base Glove cost.",
+          "json_pointer": "/data/shopPurchases"
+        },
+        {
+          "id": "ITA_HARVESTER",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 115882,
+          "end_line": 115936,
+          "semantic_review": "Late permanent Harvester costs25000NetheriteBars+250mAP and level50 plus previous upgrade.",
+          "json_pointer": "/data/shopPurchases"
+        },
+        {
+          "id": "ITA_CHEST",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 92738,
+          "end_line": 92809,
+          "semantic_review": "Full-intensity uniqueHarvestingChest has seed/physical rake-piece drop table.",
+          "json_pointer": "/data/items"
+        },
+        {
+          "id": "ITA_TREE_NODES",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 23149,
+          "end_line": 23240,
+          "semantic_review": "Harvesting AXP and mastery branches converge to+1flat product node after both parents.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_CORR_COUNTER",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 1311,
+          "end_line": 1397,
+          "semantic_review": "Combat hits build counter, incoming attacks reduce incomplete counter and full counter applies corruption.",
+          "json_pointer": "/data/combatEffects"
+        },
+        {
+          "id": "ITA_CORR_UNLOCK",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 24239,
+          "end_line": 24320,
+          "semantic_review": "Realm dungeon unlock, mutual-start counter applicators and unlockable effect-level table.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_CORR_EFFECT",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 1760,
+          "end_line": 1782,
+          "semantic_review": "Representative Corruption0 supplies+25accuracy in combat effect stat group.",
+          "json_pointer": "/data/combatEffects"
+        },
+        {
+          "id": "ITA_CORR_PERMA",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 105937,
+          "end_line": 105943,
+          "semantic_review": "Paid permanent corruption passive supplies100instantCorruptionChance.",
+          "json_pointer": "/data/combatPassives"
+        },
+        {
+          "id": "ITA_GATEWAY",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 31568,
+          "end_line": 31645,
+          "semantic_review": "Gateway paid resources, actual realm completion requirement, production and 50,000 Soul storage.",
+          "json_pointer": "/data/skillData"
+        },
+        {
+          "id": "ITA_DEPTH",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 113420,
+          "end_line": 113503,
+          "semantic_review": "First AbyssDepth uses real gate/combat/passives/rewards, not a character reset.",
+          "json_pointer": "/data/abyssDepths/0"
+        },
+        {
+          "id": "ITA_CAP",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 7,
+          "end_line": 217,
+          "semantic_review": "Depth-driven fixed/random Abyssal caps up to60 in AncientRelic integration.",
+          "json_pointer": "/data/skillLevelCapIncreases/0"
+        },
+        {
+          "id": "ITA_DEP_AOD",
+          "source": "hosted/data/melvorItA.json",
+          "start_line": 120275,
+          "end_line": 120300,
+          "semantic_review": "AncientRelics receives TheAbyss and final-depth60 reward only in AoD dependency block.",
+          "json_pointer": "/dependentData/0/modifications/gamemodes"
+        },
+        {
+          "id": "Y_DISCOVERY",
+          "source": "repo/src/skill_discovery.js",
+          "start_line": 44,
+          "end_line": 143,
+          "semantic_review": "Read-only disclosure/unlock/eligibility/accepted-work projections, unknown names filtered before search."
+        },
+        {
+          "id": "Y_WORLD",
+          "source": "repo/src/world_knowledge.js",
+          "start_line": 1,
+          "end_line": 14,
+          "semantic_review": "Per-actor known-world identity; absent old facts reveal nothing."
+        },
+        {
+          "id": "Y_PURSUIT",
+          "source": "repo/src/pursuit.js",
+          "start_line": 65,
+          "end_line": 183,
+          "semantic_review": "Evidence-backed paid leads and report disclosure; no omniscient next-destination selection."
+        },
+        {
+          "id": "Y_FIELD",
+          "source": "repo/src/field_workshop.js",
+          "start_line": 20,
+          "end_line": 31,
+          "semantic_review": "Existing shared-site actor project plus road aftermath and native method source."
+        },
+        {
+          "id": "Y_PROJECT",
+          "source": "repo/src/site_projects.js",
+          "start_line": 4,
+          "end_line": 31,
+          "semantic_review": "Phases compile into current command/site/claim/world-fact owners and known completion projection."
+        },
+        {
+          "id": "Y_FIELD_CONSUMER",
+          "source": "repo/src/field_workshop.js",
+          "start_line": 78,
+          "end_line": 89,
+          "semantic_review": "Actual transferred input commissioning, later observed reports, useful kit output and road repair."
+        },
+        {
+          "id": "Y_ARTIFACT",
+          "source": "repo/src/artifact_collection.js",
+          "start_line": 80,
+          "end_line": 112,
+          "semantic_review": "Actual physical artifact assembly/disassembly/held carrier uses through existing paid executor."
+        },
+        {
+          "id": "Y_FIT",
+          "source": "repo/src/audit_remainder_combat_fit_content.js",
+          "start_line": 20,
+          "end_line": 91,
+          "semantic_review": "Current real fit differences, native owned-stock handoff and paid single conditioned preparation."
+        },
+        {
+          "id": "Y_FIT_HOST",
+          "source": "repo/src/audit_remainder_combat_fit_host.js",
+          "start_line": 12,
+          "end_line": 45,
+          "semantic_review": "Shared executor and real battle admission consumes supported fitting/preparation."
+        },
+        {
+          "id": "Y_LIVELIHOOD",
+          "source": "repo/src/audit_remainder_livelihood_content.js",
+          "start_line": 47,
+          "end_line": 96,
+          "semantic_review": "Funded finite worker shifts/tool allocation/bench drying, actual tools and earned wages."
+        },
+        {
+          "id": "Y_LIVELIHOOD_HOST",
+          "source": "repo/src/audit_remainder_livelihood_host.js",
+          "start_line": 12,
+          "end_line": 78,
+          "semantic_review": "Current native bridge cancellation/withdrawal and actual report projection."
+        },
+        {
+          "id": "Y_HOME",
+          "source": "repo/src/audit_remainder_home_content.js",
+          "start_line": 71,
+          "end_line": 148,
+          "semantic_review": "Already delivered paid branch specialization, measured salvage and two actual loaded survey commands."
+        },
+        {
+          "id": "Y_ASSAY",
+          "source": "repo/src/game_absorption_assay_content.js",
+          "start_line": 86,
+          "end_line": 95,
+          "semantic_review": "Existing paid physical unknown-charge experiment and recovered-pin downstream uses; avoid duplicate identification system."
+        },
+        {
+          "id": "Y_CULTIVATION",
+          "source": "repo/src/feature_expansion_book_cultivation.js",
+          "start_line": 785,
+          "end_line": 849,
+          "semantic_review": "Profile evaluator remains author-only unactivated/nativeConsumernull, requires exact actual body/source/observer snapshot."
+        },
+        {
+          "id": "MINE_FINITE",
+          "source": "hosted/rockTicking.js",
+          "start_line": 700,
+          "end_line": 777,
+          "semantic_review": "Timed Mining requires positive HP. No passive regeneration or respawn for hasPassiveRegen=false; new fixed-HP veins initialize at zero."
+        }
+      ],
+      "whole_file_claim": false,
+      "unread": [
+        "The public expansion payloads are obtained, but this is representative semantic coverage, not every item, monster, recipe, dungeon, hex, puzzle, tool, museum reward, tree, effect or biome.",
+        "No Melvor runtime behavior, private account entitlement, player progress or saves were inspected. Code baseline timing and costs are not lived pacing.",
+        "Which original local choice should consume a known survey receipt without duplicating current assay/salvage? The narrow consumer is proposed; concrete fiction and numbers remain unselected.",
+        "Would sustained site work improve actual play? Existing finite projects and paid preparation may already meet the goal. The parked option does not establish a missing shared platform.",
+        "Full Bane combat, AoD Barrier/Unholy Prayer/Gem combat, offline/automation, mods and update/event catalog belong to the parent and other readers.",
+        "Full Eternal content, Adventure Abyssal cap purchases, complete Herald phases, Strongholds and late rake/farming paths remain unread beyond selected locators.",
+        "Serialization source was reviewed, but no Melvor reload/export/import was exercised. All deferred YAIRPG player, save, failure, regression and director checks remain unrun."
+      ]
+    },
+    {
+      "family": "offline/automation settlement",
+      "paths": [
+        "OFF01",
+        "OFF02",
+        "SHOP01"
+      ],
+      "exact_reviewed_spans": [
+        {
+          "file": "game.js",
+          "lines": [
+            149,
+            169
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            1769,
+            1800
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2074,
+            2168
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2199,
+            2227
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            2335,
+            2398
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            3455,
+            3510
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            3790,
+            3856
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "skill.js",
+          "lines": [
+            2717,
+            2745
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "skill.js",
+          "lines": [
+            2787,
+            2818
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "skill.js",
+          "lines": [
+            3145,
+            3181
+          ],
+          "sha256": "105a282d8c656c4d42f85ee2662a6a75fd8634abbd0514cc7b591cc01144f606",
+          "url": "https://steam.melvoridle.com/assets/js/built/skill.js?12097"
+        },
+        {
+          "file": "bank2.js",
+          "lines": [
+            636,
+            708
+          ],
+          "sha256": "927e28b1021c5832432e62cd51a68c583f4886b58a1404df13284665b6b4ef75",
+          "url": "https://steam.melvoridle.com/assets/js/built/bank2.js?12097"
+        },
+        {
+          "file": "settings.js",
+          "lines": [
+            21,
+            30
+          ],
+          "sha256": "45b9c767267d50deb97192effc72f350d233de3657428b8128e116a47be1a5d4",
+          "url": "https://steam.melvoridle.com/assets/js/built/settings.js?12097"
+        },
+        {
+          "file": "shop.js",
+          "lines": [
+            411,
+            453
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "shop.js",
+          "lines": [
+            464,
+            552
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "shop.js",
+          "lines": [
+            579,
+            596
+          ],
+          "sha256": "ef40040fd8869e77fdf81ed5613e0f078027df6e1a404657247c128e42ce768b",
+          "url": "https://steam.melvoridle.com/assets/js/built/shop.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            476,
+            486
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "baseManager.js",
+          "lines": [
+            198,
+            216
+          ],
+          "sha256": "ba1db6605148a0eb1d7c20adafd43a322c24d17ace0104cb8489a1ba312745a8",
+          "url": "https://steam.melvoridle.com/assets/js/built/baseManager.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            134,
+            150
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            2393,
+            2399
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        },
+        {
+          "file": "player.js",
+          "lines": [
+            623,
+            672
+          ],
+          "sha256": "26f0f1d9137d756a0a5e487d85c56f759f6cb3bf3653a82f4f26b4fd0614d13a",
+          "url": "https://steam.melvoridle.com/assets/js/built/player.js?12097"
+        }
+      ],
+      "whole_file_claim": false,
+      "unread": "No runtime catchup/error/modded profile/private save/rollback/packaged offline-client validation."
+    },
+    {
+      "family": "data/mod authoring interfaces",
+      "paths": [
+        "DATA01",
+        "MOD01"
+      ],
+      "exact_reviewed_spans": [
+        {
+          "file": "namespaceRegistry.js",
+          "lines": [
+            1,
+            78
+          ],
+          "sha256": "68bd4ccf86711372fb0b5593fb403d7878606156b706c7f61ea78c1044b1dc24",
+          "url": "https://steam.melvoridle.com/assets/js/built/namespaceRegistry.js?12097"
+        },
+        {
+          "file": "cloudManager.js",
+          "lines": [
+            208,
+            237
+          ],
+          "sha256": "81b6b25f24f71bb4ed6803f5e53f04cc240023c9b19ff313a3b281d2a500d281",
+          "url": "https://steam.melvoridle.com/assets/js/built/cloudManager.js?12097"
+        },
+        {
+          "file": "cloudManager.js",
+          "lines": [
+            506,
+            534
+          ],
+          "sha256": "81b6b25f24f71bb4ed6803f5e53f04cc240023c9b19ff313a3b281d2a500d281",
+          "url": "https://steam.melvoridle.com/assets/js/built/cloudManager.js?12097"
+        },
+        {
+          "file": "game.js",
+          "lines": [
+            553,
+            641
+          ],
+          "sha256": "b2a3e7cb1f6f3b58fe4c884e3fd16173feec11ce14acb0257e6308bd602b3cd2",
+          "url": "https://steam.melvoridle.com/assets/js/built/game.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4751,
+            4820
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            5055,
+            5120
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4326,
+            4445
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4326,
+            4445
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4525,
+            4608
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            4914,
+            5018
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            5347,
+            5506
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        },
+        {
+          "file": "mod.js",
+          "lines": [
+            6346,
+            6378
+          ],
+          "sha256": "035b7a93b43581acef46c73d24498dcd5efac6565c572dd9c7df59ec52738d40",
+          "url": "https://steam.melvoridle.com/assets/js/built/mod.js?12097"
+        }
+      ],
+      "whole_file_claim": false,
+      "unread": "Not a full mod.io transport,security,UI,patch-order or save compatibility audit. Wiki/mod.io text inaccessible; official executable/declarations reviewed instead."
+    }
+  ],
+  "parent_review": [
+    "Root checked tick/offline/capacity order and stats->food upgrade consumer.",
+    "Root checked tablet own+synergy handlers,mark limitations and mastery pool/farm completion consumer.",
+    "Root checked food nonlethal auto-eat gating,manual interruption,item stack-loss,current-character save clear and barrier exceptions.",
+    "Root checked actual Meteorite5-24HP,skill-tree node deduction,parent gates and current Township wave/degradation distinction.",
+    "Root checked current exact resin/frame recipes and survey-only knowledge before packet missing-consumer statements."
+  ],
+  "readers": [
+    {
+      "reader": "production",
+      "artifact": "docs/research/melvor-idle/readers/production.json",
+      "sha256": "a82564a16514c2ee3178a2a249900b2315e17cf7b79e2bb3e41e34d9cbc3c847",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    },
+    {
+      "reader": "combat",
+      "artifact": "docs/research/melvor-idle/readers/combat.json",
+      "sha256": "0e435a0192320bd8e048a1fc52e668b16e478da117deafa9c799c72bc2a3c370",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    },
+    {
+      "reader": "expansions",
+      "artifact": "docs/research/melvor-idle/readers/expansions.json",
+      "sha256": "aab67a4ac661c023ba9a7984c94a635d2f68d2bd4ed5f15be634cbed2e6e2af9",
+      "status": "completed/released; root consequential source review completed",
+      "full_source_bindings": "Exact reviewed spans/hashes/pointers in reader artifact; parsed into coverage."
+    }
+  ],
+  "deferred_checks": [
+    "YAIRPG gameplay/unit/browser/save/reload/import/failure/regression/keyboard/director",
+    "Melvor character/runtime/installed-game launch"
+  ],
+  "boundaries": {
+    "private_saves_accessed": false,
+    "accounts_or_entitlements_inspected": false,
+    "installed_mutation": false,
+    "runtime_integration": false,
+    "commit_push_publication_automation": false,
+    "raw_corpus_in_repo": false,
+    "whole_game_review": false
+  }
+}

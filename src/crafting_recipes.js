@@ -138,6 +138,18 @@ class ItemRecipe extends Recipe {
     }
 }
 
+// Adapted from Zorakir/yet-another-another-idle-rpg c079925 (MIT).
+function recipe_material_result(recipe, material) {
+    if(!material?.id) throw new Error(`Recipe "${recipe.name}" needs a material.`);
+    const matching_material = recipe.materials.find(x => x.material_id === material.id);
+    if(!matching_material) {
+        throw new Error(`Recipe "${recipe.name}" does not accept material "${material.id}".`);
+    }
+    const result = item_templates[matching_material.result_id];
+    if(!result) throw new Error(`Recipe "${recipe.name}" has no result for material "${material.id}".`);
+    return result;
+}
+
 class ComponentRecipe extends ItemRecipe{
     constructor({
         name,
@@ -153,7 +165,7 @@ class ComponentRecipe extends ItemRecipe{
         this.component_type = component_type;
         this.item_type = item_type;
         this.getResult = function(material, station_tier = 1){
-            const result = item_templates[this.materials.filter(x => x.material_id===material.id)[0].result_id];
+            const result = recipe_material_result(this, material);
             //return based on material used
             let quality = this.roll_quality((station_tier-result.component_tier) || 0);
             if(result.tags["clothing"]) {
@@ -204,7 +216,7 @@ class ComponentlessEquipRecipe extends ItemRecipe{
         super({name, id, materials, is_unlocked, recipe_type: "componentless", result, recipe_level: [1,1], recipe_skill, getResult: null, success_rate: [1,1]})
         this.item_type = item_type;
         this.getResult = function(material, station_tier = 1){
-            const result = item_templates[this.materials.filter(x => x.material_id===material.id)[0].result_id];
+            const result = recipe_material_result(this, material);
             //return based on material used
             let quality = this.roll_quality((station_tier-result.item_tier) || 0);
             return new Cape({...item_templates[result.id], quality: quality});

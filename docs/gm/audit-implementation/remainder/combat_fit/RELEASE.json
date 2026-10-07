@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-10-06T19:46:53.096881+00:00",
+  "worker": "/root/remainder_combat_fit",
+  "parent": "/root",
+  "ownedStatus": "all three assigned rows authored; implemented-unverified, root shared/native/UI/completion integration and build remain necessary",
+  "candidateIds": [
+    "tales-of-maj-eyal:P1",
+    "keeperrl:P3",
+    "rogue-legacy:P2"
+  ],
+  "filesReleased": [
+    "src/audit_remainder_combat_fit_content.js",
+    "src/audit_remainder_combat_fit_facts.js",
+    "src/audit_remainder_combat_fit_hooks.js",
+    "src/audit_remainder_combat_fit_host.js"
+  ],
+  "exclusiveDocumentationDirectory": "docs/gm/audit-implementation/remainder/combat_fit/",
+  "sourceHashes": {
+    "src/audit_remainder_combat_fit_content.js": "acdc8f546208821c21dfb155d39c18044c62a4c51b0e918ff1d1b24edb07cfc4",
+    "src/audit_remainder_combat_fit_facts.js": "a954f02bb6f2e48688bb4b274a6e46fd0b0ca37c9cb0dd4f93065f6ede1cd5fd",
+    "src/audit_remainder_combat_fit_hooks.js": "df2de21f24ad32dff5ecb677d9741a9bc1483f86548c19422828dc6a386cd9aa",
+    "src/audit_remainder_combat_fit_host.js": "f308e3303b991bfe972aa6adc04173cf7e5a3d1ab17df9e5a5589937ebb2e462"
+  },
+  "metadataHashes": {
+    "INPUTS.json": "c0d9de24e1a0ea856cb68b6b5dc1d3d09b9380d28b218fe2dbda1107a35d922a",
+    "OUTPUTS.json": "2583a220cf7d204bfe28ac393a2130bcd61ddf21455ce63c8c0b9c5614b35393",
+    "CHECKS.json": "2871e9922adbd243553ed0adebd78557f5e44897ef94f735bbabaf9309e96ba1"
+  },
+  "sharedFilesEdited": false,
+  "buildRun": false,
+  "behavioralChecksRun": false,
+  "privateSavesRead": false,
+  "subagentsSpawned": false,
+  "pendingOwnProcesses": [],
+  "rootNext": "Consume every binding in PATCH_MAP.md, freeze the combined schema5 contract with combat_objectives, finish actual native/UI integration, validate/build once and retain all five deferred gate groups."
+}

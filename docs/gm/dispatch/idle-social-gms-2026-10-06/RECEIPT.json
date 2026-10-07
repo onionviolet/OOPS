@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-06",
+  "project_id": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "assignment": "ASSIGNMENT.md",
+  "input_snapshot": "INTAKE.json",
+  "threads": [
+    {
+      "key": "melvor-idle",
+      "title": "Melvor Idle GM: inspect skills and expansions",
+      "threadId": "01a112e5-e6b3-7d92-b15c-c33d8fbed002",
+      "hostId": "local"
+    },
+    {
+      "key": "orb-of-creation",
+      "title": "Orb of Creation GM: inspect magic and DLC",
+      "threadId": "01a112e6-0dd2-7af0-8bd6-c49d7ebb2395",
+      "hostId": "local"
+    },
+    {
+      "key": "your-chronicle",
+      "title": "Your Chronicle GM: inspect stories and progression",
+      "threadId": "01a112e6-339b-7eb3-828d-a30f1d5e8272",
+      "hostId": "local"
+    },
+    {
+      "key": "crush-crush",
+      "title": "Crush Crush GM: inspect romance and DLC",
+      "threadId": "01a112e6-5a29-7dc0-a321-4b2e129294a8",
+      "hostId": "local"
+    },
+    {
+      "key": "idle-social-engine-scout",
+      "title": "GM: scout additional games and engines",
+      "threadId": "01a112e7-2306-7a82-9920-0befd36006cc",
+      "hostId": "local"
+    }
+  ],
+  "status": "all five observed active; source research and DLC coverage acceptance pending",
+  "acs_dlc_scope_update": {
+    "thread_id": "01a112c9-5af5-7452-a5a6-707aa42c5734",
+    "sent": true
+  },
+  "dispatcher_runtime_changes": false,
+  "dispatcher_installed_game_changes": false
+}

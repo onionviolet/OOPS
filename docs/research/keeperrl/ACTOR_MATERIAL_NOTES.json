@@ -1,0 +1,105 @@
+{
+  "title": "KeeperRL actor activities and material flow notes",
+  "as_of": "2026-10-06",
+  "scope": "Bounded semantic reading of two interacting source paths: K1 independent minion activity/task selection and task ownership; K2 workshop resource production, stock ownership, and equipment use. This is not a broad source or game coverage claim.",
+  "source": {
+    "repository": "https://github.com/miki151/keeperrl",
+    "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+    "local_read_only_checkout": "/Users/weiwei/.codex/research/keeperrl/source",
+    "license_file": "LICENSE",
+    "license_sha256": "39db8f9acf036595a2566ea3fe560bc7bd65d8749f088e0f4a4ef2f8a6cb4b34",
+    "license_observation": "The inspected C++ headers identify KeeperRL and GPL v2-or-later terms. This note makes no claim about the current commercial game's packaged media or exact correspondence to any current Steam build.",
+    "github_link_rule": "Each reference URL is pinned to the commit above and includes the observed line range."
+  },
+  "semantic_coverage": {
+    "K1": "Reviewed the actor behavior caller, candidate eligibility, activity transition, generated and shared task selection, task ownership/transfer, and concrete sleep/eat need outcomes. Also read a no-food/no-destination failure branch.",
+    "K2": "Reviewed physical versus abstract resource configuration, stock lookup/spending/return, workshop queued costs and skill/upgrade eligibility, work accumulation and item creation, minion-item owner filtering, auto-assignment/slot replacement, pickup/equip execution, and food as a concrete consumed item. Failure boundaries include insufficient stock, unavailable/skill-ineligible recipes, locked or conflicting equipment, and inaccessible/empty eat targets.",
+    "limits": "Only named files and spans below were semantically read for this assignment. Search hits, surrounding files, and the repository as a whole are not represented as reviewed coverage. No game build, execution, installation, or balance/play verification was performed."
+  },
+  "K1_actor_activity_and_task_ownership": {
+    "observed_flow": [
+      "MonsterAI's ByCollective turn first considers healing, then equipment, combat/team behavior, priority collective tasks, alarms, the actor's current task, new equipment tasks, and finally a standard task. Thus actor activity selection participates in an existing turn-order policy rather than replacing combat/team control.",
+      "For standard work, the actor checks whether its current activity remains good. When idle or invalid, it chooses among activities that pass canChooseRandomly and isActivityGoodAssumingHaveTasks; candidates may be an existing compatible task, a generated task, or idle. A selected activity gets a duration and can free the prior task.",
+      "Activity availability includes individual constraints: eating is blocked for SATIATED actors and prisoners; sleep requires a non-RESTED actor and is unavailable when poisoned or sleep-immune; craft requires a positive relevant skill; work/hauling/construction require a WORKER trait and item-carrying body. Activity locks and group locks also gate availability.",
+      "TaskMap holds actor-to-task and task-to-actor maps for assigned tasks, and separate activity queues for open tasks. Selection checks performer eligibility, reachability, delay, owner distance, and task transferability. Priority tasks can displace the current task. A transferable freed task is delayed for 50 visible time units; a nontransferable or done task is removed and returns its recorded completion cost to its caller.",
+      "Concrete needs are stateful outcomes, not just labels: an EAT activity generates an eat task over built pigsty positions; it finds or pursues farm animals/dead chickens, consumes a chicken through Creature::eat, removes that item, adds SATIATED for 500 visible time units, and spends three visible time units. Sleep selection respects RESTED and its activity duration is 100 time units."
+    ],
+    "failure_and_exception": [
+      "If no reachable eat position is found, the Eat task marks itself done and returns no move. If it reaches a position with no chicken, it clears the current target and waits; it does not mint food or satiation.",
+      "TaskMap::takeTask frees the task's prior owner before taking it and frees the new actor's current task. `freeFromTask` returns any recorded completion cost when removing a nontransferable task. Collective::setTask and setPriorityTask explicitly return that cost to resource stock; the priority-steal branch in ByCollective calls TaskMap::freeFromTask directly and ignores its return value, an observed exception worth preserving/reviewing rather than silently generalizing. In `getStandardTask`, a newly generated task may return null and the actor then waits."
+    ],
+    "actual_read_spans": [
+      {"file":"monster_ai.cpp","lines":"811-831, 904-950, 953-1015, 1025-1047, 1050-1070, 1085-1101","sha256":"1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L811-L831"},
+      {"file":"minion_activity_map.cpp","lines":"27-45, 47-64, 66-73, 75-160, 162-169","sha256":"10f6749c418ae7a752ea868a44080176768be6abb535d6397ee831acd2542452","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity_map.cpp#L47-L64"},
+      {"file":"collective.cpp","lines":"327-410, 417-432, 616-629","sha256":"1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L327-L410"},
+      {"file":"minion_activity.cpp","lines":"106-120, 221-230, 242-259, 261-386, 389-410","sha256":"d54bc1f3230c4eaf8bd532fa75092c3c41b662c9ee78db6f2389e9353588fc49","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_activity.cpp#L261-L386"},
+      {"file":"task_map.cpp","lines":"39-114, 126-176, 210-283, 286-323","sha256":"e1f84aa6abb05172a2f97df83af71558605ba634357642b294637967a38a97ad","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task_map.cpp#L39-L114"},
+      {"file":"task.cpp","lines":"1093-1157","sha256":"08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L1093-L1157"},
+      {"file":"task.cpp","lines":"259-294","sha256":"08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L259-L294"},
+      {"file":"creature.cpp","lines":"2281-2288","sha256":"c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2281-L2288"}
+    ],
+    "selected_evidence_anchors": [
+      {"symbol":"ByCollective::priorityTask","file":"monster_ai.cpp","lines":"816-830","meaning":"Existing priority task dispatch and task reassignment."},
+      {"symbol":"ByCollective::setRandomTask / getStandardTask","file":"monster_ai.cpp","lines":"953-1014","meaning":"Activity candidate selection, validity recheck, duration-driven work, task generation and waiting fallback."},
+      {"symbol":"MinionActivityMap::isAvailable","file":"minion_activity_map.cpp","lines":"75-160","meaning":"Actor-specific needs/traits/equipment/skill eligibility."},
+      {"symbol":"TaskMap::getClosestTask / takeTask / freeFromTask","file":"task_map.cpp","lines":"64-114, 274-283, 313-323","meaning":"Task eligibility and actor ownership/reassignment/delay rules."},
+      {"symbol":"Eat::getMove / Creature::eat","file":"task.cpp / creature.cpp","lines":"1093-1134, 2281-2288","meaning":"Failure to find food and actual item consumption plus SATIATED state."}
+    ]
+  },
+  "K2_material_production_stock_and_equipment": {
+    "observed_flow": [
+      "The free resource configuration explicitly distinguishes physical resources (item and storage identity) from nonphysical resources. Collective::hasResource counts available credit and stored stock; takeResource spends credit first, then removes matching physical items from configured storage. returnResource recreates physical resource items and deposits them at a valid destination, or restores abstract credit when no physical storage route applies.",
+      "A workshop queue initially records unpaid debt. It pays a queued item when stock becomes available. Craft eligibility then requires payment or available cost stock, a rune when upgrades are required, and the minimum crafting skill. Unqueue refunds paid cost only before work has progressed; unpaid queue removal removes its debt.",
+      "A minion working at the matching workshop adds skill- and effect-scaled work. The first work step spends the required resource if not already paid; reaching completion instantiates the configured item, applies any prefix and rune upgrades, removes the queue entry, then the collective places the result in the worker's inventory (or assembles an item-defined minion). This is a real production and stock mutation path.",
+      "Collective equipment ownership is tracked per minion. Eligibility respects body/trait/config constraints, item use type, equipment slots, conflicts, locks, value and limits. Auto-assignment can claim unowned storage items, drop an inferior unlocked item to make room, and leave locked or effect-excluded items alone. The actor then receives a pickup-and-equip task for its owned stored item; EquipItem executes Creature::equip and marks itself done. Non-equipment consumables can be assigned to an owner and picked up, with their later actual use routed through the item's behavior.",
+      "The EAT task supplies an example of an actual consumable lifecycle: it seeks a physical farm animal/carcass, and Creature::eat removes the selected item from the map while applying the satiety effect."
+    ],
+    "failure_and_exception": [
+      "takeResource asserts positive cost, returns for zero, and reaches FATAL if the requested amount cannot be fulfilled from credit and configured storage. This is a consistency boundary: callers should establish availability before spending.",
+      "A recipe is not craftable until its prerequisites are met; unpaid insufficient stock, missing required runes, or low skill causes isIdle to consider it unavailable and addWork to skip it. No output is awarded in that branch.",
+      "Auto-equipment excludes items whose effects forbid automatic assignment. A locked full slot or conflicts can reject ownership/replacement; inability to carry or retrieve the owned item blocks its pickup task."
+    ],
+    "actual_read_spans": [
+      {"file":"data_free/game_config/resource_info.txt","lines":"1-17","sha256":"cd6a5809831228e1c19896ae533d283ba09cce65da806fc7207503c4f819f18b","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/resource_info.txt#L1-L17"},
+      {"file":"data_free/game_config/workshop_info.txt","lines":"1-76","sha256":"3b39b105eaacee5115a7d70c320625d7983e1a33c70c40e00ae1644424fbbe21","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/workshop_info.txt#L1-L24"},
+      {"file":"collective.cpp","lines":"1013-1068, 1077-1104, 1621-1653, 1744-1750","sha256":"1ac07a7d9a9e04cdfa7e80690dcaf70949460935eadb75b0595f137de8a2e428","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/collective.cpp#L1013-L1068"},
+      {"file":"workshops.cpp","lines":"26-132","sha256":"50746c7330e69118a1c3b77357771876e46f0934545bf1030f2e93f3f093fca1","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/workshops.cpp#L30-L89"},
+      {"file":"minion_equipment.cpp","lines":"41-141, 143-203, 206-255, 257-307","sha256":"2dbf823706d62bd5b1db6140bbbfc16e72cb95ad3c83ea62fed2758aa3e8847c","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/minion_equipment.cpp#L72-L141"},
+      {"file":"monster_ai.cpp","lines":"904-950","sha256":"1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L904-L950"},
+      {"file":"task.cpp","lines":"259-280, 1093-1157","sha256":"08c3f1df6db9ffc7bacd4119328b8f97a95b6364b89c3016a3723445e4615a9d","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/task.cpp#L259-L280"},
+      {"file":"creature.cpp","lines":"2281-2288","sha256":"c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7","url":"https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L2281-L2288"}
+    ],
+    "selected_evidence_anchors": [
+      {"symbol":"Collective::takeResource / returnResource","file":"collective.cpp","lines":"1021-1062","meaning":"Physical stock and abstract credit are both accounted for; returns use storage or credit."},
+      {"symbol":"Workshops::Type::queue / updateState / canCraft / addWork","file":"workshops.cpp","lines":"47-60, 77-89, 104-132","meaning":"Queued real costs, skill/upgrade eligibility, expenditure, work accumulation and item production."},
+      {"symbol":"Collective::autoAssignEquipment / MinionEquipment::autoAssign","file":"collective.cpp / minion_equipment.cpp","lines":"1744-1750, 277-307","meaning":"Collective storage items can become individually owned equipment subject to eligibility and slot replacement."},
+      {"symbol":"ByCollective::getEquipmentTask / EquipItem::getMove","file":"monster_ai.cpp / task.cpp","lines":"926-950, 259-280","meaning":"Owned gear is fetched and equipped through the actor's ordinary task execution."}
+    ]
+  },
+  "current_yair_comparison": {
+    "interpretation": "YAIR already has a durable command/job simulation, finite paid NPC work and concrete material ownership transformations. KeeperRL's distinctive source-backed behavior here is autonomous creature-level activity choice plus task claiming/reassignment, collective workshop stock accounting, and per-minion equipment ownership. No proposal is made because this bounded check did not establish a specific missing YAIR consumer beyond those already-owned abstractions.",
+    "snapshot_qualification": "The simulation.js and simulation_effects.js hashes below are the exact file contents read for this comparison. A later shared-checkout validation found both paths had since changed; original hashes and line evidence are retained rather than silently refreshed to imply the changed contents were reviewed. All declared ranges were rechecked against current file lengths and remain in bounds.",
+    "files": [
+      {"file":"src/simulation.js","sha256":"739c9847a7330a1c6c6ba3688d5481a385e02536941c360c522aef8135ba1edc","read_lines":"51-182, 184-227, 359-450","anchors":"previewSimulationCommand: 51-109; startCommand: 111-174; advanceSimulationBoundary: 359-450"},
+      {"file":"src/simulation_resolution.js","sha256":"b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94","read_lines":"1-40","anchors":"prepareSimulationEffects: 11-34; outcome-weight validation: 36-40"},
+      {"file":"src/simulation_effects.js","sha256":"56347822cd8e265868d7c298406c076f19ba44658220f69d32a406d24168cebc","read_lines":"27-40, 140-177, 198-204, 264-295","anchors":"inventory: 27-40; staged item/transfer custody: 140-177; claims: 198-204; equipment and refunds: 264-295"},
+      {"file":"src/feature_expansion_nested_life.js","sha256":"7273a326353539a6ddf19d0eb66760f6fef1fa1394cc5c2a1b5c2f932a15aaa2","read_lines":"10-80, 112-171","anchors":"finite consented NPC demand/wage/jobs and later purchase: 20-80; commit/cancel/projection/validation: 112-171"},
+      {"file":"src/reference_gameplay_content.js","sha256":"3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f","read_lines":"1-100","anchors":"conserved charged/empty sleeve, finite seller stock, actual salt/resin/stave/kit transformations, consumption and funded supervised practice"},
+      {"file":"src/repository_absorption_objects.js","status":"absent","evidence":"No such path exists in this checkout. `rg --files src | rg repository_absorption` returned facts, content, substitutions, workplan, host, chains, and UI modules. This is an input-path mismatch, not an inference about absent gameplay."},
+      {"file":"src/feature_expansion_objects.js","sha256":"d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd","read_lines":"112-180","anchors":"existing real seller stock/payer transfers, custody loan, consumed/transformed wet/sound/matched materials, persistent site result, capacity/duration/costs and funded finite orders"}
+    ],
+    "verified_existing_support": [
+      "YAIR command preview validates costs and outcomes before commitment, actor availability, unique claims and finite site capacity; accepted jobs reserve costs and freeze their outcomes. Completion can check that required actor/contact/location support remains, refunding inputs and awarding no result when it has been lost.",
+      "The shared simulation boundary settles due jobs before actor decisions and routines, then running controllers choose candidates and commit only eligible work. Routines pause when their next inputs, capacity, support or access are unavailable.",
+      "Simulation effects already model inventory ownership, item consumption/transfer, custody, unique claims, equipment and cost refunds. The existing nested-life chapter has finite NPC demand and credit, costed real-material jobs, owner-specific retained goods and a separate paid native-stock purchase.",
+      "The existing feature-objects chapter already implements actual variants, costs, transformations, installations consumed into persistent local state, a finite order funded by an NPC's reserved purse, and cancellation/refund handling. It is a closer material-function owner than the absent requested absorption filename.",
+      "Reference gameplay already defines a conserved charged/empty sleeve and finite stock; actual salt charges it, the sleeve converts sap to resin, resin and real staves produce the existing survey kit, and paid NPC-supervised trials consume resources. This further narrows any material proposal: those consumers already exist."
+    ],
+    "not_claimed": [
+      "The inspected YAIR actor routines do not establish KeeperRL-style autonomous need-driven reassignment among independently embodied minions; this comparison did not audit every YAIR actor/UI adapter or establish a complete gap inventory.",
+      "No conclusion about full YAIR stock persistence or every native inventory consumer beyond the inspected owners.",
+      "No behavioral comparison, balance claim, or implementation recommendation."
+    ]
+  },
+  "provenance_caveat": "The repository's LICENSE and inspected source headers were read; raw source was not copied into YAIR. The pin records one source snapshot only. Commercial media and current packaged-game behavior were not inspected."
+}

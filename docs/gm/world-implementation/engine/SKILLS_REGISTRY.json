@@ -1,0 +1,144 @@
+{
+  "check": "static definition/import validation only",
+  "engineSchema": 5,
+  "families": [
+    "frontier.brace_control",
+    "frontier.trail_reading",
+    "frontier.timber_judgment",
+    "frontier.shared_inquiry"
+  ],
+  "commands": [
+    {
+      "id": "skills.brace.observe",
+      "registered": true
+    },
+    {
+      "id": "skills.trail.observe",
+      "registered": true
+    },
+    {
+      "id": "skills.timber.observe",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.observe",
+      "registered": true
+    },
+    {
+      "id": "skills.brace.learn",
+      "registered": true
+    },
+    {
+      "id": "skills.trail.learn",
+      "registered": true
+    },
+    {
+      "id": "skills.timber.learn",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.learn",
+      "registered": true
+    },
+    {
+      "id": "skills.brace.practice",
+      "registered": true
+    },
+    {
+      "id": "skills.trail.practice",
+      "registered": true
+    },
+    {
+      "id": "skills.timber.practice",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.practice",
+      "registered": true
+    },
+    {
+      "id": "skills.brace.contest",
+      "registered": true
+    },
+    {
+      "id": "skills.trail.route",
+      "registered": true
+    },
+    {
+      "id": "skills.timber.pack",
+      "registered": true
+    },
+    {
+      "id": "skills.timber.precise_pack",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.compare",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.road_report",
+      "registered": true
+    },
+    {
+      "id": "skills.inquiry.recover_attention",
+      "registered": true
+    }
+  ],
+  "powers": [
+    {
+      "id": "frontier.brace_control",
+      "registered": true
+    },
+    {
+      "id": "frontier.trail_reading",
+      "registered": true
+    },
+    {
+      "id": "frontier.timber_judgment",
+      "registered": true
+    },
+    {
+      "id": "frontier.shared_inquiry",
+      "registered": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "frontier.brace_control",
+      "registered": true
+    },
+    {
+      "id": "frontier.trail_reading",
+      "registered": true
+    },
+    {
+      "id": "frontier.timber_judgment",
+      "registered": true
+    },
+    {
+      "id": "frontier.shared_inquiry",
+      "registered": true
+    }
+  ],
+  "encounters": [
+    {
+      "id": "skills.brace.press",
+      "registered": true
+    }
+  ],
+  "registry": {
+    "commands": 192,
+    "powers": 8,
+    "sources": 26
+  },
+  "discoveryExports": [
+    "projectAcceptedWork",
+    "projectDiscoveryCatalog",
+    "projectDiscoveryFeature",
+    "projectDiscoveryPanel",
+    "projectNativeSkillDiscovery",
+    "projectTechniqueDiscovery"
+  ],
+  "gameplayChecks": "not run"
+}

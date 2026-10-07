@@ -1,0 +1,4 @@
+# Project-local capacity for future sessions; an already-running tool pool may
+# retain its original limit. The primary agent is excluded from this setting.
+[agents]
+max_concurrent_threads_per_session = 7

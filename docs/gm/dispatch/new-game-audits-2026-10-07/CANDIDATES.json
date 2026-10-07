@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-07T14:39:40.700019+00:00",
+  "owner": "docs/gm/dispatch/new-game-audits-2026-10-07/",
+  "human_request": "GM decompile and audit newer games or games that havent been done quite yet?",
+  "claim_level": "live source/readiness screens; active actual demo audits pending review",
+  "candidates": [
+    {
+      "appid": 2399160,
+      "name": "Soulash 2",
+      "release": {
+        "coming_soon": false,
+        "date": "Dec 4, 2023"
+      },
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "demo_apps": [
+        {
+          "appid": 2590260,
+          "description": ""
+        }
+      ],
+      "dlc": [
+        2717230
+      ],
+      "sha256": "644a3fdb5411f330e481b3dc4539ffd494984a2fa22b3bde1f8264b020414404",
+      "source_url": "https://store.steampowered.com/api/appdetails?appids=2399160&cc=us&l=english",
+      "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-2399160.json",
+      "checked_utc": "2026-10-07T14:36:01.683178+00:00",
+      "rank": 1,
+      "slug": "soulash-2",
+      "worker": "/root/soulash_audit",
+      "state": "active_demo_data_audit",
+      "coverage_limit": "2026 living-world and economy updates; native executable consumers require qualification",
+      "source_dossier_existed_at_intake": false,
+      "local_steam_payload_present": false,
+      "output_directory": "docs/research/soulash-2/"
+    },
+    {
+      "appid": 2382520,
+      "name": "Erenshor",
+      "release": {
+        "coming_soon": false,
+        "date": "Apr 14, 2025"
+      },
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "demo_apps": [
+        {
+          "appid": 2522260,
+          "description": ""
+        }
+      ],
+      "dlc": [],
+      "sha256": "3e457e79c73e2dc910dbf3406d8d2effd43c42ea9ad84bb6d3ab4fdcc3655b86",
+      "source_url": "https://store.steampowered.com/api/appdetails?appids=2382520&cc=us&l=english",
+      "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-2382520.json",
+      "checked_utc": "2026-10-07T14:36:02.647621+00:00",
+      "rank": 2,
+      "slug": "erenshor",
+      "worker": null,
+      "state": "payload_gate",
+      "coverage_limit": "Managed assembly route confirmed by pinned mod project; actual game assembly absent",
+      "source_dossier_existed_at_intake": false,
+      "local_steam_payload_present": false
+    },
+    {
+      "appid": 2128270,
+      "name": "Path of Achra",
+      "release": {
+        "coming_soon": false,
+        "date": "May 7, 2024"
+      },
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "demo_apps": [
+        {
+          "appid": 2222720,
+          "description": ""
+        }
+      ],
+      "dlc": [],
+      "sha256": "da8f3dacea71f3970902e043e5fa99963bcad4e4758b0d7f59a068dda41fdc52",
+      "source_url": "https://store.steampowered.com/api/appdetails?appids=2128270&cc=us&l=english",
+      "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-2128270.json",
+      "checked_utc": "2026-10-07T14:36:01.758574+00:00",
+      "rank": 3,
+      "slug": "path-of-achra",
+      "worker": "/root/achra_audit",
+      "state": "active_old_demo_recovery",
+      "coverage_limit": "Public v0.4.7 demo is older than current retail",
+      "source_dossier_existed_at_intake": false,
+      "local_steam_payload_present": false,
+      "output_directory": "docs/research/path-of-achra/"
+    },
+    {
+      "appid": 2864890,
+      "name": "Magic Research 2",
+      "release": {
+        "coming_soon": false,
+        "date": "May 21, 2024"
+      },
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "demo_apps": [
+        {
+          "appid": 2920360,
+          "description": ""
+        }
+      ],
+      "dlc": [],
+      "sha256": "ec36ce1a78a75bcc0fe989fabd2d6113366940ce84fbf8436416ab3871d3d1ae",
+      "source_url": "https://store.steampowered.com/api/appdetails?appids=2864890&cc=us&l=english",
+      "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-2864890.json",
+      "checked_utc": "2026-10-07T14:36:02.555829+00:00",
+      "rank": 4,
+      "slug": "magic-research-2",
+      "worker": "/root/magic_research_audit",
+      "state": "active_archived_demo_audit",
+      "coverage_limit": "Public browser JS/maps at pinned July2024 hosting revision; retail coverage separate",
+      "source_dossier_existed_at_intake": false,
+      "local_steam_payload_present": false,
+      "output_directory": "docs/research/magic-research-2/"
+    },
+    {
+      "appid": 1696440,
+      "name": "The Matchless Kungfu",
+      "release": {
+        "coming_soon": false,
+        "date": "Nov 5, 2024"
+      },
+      "platforms": {
+        "windows": true,
+        "mac": false,
+        "linux": false
+      },
+      "demo_apps": [
+        {
+          "appid": 2286710,
+          "description": ""
+        }
+      ],
+      "dlc": [],
+      "sha256": "794d297a681beba6471a6b707edee469486ef24cf3cdd9d020c9f3b1658b4c2b",
+      "source_url": "https://store.steampowered.com/api/appdetails?appids=1696440&cc=us&l=english",
+      "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-1696440.json",
+      "checked_utc": "2026-10-07T14:36:01.609572+00:00",
+      "rank": 5,
+      "slug": "the-matchless-kungfu",
+      "worker": null,
+      "state": "payload_gate",
+      "coverage_limit": "Storefront and demo offering documented; engine/gameplay recovery not qualified",
+      "source_dossier_existed_at_intake": false,
+      "local_steam_payload_present": false
+    }
+  ],
+  "soulash_dlc": {
+    "appid": 2717230,
+    "name": "Soulash 2 Soundtrack",
+    "type": "music",
+    "raw_path": "/Users/weiwei/.codex/research/new-game-audits-2026-10-07/steam-2717230.json",
+    "sha256": "1136a8af3e724d7063e3e62cc6918a7e429f6e4c52e4c0d2ee11e2e574bf1a64"
+  },
+  "erenshor_source_route": {
+    "repository": "https://github.com/Brumdail/ErenshorQoL",
+    "commit": "8704666dd8957ab11e9eb21e291225d0b921d42c",
+    "actual_read_spans": [
+      {
+        "path": "ErenshorQoL/ErenshorQoL.csproj",
+        "lines": [
+          1,
+          83
+        ],
+        "conclusion": "managed Assembly-CSharp reference; missing main game DLL"
+      },
+      {
+        "path": "ErenshorQoL/ErenshorQoLMod.cs",
+        "lines": [
+          1,
+          175
+        ],
+        "conclusion": "BepInEx mod entry and TypeText.CheckCommands patch, not the main simulation implementation"
+      }
+    ],
+    "main_game_source_recovered": false
+  },
+  "existing_factorio_owner": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+  "runtime_changes": false,
+  "gameplay_tests": "deferred_not_run"
+}

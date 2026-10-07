@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "as_of_date": "2026-10-06",
+  "status": "complete-current-official-inventory-with-bounded-source-correspondence",
+  "official_dlc_ids_returned": [
+    1919690
+  ],
+  "sources": [
+    {
+      "url": "https://store.steampowered.com/api/appdetails?appids=1910680&l=english",
+      "private_payload": "/Users/weiwei/.codex/research/orb-of-creation/24426975/appdetails.json"
+    },
+    {
+      "url": "https://store.steampowered.com/dlc/1910680/Orb_of_Creation/"
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1910680&count=15&maxlength=0&feeds=steam_community_announcements",
+      "private_payload": "/Users/weiwei/.codex/research/orb-of-creation/24426975/news.json"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "base",
+      "title": "Orb of Creation installed base edition",
+      "kind": "base-game",
+      "disposition": "source-inspected",
+      "steam_app_id": 1910680,
+      "steam_build_id": "24426975",
+      "evidence": [
+        "INTAKE.json",
+        "COVERAGE.json"
+      ],
+      "qualification": "Mechanism family traces; not entire source/asset catalogue or gameplay execution.",
+      "installed_internal_version": "v1.0.5-2"
+    },
+    {
+      "id": "1919690",
+      "title": "Orb of Creation Soundtrack",
+      "kind": "soundtrack",
+      "disposition": "primary-documentation-only",
+      "evidence": [
+        {
+          "url": "https://store.steampowered.com/app/1919690/Orb_of_Creation_Soundtrack/",
+          "claim": "Music product containing the game music; no gameplay additions advertised."
+        }
+      ],
+      "installed_manifest_present": false,
+      "entitlement": "not-inspected",
+      "mechanical_interaction": "None advertised; soundtrack playback/content not examined."
+    },
+    {
+      "id": "supporter-bundle-25487",
+      "title": "Support the Developer Pack",
+      "kind": "bundle",
+      "disposition": "primary-documentation-only",
+      "evidence": [
+        {
+          "url": "https://store.steampowered.com/app/1919690/Orb_of_Creation_Soundtrack/",
+          "claim": "Official soundtrack store lists the Support the Developer Pack as base game plus soundtrack."
+        }
+      ],
+      "mechanical_interaction": "No separate mechanics payload advertised; not a distinct gameplay expansion."
+    },
+    {
+      "id": "base-1.0",
+      "title": "Orb of Creation 1.0",
+      "kind": "free-base-update",
+      "disposition": "source-inspected",
+      "official_release_date": "2026-06-23",
+      "evidence": [
+        {
+          "url": "https://steamcommunity.com/app/1910680/announcements/",
+          "claim": "Official launch/release notice and May6 preview establish new drafting, revised druidry/alchemy/rituals, soft requirements and NG+."
+        },
+        "FINDINGS.json"
+      ],
+      "qualification": "Modern discovery, revised production/plant/ritual and NG+ pathways inspected in currentv1.0.5-2; no historical1.0 binary diff."
+    },
+    {
+      "id": "1837955055357990",
+      "title": "v1.0.4",
+      "kind": "free-base-patch",
+      "disposition": "source-inspected",
+      "date": "2026-07-10",
+      "evidence": [
+        {
+          "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1837955055357990",
+          "feed": "steam_community_announcements",
+          "title": "v1.0.4"
+        }
+      ],
+      "qualification": "Selected current code/data correspondence only; not every patch fix or runtime proof.",
+      "selected_correspondence": [
+        "AutoBuyManager actual queue/cheap-cost policy",
+        "Current named scroll target/fizzle and plot-capacity/cancel paths"
+      ]
+    },
+    {
+      "id": "1836506165566710",
+      "title": "v1.0.3 - Balance Update",
+      "kind": "free-base-patch",
+      "disposition": "primary-documentation-only",
+      "date": "2026-07-02",
+      "evidence": [
+        {
+          "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165566710",
+          "feed": "steam_community_announcements",
+          "title": "v1.0.3 - Balance Update"
+        }
+      ],
+      "qualification": "Official patch notes reviewed, code/data correspondence reconciled in final pass. Notes alone do not prove installed runtime."
+    },
+    {
+      "id": "1836506165552334",
+      "title": "v1.0.2",
+      "kind": "free-base-patch",
+      "disposition": "primary-documentation-only",
+      "date": "2026-06-26",
+      "evidence": [
+        {
+          "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165552334",
+          "feed": "steam_community_announcements",
+          "title": "v1.0.2"
+        }
+      ],
+      "qualification": "Official patch notes reviewed, code/data correspondence reconciled in final pass. Notes alone do not prove installed runtime."
+    },
+    {
+      "id": "1836506165547216",
+      "title": "v1.0.1 - Hotfix",
+      "kind": "free-base-patch",
+      "disposition": "primary-documentation-only",
+      "date": "2026-06-24",
+      "evidence": [
+        {
+          "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1836506165547216",
+          "feed": "steam_community_announcements",
+          "title": "v1.0.1 - Hotfix"
+        }
+      ],
+      "qualification": "Official patch notes reviewed, code/data correspondence reconciled in final pass. Notes alone do not prove installed runtime."
+    },
+    {
+      "id": "base-1.0.5",
+      "title": "v1.0.5 Bug Fixes",
+      "kind": "free-base-patch",
+      "disposition": "source-inspected",
+      "date": "2026-07-27",
+      "evidence": [
+        {
+          "url": "https://steamcommunity.com/app/1910680/discussions/0/585055745797527963/",
+          "author": "MarpleGames developer",
+          "supported_scope": "Attribute toggling, scroll/mastery calculation, glyph encumbrance, save backup and ritual fixes are official patch descriptions."
+        },
+        "INTAKE.json"
+      ],
+      "qualification": "Installed version label1.0.5-2; selected matching code/data inspected, no historical binary diff or every-fix verification."
+    },
+    {
+      "id": "base-1.0.5-2",
+      "title": "v1.0.5-2 hotfix",
+      "kind": "free-base-patch",
+      "disposition": "source-inspected",
+      "date": "2026-07-28",
+      "evidence": [
+        {
+          "url": "https://steamcommunity.com/app/1910680/discussions/0/585055745797527963/",
+          "author": "MarpleGames developer comment",
+          "supported_scope": "Spell mastery performance fix; matches installed internal version label."
+        },
+        "INTAKE.json"
+      ],
+      "qualification": "Version match plus selected modern spell path; performance fix not benchmarked."
+    }
+  ],
+  "gameplay_expansion_count_advertised": 0,
+  "latest_official_announcement_returned": "v1.0.4 (2026-07-10)",
+  "limitations": [
+    "A listing/API is not account entitlement evidence.",
+    "No soundtrack audio/art or old beta payload was read.",
+    "Only advertised current official DLC is bounded by these live storefront/API responses; no future DLC absence guarantee.",
+    "No purchases, entitlement changes or installations."
+  ],
+  "latest_primary_update_reviewed": "v1.0.5-2 (developer post/comment, July27/28 2026)",
+  "source_payload_hashes": {
+    "appdetails": "0693a9c3a1c2e127f153f0d1e8cd0b96a9a2da29ac2700c38983666c6dcb4689",
+    "news": "c2011589cebe75251ca814d7fbf1c084d7617fef48bd461605a5f1a32f601380"
+  },
+  "mechanical_dlc_interactions": "The only current advertised DLC is the soundtrack; the supporter bundle contains base+soundtrack. No mechanical DLC payload is advertised. Modern mechanics/NG+ are base-game update content."
+}

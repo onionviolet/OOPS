@@ -1,0 +1,263 @@
+{
+  "schema": 1,
+  "status": "completed",
+  "released": true,
+  "completedAt": "2026-10-06T06:45:11.084930+00:00",
+  "disposition": "source-only-no-open-findings",
+  "findings": [],
+  "blockingFindings": 0,
+  "sourceObservations": [
+    {
+      "id": "reserve",
+      "summary": "Stock-policy source uses high4/low2 hysteresis, counts actual accepted jobs independently of successful completion, stops after three accepted jobs, pauses on failed support/materials and adds no polling boundary for stock cursors.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "function": "workPlanNextBoundary",
+          "lines": [
+            138,
+            143
+          ]
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "function": "settleAccepted",
+          "lines": [
+            146,
+            159
+          ]
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "function": "advanceOne",
+          "lines": [
+            179,
+            259
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compatibility",
+      "summary": "Ordinary newly created cursors use schema1; explicit stockPolicy alone upgrades to2. The captured legacy reader admits only1 and its cursor keys reject stockPolicy fields. Existing original object/cooling definitions equal BASELINE hashes.",
+      "evidence": [
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "function": "validateWorkPlans",
+          "lines": [
+            86,
+            122
+          ]
+        },
+        {
+          "file": "src/feature_expansion_work_plan.js",
+          "function": "startWorkPlan",
+          "lines": [
+            272,
+            299
+          ]
+        },
+        {
+          "file": "docs/gm/audit-implementation/kit-reserve/WORK_PLAN_INPUT.js",
+          "function": "validateWorkPlans",
+          "lines": [
+            55,
+            61
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixture",
+      "summary": "Free terms precede separately reserved once-only construction. Current reference hands/body and Eda consent are admission/completion guards. World frame/site rights remain typed retained facts; independent kits consume real sap/staves/stamina. Existing field renewal resets no frame/knowledge/belongings fields.",
+      "evidence": [
+        {
+          "file": "src/audited_workshop_fixture.js",
+          "function": "auditedFixtureDefinitions",
+          "lines": [
+            28,
+            78
+          ]
+        },
+        {
+          "file": "src/audited_workshop_fixture.js",
+          "function": "validateAuditedFixture",
+          "lines": [
+            114,
+            172
+          ]
+        },
+        {
+          "file": "src/frontier_campaign.js",
+          "function": "frontierCampaignDefinitions.transitions",
+          "lines": [
+            62,
+            65
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lesson",
+      "summary": "Current reference support/hands facts replace the known local approximation. Exact frozen own-job costs/effects/site/participants/support recognize the reserved sleeve after the scheduler pops the job. Only committed stocked transfer or completed paid instruction sets the single redeemed branch. Only the new learned application has the two-minute recipe.",
+      "evidence": [
+        {
+          "file": "src/audited_workshop_lesson.js",
+          "function": "auditedLessonDefinitions",
+          "lines": [
+            37,
+            75
+          ]
+        },
+        {
+          "file": "src/audited_workshop_lesson.js",
+          "function": "exactJob",
+          "lines": [
+            86,
+            96
+          ]
+        },
+        {
+          "file": "src/audited_workshop_lesson.js",
+          "function": "auditedLessonFacts",
+          "lines": [
+            128,
+            154
+          ]
+        },
+        {
+          "file": "src/audited_workshop_lesson.js",
+          "function": "validateAuditedLesson",
+          "lines": [
+            174,
+            235
+          ]
+        },
+        {
+          "file": "src/simulation.js",
+          "function": "completeJob",
+          "lines": [
+            184,
+            210
+          ]
+        }
+      ]
+    },
+    {
+      "id": "joins",
+      "summary": "Shared current-fact recomputation, reservation-return accounting, whole-state validation, exact registry definitions and visible command/control dispatch are linked through existing owners and the existing durable publisher. The ordinary fixture host no longer incorrectly requires the cooling meeting.",
+      "evidence": [
+        {
+          "file": "src/simulation_effects.js",
+          "function": "simulationFacts",
+          "lines": [
+            38,
+            42
+          ]
+        },
+        {
+          "file": "src/simulation_effects.js",
+          "function": "applySimulationEffects",
+          "lines": [
+            164,
+            180
+          ]
+        },
+        {
+          "file": "src/audited_workshop_host.js",
+          "function": "commitAuditedWorkshopCommand",
+          "lines": [
+            16,
+            25
+          ]
+        },
+        {
+          "file": "src/expansion_engine.js",
+          "function": "validateExpansionState",
+          "lines": [
+            130,
+            134
+          ]
+        },
+        {
+          "file": "src/expedition_content.js",
+          "function": "expeditionRegistry.workPlans",
+          "lines": [
+            157,
+            157
+          ]
+        },
+        {
+          "file": "src/feature_expansion_content.js",
+          "function": "featureExpansionDefinitions",
+          "lines": [
+            8,
+            14
+          ]
+        },
+        {
+          "file": "src/main.js",
+          "function": "featureWaveContext/actFeatureExpansion",
+          "lines": [
+            783,
+            830
+          ]
+        },
+        {
+          "file": "src/feature_expansion_wave_host.js",
+          "function": "featureWavePresentation",
+          "lines": [
+            65,
+            71
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "Three audited consumers only: finite stock-aware kit reserve, ordinary clamping frame, earned focused lesson or actual stocked sleeve, plus exact shared joins.",
+  "inputs": "INPUTS.json",
+  "checks": "CHECKS.json",
+  "checksSummary": {
+    "syntaxFiles": 15,
+    "syntaxFailures": 0,
+    "coldRegistry": {
+      "commands": 735,
+      "controllers": 26,
+      "worlds": 8,
+      "plans": 4,
+      "commandsExact": true,
+      "targetsSitesPowersKnown": true,
+      "reserveDefinitionExact": true
+    },
+    "originalDefinitionsMatchBaseline": true,
+    "workPlanInputMatchesBaseline": true
+  },
+  "movingQualification": {
+    "changedSinceStart": [
+      "PROJECT.md",
+      "src/audited_workshop_lesson.js",
+      "src/audited_workshop_host.js",
+      "src/feature_expansion_work_plan.js"
+    ],
+    "reinspectedFinalVersions": true,
+    "changedDuringSealingChecks": [],
+    "appliesTo": "Final hashes in INPUTS.json, sealed at 2026-10-06T06:45:11.084930+00:00. No assertion about later source changes."
+  },
+  "deferred": [
+    "unit",
+    "gameplay",
+    "browser",
+    "save/reload/import",
+    "storage-failure",
+    "keyboard",
+    "regression",
+    "director acceptance"
+  ],
+  "writes": [
+    "docs/gm/audit-implementation/review/INPUTS.json",
+    "docs/gm/audit-implementation/review/CHECKS.json",
+    "docs/gm/audit-implementation/review/REVIEW.md",
+    "docs/gm/audit-implementation/review/REVIEW.json"
+  ],
+  "limitations": "Source structure and import/syntax/definition checks only. No behavioral, packaging, balance, or acceptance claim; root owns build verification. No runtime, source, canonical document, user-save, library or other worker edits."
+}

@@ -1,0 +1,2271 @@
+{
+  "schema": 1,
+  "date": "2026-10-05",
+  "authoring_format_status": "illustrative document format only, not an approved runtime/save schema",
+  "authority": "docs/gm/dispatch/TIMELINES_ENDINGS_AND_VISION_DEPTH_2026_10_05.md",
+  "role": "existing Timeline GM",
+  "graphs": [
+    {
+      "id": "FRONTIER_COUNTER_AND_FIELD",
+      "label": "The Counter, the Field and the Road",
+      "source_status": "Original Frontier branch proposal, borrowing held Short Measure inputs and current campaign strands; not a delivered world or authorization to resume its module.",
+      "style": [
+        "open persistent chronicle",
+        "optional chapter milestones",
+        "disclosed local opportunity deadline",
+        "career outcome"
+      ],
+      "entry": {
+        "node_id": "F00",
+        "requires": [
+          "existing native Village elder meeting",
+          "actual earned Town square access",
+          "explicit optional campaign entry"
+        ],
+        "existing_save": "No forced start/reset/chronicle enrolment. Existing completed Short Measure decisions can be imported as actual input rather than replayed for rewards."
+      },
+      "context": {
+        "world": "base.frontier",
+        "continuity": "frontier.branch",
+        "instance": "frontier.main (authoring ID must bind actual current owner)",
+        "era": "present source-compatible local branch; no guessed calendar date"
+      },
+      "clock_policy": {
+        "supported": "joined played time only; native player travel uses actual pathfinder modifiers",
+        "native_base_distances": {
+          "Village_to_Town_square_minutes": 520,
+          "Town_round_trip_minutes": 1040,
+          "Village_to_Shack_minutes": 10,
+          "Village_to_Nearby_cave_minutes": 60
+        },
+        "opening_reply": "Existing held Short Measure 12-played-minute response window, not a 12-minute Village-Town deadline. Correct its known NPC itinerary mismatch before delivery.",
+        "new_charter_window": "O alternative comparison fixture: 2160 played minutes after actual public proposal heard in Village. Current Frontier owner proposes 1440; master/local GM chooses one after route/occupation evidence. No dual clock. Closure only affects the current cooperative order, not native shops/quests.",
+        "absence": "Unsupported browser-closed/absent simulation freezes; no debt, supply loss or hidden attack is generated."
+      },
+      "owners_and_means": [
+        {
+          "actor": "player",
+          "means": "actual native money, stamina, Rough wood log, equipment/access; learned method/body/energy and skill values must be read, not granted on graph entry"
+        },
+        {
+          "actor": "Mira",
+          "means": "held episode starts with 3 Rough wood logs, coins=10 and finite stamina=12. Afterward read remaining actual purse/stamina/stock, not initial values again. Reserve is one owned log; only a real transfer changes it."
+        },
+        {
+          "actor": "Wen",
+          "means": "separate Town inventory, initial coins=4/stamina=8/one acceptance order in held draft. New demand needs actual renewed funding/consent, not refilled purse or old-order replay."
+        },
+        {
+          "actor": "Iven",
+          "means": "O future actor: one sampling allowance, 6 coins and 8 stamina; an examination uses an owner-consented sample, not a generated log"
+        },
+        {
+          "actor": "Halden",
+          "means": "O future actor: 12 coins and two appointments; may offer a real purchase only if a willing producer actually owns a saleable lot"
+        },
+        {
+          "actor": "successor",
+          "means": "Mira/Wen or one separately authored willing resident; actual learned ordinary operation, attention, site permission and paid finite request, not copied player mastery"
+        },
+        {
+          "actor": "Mira / permitted staging owner",
+          "means": "O stationary smaller-load frame/jig and capacity-one slot are selected only if an actual site component is built/bound by a funded project. One paid coin purchases permission for the specific test, not a supporter or permanent labor."
+        }
+      ],
+      "persistent_keys": [
+        "initial_tally_basis",
+        "material_contribution_receipt",
+        "Wen.actual_received_quantity",
+        "field_evidence_basis",
+        "trial_result_and_limit",
+        "native_encounter_receipt_if_chosen",
+        "signed_terms_and_owner",
+        "producer_sale_receipt",
+        "resident_consent",
+        "successor_demonstration",
+        "paid_obligations",
+        "ending_receipt"
+      ],
+      "nodes": [
+        {
+          "id": "F00",
+          "label": "Optional present offer",
+          "location": "Village",
+          "kind": "choice",
+          "note": ""
+        },
+        {
+          "id": "F01",
+          "label": "Count corrected; two outbound and one reserve",
+          "location": "Village",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F02",
+          "label": "One owned log supplied; three outbound and one reserve",
+          "location": "Village",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F03",
+          "label": "No accepted work; Mira funds her correction",
+          "location": "Village",
+          "kind": "resident action",
+          "note": ""
+        },
+        {
+          "id": "F04",
+          "label": "Actual Town receipt and receiver response",
+          "location": "Town square",
+          "kind": "reconvergence",
+          "note": ""
+        },
+        {
+          "id": "F05",
+          "label": "Back in Village: a funded next service is offered",
+          "location": "Village",
+          "kind": "choice",
+          "note": ""
+        },
+        {
+          "id": "F06",
+          "label": "A supported specification/route question is known",
+          "location": "Village",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F07",
+          "label": "Prepared field result or honest limitation",
+          "location": "actual earned staging point",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F08",
+          "label": "Actual supply/rights decisions narrow available charters",
+          "location": "Village/Town",
+          "kind": "resident action",
+          "note": ""
+        },
+        {
+          "id": "F09",
+          "label": "Public service signed with its real owners",
+          "location": "Village/Town",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "F10",
+          "label": "Private service signed; public stock unavailable",
+          "location": "Village/Town",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "F11",
+          "label": "Willing successor demonstrates an ordinary operation",
+          "location": "Village/Town",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F12",
+          "label": "Attempt/window ended with unresolved service demand",
+          "location": "Village",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "F13",
+          "label": "Finite public counter continues",
+          "location": "Village/Town",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "F14",
+          "label": "Private workshop career continues",
+          "location": "Village/Town",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "F15",
+          "label": "Successor runs one paid request while player leaves",
+          "location": "Village/Town",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "F16",
+          "label": "Cooperative closes; personal adventure/study continues",
+          "location": "Village",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "F17",
+          "label": "Failed service and a specific repairable obligation",
+          "location": "Village/Town",
+          "kind": "ending",
+          "note": ""
+        }
+      ],
+      "edges": [
+        {
+          "id": "F.a",
+          "from": "F00",
+          "to": "F01",
+          "trigger": "Audit the actually offered tally",
+          "prerequisites": [
+            "reply window open",
+            "Mira willing/current slip and stock visible",
+            "player stamina >=1"
+          ],
+          "actual_means": [
+            "player pays 1 stamina; Mira pays existing 2-coin wage once"
+          ],
+          "clock_cost": "4 played minutes",
+          "settled_changes": [
+            "Mira logs remain 3; corrected outbound 2/reserve 1",
+            "understood counting mistake, no culprit inferred",
+            "signed count only, not lifelong charter"
+          ],
+          "player_known_terms": "Known four-minute work and wage; no material donation",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.b",
+          "from": "F00",
+          "to": "F02",
+          "trigger": "Underwrite the offered shortfall",
+          "prerequisites": [
+            "reply window open",
+            "player owns 1 unreserved Rough wood log",
+            "player stamina >=2"
+          ],
+          "actual_means": [
+            "player transfers exactly 1 log to Mira and spends 2 stamina; Mira pays existing 4-coin wage once"
+          ],
+          "clock_cost": "2 played minutes",
+          "settled_changes": [
+            "Mira logs become 4; outbound 3/reserve 1",
+            "player donation receipt remains; diagnosis remains unknown unless later learned"
+          ],
+          "player_known_terms": "Known transfer/wage and loss of that log; not proof of why the slip was wrong",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.c",
+          "from": "F00",
+          "to": "F03",
+          "trigger": "Refuse explicitly",
+          "prerequisites": [
+            "no prior accepted order"
+          ],
+          "actual_means": [
+            "Mira pays 1 coin/1 stamina for her own corrected slip; player pays/earns nothing"
+          ],
+          "clock_cost": "Mira correction: 2 played minutes",
+          "settled_changes": [
+            "declined record; no player debt; smaller legal shipment"
+          ],
+          "player_known_terms": "Refusal is not a broken promise",
+          "independent_actor_rule": "Mira corrects using her own means; if insufficient, stops and reports inability rather than receiving free stock",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.d",
+          "from": "F00",
+          "to": "F03",
+          "trigger": "Defer explicitly",
+          "prerequisites": [
+            "no prior accepted order"
+          ],
+          "actual_means": [
+            "same Mira-funded correction; no player consent inferred"
+          ],
+          "clock_cost": "Mira correction: 2 played minutes",
+          "settled_changes": [
+            "deferred record, distinct from refused; no reward/debt"
+          ],
+          "player_known_terms": "Leaving decision to Mira is known; her later actual route is learned by report/meeting",
+          "independent_actor_rule": "Her own legal choice is not blocked waiting for a player ending menu",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.e",
+          "from": "F00",
+          "to": "F03",
+          "trigger": "Remain occupied until opening offer expires",
+          "prerequisites": [
+            "12 played minutes actually passed",
+            "no accepted order"
+          ],
+          "actual_means": [
+            "Mira same finite correction means; player earlier activity keeps its real costs"
+          ],
+          "clock_cost": "12-minute opening boundary then 2-minute resident correction",
+          "settled_changes": [
+            "unanswered record, distinct from explicit refusal/delay"
+          ],
+          "player_known_terms": "Visible known offer can expire during actual play; no offline expiry",
+          "independent_actor_rule": "Mira uses funded fallback after window, or stops if means absent",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.travela",
+          "from": "F01",
+          "to": "F04",
+          "trigger": "Travel to Town and hear actual acceptance",
+          "prerequisites": [
+            "Town square really accessible",
+            "real shipment arrived or receiver honestly reports absent/delayed stock",
+            "Mira paid itinerary/current carrying quote passes and actual cargo transfer settles"
+          ],
+          "actual_means": [
+            "native player itinerary/equipment/stamina, no new player coin fee",
+            "Mira actual native-aligned three-leg itinerary: 3 own stamina and 1 own coin outward, cargo <=3 logs plus actual native weight check",
+            "return costs separately reserve 3 own stamina/1 coin when accepted; do not restore starting purse",
+            "exact transported logs debit Mira and credit Wen once under current owner/custody"
+          ],
+          "clock_cost": "player actual 520-base-minute outward itinerary with native modifiers; Mira separate 520-base-minute O itinerary without unearned modifiers. Count overlapping elapsed intervals once; F04 only after both arrive.",
+          "settled_changes": [
+            "Wen received 2 logs for audit/fallback or 3 for underwrite; Mira retains 1; owned quantities remain separate",
+            "actual receiver actions/reports only now learned"
+          ],
+          "player_known_terms": "Native journey is distinct from short paperwork. No old Town survey reward is paid",
+          "independent_actor_rule": "Wen can accept only available stock/slot and can propose a smaller next demand or decline",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.travelb",
+          "from": "F02",
+          "to": "F04",
+          "trigger": "Travel to Town and hear actual acceptance",
+          "prerequisites": [
+            "Town square really accessible",
+            "real shipment arrived or receiver honestly reports absent/delayed stock",
+            "Mira paid itinerary/current carrying quote passes and actual cargo transfer settles"
+          ],
+          "actual_means": [
+            "native player itinerary/equipment/stamina, no new player coin fee",
+            "Mira actual native-aligned three-leg itinerary: 3 own stamina and 1 own coin outward, cargo <=3 logs plus actual native weight check",
+            "return costs separately reserve 3 own stamina/1 coin when accepted; do not restore starting purse",
+            "exact transported logs debit Mira and credit Wen once under current owner/custody"
+          ],
+          "clock_cost": "player actual 520-base-minute outward itinerary with native modifiers; Mira separate 520-base-minute O itinerary without unearned modifiers. Count overlapping elapsed intervals once; F04 only after both arrive.",
+          "settled_changes": [
+            "Wen received 2 logs for audit/fallback or 3 for underwrite; Mira retains 1; owned quantities remain separate",
+            "actual receiver actions/reports only now learned"
+          ],
+          "player_known_terms": "Native journey is distinct from short paperwork. No old Town survey reward is paid",
+          "independent_actor_rule": "Wen can accept only available stock/slot and can propose a smaller next demand or decline",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.travelc",
+          "from": "F03",
+          "to": "F04",
+          "trigger": "Travel to Town and hear actual acceptance",
+          "prerequisites": [
+            "Town square really accessible",
+            "real shipment arrived or receiver honestly reports absent/delayed stock",
+            "Mira paid itinerary/current carrying quote passes and actual cargo transfer settles"
+          ],
+          "actual_means": [
+            "native player itinerary/equipment/stamina, no new player coin fee",
+            "Mira actual native-aligned three-leg itinerary: 3 own stamina and 1 own coin outward, cargo <=3 logs plus actual native weight check",
+            "return costs separately reserve 3 own stamina/1 coin when accepted; do not restore starting purse",
+            "exact transported logs debit Mira and credit Wen once under current owner/custody"
+          ],
+          "clock_cost": "player actual 520-base-minute outward itinerary with native modifiers; Mira separate 520-base-minute O itinerary without unearned modifiers. Count overlapping elapsed intervals once; F04 only after both arrive.",
+          "settled_changes": [
+            "Wen received 2 logs for audit/fallback or 3 for underwrite; Mira retains 1; owned quantities remain separate",
+            "actual receiver actions/reports only now learned"
+          ],
+          "player_known_terms": "Native journey is distinct from short paperwork. No old Town survey reward is paid",
+          "independent_actor_rule": "Wen can accept only available stock/slot and can propose a smaller next demand or decline",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.lesson",
+          "from": "F04",
+          "to": "F04",
+          "trigger": "Take Wen's actually offered ordinary Load tally lesson once",
+          "prerequisites": [
+            "actual Town meeting, Wen co-located and willing, player healthy/idle",
+            "actual held original_frontier.learn_tally caller eligible; trained=false or already trained skips this edge",
+            "cancellation/stale guards and ordinary source grant actually settle"
+          ],
+          "actual_means": [
+            "player spends 1 actual stamina; Wen own attention/time; no coin wage or item grant"
+          ],
+          "clock_cost": "existing held definition: 2 played minutes; not instant mastery",
+          "settled_changes": [
+            "player acquires original_frontier.load_tally from Wen through actual paid-time instruction/source/power receipt",
+            "first instruction basis identifies Wen; no free future knowledge or repeated grant"
+          ],
+          "player_known_terms": "Ordinary physical counting, destination matching and reserve separation; this is not NPC Rat-step transfer",
+          "independent_actor_rule": "Wen can be busy/unavailable; mere seeing his desk does not grant the procedure",
+          "status": "held detached source definition, native integration still pending"
+        },
+        {
+          "id": "F.return",
+          "from": "F04",
+          "to": "F05",
+          "trigger": "Return with the receiver evidence and hear a new offer",
+          "prerequisites": [
+            "actual Town meeting or attributed offered report",
+            "explicit new demand/funding and willing participants"
+          ],
+          "actual_means": [
+            "native return itinerary; actual local remaining stock and purses; no replenishment by revisit"
+          ],
+          "clock_cost": "native base 520 return minutes, actual modifiers; new charter window starts on actual Village proposal",
+          "settled_changes": [
+            "2160-minute O charter boundary starts now",
+            "earlier received quantity/donation/diagnosis/reply remain inputs",
+            "new separately identified Wen/Mira demand offered only if real stock/slot means survive",
+            "player has accepted no charter; 4-coin public and Halden-funded private offers are disclosed when actually offered"
+          ],
+          "player_known_terms": "New service terms and known buyer/queue are explained; refusing costs nothing",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.inspect",
+          "from": "F05",
+          "to": "F06",
+          "trigger": "Commission an owner-consented sample examination",
+          "prerequisites": [
+            "player money >=2",
+            "Iven has one allowance and is co-located/idle",
+            "Mira consents to inspection of her retained log"
+          ],
+          "actual_means": [
+            "player transfers 2 coins to Iven; Iven spends 1 sampling allowance/1 stamina; held log stays Mira-owned and is returned if intact"
+          ],
+          "clock_cost": "O: 5 played minutes",
+          "settled_changes": [
+            "specific fit/uncertainty report; no automatic culprit or full material engine"
+          ],
+          "player_known_terms": "Known fee, tested sample/use and uncertainty, not all future failures",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.inquire",
+          "from": "F05",
+          "to": "F06",
+          "trigger": "Compare actual route observations",
+          "prerequisites": [
+            "known accessible observation places",
+            "two actual witnessed comparisons or a disclosed report with its weaker basis"
+          ],
+          "actual_means": [
+            "O: each physical comparison 2 stamina/5 minutes, plus native travel where required; report is not firsthand evidence"
+          ],
+          "clock_cost": "O: 10 comparison minutes plus actual native travel",
+          "settled_changes": [
+            "specific supported staging point and exposure limit; old route knowledge retains original basis"
+          ],
+          "player_known_terms": "Places/costs and the incomplete map are known; off-path danger remains optional",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.ordinary",
+          "from": "F06",
+          "to": "F07",
+          "trigger": "Prepare an ordinary smaller loaded trial",
+          "prerequisites": [
+            "actual compatible Prepared survey kit, player hands/body and known safe bracing procedure",
+            "permitted stationary frame/bench fixture at the actual staging point; no unnamed free supporters",
+            "player money >=1 and actual site owner Mira consents to one free-capacity slot",
+            "a new smaller-load quote and actual attention/means, not an old assessment receipt"
+          ],
+          "actual_means": [
+            "O: player 1 native coin -> Mira for one agreed bench/staging slot; receipt ordinaryTrialLease, no Mira labor or free assistant implied",
+            "consume 1 real player Prepared survey kit and 2 player stamina on actual smaller-load trial",
+            "stationary low-load fixture/jig is an O campaign site component with an actual owner/bound native stock; if not built/bound, this plan is blocked until a funded site project, not conjured",
+            "the supported smaller test uses own body/static support; a larger multi-person alternative would need its own named wages/participants"
+          ],
+          "clock_cost": "O: 6 played minutes; actual appointment wait remains",
+          "settled_changes": [
+            "new steadied/safe-abort receipt and task boundary; no old field.assess replay",
+            "explicit safe limitation comparison: the parties observe that the ordinary support only steadies the stated smaller load; a request above its tested support is stopped before extra load is placed",
+            "honest limitation receipt and actual success are separate; no self-injury or fictitious second feat"
+          ],
+          "player_known_terms": "A smaller slower plan can be useful without a rare method",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.mastered",
+          "from": "F06",
+          "to": "F07",
+          "trigger": "Use developed Load-bearing Step on the compatible frame",
+          "prerequisites": [
+            "owned method, mastery >=2",
+            "actual body/source support and available breath drive for 3 output",
+            "new task/site/participant consent"
+          ],
+          "actual_means": [
+            "actual energy quote for output=3/control=1; no invented fixed stamina cost or free fuel"
+          ],
+          "clock_cost": "O: 4 played minutes plus any actual preparation/recovery",
+          "settled_changes": [
+            "new stronger frame result; method retains real capacity superiority",
+            "this was not Rat-step cargo transport"
+          ],
+          "player_known_terms": "Known energy/body/target terms; no requirement to weaken superior mastered output",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.control",
+          "from": "F06",
+          "to": "F07",
+          "trigger": "Fund a genuine observation outing and protect its chosen task",
+          "prerequisites": [
+            "actual newly accepted OF.CONTROL workparty",
+            "earned accessible native zone",
+            "real equipment/means and willing observer",
+            "native encounter baseline fixed at acceptance",
+            "player current native money >=2 and owns one free Prepared survey kit",
+            "Mira has attention/body/site availability and accepts observer terms",
+            "acceptedControlRequest exists before native result counts"
+          ],
+          "actual_means": [
+            "player 2 coins -> Mira after genuine consent; one actual Prepared survey kit reserved for the new observation work",
+            "acceptedControlRequest freezes participants, native encounter baseline, spent/unspent failure terms",
+            "real observer focus/attention and player native combat equipment/stamina/HP costs; no old clearance reward"
+          ],
+          "clock_cost": "O: 6 preparatory minutes plus actual native journey/encounter elapsed, no fabricated fixed fight length",
+          "settled_changes": [
+            "new task receipt on real compatible native success, or honest lost/withdrawn attempt with real recovery",
+            "one encounter does not establish safe whole forest"
+          ],
+          "player_known_terms": "Danger, actual task and retreat/recovery terms known; native defeat policy retained",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.safeabort",
+          "from": "F06",
+          "to": "F07",
+          "trigger": "Test a known limitation and stop safely",
+          "prerequisites": [
+            "actual limitation observed",
+            "no fabricated successful mastery feat"
+          ],
+          "actual_means": [
+            "only already committed test/appointment inputs; refunds only declared unspent reserves"
+          ],
+          "clock_cost": "actual test minutes; no automatic rewind",
+          "settled_changes": [
+            "qualified limitation evidence, no field success receipt",
+            "can choose lower-throughput service or another career"
+          ],
+          "player_known_terms": "No need to injure oneself or destroy stock to acquire insight",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.pressure",
+          "from": "F07",
+          "to": "F08",
+          "trigger": "Read current offers and witnessed supply changes",
+          "prerequisites": [
+            "local actual owners/stock and signed terms available by meeting/report",
+            "player declaration does not override producer consent"
+          ],
+          "actual_means": [
+            "Halden can spend up to his actual 12-coin purse/two appointments; producer must transfer an owned lot; player need not accept"
+          ],
+          "clock_cost": "within O charter window; buyer appointment time explicitly scheduled",
+          "settled_changes": [
+            "producer takes/rejects/negotiates actual exclusive sale under its own priorities",
+            "paid sale/stock lock is an irreversible cause; unknown private sale stays unknown until report",
+            "if private terms actually accepted: Halden coins 12 ->8; Wen coins +4; one free Wen log -> Halden; Town slot locked for finite contract; unique privateSale receipt",
+            "if no sale accepted, no coin/stock/slot change; independent refusal is valid"
+          ],
+          "player_known_terms": "An offered restriction differs from a completed sale",
+          "independent_actor_rule": "Mira/Wen/producer may refuse public use even after player helped. They consider their need/terms, not a global morality number",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.public",
+          "from": "F08",
+          "to": "F09",
+          "trigger": "Sign a small public arrangement",
+          "prerequisites": [
+            "current public stock/site permissions actually available",
+            "Mira and Wen accept the declared lower throughput",
+            "actual earlier receipt or honest smaller plan supports specification",
+            "before charter boundary",
+            "player current money >=4",
+            "Wen owns >=1 unreserved Town log and receiving slot is not contractually locked",
+            "Vela actually agrees to the current service"
+          ],
+          "actual_means": [
+            "player reserves 4 native coins once: 2 -> Mira and 2 -> Wen; acceptedPublicRequest receipt binds one current order",
+            "reserve one actual Wen-owned Town log for transfer to Vela at completed service",
+            "Mira reserve remains hers during local sorting; actual bench/slot/participants reserved",
+            "include actual Town signature/beneficiary/cargo travel, no duplicate stored logs"
+          ],
+          "clock_cost": "O: 8 negotiation/registration minutes plus real signatures/transport",
+          "settled_changes": [
+            "public queue/partial acceptance terms signed; previous donation/field result remain true",
+            "no final choice cancels an already completed exclusive sale"
+          ],
+          "player_known_terms": "Known throughput, owners, cancellation and finite demand; quiet public life is a valid outcome",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.private",
+          "from": "F08",
+          "to": "F10",
+          "trigger": "Sign a private apprenticeship/service",
+          "prerequisites": [
+            "actual customer/stock/site permission",
+            "willing payer and recipient",
+            "prior exclusive sale can fund this instead of public use",
+            "actual privateSale or presently consented sale quoted and committed exactly once",
+            "Halden current coins >=2 for new private work and agrees",
+            "new privateWork accepted receipt and actual method/stock/site compatibility"
+          ],
+          "actual_means": [
+            "reuse actual privateSale receipt and Halden-owned log; do not pay/sell it twice",
+            "reserve separate 2-coin privateWork invoice from Halden's remaining 8 coins for one actual player sorting/handling request",
+            "participant/stock/site permission, actual taught ordinary method or a funded teacher demonstration; no implicit skill grant"
+          ],
+          "clock_cost": "O: 8 agreement minutes plus real signatures/transport",
+          "settled_changes": [
+            "private priority, named teacher/customer and retained public service loss/smaller fallback"
+          ],
+          "player_known_terms": "Private livelihood remains useful without a good/evil label",
+          "independent_actor_rule": "Residents may prefer the funded private job, even if player requested a public charter",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.close",
+          "from": "F08",
+          "to": "F16",
+          "trigger": "Decline the continuing charter and settle only actual obligations",
+          "prerequisites": [
+            "no new promise implied; accepted old work paid/settled or disclosed termination used"
+          ],
+          "actual_means": [
+            "unused reserved inputs return to their actual owners once; consumed goods/signed sales remain spent"
+          ],
+          "clock_cost": "actual settlement time; no invented missed backpay",
+          "settled_changes": [
+            "cooperative closed or resident-funded smaller fallback; personal learned methods/field evidence retained"
+          ],
+          "player_known_terms": "No forced office, unpaid lifetime duty or second prestige",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.expire",
+          "from": "F08",
+          "to": "F12",
+          "trigger": "Window passes while player chooses another outing/work",
+          "prerequisites": [
+            "2160 played minutes passed after actual proposal",
+            "funded competing demand or appointment withdrawn"
+          ],
+          "actual_means": [
+            "resident actions spend their own actual means; unfinished accepted player obligations remain explicit"
+          ],
+          "clock_cost": "actual supported boundary; no browser-closed advancement",
+          "settled_changes": [
+            "public current offer expires; no missed wage; buyer/current stock state preserved"
+          ],
+          "player_known_terms": "Known current offer may be missed; hidden final outcome not previewed",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.failed",
+          "from": "F07",
+          "to": "F12",
+          "trigger": "Continue after a failed paid field attempt",
+          "prerequisites": [
+            "actual task failure/withdrawal or insufficient support",
+            "acceptance status retained"
+          ],
+          "actual_means": [
+            "real spent kit/stamina/wages; unspent reserves refunded only by agreed terms"
+          ],
+          "clock_cost": "actual recovery and task elapsed can consume remaining window",
+          "settled_changes": [
+            "attempt failed, knowledge/native progress remain; optional narrower request depends on payer means",
+            "kit consumed only if actual accepted task phase used it; paid observer work/real combat means stay spent",
+            "acceptedControlRequest failed/withdrawn receipt, no further penalty invented"
+          ],
+          "player_known_terms": "Refusal, failed paid attempt and silence are different causes",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.publicend",
+          "from": "F09",
+          "to": "F13",
+          "trigger": "Settle one paid public request",
+          "prerequisites": [
+            "actual legal inputs/demand and participant work completed",
+            "acceptedPublicRequest exists and actual beneficiary/cargo receipt settled before its declared window"
+          ],
+          "actual_means": [
+            "perform funded count/specification and real delivery of one reserved Town log Wen -> Vela",
+            "Mira's local sorted reserve remains owned by Mira; no fabricated prepared-kit recipe",
+            "unique acceptedPublicRequest completes once; 4 coins already paid are not paid twice"
+          ],
+          "clock_cost": "actual job/native transport duration",
+          "settled_changes": [
+            "working small public service, finite demand; resident relations retain earlier approach"
+          ],
+          "player_known_terms": "A useful mature arrangement is demonstrated, not just signed",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.privateend",
+          "from": "F10",
+          "to": "F14",
+          "trigger": "Settle one paid private output/lesson",
+          "prerequisites": [
+            "actual paid customer order and willing teacher",
+            "inputs/means/site available"
+          ],
+          "actual_means": [
+            "one actual Halden-owned log processed/count-checked under the accepted private service; its owner remains Halden",
+            "on real completion 2 reserved Halden coins -> player; Halden coins 8 ->6; privateWork completes once",
+            "teaching grant only if a distinct willing lesson actually occurs"
+          ],
+          "clock_cost": "actual job/lesson duration",
+          "settled_changes": [
+            "private useful practice/customer access; public need remains separate"
+          ],
+          "player_known_terms": "No universal private-route combat rank",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.train",
+          "from": "F09",
+          "to": "F11",
+          "trigger": "Offer ordinary teaching/handoff",
+          "prerequisites": [
+            "candidate consents and has actual means",
+            "new successful procedure plus honest limitation evidence",
+            "payer funds one finite successor request",
+            "ordinary procedure actually acquired/demonstrated by player/teacher; no unearned Load tally/mastery grant",
+            "named FW3 teacher=player actually learned Load tally from Wen at F.lesson (or existing exact earned source receipt)",
+            "named learner=Mira consents, has actual tools/body/attention and no occupied request",
+            "acceptedPublicRequest actual Village/Town service and Vela receipt already settled; Mira now idle"
+          ],
+          "actual_means": [
+            "player 2 current native coins -> Mira for one explicitly accepted learning/demonstration request; no payment purchases consent",
+            "player teaches ordinary reserve-separated sorting/stop procedure from Wen's actual Load tally instruction plus witnessed F.ordinary support limit",
+            "Mira owns the new ordinary operation only after her real paid demonstration; no player method mastery/innate source copied",
+            "one existing Mira reserve/log/tool/site permission for future finite request; no duplicate stock or limitless wage"
+          ],
+          "clock_cost": "O: 10 played minutes for named player/Mira teaching plus actual completed public job/native delivery and Mira demonstration time; settle prior work before reserving attention",
+          "settled_changes": [
+            "candidate own ordinary operation after demonstrated success, not player Rat-step/source copied",
+            "named successorTraining receipt: payer player, recipient/learner Mira, teacher player, basis Wen lesson + actual field procedure, exactly 2 coins",
+            "current first public request physically completes once before the teaching appointment; does not pay another old reward"
+          ],
+          "player_known_terms": "Can refuse succession and keep a personal public career",
+          "independent_actor_rule": "Candidate may refuse dangerous absence work or stay in another job; payment does not purchase consent",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.succeed",
+          "from": "F11",
+          "to": "F15",
+          "trigger": "Depart after a demonstrated funded successor request",
+          "prerequisites": [
+            "candidate demonstrated actual operation and accepted bounded terms",
+            "current obligations settled; lawful departure/access"
+          ],
+          "actual_means": [
+            "actual native travel; funded successor one-request stock/wages held, no unbounded income while absent"
+          ],
+          "clock_cost": "actual native journey; unsupported absence work freezes or must be explicitly authorized later",
+          "settled_changes": [
+            "successor operates chosen request only under supported local time; player office handed off, history retained"
+          ],
+          "player_known_terms": "Retiring the office differs from leaving world or ending life",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.unacceptedend",
+          "from": "F12",
+          "to": "F16",
+          "trigger": "Offer was never accepted; keep a personal career",
+          "prerequisites": [
+            "no unsettled accepted work"
+          ],
+          "actual_means": [
+            "no invented refund/reward/debt"
+          ],
+          "clock_cost": "actual return/report time",
+          "settled_changes": [
+            "missed opportunity recorded; present institutions may use other means; field/adventure path remains"
+          ],
+          "player_known_terms": "A closed arc can be a meaningful incomplete inquiry",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.obligationend",
+          "from": "F12",
+          "to": "F17",
+          "trigger": "Accepted service failed; settle or carry its specific terms",
+          "prerequisites": [
+            "accepted task/obligation exists with declared failure terms"
+          ],
+          "actual_means": [
+            "actual remaining deposit/stock and one agreed repair offer, if parties consent; no retroactive blanket punishment"
+          ],
+          "clock_cost": "actual failed task/recovery/report time",
+          "settled_changes": [
+            "failed-service receipt, narrow debt/reparation only if originally agreed; trust/work alternatives remain separate"
+          ],
+          "player_known_terms": "Explains the particular obligation without shaming all future jobs",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "F.publicfailed",
+          "from": "F09",
+          "to": "F12",
+          "trigger": "Accepted ongoing work cannot finish after a real interruption/withdrawn required support or disclosed delivery boundary",
+          "prerequisites": [
+            "actual accepted specific request exists",
+            "real failure/withdrawal/time evidence; not merely a different ending menu",
+            "settlement applies original phase costs/refund and liability terms"
+          ],
+          "actual_means": [
+            "spent work/material/received wages remain under agreed terms; unspent reservations return to their actual owner once",
+            "a fulfilled private sale still belongs to Halden even if separate paid work failed",
+            "unfinished teaching never grants a demonstrated successor operation or source"
+          ],
+          "clock_cost": "actual supported job/transport/recovery; distinct delivery boundary and phase order must be declared by the selected local packet",
+          "settled_changes": [
+            "accepted-service failure receipt names request and interrupted phase",
+            "no old promise/sale/memory erased, no free work/reward or automatic life/world ending"
+          ],
+          "player_known_terms": "Known actual delivery window and warning are shown before commitment; knowingly impossible guaranteed-late work must reject or use an explicitly disclosed different contract, not masquerade as a viable ending",
+          "independent_actor_rule": "A participant's changed actual availability can stop live required work only under declared ongoing-support terms; completed paid output does not retroactively disappear",
+          "status": "O failure route, not a selected runtime interruption/refund policy"
+        },
+        {
+          "id": "F.privatefailed",
+          "from": "F10",
+          "to": "F12",
+          "trigger": "Accepted ongoing work cannot finish after a real interruption/withdrawn required support or disclosed delivery boundary",
+          "prerequisites": [
+            "actual accepted specific request exists",
+            "real failure/withdrawal/time evidence; not merely a different ending menu",
+            "settlement applies original phase costs/refund and liability terms"
+          ],
+          "actual_means": [
+            "spent work/material/received wages remain under agreed terms; unspent reservations return to their actual owner once",
+            "a fulfilled private sale still belongs to Halden even if separate paid work failed",
+            "unfinished teaching never grants a demonstrated successor operation or source"
+          ],
+          "clock_cost": "actual supported job/transport/recovery; distinct delivery boundary and phase order must be declared by the selected local packet",
+          "settled_changes": [
+            "accepted-service failure receipt names request and interrupted phase",
+            "no old promise/sale/memory erased, no free work/reward or automatic life/world ending"
+          ],
+          "player_known_terms": "Known actual delivery window and warning are shown before commitment; knowingly impossible guaranteed-late work must reject or use an explicitly disclosed different contract, not masquerade as a viable ending",
+          "independent_actor_rule": "A participant's changed actual availability can stop live required work only under declared ongoing-support terms; completed paid output does not retroactively disappear",
+          "status": "O failure route, not a selected runtime interruption/refund policy"
+        },
+        {
+          "id": "F.successorfailed",
+          "from": "F11",
+          "to": "F12",
+          "trigger": "Accepted ongoing work cannot finish after a real interruption/withdrawn required support or disclosed delivery boundary",
+          "prerequisites": [
+            "actual accepted specific request exists",
+            "real failure/withdrawal/time evidence; not merely a different ending menu",
+            "settlement applies original phase costs/refund and liability terms"
+          ],
+          "actual_means": [
+            "spent work/material/received wages remain under agreed terms; unspent reservations return to their actual owner once",
+            "a fulfilled private sale still belongs to Halden even if separate paid work failed",
+            "unfinished teaching never grants a demonstrated successor operation or source"
+          ],
+          "clock_cost": "actual supported job/transport/recovery; distinct delivery boundary and phase order must be declared by the selected local packet",
+          "settled_changes": [
+            "accepted-service failure receipt names request and interrupted phase",
+            "no old promise/sale/memory erased, no free work/reward or automatic life/world ending"
+          ],
+          "player_known_terms": "Known actual delivery window and warning are shown before commitment; knowingly impossible guaranteed-late work must reject or use an explicitly disclosed different contract, not masquerade as a viable ending",
+          "independent_actor_rule": "A participant's changed actual availability can stop live required work only under declared ongoing-support terms; completed paid output does not retroactively disappear",
+          "status": "O failure route, not a selected runtime interruption/refund policy"
+        }
+      ],
+      "reconvergence": [
+        {
+          "node": "F04",
+          "intent": "Different first routes meet the same receiver/location; not identical histories",
+          "retain": [
+            "Wen quantity 2 versus 3",
+            "player 1-log contribution versus none",
+            "observed counting diagnosis versus unsupported assumption",
+            "refused/deferred/unanswered records",
+            "earlier paid costs"
+          ]
+        },
+        {
+          "node": "F07",
+          "intent": "Different field routes answer the same question",
+          "retain": [
+            "ordinary versus strong method actual output/cost",
+            "firsthand versus report basis",
+            "new success/limitation/native encounter receipt",
+            "spent kit/fuel/injury and no reused old clearance"
+          ]
+        },
+        {
+          "node": "F08",
+          "intent": "Shared contract pressure is a common situation, not a reset",
+          "retain": [
+            "earlier paid work/evidence/competence",
+            "resident consent and sold stock",
+            "window elapsed and occupied opportunities"
+          ]
+        }
+      ],
+      "endings": [
+        {
+          "id": "F.PUBLIC",
+          "node_id": "F13",
+          "label": "Small public livelihood",
+          "ending_categories": [
+            "arc resolution",
+            "local institution outcome",
+            "career maturity"
+          ],
+          "outcome_signature": {
+            "service": "public lower-throughput",
+            "ownership": "members retain their separate stock",
+            "player_role": "participant/steward"
+          },
+          "actual_aftermath": [
+            "one actual service request fulfilled",
+            "public access with finite demand",
+            "resident memories retain earlier work/refusal"
+          ],
+          "useful_post_arc_play": [
+            "finite new lawful lots",
+            "native adventure/practice",
+            "teach ordinary stop procedure"
+          ],
+          "later_return": [
+            "same residents/queue/stock; earlier received quantity remains",
+            "no restart reward; new funded need can change next offer"
+          ],
+          "reopening": "Expand only through a fresh accepted project; current public charter stays historical",
+          "irreversible_causes": [
+            "actual consumed inputs, paid work and signed charter"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "F.PRIVATE",
+          "node_id": "F14",
+          "label": "A private workshop and learned craft",
+          "ending_categories": [
+            "arc resolution",
+            "career maturity",
+            "local institution outcome"
+          ],
+          "outcome_signature": {
+            "service": "private priority",
+            "public_access": "reduced/closed as actual stock implies",
+            "player_role": "specialist"
+          },
+          "actual_aftermath": [
+            "customer-owned/paid output",
+            "local private teaching access",
+            "neighbors make their own funded response"
+          ],
+          "useful_post_arc_play": [
+            "repair/refinement/customer work",
+            "field mastery",
+            "optional future civic contribution"
+          ],
+          "later_return": [
+            "earlier private sale retains its owner and memories",
+            "later public reopening requires new lawful supply/permission"
+          ],
+          "reopening": "A new public agreement is possible; it does not undo the prior exclusive sale or pay its old wages again",
+          "irreversible_causes": [
+            "fulfilled private sale/deposit, actual teaching and output"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "F.SUCCESSION",
+          "node_id": "F15",
+          "label": "A willing successor and a road beyond home",
+          "ending_categories": [
+            "arc resolution",
+            "office retirement",
+            "institutional succession",
+            "departure from region"
+          ],
+          "outcome_signature": {
+            "service": "funded resident request",
+            "player_role": "former officeholder",
+            "learner": "own taught ordinary operation"
+          },
+          "actual_aftermath": [
+            "one consenting resident demonstrably learned a real operation",
+            "player relinquished only stated office/permissions",
+            "unsupported absence remains frozen"
+          ],
+          "useful_post_arc_play": [
+            "adventure/exploration from earned locations",
+            "return as customer/teacher",
+            "new personal field feats"
+          ],
+          "later_return": [
+            "successor may be busy/refuse new terms",
+            "past teacher/student relation retained without infinite labor"
+          ],
+          "reopening": "New office terms can be offered later; original succession receipt remains",
+          "irreversible_causes": [
+            "paid teaching/handoff, candidate actual history, consumed job inputs"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "F.CLOSED",
+          "node_id": "F16",
+          "label": "Close the counter; keep the journey",
+          "ending_categories": [
+            "arc resolution",
+            "institution closure or smaller resident fallback",
+            "personal career remains open"
+          ],
+          "outcome_signature": {
+            "service": "closed/unfunded smaller resident option",
+            "player_role": "independent",
+            "prior_agreement": "none or actually settled"
+          },
+          "actual_aftermath": [
+            "unused reservations returned once",
+            "no old payout or invented obligation",
+            "learned techniques/native access/field observations remain"
+          ],
+          "useful_post_arc_play": [
+            "ordinary jobs and native quests",
+            "personal investigation/craft/control",
+            "a different optional institution"
+          ],
+          "later_return": [
+            "known closure and actual smaller resident arrangement are reported",
+            "new demand can reopen without erasing missed opportunity"
+          ],
+          "reopening": "Requires fresh stock, consent, terms and demand; closure history remains",
+          "irreversible_causes": [
+            "earlier spent materials/fulfilled sale and deliberate/missed offer receipt"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "F.FAILED",
+          "node_id": "F17",
+          "label": "A failed service with an honest aftermath",
+          "ending_categories": [
+            "arc resolution",
+            "failed accepted service",
+            "conditional reparation"
+          ],
+          "outcome_signature": {
+            "service": "unfulfilled contracted need",
+            "player_role": "specific unresolved/settled obligation",
+            "learning": "retained"
+          },
+          "actual_aftermath": [
+            "actual spent fuel/kit and native recovery state",
+            "only accepted failure terms apply",
+            "resident may withdraw original job or offer narrower repair"
+          ],
+          "useful_post_arc_play": [
+            "recover/refine practice",
+            "lawful replacement service if funded",
+            "unrelated native livelihood/adventure"
+          ],
+          "later_return": [
+            "receiver recalls the particular failed delivery/task",
+            "a later repair adds a new receipt instead of deleting failure"
+          ],
+          "reopening": "Reopen that relationship/job only with real parties/means; neither universal exile nor guaranteed forgiveness",
+          "irreversible_causes": [
+            "accepted terms, failed attempt and already spent inputs"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        }
+      ],
+      "walkthroughs": [
+        {
+          "id": "FW1",
+          "edges": [
+            "F.a",
+            "F.travela",
+            "F.return",
+            "F.inspect",
+            "F.ordinary",
+            "F.pressure",
+            "F.public",
+            "F.publicend"
+          ],
+          "ending": "F.PUBLIC",
+          "fixture": "native access; player can pay sample fee and owns real kit; public participants willing and buyer sale not agreed",
+          "cumulative_logic": "Audited two-log receipt supports honest smaller public specification. Ordinary kit costs remain, no rare technique required. Initial Town roundtrip costs base 1040 minutes; charter starts after return, not before travel.",
+          "clock": "new charter work 5+6+8 minutes plus actual funded job; within proposed 2160 if remaining commitments permit",
+          "budget": "O fixture: player 8 native coins/owned kit and a genuinely bound ordinary fixture before prelude; audit +2, Iven fee -2, ordinary slot -1, public invoice -4 =>3 remaining. Wen actual post-prelude free stock>=1; public transfer consumes one owned log, Mira reserve unchanged. Site project must exist rather than being granted by graph entry."
+        },
+        {
+          "id": "FW2",
+          "edges": [
+            "F.b",
+            "F.travelb",
+            "F.return",
+            "F.inquire",
+            "F.mastered",
+            "F.pressure",
+            "F.private",
+            "F.privateend"
+          ],
+          "ending": "F.PRIVATE",
+          "fixture": "actual log donated, compatible mastery/body/3-output fuel, known comparison places, producer voluntarily accepts funded private terms",
+          "cumulative_logic": "Three-log receipt and superior compatible frame result remain; a completed exclusive sale makes public use of that stock unavailable. Final dialogue cannot restore it.",
+          "clock": "new physical comparisons include all extra native travel; mastered test is proposed four minutes with real energy quote",
+          "budget": "O fixture: initial player 8 coins/one real log and supported drive; underwrite +4 coins/-1 log. Halden -4 sale/-2 distinct work =>6 left; Wen one log transfers to Halden once. Player private work +2 only on completion. Actual route/energy costs remain separate."
+        },
+        {
+          "id": "FW3",
+          "edges": [
+            "F.c",
+            "F.travelc",
+            "F.lesson",
+            "F.return",
+            "F.inquire",
+            "F.ordinary",
+            "F.pressure",
+            "F.public",
+            "F.train",
+            "F.succeed"
+          ],
+          "ending": "F.SUCCESSION",
+          "fixture": "Mira funded own correction after refusal; later player enters new terms; willing successor has tools/paid request and completes demonstration; player really takes Wen's offered 2-minute/1-stamina Load tally lesson at F04; learns its ordinary operation before teaching. Learner/successor is Mira, independently consenting after current public work is complete.",
+          "cumulative_logic": "Early refusal did not forbid a later career, erase it or become a prior promise. Successful actual ordinary teaching permits handoff, not name recognition or gift points.",
+          "clock": "successor demonstration/job and departure use real duration; unsupported absence does not run the request to completion",
+          "budget": "O fixture: player 8 native coins/owned kit and actual bound ordinary fixture; no prelude wage after refusal. Wen F.lesson costs 1 stamina/2 minutes, no coin. Ordinary slot -1, public -4, successor request player -> learner Mira -2 =>1 coin remaining. Player acquired Load tally from Wen; smaller-load success and safe limitation are actual. Mira fallback pays 1 coin/1 stamina plus her own two itineraries."
+        },
+        {
+          "id": "FW4",
+          "edges": [
+            "F.e",
+            "F.travelc",
+            "F.return",
+            "F.inquire",
+            "F.safeabort",
+            "F.pressure",
+            "F.expire",
+            "F.unacceptedend"
+          ],
+          "ending": "F.CLOSED",
+          "fixture": "opening silence; later reported limitation; no current charter accepted; another chosen outing consumes the disclosed remaining played window",
+          "cumulative_logic": "Silence and missed charter are distinct records, with no wage/debt. Inquiry remains a useful personal outcome.",
+          "clock": "expiry is only supported played time; closing browser produces no advancement"
+        },
+        {
+          "id": "FW5",
+          "edges": [
+            "F.a",
+            "F.travela",
+            "F.return",
+            "F.inquire",
+            "F.control",
+            "F.failed",
+            "F.obligationend"
+          ],
+          "ending": "F.FAILED",
+          "fixture": "accepted new task; actual post-acceptance native encounter lost/withdrawn, recovery consumes relevant appointment",
+          "cumulative_logic": "A paid failure preserves real costs and only agreed reparation. An old clearance/party contest is insufficient.",
+          "clock": "native encounter/recovery are actual callbacks; their unknown duration is not replaced by a fixed success timer",
+          "budget": "O fixture: player 8 coins and real kit; audit +2, acceptedControlRequest -2 =>8 coins before any native recovery costs. Failure retains only accepted consumed kit/observer/native costs; no phantom deposit debt. Payer/participants/result receipt are named before the fight."
+        }
+      ],
+      "delivery_limit": "These are a cross-arc authored graph and illustrative traces, not all Frontier completion IDs or delivered runtime. Native adapters, exact lot/custody/samples, NPC itinerary correction, funded demand and new encounter/teaching receipts still require the canonical owners.",
+      "resident_itinerary_proposal": {
+        "status": "O adapter choice for review; replaces no current module until Engine/Frontier repair its known 4+4+1-minute draft mismatch",
+        "route": [
+          "Village -> Forest road 240 base minutes",
+          "Forest road -> Town outskirts 240 base minutes",
+          "Town outskirts -> Town square 40 base minutes"
+        ],
+        "return": "reverse same three actual connections; 520 base minutes each way before a specifically supported NPC modifier",
+        "cost_each_direction": "Mira spends 3 stamina (1 per leg) and 1 coin as an authored transport-service debit; one finite outward and one finite return itinerary",
+        "capacity": "O: maximum three actual Rough wood logs in one supported consignment; actual combined native weight/body carrying check must also pass. No player Running bonus copied to Mira.",
+        "requires": [
+          "actual earned local route/access and public/carrier permission",
+          "Mira current stamina >=3 and coins >=1 at departure",
+          "native weight/carrier support for actual two/three-log lot",
+          "no conflicting body/job occupancy"
+        ],
+        "failure": "If any quote fails, Mira waits/cancels according to the accepted order; the player receives only a pending/delayed report. No phantom Town receipt.",
+        "timeline": "Player may depart after Mira actually begins. Parallel journeys overlap joined time; each pays own costs. F04 waits for both actual arrivals and transfer, not just 520 elapsed minutes."
+      },
+      "new_offer_and_funding_proposal": {
+        "status": "O new demand and exact invoices, not current runtime or automatic refill",
+        "offer": "After actual F04 receipt, Wen offers one separately identified request if his current remaining stock and slot permit. At F05 Mira offers her own one-log reserve for an owner-consented local sorting/support task. Hearing offers accepts no work.",
+        "public_invoice": "At F.public, player reserves 4 current native coins; atomically pay 2 to Mira for the finite Village task and 2 to Wen for the finite Town service/one owned Town log. Those two coins include Wen's consented material price. Unique acceptedPublicRequest receipt names actual beneficiary Vela, one paid order and participant/stock reservations. Vela is an original local beneficiary introduced in this proposal, not a generated payer/income source.",
+        "public_stock": "Wen must still own >=1 free Rough wood log from the actual two/three-log earlier consignment; one is reserved and ultimately transferred to Vela. Mira's inspected/sorted reserve remains her property; no duplicated inventory or implied new recipe/output. One owned and delivered log plus an actually applied count/specification/stock procedure is the demonstrated public service.",
+        "private_invoice": "If Halden and Wen mutually accept at F.pressure, Halden pays 4 current coins once to Wen for one real Town log plus reserved Town receiving/service capacity; log moves Wen -> Halden. Existing sale receipt is reused at F.private, not repaid. A distinct accepted private sorting/handling request can pay player 2 more Halden coins on real completion only. The same log stays Halden-owned; any added procedure lesson needs real consent/time separately. Halden then has 6 coins from original 12 (4 sale +2 work), no refill.",
+        "control_invoice": "At F.control, player pays 2 current coins to Mira as the willing observer/payer of her own focus/time; reserves one real player Prepared survey kit and freezes new native encounter baseline. Receipt acceptedControlRequest binds those participants and failure/cancellation terms. The consumed kit/actual completed observer work and spent combat means do not refund on failure; unspent reservations follow agreed policy. One failure permits no new hidden debt beyond those originally accepted costs.",
+        "public_deadline": "Request must settle during its current agreed window or enter an explicit failed/terminated outcome. NPC privacy remains private until actual report/meeting. All remote signatures/work/beneficiary receipt use physical meetings/couriers and real travel; no ledger teleport."
+      },
+      "reconciled_frontier_owner": {
+        "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+        "status": "parallel Frontier planning completed/read during this audit; its seven cases remain local required owner",
+        "style": "same open-chronicle/causal-milestone recommendation",
+        "window_difference": "Current Frontier O first-pass charter window is 1440 played minutes. This graph's 2160 is an O alternative comparison fixture, not another live deadline or a canonical change. A selected packet must choose one rule.",
+        "funding_difference": "Current OF.CONTROL draft has sponsoring resident 4-coin deposit for up to 8-minute observation. This graph's player-paid 2-coin Mira request/6-minute preparation is a distinct O sponsorship variant, not delivery/coverage of canonical OF.CONTROL.",
+        "coverage": "Five graph ending signatures do not replace the seven composable local required cases; map actual qualifying functions/receipts only. Resilient public service and full independent specialist maturity require the local owner's added evidence, not the public/private label alone."
+      }
+    },
+    {
+      "id": "STILLWATER_TWO_PASS",
+      "label": "The Stillwater Conservatory: one retained lesson, two chances",
+      "source_status": "Entire setting/cast/crisis/quantities/eligibility/retention/reset trigger/endings are O proposals. Qualified supplied MoL evidence informs distinctions, not this plot or a claimed canon adaptation.",
+      "style": [
+        "bounded two-pass repeating history",
+        "research/deadline chapter",
+        "persistent post-cycle chronicle"
+      ],
+      "entry": {
+        "node_id": "S00",
+        "requires": [
+          "separately approved optional original instance/profile",
+          "actual paid memory seal compatible with this mind/body",
+          "character-known terms disclosed; private NPC truth remains private"
+        ],
+        "existing_save": "Never enrolled into Frontier or current personal saves by planning; no protagonist source entitlement."
+      },
+      "context": {
+        "world": "original.stillwater (unregistered proposal)",
+        "instance": "stillwater.one",
+        "continuity": "stillwater.authored",
+        "era": "specific 12-hour crisis interval, not a fabricated source-calendar date"
+      },
+      "clock_policy": {
+        "iteration": "O: a local 12-hour interval can repeat once; second expiry closes the source and continues current local history. No endless farming or forced replay after completion.",
+        "joined": "Joined/outside supported time remains monotone. Each pass permits at most 12 actual experienced hours; if both run fully this is 24 hours, but an early restart keeps only actual elapsed time, not imaginary training/growth. Local occurrence coordinate restarts at the anchor with iteration ID. Ratio is 1:1; no dilation is claimed.",
+        "reveals": "A prior-pass recollection is not this pass's NPC knowledge or confirmed future. Occurrence time, iteration, learning time and outside time are distinct.",
+        "absence": "No unsupported browser-closed or absent advancement. Endings here are not new lethal/death policies."
+      },
+      "retention_recipe": {
+        "trigger": "One deliberate armed restart at or before first boundary, using one finite paid memory-seal charge. Preview grants no seal, reset or knowledge.",
+        "restored": [
+          "declared local doors/stock/NPC bodies and unmarked NPC ordinary memories at the 12-hour anchor",
+          "player ordinary body condition/position at this original fixture anchor (O, not universal loop healing)"
+        ],
+        "retained": [
+          "eligible player learned method/research recollections and their basis, not automatically physical notes",
+          "declared soul/source injury and memory-seal charge consumption",
+          "outside commitments, irreversible export/claim receipts and monotone outside clock",
+          "one voluntarily marked collaborator's retained memory only if seal has the declared second participant support"
+        ],
+        "not_retained_by_default": [
+          "ordinary physical research notes/reagents/coins created or consumed inside discarded pass",
+          "unmarked counterpart promises/trust",
+          "completed current-pass public welfare outcomes"
+        ],
+        "exports": "No cargo exports during armed interval in this authored fixture; final cargo leaves once from actual current inventory after the source is shut down. A later approved export exception needs an external identity tombstone/conservation rule before a reset may recreate anything. This is a local original policy, not a restriction inferred for every source ability.",
+        "positive_function": "One retained pass makes experiments/research genuinely valuable and can open otherwise impossible preparations. Replenished local anchor reagents support new-pass trials lawfully inside the fixture; no claim that all prior resources remain spent in the restored local domain.",
+        "damage": "Mental/soul-source injury, if acquired, stays and may block work; only the declared ordinary body domain renews. No such injury is inflicted by entry or a mandatory failure."
+      },
+      "owners_and_means": [
+        {
+          "actor": "player",
+          "means": "two paid seal slots/one reset charge acquired before entry; actual 3 coins, 2 ink lots and own shaping/tool competence in this O fixture; slot choice is not a gifted protagonist ability"
+        },
+        {
+          "actor": "Rhea",
+          "means": "ward researcher; one existing calibration rig, 2 lamp coils, 4 focus; needs credible current evidence and willing institution permission"
+        },
+        {
+          "actor": "Sol",
+          "means": "refuge organizer; 6 meal bundles, capacity for 4 residents and one lantern; others decide whether to relocate"
+        },
+        {
+          "actor": "Neris",
+          "means": "independent archive keeper; one key and one manuscript, chooses secrecy/care/charter terms from current observed evidence; not player inventory"
+        }
+      ],
+      "persistent_keys": [
+        "iteration_id",
+        "research_recollection_and_claim_basis",
+        "current_trial_result",
+        "current_Rhea_consent",
+        "current_Sol_capacity_and_resident_choices",
+        "current_Neris_release_terms",
+        "seal_charge_external_receipt",
+        "marked_collaborator_scope",
+        "retained_injury",
+        "outside_commitments",
+        "final_manuscript_custody",
+        "final_source_shutdown_receipt"
+      ],
+      "nodes": [
+        {
+          "id": "S00",
+          "label": "Read known entry/retention terms",
+          "location": "Conservatory gate",
+          "kind": "choice",
+          "note": ""
+        },
+        {
+          "id": "S01",
+          "label": "Inspect ward symptom or hear a partial report",
+          "location": "Workshop",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "S02",
+          "label": "Invest in a controlled trial",
+          "location": "Workshop",
+          "kind": "choice",
+          "note": ""
+        },
+        {
+          "id": "S03",
+          "label": "A research condition or safe limitation is known",
+          "location": "Workshop",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "S04",
+          "label": "First-pass relationships and refuge choices",
+          "location": "Archive/refuge",
+          "kind": "resident action",
+          "note": ""
+        },
+        {
+          "id": "S05",
+          "label": "Restart armed; physical notes stay behind",
+          "location": "Anchor",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "S06",
+          "label": "Second occurrence; recollection meets nonremembering people",
+          "location": "Conservatory gate",
+          "kind": "reconvergence",
+          "note": ""
+        },
+        {
+          "id": "S07",
+          "label": "Current credible proof and funded work",
+          "location": "Workshop/refuge",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "S08",
+          "label": "Residents independently choose current cooperation",
+          "location": "Archive/refuge",
+          "kind": "resident action",
+          "note": ""
+        },
+        {
+          "id": "S09",
+          "label": "Institutional stabilization actually performed",
+          "location": "Workshop/archive",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "S10",
+          "label": "Refuge/extraction actual capacity used",
+          "location": "Harbor refuge",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "S11",
+          "label": "Private departure terms met",
+          "location": "Gate",
+          "kind": "commitment",
+          "note": ""
+        },
+        {
+          "id": "S12",
+          "label": "No chosen plan completed before final boundary",
+          "location": "Current local instance",
+          "kind": "milestone",
+          "note": ""
+        },
+        {
+          "id": "S13",
+          "label": "A rebuilt research institution",
+          "location": "Persistent district",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "S14",
+          "label": "A refugee workshop and closed old campus",
+          "location": "Persistent harbor",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "S15",
+          "label": "A private scholar departed with lawful limited notes",
+          "location": "External destination",
+          "kind": "ending",
+          "note": ""
+        },
+        {
+          "id": "S16",
+          "label": "Fragmentary research and unfinished local welfare",
+          "location": "Persistent district",
+          "kind": "ending",
+          "note": ""
+        }
+      ],
+      "edges": [
+        {
+          "id": "S.enter",
+          "from": "S00",
+          "to": "S01",
+          "trigger": "Commit the declared eligible entry",
+          "prerequisites": [
+            "actual seal paid and body/mind compatible",
+            "known terms accepted"
+          ],
+          "actual_means": [
+            "real external seal/profile; no source granted by reading this graph"
+          ],
+          "clock_cost": "O: 10 supported local minutes; no automatic clock jump",
+          "settled_changes": [
+            "first pass/anchor fixed; only observed symptom or attributed report known"
+          ],
+          "player_known_terms": "One reset maximum, known carry domains and final boundary",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.study",
+          "from": "S01",
+          "to": "S02",
+          "trigger": "Use a learned calibration method",
+          "prerequisites": [
+            "actual tool/control/rig compatibility",
+            "Rhea willing or player authorized independent rig slot"
+          ],
+          "actual_means": [
+            "player 1 ink lot and 1 coin if charged; Rhea actual focus/rig time when participating"
+          ],
+          "clock_cost": "O: 90 local/experienced minutes",
+          "settled_changes": [
+            "declared trial committed once; no RNG on view/reload"
+          ],
+          "player_known_terms": "Known test scope/consumables; dangerous continuation can be refused",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.commission",
+          "from": "S01",
+          "to": "S02",
+          "trigger": "Fund a willing expert instead of owning the method",
+          "prerequisites": [
+            "player 2 coins",
+            "Rhea has focus>=2 and free rig, accepts request"
+          ],
+          "actual_means": [
+            "transfer 2 coins; Rhea uses 2 focus/one lamp coil; actual specimen remains its owner"
+          ],
+          "clock_cost": "O: 120 local/experienced minutes",
+          "settled_changes": [
+            "expert performs function; player learns offered result, not expert faculty/mastery"
+          ],
+          "player_known_terms": "Payment funds work but does not guarantee consent or teaching",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.result",
+          "from": "S02",
+          "to": "S03",
+          "trigger": "Observe the settled trial",
+          "prerequisites": [
+            "committed test actually complete or safely aborted",
+            "current actors/means still valid"
+          ],
+          "actual_means": [
+            "already paid consumables; additional output only if trial physically supports it"
+          ],
+          "clock_cost": "trial elapsed already counted, no extra success timer",
+          "settled_changes": [
+            "narrow calibration condition or honest failed hypothesis",
+            "prepared eligible trial may use one frozen legal outcome; no mandatory gamble for basic work"
+          ],
+          "player_known_terms": "Evidence can improve later approach even if trial fails; exact chance is unselected",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.social",
+          "from": "S03",
+          "to": "S04",
+          "trigger": "Offer evidence, preserve secrecy or help a household",
+          "prerequisites": [
+            "actual current report/recollection disclosed honestly",
+            "resident attention and owned supplies available"
+          ],
+          "actual_means": [
+            "O: 30 minutes attention; actual meal bundle transferred only with Sol/owner consent"
+          ],
+          "clock_cost": "O: 30 local minutes",
+          "settled_changes": [
+            "Rhea/Neris/Sol respond from present evidence and own priorities",
+            "optional one collaborator mark offered, not purchased consent"
+          ],
+          "player_known_terms": "A promise made in this pass is not a promise made by next-pass unmarked counterpart",
+          "independent_actor_rule": "Neris may withhold manuscript; residents can reject relocation even when warned",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.reset",
+          "from": "S04",
+          "to": "S05",
+          "trigger": "Spend the single reset charge after selecting retained participant",
+          "prerequisites": [
+            "first pass only",
+            "no live participant/cargo outside declared reset scope",
+            "actual source/anchor still supports reset",
+            "outside obligations settled/carry policy explicit"
+          ],
+          "actual_means": [
+            "one external seal charge consumed forever; optional second participant slot needs supported source and willing collaborator"
+          ],
+          "clock_cost": "O: reset settlement instantaneous; prior experienced/outside minutes stay counted; anchor starts next local iteration",
+          "settled_changes": [
+            "local declared domains restored; eligible memory/soul injury and external receipts retained",
+            "no physical notes, ordinary coins or unmarked trust exported",
+            "current pass welfare not claimed complete in next pass"
+          ],
+          "player_known_terms": "Loss of this pass's physical work and unmarked promises is known; source cutoff remains unknown to unaware actors",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.arrive",
+          "from": "S05",
+          "to": "S06",
+          "trigger": "Observe actual second occurrence",
+          "prerequisites": [
+            "exact anchor/participants restored once with new iteration ID",
+            "source shutdown state not already settled"
+          ],
+          "actual_means": [
+            "restored local anchor owners; retained external charge stays spent"
+          ],
+          "clock_cost": "second local time=0; joined/outside time does not move backwards",
+          "settled_changes": [
+            "old learned condition remains a recollection; current ward/NPC state must be observed",
+            "marked collaborator may remember only its explicit supported record"
+          ],
+          "player_known_terms": "No free ongoing mastery/body/source award or final duplicate notes",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.reproduce",
+          "from": "S06",
+          "to": "S07",
+          "trigger": "Reproduce credible present evidence with retained method",
+          "prerequisites": [
+            "retained learned method plus current tool/source/body support",
+            "no retained injury blocking execution",
+            "current rig consent/slot or own legal means"
+          ],
+          "actual_means": [
+            "consume current-pass 1 ink lot and pay 1 coin for authorized rig time",
+            "Rhea loans one of her actual 2 coils for a non-destructive calibration demonstration; returns the same undamaged coil, same owner/identity",
+            "if coil actually damaged/spent, this reproduction does not satisfy SW1 fixture; public plan needs a separate actual repair/replacement quote before it is eligible"
+          ],
+          "clock_cost": "O: 60 local minutes due to learned condition; real costs remain",
+          "settled_changes": [
+            "present proof and current calibration result, not only recalled prediction",
+            "Rhea can now inspect offered evidence; unmarked counterpart not pre-trusted",
+            "non-destructive current trial returns the loaned coil, so Rhea still has 2 actual intact coils; no duplicated output coil"
+          ],
+          "player_known_terms": "Retained research provides real speed/function advantage; it does not copy the whole expert",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.reportonly",
+          "from": "S06",
+          "to": "S07",
+          "trigger": "Tell a recollection and pursue an ordinary refuge route",
+          "prerequisites": [
+            "Sol willing to hear a qualified claim",
+            "no invented proof/rig access"
+          ],
+          "actual_means": [
+            "O: 30 minutes report/route preparation; Sol's actual meal/space still needed"
+          ],
+          "clock_cost": "O: 30 local minutes",
+          "settled_changes": [
+            "unverified prior-history report; no stabilization qualification",
+            "current refuge preparation available through ordinary labor"
+          ],
+          "player_known_terms": "A remembered warning can be useful but not guaranteed believed",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.now",
+          "from": "S07",
+          "to": "S08",
+          "trigger": "Negotiate current work based on what was proved",
+          "prerequisites": [
+            "actual current proof or explicitly uncertain warning offered",
+            "actors have current means and independent availability"
+          ],
+          "actual_means": [
+            "current time/stock/permission; each agreement freezes only actual accepted terms"
+          ],
+          "clock_cost": "O: 30 local minutes plus real participant arrival",
+          "settled_changes": [
+            "Rhea can agree/decline funded ward work; Neris can release/refuse archive under specific terms",
+            "Sol and residents decide who moves within capacity"
+          ],
+          "player_known_terms": "Predicted past plan becomes stale if a needed key/collaborator is unavailable",
+          "independent_actor_rule": "If Neris chooses protection over public access, institutional plan lacks key; private exit does not confiscate manuscript",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.institution",
+          "from": "S08",
+          "to": "S09",
+          "trigger": "Perform an institution-backed calibration and shutdown",
+          "prerequisites": [
+            "current reproducible proof",
+            "Rhea actual rig/2 coils/focus and consent",
+            "Neris actual key/public charter consent",
+            "unexpired window and all work capable"
+          ],
+          "actual_means": [
+            "consume actual 2 coils and 1 ink lot; Rhea paid focus/work; Neris retains/loans manuscript under signed rights"
+          ],
+          "clock_cost": "O: 180 local minutes plus actual preparation; must finish before hour 12",
+          "settled_changes": [
+            "stabilization actually completes; loop source shut once; current buildings/people/stock continue",
+            "public archive rights with independent supervision, no universal hierarchy grant"
+          ],
+          "player_known_terms": "Costly public plan requires all real permissions; no final choice overwrites unavailable key",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.refuge",
+          "from": "S08",
+          "to": "S10",
+          "trigger": "Run the prepared refuge and close the campus passage",
+          "prerequisites": [
+            "known feasible route or qualified warning",
+            "Sol has lantern/6 meals/4-place capacity and accepted funding",
+            "each moving resident agrees",
+            "can actually reach refuge before window"
+          ],
+          "actual_means": [
+            "actual 1 meal per moved resident up to 4; remaining 2 reserved for current camp; real lantern/transport"
+          ],
+          "clock_cost": "O: 150 local minutes plus actual chosen journey; no teleporting residents",
+          "settled_changes": [
+            "moved residents at harbor; old campus archive remains Neris-owned/closed if she stayed",
+            "source shut down from its declared eligible exterior anchor, not world destroyed"
+          ],
+          "player_known_terms": "Not every resident must move; a refused rescue is not identical to failed transport",
+          "independent_actor_rule": "Neris may stay and guard archive; another resident can refuse without being killed by this planning graph",
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.private",
+          "from": "S08",
+          "to": "S11",
+          "trigger": "Take a lawful personal departure",
+          "prerequisites": [
+            "actual safe route/passages support this body",
+            "settle accepted duty or declared termination",
+            "Neris permits only the particular copied notes, or player has actual own current notes"
+          ],
+          "actual_means": [
+            "own current-pass notes copied with 1 real ink lot; no manuscript taken unless genuinely transferred; current passage costs"
+          ],
+          "clock_cost": "O: 90 local minutes plus actual route cost",
+          "settled_changes": [
+            "personal scholar leaves with limited physical notes/owned method; local welfare remains others' state",
+            "anchor shuts or expires under declared boundary, no replay reward"
+          ],
+          "player_known_terms": "Leaving is possible only if actual route permits it; no guaranteed extraction; private ending is not moral score",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.expire",
+          "from": "S08",
+          "to": "S12",
+          "trigger": "Delay or unsupported plan misses final boundary",
+          "prerequisites": [
+            "second hour-12 boundary actually reached",
+            "no completed shutdown/current extraction plan"
+          ],
+          "actual_means": [
+            "spent current consumables remain spent; retained learning/injury stay; no automatic third pass"
+          ],
+          "clock_cost": "actual supported played boundary; browser close does not advance it",
+          "settled_changes": [
+            "source charge exhausted/field closes; current local history continues",
+            "current doors may close under known local fixture; no player death inferred"
+          ],
+          "player_known_terms": "Unfinished work and inaccessible archive do not imply world destruction",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.publicend",
+          "from": "S09",
+          "to": "S13",
+          "trigger": "Observe actual public aftermath",
+          "prerequisites": [
+            "work physically settled/source shutdown receipt unique"
+          ],
+          "actual_means": [
+            "current actual stock/rights/people; no past-pass duplicate materials"
+          ],
+          "clock_cost": "current history continues from settled local time",
+          "settled_changes": [
+            "research institution rebuilt around real rig/remaining stock and living participants"
+          ],
+          "player_known_terms": "A chapter ends; household/workshop ordinary life remains",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.refugeend",
+          "from": "S10",
+          "to": "S14",
+          "trigger": "Observe actual refuge aftermath",
+          "prerequisites": [
+            "actual moved participant/stock ledger settled once"
+          ],
+          "actual_means": [
+            "actual meals, camp tools and independent residents"
+          ],
+          "clock_cost": "current harbor/history continues",
+          "settled_changes": [
+            "refuge workshop with limited supplies; old campus remains a distinct inaccessible/contested site"
+          ],
+          "player_known_terms": "Preserves who declined and who owns the archive",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.privateend",
+          "from": "S11",
+          "to": "S15",
+          "trigger": "Arrive rather than merely initiate exit",
+          "prerequisites": [
+            "actual body/cargo arrival succeeds under route/interruption terms"
+          ],
+          "actual_means": [
+            "actual owned current notes/cargo; no outside payout replay"
+          ],
+          "clock_cost": "actual arrival time; failure goes to continuing current state, not a phantom arrival",
+          "settled_changes": [
+            "private research method/notes retained; current locals did not receive compulsory relief"
+          ],
+          "player_known_terms": "Future revisit retains unresolved welfare and closed/changed access",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.partialend",
+          "from": "S12",
+          "to": "S16",
+          "trigger": "Record incomplete research and present needs",
+          "prerequisites": [
+            "no other ending receipt settled"
+          ],
+          "actual_means": [
+            "actual current spent/unspent means; no implicit refund/old reward"
+          ],
+          "clock_cost": "current local time/history continues",
+          "settled_changes": [
+            "some useful learned condition; no full ward function; original institution failed/unresolved",
+            "residents choose later repair or relocation from remaining means"
+          ],
+          "player_known_terms": "Can study/repair later where actual access exists; no need to replay empty loops",
+          "independent_actor_rule": null,
+          "status": "O planning unless specific inherited definition is identified; unimplemented/unverified"
+        },
+        {
+          "id": "S.arrivalfailed",
+          "from": "S11",
+          "to": "S12",
+          "trigger": "Initiated departure is interrupted before actual arrival",
+          "prerequisites": [
+            "actual current route/body interruption",
+            "arrival receipt not yet settled"
+          ],
+          "actual_means": [
+            "actual already spent passage/notes/cargo follow declared interrupted-transit custody and return rule; no duplicated note/body"
+          ],
+          "clock_cost": "actual monotone supported transit elapsed; continue at actual lawful location, not inferred arrival",
+          "settled_changes": [
+            "no personal-arrival ending or outside payout",
+            "current history/loop boundary still apply; retained memory/source injury remain only under original carrier terms"
+          ],
+          "player_known_terms": "No guaranteed extraction; supported safe return/location must be authored before selecting this route",
+          "independent_actor_rule": null,
+          "status": "O future route case; no current traveler interruption/death policy selected"
+        }
+      ],
+      "reconvergence": [
+        {
+          "node": "S06",
+          "intent": "Same local morning with different actual memory/support; reset does not flatten identities",
+          "retain": [
+            "learned condition/injury",
+            "external seal consumption",
+            "optional marked collaborator memory",
+            "outside duties",
+            "unmarked counterpart absence of past-pass trust"
+          ]
+        },
+        {
+          "node": "S08",
+          "intent": "Common current negotiation scene; available endings depend on cumulative evidence and current NPC choices",
+          "retain": [
+            "current proof versus only recollection",
+            "Rhea rig/consent",
+            "Neris manuscript/key rights",
+            "Sol actual capacity and residents' choices",
+            "spent time/current supplies"
+          ]
+        }
+      ],
+      "endings": [
+        {
+          "id": "S.INSTITUTION",
+          "node_id": "S13",
+          "label": "Rebuild the conservatory as a supervised research school",
+          "ending_categories": [
+            "arc resolution",
+            "local institution outcome",
+            "career research maturity"
+          ],
+          "outcome_signature": {
+            "institution": "public supervised",
+            "archive": "conditional public rights",
+            "source": "shutdown, no active loop"
+          },
+          "actual_aftermath": [
+            "actual working calibration/function",
+            "Neris/Rhea retain individual office/stock/knowledge",
+            "earlier pass recollections do not become every student's memory"
+          ],
+          "useful_post_arc_play": [
+            "funded research/ordinary teaching/repair",
+            "new current apprenticeships",
+            "study remaining unresolved history"
+          ],
+          "later_return": [
+            "same institution and actual surviving stock/people",
+            "known episode receipt, no entry award again"
+          ],
+          "reopening": "A new project can alter future access; no old pass revived",
+          "irreversible_causes": [
+            "source charge/consumed coils, shutdown receipt and actual charter"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "S.REFUGE",
+          "node_id": "S14",
+          "label": "Save a consenting group; lose the old campus as a home",
+          "ending_categories": [
+            "arc resolution",
+            "local household/institution outcome",
+            "regional relocation"
+          ],
+          "outcome_signature": {
+            "institution": "harbor workshop",
+            "archive": "Neris-held closed/contested",
+            "source": "shutdown"
+          },
+          "actual_aftermath": [
+            "actual relocated residents and supplies",
+            "nonrelocating people remain their own current state, not presumed dead",
+            "less research infrastructure but real support life"
+          ],
+          "useful_post_arc_play": [
+            "harbor craft/care/trade",
+            "negotiate later archive access",
+            "repair with actual skills/remaining stock"
+          ],
+          "later_return": [
+            "old site may stay closed; can ask current keeper or support a new opening",
+            "present memories know rescue/report only"
+          ],
+          "reopening": "Actual later rights/route repair can reopen; move does not retroactively rescue refusers",
+          "irreversible_causes": [
+            "consumed meals, relocated households and lost current campus access"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "S.PRIVATE",
+          "node_id": "S15",
+          "label": "A scholar's own escape and unfinished district",
+          "ending_categories": [
+            "arc resolution",
+            "departure/actual extraction arrival",
+            "personal career continuation"
+          ],
+          "outcome_signature": {
+            "institution": "locals choose without player",
+            "archive": "only actual permitted notes carried",
+            "source": "closed/exhausted per actual boundary"
+          },
+          "actual_aftermath": [
+            "player gained useful method/limited owned physical notes",
+            "unresolved local repairs/relationships remain",
+            "no claim of saving the academy from personal departure"
+          ],
+          "useful_post_arc_play": [
+            "research using real host support",
+            "trade/instruction from tested notes",
+            "choose actual later return route"
+          ],
+          "later_return": [
+            "return depends on a currently supported connection and local permission",
+            "previous promises and present welfare still matter"
+          ],
+          "reopening": "Connection closure can require a new lawful route; no automatic reset teleport",
+          "irreversible_causes": [
+            "settled/terminated personal duties, actual exported current notes and charge consumption"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        },
+        {
+          "id": "S.PARTIAL",
+          "node_id": "S16",
+          "label": "The field closes before the plan works",
+          "ending_categories": [
+            "arc resolution",
+            "failed institutional project",
+            "career remains viable"
+          ],
+          "outcome_signature": {
+            "institution": "unresolved/closed access",
+            "archive": "not fabricated recovered",
+            "source": "exhausted; third reset unavailable"
+          },
+          "actual_aftermath": [
+            "actual spent supplies/current conditions",
+            "useful recollection or honest failed hypothesis",
+            "independent locals organize narrower later work"
+          ],
+          "useful_post_arc_play": [
+            "ordinary paid craft/recovery/study",
+            "repair a specific remaining component",
+            "offer a truthful partial report"
+          ],
+          "later_return": [
+            "same partial state/unknown history, no forced restart reward",
+            "no guaranteed perfect repair or renewed loop"
+          ],
+          "reopening": "A new funded/current project may improve local life; exhausted source is not restored by visiting",
+          "irreversible_causes": [
+            "external reset charge, spent trials and final source expiry"
+          ],
+          "does_not_imply": [
+            "world erased",
+            "native quest completion",
+            "new prestige",
+            "automatic life ending",
+            "all required alternative content delivered"
+          ]
+        }
+      ],
+      "walkthroughs": [
+        {
+          "id": "SW1",
+          "edges": [
+            "S.enter",
+            "S.study",
+            "S.result",
+            "S.social",
+            "S.reset",
+            "S.arrive",
+            "S.reproduce",
+            "S.now",
+            "S.institution",
+            "S.publicend"
+          ],
+          "ending": "S.INSTITUTION",
+          "fixture": "first-pass learned condition; present body/source supported; current Rhea/Neris consent and 2 coils/ink. Any remaining ink/restored stock must come from declared anchor, not remembered notes.",
+          "cumulative_logic": "Retained research speeds current proof, which changes credible negotiations. Public charter requires actual present key and workers; no omniscient final option.",
+          "clock": "second-pass 60+30+180=270 local minutes plus declared preparation; within 720-minute window",
+          "budget": "Second anchor: player ink=2, coins=3, Rhea coils=2. S.reproduce consumes 1 ink/1 coin, loans and returns 1 coil: ink=1, coins=2, coils=2. S.institution consumes the remaining 1 ink and both coils: ink=0, coins=2, coils=0. Public plan only if actual returned coil is intact and all other support quotes pass."
+        },
+        {
+          "id": "SW2",
+          "edges": [
+            "S.enter",
+            "S.commission",
+            "S.result",
+            "S.social",
+            "S.reset",
+            "S.arrive",
+            "S.reportonly",
+            "S.now",
+            "S.refuge",
+            "S.refugeend"
+          ],
+          "ending": "S.REFUGE",
+          "fixture": "Rhea expert trial; retained offered result but not her mastery; current Neris refuses key; Sol/residents consent and route/capacity feasible",
+          "cumulative_logic": "First-pass expert knowledge is retained only as report; shelter preparation/ordinary work can succeed without public calibration. Neris refusal makes institution edge unavailable.",
+          "clock": "second-pass 30+30+150=210 minutes plus real journey, with 4 residents maximum from declared capacity"
+        },
+        {
+          "id": "SW3",
+          "edges": [
+            "S.enter",
+            "S.study",
+            "S.result",
+            "S.social",
+            "S.reset",
+            "S.arrive",
+            "S.reproduce",
+            "S.now",
+            "S.private",
+            "S.privateend"
+          ],
+          "ending": "S.PRIVATE",
+          "fixture": "present notes legally copied, body/route permits actual departure; earlier work terminated/settled; Rhea or Neris refuses institutional terms",
+          "cumulative_logic": "Earned method permits a personal career; final menu cannot manufacture keeper consent. Only current copied notes leave, not all restored manuscript instances.",
+          "clock": "second-pass 60+30+90=180 minutes plus actual departure/arrival; not proof of a universal escape"
+        },
+        {
+          "id": "SW4",
+          "edges": [
+            "S.enter",
+            "S.study",
+            "S.result",
+            "S.social",
+            "S.reset",
+            "S.arrive",
+            "S.reportonly",
+            "S.now",
+            "S.expire",
+            "S.partialend"
+          ],
+          "ending": "S.PARTIAL",
+          "fixture": "safe failed hypothesis/uncertain recollection, or retained injury blocks reproduced proof; residents choose competing work; paid delays consume window",
+          "cumulative_logic": "A safe failure can retain useful evidence without granting current proof. No last dialogue resets time/resources/consent; no third pass on reload.",
+          "clock": "final boundary at actual 720 local minutes; unsupported absence frozen"
+        }
+      ],
+      "delivery_limit": "A complete worked alternative style, not a registered world, selected death/time/reset rule, universal export ban or substitute for a full MoL adaptation. All future engine carriers/snapshots/arrival/source expiry policies remain required review decisions."
+    }
+  ],
+  "source_evidence": [
+    {
+      "id": "SV-U01-U08",
+      "path": "docs/USER_VISION.md",
+      "locator": "U01/U05/U06/U07/U08 original requests",
+      "status": "trusted request provenance, no automatic mechanism selection"
+    },
+    {
+      "id": "FR-CAMPAIGN",
+      "path": "docs/worlds/original-frontier/CAMPAIGN.md",
+      "locator": "voluntary institution, resident means, arcs 1-5, OF.EXPLORE/CONTROL/MASTERY",
+      "status": "moving original planning input, frozen hash in INPUTS"
+    },
+    {
+      "id": "FR-HELD",
+      "path": "src/original_frontier_campaign_content.js",
+      "locator": "originalFrontierDefinitions: people, opening/approach/fallback; exact inherited node numbers",
+      "status": "held detached code; native itinerary/stock gaps unresolved, not working gameplay"
+    },
+    {
+      "id": "MOL-INJURY",
+      "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+      "claim": "MOL-C084-01..09",
+      "source_locator": "ch.84:p2-18 raw checked previous audit; other range reviewed source dossier",
+      "status": "qualified supplied snapshot; observed injury differs from character synchronization theory; does not establish Stillwater reset recipe"
+    },
+    {
+      "id": "MOL-DILATION",
+      "path": "docs/research/novels/full-book/mother-of-learning/readers/081-095_NOTES.md",
+      "claim": "MOL-C091-07",
+      "source_locator": "ch.91:p219-223 raw checked previous audit",
+      "status": "source chamber genuinely five months per outside day; this is not Stillwater's declared 1:1 repeating interval"
+    },
+    {
+      "id": "MOL-AFTERMATH",
+      "path": "docs/research/novels/full-book/mother-of-learning/readers/096-epilogue_NOTES.md",
+      "claim": "MOL-EP-02/06/08/09/14",
+      "source_locator": "epilogue:p125-136 raw checked for EP-09; others reviewed source dossier",
+      "status": "ordinary rebuilding, status issues and research recipients without former memory; no invented sequel or automatic returned friendship"
+    },
+    {
+      "id": "FR-LATEST-ENDINGS",
+      "path": "docs/worlds/original-frontier/TIMELINE_AND_ENDINGS.md",
+      "locator": "recommended timeline; required OF.END.01..07; original 1440-minute first-pass charter window; original Training Week comparator",
+      "status": "parallel completed planning reconciled; not implemented or accepted policy. This graph is an extended comparison fixture and does not rewrite its ledger."
+    }
+  ],
+  "new_acceptance_backlog": [
+    {
+      "id": "BG01",
+      "case": "Earlier facts/stock/knowledge/skill and resident consent decide ending eligibility; final menu cannot replace history."
+    },
+    {
+      "id": "BG02",
+      "case": "Reconvergence preserves approach/cost/receipt/observer differences, with meaningful post-arc play."
+    },
+    {
+      "id": "BG03",
+      "case": "Refusal, explicit delay, silence, failed accepted work, departure and life ending are distinguishable."
+    },
+    {
+      "id": "BG04",
+      "case": "Actual native travel/occupied work can miss disclosed local opportunity; browser absence freezes."
+    },
+    {
+      "id": "BG05",
+      "case": "Selected temporal source retains exact carriers/iteration/outside claims; no free physical notes/mastery/export/source recharge."
+    }
+  ],
+  "verification": "Document/graph/JSON/reference/trace consistency only; no runtime, unit, browser, build, save/failure or benchmark execution.",
+  "review_repairs": [
+    {
+      "id": "R1",
+      "issue": "SW1 coil budget",
+      "repair": "Explicit non-destructive loan/return in S.reproduce; exact ink/coins/coils ledger; damaged coil invalidates original public trace."
+    },
+    {
+      "id": "R2",
+      "issue": "Mira travel feasibility",
+      "repair": "Native-aligned three-leg O itinerary with per-direction own costs, capacity/weight/access checks and waits for actual arrivals; known held route remains an adapter blocker."
+    },
+    {
+      "id": "R3",
+      "issue": "later Frontier funding/acceptance",
+      "repair": "Named 4-coin public invoice/log beneficiary; one 4+2 coin Halden private ledger; 2-coin acceptedControlRequest with owned kit, consent and fail terms; no replay/refill."
+    },
+    {
+      "id": "R4",
+      "issue": "root-read successor example did not explicitly show limitation evidence",
+      "repair": "Ordinary trial now includes an explicit safe support-limit receipt; teaching needs an actual acquired/demonstrated ordinary procedure."
+    },
+    {
+      "id": "R5",
+      "issue": "focused reviewer left FW3 teacher/payer/recipient unspecified",
+      "repair": "Root checked held learn_tally definition lines132-138; added once-only F.lesson and FW3 acquisition, named teacher player/learner and payee Mira, payer player, exact 2-coin successor receipt and prior public-work settlement before attention reservation. Review file preserves historical reviewer gap; checkpoint records root resolution."
+    },
+    {
+      "id": "R6",
+      "issue": "root consistency: early restart could falsely imply 24 experienced hours; accepted job/arrival failure lacked graph exit",
+      "repair": "Count only actual elapsed intervals; add explicit post-acceptance public/private/successor and departure-interruption paths with declared original terms, no forced arrival/death/world erasure."
+    },
+    {
+      "id": "R7",
+      "issue": "root complete-means check: ordinary support previously allowed unnamed funded supporters",
+      "repair": "Named one-coin player-to-Mira staging lease and an actually bound static smaller-load fixture; no implicit assistant. Revised FW1/FW3 coin ledgers; site not present blocks trial until actual funded project."
+    }
+  ]
+}

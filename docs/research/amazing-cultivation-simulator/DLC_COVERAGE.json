@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-06T20:30:38.081282+00:00",
+  "steam_base_app": 955900,
+  "steam_build": "17074448",
+  "installed_manifest_sha256": "8bc9b4080f149edf97ebed8fc6b87c7953d6838864e7fd7e5915003235ae7fbe",
+  "official_sources": {
+    "listing": "https://store.steampowered.com/dlc/955900/?l=english",
+    "bamboo": "https://store.steampowered.com/app/1446730/?l=english",
+    "wudang": "https://store.steampowered.com/app/1701600/?l=english"
+  },
+  "official_listing_result": "Two gameplay DLC entries shown1\u20132of2 on inspected official Steam DLC listing; no separate artbook/cosmetic/soundtrack DLC entry observed in this listing. Bundles/reviews are not additional DLC.",
+  "installed_dlc_app_ids": [
+    "1446730",
+    "1701600"
+  ],
+  "runtime_gate": "DLControl maps Panda->1446730 and WuDang->1701600; Steam branch queries BIsDlcInstalled and caches result. Manifest/payload access is established; actual running entitlement/enablement/mod load order not observed. No entitlement query/mutation or game launch.",
+  "private_input_index": {
+    "path": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/DLC_INPUT_INDEX.json",
+    "sha256": "bdf428bef3781545db35a947ebb95aeb00ae266cc3e3017026d49bf9bd8fd266",
+    "candidate_paths": 145,
+    "qualification": "Filename-based candidate index includes localization and shared DLC data; inventory only, not semantic reading or exact depot attribution."
+  },
+  "dlcs": [
+    {
+      "app_id": 1446730,
+      "name": "Amazing Cultivation Simulator - Deep in the bamboo Forest",
+      "kind": "gameplay expansion",
+      "official_url": "https://store.steampowered.com/app/1446730/?l=english",
+      "official_documented_scope": "Pandas/shapeshift species-specific bodies; Divine Panda Brothers social/pet growth; bamboo harvest/cooking/buildings; fishing and fish dishes.",
+      "installation": "declared installed depot and source accessible in pinned input",
+      "source_inspected": [
+        "ACS-DLC-B01 fishing eligibility, timing, ecology, actual catch/escape/danger/account path"
+      ],
+      "installed_unread": [
+        "Full panda/animal/bodies/pet diplomacy and symbiosis",
+        "Complete bamboo/building/food and fish catalogue data"
+      ],
+      "documented_only": [
+        "Exact64fish promotional count not independently validated from definitions",
+        "Complete Panda Brothers diplomatic behavior and story outcomes"
+      ],
+      "unavailable": "No source access blocker for this installed snapshot; scenes/runtime and campaign activation unobserved"
+    },
+    {
+      "app_id": 1701600,
+      "name": "Amazing Cultivation Simulator - Immortal Tales of WuDang",
+      "kind": "gameplay expansion with scenic/decorative additions",
+      "official_url": "https://store.steampowered.com/app/1701600/?l=english",
+      "official_documented_scope": "Law of Nimbus Conquest; Black Tortoise Miao; new sect/places/adventures; new medicine/items/equipment/treasure artifacts/fish and Wudang buildings/scenery.",
+      "installation": "declared installed depot and source accessible in pinned input",
+      "source_inspected": [
+        "ACS-DLC-W01 YinYang law definition, dual retained progression/learning-cost/ratio modifier/artifact damage consumer and dual-core accrual"
+      ],
+      "installed_unread": [
+        "Full Miao pet behavior and development",
+        "Wudang acquisition/quests/diplomacy/places/adventures",
+        "New medicine/gear/artifact/fish/building/scenery-specific consumers"
+      ],
+      "documented_only": [
+        "Exact21building promotional count not independently validated",
+        "Whole high-stage law/quest/pet experience"
+      ],
+      "unavailable": "No source access blocker for this installed snapshot; scenes/runtime and campaign activation unobserved"
+    }
+  ],
+  "supplement": "traces/dlc.json",
+  "broader_queue": "DEEPER_RESEARCH.md",
+  "separate_non_gameplay_items": "None listed as separate DLC on inspected official page; Wudang scenery is part of its gameplay DLC, not a separate artbook/soundtrack product.",
+  "completed_first_pass_not_relabelled": "Original base/selected traces remain their recorded scope. Earlier law_Gong1/cleaning/ordinary manufacture findings do not become DLC coverage merely because DLC files were copied."
+}

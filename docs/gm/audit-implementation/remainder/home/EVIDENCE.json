@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "parent": "/root",
+  "worker": "/root/remainder_home",
+  "capturedAt": "2026-10-06T19:40:16.611144+00:00",
+  "status": "changes ready; implemented-unverified",
+  "rows": [
+    "elin:P2",
+    "elin:P3",
+    "elin:P4",
+    "keeperrl:P1"
+  ],
+  "sourceCoverage": {
+    "elin": "Full assigned P2/P3/P4 packet text; reversible original implementation. Other candidates remain with their assigned lanes.",
+    "keeperrl": "Full assigned P1 packet text; no claim of source-game implementation/parity.",
+    "native": "Relevant current compiler/job/effect/body/source/stock/controller/native-context/UI sections read; no private saves or raw source libraries opened."
+  },
+  "inputsAtFinalSourceCheck": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c04b7d937f1dbd753fd07e7ce441f59a851dc5652d94d42e230df2cb7bb5c957",
+      "bytes": 3170
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "55150391de660dde77f8d0d94355c5e075eb583ffb460d68452c633a6da80b83",
+      "bytes": 142209
+    },
+    {
+      "path": "docs/GAME_IMPLEMENTER_TEMPLATE.md",
+      "sha256": "09d9be67c94e1479b7bf01629cd7547fc6b05a0ce01e6c3b85dd3cbc49c7f30c",
+      "bytes": 10055
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+      "bytes": 40724
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/ASSIGNMENT.json",
+      "sha256": "3693afd2228e5889d1ef131401f43660cf015df50caeed94b31347255071374d",
+      "bytes": 34951
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/INTERFACE.md",
+      "sha256": "67ce4bb6f0ba529f50d81fcbdd9dff428093f07fe0a9112ac0f1c4cd6788c565",
+      "bytes": 5201
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/CHECKPOINT.md",
+      "sha256": "e4aa57bac67c9be5cf2d23f5c1335bbb2084cd3975cc27fdbe91fdcf1b1c1bcd",
+      "bytes": 3838
+    },
+    {
+      "path": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+      "sha256": "86ccddb2f23ee45e595308f02825b3782a87d7c3a99f4d77e24751020043f0d6",
+      "bytes": 9409
+    },
+    {
+      "path": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+      "sha256": "f2811fc9ed00a044eb8a4edb106e776d10a660443d14d4105e71c1a3831b276c",
+      "bytes": 14897
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "bytes": 2927
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "bytes": 9050
+    },
+    {
+      "path": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "bytes": 27136
+    },
+    {
+      "path": "src/feature_expansion_objects_host.js",
+      "sha256": "cb70d23a7cb90c7033f4f87be1d44ee8a1607a0290d1bf0ff4034549aed2febd",
+      "bytes": 12365
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "bytes": 17872
+    },
+    {
+      "path": "src/reference_gameplay_content.js",
+      "sha256": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+      "bytes": 13705
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "sha256": "c45761355815abf9279895e1554f7450d28a1baee6fb988992ef2f0f0b4a71f1",
+      "bytes": 9008
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "bytes": 30667
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "sha256": "43db4eb9e13ab7ef3a03ae38331eb8311148b22d940232179da0a1d7b8664467",
+      "bytes": 5121
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "fc777eeb90d597dfa4715d9dac320e888b1b7389aedfc54393092daa78c907f3",
+      "bytes": 31655
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "388f816363bf4837685134069285a633bb35244c427b7985d3b244f52de75243",
+      "bytes": 26951
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "434e2b29214edbdaf7b1f751b7007ed1c1cf9c0ba0f24c9a5a386742214892fb",
+      "bytes": 48505
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9d95e2234187ab095d49ee28e9694f1cd9a11d45cdf677aa5c696f4e6f1247ed",
+      "bytes": 11807
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "0eb36aa7fc0f08bd85295c72d9b2c78c54726b4f3823e71ced19725a6f34b7ab",
+      "bytes": 43561
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "19084b2e8e3b2eeefbac13404b4cfa6ed6619c3e9fb96ad1fb2b10a0ae8bf6c2",
+      "bytes": 3036
+    },
+    {
+      "path": "src/original_frontier_facts.js",
+      "sha256": "a8ec65e82550d679c465fd96f801a668d8c7afbf7355cdbfdcb2d75fa8e7caa8",
+      "bytes": 3836
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "50ee83a157dcdfe68586908b479de3d5deb9d0ba3ac1d070d3daf961322d9f25",
+      "bytes": 380587
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "bytes": 4988
+    }
+  ],
+  "outputs": [
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "sha256": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "bytes": 30762
+    },
+    {
+      "path": "src/audit_remainder_home_facts.js",
+      "sha256": "00de726a6a8a215ab20083276a3daf34363b9a3243cae7b4fd81799bf660d77b",
+      "bytes": 31493
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "sha256": "1532ca31fde0c2f6ab7458355aa701dba0657bc3db1c57b0881b1ef0f90429a4",
+      "bytes": 5476
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/CHECK_SOURCE.mjs",
+      "sha256": "634c6c49fe5f2556254c7abcda2162da1d61b4f1a7a1099d026328d7806d18e3",
+      "bytes": 5913
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/INTEGRATION.md",
+      "sha256": "2da2904ae649544de40c3b2757e7effdf3b353b85c16139f7d8dfd8e4555d380",
+      "bytes": 9679
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/ACCEPTANCE_BACKLOG.md",
+      "sha256": "3979d5d0ff4e714d85076801f6cd298f2e80bc20758ba424c46c87efe25c58ae",
+      "bytes": 2326
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/CHECKPOINT.md",
+      "sha256": "305f645295393ba41b7807b2d4243fa937088416fa90f5387dfa22718f7f6061",
+      "bytes": 1531
+    },
+    {
+      "path": "docs/gm/audit-implementation/remainder/home/RELEASE.md",
+      "sha256": "db984f4911773beb624ca18696ed5febf9bfb7ad379d66af5e36547b59fcf875",
+      "bytes": 762
+    }
+  ],
+  "checks": [
+    {
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_home_content.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_home_facts.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "--check",
+        "src/audit_remainder_home_host.js"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "docs/gm/audit-implementation/remainder/home/CHECK_SOURCE.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"pass\",\n  \"checks\": \"syntax separately; imports, immutable definition registry, static conservation and all root-facing links\",\n  \"commands\": 25,\n  \"advancements\": 2,\n  \"people\": 1,\n  \"controllers\": 1,\n  \"nativeItems\": [\n    \"Reusable measuring jig\",\n    \"Green repair offcut\",\n    \"Compatible repair offcut\"\n  ],\n  \"mergedRegistryCommands\": 761,\n  \"gameplay\": \"implemented-unverified; all behavioral suites deferred\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "definitionResult": {
+    "status": "pass",
+    "checks": "syntax separately; imports, immutable definition registry, static conservation and all root-facing links",
+    "commands": 25,
+    "advancements": 2,
+    "people": 1,
+    "controllers": 1,
+    "nativeItems": [
+      "Reusable measuring jig",
+      "Green repair offcut",
+      "Compatible repair offcut"
+    ],
+    "mergedRegistryCommands": 761,
+    "gameplay": "implemented-unverified; all behavioral suites deferred"
+  },
+  "currentSourceDefects": [],
+  "existingEvidence": {
+    "elin:P2": [
+      "Existing Eda feature_objects.fitting_bench, current native Village support, and actual site ownership retained. First-wave ordinary frame is already delivered; no wet-weather cover/predicate consumer existed in its source."
+    ],
+    "elin:P3": [
+      "Existing firsthand feature_objects.cut and feature_objects.dry_* receipts provide earned observations; existing wet/sound/matched staves and native kit consumers retained. No physical jig or declared conserved offcut producer existed."
+    ],
+    "elin:P4": [
+      "Existing body.grip_drill/body.condition_grip, Conditioned grip source/body/recovery and actual native Climbing retained. Closed field.assessment settlement did not preserve ordinary response identity; no fabricated retrospective trial granted."
+    ],
+    "keeperrl:P1": [
+      "Existing compileSiteProject and actual field.workshop.assembly at native Shack retained. Existing Orr/Vale/pathfinder actors/controllers remain independent; no completed-room-to-funding-to-occupancy/service join existed."
+    ]
+  },
+  "parentJoins": "INTEGRATION.md",
+  "deferredGateGroups": "ACCEPTANCE_BACKLOG.md",
+  "notPerformed": [
+    "gameplay/unit/browser/save/reload/import/failure/regression/director checks",
+    "build",
+    "private-save/source-library mutations",
+    "shared/native/save/UI/publisher writes",
+    "subagents",
+    "user-visible chat",
+    "commit/push/publication/automation"
+  ],
+  "writerReleased": true,
+  "pendingProcesses": []
+}
