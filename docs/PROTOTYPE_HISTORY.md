@@ -350,9 +350,9 @@ Confirmed refinement, 2026-10-03: Weibao wants the original YAIRPG world fully e
 
 ### Retired DIRECTION_SYNTHESIS.md framing
 
-[PROJECT.md](../PROJECT.md#agreed-direction) owns the confirmed requirement to fully expand the starting YAIRPG world. The parallel-universe framing and the choices below remain proposals. This section changes no gameplay, saves or native unlocks.
+[PROJECT.md](gm/PROJECT_LOG.md#agreed-direction) owns the confirmed requirement to fully expand the starting YAIRPG world. The parallel-universe framing and the choices below remain proposals. This section changes no gameplay, saves or native unlocks.
 
-Execution update, 2026-10-03: the user authorized proceeding while preserving the vanilla experience. [Optional town chapter](../PROJECT.md#optional-town-chapter-2026-10-03) owns the delivered first contract and compatibility. Native opening/quests/dialogue remain available and town access is opt-in. The broader regional catalogue and final cosmology remain proposals; a separate untouched upstream build was not selected or shipped.
+Execution update, 2026-10-03: the user authorized proceeding while preserving the vanilla experience. [Optional town chapter](gm/PROJECT_LOG.md#optional-town-chapter-2026-10-03) owns the delivered first contract and compatibility. Native opening/quests/dialogue remain available and town access is opt-in. The broader regional catalogue and final cosmology remain proposals; a separate untouched upstream build was not selected or shipped.
 
 Recommendation: treat our home world as a divergent continuity built from the inherited YAIRPG setting. Keep recognizable geography, people, ordinary professions, equipment, humor and opening mysteries, then extend them with our own regional arcs and local rules. A technical fork does not require a visible multiverse explanation, two playable copies of the same world or waiting for an unpublished upstream story to be finished. An explicit parallel-world identity can become fiction later if it creates useful choices.
 

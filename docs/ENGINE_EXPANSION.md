@@ -68,7 +68,7 @@ The subsequent increment delivers P3's paid evidence-led search/movement and P5'
 
 ## Connected field workshop runtime, 2026-10-03
 
-Implemented after the user's engine follow-through request. This delivers an exercised subset of P1 energy, P2 sites/projects, P4 scenes and P5 integration. The later pursuit increment is recorded above; full native group combat, independent native world copies and historical restoration remain separate adapters. [PROJECT](../PROJECT.md#connected-field-association-and-workshop-2026-10-03) owns direction; [playtest](PLAYTEST.md#connected-field-workshop-proof-2026-10-03) owns measured evidence. The planning packet below is its earlier scope, not a claim that all five packets are complete.
+Implemented after the user's engine follow-through request. This delivers an exercised subset of P1 energy, P2 sites/projects, P4 scenes and P5 integration. The later pursuit increment is recorded above; full native group combat, independent native world copies and historical restoration remain separate adapters. [PROJECT](gm/PROJECT_LOG.md#connected-field-association-and-workshop-2026-10-03) owns direction; [playtest](PLAYTEST.md#connected-field-workshop-proof-2026-10-03) owns measured evidence. The planning packet below is its earlier scope, not a claim that all five packets are complete.
 
 | Service | Implemented contract and actual proof |
 |---|---|
@@ -86,7 +86,7 @@ Compatibility: outer schema5 and simulation schema1 stay supported. New `energie
 
 ## Parallel engine development and long world campaigns, proposed 2026-10-03
 
-**Planning and source inspection only.** [PROJECT](../PROJECT.md#parallel-engine-development-and-long-world-campaigns-2026-10-03) owns the requested scope; [User vision](USER_VISION.md#long-world-campaigns-and-parallel-systems-2026-10-03) owns direct wording. This section is the proposed execution packet for existing I01-I04, I07-I25 and I34-I39 families, not a second specification or a claim of implemented gameplay. The target is several connected pursuits within substantial worlds, with useful returns and mechanically distinct settings. Test content can be small while reusable engine scope is broad. The first milestone remains one realm and one prestige layer; no reset policy is selected here.
+**Planning and source inspection only.** [PROJECT](gm/PROJECT_LOG.md#parallel-engine-development-and-long-world-campaigns-2026-10-03) owns the requested scope; [User vision](USER_VISION.md#long-world-campaigns-and-parallel-systems-2026-10-03) owns direct wording. This section is the proposed execution packet for existing I01-I04, I07-I25 and I34-I39 families, not a second specification or a claim of implemented gameplay. The target is several connected pursuits within substantial worlds, with useful returns and mechanically distinct settings. Test content can be small while reusable engine scope is broad. The first milestone remains one realm and one prestige layer; no reset policy is selected here.
 
 ### Current evidence and architecture boundary
 
@@ -200,7 +200,7 @@ Event chance and weighted outcomes accept the existing `{fact, scale, add, min, 
 
 ## Chronicle runtime increment, 2026-10-02
 
-**Source implemented, 66 tests pass, rebuilt generated-save browser proof passes; human acceptance pending.** This executes a bounded version of the endorsed elder/event scope and the latest time/inheritance request. Original content and tuning remain proposals. [PROJECT.md](../PROJECT.md#implemented-chronicle-and-time-policy-2026-10-02) owns the selected policy; [Playtest](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) owns evidence. Earlier audit and packet statements below retain their dated boundaries; this section is the current implementation answer.
+**Source implemented, 66 tests pass, rebuilt generated-save browser proof passes; human acceptance pending.** This executes a bounded version of the endorsed elder/event scope and the latest time/inheritance request. Original content and tuning remain proposals. [PROJECT.md](gm/PROJECT_LOG.md#implemented-chronicle-and-time-policy-2026-10-02) owns the selected policy; [Playtest](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) owns evidence. Earlier audit and packet statements below retain their dated boundaries; this section is the current implementation answer.
 
 | Delivered contract | Source and actual behavior | Limit |
 |---|---|---|
@@ -1168,7 +1168,7 @@ Generated fixtures vary intent, outcome, knowledge, trust, grievance, witness ac
 
 ## Proto23-inspired Village life runtime, 2026-10-02
 
-**Implemented within one realm; content and balance remain reversible proposals.** User authorization is implementation of the preceding Proto23 inspiration and further engine consideration. [PROJECT](../PROJECT.md#proto23-inspired-village-life-2026-10-02) owns creative/current policy; [PLAYTEST](PLAYTEST.md#village-life-browser-and-save-proof-2026-10-02) owns actual proof. The earlier [source comparison](RESEARCH_IDLE_GAMES.md#1-proto23-make-knowledge-an-object-in-the-world) and verified published Proto23 source inspired patterns only; no reference code/assets/writing were copied.
+**Implemented within one realm; content and balance remain reversible proposals.** User authorization is implementation of the preceding Proto23 inspiration and further engine consideration. [PROJECT](gm/PROJECT_LOG.md#proto23-inspired-village-life-2026-10-02) owns creative/current policy; [PLAYTEST](PLAYTEST.md#village-life-browser-and-save-proof-2026-10-02) owns actual proof. The earlier [source comparison](RESEARCH_IDLE_GAMES.md#1-proto23-make-knowledge-an-object-in-the-world) and verified published Proto23 source inspired patterns only; no reference code/assets/writing were copied.
 
 ### Connected playable systems
 

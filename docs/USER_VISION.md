@@ -1,5 +1,124 @@
 # User vision and research coverage
 
+## Vision update: what Weibao asked for, 2026-10-05 evening to 2026-10-07
+
+Plain-language consolidation of about 50 direct requests in Codex chats after
+the last entry below. Quotes are Weibao's words, lightly trimmed. Status says
+what exists now; "unverified" means built but never played. Written by Claude
+Code on 2026-10-07 from the Codex session logs.
+
+### 1. Learn from other games, including by decompiling them
+
+> if we decompiled caves of qud wuld it be helpful for us in any way?
+
+> Doesnt even need to be similar games, just interesting systems worth
+> absorbing
+
+Weibao wants mechanics absorbed from a wide set of games, not just idle RPGs,
+including DLC. Decompiling installed games is an accepted method. Named
+targets: Caves of Qud, DCSS, Cataclysm DDA, NetHack, RimWorld, Tales of
+Maj'Eyal, Elin, Idling to Rule the Gods, Rogue Legacy, Streets of Rogue,
+KeeperRL, Amazing Cultivation Simulator, Melvor Idle, Orb of Creation, Your
+Chronicle, Crush Crush, Cult of the Lamb, Factorio, Dwarf Fortress, Book of
+Hours and Oxygen Not Included, plus about 30 GitHub repos and reverse-engineering
+tools (Ghidra/IDA MCP, ILSpy).
+
+Status: dossiers exist under `docs/research/<game>/`. Four-game absorption
+(Dwarf Fortress, Book of Hours, ONI, Cult of the Lamb) and Factorio recovery
+were in progress on 2026-10-07. A newer-games audit was also started.
+
+### 2. Book worlds lived in fully, not followed on rails
+
+> Do we follow along the protaginist or do other stuff accordingly?
+
+> the little things in each book worl accordingly?
+
+Each book world should feel like that book, down to small tropes such as
+replacement and identity swaps. The player lives an independent life there by
+default rather than shadowing the protagonist. Multi-world settings like
+Reincarnation Paradise act as hubs.
+
+Status: Paradise hub and Goa, and Mother of Learning's Cyoria, are playable
+in source (unverified). Other books remain dossiers.
+
+### 3. Player actions change the story, and protagonists resist
+
+> like say I decide to attack the protaginst for whatever reason ... what is
+> the situation in face of this?
+
+> Making it really damn hard to defeat protaginists or having scripted saves
+> for them since they should be fated to survive (unless that fate is severed)
+
+Endings must follow from what the player actually does, not from a script.
+Protagonists are protected by fate rather than invulnerability, the
+protection can be severed, and it may differ per world. At high power,
+causality itself matters: a character who will become powerful is in some
+sense fated to. Draw on how books, tropes and Reddit theorycrafting handle
+this.
+
+Status: causal endings model and three original proof cases in source
+(`docs/gm/causal-endings/`), unverified. Not yet applied to book protagonists.
+
+### 4. Depth everywhere: little systems, status effects, achievements
+
+> status effects, little stuff and more?
+
+> consider stuff like achievements ... actual achievements and then in game
+> hard to accomplish things
+
+Small interlocking systems matter as much as big ones: injuries and care,
+status effects, artifact collection (including the old CS project's infinity
+stones), achievements both as meta trophies and as hard in-world feats, and
+Crush Crush-style relationship systems. Romance is open for consideration.
+
+Status: care and status effects, artifact collection and achievements-as-feats
+exist in source (unverified). Romance and meta achievements are not designed.
+
+### 5. More worlds and a lived home
+
+> we can even implement the world of Proto23 accordingly? ... how to
+> implement basebuilding ... Why are there caps?
+
+Proto23 becomes a world of its own. Base building and home life should be
+real. Arbitrary limits that only exist for engineering convenience should go.
+
+Status: Proto23 village branch, home furnishing and Tamsin/Lio household life
+in source (unverified). The 96/128 visit-history cap was replaced.
+
+### 6. Feasibility and the right first vehicle
+
+> is it even reasonably possible to implement my ideas in depth?
+
+> Is text based RPG in the YAIR wrapper the best first steps
+
+Weibao wants honest answers on feasibility and on whether YAIR remains the
+right base, plus "easy worlds": existing systems that can be adapted rather
+than invented.
+
+Status: answered in chat only; no saved decision. YAIR remains the base.
+
+### 7. Balance between active play and idling (open)
+
+> balance of active gameplay and options versus idle rpg since the oriignal
+> game is an idle rpg
+
+The newest request, 2026-10-07. The expansion has added a great deal of
+hands-on choice to what started as an idle game. How much should run on its
+own?
+
+Status: open. No design recorded yet. This is a good question to settle
+during the first real playtest.
+
+### 8. How the work runs
+
+Weibao directs through many parallel Codex GM chats ("send out GM", "continue
+until super completed"), with each GM managing subagents. Implementation-first
+pacing deferred testing from about 2026-10-04.
+
+Status as of 2026-10-07: everything delivered since 2026-10-04 is unplayed.
+Proposed in `AGENTS.draft.md`: finish one playable slice before starting the
+next, and restore browser checks.
+
 ## Begin implementation GM, 2026-10-05
 
 Direct human instruction in incorporation chat01a10d43:
@@ -116,7 +235,7 @@ The earlier permission reply, “you have full permissions to do whats needed or
 
 Three actual internal engine GMs now own [exact cargo](gm/engine/realm-cargo/INTEGRATION.md), [observation channels](gm/engine/observation-channels/README.md) and [realm activity clocks](gm/engine/realm-clock/README.md). [Specialist packet](gm/dispatch/ENGINE_SPECIALISTS.md) owns their reservations; root integrates one opt-in native Folded Glasshouse connected to Exchange/Returned Gaze. The selected original prototype preserves the familiar opening, same carried native body/bag/equipment, canonical instance facts and one template gift. Paid local preparation, private Joss research and an explicit heard report lead to an earned NPC listener and crafted paired viewing device. Viewing and bodily passage use separate means. Exact names, costs, finite viewing duration and resident policies remain reversible proposals.
 
-[PROJECT](../PROJECT.md#design-session-resume-point-2026-10-04), [engine delivery](ENGINE_EXPANSION.md#native-folded-glasshouse-and-engine-specialists-2026-10-04), [authoring](ENGINE_AUTHORING.md#native-folded-glasshouse-bindings-2026-10-04) and [playtest](PLAYTEST.md#glasshouse-build-and-deferred-acceptance-2026-10-04) own current implementation, compatibility and actual verification. New gameplay is implemented-unverified. Physical presence or real supported viewing permits local elapsed time and new resident decisions; already paid jobs retain existing joined-clock completion times. Seeing grants no body passage, NPC faculty, verified identity or borrowed-stock permission. Broader native-world isolation and different bodies/companions remain separate adapters.
+[PROJECT](gm/PROJECT_LOG.md#design-session-resume-point-2026-10-04), [engine delivery](ENGINE_EXPANSION.md#native-folded-glasshouse-and-engine-specialists-2026-10-04), [authoring](ENGINE_AUTHORING.md#native-folded-glasshouse-bindings-2026-10-04) and [playtest](PLAYTEST.md#glasshouse-build-and-deferred-acceptance-2026-10-04) own current implementation, compatibility and actual verification. New gameplay is implemented-unverified. Physical presence or real supported viewing permits local elapsed time and new resident decisions; already paid jobs retain existing joined-clock completion times. Seeing grants no body passage, NPC faculty, verified identity or borrowed-stock permission. Broader native-world isolation and different bodies/companions remain separate adapters.
 
 Full supplied-edition reading continues in twelve independently owned lanes with Luna bounded readers, medium initially and higher effort for a named ambiguity or failed qualification. [Full-book index](research/novels/full-book/README.md) and each book's own coverage/checkpoint own current reading and successor IDs. Worm and The Legendary Mechanic are supplied; Shadow Slave extends through chapter3000 with reconciled volumes9–11. ORV, Mother of Learning, both Labyrinth supplied volumes, Worm, Regressor's Tale, the qualified Fated Villain MTL snapshot and Legendary Mechanic are accepted as read/reviewed/integrated, as recorded in the [full-book index](research/novels/full-book/README.md). Root confirmed ORV's source hash and85final receipt files; semantic evidence remains in that GM's actual review receipts. Remaining active lanes continue toward their own full review gates. Structural inspection, dispatched/read-unreviewed packets, source-reviewed notes and implementation are distinct. The user supplies missing editions; no source/library mutation, unrequested acquisition or raw prose corpus is selected. Reading does not block incremental original gameplay.
 
@@ -156,7 +275,7 @@ Maintained 2026-10-03. This document owns the original-request provenance and co
 
 ## Implementing engine follow-through and bookshelf ideas, 2026-10-03
 
-Direct user request: “implement accordingly, also consider the stuff from the bookshelf audit and more?” This authorizes the recommended connected engine implementation while incorporating the saved bookshelf findings and broader plans. [PROJECT](../PROJECT.md#connected-field-association-and-workshop-2026-10-03) owns implemented direction and review proposals; [engine owner](ENGINE_EXPANSION.md#connected-field-workshop-runtime-2026-10-03) owns exact scope. It does not finalize every research candidate, source-world roster, reset policy or numerical balance.
+Direct user request: “implement accordingly, also consider the stuff from the bookshelf audit and more?” This authorizes the recommended connected engine implementation while incorporating the saved bookshelf findings and broader plans. [PROJECT](gm/PROJECT_LOG.md#connected-field-association-and-workshop-2026-10-03) owns implemented direction and review proposals; [engine owner](ENGINE_EXPANSION.md#connected-field-workshop-runtime-2026-10-03) owns exact scope. It does not finalize every research candidate, source-world roster, reset policy or numerical balance.
 
 ## Simulation references, interface and selective intervention, 2026-10-03
 
@@ -168,7 +287,7 @@ Source: direct message in this repository chat; original wording retained.
 
 Interpretation: explicitly retain Amazing Cultivation Simulator and Caves of Qud as research references, with interest in Qud's simulation nuance. Further investigate A Dark Room and other implementation patterns, integration into existing interface surfaces, independent situations, selective intervention, readiness/unequal power and regression-style foreknowledge. The request does not select every reference mechanic, a full game adaptation, forced historical reset or mandatory participation in every event.
 
-[PROJECT](../PROJECT.md#simulation-references-and-selective-intervention-2026-10-03) owns current scope; [reference owner](NICHE_GAME_REFERENCES.md#endorsed-simulation-references-2026-10-03), [source comparisons](RESEARCH_IDLE_GAMES.md#selected-simulation-references-and-living-world-implementation-2026-10-03), [situation proposal](CHARACTERS_AND_WORLD_EVENTS.md#autonomous-situations-readiness-and-selective-intervention-2026-10-03) and [runtime/interface contracts](ENGINE_EXPANSION.md#interface-integration-autonomous-situations-and-foreknowledge-2026-10-03) preserve details. State: references and proposals saved; no gameplay implementation, new agent dispatch or reference playthrough in this pass.
+[PROJECT](gm/PROJECT_LOG.md#simulation-references-and-selective-intervention-2026-10-03) owns current scope; [reference owner](NICHE_GAME_REFERENCES.md#endorsed-simulation-references-2026-10-03), [source comparisons](RESEARCH_IDLE_GAMES.md#selected-simulation-references-and-living-world-implementation-2026-10-03), [situation proposal](CHARACTERS_AND_WORLD_EVENTS.md#autonomous-situations-readiness-and-selective-intervention-2026-10-03) and [runtime/interface contracts](ENGINE_EXPANSION.md#interface-integration-autonomous-situations-and-foreknowledge-2026-10-03) preserve details. State: references and proposals saved; no gameplay implementation, new agent dispatch or reference playthrough in this pass.
 
 ## Long world campaigns and parallel systems, 2026-10-03
 
@@ -182,11 +301,11 @@ Source: direct messages in this repository chat, with original wording retained.
 
 Interpretation: request a broad engine-development plan for deep local campaigns and varied worlds, including connective everyday play, power/energy models, elements/locations, base development, contextual events and enemy-initiated pursuit/encounters. Consider parallel implementation, targeted source research, book-world options, procedural inspirations and active/idle pacing together. This is exploration and planning, not automatic selection of every proposed mechanic, a numeric idle ratio, a canon roster or offline loss policy.
 
-[PROJECT](../PROJECT.md#parallel-engine-development-and-long-world-campaigns-2026-10-03) owns scope; [parallel packets](ENGINE_EXPANSION.md#parallel-engine-development-and-long-world-campaigns-proposed-2026-10-03) own proposed module/interface ownership and acceptance. Existing I01-I04, I07-I25 and I34-I39 cover the families. State: source inspected and plan saved, no new runtime implementation or builder dispatch. The existing vanilla opening and one-realm/one-prestige first milestone remain constraints; they do not limit the eventual depth or duration of each world.
+[PROJECT](gm/PROJECT_LOG.md#parallel-engine-development-and-long-world-campaigns-2026-10-03) owns scope; [parallel packets](ENGINE_EXPANSION.md#parallel-engine-development-and-long-world-campaigns-proposed-2026-10-03) own proposed module/interface ownership and acceptance. Existing I01-I04, I07-I25 and I34-I39 cover the families. State: source inspected and plan saved, no new runtime implementation or builder dispatch. The existing vanilla opening and one-realm/one-prestige first milestone remain constraints; they do not limit the eventual depth or duration of each world.
 
 ## Scope and precedence
 
-Current scope returns active content to YAIRPG, preserves engine work and research, and includes full development of the starting world alongside other worlds. The latest dimension decision identifies our expanded YAIRPG setting as its own branch dimension, distinct from the original source continuity; earlier undecided framing below is request history. Returning to YAIRPG supersedes keeping Jade Hollow playable, not the ambition for deeper ordinary systems, multiple paths and distinct interconnected world campaigns. One realm, one prestige layer and one event are delivery gates, not permanent ceilings. [PROJECT.md](../PROJECT.md#branch-dimension-identity-2026-10-03) owns the current direction and shipped identity note.
+Current scope returns active content to YAIRPG, preserves engine work and research, and includes full development of the starting world alongside other worlds. The latest dimension decision identifies our expanded YAIRPG setting as its own branch dimension, distinct from the original source continuity; earlier undecided framing below is request history. Returning to YAIRPG supersedes keeping Jade Hollow playable, not the ambition for deeper ordinary systems, multiple paths and distinct interconnected world campaigns. One realm, one prestige layer and one event are delivery gates, not permanent ceilings. [PROJECT.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) owns the current direction and shipped identity note.
 
 The earlier agreed directions in PROJECT.md are multiple worlds/realms, prestige, dense interconnected skills, deeper existing systems, distinct world mechanics, and original worlds with verified book references. Their pre-chat provenance is the existing dated PROJECT.md and research coordination record; exact earlier user message IDs were not available in this chat, so none are invented. Specific home, faction, ecology, class and helper implementations remain research candidates unless separately accepted.
 
@@ -808,7 +927,7 @@ Source: direct user instruction in this repository chat; original wording retain
 >
 > etc, we can be inspired by regression books accordingly and more?
 
-Coverage: [Implemented time policy](../PROJECT.md#implemented-chronicle-and-time-policy-2026-10-02), [runtime subset](ENGINE_EXPANSION.md#chronicle-runtime-increment-2026-10-02) and [browser evidence](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) cover the elder encounter/follow-ups, open-ended relationship axes/ties, kept obligations, one native manual bequest, timed invitations, retained missed-event reports, shared calendar/scheduler and explicit optional mortal old-age ending. Source verification of one Mother of Learning chapter supports a bounded retained-memory distinction; all playable lore/tuning is original.
+Coverage: [Implemented time policy](gm/PROJECT_LOG.md#implemented-chronicle-and-time-policy-2026-10-02), [runtime subset](ENGINE_EXPANSION.md#chronicle-runtime-increment-2026-10-02) and [browser evidence](PLAYTEST.md#chronicle-runtime-browser-and-save-proof-2026-10-02) cover the elder encounter/follow-ups, open-ended relationship axes/ties, kept obligations, one native manual bequest, timed invitations, retained missed-event reports, shared calendar/scheduler and explicit optional mortal old-age ending. Source verification of one Mother of Learning chapter supports a bounded retained-memory distinction; all playable lore/tuning is original.
 
 State: **implementation delivered in a bounded original Village prototype; human design/balance acceptance pending.** Existing saves receive no retroactive chronicle/age/rewards; finite lifespan requires explicit enrollment choice. General ancestry/family simulation, race/body lifespans, NPC aging, descendant continuation, offline loss and whole-world regression remain future scope. No personal saves or remote publication changed.
 
@@ -818,7 +937,7 @@ Source: direct user message in this repository chat. Original wording retained; 
 
 > But I want the original world to be fully expanded too, or we can start in a parallel universe of the 'original" which is the world upstream is trying to make, so we can branch it off accordingly? more to consider?
 
-Coverage: [PROJECT.md](../PROJECT.md#agreed-direction) records full home-world expansion as confirmed direction. [Divergent-continuity proposal](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) covers inherited identity, regional completeness, local power/profession paths, return/absence/replay and selective upstream adoption. The upstream development FAQ was refreshed directly; its town-before-magic sequence does not establish a complete future canon.
+Coverage: [PROJECT.md](gm/PROJECT_LOG.md#agreed-direction) records full home-world expansion as confirmed direction. [Divergent-continuity proposal](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) covers inherited identity, regional completeness, local power/profession paths, return/absence/replay and selective upstream adoption. The upstream development FAQ was refreshed directly; its town-before-magic sequence does not establish a complete future canon.
 
 State: **full starting-world expansion requested; parallel-universe framing explored, not selected.** The home world remains a substantial campaign as other worlds develop. Exact branching point, cast, local magic/cultivation rules, reset policy and implementation order remain proposals. Documentation only; no gameplay, saves or remote state changed.
 
@@ -828,7 +947,7 @@ Source: direct user instruction in this repository chat; original wording retain
 
 > Lets do that accordingly, I just dont want to lose the 'vanilla' experience
 
-Coverage: [Preservation constraint and town increment](../PROJECT.md#optional-town-chapter-2026-10-03) record the interpreted scope: preserve the inherited adventure, mechanics, quests/dialogue and native interface; new town access/story begins through an explicit optional choice. This implements the preceding complete-town-story candidate as a bounded first survey-office contract. Full original-world development remains the broader objective. New fiction belongs to our fork continuity, with no claim that it completes upstream's intended canon.
+Coverage: [Preservation constraint and town increment](gm/PROJECT_LOG.md#optional-town-chapter-2026-10-03) record the interpreted scope: preserve the inherited adventure, mechanics, quests/dialogue and native interface; new town access/story begins through an explicit optional choice. This implements the preceding complete-town-story candidate as a bounded first survey-office contract. Full original-world development remains the broader objective. New fiction belongs to our fork continuity, with no claim that it completes upstream's intended canon.
 
 State: **implementation authorized and first optional town story delivered; human pacing/writing acceptance pending.** No separate exact-upstream version, forced reset, new world, cultivation placement or loss policy is selected. Schema5 gains additive town facts without retroactive rewards; personal saves remain untouched. [Playtest](PLAYTEST.md#optional-town-chapter-browser-and-save-proof-2026-10-03) owns rebuilt browser verification.
 
@@ -838,7 +957,7 @@ Source: direct user message in this repository chat; original wording retained.
 
 > we can just have it be a seperate world for our worlds and stuff, since we are implementing seperate worlds and more? and then we can note the dimention as not the main one and stuff?
 
-Coverage: [PROJECT.md](../PROJECT.md#branch-dimension-identity-2026-10-03) records the selected separate-dimension framing. [Direction synthesis](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) distinguishes source continuity, branch identity, local development and future independent original/branch state. The current starting adventure gains world metadata and a native-header continuity note; it remains the same saved world, with no reset or automatic travel.
+Coverage: [PROJECT.md](gm/PROJECT_LOG.md#branch-dimension-identity-2026-10-03) records the selected separate-dimension framing. [Direction synthesis](DIRECTION_SYNTHESIS.md#full-home-world-and-divergent-continuity-proposal-2026-10-03) distinguishes source continuity, branch identity, local development and future independent original/branch state. The current starting adventure gains world metadata and a native-header continuity note; it remains the same saved world, with no reset or automatic travel.
 
 State: **branch-dimension framing selected; working name and detailed cosmology remain proposals.** A visitable original YAIRPG counterpart, world selector, native world-state isolation and transfer policies still require implementation. The dimension label does not itself restore an untouched vanilla campaign or claim knowledge of upstream's future canon. Personal saves remain untouched.
 
@@ -848,7 +967,7 @@ Source: direct user instruction in this repository chat; original wording retain
 
 > we can h=ave branch or world be unkown if it were, also the ui and menus need work
 
-Coverage: [Knowledge-aware identity and notebook menus](../PROJECT.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) records separate actual/known world and branch identities, safe tooltips and old-save defaults, with the existing native action menu retained. Added notebooks share Here/Practice/People/Journal views, local context, active-work visibility, keyboard navigation and retained events. The previous unconditional source/branch note is archived; dated original UI/browser records remain provenance.
+Coverage: [Knowledge-aware identity and notebook menus](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) records separate actual/known world and branch identities, safe tooltips and old-save defaults, with the existing native action menu retained. Added notebooks share Here/Practice/People/Journal views, local context, active-work visibility, keyboard navigation and retained events. The previous unconditional source/branch note is archived; dated original UI/browser records remain provenance.
 
 State: **knowledge-aware identity and first menu refinement implemented; visual/wording acceptance pending.** Exact world naming, identity-discovery stories, wider native-layout redesign and additional dimensions remain separate scope. No save schema, native quest/NPC definitions, rewards, life policy or personal save is changed by this UI pass.
 
@@ -859,7 +978,7 @@ Source: direct user instruction in this repository chat; original wording retain
 
 > doesnt the notebook overlap with the quest page? also things can probably be more vague
 
-Coverage: [PROJECT.md](../PROJECT.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) owns the refined separation. The redundant Notebook Journal is removed, agreed town objectives project into the existing Quests pane, and local notes/actions suggest clues without revealing future discoveries. Unknown identity fields stay absent instead of advertising branch taxonomy. Costs, time, cancellation and known contract terms remain explicit.
+Coverage: [PROJECT.md](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) owns the refined separation. The redundant Notebook Journal is removed, agreed town objectives project into the existing Quests pane, and local notes/actions suggest clues without revealing future discoveries. Unknown identity fields stay absent instead of advertising branch taxonomy. Costs, time, cancellation and known contract terms remain explicit.
 
 State: **separation and mystery-copy refinement implemented; human wording/layout acceptance pending.** Existing facts own town progress, with no second quest reward or save path. Original quests and personal saves remain preserved. [Playtest](PLAYTEST.md#quest-and-notebook-separation-proof-2026-10-03) owns rebuilt browser and save verification. Dated earlier UI records remain provenance.
 
@@ -870,7 +989,7 @@ Source: direct user message in this repository chat; original wording retained.
 
 > should notebook take up somewhere else thats not the move menu? More details in bio? Skills that affect bio and more? more to consider?
 
-Coverage: [PROJECT.md](../PROJECT.md#notebook-placement-and-derived-bio-2026-10-03) owns a reversible playable placement/Bio proposal: a dedicated Journal Notebook, preserved native local actions, and Bio summaries of existing visible skill effects, lasting discoveries and observed/learned movements. Native profile fields remain intact; source/discovery state owns each projection and grants nothing on display/reload. Native skill links and the Practice link use the existing views.
+Coverage: [PROJECT.md](gm/PROJECT_LOG.md#notebook-placement-and-derived-bio-2026-10-03) owns a reversible playable placement/Bio proposal: a dedicated Journal Notebook, preserved native local actions, and Bio summaries of existing visible skill effects, lasting discoveries and observed/learned movements. Native profile fields remain intact; source/discovery state owns each projection and grants nothing on display/reload. Native skill links and the Practice link use the existing views.
 
 State: **placement and derived Bio implemented as review proposals; human acceptance pending.** Further body/condition/inheritance/NPC-recognition mechanics are considered and recorded as proposals. No physique transformation, new aging/loss rule, bloodline selection, extra race progression, world or save schema is introduced. [Playtest](PLAYTEST.md#journal-notebook-and-bio-proof-2026-10-03) owns verification; dated prior placement proofs remain historical.
 
@@ -881,7 +1000,7 @@ Direct requests: "should we have various menus to show relationship and more? an
 
 Interpretation: distinct overview menus can grow with discovery. Basic character views stay usable in the inherited opening; People begins with actual supported meetings, while later systems need meaningful discovered content. Reading an existing record is free; actions can require trust, knowledge, tools, access or progress. No blank menu should disclose an otherwise unknown world, power or faction. Known contact records remain readable when their person is elsewhere.
 
-[Current owner](../PROJECT.md#discovery-aware-menus-and-people-records-2026-10-03) records the accepted boundary, implemented People projection, compatibility and further proposals. This accepts the direction and a playable first slice, not a complete cast, universal relationship score or a shipped World/Factions catalogue.
+[Current owner](gm/PROJECT_LOG.md#discovery-aware-menus-and-people-records-2026-10-03) records the accepted boundary, implemented People projection, compatibility and further proposals. This accepts the direction and a playable first slice, not a complete cast, universal relationship score or a shipped World/Factions catalogue.
 
 
 ## Implementing body traits, recovery and NPC recognition, 2026-10-03
@@ -890,7 +1009,7 @@ Source: direct follow-through instruction in this repository chat; original word
 
 > implement accordnigly,
 
-Coverage: [PROJECT.md](../PROJECT.md#body-traits-conditions-and-recognition-2026-10-03) owns implementation of the preceding three proposals: acquisition origins, temporary conditions/recovery and NPC reactions to observed physical changes. The bounded Village body loop uses existing native stamina/XP/supplies and shared sources/jobs/conditions/memories; it keeps the vanilla opening/profile/quests and unknown world/ancestry boundaries.
+Coverage: [PROJECT.md](gm/PROJECT_LOG.md#body-traits-conditions-and-recognition-2026-10-03) owns implementation of the preceding three proposals: acquisition origins, temporary conditions/recovery and NPC reactions to observed physical changes. The bounded Village body loop uses existing native stamina/XP/supplies and shared sources/jobs/conditions/memories; it keeps the vanilla opening/profile/quests and unknown world/ancestry boundaries.
 
 State: **shared-origin/body/condition/disclosure integration and one playable body loop implemented; human content acceptance pending.** Natural balance, conditioned grip, rough work/scar and four craftsman demonstrations are review examples, not a universal lineage roster or completed physique/medical simulation. Broader bloodline transformations, race progression, recovery medicine and automatic NPC observation remain authored work. Personal saves remain untouched; [playtest](PLAYTEST.md#body-traits-conditions-and-recognition-proof-2026-10-03) owns verification.
 
@@ -904,7 +1023,7 @@ Source: direct user message in this repository chat; wording retained.
 
 Interpretation: use these actual shelves as discovery sources, inspect representative premises/scenes, broaden with relevant comparisons and retain useful design lessons in the project. Shelf presence does not itself establish a favorite, a requested direct setting or permission to copy a whole novel. The open-ended follow-up permits original proposals without silently selecting every trope or an implementation order.
 
-Coverage: [Bookshelf inspiration](BOOKSHELF_INSPIRATION.md) owns the 74-title inventory, duplicate-shelf boundary, 21 inspected synopses, chapters 5–6 of the download-panel reference, author/publication-platform checks, five feature families and five bounded proof candidates. It connects acquisition distinctions, conflicting remembered history, institutional roles, collaborating specialists and complementary worlds to current source services and remaining host adapters. [Project source rules](../PROJECT.md#books-and-original-worlds) remain authoritative.
+Coverage: [Bookshelf inspiration](BOOKSHELF_INSPIRATION.md) owns the 74-title inventory, duplicate-shelf boundary, 21 inspected synopses, chapters 5–6 of the download-panel reference, author/publication-platform checks, five feature families and five bounded proof candidates. It connects acquisition distinctions, conflicting remembered history, institutional roles, collaborating specialists and complementary worlds to current source services and remaining host adapters. [Project source rules](gm/PROJECT_LOG.md#books-and-original-worlds) remain authoritative.
 
 State: **research completed at the stated evidence depth; gameplay proposals remain unselected/unimplemented by this pass.** Existing native play, personal saves, current human acceptance and one-realm/one-prestige delivery scope remain in place. Exact canon for mirror-only cases and title-only entries still needs targeted verification if selected.
 
@@ -934,7 +1053,7 @@ Source: direct user message in this repository chat; wording retained.
 
 Interpretation: create a reusable lead creative role that develops ideas and related possibilities, defines shared game-design rules and supplies a foundation for dedicated world game masters. The role is interpreted as a design/implementation partner with an explicit playtest mode. This authorizes the prompt artifacts, not dispatching agents, scheduling work or selecting every proposed world rule.
 
-Coverage: [Master prompt](GAME_MASTER_PROMPT.md) owns authority, shared design principles, the five-part idea loop, world coordination, references, work modes and continuity. [World template](WORLD_GAME_MASTER_TEMPLATE.md) owns a fillable local brief, the inherited role prompt and the original unselected Tideglass Coast example. [PROJECT](../PROJECT.md#game-master-prompt-foundation-2026-10-03) records scope; [idea index](IDEA_INDEX.md#game-master-authoring-foundation-2026-10-03) routes the artifacts.
+Coverage: [Master prompt](GAME_MASTER_PROMPT.md) owns authority, shared design principles, the five-part idea loop, world coordination, references, work modes and continuity. [World template](WORLD_GAME_MASTER_TEMPLATE.md) owns a fillable local brief, the inherited role prompt and the original unselected Tideglass Coast example. [PROJECT](gm/PROJECT_LOG.md#game-master-prompt-foundation-2026-10-03) records scope; [idea index](IDEA_INDEX.md#game-master-authoring-foundation-2026-10-03) routes the artifacts.
 
 State: **authoring foundation created; proposed working rules remain distinct from accepted project decisions.** No gameplay implementation, world selection, runtime verification or human acceptance of new lore/balance is claimed by this prompt delivery.
 

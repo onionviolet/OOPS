@@ -2,7 +2,7 @@
 
 Recommendation: extend the current YAIRPG engine for the held qualification scenes. Keep Ink/inkjs as an optional later authoring dependency for genuinely long branching conversations; defer rot.js until a selected player interaction requires grid pathfinding or occlusion. Neither candidate should own YAIRPG's clock, inventory, rewards, people, RNG or durable publication.
 
-This appendix supplies external-source evidence for the parent [assignment](ASSIGNMENT.md). It does not audit the whole local engine, authorize adoption, change the canonical plan, or claim playable verification. Local seam mapping belongs to the parent GM. Live [PROJECT resume](../../../../../PROJECT.md#design-session-resume-point-2026-10-04) preserves the runtime review hold and deferred behavioral checks. All adapter names below are proposals, not existing APIs.
+This appendix supplies external-source evidence for the parent [assignment](ASSIGNMENT.md). It does not audit the whole local engine, authorize adoption, change the canonical plan, or claim playable verification. Local seam mapping belongs to the parent GM. Live [PROJECT resume](../../../PROJECT_LOG.md#design-session-resume-point-2026-10-04) preserves the runtime review hold and deferred behavioral checks. All adapter names below are proposals, not existing APIs.
 
 ## Verified editions and provenance
 
