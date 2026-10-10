@@ -6401,3 +6401,37 @@ Then three things that looked separate become one check:
 - **C21. Banked worlds keep living.** B3's submitted world had moved on a
   month and a week when he visited [0173]. A banked or left world can keep
   its own clock, so visits find change, not a frozen save.
+
+### Carriers, third pass: more possibilities (Claude, 2026-10-10)
+
+Everything here is a possibility, not a rule. Worlds, cheats and lives can
+pick any mix, including none.
+
+- **C22. Moving carriers as a verb.** Shift a curse onto a doll, keep your
+  soul in a phylactery (B1 Thorne's chalice and crystal [0099]–[0106]), put
+  a memory into a ring (B1 [0084]). Every move can be a ritual, a craft, a
+  trade or a cheat.
+- **C23. Copies of one carrier as backups.** One power held in two places
+  survives losing either: B5's stored lives in inner layers [0491], B1's
+  backup chalice. Finding and breaking every copy becomes the hunt.
+- **C24. Senses read carriers.** Soul sight sees soul carriers, and mimics
+  have none [0062]. A disguise fools one carrier's readers and not another's.
+  This links carriers to
+  [Being observed](#being-observed-how-others-read-you-2026-10-09).
+- **C25. Shared carriers.** A bond, a marriage, a contract or a symbiosis
+  can hold a power for two people, like B5's eagle bond or B4's delegated
+  permissions. Breaking the bond splits or ends the power.
+- **C26. Odd carriers.** A song, a rumor, a city law, a faith, a network
+  flag (B4's "this command comes from a human" [0167]), a belief coordinate
+  (B5 [0256]). A power on a rumor spreads with the rumor and dies when it's
+  forgotten.
+- **C27. Clashes on purpose.** B1's unresolved clash splits a mimic into two
+  bodies. That could be chosen: split yourself to get a second body, or
+  hand an enemy a power that clashes with theirs. The split-off self could
+  become a rival, a companion or an heir.
+- **C28. Carriers age differently.** A body ages with the world it's in; a
+  soul or record might follow the self's own clock. Time-ratio worlds then
+  pull a person's carriers apart: young body, old soul.
+- **C29. Carriers can be owned by someone else.** A phylactery sold, a name
+  taken, a land conquered. Whoever owns your carrier has leverage over you,
+  and that's a social plot hook.
