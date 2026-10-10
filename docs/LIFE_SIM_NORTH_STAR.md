@@ -6152,3 +6152,252 @@ disturbed), [selves and echoes](SELVES_AND_ECHOES.md),
 [USER_VISION](USER_VISION.md). Implementation slices are parked; this was
 ideaboarding.
 
+
+## TTKS five-book findings (2026-10-10)
+
+*Research findings and proposals only. No accepted decision or gameplay. All
+five books Weibao named on ttks were fetched in his browser and read in full
+(B1 by Sonnet readers, B2–B5 by Codex). Deep dives with chapter locators:
+[B1 mimic wizards](research/novels/ttks-novels-2026-10-10/B1/DEEP_DIVE_2026-10-10.md),
+[B2 yearly traits and simulator](research/novels/ttks-novels-2026-10-10/B2/DEEP_DIVE_2026-10-10.md),
+[B3 multi-world challenges](research/novels/ttks-novels-2026-10-10/B3/DEEP_DIVE_2026-10-10.md),
+[B4 heir to humanity](research/novels/ttks-novels-2026-10-10/B4/DEEP_DIVE_2026-10-10.md),
+[B5 border inspector](research/novels/ttks-novels-2026-10-10/B5/DEEP_DIVE_2026-10-10.md),
+and the tracked summary in
+[FINDINGS Addendum 3](gm/dispatch/ttks-novels-2026-10-10/FINDINGS.md). All
+five books are still being written.*
+
+### What each book gives the life sim
+
+- **B1, 巫師你好，我是偽人 (a mimic in magical London).** Living as the
+  person you replaced is the life sim: their salary, colleagues and the
+  detective who keeps calling. Two power tracks run side by side. Wizards
+  link one of seven veins, then climb by rituals with shopping lists,
+  specialise a spell three ways (cheaper, longer or stronger) and reach a
+  domain at senior rank. Mimics live by an anchor object, carry powers in
+  twelve themed chalices and grow by eating each other. The death loop
+  keeps memory and soul-level gains, not items, and each death adds voices
+  that wear on sanity. It extends "Identity theft and replacement" in
+  [RIVALS_IDENTITIES_AND_FATE](RIVALS_IDENTITIES_AND_FATE.md) with a
+  fourth part: the anchor.
+- **B2, 一年抽取一詞條 (one trait a year, plus a simulator).** The cleanest
+  prestige loop in the research. A simulated life costs almost no real time
+  and returns memory, realm, every trait drawn and techniques at their
+  mastery, never items, feelings, relationships, injuries or age. One trait
+  per lived year; odds and slots scale with actual realm; no pity unless a
+  trait gives it. Inside a run the loadout changes only at the yearly
+  prompt, made by the real self: a ready-made fiction for player versus
+  character. Forecasts from a run go stale as the real world changes;
+  people and places hold better than dates. Joke traits turn into weapons.
+- **B3, 咒回：特級的我去死滅打宿儺了！ (a challenge board across worlds).**
+  Attempts are projections. Bank your best result, keep trying, and only
+  submitting makes a world real; submitted worlds become places you can
+  visit with later powers and no rewind. Each challenge sets its own
+  contract: lives, loadout, win and fail conditions. One challenge is "make
+  Maki head of her clan and reform it", proof that a world can ask for a
+  life outcome instead of a boss kill. Dying doesn't zero a run: the world
+  plays on and judges what you caused.
+- **B4, 全人類的繼承者 (the last human among his descendants).** A start
+  where you are the genuine article everyone else imitates, and hiding it
+  is the play. Use, ownership, knowledge and command of an inheritance are
+  four separate grants; a family butler AI makes you a guest until you take
+  on the family's duties. Purity is a measured social class, blood is
+  currency, and each machine keeps its own purpose and ethics.
+- **B5, 廢土邊境檢查官 (a wasteland border inspector).** A job as the core
+  loop: screen applicants with many tools, each with a named blind spot,
+  under liability. Copying needs the other person's consent, so kindness
+  and procedure are resources. Searches cost electricity, so building a
+  hydro plant is a power upgrade: town-building feeds personal growth.
+  Copies lose a grade without what powers the original. Shard sets (any
+  three of six blessings for a seed, all six for the full skill) and
+  infection sources as gifts with lifespan debts.
+
+### Rules all five suggest (proposals)
+
+- **P29. Copies are never perfect by default.** A copy declares what it
+  lacks (the original's source, materials, owner's rights) and degrades or
+  differs: B3's "related redesign", B4's copied gun at a tenth of the
+  power, B5's grade loss without substrate. A perfect copy is its own rare
+  cheat.
+- **P30. Prestige runs keep a declared whitelist.** B2's settlement list is
+  a ready answer to "what persists" in
+  [What persists across runs](#what-persists-across-runs-and-the-gameplay-loop-proposal-2026-10-10).
+- **P31. Archive and submit.** A best run can be banked; making it canon
+  is a separate, irreversible choice (B3).
+- **P32. Every detection channel names its blind spot** and its false
+  positives (B1, B5). This sharpens
+  [Being observed](#being-observed-how-others-read-you-2026-10-09).
+
+### The mimic book as a base for conceptual and overpowered powers (Claude, 2026-10-10)
+
+Weibao asked whether B1 is a good base for conceptual and overpowered
+powers. **Yes for the structure, not for the scale.** Its powers top out at
+city level, but the way it holds them is reusable at any tier:
+
+| B1 mechanic | What it solves for big powers | Evidence |
+|---|---|---|
+| Powers are things with an owner (權能) | A concept can be stolen, lent, recalled; who *really* holds it is a rule | Upstream ownership, recall across London [0071][0076] |
+| Themed slots (12 chalices) | A theme decides where a power may sit; clashes come from mechanics, not crowding (see below) | 不亡 rejected by unmatched chalices; 不亡 blocks 死亡回歸's trigger; 不亡 + 真實 fuse [0070][0071] |
+| Anchors | An absolute power stays absolute but has a place it lives | 不亡 ignores all damage until the anchor burns [0068] |
+| Life level gates | Absolutes only reach equal or lower beings | Full slash, edicts, mirror reflection [0058][0070][0104] |
+| Knowledge keys | Certain-kill powers need the target's name and details, plus preparation | Full slash: info, 36 h, sight [0070] |
+| Domains rewrite verbs | Law against law: ban dodging, ban slashing, for both sides | 律法 hall [0102]–[0104] |
+| Ownership outside time | A rewind doesn't undo who owns a power | [0084] |
+| Over-determination | A fate with two independent causes needs both cleared | [0075] |
+
+It fits what this file already says. Themed slots echo the "seats for
+concepts" in
+[One skill, many Daos](#one-skill-many-daos-and-tiers-of-concepts-2026-10-08);
+clash and fusion are its "concepts conflict" and "concepts fuse sideways";
+anchors and life levels give
+[Pure cheats](#pure-cheats-and-absolute-knacks-weibao-2026-10-08) a
+counter without a price.
+
+**Where B1 runs out, borrow from the other four:**
+- **B5 for mastery of laws:** awaken a rule, reverse it locally at double
+  cost, then create new rules, with resource cost rising steeply with
+  breadth. Runes are compressed rules with fragment completeness (14/240),
+  and fragments work on their own. B1 has no stage past "domain".
+- **B2 for scope wording:** an effect applies only within its words, and
+  some effects weaken against strong laws despite what the panel says.
+- **B3 for counters by stage:** before contact, at contact, inside the
+  body, after the hit. A conceptual defense names which stage it guards.
+- **B4 for eligibility:** a concept can refuse a holder who doesn't
+  qualify, however strong.
+
+**More to consider (Claude):**
+- **C1. Identity is a key.** B1's contract worked when Rogan signed as
+  Logan, because taking someone's existence lets the name point to you
+  [0048]. Name-keyed powers (curses, contracts, certain kills) then
+  interact with disguise and replacement: a stolen identity can redirect
+  them, or shield you from them.
+- **C2. Who wins when absolutes meet.** The current default stays: each
+  collision declares its own precedence. B1 offers life level, B5 offers
+  "a complete, correct rule beats an incomplete one". A world can pick one,
+  or keep it case by case.
+- **C3. Anchors stay optional.** An anchor is a counter, not a price. A
+  pure cheat can have no anchor at all; then scope, rarity and literal
+  reading do the work.
+- **C4. Big powers are visible.** B1's watching birds and B5's rule that a
+  higher life level attracts predators: power changes who notices you,
+  without draining you.
+- **C5. A meta power gets meta limits.** The loop and the diary are the
+  only rule-bending powers in B1, and both have limits that live outside
+  the body: sanity from the voices, a 3-day window, the right kind of paper.
+  Powers over time or the save file can be limited the same way, through
+  the medium, not the user.
+- **C6. Concepts can take on a will.** Mimics are "puppets of their
+  powers", driven to gather and merge them [0076]. At high tiers a concept
+  can want something of its holder, which ties to the "concepts are
+  people too" line above.
+
+### Why powers clash: mechanics, not crowding (Weibao, 2026-10-10)
+
+Weibao's correction, confirmed in the text: 不亡 and 死亡回歸 didn't clash
+because they shared the 死亡 chalice. They clashed because physical
+undying ("death is erased while one particle remains") stops death-return
+from ever triggering. The narration states the rule itself: powers conflict
+when "one takes effect and the other can't" [0071]. The chalice theme is a
+separate rule about **placement**: 不亡 bounced off every chalice whose
+symbol didn't match [0070]. Other chalices each hold one power peacefully.
+
+The fix in the book is also mechanical. Fusing 不亡 into 真實 (the diary)
+put the undying trait on the diary and soul [0071], and Rogan still came
+back by death afterwards. INFERRED: the property moved from body to soul,
+so the body can die again and the loop works.
+
+So "seats for concepts" should split into two checks (proposal):
+- **Placement:** does this power fit this seat's theme? A limit on how much
+  you can hold.
+- **Interaction:** does one power's effect stop another's trigger, target
+  or resource? A limit on what works together, regardless of seats.
+
+**Kinds of interaction to model (proposal, with source examples):**
+
+| Kind | What happens | Example |
+|---|---|---|
+| Trigger blocking | A prevents the event B needs | 不亡 erases the death 死亡回歸 needs (B1) |
+| Information blocking | A hides what B reads | B5's Iron Body blocks pain, and with it the force feedback fighting needs |
+| Process conflict | A switches off a process B relies on | B2's 子龍 disables self-healing, so it fights a regeneration trait [0383] |
+| Overlap | Similar effects don't add | B5: two physiques give the greater bonus, not the sum |
+| Completion | Two halves only work together | B1: the diary alone is "bland" and the loop alone "defective"; together they work |
+| Unlocking | A supplies what B lacks | B5's two-star seed gives a copied skill its missing force |
+
+**Ways to resolve a clash (proposal):**
+- **C7. Move the property to another carrier.** Body, soul, item,
+  companion, record. B1's fix: undying moved from body to diary and soul.
+- **C8. Narrow the scope.** "Cannot die from damage" leaves dying by
+  choice open, so a chosen death could still trigger a loop. A pure
+  cheat's absolute word stays absolute; the player picks which word.
+- **C9. Toggle or order them.** An on/off switch, or a stated firing order
+  (auto-revive first, then the loop if that fails). This is a choice the
+  player makes before the moment, not during it.
+- **C10. Fuse into a third power** that keeps both purposes. That's
+  B1's actual route, and "concepts fuse sideways" above.
+- **C11. Let the clash walk off.** In B1 an unresolved conflict splits the
+  mimic into two bodies, and the odd power leaves on its own [0070]. A
+  rival made from your own power is a story, not just a failure.
+
+**More to consider:**
+- **C12. Interactions depend on the build, not the pair.** The same two
+  powers can be fine in one body and clash in another, depending on which
+  carrier each sits on. Check each actual combination, not a fixed
+  pair table.
+- **C13. Show the conflict before it costs anything.** B1 warns through a
+  feeling of splitting before it happens. A tooltip saying "this stops X
+  from triggering" is the same idea in UI form.
+- **C14. Enemies can use the rule.** Giving someone a "gift" that blocks
+  their own revival is an attack, like B2's hostile trait-sling.
+- **C15. Higher concepts reconcile.** The existing note "Growth and Decay
+  conflict unless Cycle reconciles them" is the concept-tier version of
+  the same check. A higher concept can be a conflict's resolution route,
+  next to moving, narrowing, ordering and fusing.
+
+### Carriers: one model for clashes, deaths and what persists (Claude, 2026-10-10)
+
+The clash fix above (move undying from body to soul) points at a bigger
+idea. Give every power and property a **carrier**, and let events act on
+carriers (proposal):
+
+| Carrier | What ends or resets it | TTKS example |
+|---|---|---|
+| Body | Death, a new body, an identity swap | B1 locator curse leaves with the old body [0004] |
+| Soul | Soul damage, rare; survives rewinds | B1 rank and vein link follow the soul through loops and swaps [0039][0105] |
+| Name or existence | Losing or giving up the identity | B1 contract signed as Logan binds Rogan [0048] |
+| Item or anchor | Destruction, theft | B1 anchors; B5 stored items |
+| Record or memory | Erasure; often survives death | B1 diary; B2 settlement keeps memory |
+| Companion | The companion's death or departure | B5 eagle seed shares powers while bonded |
+| Land or world | The world's destruction | B5 a dead belief-holder kept as information in the land [0615] |
+| Ownership right | Survives time travel | B1 upstream ownership is untouched by rewinds [0084] |
+
+Then three things that looked separate become one check:
+- **Death** destroys the body carrier; whatever sits elsewhere survives.
+- **A rewind or prestige** resets world carriers and keeps the declared
+  ones. B2's settlement whitelist is just a list of kept carriers, which
+  fits
+  [Four layers of persistence](#four-layers-of-persistence).
+- **A clash** is two powers acting on the same carrier in opposite ways,
+  and moving one to another carrier resolves it.
+
+**More to consider (second pass):**
+- **C16. World rules join the interaction check.** A world can block a
+  power's trigger just as another power can. In B2, yearly draws fail
+  where time flows differently, and B1's malice check snuffs ill intent.
+  Treat world rules as one more party in the check.
+- **C17. Ownership can be inherited.** If upstream ownership survives
+  time, it can pass to an heir. A dead owner's descendant could recall a
+  power someone stole, which ties to
+  [Heirs are people, not copies](#heirs-are-people-not-copies).
+- **C18. Fusion risk is a per-world adjective.** B1's fusion was safe and
+  calm; B5's can mutate, can't be cancelled, and risks memory or
+  personality loss. Same verb, different worlds.
+- **C19. Tested combinations go in the Notebook.** "This stops that from
+  triggering" is knowledge you find by testing, like the edges of absolute
+  words, unless a power or world shows it up front.
+- **C20. The player as the outside controller.** B2's real self swapping
+  the simulated self's loadout once a year is a ready-made fiction for
+  [Who the player is](#who-the-player-is-the-character-or-someone-living-through-them-proposal-2026-10-08):
+  the character can ask, and the player decides at fixed moments.
+- **C21. Banked worlds keep living.** B3's submitted world had moved on a
+  month and a week when he visited [0173]. A banked or left world can keep
+  its own clock, so visits find change, not a frozen save.
