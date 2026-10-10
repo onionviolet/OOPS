@@ -1,0 +1,3 @@
+G session id: 01a12480-7a9e-79d3-9ba2-be2120207811
+M session id: 01a12480-7a9e-7f60-a847-a97b91569869
+Launched 2026-10-10 via setsid double-fork; resume with: codex exec resume <id> "<prompt>"
