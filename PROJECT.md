@@ -42,6 +42,18 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
 Still undecided: realm names, main story, skill roster, reset and retention
 rules, balance, and which book worlds become campaigns.
 
+- **JJK and odd worlds (2026-10-10, Weibao):** JJK can be a book world
+  set in any era (past, current, future) chosen per run; innate techniques
+  can come by any route; borrowed ideas can also live in an odd world where
+  they work differently; and the world should react to odd records (a
+  courtroom domain judging real save history is wanted). Design in
+  [docs/worlds/jujutsu/WORLD_BRIEF.md](docs/worlds/jujutsu/WORLD_BRIEF.md).
+
+- **Natural course (2026-10-10, Weibao):** every world continues its
+  natural lore or canon unless sufficiently disturbed. A standard for all
+  worlds; each world sets its own dials. Details (proposals):
+  [docs/TIMELINES_AND_DIVERGENCE.md](docs/TIMELINES_AND_DIVERGENCE.md).
+
 ## Current status (2026-10-07)
 
 - **Branch:** `codex/gameplay-foundations`, on the v0.6 development foundation

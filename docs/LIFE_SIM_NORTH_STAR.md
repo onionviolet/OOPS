@@ -6132,3 +6132,23 @@ The W08 immediate skill grant, restored mastery and borrowed competence qualify 
 **D8, preserve lives and tone outside the advancement loop.** Side characters can refuse dangerous knowledge while remaining useful, remain loyal to present families, or choose ordinary work after a return. Jokes, bluffs, queues, fear, grief, long failed experiments and quiet household scenes need not all become upgrades or relationship points. Real time skips can leave dead neighbors, changed jobs and unfinished care; false chronology should not silently award wages or age a world. The seven undercoverage areas have separate evidence in each book pass. No measured boredom verdict, mandatory grind, browser-closed harm or new save-loss policy follows from those notes.
 
 The earlier waves are integrated as counterexamples, not votes: [W08](research/novels/divergence-earlier-2026-10-10/wave-10-08/NORTH_STAR_FINDINGS.md), [W09](research/novels/divergence-earlier-2026-10-10/wave-10-09/NORTH_STAR_FINDINGS.md), [secondary](research/novels/divergence-earlier-2026-10-10/secondary/NORTH_STAR_FINDINGS.md), [full-book1](research/novels/divergence-earlier-2026-10-10/full-book-1/NORTH_STAR_FINDINGS.md) and [full-book2](research/novels/divergence-earlier-2026-10-10/full-book-2/NORTH_STAR_FINDINGS.md). Their Gluttony servant-division/clock conflicts, Genetic missing36/cut223, LOTM limited reviewed integration, Shadow duplicate2927, weak secondary provenance and unfinished/MTL snapshots remain unresolved. This subsection qualifies the older summaries where they imply universal practice, safe institutions, reversible losses or independent author agreement; it does not edit those historical sections or select another implementation wave.
+
+## Considerations wave, 2026-10-10 (pointer)
+
+A session with Weibao produced a set of **considerations** (palettes for
+fitting characters at fitting times, not specs). Start from the guide:
+[fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.md).
+The rest: [JJK world brief](worlds/jujutsu/WORLD_BRIEF.md),
+[E8E adaptation](emergent/E8E_ADAPTATION.md),
+[E8F adjectives](emergent/E8F_ADJECTIVES.md),
+[Proving Ground](worlds/proving-ground/WORLD_BRIEF.md),
+[timelines and divergence](TIMELINES_AND_DIVERGENCE.md) (accepted
+standard: worlds follow their natural course unless sufficiently
+disturbed), [selves and echoes](SELVES_AND_ECHOES.md),
+[trials and tribulations](TRIALS_AND_TRIBULATIONS.md),
+[abuse and limits](ABUSE_AND_LIMITS.md),
+[presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md),
+[cosmic events](COSMIC_EVENTS.md). Weibao's words for each are in
+[USER_VISION](USER_VISION.md). Implementation slices are parked; this was
+ideaboarding.
+

@@ -1209,3 +1209,108 @@ Direct human continuation: “continue accoridngly”. Features continued the ex
 Current human continuation and selected [book-world agency packet](gm/dispatch/BOOK_WORLD_PLAYER_AGENCY_2026_10_06.md) delivered a finite source-qualified Paradise/first-Goa campaign through existing native/UI/save/build owners. [Delivery](gm/book-world-player-agency/DELIVERY.md) and [player contract](gm/book-world-player-agency/PLAYER_CONTRACT.md) own the independent same-body default, own paid life/learning, optional Su Xiao involvement, material intervention/outcome/return/revisit, source-versus-original choices and unimplemented replacement/arbitrary-attack limits. This default is the selected direction; prototype fiction, numbers, parallel later-hub/earlier-Goa placement and balance await director acceptance. Source owners and unactivated19world contracts remain qualified, with no copied protagonist powers, private foreknowledge, plot immunity or automatic canon repair.
 
 Authorized finite [fieldcraft adoption](gm/book-world-player-agency/FIELDCRAFT_ADOPTION.json) joins the same main build/publisher: actual vial use/learned identity, shared finite manual/dog pins, local Rill and committed feats. Existing ordinary native meals/stave drying remain covered; larger candidates remain proposals. Explicit10/book1 preserves5–9/reference1/absent/frozen state. New gameplay is implemented-unverified and all behavioral/save/director checks remain deferred; private saves, source libraries, vanilla opening and one prestige remain protected.
+
+## JJK world, adaptation and a testing world, 2026-10-10
+
+> How to possibly implement stuff like JJk's world, from techniques, to MAhoraga, and more? Concepts like adaptation and othr busted stuff?
+
+> record idea and save accordingly? Expand on idea accordingly and too? Look at other subtle features and possibilities and more? we can implement this as a book world, but we can have it exist in the frotier or testing world,
+
+Interpretation: JJK can be a book world (private pack, canon names) and can also appear in the Frontier or a testing world with original names. Saved as proposals in the [JJK world brief](worlds/jujutsu/WORLD_BRIEF.md), [E8E adaptation](emergent/E8E_ADAPTATION.md) and the [Proving Ground](worlds/proving-ground/WORLD_BRIEF.md). No build selected.
+
+Follow-up answers, 2026-10-10:
+
+> Q1, it can be different, depending on what we want to do? it can be current time, past era, or future era?
+> Q2 it might depend, both is possible?
+> Q3 It could just be a odd world with ideas from other worlds, but it doesnt nessicarily have to be the same and more?
+> Q4 That would definitely be fun! But there should be reactions accordingly for odd stuff and more?
+
+Recorded in the [JJK brief](worlds/jujutsu/WORLD_BRIEF.md#weibaos-answers-2026-10-10): era as a per-run premise (past, current, future, original); every route to an innate technique reachable; an odd world of borrowed ideas as a fourth placement; the courtroom domain plus a general odd-record reaction system.
+
+> Q5 any era works, Consider how that messes up the imeline tho, but of course we can just end up being some nobody, more to consider? Q6 we dont quite need one quite yet, just save as possible idea S1 shoudnt be necissary since we are ideaboarding for now
+
+Recorded in the [JJK brief](worlds/jujutsu/WORLD_BRIEF.md#q5-any-era-works-but-the-timeline-reacts): timeline dials, divergence ledger, stale foreknowledge, being a nobody. Odd worlds parked as a possible idea. Implementation slices parked; ideaboarding only.
+
+> save accordingly, considering timeline shenannagons, we can say that the world continues it's natural "lore/cannon" unless sufficiently disturbed? more to consider? Would we need to calculate every little detail that leads to future details? more to consider? Books with these ideas? broader scoping? Expanding on ideas? These ideas are good enough to set like standard timeline level stuff
+
+Recorded as an accepted standard in PROJECT.md; design in [timelines and divergence](TIMELINES_AND_DIVERGENCE.md).
+
+> What do you think? both could be true, especially the world gone off the rails?  Considering 'having a choice' wouldnt that inherently kind of give me time traveling powers? what should be done in that case?
+
+Recorded in [timelines and divergence](TIMELINES_AND_DIVERGENCE.md#weibaos-answers-and-the-time-travel-question-2026-10-10): both answers yes; branch premises separate the player's menu choice from the character's power, with four start modes and guardrails.
+
+> I think it should be saved but idk how that would work out gameplay or filesize wise and more? more to consider? what about going back to oroginal timeline and more?
+
+Recorded in [timelines and divergence](TIMELINES_AND_DIVERGENCE.md#saving-branches-file-size-and-returning-to-the-original-2026-10-10): branches saved automatically as diffs from canon, a branch atlas, fading detail, and four routes back to the original.
+
+> biggest change by default, renamable, more to consider? Transfering across browsers? more to consider? How to implement meeting past self and more? More to consider?Save accordingly?
+
+Recorded in [timelines and divergence](TIMELINES_AND_DIVERGENCE.md#naming-moving-between-browsers-and-meeting-your-past-self-2026-10-10): naming by biggest change (renamable), four transfer routes on the existing export, and past-self ghosts built from a life trace.
+
+> all three possible, depending on situation? more to consider? My current self could have like different stuff or the same stuff depending on my actions? Consider generating 'future selfs' for certain things like the "perfect version" from death a day?  Save accordinglyt?
+
+Recorded in [selves and echoes](SELVES_AND_ECHOES.md). "Perfect version" resolved to the perfect-fight Colosseum reward in *A Novel Concept* (previously *A Death a Day*), chapter 293, from local research.
+
+> save and expand the ideas, and the more to conssiders?  Perfect fights and ideas like that can be a cheat or part of a cheat or part of an ability or a bloodline and more, there are many possible ways
+
+Recorded in [selves and echoes](SELVES_AND_ECHOES.md#where-self-generation-comes-from-2026-10-10): self-generators by source (15 sources), dials, expanded kinds and expanded considerations.
+
+> depends on the world, all intensities possible, save accordingly, consider  stuff like trials in the a death a day and more?
+
+Recorded in [trials and tribulations](TRIALS_AND_TRIBULATIONS.md): intensity is per world with every level possible; trial model drawn from the local *A Novel Concept* research and other references.
+
+> we can expand on these ideas and more? For abuse limits we can consider further?
+
+Recorded in [abuse and limits](ABUSE_AND_LIMITS.md) (exploits fixed, in-fiction abuse priced and noticed, per-system limits, funny abuse kept) and trial expansions in [trials and tribulations](TRIALS_AND_TRIBULATIONS.md#expansions-2026-10-10).
+
+> depends on the world, all possible, save accordingly and expand? Nothing has to only work 'once', the power of adjetives is vast, for abuse and limits beyond gameplay, I am basically the only player so that is very low priorit
+
+Recorded in [abuse and limits](ABUSE_AND_LIMITS.md#limits-are-adjectives) and [trials](TRIALS_AND_TRIBULATIONS.md#answered-questions-weibao-2026-10-10): open questions all per world; "once" removed as a fixed limit; out-of-fiction anti-abuse is very low priority.
+
+> save accordingly and expand on adjectives and more?
+
+Recorded in [E8F adjectives](emergent/E8F_ADJECTIVES.md).
+
+> save accordingly and expand on more to consider? Consider implementation, sepectial text sfx and more little details and more?
+
+Recorded in [E8F adjectives](emergent/E8F_ADJECTIVES.md#implementation-text-effects-and-little-details-2026-10-10): build order, text markup, per-adjective text effects, event effects, optional sound, comfort and performance, little details.
+
+> save accordingly and save+ expand on more to consider? Expanding on existing ideas?  Ponder for future, when the game moves beyond just text?  More to consider?
+
+Recorded in [E8F adjectives](emergent/E8F_ADJECTIVES.md#expansions-and-beyond-text-2026-10-10): expanded considerations, adjectives across recent ideas, and presentation stages from text to glyph field, sprites, 2D, 3D, audio and generated art, with presentation tables and text fallback.
+
+> save accordingly and expand on more to consider? Animation style and coolness? Leaving room for improvement/not gating things but also consider learning from steller stuff and more? Special things we can do with the sfx, like 4th wall kind of stuff? Conceptual or OP powers having an effect on the UI and more? shattering ui pannels and more to consider?
+
+Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md).
+
+> we can have core stuff share signiture pieces? Other powers that touch Ui? chjaracter that does cool stuff and more? At what point should they be able to interact outside and more? Expanding on each idea and more?
+
+Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#shared-signatures-more-ui-powers-meta-characters-and-reach-2026-10-10).
+
+> It doesnt always have to be UI effects, this is to make any effect that does show up that much more impactful
+
+Recorded at the top of [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#direction-restraint-makes-effects-land-weibao-2026-10-10): UI effects are a rare menu, not a default; text and world first.
+
+> how to consider for the most outrageous possibilities like a god looking at the screen and shattering the entire run or something
+
+Recorded in [cosmic events](COSMIC_EVENTS.md).
+
+> this is good, but ofcourse it all depends on the character, save all and expand accordingly? Sufficiently powerful normal characters can do that too? but of course at that powerlevel they are probably god like instead
+
+Recorded in [cosmic events](COSMIC_EVENTS.md#it-depends-on-the-character-weibao-2026-10-10): cosmic events are acts by characters; god-like is a reachable threshold; actor and target shape the event; the player can become the one looking.
+
+> save accordingly and expand on more to consider? Of course consequences is all relative to the capabilities of the character, there shoudnt be too many, probably, and they arent everywhere? More to consider?
+
+Recorded in [cosmic events](COSMIC_EVENTS.md#consequences-are-relative-and-god-likes-are-few-weibao-2026-10-10): consequences scale with capability; god-likes are scarce and unevenly spread; avatars and fragments give presence without frequency.
+
+> There is probably more distinctions and more tiers, but everything just has to make sense relevantly, and these are just considerations for established and for future worlds too? Like these are considerations to help us implement/ideaboard for fitting characters at fitting times
+
+Recorded as a usage note at the top of each doc from this session and in the [idea index](IDEA_INDEX.md#jjk-adaptation-and-the-proving-ground-2026-10-10).
+
+> expand on more to consider and save accordingly
+
+Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.md): a guide for picking from this session's considerations by world, character and moment.
+
+> save accordingly and expand on more to consider?
+
+Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.md#expanded-2026-10-10): worked walkthroughs, anti-patterns, a fit card template, long play, agency, emotional shape, surprise versus fairness.
