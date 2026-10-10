@@ -24,6 +24,10 @@ Useful statuses are **requested direction**, **proposal**, **selected for a prot
 
 The IDs below are stable navigation references, not event IDs, save IDs or a promise to implement every row. Add rows or update the owner as ideas develop; do not reuse an ID for another family.
 
+## Minigames, city building, romance and new genres, 2026-10-10
+
+Proposal from chat. [North star section](LIFE_SIM_NORTH_STAR.md#minigames-city-building-and-other-feature-families-claude-2026-10-10) owns minigame rules M1 to M3 (part of a skill, idle auto-resolve, world-shaped), the settlement scale ladder, the little-to-big zoom ladder per family, about 40 minigame candidates, expanded romance, 24 genres not yet considered, and three ranked first slices. Nothing selected for a build.
+
 ## Game master authoring foundation, 2026-10-03
 
 Expanded current run: [specialist role index](gm/README.md) records five completed specialist chats for world expansion, granularity, lore/continuity, ability design and dialogue/reactions. [Progression and assembly](worlds/PROGRESSION_AND_ASSEMBLY.md) owns nested modules, local tiers, condition/quality/mastery, operating budgets and craft/refit lifecycle. [Ability families](worlds/ABILITY_AUTHORING.md) preserves distinct mechanisms and legitimate superiority among similar abilities. Each world keeps campaign/module/source/interaction/ability detail in its own folder, with explicit owners and source limits. Naruto and Bleach are added as source-bounded design candidates; completed comics are researched as future options. The first code milestone does not cap design depth.
